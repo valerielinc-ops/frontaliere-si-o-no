@@ -18,6 +18,10 @@ requires.
 | [career-ops](https://github.com/career-ops-hq/career-ops) | `functions/src/assistedApplicationTailoredCv.js`, `assistedApplicationAts.js`, `assistedApplicationAiFactCheck.js`, `assistedApplicationAiPrompts.js` (requirements, documents), `assistedApplicationLegitimacy.js`, `assistedApplicationFollowup.js`, `assistedApplicationInterviewPrep.js`, `lib/toolVocabulary.js` (skill vocabulary); `scripts/assisted-application/lib/liveness.mjs` (posting-liveness classifier, ported from `liveness-core.mjs`, with Italian and Swiss German patterns added) |
 | [Reactive Resume](https://github.com/reactive-resume/reactive-resume) | `functions/src/assistedApplicationAiPrompts.js` (CV extraction rules), `lib/toolVocabulary.js` (tool aliases) |
 | [hiring-agent](https://github.com/interviewstreet/hiring-agent) | `functions/src/assistedApplicationAiPrompts.js` (fairness rule of the match) |
+| [ai-job-search](https://github.com/ai-job-search-dev/ai-job-search) | `functions/src/lib/postingGuard.js` (posting and browser-snapshot prompt-injection guard), `functions/src/lib/pdfAtsInspector.js` (PDF text/layout inspection), `functions/src/assistedApplicationAiReviewer.js` (draft review), `functions/src/services/interviewCoachService.js` (interview practice), `functions/src/lib/applyStructuredEdits.js` (structured document edits) |
+| [freehire](https://github.com/strelov1/freehire) | `scripts/assisted-application/lib/portal/ats-recognize.mjs` (ATS host and extraction hints) |
+
+The MIT licence texts for [ai-job-search](LICENSES/MIT-ai-job-search.txt) and [freehire](LICENSES/MIT-freehire.txt) are reproduced in `LICENSES/`.
 
 ## Zefix company data
 

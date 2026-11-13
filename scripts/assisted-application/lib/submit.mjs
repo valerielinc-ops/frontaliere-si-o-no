@@ -749,6 +749,15 @@ export async function submitApplication(ctx) {
           attemptKept = false;
         }
       };
+      const portalJob = {
+        ...draft.job,
+        title: draft.job?.title || order.jobTitle || '',
+        sourceTitle: draft.job?.sourceTitle || draft.job?.postingTitle || '',
+        postingTitle: draft.job?.postingTitle || draft.job?.sourceTitle || '',
+        titleByLocale: draft.job?.titleByLocale || draft.job?.titles || {},
+        company: order.companyName || '',
+        organization: liveness.organization || '',
+      };
       let { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         postingUrl: portalPostingUrl,
@@ -756,11 +765,11 @@ export async function submitApplication(ctx) {
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
-        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },
+        job: portalJob,
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts,
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: portalJob, platformFacts: edited.platformFacts,
           suppressedQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
           suppressedAnswerContracts: edited.candidateAnswerSuppressedQuestionContracts }),
         knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),

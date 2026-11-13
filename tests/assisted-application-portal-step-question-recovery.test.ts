@@ -152,6 +152,48 @@ describe('the flow of a portal step held by questions the platform answers', () 
     expect(transition(tick.flow, { type: 'tick' }, { order, draft, nowMs: now }).ignored).toBe('nothing_due');
   });
 
+  it('drops the legacy passport-type hold after a verified yes and foreign permit, then resumes the same round', () => {
+    const passportBinary = {
+      id: 'passport_binary', source: 'portal', type: 'yes_no', required: true, options: [],
+      question: 'Do you hold a Swiss/EU/EFTA passport?',
+      platformDecision: { decision: 'answer', shape: 'yes_no', value: 'yes', principle: 'plausible_deduction',
+        reason: 'The career makes this plausible.', version: 'decision-answers-v2' },
+    };
+    const passportType = { id: 'passport_type', source: 'portal', type: 'choice', required: true, options: [],
+      question: 'Type of valid passport' };
+    const passportDraft = {
+      ...draft,
+      factSources: { text: 'Cloud engineer with experience operating customer databases and container platforms.' },
+      questions: [passportBinary, passportType],
+    };
+    const passportOrder = { ...order, candidateFacts: { workPermit: 'permit_g' } };
+    const held = {
+      ...heldFlow([`question:${passportType.id}`]),
+      egress: { required: 'ch', reason: 'application_region_unsupported', round: 1, at: now - 1000, source: 'portal_handoff' },
+    };
+    expect(reviewQuestionPlan({ order: passportOrder, flow: held, draft: passportDraft }))
+      .toMatchObject({ held: [passportType.id], open: [], targets: [], candidateOnly: [] });
+    const tick = transition(held, { type: 'tick' }, { order: passportOrder, draft: passportDraft, nowMs: now });
+
+    expect(tick.flow).toMatchObject({ state: 'submitting', round: 1, heldBy: [], reminderAt: null });
+    expect(tick.flow.egress).toEqual(held.egress);
+    expect(tick.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_answers' }]);
+    expect(tick.effects.some((effect: any) => effect.type === 'email')).toBe(false);
+    expect(transition(tick.flow, { type: 'tick' }, { order: passportOrder, draft: passportDraft, nowMs: now }).effects).toEqual([]);
+  });
+
+  it('keeps an unanswered passport-type hold when the platform has no passport basis', () => {
+    const passportType = { id: 'passport_type', source: 'portal', type: 'choice', required: true, options: [],
+      question: 'Type of valid passport' };
+    const unknownDraft = { ...draft, questions: [passportType] };
+    const unknownOrder = { ...order, candidateFacts: { workPermit: 'none' } };
+    const held = heldFlow([`question:${passportType.id}`]);
+    const tick = transition(held, { type: 'tick' }, { order: unknownOrder, draft: unknownDraft, nowMs: now });
+
+    expect(tick.flow).toMatchObject({ state: 'needs_candidate_action', round: 1, heldBy: [`question:${passportType.id}`] });
+    expect(tick.effects).toEqual([]);
+  });
+
   it('a step that stopped only on the record question resumes the submission on the operational reconciliation', async () => {
     const base = 'assisted_applications/portal_step_record_only';
     const store = seed(base, { flow: heldFlow([`question:${record.id}`]), questions: [record] });
@@ -177,6 +219,35 @@ describe('the flow of a portal step held by questions the platform answers', () 
 
 describe('the review-question reconciliation reaches the portal step', () => {
   const base = 'assisted_applications/portal_step_questions';
+
+  it('queues the legacy passport hold for the normal tick without asking the model', async () => {
+    const passportBinary = {
+      id: 'passport_binary', source: 'portal', type: 'yes_no', required: true, options: [],
+      question: 'Do you hold a Swiss/EU/EFTA passport?',
+      platformDecision: { decision: 'answer', shape: 'yes_no', value: 'yes', principle: 'plausible_deduction',
+        reason: 'The career makes this plausible.', version: 'decision-answers-v2' },
+    };
+    const passportType = { id: 'passport_type', source: 'portal', type: 'choice', required: true, options: [],
+      question: 'Type of valid passport' };
+    const passportDraft = {
+      ...draft,
+      factSources: { text: 'Cloud engineer with experience operating customer databases and container platforms.' },
+      questions: [passportBinary, passportType],
+    };
+    const store = seed(base, {
+      flow: heldFlow([`question:${passportType.id}`]),
+      extraOrder: { candidateFacts: { workPermit: 'permit_g' } },
+      questions: passportDraft.questions,
+    });
+    const report = await reconcileReviewQuestions({ db: store.db, codex: null, nowMs: now, orderPrefixes: ['portal_s'] });
+
+    expect(report).toMatchObject({ scanned: 1, withQuestions: 1, asked: 0, queued: 1, written: 0 });
+    expect(report.orders[0]).toMatchObject({
+      state: 'needs_candidate_action', held: [passportType.id], open: [], targets: [], candidateOnly: [],
+      releases: true, heldAfter: [], mirrored: [passportBinary.id, passportType.id],
+    });
+    expect(store.read(`${base}/automation/flow`).state).toBe('needs_candidate_action');
+  });
 
   it('scans needs_candidate_action and plans the two experience questions for the decision engine', () => {
     expect(REVIEW_QUESTION_STATES).toContain('needs_candidate_action');

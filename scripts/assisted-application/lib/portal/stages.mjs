@@ -41,6 +41,10 @@ const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|sen
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
+const APPLICATION_DIVERSION_TITLE_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
+const APPLICATION_DIVERSION_CONTROL_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alert|job\s*alert|job[- ]?abo|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
+const APPLICATION_DIVERSION_URL_RE = /\/(?:introduce(?:your)?self|talent[-_]?pool|job[-_]?alert|jobabo|stellenalarm|jobbenachrichtigung)(?:[/?#]|$)/iu;
+const APPLICATION_DIVERSION_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica|unsolicited\s+application|spontaneous\s+application|general\s+application|candidature\s+(?:spontanée|spontanee|libre)|candidatura\s+(?:spontanea|libera)|initiativbewerbung|initiativ\s+bewerbung)\b/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -244,6 +248,20 @@ const APPLICATION_REGION_UNSUPPORTED_PATTERNS = [
 export function isApplicationRegionUnsupported(text = '') {
   const normalized = String(text || '').replace(/\s+/g, ' ');
   return APPLICATION_REGION_UNSUPPORTED_PATTERNS.some(pattern => pattern.test(normalized));
+}
+
+/** A diversion cue for the navigation agent; it is never a submission stop by itself. */
+export function applicationDiversionHint(snapshot = {}) {
+  const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();
+  if (APPLICATION_DIVERSION_TITLE_RE.test(title) || APPLICATION_DIVERSION_URL_RE.test(String(snapshot?.url || ''))) {
+    return 'talent_pool_or_job_alert';
+  }
+  const controls = [...(snapshot?.buttons || []), ...(snapshot?.links || [])]
+    .filter(item => !item?.formId && item?.chrome !== true)
+    .map(item => `${item?.text || ''} ${item?.label || ''} ${item?.ariaLabel || ''} ${item?.title || ''}`
+      .replace(/\s+/gu, ' ').trim());
+  if (controls.some(label => APPLICATION_DIVERSION_CONTROL_RE.test(label))) return 'talent_pool_or_job_alert';
+  return APPLICATION_DIVERSION_WARNING_RE.test(String(snapshot?.text || '')) ? 'talent_pool_or_job_alert' : '';
 }
 
 /** The directory containing a route, treating a canonical trailing slash as decoration. */

@@ -45,7 +45,7 @@ const nationalityQuestion = (options: string[] = [], question = 'Nationalität')
 
 describe('versions', () => {
   it('lets the recovery by version read the held questions again', () => {
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v13');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v14');
     expect(OPERATIONAL_DEFAULTS_VERSION).toBe('operational-preferences-v12');
   });
 });
@@ -325,6 +325,9 @@ describe('more offline signals for the nationality (owner decision 2026-11-11, s
     const army = { id: 'army', question: 'Haben Sie die Rekrutenschule absolviert?', type: 'choice', options: ['Ja', 'Nein'] };
     expect(platformDefaultAnswer(army, declared)?.value).toBe('Nein');
     expect(platformDefaultAnswer(army, dual)).toBeNull();
+    const deducedNationality = facts({ education: [liceo] });
+    expect(deducedNationality).toMatchObject({ nationalitySource: 'deduced', passportSource: 'nationality', passport: 'eu_efta' });
+    expect(platformDefaultAnswer(army, deducedNationality)).toBeNull();
     const phoned = platformCandidateFacts({ order: { userId: 'u-test' }, identity: { phone: PHONE_IT }, profile: { languages: italian }, nowMs: NOW, seed: 'u-test' });
     expect(phoned).toMatchObject({ nationalitySource: 'deduced', nationalityCode: 'IT', nationalitySignals: ['mother_tongue', 'phone_prefix'] });
     expect(platformCandidateFacts({ order: { userId: 'u-test', applicantPhone: PHONE_IT }, profile: { location: 'Como' }, nowMs: NOW, seed: 'u-test' }))

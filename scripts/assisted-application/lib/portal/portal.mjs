@@ -21,19 +21,18 @@ import '../../extension/apply-control.js';
  * page and dispatches the submission again.
  * A click on "submit" whose outcome cannot be confirmed is never retried
  * (career-ops: an ambiguous submit is not re-submitted).
- * A page the deterministic filler cannot move on (a calendar, option cards,
- * a custom dropdown, fields with generated names) goes to the agentic
- * fallback (agent.mjs): Codex on Playwright's accessibility snapshot, as
- * career-ops drives Playwright MCP. Next and the final submit stay here.
+ * When the deterministic runner cannot recognize a portal route or control,
+ * the navigation agent continues from the selected posting. The runner keeps
+ * ownership of the guarded final click and confirmed receipt.
  */
 
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
-import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
+import { AGENT_MAX_RUNTIME_MS, AGENT_ROUNDS, advanceLocator, agentNavigationEnabled, clickSubmitButton, completeWithAgent, isPreDispatchLocatorClickFailure, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, accountResponseText, asksExistingPassword, authPageKind, codeField, hasExistingAccountPrompt, inlineAccountForm, isAccountVerificationResponse, isExplicitSignInNavigationLabel, loginFields, newPortalPassword, registrationOutcome, sameSite, successFactorsRegistrationTarget, successFactorsSignInTarget, usesOtpAccountCreation, verificationIsPending, verificationOutcome, verifiedSignInTarget } from './account.mjs';
 import { extractFields as extractFieldsRaw, registerPortalChannelType } from './fields.mjs';
 import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
@@ -48,7 +47,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { decideLiveQuestions } from '../decision-answers.mjs';
+import { decideLiveQuestions, platformFactsAfterLiveDecisions } from '../decision-answers.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -74,7 +73,7 @@ export const WAVE1_CHANNELS = new Set([
   'workday', 'successfactors',
 ]);
 // Login pages in one run: create, verify, sign in, and one retry.
-const MAX_AUTH_STEPS = 5;
+const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
 const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|invia|continua|reimposta password)$/i;
@@ -470,8 +469,8 @@ const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
-// Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
-const MAX_AGENT_CALLS = 16;
+// Codex turns available to the autonomous navigation agent across a portal run.
+const MAX_AGENT_CALLS = AGENT_ROUNDS;
 // The account page's technical stops (handleAuth's `authStop`) that the agentic fallback may try
 // to complete, once per page and stop and within MAX_AGENT_CALLS, before the owner gets the page.
 // Each one is raised before any account button was pressed on this surface: the form simply did
@@ -589,6 +588,28 @@ function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
   }
 }
 
+function sameSuccessFactorsTenantContinuation(sourceUrl, targetUrl) {
+  try {
+    const source = successFactorsModuleIdentity(new URL(String(sourceUrl || '')));
+    const target = new URL(String(targetUrl || ''));
+    if (!source || !isSuccessFactorsCareerPath(target.href) || target.origin !== source.origin) return false;
+    const valuesFor = (key) => [...target.searchParams.entries()]
+      .filter(([name]) => name.toLowerCase() === key)
+      .map(([, value]) => value);
+    const company = valuesFor('company');
+    const requisition = valuesFor('career_job_req_id');
+    const namespace = valuesFor('career_ns');
+    if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    const hasBoundIdentity = company.length > 0 || requisition.length > 0;
+    if (company.length && company[0].toLowerCase() !== source.company) return false;
+    if (requisition.length && requisition[0] !== source.requisition) return false;
+    if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
+    return hasBoundIdentity;
+  } catch {
+    return false;
+  }
+}
+
 function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postingRouteProof } = {}) {
   try {
     const current = new URL(String(applyUrl || ''));
@@ -631,7 +652,12 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
     // verified posting provenance survives on those tenants too.
     const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
-    if (apply.origin === posting.origin && Boolean(applyId) && postingId === applyId) return true;
+    const crossOriginProof = postingRouteProof?.via === 'successfactors'
+      && samePostingAddress(postingRouteProof.applyUrl, apply.href)
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
+    if (Boolean(applyId) && postingId === applyId
+      && (apply.origin === posting.origin
+        || (SUCCESS_FACTORS_HOST_RE.test(apply.hostname) && crossOriginProof))) return true;
     // Career Site Builder may expose the actual SuccessFactors module on a
     // different origin. Its requisition id is not the public job id, so the
     // URL alone cannot bind it to this posting. Trust it only when the
@@ -977,8 +1003,15 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
   try {
     const page = new URL(String(pageUrl || ''));
     const posting = new URL(String(postingUrl || ''));
+    const routeAddress = (url) => {
+      const copy = new URL(url.href);
+      copy.hash = '';
+      return copy.href;
+    };
     return page.hostname === 'jobs.stadt-zuerich.ch'
       && posting.hostname === page.hostname
+      && isStadtZurichPublicJobDetailRoute(routeAddress(page))
+      && isStadtZurichPublicJobDetailRoute(routeAddress(posting))
       && samePostingAddress(page.href, posting.href);
   } catch {
     return false;
@@ -1478,9 +1511,15 @@ const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|
 const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
 const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
-const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'www.job-room.ch']);
+const JOB_ROOM_HOSTS = new Set([
+  'job-room.ch', 'www.job-room.ch',
+  'arbeit.swiss', 'www.arbeit.swiss',
+  'travail.swiss', 'www.travail.swiss',
+  'lavoro.swiss', 'www.lavoro.swiss',
+  'work.swiss', 'www.work.swiss',
+]);
 const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
-const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
+const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer|ad)|zum externen (?:inserat|(?:stellen|job)angebot)|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|(?:aller|accéder) à l['’](?:offre|annonce) externe|vers l['’](?:offre|annonce) externe)\b/iu;
 const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
 const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
   String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
@@ -1827,8 +1866,8 @@ function applicationEntryBelongsToPosting(control, {
   const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
   const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
   return Boolean(expectedIdentity && controlPostingIdentity(control) === expectedIdentity
-    && localContext && job?.title
-    && postingMatch(localContext, { title: job.title }, postingUrl) === 'match');
+    && localContext && jobTitleCandidates(job).length
+    && postingMatch(localContext, job, postingUrl) === 'match');
 }
 
 const MAX_APPLICATION_ENTRY_CONTEXT_LENGTH = 700;
@@ -1857,8 +1896,8 @@ function applicationEntryContextText(control) {
 function applicationEntryContextMatchesPosting(control, context = {}) {
   const localContext = applicationEntryContextText(control);
   const job = context.job || {};
-  return Boolean(localContext && job.title
-    && titleMatches(localContext, job.title)
+  return Boolean(localContext && jobTitleCandidates(job).length
+    && titleMatchesJob(localContext, job)
     && postingMatch(localContext, job, context.postingUrl) === 'match'
     && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
 }
@@ -1870,10 +1909,10 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
     .trim();
   const job = context.job || {};
   if (controlPostingIdentity(control) !== '') return false;
-  if (!localContext || !job.title) return true;
+  if (!localContext || !jobTitleCandidates(job).length) return true;
   if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return titleMatches(localContext, job.title);
+  return titleMatchesJob(localContext, job);
 }
 
 // An Apply dropdown on the verified posting route sits under the vacancy's
@@ -1898,9 +1937,9 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
     .replace(/\s+/g, ' ')
     .trim();
   const job = context.job || {};
-  if (!localContext || !job.title) return true;
+  if (!localContext || !jobTitleCandidates(job).length) return true;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return postingMatch(localContext, { title: job.title }, context.postingUrl) === 'match';
+  return postingMatch(localContext, job, context.postingUrl) === 'match';
 }
 
 // A few legacy employer pages render the only application opener as a native
@@ -1946,11 +1985,94 @@ function genericUmantisApplicationEntryBelongsToPosting(control, snapshot, conte
   const applicationUrl = umantisApplicationEntryUrl({ applyUrl: context.applyUrl, postingUrl: context.postingUrl })
     || String(context.applyUrl || '').trim();
   if (!isUmantisPostingEntry({ applyUrl: applicationUrl, postingUrl: context.postingUrl })) return false;
-  return Boolean(context.job?.title
-    && titleMatches(`${snapshot?.text || ''}\n${snapshot?.title || ''}\n${context.pageTitle || ''}`, context.job.title));
+  return Boolean(jobTitleCandidates(context.job).length
+    && titleMatchesJob(`${snapshot?.text || ''}\n${snapshot?.title || ''}\n${context.pageTitle || ''}`, context.job));
+}
+
+const SUCCESS_FACTORS_EMPLOYER_JOB_ROUTE_RE = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/\d+\/?$/i;
+
+function isSuccessFactorsCustomPostingRoute(snapshot = {}, context = {}) {
+  try {
+    const apply = new URL(String(context.applyUrl || ''));
+    const current = new URL(String(snapshot.url || ''));
+    const posting = new URL(String(context.postingUrl || ''));
+    if (!isSuccessFactorsModuleRoute(apply) || current.origin === apply.origin
+      || !SUCCESS_FACTORS_EMPLOYER_JOB_ROUTE_RE.test(current.pathname)
+      || !samePostingAddress(current.href, posting.href)) return false;
+
+    const routeProofMatches = isSuccessFactorsPostingEntry({
+      applyUrl: apply.href,
+      postingUrl: current.href,
+      postingRouteProof: context.postingRouteProof,
+    });
+    const textMatches = postingMatch(
+      `${snapshot.title || ''}\n${context.pageTitle || ''}\n${snapshot.text || ''}`,
+      context.job || {},
+    ) === 'match';
+    return context.postingMatch === 'match' || routeProofMatches || textMatches;
+  } catch {
+    return false;
+  }
+}
+
+function successFactorsCustomPostingControlBelongs(control, snapshot, context = {}) {
+  const href = String(control?.href || '').trim();
+  if (!href) {
+    const localContext = [control?.vacancyContext, control?.section, control?.context]
+      .filter(Boolean)
+      .join(' ')
+      .trim();
+    const job = context.job || {};
+    return Boolean(localContext && job.title
+      && titleMatches(localContext, job.title)
+      && postingMatch(localContext, job, context.postingUrl) === 'match'
+      && !namesAnotherEmployer(localContext, job, { allowPostingLocation: true }));
+  }
+  if (samePortalRoute(href, snapshot.url, snapshot.url)
+    || samePortalRoute(href, context.postingUrl, context.postingUrl)) return true;
+  if (isVerifiedPostingEntry({
+    applyUrl: href,
+    postingUrl: context.postingUrl,
+    postingRouteProof: context.postingRouteProof,
+  })) return true;
+  return sameSuccessFactorsModuleAddress(context.applyUrl, href)
+    || sameSuccessFactorsTenantContinuation(context.applyUrl, href);
+}
+
+function successFactorsCustomPostingEntries(snapshot, context) {
+  if (!isSuccessFactorsCustomPostingRoute(snapshot, context)) return null;
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ].filter((control) => control?.ariaHidden !== true && control?.behindDialog !== true);
+  const candidates = controls.filter((control) => !control?.disabled
+    && startsApplication(control?.text || control?.label)
+    && !socialApplicationEntry(control));
+  // Career Site Builder also uses a button named "Bewerben" as a menu toggle.
+  // Leave that existing disclosure flow to its stricter menu-owner checks.
+  if (candidates.some((control) => control.popup === true || control.menuItem === true)) return null;
+  if (!candidates.length) return [];
+  const ownedCandidates = candidates.filter((control) => successFactorsCustomPostingControlBelongs(control, snapshot, context));
+  if (!ownedCandidates.length) return [];
+  if (new Set(ownedCandidates.map(applicationEntryLabel)
+    .map((label) => label.replace(/(?:\s*[»›]+)+$/u, '').trim())).size !== 1) return [];
+  // The same posting can repeat one direct CTA at the top and bottom. They
+  // name one action, so use the first visible occurrence and never click both.
+  return ownedCandidates.slice(0, 1);
+}
+
+function successFactorsCustomPostingDestinationMatches(destinationUrl, sourceUrl, context = {}) {
+  if (samePortalRoute(destinationUrl, sourceUrl, sourceUrl)) return true;
+  return isVerifiedPostingEntry({
+    applyUrl: destinationUrl,
+    postingUrl: context.postingUrl,
+    postingRouteProof: context.postingRouteProof,
+  }) || sameSuccessFactorsTenantContinuation(context.applyUrl, destinationUrl);
 }
 
 export function applicationEntryControls(snapshot = {}, context = {}) {
+  const successFactorsCustomEntries = successFactorsCustomPostingEntries(snapshot, context);
+  if (successFactorsCustomEntries !== null) return successFactorsCustomEntries;
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
@@ -2506,29 +2628,36 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
   const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
   const before = page.url();
+  let clickError = null;
   try {
     await link.click({ timeout: 6_000 });
   } catch (error) {
-    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
-    let target;
-    try {
-      target = new URL(href, page.url()).href;
-    } catch {
-      throw error;
-    }
-    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    clickError = error;
   }
-  if (!popup) return null;
-  // A link without a popup should continue promptly after a short grace
-  // window; clear the timer as soon as the popup arrives.
-  const opened = await new Promise((resolve) => {
+  // If a target="_blank" click dispatches but its original locator times out
+  // while the new page loads, consume that popup before considering a same-tab
+  // href fallback. This avoids opening the same application entry twice.
+  const opened = popup ? await new Promise((resolve) => {
     const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
     popup.then((opened) => {
       clearTimeout(timer);
       resolve(opened);
     });
-  });
+  }) : null;
   if (opened) return opened;
+  if (page.url() !== before) return null;
+  if (clickError) {
+    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw clickError;
+    let target;
+    try {
+      target = new URL(href, page.url()).href;
+    } catch {
+      throw clickError;
+    }
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    return null;
+  }
+  if (!popup) return null;
   // The browser announces a new window only once its address has answered. A
   // link that opens another window (target="_blank") and left none, with this
   // page where it was, has no answer from its address yet: ECAM's DocuWare
@@ -2560,6 +2689,40 @@ function linkNavigationTarget(href, base) {
   } catch {
     return '';
   }
+}
+
+/** The sole explicit SECO link out of a Job-Room posting, or '' when it is absent or ambiguous. */
+export function jobRoomExternalAdTarget(snapshot = {}, currentUrl = snapshot?.url || '') {
+  if (!isJobRoomPublicPostingRoute(currentUrl)) return '';
+  const controls = [...(Array.isArray(snapshot.links) ? snapshot.links : []), ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : [])];
+  const targets = new Set();
+  for (const control of controls) {
+    if (!isJobRoomExternalApplicationLabel(control)) continue;
+    const target = linkNavigationTarget(control?.href, currentUrl);
+    if (!target || !isFetchablePublicUrl(target)) continue;
+    try {
+      const targetUrl = new URL(target);
+      if (JOB_ROOM_HOSTS.has(targetUrl.hostname.toLowerCase())) continue;
+      targets.add(targetUrl.href);
+    } catch {
+      // Malformed controls provide no navigation evidence.
+    }
+  }
+  return targets.size === 1 ? [...targets][0] : '';
+}
+
+async function followJobRoomExternalAd(page, snapshot, { resolvePublicHost = resolvesToPublicHost } = {}) {
+  const target = jobRoomExternalAdTarget(snapshot, page?.url?.());
+  if (!target || !(await Promise.resolve().then(() => resolvePublicHost(target)).catch(() => false))) return null;
+  const response = await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  await settle(page);
+  return { target, response, snapshot: await extractFields(page, NAVIGATION) };
+}
+
+function jobRoomApiEntryProven(ctx = {}) {
+  if (ctx.job?.jobRoomChannelResolved !== true) return false;
+  const sources = [ctx.job?.jobRoomApplyUrl, ctx.job?.jobRoomExternalUrl].filter(Boolean);
+  return sources.some(source => [ctx.applyUrl, ctx.postingUrl].some(current => samePostingAddress(source, current)));
 }
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
@@ -3383,6 +3546,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let resolvedPostingUrl = '';
   let publicSearchTarget = false;
   let publicSearchSearched = false;
+  let customSuccessFactorsEntryClicked = false;
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3453,7 +3617,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       const context = String(control?.vacancyContext || '').trim();
       return {
         hasBoundedContext: Boolean(context),
-        roleMatches: Boolean(context && stageContext?.job?.title && titleMatches(context, stageContext.job.title)),
+        roleMatches: Boolean(context && jobTitleCandidates(stageContext?.job).length && titleMatchesJob(context, stageContext.job)),
         employerMatches: Boolean(context && postingMatch(context, stageContext?.job || {}, stageContext?.postingUrl) === 'match'),
         otherEmployerDetected: Boolean(context && namesAnotherEmployer(context, stageContext?.job || {}, { allowPostingLocation: true })),
         contextMatches: applicationEntryContextMatchesPosting(control, stageContext),
@@ -3501,6 +3665,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['account', 'receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
+    // A custom-domain Apply entry gets one click. If it leaves the browser on
+    // the same posting shell, return that snapshot for ordinary auth/stage
+    // handling instead of clicking the duplicate CTA again.
+    if (customSuccessFactorsEntryClicked && isSuccessFactorsCustomPostingRoute(snapshot, stageContext)) return result();
     // A verified same-requisition SuccessFactors module route binds the
     // vacancy more strongly than a Career Site Builder Apply dropdown, whose
     // menu leads to the tenant's generic sign-in. Keep that route first.
@@ -3523,6 +3691,11 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
     const selectedControlKind = manual ? 'manual_button' : apply ? 'button' : linkVisible ? 'link' : 'none';
+    const customSuccessFactorsEntry = isSuccessFactorsCustomPostingRoute(snapshot, stageContext)
+      && Boolean(manual || apply || (linkVisible && linkEntry))
+      && (manual || apply || linkEntry)?.popup !== true
+      && (manual || apply || linkEntry)?.menuItem !== true;
+    const sourceUrl = page.url();
     reportNavigation({
       hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
       entryResolution,
@@ -3571,6 +3744,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
+      customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       const workdayManualTarget = manual
         ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl, manual)
         : '';
@@ -3578,6 +3752,8 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         workdayApplicationEntryProven = isWorkdayApplicationRouteBound(workdayManualTarget, stageContext?.applyUrl)
           || workdayApplicationEntryProven;
         await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      } else if (customSuccessFactorsEntry && (manual || apply)?.href) {
+        page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
       } else {
         const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
         await clickButton(page, manual || apply);
@@ -3585,11 +3761,16 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     } else {
       enteredThroughApplicationEntry = true;
+      customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
+    if (customSuccessFactorsEntry
+      && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {
+      return result({ handoff: 'posting_mismatch' });
+    }
     reportNavigation({
       hop: hop + 1, phase: 'after_click', cookieStatus, controls: applicationControls, ownedEntries,
       selectedControlKind, linkVisible,
@@ -3639,6 +3820,21 @@ function companyShortForms(company) {
     .filter((words) => words.length > 0);
 }
 
+function jobTitleCandidates(job = {}) {
+  if (typeof job === 'string') return [job.trim()].filter(Boolean);
+  if (Array.isArray(job)) return [...new Set(job.map(value => String(value || '').trim()).filter(Boolean))];
+  const localized = [job?.titleByLocale, job?.titles]
+    .filter(value => value && typeof value === 'object' && !Array.isArray(value))
+    .flatMap(value => Object.values(value));
+  return [...new Set([
+    job?.sourceTitle, job?.postingTitle, job?.originalTitle, job?.observedPostingTitle, job?.title, ...localized,
+  ].map(value => String(value || '').replace(/\s+/g, ' ').trim()).filter(value => value && value.length <= 300))];
+}
+
+function titleMatchesJob(pageText, job) {
+  return jobTitleCandidates(job).some(title => titleMatches(pageText, title));
+}
+
 function titleMatches(pageText, title) {
   const words = normalizeWords(pageText).split(' ').filter(Boolean);
   const titleWords = nameWords(title).filter((word) => word.length >= 4);
@@ -3659,7 +3855,7 @@ function talentSoftEmployerAliasMatches(pageText, job = {}, pageUrl = '') {
   const aliases = [...String(job.company || '').matchAll(/\(([^)]+)\)/g)]
     .flatMap(([, alias]) => nameWords(alias))
     .filter((alias) => alias.length >= 3);
-  if (!aliases.length || !titleMatches(pageText, job.title)) return false;
+  if (!aliases.length || !titleMatchesJob(pageText, job)) return false;
   const urls = [pageUrl, ...(String(pageText || '').match(/\bhttps?:\/\/[^\s"'<>]+/gi) || [])]
     .filter(Boolean);
   return urls.some((raw) => {
@@ -3686,7 +3882,8 @@ function talentSoftEmployerAliasMatches(pageText, job = {}, pageUrl = '') {
  */
 export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
-  const title = nameWords(job.title).filter((word) => word.length >= 4);
+  const titles = jobTitleCandidates(job);
+  const title = titles.flatMap(value => nameWords(value)).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
@@ -3699,7 +3896,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
       || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
       || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
-  return titleMatches(pageText, job.title) ? 'match' : 'mismatch';
+  return titleMatchesJob(pageText, job) ? 'match' : 'mismatch';
 }
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
@@ -3709,6 +3906,7 @@ const FORM_VOCABULARY = new Set([
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
+  'number', 'numero', 'nummer',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
@@ -3873,7 +4071,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // mismatch («Zurich AG» is not Coop's posting).
   const neutral = new Set([
     ...ours,
-    ...nameWords(job.title),
+    ...jobTitleCandidates(job).flatMap(title => nameWords(title)),
     ...postingLocationSuffixWords(text, ours, postingLocationWords),
     ...NOT_A_NAME,
     // Vacancy cards can flatten their rows into one line («Coop Genossenschaft Standort Rickenbach»).
@@ -3881,18 +4079,37 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
+  const identities = [nameWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+    .filter((words) => words.length > 0);
+  const titleNamesOwnEmployer = (line) => {
+    const words = normalizeWords(line).split(' ').filter(Boolean);
+    return identities.some((identity) => words.some((_, start) => identity.every((word, offset) => {
+      const seen = words[start + offset];
+      if (!seen) return false;
+      const expectedKind = EMPLOYER_KIND_CLASS.get(word);
+      return expectedKind ? EMPLOYER_KIND_CLASS.get(seen) === expectedKind : seen === word;
+    })));
+  };
   const titleLine = text.split(/\r?\n/).map((line) => line.trim())
     .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
+  // A title can put the selected employer and a different employer-like phrase
+  // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
+  // scan intentionally splits on dashes, so keep this explicit title-level
+  // conflict check before the selected employer's own identity neutralizes the
+  // line as a whole.
+  if (titleNamesOwnEmployer(titleLine)) {
+    const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
+    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
+      && words.some((word) => !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word) && !filler(word)))) return true;
+  }
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
-  if (title.some((word, index) => !filler(word) && !neutral.has(word)
+  if (!titleNamesOwnEmployer(titleLine) && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   const ourKinds = employerKindsOf([...ours]);
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
-  const identities = [nameWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
-    .filter((words) => words.length > 0);
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     // The same words with their case, when they line up one to one: a phrase in normal case (upper and lower
@@ -3958,7 +4175,7 @@ function boundPostingConflictText(formText, job, { pageUrl = '', postingUrl = ''
   const firstLine = text.split(/\r?\n/, 1)[0];
   if (!isStadtZurichPostingRoute({ pageUrl, postingUrl })
     || !/\bSTZH\b/iu.test(firstLine)
-    || !titleMatches(firstLine, job?.title)) return text;
+    || !titleMatchesJob(firstLine, job)) return text;
   const routeEvidence = [pageUrl, postingUrl].map(value => String(value || '')).filter(Boolean);
   return routeEvidence.reduce((current, value) => current.split(value).join(' '), text)
     .replace(/\b(?:Stellendetails|STZH)\b/giu, ' ');
@@ -3999,9 +4216,9 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   if (routeBound && pageHeading === null) return false;
   // A unique Apply control can stand in for an absent H1, but it cannot
   // override a visible heading that proves only part of a different role.
-  if (routeBound && renderedHeading && !isRoleHeading(renderedHeading, job?.title)) return false;
-  const noHeadingPostingIdentityProven = Boolean(uniqueApplicationEntryProven === true && job?.title && company
-    && titleMatches(`${documentTitle}\n${pageText}`, job.title)
+  if (routeBound && renderedHeading && !isRoleHeading(renderedHeading, job)) return false;
+  const noHeadingPostingIdentityProven = Boolean(uniqueApplicationEntryProven === true && jobTitleCandidates(job).length && company
+    && titleMatchesJob(`${documentTitle}\n${pageText}`, job)
     && hasDistinctiveCompanyIdentity(company)
     && postingMatch(`${documentTitle}\n${pageText}`, job, pageUrl) === 'match');
   if (routeBound && !renderedHeading && !noHeadingPostingIdentityProven) return false;
@@ -4011,11 +4228,11 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const conflictText = routeBound ? (routeTitleLine ? `${routeTitleLine}\n${pageText}` : pageText) : sourceText;
   if (!organizationCompatible || namesAnotherEmployer(conflictText, job, { allowPostingLocation: routeBound })) return false;
   if (routeBound) return true;
-  const titleMatched = Boolean(job?.title && titleMatches(pageTitle, job.title));
+  const titleMatched = Boolean(jobTitleCandidates(job).length && titleMatchesJob(pageTitle, job));
   // The source page must identify the role in its title. Its employer may be
   // in the Apply control's bounded vacancy card. Arbitrary page text can also
   // contain a related vacancy, so it cannot prove this posting's employer.
-  const matchesCurrentIdentity = (text) => titleMatches(text, job.title)
+  const matchesCurrentIdentity = (text) => titleMatchesJob(text, job)
     && (!company || (hasDistinctiveCompanyIdentity(company) && postingMatch(text, job, pageUrl) === 'match'));
   const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
     || contexts.some(matchesCurrentIdentity);
@@ -4028,9 +4245,9 @@ export function hasReadOnlyVacancyEvidence(pageText, job = {}, { pageTitle = '' 
   const company = String(job?.company || '').trim();
   if (!company || !hasDistinctiveCompanyIdentity(company)) return false;
   const organizationCompatible = !job?.organization || sameEmployerFamily(job.organization, company);
-  return Boolean(organizationCompatible && job?.title
+  return Boolean(organizationCompatible && jobTitleCandidates(job).length
     && !namesAnotherEmployer(sourceText, job)
-    && titleMatches(pageTitle, job.title)
+    && titleMatchesJob(pageTitle, job)
     // Host aliases are acceptable for an application form reached from a
     // proven posting, but read-only reconciliation has no such provenance.
     && postingMatch(pageTitle, { ...job, company }) === 'match');
@@ -4080,14 +4297,14 @@ function linksPdfDocument(href) {
  */
 export function postingDocumentIdentity(documentText, job = {}) {
   const text = String(documentText || '');
-  const title = String(job?.title || '');
-  if (!title.trim() || !text.trim()) return false;
+  const titles = jobTitleCandidates(job);
+  if (!titles.length || !text.trim()) return false;
   const company = String(job?.company || '').trim();
   if (company && (!hasDistinctiveCompanyIdentity(company) || postingMatch(text, job) !== 'match')) return false;
   const numbers = (value) => (String(value || '').replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ').match(/\d+/g) || []);
-  const wanted = numbers(title);
   return text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).slice(0, 15)
-    .some((line) => line.length <= 200 && titleMatches(line, title) && wanted.every((number) => numbers(line).includes(number)));
+    .some((line) => line.length <= 200 && titles.some(title => titleMatches(line, title)
+      && numbers(title).every(number => numbers(line).includes(number))));
 }
 
 /**
@@ -4247,14 +4464,14 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
   } catch {
     return false;
   }
-  if (!module || !job?.title || page.origin !== module.origin
+  if (!module || !jobTitleCandidates(job).length || page.origin !== module.origin
     || !['/portalcareer', '/career'].includes(page.pathname.replace(/\/+$/, ''))) return false;
   const requisition = new RegExp(`\\(\\s*${module.requisition}\\s*\\)`);
   const otherRequisition = /\(\s*\d{1,20}\s*\)/g;
   return String(formText || '').split(/\r?\n/).some((line) => requisition.test(line)
     && [...line.matchAll(otherRequisition)].every((found) => found[0].replace(/\D/g, '') === module.requisition)
-    && titleMatches(line.replace(otherRequisition, ' '), job.title)
-    && titleWordsOnly(line.replace(otherRequisition, ' '), job.title));
+    && titleMatchesJob(line.replace(otherRequisition, ' '), job)
+    && titleWordsOnly(line.replace(otherRequisition, ' '), job));
 }
 
 /**
@@ -4264,18 +4481,19 @@ export function successFactorsRequisitionShown(formText, job = {}, { pageUrl = '
  */
 export function isRoleHeading(heading, title) {
   const text = String(heading || '').trim();
-  if (!text || text.length > 200 || !title || !titleMatches(text, title)) return false;
+  const titles = jobTitleCandidates(title);
+  if (!text || text.length > 200 || !titles.length || !titleMatchesJob(text, titles)) return false;
   // A workload («80-100%», «100 %») is the only number allowed around the role; it is taken out before the
   // words, of the heading and of the order's title alike: a title that carries its own workload («Consulente …
   // Lugano (f/m) 50%», Bank Cler 8BhQom09, 2026-11-11) otherwise wants a «50» no heading can show any more.
   const withoutWorkload = (value) => String(value || '').replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ');
-  const wanted = new Set(normalizeWords(withoutWorkload(title)).split(' ').filter(Boolean));
+  const wantedSets = titles.map(candidate => new Set(normalizeWords(withoutWorkload(candidate)).split(' ').filter(Boolean)));
   const seen = normalizeWords(withoutWorkload(text)).split(' ').filter(Boolean);
   const shown = new Set(seen);
   // Every word of the role is there («Product Manager» is not «IT Product Manager»), the gender markers of
   // the title aside, and nothing but those markers or a workload around it.
-  return seen.length > 0 && [...wanted].every((word) => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
-    && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+  return seen.length > 0 && wantedSets.some(wanted => [...wanted].every(word => shown.has(word) || TITLE_GENDER_MARKERS.has(word))
+    && seen.every(word => wanted.has(word) || TITLE_GENDER_MARKERS.has(word)));
 }
 
 /** The single main heading, '' when absent, or null when unavailable/ambiguous. */
@@ -4302,11 +4520,80 @@ export async function postingMainHeading(page) {
 /** The line names the role and nothing else of substance (no second role or employer around it). */
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
+function normalizeFormRoleTitle(value) {
+  return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
+    .replace(/\(?\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)?/giu, ' ')
+    .replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')
+    .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
+    .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
+    .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
+    .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
+    .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
 function titleWordsOnly(line, title) {
-  const wanted = new Set(normalizeWords(title).split(' ').filter(Boolean));
-  const seen = normalizeWords(line).split(' ').filter(Boolean);
+  const candidates = jobTitleCandidates(title);
+  const seen = normalizeWords(normalizeFormRoleTitle(line)).split(' ').filter(Boolean);
   // Every other word is a different role or an employer («Senior …», «… bei X»).
-  return seen.length > 0 && seen.every((word) => wanted.has(word) || TITLE_GENDER_MARKERS.has(word));
+  return seen.length > 0 && candidates.some(candidate => {
+    const wanted = new Set(normalizeWords(normalizeFormRoleTitle(candidate)).split(' ').filter(Boolean));
+    return seen.every(word => wanted.has(word) || TITLE_GENDER_MARKERS.has(word) || EMPLOYER_KIND_WORDS.has(word));
+  });
+}
+
+// Form chrome and field labels are not role evidence. Keep this separate from
+// FORM_VOCABULARY: the latter is also used by the employer-conflict detector,
+// while this list only decides whether a line is a plausible form heading.
+const FORM_HEADING_VOCABULARY = new Set([
+  ...FORM_VOCABULARY,
+  ...FILLER_WORDS,
+  'personal', 'information', 'informationen', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
+  'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
+  'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
+  'hear', 'about', 'us', 'current', 'employee', 'worked', 'before', 'agree', 'privacy', 'policy', 'statement',
+  'title', 'user', 'language', 'data', 'release', 'settings', 'contact', 'relationship', 'company', 'home', 'save', 'continue',
+  'next', 'apply', 'absenden', 'bezeichnung', 'angebot', 'suchbegriffe', 'vorname', 'nachname', 'kennwort', 'lebenslauf',
+  'motivationsschreiben', 'zeugnisse', 'diplome', 'dokument', 'dokumente', 'hinzufügen', 'öffnet', 'dialogfeld', 'persönlichen',
+  'stellenspezifische', 'bewerbungsprofil', 'anzeigen', 'sprache', 'speichern', 'bewerben', 'avanti', 'weiter', 'suchen',
+  'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
+  'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
+  'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
+  'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
+].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
+
+function formRoleHeadingStatus(formText, job = {}) {
+  const candidates = jobTitleCandidates(job);
+  if (!candidates.length) return 'unknown';
+  const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+  const headings = lines.filter(value => !/^https?:\/\//iu.test(value)).map(normalizeFormRoleTitle).filter(Boolean);
+  if (headings.some(heading => titleWordsOnly(heading, candidates))) return 'match';
+  const neutral = new Set([
+    ...FORM_HEADING_VOCABULARY,
+    ...TITLE_GENDER_MARKERS,
+    ...candidates.flatMap(title => nameWords(title)),
+    ...nameWords(job.company),
+    ...nameWords(job.organization),
+  ]);
+  return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
+    .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
+}
+
+function formUrlCarriesEmployerHost(formText, job = {}) {
+  const employerWords = nameWords(job.company)
+    .filter(word => word.length >= 3
+      && !EMPLOYER_KIND_WORDS.has(word)
+      && !FORM_VOCABULARY.has(word)
+      && !BRANCH_WORDS.has(word));
+  if (!employerWords.length) return false;
+  return (String(formText || '').match(/\bhttps?:\/\/[^\s"'<>]+/giu) || []).some((raw) => {
+    try {
+      const hostname = new URL(raw.replace(/[),.;]+$/u, '')).hostname.toLowerCase();
+      return employerWords.some(word => hostname.split(/[.-]+/u).includes(word) || hostname.includes(word));
+    } catch {
+      return false;
+    }
+  });
 }
 
 export function formPostingMatch(formText, job = {}, {
@@ -4319,12 +4606,20 @@ export function formPostingMatch(formText, job = {}, {
   applyUrl = '',
 } = {}) {
   const direct = postingMatch(formText, job, pageUrl);
+  const roleHeading = formRoleHeadingStatus(formText, job);
+  const formApplicationUrl = isUmantisApplicationRoute(pageUrl)
+    ? pageUrl
+    : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  if (direct === 'match' && !talentSoftAlias
+    && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
+  if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
@@ -4337,6 +4632,13 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(heading, job)) return 'mismatch';
     return 'match';
   }
+  // Some snapshots carry the Umantis Application/New URL only in the extracted
+  // form text. A verified posting entry still binds that route even when the
+  // caller did not separately pass pageUrl.
+  if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
+    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    return 'match';
+  }
   // The selected detail route is authoritative even when its dynamic shell
   // exposes only site chrome (for example, Stadt Zürich's «Sprache» control).
   // Do not apply this to another page on the same host: route identity must be
@@ -4345,19 +4647,28 @@ export function formPostingMatch(formText, job = {}, {
     if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
+  // Talentsoft tenants may expose the employer under a localized name in the
+  // form title (Rhätische Bahn) while the order stores the legal name and its
+  // short host alias (Ferrovia Retica (RhB)). The alias plus the matching role
+  // is stronger evidence than the localized title line being unfamiliar.
+  const talentSoftAliasForm = direct === 'match' && talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  if (talentSoftAliasForm) return 'match';
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
-  if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
-  if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
+  if (successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
-  // The selected vacancy was matched by title or route before the runner
-  // followed its Apply control. Some ATS forms are intentionally generic
-  // after login or account creation; that verified click path is provenance.
-  // A company-only source page does not set applicationEntry. A direct apply
-  // URL also remains subject to URL binding or a visible role match below.
-  if (applicationEntry && postingMatched) return 'match';
-  if (postingEntry && (postingRouteProof?.via !== 'successfactors' || bound)) return 'match';
-  return postingMatch(formText, { title: job.title }, pageUrl) === 'match' ? 'match' : 'mismatch';
+  if (roleHeading === 'mismatch') return 'mismatch';
+  if (direct === 'match' || (roleHeading === 'match' && (postingMatched || postingEntry || applicationEntry))) return 'match';
+  // A verified SuccessFactors module is a bound application surface even when
+  // its account page contains no requisition or role text of its own.
+  if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
+  // A generic form reached through a posting's provenance stays unknown when
+  // its own text proves no company, role or requisition. A same-employer URL
+  // without the verified entry is not enough provenance and preserves the
+  // conservative mismatch (for example ALTEN's generic form).
+  if (postingEntry || applicationEntry
+    || (postingMatched && !formUrlCarriesEmployerHost(formText, job))) return 'unknown';
+  return direct;
 }
 
 // A send button that names an application: «Submit final application»,
@@ -8993,7 +9304,8 @@ export async function readPortalRequirements(ctx) {
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx);
+  const jobRoomSourceProven = jobRoomApiEntryProven(ctx);
+  const verifiedPostingEntry = verifiedJobs2WebEntry || verifiedPostingEntryFor(ctx) || jobRoomSourceProven;
   // A legacy Umantis Application/New URL can be the only durable vacancy
   // identity after liveness discarded an ambiguous posting candidate. Keep
   // the inferred Description route in the form matcher; otherwise the EOC
@@ -9118,9 +9430,21 @@ export async function readPortalRequirements(ctx) {
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    let jobRoomExternalAdFollowed = false;
+    const jobRoomExternalAd = await followJobRoomExternalAd(page, snapshot, { resolvePublicHost });
+    if (jobRoomExternalAd) {
+      snapshot = jobRoomExternalAd.snapshot;
+      formPostingUrl = jobRoomExternalAd.target;
+      jobRoomExternalAdFollowed = true;
+    }
     contractSnapshot = snapshot;
-    const hasJobContract = Boolean(ctx.job?.company || ctx.job?.title);
+    const hasJobContract = Boolean(ctx.job?.company || jobTitleCandidates(ctx.job).length);
     const sourceTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+    const sourcePostingHeading = await postingMainHeading(page);
+    const sourceTitleBound = jobRoomExternalAdFollowed || samePostingAddress(page.url(), ctx.postingUrl);
+    const portalJob = sourceTitleBound && sourcePostingHeading
+      ? { ...ctx.job, observedPostingTitle: sourcePostingHeading }
+      : ctx.job;
     const sourcePostingText = `${sourceTitle}\n${snapshot.text || ''}\n${page.url()}`;
     const sourceApplicationEntryProven = applicationEntryControls(snapshot, {
       applyUrl: stageApplyUrl,
@@ -9128,7 +9452,7 @@ export async function readPortalRequirements(ctx) {
       pageTitle: sourceTitle,
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
       postingRouteProof: ctx.postingRouteProof,
-      job: ctx.job,
+      job: portalJob,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
     const sourceJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
@@ -9139,22 +9463,24 @@ export async function readPortalRequirements(ctx) {
     // A posting published as a document: its host page stands for it once the document is the order's.
     const sourceDocument = hasJobContract ? await postingDocumentHostMatch(snapshot, ctx, page.url()) : null;
     const sourceDocumentHost = sourceDocument?.identity === true;
-    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || sourceJobRoomEntryProven || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
-      pageUrl: page.url(),
-      pageTitle: sourceTitle,
-      pageHeading: await postingMainHeading(page),
-      postingUrl: ctx.postingUrl,
-      postingRouteProof: ctx.postingRouteProof,
-      vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
-      uniqueApplicationEntryProven: sourceApplicationEntryProven,
-    }));
+    let sourcePostingMatched = hasJobContract && (sourceTitleBound || jobRoomSourceProven
+      || sourceDocumentHost || sourceJobRoomEntryProven
+      || hasVacancySpecificPostingEvidence(sourcePostingText, portalJob, {
+        pageUrl: page.url(),
+        pageTitle: sourceTitle,
+        pageHeading: sourcePostingHeading,
+        postingUrl: ctx.postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
+        uniqueApplicationEntryProven: sourceApplicationEntryProven,
+      }));
     const sourcePageUrl = page.url();
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: stageApplyUrl,
-      postingUrl: ctx.postingUrl || page.url(),
+      postingUrl: formPostingUrl || page.url(),
       pageTitle: sourceTitle,
       sourceProtocol: snapshot.protocol || ctx.sourceProtocol || null,
-      job: ctx.job,
+      job: portalJob,
       postingEntry: verifiedPostingEntry,
       postingRouteProof: ctx.postingRouteProof,
       allowSingleExternalApplicationEntry: sourcePostingMatched,
@@ -9204,9 +9530,9 @@ export async function readPortalRequirements(ctx) {
       const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
       const formText = `${pageTitle}\n${snapshot.text || ''}\n${page.url()}`;
       const applicationEntry = sourcePostingMatched && opened.enteredThroughApplicationEntry === true;
-      const formMatch = formPostingMatch(formText, ctx.job, {
+      const formMatch = formPostingMatch(formText, portalJob, {
         postingMatched: verifiedPostingEntry || applicationEntry,
-        postingEntry: verifiedPostingEntry,
+        postingEntry: verifiedPostingEntry || jobRoomExternalAdFollowed,
         applicationEntry,
         pageUrl: page.url(),
         postingUrl: formPostingUrl,
@@ -9325,6 +9651,7 @@ const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_un
 const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
 
 function isApplicationOwnedPortalField(field) {
+  if (field?.chrome === true) return false;
   const fieldIdentityText = [
     field?.label,
     field?.name,
@@ -9356,7 +9683,10 @@ export async function submitViaPortal(ctx) {
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
   // start date, the employer's own questions, review): 8 pages were not enough.
-  const maxSteps = ctx.maxSteps || 15;
+  const requestedMaxSteps = Number(ctx.maxSteps);
+  let maxSteps = Number.isFinite(requestedMaxSteps) && requestedMaxSteps > 0
+    ? Math.trunc(requestedMaxSteps)
+    : 80;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
   const registrationRestarts = new Set();
   let candidateRequestRound = Number.isInteger(Number(ctx.candidateRequestRound))
@@ -9382,7 +9712,7 @@ export async function submitViaPortal(ctx) {
   let diagnostics = null;
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
-  const enteredFromMatchingPosting = verifiedPostingEntryFor(ctx);
+  let enteredFromMatchingPosting = verifiedPostingEntryFor(ctx) || jobRoomApiEntryProven(ctx);
   let workdayApplicationEntryProven = false;
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
@@ -9616,11 +9946,12 @@ export async function submitViaPortal(ctx) {
         codex: ctx.codex,
         fields: current?.fields || [],
         maxRounds: COOKIE_AGENT_ROUNDS,
+        navigationEnabled: false,
         reservedButtons: COOKIE_AGENT_RESERVED_BUTTONS,
         log,
       });
     } catch (error) {
-      agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, evidence: { rounds: [] } };
+      agent = { status: 'PARKED', reason: `PARKED: agent_error (${String(error?.message || error).split('\n')[0].slice(0, 100)})`, calls: 0, evidence: { rounds: [] } };
     }
     const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
     (evidence.cookieAgent ||= []).push({
@@ -9630,7 +9961,7 @@ export async function submitViaPortal(ctx) {
       ...(agent.reason ? { reason: String(agent.reason).slice(0, 160) } : {}),
     });
     // A cookie choice never leaves the page: whatever moved it is not counted.
-    if (agent.moved || currentPage.url() !== startUrl) return { status: 'moved', acted: false };
+    if (agent.page !== currentPage || currentPage.url() !== startUrl) return { status: 'moved', acted: false };
     return { status: agent.status, acted };
   } : null;
   try {
@@ -9649,9 +9980,9 @@ export async function submitViaPortal(ctx) {
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), engine: 'chromium', userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
-    const entryUrl = portalEntryUrl(ctx);
+    let entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
-    const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -9671,6 +10002,18 @@ export async function submitViaPortal(ctx) {
     sourceProtocol = snapshot.protocol || sourceProtocol;
     if (sourceProtocol) evidence.sourceProtocol = sourceProtocol;
     if (initialCookieState.status === 'unresolved') return await handoff('cookie_preferences_unresolved');
+    let jobRoomExternalAdFollowed = false;
+    const jobRoomExternalAd = await followJobRoomExternalAd(page, snapshot, {
+      resolvePublicHost: value => resolvesToPublicHost(value, ctx.resolve),
+    });
+    if (jobRoomExternalAd) {
+      snapshot = jobRoomExternalAd.snapshot;
+      response = jobRoomExternalAd.response || response;
+      entryUrl = jobRoomExternalAd.target;
+      jobRoomExternalAdFollowed = true;
+      enteredFromMatchingPosting = true;
+      sourceProtocol = snapshot.protocol || sourceProtocol;
+    }
     const initialPageText = await pageText(page);
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
@@ -9688,18 +10031,23 @@ export async function submitViaPortal(ctx) {
     if (initialHandoff) return await handoff(initialHandoff);
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
-    let postingUrl = page.url();
+    let postingUrl = jobRoomExternalAd?.target || ctx.job?.jobRoomExternalUrl || page.url();
     const initialPublicJobSearch = isStadtZurichPublicJobSearchRoute(postingUrl)
       && isNonApplicationJobSearchSurface(snapshot);
     const postingTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+    const postingHeading = await postingMainHeading(page);
+    const postingTitleBound = jobRoomExternalAdFollowed || samePostingAddress(page.url(), ctx.postingUrl);
+    const portalJob = postingTitleBound && postingHeading
+      ? { ...ctx.job, observedPostingTitle: postingHeading }
+      : ctx.job;
     const postingSeen = `${postingTitle} ${initialPageText} ${postingUrl}`;
     const initialApplicationEntryProven = applicationEntryControls(snapshot, {
       applyUrl: ctx.applyUrl,
-      postingUrl: ctx.postingUrl || postingUrl,
+      postingUrl,
       pageTitle: postingTitle,
       sourceProtocol,
       postingRouteProof: ctx.postingRouteProof,
-      job: ctx.job,
+      job: portalJob,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
     const initialJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
@@ -9711,16 +10059,17 @@ export async function submitViaPortal(ctx) {
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const companyNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match';
+    const companyNamed = postingMatch(postingSeen, portalJob, postingUrl) === 'match';
     const organizationCompatible = !ctx.job?.company || !ctx.job?.organization
       || sameEmployerFamily(ctx.job.organization, ctx.job.company);
     // The posting may use a brand while the order carries a legal entity, but
     // two unrelated employer names are a source-data conflict, not permission
     // to fall back to the role alone on an otherwise silent ATS form.
-    if (companyNamed && !organizationCompatible) return await handoff('posting_mismatch');
+    let startupNavigationHint = '';
+    if (companyNamed && !organizationCompatible) startupNavigationHint = 'posting_mismatch';
     const namedByItsData = organizationCompatible
       && sameEmployerFamily(ctx.job?.organization, ctx.job?.company)
-      && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+      && postingMatch(postingSeen, { ...portalJob, company: '' }, postingUrl) === 'match';
     // A posting published as a document is read as a document; the employer's
     // page that hosts it, the order's apply page, then stands for the posting.
     const postingDocument = enteredFromMatchingPosting ? null : await postingDocumentHostMatch(snapshot, ctx, postingUrl);
@@ -9736,12 +10085,13 @@ export async function submitViaPortal(ctx) {
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
       && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
-    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven || initialJobRoomEntryProven
-      || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
+    let postingVacancyMatched = enteredFromMatchingPosting || jobRoomExternalAdFollowed || postingDocumentHost
+      || workdayRouteEntryProven || initialJobRoomEntryProven
+      || hasVacancySpecificPostingEvidence(initialPageText, portalJob, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
-        pageHeading: await postingMainHeading(page),
-        postingUrl: ctx.postingUrl,
+        pageHeading: postingHeading,
+        postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
@@ -9750,12 +10100,17 @@ export async function submitViaPortal(ctx) {
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
     if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl)
-      && !postingVacancyMatched && !initialPublicJobSearch) {
-      return await handoff('posting_mismatch');
-    }
-    if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
+      && !postingVacancyMatched && !initialPublicJobSearch) startupNavigationHint = 'posting_mismatch';
+    // The selected apply address is already provenance for a regional gate.
+    // Do not make this IP-level stop depend on the rendered title or on a
+    // possibly unrelated Apply card: a blocked page can have neither, while
+    // the exact `applyUrl` still identifies the requested posting.
+    const initialAddressIsSelected = samePostingAddress(postingUrl, ctx.applyUrl)
+      || (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl))
+      || enteredFromMatchingPosting;
+    if ((postingVacancyMatched || initialAddressIsSelected) && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
-        applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: ctx.job,
+        applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: portalJob,
         pageTitle: postingTitle,
         postingRouteProof: ctx.postingRouteProof,
         allowSingleExternalApplicationEntry: postingVacancyMatched,
@@ -9763,7 +10118,7 @@ export async function submitViaPortal(ctx) {
       return await handoff('application_region_unsupported');
     }
     const opened = await openApplicationForm(context, page, snapshot, {
-      applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
+      applyUrl: ctx.applyUrl, postingUrl, sourceProtocol,
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       workdayApplicationEntryProven,
@@ -9779,7 +10134,7 @@ export async function submitViaPortal(ctx) {
       postingVacancyMatched = true;
     }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
-    if (opened.handoff) return await handoff(opened.handoff);
+    if (opened.handoff) startupNavigationHint = opened.handoff;
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
@@ -9791,7 +10146,7 @@ export async function submitViaPortal(ctx) {
     const formMatch = async () => {
       const pageUrl = page.url();
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
-      const result = formPostingMatch(seen, ctx.job, {
+      const result = formPostingMatch(seen, portalJob, {
         postingMatched: enteredFromMatchingPosting || (postingVacancyMatched && page.url() !== postingUrl),
         postingEntry: enteredFromMatchingPosting,
         applicationEntry: postingVacancyMatched && enteredThroughApplicationEntry,
@@ -9801,7 +10156,7 @@ export async function submitViaPortal(ctx) {
         applyUrl: ctx.applyUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') {
+      if (result === 'match' && postingMatch(seen, portalJob, pageUrl) === 'mismatch') {
         evidence.postingMatchVia = successFactorsRequisitionShown(seen, ctx.job, { pageUrl, applyUrl: ctx.applyUrl }) ? 'successfactors_requisition'
           : namedByItsData ? 'posting_data' : 'posting_page';
       }
@@ -9869,19 +10224,30 @@ export async function submitViaPortal(ctx) {
     // the selected vacancy: keep it as a posting mismatch until the owner can
     // inspect the page, rather than presenting a loading shell as a candidate
     // question.
-    if (!hasApplicationSurface(snapshot, {
+    const noApplicationSurface = !hasApplicationSurface(snapshot, {
       pageUrl: page.url(),
       postingUrl,
       postingMatch: match,
-    }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    });
+    const accountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(initialOtpAccount);
+    const sameSelectedPostingShell = Boolean(ctx.postingUrl)
+      && samePostingAddress(page.url(), ctx.postingUrl)
+      && !hasApplicationForm(snapshot)
+      && snapshot.buttons.length > 0
+      && snapshot.buttons.every((button) => button.chrome === true)
+      && !(snapshot.links || []).some((link) => !link.chrome);
+    if ((noApplicationSurface || sameSelectedPostingShell) && !accountSurface && !ctx.skipPostingCheck) {
+      startupNavigationHint ||= ctx.postingUrl && samePostingAddress(page.url(), ctx.postingUrl)
+        ? 'posting_mismatch' : 'application_stage_unknown';
+    }
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = match === 'mismatch'
+    let postingCheckPending = Boolean(startupNavigationHint) || match === 'mismatch'
       && (snapshot.passwordVisible || initialOtpAccount)
       && !ownAccountForm(snapshot, channelType)
       && !ctx.skipPostingCheck;
-    if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) startupNavigationHint ||= 'posting_mismatch';
     let validationRetries = 0;
     let reviewAdvances = 0;
     let stuckOnPage = 0;
@@ -10031,15 +10397,50 @@ export async function submitViaPortal(ctx) {
     };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
+    const agentDeadline = Date.now() + AGENT_MAX_RUNTIME_MS;
+    const autonomousNavigation = agentNavigationEnabled();
+    let finalPostingRecoveryUsed = false;
     const agentTried = new Set();
     const runAgent = async (current, hint, { secrets = [], reservedButtons = [] } = {}) => {
       const key = `${pageSignature(page, current)}|${hint}`;
-      if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
+      if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS || Date.now() >= agentDeadline) return null;
       agentTried.add(key);
       let agent;
       try {
+        const agentStartPage = page;
+        const agentStartUrl = page.url();
+        const canOpenApplicationEntry = async (targetPage, action) => {
+          if (!autonomousNavigation || !['click', 'goto'].includes(action.action)) return false;
+          const targetUrl = targetPage.url();
+          const targetSnapshot = targetPage === agentStartPage && targetUrl === agentStartUrl
+            ? current
+            : await extractFields(targetPage, NAVIGATION).catch(() => current);
+          const targetText = `${await targetPage.title().catch(() => '')}\n${await pageText(targetPage).catch(() => '')}\n${targetUrl}`;
+          const targetPostingMatch = postingMatch(targetText, ctx.job, targetUrl);
+          const targetMatchesPosting = targetPostingMatch === 'match'
+            || (targetPostingMatch === 'unknown' && samePostingAddress(targetUrl, postingUrl))
+            || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(targetUrl), workdayJobRoute(ctx.applyUrl)))
+            || successFactorsRequisitionShown(targetText, ctx.job, { pageUrl: targetUrl, applyUrl: ctx.applyUrl });
+          const targetStage = applicationStage({ ...targetSnapshot, text: targetText }, {
+            applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: targetUrl,
+          });
+          const targetHasApplicationFields = (targetSnapshot.fields || []).some(field => !field.disabled
+            && !['hidden', 'submit', 'button'].includes(String(field.inputType || '').toLowerCase())
+            && field.chrome !== true
+            && isApplicationOwnedPortalField(field));
+          const targetEntryBound = samePostingAddress(targetUrl, postingUrl)
+            && applicationEntryControls(targetSnapshot, {
+              applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingRouteProof: ctx.postingRouteProof,
+              job: ctx.job, allowSingleExternalApplicationEntry: postingVacancyMatched,
+            }).length === 1;
+          return (targetMatchesPosting || targetEntryBound)
+            && !targetHasApplicationFields
+            && !targetStage.prefinal
+            && (targetEntryBound || !['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(targetStage.kind));
+        };
         agent = await completeWithAgent({
           page,
+          context,
           hint,
           fields: current.fields || [],
           errors: current.errors || [],
@@ -10049,15 +10450,37 @@ export async function submitViaPortal(ctx) {
           files: ctx.files,
           secrets: [...ownPasswords.values(), ...secrets],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+          maxRuntimeMs: Math.max(1, agentDeadline - Date.now()),
+          navigationEnabled: autonomousNavigation,
+          allowApplicationEntry: canOpenApplicationEntry,
+          posting: {
+            title: String(ctx.job?.title || ''),
+            company: String(ctx.job?.company || ctx.job?.organization || ''),
+            requirementId: String(ctx.job?.requirementId || ctx.job?.reqId || ctx.job?.jobId
+              || workdayJobRoute(ctx.applyUrl)?.requisitionSlug || portalJobKey(ctx.applyUrl, sourceProtocol) || ''),
+            postingUrl: ctx.postingUrl || '',
+            applyUrl: ctx.applyUrl || '',
+            diversionHint: applicationDiversionHint({ ...current, text: await pageText(page) }),
+          },
           reservedButtons,
           log,
         });
       } catch (error) {
         // The fallback is optional: whatever it throws ends in the usual handoff, never a failed run.
-        agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, calls: 1, evidence: { hint, rounds: [] } };
+        agent = { status: 'PARKED', reason: `PARKED: agent_error (${String(error?.message || error).split('\n')[0].slice(0, 100)})`, calls: 1, evidence: { hint, rounds: [] } };
       }
+      const previousPage = page;
+      page = agent.page || page;
       agentCalls += agent.calls;
-      (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
+    (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, calls: agent.calls || 0, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
+      agent.navigationOccurred = page !== previousPage;
+      if (agent.enteredApplicationEntry) enteredThroughApplicationEntry = true;
+      const currentPostingText = `${await page.title().catch(() => '')}\n${await pageText(page).catch(() => '')}\n${page.url()}`;
+      if (postingMatch(currentPostingText, ctx.job, page.url()) === 'match'
+        || sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl))
+        || successFactorsRequisitionShown(currentPostingText, ctx.job, { pageUrl: page.url(), applyUrl: ctx.applyUrl })) {
+        postingVacancyMatched = true;
+      }
       for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context, item.section, item.autocomplete, item);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
@@ -10102,7 +10525,7 @@ export async function submitViaPortal(ctx) {
         if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
         if (engine.ids.length) {
           const facts = ctx.candidate.platformFacts;
-          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          Object.assign(facts, platformFactsAfterLiveDecisions(facts, fresh, engine.decided));
           log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
           return { replan: true };
         }
@@ -10152,14 +10575,14 @@ export async function submitViaPortal(ctx) {
         reservedButtons: AUTH_AGENT_RESERVED_BUTTONS,
       });
       if (!agent) return { status: 'unavailable' };
-      if (agent.status === 'needs_candidate') {
+      if (agent.status === 'NEEDS_CANDIDATE') {
         const request = await askCandidate(agent.questions, current);
         return request ? { status: agent.status, request } : { status: agent.status };
       }
       const acted = (agent.evidence?.rounds || []).some((round) => (round.actions || []).some((action) => action.ok));
-      if (agent.status === 'unavailable' || (agent.status !== 'done' && !acted)) return { status: agent.status };
+      if (agent.status === 'PARKED' || (agent.status !== 'REACHED_FORM' && agent.status !== 'ACCOUNT_STEP' && !acted)) return { status: agent.status };
       // The agent may not leave the page: whatever it pressed that moved it is not retried here.
-      if (agent.moved || page.url() !== startUrl) return { status: 'moved' };
+      if (agent.navigationOccurred || page.url() !== startUrl) return { status: 'moved' };
       const stable = await waitForStableQuestionSurface(page, current, startUrl, { registration: true });
       if (stable.status !== 'stable' || !stable.snapshot.passwordVisible || authPageKind(stable.snapshot) !== authPageKind(current)) {
         return { status: agent.status };
@@ -10168,22 +10591,100 @@ export async function submitViaPortal(ctx) {
       return { status: agent.status, auth };
     };
 
+    const runNavigationRecovery = async (current, hint, existingAgent = null) => {
+      const sourcePage = page;
+      const sourceUrl = page.url();
+      const agent = existingAgent || await runAgent(current, hint);
+      const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      const receipt = await confirmedReceipt(currentSnapshot);
+      if (receipt) return { result: receipt };
+      if (currentSnapshot.captcha) return { result: await handoff('captcha') };
+      if (!agent) return { result: await handoff(hint) };
+      if (agent.status === 'NEEDS_CANDIDATE') {
+        if (hint === 'posting_unbound') return { result: await handoff('posting_unbound') };
+        const request = await askCandidate(agent.questions, currentSnapshot);
+        return { result: request || await handoff('portal_needs_candidate') };
+      }
+      if (agent.status === 'ACCOUNT_STEP') {
+        const authSnapshot = currentSnapshot;
+        const otpAccount = authSnapshot ? await pendingOtpAccount(authSnapshot) : null;
+        if (!authSnapshot || (authPageKind(authSnapshot) === 'none' && !otpAccount)) return { result: await handoff('account') };
+        if (!ctx.accounts) {
+          const stage = otpAccount ? 'verification' : authPageKind(authSnapshot);
+          return { result: await handoff('account', { accountFailure: accountFailure('unknown', stage) }) };
+        }
+        if (++authSteps > MAX_AUTH_STEPS) {
+          return { result: await handoff(otpAccount ? 'account_verification' : 'account', {
+            accountFailure: accountFailure('auth_steps_exhausted', otpAccount ? 'verification' : authPageKind(authSnapshot)),
+          }) };
+        }
+        const auth = otpAccount
+          ? await verifyAccount({
+            page, host: otpAccount.host, sinceMs: otpAccount.account.createdAt || 0, ctx, snapshot: authSnapshot,
+          })
+          : await handleAuth({ page, snapshot: authSnapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
+        evidence.steps.at(-1).auth = { kind: otpAccount ? 'otp_verification' : authPageKind(authSnapshot), outcome: auth.handoff || 'ok' };
+        if (auth.handoff) return { result: await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes }) };
+        snapshot = auth.snapshot;
+        if (page !== sourcePage || page.url() !== sourceUrl) pageEpoch += 1;
+        return { status: 'ACCOUNT_STEP', snapshot, moved: true };
+      }
+      if (agent.status === 'PARKED') {
+        evidence.steps.at(-1).agentParked = String(agent.reason || 'PARKED: unable_to_continue').slice(0, 160);
+        return { result: await handoff(hint) };
+      }
+      const moved = page !== sourcePage || page.url() !== sourceUrl;
+      if (moved) pageEpoch += 1;
+      snapshot = currentSnapshot;
+      return { status: agent.status, snapshot, moved, ...(agent.status === 'READY_TO_SUBMIT' ? { submitRef: agent.submitRef } : {}) };
+    };
+
     let loopAttemptStarted = false;
+    let maxStepAgentRecoveryUsed = false;
+    let retainedAgentSubmitRef = '';
     for (let step = 1; step <= maxSteps; step += 1) {
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
+      if (snapshot.url && snapshot.url !== page.url()) {
+        snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+        pageEpoch += 1;
+      }
       const existingReceipt = await confirmedReceipt(snapshot);
       if (existingReceipt) return existingReceipt;
-      const currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
+      let currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
         applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
         workdayApplicationEntryProven, job: ctx.job, url: page.url(),
       });
-      if (currentStage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
       const observedReceipt = await confirmedReceipt(snapshot);
       if (observedReceipt) return observedReceipt;
+      let agentSubmitRefForPage = '';
+      agentSubmitRefForPage = retainedAgentSubmitRef;
+      const currentText = await pageText(page);
+      const diversionHint = applicationDiversionHint({ ...snapshot, text: currentText });
+      const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
+      const needsAutonomousNavigation = !currentAccountSurface && (Boolean(startupNavigationHint)
+        || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
+        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck));
+      if (needsAutonomousNavigation) {
+        const navigationHint = startupNavigationHint || (diversionHint ? 'application_stage_unknown'
+          : currentStage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+        startupNavigationHint = '';
+        if (!autonomousNavigation) return await handoff(navigationHint === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+        const recovery = await runNavigationRecovery(snapshot, navigationHint);
+        if (recovery.result) return recovery.result;
+        snapshot = recovery.snapshot;
+        if (recovery.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = recovery.submitRef;
+        if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) {
+          step -= 1;
+          continue;
+        }
+        currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
+          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+        });
+      }
       // The portal's own «refresh the page and try again»: loaded again, as it asks.
       const again = await refreshed(snapshot);
       if (again) {
@@ -10235,7 +10736,14 @@ export async function submitViaPortal(ctx) {
             postingVacancyMatched = true;
           }
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
-          if (reopened.handoff) return await handoff(reopened.handoff);
+          if (reopened.handoff) {
+            if (reopened.handoff !== 'posting_mismatch' || !autonomousNavigation) return await handoff(reopened.handoff);
+            const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            if (recovery.status === 'READY_TO_SUBMIT') retainedAgentSubmitRef = recovery.submitRef;
+            if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) { step -= 1; continue; }
+          }
           snapshot = await extractFields(page);
         }
         step -= 1;
@@ -10247,13 +10755,27 @@ export async function submitViaPortal(ctx) {
           applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
           workdayApplicationEntryProven, job: ctx.job, url: page.url(),
         });
-        if (stage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+        if (stage.kind === 'posting_mismatch') {
+          if (!autonomousNavigation) return await handoff('posting_mismatch');
+          const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          if (recovery.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = recovery.submitRef;
+          if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) return { navigationRecovered: true };
+        }
         const opened = await openFormSections(page, snapshot, {
           files: ctx.files, done: openedOnce, tries: openTries, channelType, applyUrl: ctx.applyUrl,
           workdayApplicationEntryProven,
         });
         snapshot = opened.snapshot;
-        if (opened.handoff) return await handoff(opened.handoff);
+        if (opened.handoff) {
+          if (opened.handoff !== 'posting_mismatch' || !autonomousNavigation) return await handoff(opened.handoff);
+          const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          if (recovery.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = recovery.submitRef;
+          if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) return { navigationRecovered: true };
+        }
         if (opened.cvUploadDiagnostics?.length) evidence.steps.at(-1).cvUploadDiagnostics = opened.cvUploadDiagnostics;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
@@ -10291,9 +10813,17 @@ export async function submitViaPortal(ctx) {
         if (postingCheckPending) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
-          if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
+          if (evidence.postingMatch === 'mismatch') {
+            if (!autonomousNavigation) return await handoff('posting_mismatch');
+            const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            if (recovery.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = recovery.submitRef;
+            if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) { step -= 1; continue; }
+          }
         }
         const sectionsResult = await openSections();
+        if (sectionsResult?.navigationRecovered) { step -= 1; continue; }
         if (sectionsResult) return sectionsResult;
       }
       // The form asks for its account's password itself (umantis): no login
@@ -10425,12 +10955,33 @@ export async function submitViaPortal(ctx) {
         step -= 1; // a login page is not a form page
         continue;
       }
+      // Exhaustion is a navigation recovery, after the normal account and OTP
+      // paths have had the opportunity to handle their own credentials.
+      if (step === maxSteps && autonomousNavigation && !maxStepAgentRecoveryUsed
+        && !snapshot.passwordVisible && authPageKind(snapshot) === 'none') {
+        maxStepAgentRecoveryUsed = true;
+        const recovery = await runNavigationRecovery(snapshot, 'application_stage_unknown');
+        if (recovery.result) return recovery.result;
+        snapshot = recovery.snapshot;
+        if (recovery.status === 'READY_TO_SUBMIT') retainedAgentSubmitRef = recovery.submitRef;
+        maxSteps += AGENT_ROUNDS;
+        step -= 1;
+        continue;
+      }
       if (postingCheckPending) {
         postingCheckPending = false;
         evidence.postingMatch = await formMatch();
-        if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
+        if (evidence.postingMatch === 'mismatch') {
+          if (!autonomousNavigation) return await handoff('posting_mismatch');
+          const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          if (recovery.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = recovery.submitRef;
+          if (recovery.status === 'ACCOUNT_STEP' || recovery.moved) { step -= 1; continue; }
+        }
       }
       const sectionsResult = await openSections();
+      if (sectionsResult?.navigationRecovered) { step -= 1; continue; }
       if (sectionsResult) return sectionsResult;
       const profile = await fillProfileSections(page, snapshot, {
         candidate: ctx.candidate,
@@ -10450,16 +11001,33 @@ export async function submitViaPortal(ctx) {
       const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
         || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
       if (!workable(snapshot)) snapshot = await awaitFields(page, snapshot);
+      const recognizedPostingEntry = hasApplicationEntryControl(snapshot, {
+        applyUrl: ctx.applyUrl,
+        postingUrl: ctx.postingUrl || postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        job: ctx.job,
+        allowSingleExternalApplicationEntry: postingVacancyMatched,
+      });
+      const unclickedRecognizedPostingEntry = recognizedPostingEntry
+        && !(enteredThroughApplicationEntry && isSuccessFactorsCustomPostingRoute(snapshot, {
+          applyUrl: ctx.applyUrl,
+          postingUrl: ctx.postingUrl || postingUrl,
+          postingRouteProof: ctx.postingRouteProof,
+          job: ctx.job,
+        }));
       // Site navigation alone is not an unreadable candidate question. Keep
       // custom application widgets eligible for recovery, but do not ask the
       // agent to fill a shell after its bounded field wait has expired.
       if (!snapshot.fields.length && snapshot.buttons.length > 0
         && snapshot.buttons.every((button) => button.chrome === true)
-        && !(snapshot.links || []).some((link) => !link.chrome)) {
-        return await handoff('application_stage_unknown');
+        && !(snapshot.links || []).some((link) => !link.chrome)
+        && !unclickedRecognizedPostingEntry) {
+        if (!autonomousNavigation) return await handoff('application_stage_unknown');
+        startupNavigationHint = 'application_stage_unknown';
       }
       // Nothing the filler can read (a page of custom widgets): straight to the agent.
-      let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
+      let agentHint = startupNavigationHint || (workable(snapshot) ? 'next_disabled' : 'no_form_controls');
+      startupNavigationHint = '';
 
       // A file an earlier run left on the page under the name of one of this run's (the run that stopped for
       // a question, a dry run) is taken away before the page is planned: the page asks for the file again and
@@ -10522,6 +11090,7 @@ export async function submitViaPortal(ctx) {
           // A slot that takes its file through a dialog (SuccessFactors) is filled before the page is planned:
           // the emptied slot gets this run's file now. A file field is left to the planner, as before.
           const sectionsAgain = await openSections();
+          if (sectionsAgain?.navigationRecovered) { snapshot = await extractFields(page, NAVIGATION); step -= 1; continue; }
           if (sectionsAgain) return sectionsAgain;
           const sentAfter = new Set(evidence.uploads.map((upload) => upload.document));
           for (const document of replaced) {
@@ -10635,7 +11204,14 @@ export async function submitViaPortal(ctx) {
         };
         const selectedUploads = new Map();
         const appliedChoices = await applyBoundActions(choices);
-        if (appliedChoices.handoff) return await handoff(appliedChoices.handoff);
+        if (appliedChoices.handoff) {
+          if (!autonomousNavigation) return await handoff(appliedChoices.handoff);
+          const recovery = await runNavigationRecovery(snapshot, appliedChoices.handoff);
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
           ...appliedChoices.results,
@@ -10663,7 +11239,14 @@ export async function submitViaPortal(ctx) {
               }
             },
           });
-          if (appliedRemaining.handoff) return await handoff(appliedRemaining.handoff);
+          if (appliedRemaining.handoff) {
+            if (!autonomousNavigation) return await handoff(appliedRemaining.handoff);
+            const recovery = await runNavigationRecovery(snapshot, appliedRemaining.handoff);
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            step -= 1;
+            continue;
+          }
           results.push(...appliedRemaining.results);
         }
         if (!redrawn) {
@@ -10814,8 +11397,14 @@ export async function submitViaPortal(ctx) {
       let { submit, next, stage } = await controlsFor(after, known);
       const receiptResult = await confirmedReceipt(after);
       if (receiptResult) return receiptResult;
-      if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
-      if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+      if (stage?.kind === 'posting_mismatch') {
+        if (!autonomousNavigation) return await handoff('posting_mismatch');
+        agentHint = 'posting_mismatch';
+      }
+      if (stage?.kind === 'unknown_apply') {
+        if (!autonomousNavigation) return await handoff('application_stage_unknown');
+        agentHint = 'application_stage_unknown';
+      }
       // A later SPA step can land on public site content that still exposes a
       // generic optional upload and gallery controls. The entry-point guard
       // above does not run again, so stop before the no-controls agent fallback
@@ -10824,29 +11413,43 @@ export async function submitViaPortal(ctx) {
         pageUrl: page.url(),
         postingUrl,
         postingMatch: evidence.postingMatch,
-      })) return await handoff('posting_mismatch');
+      })) {
+        if (!autonomousNavigation) return await handoff('posting_mismatch');
+        agentHint = 'posting_mismatch';
+      }
       let advance = null;
-      let finalByAgent = null;
+      let finalByAgent = agentSubmitRefForPage ? await submitLocator(page, agentSubmitRefForPage) : null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
       // calendar of "Quando sei nato?"), or left fields it could not name:
       // the agent completes the page, then the runner moves on as before.
-      if ((!submit && !next) || agentHint === 'unclear_fields') {
+      if (((!submit && !next) && !finalByAgent) || agentHint === 'unclear_fields' || agentHint === 'posting_mismatch' || agentHint === 'application_stage_unknown') {
         const agentUrl = page.url();
         const agent = await runAgent(after, agentHint);
-        if (agent?.status === 'needs_candidate') {
+        if (agent?.status === 'NEEDS_CANDIDATE') {
           const request = await askCandidate(agent.questions, after);
           if (request) return request;
         }
+        if (agent?.status === 'ACCOUNT_STEP') {
+          const recovery = await runNavigationRecovery(after, agentHint || 'application_stage_unknown', agent);
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
+        if (['posting_mismatch', 'application_stage_unknown'].includes(agentHint)
+          && (!agent || agent.status === 'PARKED')) {
+          return await handoff(agentHint);
+        }
         // Required fields left unanswered: the owner looks when the agent could
         // not answer them; without the agent, the planner's questions as before.
-        if (unclearQuestions.length && agent?.status !== 'done') {
-          if (!agent || agent.status === 'unavailable') {
+        if (unclearQuestions.length && agent?.status !== 'REACHED_FORM' && agent?.status !== 'READY_TO_SUBMIT') {
+          if (!agent || agent.status === 'PARKED') {
             const request = await askCandidate(unclearQuestions, after);
             if (request) return request;
           } else return await handoff('portal_needs_candidate');
         }
-        if (agent?.status === 'done') {
-          if (agent.moved || page.url() !== agentUrl) {
+        if (agent?.status === 'REACHED_FORM' || agent?.status === 'READY_TO_SUBMIT') {
+          if (agent.navigationOccurred || page.url() !== agentUrl) {
             pageEpoch += 1;
             snapshot = await awaitFields(page, await extractFields(page));
             continue;
@@ -10859,16 +11462,24 @@ export async function submitViaPortal(ctx) {
           ({ submit, next, stage } = await controlsFor(after, known));
           const receiptResult = await confirmedReceipt(after);
           if (receiptResult) return receiptResult;
-          if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
-          if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+          if ((stage?.kind === 'posting_mismatch' || stage?.kind === 'unknown_apply') && !autonomousNavigation) {
+            return await handoff(stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+          }
+          if (stage?.kind === 'posting_mismatch' || stage?.kind === 'unknown_apply') {
+            const recovery = await runNavigationRecovery(after, stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            step -= 1;
+            continue;
+          }
           // A step button with an unusual name ("Salva e prosegui"), never one that may send.
           if (!submit && !next && agent.advanceRef) advance = await advanceLocator(page, agent.advanceRef);
           // The last page's send button with an unusual name («Conferma e applica», level 1):
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
-          if (!submit && !next && !advance && agent.submitRef) {
+          if (!submit && !next && !advance && (agent.submitRef || agentSubmitRefForPage)) {
             if (!await requiredLeftEmpty(page, uploaded, (field, fields, url) => uploadKeyForField(field.id, fields, url, pageEpoch))) {
-              finalByAgent = await submitLocator(page, agent.submitRef);
+              finalByAgent = await submitLocator(page, agent.submitRef || agentSubmitRefForPage);
             }
           }
         }
@@ -10891,8 +11502,14 @@ export async function submitViaPortal(ctx) {
           ({ submit, next, stage } = await controlsFor(after, known));
           const receiptResult = await confirmedReceipt(after);
           if (receiptResult) return receiptResult;
-          if (stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
-          if (stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+          if (stage?.kind === 'posting_mismatch' || stage?.kind === 'unknown_apply') {
+            if (!autonomousNavigation) return await handoff(stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+            const recovery = await runNavigationRecovery(after, stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            step -= 1;
+            continue;
+          }
           advance = null;
           finalByAgent = null;
           if (!submit && !next) {
@@ -10935,12 +11552,27 @@ export async function submitViaPortal(ctx) {
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage >= 2) {
           const agent = await runAgent(snapshot, 'refused');
-          if (agent?.status === 'needs_candidate') {
+          if (agent?.status === 'NEEDS_CANDIDATE') {
             const request = await askCandidate(agent.questions, snapshot);
             if (request) return request;
           }
-          if (agent?.status === 'done') snapshot = await extractFields(page);
-          else if ((agent && agent.status !== 'unavailable') || stuckOnPage > 2) return await handoff('portal_needs_candidate');
+          if (agent?.status === 'ACCOUNT_STEP') {
+            const recovery = await runNavigationRecovery(snapshot, 'application_stage_unknown', agent);
+            if (recovery.result) return recovery.result;
+            snapshot = recovery.snapshot;
+            step -= 1;
+            continue;
+          }
+          if (agent?.status === 'REACHED_FORM' || agent?.status === 'READY_TO_SUBMIT') {
+            if (agent.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = agent.submitRef;
+            if (agent.navigationOccurred) {
+              pageEpoch += 1;
+              snapshot = await awaitFields(page, await extractFields(page));
+              step -= 1;
+              continue;
+            }
+            snapshot = await extractFields(page);
+          } else if (agent?.status === 'PARKED' || !agent) return await handoff('application_stage_unknown');
         }
         continue;
       }
@@ -10982,6 +11614,49 @@ export async function submitViaPortal(ctx) {
       }
       const duplicateBeforeFinal = await holdRecoveredDuplicateApplication(after);
       if (duplicateBeforeFinal) return duplicateBeforeFinal;
+      const finalText = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
+      const finalStage = applicationStage({ ...after, text: finalText }, {
+        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+      });
+      const finalMatch = await formMatch();
+      const expectedJobKey = portalJobKey(ctx.applyUrl, sourceProtocol);
+      const currentJobKey = portalJobKey(page.url(), sourceProtocol);
+      const workdayBound = !isWorkdayTenantUrl(ctx.applyUrl) || isWorkdayJobRouteBound(page.url(), ctx.applyUrl);
+      const successFactorsBound = ctx.postingRouteProof?.via === 'successfactors'
+        && successFactorsRequisitionShown(finalText, ctx.job, { pageUrl: page.url(), applyUrl: ctx.applyUrl });
+      const jobKeyConflict = Boolean(expectedJobKey && currentJobKey && expectedJobKey !== currentJobKey);
+      const hasPostingBinding = finalMatch === 'match'
+        || Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey)
+        || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl)))
+        || successFactorsBound;
+      const finalDiversionHint = hasPostingBinding ? '' : applicationDiversionHint({
+        title: await page.title().catch(() => ''),
+        text: finalText,
+      });
+      const finalBindingValid = workdayBound && !jobKeyConflict && finalStage.kind !== 'posting_mismatch'
+        && !finalDiversionHint && hasPostingBinding;
+      if (!finalBindingValid) {
+        evidence.steps.at(-1).finalPostingBinding = {
+          status: 'unbound', formMatch: finalMatch, stage: finalStage.kind,
+          ...(finalDiversionHint ? { diversion: finalDiversionHint } : {}),
+          workdayBound, jobKeyMatch: Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey),
+          successFactorsBound,
+        };
+        if (!finalPostingRecoveryUsed && autonomousNavigation) {
+          finalPostingRecoveryUsed = true;
+          const recovery = await runNavigationRecovery(after, 'posting_unbound');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
+        return await handoff('posting_unbound');
+      }
+      evidence.steps.at(-1).finalPostingBinding = {
+        status: 'bound', formMatch: finalMatch, stage: finalStage.kind,
+        workdayBound, jobKeyMatch: Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey),
+        successFactorsBound,
+      };
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
@@ -10989,12 +11664,20 @@ export async function submitViaPortal(ctx) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
-        if (repair?.status === 'needs_candidate') {
+        if (repair?.status === 'READY_TO_SUBMIT') agentSubmitRefForPage = repair.submitRef;
+        if (repair?.status === 'NEEDS_CANDIDATE') {
           const request = await askCandidate(repair.questions, after);
           if (request) return request;
         }
-        if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
-        if (repair.moved || page.url() !== repairUrl) {
+        if (repair?.status === 'ACCOUNT_STEP') {
+          const recovery = await runNavigationRecovery(after, 'required_fields_unfilled', repair);
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
+        if (!['REACHED_FORM', 'READY_TO_SUBMIT'].includes(repair?.status)) return await handoff('portal_required_fields_unfilled');
+        if (repair.navigationOccurred || page.url() !== repairUrl) {
           pageEpoch += 1;
           snapshot = await awaitFields(page, await extractFields(page));
           step -= 1;
@@ -11007,8 +11690,14 @@ export async function submitViaPortal(ctx) {
         const repairedControls = await controlsFor(after, known);
         const receiptResult = await confirmedReceipt(after);
         if (receiptResult) return receiptResult;
-        if (repairedControls.stage?.kind === 'posting_mismatch') return await handoff('posting_mismatch');
-        if (repairedControls.stage?.kind === 'unknown_apply') return await handoff('application_stage_unknown');
+        if (repairedControls.stage?.kind === 'posting_mismatch' || repairedControls.stage?.kind === 'unknown_apply') {
+          if (!autonomousNavigation) return await handoff(repairedControls.stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+          const recovery = await runNavigationRecovery(after, repairedControls.stage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
         if (repairedControls.next && !repairedControls.submit) {
           snapshot = after;
           step -= 1;
@@ -11016,8 +11705,8 @@ export async function submitViaPortal(ctx) {
         }
         if (repairedControls.submit) {
           final = runnerFinalTarget(repairedControls.submit);
-        } else if (repair.submitRef) {
-          const repairedSubmit = await submitLocator(page, repair.submitRef);
+        } else if (repair.submitRef || repair.status === 'READY_TO_SUBMIT') {
+          const repairedSubmit = await submitLocator(page, repair.submitRef || agentSubmitRefForPage);
           if (!repairedSubmit) return await handoff('portal_required_fields_unfilled');
           final = agentFinalTarget(repairedSubmit);
         } else {
@@ -11103,7 +11792,15 @@ export async function submitViaPortal(ctx) {
         // application still waits for its own final button. Release the
         // claim as not sent, then let the loop bind and guard that button.
         if (ctx.onConfirmedNotSent) await ctx.onConfirmedNotSent({ reason: 'portal_review_pending' });
-        if (reviewAdvances >= 1) return await handoff('application_stage_unknown');
+        if (reviewAdvances >= 1) {
+          if (!autonomousNavigation) return await handoff('application_stage_unknown');
+          snapshot = await extractFields(page);
+          const recovery = await runNavigationRecovery(snapshot, 'application_stage_unknown');
+          if (recovery.result) return recovery.result;
+          snapshot = recovery.snapshot;
+          step -= 1;
+          continue;
+        }
         reviewAdvances += 1;
         snapshot = await extractFields(page);
         continue;

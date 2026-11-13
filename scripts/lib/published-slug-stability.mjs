@@ -46,8 +46,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
-import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardSections.mjs';
-import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardCompanyHubPath.mjs';
+import {
+  createJobBoardDetailPathMatcher,
+  parseJobBoardDetailPath,
+} from './job-board-detail-path-core.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
@@ -57,6 +60,18 @@ import {
 const DEFAULT_LEDGER_PATH = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data', 'url-first-seen.json',
 );
+const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
+let jobBoardDetailPathMatcher;
+
+function getJobBoardDetailPathMatcher() {
+  if (!jobBoardDetailPathMatcher) {
+    jobBoardDetailPathMatcher = createJobBoardDetailPathMatcher({
+      cantonSlugFile: readJsonFile(path.join(DATA_DIR, 'canton-url-slugs.json')),
+      municipalitiesFile: readJsonFile(path.join(DATA_DIR, 'canton-municipalities.json')),
+    });
+  }
+  return jobBoardDetailPathMatcher;
+}
 
 /**
  * An agency job held for translation is not published, and translate-pending
@@ -81,16 +96,17 @@ function pathLocale(urlPath) {
  * `locale|slug` of a canonical job DETAIL route (`/[en|de|fr/]<job-board
  * section>/<slug>/`), null for anything else. The ledger records every
  * sitemap URL — articles, hubs, tools — so a non-job route such as
- * `/it/article/foo/` must never mark a job slug `foo` as served. The section
- * test is the shared job-board recogniser (scripts/lib/jobBoardSections.mjs,
- * every canton section including the legacy Ticino ones).
+ * `/it/article/foo/` must never mark a job slug `foo` as served. The
+ * data-driven matcher accepts only job details and the small company-hub
+ * matcher removes company pages from that set.
  *
  * @param {string} urlPath
  * @returns {string | null}
  */
 export function servedJobDetailKey(urlPath) {
   const clean = String(urlPath || '').trim().toLowerCase();
-  if (!isJobBoardDetailPath(clean) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(clean)) return null;
+  if (!parseJobBoardDetailPath(clean) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(clean)) return null;
+  if (!getJobBoardDetailPathMatcher()(clean)) return null;
   const segments = clean.split('/').filter(Boolean);
   const rest = /^(?:it|en|de|fr)$/.test(segments[0] || '') ? segments.slice(1) : segments;
   return `${pathLocale(clean)}|${rest.at(-1)}`;

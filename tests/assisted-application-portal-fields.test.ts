@@ -2117,6 +2117,15 @@ describe('portal field extraction', () => {
     expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
   });
 
+  it('marks an optional newsletter field in site chrome as non-application', () => {
+    const page = extract(`
+      <footer><form id="newsletter-signup" aria-label="Newsletter">
+        <label for="newsletter-email">Email</label><input id="newsletter-email" type="email" name="email">
+      </form></footer>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ label: 'Email', inputType: 'email', chrome: true })]);
+  });
+
   it('keeps required application fields and submit controls nested in site chrome', () => {
     const page = extract(`
       <header>
@@ -2136,6 +2145,22 @@ describe('portal field extraction', () => {
     const applyButton = page.buttons.find((button: any) => button.text === 'Apply');
     expect(applyButton).toMatchObject({ text: 'Apply' });
     expect(applyButton).not.toHaveProperty('chrome');
+  });
+
+  it('marks a site newsletter field and submit control as chrome', () => {
+    const page = extract(`
+      <header>
+        <form id="newsletter-signup">
+          <label for="newsletter-email">Email</label>
+          <input id="newsletter-email" name="email" type="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </header>
+      <main><form><label for="first">First name*</label><input id="first" required></form></main>`);
+
+    expect(page.fields.find((field: any) => field.domId === 'newsletter-email')).toMatchObject({ chrome: true });
+    expect(page.buttons.find((button: any) => button.text === 'Subscribe')).toMatchObject({ chrome: true });
+    expect(page.fields.find((field: any) => field.domId === 'first')).not.toHaveProperty('chrome');
   });
 });
 
