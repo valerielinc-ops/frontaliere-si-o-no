@@ -525,7 +525,7 @@ describe('runner final guard across three application stages', () => {
   });
 
   it('resolves the explicit cookie choice before checking the Yellowshark posting identity', async () => {
-    const postingUrl = 'https://jobs.yellowshark.com/job/example/';
+    const postingUrl = 'https://jobs.yellowshark.com/job/example/?jobId=42';
     const cookieDialog = snapshot(postingUrl,
       'Dialog schliessen Alle akzeptieren Ablehnen Einstellungen anzeigen JETZT BEWERBEN',
       [
