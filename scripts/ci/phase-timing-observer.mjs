@@ -114,6 +114,8 @@ export function jobOgCacheChurnObserved({ phaseRows = [], stats = null, cacheMat
     status = 'durata non osservabile';
   } else if (population === 0) {
     status = 'popolazione cache vuota — miss-rate non definibile';
+  } else if (cacheRestore === 'miss' && parsedStats.rendered > 0 && parsedStats.cached === 0 && parsedStats.errors === 0) {
+    status = 'cache cold — warm-up atteso';
   } else if (cacheRestore === 'unknown') {
     status = 'contatori osservati; restore cache non osservabile';
   }

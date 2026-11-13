@@ -313,6 +313,7 @@ describe('phase-timing-observer', () => {
       status: 'cache cold — warm-up atteso',
     });
     expect(observation.regressions).toEqual([]);
+    expect(formatPhaseTimingSummary(observation)).toContain('cache cold — warm-up atteso');
   });
 
   it('keeps a matched-cache OG slowdown alertable', () => {
