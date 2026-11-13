@@ -181,14 +181,16 @@ export async function runSectionTreeLayoutPreflight({
       throw new Error(`[section-tree-layout] registry did not persist hash-v1 for ${section}; refusing all section pushes`);
     }
   }
-  await Promise.all(pendingProbes.map(async ({ section, locale }) => {
-    const slug = sectionSlugs[section]?.[locale];
-    if (typeof slug !== 'string' || slug.length === 0) {
-      throw new Error(`[section-tree-layout] cannot build Worker probe path for ${section}/${locale}`);
-    }
-    const sub = locale === 'it' ? slug : path.posix.join(locale, slug);
-    await probeWorker(section, sub);
-  }));
+  // Probe every section already committed to the durable registry that is
+  // present in this source, including the static fan-out sections and
+  // sections registered above, for every locale that this publish will push.
+  // A metrics source used to probe only newly registered sections here,
+  // leaving sticky sections to fail later in parallel shard jobs while the
+  // Worker rollout was still propagating.
+  const sectionsToProbe = registeredSections.filter((section) => sectionNames.includes(section));
+  await Promise.all(sectionsToProbe.flatMap((section) => pushLocales.map(async (locale) => {
+    await probeWorker(section, sectionSubPath(sectionSlugs, section, locale));
+  })));
   return { ready: true, decisions, sections: registeredSections, locales: pushLocales };
 }
 
