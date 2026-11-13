@@ -4702,6 +4702,7 @@ const OTHER_EMPLOYER_MARKER_WORDS = new Set([
   'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
   'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
 ]);
+const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|dati\s+personali|first\s+name|last\s+name|vorname|nachname|e-?mail(?:\s+address)?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
 
 function isGenericFormChromeSegment(segment) {
   const words = normalizeWords(segment).split(' ').filter(Boolean);
@@ -4724,11 +4725,14 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
+  let formSurfaceStarted = false;
   for (const line of lines) {
     if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
+    if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) formSurfaceStarted = true;
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
     if (titleWordsOnly(heading, candidates)) return 'match';
+    if (formSurfaceStarted) continue;
     const words = normalizeWords(heading).split(' ').filter(Boolean);
     if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
     return 'mismatch';
