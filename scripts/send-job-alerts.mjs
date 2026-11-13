@@ -52,6 +52,7 @@ import {
   mergeAlertSubscriberSignals,
   createAlertScorer,
   createJobFeatureCache,
+  createJobFeatureStore,
   partitionByGeoPreference,
   freshnessBoost,
   FRESHNESS_BOOST_48H_MS,
@@ -3770,14 +3771,13 @@ async function main() {
   let prefetchDrainMs = 0;
   let quotaExhausted = quotaCapacity <= 0;
   let planBatchNumber = 0;
+  let jobFeatureStore = createJobFeatureStore();
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
     planBatchNumber += 1;
     const batchPlans = [];
-    // Keep all feature and bitmap memoization scoped to this bounded batch.
-    // The inventory remains strongly reachable for the whole run, so sharing
-    // an underlying feature store across batches retains normalized features
-    // for every job until the sender exits and defeats the memory boundary.
-    const featureCache = createJobFeatureCache();
+    // Immutable job features are reused across batches; keyword and search
+    // bitmaps stay scoped to this batch so audience-dependent memory is bounded.
+    const featureCache = createJobFeatureCache(jobFeatureStore);
     const memoryAtStart = process.memoryUsage();
     let sampledPeakHeapBytes = memoryAtStart.heapUsed;
     let sampledPeakRssBytes = memoryAtStart.rss;
@@ -4054,6 +4054,7 @@ async function main() {
     batchPlans.length = 0;
     return !quotaExhausted && runStats.planned < quotaCapacity;
   });
+  jobFeatureStore = null;
   if (!DRY_RUN) await flushPendingSendBatch();
   if (quotaExhausted && alerts.length > runStats.planned) {
     console.log(`   ⏸️ Send budget exhausted after ${runStats.planned} email(s); remaining eligible alerts stay untouched for the next run`);
