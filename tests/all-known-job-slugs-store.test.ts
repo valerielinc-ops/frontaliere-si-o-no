@@ -299,6 +299,25 @@ describe('all-known-job-slugs store — read/write round trip', () => {
     });
   });
 
+  it('skips a truncated legacy part atomically before streaming a valid shard', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.dirname(knownSlugsLegacyFile(root)), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsLegacyFile(root),
+      '{"partial-entry":{"en":"/en/jobs/partial-entry"},"unfinished":',
+    );
+    fs.mkdirSync(path.dirname(knownSlugsShardFile(0, root)), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsShardFile(0, root),
+      JSON.stringify({ slugs: { 'valid-entry': { en: '/en/jobs/valid-entry' } } }),
+    );
+
+    const streamedEntries = [...iterateAllKnownJobSlugPartEntries(root)];
+    expect(streamedEntries).toEqual([
+      ['valid-entry', { en: '/en/jobs/valid-entry' }, 0],
+    ]);
+  });
+
   it('preserves non-locale metadata on an entry', () => {
     const root = mkTmp();
     const registry = {
