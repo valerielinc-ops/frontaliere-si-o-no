@@ -1459,7 +1459,7 @@ const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|
 const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
 const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
-const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
+const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
 const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
   String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
   String.raw`\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b.{0,160}\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b`,
@@ -1946,9 +1946,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && isSuccessFactorsPostingEntry(context)
     // Jobs2Web detail pages can expose the required alert-frequency input
-    // beside their sole script Apply button. It is public-page chrome only
-    // when the matching alert action is also present and no other field is.
+    // beside their sole script Apply button. The route shape alone is shared
+    // by arbitrary portals, so the verified Jobs2Web identity must also bind
+    // the apply route to this posting before the alert-only exception applies.
     && publicJobDetailFieldsAreOnlyAlert(snapshot)
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   // SuccessFactors Career Site Builder repeats one Apply dropdown above and
