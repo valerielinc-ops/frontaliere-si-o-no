@@ -4688,6 +4688,39 @@ function formRoleHeadingStatus(formText, job = {}) {
     .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
 }
 
+// Umantis titles append the application surface to the portal's own role
+// title. On a verified vacancy route the route id is the posting identity;
+// only a second employer named after that application marker is still a
+// conflict. This keeps a localized/short order title from turning the ATS's
+// complete source-language heading into an employer mismatch.
+const UMANTIS_APPLICATION_HEADING_SEGMENT_RE = /^(?:application|bewerbung(?:sformular)?|candidatura|candidature|postulation)(?:\s+tracking\s+system)?$/i;
+const UMANTIS_OTHER_EMPLOYER_WORD_RE = /\b(?:other|another|andere(?:r|s|n)?|fremd(?:e|er|es)|altro|altra|altri|altre|autre|autres)\b/i;
+const UMANTIS_APPLICATION_CHROME_RE = /^(?:e-?recruiting|recruiting|application tracking system)$/i;
+const UMANTIS_APPLICATION_ATS_TITLE_RE = /^e-?recruiting\s+(.+)$/i;
+
+function isUmantisApplicationChrome(segment, job = {}) {
+  if (UMANTIS_APPLICATION_CHROME_RE.test(segment)) return true;
+  const atsTitle = UMANTIS_APPLICATION_ATS_TITLE_RE.exec(segment);
+  return Boolean(atsTitle && nameWords(job.company).length && !namesAnotherEmployer(atsTitle[1], job));
+}
+
+function umantisApplicationHeadingConflict(heading, job = {}) {
+  const text = String(heading || '').replace(/\s+/g, ' ').trim();
+  if (!text || isStandaloneNextLabel(text)) return false;
+  const segments = text.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean);
+  const applicationIndex = segments.findIndex((segment) => UMANTIS_APPLICATION_HEADING_SEGMENT_RE.test(segment));
+  if (applicationIndex < 0) return namesAnotherEmployer(text, job);
+  // «Other Hotel - Bewerbung» is still an explicit mismatch even though the
+  // rest of the title is an application label.
+  if (UMANTIS_OTHER_EMPLOYER_WORD_RE.test(text)) return namesAnotherEmployer(text, job);
+  // A phrase after the application marker can name a different employer
+  // («Application | Esempio Resort»). Ignore only Umantis' own title chrome;
+  // an unrecognised phrase remains fail-closed.
+  return segments.slice(applicationIndex + 1)
+    .filter((segment) => !isUmantisApplicationChrome(segment, job))
+    .some((segment) => namesAnotherEmployer(segment, job));
+}
+
 function formUrlCarriesEmployerHost(formText, job = {}) {
   const employerWords = nameWords(job.company)
     .filter(word => word.length >= 3
@@ -4722,8 +4755,24 @@ export function formPostingMatch(formText, job = {}, {
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  const heading = String(formText || '').split(/\r?\n/, 1)[0];
+  const umantisPostingPair = isUmantisPostingEntry({
+    applyUrl: formApplicationUrl,
+    postingUrl,
+    postingRouteProof,
+  });
+  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
+    && umantisPostingPair;
+  const boundUmantisApplicationInText = postingMatched && postingEntry
+    && isUmantisApplicationRoute(formApplicationUrl) && umantisPostingPair;
+  const trustedUmantisApplication = boundUmantisApplication || boundUmantisApplicationInText;
+  const umantisHeadingConflict = trustedUmantisApplication
+    ? umantisApplicationHeadingConflict(heading, job)
+    : null;
   if (direct === 'match' && !talentSoftAlias
-    && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
+    && (trustedUmantisApplication
+      ? umantisHeadingConflict
+      : namesAnotherEmployer(formText, job, { allowPostingLocation: bound }))) return 'mismatch';
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
@@ -4734,18 +4783,16 @@ export function formPostingMatch(formText, job = {}, {
   // The verified same-origin vacancy id binds the form even when the heading is
   // generic; keep the other-employer guard on that heading, not on native field
   // labels that describe the application itself.
-  const heading = String(formText || '').split(/\r?\n/, 1)[0];
-  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
   if (boundUmantisApplication) {
-    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    if (umantisHeadingConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
   // form text. A verified posting entry still binds that route even when the
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
-    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
+    if (unpairedHeadingConflict) return 'mismatch';
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
