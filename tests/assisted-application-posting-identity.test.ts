@@ -222,7 +222,7 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
     })).toBe(false);
   });
 
-  it('accepts the generic online form reached from that page, and stops on a form for another employer', () => {
+  it('keeps a generic form unknown without role or requisition evidence, and stops on another employer', () => {
     const formText = [
       '',
       'Numero candidatura',
@@ -240,7 +240,8 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
     ].join('\n');
     expect(namesAnotherEmployer(formText, job)).toBe(false);
     const options = { postingMatched: true, applicationEntry: true, pageUrl: formHref, postingUrl: career };
-    expect(formPostingMatch(formText, job, options)).toBe('match');
+    // The posting and application entry were observed, but this form names no role or requisition; preserve unknown.
+    expect(formPostingMatch(formText, job, options)).toBe('unknown');
     // Generic and not reached from the bound page: a stop, as before.
     expect(formPostingMatch(formText, job, { pageUrl: formHref, postingUrl: career })).toBe('mismatch');
     // A form that names another employer next to the short form, or in its title, stops.

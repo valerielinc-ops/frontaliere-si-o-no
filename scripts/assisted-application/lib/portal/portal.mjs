@@ -4647,13 +4647,18 @@ export async function postingMainHeading(page) {
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
 function normalizeFormRoleTitle(value) {
+  const formLabel = String.raw`(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application(?:\s+(?:form|formular))?|candidatura|candidature|postulation)`;
   return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
     .replace(/\(?\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)?/giu, ' ')
     .replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
     .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
+    // A form label can prefix or suffix a role only across an explicit separator.
+    // Without one, "Application Manager" is the role itself, not module chrome.
+    .replace(new RegExp(`^${formLabel}\\b\\s*[-–—|:]\\s*`, 'iu'), ' ')
+    .replace(new RegExp(`\\s*[-–—|:]\\s*${formLabel}\\b[\\s\\S]*$`, 'iu'), ' ')
+    .replace(new RegExp(`^${formLabel}\\s*$`, 'iu'), ' ')
     .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
     .replace(/\s+/g, ' ').trim();
 }
@@ -4683,6 +4688,8 @@ const FORM_HEADING_VOCABULARY = new Set([
   'stellenspezifische', 'bewerbungsprofil', 'anzeigen', 'sprache', 'speichern', 'bewerben', 'avanti', 'weiter', 'suchen',
   'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
+  'i', 'l', 'di', 'campi', 'contrassegnati', 'sono', 'obbligatori', 'informazioni', 'informazione', 'sulla', 'compilazione',
+  'tipo', 'dati', 'personali', 'rapporto', 'lavoro', 'lettera', 'presentazione', 'curriculum', 'vitae', 'informativa', 'accetto',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));

@@ -923,9 +923,8 @@ async function compareMode(values) {
     importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
     importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
   ]);
-  const diagnosticModules = await Promise.all([...new Set([trustedRoot, headRoot])]
-    .map((root) => importFrom(root, 'scripts/assisted-application/lib/portal/diagnostics.mjs')));
-  await Promise.all(diagnosticModules.map(warmPortalDiagnosticsModule));
+  const trustedDiagnostics = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs');
+  await warmPortalDiagnosticsModule(trustedDiagnostics);
   const preflightByKey = new Map();
   for (const record of records) {
     let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
@@ -953,6 +952,9 @@ async function compareMode(values) {
       },
     });
   }
+  // The PR's portal module (and its diagnostics dependency) is imported only
+  // by runOnePortalReplayMeasured, after the Node fence is active. The trusted
+  // diagnostics warm-up above starts esbuild's shared service before fencing.
   try {
     for (const record of records) {
       const shared = {

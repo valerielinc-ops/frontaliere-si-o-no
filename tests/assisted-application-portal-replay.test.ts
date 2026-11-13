@@ -228,6 +228,24 @@ describe('portal replay read-only fence', () => {
     }
   });
 
+  it('warms trusted diagnostics before the Node fence and defers PR modules until after it', () => {
+    const source = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
+    const compareStart = source.indexOf('async function compareMode(');
+    const aggregateStart = source.indexOf('async function aggregateMode(', compareStart);
+    const compare = source.slice(compareStart, aggregateStart);
+    const trustedWarm = compare.indexOf('await warmPortalDiagnosticsModule(trustedDiagnostics)');
+    const fenceInstall = compare.indexOf('nodeEgressFence = fenceApi.installPortalReplayNodeEgressFence(');
+    const runnerStart = compare.indexOf('replayWithOneNeutralRetry({ ...shared, sourceRoot: headRoot, runtimeBrowser: sharedHeadReplayBrowser })');
+    const measuredStart = source.indexOf('async function runOnePortalReplayMeasured(');
+    const measured = source.slice(measuredStart, compareStart);
+
+    expect(trustedWarm).toBeGreaterThanOrEqual(0);
+    expect(fenceInstall).toBeGreaterThan(trustedWarm);
+    expect(runnerStart).toBeGreaterThan(fenceInstall);
+    expect(compare).not.toContain("importFrom(headRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs')");
+    expect(measured).toContain("importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs')");
+  });
+
   it('rejects a DNS answer set that contains a private address', async () => {
     const proxy = await createPinnedPublicHttpsProxy({
       resolve: async () => [{ address: '8.8.8.8', family: 4 }, { address: '127.0.0.1', family: 4 }],
@@ -421,7 +439,7 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
-    expect(workflow).toContain('timeout-minutes: 30');
+    expect(workflow).toContain('timeout-minutes: 20');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
