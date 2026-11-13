@@ -468,6 +468,7 @@ globalThis.fetch = async (url, init = {}) => {
         `${RENDERER}: absent -> typst (default, parameter absent)`,
         `${DOSSIER}: absent -> separate (default, parameter absent)`,
         `${INPLACE}: "on" -> on`,
+        `${NAVIGATION}: absent -> on (default, parameter absent)`,
       ]);
       const printed = result.stdout + result.stderr;
       expect(printed).not.toContain('ya29.invented-access-token');

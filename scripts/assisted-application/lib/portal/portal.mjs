@@ -1004,6 +1004,8 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
     const posting = new URL(String(postingUrl || ''));
     return page.hostname === 'jobs.stadt-zuerich.ch'
       && posting.hostname === page.hostname
+      && isStadtZurichPublicJobDetailRoute(page.href)
+      && isStadtZurichPublicJobDetailRoute(posting.href)
       && samePostingAddress(page.href, posting.href);
   } catch {
     return false;
