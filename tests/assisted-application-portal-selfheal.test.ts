@@ -514,6 +514,62 @@ describe('portal runner self-correction', () => {
       .toMatchObject({ submit: null, next: null });
   });
 
+  it.each([
+    'Andare all’annuncio esterno',
+    '• ANDARE ALL’ANNUNCIO ESTERNO',
+    'Zum externen Stellenangebot',
+    'Aller à l’offre externe',
+    'Go to external job posting',
+  ])('recognizes the sole Job-Room external application entry: %s', (label) => {
+    const url = 'https://www.job-room.ch/job-search/example/';
+    const external = { text: label, href: 'https://careers.example.test/jobs/example/', disabled: false };
+    const snapshot = {
+      url,
+      fields: [],
+      buttons: [
+        { text: 'Tornare ai risultati della ricerca', disabled: false },
+        { text: 'Informazioni sul posto', disabled: false },
+        external,
+        { text: 'Copiare il link', disabled: false },
+        { text: 'Invia link', disabled: false },
+        { text: 'Stampare', disabled: false },
+      ],
+    };
+    const context = { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([external]);
+    expect(hasApplicationSurface(snapshot)).toBe(false);
+  });
+
+  it('keeps Job-Room external navigation fail-closed outside its detail route or when ambiguous', () => {
+    const url = 'https://www.job-room.ch/job-search/example/';
+    const shell = {
+      url,
+      fields: [],
+      buttons: [
+        { text: 'Tornare ai risultati della ricerca', disabled: false },
+        { text: 'Informazioni sul posto', disabled: false },
+        { text: 'Andare all’annuncio esterno', href: 'https://careers.example.test/jobs/example/', disabled: false },
+        { text: 'Copiare il link', disabled: false },
+        { text: 'Invia link', disabled: false },
+        { text: 'Stampare', disabled: false },
+      ],
+    };
+    const context = { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true };
+
+    expect(applicationEntryControls({ ...shell, url: 'https://careers.example.test/jobs/' }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...shell, buttons: [
+      ...shell.buttons,
+      { text: 'Andare all’annuncio esterno', href: 'https://other.example.test/jobs/example/', disabled: false },
+    ] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...shell, buttons: [
+      ...shell.buttons,
+      { text: 'Apply', href: 'https://other.example.test/jobs/other/', disabled: false },
+    ] }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...shell, buttons: shell.buttons.map((button) => button.text === 'Andare all’annuncio esterno'
+      ? { ...button, text: 'Non andare all’annuncio esterno' } : button) }, context)).toEqual([]);
+  });
+
   it.each(['Bewerbung absenden', 'Weiter'])('keeps a fieldless detail-shaped application with a disabled %s control', (text) => {
     const snapshot = {
       fields: [],
