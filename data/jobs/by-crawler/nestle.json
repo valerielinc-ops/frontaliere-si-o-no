@@ -1607,12 +1607,12 @@
     },
     {
       "id": "nestle-1446598133",
-      "slug": "foreign-exchange-manager-nestle-ch",
+      "slug": "gestione-degli-scambi-esteri-nestle-vevey",
       "slugByLocale": {
         "en": "foreign-exchange-manager-nestle-ch",
-        "it": "foreign-exchange-manager-nestle-ch",
-        "de": "foreign-exchange-manager-nestle-ch",
-        "fr": "foreign-exchange-manager-nestle-ch"
+        "it": "gestione-degli-scambi-esteri-nestle-vevey",
+        "de": "fremdwahrungsverwalter-nestle-vevey",
+        "fr": "gestionnaire-de-change-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1674,7 +1674,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:46:42.164Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:46:42.164Z"
+      "firstSeenAt": "2026-11-12T21:46:42.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "foreign-exchange-manager-nestle-ch"
+        ],
+        "de": [
+          "foreign-exchange-manager-nestle-ch"
+        ],
+        "fr": [
+          "foreign-exchange-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "foreign-exchange-manager-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1444841133",
@@ -1682,7 +1696,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "de": "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe",
+        "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
@@ -1726,12 +1740,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
+        "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-for-out-of-home-beverage-systems-nestle-ch",
           "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        ],
+        "de": [
+          "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:30.943Z",
@@ -3556,7 +3574,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "automaticien-ne-specialiste-digital-nestle-ch",
-        "de": "automatician-ne-digital-spezialist-nestle-henniez",
+        "de": "automatiker-in-und-digitalspezialist-in-nestle-henniez",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
       },
       "company": "Nestlé",
@@ -3607,13 +3625,13 @@
         ],
         "de": [
           "automaticien-ne-specialiste-digital-nestle-henniez",
-          "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+          "automatician-ne-digital-spezialist-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "automaticien-ne-specialiste-digital-nestle-ch",
         "automaticien-ne-specialiste-digital-nestle-henniez",
-        "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+        "automatician-ne-digital-spezialist-nestle-henniez"
       ],
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
       "salaryMin": 60500,
@@ -4117,7 +4135,7 @@
       "slugByLocale": {
         "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
         "en": "apprenti-e-brassage-and-beverage-technologist-nestle-henniez-ch",
-        "de": "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez",
+        "de": "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch",
         "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
@@ -4161,14 +4179,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+        "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "de": [
-          "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+          "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:59.851Z",
@@ -6652,7 +6670,7 @@
         "it": "specialista-di-produzione-nestle-basel",
         "en": "production-specialist-nestle-basel",
         "de": "produktions-spezialist-in-nestle-ch",
-        "fr": "specialiste-de-la-production-nestle-basel"
+        "fr": "produktions-spezialist-in-nestle-basel"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6695,7 +6713,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktions-spezialist-in-nestle-ch",
-        "produktions-spezialist-in-nestle-basel"
+        "specialiste-de-la-production-nestle-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6705,7 +6723,7 @@
           "produktions-spezialist-in-nestle-ch"
         ],
         "fr": [
-          "produktions-spezialist-in-nestle-basel"
+          "specialiste-de-la-production-nestle-basel"
         ]
       },
       "firstSeenAt": "2026-10-18T09:45:04.531Z",

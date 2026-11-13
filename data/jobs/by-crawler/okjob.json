@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-c803b7727ce5",
-      "slug": "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
+      "slug": "polymechanic-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
       "slugByLocale": {
         "fr": "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
-        "it": "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
+        "it": "polymechanic-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
         "en": "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772",
-        "de": "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772"
+        "de": "polymechanische-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772"
       },
       "slugDisambiguator": "c803b772",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:40:50.462Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T10:00:02.931Z"
+      "firstSeenAt": "2026-11-12T10:00:02.931Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772"
+        ],
+        "de": [
+          "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772"
+        ]
+      },
+      "previousSlugs": [
+        "polymecanicien-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c803b772"
+      ]
     },
     {
       "id": "okjob-6c1aeca374bb",
-      "slug": "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
+      "slug": "carpenter-di-installazione-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
       "slugByLocale": {
         "fr": "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
-        "it": "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
-        "en": "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
-        "de": "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
+        "it": "carpenter-di-installazione-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
+        "en": "installation-carpenter-cfc-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3",
+        "de": "installation-schreiner-cfc-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
       },
       "slugDisambiguator": "6c1aeca3",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,16 +156,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:40:50.461Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T10:00:02.930Z"
+      "firstSeenAt": "2026-11-12T10:00:02.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
+        ],
+        "en": [
+          "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
+        ],
+        "de": [
+          "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-poseur-cfc-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-6c1aeca3"
+      ]
     },
     {
       "id": "okjob-23d11c4e2a52",
-      "slug": "anlagen-e-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
+      "slug": "conduttore-di-impianti-e-macchinari-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
       "slugByLocale": {
         "de": "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
-        "it": "anlagen-e-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-basel",
-        "en": "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
-        "fr": "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e"
+        "it": "conduttore-di-impianti-e-macchinari-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
+        "en": "plant-and-machine-operator-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
+        "fr": "operateur-d-usine-et-de-machine-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e"
       },
       "slugDisambiguator": "23d11c4e",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -203,11 +228,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
+          "anlagen-e-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
+        ],
+        "en": [
+          "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e"
+        ],
+        "fr": [
           "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e"
+        "anlagen-und-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-23d11c4e",
+        "anlagen-e-maschinenfuhrer-m-w-d-ok-job-sa-succursale-di-mendrisio-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -230,12 +263,12 @@
     },
     {
       "id": "okjob-5c6df8d6b380",
-      "slug": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
+      "slug": "coordinatore-dei-mercati-internazionali-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
       "slugByLocale": {
         "fr": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
-        "it": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
-        "en": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
-        "de": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
+        "it": "coordinatore-dei-mercati-internazionali-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
+        "en": "international-markets-coordinator-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6",
+        "de": "internationaler-marktkoordinator-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
       },
       "slugDisambiguator": "5c6df8d6",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -298,16 +331,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.459Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.356Z"
+      "firstSeenAt": "2026-11-09T09:44:28.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
+        ],
+        "en": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
+        ],
+        "de": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-5c6df8d6"
+      ]
     },
     {
       "id": "okjob-edb0124cdaac",
-      "slug": "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c",
+      "slug": "specialista-nella-pianificazione-e-nel-funzionamento-della-strada-m-f-ok-job-sa-succursale-di-mendrisio-1400-edb0124c",
       "slugByLocale": {
         "fr": "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c",
-        "it": "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c",
-        "en": "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c",
-        "de": "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
+        "it": "specialista-nella-pianificazione-e-nel-funzionamento-della-strada-m-f-ok-job-sa-succursale-di-mendrisio-1400-edb0124c",
+        "en": "specialist-in-road-planning-and-operation-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c",
+        "de": "spezialist-fur-stra-enplanung-und-betrieb-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
       },
       "slugDisambiguator": "edb0124c",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -370,16 +417,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.433Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.332Z"
+      "firstSeenAt": "2026-11-09T09:44:28.332Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
+        ],
+        "en": [
+          "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
+        ],
+        "de": [
+          "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-planification-et-exploitation-routiere-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-edb0124c"
+      ]
     },
     {
       "id": "okjob-c8745eddad48",
-      "slug": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
+      "slug": "coordinatore-dei-mercati-internazionali-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
       "slugByLocale": {
         "fr": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
-        "it": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
-        "en": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
-        "de": "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
+        "it": "coordinatore-dei-mercati-internazionali-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
+        "en": "international-markets-coordinator-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd",
+        "de": "internationaler-marktkoordinator-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
       },
       "slugDisambiguator": "c8745edd",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -442,16 +503,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:40:50.432Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:37:12.338Z"
+      "firstSeenAt": "2026-11-11T21:37:12.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
+        ],
+        "en": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
+        ],
+        "de": [
+          "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-marches-internationaux-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-c8745edd"
+      ]
     },
     {
       "id": "okjob-b50d8dd5ac8d",
-      "slug": "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
+      "slug": "calcolo-tecnico-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
       "slugByLocale": {
         "fr": "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
-        "it": "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
-        "en": "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
-        "de": "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
+        "it": "calcolo-tecnico-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
+        "en": "experienced-technical-calculator-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5",
+        "de": "erfahrener-technischer-rechner-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
       },
       "slugDisambiguator": "b50d8dd5",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -514,16 +589,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.431Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.330Z"
+      "firstSeenAt": "2026-11-09T09:44:28.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
+        ],
+        "en": [
+          "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
+        ],
+        "de": [
+          "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
+        ]
+      },
+      "previousSlugs": [
+        "calculateur-technique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b50d8dd5"
+      ]
     },
     {
       "id": "okjob-104ccd50377a",
-      "slug": "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
+      "slug": "ingegnere-di-manutenzione-automobilistico-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
       "slugByLocale": {
         "fr": "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
-        "it": "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
-        "en": "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
-        "de": "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
+        "it": "ingegnere-di-manutenzione-automobilistico-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
+        "en": "automotive-maintenance-engineer-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50",
+        "de": "instandhaltungsingenieur-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
       },
       "slugDisambiguator": "104ccd50",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -586,16 +675,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.430Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.328Z"
+      "firstSeenAt": "2026-11-09T09:44:28.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
+        ],
+        "en": [
+          "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
+        ],
+        "de": [
+          "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-en-maintenance-d-automobiles-cfc-ok-job-sa-succursale-di-mendrisio-1400-yverdon-104ccd50"
+      ]
     },
     {
       "id": "okjob-501dc0516918",
-      "slug": "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
+      "slug": "infermiere-a-diplomato-a-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
-        "it": "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
+        "it": "infermiere-a-diplomato-a-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
         "en": "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051",
-        "fr": "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051"
+        "fr": "infirmiere-diplomee-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051"
       },
       "slugDisambiguator": "501dc051",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -659,7 +762,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:40:50.429Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:40:51.130Z"
+      "firstSeenAt": "2026-11-10T21:40:51.130Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-fage-efz-60-100-ok-job-sa-succursale-di-mendrisio-4051-basel-501dc051"
+      ]
     },
     {
       "id": "okjob-3da77299404f",
@@ -747,12 +861,12 @@
     },
     {
       "id": "okjob-3353ea817050",
-      "slug": "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
+      "slug": "decoratore-angolo-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
       "slugByLocale": {
         "fr": "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
-        "it": "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
-        "en": "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
-        "de": "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
+        "it": "decoratore-angolo-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
+        "en": "decorator-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81",
+        "de": "dekorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
       },
       "slugDisambiguator": "3353ea81",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -815,16 +929,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.427Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.323Z"
+      "firstSeenAt": "2026-11-09T09:44:28.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
+        ],
+        "en": [
+          "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
+        ],
+        "de": [
+          "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
+        ]
+      },
+      "previousSlugs": [
+        "decorateur-angleur-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-3353ea81"
+      ]
     },
     {
       "id": "okjob-8327e263ce6b",
-      "slug": "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
+      "slug": "operatore-di-fresatura-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
       "slugByLocale": {
         "fr": "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
-        "it": "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
-        "en": "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
-        "de": "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
+        "it": "operatore-di-fresatura-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
+        "en": "milling-operator-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263",
+        "de": "fraser-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
       },
       "slugDisambiguator": "8327e263",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -887,16 +1015,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.426Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.327Z"
+      "firstSeenAt": "2026-11-09T09:44:28.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
+        ],
+        "en": [
+          "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
+        ],
+        "de": [
+          "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-fraisage-ok-job-sa-succursale-di-mendrisio-2300-la-chaux-de-fonds-8327e263"
+      ]
     },
     {
       "id": "okjob-a206bf601921",
-      "slug": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
+      "slug": "connettore-ottico-fibrato-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
       "slugByLocale": {
         "fr": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "it": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "en": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "de": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
+        "it": "connettore-ottico-fibrato-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
+        "en": "experienced-fiber-optical-connector-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
+        "de": "erfahrener-fiber-optical-connector-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
       },
       "slugDisambiguator": "a206bf60",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -959,7 +1101,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.424Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.318Z"
+      "firstSeenAt": "2026-11-09T09:44:28.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
+        ],
+        "en": [
+          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
+        ],
+        "de": [
+          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
+        ]
+      },
+      "previousSlugs": [
+        "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
+      ]
     },
     {
       "id": "okjob-eeb512917bac",
@@ -1036,12 +1192,12 @@
     },
     {
       "id": "okjob-63416b7e423a",
-      "slug": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
+      "slug": "parquettore-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
       "slugByLocale": {
         "fr": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "it": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "en": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "de": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
+        "it": "parquettore-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
+        "en": "experienced-parqueter-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
+        "de": "erfahrener-parketter-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
       },
       "slugDisambiguator": "63416b7e",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1104,16 +1260,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.422Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.314Z"
+      "firstSeenAt": "2026-11-09T09:44:28.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
+        ],
+        "en": [
+          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
+        ],
+        "de": [
+          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
+        ]
+      },
+      "previousSlugs": [
+        "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
+      ]
     },
     {
       "id": "okjob-af4e05695ffd",
-      "slug": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
+      "slug": "cassetto-cavo-esperto-rete-stradale-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
       "slugByLocale": {
         "fr": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "it": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "en": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "de": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+        "it": "cassetto-cavo-esperto-rete-stradale-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
+        "en": "experienced-cable-drawer-road-network-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
+        "de": "erfahrene-kabelschublade-stra-ennetz-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
       },
       "slugDisambiguator": "af4e0569",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1176,16 +1346,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.421Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.326Z"
+      "firstSeenAt": "2026-11-09T09:44:28.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+        ],
+        "en": [
+          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+        ],
+        "de": [
+          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+        ]
+      },
+      "previousSlugs": [
+        "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+      ]
     },
     {
       "id": "okjob-3850f939d03c",
-      "slug": "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
+      "slug": "timberman-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
       "slugByLocale": {
         "fr": "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
-        "it": "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
+        "it": "timberman-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
         "en": "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939",
-        "de": "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939"
+        "de": "timberman-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939"
       },
       "slugDisambiguator": "3850f939",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1248,16 +1432,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.417Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.324Z"
+      "firstSeenAt": "2026-11-09T09:44:28.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939"
+        ],
+        "de": [
+          "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939"
+        ]
+      },
+      "previousSlugs": [
+        "forestier-bucheron-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-3850f939"
+      ]
     },
     {
       "id": "okjob-a8d4671d78a5",
-      "slug": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
+      "slug": "construzione-di-accordo-prefabrico-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
       "slugByLocale": {
         "fr": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "it": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "en": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "de": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+        "it": "construzione-di-accordo-prefabrico-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
+        "en": "prefabrical-element-constructor-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
+        "de": "prefabrical-element-constructor-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
       },
       "slugDisambiguator": "a8d4671d",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1320,16 +1515,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.415Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.313Z"
+      "firstSeenAt": "2026-11-09T09:44:28.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+        ],
+        "en": [
+          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+        ],
+        "de": [
+          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+      ]
     },
     {
       "id": "okjob-31d2555a2ce1",
-      "slug": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
+      "slug": "driver-motore-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
       "slugByLocale": {
         "fr": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "it": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "en": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "de": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
+        "it": "driver-motore-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
+        "en": "engine-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
+        "de": "triebwerksfuhrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
       },
       "slugDisambiguator": "31d2555a",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1392,16 +1601,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.413Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.320Z"
+      "firstSeenAt": "2026-11-09T09:44:28.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
+        ],
+        "en": [
+          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
+        ],
+        "de": [
+          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
+        ]
+      },
+      "previousSlugs": [
+        "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
+      ]
     },
     {
       "id": "okjob-100b401dd9c7",
-      "slug": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
+      "slug": "risorse-umane-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
       "slugByLocale": {
         "de": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-        "it": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
+        "it": "risorse-umane-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
         "en": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-        "fr": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
+        "fr": "ressources-humaines-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
       },
       "slugDisambiguator": "100b401d",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1465,7 +1688,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:40:50.407Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-09T09:44:28.307Z"
+      "firstSeenAt": "2026-11-09T09:44:28.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
+        ],
+        "fr": [
+          "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
+        ]
+      },
+      "previousSlugs": [
+        "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
+      ]
     },
     {
       "id": "okjob-3d24ab36e06a",

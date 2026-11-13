@@ -88,12 +88,12 @@
     },
     {
       "id": "medimeo-4443bfc778b6",
-      "slug": "oberarztin-oberarzt-psychiatrie-60-100-station-per-junge-erwachsene-grenznah-bei-basel-medimeo-ag-basel",
+      "slug": "medica-dirigente-medico-dirigente-in-psichiatria-60-100-reparto-per-giovani-adulti-vicino-al-confine-nei-pressi-di",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel",
-        "it": "oberarztin-oberarzt-psychiatrie-60-100-station-per-junge-erwachsene-grenznah-bei-basel-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel",
-        "fr": "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel"
+        "it": "medica-dirigente-medico-dirigente-in-psichiatria-60-100-reparto-per-giovani-adulti-vicino-al-confine-nei-pressi-di",
+        "en": "senior-physician-psychiatry-60-100-station-for-young-adults-close-to-the-border-near-basel-medimeo-ag-region-basel",
+        "fr": "medecin-psychiatrie-senior-60-a-100-station-pour-jeunes-adultes-pres-de-la-frontiere-pres-de-bale-medimeo-ag-region"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -140,11 +140,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel",
+          "oberarztin-oberarzt-psychiatrie-60-100-station-per-junge-erwachsene-grenznah-bei-basel-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel"
+        "oberarztin-oberarzt-psychiatrie-60-100-station-fur-junge-erwachsene-grenznah-bei-basel",
+        "oberarztin-oberarzt-psychiatrie-60-100-station-per-junge-erwachsene-grenznah-bei-basel-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -334,12 +342,12 @@
     },
     {
       "id": "medimeo-a1ebd3a71e8d",
-      "slug": "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der",
+      "slug": "medico-senior-medico-senior-in-psichiatria-di-vecchiaia-80-100-anche-senza-esperienza-precedente-in-psichiatria-di",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der",
-        "it": "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der",
-        "en": "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der",
-        "fr": "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der"
+        "it": "medico-senior-medico-senior-in-psichiatria-di-vecchiaia-80-100-anche-senza-esperienza-precedente-in-psichiatria-di",
+        "en": "senior-physician-senior-physician-in-old-age-psychiatry-80-100-even-without-previous-experience-in-old-age-psychiatry",
+        "fr": "medecin-senior-medecin-senior-en-psychiatrie-de-vieillesse-80-100-meme-sans-experience-anterieure-en-psychiatrie-de"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -401,16 +409,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:22:00.167Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:22:00.167Z"
+      "firstSeenAt": "2026-11-12T21:22:00.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-alterspsychiatrie-80-100-auch-ohne-vorerfahrung-in-der"
+      ]
     },
     {
       "id": "medimeo-a774f73f16b1",
-      "slug": "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin",
+      "slug": "responsabilita-personale-senza-oneri-aggiuntivi-intorno-specialista-medicina-generale-medicina-generale-specialista",
       "slugByLocale": {
         "de": "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin",
-        "it": "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin",
-        "en": "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin",
-        "fr": "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin"
+        "it": "responsabilita-personale-senza-oneri-aggiuntivi-intorno-specialista-medicina-generale-medicina-generale-specialista",
+        "en": "personal-responsibility-without-additional-burden-around-specialist-general-medicine-specialist-general-medicine-near",
+        "fr": "responsabilite-personnelle-sans-charge-supplementaire-specialiste-en-medecine-generale-specialiste-en-medecine-generale"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -472,16 +494,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:22:00.167Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:22:00.167Z"
+      "firstSeenAt": "2026-11-12T21:22:00.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin"
+        ],
+        "en": [
+          "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin"
+        ],
+        "fr": [
+          "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin"
+        ]
+      },
+      "previousSlugs": [
+        "eigenverantwortung-ohne-zusatzbelastung-drumherum-facharzt-allgemeinmedizin-facharztin"
+      ]
     },
     {
       "id": "medimeo-47f8475ce0da",
-      "slug": "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region",
+      "slug": "radiologia-specialistica-80-100-la-vostra-esperienza-nella-sonografia-e-richiesta-medimeo-ag-region-bern-berner-oberland",
       "slugByLocale": {
         "de": "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region",
-        "it": "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region",
-        "en": "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region",
-        "fr": "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region"
+        "it": "radiologia-specialistica-80-100-la-vostra-esperienza-nella-sonografia-e-richiesta-medimeo-ag-region-bern-berner-oberland",
+        "en": "specialist-radiology-80-100-your-expertise-in-sonography-is-in-demand-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "radiologie-specialisee-80-100-votre-expertise-en-sonographie-est-en-demande-medimeo-ag-region-bern-berner-oberland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -543,16 +579,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:22:00.166Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:22:00.166Z"
+      "firstSeenAt": "2026-11-12T21:22:00.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region"
+        ],
+        "en": [
+          "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region"
+        ],
+        "fr": [
+          "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-radiologie-80-100-ihre-expertise-in-der-sonografie-ist-gefragt-region"
+      ]
     },
     {
       "id": "medimeo-108878d592ff",
-      "slug": "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-e-alpen-in-reichweite-medimeo-ag-winterthur",
+      "slug": "medico-specialista-in-medicina-interna-medico-pratico-citta-di-zurigo-aeroporto-internazionale-e-alpi-a-portata-di-mano",
       "slugByLocale": {
         "de": "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen",
-        "it": "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-e-alpen-in-reichweite-medimeo-ag-winterthur",
-        "en": "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen",
-        "fr": "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen"
+        "it": "medico-specialista-in-medicina-interna-medico-pratico-citta-di-zurigo-aeroporto-internazionale-e-alpi-a-portata-di-mano",
+        "en": "specialist-internal-medicine-practical-doctor-city-of-zurich-international-airport-and-alps-within-reach-medimeo-ag",
+        "fr": "specialiste-medecine-interne-docteur-pratique-ville-de-zurich-aeroport-international-et-alpes-a-portee-de-main-medimeo"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -599,11 +649,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen",
+          "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-e-alpen-in-reichweite-medimeo-ag-winterthur"
+        ],
+        "en": [
+          "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen"
+        ],
+        "fr": [
           "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen"
         ]
       },
       "previousSlugs": [
-        "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen"
+        "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-und-alpen",
+        "facharzt-innere-medizin-praktischer-arzt-stadt-zurich-internationaler-flughafen-e-alpen-in-reichweite-medimeo-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -627,12 +685,12 @@
     },
     {
       "id": "medimeo-42a09a36359c",
-      "slug": "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich",
+      "slug": "medica-di-famiglia-medico-di-famiglia-50-incarico-a-tempo-determinato-con-orari-di-lavoro-flessibili-medimeo-ag-region",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich",
-        "it": "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich",
-        "en": "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich",
-        "fr": "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich"
+        "it": "medica-di-famiglia-medico-di-famiglia-50-incarico-a-tempo-determinato-con-orari-di-lavoro-flessibili-medimeo-ag-region",
+        "en": "family-doctor-family-doctor-50-temporary-use-with-flexible-working-hours-medimeo-ag-region-zurich",
+        "fr": "medecin-de-famille-medecin-de-famille-50-usage-temporaire-avec-horaires-de-travail-flexibles-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -695,7 +753,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:22:00.163Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:22:00.163Z"
+      "firstSeenAt": "2026-11-12T21:22:00.163Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich"
+        ],
+        "en": [
+          "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-50-befristeter-einsatz-mit-flexiblen-arbeitszeiten-region-zurich"
+      ]
     },
     {
       "id": "medimeo-8e42aba82db8",

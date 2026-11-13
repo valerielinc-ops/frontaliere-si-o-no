@@ -5,7 +5,7 @@
   "jobs": [
     {
       "title": "Assistant médical (F/H) 60%",
-      "slug": "assistant-medical-f-h-60-clinique-le-noirmont",
+      "slug": "assistente-medico-m-f-60-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1060",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -43,9 +43,9 @@
       },
       "slugByLocale": {
         "fr": "assistant-medical-f-h-60-clinique-le-noirmont",
-        "it": "assistant-medical-f-h-60-clinique-le-noirmont",
+        "it": "assistente-medico-m-f-60-clinique-le-noirmont-le-noirmont",
         "en": "assistant-medical-f-h-60-clinique-le-noirmont",
-        "de": "assistant-medical-f-h-60-clinique-le-noirmont"
+        "de": "assistent-medical-f-h-60-clinique-le-noirmont-le-noirmont"
       },
       "_meta": {
         "sourceIdentifier": "dl:1060"
@@ -70,7 +70,18 @@
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:37:18.286Z"
+      "firstSeenAt": "2026-11-12T21:37:18.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-medical-f-h-60-clinique-le-noirmont"
+        ],
+        "de": [
+          "assistant-medical-f-h-60-clinique-le-noirmont"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-medical-f-h-60-clinique-le-noirmont"
+      ]
     },
     {
       "title": "Infirmier (F/H) 70%",

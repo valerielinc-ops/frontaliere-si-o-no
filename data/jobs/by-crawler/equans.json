@@ -10104,12 +10104,12 @@
     },
     {
       "id": "equans-fe3215dcfa59",
-      "slug": "servicetechniker-in-luftung-equans-switzerland-winterthur",
+      "slug": "tecnico-a-di-assistenza-alla-ventilazione-equans-switzerland-winterthur",
       "slugByLocale": {
         "de": "servicetechniker-in-luftung-equans-winterthur",
-        "it": "servicetechniker-in-luftung-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-luftung-equans-winterthur",
-        "fr": "servicetechniker-in-luftung-equans-winterthur"
+        "it": "tecnico-a-di-assistenza-alla-ventilazione-equans-switzerland-winterthur",
+        "en": "ventilation-service-technician-equans-switzerland-winterthur",
+        "fr": "technicien-ne-de-service-en-ventilation-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10158,11 +10158,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-luftung-equans-winterthur",
+          "servicetechniker-in-luftung-equans-switzerland-winterthur"
+        ],
+        "en": [
+          "servicetechniker-in-luftung-equans-winterthur"
+        ],
+        "fr": [
           "servicetechniker-in-luftung-equans-winterthur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-luftung-equans-winterthur"
+        "servicetechniker-in-luftung-equans-winterthur",
+        "servicetechniker-in-luftung-equans-switzerland-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

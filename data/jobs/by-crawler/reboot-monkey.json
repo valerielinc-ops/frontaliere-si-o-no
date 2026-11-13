@@ -3941,7 +3941,7 @@
       "id": "reboot-monkey-45e2d3b3629a",
       "slug": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
+        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-techniker-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "fr": "data-center-technicien-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
@@ -4011,16 +4011,12 @@
       "remote": false,
       "previousSlugs": [
         "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
-          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
         ],
         "fr": [
           "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
@@ -4051,7 +4047,7 @@
       "id": "reboot-monkey-e36672046620",
       "slug": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
+        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "fr": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
@@ -4122,16 +4118,12 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
-          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
-          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:16.254Z",
@@ -11063,7 +11055,7 @@
       "slugByLocale": {
         "it": "data-center-technician-lucerna-in-sede-reboot-monkey-lucerne",
         "en": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
-        "de": "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne",
+        "de": "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne",
         "fr": "technicien-de-centre-de-donnees-lucerne-sur-site-reboot-monkey-lucerne"
       },
       "company": "Reboot Monkey",
@@ -11122,14 +11114,14 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
-        "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne"
+        "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-lucerne-on-site-reboot-monkey-lucerne"
         ],
         "de": [
-          "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne"
+          "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
         ]
       },
       "needsRetranslation": true,

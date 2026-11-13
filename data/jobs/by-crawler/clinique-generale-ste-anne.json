@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "clinique-generale-ste-anne-237156329bb6",
-      "slug": "infirmier-ere-clinique-generale-ste-anne",
+      "slug": "infermiera-clinique-generale-ste-anne-fribourg",
       "slugByLocale": {
         "fr": "infirmier-ere-clinique-generale-ste-anne",
-        "it": "infirmier-ere-clinique-generale-ste-anne",
-        "en": "infirmier-ere-clinique-generale-ste-anne",
-        "de": "infirmier-ere-clinique-generale-ste-anne"
+        "it": "infermiera-clinique-generale-ste-anne-fribourg",
+        "en": "nurse-clinique-generale-ste-anne-fribourg",
+        "de": "krankenschwester-clinique-generale-ste-anne-fribourg"
       },
       "company": "Clinique Générale Ste-Anne",
       "companyKey": "clinique-generale-ste-anne",
@@ -71,7 +71,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:36:50.431Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:50.431Z"
+      "firstSeenAt": "2026-11-12T21:36:50.431Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinique-generale-ste-anne"
+        ],
+        "en": [
+          "infirmier-ere-clinique-generale-ste-anne"
+        ],
+        "de": [
+          "infirmier-ere-clinique-generale-ste-anne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinique-generale-ste-anne"
+      ]
     }
   ]
 }

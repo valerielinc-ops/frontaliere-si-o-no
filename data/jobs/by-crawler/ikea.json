@@ -1611,9 +1611,9 @@
       "slug": "collaborateur-trice-logistique-60-ikea-aubonne",
       "slugByLocale": {
         "fr": "collaborateur-trice-logistique-60-ikea-ch",
-        "it": "collaborateur-trice-logistique-60-ikea-aubonne",
-        "en": "collaborateur-trice-logistique-60-ikea-aubonne",
-        "de": "collaborateur-trice-logistique-60-ikea-aubonne"
+        "it": "collaboratore-logistico-60-ikea-riddes-valais",
+        "en": "logistics-contributor-60-ikea-riddes-valais",
+        "de": "logistikbeitrag-60-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1660,21 +1660,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-logistique-60-ikea-ch",
-          "collaboratore-logistico-60-ikea-riddes-valais"
-        ],
-        "en": [
-          "logistics-contributor-60-ikea-riddes-valais"
-        ],
-        "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "collaborateur-trice-logistique-60-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-logistique-60-ikea-ch",
-        "collaboratore-logistico-60-ikea-riddes-valais",
-        "logistics-contributor-60-ikea-riddes-valais",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "collaborateur-trice-logistique-60-ikea-ch"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -1697,12 +1687,12 @@
     },
     {
       "id": "ikea-04cf20ef71c0",
-      "slug": "collaboratore-trice-kuchenplanung-vendita-80-ikea-spreitenbach",
+      "slug": "addetto-a-alla-progettazione-cucine-e-alle-vendite-80-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "de": "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch",
-        "it": "collaboratore-trice-kuchenplanung-vendita-80-ikea-spreitenbach",
-        "en": "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch",
-        "fr": "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch"
+        "it": "addetto-a-alla-progettazione-cucine-e-alle-vendite-80-ikea-spreitenbach-aargau",
+        "en": "kitchen-planning-sales-associate-80-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-rice-planification-de-cuisines-vente-80-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1750,11 +1740,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch",
+          "collaboratore-trice-kuchenplanung-vendita-80-ikea-spreitenbach"
+        ],
+        "en": [
+          "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch"
+        "mitarbeiter-in-kuchenplanung-verkauf-80-ikea-ch",
+        "collaboratore-trice-kuchenplanung-vendita-80-ikea-spreitenbach"
       ],
       "salaryMin": 59200,
       "salaryMax": 90800,
@@ -1788,12 +1786,12 @@
     },
     {
       "id": "ikea-833ae5ad05ea",
-      "slug": "collaborateur-trice-relation-client-70-ikea-ch",
+      "slug": "collaboratore-contatto-cliente-70-ikea-riddes-valais",
       "slugByLocale": {
         "fr": "collaborateur-trice-relation-client-70-ikea-ch",
-        "it": "collaborateur-trice-relation-client-70-ikea-ch",
-        "en": "collaborateur-trice-relation-client-70-ikea-ch",
-        "de": "collaborateur-trice-relation-client-70-ikea-ch"
+        "it": "collaboratore-contatto-cliente-70-ikea-riddes-valais",
+        "en": "collaborator-contact-customer-70-ikea-riddes-valais",
+        "de": "mitarbeiter-kontakt-zum-kunden-70-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1866,7 +1864,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:16:41.909Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:16:41.909Z"
+      "firstSeenAt": "2026-11-12T21:16:41.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-relation-client-70-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-relation-client-70-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-relation-client-70-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-relation-client-70-ikea-ch"
+      ]
     },
     {
       "id": "ikea-ba74636281ba",
@@ -1874,8 +1886,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch",
         "it": "addetto-a-alle-vendite-geschirrabteilung-50-ikea-pratteln-1",
-        "en": "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch"
+        "en": "sales-associate-tableware-department-50-ikea-pratteln-1-basel-landschaft-switzerland",
+        "fr": "collaborateur-rice-vente-rayon-vaisselle-50-ikea-pratteln-1-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1924,6 +1936,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-verkauf-geschirrabteilung-50-ikea-ch"
         ]
       },
       "previousSlugs": [
@@ -1950,12 +1968,12 @@
     },
     {
       "id": "ikea-6516fb431600",
-      "slug": "collaboratore-trice-kundenempfang-e-kinderparadies-60-ikea-pratteln-1",
+      "slug": "addetto-a-all-accoglienza-clienti-e-al-paradiso-dei-bambini-60-ikea-pratteln-1-basel-landschaft-switzerland",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch",
-        "it": "collaboratore-trice-kundenempfang-e-kinderparadies-60-ikea-pratteln-1",
-        "en": "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch",
-        "fr": "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch"
+        "it": "addetto-a-all-accoglienza-clienti-e-al-paradiso-dei-bambini-60-ikea-pratteln-1-basel-landschaft-switzerland",
+        "en": "customer-reception-and-children-s-area-associate-60-ikea-pratteln-1-basel-landschaft-switzerland",
+        "fr": "collaborateur-rice-accueil-clients-et-paradis-des-enfants-60-ikea-pratteln-1-basel-landschaft-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2003,11 +2021,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch",
+          "collaboratore-trice-kundenempfang-e-kinderparadies-60-ikea-pratteln-1"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch"
+        "mitarbeiter-in-kundenempfang-und-kinderparadies-60-ikea-ch",
+        "collaboratore-trice-kundenempfang-e-kinderparadies-60-ikea-pratteln-1"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,

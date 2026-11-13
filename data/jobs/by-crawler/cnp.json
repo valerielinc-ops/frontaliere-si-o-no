@@ -852,7 +852,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -903,7 +903,7 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"
@@ -2412,12 +2412,12 @@
     },
     {
       "id": "cnp-d9970d048c4c",
-      "slug": "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier",
+      "slug": "formazione-istituzionale-non-ciclica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier",
-        "it": "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier",
-        "en": "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier",
-        "de": "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier"
+        "it": "formazione-istituzionale-non-ciclica-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "internship-non-clinical-institutional-training-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "praktikum-nichtklinische-institutionelle-ausbildung-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2479,7 +2479,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:55:36.976Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:55:36.976Z"
+      "firstSeenAt": "2026-11-12T21:55:36.976Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier"
+        ],
+        "en": [
+          "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier"
+        ],
+        "de": [
+          "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-formation-institutionnelle-non-clinique-cnp-marin-epagnier"
+      ]
     }
   ]
 }

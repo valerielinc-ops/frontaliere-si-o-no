@@ -263,12 +263,12 @@
     },
     {
       "id": "ipw-4fa4ace90634",
-      "slug": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
+      "slug": "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "it": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "en": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "fr": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+        "it": "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -334,16 +334,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T21:35:40.937Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T21:31:43.760Z"
+      "firstSeenAt": "2026-10-07T21:31:43.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-28ab8cb9f5b7",
-      "slug": "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
+      "slug": "infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
-        "it": "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
-        "en": "pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
-        "fr": "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        "it": "infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "nurse-nurse-specialist-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "infirmiere-infirmiere-specialiste-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -409,7 +423,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T21:35:40.350Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T21:31:42.427Z"
+      "firstSeenAt": "2026-10-07T21:31:42.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-071bf2b2da56",
@@ -585,12 +613,12 @@
     },
     {
       "id": "ipw-b3363fc3d6e5",
-      "slug": "hr-praktikantin-hr-praktikant-ipw-winterthur",
+      "slug": "tirocinante-hr-tirocinante-hr-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "hr-praktikantin-hr-praktikant-ipw-winterthur",
-        "it": "hr-praktikantin-hr-praktikant-ipw-winterthur",
-        "en": "hr-praktikantin-hr-praktikant-ipw-winterthur",
-        "fr": "hr-praktikantin-hr-praktikant-ipw-winterthur"
+        "it": "tirocinante-hr-tirocinante-hr-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "hr-intern-hr-intern-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "stagiaire-rh-stagiaire-rh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -656,7 +684,21 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:35:38.559Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-praktikantin-hr-praktikant-ipw-winterthur"
+        ],
+        "en": [
+          "hr-praktikantin-hr-praktikant-ipw-winterthur"
+        ],
+        "fr": [
+          "hr-praktikantin-hr-praktikant-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "hr-praktikantin-hr-praktikant-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-703b06648b72",
@@ -1688,11 +1730,11 @@
     },
     {
       "id": "ipw-920de7978f4b",
-      "slug": "kunsttherapeutin-kunsttherapeut-ipw-winterthur",
+      "slug": "terapista-d-arte-terapista-d-arte-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "kunsttherapeutin-kunsttherapeut-ipw-winterthur",
-        "it": "kunsttherapeutin-kunsttherapeut-ipw-winterthur",
-        "en": "kunsttherapeutin-kunsttherapeut-ipw-winterthur",
+        "it": "terapista-d-arte-terapista-d-arte-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "art-therapist-art-therapist-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "kunsttherapeutin-kunsttherapeut-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -1759,7 +1801,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:35:30.566Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:35:30.566Z"
+      "firstSeenAt": "2026-11-12T21:35:30.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kunsttherapeutin-kunsttherapeut-ipw-winterthur"
+        ],
+        "en": [
+          "kunsttherapeutin-kunsttherapeut-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "kunsttherapeutin-kunsttherapeut-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-bda7637537dc",

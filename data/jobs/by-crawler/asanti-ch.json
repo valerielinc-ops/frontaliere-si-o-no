@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-0a8b21024fa7",
-      "slug": "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch",
+      "slug": "praticanti-pneumatici-pneumonteuer-temporaneamente-100-asanti-ag-zurich-aargau",
       "slugByLocale": {
         "de": "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch",
-        "it": "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch",
-        "en": "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch",
-        "fr": "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch"
+        "it": "praticanti-pneumatici-pneumonteuer-temporaneamente-100-asanti-ag-zurich-aargau",
+        "en": "tyre-practitioners-pneumonteuer-temporarily-100-asanti-ag-zurich-aargau",
+        "fr": "pratiques-du-pneumatique-pneumonteuer-temporairement-100-asanti-ag-zurich-aargau"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T22:01:48.359Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T22:01:48.359Z"
+      "firstSeenAt": "2026-11-12T22:01:48.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch"
+        ],
+        "en": [
+          "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch"
+        ],
+        "fr": [
+          "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-pneumonteuer-temporar-100-zurich-aargau-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-53ce39cf25e0",

@@ -625,7 +625,7 @@
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -694,8 +694,7 @@
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -716,8 +715,7 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
-          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -1000,12 +998,12 @@
     },
     {
       "id": "kulm-hotel-432894cfe3de",
-      "slug": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz",
+      "slug": "tuttofare-lavapiatti-m-f-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
         "en": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz",
-        "it": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz",
+        "it": "tuttofare-lavapiatti-m-f-d-kulm-hotel-st-moritz-st-moritz",
         "de": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz",
-        "fr": "allrounder-spuler-m-w-d-kulm-hotel-st-moritz"
+        "fr": "employe-polyvalent-plongeur-h-f-d-kulm-hotel-st-moritz-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -1071,7 +1069,18 @@
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:35:21.772Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-spuler-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "allrounder-spuler-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-spuler-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-435470f943ce",

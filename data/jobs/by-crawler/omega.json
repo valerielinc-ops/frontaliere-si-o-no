@@ -686,12 +686,12 @@
     },
     {
       "id": "omega-34046",
-      "slug": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+      "slug": "logistician-learning-cfc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "it": "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
+        "it": "logistician-learning-cfc-omega-sa-biel-bienne",
         "en": "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "de": "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+        "de": "logistisches-lernen-cfc-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -757,11 +757,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
+        ],
+        "de": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
+        "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
+        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

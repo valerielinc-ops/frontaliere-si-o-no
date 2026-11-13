@@ -8314,9 +8314,9 @@
       "slug": "tirocinante-roche-kaiseraugst",
       "slugByLocale": {
         "it": "tirocinante-roche-kaiseraugst",
-        "en": "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "en": "internal-roche-kaiseraugst",
         "de": "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-        "fr": "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
+        "fr": "stagiaire-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8361,8 +8361,8 @@
         "praktikum-im-bereich-quality-control-pharma-roche-ch",
         "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
         "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-        "internal-roche-kaiseraugst",
-        "stagiaire-roche-kaiseraugst"
+        "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8370,14 +8370,14 @@
         ],
         "en": [
           "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-          "internal-roche-kaiseraugst"
+          "internship-in-quality-control-pharma-roche-kaiseraugst"
         ],
         "de": [
           "praktikum-im-bereich-quality-control-pharma-roche-ch"
         ],
         "fr": [
           "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-          "stagiaire-roche-kaiseraugst"
+          "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -8408,8 +8408,8 @@
       "slugByLocale": {
         "en": "project-leader-urinalysis-cobas-ultra-integrated-solutions-software-cybersecurity-roche-ch",
         "it": "project-leader-urinalysis-cobas-ultra-integrated-solutions-software-cybersecurity-roche-ch",
-        "de": "project-leader-urinalysis-cobas-ultra-integrated-solutions-software-cybersecurity-roche-ch",
-        "fr": "project-leader-urinalysis-cobas-ultra-integrated-solutions-software-cybersecurity-roche-ch"
+        "de": "projektleiter-urinalysis-cobas-ultra-integrierte-losungen-software-cybersecurity-roche-rotkreuz",
+        "fr": "chef-de-projet-urinalyse-cobas-solutions-ultra-integrees-logiciel-cybersecurite-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8475,12 +8475,12 @@
     },
     {
       "id": "roche-58009abb6cac",
-      "slug": "principal-statistician-early-development-ophthalmology-roche-ch",
+      "slug": "principale-statistico-sviluppo-precoce-oftalmologia-roche-basel",
       "slugByLocale": {
         "en": "principal-statistician-early-development-ophthalmology-roche-ch",
-        "it": "principal-statistician-early-development-ophthalmology-roche-ch",
-        "de": "principal-statistician-early-development-ophthalmology-roche-ch",
-        "fr": "principal-statistician-early-development-ophthalmology-roche-ch"
+        "it": "principale-statistico-sviluppo-precoce-oftalmologia-roche-basel",
+        "de": "principal-statistician-fruhe-entwicklung-ophthalmologie-roche-basel",
+        "fr": "statisticien-principal-developpement-precoce-ophtalmologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8542,16 +8542,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:17:58.602Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:17:58.602Z"
+      "firstSeenAt": "2026-11-12T21:17:58.602Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-statistician-early-development-ophthalmology-roche-ch"
+        ],
+        "de": [
+          "principal-statistician-early-development-ophthalmology-roche-ch"
+        ],
+        "fr": [
+          "principal-statistician-early-development-ophthalmology-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-statistician-early-development-ophthalmology-roche-ch"
+      ]
     },
     {
       "id": "roche-1a53f1e78bac",
-      "slug": "data-historian-system-owner-roche-ch",
+      "slug": "titolare-del-sistema-storico-dei-dati-roche-kaiseraugst",
       "slugByLocale": {
         "en": "data-historian-system-owner-roche-ch",
-        "it": "data-historian-system-owner-roche-ch",
-        "de": "data-historian-system-owner-roche-ch",
-        "fr": "data-historian-system-owner-roche-ch"
+        "it": "titolare-del-sistema-storico-dei-dati-roche-kaiseraugst",
+        "de": "systemverantwortliche-person-fur-das-datenhistorian-system-roche-kaiseraugst",
+        "fr": "proprietaire-du-systeme-historien-de-donnees-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8614,7 +8628,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:17:56.880Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:17:56.880Z"
+      "firstSeenAt": "2026-11-12T21:17:56.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-historian-system-owner-roche-ch"
+        ],
+        "de": [
+          "data-historian-system-owner-roche-ch"
+        ],
+        "fr": [
+          "data-historian-system-owner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-historian-system-owner-roche-ch"
+      ]
     },
     {
       "id": "roche-88e936b419de",

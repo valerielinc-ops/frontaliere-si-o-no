@@ -2158,12 +2158,12 @@
     },
     {
       "id": "livit-baad221d8a1c",
-      "slug": "immobilienbewirtschafter-in-60-80-livit-luzern",
+      "slug": "responsabile-della-gestione-immobiliare-60-80-livit-ag-luzern",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-in-60-80-livit-luzern",
-        "it": "immobilienbewirtschafter-in-60-80-livit-luzern",
-        "en": "immobilienbewirtschafter-in-60-80-livit-luzern",
-        "fr": "immobilienbewirtschafter-in-60-80-livit-luzern"
+        "it": "responsabile-della-gestione-immobiliare-60-80-livit-ag-luzern",
+        "en": "property-manager-60-80-livit-ag-luzern",
+        "fr": "gerant-e-immobilier-ere-60-80-livit-ag-luzern"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2237,16 +2237,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:39:25.433Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:39:25.433Z"
+      "firstSeenAt": "2026-11-12T21:39:25.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-60-80-livit-luzern"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-60-80-livit-luzern"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-60-80-livit-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-60-80-livit-luzern"
+      ]
     },
     {
       "id": "livit-e0f568cd9043",
-      "slug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
+      "slug": "impiegato-a-di-commercio-afc-immobili-agosto-2027-livit-ag-st-gallen",
       "slugByLocale": {
         "de": "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
-        "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen",
-        "en": "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
-        "fr": "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen"
+        "it": "impiegato-a-di-commercio-afc-immobili-agosto-2027-livit-ag-st-gallen",
+        "en": "commercial-employee-efz-real-estate-august-2027-livit-ag-st-gallen",
+        "fr": "employe-e-de-commerce-cfc-immobilier-aout-2027-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2295,11 +2309,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen"
+        ],
+        "en": [
+          "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen"
+        ],
+        "fr": [
           "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen"
         ]
       },
       "previousSlugs": [
-        "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen"
+        "kaufmann-frau-efz-immobilien-august-2027-livit-st-gallen",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -2332,11 +2354,11 @@
     },
     {
       "id": "livit-56d079277dca",
-      "slug": "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne",
+      "slug": "assistente-contabile-immobiliare-cdd-fino-al-30-06-2027-livit-ag-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne",
-        "it": "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne",
-        "en": "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne",
+        "it": "assistente-contabile-immobiliare-cdd-fino-al-30-06-2027-livit-ag-lausanne",
+        "en": "assistant-real-estate-accountant-cdd-until-30-06-2027-livit-ag-lausanne",
         "de": "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne"
       },
       "company": "Livit AG",
@@ -2399,7 +2421,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:39:25.426Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:39:25.426Z"
+      "firstSeenAt": "2026-11-12T21:39:25.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne"
+        ],
+        "en": [
+          "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-comptable-immobilier-cdd-jusqu-au-30-06-2027-livit-lausanne"
+      ]
     },
     {
       "id": "livit-2e9c68da96b9",
@@ -2648,7 +2681,7 @@
       "id": "livit-5a09b8b73e10",
       "slug": "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich-b58afdb2c6",
       "slugByLocale": {
-        "it": "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich-b58afdb2c6",
+        "it": "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich",
         "en": "commercial-internship-from-summer-2027-wms-or-hms-livit-ag-zurich",
         "de": "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
         "fr": "stage-commercial-a-partir-de-l-ete-2027-wms-ou-hms-livit-ag-zurich"
@@ -2698,14 +2731,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
-        "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich",
-        "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich"
+        "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich",
-          "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich",
-          "tirocinio-commerciale-a-partire-dall-estate-2027-wms-o-hms-livit-ag-zurich"
+          "kaufmannisches-praktikum-ab-sommer-2027-wms-o-hms-livit-ag-zurich"
         ],
         "en": [
           "kaufmannisches-praktikum-ab-sommer-2027-wms-oder-hms-livit-zurich"
@@ -2737,7 +2768,7 @@
       "id": "livit-82b6c74ad1b7",
       "slug": "responsabile-del-team-della-gestione-di-immobili-commerciali-con-responsabilita-regionale-livit-ag-zurich-cdf80a5610",
       "slugByLocale": {
-        "it": "responsabile-del-team-della-gestione-di-immobili-commerciali-con-responsabilita-regionale-livit-ag-zurich-cdf80a5610",
+        "it": "responsabile-del-team-della-gestione-di-immobili-commerciali-con-responsabilita-regionale-livit-ag-zurich",
         "en": "team-leader-management-of-commercial-properties-with-regional-responsibility-livit-ag-zurich",
         "de": "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit",
         "fr": "responsable-d-equipe-pour-la-gestion-d-immeubles-commerciaux-avec-responsabilite-regionale-livit-ag-zurich"
@@ -2786,13 +2817,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit",
-        "responsabile-del-team-della-gestione-di-immobili-commerciali-con-responsabilita-regionale-livit-ag-zurich"
+        "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit",
-          "responsabile-del-team-della-gestione-di-immobili-commerciali-con-responsabilita-regionale-livit-ag-zurich"
+          "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit"
         ],
         "en": [
           "teamleiter-in-bewirtschaftung-geschaftsliegenschaften-mit-regionalverantwortung-livit"

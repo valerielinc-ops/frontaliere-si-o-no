@@ -1959,8 +1959,8 @@
       "slugByLocale": {
         "it": "sales-associate-the-north-face-grancia-vf-international-the-north-face-timberland-emea-che-lugano-grancia-s789-tnf-3bcoii",
         "en": "sales-associate-the-north-face-grancia-vf-international-the-north-face-timberland-emea-che-lugano-grancia-s789-tnf-3bcoii",
-        "de": "sales-associate-the-north-face-grancia-vf-international-the-north-face-timberland-emea-che-lugano-grancia-s789-tnf-3bcoii",
-        "fr": "sales-associate-the-north-face-grancia-vf-international-the-north-face-timberland-emea-che-lugano-grancia-s789-tnf-3bcoii"
+        "de": "vertriebsmitarbeiter-the-north-face-grancia-vf-international-the-north-face-timberland-lugano",
+        "fr": "associe-de-vente-la-face-nord-grancia-vf-international-the-north-face-timberland-lugano"
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
@@ -1997,7 +1997,7 @@
     },
     {
       "id": "company-fmp1mq",
-      "slug": "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq",
+      "slug": "specialista-di-marketplace-digitali-a-tempo-determinato-altra-emea-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Associate, Digital Marketplaces (Temporary) (Altra EMEA)",
       "location": "Stabio",
@@ -2047,10 +2047,10 @@
       "firstSeenAt": "2026-11-12T21:37:56.072Z",
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq",
+        "it": "specialista-di-marketplace-digitali-a-tempo-determinato-altra-emea-vf-international-the-north-face-timberland-stabio",
         "en": "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq",
-        "de": "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq",
-        "fr": "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq"
+        "de": "mitarbeiter-digitale-marktplatze-befristet-altra-emea-vf-international-the-north-face-timberland-stabio",
+        "fr": "associe-marches-numeriques-temporaires-altra-emea-vf-international-the-north-face-timberland-stabio"
       },
       "addressLocality": "Stabio",
       "addressRegion": "TI",
@@ -2059,11 +2059,19 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq"
+        ],
+        "de": [
+          "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq"
+        ],
+        "fr": [
+          "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq"
         ]
       },
       "previousSlugs": [
-        "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "associate-digital-marketplaces-temporary-altra-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fmp1mq"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

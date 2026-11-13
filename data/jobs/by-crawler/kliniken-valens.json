@@ -3371,9 +3371,9 @@
       "slug": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
       "slugByLocale": {
         "it": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
-        "en": "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "en": "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "de": "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "fr": "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+        "fr": "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -3421,7 +3421,9 @@
         "specialista-nel-settore-alberghiero-m-f-a-80-kliniken-valens-wald",
         "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald",
-        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
+        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
+        "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
+        "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3431,10 +3433,10 @@
           "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "professional-hotel-industry-m-f-a-80-kliniken-valens-wald"
+          "hospitality-specialist-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
+          "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:08.923Z",
@@ -8685,12 +8687,12 @@
     },
     {
       "id": "kliniken-valens-3ab1b9cfa1a0",
-      "slug": "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh",
+      "slug": "assistente-di-studio-medico-efz-60-100-possibilita-di-job-sharing-kliniken-valens-wald-zh",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh",
-        "it": "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh",
-        "en": "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh",
-        "fr": "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh"
+        "it": "assistente-di-studio-medico-efz-60-100-possibilita-di-job-sharing-kliniken-valens-wald-zh",
+        "en": "medical-practice-assistant-efz-60-100-job-sharing-possible-kliniken-valens-wald-zh",
+        "fr": "assistant-e-medical-e-efz-60-100-partage-de-poste-possible-kliniken-valens-wald-zh"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8753,7 +8755,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T22:00:34.425Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T22:00:34.425Z"
+      "firstSeenAt": "2026-11-12T22:00:34.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-60-100-jobsharing-moglich-kliniken-valens-wald-zh"
+      ]
     },
     {
       "id": "kliniken-valens-eb541412382e",

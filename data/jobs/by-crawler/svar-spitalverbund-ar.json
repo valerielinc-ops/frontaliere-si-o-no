@@ -768,12 +768,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-31c4986f80f9",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiera-infermiere-diplomata-o-sss-sup-presso-il-reparto-di-psichiatria-generale-spitalverbund-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
+        "it": "infermiera-infermiere-diplomata-o-sss-sup-presso-il-reparto-di-psichiatria-generale-spitalverbund-appenzell-ausserrhoden",
+        "en": "diploma-qualified-nurse-hf-fh-on-the-general-psychiatry-ward-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "infirmier-ere-diplome-e-es-hes-dans-le-service-de-psychiatrie-generale-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -822,11 +822,19 @@
       "externalId": "4101305",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund",
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund"
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-fur-allgemeinpsychiatrie-svar-spitalverbund",
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-station-per-allgemeinpsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

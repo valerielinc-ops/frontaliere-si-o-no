@@ -581,12 +581,12 @@
     },
     {
       "id": "imad-e6fc63396c9c",
-      "slug": "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva",
+      "slug": "assc-home-pool-centralized-long-duration-pcld-80-o-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva",
-        "it": "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva",
-        "en": "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva",
-        "de": "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva"
+        "it": "assc-home-pool-centralized-long-duration-pcld-80-o-100-cdi-imad-geneva",
+        "en": "assc-home-pool-centralized-long-duration-pcld-80-or-100-cdi-imad-geneva",
+        "de": "assc-home-pool-centralized-long-duration-pcld-80-oder-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -649,16 +649,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:36:19.645Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:19.645Z"
+      "firstSeenAt": "2026-11-12T21:36:19.645Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-71ce7d14a448",
-      "slug": "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
+      "slug": "assc-in-home-care-80-o-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "it": "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "en": "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "de": "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        "it": "assc-in-home-care-80-o-100-cdi-imad-geneva",
+        "en": "assc-in-home-care-80-or-100-cdi-imad-geneva",
+        "de": "assc-in-home-care-80-oder-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -721,16 +735,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:36:19.643Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:19.643Z"
+      "firstSeenAt": "2026-11-12T21:36:19.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assc-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-1dff910478eb",
-      "slug": "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva",
+      "slug": "home-assistenza-sanitaria-60-al-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva",
-        "it": "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva",
-        "en": "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva",
-        "de": "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva"
+        "it": "home-assistenza-sanitaria-60-al-100-cdi-imad-geneva",
+        "en": "home-health-assistant-60-to-100-cdi-imad-geneva",
+        "de": "home-gesundheitsassistent-60-bis-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -793,7 +821,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:36:19.641Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:19.641Z"
+      "firstSeenAt": "2026-11-12T21:36:19.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-a072bc70a6a7",
@@ -878,12 +920,12 @@
     },
     {
       "id": "imad-bfa0c5480f04",
-      "slug": "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
+      "slug": "infermiera-si-riferisce-alla-cura-della-casa-80-o-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "it": "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "en": "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva",
-        "de": "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        "it": "infermiera-si-riferisce-alla-cura-della-casa-80-o-100-cdi-imad-geneva",
+        "en": "nurse-refers-to-home-care-80-or-100-cdi-imad-geneva",
+        "de": "krankenschwester-bezieht-sich-auf-hausliche-pflege-80-oder-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -946,7 +988,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:36:19.636Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:19.636Z"
+      "firstSeenAt": "2026-11-12T21:36:19.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-f33aac1f6db9",
@@ -1138,7 +1194,7 @@
       "id": "imad-8de0bd97dbca",
       "slug": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-f08c5a71b5",
       "slugByLocale": {
-        "it": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-f08c5a71b5",
+        "it": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team",
         "en": "nurse-referent-at-home-at-80-or-100-on-permanent-contract-within-the-centralized-team-for-long-term-replacement-missions",
         "de": "pflegefachfrau-pflegefachmann-zu-hause-zu-80-oder-100-unbefristet-im-zentralen-team-fur-langfristige-vertretungsaufgaben",
         "fr": "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
@@ -1186,13 +1242,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-        "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-          "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
         ],
         "en": [
           "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"

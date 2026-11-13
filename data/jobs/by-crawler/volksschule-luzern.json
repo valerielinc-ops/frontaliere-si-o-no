@@ -2396,12 +2396,12 @@
     },
     {
       "id": "volksschule-luzern-7607ae9b8448",
-      "slug": "fachlehrperson-bg-techg-e-pu-schulhaus-hubelmatt-sek-volksschule-stadt-luzern",
+      "slug": "docente-specialista-per-bg-techg-e-pu-scuola-hubelmatt-sek-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
-        "it": "fachlehrperson-bg-techg-e-pu-schulhaus-hubelmatt-sek-volksschule-stadt-luzern",
-        "en": "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
-        "fr": "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        "it": "docente-specialista-per-bg-techg-e-pu-scuola-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "en": "specialist-teacher-bg-techg-and-pu-school-house-hubelmatt-sek-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-specialise-bg-techg-et-pu-maison-scolaire-hubelmatt-sek-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2450,11 +2450,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
+          "fachlehrperson-bg-techg-e-pu-schulhaus-hubelmatt-sek-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        ],
+        "fr": [
           "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern"
+        "fachlehrperson-bg-techg-und-pu-schulhaus-hubelmatt-sek-volksschule-luzern-luzern",
+        "fachlehrperson-bg-techg-e-pu-schulhaus-hubelmatt-sek-volksschule-stadt-luzern"
       ],
       "salaryMin": 59500,
       "salaryMax": 110000,

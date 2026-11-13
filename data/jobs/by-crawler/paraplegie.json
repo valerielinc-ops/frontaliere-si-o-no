@@ -2592,12 +2592,12 @@
     },
     {
       "id": "paraplegie-99598c10d129",
-      "slug": "ausbildner-in-erste-hilfe-per-la-westschweiz-schweizer-paraplegiker-gruppe-cossonay",
+      "slug": "formatore-trice-di-primo-soccorso-per-la-svizzera-romanda-schweizer-paraplegiker-gruppe-cossonay",
       "slugByLocale": {
         "de": "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay",
-        "it": "ausbildner-in-erste-hilfe-per-la-westschweiz-schweizer-paraplegiker-gruppe-cossonay",
-        "en": "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay",
-        "fr": "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay"
+        "it": "formatore-trice-di-primo-soccorso-per-la-svizzera-romanda-schweizer-paraplegiker-gruppe-cossonay",
+        "en": "first-aid-trainer-for-french-speaking-switzerland-schweizer-paraplegiker-gruppe-cossonay",
+        "fr": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-schweizer-paraplegiker-gruppe-cossonay"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2646,11 +2646,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay",
+          "ausbildner-in-erste-hilfe-per-la-westschweiz-schweizer-paraplegiker-gruppe-cossonay"
+        ],
+        "en": [
+          "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay"
+        ],
+        "fr": [
           "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay"
         ]
       },
       "previousSlugs": [
-        "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay"
+        "ausbildner-in-erste-hilfe-fur-die-westschweiz-paraplegie-cossonay",
+        "ausbildner-in-erste-hilfe-per-la-westschweiz-schweizer-paraplegiker-gruppe-cossonay"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2672,12 +2680,12 @@
     },
     {
       "id": "paraplegie-b4d6ffa36abb",
-      "slug": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay",
+      "slug": "istruttore-di-pronto-soccorso-per-la-svizzera-francofona-schweizer-paraplegiker-gruppe-cossonay",
       "slugByLocale": {
         "fr": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay",
-        "it": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay",
-        "en": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay",
-        "de": "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay"
+        "it": "istruttore-di-pronto-soccorso-per-la-svizzera-francofona-schweizer-paraplegiker-gruppe-cossonay",
+        "en": "first-aid-trainer-for-french-speaking-switzerland-schweizer-paraplegiker-gruppe-cossonay-d1aa6e",
+        "de": "erste-hilfe-trainer-fur-die-franzosischsprachige-schweiz-schweizer-paraplegiker-gruppe-cossonay"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2739,16 +2747,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:50:06.025Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:50:06.025Z"
+      "firstSeenAt": "2026-11-12T21:50:06.025Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay"
+        ],
+        "en": [
+          "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay"
+        ],
+        "de": [
+          "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay"
+        ]
+      },
+      "previousSlugs": [
+        "formateur-trice-en-premiers-secours-pour-la-suisse-romande-paraplegie-cossonay"
+      ]
     },
     {
       "id": "paraplegie-fb96c98fb412",
-      "slug": "praktikant-in-sporttherapie-paraplegie-nottwil",
+      "slug": "tirocinante-in-terapia-sportiva-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "praktikant-in-sporttherapie-paraplegie-nottwil",
-        "it": "praktikant-in-sporttherapie-paraplegie-nottwil",
-        "en": "praktikant-in-sporttherapie-paraplegie-nottwil",
-        "fr": "praktikant-in-sporttherapie-paraplegie-nottwil"
+        "it": "tirocinante-in-terapia-sportiva-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "sports-therapy-intern-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "stagiaire-en-therapie-sportive-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -2810,7 +2832,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:50:06.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-sporttherapie-paraplegie-nottwil"
+        ],
+        "en": [
+          "praktikant-in-sporttherapie-paraplegie-nottwil"
+        ],
+        "fr": [
+          "praktikant-in-sporttherapie-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-sporttherapie-paraplegie-nottwil"
+      ]
     },
     {
       "id": "paraplegie-f1361742fcad",

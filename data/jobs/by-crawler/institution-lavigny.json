@@ -768,12 +768,12 @@
     },
     {
       "id": "institution-lavigny-0d89c5d4af79",
-      "slug": "gestionnaire-achats-m-w-d-institution-de-lavigny",
+      "slug": "gestione-acquisti-m-f-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "gestionnaire-achats-h-f-institution-lavigny-lavigny",
-        "it": "gestionnaire-achats-m-w-d-institution-de-lavigny",
-        "en": "gestionnaire-achats-h-f-institution-lavigny-lavigny",
-        "de": "gestionnaire-achats-h-f-institution-lavigny-lavigny"
+        "it": "gestione-acquisti-m-f-institution-de-lavigny-lavigny",
+        "en": "purchasing-manager-m-f-institution-de-lavigny-lavigny",
+        "de": "einkaufsleiter-m-w-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -821,11 +821,19 @@
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-achats-h-f-institution-lavigny-lavigny",
+          "gestionnaire-achats-m-w-d-institution-de-lavigny"
+        ],
+        "en": [
+          "gestionnaire-achats-h-f-institution-lavigny-lavigny"
+        ],
+        "de": [
           "gestionnaire-achats-h-f-institution-lavigny-lavigny"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-achats-h-f-institution-lavigny-lavigny"
+        "gestionnaire-achats-h-f-institution-lavigny-lavigny",
+        "gestionnaire-achats-m-w-d-institution-de-lavigny"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

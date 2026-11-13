@@ -490,7 +490,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -536,7 +536,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch"
+        "transportsanitater-in-fa-ksa-ch",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -547,7 +548,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -737,7 +738,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -784,7 +785,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -792,7 +793,7 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -1957,7 +1958,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -2007,16 +2008,12 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -2675,7 +2672,7 @@
       "id": "ksa-55d25c285595",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -2724,15 +2721,11 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -3758,7 +3751,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -3811,14 +3804,12 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-ksa-ch"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -5548,7 +5539,7 @@
         "it": "medizinische-r-disponent-in-kantonsspital-aarau-ksa-aarau",
         "en": "medical-r-dispatch-kantonsspital-aarau-ksa-aarau",
         "de": "medizinische-r-disponent-in-ksa-ch",
-        "fr": "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
+        "fr": "expedition-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5594,14 +5585,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "medizinische-r-disponent-in-ksa-ch",
-        "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+        "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-disponent-in-ksa-ch"
         ],
         "fr": [
-          "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+          "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.467Z",
@@ -7893,12 +7884,12 @@
     },
     {
       "id": "ksa-87be4cdbedb0",
-      "slug": "fachexpertin-fachexperte-ksa-ch-2",
+      "slug": "esperto-esperto-kantonsspital-aarau-ksa-aarau-a06146",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-ksa-ch",
-        "it": "fachexpertin-fachexperte-ksa-ch-2",
-        "en": "fachexpertin-fachexperte-ksa-ch-2",
-        "fr": "fachexpertin-fachexperte-ksa-ch-2"
+        "it": "esperto-esperto-kantonsspital-aarau-ksa-aarau-a06146",
+        "en": "expert-expert-kantonsspital-aarau-ksa-aarau-a06146",
+        "fr": "expert-expert-kantonsspital-aarau-ksa-aarau-a06146"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7961,7 +7952,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:21:06.073Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-30T21:16:26.914Z"
+      "firstSeenAt": "2026-10-30T21:16:26.914Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-ksa-ch-2"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-ksa-ch-2"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-ksa-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-ksa-ch-2"
+      ]
     },
     {
       "id": "ksa-72a4561aee04",
@@ -8055,7 +8060,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8102,7 +8107,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8110,7 +8115,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -8534,7 +8539,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -8584,14 +8589,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"

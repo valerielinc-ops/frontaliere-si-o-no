@@ -2607,11 +2607,11 @@
     },
     {
       "id": "c-and-a-schweiz-ffb2d5181760",
-      "slug": "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch",
+      "slug": "ch-addetta-alle-vendite-con-responsabilita-delle-chiavi-focus-servizio-contratto-a-tempo-determinato-50-c-a-schweiz",
       "slugByLocale": {
         "en": "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch",
-        "it": "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch",
-        "de": "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch",
+        "it": "ch-addetta-alle-vendite-con-responsabilita-delle-chiavi-focus-servizio-contratto-a-tempo-determinato-50-c-a-schweiz",
+        "de": "ch-vertriebsmitarbeiterin-mit-schlusselfunktion-fokus-service-befristeter-vertrag-50-c-a-schweiz-ecublens-ch",
         "fr": "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch"
       },
       "company": "C&A Schweiz",
@@ -2675,7 +2675,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:32:10.147Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:32:10.147Z"
+      "firstSeenAt": "2026-11-12T21:32:10.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-collaboratrice-de-vente-porteuse-de-clefs-focus-service-cdd-50-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-9aecf2bd9fc8",
@@ -2842,12 +2853,12 @@
     },
     {
       "id": "c-and-a-schweiz-adb60e73a4f8",
-      "slug": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-befristet-bis-ende-februar-2027-c-a-schweiz-oftringen",
+      "slug": "addetto-alle-vendite-m-f-d-40-per-oftringen-perry-center-a-tempo-determinato-fino-alla-fine-di-febbraio-2027-c-a-schweiz",
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027",
-        "it": "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-befristet-bis-ende-februar-2027-c-a-schweiz-oftringen",
-        "en": "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027",
-        "fr": "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027"
+        "it": "addetto-alle-vendite-m-f-d-40-per-oftringen-perry-center-a-tempo-determinato-fino-alla-fine-di-febbraio-2027-c-a-schweiz",
+        "en": "sales-assistant-m-f-d-40-for-oftringen-perry-center-fixed-term-until-the-end-of-february-2027-c-a-schweiz-oftringen-ch",
+        "fr": "collaborateur-dans-la-vente-h-f-d-40-pour-oftringen-perry-center-contrat-a-duree-determinee-jusqu-a-fin-fevrier-2027-c-a"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2894,11 +2905,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-befristet-bis-ende-februar-2027-c-a-schweiz-oftringen"
+        ],
+        "en": [
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027"
+        ],
+        "fr": [
           "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027"
+        "mitarbeiter-im-verkauf-m-w-d-40-fur-oftringen-perry-center-befristet-bis-ende-februar-2027",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-oftringen-perry-center-befristet-bis-ende-februar-2027-c-a-schweiz-oftringen"
       ],
       "salaryMin": 29600,
       "salaryMax": 45400,

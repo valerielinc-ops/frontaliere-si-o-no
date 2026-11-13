@@ -103,12 +103,12 @@
     },
     {
       "id": "sicpa-144b1be356db",
-      "slug": "business-analyst-intern-sicpa-prilly",
+      "slug": "business-analista-tirocinante-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "business-analyst-intern-sicpa-prilly",
-        "it": "business-analyst-intern-sicpa-prilly",
+        "it": "business-analista-tirocinante-sicpa-sa-prilly",
         "de": "business-analyst-intern-sicpa-prilly",
-        "fr": "business-analyst-intern-sicpa-prilly"
+        "fr": "business-analyste-stagiaire-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -184,7 +184,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:36:29.495Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:29.495Z"
+      "firstSeenAt": "2026-11-12T21:36:29.495Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-intern-sicpa-prilly"
+        ],
+        "fr": [
+          "business-analyst-intern-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-intern-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-3811aa4d831e",

@@ -12703,12 +12703,12 @@
     },
     {
       "id": "med-ipersonal-7508802e339b",
-      "slug": "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen-zh",
+      "slug": "consulente-del-personale-per-la-logistica-e-il-magazzino-ipersonal-ag-wallisellen-zh",
       "slugByLocale": {
         "de": "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh",
-        "it": "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen-zh",
-        "en": "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh",
-        "fr": "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh"
+        "it": "consulente-del-personale-per-la-logistica-e-il-magazzino-ipersonal-ag-wallisellen-zh",
+        "en": "recruitment-consultant-logistics-and-warehousing-ipersonal-ag-wallisellen-zh",
+        "fr": "conseiller-ere-en-personnel-pour-la-logistique-et-l-entreposage-ipersonal-ag-wallisellen-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12753,12 +12753,20 @@
       "previousSlugsByLocale": {
         "it": [
           "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh",
-          "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen"
+          "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen",
+          "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen-zh"
+        ],
+        "en": [
+          "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh"
+        ],
+        "fr": [
+          "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh"
         ]
       },
       "previousSlugs": [
         "personalberater-in-logistik-und-lager-ipersonal-ag-wallisellen-zh",
-        "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen"
+        "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen",
+        "personalberater-in-logistik-e-magazzino-ipersonal-ag-wallisellen-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12795,12 +12803,12 @@
     },
     {
       "id": "med-ipersonal-ebd267211c31",
-      "slug": "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh",
+      "slug": "consulente-del-personale-per-le-professioni-commerciali-ipersonal-ag-wallisellen-zh",
       "slugByLocale": {
         "de": "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh",
-        "it": "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh",
-        "en": "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh",
-        "fr": "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh"
+        "it": "consulente-del-personale-per-le-professioni-commerciali-ipersonal-ag-wallisellen-zh",
+        "en": "recruitment-consultant-commercial-professions-ipersonal-ag-wallisellen-zh",
+        "fr": "conseiller-ere-en-personnel-pour-les-metiers-commerciaux-ipersonal-ag-wallisellen-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12873,16 +12881,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:49:16.716Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:49:16.716Z"
+      "firstSeenAt": "2026-11-12T21:49:16.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh"
+        ],
+        "en": [
+          "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh"
+        ],
+        "fr": [
+          "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-kaufmannische-berufe-ipersonal-ag-wallisellen-zh"
+      ]
     },
     {
       "id": "med-ipersonal-72dfc29f2214",
-      "slug": "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen-zh",
+      "slug": "consulente-del-personale-per-l-elettrotecnica-e-la-tecnica-degli-edifici-ipersonal-ag-wallisellen-zh",
       "slugByLocale": {
         "de": "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh",
-        "it": "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen-zh",
-        "en": "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh",
-        "fr": "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh"
+        "it": "consulente-del-personale-per-l-elettrotecnica-e-la-tecnica-degli-edifici-ipersonal-ag-wallisellen-zh",
+        "en": "recruitment-consultant-electrical-and-building-services-ipersonal-ag-wallisellen-zh",
+        "fr": "conseiller-ere-en-personnel-pour-l-electricite-et-la-technique-du-batiment-ipersonal-ag-wallisellen-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -12927,12 +12949,20 @@
       "previousSlugsByLocale": {
         "it": [
           "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh",
-          "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen"
+          "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen",
+          "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen-zh"
+        ],
+        "en": [
+          "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh"
+        ],
+        "fr": [
+          "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh"
         ]
       },
       "previousSlugs": [
         "personalberater-in-elektro-und-haustechnik-ipersonal-ag-wallisellen-zh",
-        "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen"
+        "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen",
+        "personalberater-in-elektro-e-haustechnik-ipersonal-ag-wallisellen-zh"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -12969,12 +12999,12 @@
     },
     {
       "id": "med-ipersonal-095c0e19ef17",
-      "slug": "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen-zh",
+      "slug": "consulente-del-personale-per-il-settore-principale-e-secondario-delle-costruzioni-ipersonal-ag-wallisellen-zh",
       "slugByLocale": {
         "de": "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh",
-        "it": "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen-zh",
-        "en": "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh",
-        "fr": "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh"
+        "it": "consulente-del-personale-per-il-settore-principale-e-secondario-delle-costruzioni-ipersonal-ag-wallisellen-zh",
+        "en": "recruitment-consultant-main-and-ancillary-construction-trades-ipersonal-ag-wallisellen-zh",
+        "fr": "conseiller-ere-en-personnel-dans-le-gros-uvre-et-le-second-uvre-ipersonal-ag-wallisellen-zh"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -13019,12 +13049,20 @@
       "previousSlugsByLocale": {
         "it": [
           "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh",
-          "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen"
+          "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen",
+          "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen-zh"
+        ],
+        "en": [
+          "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh"
+        ],
+        "fr": [
+          "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh"
         ]
       },
       "previousSlugs": [
         "personalberater-in-bauhaupt-und-baunebengewerbe-ipersonal-ag-wallisellen-zh",
-        "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen"
+        "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen",
+        "personalberater-in-bauhaupt-e-baunebengewerbe-ipersonal-ag-wallisellen-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

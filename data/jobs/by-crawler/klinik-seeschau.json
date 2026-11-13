@@ -352,12 +352,12 @@
     },
     {
       "id": "klinik-seeschau-392f876870cb",
-      "slug": "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung",
+      "slug": "specialista-dello-stoccaggio-operativo-con-mansioni-di-supporto-nell-approvvigionamento-di-materiale-medico-klinik",
       "slugByLocale": {
         "de": "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung",
-        "it": "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung",
-        "en": "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung",
-        "fr": "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung"
+        "it": "specialista-dello-stoccaggio-operativo-con-mansioni-di-supporto-nell-approvvigionamento-di-materiale-medico-klinik",
+        "en": "specialist-operational-storage-with-support-tasks-in-the-med-procurement-of-materials-klinik-seeschau-kreuzlingen",
+        "fr": "stockage-operationnel-specialise-avec-des-taches-de-support-dans-la-med-achat-de-materiel-klinik-seeschau-kreuzlingen"
       },
       "company": "Klinik Seeschau",
       "companyKey": "klinik-seeschau",
@@ -431,7 +431,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:45:33.151Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:45:33.151Z"
+      "firstSeenAt": "2026-11-12T21:45:33.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung"
+        ],
+        "en": [
+          "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung"
+        ],
+        "fr": [
+          "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-operationslagerung-mit-unterstutzungsaufgaben-in-der-med-materialbeschaffung"
+      ]
     }
   ]
 }

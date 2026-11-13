@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-177a73953e15",
-      "slug": "epic-owner-per-agile-software-vorhaben-m-w-d-die-mobiliar-bern",
+      "slug": "epic-owner-per-progetti-software-agili-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch",
-        "it": "epic-owner-per-agile-software-vorhaben-m-w-d-die-mobiliar-bern",
+        "it": "epic-owner-per-progetti-software-agili-m-f-d-die-mobiliar-bern",
         "en": "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch",
-        "fr": "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch"
+        "fr": "proprietaire-epic-pour-les-projets-logiciels-agiles-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -74,11 +74,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch",
+          "epic-owner-per-agile-software-vorhaben-m-w-d-die-mobiliar-bern"
+        ],
+        "fr": [
           "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch"
+        "epic-owner-fur-agile-software-vorhaben-w-m-d-mobiliar-ch",
+        "epic-owner-per-agile-software-vorhaben-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -6874,9 +6879,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6940,17 +6945,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

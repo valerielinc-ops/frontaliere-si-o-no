@@ -112,7 +112,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -173,7 +173,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -181,7 +181,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -8540,12 +8540,12 @@
     },
     {
       "id": "emmi-0cf218217535",
-      "slug": "betriebsmechaniker-in-emmi-suhr",
+      "slug": "meccanico-a-d-esercizio-emmi-suhr-aargau",
       "slugByLocale": {
         "de": "betriebsmechaniker-in-emmi-ch",
-        "it": "betriebsmechaniker-in-emmi-suhr",
-        "en": "betriebsmechaniker-in-emmi-suhr",
-        "fr": "betriebsmechaniker-in-emmi-suhr"
+        "it": "meccanico-a-d-esercizio-emmi-suhr-aargau",
+        "en": "plant-mechanic-emmi-suhr-aargau",
+        "fr": "mecanicien-ne-d-exploitation-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8603,11 +8603,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-emmi-ch-3"
+          "betriebsmechaniker-in-emmi-ch-3",
+          "betriebsmechaniker-in-emmi-suhr"
+        ],
+        "en": [
+          "betriebsmechaniker-in-emmi-suhr"
+        ],
+        "fr": [
+          "betriebsmechaniker-in-emmi-suhr"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-in-emmi-ch-3"
+        "betriebsmechaniker-in-emmi-ch-3",
+        "betriebsmechaniker-in-emmi-suhr"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8629,12 +8637,12 @@
     },
     {
       "id": "emmi-44ce820db262",
-      "slug": "responsabile-di-progetto-f-e-schmelzkase-emmi-langnau-im-emmental",
+      "slug": "responsabile-di-progetto-r-s-formaggio-fuso-emmi-langnau-im-emmental-bern",
       "slugByLocale": {
         "de": "projektleiter-in-f-e-schmelzkase-emmi-ch",
-        "it": "responsabile-di-progetto-f-e-schmelzkase-emmi-langnau-im-emmental",
-        "en": "projektleiter-in-f-e-schmelzkase-emmi-ch",
-        "fr": "projektleiter-in-f-e-schmelzkase-emmi-ch"
+        "it": "responsabile-di-progetto-r-s-formaggio-fuso-emmi-langnau-im-emmental-bern",
+        "en": "project-manager-r-d-processed-cheese-emmi-langnau-im-emmental-bern",
+        "fr": "chef-fe-de-projet-r-d-fromages-fondus-emmi-langnau-im-emmental-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8694,11 +8702,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-f-e-schmelzkase-emmi-ch",
+          "responsabile-di-progetto-f-e-schmelzkase-emmi-langnau-im-emmental"
+        ],
+        "en": [
+          "projektleiter-in-f-e-schmelzkase-emmi-ch"
+        ],
+        "fr": [
           "projektleiter-in-f-e-schmelzkase-emmi-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-f-e-schmelzkase-emmi-ch"
+        "projektleiter-in-f-e-schmelzkase-emmi-ch",
+        "responsabile-di-progetto-f-e-schmelzkase-emmi-langnau-im-emmental"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -8720,12 +8736,12 @@
     },
     {
       "id": "emmi-cc96a5a86e90",
-      "slug": "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen",
+      "slug": "operatore-operatrice-dell-impianto-di-preparazione-dello-yogurt-emmi-ostermundigen-bern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-jogurtaufbereitung-emmi-ch",
-        "it": "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen",
-        "en": "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen",
-        "fr": "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen"
+        "it": "operatore-operatrice-dell-impianto-di-preparazione-dello-yogurt-emmi-ostermundigen-bern",
+        "en": "yogurt-processing-operator-emmi-ostermundigen-bern",
+        "fr": "operateur-rice-d-installation-de-preparation-de-yaourts-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8787,11 +8803,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-jogurtaufbereitung-emmi-ch"
+          "anlagenfuhrer-in-jogurtaufbereitung-emmi-ch",
+          "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen"
+        ],
+        "en": [
+          "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen"
         ]
       },
       "previousSlugs": [
-        "anlagenfuhrer-in-jogurtaufbereitung-emmi-ch"
+        "anlagenfuhrer-in-jogurtaufbereitung-emmi-ch",
+        "anlagenfuhrer-in-jogurtaufbereitung-emmi-ostermundigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

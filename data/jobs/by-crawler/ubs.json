@@ -3749,12 +3749,12 @@
     },
     {
       "id": "ubs-c0900391ac96",
-      "slug": "2027-internship-digital-channels-zurich-ubs-zurich",
+      "slug": "2027-stage-canali-digitali-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-digital-channels-zurich-ubs-zurich",
-        "it": "2027-internship-digital-channels-zurich-ubs-zurich",
+        "it": "2027-stage-canali-digitali-zurigo-ubs-zurich",
         "de": "2027-internship-digital-channels-zurich-ubs-zurich",
-        "fr": "2027-internship-digital-channels-zurich-ubs-zurich"
+        "fr": "2027-stage-chaines-numeriques-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3839,7 +3839,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:20:45.986Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:45.986Z"
+      "firstSeenAt": "2026-11-12T21:20:45.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-digital-channels-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-digital-channels-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-digital-channels-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-27532b50fb0e",
@@ -3943,12 +3954,12 @@
     },
     {
       "id": "ubs-73091300d03b",
-      "slug": "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich",
+      "slug": "2027-stage-gruppo-brand-marketing-risk-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich",
-        "it": "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich",
+        "it": "2027-stage-gruppo-brand-marketing-risk-zurigo-ubs-zurich",
         "de": "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich",
-        "fr": "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich"
+        "fr": "2027-stage-risques-de-marque-et-de-marketing-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4033,16 +4044,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:20:44.726Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:44.726Z"
+      "firstSeenAt": "2026-11-12T21:20:44.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-group-brand-marketing-risk-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-404986746c03",
-      "slug": "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich",
+      "slug": "2027-stage-gfiw-emea-capo-di-stato-maggiore-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich",
-        "it": "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich",
+        "it": "2027-stage-gfiw-emea-capo-di-stato-maggiore-zurigo-ubs-zurich",
         "de": "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich",
-        "fr": "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich"
+        "fr": "2027-stage-gfiw-emea-chef-de-cabinet-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4127,7 +4149,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:20:44.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:44.057Z"
+      "firstSeenAt": "2026-11-12T21:20:44.057Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-gfiw-emea-chief-of-staff-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-6148d0aee94d",
@@ -4230,7 +4263,7 @@
         "en": "2027-internship-group-internal-consulting-zurich-ubs-zurich",
         "it": "2027-internship-group-internal-consulting-zurich-ubs-zurich",
         "de": "2027-internship-group-internal-consulting-zurich-ubs-zurich",
-        "fr": "2027-internship-group-internal-consulting-zurich-ubs-zurich"
+        "fr": "2027-stage-conseil-interne-de-groupe-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9647,7 +9680,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9700,11 +9733,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -13628,12 +13665,12 @@
     },
     {
       "id": "ubs-e20cc3583627",
-      "slug": "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom",
+      "slug": "product-manager-piattaforma-di-finanziamento-x-asset-ubs-zurich-united-kingdom",
       "slugByLocale": {
         "en": "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom",
-        "it": "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom",
-        "de": "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom",
-        "fr": "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom"
+        "it": "product-manager-piattaforma-di-finanziamento-x-asset-ubs-zurich-united-kingdom",
+        "de": "produktmanager-x-asset-finanzierungsplattform-ubs-zurich-united-kingdom",
+        "fr": "gestionnaire-de-produits-plateforme-de-financement-x-asset-ubs-zurich-united-kingdom"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -13704,7 +13741,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:19:39.052Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:19:39.052Z"
+      "firstSeenAt": "2026-11-12T21:19:39.052Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom"
+        ],
+        "de": [
+          "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom"
+        ],
+        "fr": [
+          "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-x-asset-financing-platform-ubs-zurich-united-kingdom"
+      ]
     },
     {
       "id": "ubs-5f650f7a4dc6",
@@ -13808,12 +13859,12 @@
     },
     {
       "id": "ubs-efc7b6254288",
-      "slug": "data-scientist-ubs-zurich",
+      "slug": "ricerca-di-dati-ubs-zurich",
       "slugByLocale": {
         "en": "data-scientist-ubs-zurich",
-        "it": "data-scientist-ubs-zurich",
-        "de": "data-scientist-ubs-zurich",
-        "fr": "data-scientist-ubs-zurich"
+        "it": "ricerca-di-dati-ubs-zurich",
+        "de": "datenwissenschaftler-ubs-zurich",
+        "fr": "scientifique-des-donnees-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -13899,7 +13950,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:19:37.840Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:19:37.840Z"
+      "firstSeenAt": "2026-11-12T21:19:37.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-ubs-zurich"
+        ],
+        "de": [
+          "data-scientist-ubs-zurich"
+        ],
+        "fr": [
+          "data-scientist-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-d81af6f1dcf4",

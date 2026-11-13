@@ -9091,7 +9091,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9137,7 +9137,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9147,7 +9147,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -12694,8 +12694,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-administration-60-80-senevita-tg-islikon",
         "it": "collaboratore-trice-in-administration-60-80-senevita-tg-islikon",
-        "en": "mitarbeiter-in-administration-60-80-senevita-tg-islikon",
-        "fr": "mitarbeiter-in-administration-60-80-senevita-tg-islikon"
+        "en": "administrative-employee-60-80-senevita-tg-islikon",
+        "fr": "collaborateur-rice-administratif-ve-60-80-senevita-tg-islikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12744,6 +12744,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-administration-60-80-senevita-tg-islikon"
+        ],
+        "en": [
+          "mitarbeiter-in-administration-60-80-senevita-tg-islikon"
+        ],
+        "fr": [
           "mitarbeiter-in-administration-60-80-senevita-tg-islikon"
         ]
       },

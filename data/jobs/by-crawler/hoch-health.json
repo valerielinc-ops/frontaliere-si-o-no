@@ -7232,7 +7232,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -7284,7 +7284,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7292,7 +7292,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -15860,12 +15860,12 @@
     },
     {
       "id": "hoch-health-43beacf4a8e4",
-      "slug": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2",
+      "slug": "case-manager-della-gestione-centrale-dei-pazienti-80-100-hoch-health-ostschweiz-st-gallen-98b2db",
       "slugByLocale": {
         "de": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-        "it": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2",
-        "en": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2",
-        "fr": "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2"
+        "it": "case-manager-della-gestione-centrale-dei-pazienti-80-100-hoch-health-ostschweiz-st-gallen-98b2db",
+        "en": "case-manager-central-patient-management-80-100-hoch-health-ostschweiz-st-gallen-98b2db",
+        "fr": "gestionnaire-de-cas-en-gestion-centralisee-des-patients-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -15928,7 +15928,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:34:54.329Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:44:27.177Z"
+      "firstSeenAt": "2026-11-05T21:44:27.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2"
+        ],
+        "en": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2"
+        ],
+        "fr": [
+          "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2"
+        ]
+      },
+      "previousSlugs": [
+        "case-manager-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen-2"
+      ]
     },
     {
       "id": "hoch-health-00b3508f6062",
@@ -17669,12 +17683,12 @@
     },
     {
       "id": "hoch-health-a1f6293720ca",
-      "slug": "apotheker-in-offizin-50-60-hoch-health-st-gallen",
+      "slug": "farmacista-in-farmacia-50-60-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "apotheker-in-offizin-50-60-hoch-health-st-gallen",
-        "it": "apotheker-in-offizin-50-60-hoch-health-st-gallen",
-        "en": "apotheker-in-offizin-50-60-hoch-health-st-gallen",
-        "fr": "apotheker-in-offizin-50-60-hoch-health-st-gallen"
+        "it": "farmacista-in-farmacia-50-60-hoch-health-ostschweiz-st-gallen",
+        "en": "community-pharmacist-50-60-hoch-health-ostschweiz-st-gallen",
+        "fr": "pharmacien-ne-en-officine-50-60-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17737,16 +17751,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:34:44.128Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:34:44.128Z"
+      "firstSeenAt": "2026-11-12T21:34:44.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-offizin-50-60-hoch-health-st-gallen"
+        ],
+        "en": [
+          "apotheker-in-offizin-50-60-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "apotheker-in-offizin-50-60-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-offizin-50-60-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-a633fe7bf442",
-      "slug": "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "infermiere-a-diplomato-a-come-formatore-trice-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen",
-        "it": "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen"
+        "it": "infermiere-a-diplomato-a-come-formatore-trice-80-100-hoch-health-ostschweiz-st-gallen",
+        "en": "qualified-nurse-as-trainer-80-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "infirmier-ere-diplome-e-en-tant-que-formateur-trice-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17794,11 +17822,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen",
+          "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-als-ausbildner-in-80-100-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-come-ausbildner-in-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -17821,12 +17857,12 @@
     },
     {
       "id": "hoch-health-0df7f517c25d",
-      "slug": "med-praxisassistent-in-80-100-hoch-health-st-gallen",
+      "slug": "assistente-di-studio-medico-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "med-praxisassistent-in-80-100-hoch-health-st-gallen",
-        "it": "med-praxisassistent-in-80-100-hoch-health-st-gallen",
-        "en": "med-praxisassistent-in-80-100-hoch-health-st-gallen",
-        "fr": "med-praxisassistent-in-80-100-hoch-health-st-gallen"
+        "it": "assistente-di-studio-medico-80-100-hoch-health-ostschweiz-st-gallen",
+        "en": "medical-practice-assistant-80-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "assistant-e-medical-e-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17889,7 +17925,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:34:43.123Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:34:43.123Z"
+      "firstSeenAt": "2026-11-12T21:34:43.123Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-80-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "med-praxisassistent-in-80-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "med-praxisassistent-in-80-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-80-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-ef5fa26cb3c3",
@@ -18459,12 +18509,12 @@
     },
     {
       "id": "hoch-health-2c3eae23ac30",
-      "slug": "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen",
+      "slug": "tuttofare-con-rendita-ai-completa-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen",
-        "it": "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen",
-        "en": "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen",
-        "fr": "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen"
+        "it": "tuttofare-con-rendita-ai-completa-100-hoch-health-ostschweiz-st-gallen",
+        "en": "all-rounder-with-a-full-iv-pension-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "employe-e-polyvalent-e-avec-rente-ai-complete-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18527,7 +18577,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:34:39.589Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:34:39.589Z"
+      "firstSeenAt": "2026-11-12T21:34:39.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-mit-voller-iv-rente-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-2647b6b6644b",

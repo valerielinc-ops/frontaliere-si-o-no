@@ -4588,12 +4588,12 @@
     },
     {
       "id": "spital-sts-473dcc58ad70",
-      "slug": "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun",
+      "slug": "impiegato-a-per-la-gestione-delle-pratiche-respinte-in-regime-di-degenza-spital-sts-thun",
       "slugByLocale": {
         "de": "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun",
-        "it": "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun",
-        "en": "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun",
-        "fr": "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun"
+        "it": "impiegato-a-per-la-gestione-delle-pratiche-respinte-in-regime-di-degenza-spital-sts-thun",
+        "en": "administrative-clerk-for-inpatient-rejection-management-spital-sts-thun",
+        "fr": "gestionnaire-du-traitement-des-rejets-dans-le-secteur-stationnaire-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4670,16 +4670,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:47:29.568Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:47:29.568Z"
+      "firstSeenAt": "2026-11-12T21:47:29.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun"
+        ],
+        "en": [
+          "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun"
+        ],
+        "fr": [
+          "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-ruckweisungsmanagement-stationar-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-13fe63a96ec4",
-      "slug": "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing",
+      "slug": "assistente-di-studio-medico-presso-la-clinica-ginecologica-con-funzione-di-sostituzione-job-sharing-possibile-spital-sts",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing",
-        "it": "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing",
-        "en": "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing",
-        "fr": "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing"
+        "it": "assistente-di-studio-medico-presso-la-clinica-ginecologica-con-funzione-di-sostituzione-job-sharing-possibile-spital-sts",
+        "en": "medical-practice-assistant-women-s-clinic-with-deputy-function-job-sharing-possible-spital-sts-thun",
+        "fr": "clinique-d-assistante-a-la-pratique-medicale-pour-femmes-ayant-une-fonction-adjointe-partage-d-emploi-possible-spital"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -4756,7 +4770,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:47:29.550Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:47:29.550Z"
+      "firstSeenAt": "2026-11-12T21:47:29.550Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-frauenklinik-mit-stellvertretungsfunktion-jobsharing"
+      ]
     },
     {
       "id": "spital-sts-47bfb889248c",

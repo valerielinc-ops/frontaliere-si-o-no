@@ -885,7 +885,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -946,7 +946,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -955,7 +955,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,
@@ -1234,12 +1234,12 @@
     },
     {
       "id": "bcv-d95eeda95728",
-      "slug": "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne",
+      "slug": "auditor-ict-e-cyber-manager-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne",
-        "it": "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne",
-        "en": "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne",
-        "de": "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne"
+        "it": "auditor-ict-e-cyber-manager-banque-cantonale-vaudoise-lausanne",
+        "en": "ict-and-cyber-manager-auditor-banque-cantonale-vaudoise-lausanne",
+        "de": "ict-und-cyber-manager-auditor-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -1302,7 +1302,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:50:09.208Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:50:09.208Z"
+      "firstSeenAt": "2026-11-12T21:50:09.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne"
+        ],
+        "en": [
+          "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne"
+        ],
+        "de": [
+          "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "auditrice-ou-auditeur-manager-tic-et-cyber-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-db9241ae070e",
@@ -1568,12 +1582,12 @@
     },
     {
       "id": "bcv-b6033672a7dd",
-      "slug": "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne",
+      "slug": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne",
-        "it": "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne",
+        "it": "ict-cyber-risk-management-expert-banque-cantonale-vaudoise-lausanne",
         "en": "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne",
-        "de": "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne"
+        "de": "ict-cyber-risk-management-experte-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -1636,7 +1650,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:50:06.022Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:50:06.022Z"
+      "firstSeenAt": "2026-11-12T21:50:06.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne"
+        ],
+        "de": [
+          "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "experte-ou-expert-en-gestion-des-risques-tic-cyber-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-9a2b3150a3b6",

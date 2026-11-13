@@ -830,12 +830,12 @@
     },
     {
       "id": "bcvs-8b910c819f96",
-      "slug": "conseiller-conseillere-bancaire-bcvs-sion",
+      "slug": "consulente-bancario-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "conseiller-conseillere-bancaire-bcvs-sion",
-        "it": "conseiller-conseillere-bancaire-bcvs-sion",
-        "en": "conseiller-conseillere-bancaire-bcvs-sion",
-        "de": "conseiller-conseillere-bancaire-bcvs-sion"
+        "it": "consulente-bancario-banque-cantonale-du-valais-sion",
+        "en": "banking-consultant-banque-cantonale-du-valais-sion",
+        "de": "bankberater-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -921,7 +921,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T22:01:47.416Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T22:01:47.416Z"
+      "firstSeenAt": "2026-11-12T22:01:47.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-bancaire-bcvs-sion"
+        ],
+        "en": [
+          "conseiller-conseillere-bancaire-bcvs-sion"
+        ],
+        "de": [
+          "conseiller-conseillere-bancaire-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-bancaire-bcvs-sion"
+      ]
     }
   ]
 }
