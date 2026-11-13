@@ -11,8 +11,12 @@ describe('buildSwissCityMapHref', () => {
     }, 'it'));
   });
 
-  it('does not create a query link for Ticino municipalities without a dedicated route', () => {
-    expect(buildSwissCityMapHref('TI', 'Stabio', 'it')).toBeNull();
+  it('uses the data-driven city route for a municipality in Ticino', () => {
+    expect(buildSwissCityMapHref('TI', 'Stabio', 'it')).toBe(buildPath({
+      activeTab: 'job-board',
+      jobBoardCanton: 'TI',
+      jobBoardCity: 'stabio',
+    }, 'it'));
   });
 
   it('uses the data-driven city route for a municipality in another canton', () => {

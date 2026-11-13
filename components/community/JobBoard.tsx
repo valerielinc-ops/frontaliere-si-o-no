@@ -3759,6 +3759,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   unmappedOffers: (count) => t('jobBoard.map.unmappedOffers', { count }),
   closeDetails: (name) => t('jobBoard.map.closeDetails', { name }),
   mapAriaLabel: t('jobBoard.map.mapAriaLabel'),
+  cantonMapAriaLabel: (canton) => t('jobBoard.map.cantonMapAriaLabel', { canton }),
+  mapInteractionHint: (mode) => t(mode === 'national' ? 'jobBoard.map.nationalInteractionHint' : 'jobBoard.map.cantonInteractionHint'),
   cantonsListAriaLabel: t('jobBoard.map.cantonsListAriaLabel'),
   municipalitiesListAriaLabel: t('jobBoard.map.municipalitiesListAriaLabel'),
   swisstopoAttribution: t('jobBoard.map.swisstopoAttribution'),
@@ -3883,12 +3885,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  applySearchQuery(next);
  if (!searchSlugFilter) syncQueryParamsToUrl({ q: next || null }, 'push');
  }, [applySearchQuery, searchSlugFilter]);
- const viewSwissCityMapJobs = useCallback((_cantonCode: string, cityName: string) => {
-  setShowSwissBubbleMap(false);
-  jobBoardSearchResumeInteractionRef.current = true;
-  setSelectedLocation(normalizeLocalityKey(cityName));
- }, []);
-
  /**
  * Initial-mount data load (D9 + D11 + E4).
  *
@@ -12340,7 +12336,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
       locale={locale}
       copy={swissMapCopy}
       buildCityHref={buildSwissCityMapHref}
-      onViewCityJobs={viewSwissCityMapJobs}
      />
     </Suspense>
    </div>

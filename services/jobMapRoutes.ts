@@ -1,5 +1,5 @@
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
-import { isKnownCityHub, TI_LEGACY_CITY_HUB_KEYS } from '@/build-plugins/cityJobsHub';
+import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { buildPath } from '@/services/router';
 import type { Locale } from '@/services/i18n';
 
@@ -9,11 +9,7 @@ export function buildSwissCityMapHref(cantonCode: string, cityName: string, loca
   if (!canton) return null;
   const citySlug = normalizeCitySlug(cityName);
   if (!citySlug) return null;
-  if (canton === 'TI') {
-    if (!TI_LEGACY_CITY_HUB_KEYS.includes(citySlug)) return null;
-  } else if (!isKnownCityHub(citySlug, canton)) {
-    return null;
-  }
+  if (!isKnownCityHub(citySlug, canton)) return null;
 
   return buildPath({
     activeTab: 'job-board',
