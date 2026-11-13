@@ -1,5 +1,6 @@
-import cantonSlugFile from '../../data/canton-url-slugs.json' with { type: 'json' };
-import municipalitiesFile from '../../data/canton-municipalities.json' with { type: 'json' };
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   AGGREGATE_KEY,
   SECTION_LEGACY_TI,
@@ -7,10 +8,29 @@ import {
   createCantonResolvers,
 } from '../../build-plugins/shared/cantonResolvers.mjs';
 
-const {
-  isKnownCityHubSlug,
-  resolveCantonFromSection,
-} = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
+let resolvers;
+
+/**
+ * The housekeeping sparse checkout deliberately omits the generated data
+ * tree. Keep the route resolver data-injected and lazy so importing the slug
+ * stability rule does not make that lightweight job fail at module load; the
+ * full checkout still gets the exact data-driven city-vs-job decision.
+ */
+function getResolvers() {
+  if (resolvers !== undefined) return resolvers;
+  try {
+    const read = (name) => JSON.parse(fs.readFileSync(path.join(DATA_DIR, name), 'utf8'));
+    resolvers = createCantonResolvers({
+      cantonSlugFile: read('canton-url-slugs.json'),
+      municipalitiesFile: read('canton-municipalities.json'),
+    });
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    resolvers = null;
+  }
+  return resolvers;
+}
 
 /**
  * Shared route shape for a page below a canton-aware job board.
@@ -44,6 +64,19 @@ export function isJobBoardDetailPath(path) {
   const tail = parts.slice(sectionIndex + 1).map((part) => part.toLowerCase());
   if (!section || tail.length < 1 || tail.length > 2 || tail.some((part) => !part)) return false;
 
+  const routeResolvers = getResolvers();
+  if (!routeResolvers) {
+    if (cantonIsLegacyTi(locale, section)) {
+      if (tail.length === 2) return TI_LEGACY_CITY_HUB_SLUGS.includes(tail[0]);
+      return !TI_LEGACY_CITY_HUB_SLUGS.includes(tail[0]);
+    }
+    // A sparse checkout without the route data cannot prove that a one-tail
+    // path is a city hub. Keep the old positive shape as the safe fallback;
+    // the full deploy checkout always takes the data-driven branch below.
+    return tail.length === 1;
+  }
+
+  const { isKnownCityHubSlug, resolveCantonFromSection } = routeResolvers;
   const canton = resolveCantonFromSection(locale, section);
   if (!canton) return false;
 
@@ -65,4 +98,8 @@ export function isJobBoardDetailPath(path) {
     return !TI_LEGACY_CITY_HUB_SLUGS.includes(slug);
   }
   return !isKnownCityHubSlug(slug, canton === AGGREGATE_KEY ? undefined : canton);
+}
+
+function cantonIsLegacyTi(locale, section) {
+  return section === SECTION_LEGACY_TI[locale];
 }
