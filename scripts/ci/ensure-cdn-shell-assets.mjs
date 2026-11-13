@@ -20,7 +20,12 @@
  * Exit: 0 when every file is available, 1 otherwise (nothing may be pushed).
  */
 import { listStaticScriptFiles } from '../../build-plugins/staticScriptsPlugin.ts';
-import { ensureCdnShellAssets, shellAssetsFromStaticScripts } from '../lib/cdn-shell-assets.mjs';
+import { appendFileSync } from 'node:fs';
+import {
+  ensureCdnShellAssets,
+  shellAssetsFromStaticScripts,
+  StaleStableAliasError,
+} from '../lib/cdn-shell-assets.mjs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { startPipelinePhase } from '../lib/pipeline-phase-timing.mjs';
 
@@ -34,6 +39,17 @@ export async function main({
   try {
     return await ensure({ assets: shellAssetsFromStaticScripts(listFiles()) });
   } catch (error) {
+    if (process.env.DEFER_STALE_STABLE_ALIAS === 'true' && error instanceof StaleStableAliasError) {
+      outcome = 'skipped';
+      if (process.env.GITHUB_OUTPUT) {
+        appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n', 'utf8');
+      }
+      console.log(
+        `::notice::[cdn-shell-assets] ${error.message}; ` +
+        'automatic pre-deploy rerender deferred until the validated full deploy dispatches it again',
+      );
+      return { deferred: true, reason: error.code };
+    }
     outcome = 'failure';
     throw error;
   } finally {

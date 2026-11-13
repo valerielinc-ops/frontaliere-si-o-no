@@ -1,104 +1,172 @@
 // @vitest-environment jsdom
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import { SwissBubbleMap, CantonJobsData } from '../components/community/SwissBubbleMap';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import municipalityMapData from '../data/swiss-municipality-map.json';
+import { CANTON_CODES } from '../services/cantonList';
+import {
+  SwissBubbleMap,
+  type CantonJobsData,
+  type SwissBubbleMapCopy,
+} from '../components/community/SwissBubbleMap';
 
-afterEach(() => {
-  cleanup();
-});
+afterEach(cleanup);
 
-const mockData: CantonJobsData[] = [
-  { cantonCode: 'TI', name: 'Ticino', count: 1250 },
-  { cantonCode: 'GR', name: 'Grigioni', count: 320 },
-  { cantonCode: 'ZH', name: 'Zurigo', count: 4800 },
-  { cantonCode: 'GE', name: 'Ginevra', count: 950 },
-  { cantonCode: 'BS', name: 'Basilea', count: 600 },
-  { cantonCode: 'VS', name: 'Vallese', count: 0 }, // 0 offerte: deve essere escluso dal rendering bolla
-];
+const cantons: CantonJobsData[] = (municipalityMapData.cantons as Array<{ code: string; commonsFile: string }>).map(({ code }) => ({
+  cantonCode: code,
+  name: code === 'TI' ? 'Ticino' : code === 'ZH' ? 'Zurigo' : code,
+  count: code === 'TI' ? 8 : code === 'ZH' ? 42 : 0,
+  href: `/cerca-lavoro-svizzera/${code.toLowerCase()}/`,
+}));
 
-describe('SwissBubbleMap Component', () => {
-  it('renderizza la mappa SVG con i confini e le bolle dei cantoni attivi', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} onSelectCanton={onSelect} />);
+const copy: SwissBubbleMapCopy = {
+  allCantonsHeading: 'Cantoni della Confederazione',
+  cantonHeading: (name) => `Comuni con offerte in ${name}`,
+  cantonsHeading: 'Tutti i cantoni',
+  municipalitiesHeading: 'Comuni con offerte',
+  municipalityCount: (count) => `${count} comuni`,
+  municipalLogoNote: 'Logo comunale ufficiale; stemma del comune attuale non disponibile.',
+  offerCount: (count) => `${count} offerte`,
+  viewJobs: 'Visualizza lavori',
+  noMunicipalities: 'Nessun comune con offerte.',
+  unmappedOffers: (count) => `${count} offerte non localizzate.`,
+  closeDetails: (name) => `Chiudi i dettagli di ${name}`,
+  mapAriaLabel: 'Mappa della Svizzera',
+  cantonsListAriaLabel: 'Elenco dei cantoni',
+  municipalitiesListAriaLabel: 'Elenco dei comuni',
+  swisstopoAttribution: 'Confini: swisstopo',
+  commonsAttribution: 'Stemmi: Wikimedia Commons',
+  symbolSource: 'Fonte del simbolo',
+};
 
-    expect(screen.getByRole('region', { name: /mappa offerte per cantone svizzero/i })).toBeTruthy();
-    expect(screen.getByTestId('canton-bubble-TI')).toBeTruthy();
-    expect(screen.getByTestId('canton-bubble-GR')).toBeTruthy();
-    expect(screen.getByTestId('canton-bubble-ZH')).toBeTruthy();
-    expect(screen.getByTestId('canton-bubble-GE')).toBeTruthy();
-    expect(screen.getByTestId('canton-bubble-BS')).toBeTruthy();
-    // Il Vallese ha 0 offerte, quindi non deve renderizzare una bolla cliccabile
-    expect(screen.queryByTestId('canton-bubble-VS')).toBeNull();
+const totalJobsByCanton = Object.fromEntries(cantons.map(({ cantonCode, count }) => [cantonCode, count]));
+const buildCityHref = vi.fn((cantonCode: string, cityName: string) => `/cerca-lavoro-svizzera/${cantonCode.toLowerCase()}/${cityName.toLowerCase()}/`);
+const onViewCityJobs = vi.fn();
+
+describe('SwissBubbleMap', () => {
+  it('shows all 26 cantons with their symbols and canonical job links', () => {
+    render(
+      <SwissBubbleMap
+        mode="national"
+        cantonCodes={[...CANTON_CODES]}
+        cantons={cantons}
+        cities={[]}
+        totalJobsByCanton={totalJobsByCanton}
+        locale="it"
+        copy={copy}
+        buildCityHref={buildCityHref}
+        onViewCityJobs={onViewCityJobs}
+      />,
+    );
+
+    expect(CANTON_CODES).toHaveLength(26);
+    expect(screen.getByRole('region', { name: 'Mappa della Svizzera' })).toBeTruthy();
+    expect(screen.getAllByTestId(/^map-marker-canton-/)).toHaveLength(26);
+    expect(screen.getAllByRole('link', { name: /Visualizza lavori:/i })).toHaveLength(26);
+    expect(screen.getByTestId('map-marker-canton-ZH')).toBeTruthy();
+    expect(screen.getByRole('region', { name: 'Elenco dei cantoni' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Visualizza lavori: Zurigo' }).getAttribute('href')).toBe('/cerca-lavoro-svizzera/zh/');
   });
 
-  it('calcola il raggio proporzionalmente alla radice quadrata del volume', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} onSelectCanton={onSelect} />);
+  it('matches a job locality to the current official municipality and links to its city route', () => {
+    render(
+      <SwissBubbleMap
+        mode="canton"
+        cantonCodes={['TI']}
+        cantons={cantons}
+        cities={[{ cantonCode: 'TI', name: 'Lugano', count: 8 }]}
+        totalJobsByCanton={{ TI: 10 }}
+        locale="it"
+        copy={copy}
+        buildCityHref={buildCityHref}
+        onViewCityJobs={onViewCityJobs}
+      />,
+    );
 
-    const zhBubble = screen.getByTestId('canton-bubble-ZH');
-    const grBubble = screen.getByTestId('canton-bubble-GR');
+    const lugano = screen.getByTestId('map-marker-municipality-5192');
+    fireEvent.click(lugano);
 
-    const zhCircles = zhBubble.querySelectorAll('circle');
-    const grCircles = grBubble.querySelectorAll('circle');
-
-    // Il secondo cerchio è quello primario
-    const zhRadius = parseFloat(zhCircles[1].getAttribute('r') || '0');
-    const grRadius = parseFloat(grCircles[1].getAttribute('r') || '0');
-
-    // Zurigo (4800) deve avere un raggio significativamente maggiore di Grigioni (320)
-    expect(zhRadius).toBeGreaterThan(grRadius);
-    // Zurigo (maxJobs) deve raggiungere il maxR (32)
-    expect(zhRadius).toBeCloseTo(32, 0);
+    expect(lugano.getAttribute('aria-expanded')).toBe('true');
+    expect(screen.getByRole('region', { name: 'Lugano' })).toBeTruthy();
+    expect(screen.getByTestId('swiss-map-canvas').contains(screen.getByTestId('map-marker-details'))).toBe(false);
+    expect(within(screen.getByTestId('map-marker-details')).getByRole('link', { name: 'Visualizza lavori' }).getAttribute('href')).toBe('/cerca-lavoro-svizzera/ti/lugano/');
+    expect(screen.getByRole('link', { name: 'Visualizza lavori: Lugano' }).getAttribute('href')).toBe('/cerca-lavoro-svizzera/ti/lugano/');
+    expect(buildCityHref).toHaveBeenCalledWith('TI', 'Lugano');
+    expect(screen.getByText('2 offerte non localizzate.')).toBeTruthy();
   });
 
-  it('notifica la selezione del cantone al click', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} onSelectCanton={onSelect} />);
+  it('explains when a canton has no municipality-level job locations', () => {
+    render(
+      <SwissBubbleMap
+        mode="canton"
+        cantonCodes={['TI']}
+        cantons={cantons}
+        cities={[]}
+        totalJobsByCanton={{ TI: 0 }}
+        locale="it"
+        copy={copy}
+        buildCityHref={buildCityHref}
+        onViewCityJobs={onViewCityJobs}
+      />,
+    );
 
-    const tiBubble = screen.getByTestId('canton-bubble-TI');
-    fireEvent.click(tiBubble);
-
-    expect(onSelect).toHaveBeenCalledWith('TI');
+    expect(screen.getByText('Nessun comune con offerte.')).toBeTruthy();
   });
 
-  it('deseleziona il cantone (toggle off) se già selezionato', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} selectedCanton="TI" onSelectCanton={onSelect} />);
+  it('labels the official Haute-Ajoie logo where the current commune has no shared coat of arms', () => {
+    render(
+      <SwissBubbleMap
+        mode="canton"
+        cantonCodes={['JU']}
+        cantons={cantons}
+        cities={[{ cantonCode: 'JU', name: 'Haute-Ajoie', count: 3 }]}
+        totalJobsByCanton={{ JU: 3 }}
+        locale="it"
+        copy={copy}
+        buildCityHref={buildCityHref}
+        onViewCityJobs={onViewCityJobs}
+      />,
+    );
 
-    const tiBubble = screen.getByTestId('canton-bubble-TI');
-    fireEvent.click(tiBubble);
-
-    expect(onSelect).toHaveBeenCalledWith(null);
+    fireEvent.click(screen.getByTestId('map-marker-municipality-6809'));
+    expect(within(screen.getByTestId('map-marker-details')).getByText(copy.municipalLogoNote)).toBeTruthy();
+    expect(within(screen.getByRole('region', { name: 'Elenco dei comuni' })).getByText(copy.municipalLogoNote)).toBeTruthy();
   });
 
-  it('supporta navigazione da tastiera accessibile con tasto Invio e Spazio', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} onSelectCanton={onSelect} />);
+  it('uses a local action for a municipality without a canonical page', () => {
+    const viewJobs = vi.fn();
+    render(
+      <SwissBubbleMap
+        mode="canton"
+        cantonCodes={['TI']}
+        cantons={cantons}
+        cities={[{ cantonCode: 'TI', name: 'Stabio', count: 3 }]}
+        totalJobsByCanton={{ TI: 3 }}
+        locale="it"
+        copy={copy}
+        buildCityHref={() => null}
+        onViewCityJobs={viewJobs}
+      />,
+    );
 
-    const grBubble = screen.getByTestId('canton-bubble-GR');
-    fireEvent.keyDown(grBubble, { key: 'Enter' });
-    expect(onSelect).toHaveBeenCalledWith('GR');
-
-    fireEvent.keyDown(grBubble, { key: ' ' });
-    expect(onSelect).toHaveBeenCalledWith('GR');
+    fireEvent.click(screen.getByTestId('map-marker-municipality-5266'));
+    expect(screen.queryByRole('link', { name: /Visualizza lavori/i })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: /Visualizza lavori: Stabio/i }));
+    expect(viewJobs).toHaveBeenCalledWith('TI', 'Stabio');
   });
 
-  it('mostra il tooltip con nome cantone e conteggio formattato al passaggio del mouse', () => {
-    const onSelect = vi.fn();
-    render(<SwissBubbleMap data={mockData} onSelectCanton={onSelect} />);
+  it('keeps a current official symbol and coordinates for every BFS municipality', () => {
+    const municipalities = municipalityMapData.municipalities;
+    const codes = municipalities.map(({ bfsCode }) => bfsCode);
 
-    expect(screen.queryByTestId('canton-tooltip')).toBeNull();
-
-    const tiBubble = screen.getByTestId('canton-bubble-TI');
-    fireEvent.mouseEnter(tiBubble);
-
-    const tooltip = screen.getByTestId('canton-tooltip');
-    expect(tooltip).toBeTruthy();
-    expect(tooltip.textContent).toContain('Ticino');
-    expect(tooltip.textContent).toMatch(/1['.]?250 offerte/);
-
-    fireEvent.mouseLeave(tiBubble);
-    expect(screen.queryByTestId('canton-tooltip')).toBeNull();
+    expect(municipalityMapData.municipalityCount).toBe(2110);
+    expect(new Set(codes).size).toBe(2110);
+    expect(municipalityMapData.cantons).toHaveLength(26);
+    expect(municipalities.every(({ lat, lng, commonsFile, imageUrl }) => (
+      Number.isFinite(lat)
+      && Number.isFinite(lng)
+      && Boolean(commonsFile || imageUrl)
+    ))).toBe(true);
+    expect(municipalities.filter(({ kind }) => kind === 'municipal-logo')).toHaveLength(1);
   });
 });

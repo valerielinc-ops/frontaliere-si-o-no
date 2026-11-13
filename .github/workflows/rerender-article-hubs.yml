@@ -56,6 +56,10 @@ run-name: >-
 # can leave the stable CDN alias one generation behind, which the shell guard
 # must reject. Push-triggered runs therefore stop at plan; the successful full
 # deploy completion replays the same writer against the now-published source.
+# A publisher dispatch can still overlap that deploy. If its shell preflight
+# confirms a stale stable alias, it records a clean deferral and does no fan-out;
+# the validated full-deploy dispatch remains the replay point. Unknown CDN state
+# is still a hard failure.
 
 on:
   # 1. THE CODE CHANGED. These are the five files #5422 touched plus this
@@ -368,7 +372,17 @@ jobs:
       # scripts/lib/cdn-shell-assets.mjs.
       # Before the section lock on purpose: a failure here leaves nothing held.
       - name: Ensure the static shell scripts are on the CDN
+        id: ensure_shell_assets
         if: steps.mode.outputs.dry != 'true'
+        env:
+          # A publisher/parity replay may arrive while the validated full
+          # deploy that owns the new shell is still running. Only those
+          # automatic, pre-deploy paths may defer a CONFIRMED stale alias;
+          # manual and deploy-attested runs remain fail-closed.
+          DEFER_STALE_STABLE_ALIAS: >-
+            ${{ (github.event_name == 'repository_dispatch' ||
+                (github.event_name == 'workflow_dispatch' && inputs.recovery_request_id != '')) &&
+                'true' || 'false' }}
         run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       # PROVE THE CREDENTIALS BEFORE RENDERING, not half-way through pushing.
@@ -387,7 +401,7 @@ jobs:
       # than it catches, and a genuinely read-only key still fails loudly at
       # the push (bounded retries, then the PAT fallback).
       - name: Probe shard access (${{ matrix.section }})
-        if: steps.mode.outputs.dry != 'true'
+        if: steps.mode.outputs.dry != 'true' && steps.ensure_shell_assets.outputs.deferred != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -467,7 +481,7 @@ jobs:
       # publisher can replace one half after the other was checked.
       - name: Acquire article chunk section lock
         id: acquire_chunk_lock
-        if: steps.mode.outputs.dry != 'true'
+        if: steps.mode.outputs.dry != 'true' && steps.ensure_shell_assets.outputs.deferred != 'true'
         env:
           ARTICLE_SECTION: ${{ matrix.section }}
           LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
@@ -506,7 +520,11 @@ jobs:
       # each one.
       - name: Rerender ${{ matrix.section }} hubs
         id: render
-        if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
+        if: >-
+          steps.mode.outputs.dry == 'true' ||
+          (steps.ensure_shell_assets.outputs.deferred != 'true' &&
+           steps.acquire_chunk_lock.outcome == 'success' &&
+           steps.renew_chunk_lock.outcome == 'success')
         env:
           # The hub fan-out writes ~1400 paths and serializes four shard
           # history/push operations. The 2026-11-02 run completed the first
@@ -611,7 +629,11 @@ jobs:
       # reaches main.
       - name: Publish + commit the topic-hub sitemap
         id: publish_topic_sitemap
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
+        if: >-
+          steps.mode.outputs.dry != 'true' &&
+          steps.ensure_shell_assets.outputs.deferred != 'true' &&
+          steps.render.outcome == 'success' &&
+          steps.render.outputs.deferred != 'true'
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT }}
           INPUT_SECTION: ${{ matrix.section }}
@@ -684,7 +706,11 @@ jobs:
       # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
       # apex-only purge reports success while changing nothing.
       - name: Purge the edge for the hub landings
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
+        if: >-
+          steps.mode.outputs.dry != 'true' &&
+          steps.ensure_shell_assets.outputs.deferred != 'true' &&
+          steps.render.outcome == 'success' &&
+          steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           INPUT_SECTION: ${{ matrix.section }}
@@ -741,12 +767,14 @@ jobs:
         if: always()
         env:
           INPUT_SECTION: ${{ matrix.section }}
+          SHELL_ASSET_DEFERRED: ${{ steps.ensure_shell_assets.outputs.deferred }}
         run: |
           {
             echo "### rerender-article-hubs — $INPUT_SECTION"
             echo
             echo "- event: \`${{ github.event_name }}\`"
             echo "- mode: \`$([ "${{ steps.mode.outputs.dry }}" = "true" ] && echo DRY || echo ARMED)\`"
+            echo "- shell asset gate deferred: \`${SHELL_ASSET_DEFERRED:-false}\`"
             SUMMARY="$RUNNER_TEMP/hubs/summary.json"
             if [ -s "$SUMMARY" ]; then
               jq -r --arg s "$INPUT_SECTION" '.sections[$s] |
@@ -792,7 +820,7 @@ jobs:
       # e la forma deve restare identica a quella dello step di apertura —
       # la chiusura cerca per TITOLO, e un titolo diverso non chiude niente.
       - name: Resolve open issue on green
-        if: success() && steps.render.outputs.deferred != 'true'
+        if: success() && steps.ensure_shell_assets.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
