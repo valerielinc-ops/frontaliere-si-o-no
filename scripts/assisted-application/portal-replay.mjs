@@ -38,6 +38,20 @@ const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
 ]);
+const PORTAL_REPLAY_FAMILY_PATH_HINTS = Object.freeze({
+  employer_site: Object.freeze(['employer_site', 'employer-site']),
+  lever: Object.freeze(['lever']),
+  greenhouse: Object.freeze(['greenhouse']),
+  smartrecruiters: Object.freeze(['smartrecruiters', 'smart-recruiters']),
+  personio: Object.freeze(['personio']),
+  softgarden: Object.freeze(['softgarden', 'soft-garden']),
+  umantis: Object.freeze(['umantis']),
+  refline: Object.freeze(['refline']),
+  jobs_ch: Object.freeze(['jobs_ch', 'jobs-ch', 'jobroom']),
+  manatal: Object.freeze(['manatal']),
+  workday: Object.freeze(['workday']),
+  successfactors: Object.freeze(['successfactors', 'success-factors', 'sapsf']),
+});
 export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   // The portal runner also imports shared helpers from lib/ outside portal/.
   'scripts/assisted-application/lib/',
@@ -178,6 +192,26 @@ export function affectedPortalReplayPaths(diff) {
   return extractPathsFromDiff(diff).filter(isPortalReplayAffectedPath).sort();
 }
 
+export function affectedPortalReplayFamilies(pathsOrDiff) {
+  const paths = Array.isArray(pathsOrDiff) ? pathsOrDiff : affectedPortalReplayPaths(pathsOrDiff);
+  if (paths.length === 0) return [];
+
+  const families = new Set();
+  let sharedPathChanged = false;
+  for (const value of paths) {
+    const file = String(value || '').replace(/^\//u, '').toLowerCase();
+    const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
+      .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
+      .map(([family]) => family);
+    if (matchedFamilies.length === 0) sharedPathChanged = true;
+    for (const family of matchedFamilies) families.add(family);
+  }
+
+  return sharedPathChanged
+    ? [...PORTAL_REPLAY_FAMILIES].sort()
+    : [...families].sort();
+}
+
 function issueTitle(value) {
   if (typeof value === 'string') return value;
   return String(value?.title || '');
@@ -231,7 +265,10 @@ function replayCaseFrom(job, assembledAt, family) {
 
 /** Deterministic latest-first selection with up to two open-stop host cases. */
 export function selectPortalReplayCorpus({ jobsByCrawler, stopIssues = [], stopHosts: suppliedStopHosts = [], seed = PORTAL_REPLAY_SEED, nowMs = Date.now(),
-  classify = classifyApplicationChannel } = {}) {
+  classify = classifyApplicationChannel, families: requestedFamilies = null } = {}) {
+  const replayFamilies = requestedFamilies == null
+    ? PORTAL_REPLAY_FAMILIES
+    : new Set([...requestedFamilies].filter((family) => PORTAL_REPLAY_FAMILIES.has(family)));
   const files = typeof jobsByCrawler === 'string'
     ? readdirSync(jobsByCrawler).filter((file) => file.endsWith('.json')).sort().map((file) => path.join(jobsByCrawler, file))
     : Array.isArray(jobsByCrawler) ? jobsByCrawler : [];
@@ -252,7 +289,7 @@ export function selectPortalReplayCorpus({ jobsByCrawler, stopIssues = [], stopH
       if (!validPublicHttpsUrl(applyUrl)) continue;
       const channel = classify({ applyUrl, postingText: '', applicationEmail: '' });
       const family = String(channel?.type || '').trim().toLowerCase();
-      if (!PORTAL_REPLAY_FAMILIES.has(family)) continue;
+      if (!replayFamilies.has(family)) continue;
       const record = replayCaseFrom(job, payload?.assembledAt || job?.assembledAt, family);
       if (!record) continue;
       if (!eligibleByFamily.has(family)) eligibleByFamily.set(family, new Map());
@@ -798,9 +835,10 @@ async function prepareMode(values) {
   const issues = values['stop-titles'] ? JSON.parse(readFileSync(values['stop-titles'], 'utf8')) : [];
   const stopHosts = extractPortalStopHosts(issues);
   const nowMs = Number(values['now-ms']) || Date.now();
+  const affectedFamilies = affectedPortalReplayFamilies(affected);
   const classifierRoot = path.resolve(values['classifier-root']);
   const { classifyApplicationChannel: baseClassifier } = await importFrom(classifierRoot, 'functions/src/assistedApplicationAiJob.js');
-  const corpus = selectPortalReplayCorpus({ jobsByCrawler: path.resolve(values['data-dir']), stopIssues: issues, stopHosts, nowMs, classify: baseClassifier });
+  const corpus = selectPortalReplayCorpus({ jobsByCrawler: path.resolve(values['data-dir']), stopIssues: issues, stopHosts, nowMs, classify: baseClassifier, families: affectedFamilies });
   const families = Object.keys(corpus.families).sort();
   if (!families.length) throw Object.assign(new Error('portal_replay_corpus_empty'), { code: 'portal_replay_corpus_empty' });
   const output = path.resolve(values['corpus-out']);
@@ -818,11 +856,11 @@ async function corpusMode(values) {
   const stopHosts = values['stop-hosts-file'] ? JSON.parse(readFileSync(values['stop-hosts-file'], 'utf8')) : [];
   const nowMs = Number(values['now-ms']);
   if (!Number.isFinite(nowMs) || nowMs <= 0) throw Object.assign(new Error('portal_replay_as_of_invalid'), { code: 'portal_replay_as_of_invalid' });
+  const expected = values['expected-families'] ? JSON.parse(values['expected-families']) : null;
   const classifierRoot = path.resolve(values['classifier-root']);
   const { classifyApplicationChannel: baseClassifier } = await importFrom(classifierRoot, 'functions/src/assistedApplicationAiJob.js');
-  const corpus = selectPortalReplayCorpus({ jobsByCrawler: path.resolve(values['data-dir']), stopHosts, nowMs, classify: baseClassifier });
+  const corpus = selectPortalReplayCorpus({ jobsByCrawler: path.resolve(values['data-dir']), stopHosts, nowMs, classify: baseClassifier, families: expected });
   const families = Object.keys(corpus.families).sort();
-  const expected = values['expected-families'] ? JSON.parse(values['expected-families']) : null;
   if (!families.length || (expected && JSON.stringify(families) !== JSON.stringify([...expected].sort()))) {
     throw Object.assign(new Error('portal_replay_corpus_snapshot_mismatch'), { code: 'portal_replay_corpus_snapshot_mismatch' });
   }

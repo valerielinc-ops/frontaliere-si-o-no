@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { request as httpRequest } from 'node:http';
 import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
 import { tmpdir } from 'node:os';
@@ -8,6 +8,7 @@ import { runInNewContext } from 'node:vm';
 import { JSDOM } from 'jsdom';
 import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
 import {
+  affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
   comparePortalReplayFamily,
@@ -298,6 +299,10 @@ describe('portal replay corpus', () => {
     ]);
     expect(first.families.workday.filter((record: any) => record.applyUrl.includes('ats.issue.example.test'))).toHaveLength(2);
     expect(extractPortalStopHosts(options.stopIssues)).toEqual(['ats.issue.example.test']);
+
+    const filtered = selectPortalReplayCorpus({ ...options, families: ['successfactors'] });
+    expect(filtered.families).toEqual({});
+    expect(filtered.sampleCounts).toEqual({});
   });
 
   it('matches the required path set, including runner modules and used functions files', () => {
@@ -329,6 +334,35 @@ describe('portal replay corpus', () => {
     expect(affectedPortalReplayPaths('scripts/assisted-application/lib/submit.mjs\nservices/router.ts')).toEqual([
       'scripts/assisted-application/lib/submit.mjs',
     ]);
+  });
+
+  it('limits family replay to a family-specific path but keeps shared paths broad', () => {
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([
+      'employer_site', 'greenhouse', 'jobs_ch', 'lever', 'manatal', 'personio',
+      'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday',
+    ]);
+  });
+});
+
+describe('portal replay workflow wiring', () => {
+  it('materializes the trusted sandbox action and fails before replay without a broker socket', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+    const materialize = workflow.indexOf('Materialize trusted Codex sandbox action');
+    const codex = workflow.indexOf('uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback');
+    const brokerGuard = workflow.indexOf('      - name: Require trusted Codex broker\n');
+    const replay = workflow.indexOf('Replay base and PR runner behind the read-only fence');
+
+    expect(materialize).toBeGreaterThan(-1);
+    expect(materialize).toBeLessThan(codex);
+    expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
+    expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
+    expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
+    expect(brokerGuard).toBeGreaterThan(codex);
+    expect(brokerGuard).toBeLessThan(replay);
+    expect(workflow).toContain('timeout-minutes: 30');
+    expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
   });
 });
 

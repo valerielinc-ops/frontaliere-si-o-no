@@ -146,7 +146,9 @@ jobs:
     needs: prepare
     if: needs.prepare.result == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # The budget includes two trusted sparse checkouts, two npm ci runs,
+    # Chromium and up to five base/head listing pairs, not only the replay.
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       max-parallel: 6
@@ -177,12 +179,24 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             .github/actions/setup-claude-haiku-fallback
+            .github/actions/setup-codex-sandbox
             data/jobs/by-crawler
             functions/src
             packages
             scripts/assisted-application
             scripts/lib
           sparse-checkout-cone-mode: true
+
+      - name: Materialize trusted Codex sandbox action
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"
+          target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"
+          test -f "$source_action"
+          test ! -e "$target_action" && test ! -L "$target_action"
+          mkdir -p "$(dirname "$target_action")"
+          install -m 0644 "$source_action" "$target_action"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -240,6 +254,16 @@ jobs:
           broker_idle_ttl_ms: '1200000'
           broker_max_concurrency: '2'
           broker_max_timeout_ms: '60000'
+
+      - name: Require trusted Codex broker
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$CODEX_AUTH_BROKER_SOCKET" || ! -S "$CODEX_AUTH_BROKER_SOCKET" ]]; then
+            echo '::error::trusted Codex broker did not produce a Unix socket; refusing to start portal replay.'
+            exit 1
+          fi
 
       - name: Replay base and PR runner behind the read-only fence
         env:
