@@ -1942,7 +1942,11 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
   if (!localContext || !jobTitleCandidates(job).length) return true;
   if (!titleMatchesJob(localContext, job)) return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return true;
+  // The DOM extractor supplies vacancyContext for a real menu entry. Keep a
+  // synthetic/context-free menu unresolved so the navigation agent can inspect
+  // it instead of selecting a role-only item without local ownership proof.
+  if (control?.menuItem !== true) return context?.postingEntry !== false;
+  return Boolean(String(control?.vacancyContext || '').trim());
 }
 
 // A few legacy employer pages render the only application opener as a native
