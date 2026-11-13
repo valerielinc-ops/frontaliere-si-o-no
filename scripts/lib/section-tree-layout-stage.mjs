@@ -8,6 +8,9 @@ import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section
 
 export const WORKER_LAYOUT_PROBE_ATTEMPTS = 18;
 export const WORKER_LAYOUT_PROBE_RETRY_MS = 20_000;
+// Main already centralizes the Cloudflare-safe publisher identity. Keep the
+// probe-specific contract from the publish PR without duplicating that UA.
+export const WORKER_LAYOUT_PROBE_USER_AGENT = DEFAULT_LIVE_CHECK_USER_AGENT;
 
 function responseHeader(response, name) {
   return response?.headers?.get?.(name) ?? response?.headers?.[name] ?? null;
@@ -34,7 +37,7 @@ export async function requireWorkerSectionTreeLayout(section, sub, {
       const response = await fetchImpl(url, {
         method: 'HEAD',
         cache: 'no-store',
-        headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+        headers: { 'User-Agent': WORKER_LAYOUT_PROBE_USER_AGENT },
         signal: AbortSignal.timeout(20_000),
       });
       const generic = response?.headers?.get?.('x-frontaliere-section-tree-layout');
