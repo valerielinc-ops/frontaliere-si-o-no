@@ -235,10 +235,15 @@ import {
  buildJobOfficialGazetteLandingModel,
  buildJobPartTimeLandingModel,
  buildJobTodayLandingModel,
+ buildLocationSlug,
+ buildLocationSectorSlug,
+ buildLocationTypeSlug,
  getJobTodayLandingSlug,
  getJobNursesHubSlug,
  getJobPartTimeLandingSlug,
+ JOB_OFFICIAL_GAZETTE_LANDING_SLUGS,
  careClusterSlug,
+ countJobCareVariantMatches,
  EDITORIAL_CANTONS,
  partitionCareClusters,
  partitionByLocation,
@@ -247,10 +252,10 @@ import {
 } from './jobEditorialLanding';
 import {
  buildJobIntentLandingModel,
+ countJobIntentLandingMatches,
  getJobIntentLandingSlug,
  JOB_INTENT_KEYS,
  JOB_INTENT_MIN_INDEXABLE_JOBS,
- type JobIntentKey,
 } from './jobIntentLanding';
 import {
   JOBS_SEO_GCFREED_PROBE_ENV,
@@ -7083,7 +7088,7 @@ ${companyFollowHtml}
  };
 
  const pushEditorialSitemapEntry = (
- buildModel: (locale: typeof localeList[number]) => { slug: string },
+ slugForLocale: (locale: typeof localeList[number]) => string,
  priority: string,
  // Phase 8 sub-PR (d): per-canton editorial emit lives at a canton-aware
  // section (e.g. `cerca-lavoro-zurigo`). Defaults to the legacy TI
@@ -7094,9 +7099,9 @@ ${companyFollowHtml}
  ) => {
  const sitemapLocales = localeList.filter((locale) => isIndexableLocalePage(locale, indexableLocales));
  if (!sitemapLocales.includes('it')) return;
- const itModel = buildModel('it');
- editorialSearchSlugsByLocale.get('it')?.add(itModel.slug);
- const itPath = withSlash(`/${sectionFor('it')}/${itModel.slug}`.replace(/\/+/g, '/'));
+ const itSlug = slugForLocale('it');
+ editorialSearchSlugsByLocale.get('it')?.add(itSlug);
+ const itPath = withSlash(`/${sectionFor('it')}/${itSlug}`.replace(/\/+/g, '/'));
  // Sitemap-jobs alignment (Issue 18): never advertise a URL whose static
  // HTML wasn't actually emitted to dist/. The same plugin emits both the
  // page HTML and the sitemap entry; if an earlier step skipped emission
@@ -7111,9 +7116,9 @@ ${companyFollowHtml}
  localePaths.set('it', itPath);
  for (const locale of sitemapLocales) {
  if (locale === 'it') continue;
- const localeModel = buildModel(locale);
- editorialSearchSlugsByLocale.get(locale)?.add(localeModel.slug);
- const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${localeModel.slug}`.replace(/\/+/g, '/'));
+ const slug = slugForLocale(locale);
+ editorialSearchSlugsByLocale.get(locale)?.add(slug);
+ const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${slug}`.replace(/\/+/g, '/'));
  localePaths.set(locale, path);
  }
  const groups = reciprocalSitemapLocaleGroups(
@@ -7352,16 +7357,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-jobs-today', __tEdJobsToday);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobTodayLandingModel({
- jobs: validJobs,
- locale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(locale),
- localePrefix: localePrefix[locale],
- canton: editorialCanton,
- }), '0.8', sectionByLocaleCanton, editorialPageLocales);
+ pushEditorialSitemapEntry(
+  (locale) => getJobTodayLandingSlug(locale, editorialCanton),
+  '0.8', sectionByLocaleCanton, editorialPageLocales,
+ );
  }
 
  for (const locale of localeList) {
@@ -7381,16 +7380,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobOfficialGazetteLandingModel({
- jobs: validJobs,
- locale: altLocale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
- localePrefix: localePrefix[altLocale],
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = JOB_OFFICIAL_GAZETTE_LANDING_SLUGS[altLocale];
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -7514,15 +7505,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-gazette', __tEdGazette);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobOfficialGazetteLandingModel({
- jobs: validJobs,
- locale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- }), '0.78', undefined, allIndexablePageLocales);
+ pushEditorialSitemapEntry(
+  (locale) => JOB_OFFICIAL_GAZETTE_LANDING_SLUGS[locale],
+  '0.78', undefined, allIndexablePageLocales,
+ );
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
  const editorialPageLocales = indexableLocalePageSet(
@@ -7556,18 +7542,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobNursesHubLandingModel({
- jobs: validJobs,
- locale: altLocale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(altLocale),
- localePrefix: localePrefix[altLocale],
- canton: editorialCanton,
- partition: careClusterPartition,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = getJobNursesHubSlug(altLocale, editorialCanton);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -7702,17 +7678,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-nurses', __tEdNurses);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobNursesHubLandingModel({
- jobs: validJobs,
- locale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(locale),
- localePrefix: localePrefix[locale],
- canton: editorialCanton,
- partition: careClusterPartition,
- }), '0.77', sectionByLocaleCanton, editorialPageLocales);
+ pushEditorialSitemapEntry(
+  (locale) => getJobNursesHubSlug(locale, editorialCanton),
+  '0.77', sectionByLocaleCanton, editorialPageLocales,
+ );
  }
 
  /* ── Editorial landing: global part-time ───────────────────── */
@@ -7747,17 +7716,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobPartTimeLandingModel({
- jobs: validJobs,
- locale: altLocale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(altLocale),
- localePrefix: localePrefix[altLocale],
- canton: editorialCanton,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = getJobPartTimeLandingSlug(altLocale, editorialCanton);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -7882,16 +7842,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-parttime-canton', __tEdPartTimeCanton);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobPartTimeLandingModel({
- jobs: validJobs,
- locale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(locale),
- localePrefix: localePrefix[locale],
- canton: editorialCanton,
- }), '0.76', sectionByLocaleCanton, editorialPageLocales);
+ pushEditorialSitemapEntry(
+  (locale) => getJobPartTimeLandingSlug(locale, editorialCanton),
+  '0.76', sectionByLocaleCanton, editorialPageLocales,
+ );
  }
 
  /* ── Demand-qualified intent landings ───────────────────────────────
@@ -7904,20 +7858,10 @@ ${staticAnalyticsHtml}
  for (const intentKey of JOB_INTENT_KEYS) {
  const editorialCanton = 'TI';
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
- const italianIntentModel = buildJobIntentLandingModel({
- jobs: validJobs,
- locale: 'it',
- intentKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton('it'),
- localePrefix: localePrefix.it,
- canton: editorialCanton,
- });
+ const intentJobCount = countJobIntentLandingMatches(validJobs, intentKey, editorialCanton);
  const intentIndexableLocales = indexableLocalePageSet(
   localeList,
-  () => italianIntentModel.totalJobs >= JOB_INTENT_MIN_INDEXABLE_JOBS,
+  () => intentJobCount >= JOB_INTENT_MIN_INDEXABLE_JOBS,
  );
  if (!isIndexableLocalePage('it', intentIndexableLocales)) {
  for (const locale of localeList) {
@@ -7944,18 +7888,8 @@ ${staticAnalyticsHtml}
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const intentAltPairs = localeList.map((altLocale) => {
- const altModel = buildJobIntentLandingModel({
- jobs: validJobs,
- locale: altLocale,
- intentKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(altLocale),
- localePrefix: localePrefix[altLocale],
- canton: editorialCanton,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = getJobIntentLandingSlug(altLocale, intentKey);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const intentXDefault = intentAltPairs.find((pair) => pair.lang === 'it')?.href ?? canonicalUrl;
@@ -8063,17 +7997,10 @@ ${staticAnalyticsHtml}
  recordEmit(`editorial-intent-${intentKey}`, __tEdIntent);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobIntentLandingModel({
- jobs: validJobs,
- locale,
- intentKey: intentKey as JobIntentKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(locale),
- localePrefix: localePrefix[locale],
- canton: editorialCanton,
- }), '0.78', sectionByLocaleCanton, intentIndexableLocales);
+ pushEditorialSitemapEntry(
+  (locale) => getJobIntentLandingSlug(locale, intentKey),
+  '0.78', sectionByLocaleCanton, intentIndexableLocales,
+ );
  }
 
  // Primary CTA label — same copy as professionLandingsCopy.primaryCtaLabel;
@@ -8094,21 +8021,12 @@ ${staticAnalyticsHtml}
  }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
- const italianCareModel = buildJobCareVariantLandingModel({
- jobs: validJobs,
- locale: 'it',
- clusterKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton('it'),
- localePrefix: localePrefix.it,
- canton: editorialCanton,
- partition: careClusterPartition,
- });
+ const careJobCount = countJobCareVariantMatches(
+  validJobs, clusterKey, editorialCanton, careClusterPartition,
+ );
  const careIndexableLocales = indexableLocalePageSet(
   localeList,
-  () => italianCareModel.totalJobs > 0,
+  () => careJobCount > 0,
  );
  if (!isIndexableLocalePage('it', careIndexableLocales)) {
  for (const locale of localeList) {
@@ -8137,19 +8055,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobCareVariantLandingModel({
- jobs: validJobs,
- locale: altLocale,
- clusterKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(altLocale),
- localePrefix: localePrefix[altLocale],
- canton: editorialCanton,
- partition: careClusterPartition,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = careClusterSlug(clusterKey, editorialCanton, altLocale);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -8261,18 +8168,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-care-variant', __tEdCareVariant);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobCareVariantLandingModel({
- jobs: validJobs,
- locale,
- clusterKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocaleCanton(locale),
- localePrefix: localePrefix[locale],
- canton: editorialCanton,
- partition: careClusterPartition,
- }), '0.71', sectionByLocaleCanton, careIndexableLocales);
+ pushEditorialSitemapEntry(
+  (locale) => careClusterSlug(clusterKey, editorialCanton, locale),
+  '0.71', sectionByLocaleCanton, careIndexableLocales,
+ );
  }
  if (editorialBelowFloorBridges > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 editorial-canton below-floor bridges: ${editorialBelowFloorBridges} (today/nurses/part-time/care-variant combined)`);
@@ -8312,18 +8211,8 @@ ${staticAnalyticsHtml}
  const targetPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
  const cityHubKey = CITY_HUB_KEYS.find((k) => k.toLowerCase() === loc.toLowerCase());
  if (cityHubKey) writeLocationFamilyBridge(buildCityHubPath(locale, cityHubKey), targetPath, locale);
- const legacyModel = buildJobLocationLandingModel({
- jobs: validJobs,
- locale,
- location: loc,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- });
- const legacyPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${legacyModel.slug}`.replace(/\/+/g, '/'));
+ const legacySlug = buildLocationSlug(locale, loc);
+ const legacyPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${legacySlug}`.replace(/\/+/g, '/'));
  if (!cityHubKey || legacyPath !== buildCityHubPath(locale, cityHubKey)) writeLocationFamilyBridge(legacyPath, targetPath, locale);
  };
  const emitLocationTypeBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string, typeKeyArg: (typeof editorialTypeKeys)[number]): void => {
@@ -8331,19 +8220,8 @@ ${staticAnalyticsHtml}
  const targetPath = cityHubKey
  ? buildCityHubPath(locale, cityHubKey)
  : withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
- const model = buildJobLocationTypeLandingModel({
- jobs: validJobs,
- locale,
- location: loc,
- typeKey: typeKeyArg,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- });
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const slug = buildLocationTypeSlug(locale, loc, typeKeyArg);
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/'));
  writeLocationFamilyBridge(canonicalPath, targetPath, locale);
  };
  const emitLocationSectorBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', loc: string, sectorKeyArg: (typeof editorialSectorKeys)[number]): void => {
@@ -8351,36 +8229,15 @@ ${staticAnalyticsHtml}
  const targetPath = cityHubKey
  ? buildCityHubPath(locale, cityHubKey)
  : withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'));
- const model = buildJobLocationSectorLandingModel({
- jobs: validJobs,
- locale,
- location: loc,
- sectorKey: sectorKeyArg,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- });
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const slug = buildLocationSectorSlug(locale, loc, sectorKeyArg);
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/'));
  writeLocationFamilyBridge(canonicalPath, targetPath, locale);
  };
  for (const location of editorialLocations) {
- const italianLocationModel = buildJobLocationLandingModel({
- jobs: validJobs,
- locale: 'it',
- location,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale.it,
- localePrefix: localePrefix.it,
- partition: locationPartition,
- });
+ const locationJobCount = locationPartition.byLocation.get(location)?.length ?? 0;
  const locationIndexableLocales = indexableLocalePageSet(
   localeList,
-  () => italianLocationModel.totalJobs > 0,
+  () => locationJobCount > 0,
  );
  if (!isIndexableLocalePage('it', locationIndexableLocales)) {
  for (const locale of localeList) {
@@ -8424,18 +8281,8 @@ ${staticAnalyticsHtml}
  if (cityHubKey) {
  return { lang: altLocale, href: `${BASE_URL}${buildCityHubPath(altLocale, cityHubKey)}` };
  }
- const altModel = buildJobLocationLandingModel({
- jobs: validJobs,
- locale: altLocale,
- location,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
- localePrefix: localePrefix[altLocale],
- partition: locationPartition,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = buildLocationSlug(altLocale, location);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const xDefaultCityHref = localeHreflangLinks.find((h) => h.lang === 'it')?.href
@@ -8591,17 +8438,10 @@ ${staticAnalyticsHtml}
  (k) => k.toLowerCase() === location.toLowerCase(),
  );
  if (!isGeoHubCity) {
- pushEditorialSitemapEntry((locale) => buildJobLocationLandingModel({
- jobs: validJobs,
- locale,
- location,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- }), '0.75', undefined, locationIndexableLocales);
+ pushEditorialSitemapEntry(
+  (locale) => buildLocationSlug(locale, location),
+  '0.75', undefined, locationIndexableLocales,
+ );
  }
 
  // Geo-hub city: add a dedicated sitemap entry for the clean canonical
@@ -8616,22 +8456,12 @@ ${staticAnalyticsHtml}
  const itPath = `/${sectionByLocale.it}/${CITY_HUB_SLUG.it[cityHubKey]}/`.replace(/\/+/g, '/');
  const cityLocalePaths = new Map<typeof localeList[number], string>();
  for (const locale of localeList) {
- const locationModel = buildJobLocationLandingModel({
-  jobs: validJobs,
-  locale,
-  location,
-  now: new Date().toISOString(),
-  localizedSlug,
-  baseUrl: BASE_URL,
-  sectionSlug: sectionByLocale[locale],
-  localePrefix: localePrefix[locale],
-  partition: locationPartition,
- });
- editorialSearchSlugsByLocale.get(locale)?.add(locationModel.slug);
+ const locationSlug = buildLocationSlug(locale, location);
+ editorialSearchSlugsByLocale.get(locale)?.add(locationSlug);
  const cityPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${CITY_HUB_SLUG[locale][cityHubKey]}/`.replace(/\/+/g, '/');
  cityLocalePaths.set(locale, `${BASE_URL}${withSlash(cityPath)}`);
   pagePathClaims.claim(locale, cityPath);
-  pagePathClaims.claim(locale, `${localePrefix[locale]}/${sectionByLocale[locale]}/${locationModel.slug}`);
+ pagePathClaims.claim(locale, `${localePrefix[locale]}/${sectionByLocale[locale]}/${locationSlug}`);
  }
  const cityGroups = reciprocalSitemapLocaleGroups(
   localeList,
@@ -8651,19 +8481,8 @@ ${staticAnalyticsHtml}
  }
 
  for (const typeKey of editorialTypeKeys) {
- const italianTypeModel = buildJobLocationTypeLandingModel({
- jobs: validJobs,
- locale: 'it',
- location,
- typeKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale.it,
- localePrefix: localePrefix.it,
- partition: locationPartition,
- });
- const locationTypeIndexableLocales = indexableLocalePageSet(localeList, () => italianTypeModel.totalJobs > 0);
+ const locationTypeJobCount = locationPartition.byLocationType.get(location)?.get(typeKey)?.length ?? 0;
+ const locationTypeIndexableLocales = indexableLocalePageSet(localeList, () => locationTypeJobCount > 0);
  if (!isIndexableLocalePage('it', locationTypeIndexableLocales)) {
  for (const locale of localeList) {
  emitLocationTypeBelowFloorBridge(locale, location, typeKey);
@@ -8691,19 +8510,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobLocationTypeLandingModel({
- jobs: validJobs,
- locale: altLocale,
- location,
- typeKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
- localePrefix: localePrefix[altLocale],
- partition: locationPartition,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = buildLocationTypeSlug(altLocale, location, typeKey);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -8804,34 +8612,15 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-contract-type', __tEdContractType);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobLocationTypeLandingModel({
- jobs: validJobs,
- locale,
- location,
- typeKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- }), '0.68', undefined, locationTypeIndexableLocales);
+ pushEditorialSitemapEntry(
+  (locale) => buildLocationTypeSlug(locale, location, typeKey),
+  '0.68', undefined, locationTypeIndexableLocales,
+ );
  }
 
  for (const sectorKey of editorialSectorKeys) {
- const italianSectorModel = buildJobLocationSectorLandingModel({
- jobs: validJobs,
- locale: 'it',
- location,
- sectorKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale.it,
- localePrefix: localePrefix.it,
- partition: locationPartition,
- });
- const locationSectorIndexableLocales = indexableLocalePageSet(localeList, () => italianSectorModel.totalJobs > 0);
+ const locationSectorJobCount = locationPartition.byLocationSector.get(location)?.get(sectorKey)?.length ?? 0;
+ const locationSectorIndexableLocales = indexableLocalePageSet(localeList, () => locationSectorJobCount > 0);
  if (!isIndexableLocalePage('it', locationSectorIndexableLocales)) {
  for (const locale of localeList) {
  emitLocationSectorBelowFloorBridge(locale, location, sectorKey);
@@ -8859,19 +8648,8 @@ ${staticAnalyticsHtml}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
- const altModel = buildJobLocationSectorLandingModel({
- jobs: validJobs,
- locale: altLocale,
- location,
- sectorKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
- localePrefix: localePrefix[altLocale],
- partition: locationPartition,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = buildLocationSectorSlug(altLocale, location, sectorKey);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -8972,18 +8750,10 @@ ${staticAnalyticsHtml}
  recordEmit('editorial-sector', __tEdSector);
  }
 
- pushEditorialSitemapEntry((locale) => buildJobLocationSectorLandingModel({
- jobs: validJobs,
- locale,
- location,
- sectorKey,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
- localePrefix: localePrefix[locale],
- partition: locationPartition,
- }), '0.67', undefined, locationSectorIndexableLocales);
+ pushEditorialSitemapEntry(
+  (locale) => buildLocationSectorSlug(locale, location, sectorKey),
+  '0.67', undefined, locationSectorIndexableLocales,
+ );
  }
  }
  if (locationFamilyBelowFloorBridges > 0) {
