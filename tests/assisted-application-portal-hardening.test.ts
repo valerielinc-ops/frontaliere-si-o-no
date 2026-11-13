@@ -1036,7 +1036,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
-    expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
+    expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('unknown');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
     expect(formPostingMatch('Grand Hotel — Other Resort', {
       title: 'Concierge',

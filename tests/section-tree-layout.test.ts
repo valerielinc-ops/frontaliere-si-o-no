@@ -517,6 +517,30 @@ describe('automatic section tree fan-out policy', () => {
     expect(order).toEqual(['probe:lucerna:en/jobs-in-lucerne', 'index-fanout']);
   });
 
+  it('consumes the publisher probe confirmation without a late duplicate Worker probe', async () => {
+    const order: string[] = [];
+    const result = await stageSectionTreeLayout({
+      section: 'lucerna',
+      locale: 'en',
+      percent: 12,
+      threshold: 40,
+      stage: '/unused',
+      sub: 'en/jobs-in-lucerne',
+      mode: 'index',
+      workerLayoutConfirmed: true,
+      readRegistry: async () => ({
+        version: 1,
+        sections: { lucerna: { layout: 'hash-v1', since: '2026-11-12T12:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } },
+      }),
+      probeWorker: async () => { order.push('probe'); },
+      applyIndexFanout: () => { order.push('index-fanout'); return 32; },
+      stderr: () => {},
+    });
+    expect(result.decision).toBe('already');
+    expect(result.moved).toBe(32);
+    expect(order).toEqual(['index-fanout']);
+  });
+
   it('fails closed if a local stage crosses the threshold before cross-locale preflight registration', async () => {
     const order: string[] = [];
     await expect(stageSectionTreeLayout({

@@ -29621,7 +29621,7 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     id: 'giovani-donne-stipendi-svizzera',
     category: 'pratico',
     date: '2026-10-19T03:17:11.592Z',
-    image: '/images/blog/article-divario-reddito-giovani-svizzera.webp',
+    image: '/images/blog/article-giovani-donne-stipendi-svizzera.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

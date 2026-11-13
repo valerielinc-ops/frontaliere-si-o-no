@@ -8512,7 +8512,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.agenda-federale-voto-2026.imageAlt': 'Schweizerische Institutionenszene zu Bundesentscheiden und Volksabstimmungen',
     'blog.article.giovani-donne-stipendi-svizzera.title': 'Mehr junge Schweizerinnen verdienen weniger, obwohl sie besser ausgebildet sind',
     'blog.article.giovani-donne-stipendi-svizzera.excerpt': '1995 Geborene: Einkommensgefälle von 14% 1965 Geborene: Einkommensgefälle von 55% 2025: Tertiärbildung bei 54% gegenüber 48% Bei den Eltern.',
-    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Junge Frau arbeitet in einem modernen Büro in der Schweiz',
+    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
     'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Leitfaden zur Erbschafts- und Schenkungssteuer im Kanton Zürich: Steuersätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen sowie erforderliche Formalitäten.',
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Erbschafts- und Schenkungssteuer im Kanton Zürich',
