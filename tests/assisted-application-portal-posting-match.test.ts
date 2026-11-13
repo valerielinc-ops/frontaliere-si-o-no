@@ -67,6 +67,33 @@ describe('application form posting identity', () => {
     }, options)).toBe('mismatch');
   });
 
+  it('keeps an unpaired Umantis application route behind the heading employer guard', () => {
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
+    expect(formPostingMatch('Other Hotel - Bewerbung\nVorname\nNachname', {
+      title: 'Front Desk Agent',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://careers.example.test/jobs/unrelated',
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
+  });
+
+  it('does not discard a Recruiting-prefixed employer as Umantis chrome', () => {
+    const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
+    expect(formPostingMatch('Application | Recruiting Solutions\nVorname\nNachname', {
+      title: 'Front Desk Agent',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: applicationUrl,
+      postingUrl,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
+  });
+
   it('keeps a generic form reached from the selected posting unknown and continues', () => {
     const genericForm = 'Bewerbung\nVorname\nNachname\nE-Mail-Adresse\nWeiter';
     const job = { title: 'Pflegefachperson', company: 'Spital Esempio' };

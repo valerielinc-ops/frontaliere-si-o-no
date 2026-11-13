@@ -4574,7 +4574,7 @@ function formRoleHeadingStatus(formText, job = {}) {
 // complete source-language heading into an employer mismatch.
 const UMANTIS_APPLICATION_HEADING_SEGMENT_RE = /^(?:application|bewerbung(?:sformular)?|candidatura|candidature|postulation)(?:\s+tracking\s+system)?$/i;
 const UMANTIS_OTHER_EMPLOYER_WORD_RE = /\b(?:other|another|andere(?:r|s|n)?|fremd(?:e|er|es)|altro|altra|altri|altre|autre|autres)\b/i;
-const UMANTIS_APPLICATION_CHROME_RE = /^(?:e-?recruiting|recruiting|application tracking system)\b/i;
+const UMANTIS_APPLICATION_CHROME_RE = /^(?:e-?recruiting|recruiting|application tracking system)$/i;
 
 function umantisApplicationHeadingConflict(heading, job = {}) {
   const text = String(heading || '').replace(/\s+/g, ' ').trim();
@@ -4663,7 +4663,8 @@ export function formPostingMatch(formText, job = {}, {
   // form text. A verified posting entry still binds that route even when the
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
-    if (umantisHeadingConflict) return 'mismatch';
+    const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
+    if (unpairedHeadingConflict) return 'mismatch';
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
