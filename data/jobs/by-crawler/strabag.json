@@ -871,12 +871,12 @@
     },
     {
       "id": "strabag-f8dbebf8575a",
-      "slug": "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern",
+      "slug": "operatore-operatrice-di-escavatore-gommato-operatore-operatrice-di-escavatore-strabag-ag-subingen-bern",
       "slugByLocale": {
         "de": "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern",
-        "it": "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern",
-        "en": "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern",
-        "fr": "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern"
+        "it": "operatore-operatrice-di-escavatore-gommato-operatore-operatrice-di-escavatore-strabag-ag-subingen-bern",
+        "en": "wheeled-excavator-operator-excavator-operator-strabag-ag-subingen-bern",
+        "fr": "conducteur-rice-d-excavatrice-sur-pneus-conducteur-rice-d-excavatrice-strabag-ag-subingen-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -939,16 +939,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:35:13.363Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:35:13.363Z"
+      "firstSeenAt": "2026-11-13T09:35:13.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern"
+        ],
+        "en": [
+          "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern"
+        ],
+        "fr": [
+          "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "pneubaggerfuhrer-in-baggerfuhrer-in-strabag-subingen-bern"
+      ]
     },
     {
       "id": "strabag-0b7eb02095be",
-      "slug": "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern",
+      "slug": "operatore-operatrice-di-macchine-per-pavimentazione-conducente-di-rullo-compressore-strabag-ag-subingen-bern",
       "slugByLocale": {
         "de": "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern",
-        "it": "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern",
-        "en": "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern",
-        "fr": "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern"
+        "it": "operatore-operatrice-di-macchine-per-pavimentazione-conducente-di-rullo-compressore-strabag-ag-subingen-bern",
+        "en": "paving-machine-operator-roller-operator-strabag-ag-subingen-bern",
+        "fr": "machiniste-de-revetement-conducteur-rice-de-rouleau-strabag-ag-subingen-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1011,7 +1025,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:35:13.017Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:35:13.017Z"
+      "firstSeenAt": "2026-11-13T09:35:13.017Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern"
+        ],
+        "en": [
+          "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern"
+        ],
+        "fr": [
+          "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "belagsmaschinist-in-walzenfuhrer-in-strabag-subingen-bern"
+      ]
     },
     {
       "id": "strabag-a900e6575562",

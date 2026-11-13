@@ -3092,12 +3092,12 @@
     },
     {
       "id": "lindenhofgruppe-4a93cba75f89",
-      "slug": "abteilungsleiter-in-gynakologie-baby-familie-e-neonatologie-lindenhofgruppe-lindenhofspital",
+      "slug": "responsabile-di-reparto-di-ginecologia-bebe-e-famiglia-e-neonatologia-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch",
-        "it": "abteilungsleiter-in-gynakologie-baby-familie-e-neonatologie-lindenhofgruppe-lindenhofspital",
-        "en": "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch",
-        "fr": "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch"
+        "it": "responsabile-di-reparto-di-ginecologia-bebe-e-famiglia-e-neonatologia-lindenhofgruppe-lindenhofspital",
+        "en": "head-of-department-gynecology-baby-family-and-neonatology-lindenhofgruppe-lindenhofspital",
+        "fr": "responsable-de-departement-de-gynecologie-bebe-famille-et-de-neonatologie-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3145,11 +3145,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch",
+          "abteilungsleiter-in-gynakologie-baby-familie-e-neonatologie-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch"
+        "abteilungsleiter-in-gynakologie-baby-familie-und-neonatologie-lindenhofgruppe-ch",
+        "abteilungsleiter-in-gynakologie-baby-familie-e-neonatologie-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

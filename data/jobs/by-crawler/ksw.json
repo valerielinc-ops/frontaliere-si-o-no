@@ -1593,12 +1593,12 @@
     },
     {
       "id": "ksw-9c6bacd8658f",
-      "slug": "praktikantin-praktikant-klinikschule-ksw-ch",
+      "slug": "interno-interno-scuola-clinica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "it": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "en": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "fr": "praktikantin-praktikant-klinikschule-ksw-ch"
+        "it": "interno-interno-scuola-clinica-kantonsspital-winterthur-ksw-winterthur",
+        "en": "intern-internship-clinical-school-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "ecole-de-clinique-interne-interne-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1660,7 +1660,21 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:18:48.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-klinikschule-ksw-ch"
+      ]
     },
     {
       "id": "ksw-55051131c968",

@@ -20649,12 +20649,12 @@
     },
     {
       "id": "physioswiss-158000df0c15",
-      "slug": "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld",
+      "slug": "fisioterapista-diplomato-a-40-100-physio-swiss-turgovia",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-40-100-physiozone-ag-bahnhofstrasse-61-8500-frauenfeld-cantone",
-        "it": "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld",
-        "en": "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld",
-        "fr": "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld"
+        "it": "fisioterapista-diplomato-a-40-100-physio-swiss-turgovia",
+        "en": "qualified-physiotherapist-40-100-physio-swiss-turgovia",
+        "fr": "physiotherapeute-diplome-e-40-100-physio-swiss-turgovia"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20701,11 +20701,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-40-100-physiozone-ag-bahnhofstrasse-61-8500-frauenfeld-cantone"
+          "dipl-physiotherapeut-in-40-100-physiozone-ag-bahnhofstrasse-61-8500-frauenfeld-cantone",
+          "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-40-100-physiozone-ag-bahnhofstrasse-61-8500-frauenfeld-cantone"
+        "dipl-physiotherapeut-in-40-100-physiozone-ag-bahnhofstrasse-61-8500-frauenfeld-cantone",
+        "dipl-physiotherapeut-in-40-100-physio-swiss-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20732,9 +20740,9 @@
       "slug": "physiotherapeut-in-gesucht-80-bis-100-6440-brunnen-physioswiss-ch",
       "slugByLocale": {
         "it": "physiotherapeut-in-gesucht-80-bis-100-6440-brunnen-physioswiss-ch",
-        "en": "physiotherapeut-in-gesucht-80-bis-100-physio-swiss-brunnen",
+        "en": "physiotherapist-wanted-80-to-100-physio-swiss-6440-brunnen",
         "de": "physiotherapeut-in-gesucht-80-bis-100-6440-brunnen-physioswiss-ch",
-        "fr": "physiotherapeut-in-gesucht-80-bis-100-physio-swiss-brunnen"
+        "fr": "physiotherapeute-recherche-e-a-80-a-100-physio-swiss-6440-brunnen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20797,16 +20805,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:59:18.365Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:59:18.365Z"
+      "firstSeenAt": "2026-11-13T09:59:18.365Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "physiotherapeut-in-gesucht-80-bis-100-physio-swiss-brunnen"
+        ],
+        "fr": [
+          "physiotherapeut-in-gesucht-80-bis-100-physio-swiss-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeut-in-gesucht-80-bis-100-physio-swiss-brunnen"
+      ]
     },
     {
       "id": "physioswiss-a6dfb11a54d7",
-      "slug": "dipl-physiotherapeutin-20-40-con-herz-e-vision-physio-swiss-bern",
+      "slug": "fisioterapista-diplomata-20-40-con-cuore-e-visione-physio-swiss-berna",
       "slugByLocale": {
         "de": "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physiotherapie-therese-opacic-wagner-ag",
-        "it": "dipl-physiotherapeutin-20-40-con-herz-e-vision-physio-swiss-bern",
-        "en": "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physio-swiss-bern",
-        "fr": "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physio-swiss-bern"
+        "it": "fisioterapista-diplomata-20-40-con-cuore-e-visione-physio-swiss-berna",
+        "en": "dipl-physical-therapist-20-40-with-heart-and-vision-physio-swiss-berna",
+        "fr": "dipl-physiotherapeute-20-40-avec-coeur-et-vision-physio-swiss-berna"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20853,11 +20872,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physiotherapie-therese-opacic-wagner-ag"
+          "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physiotherapie-therese-opacic-wagner-ag",
+          "dipl-physiotherapeutin-20-40-con-herz-e-vision-physio-swiss-bern"
+        ],
+        "en": [
+          "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physio-swiss-bern"
+        ],
+        "fr": [
+          "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physio-swiss-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physiotherapie-therese-opacic-wagner-ag"
+        "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physiotherapie-therese-opacic-wagner-ag",
+        "dipl-physiotherapeutin-20-40-con-herz-e-vision-physio-swiss-bern",
+        "dipl-physiotherapeutin-20-40-mit-herz-und-vision-physio-swiss-bern"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -20881,12 +20909,12 @@
     },
     {
       "id": "physioswiss-98c239329c7d",
-      "slug": "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach",
+      "slug": "gestione-del-sito-triesen-physio-ost-ag-physio-swiss-9477-trubbach",
       "slugByLocale": {
         "de": "standortleitung-triesen-physio-ost-ag-9477-trubbach-physioswiss-ch",
-        "it": "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach",
-        "en": "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach",
-        "fr": "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach"
+        "it": "gestione-del-sito-triesen-physio-ost-ag-physio-swiss-9477-trubbach",
+        "en": "site-management-triesen-physio-ost-ag-physio-swiss-9477-trubbach",
+        "fr": "gestion-du-site-triesen-physio-ost-ag-physio-swiss-9477-trubbach"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20933,11 +20961,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "standortleitung-triesen-physio-ost-ag-9477-trubbach-physioswiss-ch"
+          "standortleitung-triesen-physio-ost-ag-9477-trubbach-physioswiss-ch",
+          "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach"
+        ],
+        "en": [
+          "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach"
+        ],
+        "fr": [
+          "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach"
         ]
       },
       "previousSlugs": [
-        "standortleitung-triesen-physio-ost-ag-9477-trubbach-physioswiss-ch"
+        "standortleitung-triesen-physio-ost-ag-9477-trubbach-physioswiss-ch",
+        "standortleitung-triesen-physio-ost-ag-physio-swiss-trubbach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20960,12 +20996,12 @@
     },
     {
       "id": "physioswiss-b835a95f363d",
-      "slug": "physio-gesucht-per-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-physio-swiss-urdorf",
+      "slug": "fisioterapista-cercasi-per-diverse-sedi-nel-canton-zurigo-ambiente-di-lavoro-piacevole-physio-swiss-8902-urdorf",
       "slugByLocale": {
         "de": "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf",
-        "it": "physio-gesucht-per-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-physio-swiss-urdorf",
-        "en": "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf",
-        "fr": "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf"
+        "it": "fisioterapista-cercasi-per-diverse-sedi-nel-canton-zurigo-ambiente-di-lavoro-piacevole-physio-swiss-8902-urdorf",
+        "en": "physio-sought-for-various-locations-canton-of-zurich-beautiful-workplace-physio-swiss-8902-urdorf",
+        "fr": "physio-a-cherche-differents-endroits-canton-de-zurich-beau-lieu-de-travail-physio-swiss-8902-urdorf"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21013,11 +21049,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf",
+          "physio-gesucht-per-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-physio-swiss-urdorf"
+        ],
+        "en": [
+          "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf"
+        ],
+        "fr": [
           "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf"
         ]
       },
       "previousSlugs": [
-        "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf"
+        "physio-gesucht-fur-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-8902-urdorf",
+        "physio-gesucht-per-diverse-standorte-kanton-zurich-schoner-arbeitsplatz-physio-swiss-urdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21040,12 +21084,12 @@
     },
     {
       "id": "physioswiss-40b6a211844f",
-      "slug": "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch",
+      "slug": "80-carico-di-lavoro-100-salario-physio-swiss-5620-bremgarten",
       "slugByLocale": {
         "de": "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch",
-        "it": "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch",
-        "en": "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch",
-        "fr": "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch"
+        "it": "80-carico-di-lavoro-100-salario-physio-swiss-5620-bremgarten",
+        "en": "80-workload-100-wage-physio-swiss-5620-bremgarten",
+        "fr": "80-de-travail-100-de-salaire-physio-swiss-5620-bremgarten"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21107,16 +21151,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:59:18.358Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:59:18.358Z"
+      "firstSeenAt": "2026-11-13T09:59:18.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch"
+        ],
+        "en": [
+          "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch"
+        ],
+        "fr": [
+          "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "80-pensum-100-lohn-5620-bremgarten-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-9768f3253727",
-      "slug": "teamplayer-physiotherapeut-in-physio-swiss-oberburg",
+      "slug": "giocatore-di-squadra-terapista-fisica-in-physio-swiss-3414-oberburg",
       "slugByLocale": {
         "de": "teamplayer-physiotherapeut-in-3414-oberburg-physioswiss-ch",
-        "it": "teamplayer-physiotherapeut-in-physio-swiss-oberburg",
-        "en": "teamplayer-physiotherapeut-in-physio-swiss-oberburg",
-        "fr": "teamplayer-physiotherapeut-in-physio-swiss-oberburg"
+        "it": "giocatore-di-squadra-terapista-fisica-in-physio-swiss-3414-oberburg",
+        "en": "team-player-physical-therapist-in-physio-swiss-3414-oberburg",
+        "fr": "joueur-de-l-equipe-physical-therapist-in-physio-swiss-3414-oberburg"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21163,11 +21221,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamplayer-physiotherapeut-in-3414-oberburg-physioswiss-ch"
+          "teamplayer-physiotherapeut-in-3414-oberburg-physioswiss-ch",
+          "teamplayer-physiotherapeut-in-physio-swiss-oberburg"
+        ],
+        "en": [
+          "teamplayer-physiotherapeut-in-physio-swiss-oberburg"
+        ],
+        "fr": [
+          "teamplayer-physiotherapeut-in-physio-swiss-oberburg"
         ]
       },
       "previousSlugs": [
-        "teamplayer-physiotherapeut-in-3414-oberburg-physioswiss-ch"
+        "teamplayer-physiotherapeut-in-3414-oberburg-physioswiss-ch",
+        "teamplayer-physiotherapeut-in-physio-swiss-oberburg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

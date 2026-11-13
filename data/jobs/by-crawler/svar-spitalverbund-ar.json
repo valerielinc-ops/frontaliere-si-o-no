@@ -770,12 +770,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-9a6f088e6fac",
-      "slug": "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau",
+      "slug": "codificatore-codificatrice-medico-a-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau",
-        "it": "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau",
-        "en": "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau",
-        "fr": "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau"
+        "it": "codificatore-codificatrice-medico-a-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "medical-coder-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "codeur-euse-medical-e-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -839,7 +839,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:16:52.820Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-14T21:13:54.324Z"
+      "firstSeenAt": "2026-10-14T21:13:54.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-kodierer-in-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-4ce88916ff21",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T14:07:46.651Z",
+  "generatedAt": "2026-11-13T17:10:39.741Z",
   "totalEvents": 17064,
   "events": [
     {
@@ -405955,11 +405955,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -405976,6 +405971,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-11-12"
         },
         {
           "canton": "TI",
@@ -406696,11 +406696,6 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
@@ -406712,6 +406707,11 @@
           "canton": "TI",
           "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-11-12"
         },
         {
           "canton": "TI",
@@ -407409,11 +407409,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -407430,6 +407425,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-08-21"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-11-12"
         },
         {
           "canton": "TI",
@@ -411265,11 +411265,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -411286,6 +411281,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-12"
         },
         {
           "canton": "TI",
@@ -413498,7 +413498,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "«Simultanés» è una mostra di Marie Ducaté a Ginevra. L’artista vi presenta un atelier ricomposto come parte dell’esposizione.",
+      "descriptionByLocale": {
+        "it": "«Simultanés» è una mostra di Marie Ducaté a Ginevra. L’artista vi presenta un atelier ricomposto come parte dell’esposizione.",
+        "en": "“Simultanés” is an exhibition by Marie Ducaté in Geneva. The artist presents a reconfigured studio as part of the exhibition.",
+        "de": "„Simultanés“ ist eine Ausstellung von Marie Ducaté in Genf. Die Künstlerin zeigt darin ein neu zusammengesetztes Atelier.",
+        "fr": "« Simultanés » est une exposition de Marie Ducaté à Genève. L’artiste y présente un atelier recomposé."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64888",
@@ -416658,11 +416666,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -416689,6 +416692,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-11-12"
         },
         {
           "canton": "TI",
@@ -418904,17 +418912,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-11-12"
         },
         {
           "canton": "TI",
@@ -419098,11 +419106,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -419114,6 +419117,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-11-12"
         },
         {
           "canton": "TI",
@@ -419351,11 +419359,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-11-12"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -419367,6 +419370,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-11-12"
         },
         {
           "canton": "TI",
@@ -419584,7 +419592,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente si tiene presso Etoile Blanche nel periodo invernale. Il programma comprende un momento di after work e serate musicali.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente si tiene presso Etoile Blanche nel periodo invernale. Il programma comprende un momento di after work e serate musicali.",
+        "en": "This recurring event takes place at Etoile Blanche during the winter period. Its programme combines an after-work gathering with musical evenings.",
+        "de": "Die wiederkehrende Veranstaltung findet im Etoile Blanche während des Winterzeitraums statt. Zum Programm gehören ein After-Work-Treffen und musikalische Abende.",
+        "fr": "Ce rendez-vous récurrent se déroule à l’Etoile Blanche pendant la période hivernale. Il associe un moment d’after-work à des soirées musicales."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64590",
@@ -419644,12 +419660,12 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-11-12"
+          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
         },
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
+          "slug": "visite-guidee-pour-petits-grands-2026-11-12"
         },
         {
           "canton": "GE",
@@ -420160,7 +420176,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum am Münster; categoria: Stampa; partecipante: Handschriften; data: 2026-11-13; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum am Münster; categoria: Stampa; partecipante: Handschriften; data: 2026-11-13; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kulturzentrum am Münster; category: Stampa; participant: Handschriften; date: 2026-11-13; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kulturzentrum am Münster; kategorie: Stampa; mitwirkender: Handschriften; datum: 2026-11-13; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kulturzentrum am Münster; catégorie: Stampa; participant: Handschriften; date: 2026-11-13; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:52f9e116c188467a8d31c7beb735b9d6",
@@ -439250,7 +439274,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente al Captain Cook combina il karaoke con un quiz. Il programma prevede momenti di canto al microfono e la partecipazione a un gioco di domande.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente al Captain Cook combina il karaoke con un quiz. Il programma prevede momenti di canto al microfono e la partecipazione a un gioco di domande.",
+        "en": "This recurring event at Captain Cook combines karaoke with a quiz. The programme includes singing with a microphone and taking part in a question game.",
+        "de": "Die wiederkehrende Veranstaltung im Captain Cook verbindet Karaoke mit einem Quiz. Zum Programm gehören das Singen am Mikrofon und die Teilnahme an einem Fragespiel.",
+        "fr": "Ce rendez-vous récurrent au Captain Cook associe le karaoké et un quiz. Il comprend des séquences de chant au micro ainsi qu’un jeu de questions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AErF8F2",
@@ -440858,7 +440890,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone il metodo Feldenkrais attraverso movimenti delicati eseguiti da seduti e in piedi. Il lavoro sostiene la capacità di reazione, la postura, la sicurezza nel cammino e l’equilibrio, senza richiedere un’età, un’esperienza precedente o una condizione fisica specifica.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone il metodo Feldenkrais attraverso movimenti delicati eseguiti da seduti e in piedi. Il lavoro sostiene la capacità di reazione, la postura, la sicurezza nel cammino e l’equilibrio, senza richiedere un’età, un’esperienza precedente o una condizione fisica specifica.",
+        "en": "The Feldenkrais event focuses on gentle, attentive movements performed while sitting and standing. The activity addresses responsiveness, upright posture, walking confidence and balance, and is suitable for people of all ages and levels of prior experience or physical condition.",
+        "de": "Bei dieser Feldenkrais-Veranstaltung stehen sanfte, bewusste Bewegungen im Sitzen und im Stehen im Mittelpunkt. Sie zielen darauf, Reaktionsfähigkeit, Aufrichtung, Gangsicherheit und Gleichgewicht zu unterstützen; teilnehmen können Menschen jeden Alters unabhängig von Vorkenntnissen oder körperlicher Verfassung.",
+        "fr": "Ce rendez-vous consacré à la méthode Feldenkrais s’appuie sur des mouvements doux et attentifs, réalisés assis ou debout. Il vise à soutenir la réactivité, la verticalité, l’assurance dans la marche et l’équilibre, quel que soit l’âge, l’expérience préalable ou la condition physique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AX3jmyN",
@@ -442144,7 +442184,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Il progetto presenta gli allievi della sezione Pré-HEM presso l’Ecole de Jazz et de Musique Actuelle de Lausanne. La sezione è un percorso preprofessionale e gli appuntamenti si svolgono ogni lunedì.",
+      "descriptionByLocale": {
+        "it": "Il progetto presenta gli allievi della sezione Pré-HEM presso l’Ecole de Jazz et de Musique Actuelle de Lausanne. La sezione è un percorso preprofessionale e gli appuntamenti si svolgono ogni lunedì.",
+        "en": "This recurring event features students from the Pré-HEM section at the Ecole de Jazz et de Musique Actuelle de Lausanne. The section is a pre-professional course, with performances scheduled every Monday.",
+        "de": "Bei dieser Veranstaltungsreihe treten Schülerinnen und Schüler der Pré-HEM-Abteilung an der Ecole de Jazz et de Musique Actuelle de Lausanne auf. Die Abteilung ist vorberuflich ausgerichtet, und die Termine finden jeweils montags statt.",
+        "fr": "Ce rendez-vous récurrent présente les élèves de la section Pré-HEM à l’Ecole de Jazz et de Musique Actuelle de Lausanne. Cette section propose une formation préprofessionnelle, avec des représentations chaque lundi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:quatuors-beethoven",
@@ -444181,7 +444229,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Matterhaus; cantone: AG; categoria: Comunione; data: 2026-11-17; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Matterhaus; cantone: AG; categoria: Comunione; data: 2026-11-17; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Matterhaus; canton: AG; category: Comunione; date: 2026-11-17; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Matterhaus; kanton: AG; kategorie: Comunione; datum: 2026-11-17; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Matterhaus; canton: AG; catégorie: Comunione; date: 2026-11-17; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:90568",
@@ -447873,7 +447929,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Futur[s] è uno spettacolo teatrale presentato a Ginevra. L’appuntamento propone un’esperienza condivisa in cui il virtuale convive con il reale.",
+      "descriptionByLocale": {
+        "it": "Futur[s] è uno spettacolo teatrale presentato a Ginevra. L’appuntamento propone un’esperienza condivisa in cui il virtuale convive con il reale.",
+        "en": "Futur[s] is a theatre performance presented in Geneva. The event offers a shared experience where the virtual and the real coexist.",
+        "de": "Futur[s] ist eine Theateraufführung in Genf. Die Veranstaltung stellt eine gemeinsame Erfahrung vor, in der Virtuelles und Reales nebeneinander bestehen.",
+        "fr": "Futur[s] est un spectacle de théâtre présenté à Genève. Le rendez-vous propose une expérience partagée où le virtuel et le réel coexistent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:afb16a081a6c4f77bd92860f6e00188f",
@@ -448884,7 +448948,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza analizza le prospettive dell’umanità nello spazio e l’evoluzione dell’esplorazione spaziale. Il programma considera le esperienze dello Shuttle e della Soyuz, oltre alle sfide della nuova economia spaziale in Europa, in Italia e a livello globale.",
+      "descriptionByLocale": {
+        "it": "La conferenza analizza le prospettive dell’umanità nello spazio e l’evoluzione dell’esplorazione spaziale. Il programma considera le esperienze dello Shuttle e della Soyuz, oltre alle sfide della nuova economia spaziale in Europa, in Italia e a livello globale.",
+        "en": "The conference examines humanity’s prospects in space and the development of space exploration. It considers the experience of the Shuttle and Soyuz, as well as the challenges of the new space economy in Europe, Italy and the wider world.",
+        "de": "Die Konferenz befasst sich mit den Perspektiven der Menschheit im Weltraum und mit der Entwicklung der Raumfahrt. Im Mittelpunkt stehen die Erfahrungen mit Shuttle und Sojus sowie die Herausforderungen der neuen Raumfahrtwirtschaft in Europa, Italien und weltweit.",
+        "fr": "La conférence examine les perspectives de l’humanité dans l’espace et l’évolution de l’exploration spatiale. Elle aborde les expériences liées à la navette et à Soyouz, ainsi que les défis de la nouvelle économie spatiale en Europe, en Italie et dans le monde."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:farce-francois-herpeux",
@@ -449569,7 +449641,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "I Midi-concerts sono un appuntamento musicale ricorrente. L’evento si tiene presso la Haute Ecole de Musique de Lausanne, a Lausanne.",
+      "descriptionByLocale": {
+        "it": "I Midi-concerts sono un appuntamento musicale ricorrente. L’evento si tiene presso la Haute Ecole de Musique de Lausanne, a Lausanne.",
+        "en": "Midi-concerts is a recurring musical event. It takes place at the Haute Ecole de Musique de Lausanne in Lausanne.",
+        "de": "Midi-concerts ist eine wiederkehrende musikalische Veranstaltung. Sie findet an der Haute Ecole de Musique de Lausanne in Lausanne statt.",
+        "fr": "Les Midi-concerts constituent un rendez-vous musical récurrent. La manifestation se tient à la Haute Ecole de Musique de Lausanne, à Lausanne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:724199d2d9014104882506b48e5377d0",
@@ -450315,7 +450395,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone uno spettacolo comico interpretato da Kevin Eyer. L’artista affronta esperienze della vita quotidiana con uno sguardo umoristico e si esibisce presso Le Cylure.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone uno spettacolo comico interpretato da Kevin Eyer. L’artista affronta esperienze della vita quotidiana con uno sguardo umoristico e si esibisce presso Le Cylure.",
+        "en": "The event features Kevin Eyer in a stand-up comedy performance. He explores experiences from everyday life with a humorous perspective at Le Cylure.",
+        "de": "Bei der Veranstaltung tritt Kevin Eyer mit einem komödiantischen Bühnenprogramm auf. Er greift Erfahrungen aus dem wirklichen Leben auf und betrachtet sie mit Humor im Le Cylure.",
+        "fr": "Cette représentation comique est portée par Kevin Eyer. Elle aborde avec humour des expériences de la vie courante et se tient au lieu Le Cylure."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:140cae052cae47e1b54e98abeb89226c",
@@ -451935,7 +452023,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "È un concerto associato al rock e a Lione. L’evento è indicato per Ginevra, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "È un concerto associato al rock e a Lione. L’evento è indicato per Ginevra, nel cantone di Ginevra.",
+        "en": "This is a concert associated with rock and Lyon. It is listed for Geneva, in the canton of Geneva.",
+        "de": "Die Veranstaltung ist ein Konzert mit Bezug zu Rock und Lyon. Sie ist für Genf im Kanton Genf aufgeführt.",
+        "fr": "Il s’agit d’un concert associé au rock et à Lyon. L’événement est indiqué à Genève, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4dbe430eaf6a4071b9061634237c2d1a",
@@ -452547,7 +452643,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro esamina il ruolo dell’informazione affidabile e del giornalismo in un ambiente digitale caratterizzato da un’offerta crescente di notizie. Affronta anche l’influenza degli algoritmi e dell’intelligenza artificiale sulla selezione dei contenuti, nonché il calo di attenzione e fiducia verso i media.",
+      "descriptionByLocale": {
+        "it": "L’incontro esamina il ruolo dell’informazione affidabile e del giornalismo in un ambiente digitale caratterizzato da un’offerta crescente di notizie. Affronta anche l’influenza degli algoritmi e dell’intelligenza artificiale sulla selezione dei contenuti, nonché il calo di attenzione e fiducia verso i media.",
+        "en": "The event examines the role of reliable information and journalism in a digital environment with an expanding supply of news. It also considers how algorithms and artificial intelligence influence the content people receive, alongside declining attention to and trust in the media.",
+        "de": "Die Veranstaltung untersucht die Bedeutung verlässlicher Informationen und des Journalismus in einer digitalen Umgebung mit wachsender Nachrichtenmenge. Zudem geht es um den Einfluss von Algorithmen und künstlicher Intelligenz auf die Inhalte, die Menschen erreichen, sowie um die abnehmende Aufmerksamkeit und das sinkende Vertrauen in die Medien.",
+        "fr": "Le rendez-vous examine le rôle d’une information fiable et du journalisme dans un environnement numérique où l’offre de nouvelles augmente. Il aborde aussi l’influence des algorithmes et de l’intelligence artificielle sur les contenus reçus par le public, ainsi que la baisse de l’attention et de la confiance accordées aux médias."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:65020",
@@ -454957,7 +455061,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata del museo si tiene presso la Eisenbibliothek Paradies, nel canton Turgovia. L’offerta è rivolta alle persone singole e a chi desidera partecipare spontaneamente.",
+      "descriptionByLocale": {
+        "it": "La visita guidata del museo si tiene presso la Eisenbibliothek Paradies, nel canton Turgovia. L’offerta è rivolta alle persone singole e a chi desidera partecipare spontaneamente.",
+        "en": "The museum event offers a guided tour at the Eisenbibliothek Paradies in the canton of Thurgau. It is intended for individual visitors and people who decide to attend spontaneously.",
+        "de": "Die Veranstaltung ist als zusätzliche Museumsführung eingestuft und findet in der Eisenbibliothek Paradies im Kanton Thurgau statt. Sie richtet sich an Einzelpersonen und an spontane Besucherinnen und Besucher.",
+        "fr": "Cette activité muséale propose une visite guidée à l’Eisenbibliothek Paradies, dans le canton de Thurgovie. Elle s’adresse aux personnes seules ainsi qu’aux visiteurs qui se présentent spontanément."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:open-chanson-francaise-nicolas-hafner",
@@ -456187,7 +456299,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente propone un pomeriggio dedicato al lavoro a maglia e ai giochi. Si svolge nella sala parrocchiale di Fideris, nel Cantone dei Grigioni.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente propone un pomeriggio dedicato al lavoro a maglia e ai giochi. Si svolge nella sala parrocchiale di Fideris, nel Cantone dei Grigioni.",
+        "en": "This recurring afternoon gathering centres on knitting and games. It takes place at the parish hall in Fideris, in the canton of Graubünden.",
+        "de": "Bei diesem wiederkehrenden Nachmittag stehen Stricken und Spiele im Mittelpunkt. Veranstaltungsort ist der Pfarrhaussaal in Fideris im Kanton Graubünden.",
+        "fr": "Ce rendez-vous récurrent associe tricot et jeux au cours d’un après-midi. Il a lieu dans la salle paroissiale de Fideris, dans le canton des Grisons."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ad7f9f0964c94b7992d41b083c9975e6",
@@ -456760,7 +456880,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro esamina perché le donne siano spesso assenti o marginali nei racconti storici e come cambino le prospettive quando vengono cercate in modo mirato. Vengono presentati anche approcci per ritrovare storie dimenticate, fonti utili e figure femminili finora poco visibili nella storia di Lucerna.",
+      "descriptionByLocale": {
+        "it": "L’incontro esamina perché le donne siano spesso assenti o marginali nei racconti storici e come cambino le prospettive quando vengono cercate in modo mirato. Vengono presentati anche approcci per ritrovare storie dimenticate, fonti utili e figure femminili finora poco visibili nella storia di Lucerna.",
+        "en": "The event examines why women have often remained marginal or absent from historical narratives and what changes when they are deliberately sought. It also introduces ways of recovering overlooked stories, identifying relevant sources, and rediscovering women and histories in Lucerne.",
+        "de": "Die Veranstaltung untersucht, weshalb Frauen in historischen Darstellungen oft nur am Rand oder gar nicht vorkommen und was sich verändert, wenn gezielt nach ihnen gefragt wird. Zudem geht es darum, vergessene Geschichten aufzuspüren, mögliche Quellen zu nutzen und Frauen sowie Geschichten in Luzern neu zu entdecken.",
+        "fr": "Le rendez-vous examine pourquoi les femmes sont souvent absentes ou reléguées au second plan dans les récits historiques et ce qui change lorsqu’on les recherche délibérément. Il présente aussi le travail nécessaire pour retrouver des histoires oubliées, identifier les sources pertinentes et redécouvrir des femmes ainsi que des récits à Lucerne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:384a18763f9b4be698d3196b46a510a2",
@@ -457019,7 +457147,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo atelier partecipativo affronta il tema di una possibile economia sociale e solidale della notte. Lancy, nel cantone di Ginevra, è utilizzata come esempio concreto per la riflessione.",
+      "descriptionByLocale": {
+        "it": "Questo atelier partecipativo affronta il tema di una possibile economia sociale e solidale della notte. Lancy, nel cantone di Ginevra, è utilizzata come esempio concreto per la riflessione.",
+        "en": "This participatory workshop examines possible forms of a social and solidarity-based night-time economy. Lancy in the canton of Geneva serves as a concrete example for the discussion.",
+        "de": "Dieser partizipative Workshop befasst sich mit möglichen Formen einer sozialen und solidarischen Nachtökonomie. Lancy im Kanton Genf dient als konkretes Beispiel für die Diskussion.",
+        "fr": "Cet atelier participatif porte sur les possibilités d’une économie sociale et solidaire liée à la vie nocturne. Lancy, dans le canton de Genève, sert d’exemple concret pour la réflexion."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bd16c6fd60d34f6aa26116c7a0c68186",
@@ -459563,7 +459699,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di clubbing si svolge a Ginevra ed è una festa di sostegno. Il programma all’iceBergues comprende karaoke e set di DJ.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di clubbing si svolge a Ginevra ed è una festa di sostegno. Il programma all’iceBergues comprende karaoke e set di DJ.",
+        "en": "This clubbing event in Geneva is held as a benefit gathering. Its programme at iceBergues includes karaoke and DJ sets.",
+        "de": "Die Clubbing-Veranstaltung in Genf ist als Unterstützungsfest angelegt. Im iceBergues stehen Karaoke und DJ-Sets auf dem Programm.",
+        "fr": "Ce rendez-vous de clubbing à Genève prend la forme d’une fête de soutien. À l’iceBergues, le programme comprend du karaoké et des sets de DJ."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cf092524d3a7473eb363e999d58cd11d",
@@ -459788,7 +459932,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata all’Opernhaus Zürich è dedicata alla tecnica di scena. Il percorso si svolge sotto, sul e sopra il palcoscenico.",
+      "descriptionByLocale": {
+        "it": "La visita guidata all’Opernhaus Zürich è dedicata alla tecnica di scena. Il percorso si svolge sotto, sul e sopra il palcoscenico.",
+        "en": "This guided tour at Opernhaus Zürich focuses on stage technology. It explores areas beneath, on and above the stage.",
+        "de": "Die Führung im Opernhaus Zürich widmet sich der Bühnentechnik. Der Rundgang umfasst Bereiche unterhalb der Bühne, die Bühne selbst und den Bereich darüber.",
+        "fr": "Cette visite guidée à l’Opernhaus Zürich est consacrée à la technique de scène. Le parcours passe sous, sur et au-dessus de la scène."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7556606f5d90423f91ed175495670e3a",
@@ -469140,7 +469292,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È in programma un appuntamento musicale con Amber al Zūma Take Your Time di Novazzano. La serata propone un’esibizione dal vivo in un contesto raccolto del Mendrisiotto.",
+      "descriptionByLocale": {
+        "it": "È in programma un appuntamento musicale con Amber al Zūma Take Your Time di Novazzano. La serata propone un’esibizione dal vivo in un contesto raccolto del Mendrisiotto.",
+        "en": "Amber will give a live music performance at Zūma Take Your Time in Novazzano. The event takes place in the Mendrisiotto region and is presented in an intimate setting.",
+        "de": "In Novazzano steht ein musikalischer Live-Auftritt von Amber im Zūma Take Your Time auf dem Programm. Die Veranstaltung findet im Mendrisiotto in einem intimen Rahmen statt.",
+        "fr": "Amber se produira en direct lors d’un rendez-vous musical au Zūma Take Your Time, à Novazzano. L’événement se déroule dans la région du Mendrisiotto et prend place dans un cadre intime."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AbYSBRU",
@@ -469686,7 +469846,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il corso al Museo di Leventina di Giornico presenta una specialità dolciaria della Leventina, preparata secondo la ricetta locale. I Crèfli vengono realizzati con noci, uvetta e miele, utilizzando stampi di legno.",
+      "descriptionByLocale": {
+        "it": "Il corso al Museo di Leventina di Giornico presenta una specialità dolciaria della Leventina, preparata secondo la ricetta locale. I Crèfli vengono realizzati con noci, uvetta e miele, utilizzando stampi di legno.",
+        "en": "The course at the Museo di Leventina in Giornico focuses on a traditional sweet from the Leventina region and its local preparation method. The Crèfli are made with walnuts, raisins and honey, using wooden moulds.",
+        "de": "Der Kurs im Museo di Leventina in Giornico widmet sich einer regionalen Süssspeise aus der Leventina und ihrer örtlichen Zubereitung. Für die Crèfli werden Walnüsse, Rosinen und Honig verwendet; geformt werden sie mit Holzformen.",
+        "fr": "Le cours organisé au Museo di Leventina à Giornico présente une spécialité sucrée de la Leventina et sa Zubereitung selon la recette locale. Les Crèfli contiennent des noix, des raisins secs et du miel, puis sont façonnés à l’aide de moules en bois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:958b4d6c450845db86b187fe10f7519c",
@@ -472489,6 +472657,13 @@
         "Lavena Ponte Tresa"
       ],
       "sourceDescriptionHash": "63c18ca2fc942cf92107858b1d68a546b926975c437126e6d0584b171887141c",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "my-fierce-ignorant-step-christos-papadopoulos-2026-11-21-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-generico-ticino-confine-autunno-inverno.webp",
       "imageAssetId": "event-generico-ticino-confine-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -475591,7 +475766,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento inaugura una mostra di Umberto Giovannini dedicata all’acqua. L’esposizione è allestita presso la Biblioteca Salita dei Frati di Lugano e prosegue anche dopo la serata inaugurale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento inaugura una mostra di Umberto Giovannini dedicata all’acqua. L’esposizione è allestita presso la Biblioteca Salita dei Frati di Lugano e prosegue anche dopo la serata inaugurale.",
+        "en": "The event marks the opening of an exhibition by Umberto Giovannini centred on water. It takes place at Biblioteca Salita dei Frati in Lugano, and the exhibition continues after the opening reception.",
+        "de": "Die Veranstaltung eröffnet eine Ausstellung von Umberto Giovannini, die sich mit dem Wasser befasst. Zu sehen ist sie in der Biblioteca Salita dei Frati in Lugano; sie bleibt auch nach dem Eröffnungsabend geöffnet.",
+        "fr": "Ce rendez-vous inaugure une exposition d’Umberto Giovannini consacrée à l’eau. Elle se tient à la Biblioteca Salita dei Frati, à Lugano, et reste accessible au-delà de la soirée d’ouverture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64537",
@@ -478766,7 +478949,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una tombola al Salone parrocchiale di Melano, nel Luganese. Sono previsti premi, cestoni e buoni d’acquisto; il programma comprende anche caffè, bevande e torte fatte in casa presso la buvette.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una tombola al Salone parrocchiale di Melano, nel Luganese. Sono previsti premi, cestoni e buoni d’acquisto; il programma comprende anche caffè, bevande e torte fatte in casa presso la buvette.",
+        "en": "A bingo event is held at the parish hall in Melano, in the Luganese area. It includes prize draws featuring baskets and shopping vouchers; coffee is offered to people arriving by the first round, while the refreshment stand serves drinks and homemade cakes.",
+        "de": "Im Pfarrsaal in Melano im Luganese findet eine Tombola statt. Zum Anlass gehören Verlosungen mit Körben und Einkaufsgutscheinen; für Personen, die bis zur ersten Runde eintreffen, wird Kaffee angeboten, und an der Buvette gibt es Getränke sowie hausgemachte Kuchen.",
+        "fr": "Un loto est organisé au Salone parrocchiale de Melano, dans la région du Luganese. Le programme prévoit des lots, des paniers et des bons d’achat ; du café est offert aux personnes arrivant avant la première manche, tandis que la buvette propose des boissons et des gâteaux faits maison."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9c0718e5a2584962b5fde22c77580e10",
@@ -481906,7 +482097,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Wetzikon si svolge un concerto invernale della Harmonie Wetzikon. L’appuntamento presenta un programma musicale vario.",
+      "descriptionByLocale": {
+        "it": "A Wetzikon si svolge un concerto invernale della Harmonie Wetzikon. L’appuntamento presenta un programma musicale vario.",
+        "en": "Wetzikon hosts a winter concert by Harmonie Wetzikon. The event features a varied musical programme.",
+        "de": "In Wetzikon findet ein Winterkonzert der Harmonie Wetzikon statt. Die Veranstaltung bietet ein vielfältiges Musikprogramm.",
+        "fr": "Wetzikon accueille un concert d’hiver de l’Harmonie Wetzikon. Le rendez-vous propose un programme musical varié."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A201490781",
@@ -482174,6 +482373,13 @@
         "fr": "Tournée live d'Arisa"
       },
       "sourceDescriptionHash": "6f5e2139fd32a0019acaaeb9ede70586b4964413e1649eb3cd6b5909073a1695",
+      "previousRoutes": [
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "arisa-live-tour-2026-11-23-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-musica-ticino-confine-autunno-inverno.webp",
       "imageAssetId": "event-musica-ticino-confine-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -487660,7 +487866,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente è dedicato ai giochi da tavolo e si tiene allo Zündhölzli. La serata propone giochi da tavolo impegnativi e stimolanti.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente è dedicato ai giochi da tavolo e si tiene allo Zündhölzli. La serata propone giochi da tavolo impegnativi e stimolanti.",
+        "en": "This recurring event is devoted to board games and takes place at Zündhölzli. The evening features challenging and engaging board games.",
+        "de": "Die wiederkehrende Veranstaltung widmet sich Brettspielen und findet im Zündhölzli statt. Angeboten werden anspruchsvolle und spannende Brettspiele.",
+        "fr": "Ce rendez-vous récurrent est consacré aux jeux de société et se déroule au Zündhölzli. La soirée propose des jeux de société exigeants et captivants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZbsvtw",
@@ -488661,7 +488875,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il FiZ-Mama-Kreis è un incontro per mamme presso il Familienzentrum Wetzikon. Offre uno spazio protetto per parlare liberamente di temi diversi da quelli legati ai figli e per favorire conversazioni approfondite.",
+      "descriptionByLocale": {
+        "it": "Il FiZ-Mama-Kreis è un incontro per mamme presso il Familienzentrum Wetzikon. Offre uno spazio protetto per parlare liberamente di temi diversi da quelli legati ai figli e per favorire conversazioni approfondite.",
+        "en": "The FiZ Mums’ Circle is a gathering for mothers at the Familienzentrum Wetzikon. It provides a protected setting for open conversations on subjects beyond children and for more in-depth exchange.",
+        "de": "Der FiZ-Mama-Kreis findet im Familienzentrum Wetzikon statt und richtet sich an Mamas. In einem geschützten Rahmen können sie sich über unterschiedliche Themen jenseits von Kindern austauschen und vertiefte Gespräche führen.",
+        "fr": "Le FiZ-Mama-Kreis est une rencontre destinée aux mamans au Familienzentrum Wetzikon. Dans un cadre protégé, les participantes peuvent échanger ouvertement sur des sujets qui dépassent la question des enfants et privilégier des discussions approfondies."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:flore-benguigui-sensible-notes-maria-fries",
@@ -494034,7 +494256,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro affronta il tema della violenza domestica e il percorso di ripresa delle donne che l’hanno vissuta. Il programma unisce riflessioni sulle conseguenze della violenza, sull’importanza dell’accompagnamento e testimonianze personali dedicate al recupero della fiducia, dei desideri e dello sguardo verso il futuro, presso la scuola elementare di Tesserete.",
+      "descriptionByLocale": {
+        "it": "L’incontro affronta il tema della violenza domestica e il percorso di ripresa delle donne che l’hanno vissuta. Il programma unisce riflessioni sulle conseguenze della violenza, sull’importanza dell’accompagnamento e testimonianze personali dedicate al recupero della fiducia, dei desideri e dello sguardo verso il futuro, presso la scuola elementare di Tesserete.",
+        "en": "The event addresses domestic violence and the recovery path of women who have experienced it. The programme combines reflections on the effects of violence and the role of support with personal testimonies about rebuilding confidence, rediscovering personal wishes and looking toward the future at the elementary school in Tesserete.",
+        "de": "Die Veranstaltung behandelt häusliche Gewalt und den Weg von Frauen, die solche Erfahrungen gemacht haben, zur erneuten Orientierung. Im Mittelpunkt stehen die Folgen solcher Erlebnisse, die Bedeutung von Unterstützung und persönliche Berichte über wiedergewonnenes Vertrauen, eigene Wünsche und einen neuen Blick auf die Zukunft; der Anlass findet in der Primarschule von Tesserete statt.",
+        "fr": "La rencontre traite des violences domestiques et du parcours de femmes qui y ont été confrontées. Le programme associe une réflexion sur les blessures, le rôle de l’accompagnement et des récits personnels portant sur la confiance retrouvée, les envies et la manière d’envisager l’avenir, à l’école élémentaire de Tesserete."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:gyorgy-kurtag-celebration-centenaire-compositeur-complet",
@@ -497671,7 +497901,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Tann; comune: Dürnten; cantone: ZH; categoria: Event; data: 2026-11-27. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Tann; comune: Dürnten; cantone: ZH; categoria: Event; data: 2026-11-27. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Tann; municipality: Dürnten; canton: ZH; category: Event; date: 2026-11-27. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Tann; gemeinde: Dürnten; kanton: ZH; kategorie: Event; datum: 2026-11-27. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Tann; commune: Dürnten; canton: ZH; catégorie: Event; date: 2026-11-27. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f21f3b0956b74d8988cc7cc59738e00e",
@@ -501246,7 +501484,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale unisce interpreti, corpi, lingue e gesti differenti in una ricerca scenica di carattere poetico. Nato da uno scambio artistico e culturale tra la Svizzera e La Réunion, il lavoro riflette sull’identità come rete di relazioni e va in scena al Teatro Cambusa di Locarno, nel Locarnese.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale unisce interpreti, corpi, lingue e gesti differenti in una ricerca scenica di carattere poetico. Nato da uno scambio artistico e culturale tra la Svizzera e La Réunion, il lavoro riflette sull’identità come rete di relazioni e va in scena al Teatro Cambusa di Locarno, nel Locarnese.",
+        "en": "The theatre work brings together performers, distinct bodies, languages and gestures in a poetic stage exploration. It emerged from an artistic and cultural exchange between Switzerland and La Réunion, reflects on identity through relationships, and is staged at Teatro Cambusa in Locarno, in the Locarnese region.",
+        "de": "Die Theaterarbeit verbindet verschiedene Körperausdrücke, Sprachen und Gesten in einer poetisch geprägten Bühnenrecherche. Sie entstand aus einem künstlerischen und kulturellen Austausch zwischen der Schweiz und La Réunion, setzt sich mit Identität als Beziehungsgeflecht auseinander und wird im Teatro Cambusa in Locarno im Locarnese aufgeführt.",
+        "fr": "La création théâtrale associe des expressions corporelles, des langues et des gestes variés dans une recherche scénique poétique. Née d’un échange artistique et culturel entre la Suisse et La Réunion, elle envisage l’identité comme un réseau de relations et est présentée au Teatro Cambusa de Locarno, dans le Locarnese."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AhVrMUG",
@@ -502615,7 +502861,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma riguarda corsi dedicati alla preparazione di pomate. La preparazione si svolge in piccoli gruppi e utilizza alcuni ingredienti biologici selezionati.",
+      "descriptionByLocale": {
+        "it": "Il programma riguarda corsi dedicati alla preparazione di pomate. La preparazione si svolge in piccoli gruppi e utilizza alcuni ingredienti biologici selezionati.",
+        "en": "The event consists of courses on preparing ointments. Participants work in small groups and use a limited selection of organic ingredients.",
+        "de": "Die Veranstaltung umfasst Kurse zur Herstellung von Salben. Die Teilnehmenden arbeiten in kleinen Gruppen und verwenden dafür wenige ausgewählte biologische Zutaten.",
+        "fr": "L’événement propose des cours consacrés à la préparation de pommades. La préparation se fait en petits groupes avec quelques ingrédients biologiques sélectionnés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AgxL4eD",
@@ -503156,7 +503410,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è uno spettacolo teatrale che si svolge a Ginevra. È aperto a tutte le persone che desiderano presentare un proprio talento davanti al pubblico.",
+      "descriptionByLocale": {
+        "it": "L’evento è uno spettacolo teatrale che si svolge a Ginevra. È aperto a tutte le persone che desiderano presentare un proprio talento davanti al pubblico.",
+        "en": "This event is a theatre performance held in Geneva. It is open to anyone who would like to present a talent in front of an audience.",
+        "de": "Die Veranstaltung ist eine Theatervorstellung in Genf. Sie steht allen offen, die ein eigenes Talent vor Publikum zeigen möchten.",
+        "fr": "Cet événement est un spectacle théâtral organisé à Genève. Il est ouvert à toute personne souhaitant présenter un talent devant un public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:51f780de36b64370bba3e19449183bde",
@@ -506168,7 +506430,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale presenta un lavoro di Mathilde Monnier. L’appuntamento si svolge a Concorde, a Ginevra, nell’ambito di Les Créatives.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale presenta un lavoro di Mathilde Monnier. L’appuntamento si svolge a Concorde, a Ginevra, nell’ambito di Les Créatives.",
+        "en": "The theatre event presents a work by Mathilde Monnier. It takes place at Concorde in Geneva as part of Les Créatives.",
+        "de": "Die Theaterveranstaltung ist eine Arbeit von Mathilde Monnier. Sie wird im Concorde in Genf im Rahmen von Les Créatives gezeigt.",
+        "fr": "Ce spectacle théâtral de Mathilde Monnier est présenté à Concorde, à Genève. Il s’inscrit dans la programmation des Créatives."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:996ed98495594c1581aac39a57d8712f",
@@ -506994,7 +507264,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; date: 2026-11-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; datum: 2026-11-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; date: 2026-11-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ArKvwKT",
@@ -507128,7 +507406,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto di Gospel Ladies Trio si svolge alla Sala Aragonite di Manno, nel Luganese. Il programma riunisce repertorio gospel, melodie natalizie e brani pop e soul, con voci femminili accompagnate al pianoforte.",
+      "descriptionByLocale": {
+        "it": "Il concerto di Gospel Ladies Trio si svolge alla Sala Aragonite di Manno, nel Luganese. Il programma riunisce repertorio gospel, melodie natalizie e brani pop e soul, con voci femminili accompagnate al pianoforte.",
+        "en": "Gospel Ladies Trio performs at Sala Aragonite in Manno, in the Luganese region. The programme combines gospel classics, Christmas melodies, and pop and soul songs with female vocals and piano accompaniment.",
+        "de": "Das Konzert von Gospel Ladies Trio findet in der Sala Aragonite in Manno im Luganese statt. Auf dem Programm stehen Gospelklassiker, Weihnachtsmelodien sowie Stücke aus Pop und Soul, mit weiblichem Gesang und Klavierbegleitung.",
+        "fr": "Gospel Ladies Trio se produit à la Sala Aragonite, à Manno, dans le Luganese. Le programme réunit des classiques du gospel, des mélodies de Noël et des morceaux pop et soul, avec des voix féminines accompagnées au piano."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:conference-deambulee-autour-louise-breslau-kirilof",
@@ -507747,7 +508033,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una serata di clubbing con DJ SCALPA, incentrata sulle sonorità groove e hip-hop. È associato a Ginevra, nel cantone di Ginevra, ed è classificato nella categoria Clubbing.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una serata di clubbing con DJ SCALPA, incentrata sulle sonorità groove e hip-hop. È associato a Ginevra, nel cantone di Ginevra, ed è classificato nella categoria Clubbing.",
+        "en": "This clubbing event features DJ SCALPA and focuses on groove and hip-hop. It is associated with Geneva, in the canton of Geneva, and is classified under the Clubbing category.",
+        "de": "Die Veranstaltung ist ein Clubbing-Abend mit DJ SCALPA und einem Schwerpunkt auf Groove und Hip-Hop. Sie ist Genf im Kanton Genf zugeordnet und als Clubbing-Veranstaltung erfasst.",
+        "fr": "Cet événement de clubbing associe DJ SCALPA aux univers groove et hip-hop. Il est rattaché à Genève, dans le canton de Genève, et relève de la catégorie Clubbing."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64907",
@@ -509754,7 +510048,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Ginevra offre una giornata di laboratori gratuiti rivolta a bambini e adulti. Il programma permette di scoprire tecniche artigianali e di creare regali di Natale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Ginevra offre una giornata di laboratori gratuiti rivolta a bambini e adulti. Il programma permette di scoprire tecniche artigianali e di creare regali di Natale.",
+        "en": "The event in Geneva offers a free day of workshops for children and adults. It focuses on exploring craft techniques and making Christmas gifts.",
+        "de": "In Genf findet ein kostenloser Werkstatttag für Kinder und Erwachsene statt. Dabei können handwerkliche Techniken entdeckt und Weihnachtsgeschenke angefertigt werden.",
+        "fr": "L’événement propose à Genève une journée d’ateliers gratuits destinée aux enfants comme aux adultes. Le programme permet d’explorer des techniques artisanales et de créer des cadeaux de Noël."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ASPcVJS",
@@ -510351,7 +510653,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento di clubbing si svolge a Ginevra e presenta deBasement, Tatyana Jane, Qlub Qimeras e Noemi Grütter. L’evento è associato al comune e al cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento di clubbing si svolge a Ginevra e presenta deBasement, Tatyana Jane, Qlub Qimeras e Noemi Grütter. L’evento è associato al comune e al cantone di Ginevra.",
+        "en": "This clubbing event takes place in Geneva and features deBasement, Tatyana Jane, Qlub Qimeras and Noemi Grütter. It is associated with the municipality and canton of Geneva.",
+        "de": "Bei dieser Clubbing-Veranstaltung in Genf sind deBasement, Tatyana Jane, Qlub Qimeras und Noemi Grütter aufgeführt. Sie ist der Gemeinde und dem Kanton Genf zugeordnet.",
+        "fr": "Cet événement de clubbing a lieu à Genève et réunit deBasement, Tatyana Jane, Qlub Qimeras et Noemi Grütter. Il est répertorié pour la commune et le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:elemens",
@@ -510377,7 +510687,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; date: 2026-11-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; datum: 2026-11-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; date: 2026-11-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AfXk2Dn",
@@ -511476,7 +511794,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’iniziativa riunisce la comunità per un momento conviviale legato alle festività natalizie. Il programma prevede raclette e specialità alla griglia, accompagnate dall’esibizione degli insegnanti della scuola di musica locale; sono inoltre disponibili posti al coperto.",
+      "descriptionByLocale": {
+        "it": "L’iniziativa riunisce la comunità per un momento conviviale legato alle festività natalizie. Il programma prevede raclette e specialità alla griglia, accompagnate dall’esibizione degli insegnanti della scuola di musica locale; sono inoltre disponibili posti al coperto.",
+        "en": "The gathering offers the local community a convivial occasion connected with the Christmas season. Raclette and grilled specialities are available, while teachers from the local music school perform; indoor seating is also possible.",
+        "de": "Die Veranstaltung bietet der örtlichen Gemeinschaft einen geselligen Anlass im Zusammenhang mit der Weihnachtszeit. Raclette und gegrillte Spezialitäten werden angeboten, während Lehrkräfte der örtlichen Musikschule auftreten; zudem stehen Plätze im Innenbereich zur Verfügung.",
+        "fr": "Cette rencontre propose à la communauté locale un moment convivial autour de la période de Noël. De la raclette et des spécialités grillées sont proposées, avec une prestation des enseignants de l’école de musique locale; des places à l’intérieur sont également disponibles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:natalia-doco",
@@ -512328,7 +512654,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro inaugura a Ginevra una mostra fotografica dedicata alla natura urbana. Il programma presenta una selezione di immagini del Photomarathon WWF 2026.",
+      "descriptionByLocale": {
+        "it": "L’incontro inaugura a Ginevra una mostra fotografica dedicata alla natura urbana. Il programma presenta una selezione di immagini del Photomarathon WWF 2026.",
+        "en": "The event opens a photography exhibition in Geneva devoted to urban nature. It presents a selection of images connected with the Photomarathon WWF 2026.",
+        "de": "Die Veranstaltung eröffnet in Genf eine Fotoausstellung über die Natur im urbanen Raum. Gezeigt wird eine Auswahl von Bildern aus dem Photomarathon WWF 2026.",
+        "fr": "Le rendez-vous inaugure à Genève une exposition photographique consacrée à la nature urbaine. Il présente une sélection d’images liée au Photomarathon WWF 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:pics",
@@ -516037,7 +516371,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’atelier per famiglie è dedicato al rapporto tra genitori, bambini e natura. L’incontro si tiene al mattino a Ginevra e affronta il legame con il mondo vivente.",
+      "descriptionByLocale": {
+        "it": "L’atelier per famiglie è dedicato al rapporto tra genitori, bambini e natura. L’incontro si tiene al mattino a Ginevra e affronta il legame con il mondo vivente.",
+        "en": "This family workshop examines the relationship between parents, children and nature. The morning activity takes place in Geneva and focuses on connections with the living world.",
+        "de": "Der Familienworkshop befasst sich mit der Beziehung zwischen Eltern, Kindern und der Natur. Die Veranstaltung findet am Vormittag in Genf statt und richtet den Blick auf die Verbindung zur belebten Umwelt.",
+        "fr": "Cet atelier destiné aux familles porte sur la relation entre parents, enfants et nature. La rencontre a lieu le matin à Genève et s’intéresse au lien avec le monde vivant."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64694",
@@ -516231,7 +516573,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; date: 2026-11-29. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; datum: 2026-11-29. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; date: 2026-11-29. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9a601464bf7942b7ac6506afe6ddc667",
@@ -516447,7 +516797,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Animation; date: 2026-11-29. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Animation; datum: 2026-11-29. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Animation; date: 2026-11-29. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:95290",
@@ -516899,7 +517257,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è previsto un concorso dedicato ai maglioni natalizi dal gusto kitsch. L’iniziativa, di carattere ludico e informale, si svolge alla Maison de quartier des Pâquis.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è previsto un concorso dedicato ai maglioni natalizi dal gusto kitsch. L’iniziativa, di carattere ludico e informale, si svolge alla Maison de quartier des Pâquis.",
+        "en": "Geneva is hosting a contest devoted to kitschy Christmas sweaters. The playful, informal event takes place at the Maison de quartier des Pâquis.",
+        "de": "In Genf findet ein Wettbewerb für kitschige Weihnachtspullover statt. Die spielerisch und ungezwungen angelegte Veranstaltung wird in der Maison de quartier des Pâquis durchgeführt.",
+        "fr": "À Genève, un concours est consacré aux pulls de Noël kitsch. L’initiative adopte un format ludique et décomplexé et a lieu à la Maison de quartier des Pâquis."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c7560a50220a4f52a58884daa076ee72",
@@ -518440,7 +518806,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-29. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; date: 2026-11-29. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; datum: 2026-11-29. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; date: 2026-11-29. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bdf41ba8ee4b46999e478481b6c4d6c9",
@@ -522985,7 +523359,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza analizza l’autoinganno in rapporto alla conoscenza di sé, alle identità pratiche e alle scelte che guidano l’agire. L’incontro si svolge presso il Centro Leoni e considera anche il rapporto tra razionalità, vulnerabilità dell’identità e revisione del proprio modo di vivere.",
+      "descriptionByLocale": {
+        "it": "La conferenza analizza l’autoinganno in rapporto alla conoscenza di sé, alle identità pratiche e alle scelte che guidano l’agire. L’incontro si svolge presso il Centro Leoni e considera anche il rapporto tra razionalità, vulnerabilità dell’identità e revisione del proprio modo di vivere.",
+        "en": "This conference examines self-deception in relation to self-knowledge, practical identities, and the reasons that guide people’s actions. Held at Centro Leoni, it also considers how a threatened self-image can affect rational judgment and the interpretation of one’s own life.",
+        "de": "Die Konferenz untersucht Selbsttäuschung im Zusammenhang mit Selbsterkenntnis, praktischen Identitäten und den Gründen, die unser Handeln orientieren. Im Centro Leoni geht es außerdem darum, wie eine bedrohte Vorstellung von der eigenen Person vernünftige Urteile und die Deutung des eigenen Lebens beeinflussen kann.",
+        "fr": "Cette conférence étudie l’auto-illusion en lien avec la connaissance de soi, les identités pratiques et les raisons qui orientent l’action. Au Centro Leoni, la rencontre aborde aussi l’effet qu’une image de soi fragilisée peut avoir sur le jugement rationnel et sur la compréhension de son propre parcours."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4a4d4d7eeaca41f5993cdb5ff1bcce68",
@@ -523248,7 +523630,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento inaugura il villaggio natalizio di Avenches. Abend figura come performer della manifestazione.",
+      "descriptionByLocale": {
+        "it": "L’evento inaugura il villaggio natalizio di Avenches. Abend figura come performer della manifestazione.",
+        "en": "The event marks the opening of the Christmas village in Avenches. Abend is listed as the performer.",
+        "de": "Die Veranstaltung eröffnet das Weihnachtsdorf in Avenches. Abend ist als Mitwirkender angegeben.",
+        "fr": "L’événement marque l’ouverture du village de Noël à Avenches. Abend est indiqué comme participant."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:89434f9fac72426f9ff86de48f0d5808",
@@ -523848,7 +524238,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Voice5 presenta a Bad Zurzach un concerto dell’Avvento eseguito a cappella. L’iniziativa sostiene Rückenwind plus e si inserisce nel periodo natalizio.",
+      "descriptionByLocale": {
+        "it": "Voice5 presenta a Bad Zurzach un concerto dell’Avvento eseguito a cappella. L’iniziativa sostiene Rückenwind plus e si inserisce nel periodo natalizio.",
+        "en": "Voice5 presents an Advent concert in Bad Zurzach, performed a cappella. The event supports Rückenwind plus and has a Christmas-season setting.",
+        "de": "Voice5 gibt in Bad Zurzach ein Adventskonzert ohne instrumentale Begleitung. Die Veranstaltung unterstützt Rückenwind plus und steht im Zeichen der Weihnachtszeit.",
+        "fr": "Voice5 donne à Bad Zurzach un concert de l’Avent interprété a cappella. L’événement soutient Rückenwind plus et s’inscrit dans l’ambiance de la période de Noël."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64548",
@@ -525968,7 +526366,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museum Burg Zug; comune: Zug; cantone: ZG; categoria: Oltre museo / monumento; data: 2026-12-02; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museum Burg Zug; comune: Zug; cantone: ZG; categoria: Oltre museo / monumento; data: 2026-12-02; ora: 14:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Museum Burg Zug; municipality: Zug; canton: ZG; category: Oltre museo / monumento; date: 2026-12-02; time: 14:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Museum Burg Zug; gemeinde: Zug; kanton: ZG; kategorie: Oltre museo / monumento; datum: 2026-12-02; uhrzeit: 14:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Museum Burg Zug; commune: Zug; canton: ZG; catégorie: Oltre museo / monumento; date: 2026-12-02; heure: 14:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AS1QvJP",
@@ -526751,7 +527157,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone improvvisazioni su miniature musicali, con Demetrio Cecchitelli alla chitarra e ai pedali e Myalo al synth e agli effetti sonori. Il progetto comune riprende il materiale dell’EP omonimo pubblicato su MNEMOSYNE e lo rielabora attraverso echi, distorsioni e nuove forme performative.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone improvvisazioni su miniature musicali, con Demetrio Cecchitelli alla chitarra e ai pedali e Myalo al synth e agli effetti sonori. Il progetto comune riprende il materiale dell’EP omonimo pubblicato su MNEMOSYNE e lo rielabora attraverso echi, distorsioni e nuove forme performative.",
+        "en": "The event features improvisations based on musical miniatures, with Demetrio Cecchitelli on guitar and pedals and Myalo on synthesizer and sound effects. The joint project reworks material from an EP released on MNEMOSYNE through echoes, distortion and new performance forms.",
+        "de": "Die Veranstaltung verbindet improvisierte Bearbeitungen musikalischer Miniaturen: Demetrio Cecchitelli spielt Gitarre und Pedale, Myalo arbeitet mit Synthesizer und Soundeffekten. Das gemeinsame Projekt greift Material einer auf MNEMOSYNE veröffentlichten EP auf und gestaltet es durch Echos, Verzerrungen und neue Aufführungsformen um.",
+        "fr": "Le rendez-vous propose des improvisations à partir de miniatures musicales, avec Demetrio Cecchitelli à la guitare et aux pédales et Myalo au synthétiseur et aux effets sonores. Le projet commun reprend le matériau d’un EP publié sur MNEMOSYNE et le transforme par les échos, les distorsions et de nouvelles formes scéniques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d31da7ffc28c45938c385c56b986abb6",
@@ -528818,7 +529232,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa serata pubblica a Lugano approfondisce la collaborazione tra pazienti e professionisti sanitari nel percorso di cura. L’incontro, ospitato all’Ospedale Civico, presenta il paziente come interlocutore attivo e prevede contributi di esperti e la partecipazione dei pazienti.",
+      "descriptionByLocale": {
+        "it": "Questa serata pubblica a Lugano approfondisce la collaborazione tra pazienti e professionisti sanitari nel percorso di cura. L’incontro, ospitato all’Ospedale Civico, presenta il paziente come interlocutore attivo e prevede contributi di esperti e la partecipazione dei pazienti.",
+        "en": "This public event in Lugano examines cooperation between patients and healthcare professionals during treatment. Held at Ospedale Civico, it discusses the patient’s active role and includes contributions from experts together with the participation of patients.",
+        "de": "Die öffentliche Veranstaltung in Lugano widmet sich der Zusammenarbeit zwischen Patientinnen und Patienten sowie Fachpersonen im Behandlungsprozess. Im Ospedale Civico geht es um die aktive Rolle der Betroffenen; zudem kommen Fachleute und Patientinnen und Patienten zu Wort.",
+        "fr": "Cette rencontre publique à Lugano porte sur la collaboration entre les patients et les professionnels de la santé au cours des soins. Organisée à l’Ospedale Civico, elle aborde le rôle actif des patients et prévoit des contributions d’experts ainsi que leur participation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94342",
@@ -555214,7 +555636,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Musée international de la Réforme; cantone: GE; categoria: Visita guidata ulteriore museo; data: 2026-12-10; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Musée international de la Réforme; cantone: GE; categoria: Visita guidata ulteriore museo; data: 2026-12-10; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Musée international de la Réforme; canton: GE; category: Visita guidata ulteriore museo; date: 2026-12-10; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Musée international de la Réforme; kanton: GE; kategorie: Visita guidata ulteriore museo; datum: 2026-12-10; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Musée international de la Réforme; canton: GE; catégorie: Visita guidata ulteriore museo; date: 2026-12-10; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AxLitvj",
@@ -598844,7 +599274,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è destinato alle amiche e agli amici del Musée d'histoire naturelle Fribourg. Il programma include un’introduzione alle esposizioni permanenti del nuovo museo e racconti per bambini.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è destinato alle amiche e agli amici del Musée d'histoire naturelle Fribourg. Il programma include un’introduzione alle esposizioni permanenti del nuovo museo e racconti per bambini.",
+        "en": "The event is reserved for friends of the Musée d'histoire naturelle Fribourg. It includes an introduction to the new museum’s permanent exhibitions and storytelling for children.",
+        "de": "Die Veranstaltung ist den Freundinnen und Freunden des Musée d'histoire naturelle Fribourg vorbehalten. Zum Programm gehören eine Vorstellung der Dauerausstellungen des neuen Museums und Geschichten für Kinder.",
+        "fr": "L’événement est réservé aux ami·e·s du Musée d’histoire naturelle Fribourg. Le programme combine un aperçu des expositions permanentes du nouveau musée avec des récits destinés aux enfants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:5631ad8e212047c7a2baa1566cb2fe54",
@@ -629159,6 +629597,13 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "aa10f037b6a46aefc386fec95958cf836fc0aad5846d7a988ef88c6f2389b2c6",
+      "previousRoutes": [
+        {
+          "canton": "NW",
+          "comune": "Stans",
+          "slug": "aus-der-reihe-tanzen-silvester-war-erst-der-2027-01-30-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -745657,7 +746102,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’84a edizione di OLMA è una fiera dedicata all’agricoltura e all’alimentazione. L’evento si svolge presso l’Olma Areal ed è aperto al pubblico.",
+      "descriptionByLocale": {
+        "it": "L’84a edizione di OLMA è una fiera dedicata all’agricoltura e all’alimentazione. L’evento si svolge presso l’Olma Areal ed è aperto al pubblico.",
+        "en": "The 84th OLMA is a trade fair focused on agriculture and food. It takes place at the Olma Areal and is open to the public.",
+        "de": "Die 84. OLMA ist eine Messe mit Schwerpunkt auf Landwirtschaft und Ernährung. Die Veranstaltung findet auf dem Olma-Areal statt und ist für das Publikum geöffnet.",
+        "fr": "La 84e édition de l’OLMA est un salon consacré à l’agriculture et à l’alimentation. Le rendez-vous a lieu sur le site de l’Olma Areal et est ouvert au public."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:94573",
@@ -751580,7 +752033,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Fabio Landert presenta a Grenchen uno spettacolo comico in solitaria. L’evento è registrato nel canton Soletta come appuntamento ricorrente.",
+      "descriptionByLocale": {
+        "it": "Fabio Landert presenta a Grenchen uno spettacolo comico in solitaria. L’evento è registrato nel canton Soletta come appuntamento ricorrente.",
+        "en": "Fabio Landert presents a solo comedy performance in Grenchen. The event is listed in the canton of Solothurn as recurring.",
+        "de": "Fabio Landert tritt in Grenchen mit einem Comedy-Solo auf. Die Veranstaltung ist im Kanton Solothurn als wiederkehrend erfasst.",
+        "fr": "Fabio Landert se produit à Grenchen avec un spectacle comique en solo. L’événement est répertorié dans le canton de Soleure comme rendez-vous récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:adfbd50f45a844049214d8dbfab02fae",

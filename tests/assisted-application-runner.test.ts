@@ -274,7 +274,9 @@ describe('draft mode', () => {
         description: POSTING,
         url: publishedPostingUrl,
         applyUrl: umantisPostingUrl,
-        titleByLocale: { it: 'Impiegato/a amministrativo' },
+        title: 'Impiegato/a amministrativo',
+        sourceLang: 'de-CH',
+        titleByLocale: { it: 'Impiegato/a amministrativo', de: 'Sachbearbeiter/-in Verwaltung' },
       }), { status: 200 });
       if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
       if (url === publishedPostingUrl) {
@@ -294,11 +296,80 @@ describe('draft mode', () => {
       readPortalRequirements, nowMs: Date.UTC(2026, 8, 30), log: quiet,
     } as any);
 
-    expect(draft.job).toMatchObject({ postingUrl: publishedPostingUrl, applyUrl: umantisPostingUrl });
+    expect(draft.job).toMatchObject({
+      postingUrl: publishedPostingUrl,
+      applyUrl: umantisPostingUrl,
+      title: 'Impiegato/a amministrativo',
+      sourceTitle: 'Sachbearbeiter/-in Verwaltung',
+      postingTitle: 'Sachbearbeiter/-in Verwaltung',
+      sourceLang: 'de-ch',
+      titleByLocale: { it: 'Impiegato/a amministrativo', de: 'Sachbearbeiter/-in Verwaltung' },
+    });
     expect(readPortalRequirements).toHaveBeenCalledWith(expect.objectContaining({
       applyUrl: umantisPostingUrl,
       postingUrl: umantisPostingUrl,
+      job: expect.objectContaining({
+      title: 'Impiegato/a amministrativo',
+        sourceTitle: 'Sachbearbeiter/-in Verwaltung',
+        titleByLocale: { it: 'Impiegato/a amministrativo', de: 'Sachbearbeiter/-in Verwaltung' },
+      }),
     }));
+  });
+
+  it('keeps Job-Room’s public API formUrl ahead of the linked external advertisement', async () => {
+    const id = 'eeeeeeee-ffff-4000-8111-222222222222';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const externalUrl = 'https://team.jobs/de/jobs/789';
+    const formUrl = 'https://apply.acme.example/native/789';
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING, url: jobUrl, applyUrl: jobUrl,
+        title: 'Infermiera', sourceLang: 'de',
+        titleByLocale: { it: 'Infermiera', de: 'Pflegefachfrau Gesundheit' },
+      }), { status: 200 });
+      if (url === apiUrl) return new Response(JSON.stringify({
+        jobContent: {
+          externalUrl,
+          applyChannel: { formUrl, emailAddress: null },
+        },
+      }), { status: 200, headers: { 'content-type': 'application/json' } });
+      if (url === jobUrl) return new Response('<html><body><a href="https://apply.acme.example/native/789">Apply</a></body></html>', {
+        status: 200, headers: { 'content-type': 'text/html' },
+      });
+      if (url === externalUrl) return new Response('<html><body><a href="https://apply.acme.example/discovered">Jetzt bewerben</a></body></html>', {
+        status: 200, headers: { 'content-type': 'text/html' },
+      });
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      return new Response('', { status: 404 });
+    });
+    const readPortalRequirements = vi.fn(async () => ({ questions: [], documents: [] }));
+    const draft = await buildDraft({
+      order: { ...order, jobId, jobUrl, jobTitle: 'Infermiera', companyName: 'Ospedale' },
+      orderId: ORDER_ID,
+      flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl,
+      readPortalRequirements, nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    } as any);
+
+    expect(draft.channel).toMatchObject({ type: 'employer_site', applyUrl: formUrl });
+    expect(draft.job).toMatchObject({
+      postingUrl: externalUrl,
+      applyUrl: formUrl,
+      sourceTitle: 'Pflegefachfrau Gesundheit',
+      jobRoomChannelResolved: true,
+      jobRoomFormUrl: formUrl,
+      jobRoomExternalUrl: externalUrl,
+    });
+    expect(readPortalRequirements).toHaveBeenCalledWith(expect.objectContaining({
+      applyUrl: formUrl,
+      postingUrl: externalUrl,
+      job: expect.objectContaining({ sourceTitle: 'Pflegefachfrau Gesundheit', jobRoomChannelResolved: true }),
+    }));
+    expect(fetchImpl).toHaveBeenCalledWith(apiUrl, expect.anything());
+    expect(fetchImpl).not.toHaveBeenCalledWith(externalUrl, expect.anything());
   });
 
   it('does not pass a canonical fallback to Umantis pre-read when the vacancy id is unverified', async () => {
