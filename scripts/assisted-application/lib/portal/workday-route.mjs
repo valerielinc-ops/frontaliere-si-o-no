@@ -1,6 +1,21 @@
 const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
 const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
 const WORKDAY_REQUISITION_SLUG_RE = /^.+_R-[a-z0-9][a-z0-9-]*$/i;
+const WORKDAY_ACCOUNT_ROUTES = new Set([
+  'login',
+  'createaccount',
+  'forgotpassword',
+  'passwordreset',
+  'resetpassword',
+  'verifyemail',
+  'activate',
+]);
+
+function workdaySiteSegments(segments) {
+  const site = [...segments];
+  if (WORKDAY_LOCALE_SEGMENT_RE.test(site[0] || '')) site.shift();
+  return site;
+}
 
 export function isWorkdayTenantUrl(value) {
   try {
@@ -32,8 +47,7 @@ export function workdayJobRoute(value) {
     }
     const jobIndex = segments.map((segment) => segment.toLowerCase()).lastIndexOf('job');
     if (jobIndex < 0 || jobIndex === segments.length - 1) return null;
-    const site = segments.slice(0, jobIndex);
-    if (WORKDAY_LOCALE_SEGMENT_RE.test(site[0] || '')) site.shift();
+    const site = workdaySiteSegments(segments.slice(0, jobIndex));
     const locationAndSlug = segments.slice(jobIndex + 1);
     const requisitionSlug = locationAndSlug.at(-1) || '';
     if (!site.length || locationAndSlug.length < 2 || !WORKDAY_REQUISITION_SLUG_RE.test(requisitionSlug)) return null;
@@ -64,7 +78,7 @@ export function workdayLoginRoute(value) {
     if (segments.at(-1) === '') segments.pop();
     if (segments.some((segment) => segment === '') || segments.at(-1)?.toLowerCase() !== 'login') return null;
     segments = segments.slice(0, -1);
-    if (WORKDAY_LOCALE_SEGMENT_RE.test(segments[0] || '')) segments.shift();
+    segments = workdaySiteSegments(segments);
     if (!segments.length) return null;
     return { origin: url.origin, site: segments };
   } catch {
@@ -101,6 +115,41 @@ function sameWorkdaySite(first, second) {
   return Boolean(first && second && first.origin === second.origin
     && first.site.length === second.site.length
     && first.site.every((part, index) => part === second.site[index]));
+}
+
+/** Account pages on a Workday tenant are route-bound to the selected job's site and origin. */
+export function isWorkdayTenantAccountRoute(pageUrl, applyUrl) {
+  const expected = workdayJobRoute(applyUrl);
+  if (!expected) return false;
+  try {
+    const url = new URL(String(pageUrl || ''));
+    if (url.protocol !== 'https:' || url.username || url.password || url.hash
+      || !WORKDAY_HOST_RE.test(url.hostname) || url.origin !== expected.origin) return false;
+    const rawSegments = url.pathname.split('/');
+    if (rawSegments[0] !== '') return false;
+    const segments = rawSegments.slice(1);
+    if (segments.at(-1) === '') segments.pop();
+    if (segments.some((segment) => segment === '') || segments.length < 2) return false;
+    const accountRoute = segments.at(-1).toLowerCase();
+    const site = workdaySiteSegments(segments.slice(0, -1));
+    return WORKDAY_ACCOUNT_ROUTES.has(accountRoute)
+      && sameWorkdaySite({ origin: url.origin, site }, expected);
+  } catch {
+    return false;
+  }
+}
+
+/** A Workday application route must carry the selected requisition and apply suffix. */
+export function isWorkdayApplicationRouteBound(pageUrl, applyUrl) {
+  const route = workdayJobRoute(pageUrl);
+  return Boolean(route && ['apply', 'manual'].includes(route.suffix)
+    && sameWorkdayJobRoute(route, workdayJobRoute(applyUrl)));
+}
+
+/** Canonical, single-hop return target after Workday account authentication. */
+export function workdayManualApplicationUrl(value) {
+  const route = workdayJobRoute(value);
+  return route ? `${route.origin}${route.basePath}/apply/applyManually${route.search}` : '';
 }
 
 /** Workday application pages stay on the selected requisition or its bound login route. */

@@ -96506,6 +96506,302 @@
           "notes": "Generic synthetic photorealistic editorial illustration of an anonymous Swiss family by a lake; no text, logos, identifiable faces, or specific event."
         }
       }
+    },
+    "generated:article-cantonsrat-respinge-puk-soh": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-13T12:05:05.941Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-13",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-cantonsrat-respinge-puk-soh",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "241f5701716b299d003c12ddd3607603729d068e41fa8de0499afa48feb32914",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "576b56d890687d434bc45013963451cd175920b8475742175d0a0d36caa25982",
+        "bytes": 136036,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-13T12:05:05.941Z",
+        "verifiedAt": "2026-11-13T12:05:22.262Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-cantonsrat-respinge-puk-soh.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial scene with no readable text, logos, or identifiable people."
+        }
+      }
+    },
+    "generated:article-frontalieri-disoccupati-costi-aggiuntivi": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-13T11:43:09.190Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-13",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-frontalieri-disoccupati-costi-aggiuntivi",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "67f525de289ec4297af678eaddb223bf27192f1eee333bb39eb39f5c1ff24b08",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ba3ca5679735dfd6c765d85c0de6ede6d04a3fb85907f96dc590c3dc1f17449e",
+        "bytes": 79090,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-13T11:43:09.190Z",
+        "verifiedAt": "2026-11-13T11:43:27.385Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-frontalieri-disoccupati-costi-aggiuntivi.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic office scene overlooking Lake Lugano with a train in the background; no people, text, logos, or specific event."
+        }
+      }
+    },
+    "generated:article-incidenti-a1-goldach-san-gallo": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-13T11:54:37.180Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-13",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-incidenti-a1-goldach-san-gallo",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "b71168ab83502902e3be56706bda3b369cc1d53bfa4ed0c4e572eacd4a792cd0",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "1d791e74d5b7b58f21e294fd0fcdd9b00d0f623d790458c85bd2a3c5565d5d07",
+        "bytes": 140182,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-13T11:54:37.180Z",
+        "verifiedAt": "2026-11-13T11:54:52.295Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-incidenti-a1-goldach-san-gallo.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of a damaged car and congested motorway traffic; no readable text, logos, faces, or identifiable people."
+        }
+      }
+    },
+    "generated:article-votazione-fondo-rete-gas-wil": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-11-13T12:14:16.938Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-11-13",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-votazione-fondo-rete-gas-wil",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "827d904b2ea0c2cb603aac4e99a3a1b7055b8a8517a6e58b26eb2b18d8786f3d",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "6733564709d087863a7a75ca4dabbbcfa2c8d2ba49c30e0730bb197bca1470cc",
+        "bytes": 157612,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-11-13T12:14:16.938Z",
+        "verifiedAt": "2026-11-13T12:14:26.672Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-votazione-fondo-rete-gas-wil.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of gas network infrastructure; no people, text, logos, or identifiable event."
+        }
+      }
     }
   },
   "covers": {
@@ -138065,6 +138361,22 @@
     },
     "article-iniziativa-congedo-parentale-riuscita": {
       "file": "generated:article-iniziativa-congedo-parentale-riuscita",
+      "modified": "resized"
+    },
+    "article-cantonsrat-respinge-puk-soh": {
+      "file": "generated:article-cantonsrat-respinge-puk-soh",
+      "modified": "resized"
+    },
+    "article-frontalieri-disoccupati-costi-aggiuntivi": {
+      "file": "generated:article-frontalieri-disoccupati-costi-aggiuntivi",
+      "modified": "resized"
+    },
+    "article-incidenti-a1-goldach-san-gallo": {
+      "file": "generated:article-incidenti-a1-goldach-san-gallo",
+      "modified": "resized"
+    },
+    "article-votazione-fondo-rete-gas-wil": {
+      "file": "generated:article-votazione-fondo-rete-gas-wil",
       "modified": "resized"
     }
   }
