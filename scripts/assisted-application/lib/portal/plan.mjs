@@ -2186,16 +2186,20 @@ export function guardPlan(plan, fields, candidate = null) {
     if (Array.isArray(field.labels)) {
       privacyRepresentations.push(...field.labels.filter(value => typeof value === 'string'));
     }
+    const purePrivacyReviewAcknowledgment = privacyRepresentations.some(value =>
+      isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations));
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
-    // A policy default may choose a checkbox, but a consent named by its own
-    // fieldset legend keeps consent provenance when its associated label is empty.
-    const ownedConsentWithEmptyNativeLabel = ownConsent(field) && field.emptyNativeLabelOwnedLegend === true;
-    if (action.action === 'check' && action.source === 'policy_default' && ownedConsentWithEmptyNativeLabel) {
+    // A pure read-acknowledgment may retain policy-default provenance. An
+    // explicit application consent keeps consent provenance, including when
+    // its label is directly attached to the control.
+    const ownedConsent = ownConsent(field);
+    if (action.action === 'check' && action.source === 'policy_default' && ownedConsent
+      && !purePrivacyReviewAcknowledgment) {
       action = { ...action, source: 'consent' };
     }
     if (action.action === 'check'
@@ -2224,7 +2228,7 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
-        source: known.source === 'policy_default' && ownedConsentWithEmptyNativeLabel ? 'consent' : known.source, evidence: '' };
+      source: known.source === 'policy_default' && ownedConsent && !purePrivacyReviewAcknowledgment ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

@@ -1,6 +1,6 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from '../scripts/assisted-application/lib/portal/form-contract.mjs';
+import { allowAgentApplicationEntryClickInPage, armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installAgentFinalClickLockInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage, releaseAgentFinalClickLockInPage } from '../scripts/assisted-application/lib/portal/form-contract.mjs';
 
 const opened: JSDOM[] = [];
 function fixture(markup = `<form data-aa-id="f1" id="application" action="/submit" method="post">
@@ -236,6 +236,66 @@ it('resolves the submitter when clicking a child element inside the button', () 
 
   expect(event.defaultPrevented).toBe(false);
   expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
+it('blocks a final-looking div onclick control during agent turns', () => {
+  const { dom } = fixture(`<div id="custom-send" role="button" onclick="window.sent = true">Send application</div>`);
+  const control = dom.window.document.querySelector('#custom-send') as HTMLDivElement;
+  installFinalFormGuardCaptureInPage(dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', dom.window);
+
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  control.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(true);
+  expect(dom.window.document.defaultView?.sent).not.toBe(true);
+  releaseAgentFinalClickLockInPage('agent-lock', dom.window);
+});
+
+it('allows only an explicitly authorized application entry outside a form', () => {
+  const { dom } = fixture('<button id="entry" onclick="window.entries++">Apply for this job</button><form><button id="final" onclick="window.sent = true">Apply</button></form>');
+  const entry = dom.window.document.querySelector('#entry') as HTMLButtonElement;
+  const final = dom.window.document.querySelector('#final') as HTMLButtonElement;
+  const state = dom.window as any;
+  state.entries = 0;
+  entry.addEventListener('click', () => { state.entries += 1; });
+  final.addEventListener('click', () => { state.sent = true; });
+  installFinalFormGuardCaptureInPage(dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', dom.window);
+
+  const blocked = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  entry.dispatchEvent(blocked);
+  expect(blocked.defaultPrevented).toBe(true);
+  expect(state.entries).toBe(0);
+
+  expect(allowAgentApplicationEntryClickInPage(entry, dom.window)).toBe(true);
+  const allowed = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  entry.dispatchEvent(allowed);
+  expect(allowed.defaultPrevented).toBe(false);
+  expect(state.entries).toBe(1);
+
+  expect(allowAgentApplicationEntryClickInPage(final, dom.window)).toBe(false);
+  const finalClick = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  final.dispatchEvent(finalClick);
+  expect(finalClick.defaultPrevented).toBe(true);
+  expect(state.sent).not.toBe(true);
+  releaseAgentFinalClickLockInPage('agent-lock', dom.window);
+});
+
+it('blocks implicit form submission while the navigation agent is active', () => {
+  const { dom } = fixture();
+  const form = dom.window.document.querySelector('form') as HTMLFormElement;
+  const portalSubmit = vi.fn();
+  form.addEventListener('submit', portalSubmit);
+  installFinalFormGuardCaptureInPage(dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', dom.window);
+
+  const event = new dom.window.Event('submit', { bubbles: true, cancelable: true });
+  form.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(true);
+  expect(portalSubmit).not.toHaveBeenCalled();
+  releaseAgentFinalClickLockInPage('agent-lock', dom.window);
 });
 
 it('allows secondary submit and submitter UI transitions (disabled, loading text) after primary click', () => {

@@ -1,6 +1,7 @@
 /**
  * Deterministic posting guard for job postings (pasted text or fetched HTML),
- * ported from ai-job-search tools/posting_guard.py (MIT).
+ * adapted from ai-job-search tools/posting_guard.py (MIT).
+ * Copyright (c) 2026 Mads Lorentzen.
  *
  * Sanitizes third-party posting input before it reaches the AI drafting prompts:
  * - Strips and logs hidden CSS/HTML (display:none, visibility:hidden, opacity:0, font-size:0,
@@ -52,6 +53,11 @@ const URL_RE = /https?:\/\/[^\s<>"')\]]+/g;
 
 const INSTRUCTION_PATTERNS = [
   /\bignore\s+(all|any|the|previous|prior|above|earlier)\b/i,
+  /\b(?:ignore|disregard|forget)\s+(?:all\s+)?(?:the\s+)?(?:previous|prior|above|earlier)\s+(?:instructions?|rules?|prompts?)\b/i,
+  /\b(?:ignora|ignorate|ignori|ignoriere|ignorieren|missachte|missachten|vergiss|vergesst)\s+(?:tutte\s+le\s+|tutti\s+i\s+|les\s+|die\s+)?(?:istruzioni|consignes|anweisungen|regeln)\s+(?:precedenti|precedentes|précédentes|vorherigen|bisherigen|obenstehenden)\b/iu,
+  /\b(?:oublie|oubliez|ignore|ignorez|désobéis|désobéissez|ne\s+suivez\s+pas)\b[^\n]{0,100}\b(?:instructions?|consignes|règles)\b/iu,
+  /\b(?:non\s+seguire|ignora|ignorate|dimentica|dimenticate|disattendi|disattendete)\b[^\n]{0,100}\b(?:istruzioni|regole)\b/iu,
+  /\b(?:ignoriere|ignoriert|vergiss|vergesst|missachte|missachtet|befolge\s+nicht)\b[^\n]{0,100}\b(?:anweisungen|regeln)\b/iu,
   /\b(disregard|forget)(?:\s+(?:all|any|the|your|my))?\s+(previous|prior|above|earlier|preceding|initial|original|system)\s+(instructions?|prompts?)\b/i,
   /\byou\s+are\s+(?:an?|the)\s+(?:ai(?![\w-])|ai\s+(?:assistant|agent|model|language\s+model)|assistant|llm|language\s+model)\b/i,
   /\bsystem\s+prompt\b/i,
@@ -60,6 +66,8 @@ const INSTRUCTION_PATTERNS = [
   /\b(run|execute)\s+the\s+following\s+(command|commands|script|code|shell|instruction|instructions|steps)\b/i,
   /\bas\s+an\s+ai(?![\w-])(?![\s/&]+(?:[\w&/-]+\s+){0,3}?(?:engineer|developer|researcher|scientist|architect|specialist|lead|consultant|manager|analyst|intern|trainer|expert|strategist|designer|tester|owner|programmer)s?\b)/i,
   /^\s*(assistant|system|user)\s*:/im,
+  /^\s*(?:assistant|system|user|assistent|system|benutzer|utilisateur|système|système|utente|sistema)\s*:/imu,
+  /\b(?:ne\s+dis|ne\s+dites|non\s+dire|non\s+dite|sag|sagt)\b[^\n]{0,100}\b(?:à\s+l['’]utilisateur|all['’]utente|dem\s+benutzer|dem\s+nutzer|to\s+the\s+user)\b/iu,
   /<\|/,
   /\[INST\]/,
   /###\s*(system|instruction)/i,
@@ -378,6 +386,25 @@ export function scanSecurity(visible, hidden) {
     hidden_urls: hiddenUrls,
     visible_url_count: visibleUrlCount,
     homoglyph_runs: homoglyphs,
+  };
+}
+
+/** Sanitize a browser snapshot before it is included in an agent prompt. */
+export function cleanAgentSnapshot(raw) {
+  const cleaned = cleanText(String(raw || ''));
+  const security = scanSecurity(cleaned.text, '');
+  const safeLines = cleaned.text.split('\n').filter((line) => {
+    const candidate = line.trim();
+    if (!candidate) return true;
+    return !INSTRUCTION_PATTERNS.some((pattern) => pattern.test(candidate));
+  });
+  const clean = safeLines.join('\n').trim();
+  const findings = { ...cleaned.findings, ...security };
+  return {
+    cleanText: clean,
+    isClean: Object.values(cleaned.findings.invisible_chars || {}).every((count) => Number(count) === 0)
+      && cleaned.findings.invisible_flagged === 0 && security.instruction_like.length === 0,
+    findings,
   };
 }
 

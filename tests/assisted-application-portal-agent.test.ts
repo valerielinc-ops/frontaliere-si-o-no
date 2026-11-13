@@ -3,7 +3,11 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  AGENT_MAX_RUNTIME_MS,
+  AGENT_NAVIGATION_KEY,
+  AGENT_ROUNDS,
   AGENT_SCHEMA,
+  agentNavigationEnabled,
   advanceName,
   agentSystemPrompt,
   agentUserText,
@@ -43,35 +47,195 @@ describe('fallback DOM provenance', () => {
   const question = { question: 'Indirizzo', applicationQuestion: field.label, context, type: 'text', options: [], why: '' };
 
   it('recognizes an answered Talentsoft question when the schema omitted DOM metadata', () => {
-    const raw = turn('needs_candidate', [], [question]);
-    expect(guardAgentStep(raw, candidate).status).toBe('needs_candidate');
+    const raw = turn('NEEDS_CANDIDATE', [], [question]);
+    expect(guardAgentStep(raw, candidate).status).toBe('NEEDS_CANDIDATE');
     const restored = withAgentFieldProvenance(raw, [field]);
     expect(restored.questions[0]).toMatchObject({ section: field.section, autocomplete: field.autocomplete });
-    expect(guardAgentStep(restored, candidate)).toMatchObject({ status: 'stuck', questions: [] });
+    expect(guardAgentStep(restored, candidate)).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('fills a saved answer through an action using DOM provenance', () => {
-    const raw = turn('act', [act({ action: 'fill', question: field.label, context, value: 'invented', answer: 'invented', source: 'answers' })]);
+    const raw = turn('ACT', [act({ action: 'fill', question: field.label, context, value: 'invented', answer: 'invented', source: 'answers' })]);
     const guarded = guardAgentStep(withAgentFieldProvenance(raw, [field]), candidate);
     expect(guarded.actions[0]).toMatchObject({ value: 'Via Esempio 12', answer: 'Via Esempio 12' });
   });
 
   it('does not assign provenance to ambiguous labels or unrelated questions', () => {
-    const raw = turn('needs_candidate', [], [question]);
+    const raw = turn('NEEDS_CANDIDATE', [], [question]);
     expect(withAgentFieldProvenance(raw, [field, { ...field, section: 'Employer' }])).toEqual(raw);
     expect(withAgentFieldProvenance(raw, [{ label: 'Other address', section: field.section }])).toEqual(raw);
   });
 
   it('matches a changed character counter without erasing substantive numeric labels', () => {
-    const raw = turn('needs_candidate', [], [question]);
+    const raw = turn('NEEDS_CANDIDATE', [], [question]);
     expect(withAgentFieldProvenance(raw, [{ ...field, label: 'Adresse 30 / 100 Zeichen' }]).questions[0])
       .toMatchObject({ section: field.section });
-    const numeric = turn('act', [act({ question: 'Experience 1 / 2' })]);
+    const numeric = turn('ACT', [act({ question: 'Experience 1 / 2' })]);
     expect(withAgentFieldProvenance(numeric, [{ label: 'Experience 2 / 2', section: 'Work' }])).toEqual(numeric);
   });
 });
 
 describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
+  it('uses a strict navigation contract with a bounded run budget and kill switch', () => {
+    expect(AGENT_ROUNDS).toBe(40);
+    expect(AGENT_MAX_RUNTIME_MS).toBe(20 * 60 * 1000);
+    expect(AGENT_SCHEMA.properties.status.enum).toEqual([
+      'ACT', 'REACHED_FORM', 'READY_TO_SUBMIT', 'ACCOUNT_STEP', 'NEEDS_CANDIDATE', 'PARKED',
+    ]);
+    expect(AGENT_SCHEMA.properties.actions.items.properties.action.enum).toEqual([
+      'click', 'fill', 'type', 'select', 'press', 'upload', 'goto', 'back', 'switch_tab',
+    ]);
+    expect(agentNavigationEnabled({})).toBe(true);
+    expect(agentNavigationEnabled({ [AGENT_NAVIGATION_KEY]: 'on' })).toBe(true);
+    expect(agentNavigationEnabled({ [AGENT_NAVIGATION_KEY]: 'off' })).toBe(false);
+    expect(guardAgentStep(turn('act', []), null).status).toBe('PARKED');
+    expect(guardAgentStep(turn('READY_TO_SUBMIT', []), null).reason).toContain('missing_submit_ref');
+  });
+
+  it('allows only visible hrefs and same-host searches for goto', async () => {
+    const navigated: string[] = [];
+    const page: any = {
+      url: () => 'https://careers.example.test/open-role',
+      goto: async (href: string) => { navigated.push(href); },
+    };
+    const posting = { title: 'Payroll Specialist', requirementId: 'REQ-42' };
+    const snapshot = '- link "Apply" [ref=e1]:\n  - /url: https://careers.example.test/apply?job=REQ-42';
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/apply?job=REQ-42' }), {}, { snapshot, posting }))
+      .resolves.toMatchObject({ ok: false, error: 'application_entry_unavailable' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/apply?job=REQ-42' }), {}, { snapshot, posting, allowApplicationEntry: true }))
+      .resolves.toMatchObject({ ok: true, navigation: true, applicationEntry: true });
+    const finalLink = '- link "Submit application" [ref=e2]:\n  - /url: https://careers.example.test/submit?job=REQ-42';
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/submit?job=REQ-42' }), {}, { snapshot: finalLink, posting }))
+      .resolves.toMatchObject({ ok: false, error: 'final_submit_reserved' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/search?q=REQ-42' }), {}, { snapshot: '', posting }))
+      .resolves.toMatchObject({ ok: true, navigation: true });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/apply?job=REQ-42' }), {}, { snapshot: '', posting }))
+      .resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/pay?query=Payroll%20Specialist' }), {}, { snapshot: '', posting }))
+      .resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://careers.example.test/search?q=Payroll%20Specialist%20extra' }), {}, { snapshot: '', posting }))
+      .resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://attacker.example/apply?job=REQ-42' }), {}, { snapshot, posting }))
+      .resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
+    await expect(runAction(page, act({ ref: '', action: 'goto', value: 'https://ats.example/jobs/REQ-42' }), {}, {
+      snapshot: '', posting: { ...posting, canonicalPostingUrl: 'https://ats.example/jobs/REQ-42' },
+    })).resolves.toMatchObject({ ok: false, error: 'goto_target_not_in_snapshot' });
+    expect(agentUserText({
+      url: page.url(), title: 'Payroll Specialist', snapshot, candidate: {}, hint: 'application_stage_unknown',
+      ats: { provider: 'greenhouse', canonicalPostingUrl: 'https://ats.example/jobs/REQ-42' },
+    })).not.toContain('https://ats.example/jobs/REQ-42');
+    expect(navigated).toEqual([
+      'https://careers.example.test/apply?job=REQ-42',
+      'https://careers.example.test/search?q=REQ-42',
+    ]);
+  });
+
+  it('follows a popup page, preserves its tab index, and returns the strict account outcome', async () => {
+    const listeners = new Map<string, Set<(value: any) => void>>();
+    const popup = {
+      url: () => 'https://careers.example.test/login',
+      title: async () => 'Sign in',
+      content: async () => '<h1>Sign in</h1>',
+      ariaSnapshot: async () => '- heading "Sign in" [level=1] [ref=e2]',
+      waitForTimeout: async () => {},
+      isClosed: () => false,
+      evaluate: async () => false,
+    };
+    const pages: any[] = [];
+    const context: any = {
+      pages: () => pages,
+      on: (event: string, listener: (value: any) => void) => {
+        const set = listeners.get(event) || new Set();
+        set.add(listener);
+        listeners.set(event, set);
+      },
+      off: (event: string, listener: (value: any) => void) => listeners.get(event)?.delete(listener),
+    };
+    const opener = {
+      url: () => 'https://careers.example.test/job/REQ-42',
+      title: async () => 'Payroll Specialist',
+      content: async () => '<h1>Payroll Specialist</h1>',
+      ariaSnapshot: async () => '- button "Apply" [ref=e1]',
+      waitForTimeout: async () => {},
+      isClosed: () => false,
+      evaluate: async () => false,
+      locator: () => ({
+        evaluate: async () => ({ name: 'Apply', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+        click: async () => {
+          pages.push(opener, popup);
+          for (const listener of listeners.get('page') || []) listener(popup);
+        },
+      }),
+    };
+    pages.push(opener);
+    const result = await completeWithAgent({
+      page: opener as any, context, hint: 'application_stage_unknown', candidate: null, candidateLocale: 'it',
+      allowApplicationEntry: true,
+      codex: async ({ prompt }: any) => prompt.includes('Sign in')
+        ? turn('ACCOUNT_STEP')
+        : turn('ACT', [act({ ref: 'e1', action: 'click', value: 'Apply' })]),
+    });
+    expect(result).toMatchObject({ status: 'ACCOUNT_STEP', calls: 2 });
+    expect(result.page).toBe(popup);
+    expect(result.evidence.rounds[0].actions[0]).toMatchObject({ action: 'click', ok: true });
+  });
+
+  it('sends OTP and account-form submits to the existing account flow', async () => {
+    const runReservedAction = async (info: Record<string, unknown>, action: Record<string, string>) => {
+      const page: any = {
+        url: () => 'https://careers.example.test/login',
+        title: async () => 'Sign in',
+        content: async () => '<h1>Sign in</h1>',
+        ariaSnapshot: async () => '- textbox "Verification code" [ref=e1]',
+        waitForTimeout: async () => {},
+        isClosed: () => false,
+        evaluate: async () => false,
+        locator: () => ({
+          evaluate: async () => info,
+          fill: vi.fn(),
+          click: vi.fn(),
+        }),
+      };
+      return completeWithAgent({
+        page, hint: 'application_stage_unknown', candidate: null, candidateLocale: 'it',
+        codex: async () => turn('ACT', [act({ ref: 'e1', ...action })]),
+      });
+    };
+    const otp = await runReservedAction(
+      { name: 'Verification code', button: false, tag: 'input', inputType: 'password', editable: true, otp: true },
+      { action: 'fill', value: '123456' },
+    );
+    expect(otp).toMatchObject({ status: 'ACCOUNT_STEP', reason: 'ACCOUNT_STEP: otp_handled_by_runner' });
+    const login = await runReservedAction(
+      { name: 'Continue', button: true, tag: 'button', inputType: '', editable: false, submits: true, authForm: true },
+      { action: 'click', value: '' },
+    );
+    expect(login).toMatchObject({ status: 'ACCOUNT_STEP', reason: 'ACCOUNT_STEP: account_action_handled_by_runner' });
+  });
+
+  it('parks after the same page signature is seen three times', async () => {
+    const page: any = {
+      url: () => 'https://careers.example.test/custom-step',
+      title: async () => 'Application',
+      content: async () => '<h1>Application</h1>',
+      ariaSnapshot: async () => '- button "Expand options" [ref=e1]',
+      waitForTimeout: async () => {},
+      isClosed: () => false,
+      evaluate: async () => false,
+      locator: () => ({
+        evaluate: async () => ({ name: 'Expand options', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+        click: async () => {},
+      }),
+    };
+    let calls = 0;
+    const result = await completeWithAgent({
+      page, hint: 'application_stage_unknown', candidate: null, candidateLocale: 'it',
+      codex: async () => { calls += 1; return turn('ACT', [act({ ref: 'e1', action: 'click', value: 'Expand options' })]); },
+    });
+    expect(result).toMatchObject({ status: 'PARKED', reason: 'PARKED: loop', calls: 2 });
+    expect(result.evidence.loop.visits).toBe(3);
+  });
+
   it('hands off a non-multipart Workday HTTP 500 even when the selected filename is visible', async () => {
     let clock = 0;
     const now = vi.spyOn(Date, 'now').mockImplementation(() => clock);
@@ -117,19 +281,19 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   // Giro di prova 2026-10-01 on JOIN: "Quando sei nato?" is a calendar of day buttons.
   it('never lets the model invent a birth date: the question goes to the candidate, with every move on it', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
-    const guarded = guardAgentStep(turn('act', [
+    const guarded = guardAgentStep(turn('ACT', [
       act({ ref: 'e45', action: 'select', value: '1985', question: 'Quando sei nato?', answer: '1985-01-01', source: 'rule' }),
       act({ ref: 'e46', action: 'click', question: 'Quando sei nato?', source: 'widget' }),
       act({ ref: 'e60', action: 'click', question: 'Accetto l’informativa privacy', source: 'consent' }),
     ]), empty);
-    expect(guarded.status).toBe('needs_candidate');
+    expect(guarded.status).toBe('NEEDS_CANDIDATE');
     expect(guarded.questions).toEqual([expect.objectContaining({ question: 'Quando sei nato?', type: 'date' })]);
     expect(guarded.actions.map((action: any) => action.ref)).toEqual(['e60']);
 
     // The candidate's answer, in another format, is used on the next run.
     const answered = { answers: { portal_quando_sei_nato: '12.05.1990' }, profile: {}, portalQuestionsAnswered: [{ question: 'Quando sei nato?', answer: '12.05.1990' }] };
-    const run = guardAgentStep(turn('act', [act({ ref: 'e238', question: 'Quando sei nato?', answer: '1990-05-12', source: 'answers' })]), answered);
-    expect(run).toMatchObject({ status: 'act', questions: [] });
+    const run = guardAgentStep(turn('ACT', [act({ ref: 'e238', question: 'Quando sei nato?', answer: '1990-05-12', source: 'answers' })]), answered);
+    expect(run).toMatchObject({ status: 'ACT', questions: [] });
     expect(run.actions).toHaveLength(1);
   });
 
@@ -140,11 +304,11 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       profile: { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] },
       portalQuestionsAnswered: [],
     };
-    const inferredFromProfile = guardAgentStep(turn('act', [act({
+    const inferredFromProfile = guardAgentStep(turn('ACT', [act({
       ref: 'e7', action: 'select', value: 'No', question, answer: 'No', source: 'profile', evidence: 'Italian C1',
     })]), candidate);
     expect(inferredFromProfile).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question })],
     });
@@ -153,16 +317,16 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       ...candidate,
       portalQuestionsAnswered: [{ question, answer: 'Yes' }],
     };
-    const reused = guardAgentStep(turn('act', [act({
+    const reused = guardAgentStep(turn('ACT', [act({
       ref: 'e7', action: 'select', value: 'Yes', question, answer: 'Yes', source: 'answers',
     })]), answered);
-    expect(reused).toMatchObject({ status: 'act', questions: [] });
+    expect(reused).toMatchObject({ status: 'ACT', questions: [] });
     expect(reused.actions).toHaveLength(1);
 
-    const contextual = guardAgentStep(turn('act', [act({
+    const contextual = guardAgentStep(turn('ACT', [act({
       ref: 'e8', action: 'click', value: 'No', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
     })]), answered);
-    expect(contextual).toMatchObject({ status: 'act', questions: [] });
+    expect(contextual).toMatchObject({ status: 'ACT', questions: [] });
     expect(contextual.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'answers' })]);
 
     let clicked = false;
@@ -174,7 +338,7 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(result).toEqual({ ok: false, error: 'answer_option_mismatch' });
     expect(clicked).toBe(false);
 
-    const keyPress = guardAgentStep(turn('act', [act({
+    const keyPress = guardAgentStep(turn('ACT', [act({
       ref: 'e9', action: 'press', value: 'Enter', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
     })]), answered);
     expect(keyPress.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'Yes', source: 'answers' })]);
@@ -194,10 +358,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const candidate = {
       answers: {}, profile: {}, portalQuestionsAnswered: [{ question, answer: 'No' }],
     };
-    const step = guardAgentStep(turn('act', [act({
+    const step = guardAgentStep(turn('ACT', [act({
       ref: 'e24', action: 'press', value: 'Enter', question, answer: 'Yes', source: 'profile',
     })]), candidate);
-    expect(step).toMatchObject({ status: 'act', questions: [] });
+    expect(step).toMatchObject({ status: 'ACT', questions: [] });
     expect(step.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'No', source: 'answers' })]);
 
     let pressed = false;
@@ -217,18 +381,18 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       portalQuestionsAnswered: [],
     };
     const question = 'Do you speak German?';
-    const guarded = guardAgentStep(turn('act', [act({
+    const guarded = guardAgentStep(turn('ACT', [act({
       ref: 'e10', action: 'select', value: 'Yes', question: 'German', context: question,
       answer: 'Yes', source: 'profile', evidence: 'Italian C1',
     })]), candidate);
 
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded).toMatchObject({ status: 'ACT', questions: [] });
     expect(guarded.actions).toEqual([expect.objectContaining({
       value: 'No', answer: 'No', source: 'profile',
     })]);
 
-    const alreadyKnown = guardAgentStep(turn('needs_candidate', [], [{ question, type: 'yes_no' }]), candidate);
-    expect(alreadyKnown).toMatchObject({ status: 'stuck', questions: [] });
+    const alreadyKnown = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question, type: 'yes_no' }]), candidate);
+    expect(alreadyKnown).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('requires candidate support for ordinary language-ability widgets', () => {
@@ -238,58 +402,58 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       profile: { languagesExplicitList: false, languages: [{ language: 'Italian', level: 'C1' }] },
       portalQuestionsAnswered: [],
     };
-    const refused = guardAgentStep(turn('act', [act({
+    const refused = guardAgentStep(turn('ACT', [act({
       ref: 'e11', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'widget', evidence: 'Italian C1',
     })]), ambiguous);
     expect(refused).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question })],
     });
 
-    const unrelatedEvidence = guardAgentStep(turn('act', [act({
+    const unrelatedEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e21', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'profile', evidence: 'Berlin',
     })]), {
       answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
     });
     expect(unrelatedEvidence).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question })],
     });
 
-    const contextOnlyLanguage = guardAgentStep(turn('act', [act({
+    const contextOnlyLanguage = guardAgentStep(turn('ACT', [act({
       ref: 'e22', action: 'click', value: 'Yes', question: 'Do you speak?', context: 'German',
       answer: 'Yes', source: 'profile', evidence: 'Berlin',
     })]), {
       answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
     });
     expect(contextOnlyLanguage).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question: 'Do you speak?' })],
     });
 
-    const wrongLanguageLevelEvidence = guardAgentStep(turn('act', [act({
+    const wrongLanguageLevelEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e23', action: 'select', value: 'C1', question: 'German C1?', answer: 'C1',
       source: 'profile', evidence: 'English C1',
     })]), {
       answers: {}, profile: { cvText: 'English C1' }, portalQuestionsAnswered: [],
     });
     expect(wrongLanguageLevelEvidence).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question: 'German C1?' })],
     });
 
-    const mixedLanguageEvidence = guardAgentStep(turn('act', [act({
+    const mixedLanguageEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e24', action: 'select', value: 'Yes', question: 'German C2?', answer: 'Yes',
       source: 'profile', evidence: 'German C1 / English C2',
     })]), {
       answers: {}, profile: { cvText: 'German C1 / English C2' }, portalQuestionsAnswered: [],
     });
     expect(mixedLanguageEvidence).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question: 'German C2?' })],
     });
@@ -298,14 +462,14 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     for (const connector of connectors) {
       for (const language of ['Xhosa', 'xhosa']) {
         const questionWithUnknownLanguage = `Do you speak German ${connector} ${language} at C2?`;
-        const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({
+        const unrecognizedLanguageEvidence = guardAgentStep(turn('ACT', [act({
           ref: 'e25', action: 'select', value: 'Yes', question: questionWithUnknownLanguage,
           answer: 'Yes', source: 'profile', evidence: 'German C2',
         })]), {
           answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
         });
         expect(unrecognizedLanguageEvidence).toMatchObject({
-          status: 'needs_candidate',
+          status: 'NEEDS_CANDIDATE',
           actions: [],
           questions: [expect.objectContaining({ question: questionWithUnknownLanguage })],
         });
@@ -313,205 +477,205 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     }
 
     const pairedGerman = 'Sprichst du sowohl Deutsch als auch xhosa auf C2?';
-    const partialPairedEvidence = guardAgentStep(turn('act', [act({
+    const partialPairedEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e26', action: 'select', value: 'Yes', question: pairedGerman, answer: 'Yes',
       source: 'profile', evidence: 'Deutsch C2',
     })]), {
       answers: {}, profile: { cvText: 'Deutsch C2' }, portalQuestionsAnswered: [],
     });
     expect(partialPairedEvidence).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question: pairedGerman })],
     });
 
     const neitherNor = 'Do you speak neither German nor xhosa at C2?';
-    const partialNeitherNorEvidence = guardAgentStep(turn('act', [act({
+    const partialNeitherNorEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e29', action: 'select', value: 'Yes', question: neitherNor, answer: 'Yes',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialNeitherNorEvidence).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: neitherNor })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: neitherNor })],
     });
 
     const pairedEnglish = 'Do you speak not only German but also xhosa at C2?';
-    const partialEnglishPair = guardAgentStep(turn('act', [act({
+    const partialEnglishPair = guardAgentStep(turn('ACT', [act({
       ref: 'e28', action: 'select', value: 'Yes', question: pairedEnglish, answer: 'Yes',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialEnglishPair).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: pairedEnglish })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: pairedEnglish })],
     });
 
     const reversedLanguageOrder = 'Parlez-vous xhosa et allemand au niveau C2 ?';
-    const reversedPartialEvidence = guardAgentStep(turn('act', [act({
+    const reversedPartialEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e27', action: 'select', value: 'Yes', question: reversedLanguageOrder, answer: 'Yes',
       source: 'profile', evidence: 'allemand C2',
     })]), {
       answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
     });
     expect(reversedPartialEvidence).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question: reversedLanguageOrder })],
     });
 
     const emDashReverseOrder = 'Parlez-vous xhosa — allemand au niveau C2 ?';
-    const partialEmDashEvidence = guardAgentStep(turn('act', [act({
+    const partialEmDashEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e30', action: 'select', value: 'Yes', question: emDashReverseOrder, answer: 'Yes',
       source: 'profile', evidence: 'allemand C2',
     })]), {
       answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
     });
     expect(partialEmDashEvidence).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: emDashReverseOrder })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: emDashReverseOrder })],
     });
 
     const spokenOrWrittenItalian = 'Qual è il livello di italiano parlato o scritto?';
-    const supportedModeEvidence = guardAgentStep(turn('act', [act({
+    const supportedModeEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e31', action: 'select', value: 'C2', question: spokenOrWrittenItalian, answer: 'C2',
       source: 'profile', evidence: 'Italian C2',
     })]), {
       answers: {}, profile: { cvText: 'Italian C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedModeEvidence).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const advancedUnknownLanguage = 'Do you speak German and advanced xhosa at C2?';
-    const partialAdvancedEvidence = guardAgentStep(turn('act', [act({
+    const partialAdvancedEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e32', action: 'select', value: 'Yes', question: advancedUnknownLanguage, answer: 'Yes',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialAdvancedEvidence).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: advancedUnknownLanguage })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: advancedUnknownLanguage })],
     });
 
     const alsoUnknownLanguage = 'Do you speak German and also Xhosa at C2?';
-    const partialAlsoEvidence = guardAgentStep(turn('act', [act({
+    const partialAlsoEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e34', action: 'select', value: 'Yes', question: alsoUnknownLanguage, answer: 'Yes',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialAlsoEvidence).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: alsoUnknownLanguage })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: alsoUnknownLanguage })],
     });
 
     const proficiencyWithContext = 'What is your German level and your proficiency in Xhosa?';
-    const partialProficiencyContext = guardAgentStep(turn('act', [act({
+    const partialProficiencyContext = guardAgentStep(turn('ACT', [act({
       ref: 'e35', action: 'select', value: 'C2', question: proficiencyWithContext, answer: 'C2',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialProficiencyContext).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: proficiencyWithContext })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: proficiencyWithContext })],
     });
 
     const shortLanguageCode = 'Do you speak German and zh at C2?';
-    const partialShortLanguageCode = guardAgentStep(turn('act', [act({
+    const partialShortLanguageCode = guardAgentStep(turn('ACT', [act({
       ref: 'e36', action: 'select', value: 'Yes', question: shortLanguageCode, answer: 'Yes',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialShortLanguageCode).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
     });
 
     const ambiguousLanguageCode = 'Do you speak English and de at C2?';
-    const partialAmbiguousLanguageCode = guardAgentStep(turn('act', [act({
+    const partialAmbiguousLanguageCode = guardAgentStep(turn('ACT', [act({
       ref: 'e39', action: 'select', value: 'Yes', question: ambiguousLanguageCode, answer: 'Yes',
       source: 'profile', evidence: 'English C2',
     })]), {
       answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
     });
     expect(partialAmbiguousLanguageCode).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: ambiguousLanguageCode })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: ambiguousLanguageCode })],
     });
 
     const frenchDePreposition = 'Quel est votre niveau d’anglais et de compétence orale ?';
-    const supportedFrenchDePreposition = guardAgentStep(turn('act', [act({
+    const supportedFrenchDePreposition = guardAgentStep(turn('ACT', [act({
       ref: 'e40', action: 'select', value: 'C2', question: frenchDePreposition, answer: 'C2',
       source: 'profile', evidence: 'English C2',
     })]), {
       answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedFrenchDePreposition).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const englishPronounIt = 'Can you speak English at C2 level and use it?';
-    const supportedEnglishPronounIt = guardAgentStep(turn('act', [act({
+    const supportedEnglishPronounIt = guardAgentStep(turn('ACT', [act({
       ref: 'e41', action: 'select', value: 'Yes', question: englishPronounIt, answer: 'Yes',
       source: 'profile', evidence: 'English C2',
     })]), {
       answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedEnglishPronounIt).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'Yes' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'Yes' })], questions: [],
     });
 
     const englishPronounItWithLevel = 'Can you read English and write it at C2 level?';
-    const supportedEnglishPronounItWithLevel = guardAgentStep(turn('act', [act({
+    const supportedEnglishPronounItWithLevel = guardAgentStep(turn('ACT', [act({
       ref: 'e42', action: 'select', value: 'C2', question: englishPronounItWithLevel, answer: 'C2',
       source: 'profile', evidence: 'English C2',
     })]), {
       answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedEnglishPronounItWithLevel).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const englishPronounItAfterDo = 'Can you read English and do it at C2 level?';
-    const supportedEnglishPronounItAfterDo = guardAgentStep(turn('act', [act({
+    const supportedEnglishPronounItAfterDo = guardAgentStep(turn('ACT', [act({
       ref: 'e43', action: 'select', value: 'C2', question: englishPronounItAfterDo, answer: 'C2',
       source: 'profile', evidence: 'English C2',
     })]), {
       answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedEnglishPronounItAfterDo).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const atLeastUnknownLanguage = 'What is your German level and at least Xhosa?';
-    const partialAtLeastUnknownLanguage = guardAgentStep(turn('act', [act({
+    const partialAtLeastUnknownLanguage = guardAgentStep(turn('ACT', [act({
       ref: 'e37', action: 'select', value: 'C2', question: atLeastUnknownLanguage, answer: 'C2',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(partialAtLeastUnknownLanguage).toMatchObject({
-      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: atLeastUnknownLanguage })],
+      status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: atLeastUnknownLanguage })],
     });
 
     const singleLanguageModifiers = 'What is your German level: conversational or professional?';
-    const supportedModifierEvidence = guardAgentStep(turn('act', [act({
+    const supportedModifierEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e33', action: 'select', value: 'C2', question: singleLanguageModifiers, answer: 'C2',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedModifierEvidence).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const atLeastSingleLanguage = 'What is your German level: C2 or at least B2?';
-    const supportedAtLeastEvidence = guardAgentStep(turn('act', [act({
+    const supportedAtLeastEvidence = guardAgentStep(turn('ACT', [act({
       ref: 'e38', action: 'select', value: 'C2', question: atLeastSingleLanguage, answer: 'C2',
       source: 'profile', evidence: 'German C2',
     })]), {
       answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
     });
     expect(supportedAtLeastEvidence).toMatchObject({
-      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+      status: 'ACT', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
     });
 
     const listed = {
@@ -519,23 +683,23 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },
       portalQuestionsAnswered: [],
     };
-    const corrected = guardAgentStep(turn('act', [act({
+    const corrected = guardAgentStep(turn('ACT', [act({
       ref: 'e11', action: 'click', value: 'No', question, answer: 'No', source: 'widget', evidence: 'Italian C1',
     })]), listed);
-    expect(corrected).toMatchObject({ status: 'act', questions: [] });
+    expect(corrected).toMatchObject({ status: 'ACT', questions: [] });
     expect(corrected.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'profile' })]);
   });
 
   it('allows localized widget navigation and asks before a questionless language answer click', async () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
-    const navigation = guardAgentStep(turn('act', [act({
+    const navigation = guardAgentStep(turn('ACT', [act({
       ref: 'e12', action: 'click', value: 'Afficher plus', question: '', context: 'German', answer: '', source: 'widget',
     })]), candidate);
-    expect(navigation).toMatchObject({ status: 'act', questions: [] });
-    const abilityNavigation = guardAgentStep(turn('act', [act({
+    expect(navigation).toMatchObject({ status: 'ACT', questions: [] });
+    const abilityNavigation = guardAgentStep(turn('ACT', [act({
       ref: 'e16', action: 'click', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
     })]), candidate);
-    expect(abilityNavigation).toMatchObject({ status: 'act', questions: [] });
+    expect(abilityNavigation).toMatchObject({ status: 'ACT', questions: [] });
     expect(refusal(abilityNavigation.actions[0], { name: 'Open options', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
     expect(refusal(act({
       action: 'click', value: 'Yes', context: 'Language answers', answer: 'Yes',
@@ -547,22 +711,22 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       evaluate: async () => ({ name: 'Afficher plus', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
       click: async () => { navigationClicks += 1; },
     };
-    await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true });
+    await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true, clickedName: 'Afficher plus' });
     expect(navigationClicks).toBe(1);
 
     for (const value of ['Add another language', 'Ajouter une langue', 'Sprache hinzufügen', 'Aggiungi un\'altra lingua']) {
-      const addLanguage = guardAgentStep(turn('act', [act({
+      const addLanguage = guardAgentStep(turn('ACT', [act({
         ref: 'e17', action: 'click', value, question: '', context: 'Languages', answer: '', source: 'widget',
       })]), candidate);
-      expect(addLanguage).toMatchObject({ status: 'act', questions: [] });
+      expect(addLanguage).toMatchObject({ status: 'ACT', questions: [] });
       expect(refusal(addLanguage.actions[0], { name: value, button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
     }
     const consentRequiredAdd = act({
       ref: 'e18', action: 'click', value: 'Add another language',
       question: 'Would you like to add another language?', context: 'Languages', answer: '', source: 'widget',
     });
-    expect(guardAgentStep(turn('act', [consentRequiredAdd]), candidate)).toMatchObject({
-      status: 'needs_candidate', actions: [],
+    expect(guardAgentStep(turn('ACT', [consentRequiredAdd]), candidate)).toMatchObject({
+      status: 'NEEDS_CANDIDATE', actions: [],
       questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
     });
     expect(refusal(consentRequiredAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
@@ -571,8 +735,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       ref: 'e19', action: 'click', value: 'Add another language',
       question: '', context: 'Would you like to add another language?', answer: '', source: 'widget',
     });
-    expect(guardAgentStep(turn('act', [contextualIntentAdd]), candidate)).toMatchObject({
-      status: 'needs_candidate', actions: [],
+    expect(guardAgentStep(turn('ACT', [contextualIntentAdd]), candidate)).toMatchObject({
+      status: 'NEEDS_CANDIDATE', actions: [],
       questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
     });
     expect(refusal(contextualIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
@@ -581,19 +745,19 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       ref: 'e20', action: 'click', value: 'Add another language',
       question: '', context: 'Can you add another language?', answer: '', source: 'widget',
     });
-    expect(guardAgentStep(turn('act', [unrecognizedContextIntentAdd]), candidate)).toMatchObject({
-      status: 'needs_candidate', actions: [],
+    expect(guardAgentStep(turn('ACT', [unrecognizedContextIntentAdd]), candidate)).toMatchObject({
+      status: 'NEEDS_CANDIDATE', actions: [],
       questions: [expect.objectContaining({ question: 'Can you add another language?' })],
     });
     expect(refusal(unrecognizedContextIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
       .toBe('language_answer_requires_candidate');
 
     const durationQuestion = 'How long have you spoken German?';
-    const durationAnswer = guardAgentStep(turn('act', [act({
+    const durationAnswer = guardAgentStep(turn('ACT', [act({
       ref: 'e14', action: 'click', value: 'More than 3 years', question: durationQuestion,
       context: 'German proficiency', answer: 'More than 3 years', source: 'widget',
     })]), candidate);
-    expect(durationAnswer).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(durationAnswer).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     expect(refusal(act({
       action: 'click', value: 'More than 3 years', context: 'German language',
     }), { name: 'More than 3 years', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
@@ -609,11 +773,11 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       answers: {}, profile: {},
       portalQuestionsAnswered: [{ question: fallbackQuestion, context: 'German language', answer: 'No' }],
     };
-    const alreadyAnswered = guardAgentStep(turn('act', [act({
+    const alreadyAnswered = guardAgentStep(turn('ACT', [act({
       ref: 'e15', action: 'click', value: 'Yes', question: fallbackQuestion,
       context: 'German language', answer: 'No', source: 'widget',
     })]), answeredCandidate);
-    expect(alreadyAnswered).toMatchObject({ status: 'act', questions: [] });
+    expect(alreadyAnswered).toMatchObject({ status: 'ACT', questions: [] });
     let mismatchedAnswerClicks = 0;
     const mismatchedAnswerLocator = {
       evaluate: async () => ({ name: 'Yes', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
@@ -640,12 +804,12 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       hint: 'no_form_controls',
       candidate,
       candidateLocale: 'en',
-      codex: async () => turn('act', [act({
+      codex: async () => turn('ACT', [act({
         action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German language', answer: '', source: 'widget',
       })]),
     });
     expect(result).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       questions: [expect.objectContaining({
         question: 'What does the form ask about German language, and how should it be answered?',
         context: 'German language',
@@ -654,11 +818,11 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(answerClicks).toBe(0);
 
     for (const context of ['Languages', 'German and English languages']) {
-      const genericLanguageLabel = guardAgentStep(turn('act', [act({
+      const genericLanguageLabel = guardAgentStep(turn('ACT', [act({
         ref: 'e16', action: 'click', value: 'Yes', question: '', context, answer: '', source: 'widget',
       })]), candidate);
       expect(genericLanguageLabel).toMatchObject({
-        status: 'needs_candidate',
+        status: 'NEEDS_CANDIDATE',
         questions: [expect.objectContaining({ context })],
         actions: [],
       });
@@ -668,29 +832,29 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   // Review of #10707: calling the answer a widget move must not get past the guard.
   it('runs a widget move on a sensitive question only when the page grounded it in the candidate data', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
-    const sneaky = guardAgentStep(turn('act', [act({ ref: 'e1', question: 'Geburtsdatum', answer: '', value: '', source: 'widget' })]), empty);
-    expect(sneaky).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const sneaky = guardAgentStep(turn('ACT', [act({ ref: 'e1', question: 'Geburtsdatum', answer: '', value: '', source: 'widget' })]), empty);
+    expect(sneaky).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
 
     // Grounded in an earlier turn of the same page: the day click on the next snapshot runs.
     const known = { answers: {}, profile: { dateOfBirth: '1990-05-12' }, portalQuestionsAnswered: [] };
     const grounded = new Set<string>();
-    guardAgentStep(turn('act', [act({ ref: 'e45', action: 'select', value: '1990', question: 'Geburtsdatum', answer: '1990-05-12', source: 'profile' })]), known, grounded);
-    const day = guardAgentStep(turn('act', [act({ ref: 'e238', question: 'Geburtsdatum', source: 'widget' })]), known, grounded);
-    expect(day).toMatchObject({ status: 'act', questions: [] });
+    guardAgentStep(turn('ACT', [act({ ref: 'e45', action: 'select', value: '1990', question: 'Geburtsdatum', answer: '1990-05-12', source: 'profile' })]), known, grounded);
+    const day = guardAgentStep(turn('ACT', [act({ ref: 'e238', question: 'Geburtsdatum', source: 'widget' })]), known, grounded);
+    expect(day).toMatchObject({ status: 'ACT', questions: [] });
     expect(day.actions).toHaveLength(1);
   });
 
   it('grounds an age-threshold answer in the explicit date of birth', () => {
     const candidate = { answers: {}, profile: { dateOfBirth: '13.11.2001' }, portalQuestionsAnswered: [] };
     const question = 'Hai meno di 26 anni?';
-    const grounded = guardAgentStep(turn('act', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), candidate);
-    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    const grounded = guardAgentStep(turn('ACT', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), candidate);
+    expect(grounded).toMatchObject({ status: 'ACT', questions: [] });
     expect(grounded.actions).toHaveLength(1);
 
-    const wrong = guardAgentStep(turn('act', [act({ action: 'select', value: 'No', answer: 'No', question, source: 'profile' })]), candidate);
-    expect(wrong).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
-    const absent = guardAgentStep(turn('act', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
-    expect(absent).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question })] });
+    const wrong = guardAgentStep(turn('ACT', [act({ action: 'select', value: 'No', answer: 'No', question, source: 'profile' })]), candidate);
+    expect(wrong).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question })] });
+    const absent = guardAgentStep(turn('ACT', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(absent).toMatchObject({ status: 'NEEDS_CANDIDATE', questions: [expect.objectContaining({ question })] });
   });
 
   it('grounds a native-language choice from the CV language and contrasting language levels', () => {
@@ -703,14 +867,14 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       portalQuestionsAnswered: [],
     };
     const question = 'Qual è il livello di italiano scritto?';
-    const native = guardAgentStep(turn('act', [act({ action: 'select', value: 'Lingua madre', answer: 'Lingua madre', question, source: 'profile' })]), candidate);
-    expect(native).toMatchObject({ status: 'act', questions: [] });
+    const native = guardAgentStep(turn('ACT', [act({ action: 'select', value: 'Lingua madre', answer: 'Lingua madre', question, source: 'profile' })]), candidate);
+    expect(native).toMatchObject({ status: 'ACT', questions: [] });
     expect(native.actions).toHaveLength(1);
 
-    const invented = guardAgentStep(turn('act', [act({ action: 'select', value: 'Fluente', answer: 'Fluente', question, source: 'profile' })]), candidate);
+    const invented = guardAgentStep(turn('ACT', [act({ action: 'select', value: 'Fluente', answer: 'Fluente', question, source: 'profile' })]), candidate);
     // A wrong non-native level is dropped rather than sent or turned into a
     // new candidate question: the CV-derived native fact is already known.
-    expect(invented).toMatchObject({ status: 'done', actions: [], questions: [] });
+    expect(invented).toMatchObject({ status: 'PARKED', actions: [], questions: [] });
   });
 
   it('presses an unusual step button only when its name says next step', () => {
@@ -731,15 +895,15 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       waitForTimeout: async () => {},
     };
     const result = await completeWithAgent({ page, hint: 'next_disabled', candidate: null, candidateLocale: 'it', codex: async () => { throw new Error('timeout'); } });
-    expect(result).toMatchObject({ status: 'stuck', calls: 1 });
+    expect(result).toMatchObject({ status: 'PARKED', calls: 1 });
     expect(result.reason).toContain('timeout');
   });
 
   it('never asks again what the candidate answered, even in other words', () => {
     const answered = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'Quando sei nato?', answer: '1990-05-12' }] };
-    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è la tua data di nascita?', why: '', type: 'date', options: [] }]), answered);
+    const asked = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'Qual è la tua data di nascita?', why: '', type: 'date', options: [] }]), answered);
     // Nothing new to ask: the owner looks instead of a loop of questions.
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    expect(asked).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('does not reopen an address question whose wording and id changed', () => {
@@ -748,14 +912,14 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       profile: {},
       portalQuestionsAnswered: [{ question: 'Qual è la tua via e il numero civico?', answer: 'Via Test 1' }],
     };
-    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è la via e il numero civico?', why: '', type: 'text', options: [] }]), answered);
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    const asked = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'Qual è la via e il numero civico?', why: '', type: 'text', options: [] }]), answered);
+    expect(asked).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('does not reopen a late address alias when only its saved portal answer key remains', () => {
     const answered = { answers: { portal_qual_e_la_tua_via_e_il_tuo_numero_civico: 'Via Test 1' }, profile: {}, portalQuestionsAnswered: [] };
-    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è la via e il tuo numero civico?', why: '', type: 'text', options: [] }]), answered);
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    const asked = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'Qual è la via e il tuo numero civico?', why: '', type: 'text', options: [] }]), answered);
+    expect(asked).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('uses deterministic residence facts instead of asking for a CAP or country again', () => {
@@ -767,20 +931,20 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       },
       language: 'it',
     });
-    const guarded = guardAgentStep(turn('act', [
+    const guarded = guardAgentStep(turn('ACT', [
       act({ ref: 'e1', action: 'fill', value: '00000', question: 'Qual è il tuo CAP di residenza?', answer: '00000', source: 'rule' }),
       act({ ref: 'e2', action: 'select', value: 'Svizzera', question: 'Qual è la tua nazione di residenza?', answer: 'Svizzera', source: 'rule' }),
       act({ ref: 'e3', action: 'fill', value: '99', question: 'House number', answer: '99', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded).toMatchObject({ status: 'ACT', questions: [] });
     expect(guarded.actions.map((action: any) => [action.value, action.source])).toEqual([
       ['43039', 'identity'],
       ['Italia', 'identity'],
       ['12', 'identity'],
     ]);
 
-    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
-    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+    const asked = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
+    expect(asked).toMatchObject({ status: 'PARKED', questions: [] });
   });
 
   it('carries the fieldset context into the fallback guard for a bare CAP', () => {
@@ -793,10 +957,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       language: 'it',
     });
     const context = 'Dati anagrafici · Indirizzo · CAP · Nazione (di residenza)';
-    const guarded = guardAgentStep(turn('act', [
+    const guarded = guardAgentStep(turn('ACT', [
       act({ ref: 'e1', action: 'fill', value: '00000', question: 'CAP', context, answer: '00000', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded).toMatchObject({ status: 'ACT', questions: [] });
     expect(guarded.actions).toEqual([expect.objectContaining({ value: '43039', source: 'identity', context })]);
   });
 
@@ -807,83 +971,94 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       language: 'it',
     });
     const context = 'Esperienza professionale · Datore di lavoro · Indirizzo · CAP';
-    const guarded = guardAgentStep(turn('act', [
+    const guarded = guardAgentStep(turn('ACT', [
       act({ ref: 'e1', action: 'fill', value: '43039', question: 'CAP', context, answer: '43039', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: 'CAP', context })] });
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [], questions: [expect.objectContaining({ question: 'CAP', context })] });
   });
 
   it('does not let a saved employer CAP answer a residence question', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'CAP', context: 'Datore di lavoro · Indirizzo', answer: '9999' }] };
     const context = 'Dati anagrafici · Indirizzo · CAP · Nazione (di residenza)';
-    const guarded = guardAgentStep(turn('needs_candidate', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+    const guarded = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', questions: [expect.objectContaining({ question: 'CAP', context })] });
   });
 
   it('does not let a legacy contextless CAP answer suppress a contextual question', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'CAP', answer: '9999' }] };
     const context = 'Dati anagrafici · Indirizzo · CAP · Nazione (di residenza)';
-    const guarded = guardAgentStep(turn('needs_candidate', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+    const guarded = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', questions: [expect.objectContaining({ question: 'CAP', context })] });
   });
 
   it('keeps same-topic questions independent when their fieldset contexts differ', () => {
     const firstContext = 'Dati anagrafici · Persona';
     const secondContext = 'Dati anagrafici · Esperienza professionale';
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'Data di nascita', context: firstContext, answer: '12.05.1990' }] };
-    const guarded = guardAgentStep(turn('needs_candidate', [], [{ question: 'Data di nascita', context: secondContext, why: '', type: 'date', options: [] }]), candidate);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
+    const guarded = guardAgentStep(turn('NEEDS_CANDIDATE', [], [{ question: 'Data di nascita', context: secondContext, why: '', type: 'date', options: [] }]), candidate);
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
   });
 
   it('does not carry sensitive grounding from one same-label context to another', () => {
     const firstContext = 'Dati anagrafici · Persona';
     const secondContext = 'Dati anagrafici · Esperienza professionale';
     const candidate = { answers: {}, profile: { dateOfBirth: '1990-05-12' }, portalQuestionsAnswered: [] };
-    const guarded = guardAgentStep(turn('act', [
+    const guarded = guardAgentStep(turn('ACT', [
       act({ ref: 'e1', action: 'fill', question: 'Data di nascita', context: firstContext, value: '1990-05-12', answer: '1990-05-12', source: 'profile' }),
       act({ ref: 'e2', action: 'fill', question: 'Data di nascita', context: secondContext, value: '1900-01-01', answer: '1900-01-01', source: 'model' }),
     ]), candidate);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
     expect(guarded.actions).toEqual([expect.objectContaining({ ref: 'e1', context: firstContext })]);
   });
 
   it('uses one bounded context key across a refused long-context transition', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const longContext = `Dati anagrafici · ${'x'.repeat(240)}`;
-    const first = guardAgentStep(turn('act', [
+    const first = guardAgentStep(turn('ACT', [
       act({ ref: 'e1', question: 'Data di nascita', context: longContext, value: '1900-01-01', answer: '1900-01-01', source: 'model' }),
     ]), candidate);
     expect(first.actions).toEqual([]);
     expect(first.questions).toEqual([expect.objectContaining({ context: longContext.slice(0, 240) })]);
 
-    const second = guardAgentStep(turn('act', [
+    const second = guardAgentStep(turn('ACT', [
       act({ ref: 'e2', question: 'Data di nascita', context: first.questions[0].context, source: 'widget' }),
     ]), candidate);
     expect(second.actions).toEqual([]);
     expect(second.questions).toEqual([expect.objectContaining({ context: first.questions[0].context })]);
   });
 
-  it('turns an empty act into done and drops malformed refs', () => {
-    expect(guardAgentStep(turn('act', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'done', actions: [] });
-    expect(guardAgentStep({ ...turn('done'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');
-    expect(guardAgentStep({ ...turn('done'), advanceRef: '>> css=button' }, null).advanceRef).toBe('');
+  it('parks an empty act and drops malformed refs', () => {
+    expect(guardAgentStep(turn('ACT', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'PARKED', actions: [] });
+    expect(guardAgentStep({ ...turn('REACHED_FORM'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');
+    expect(guardAgentStep({ ...turn('REACHED_FORM'), advanceRef: '>> css=button' }, null).advanceRef).toBe('');
   });
 
-  it('keeps the final submit, Next, links, passwords and stray keys away from the model', () => {
+  it('reserves final sends, passwords and unsafe keys while allowing navigation', () => {
     const button = { button: true, name: '', submits: false, leaves: false, inList: false, editable: false, tag: 'button', inputType: '' };
     expect(refusal({ action: 'click' }, { ...button, name: 'Invia candidatura' })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Bewerbung abschließen' })).toBe('final_submit_reserved');
-    expect(refusal({ action: 'click' }, { ...button, name: 'Avanti', submits: true })).toBe('final_submit_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Avanti', submits: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Apply', inForm: false })).toBe('final_submit_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Apply', inForm: false }, { allowApplicationEntry: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Postuler manuellement', inForm: false }, { allowApplicationEntry: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Jetzt bewerben', inForm: false }, { allowApplicationEntry: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Apply', inForm: true, submits: true })).toBe('final_submit_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Create account', submits: true })).toBe('account_action_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Sign in', submits: true })).toBe('account_action_reserved');
     // Talentsoft/RHB uses a form submit for the intermediate attachment action;
     // it must be available before the runner presses the separate «Weiter».
     expect(refusal({ action: 'click' }, { ...button, name: 'Hinzufügen', submits: true })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Add application', submits: true })).toBe('final_submit_reserved');
-    expect(refusal({ action: 'click' }, { ...button, name: 'Continua' })).toBe('navigation_reserved');
-    expect(refusal({ action: 'click' }, { ...button, name: 'Informativa', leaves: true })).toBe('link_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Continua' })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Informativa', leaves: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Continua' }, { navigationEnabled: false })).toBe('navigation_reserved');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Informativa', leaves: true }, { navigationEnabled: false })).toBe('link_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Choose sabato 12 maggio 1990' })).toBe('');
     // A consent box that says "confirm" is ticked like any other: the names are checked on buttons only.
     expect(refusal({ action: 'click' }, { ...button, button: false, tag: 'input', inputType: 'checkbox', name: 'I confirm my data is complete' })).toBe('');
     expect(refusal({ action: 'fill' }, { ...button, button: false, tag: 'input', inputType: 'password', editable: true })).toBe('password_reserved');
+    expect(refusal({ action: 'fill' }, { ...button, button: false, tag: 'input', inputType: 'password', name: 'OTP', otp: true, editable: true })).toBe('otp_reserved');
+    expect(refusal({ action: 'fill' }, { ...button, button: false, tag: 'input', inputType: 'text', name: 'Verification code', otp: true, editable: true })).toBe('otp_reserved');
     // Enter submits a form from a text box: only inside a list or a combobox.
     expect(refusal({ action: 'press', value: 'Enter' }, { ...button, button: false, tag: 'input', editable: true })).toBe('key_refused');
     expect(refusal({ action: 'press', value: 'Enter' }, { ...button, button: false, tag: 'input', editable: true, inList: true })).toBe('');
@@ -902,7 +1077,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
 
   it('shares the planner rules, asks in the candidate’s language and uses a strict schema', () => {
     const prompt = agentSystemPrompt('de');
-    expect(prompt).toContain('Never press the button that sends the application');
+    expect(prompt).toContain('Never click a final send/submit control');
+    expect(prompt).toContain('navigating from its posting through the portal and every application step');
     expect(prompt).toContain('date of birth');
     expect(prompt).toContain('in German');
     expect(planSystemPrompt('it')).toContain('date of birth');
@@ -912,15 +1088,15 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(strict(AGENT_SCHEMA)).toBe(true);
     expect(AGENT_SCHEMA.properties.actions.items.required).toContain('context');
     expect(AGENT_SCHEMA.properties.questions.items.required).toContain('context');
-    const legacy = guardAgentStep(turn('act', [act({ question: 'Data di nascita', source: 'model', answer: '1900-01-01', value: '1900-01-01' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    const legacy = guardAgentStep(turn('ACT', [act({ question: 'Data di nascita', source: 'model', answer: '1900-01-01', value: '1900-01-01' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(legacy.questions).toEqual([expect.objectContaining({ question: 'Data di nascita', context: '' })]);
     const text = agentUserText({ url: 'https://x', title: '', snapshot: '- button "OK" [ref=e1]', candidate: { identity: {} }, hint: 'next_disabled' });
     expect(JSON.parse(text.slice(0, text.indexOf('\n\nPage snapshot:'))).agentPage.hint).toMatch(/disabled/);
   });
 
-  it('compacts the snapshot: no link targets, no bare images, a bounded size', () => {
+  it('compacts the snapshot while preserving link targets and refs, with a bounded size', () => {
     const snapshot = ['- link "Home" [ref=e2]:', '  - /url: https://x', '  - img [ref=e3]', '- img "Logo" [ref=e4]', '- button "OK" [ref=e5]'].join('\n');
-    expect(compactSnapshot(snapshot)).toBe(['- link "Home" [ref=e2]:', '- img "Logo" [ref=e4]', '- button "OK" [ref=e5]'].join('\n'));
+    expect(compactSnapshot(snapshot)).toBe(['- link "Home" [ref=e2]:', '  - /url: https://x', '- img "Logo" [ref=e4]', '- button "OK" [ref=e5]'].join('\n'));
     expect(compactSnapshot('x'.repeat(50), 10)).toBe(`${'x'.repeat(10)}\n… (snapshot truncated)`);
     // Cut at a line end: never an element without its ref.
     expect(compactSnapshot('- button "A" [ref=e1]\n- button "B" [ref=e2]', 30)).toBe('- button "A" [ref=e1]\n… (snapshot truncated)');
@@ -963,21 +1139,21 @@ describe('portal agentic fallback: the candidate’s Swiss status and nationalit
 
   it('grounds a permit answer that names the status the candidate chose', () => {
     const question = 'Haben Sie eine Arbeitserlaubnis?';
-    const grounded = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile' })]), candidate({ permitStatus: 'permit_g' }));
-    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    const grounded = guardAgentStep(turn('ACT', [act({ ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile' })]), candidate({ permitStatus: 'permit_g' }));
+    expect(grounded).toMatchObject({ status: 'ACT', questions: [] });
     expect(grounded.actions).toHaveLength(1);
-    const asked = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'B', question, answer: 'B', source: 'profile' })]), candidate({ permitStatus: 'none' }));
-    expect(asked).toMatchObject({ status: 'act', questions: [] });
+    const asked = guardAgentStep(turn('ACT', [act({ ref: 'e7', action: 'select', value: 'B', question, answer: 'B', source: 'profile' })]), candidate({ permitStatus: 'none' }));
+    expect(asked).toMatchObject({ status: 'ACT', questions: [] });
     expect(asked.actions).toEqual([expect.objectContaining({ value: 'No', answer: 'No', source: 'rule' })]);
   });
 
   it('asks for confirmation when a permit appears only in the CV', () => {
     const question = 'Haben Sie eine Arbeitserlaubnis?';
-    const guarded = guardAgentStep(turn('act', [act({
+    const guarded = guardAgentStep(turn('ACT', [act({
       ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile',
     })]), candidate({ workPermit: 'Permesso G' }));
     expect(guarded).toMatchObject({
-      status: 'needs_candidate',
+      status: 'NEEDS_CANDIDATE',
       actions: [],
       questions: [expect.objectContaining({ question })],
     });
@@ -985,18 +1161,18 @@ describe('portal agentic fallback: the candidate’s Swiss status and nationalit
 
   it('maps a concrete permit to Yes before the agent selects a qualified boolean list', () => {
     const question = 'Do you hold a valid work permit for Switzerland?';
-    const grounded = guardAgentStep(turn('act', [act({
+    const grounded = guardAgentStep(turn('ACT', [act({
       ref: 'e7', action: 'select', value: 'G Permit', question, answer: 'G Permit', source: 'profile',
     })]), candidate({ permitStatus: 'permit_g' }));
-    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    expect(grounded).toMatchObject({ status: 'ACT', questions: [] });
     expect(grounded.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'rule' })]);
   });
 
   it('grounds a nationality the candidate gave, in the form’s language', () => {
     const question = 'Welche Staatsangehörigkeit haben Sie?';
-    const grounded = guardAgentStep(turn('act', [act({ ref: 'e8', action: 'select', value: 'Italien', question, answer: 'Italien', source: 'profile' })]), candidate({ nationality: 'italiana' }));
-    expect(grounded).toMatchObject({ status: 'act', questions: [] });
-    const other = guardAgentStep(turn('act', [act({ ref: 'e8', action: 'select', value: 'Deutschland', question, answer: 'Deutschland', source: 'profile' })]), candidate({ nationality: 'italiana' }));
-    expect(other.status).toBe('needs_candidate');
+    const grounded = guardAgentStep(turn('ACT', [act({ ref: 'e8', action: 'select', value: 'Italien', question, answer: 'Italien', source: 'profile' })]), candidate({ nationality: 'italiana' }));
+    expect(grounded).toMatchObject({ status: 'ACT', questions: [] });
+    const other = guardAgentStep(turn('ACT', [act({ ref: 'e8', action: 'select', value: 'Deutschland', question, answer: 'Deutschland', source: 'profile' })]), candidate({ nationality: 'italiana' }));
+    expect(other.status).toBe('NEEDS_CANDIDATE');
   });
 });
