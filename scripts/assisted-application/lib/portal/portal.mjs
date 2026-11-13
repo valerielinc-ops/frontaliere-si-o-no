@@ -3716,6 +3716,11 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
 // Keep it significant elsewhere because it can be part of an employer name («Coop One»).
 const isSelectOneLabelToken = (words, index) => (words[index] === 'select' && words[index + 1] === 'one')
   || (words[index] === 'one' && words[index - 1] === 'select');
+const isStandaloneNextLabel = (value) => {
+  const label = String(value || '').replace(/\s+/g, ' ').trim();
+  const match = NEXT_RE.exec(label);
+  return Boolean(match && !label.slice(match[0].length).trim());
+};
 
 /**
  * The form names an employer that is not the order's (reviews of #11033).
@@ -3790,7 +3795,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   const titleLine = text.split(/\r?\n/).map((line) => line.trim())
-    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !NEXT_RE.test(line)) || '';
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
