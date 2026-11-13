@@ -3,6 +3,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
+import { getJobCanonOrderingFields } from '../../build-plugins/shared/jobCanonInputs';
+
+const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
 
 describe('published active job ID index', () => {
   let root = '';
@@ -18,6 +21,7 @@ describe('published active job ID index', () => {
     const active = {
       id: 'active-job-1', slug: 'active-job-1', title: 'Engineer', company: 'Acme SA',
       canton: 'TI', location: 'Lugano', url: 'https://jobs.example.test/active-job-1',
+      datePosted: daysAgo(24).slice(0, 10), firstSeenAt: daysAgo(23),
     };
     fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([
       active,
@@ -35,6 +39,13 @@ describe('published active job ID index', () => {
     expect(index.total).toBe(2);
     expect(index.ids).toEqual(['active-job-1', 'slug-only-job']);
     expect(new Set(index.ids).size).toBe(index.ids.length);
+    const [slugMapEntry] = JSON.parse(fs.readFileSync(path.join(root, 'dist/data/jobs-slug-map.json'), 'utf8'));
+    expect(slugMapEntry.datePosted).toBeUndefined();
+    expect(slugMapEntry.firstSeenAt).toBeUndefined();
+    expect(getJobCanonOrderingFields()?.get('active-job-1')).toEqual({
+      datePosted: active.datePosted,
+      firstSeenAt: active.firstSeenAt,
+    });
     const detail = JSON.parse(fs.readFileSync(path.join(root, 'dist/data/job-detail/active-job-1.json'), 'utf8'));
     expect(detail.url).toBe(active.url);
   });

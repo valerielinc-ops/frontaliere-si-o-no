@@ -157,10 +157,17 @@
             // inside the request's own locale prefix — never cross-locale.
             var alias = !canon && entry && typeof entry === 'object' && entry.alias && typeof entry.alias === 'object'
               ? entry.alias[locale] : null;
-            if (typeof alias === 'string' && locale !== 'it' && alias.indexOf('/' + locale + '/') === 0
-                && alias.indexOf('//') === -1 && alias.indexOf('?') === -1 && alias.indexOf('#') === -1) {
-              canon = alias.replace(/\/+$/, '') + '/';
+            function jobCanonAliasTarget(aliasPath, requestedLocale) {
+              if (typeof aliasPath !== 'string') return null;
+              var inLocale = requestedLocale === 'it'
+                ? aliasPath.indexOf('/') === 0 && !/^\/(?:en|de|fr)\//.test(aliasPath)
+                : aliasPath.indexOf('/' + requestedLocale + '/') === 0;
+              if (!inLocale || aliasPath.indexOf('//') !== -1
+                  || aliasPath.indexOf('?') !== -1 || aliasPath.indexOf('#') !== -1) return null;
+              return aliasPath.replace(/\/+$/, '') + '/';
             }
+            var aliasTarget = jobCanonAliasTarget(alias, locale);
+            if (aliasTarget) canon = aliasTarget;
             // Exact canonical page when the slug is known AND it differs from the
             // requested (orphaned) path; else the cross-locale company hub when the
             // slug is a wrong-prefix hub; else the national board for a legacy

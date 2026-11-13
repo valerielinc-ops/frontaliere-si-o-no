@@ -35,7 +35,7 @@ import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
-import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
+import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath, type EmitLocale } from './shared/localeEmitFilter';
 import {
   getSafeDistPageTargets,
   isDistPathOverFilesystemLimits,
@@ -236,16 +236,16 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
       // (the sharded store, data/all-known-job-slugs/, #4248). Keyed by localized
       // slug (last path segment of each locale path). Best-effort: missing/
       // unreadable ledger → the resolver simply falls back to the section listing.
-      const slugCanonical = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>();
+      const slugCanonical = new Map<string, Partial<Record<EmitLocale, string>>>();
       try {
         const tracking = readAllKnownJobSlugs(rootDir) as Record<
           string,
-          Partial<Record<'it' | 'en' | 'de' | 'fr', string>>
+          Partial<Record<EmitLocale, string>>
         >;
         for (const key of Object.keys(tracking)) {
           const entry = tracking[key];
           if (!entry) continue;
-          for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+          for (const loc of ALL_EMIT_LOCALES) {
             const p = entry[loc];
             if (!p) continue;
             const seg = p.replace(/\/+$/, '').split('/').pop();

@@ -1,10 +1,39 @@
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { jobCanonRedirectMapPlugin } from '../build-plugins/jobCanonRedirectMapPlugin';
+import { assertMaxShardGrowthWithinPercent, jobCanonRedirectMapPlugin } from '../build-plugins/jobCanonRedirectMapPlugin';
 import { writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import {
+  buildActiveJobBridgePathPlan,
+  classifyBridgePaths,
+  emitActiveJobCanonAliases,
+  planActiveJobCanonAliases,
+  type ActiveJobSlugMapRow,
+  type JobCanonEntryLike,
+} from '../build-plugins/shared/jobCanonBridgePaths';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
+import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
+
+const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
+
+vi.mock('../build-plugins/jobsSeoPagesPlugin', () => ({
+  compareActiveJobsByStableOrder: (left: ActiveJobSlugMapRow, right: ActiveJobSlugMapRow) => {
+    const timestamp = (job: ActiveJobSlugMapRow): number => {
+      for (const value of [job.datePosted, job.firstSeenAt]) {
+        const parsed = value ? new Date(String(value)).getTime() : 0;
+        if (parsed > 0 && !Number.isNaN(parsed)) return parsed;
+      }
+      return 0;
+    };
+    const delta = timestamp(right) - timestamp(left);
+    return delta || String(left.id || left.slug || '').localeCompare(String(right.id || right.slug || ''));
+  },
+  buildNativeJobPrefixIndex: () => ({}),
+  buildReservedHubSlugs: () => new Set<string>(),
+  nativeJobPathRecoveredByWorker: () => false,
+}));
 
 /**
  * The plugin emits dist/job-canon/<shard>.json (slug → {locale: section prefix})
@@ -19,6 +48,7 @@ import { writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.
  */
 describe('jobCanonRedirectMapPlugin', () => {
   let tmp: string;
+  let previousBuildLocale: string | undefined;
 
   const tracking = {
     'capo-ottimizzazione-portafoglio-ffs-zollikofen': {
@@ -42,17 +72,21 @@ describe('jobCanonRedirectMapPlugin', () => {
     },
   };
 
-  beforeAll(() => {
+  beforeAll(async () => {
+    previousBuildLocale = process.env.BUILD_LOCALE;
+    delete process.env.BUILD_LOCALE;
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist'), { recursive: true });
     writeAllKnownJobSlugs(tracking, tmp);
     const plugin = jobCanonRedirectMapPlugin(tmp);
-    (plugin.closeBundle as () => void).call(plugin);
+    await (plugin.closeBundle as () => Promise<void>).call(plugin);
   });
 
   afterAll(() => {
     fs.rmSync(tmp, { recursive: true, force: true });
+    if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = previousBuildLocale;
   });
 
   const readShard = (slug: string): Record<string, Record<string, string>> => {
@@ -113,5 +147,354 @@ describe('jobCanonRedirectMapPlugin', () => {
       alias?: unknown;
     };
     expect(same.alias).toBeUndefined();
+  });
+});
+
+describe('active job aliases in the IT /job-canon publishing leg', () => {
+  let tmp: string;
+  let previousBuildLocale: string | undefined;
+
+  const job = (
+    id: string,
+    canton: string,
+    slugs: Record<'it' | 'en' | 'de' | 'fr', string>,
+    extras: Pick<ActiveJobSlugMapRow, 'previousSlugs' | 'previousSlugsByLocale'> = {},
+  ): ActiveJobSlugMapRow => ({ id, slug: slugs.it, canton, slugByLocale: slugs, ...extras });
+
+  const activeJobs: ActiveJobSlugMapRow[] = [
+    job('localized-claimant', 'ZH', {
+      it: 'locale-it-current', en: 'locale-en-current', de: 'locale-de-current', fr: 'locale-fr-current',
+    }, {
+      previousSlugsByLocale: {
+        it: ['legacy-it-v1'],
+        en: ['legacy-en-v1', 'cross-foreign-en-v1', 'registry-collision-old-v1'],
+        de: ['legacy-de-v1'],
+        fr: ['legacy-fr-v1'],
+      },
+    }),
+    job('flat-claimant', 'GE', {
+      it: 'flat-it-current', en: 'flat-en-current', de: 'flat-de-current', fr: 'flat-fr-current',
+    }, { previousSlugs: ['flat-old-v1'] }),
+    job('winner-a', 'ZH', {
+      it: 'winner-a-it', en: 'winner-a-en', de: 'winner-a-de', fr: 'winner-a-fr',
+    }, { previousSlugsByLocale: { it: ['shared-old-v1'] } }),
+    job('winner-b', 'ZH', {
+      it: 'winner-b-it', en: 'winner-b-en', de: 'winner-b-de', fr: 'winner-b-fr',
+    }, { previousSlugsByLocale: { it: ['shared-old-v1'] } }),
+    job('real-page-claimant', 'VD', {
+      it: 'real-current-it', en: 'real-current-en', de: 'real-current-de', fr: 'real-current-fr',
+    }, { previousSlugsByLocale: { it: ['real-old-v1'] } }),
+    job('active-slug-wins', 'TI', {
+      it: 'real-old-v1', en: 'active-slug-en', de: 'active-slug-de', fr: 'active-slug-fr',
+    }),
+    job('cippatrasporti-c38396f76831', 'TI', {
+      it: 'customer-service-transport-specialist-cippa-trasporti-sa-chiasso',
+      en: 'customer-service-transport-specialist-cippa-trasporti-sa-chiasso-en',
+      de: 'kundenservice-transport-spezialist-cippa-trasporti-sa-chiasso',
+      fr: 'specialiste-service-client-transport-cippa-trasporti-sa-chiasso',
+    }, {
+      previousSlugsByLocale: {
+        it: ['servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso'],
+      },
+    }),
+    job('locale-prefix-owner', 'ZH', {
+      it: 'locale-prefix-legacy-v1', en: 'locale-prefix-current-en',
+      de: 'locale-prefix-legacy-v1', fr: 'locale-prefix-legacy-v1',
+    }, { previousSlugsByLocale: { en: ['locale-prefix-legacy-v1'] } }),
+    job('ambiguous-zh', 'ZH', {
+      it: 'ambiguous-zh-it', en: 'ambiguous-zh-en', de: 'ambiguous-zh-de', fr: 'ambiguous-zh-fr',
+    }, { previousSlugsByLocale: { it: ['ambiguous-old-v1'] } }),
+    job('ambiguous-vd', 'VD', {
+      it: 'ambiguous-vd-it', en: 'ambiguous-vd-en', de: 'ambiguous-vd-de', fr: 'ambiguous-vd-fr',
+    }, { previousSlugsByLocale: { it: ['ambiguous-old-v1'] } }),
+    job('auto-alias', 'TI', {
+      it: 'same-real-slug', en: 'same-real-slug', de: 'same-real-slug', fr: 'same-real-slug',
+    }, {
+      previousSlugsByLocale: {
+        it: ['same-real-slug'], en: ['same-real-slug'], de: ['same-real-slug'], fr: ['same-real-slug'],
+      },
+    }),
+    // Deliberately older first in the artifact: jobsSeoPagesPlugin orders by
+    // datePosted, and the newer claimant owns a colliding cross-locale path.
+    { ...job('cross-a-older', 'GE', {
+      it: 'cross-a-it', en: 'cross-foreign', de: 'cross-a-de', fr: 'cross-a-fr',
+    }), datePosted: daysAgo(43) },
+    { ...job('cross-z-newer', 'ZH', {
+      it: 'cross-z-it', en: 'cross-foreign', de: 'cross-z-de', fr: 'cross-z-fr',
+    }), datePosted: daysAgo(12) },
+  ];
+
+  beforeAll(async () => {
+    previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-active-'));
+    fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+    fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
+    setJobCanonOrderingFields(activeJobs);
+    const publicSlugMapRows = activeJobs.map((job) => {
+      const { datePosted: _datePosted, firstSeenAt: _firstSeenAt, ...row } = job;
+      return row;
+    });
+    fs.writeFileSync(path.join(tmp, 'dist', 'data', 'jobs-slug-map.json'), JSON.stringify(publicSlugMapRows));
+    fs.writeFileSync(path.join(tmp, 'data', 'previous-slug-winners.json'), JSON.stringify({
+      'ZH::it::shared-old-v1': {
+        winnerJobIdentifier: 'winner-b',
+        winnerCanonical: 'winner-b-it',
+        decidedAt: '2026-11-13T00:00:00.000Z',
+        lastSeenAt: '2026-11-13T00:00:00.000Z',
+        score: 0.7,
+        candidatesCount: 2,
+        canton: 'ZH',
+      },
+    }));
+    writeAllKnownJobSlugs({
+      'real-old-v1': { it: '/cerca-lavoro-ticino/real-old-v1' },
+      'servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso': {
+        it: '/cerca-lavoro-ticino/servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso',
+      },
+      'locale-prefix-legacy-v1': {
+        it: '/cerca-lavoro-ticino/locale-prefix-legacy-v1',
+        en: '/en/find-jobs-geneva/locale-prefix-legacy-v1',
+        de: '/de/jobs-im-genf/locale-prefix-legacy-v1',
+        fr: '/fr/trouver-emploi-geneve/locale-prefix-legacy-v1',
+      },
+      'registry-collision-old-v1': {
+        it: '/cerca-lavoro-ticino/registry-collision-old-v1',
+        en: '/en/find-jobs-thurgau/registry-canonical-v1',
+      },
+      'cross-foreign': { en: '/en/find-jobs-geneva/cross-foreign' },
+    }, tmp);
+    const plugin = jobCanonRedirectMapPlugin(tmp);
+    await (plugin.closeBundle as () => Promise<void>).call(plugin);
+  });
+
+  afterAll(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+    if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = previousBuildLocale;
+  });
+
+  const readShard = (slug: string): Record<string, Record<string, unknown>> => {
+    const sk = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+    return JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', `${sk}.json`), 'utf-8'));
+  };
+
+  const readEntry = (slug: string): JobCanonEntryLike | undefined => {
+    const sk = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+    const file = path.join(tmp, 'dist', 'job-canon', `${sk}.json`);
+    if (!fs.existsSync(file)) return undefined;
+    return JSON.parse(fs.readFileSync(file, 'utf-8'))[slug] as JobCanonEntryLike | undefined;
+  };
+
+  it('emits each locale-aware previous slug in its own locale, plus cross-locale bridges', () => {
+    const cases = [
+      ['legacy-it-v1', 'it', '/cerca-lavoro-zurigo/locale-it-current'],
+      ['legacy-en-v1', 'en', '/en/find-jobs-zurich/locale-en-current'],
+      ['legacy-de-v1', 'de', '/de/jobs-in-zurich/locale-de-current'],
+      ['legacy-fr-v1', 'fr', '/fr/trouver-emploi-zurich/locale-fr-current'],
+      ['cross-foreign-en-v1', 'it', '/cerca-lavoro-zurigo/locale-it-current'],
+      ['locale-en-current', 'it', '/cerca-lavoro-zurigo/locale-it-current'],
+    ] as const;
+    for (const [slug, locale, target] of cases) {
+      expect(readEntry(slug)?.alias?.[locale]).toBe(target);
+    }
+  });
+
+  it('fans flat legacy previousSlugs out to all four locale prefixes', () => {
+    const alias = readEntry('flat-old-v1')?.alias;
+    expect(alias).toEqual({
+      it: '/cerca-lavoro-ginevra/flat-it-current',
+      en: '/en/find-jobs-geneva/flat-en-current',
+      de: '/de/jobs-in-genf/flat-de-current',
+      fr: '/fr/trouver-emploi-geneve/flat-fr-current',
+    });
+  });
+
+  it('uses the previousSlugWinners registry winner for a contested slug', () => {
+    expect(readEntry('shared-old-v1')?.alias?.it).toBe('/cerca-lavoro-zurigo/winner-b-it');
+  });
+
+  it('keeps a registry alias when active bridge candidates claim the same locale and slug', () => {
+    expect(readEntry('registry-collision-old-v1')?.alias?.en)
+      .toBe('/en/find-jobs-thurgau/registry-canonical-v1');
+  });
+
+  it('uses the stable SEO job order when a cross-locale bridge path has multiple claimants', () => {
+    expect(readEntry('cross-foreign')?.alias?.it).toBe('/cerca-lavoro-zurigo/cross-z-it');
+  });
+
+  it('preserves real pages and omits ambiguous, automatic, or chained aliases', () => {
+    expect(readEntry('real-old-v1')?.it).toBe('/cerca-lavoro-ticino');
+    expect(readEntry('real-old-v1')?.alias?.it).toBeUndefined();
+    expect(readEntry('ambiguous-old-v1')?.alias?.it).toBeUndefined();
+    expect(readEntry('same-real-slug')?.alias).toBeUndefined();
+    expect(readEntry('same-real-slug')?.it).toBeUndefined();
+  });
+
+  it('maps the cippa previous IT slug to its current IT URL and removes the historical prefix', () => {
+    const oldSlug = 'servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso';
+    const entry = readEntry(oldSlug);
+    expect(entry?.it).toBeUndefined();
+    expect(entry?.alias?.it).toBe(
+      '/cerca-lavoro-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso',
+    );
+  });
+
+  it('lets a current active slug win over a historical prefix', () => {
+    const entry = readEntry('real-old-v1');
+    expect(entry?.it).toBe('/cerca-lavoro-ticino');
+    expect(entry?.alias?.it).toBeUndefined();
+  });
+
+  it('removes a historical prefix only for the locale receiving the alias', () => {
+    const entry = readEntry('locale-prefix-legacy-v1');
+    expect(entry?.alias?.en).toBe('/en/find-jobs-zurich/locale-prefix-current-en');
+    expect(entry?.en).toBeUndefined();
+    expect(entry?.it).toBe('/cerca-lavoro-ticino');
+    expect(entry?.de).toBe('/de/jobs-im-genf');
+    expect(entry?.fr).toBe('/fr/trouver-emploi-geneve');
+  });
+
+  it('keeps the two-character shard key and the canonical path builder matches the SEO path', () => {
+    expect(fs.existsSync(path.join(tmp, 'dist', 'job-canon', 'fl.json'))).toBe(true);
+    expect(readShard('flat-old-v1')['flat-old-v1']).toBeDefined();
+    expect(buildCanonicalJobDetailPath('it', { canton: 'ZH' }, 'parity-slug')).toBe('/cerca-lavoro-zurigo/parity-slug/');
+    expect(buildCanonicalJobDetailPath('en', { canton: 'ZH' }, 'parity-slug')).toBe('/en/find-jobs-zurich/parity-slug/');
+    expect(buildCanonicalJobDetailPath('de', { canton: 'ZH' }, 'parity-slug')).toBe('/de/jobs-in-zurich/parity-slug/');
+    expect(buildCanonicalJobDetailPath('fr', { canton: 'ZH' }, 'parity-slug')).toBe('/fr/trouver-emploi-zurich/parity-slug/');
+  });
+});
+
+describe('job canon bridge path planning and PR-B classification', () => {
+  const active = {
+    id: 'owner',
+    slug: 'owner-it',
+    canton: 'ZH',
+    slugByLocale: { it: 'owner-it', en: 'owner-en', de: 'owner-de', fr: 'owner-fr' },
+    previousSlugs: ['flat-old'],
+    previousSlugsByLocale: { en: ['old-en', 'worker-owned', 'reserved-hub', 'azienda-acme'] },
+  } satisfies ActiveJobSlugMapRow;
+
+  it('matches the cross-locale emitter predicate and creates legacy-TI mirror paths', () => {
+    const plan = buildActiveJobBridgePathPlan([active], {
+      winners: {},
+      reservedHubSlugs: new Set(['reserved-hub']),
+      workerWouldRecover: (_locale, slug) => slug === 'worker-owned',
+    });
+    const exact = (kind: string, locale: string, slug: string, path: string, target: string) =>
+      plan.bridgePaths.some((bridge) => bridge.kind === kind && bridge.locale === locale
+        && bridge.slug === slug && bridge.path === path && bridge.targetPath === target);
+
+    expect(exact('legacyTiMirror', 'it', 'flat-old', '/cerca-lavoro-ticino/flat-old/', '/cerca-lavoro-zurigo/owner-it/')).toBe(true);
+    expect(exact('crossLocale', 'it', 'owner-en', '/cerca-lavoro-ticino/owner-en/', '/cerca-lavoro-zurigo/owner-it/')).toBe(true);
+    expect(exact('crossLocale', 'it', 'old-en', '/cerca-lavoro-ticino/old-en/', '/cerca-lavoro-zurigo/owner-it/')).toBe(true);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === 'owner-it')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.slug === 'reserved-hub')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'worker-owned')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === 'azienda-acme')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'flat-old')).toBe(false);
+  });
+
+  it('streams the same alias destinations as the bridge-path reference planner', () => {
+    const options = {
+      winners: {},
+      reservedHubSlugs: new Set(['reserved-hub']),
+      workerWouldRecover: (_locale: string, slug: string) => slug === 'worker-owned',
+    };
+    const jobs: ActiveJobSlugMapRow[] = [
+      active,
+      {
+        id: 'ti-old-claim',
+        slug: 'ti-current-it',
+        canton: 'TI',
+        slugByLocale: { it: 'ti-current-it', en: 'ti-current-en', de: 'ti-current-de', fr: 'ti-current-fr' },
+        previousSlugsByLocale: { it: ['shared-ti-old'] },
+      },
+      {
+        id: 'zh-old-claim',
+        slug: 'zh-current-it',
+        canton: 'ZH',
+        slugByLocale: { it: 'zh-current-it', en: 'zh-current-en', de: 'zh-current-de', fr: 'zh-current-fr' },
+        previousSlugsByLocale: { it: ['shared-ti-old'] },
+      },
+    ];
+    const bridgePlan = buildActiveJobBridgePathPlan(jobs, options);
+    const expected = planActiveJobCanonAliases(bridgePlan, () => undefined).aliases
+      .map(({ slug, locale, targetPath }) => `${locale}\u0000${slug}\u0000${targetPath.replace(/\/+$/, '')}`)
+      .sort();
+    const actual: string[] = [];
+    emitActiveJobCanonAliases(jobs, {
+      ...options,
+      entryForSlug: () => undefined,
+      emitAlias: (slug, locale, targetPath) => actual.push(`${locale}\u0000${slug}\u0000${targetPath}`),
+    });
+    expect(actual.sort()).toEqual(expected);
+  });
+
+  it('keeps an active current-slug TI mirror ahead of a stale previous-slug mirror', () => {
+    const current = {
+      id: 'a-current',
+      slug: 'current-it-slug',
+      canton: 'GE',
+      slugByLocale: { it: 'current-it-slug', en: 'current-en-slug', de: 'current-de-slug', fr: 'current-fr-slug' },
+    } satisfies ActiveJobSlugMapRow;
+    const stale = {
+      id: 'b-stale',
+      slug: 'stale-it-slug',
+      canton: 'ZH',
+      slugByLocale: { it: 'stale-it-slug', en: 'stale-en-slug', de: 'stale-de-slug', fr: 'stale-fr-slug' },
+      previousSlugsByLocale: { it: ['current-it-slug'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([current, stale], { winners: {}, reservedHubSlugs: new Set() });
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'legacyTiMirror'
+      && bridge.locale === 'it' && bridge.slug === 'current-it-slug')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.kind === 'previousSlug'
+      && bridge.locale === 'it' && bridge.slug === 'current-it-slug'
+      && bridge.path === '/cerca-lavoro-zurigo/current-it-slug/')).toBe(true);
+  });
+
+  it('marks a bridge removable only when jobCanonTarget resolves to its exact target', () => {
+    const bridgePaths = [
+      { path: '/old-section/old-slug/', locale: 'it', slug: 'old-slug', targetPath: '/new-section/current/', kind: 'previousSlug', canton: 'ZH' },
+      { path: '/another-section/old-slug/', locale: 'it', slug: 'old-slug', targetPath: '/other-section/other/', kind: 'legacyTiMirror', canton: 'ZH' },
+    ] as const;
+    const entries = new Map<string, JobCanonEntryLike>([
+      ['old-slug', { alias: { it: '/new-section/current' } }],
+    ]);
+    const classified = classifyBridgePaths(bridgePaths, entries);
+    expect(classified.removable).toEqual(new Set(['/old-section/old-slug/']));
+    expect(classified.keepBridge.get('/another-section/old-slug/')).toBe('targetMismatch');
+  });
+
+  it('rejects a fixture whose maximum shard grows beyond five percent', () => {
+    expect(assertMaxShardGrowthWithinPercent([100, 900], [100, 945], 5)).toBe(5);
+    expect(() => assertMaxShardGrowthWithinPercent([100, 900], [100, 946], 5))
+      .toThrow('maximum job-canon shard grew 5.11%, above 5%');
+  });
+
+  it('keeps ambiguous paths, exact-prefix paths, missing entries, and alias chains for PR-B', () => {
+    const bridgePaths = [
+      { path: '/it/ambiguous/', locale: 'it', slug: 'ambiguous', targetPath: '/it/one/', kind: 'previousSlug', canton: 'ZH' },
+      { path: '/it/exact/', locale: 'it', slug: 'exact', targetPath: '/it/current/', kind: 'previousSlug', canton: 'ZH' },
+      { path: '/it/missing/', locale: 'it', slug: 'missing', targetPath: '/it/current/', kind: 'previousSlug', canton: 'ZH' },
+      { path: '/it/chain/', locale: 'it', slug: 'chain', targetPath: '/it/current/', kind: 'previousSlug', canton: 'ZH' },
+      { path: '/it/next-bridge/', locale: 'it', slug: 'next-bridge', targetPath: '/it/current/', kind: 'crossLocale', canton: 'ZH' },
+    ] as const;
+    const entries = new Map<string, JobCanonEntryLike>([
+      ['exact', { it: '/it/other-section' }],
+      ['chain', { alias: { it: '/it/next-bridge' } }],
+      ['next-bridge', { alias: { it: '/it/current' } }],
+    ]);
+    const classified = classifyBridgePaths(
+      bridgePaths,
+      entries,
+      new Set(['it\u0000ambiguous']),
+      new Set(['it\u0000exact']),
+    );
+    expect(classified.keepBridge.get('/it/ambiguous/')).toBe('ambiguousCanton');
+    expect(classified.keepBridge.get('/it/exact/')).toBe('exactPrefix');
+    expect(classified.keepBridge.get('/it/missing/')).toBe('noEntry');
+    expect(classified.keepBridge.get('/it/chain/')).toBe('chain');
+    expect(classified.removable.has('/it/next-bridge/')).toBe(true);
   });
 });

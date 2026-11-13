@@ -36,12 +36,24 @@
 
 import path from 'path';
 import fs from 'node:fs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { loadWinners } from '../services/previousSlugWinners';
+import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
+import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+  emitActiveJobCanonAliases,
+  JOB_CANON_LOCALES,
+  type ActiveJobSlugMapRow,
+  type JobCanonLocale,
+} from './shared/jobCanonBridgePaths';
 
 const OUT_SUBDIR = 'job-canon';
 /** Locales whose legacy URLs carried the Italian registry key (see the alias pass). */
-const ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
+const REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
 function shardKey(slug: string): string {
   const s = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
@@ -56,35 +68,70 @@ function sectionPrefix(canonicalPath: string): string | null {
   return '/' + segs.slice(0, segs.length - 1).join('/');
 }
 
+export function assertMaxShardGrowthWithinPercent(
+  baselineShardBytes: readonly number[],
+  currentShardBytes: readonly number[],
+  maximumGrowthPercent: number,
+): number {
+  let baselineMaximum = 0;
+  let currentMaximum = 0;
+  for (const bytes of baselineShardBytes) baselineMaximum = Math.max(baselineMaximum, bytes);
+  for (const bytes of currentShardBytes) currentMaximum = Math.max(currentMaximum, bytes);
+  const growthPercent = baselineMaximum === 0
+    ? (currentMaximum === 0 ? 0 : Number.POSITIVE_INFINITY)
+    : ((currentMaximum - baselineMaximum) / baselineMaximum) * 100;
+  if (growthPercent > maximumGrowthPercent) {
+    throw new Error(
+      `maximum job-canon shard grew ${growthPercent.toFixed(2)}%, above ${maximumGrowthPercent}%`,
+    );
+  }
+  return growthPercent;
+}
+
 export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
   return {
     name: 'job-canon-redirect-map',
     apply: 'build',
     enforce: 'post',
-    closeBundle() {
+    async closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
+      let peakHeapUsed = process.memoryUsage().heapUsed;
+      const heapCheckpoints: Record<string, number> = { start: peakHeapUsed };
+      const sampleHeap = (): void => {
+        peakHeapUsed = Math.max(peakHeapUsed, process.memoryUsage().heapUsed);
+      };
+      const markHeap = (phase: string): void => {
+        const used = process.memoryUsage().heapUsed;
+        peakHeapUsed = Math.max(peakHeapUsed, used);
+        heapCheckpoints[phase] = used;
+      };
       // Sharded registry (#4248) via the single shared accessor — never the raw
       // file. An EMPTY registry means the same thing the old parse failure did:
       // no ledger, nothing to emit.
-      const tracking = readAllKnownJobSlugs(rootDir) as Record<
+      let tracking: Record<
         string,
-        Partial<Record<'it' | 'en' | 'de' | 'fr', string>>
-      >;
-      if (Object.keys(tracking).length === 0) return; // no tracking ledger — nothing to emit
+        Partial<Record<JobCanonLocale, string>>
+      > | null = readAllKnownJobSlugs(rootDir) as Record<string, Partial<Record<JobCanonLocale, string>>>;
+      markHeap('tracking-loaded');
+      if (!tracking || Object.keys(tracking).length === 0) {
+        clearJobCanonOrderingFields();
+        return; // no tracking ledger — nothing to emit
+      }
 
       // shard → { slug: { it, en, de, fr } } — per-locale section prefixes. The
       // slug segment is identical across locales, so a flat {slug: prefix} would
       // collapse to whichever locale wrote first; keep each locale's own prefix.
-      type LocalePrefixes = Partial<Record<'it' | 'en' | 'de' | 'fr', string>> & {
-        alias?: Partial<Record<'en' | 'de' | 'fr', string>>;
+      type LocalePrefixes = Partial<Record<JobCanonLocale, string>> & {
+        alias?: Partial<Record<JobCanonLocale, string>>;
       };
       const shards = new Map<string, Record<string, LocalePrefixes>>();
       let entries = 0;
+      const aliasesByLocale: Record<JobCanonLocale, number> = { it: 0, en: 0, de: 0, fr: 0 };
       for (const key of Object.keys(tracking)) {
         const e = tracking[key];
         if (!e) continue;
-        for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+        for (const loc of JOB_CANON_LOCALES) {
           const p = e[loc];
           if (!p) continue;
           const slug = p.replace(/\/+$/, '').split('/').pop();
@@ -101,6 +148,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (!(loc in perLocale)) perLocale[loc] = prefix;
         }
       }
+      markHeap('registry-prefixes-built');
 
       // Registry aliases (en/de/fr). Before the cathedral every locale path was
       // `/<locale>/<TI section>/<registry key>`, i.e. the Italian slug under a
@@ -116,7 +164,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       for (const key of Object.keys(tracking)) {
         const e = tracking[key];
         if (!e) continue;
-        for (const loc of ALIAS_LOCALES) {
+        for (const loc of REGISTRY_ALIAS_LOCALES) {
           const p = e[loc];
           if (!p) continue;
           const target = p.replace(/\/+$/, '');
@@ -129,19 +177,162 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (!perLocale) { perLocale = {}; bucket[key] = perLocale; entries++; }
           if (loc in perLocale) continue;
           const alias = (perLocale.alias ??= {});
-          if (!(loc in alias)) { alias[loc] = target; aliases++; }
+          if (!(loc in alias)) {
+            alias[loc] = target;
+            aliases++;
+            aliasesByLocale[loc]++;
+          }
         }
       }
+      markHeap('registry-aliases-built');
+      if (process.env.BUILD_LOCALE !== 'it') {
+        tracking = null;
+        clearJobCanonOrderingFields();
+        markHeap('inputs-released');
+      }
+
+      // This leg is the only one that publishes /job-canon. The preceding
+      // localeJobsSplitPlugin closeBundle writes the all-locale compact source.
+      // Keep jobs.json out of this path: it is too large for the DE build.
+      const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
+      let activeAliasStats: ReturnType<typeof emitActiveJobCanonAliases> | null = null;
+      if (process.env.BUILD_LOCALE === 'it') {
+        if (!fs.existsSync(slugMapPath)) {
+          throw new Error(`[job-canon-redirect-map] BUILD_LOCALE=it requires ${path.relative(rootDir, slugMapPath)} from localeJobsSplitPlugin`);
+        }
+        const activeJobsRaw = readJsonFile(slugMapPath) as unknown;
+        if (!Array.isArray(activeJobsRaw)) {
+          throw new Error(`[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`);
+        }
+        markHeap('slug-map-loaded');
+        const {
+          buildNativeJobPrefixIndex,
+          buildReservedHubSlugs,
+          compareActiveJobsByStableOrder,
+          nativeJobPathRecoveredByWorker,
+        } = await import('./jobsSeoPagesPlugin');
+        let orderingFieldsById = getJobCanonOrderingFields();
+        if (!orderingFieldsById) {
+          throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
+        }
+        const jobs = activeJobsRaw as ActiveJobSlugMapRow[];
+        let writeIndex = 0;
+        for (const row of jobs) {
+          if (!row || typeof row !== 'object') continue;
+          const job = row;
+          const stableId = String(job.id || job.slug || '').trim();
+          const orderingFields = stableId ? orderingFieldsById.get(stableId) : undefined;
+          if (!orderingFields) {
+            throw new Error('[job-canon-redirect-map] slug map and in-memory ordering fields do not match');
+          }
+          Object.assign(job, orderingFields);
+          jobs[writeIndex++] = job;
+        }
+        jobs.length = writeIndex;
+        jobs.sort(compareActiveJobsByStableOrder);
+        orderingFieldsById = null;
+        clearJobCanonOrderingFields();
+        markHeap('active-jobs-ordered');
+        const nativeRouteSnapshotSlugs = new Set<string>();
+        const activeRouteOwners = new Map<string, number>();
+        const localeBits: Record<JobCanonLocale, number> = { it: 1, en: 2, de: 4, fr: 8 };
+        for (const job of jobs) {
+          if (typeof job.slug === 'string' && job.slug) nativeRouteSnapshotSlugs.add(job.slug);
+          for (const locale of JOB_CANON_LOCALES) {
+            const slug = localizedActiveJobSlug(job, locale);
+            if (!slug) continue;
+            nativeRouteSnapshotSlugs.add(slug);
+            activeRouteOwners.set(slug, (activeRouteOwners.get(slug) ?? 0) | localeBits[locale]);
+          }
+        }
+        const nativeIndex = buildNativeJobPrefixIndex(
+          tracking as Parameters<typeof buildNativeJobPrefixIndex>[0],
+          { it: '', en: '/en', de: '/de', fr: '/fr' },
+          SECTION_LEGACY_TI,
+          nativeRouteSnapshotSlugs,
+          activeRouteOwners,
+        );
+        markHeap('native-index-built');
+        const winners = loadWinners(path.resolve(rootDir, 'data', 'previous-slug-winners.json'));
+        const entryForSlug = (slug: string): LocalePrefixes | undefined => shards.get(shardKey(slug))?.[slug];
+        activeAliasStats = emitActiveJobCanonAliases(jobs, {
+          winners,
+          reservedHubSlugs: buildReservedHubSlugs(),
+          entryForSlug,
+          workerWouldRecover: (locale, slug, bridgePath) => nativeJobPathRecoveredByWorker(
+            locale,
+            slug,
+            bridgePath,
+            tracking as NonNullable<typeof tracking>,
+            nativeIndex as Parameters<typeof nativeJobPathRecoveredByWorker>[4],
+          ),
+          canWriteCrossLocalePath: (bridgePath) => {
+            const relPath = bridgePath.replace(/^\/+|\/+$/g, '');
+            return !isDistPathOverFilesystemLimits(relPath)
+              && isSafeDistPath(relPath)
+              && getSafeDistPageTargets(distDir, relPath) !== null;
+          },
+          emitAlias: (slug, locale, targetPath) => {
+            const sk = shardKey(slug);
+            let bucket = shards.get(sk);
+            if (!bucket) { bucket = {}; shards.set(sk, bucket); }
+            let entry = bucket[slug];
+            if (!entry) { entry = {}; bucket[slug] = entry; entries++; }
+            const alias = (entry.alias ??= {});
+            if (locale in alias) return;
+            alias[locale] = targetPath;
+            // all-known-job-slugs retains historical sections for old slugs.
+            // jobCanonTarget gives prefixes precedence, so remove only the prefix
+            // for the locale this active alias resolves.
+            delete entry[locale];
+            aliases++;
+            aliasesByLocale[locale]++;
+          },
+          onHeapSample: sampleHeap,
+        });
+        markHeap('active-aliases-emitted');
+        // The compact alias pass has consumed all full job rows, ordering
+        // fields, registry input, and winner state. Release them before JSON
+        // serialization, where the largest shard temporarily needs a buffer.
+        jobs.length = 0;
+        activeJobsRaw.length = 0;
+        tracking = null;
+        clearJobCanonOrderingFields();
+        nativeRouteSnapshotSlugs.clear();
+        activeRouteOwners.clear();
+        markHeap('inputs-released');
+      }
+
       if (shards.size === 0) return;
 
       const outDir = path.join(distDir, OUT_SUBDIR);
       fs.mkdirSync(outDir, { recursive: true });
+      const shardBytes: number[] = [];
       for (const [sk, bucket] of shards) {
-        fs.writeFileSync(path.join(outDir, `${sk}.json`), JSON.stringify(bucket), 'utf-8');
+        const serialized = JSON.stringify(bucket);
+        const bytes = Buffer.byteLength(serialized, 'utf8');
+        shardBytes.push(bytes);
+        fs.writeFileSync(path.join(outDir, `${sk}.json`), serialized, 'utf-8');
       }
+      shardBytes.sort((a, b) => a - b);
+      const middle = Math.floor(shardBytes.length / 2);
+      const maxShardBytes = shardBytes.at(-1) ?? 0;
+      const medianShardBytes = shardBytes.length === 0
+        ? 0
+        : shardBytes.length % 2 === 1
+          ? shardBytes[middle]
+          : Math.round((shardBytes[middle - 1] + shardBytes[middle]) / 2);
+      sampleHeap();
+      markHeap('shards-serialized');
       console.log(
         `\x1b[36m[job-canon-redirect-map]\x1b[0m Emitted ${shards.size} shards, ${entries} slug→canonical entries (${aliases} localized-slug aliases) for 404-page canton-drift recovery.`,
       );
+      console.log(`[job-canon-redirect-map] aliases by locale: ${JSON.stringify(aliasesByLocale)}`);
+      if (activeAliasStats) {
+        console.log(`[job-canon-redirect-map] active alias groups: ${JSON.stringify(activeAliasStats)}`);
+      }
+      console.log(`[job-canon-redirect-map] shard bytes: count=${shardBytes.length}, max=${maxShardBytes}, median=${medianShardBytes}`);
+      console.log(`[job-canon-redirect-map] closeBundle heap checkpoints: ${JSON.stringify(heapCheckpoints)}; sampled peak=${peakHeapUsed}`);
     },
   };
 }
