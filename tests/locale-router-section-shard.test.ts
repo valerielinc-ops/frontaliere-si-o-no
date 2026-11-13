@@ -79,6 +79,8 @@ let upstreamPathHistory: string[];
 let upstreamHandler: (url: URL) => Response;
 let sectionTreeLayoutResponse: () => Response;
 let sectionTreeLayoutFetches: number;
+let cacheStore: Map<string, Response>;
+let cacheMatchCount: number;
 
 beforeEach(() => {
   resetSectionTreeLayoutCacheForTests();
@@ -91,9 +93,11 @@ beforeEach(() => {
     headers: { 'content-type': 'application/json' },
   });
   sectionTreeLayoutFetches = 0;
-  const cacheStore = new Map<string, Response>();
+  cacheStore = new Map<string, Response>();
+  cacheMatchCount = 0;
   const cache = {
     match: vi.fn(async (req: Request) => {
+      cacheMatchCount += 1;
       const key = typeof req === 'string' ? req : req.url;
       const hit = cacheStore.get(key);
       return hit ? hit.clone() : undefined;
@@ -232,6 +236,40 @@ describe('locale-router Ticino-section shard routing', () => {
       `/de/jobs-im-tessin/_tree/${legacyTicinoTreeBucket('irgendein-job')}/irgendein-job/`,
       '/de/jobs-im-tessin/irgendein-job/',
     ]);
+  });
+
+  it.each(['GET', 'HEAD'])('self-heals to a live hash path before alias recovery (%s)', async (method) => {
+    const slug = 'frische-stelle-lucerna';
+    const sourcePath = `/fr/trouver-emploi-lucerne/${slug}/`;
+    const hashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(slug)}/${slug}/`;
+    const cachedTarget = '/fr/trouver-emploi-lucerne/alte-kanonische-stelle/';
+    const cacheKey = new URL(APEX);
+    cacheKey.pathname = `/__worker-cache/job-alias/fr${sourcePath}`;
+    cacheStore.set(cacheKey.toString(), new Response(JSON.stringify({
+      kind: 'redirect',
+      target: cachedTarget,
+    }), { headers: { 'Cache-Control': 'public, max-age=86400, s-maxage=86400' } }));
+    upstreamHandler = (url) => {
+      if (url.pathname === sourcePath) return new Response('canonical miss', { status: 404 });
+      if (url.pathname === hashPath) return new Response(method === 'HEAD' ? null : 'self-healed page', { status: 200 });
+      return new Response(null, { status: 404 });
+    };
+
+    const response = await worker.fetch(
+      new Request(`${APEX}${sourcePath}`, { method }),
+      {},
+      ctx,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('location')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(upstreamPathHistory.filter((path) => path === sourcePath || path === hashPath)).toEqual([
+      sourcePath,
+      hashPath,
+    ]);
+    if (method === 'GET') expect(await response.text()).toBe('self-healed page');
+    else expect(await response.text()).toBe('');
   });
 
   it('rewrites physical origin redirects back to the public path', async () => {

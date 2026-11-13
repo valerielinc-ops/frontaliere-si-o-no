@@ -19,12 +19,30 @@ import worker, { jobCanonTarget } from '../infra/cloudflare-worker/locale-router
 const APEX = 'https://frontaliereticino.ch';
 const pendingCacheWrites: Promise<unknown>[] = [];
 const cacheEntries = new Map<string, Response>();
+let cacheMatchCount = 0;
 const ctx = {
   waitUntil: (promise: Promise<unknown>) => pendingCacheWrites.push(promise),
 } as unknown as ExecutionContext;
 
 function cacheKey(input: RequestInfo | URL): string {
   return typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+}
+
+function fetchUrl(input: RequestInfo | URL): string {
+  return typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+}
+
+function seedJobAliasCache(source: string, value: Record<string, string>, ttl: number): void {
+  const url = new URL(source);
+  const normalizedPath = `${url.pathname.replace(/\/+$/, '')}/`;
+  const key = new URL(url.origin);
+  key.pathname = `/__worker-cache/job-alias/fr${normalizedPath}`;
+  cacheEntries.set(key.toString(), new Response(JSON.stringify(value), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl}`,
+    },
+  }));
 }
 
 async function flushCacheWrites(): Promise<void> {
@@ -34,8 +52,12 @@ async function flushCacheWrites(): Promise<void> {
 beforeEach(() => {
   cacheEntries.clear();
   pendingCacheWrites.length = 0;
+  cacheMatchCount = 0;
   const cache = {
-    match: vi.fn(async (input: RequestInfo | URL) => cacheEntries.get(cacheKey(input))?.clone()),
+    match: vi.fn(async (input: RequestInfo | URL) => {
+      cacheMatchCount += 1;
+      return cacheEntries.get(cacheKey(input))?.clone();
+    }),
     put: vi.fn(async (input: RequestInfo | URL, response: Response) => {
       cacheEntries.set(cacheKey(input), response.clone());
     }),
@@ -334,7 +356,14 @@ describe('locale-router job alias edge cache', () => {
     });
   }
 
-  it('serves the second verified 301 from Cache API without any origin or shard fetch', async () => {
+  function mockOriginStatus(status: number) {
+    return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const method = input instanceof Request ? input.method : 'GET';
+      return new Response(method === 'HEAD' ? null : status === 200 ? 'live page' : 'missing', { status });
+    });
+  }
+
+  it('serves the second verified 301 after origin 404 without a map or target fetch', async () => {
     const fetchMock = mockAliasRoute();
 
     const first = await worker.fetch(new Request(`${source}?from=first`), {}, ctx);
@@ -350,11 +379,58 @@ describe('locale-router job alias edge cache', () => {
     expect(new URL(storedKey ?? APEX).pathname).toBe(`/__worker-cache/job-alias/fr/fr/trouver-emploi-tessin/${itSlug}/`);
 
     fetchMock.mockClear();
+    const matchesBeforeSecond = cacheMatchCount;
     const second = await worker.fetch(new Request(`${source.replace(/\/$/, '')}?from=second`), {}, ctx);
     expect(second.status).toBe(301);
     expect(second.headers.get('Location')).toBe(`${frTarget}/?from=second`);
     expect(second.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
-    expect(fetchMock).not.toHaveBeenCalled();
+    expect(cacheMatchCount).toBe(matchesBeforeSecond + 1);
+    const secondFetches = fetchMock.mock.calls.map(([input]) => fetchUrl(input));
+    expect(secondFetches.length).toBeGreaterThan(0);
+    expect(secondFetches.every((url) => !url.includes('/job-canon/') && !url.includes(frTarget))).toBe(true);
+  });
+
+  it.each(['GET', 'HEAD'])('origin 200 wins over a cached redirect (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'redirect', target: `${frTarget}/` }, 86400);
+    const fetchMock = mockOriginStatus(200);
+
+    const response = await worker.fetch(new Request(source, { method }), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(fetchMock).toHaveBeenCalled();
+    if (method === 'GET') expect(await response.text()).toBe('live page');
+    else expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('origin 200 wins over a cached not-found (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'not-found' }, 600);
+    const fetchMock = mockOriginStatus(200);
+
+    const response = await worker.fetch(new Request(source, { method }), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(fetchMock).toHaveBeenCalled();
+    if (method === 'GET') expect(await response.text()).toBe('live page');
+    else expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('uses cached redirect only after origin 404 (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'redirect', target: `${frTarget}/` }, 86400);
+    const fetchMock = mockAliasRoute();
+
+    const response = await worker.fetch(new Request(`${source}?from=${method.toLowerCase()}`, { method }), {}, ctx);
+
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe(`${frTarget}/?from=${method.toLowerCase()}`);
+    expect(cacheMatchCount).toBe(1);
+    expect(fetchMock).toHaveBeenCalled();
+    const fetches = fetchMock.mock.calls.map(([input]) => fetchUrl(input));
+    expect(fetches.every((url) => !url.includes('/job-canon/') && !url.includes(frTarget))).toBe(true);
+    if (method === 'HEAD') expect(await response.text()).toBe('');
   });
 
   it('does not cache a destination verification failure', async () => {
@@ -399,23 +475,13 @@ describe('locale-router job alias edge cache', () => {
     expect(await stored.clone().json()).toEqual({ kind: 'not-found' });
 
     fetchMock.mockClear();
+    const matchesBeforeSecond = cacheMatchCount;
     const second = await worker.fetch(new Request(source), {}, ctx);
     expect(second.status).toBe(404);
     expect(second.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
-    expect(fetchMock).not.toHaveBeenCalled();
-  });
-
-  it('serves the cached GET redirect to HEAD with the same Location and no fetch', async () => {
-    const fetchMock = mockAliasRoute();
-    const get = await worker.fetch(new Request(`${source}?from=get`), {}, ctx);
-    expect(get.status).toBe(301);
-    await flushCacheWrites();
-
-    fetchMock.mockClear();
-    const head = await worker.fetch(new Request(`${source}?from=head`, { method: 'HEAD' }), {}, ctx);
-    expect(head.status).toBe(301);
-    expect(head.headers.get('Location')).toBe(`${frTarget}/?from=head`);
-    expect(await head.text()).toBe('');
-    expect(fetchMock).not.toHaveBeenCalled();
+    expect(cacheMatchCount).toBe(matchesBeforeSecond + 1);
+    expect(fetchMock).toHaveBeenCalled();
+    expect(fetchMock.mock.calls.map(([input]) => fetchUrl(input))
+      .every((url) => !url.includes('/job-canon/'))).toBe(true);
   });
 });

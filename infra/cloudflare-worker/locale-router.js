@@ -26,7 +26,7 @@
  * happy-path shard 200 (below) and READ when the origin fails (5xx / timeout /
  * network) to serve stale. Separate synthetic-key entries cache verified job
  * alias redirects and definitive unresolved-job 404s; GET/HEAD job-detail paths
- * check those entries before contacting an origin. The last-good copy does
+ * check those entries only after the origin confirms a 404. The last-good copy does
  * double duty: (1) stale-if-error (serve last-good 200 instead of propagating
  * an origin 5xx to crawlers/users), and (2) the over-cap fail-open path on the
  * free plan — when the daily cap is exceeded and the route is configured
@@ -44,12 +44,11 @@
  * cache.match() MISSes as phantom 504s (misread as an outage, three PR cycles
  * burned) and cache.put()s as 204s. The stale-copy match remains restricted to
  * the origin-error path (serveStaleOnError), where no live origin body can be
- * stalled by a tee. Job-alias matches also produce MISS rows on job-detail
- * requests; they are needed to let repeat hits skip the origin and are filtered
- * out by the `requestSource: "eyeball"` monitoring since #1842
- * (scripts/lib/cf-analytics.mjs). The happy-path last-good put copy remains
- * built from an explicit arrayBuffer, not a stream tee. Keep these properties
- * when touching this.
+ * stalled by a tee. Job-alias matches run only after a job-detail origin 404,
+ * so their MISS rows remain on that recovery path; monitoring filters
+ * `requestSource: "eyeball"` since #1842 (scripts/lib/cf-analytics.mjs). The
+ * happy-path last-good put copy remains built from an explicit arrayBuffer, not
+ * a stream tee. Keep these properties when touching this.
  *
  * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
  * requests bypass this Worker entirely.
@@ -3610,15 +3609,6 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   const jobAliasCacheKey = request.method === 'GET' || request.method === 'HEAD'
     ? jobAliasCacheKeyForUrl(url, recoveryLocale)
     : null;
-  const cachedJobAliasResponse = await readJobAliasCacheResult(
-    request,
-    url,
-    recoveryLocale,
-    sectionRoute,
-    jobAliasCacheKey,
-  );
-  if (cachedJobAliasResponse) return cachedJobAliasResponse;
-
   const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute, fannedSections);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
@@ -3781,6 +3771,14 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (employerRedirect) return employerRedirect;
     const fuelStationRedirect = await recoverFuelStationAlias(url, origin);
     if (fuelStationRedirect) return fuelStationRedirect;
+    const cachedJobAliasResponse = await readJobAliasCacheResult(
+      request,
+      url,
+      recoveryLocale,
+      sectionRoute,
+      jobAliasCacheKey,
+    );
+    if (cachedJobAliasResponse) return cachedJobAliasResponse;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale, jobAliasCacheKey, ctx);
     if (redirect === CANTON_DRIFT_CANONICAL_NULL) negativeAliasCacheCandidate = true;
     else if (redirect) return redirect;
