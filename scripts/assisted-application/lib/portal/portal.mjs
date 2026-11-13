@@ -1475,6 +1475,9 @@ const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|
 const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
 const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
+const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'www.job-room.ch']);
+const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
+const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
 const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
 const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
   String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
@@ -1647,6 +1650,61 @@ function isNonApplicationSurface(snapshot = {}, options = {}) {
   return isNonApplicationGallerySurface(snapshot)
     || isNonApplicationJobDetailSurface(snapshot, options)
     || isNonApplicationJobSearchSurface(snapshot, options);
+}
+
+function jobRoomControlText(control) {
+  return [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim())
+    .find(Boolean) || '';
+}
+
+function isJobRoomExternalApplicationLabel(control) {
+  return JOB_ROOM_EXTERNAL_APPLICATION_RE.test(jobRoomControlText(control));
+}
+
+function isJobRoomPublicPostingRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
+      && JOB_ROOM_HOSTS.has(url.hostname.toLowerCase())
+      && JOB_ROOM_PUBLIC_DETAIL_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
+// Job-Room's public detail route calls the official employer handoff «external
+// posting», not «Apply». Keep that vocabulary out of the shared Apply matcher:
+// only this exact host, route fingerprint and one external HTTPS target may use it.
+function isJobRoomExternalApplicationEntry(control, snapshot = {}, context = {}) {
+  if (context?.allowSingleExternalApplicationEntry !== true || control?.disabled || control?.chrome
+    || control?.ariaHidden === true || control?.behindDialog === true
+    || !isJobRoomExternalApplicationLabel(control)) return false;
+  const pageUrl = String(snapshot?.url || '');
+  if (!isJobRoomPublicPostingRoute(pageUrl)
+    || !samePostingAddress(pageUrl, context.postingUrl)
+    || !samePostingAddress(pageUrl, context.applyUrl)
+    || !isNonApplicationJobDetailSurface(snapshot)) return false;
+  if (!control?.href) return true;
+  try {
+    const target = new URL(String(control.href), pageUrl);
+    return target.protocol === 'https:' && !target.username && !target.password && !target.hash
+      && !JOB_ROOM_HOSTS.has(target.hostname.toLowerCase())
+      && !samePostingAddress(target.href, pageUrl);
+  } catch {
+    return false;
+  }
+}
+
+function jobRoomExternalApplicationEntryProven(snapshot = {}, context = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ].filter((control) => control?.ariaHidden !== true && control?.behindDialog !== true);
+  const entries = controls.filter((control) => isJobRoomExternalApplicationEntry(control, snapshot, context));
+  const competingApplicationControl = controls.some((control) => !isJobRoomExternalApplicationLabel(control)
+    && !control?.disabled && !control?.chrome && startsApplication(control?.text || control?.label));
+  return entries.length === 1 && !competingApplicationControl;
 }
 
 function learnedApplicationControls(buttons, known, path) {
@@ -1925,6 +1983,10 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
   if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
+
+  if (jobRoomExternalApplicationEntryProven(snapshot, context)) {
+    return controls.filter((control) => isJobRoomExternalApplicationEntry(control, snapshot, context));
+  }
 
   const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
   const competingSemanticEntry = controls.some((control) => !genericApplicationEntryLabel(control?.text || control?.label)
@@ -3368,7 +3430,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       ...(Array.isArray(snapshot.links) ? snapshot.links : []),
     ];
     const applicationControls = allControls.filter((control) => !control?.disabled && !control?.chrome
-      && startsApplication(control?.text || control?.label));
+      && (startsApplication(control?.text || control?.label) || isJobRoomExternalApplicationLabel(control)));
     const ownedEntries = applicationEntryControls(snapshot, stageContext);
     const entryContextChecks = applicationControls.map((control) => {
       const context = String(control?.vacancyContext || '').trim();
@@ -9032,10 +9094,15 @@ export async function readPortalRequirements(ctx) {
       job: ctx.job,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
+    const sourceJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
+      applyUrl: stageApplyUrl,
+      postingUrl: ctx.postingUrl || page.url(),
+      allowSingleExternalApplicationEntry: true,
+    });
     // A posting published as a document: its host page stands for it once the document is the order's.
     const sourceDocument = hasJobContract ? await postingDocumentHostMatch(snapshot, ctx, page.url()) : null;
     const sourceDocumentHost = sourceDocument?.identity === true;
-    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
+    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || sourceJobRoomEntryProven || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
       pageHeading: await postingMainHeading(page),
@@ -9590,6 +9657,11 @@ export async function submitViaPortal(ctx) {
       job: ctx.job,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
+    const initialJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
+      applyUrl: ctx.applyUrl,
+      postingUrl: ctx.postingUrl || postingUrl,
+      allowSingleExternalApplicationEntry: true,
+    });
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
@@ -9619,7 +9691,7 @@ export async function submitViaPortal(ctx) {
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
       && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
-    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven
+    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven || initialJobRoomEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,

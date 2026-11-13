@@ -1,7 +1,7 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-11-12T21:15:59.914Z",
+  "generatedAt": "2026-11-13T09:12:45.429Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9145,
-  "avgDurationMs": 9145,
+  "unchangedCount": 4,
+  "durationMs": 8783,
+  "avgDurationMs": 8783,
   "durationHistory": [
-    9145
+    8783
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "microsoft-200055947",
       "slug": "principal-software-ingegnere-microsoft-zurich",
@@ -35,7 +37,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999278",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:15:45.755Z",
+      "crawledAt": "2026-11-13T09:12:32.290Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,7 +53,6 @@
       "postedDate": "2026-11-12T07:04:21.000Z",
       "postingDateSource": "reported",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556999278",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T23:35:26.755Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -59,7 +60,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:15:45.755Z",
+      "validThrough": "2027-02-10T09:12:32.290Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -69,53 +70,6 @@
         "completeness": 25
       }
     },
-    {
-      "id": "microsoft-200063931",
-      "slug": "cloud-ai-platform-solution-engineer-microsoft-switzerland",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Cloud & AI Platform Solution Engineer",
-      "location": "Switzerland",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393557047481",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:15:45.751Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T16:24:56.000Z",
-      "postedDate": "2026-11-06T16:24:56.000Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557047481",
-      "firstSeenAt": "2026-11-06T21:16:23.289Z",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "salarySource": "reported",
-      "streetAddress": "Switzerland",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:15:45.751Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "microsoft-200062545",
       "slug": "cloud-solution-architect-copilot-and-agents-microsoft-zurich",
@@ -128,7 +82,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557043273",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:15:45.756Z",
+      "crawledAt": "2026-11-13T09:12:32.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +106,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T21:15:45.756Z",
+      "validThrough": "2027-01-23T09:12:32.289Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +128,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557021004",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:15:45.753Z",
+      "crawledAt": "2026-11-13T09:12:32.287Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +151,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:15:45.753Z",
+      "validThrough": "2027-01-08T09:12:32.287Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -206,7 +160,51 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "id": "microsoft-200063931",
+      "slug": "cloud-ai-platform-solution-engineer-microsoft-switzerland",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Cloud & AI Platform Solution Engineer",
+      "location": "Switzerland",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393557047481",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-13T09:12:32.286Z",
+      "addressLocality": "Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06T16:24:56.000Z",
+      "postedDate": "2026-11-06T16:24:56.000Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557047481",
+      "firstSeenAt": "2026-11-06T21:16:23.289Z",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "reported",
+      "streetAddress": "Switzerland",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-05T09:12:32.286Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }

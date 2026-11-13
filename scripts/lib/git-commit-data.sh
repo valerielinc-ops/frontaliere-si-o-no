@@ -364,6 +364,14 @@ elif [ "$SLICE_ONLY" = true ]; then
       "data/jobs/expired/by-crawler/${SLICE_BASENAME}"
       "data/jobs-crawler-summaries/by-crawler/${SLICE_BASENAME}"
     )
+    # The expired archive of a crawler is the monolith plus
+    # `<key>.shard-NNN.json` (scripts/lib/expired-slice-store.mjs): new rows
+    # land in the open shard once the monolith is past the shard target, so a
+    # scope limited to the monolith would leave them unstaged.
+    for _expired_shard in "data/jobs/expired/by-crawler/${SLICE_BASENAME%.json}".shard-*.json; do
+      [ -f "$_expired_shard" ] && STANDARD_FILES+=("$_expired_shard")
+    done
+    unset _expired_shard
     # SLICE_ONLY + JOBS_SLICE_FILE set ⇔ this invocation comes from a grouped
     # crawler-group-*.yml background step sharing ONE checkout with ~25
     # concurrently-running sibling crawlers (the generator exports

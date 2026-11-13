@@ -1,7 +1,7 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-11-12T21:35:37.609Z",
+  "generatedAt": "2026-11-13T09:13:28.586Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7119,
-  "avgDurationMs": 7119,
+  "durationMs": 7397,
+  "avgDurationMs": 7397,
   "durationHistory": [
-    7119
+    7397
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "swisslog-a66d00936b9d",
-      "slug": "support-coordinator-field-service-m-w-d-swisslog-buchs-switzerland",
+      "slug": "support-coordinatore-field-service-m-w-d-swisslog-buchs",
       "company": "Swisslog",
       "companyKey": "swisslog",
       "companyDomain": "swisslog.com",
@@ -34,7 +35,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/support-coordinator-field-service-mwd-4677",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:13.602Z",
+      "crawledAt": "2026-11-13T09:13:14.799Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -54,24 +55,24 @@
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/support-coordinator-field-service-mwd-4677",
       "jobReqId": "4677",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T21:35:13.602Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:35:13.602Z",
+      "validThrough": "2027-02-11T09:13:14.799Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:35:13.602Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "swisslog-057262777e94",
-      "slug": "field-service-engineer-swisslog-buchs-switzerland",
+      "slug": "field-service-ingegnere-swisslog-buchs",
       "company": "Swisslog",
       "companyKey": "swisslog",
       "companyDomain": "swisslog.com",
@@ -81,7 +82,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/field-service-engineer-4740",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:13.601Z",
+      "crawledAt": "2026-11-13T09:13:14.798Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -101,23 +102,22 @@
       "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/field-service-engineer-4740",
       "jobReqId": "4740",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T21:35:13.601Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:35:13.601Z",
+      "validThrough": "2026-12-28T09:13:14.798Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:35:13.601Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -132,7 +132,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:13.605Z",
+      "crawledAt": "2026-11-13T09:13:14.801Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -156,7 +156,7 @@
       "salaryMax": 110500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:35:13.605Z",
+      "validThrough": "2026-12-13T09:13:14.801Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:13.604Z",
+      "crawledAt": "2026-11-13T09:13:14.800Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -202,7 +202,7 @@
       "salaryMax": 78500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T21:35:13.604Z",
+      "validThrough": "2027-01-03T09:13:14.800Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-project-manager-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:13.599Z",
+      "crawledAt": "2026-11-13T09:13:14.797Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -248,7 +248,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:35:13.599Z",
+      "validThrough": "2027-02-03T09:13:14.797Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -259,5 +259,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }
