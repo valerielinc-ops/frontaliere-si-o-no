@@ -1415,12 +1415,12 @@
     },
     {
       "id": "kanton-gr-fe36099e9162",
-      "slug": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-mittelbunden-moesano-kantonale-verwaltung-graubunden-tiefencastel",
+      "slug": "tirocinio-professionale-forestale-presso-l-ufficio-per-le-foreste-e-i-pericoli-naturali-regione-grigioni-centrale",
       "slugByLocale": {
-        "it": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-mittelbunden-moesano-kantonale-verwaltung-graubunden-tiefencastel",
-        "en": "forestry-vocational-internship-at-the-office-for-forest-and-natural-hazards-central-grisons-moesano-region-kantonale",
         "de": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
-        "fr": "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-mittelbunden-moesano-kantonale-verwaltung"
+        "it": "tirocinio-professionale-forestale-presso-l-ufficio-per-le-foreste-e-i-pericoli-naturali-regione-grigioni-centrale",
+        "en": "forestry-vocational-internship-at-the-office-for-forest-and-natural-hazards-central-grisons-moesano-region-kantonale",
+        "fr": "stage-professionnel-forestier-aupres-de-l-office-des-forets-et-des-dangers-naturels-region-grisons-centraux-moesano"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1470,17 +1470,21 @@
       "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
+          "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-mittelbunden-moesano-kantonale-verwaltung-graubunden-tiefencastel"
         ],
         "en": [
           "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
         ],
         "fr": [
-          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
+          "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-mittelbunden-moesano-kantonale-verwaltung"
         ]
       },
       "previousSlugs": [
-        "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+        "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
+        "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-mittelbunden-moesano-kantonale-verwaltung-graubunden-tiefencastel",
+        "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-mittelbunden-moesano-kantonale-verwaltung"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,

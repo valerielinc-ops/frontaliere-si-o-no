@@ -106,12 +106,13 @@ export function encodeJinaTargetUrl(targetUrl = '') {
   return `${str.slice(0, i)}%3F${query}`;
 }
 
-export function jinaProxiedRequest(targetUrl, { format = 'html' } = {}) {
+export function jinaProxiedRequest(targetUrl, { format = 'html', accept } = {}) {
   const headers = {
     // Return the page's raw HTML (not Jina's default markdown) so downstream
     // HTML/JSON-LD parsers see exactly what a direct fetch would have returned.
     'X-Return-Format': format,
   };
+  if (accept) headers.Accept = accept;
   const key = (process.env.JINA_API_KEY || '').trim();
   if (key) headers.Authorization = `Bearer ${key}`;
   return { url: `${JINA_READER_BASE}${encodeJinaTargetUrl(targetUrl)}`, headers };
@@ -134,9 +135,9 @@ const AKAMAI_CHALLENGE_MARKERS = Object.freeze([
  */
 export async function fetchViaJina(
   targetUrl,
-  { timeoutMs = 30000, fetchImpl = fetch, format } = {},
+  { timeoutMs = 30000, fetchImpl = fetch, format, accept } = {},
 ) {
-  const { url, headers } = jinaProxiedRequest(targetUrl, { format });
+  const { url, headers } = jinaProxiedRequest(targetUrl, { format, accept });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -167,7 +168,15 @@ export async function fetchViaJina(
  */
 export async function fetchViaJinaWithRetry(
   targetUrl,
-  { timeoutMs = 30000, attempts = 4, retryDelayMs = 800, fetchImpl = fetch, format } = {},
+  {
+    timeoutMs = 30000,
+    attempts = 4,
+    retryDelayMs = 800,
+    fetchImpl = fetch,
+    format,
+    accept,
+    validateBody,
+  } = {},
 ) {
   // Broad egress outage already detected this run → fast-fail with the same
   // exhausted-response shape (no attempt), so the caller's graceful-skip path
@@ -183,7 +192,7 @@ export async function fetchViaJinaWithRetry(
   let lastReason = 'no attempt made';
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl, format });
+      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl, format, accept });
       lastStatus = res.status;
       if (!res.ok) {
         // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.
@@ -199,7 +208,14 @@ export async function fetchViaJinaWithRetry(
       } else {
         const body = await res.text();
         lastBody = body;
-        const reason = detectJinaErrorBody(body);
+        // Most Jina consumers receive HTML/text, so the shared validator's
+        // short-body floor is useful there. Structured endpoints can provide a
+        // different, domain-specific contract (for example a JSON envelope),
+        // and must be able to reject/accept the body without weakening the
+        // default validator for every other crawler.
+        const reason = typeof validateBody === 'function'
+          ? validateBody(body)
+          : detectJinaErrorBody(body);
         if (!reason) {
           // Real target page from a non-blocked Jina IP.
           recordJinaSuccess();
