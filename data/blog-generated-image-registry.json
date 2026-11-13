@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1162,
-  "generatedAt": "2026-11-13T00:32:07.767Z",
+  "assetCount": 1163,
+  "generatedAt": "2026-11-13T01:07:51.405Z",
   "assets": [
     {
       "schema": 1,
@@ -49728,6 +49728,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a municipal administrative building; no people, readable text, logos, signage, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-pfiffner-450-posti-pratteln",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "8f5e675ebf6726e5dd311c2cd1fcc2a4649d37ba14ad5b8910d78a42a5b356fd",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "841ae4cdc3bd094b91e1fb5b65f7296f27ec1e4576c49a9f5669e6c753fb11d5",
+      "bytes": 155778,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-12T23:48:25.064Z",
+      "verifiedAt": "2026-11-12T23:48:39.343Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-pfiffner-450-posti-pratteln.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic photorealistic synthetic industrial-park illustration with no text, logos, people, or event-specific cues."
       }
     }
   ]
