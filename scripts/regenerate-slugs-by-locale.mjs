@@ -8,7 +8,9 @@
  *
  * This script ONLY:
  *   1. Reads titleByLocale[locale] + company + location
- *   2. Generates slugByLocale[locale] = slugify(title-company-location)
+ *   2. Generates slugByLocale[locale] = slugify(title-company-location) for a
+ *      locale that has no slug yet, or whose slug no longer carries the job's
+ *      company/location (published-slug stability, 2026-11-13)
  *   3. Preserves old slugs in previousSlugs for SEO bridge pages
  *
  * It NEVER:
@@ -55,6 +57,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
+import { mayReplacePublishedSlug } from './lib/published-slug-stability.mjs';
 import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
 
 /**
@@ -132,6 +135,7 @@ async function main() {
   let totalJobs = 0;
   let totalDisambiguated = 0;
   let totalPinned = 0;
+  let totalKeptPublished = 0;
   let slicesChanged = 0;
   let totalRelabelled = 0;
   let totalSourceRefreshed = 0;
@@ -271,6 +275,16 @@ async function main() {
         // locale prefixes keep the routes distinct (same as a brand refresh).
         if (!brandRefresh && !truncatedTitle && otherSlugs.has(newSlug)) continue;
 
+        // A published slug stays canonical (scripts/lib/published-slug-stability.mjs):
+        // a re-translated title, a truncated translation or a slug that still
+        // copies another locale derive only a MISSING slug. Only a change of
+        // identity (company or location no longer in the slug) or a declared
+        // brand refresh may replace one that is already served.
+        if (!brandRefresh && !mayReplacePublishedSlug(currentSlug, { company, location }, { job, locale, justReleased: true })) {
+          totalKeptPublished++;
+          continue;
+        }
+
         // Cross-job uniqueness check (Phase 4 case 5).
         // If another active job already owns `newSlug` for this locale,
         // append a deterministic short hash of THIS job's id so the slug
@@ -394,6 +408,9 @@ async function main() {
   }
   if (totalSourceRefreshed > 0) {
     console.log(`🔤 Source-locale: ${totalSourceRefreshed} slug riallineati dopo la rietichettatura`);
+  }
+  if (totalKeptPublished > 0) {
+    console.log(`🔒 Published slugs kept: ${totalKeptPublished} locale slug(s) whose title moved but whose company and location did not`);
   }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);

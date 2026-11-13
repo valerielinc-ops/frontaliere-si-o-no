@@ -2,6 +2,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { PART_TIME_MAX_WORKLOAD, workloadPercent } from './employment-workload.mjs';
 import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { losslessSlugTitle, slugDropsSourceWords } from './job-title-identity.mjs';
+import { mayReplacePublishedSlug, slugWasServed } from './published-slug-stability.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -1519,6 +1520,9 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   let changed = false;
   let repaired = 0;
   const slugChangeCount = {};
+  // Title-driven re-derivations refused because the slug is already published
+  // (scripts/lib/published-slug-stability.mjs). Reported, never applied.
+  let publishedSlugsKept = 0;
 
   // Immutable slug-registry: when a job is registered with a real per-locale
   // translation, that slug wins over anything re-derived from the (possibly
@@ -1903,11 +1907,23 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
           const derived = disambiguator
             ? appendSlugDisambiguator(derivedBase, disambiguator)
             : derivedBase;
-          if (derived && derived !== existingSlug && !isSlugStable(existingSlug, derived, {
+          const wouldRederive = Boolean(derived) && derived !== existingSlug && !isSlugStable(existingSlug, derived, {
             threshold: 0.70,
             existingLocation: staleLocation,
             newLocation: staleLocation,
-          })) {
+          });
+          if (wouldRederive && !mayReplacePublishedSlug(existingSlug, { company: staleCompany, location: staleLocation }, { job, locale })) {
+            // A served slug stays canonical when only the TITLE moved
+            // (scripts/lib/published-slug-stability.mjs). This pass runs at
+            // deploy on data/jobs.json: re-deriving here published a new URL
+            // while the slice kept the indexed one. A derived URL that earlier
+            // builds did serve stays reachable as a bridge.
+            publishedSlugsKept += 1;
+            if (slugWasServed(locale, derived) === true) {
+              addPreviousSlugForLocale(job, locale, derived, 20, 'hardenJobLocaleFields/publishedSlugKept');
+              jobChanged = true;
+            }
+          } else if (wouldRederive) {
             const reason = 'stale_slug';
             slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
             console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${existingSlug} → ${derived}`);
@@ -2072,12 +2088,27 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
         // token with its healthy replacement (that's exactly what makes it look "close
         // enough" to isSlugStable), which would otherwise silently re-suppress the fix.
         const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair' || reason === 'garbled_pin_repair';
+        // Published-slug stability (scripts/lib/published-slug-stability.mjs):
+        // the three quality repairs fix a DEFECT of the slug itself (German or
+        // French trade words in an Italian URL, boilerplate text, a garbled
+        // registry pin) and keep replacing it. A federal placeholder
+        // (`company_repair`) or a short base copy lacks the company/location
+        // and passes the gate by construction; anything else is a title
+        // re-derivation and leaves an already published slug alone.
         if (!isQualityRepair && localizedSlug && isSlugStable(localizedSlug, nextSlug, {
           threshold: 0.70,
           existingLocation: location,
           newLocation: location,
         })) {
           continue; // slug is close enough — don't churn
+        }
+        if (!isQualityRepair && !mayReplacePublishedSlug(localizedSlug, { company, location }, { job, locale })) {
+          publishedSlugsKept += 1;
+          if (slugWasServed(locale, nextSlug) === true) {
+            addPreviousSlugForLocale(job, locale, nextSlug, 20, 'hardenJobLocaleFields/publishedSlugKept');
+            jobChanged = true;
+          }
+          continue;
         }
         slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
         console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${localizedSlug || '(empty)'} → ${nextSlug}`);
@@ -2116,6 +2147,9 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   const totalSlugChanges = Object.values(slugChangeCount).reduce((a, b) => a + b, 0);
   if (totalSlugChanges > 0) {
     console.log(`📊 Slug changes this run: ${totalSlugChanges} total — ${JSON.stringify(slugChangeCount)}`);
+  }
+  if (publishedSlugsKept > 0) {
+    console.log(`🔒 Published slugs kept: ${publishedSlugsKept} title-driven re-derivation(s) refused (company and location unchanged)`);
   }
 
   // Alert for jobs approaching the previousSlugs cap (20)
