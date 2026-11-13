@@ -1002,10 +1002,15 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
   try {
     const page = new URL(String(pageUrl || ''));
     const posting = new URL(String(postingUrl || ''));
+    const routeAddress = (url) => {
+      const copy = new URL(url.href);
+      copy.hash = '';
+      return copy.href;
+    };
     return page.hostname === 'jobs.stadt-zuerich.ch'
       && posting.hostname === page.hostname
-      && isStadtZurichPublicJobDetailRoute(page.href)
-      && isStadtZurichPublicJobDetailRoute(posting.href)
+      && isStadtZurichPublicJobDetailRoute(routeAddress(page))
+      && isStadtZurichPublicJobDetailRoute(routeAddress(posting))
       && samePostingAddress(page.href, posting.href);
   } catch {
     return false;
@@ -4595,7 +4600,9 @@ export function formPostingMatch(formText, job = {}, {
     : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
-  if (direct === 'match' && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
+  const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  if (direct === 'match' && !talentSoftAlias
+    && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
