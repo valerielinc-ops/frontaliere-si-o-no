@@ -262,7 +262,7 @@ function buildJob(row) {
     title: String(row.title || '').trim(),
     slug: localized.slugByLocale[sourceLang] || localized.slugByLocale.it,
     url: row.detailUrl,
-    applyUrl: row.detailUrl,
+    applyUrl: row.applyUrl || row.detailUrl,
     company: row.company || COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
