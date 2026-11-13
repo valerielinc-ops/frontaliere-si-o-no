@@ -5,6 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { TITLE_RE } from '../../scripts/ci/close-recovered-failure-issues.mjs';
+import { transportVerdict } from '../../scripts/ci/loop-drift-check.mjs';
 import {
   MAX_DISCOVERY_ARTIFACTS,
   MAX_DISCOVERY_ARTIFACT_REFERENCES,
@@ -246,6 +247,22 @@ test('loop-drift osserva live tutti gli artifact portabili scoperti e il contrat
   const contractHash = sha256(readFileSync(CONTRACT_PATH, 'utf8')).slice(0, 16);
   assert.equal(contractEntry.baseline.site, contractHash);
   assert.equal(contractEntry.baseline.corpus, contractHash);
+});
+
+test('loop-drift conserva il verdetto di trasporto del ramo site-ahead', () => {
+  const baseline = { site: 'base-site', corpus: 'base-corpus' };
+  const siteAheadTransport = transportVerdict(
+    {
+      path: 'generator/data/crawler-cross-repo-contract.json',
+      mode: 'identical',
+      baseline,
+    },
+    { site: 'site-ahead', corpus: baseline.corpus },
+    baseline,
+  );
+
+  assert.equal(siteAheadTransport.state, 'site-ahead');
+  assert.equal(siteAheadTransport.transport, 'site-ahead');
 });
 
 test('il retry e limitato al checkout sparse pre-logica, con backoff', () => {
