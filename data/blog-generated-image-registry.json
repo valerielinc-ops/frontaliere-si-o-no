@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1161,
-  "generatedAt": "2026-11-12T23:11:15.001Z",
+  "assetCount": 1162,
+  "generatedAt": "2026-11-13T00:32:07.767Z",
   "assets": [
     {
       "schema": 1,
@@ -49685,6 +49685,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a modern Swiss urban office scene with an upward economic data chart; no readable text, logos, signage, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-referendum-budget-2027-frauenfeld",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "be6d9bc6c889a898e256c7310ad231a70b9bd73b09ff65b21ca89fdd8939bc34",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "53d086040226d0e3ca70a9570bdbec3b18c7c2241f9831a883482e99a4875a7c",
+      "bytes": 165006,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-12T22:59:53.127Z",
+      "verifiedAt": "2026-11-12T23:00:04.001Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-referendum-budget-2027-frauenfeld.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of a municipal administrative building; no people, readable text, logos, signage, or specific event."
       }
     }
   ]
