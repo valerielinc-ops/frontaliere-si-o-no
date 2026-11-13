@@ -37,6 +37,7 @@ import { realpathSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
@@ -461,6 +462,10 @@ function readJson(filePath) {
   } catch {
     return null;
   }
+}
+
+function readJobsJson(filePath) {
+  return readJsonFile(filePath);
 }
 
 /**
@@ -1628,7 +1633,7 @@ export async function runRelocalization(phase) {
     return;
   }
 
-  const jobs = readJson(DATA_JOBS_PATH);
+  const jobs = readJobsJson(DATA_JOBS_PATH);
   if (!Array.isArray(jobs) || jobs.length === 0) {
     console.log('ℹ️  No jobs found in data/jobs.json.');
     return;
@@ -2136,7 +2141,7 @@ export async function runRelocalization(phase) {
     try {
       // Snapshot locale content BEFORE the crawler so we can tell which jobs it
       // actually translated (changed) vs the budget-unreached tail.
-      const preCrawlerJobs = readJson(DATA_JOBS_PATH);
+      const preCrawlerJobs = readJobsJson(DATA_JOBS_PATH);
       const preSignatures = new Map(executionKeys.map((companyKey) => [
         companyKey,
         Array.isArray(preCrawlerJobs)
@@ -2174,7 +2179,7 @@ export async function runRelocalization(phase) {
       const companyElapsedMs = cascadeNow() - companyStartedMs;
 
       // Save progress after each company: clear flags and write to disk
-      const currentJobs = readJson(DATA_JOBS_PATH);
+      const currentJobs = readJobsJson(DATA_JOBS_PATH);
       const clearedByCompany = new Map();
       const clearedInExecution = new Set(executionKeys);
       if (Array.isArray(currentJobs)) {
@@ -2338,7 +2343,7 @@ export async function runRelocalization(phase) {
   });
   const retryBudget = Math.max(0, effectiveMax - budgetConsumed);
   if (!retryStartReason && retryBudget > 0) {
-    const retryJobs = readJson(DATA_JOBS_PATH);
+    const retryJobs = readJobsJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
       : [];
@@ -2399,7 +2404,7 @@ export async function runRelocalization(phase) {
         console.log(`   🔁 Retrying ${retryLabel} (${count} jobs)...`);
         budgetConsumed += count;
         try {
-          const preRetryJobs = readJson(DATA_JOBS_PATH);
+          const preRetryJobs = readJobsJson(DATA_JOBS_PATH);
           const preRetrySignatures = new Map(retryKeys.map((companyKey) => [
             companyKey,
             Array.isArray(preRetryJobs)
@@ -2426,7 +2431,7 @@ export async function runRelocalization(phase) {
             if (retryHandle) retryHandle.restore();
           }
           const retryElapsedMs = cascadeNow() - retryStartedMs;
-          const afterRetry = readJson(DATA_JOBS_PATH);
+          const afterRetry = readJobsJson(DATA_JOBS_PATH);
           // La riga si registra SEMPRE, anche quando il retry non fa passare
           // niente. Dentro un `if (cleared > 0)` un retry sterile — che il
           // tempo lo ha speso comunque — non entrerebbe in nessun braccio, e
@@ -2533,7 +2538,7 @@ export async function runRelocalization(phase) {
   // Final summary — use saved slug set instead of re-reading data/jobs.json
   // (data/jobs.json is gitignored and gets rewritten by the shared crawler with
   // stripCopyPasteLocales, causing a measurement drift that doesn't reflect reality)
-  const afterJobs = readJson(DATA_JOBS_PATH);
+  const afterJobs = readJobsJson(DATA_JOBS_PATH);
   const afterPendingJobs = Array.isArray(afterJobs) ? afterJobs.filter(needsTranslation) : [];
   const stillPending = afterPendingJobs.length;
   const fixed = totalFixed; // use actual cleared count, not before-after diff

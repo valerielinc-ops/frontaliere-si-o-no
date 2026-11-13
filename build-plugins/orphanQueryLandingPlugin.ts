@@ -90,6 +90,7 @@ import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { buildOrphanQueryAliases } from '../scripts/lib/orphan-query-aliases.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import {
   resolveNursingOrphanQueryTarget,
   type NursingOrphanQueryTarget,
@@ -179,7 +180,7 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
   const mainPath = path.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const raw = readJsonFile(mainPath);
       if (Array.isArray(raw)) {
         for (const j of raw) {
           const key = String(j?.slug || j?.id || '');

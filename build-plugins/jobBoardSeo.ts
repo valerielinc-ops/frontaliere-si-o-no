@@ -8,11 +8,11 @@
 
 export * from './jobBoardSeoPure';
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { buildLocaleJob, type JobEntry } from './shared/slimJobIndex';
 import { isFixtureJob } from '../scripts/lib/fixture-data-filter.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { JobBoardLocale } from './jobBoardSeoPure';
 
 /**
@@ -29,8 +29,7 @@ export function getActiveJobCountsByLocale(
 ): Record<JobBoardLocale, number> {
   const file = path.resolve(rootDir, 'data/jobs.json');
   try {
-    const raw = fs.readFileSync(file, 'utf-8');
-    const parsed = JSON.parse(raw) as unknown;
+    const parsed = readJsonFile(file) as unknown;
     if (!Array.isArray(parsed)) return { it: 0, en: 0, de: 0, fr: 0 };
     const jobs = (parsed as JobEntry[]).filter((job) => !isFixtureJob(job) && isListingInventoryJob(job)).map(normalizeListingIdentity);
     const inventoryCanton = canton ?? '_AGGREGATE_';

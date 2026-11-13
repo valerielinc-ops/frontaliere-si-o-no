@@ -52,6 +52,7 @@ import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from './shared/weeklyEmployersArchiveMarker.mjs';
 import { WriteCollector } from './batchWrite';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
   MIN_JOBS_PER_COMPANY_IN_CITY,
@@ -4101,7 +4102,7 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   const mainPath = np.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const raw = readJsonFile(mainPath);
       if (Array.isArray(raw)) {
         for (const j of raw) {
           const key = String(j?.slug || j?.id || '');

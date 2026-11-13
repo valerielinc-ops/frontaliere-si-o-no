@@ -81,12 +81,17 @@ describe('data/jobs.json readers', () => {
     'build-plugins/jobRecencyPagesPlugin.ts',
     'build-plugins/jobSectorPagesPlugin.ts',
     'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/jobBoardSeo.ts',
+    'build-plugins/companyHubBridgePlugin.ts',
+    'build-plugins/jobOgImagesPlugin.ts',
+    'build-plugins/orphanQueryLandingPlugin.ts',
     'build-plugins/nursingJobsAggregate.ts',
     'build-plugins/professionJobsAggregate.ts',
     'build-plugins/relatedSearchClustersPlugin.ts',
     'build-plugins/shared/loadDataJson.ts',
     'build-plugins/shared/reportJobPanel.ts',
     'build-plugins/staticPagesPlugin.ts',
+    'build-plugins/weeklyEmployersPlugin.ts',
     'scripts/build-employer-profiles.mjs',
     'scripts/audit-related-search-candidates.mjs',
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
@@ -104,6 +109,35 @@ describe('data/jobs.json readers', () => {
     'scripts/cleanup-jobs.mjs',
     'scripts/ci/prepare-job-og-cache-prewarm.ts',
     'scripts/send-job-alerts.mjs',
+    'scripts/build-employer-insights.mjs',
+    'scripts/backfill-bullet-normalization.mjs',
+    'scripts/backfill-newsletter-job-context.mjs',
+    'scripts/cleanup-redundant-previous-slugs.mjs',
+    'scripts/discover-sector-hub-candidates.ts',
+    'scripts/download-missing-company-logos.mjs',
+    'scripts/enrich-compat-orphan-slugs.mjs',
+    'scripts/flag-wrong-locale-descriptions.mjs',
+    'scripts/generate-job-board-stats.mjs',
+    'scripts/generate-health-facilities-jobs.mjs',
+    'scripts/localize-vf-existing-jobs.mjs',
+    'scripts/publish-jobs-fast.mjs',
+    'scripts/profile-cluster-emission.mjs',
+    'scripts/re-enrich-jobs.mjs',
+    'scripts/re-localize-jobs.mjs',
+    'scripts/reconcile-job-slugs.mjs',
+    'scripts/repair-job-locales.mjs',
+    'scripts/refresh-jobposting-address-cache.mjs',
+    'scripts/scatter-jobs-to-slices.mjs',
+    'scripts/post-to-telegram.mjs',
+    'scripts/schedule-fb-jobs-daily.mjs',
+    'scripts/schedule-reddit-jobs-daily.mjs',
+    'scripts/validate-jobs-rich-results-sample.mjs',
+    'scripts/lib/company-logo-audit.mjs',
+    'scripts/lib/crawler-run-jobs.mjs',
+    'scripts/lib/llms-txt-generator.mjs',
+    'scripts/lib/shared-jobs-crawler.mjs',
+    'scripts/lib/social-post-utils.mjs',
+    'scripts/relocalize-pending-jobs.mjs',
   ];
   const wholeFileRead = /readFileSync\(\s*(jobsPath|abs|JOBS_PATH|DATA_JOBS|DATA_JOBS_PATH|EXPIRED_JOBS_PATH|np\.resolve\(rootDir, 'data\/jobs\.json'\)|path\.join\(rootDir, 'data\/jobs\.json'\))\s*,\s*'utf-?8'\s*\)/;
 
@@ -130,8 +164,33 @@ describe('data/jobs.json readers', () => {
 
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
     const src = fs.readFileSync(path.join(root, rel), 'utf8');
-    expect(src).toMatch(/import \{ readJsonFile \} from '(\.\.?\/)+(scripts\/)?lib\/read-large-json\.mjs';/);
+    expect(src).toMatch(/import \{ readJsonFile \} from ['"](\.\.?\/)+(scripts\/)?(lib\/)?read-large-json\.mjs['"];?/);
     expect(src).toMatch(/readJsonFile\(/);
     expect(src).not.toMatch(wholeFileRead);
+  });
+
+  it('keeps git-commit-data job JSON reads on the large-file reader', () => {
+    const src = fs.readFileSync(path.join(root, 'scripts/lib/git-commit-data.sh'), 'utf8');
+    expect(src).toMatch(/import \{ readJsonFile \} from '\.\/scripts\/lib\/read-large-json\.mjs';/);
+    expect(src).toMatch(/const jobs\s*=\s*readJsonFile\(filePath\)/);
+    expect(src).toMatch(/jobs\s*=\s*readJsonFile\(dataJobsPath\)/);
+    expect(src).toMatch(/const value\s*=\s*readJsonFile\(file\)/);
+  });
+
+  it('keeps dedicated DATA_JOBS readers on the large-file reader', () => {
+    const scriptsDir = path.join(root, 'scripts');
+    const offenders: string[] = [];
+    for (const entry of fs.readdirSync(scriptsDir, { withFileTypes: true })) {
+      if (!entry.isFile() || !/^update-.*-jobs\.mjs$/.test(entry.name)) continue;
+      const rel = path.join('scripts', entry.name);
+      const src = fs.readFileSync(path.join(root, rel), 'utf8');
+      if (!src.includes('DATA_JOBS')) continue;
+      if (!/JSON\.parse\(\s*(?:fs\.)?readFileSync\(\s*DATA_JOBS|readJson\(\s*DATA_JOBS/.test(src)) continue;
+      expect(src, rel).toMatch(/import \{ readJsonFile \} from '\.\/lib\/read-large-json\.mjs';/);
+      if (/JSON\.parse\(\s*(?:fs\.)?readFileSync\(\s*DATA_JOBS/.test(src)) {
+        offenders.push(rel);
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 });
