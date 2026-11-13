@@ -766,8 +766,8 @@ it('names the class of a failed pre-read without copying the browser message', (
 it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {
   const genericForm = 'Bewerbung\nVorname *\nE-Mail *\nhttps://ats.example/apply';
   const job = { title: 'Pflegefachperson 80%' };
-  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
-  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('match');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('unknown');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('unknown');
   expect(formPostingMatch('Other employer\nBewerbung', { ...job, company: 'Muster AG' }, {
     postingMatched: true, applicationEntry: true,
   })).toBe('mismatch');
@@ -1117,7 +1117,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   const applicationUrl = 'https://ats.example.test/apply/42';
   const formSnapshot = {
     url: applicationUrl, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [],
-    text: 'Social worker application Acme AG',
+    text: 'Pflegefachfrau Gesundheit 80–100% (H/F) - Bewerbung',
     fields: [
       { id: 'question', kind: 'text', inputType: 'text', label: 'Do you have a license?', form: 0, required: true },
       { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', form: 0, required: false },
@@ -1125,14 +1125,14 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const postingSnapshot = {
     url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
-    text: 'Social worker at Acme AG',
+    text: 'Pflegefachfrau Gesundheit 80–100%',
     fields: [],
-    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Pflegefachfrau Gesundheit 80–100%', frame: 0, chrome: false }],
   };
-  const job = { title: 'Social worker', company: 'Acme AG' };
+  const job = { title: 'Operatrice sociosanitaria' };
   expect(hasVacancySpecificPostingEvidence(postingSnapshot.text, job, {
     pageUrl: postingUrl,
-    pageTitle: 'Social worker | Rival AG',
+    pageTitle: 'Pflegefachfrau Gesundheit 80–100% | Pflegeheim Gegenteilig',
     postingUrl,
     uniqueApplicationEntryProven: true,
   })).toBe(false);
@@ -1149,13 +1149,15 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const page = {
     frames: () => [frame], url: () => state.url,
-    title: vi.fn(async () => state.url === postingUrl ? 'Social worker | Acme AG' : 'Social worker application | Acme AG'),
+    title: vi.fn(async () => state.url === postingUrl ? 'Pflegefachfrau Gesundheit 80–100%' : 'Pflegefachfrau Gesundheit 80% (H/F) - Bewerbung'),
     goto: vi.fn(async (url: string) => {
       state.url = url;
       state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
     }),
     evaluate: vi.fn(async (evaluate: unknown) => typeof evaluate === 'function'
-      && String(evaluate).includes("querySelectorAll('h1,") ? [] : false),
+      && String(evaluate).includes("querySelectorAll('h1,")
+      ? state.url === postingUrl ? ['Pflegefachfrau Gesundheit 80–100%'] : []
+      : false),
     waitForLoadState: vi.fn(async () => {}),
     waitForTimeout: vi.fn(async () => {}),
   };
