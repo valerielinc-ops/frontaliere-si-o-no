@@ -4,27 +4,27 @@
   "generatorSha256": "f60e5224337407ab6a062fc28dbd32a8d0a5b3f72ed299e85248866fb78c88f5",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "df6ed1c48b129ba88ced7ce825a43076beca4e99",
-  "sourceCommitVerified": true,
+  "sourceCommit": "1d0c046922441f6ea590c04992a8d0a182e1405c",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "f60e5224337407ab6a062fc28dbd32a8d0a5b3f72ed299e85248866fb78c88f5",
     "sourceRef": "main",
-    "sourceCommit": "df6ed1c48b129ba88ced7ce825a43076beca4e99"
+    "sourceCommit": "1d0c046922441f6ea590c04992a8d0a182e1405c"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 703,
+  "crawlerCount": 706,
   "crawlerRosterCardinality": {
-    "sourceCommit": "df6ed1c48b129ba88ced7ce825a43076beca4e99",
+    "sourceCommit": "1d0c046922441f6ea590c04992a8d0a182e1405c",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 703
+    "crawlerCount": 706
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:3d8a92c499bba5d43d962fa2c970851728bc5c7d18ee04de70c355f6939c9d38",
+    "rosterDigest": "sha256:265443322379927560ec34b809f2f2c0ec916b9cdeb5b44c51adab3e15b950bc",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -258,6 +258,7 @@
     "scripts/update-fhgr-jobs.mjs",
     "scripts/update-fielmann-jobs.mjs",
     "scripts/update-fisba-jobs.mjs",
+    "scripts/update-fixit-ch-jobs.mjs",
     "scripts/update-flury-stiftung-jobs.mjs",
     "scripts/update-fmi-jobs.mjs",
     "scripts/update-fondation-domus-jobs.mjs",
@@ -295,6 +296,7 @@
     "scripts/update-h-ju-hopital-du-jura-jobs.mjs",
     "scripts/update-hanseisenring-jobs.mjs",
     "scripts/update-heineken-ch-jobs.mjs",
+    "scripts/update-heini-ch-heini-ch-jobs.mjs",
     "scripts/update-helsana-jobs.mjs",
     "scripts/update-helvetia-jobs.mjs",
     "scripts/update-hermes-jobs.mjs",
@@ -587,6 +589,7 @@
     "scripts/update-stellenpartner-jobs.mjs",
     "scripts/update-stellentreff-jobs.mjs",
     "scripts/update-stiftung-diaconis-jobs.mjs",
+    "scripts/update-stiftung-ilgenhalde-jobs.mjs",
     "scripts/update-stiftung-kind-autismus-jobs.mjs",
     "scripts/update-strabag-jobs.mjs",
     "scripts/update-straumann-jobs.mjs",
@@ -1098,8 +1101,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "fe90efaf81dab361656b6a9c0654975c2732a9ef3d943ab0596f2b2373f21233",
-      "artifactSha256": "6d39aabcf83b477587e6a532b133ab76184ae38df0ef129c580ce9e05cd8a4af",
+      "sourceSha256": "9e64fa66dd436a14ba9e976921d3cdd6a43460236b2cc46f8b06bdf2e9b71d94",
+      "artifactSha256": "5fed92cf743dc34a77d14857ff55ac0105bcaa79585719d78d6692f64da79969",
       "generatorSha256": "f60e5224337407ab6a062fc28dbd32a8d0a5b3f72ed299e85248866fb78c88f5",
       "members": [
         "rehab-basel",
@@ -1131,14 +1134,15 @@
         "bls",
         "cnp",
         "tpl-lugano",
-        "ch"
+        "ch",
+        "stiftung-ilgenhalde"
       ]
     },
     {
       "file": "crawler-group-12.yml",
       "sourceLogic": "crawler-group-12-logic.yml",
-      "sourceSha256": "11c097ea3799dc4653a20c4b124a0c8e928473f4a5138795ed680f6133639112",
-      "artifactSha256": "23ac156f97c313ac04d61eecbd247dc9a5b579510f66a137ed7251f356a3e973",
+      "sourceSha256": "31609a31670574aa53f0c2d6734faf749927de74c9a42322e40cd7d353b7980d",
+      "artifactSha256": "be647f100b567d72160701f1077a632ea30f60e90e3bbedd6b3a926af1bc67f6",
       "generatorSha256": "f60e5224337407ab6a062fc28dbd32a8d0a5b3f72ed299e85248866fb78c88f5",
       "members": [
         "klinik-sgm",
@@ -1170,14 +1174,15 @@
         "stadt-luzern",
         "lindt-spruengli",
         "axa",
-        "servicekuhn-ch"
+        "servicekuhn-ch",
+        "heini-ch-heini-ch"
       ]
     },
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "8aad0c5b9510224bbc15d22be1524c08d577d52b6ddbed37c09ba0f8124d2f73",
-      "artifactSha256": "1e4b4809816b0427e976e9d05aefb063abb1c95986396d298aa3caed9f52456a",
+      "sourceSha256": "507444d40fed99728e95ded9406376ca2f85ecda3cc87ae468f2d795c051c417",
+      "artifactSha256": "8e87511aad55deece707b0d6b54a64797ba38aa2f4405d1e25ccd2fda58c5c79",
       "generatorSha256": "f60e5224337407ab6a062fc28dbd32a8d0a5b3f72ed299e85248866fb78c88f5",
       "members": [
         "pwc",
@@ -1209,7 +1214,8 @@
         "abraxas",
         "afry",
         "buehler",
-        "alfa-personal-ch"
+        "alfa-personal-ch",
+        "fixit-ch"
       ]
     },
     {
