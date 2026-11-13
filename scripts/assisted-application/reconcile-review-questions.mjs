@@ -41,12 +41,13 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { evaluateRedFlags, transition } from '../../functions/src/assistedApplicationFlow.js';
 import { sendMayHaveLeft } from '../../functions/src/assistedApplicationEmployerWithdrawal.js';
-import { candidateWithEdits } from '../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, candidateWithEdits } from '../../functions/src/assistedApplicationCandidateEdits.js';
 import { verifiedCvAnswers } from '../../functions/src/assistedApplicationCvAnswers.js';
 import { verifiedDecisionAnswers } from '../../functions/src/assistedApplicationDecisionAnswers.js';
 import { withPlatformSuggestions, withoutPlatformSuggestions } from '../../functions/src/assistedApplicationOperationalAnswers.js';
@@ -104,6 +105,10 @@ const questionIdentity = (draft) => JSON.stringify((Array.isArray(draft?.questio
   .map((question) => [question?.id, question?.question, question?.applicationQuestion, question?.type, question?.source]));
 const sameHolds = (left, right) => JSON.stringify([...(left?.heldBy || [])].map(String).sort())
   === JSON.stringify([...(right?.heldBy || [])].map(String).sort());
+const answerMap = value => value && typeof value === 'object' && !Array.isArray(value)
+  ? Object.fromEntries(Object.keys(value).sort().map(key => [key, value[key]])) : {};
+const candidateAnswerState = flow => ({ answers: answerMap(flow?.answers), questionAnswers: answerMap(flow?.questionAnswers),
+  candidateAnswerHistory: candidateAnswerHistoryState(flow?.candidateAnswerHistory) });
 
 /** An order whose current draft the reconciliation may touch: paid, in review, the draft of the round. */
 function reviewDraftOf({ order, flow, draft }) {
@@ -297,6 +302,9 @@ export async function reconcileReviewQuestions({
         after = { ...after, questions: mirror.questions };
         const changed = [...new Set([...answered, ...mirror.ids])];
         const tick = transition(flow, { type: 'tick' }, { order, draft: after, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+        if (!isDeepStrictEqual(candidateAnswerState(flow), candidateAnswerState(tick.flow))) {
+          throw new Error('candidate answers changed during review-question reconciliation');
+        }
         const releases = releasesWait(flow, tick);
         Object.assign(entry, { answered, stillOpen, releases, heldAfter: releases ? tick.flow.heldBy : flow.heldBy, mirrored: mirror.ids });
         report.asked += asked.length;
@@ -318,6 +326,7 @@ export async function reconcileReviewQuestions({
           // A new round, another state, other holds or edited questions since the read: the next run (or the
           // next draft) starts from them.
           if (freshFlow.state !== flow.state || Number(freshFlow.round) !== Number(flow.round) || !sameHolds(freshFlow, flow)
+            || !isDeepStrictEqual(candidateAnswerState(freshFlow), candidateAnswerState(flow))
             || Number(freshDraft.round) !== Number(draft.round) || questionIdentity(freshDraft) !== questionIdentity(draft)) return false;
           const freshLedger = freshOrder.reviewQuestionRecovery || null;
           // Another run took this attempt already.

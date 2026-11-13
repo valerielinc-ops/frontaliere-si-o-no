@@ -1,6 +1,7 @@
 /** Only recoverable pre-send stops resume after engine changes; CAPTCHA stays with Valerie. */
 import { provenOptionalOperationalPortalQuestion } from './lib/portalNativeContract.js';
-import { candidateQuestionAnswerKey, candidateWithEdits, isUnknownAnswer } from './assistedApplicationCandidateEdits.js';
+import { candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, isUnknownAnswer,
+  validatedCandidateAnswerForQuestion } from './assistedApplicationCandidateEdits.js';
 import { hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { operationalQuestionTopic, operationalAnswerReadyForDiscovery, withOperationalQuestionAnswers } from './assistedApplicationOperationalAnswers.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
@@ -113,6 +114,13 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
     || !(Number(draft.completedAt) > 0) || !(Number(flow.dispatch.requestedAt) >= Number(draft.completedAt))) return false;
   if (questions.some(question => isUnknownAnswer(flow.answers?.[question.id])
     || isUnknownAnswer(flow.questionAnswers?.[candidateQuestionAnswerKey(question)]))) return false;
+  const directAnswers = flow.answers && typeof flow.answers === 'object' ? flow.answers : {};
+  const directProjection = candidateAnswersForQuestions(questions, directAnswers, flow.questionAnswers || {}, flow.candidateAnswerHistory || []);
+  if (questions.some(question => Object.hasOwn(directAnswers, question.id)
+    && (!Object.hasOwn(directProjection, question.id)
+      || (validatedCandidateAnswerForQuestion(directProjection[question.id], question) === undefined
+        && !(operationalQuestionTopic(question)
+          && operationalAnswerReadyForDiscovery(question, directProjection[question.id])))))) return false;
   const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
   const projected = withOperationalQuestionAnswers(questions, answers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   return questions.every(question => {

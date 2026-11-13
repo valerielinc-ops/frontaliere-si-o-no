@@ -2,7 +2,7 @@
  * Owner-configured form preferences, not facts from the candidate's CV.
  * Keep them out of the confirmed-answer ledger and qualification evidence.
  */
-import { isPreferredWorkloadQuestion } from './assistedApplicationCandidateEdits.js';
+import { isPreferredWorkloadQuestion } from './lib/workloadQuestion.js';
 import { validateAnswer } from './lib/answerRules.js';
 import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js';
 import { isWorkHistoryContext } from './lib/workHistoryContext.js';

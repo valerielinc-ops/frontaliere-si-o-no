@@ -53,7 +53,7 @@ import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { loadRunnerAnswerContext, orderQuestionAnswerContext } from './assistedApplicationAnswerEvidence.js';
-import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from './assistedApplicationCandidateEdits.js';
 import { holdUnservedLocalDispatches } from './assistedApplicationSwissRunner.js';
 
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from './assistedApplicationAutomationFlag.js';
@@ -475,7 +475,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
-    const persistedFlow = { ...nextFlow, answers: transitionAnswers,
+    // Keep the submitted values as their source records; transitionAnswers is
+    // a validated projection for this decision, not a replacement for what
+    // the candidate or owner actually saved.
+    const persistedFlow = { ...nextFlow, answers: flow.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers)
+      ? flow.answers : {},
       questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,
@@ -651,6 +655,7 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       ...(existing?.orderQuestionAnswersEvidenceVersion === ORDER_QUESTION_ANSWER_EVIDENCE_VERSION
         ? { orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION }
         : {}),
+      candidateAnswerHistory: candidateAnswerHistoryState(existing?.candidateAnswerHistory),
       feedback: withdrawalReopen ? [] : existing?.feedback || [],
       answers: orderContext.answers,
       // Keep only order-local answers in Firestore. Verified cross-posting

@@ -19,6 +19,7 @@ const {
   roundWasSent,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+const { rememberCandidateAnswerHistory } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { TRANSPORT_AUTO_RETRY_DELAYS_MS, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { operationalDefaultAnswer } = await import('../functions/src/assistedApplicationOperationalAnswers.js');
 
@@ -445,6 +446,22 @@ describe('approval flow', () => {
     draft = { ...draft, questions: [...questions, { id: 'screening_2', required: true }] };
     step = transition(step.flow, { type: 'submit_needs_candidate', questions: [{ id: 'screening_2', required: true }] }, { draft, nowMs: again });
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
+  });
+
+  it('does not retry with a same-id answer rejected by the live portal options', () => {
+    const oldQuestion = { id: 'interview_format', question: 'Which interview format do you prefer?', type: 'choice',
+      options: ['Video call', 'In person'], required: true, source: 'portal' };
+    const liveQuestion = { ...oldQuestion, options: ['Phone call', 'In person'] };
+    const candidateAnswerHistory = rememberCandidateAnswerHistory({ questions: [oldQuestion],
+      changed: { [oldQuestion.id]: 'Video call' }, round: 1, confirmedAt: T0 - 1, actor: 'candidate' });
+    const draft = { ...cleanDraft, round: 1, questions: [oldQuestion] };
+    const step = transition({ state: 'submitting', round: 1, answers: { [oldQuestion.id]: 'Video call' },
+      candidateAnswerHistory, dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+    { type: 'submit_needs_candidate', questions: [{ id: oldQuestion.id }], questionDetails: [liveQuestion] },
+    { draft, nowMs: T0 });
+
+    expect(step.flow).toMatchObject({ state: 'operator_expedited_review', heldReason: 'unpredicted_ats_field' });
+    expect(step.effects).toEqual([]);
   });
 
   it('stores only bounded candidate-request telemetry for a newly revealed portal step', () => {
