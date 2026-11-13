@@ -3,6 +3,7 @@ import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 import { parseFanoutAutoThreshold, decideSectionTreeFanout } from '../lib/section-tree-fanout-policy.mjs';
 import {
   readSectionTreeLayoutRegistry,
@@ -12,6 +13,7 @@ import { requireWorkerSectionTreeLayout } from '../lib/section-tree-layout-stage
 import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section-tree-layout-schema.js';
 
 const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
+const DEFAULT_SECTION_TREE_LIMIT_BYTES = 52_428_800;
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SECTION_SLUGS_PATH = path.join(REPO_ROOT, 'scripts/lib/section-shard-slugs.json');
 
@@ -91,7 +93,7 @@ export async function runSectionTreeLayoutPreflight({
   sourceRunAttempt = Number.MAX_SAFE_INTEGER,
   sourceSha,
   threshold = parseFanoutAutoThreshold(process.env.FANOUT_AUTO_THRESHOLD_PCT),
-  treeLimitBytes = Number(process.env.SHARD_REMOTE_TREE_LIMIT_BYTES || 52_428_800),
+  treeLimitBytes = intFromEnv('SHARD_REMOTE_TREE_LIMIT_BYTES', DEFAULT_SECTION_TREE_LIMIT_BYTES),
   slugs,
   readRegistry = readSectionTreeLayoutRegistry,
   register = registerSectionTreeFanout,
@@ -170,7 +172,11 @@ async function main(args = process.argv.slice(2)) {
   const sourceRunAttempt = Number(flag(args, '--source-run-attempt', process.env.SOURCE_RUN_ATTEMPT || '1'));
   const sourceSha = flag(args, '--source-sha');
   const threshold = parseFanoutAutoThreshold(flag(args, '--threshold', process.env.FANOUT_AUTO_THRESHOLD_PCT));
-  const treeLimitBytes = Number(flag(args, '--tree-limit', process.env.SHARD_REMOTE_TREE_LIMIT_BYTES || '52428800'));
+  const treeLimitBytes = Number(flag(
+    args,
+    '--tree-limit',
+    String(intFromEnv('SHARD_REMOTE_TREE_LIMIT_BYTES', DEFAULT_SECTION_TREE_LIMIT_BYTES)),
+  ));
   const metricsByLocale = await loadSectionTreeLayoutMetricsFromArtifacts({
     metricsDir, sourceRunId, sourceRunAttempt, sourceSha,
   });

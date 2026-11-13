@@ -161,6 +161,39 @@ describe('automatic section tree fan-out policy', () => {
     })).rejects.toThrow(/artifact identity mismatch/u);
   });
 
+  it('uses the safe tree-limit default when the environment value is malformed', async () => {
+    const previousLimit = process.env.SHARD_REMOTE_TREE_LIMIT_BYTES;
+    process.env.SHARD_REMOTE_TREE_LIMIT_BYTES = 'not-a-number';
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const metricsByLocale = Object.fromEntries(['it', 'en', 'de', 'fr'].map((locale) => [locale, {
+      version: 1,
+      locale,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+      treeLimitBytes: 52_428_800,
+      sections: {},
+    }]));
+
+    try {
+      const result = await runSectionTreeLayoutPreflight({
+        metricsByLocale,
+        sourceRunId,
+        sourceSha,
+        slugs: {},
+        readRegistry: async () => ({ version: 1, sections: {} }),
+        stderr: () => {},
+      });
+      expect(result.ready).toBe(true);
+      expect(warning).toHaveBeenCalledWith(expect.stringContaining('SHARD_REMOTE_TREE_LIMIT_BYTES'));
+    } finally {
+      if (previousLimit === undefined) delete process.env.SHARD_REMOTE_TREE_LIMIT_BYTES;
+      else process.env.SHARD_REMOTE_TREE_LIMIT_BYTES = previousLimit;
+    }
+  });
+
   it('measures exact Git tree bytes and coordinates a threshold crossing across every locale before staging', async () => {
     const workspace = tempDir('section-tree-layout-e2e-');
     const dist = join(workspace, 'dist');
