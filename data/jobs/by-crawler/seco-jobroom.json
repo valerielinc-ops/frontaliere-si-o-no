@@ -9571,9 +9571,9 @@
     },
     {
       "id": "seco-jobroom-019c4fae-6c4c-11ef-8ea8-56679979bf45",
-      "slug": "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann",
+      "slug": "impiegato-a-del-commercio-al-dettaglio-afc-alimentari-impiegato-a-del-commercio-al-dettaglio-afc-metzgerei-019c4fae",
       "slugByLocale": {
-        "it": "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann",
+        "it": "impiegato-a-del-commercio-al-dettaglio-afc-alimentari-impiegato-a-del-commercio-al-dettaglio-afc-metzgerei-019c4fae",
         "en": "retail-specialist-efz-food-retail-specialist-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-019c4fae",
         "de": "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae",
         "fr": "specialiste-du-commerce-de-detail-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-019c4fae"
@@ -9585,7 +9585,7 @@
       "employerDisclosed": true,
       "title": "Detailhandelsfachmann /-frau EFZ - Food / Gestionnaire du commerce de détail CFC",
       "titleByLocale": {
-        "it": "Detailhandelsfachmann /-frau CFC - Food / Gestionnaire du commerce de détail CFC",
+        "it": "Impiegato/a del commercio al dettaglio AFC - Alimentari / Impiegato/a del commercio al dettaglio AFC",
         "en": "Retail specialist EFZ - Food / Retail specialist CFC",
         "de": "Detailhandelsfachmann /-frau EFZ - Food / Gestionnaire du commerce de détail CFC",
         "fr": "Spécialiste du commerce de détail CFC - Food / Gestionnaire du commerce de détail CFC"
@@ -9624,11 +9624,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
+        "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae",
+        "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
+          "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae",
+          "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann"
         ],
         "fr": [
           "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
@@ -12196,7 +12198,7 @@
       "slug": "amministratore-delegato-macellaio-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b",
       "slugByLocale": {
         "it": "amministratore-delegato-macellaio-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b",
-        "en": "managing-director-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b",
+        "en": "managing-director-master-butcher-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b",
         "de": "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b",
         "fr": "direction-du-maitre-boucher-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b"
       },
@@ -12208,7 +12210,7 @@
       "title": "Geschäftsführung Metzgermeister",
       "titleByLocale": {
         "it": "Amministratore Delegato Macellaio",
-        "en": "Managing Director Metzgermeister",
+        "en": "Managing Director, Master Butcher",
         "de": "Geschäftsführung Metzgermeister",
         "fr": "Direction du maître boucher"
       },
@@ -12246,14 +12248,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b"
+        "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b",
+        "managing-director-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b"
         ],
         "en": [
-          "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b"
+          "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b",
+          "managing-director-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-42d31f1b"
         ],
         "fr": [
           "geschaftsfuhrung-metzgermeister-metzgerei-wursterei-viehhandel-rene-meyer-42d31f1b"

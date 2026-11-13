@@ -10,6 +10,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   PLATFORM_STREETS,
+  PLATFORM_DEFAULTS_VERSION,
   ageOn,
   platformCandidateFacts,
   platformDateOfBirth,
@@ -21,7 +22,7 @@ import {
   passportOf,
 } from '../functions/src/assistedApplicationPlatformDefaults.js';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
+import { operationalDefaultAnswer, isOperationalDefaultValue, withOperationalQuestionAnswers, withPlatformSuggestions } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { candidateWithEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { evaluateRedFlags } from '../functions/src/assistedApplicationFlow.js';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -90,10 +91,14 @@ describe('candidate facts', () => {
     expect(platformCandidateFacts({ order: { baseSalary: { value: { maxValue: 6000, unitText: 'MONTH' }, currency: 'CHF' } }, nowMs: NOW }).salary).toEqual({ annual: 72000, currency: 'CHF' });
   });
 
-  it('accepts only a complete, valid set of upload answers', () => {
+  it('accepts valid candidate facts and preserves omitted or explicitly blank fields', () => {
     expect(sanitizeCandidateFacts({ workPermit: 'permit_g', passport: 'eu_efta', nationality: ' Italiana ' })).toEqual({ workPermit: 'permit_g', passport: 'eu_efta', nationality: 'Italiana' });
+    expect(sanitizeCandidateFacts({ workPermit: 'permit_g', nationality: 'Italiana' })).toEqual({ workPermit: 'permit_g', nationality: 'Italiana' });
+    expect(sanitizeCandidateFacts({ workPermit: 'permit_g', passport: 'eu_efta' })).toEqual({ workPermit: 'permit_g', passport: 'eu_efta' });
+    expect(sanitizeCandidateFacts({ workPermit: 'permit_g', passport: '', nationality: 'Italiana' })).toEqual({ workPermit: 'permit_g', passport: '', nationality: 'Italiana' });
+    expect(sanitizeCandidateFacts({ workPermit: 'permit_g', passport: null, nationality: 'Italiana' })).toBeNull();
     expect(sanitizeCandidateFacts({ workPermit: 'permit_x', passport: 'eu_efta', nationality: 'Italiana' })).toBeNull();
-    expect(sanitizeCandidateFacts({ workPermit: 'permit_g', passport: 'eu_efta' })).toBeNull();
+    expect(sanitizeCandidateFacts({ workPermit: 'permit_x', passport: 'eu_efta' })).toBeNull();
   });
 });
 
@@ -143,6 +148,7 @@ describe('questions the platform answers (labels from the census)', () => {
       const binary = { question: testCase.binary, type: 'yes_no', options: testCase.binaryOptions };
       const select = { question: testCase.select, type: 'choice', options: testCase.options };
       expect(candidateFacts.passport, testCase.locale).toBe('eu_efta');
+      expect(candidateFacts.passportSource, testCase.locale).toBe('nationality');
       expect(platformQuestionTopic(binary), testCase.locale).toBe('passport_swiss_eu_efta');
       expect(platformDefaultAnswer(binary, candidateFacts, { locale: testCase.locale })?.value, testCase.locale).toBe(testCase.yes);
       expect(platformQuestionTopic(select), testCase.locale).toBe('passport_type');
@@ -165,6 +171,171 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(passportOf({ nationality: 'nazionalità sconosciuta' })).toBe('');
     const unknown = platformCandidateFacts({ profile: {}, nowMs: NOW, locale: 'en' });
     expect(platformDefaultAnswer(otherType, unknown, { locale: 'en' })).toBeNull();
+  });
+
+  it('keeps one passport fact across nationality, candidate answers and verified platform decisions', () => {
+    const binary = {
+      id: 'passport_binary', source: 'portal', type: 'yes_no', required: true, options: [],
+      question: 'Do you hold a Swiss/EU/EFTA passport?',
+      platformDecision: { decision: 'answer', shape: 'yes_no', value: 'yes', principle: 'plausible_deduction',
+        reason: 'The career makes this plausible.', version: 'decision-answers-v2' },
+    };
+    const type = { id: 'passport_type', source: 'portal', type: 'choice', required: true, options: [],
+      question: 'Type of valid passport' };
+    const cv = 'Cloud engineer with experience operating customer databases and container platforms.';
+    const draft = { status: 'ready', round: 1, profile: {}, factSources: { text: cv }, questions: [binary, type] };
+    const factsFor = (extra: Record<string, unknown> = {}, flow: Record<string, unknown> = {}, locale = 'en', profile = {}) => candidateWithEdits({
+      order: { orderId: 'synthetic-order', applicantName: 'Candidato Prova', ...extra }, draft: { ...draft, profile }, flow, locale,
+    }).platformFacts;
+
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v14');
+
+    const swissJob = { kind: 'job', role: 'Cloud engineer', employer: 'Example SA', location: 'Lugano', start: '2021', end: 'oggi' };
+    const permitProfile = { location: 'Como (CO)', experience: [swissJob] };
+    const deduced = factsFor({}, {}, 'en', permitProfile);
+    expect(deduced).toMatchObject({ permitStatus: 'permit_g', permitStatusSource: 'deduced', passport: 'eu_efta', passportSource: 'deduced' });
+    const projected = withOperationalQuestionAnswers([binary, type], {}, { facts: deduced, locale: 'en' });
+    expect(projected.answers).toMatchObject({ passport_binary: 'Yes', passport_type: 'EU/EFTA' });
+    expect(projected.defaults.passport_binary).toMatchObject({ source: 'policy_default', basis: 'deduced' });
+    expect(projected.defaults.passport_type).toMatchObject({ source: 'policy_default', basis: 'deduced' });
+    expect(withPlatformSuggestions([binary, type], { facts: deduced, locale: 'en' })[1])
+      .toMatchObject({ suggestedAnswer: 'EU/EFTA', answerOrigin: 'platform_rule' });
+
+    const uploadWins = factsFor({ candidateFacts: { workPermit: 'permit_g', passport: 'swiss', nationality: 'Italiana' } });
+    expect(uploadWins).toMatchObject({ passport: 'swiss', passportSource: 'candidate' });
+    expect(platformDefaultAnswer(binary, uploadWins, { locale: 'en' })?.value).toBe('Yes');
+    expect(platformDefaultAnswer(type, uploadWins, { locale: 'en' })?.value).toBe('Swiss');
+
+    const swissPassport = { id: 'passport_swiss_answer', source: 'portal', type: 'yes_no', required: true,
+      options: ['Yes', 'No'], question: 'Do you hold a Swiss passport?' };
+    const italianWhoSaysNoSwiss = platformCandidateFacts({
+      order: { candidateFacts: { nationality: 'Italiana' } },
+      candidatePassportAnswers: [{ question: swissPassport, value: 'No' }], locale: 'en', nowMs: NOW,
+    });
+    expect(italianWhoSaysNoSwiss).toMatchObject({ passport: 'eu_efta', passportSource: 'nationality' });
+    expect(platformDefaultAnswer(type, italianWhoSaysNoSwiss, { locale: 'en' })?.value).toBe('EU/EFTA');
+
+    const typeWithOptions = { ...type, options: ['Swiss', 'EU/EFTA', 'Other'] };
+    const candidateOther = factsFor({ candidateFacts: { workPermit: 'permit_g', passport: 'other' } });
+    const coherent = withOperationalQuestionAnswers([binary, typeWithOptions], {}, { facts: candidateOther, locale: 'en' });
+    expect(coherent.answers).toMatchObject({ passport_binary: 'No', passport_type: 'Other' });
+    expect(candidateOther.decisionAnswers).toEqual({});
+
+    const candidateTypeQuestion = { ...type, options: ['Swiss', 'EU/EFTA', 'Other (non-EU/EFTA)'] };
+    const candidateType = candidateWithEdits({
+      order: { orderId: 'synthetic-candidate-type', candidateFacts: { workPermit: 'permit_g' } },
+      draft: { ...draft, questions: [binary, candidateTypeQuestion] },
+      flow: { answers: { passport_type: 'Other (non-EU/EFTA)' } }, locale: 'en',
+    }).platformFacts;
+    expect(candidateType).toMatchObject({ passport: 'other', passportSource: 'candidate', decisionAnswers: {} });
+    expect(platformDefaultAnswer(binary, candidateType, { locale: 'en' })?.value).toBe('No');
+    expect(platformDefaultAnswer(candidateTypeQuestion, candidateType, { locale: 'en' })?.value).toBe('Other (non-EU/EFTA)');
+
+    const ambiguousTypeQuestion = { ...type, options: ['Swiss/EU/EFTA'] };
+    const ambiguousType = candidateWithEdits({
+      order: { orderId: 'synthetic-ambiguous-type', candidateFacts: { workPermit: 'permit_g' } },
+      draft: { ...draft, questions: [ambiguousTypeQuestion] },
+      flow: { answers: { passport_type: 'Swiss/EU/EFTA' } }, locale: 'en',
+    }).platformFacts;
+    expect(ambiguousType).toMatchObject({ passport: '', passportSource: 'candidate' });
+    expect(platformDefaultAnswer(ambiguousTypeQuestion, ambiguousType, { locale: 'en' })).toBeNull();
+
+    const explicitBlank = factsFor({ candidateFacts: { workPermit: 'permit_g', passport: '', nationality: 'Italiana' } });
+    expect(explicitBlank).toMatchObject({ passport: '', passportSource: 'candidate' });
+    expect(platformDefaultAnswer(binary, explicitBlank, { locale: 'en' })).toBeNull();
+    expect(platformDefaultAnswer(type, explicitBlank, { locale: 'en' })).toBeNull();
+
+    const correctedBlank = factsFor(
+      { candidateFacts: { workPermit: 'permit_g', nationality: 'Italiana' } },
+      { formOverrides: { passport: '' } },
+    );
+    expect(correctedBlank).toMatchObject({ passport: '', passportSource: 'candidate', decisionAnswers: {} });
+    const blankAnswer = factsFor(
+      { candidateFacts: { workPermit: 'permit_g', nationality: 'Italiana' } },
+      { answers: { passport_type: '' } },
+    );
+    expect(blankAnswer).toMatchObject({ passport: '', passportSource: 'candidate', decisionAnswers: {} });
+
+    const noPermit = factsFor({ candidateFacts: { workPermit: 'none' } });
+    expect(noPermit).toMatchObject({ passport: '', passportSource: '' });
+    expect(platformDefaultAnswer(type, noPermit, { locale: 'en' })).toBeNull();
+    const swissStatus = factsFor({ candidateFacts: { workPermit: 'swiss' } });
+    expect(swissStatus).toMatchObject({ passport: '', passportSource: '' });
+    expect(platformDefaultAnswer(binary, swissStatus, { locale: 'en' })).toBeNull();
+    expect(platformDefaultAnswer(type, swissStatus, { locale: 'en' })).toBeNull();
+
+    const unknown = candidateWithEdits({
+      order: { orderId: 'synthetic-unknown', applicantName: 'Candidato Prova' },
+      draft: { status: 'ready', round: 1, profile: {}, questions: [type] }, flow: {}, locale: 'en',
+    }).platformFacts;
+    expect(unknown).toMatchObject({ passport: '', passportSource: '' });
+    expect(platformDefaultAnswer(type, unknown, { locale: 'en' })).toBeNull();
+
+    const modelChosenType = { ...type, options: ['Swiss', 'EU/EFTA', 'Other'], platformDecision: {
+      decision: 'answer', shape: 'choice', value: 'Other', principle: 'plausible_deduction', reason: 'Plausible from the CV.',
+    } };
+    const unknownModelType = candidateWithEdits({
+      order: { orderId: 'synthetic-unknown-type', applicantName: 'Candidato Prova' },
+      draft: { ...draft, questions: [modelChosenType] }, flow: {}, locale: 'en',
+    }).platformFacts;
+    expect(unknownModelType).toMatchObject({ passport: '', passportSource: '', decisionAnswers: {} });
+    expect(platformDefaultAnswer(modelChosenType, unknownModelType, { locale: 'en' })).toBeNull();
+  });
+
+  it('maps a verified EU/EFTA decision to the localized passport answer and the matching live option', () => {
+    const binaryByLocale = {
+      it: { question: 'Possiedi un passaporto svizzero/UE/AELS?', yes: 'Sì' },
+      de: { question: 'Haben Sie einen Schweizer oder EU/EFTA-Reisepass?', yes: 'Ja' },
+      fr: { question: 'Détenez-vous un passeport suisse/UE/AELE ?', yes: 'Oui' },
+      en: { question: 'Do you hold a Swiss/EU/EFTA passport?', yes: 'Yes' },
+    } as const;
+    const typeByLocale = {
+      it: { label: 'Tipo di passaporto valido', options: ['Svizzero', 'UE/AELS', 'Altro'], eu: 'UE/AELS' },
+      de: { label: 'Art des gültigen Reisepasses', options: ['Schweizer', 'EU/EFTA', 'Andere'], eu: 'EU/EFTA' },
+      fr: { label: 'Type de passeport valide', options: ['Suisse', 'UE/AELE', 'Autre'], eu: 'UE/AELE' },
+      en: { label: 'Type of valid passport', options: ['Swiss', 'EU/EFTA', 'Other'], eu: 'EU/EFTA' },
+    } as const;
+    for (const locale of ['it', 'de', 'fr', 'en'] as const) {
+      const binary = { id: 'passport_binary', source: 'portal', type: 'yes_no', required: true, options: [],
+        question: binaryByLocale[locale].question,
+        platformDecision: { decision: 'answer', shape: 'yes_no', value: 'yes', principle: 'plausible_deduction',
+          reason: 'The career makes this plausible.', version: 'decision-answers-v2' },
+      };
+      const noOptions = { id: 'passport_type', source: 'portal', type: 'choice', required: true, options: [],
+        question: typeByLocale[locale].label };
+      const options = { ...noOptions, options: typeByLocale[locale].options };
+      const draft = { status: 'ready', round: 1, profile: { location: 'Como (CO)', experience: [
+        { kind: 'job', role: 'Cloud engineer', employer: 'Example SA', location: 'Lugano', start: '2021', end: 'oggi' },
+      ] }, factSources: { text: 'Cloud engineer with experience in database operations.' }, questions: [binary, noOptions] };
+      const facts = candidateWithEdits({
+        order: { orderId: `synthetic-${locale}`, applicantName: 'Candidato Prova' },
+        draft, flow: {}, locale,
+      }).platformFacts;
+      expect(platformDefaultAnswer(binary, facts, { locale })?.value, locale).toBe(binaryByLocale[locale].yes);
+      expect(platformDefaultAnswer(noOptions, facts, { locale })?.value, locale).toBe(typeByLocale[locale].eu);
+      expect(platformDefaultAnswer(noOptions, facts, { locale })?.basis, locale).toBe('deduced');
+      expect(platformDefaultAnswer(options, facts, { locale })?.value, locale).toBe(typeByLocale[locale].eu);
+      expect(platformDefaultAnswer({ question: 'Do you hold a Swiss passport?', type: 'yes_no', options: ['Yes', 'No'] }, facts, { locale }))
+        .toMatchObject({ value: 'No', basis: 'deduced' });
+      expect(platformDefaultAnswer({ question: 'Do you hold an EU/EFTA passport?', type: 'yes_no', options: ['Yes', 'No'] }, facts, { locale }))
+        .toMatchObject({ value: 'Yes', basis: 'deduced' });
+    }
+  });
+
+  it('uses a nationality-derived passport in descriptive permit options and keeps the answer marked as deduced', () => {
+    const question = {
+      question: 'Do you hold a Swiss work permit or EU/EFTA citizenship?', type: 'choice', options: [
+        'Yes, I hold a valid G permit', 'No, but I have EU/EFTA citizenship', 'No, I have another nationality',
+      ],
+    };
+    const facts = platformCandidateFacts({ profile: { nationality: 'Italian' }, nowMs: NOW, locale: 'en' });
+    const result = platformDefaultAnswer(question, facts, { locale: 'en' });
+    expect(result).toMatchObject({ value: 'No, but I have EU/EFTA citizenship', basis: 'deduced' });
+  });
+
+  it('classifies an explicit negative EU passport class as other before matching EU', () => {
+    const notEu = platformCandidateFacts({ passportOverride: { provided: true, value: 'not EU' }, nowMs: NOW, locale: 'en' });
+    expect(notEu).toMatchObject({ passport: 'other', passportSource: 'candidate' });
   });
 
   it('languages from the CV, the CV language as native', () => {

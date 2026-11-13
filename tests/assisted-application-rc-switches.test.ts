@@ -13,6 +13,7 @@ const SCRIPT = 'scripts/assisted-application/rc-switches.mjs';
 const RENDERER = 'ASSISTED_APPLICATION_PDF_RENDERER';
 const DOSSIER = 'ASSISTED_APPLICATION_DOSSIER_MODE';
 const INPLACE = 'ASSISTED_APPLICATION_DOCX_INPLACE';
+const NAVIGATION = 'ASSISTED_APPLICATION_AGENT_NAVIGATION';
 const RC_URL = `https://firebaseremoteconfig.googleapis.com/v1/projects/${RC_PROJECT_ID}/remoteConfig`;
 
 // An invented service account: the key is never used, the token exchange is replaced.
@@ -92,7 +93,7 @@ describe('the table of the switches', () => {
   const keys = Object.keys(RC_SWITCHES);
 
   it('holds the assisted keys the loader exports to the runner and never masks', () => {
-    expect(keys).toEqual([RENDERER, DOSSIER, INPLACE]);
+    expect(keys).toEqual([RENDERER, DOSSIER, INPLACE, NAVIGATION]);
     expect([...PLAIN_WORD_RC_KEYS].sort()).toEqual([
       ...keys,
       'TIKTOK_VIDEO_CREATIVE_MODE',
@@ -104,6 +105,7 @@ describe('the table of the switches', () => {
     expect(RC_SWITCHES[RENDERER].values).toEqual(expect.arrayContaining(['typst', 'legacy']));
     expect(RC_SWITCHES[DOSSIER].values).toEqual(expect.arrayContaining(['separate', 'single']));
     expect(RC_SWITCHES[INPLACE].values).toEqual(expect.arrayContaining(['off', 'on']));
+    expect(RC_SWITCHES[NAVIGATION].values).toEqual(['on', 'off']);
     for (const key of keys) {
       const { values, read } = RC_SWITCHES[key];
       // A value the runner would read as something else must not be offered: it would be set and ignored.
@@ -141,6 +143,7 @@ describe('status', () => {
       `${RENDERER}: absent -> typst (default, parameter absent)`,
       `${DOSSIER}: "single" -> single`,
       `${INPLACE}: "yes" -> off (the value is not one of: off | on)`,
+      `${NAVIGATION}: absent -> on (default, parameter absent)`,
     ]);
     expect(rc.calls.map((call) => [call.method, call.url])).toEqual([['GET', RC_URL]]);
   });
@@ -155,6 +158,7 @@ describe('status', () => {
       `${RENDERER}: "" -> typst (default, no value)`,
       `${DOSSIER}: no literal default -> separate (default, no value)`,
       `${INPLACE}: " ON " -> on (the value is not one of: off | on)`,
+      `${NAVIGATION}: absent -> on (default, parameter absent)`,
     ]);
   });
 
@@ -174,6 +178,7 @@ describe('status', () => {
       `${RENDERER}: "legacy" in parameter group "experiments" -> typst (default: the loader and the Functions read top-level parameters only)`,
       `${DOSSIER}: absent -> separate (default, parameter absent)`,
       `${INPLACE}: absent -> off (default, parameter absent)`,
+      `${NAVIGATION}: absent -> on (default, parameter absent)`,
     ]);
   });
 });
@@ -252,6 +257,7 @@ describe('set', () => {
       `${RENDERER}: "legacy" -> legacy`,
       `${DOSSIER}: "single" -> single`,
       `${INPLACE}: absent -> off (default, parameter absent)`,
+      `${NAVIGATION}: absent -> on (default, parameter absent)`,
     ]);
     expect(result.err).toEqual([]);
   });
@@ -462,6 +468,7 @@ globalThis.fetch = async (url, init = {}) => {
         `${RENDERER}: absent -> typst (default, parameter absent)`,
         `${DOSSIER}: absent -> separate (default, parameter absent)`,
         `${INPLACE}: "on" -> on`,
+        `${NAVIGATION}: absent -> on (default, parameter absent)`,
       ]);
       const printed = result.stdout + result.stderr;
       expect(printed).not.toContain('ya29.invented-access-token');

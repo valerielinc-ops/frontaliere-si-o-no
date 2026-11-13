@@ -576,7 +576,7 @@ describe('application consent and minimum retention defaults', () => {
     const native = { id: 'privacy', kind: 'checkbox', type: 'checkbox', label: processingConsent, required: false };
     expect(ownConsent(native)).toBe(true);
     expect(guardPlan({ actions: [], missingRequired: [] }, [native], { identity: {}, profile: {}, answers: {} }).actions)
-      .toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check', source: 'policy_default' }));
+      .toContainEqual(expect.objectContaining({ fieldId: 'privacy', action: 'check', source: 'consent' }));
     expect(operationalDefaultAnswer({
       ...question,
       applicationQuestion: `${processingConsent} Accetto inoltre di ricevere offerte e comunicazioni promozionali.`,
@@ -771,7 +771,7 @@ describe('application consent and minimum retention defaults', () => {
       options: retentionOptions.map(label => ({ label })),
     };
     const guarded = guardPlan({ actions: [], missingRequired: [] }, [consent, retention], { identity: {}, profile: {}, answers: {} });
-    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'consent', action: 'check', source: 'policy_default' }));
+    expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'consent', action: 'check', source: 'consent' }));
     expect(guarded.actions).toContainEqual(expect.objectContaining({ fieldId: 'retention', action: 'select', value: retentionOptions[1], source: 'policy_default' }));
     expect(guarded.missingRequired).toEqual([]);
 
