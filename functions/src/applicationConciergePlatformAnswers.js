@@ -17,7 +17,7 @@
  * and a candidate's own answer to the same question always wins.
  */
 import { operationalDefaultAnswer, OPERATIONAL_DEFAULTS_VERSION } from './assistedApplicationOperationalAnswers.js';
-import { platformCandidateFacts, PLATFORM_DEFAULTS_VERSION } from './assistedApplicationPlatformDefaults.js';
+import { platformCandidateFacts, platformQuestionTopic, PLATFORM_DEFAULTS_VERSION, withVerifiedPassportAnswers } from './assistedApplicationPlatformDefaults.js';
 import {
   DECISIONS_SCHEMA,
   DECISION_ANSWERS_VERSION,
@@ -33,7 +33,7 @@ import {
 } from './assistedApplicationDecisionAnswers.js';
 import { CANDIDATE_LANGUAGE_OPTIONS, isLanguageAbilityQuestion, languageCodesIn } from './lib/languageFacts.js';
 
-export const CONCIERGE_PLATFORM_ANSWERS_VERSION = 'concierge-platform-answers-v1';
+export const CONCIERGE_PLATFORM_ANSWERS_VERSION = 'concierge-platform-answers-v2';
 export const CONCIERGE_PLATFORM_ANSWER_PROVENANCE = 'platform';
 const MAX_QUESTIONS = 6;
 const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -165,6 +165,20 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
     .slice(0, MAX_QUESTIONS)
     .map((question) => ({ original: question, shaped: platformQuestionShape(question, locale) }));
   const decisions = { ...(facts?.decisionAnswers || {}) };
+  const passportQuestions = required.map((item) => item.shaped).filter((question) => platformQuestionTopic(question)?.startsWith('passport_'));
+  const candidatePassportAnswers = passportQuestions.flatMap((question) => {
+    const value = candidateAnswers?.[question.id];
+    return Object.hasOwn(candidateAnswers || {}, question.id) && typeof value === 'string' ? [{ question, value }] : [];
+  });
+  if (candidatePassportAnswers.length) {
+    for (const question of passportQuestions) delete decisions[question.id];
+  }
+  // A passport type comes from the shared candidate fact, never from an independent model choice.
+  for (const item of required) {
+    if (platformQuestionTopic(item.shaped) === 'passport_type') delete decisions[item.shaped.id];
+  }
+  const passportContext = { questions: passportQuestions, decisionAnswers: decisions, candidatePassportAnswers };
+  const factsForRules = withVerifiedPassportAnswers({ ...facts, decisionAnswers: decisions }, passportContext);
   const known = new Map(answered.map((entry) => [fold(entry.question), entry]));
   const entries = [];
   const pending = [];
@@ -178,9 +192,11 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
     // Experience, skills and formal titles are the decision engine's (owner mandate 2026-11-10): a keyword
     // rule must not read «contabilità salariale» as a salary expectation. A spoken-language level is the CV's.
     const engineFirst = !item.shaped.languageLevel && Boolean(experienceQuestionKind(item.shaped));
-    const rule = engineFirst ? null : operationalDefaultAnswer(item.shaped, { locale, facts: { ...facts, decisionAnswers: decisions } });
+    const rule = engineFirst ? null : operationalDefaultAnswer(item.shaped, { locale, facts: factsForRules });
     if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
-    else if (decisionQuestionEligible(item.shaped) && !candidateOnlyCategory(item.shaped)) pending.push(item);
+    else if (decisionQuestionEligible(item.shaped) && !candidateOnlyCategory(item.shaped)
+      && platformQuestionTopic(item.shaped) !== 'passport_type'
+      && !(candidatePassportAnswers.length && platformQuestionTopic(item.shaped)?.startsWith('passport_'))) pending.push(item);
   }
   if (pending.length && typeof generate === 'function' && String(cvText || '').trim()) {
     const schema = structuredClone(DECISIONS_SCHEMA);
@@ -195,10 +211,30 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
       if (checked.ok) decisions[item.shaped.id] = { ...decisionRecord(checked), labels: decisionLabels(item.shaped) };
     }
   }
-  const decidedFacts = { ...facts, decisionAnswers: decisions };
+  const decidedFacts = withVerifiedPassportAnswers({ ...facts, decisionAnswers: decisions }, {
+    ...passportContext, decisionAnswers: decisions,
+  });
   for (const item of pending) {
+    const passportRule = platformQuestionTopic(item.shaped)?.startsWith('passport_')
+      ? operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts }) : null;
+    if (passportRule) {
+      entries.push(entryFor(item.shaped, passportRule, { principle: passportRule.principle || 'platform_rule' }));
+      continue;
+    }
     const decision = decisionAnswerFor(item.shaped, decidedFacts);
     if (decision) entries.push(entryFor(item.shaped, decision));
+    else {
+      const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
+      if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
+    }
+  }
+  // A choice with no options cannot be decided directly, but the verified binary answer above may now establish
+  // the shared passport fact that supplies its localized catalog fallback.
+  for (const item of required) {
+    if (String(candidateAnswers?.[item.shaped.id] ?? '').trim()
+      || entries.some((entry) => entry.questionId === item.shaped.id)) continue;
+    const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
+    if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
   }
   const answeredIds = new Set(entries.map((entry) => entry.questionId));
   const left = required.filter((item) => !answeredIds.has(item.shaped.id)

@@ -95,7 +95,9 @@ import { defaultStartDate, zurichToday } from './lib/assistedApplicationQuestion
 // typed in another block of the order wins over the platform's (candidateAddressTopics, withCandidateAddress).
 // v13 (2026-11-12): a known nationality establishes the Swiss, EU/EFTA or other passport class for screening
 // questions; a passport stated at upload remains the higher-priority fact, and an unknown nationality stays open.
-export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v13';
+// v14 (2026-11-12): passport questions share one fact; verified platform answers plus a foreign permit can
+// establish EU/EFTA, while an explicit candidate blank keeps the passport unknown.
+export const PLATFORM_DEFAULTS_VERSION = 'platform-defaults-v14';
 
 /** The street names a required street field receives when the CV has none (owner list, 2026-11-09). */
 export const PLATFORM_STREETS = Object.freeze([
@@ -365,7 +367,7 @@ export function platformSalutationGender(firstName, locale = 'it') {
  * `personal` and `answers` are candidateWithEdits()'s; the CV and the
  * candidate's own corrections always win over a platform value.
  */
-export function platformCandidateFacts({ order = {}, profile = {}, identity = {}, personal = {}, answers = {}, locale = 'it', nowMs = Date.now(), seed = '', permitDeduction = true, nationalityDeduction = true, cvText = '' } = {}) {
+export function platformCandidateFacts({ order = {}, profile = {}, identity = {}, personal = {}, answers = {}, locale = 'it', nowMs = Date.now(), seed = '', permitDeduction = true, nationalityDeduction = true, cvText = '', questions = [], decisionAnswers = {}, candidatePassportAnswers = [], passportOverride = null } = {}) {
   const language = languageOf(locale);
   const key = clean(seed || order?.userId || order?.orderId || identity?.email || identity?.name || 'candidate', 300);
   const address = profile?.address && typeof profile.address === 'object' ? profile.address : {};
@@ -423,10 +425,12 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   const statedCodes = statedNationality ? [...nationalityCodes(statedNationality)] : [];
   const statedCode = statedNationality ? nationalityOf(statedNationality)?.code || countryCodeOf(statedNationality)
     || (statedCodes.includes('CH') ? 'CH' : statedCodes[0] || '') : '';
-  const passport = passportOf({ passport: uploaded.passport, nationality });
-  const passportSource = !passport ? ''
-    : CANDIDATE_PASSPORTS.includes(uploaded.passport) || statedNationality ? 'candidate'
-      : declared ? 'cv' : deduced ? 'deduced' : '';
+  const nationalityCode = statedNationality ? statedCode : platformNationality?.code || '';
+  const passportFact = passportFactOf({
+    uploaded, nationality, nationalityCode, permitStatus, questions, decisionAnswers,
+    candidatePassportAnswers, passportOverride,
+  });
+  const { passport, passportSource } = passportFact;
   // The CV's own language is the mother tongue (owner decision 2026-11-09), also when the parser listed it
   // with a level of its own.
   const cvLanguage = String(profile?.cvLanguage || '').slice(0, 2).toLowerCase();
@@ -861,15 +865,33 @@ const LEGAL_RECORD_ANSWERS = Object.freeze(['no', 'yes']);
 const legalRecordAnswer = (value) => (LEGAL_RECORD_ANSWERS.includes(value) ? value : '');
 
 /**
- * The candidate's upload answers as stored, or null when the input is not a complete, valid set. The legal facts
- * are optional (an order or a page opened before they were asked), but a value given must be 'no' or 'yes'.
+ * Candidate facts as stored, or null when no permit, passport or nationality field is present. Missing fields
+ * remain unknown; a present blank stays distinct for passport because the candidate may have cleared their answer.
+ * The legal facts are optional, but a value given must be 'no' or 'yes'.
  */
 export function sanitizeCandidateFacts(value) {
   if (!value || typeof value !== 'object') return null;
-  const workPermit = clean(value.workPermit, 20);
-  const passport = clean(value.passport, 20);
-  const nationality = clean(value.nationality, 80);
-  if (!UPLOAD_PERMITS.has(workPermit) || !CANDIDATE_PASSPORTS.includes(passport) || !nationality) return null;
+  const facts = {};
+  const hasWorkPermit = Object.hasOwn(value, 'workPermit');
+  const hasPassport = Object.hasOwn(value, 'passport');
+  const hasNationality = Object.hasOwn(value, 'nationality');
+  if (!hasWorkPermit && !hasPassport && !hasNationality) return null;
+  if (hasWorkPermit) {
+    const workPermit = clean(value.workPermit, 20);
+    if (!UPLOAD_PERMITS.has(workPermit)) return null;
+    facts.workPermit = workPermit;
+  }
+  if (hasPassport) {
+    if (typeof value.passport !== 'string') return null;
+    const passport = clean(value.passport, 20);
+    if (!['', ...CANDIDATE_PASSPORTS].includes(passport)) return null;
+    facts.passport = passport;
+  }
+  if (hasNationality) {
+    if (typeof value.nationality !== 'string') return null;
+    const nationality = clean(value.nationality, 80);
+    facts.nationality = nationality;
+  }
   const legal = {};
   for (const key of CANDIDATE_LEGAL_FACTS) {
     const answer = clean(value[key], 5);
@@ -877,13 +899,12 @@ export function sanitizeCandidateFacts(value) {
     if (!LEGAL_RECORD_ANSWERS.includes(answer)) return null;
     legal[key] = answer;
   }
-  return { workPermit, passport, nationality, ...legal };
+  return { ...facts, ...legal };
 }
 
 /**
- * The passport class used by screening forms: an explicit upload answer wins; otherwise a known nationality
- * (including one declared or deduced from the CV) gives the Swiss, EU/EFTA or other catalog option. A permit
- * never establishes citizenship. Unknown or unrecognized nationality stays unknown and is asked.
+ * Map an explicit passport class, or a known nationality, to the screening catalog. This helper alone never
+ * derives citizenship from a permit; passportFactOf() handles the separately verified yes/no plus permit rule.
  */
 export function passportOf({ passport = '', nationality = '' } = {}) {
   if (CANDIDATE_PASSPORTS.includes(passport)) return passport;
@@ -896,6 +917,120 @@ export function passportOf({ passport = '', nationality = '' } = {}) {
   })) return 'eu_efta';
   if (codes.size) return 'other';
   return '';
+}
+
+const PASSPORT_TOPICS = new Set(['passport_type', 'passport_swiss', 'passport_eu_efta', 'passport_swiss_eu_efta']);
+const FOREIGN_PERMITS = new Set(['permit_g', 'permit_b', 'permit_c', 'permit_l']);
+
+function passportClassFromText(value) {
+  const raw = clean(value, 100);
+  if (CANDIDATE_PASSPORTS.includes(raw)) return raw;
+  const text = fold(raw);
+  if (/\b(?:other|altro|andere\w*|autre|non eu|non ue|extra eu|extra ue|drittstaat\w*|third country)\b/.test(text)) return 'other';
+  const swiss = /\b(?:swiss|switzerland|svizzer\w*|schweiz\w*|suisse|ch)\b/.test(text);
+  const euEfta = /\b(?:eu|efta|aels|aele|aeel|ue|europe\w*|europa\w*)\b/.test(text);
+  if (swiss && euEfta) return '';
+  if (swiss) return 'swiss';
+  if (euEfta) return 'eu_efta';
+  return passportOf({ nationality: raw });
+}
+
+function passportTextsForChoice(question, value) {
+  const selected = fold(value);
+  if (!selected) return [];
+  const descriptors = [];
+  const add = (option) => {
+    if (typeof option === 'string') descriptors.push({ label: option, value: option });
+    else if (option && typeof option === 'object') descriptors.push({
+      label: String(option.label ?? option.candidate ?? ''),
+      value: String(option.value ?? option.application ?? option.candidate ?? ''),
+    });
+  };
+  for (const source of [question?.options, question?.applicationOptions, question?.applicationOptionValues, question?.optionMap]) {
+    if (Array.isArray(source)) source.forEach(add);
+  }
+  const matched = descriptors.filter((option) => [option.label, option.value].some((text) => fold(text) === selected));
+  return [String(value), ...matched.flatMap((option) => [option.label, option.value])].filter(Boolean);
+}
+
+function passportBinaryAnswer(value) {
+  const text = fold(Array.isArray(value) ? value.join(' ') : value);
+  const yes = YES.test(text);
+  const no = NO.test(text);
+  return yes === no ? '' : yes ? 'yes' : 'no';
+}
+
+function passportFromBinary(topic, answer, permitStatus) {
+  if (answer === 'yes') {
+    if (topic === 'passport_swiss') return 'swiss';
+    if (topic === 'passport_eu_efta') return 'eu_efta';
+    if (topic === 'passport_swiss_eu_efta' && FOREIGN_PERMITS.has(permitStatus)) return 'eu_efta';
+  }
+  if (answer === 'no' && topic === 'passport_swiss_eu_efta') return 'other';
+  return '';
+}
+
+function passportFromCandidateAnswer(question, value, permitStatus) {
+  const topic = platformQuestionTopic(question);
+  if (!PASSPORT_TOPICS.has(topic) || !String(Array.isArray(value) ? value.join(' ') : value ?? '').trim()) return '';
+  if (topic === 'passport_type') {
+    const classes = [...new Set(passportTextsForChoice(question, value).map(passportClassFromText).filter(Boolean))];
+    return classes.length === 1 ? classes[0] : '';
+  }
+  return passportFromBinary(topic, passportBinaryAnswer(value), permitStatus);
+}
+
+function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
+  const answers = [];
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const topic = platformQuestionTopic(question);
+    const decision = question?.id ? decisionAnswers?.[question.id] : null;
+    if (!PASSPORT_TOPICS.has(topic) || topic === 'passport_type' || !decision) continue;
+    const answer = decision.shape === 'yes_no' && ['yes', 'no'].includes(decision.value)
+      ? decision.value
+      : decision.shape === 'checkbox' && ['true', 'false'].includes(decision.value)
+        ? (decision.value === 'true' ? 'yes' : 'no')
+        : passportBinaryAnswer(decision.value);
+    const passport = passportFromBinary(topic, answer, permitStatus);
+    if (passport) answers.push(passport);
+  }
+  const unique = [...new Set(answers)];
+  return unique.length === 1 ? unique[0] : '';
+}
+
+/** Keep the passport class shared by platform decisions and all forms of the same question. */
+export function withVerifiedPassportAnswers(facts = {}, { questions = [], decisionAnswers = {}, candidatePassportAnswers = [] } = {}) {
+  const current = facts && typeof facts === 'object' ? facts : {};
+  if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
+    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, current.permitStatus));
+    const unique = [...new Set(values.filter(Boolean))];
+    return { ...current, passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+  }
+  if (current.passportSource === 'candidate' || current.passportSource === 'nationality'
+    || CANDIDATE_PASSPORTS.includes(current.passport)) return current;
+  const passport = decisionPassportAnswers(questions, decisionAnswers, current.permitStatus);
+  return passport ? { ...current, passport, passportSource: 'deduced' } : current;
+}
+
+function passportFactOf({ uploaded, nationality, nationalityCode, permitStatus, questions, decisionAnswers, candidatePassportAnswers, passportOverride }) {
+  if (passportOverride?.provided) {
+    return { passport: passportClassFromText(passportOverride.value), passportSource: 'candidate' };
+  }
+  if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
+    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, permitStatus));
+    const unique = [...new Set(values.filter(Boolean))];
+    return { passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+  }
+  // A present but empty upload answer is the candidate's word. Older orders have no passport key and can use
+  // the lower-priority nationality or verified-question sources below.
+  if (Object.hasOwn(uploaded, 'passport') && typeof uploaded.passport === 'string') {
+    return { passport: CANDIDATE_PASSPORTS.includes(uploaded.passport) ? uploaded.passport : '', passportSource: 'candidate' };
+  }
+  const fromNationality = passportOf({ nationality: nationalityCode || nationality });
+  if (fromNationality) return { passport: fromNationality, passportSource: 'nationality' };
+  const fromDecision = decisionPassportAnswers(questions, decisionAnswers, permitStatus);
+  if (fromDecision) return { passport: fromDecision, passportSource: 'deduced' };
+  return { passport: '', passportSource: '' };
 }
 
 /** Facts that need no candidate: dates, consents, availabilities. */
@@ -1401,14 +1536,24 @@ const permitCodeOf = (option) => permitOptionCode(option) || permitStatusOf(opti
 function permitOptionFallback(question, status, passport) {
   const options = optionsOf(question);
   const find = (re) => options.filter((option) => re.test(fold(option)));
-  if (status === 'swiss') return find(/\b(?:svizzer\w*|swiss|schweizer\w*|suisse)\b.*\b(?:passaport\w*|passport|cittadinanza|citizen\w*|burgerrecht|nationalite)\b|\b(?:passaport\w*|passport|cittadinanza|citizen\w*)\b.*\b(?:svizzer\w*|swiss|suisse)\b/)[0] || '';
+  const swissPassportOrCitizenship = /\b(?:svizzer\w*|swiss|schweizer\w*|suisse)\b.*\b(?:passaport\w*|passport|cittadinanza|citizen\w*|burgerrecht|nationalite)\b|\b(?:passaport\w*|passport|cittadinanza|citizen\w*)\b.*\b(?:svizzer\w*|swiss|suisse)\b/;
+  if (status === 'swiss') return find(swissPassportOrCitizenship)[0] || '';
   if (status && status !== 'none') {
     const letter = status.slice(-1);
     return find(new RegExp(`\\b(?:permesso|permit|bewilligung|permis|ausweis)\\b.*\\b${letter}\\b`))[0]
       || find(/^(?:si|yes|ja|oui)\b.*\b(?:permesso|permit|bewilligung|permis)\b/)[0] || '';
   }
-  if (passport === 'eu_efta') return find(/\b(?:ue|eu|efta|aels)\b/).filter((option) => /^(?:no|nein|non)\b|\bma\b|\bbut\b|\baber\b|\bmais\b/.test(fold(option)))[0] || '';
-  return find(/^(?:no|nein|non)\b/)[0] || '';
+  if (passport === 'swiss') {
+    return find(swissPassportOrCitizenship)[0] || '';
+  }
+  if (passport === 'eu_efta') {
+    return find(/\b(?:ue|eu|efta|aels)\b/).filter((option) => /^(?:no|nein|non)\b|\bma\b|\bbut\b|\baber\b|\bmais\b/.test(fold(option)))[0] || '';
+  }
+  if (passport === 'other' && status === 'none') {
+    const otherNationality = find(/^(?:no|nein|non)\b.*\b(?:other|altro|andere\w*|autre|non ue|non eu|third country|drittstaat\w*)\b/)[0];
+    if (otherNationality) return otherNationality;
+  }
+  return status === 'none' ? find(/^(?:no|nein|non)\b/)[0] || '' : '';
 }
 
 function pickOption(question, predicate) {
@@ -1678,7 +1823,9 @@ function swissArmyValue(question, facts, lang) {
   // A fact for a candidate who said they are not Swiss: a nationality deduced from the CV is no such statement.
   // The CV's own declaration ('cv') is the candidate's statement; a dual one carries Swiss first.
   const nationality = facts?.nationalitySource === 'deduced' ? '' : nationalityOf(facts?.nationality)?.code || facts?.nationalityCode || '';
-  const passport = facts?.passportSource === 'deduced' ? '' : facts?.passport;
+  const passportIsDeduced = facts?.passportSource === 'deduced'
+    || (facts?.passportSource === 'nationality' && facts?.nationalitySource === 'deduced');
+  const passport = passportIsDeduced ? '' : facts?.passport;
   const swiss = passport === 'swiss' || facts?.permitStatus === 'swiss' || nationality === 'CH';
   const knownForeign = !swiss && (Boolean(nationality) || ['eu_efta', 'other'].includes(passport));
   return knownForeign ? noValue(question, lang) : '';
@@ -1888,12 +2035,14 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
     }
     case 'work_permit': {
       const status = known.permitStatus;
-      if (!status) break;
-      if (options.length && !isBinary(question)) value = pickOption(question, (option) => permitCodeOf(option) === status)
+      if (!status && (isBinary(question) || !options.length || !known.passport)) break;
+      if (options.length && !isBinary(question)) value = (status ? pickOption(question, (option) => permitCodeOf(option) === status) : '')
         || permitOptionFallback(question, status, known.passport);
       else if (isBinary(question)) value = status === 'none' ? noValue(question, lang) : yesValue(question, lang);
-      else value = permitLabel(status, lang);
-      if (known.permitStatusSource === 'deduced') basis = 'deduced';
+      else if (status) value = permitLabel(status, lang);
+      if (known.permitStatusSource === 'deduced'
+        || (known.passportSource !== 'candidate' && ['swiss', 'eu_efta', 'other'].includes(known.passport)
+          && (!status || status === 'none'))) basis = 'deduced';
       break;
     }
     case 'nationality': {
@@ -1917,7 +2066,8 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       // «Do you hold a Swiss work permit or Swiss passport…?»: a held permit answers it first.
       if (known.permitStatus && optionsOf(question).some((option) => /\b(?:permesso|permit|bewilligung|permis)\b/.test(fold(option)))) {
         value = permitOptionFallback(question, known.permitStatus, passport);
-        if (value && known.permitStatusSource === 'deduced') basis = 'deduced';
+        if (value && (known.permitStatusSource === 'deduced'
+          || (known.permitStatus === 'none' && passport === 'eu_efta' && known.passportSource !== 'candidate'))) basis = 'deduced';
         if (value) break;
       }
       if (!passport) break;
@@ -1925,6 +2075,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
         : passport === 'eu_efta' ? /\b(?:ue|eu|efta|aels|europe\w*|eu efta)\b/ : /\b(?:altro|other|andere\w*|autre|non ue|non eu|third|drittstaat\w*|extra)\b/;
       value = options.length ? pickOption(question, (option) => want.test(fold(option)))
         : { swiss: { it: 'Svizzero', en: 'Swiss', de: 'Schweizer', fr: 'Suisse' }, eu_efta: { it: 'UE/AELS', en: 'EU/EFTA', de: 'EU/EFTA', fr: 'UE/AELE' }, other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' } }[passport][lang];
+      if (value && known.passportSource !== 'candidate') basis = 'deduced';
       break;
     }
     case 'passport_swiss':
@@ -1935,6 +2086,7 @@ export function platformDefaultAnswer(question, facts = null, { locale } = {}) {
       // Yes only for the passport the wording names: a Swiss-only prompt is no for an EU/EFTA passport.
       const held = { passport_swiss: ['swiss'], passport_eu_efta: ['eu_efta'], passport_swiss_eu_efta: ['swiss', 'eu_efta'] }[topic];
       value = held.includes(passport) ? yesValue(question, lang) : noValue(question, lang);
+      if (known.passportSource !== 'candidate') basis = 'deduced';
       break;
     }
     // An unticked box already declines: the platform leaves a marketing checkbox as it is.

@@ -114,6 +114,25 @@ describe('the platform answers what the concierge eligibility check asks', () =>
       .toMatchObject({ german: 'B2', language_de_any_proficiency: 'B2' });
   });
 
+  it('uses a verified combined-passport answer and foreign permit for every passport form', async () => {
+    const facts = conciergePlatformFacts({
+      service: { ...SERVICE, candidateFacts: { workPermit: 'permit_g' } }, profile: {}, job: JOB,
+    });
+    const passportQuestions = [
+      { id: 'passport_binary', question: 'Do you hold a Swiss/EU/EFTA passport?', type: 'yes_no', options: [], required: true },
+      { id: 'passport_type_no_options', question: 'Type of valid passport', type: 'choice', options: [], required: true },
+      { id: 'passport_type_select', question: 'Type of valid passport', type: 'choice', options: ['Swiss', 'EU/EFTA', 'Other'], required: true },
+    ];
+    const generate = vi.fn(async () => decisions([{ id: 'passport_binary', value: 'yes' }]));
+    const result = await answerConciergeClarifications({ facts, generate, cvText: CV, locale: 'en', questions: passportQuestions });
+    const byId = Object.fromEntries(result.entries.map((entry: any) => [entry.questionId, entry.answer]));
+
+    expect(generate).toHaveBeenCalledTimes(1);
+    expect(byId).toEqual({ passport_binary: 'Yes', passport_type_no_options: 'EU/EFTA', passport_type_select: 'EU/EFTA' });
+    expect(result.left).toEqual([]);
+    expect(result.decisions).toMatchObject({ passport_binary: expect.objectContaining({ value: 'yes' }) });
+  });
+
   it('decides experience with the engine in one call and never says yes to a formal title the CV lacks', async () => {
     const facts = conciergePlatformFacts({ service: SERVICE, profile: PROFILE, job: JOB });
     const generate = vi.fn(async () => decisions([
