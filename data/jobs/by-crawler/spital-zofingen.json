@@ -2314,12 +2314,12 @@
     },
     {
       "id": "spital-zofingen-18f05cd4e6ba",
-      "slug": "mitarbeiterin-collaboratore-trice-roomservice-spital-zofingen",
+      "slug": "addetta-addetto-al-servizio-in-camera-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen",
-        "it": "mitarbeiterin-collaboratore-trice-roomservice-spital-zofingen",
-        "en": "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen",
-        "fr": "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen"
+        "it": "addetta-addetto-al-servizio-in-camera-spital-zofingen-zofingen",
+        "en": "employee-employee-roomservice-spital-zofingen-zofingen",
+        "fr": "employe-employe-roomservice-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2368,11 +2368,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen",
+          "mitarbeiterin-collaboratore-trice-roomservice-spital-zofingen"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen"
+        "mitarbeiterin-mitarbeiter-roomservice-spital-zofingen-zofingen",
+        "mitarbeiterin-collaboratore-trice-roomservice-spital-zofingen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

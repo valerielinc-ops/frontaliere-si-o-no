@@ -2810,12 +2810,12 @@
     },
     {
       "id": "swica-57fb5d642d02",
-      "slug": "vertrauensarzt-alle-swica-winterthur",
+      "slug": "medico-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "vertrauensarzt-alle-swica-winterthur",
-        "it": "vertrauensarzt-alle-swica-winterthur",
-        "en": "vertrauensarzt-alle-swica-winterthur",
-        "fr": "vertrauensarzt-alle-swica-winterthur"
+        "it": "medico-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "physician-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "medecin-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2877,7 +2877,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:38:59.788Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:38:59.788Z"
+      "firstSeenAt": "2026-11-13T09:38:59.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vertrauensarzt-alle-swica-winterthur"
+        ],
+        "en": [
+          "vertrauensarzt-alle-swica-winterthur"
+        ],
+        "fr": [
+          "vertrauensarzt-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "vertrauensarzt-alle-swica-winterthur"
+      ]
     },
     {
       "id": "swica-bbb4b12045ae",

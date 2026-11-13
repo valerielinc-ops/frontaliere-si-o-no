@@ -27,16 +27,16 @@ const italianDate = (isoDate: string) => {
   return `${day}/${month}/${year}`;
 };
 const CUSTOMER_POSTED_DATE = daysAgo(7);
-const OCEAN_POSTED_DATE = daysAgo(14);
+const OPERATIVO_POSTED_DATE = daysAgo(14);
 const LISTING_HTML = fs.readFileSync(new URL('listing.html', FIXTURES), 'utf8')
   .replace('{{CUSTOMER_POSTED_DATE}}', italianDate(CUSTOMER_POSTED_DATE))
-  .replace('{{OCEAN_POSTED_DATE}}', italianDate(OCEAN_POSTED_DATE));
+  .replace('{{OPERATIVO_POSTED_DATE}}', italianDate(OPERATIVO_POSTED_DATE));
 const CUSTOMER_HTML = fs.readFileSync(new URL('customer-detail.html', FIXTURES), 'utf8')
   .replace('{{CUSTOMER_POSTED_DATE}}', CUSTOMER_POSTED_DATE);
-const OCEAN_HTML = fs.readFileSync(new URL('ocean-detail.html', FIXTURES), 'utf8')
-  .replace('{{OCEAN_POSTED_DATE}}', OCEAN_POSTED_DATE);
+const OPERATIVO_HTML = fs.readFileSync(new URL('operativo-detail.html', FIXTURES), 'utf8')
+  .replace('{{OPERATIVO_POSTED_DATE}}', OPERATIVO_POSTED_DATE);
 const CUSTOMER_URL = 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm';
-const OCEAN_URL = 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm';
+const OPERATIVO_URL = 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm';
 
 describe('Cippà Trasporti SA crawler parser', () => {
   it('reads the complete branded Altamira grid without navigation false positives', () => {
@@ -49,11 +49,11 @@ describe('Cippà Trasporti SA crawler parser', () => {
         postedDate: CUSTOMER_POSTED_DATE,
       },
       {
-        title: 'Ocean Freight Operations Specialist – FCL & Project Cargo',
-        url: OCEAN_URL,
+        title: 'Operativo Trasporti Terra',
+        url: OPERATIVO_URL,
         location: 'Chiasso',
         businessUnit: 'Trasporti',
-        postedDate: OCEAN_POSTED_DATE,
+        postedDate: OPERATIVO_POSTED_DATE,
       },
     ]);
   });
@@ -98,7 +98,7 @@ describe('Cippà Trasporti SA crawler parser', () => {
       options.validateRedirectUrl?.(url);
       if (url === CIPPATRASPORTI_CAREER_URL) return LISTING_HTML;
       if (url === CUSTOMER_URL) return CUSTOMER_HTML;
-      if (url === OCEAN_URL) return OCEAN_HTML;
+      if (url === OPERATIVO_URL) return OPERATIVO_HTML;
       throw new Error(`unexpected URL ${url}`);
     });
     const runtime = { fetchPage, sleep: async () => {}, detailConcurrency: 2 };
@@ -113,13 +113,13 @@ describe('Cippà Trasporti SA crawler parser', () => {
         slug: 'customer-service-transport-specialist-cippatrasporti-ch',
       },
       {
-        id: 'cippatrasporti-5dd16ddc181a',
-        url: OCEAN_URL,
-        slug: 'ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch',
+        id: 'cippatrasporti-6360a178ef6c',
+        url: OPERATIVO_URL,
+        slug: 'operativo-trasporti-terra-cippatrasporti-ch',
       },
     ]);
     expect(first.every((job) => job.description.length > 400 && job.location === 'Chiasso')).toBe(true);
-    expect(first.every((job) => job.category === 'Logistica')).toBe(true);
+    expect(first.map((job) => job.category)).toEqual(['Logistica', 'Produzione']);
     const identity = (job: { id: string; url: string; slug: string; location: string }) => ({
       id: job.id,
       url: job.url,
@@ -162,7 +162,7 @@ describe('Cippà Trasporti SA crawler parser', () => {
     const failedDetail = vi.fn(async (url: string) => {
       if (url === CIPPATRASPORTI_CAREER_URL) return LISTING_HTML;
       if (url === CUSTOMER_URL) throw new Error('socket timeout');
-      return OCEAN_HTML;
+      return OPERATIVO_HTML;
     });
     await expect(fetchAllCippatrasportiJobs({
       fetchPage: failedDetail,

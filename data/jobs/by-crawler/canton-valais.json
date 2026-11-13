@@ -1341,12 +1341,12 @@
     },
     {
       "id": "canton-valais-dff6b5cfe2ff",
-      "slug": "trink-e-badewasserinspektor-in-80-canton-du-valais-sion",
+      "slug": "ispettore-trice-dell-acqua-potabile-e-delle-acque-di-balneazione-80-canton-du-valais-sion",
       "slugByLocale": {
         "de": "trink-und-badewasserinspektor-in-80-canton-valais-ch",
-        "it": "trink-e-badewasserinspektor-in-80-canton-du-valais-sion",
-        "en": "trink-und-badewasserinspektor-in-80-canton-valais-ch",
-        "fr": "trink-und-badewasserinspektor-in-80-canton-valais-ch"
+        "it": "ispettore-trice-dell-acqua-potabile-e-delle-acque-di-balneazione-80-canton-du-valais-sion",
+        "en": "drinking-and-bathing-water-inspector-80-canton-du-valais-sion",
+        "fr": "inspecteur-trice-de-l-eau-potable-et-des-eaux-de-baignade-80-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1394,11 +1394,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "trink-und-badewasserinspektor-in-80-canton-valais-ch",
+          "trink-e-badewasserinspektor-in-80-canton-du-valais-sion"
+        ],
+        "en": [
+          "trink-und-badewasserinspektor-in-80-canton-valais-ch"
+        ],
+        "fr": [
           "trink-und-badewasserinspektor-in-80-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "trink-und-badewasserinspektor-in-80-canton-valais-ch"
+        "trink-und-badewasserinspektor-in-80-canton-valais-ch",
+        "trink-e-badewasserinspektor-in-80-canton-du-valais-sion"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -1421,12 +1429,12 @@
     },
     {
       "id": "canton-valais-1b79637d442c",
-      "slug": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee",
+      "slug": "collaboratore-agro-tecnico-80-appuntamento-fisso-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee",
-        "it": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee",
-        "en": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee",
-        "de": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        "it": "collaboratore-agro-tecnico-80-appuntamento-fisso-canton-du-valais-sion",
+        "en": "an-agro-technical-collaborator-80-fixed-term-appointment-canton-du-valais-sion",
+        "de": "ein-agrotechnischer-mitarbeiter-80-befristete-ernennung-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1488,16 +1496,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:14.598Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:14.598Z"
+      "firstSeenAt": "2026-11-13T09:41:14.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+      ]
     },
     {
       "id": "canton-valais-0920858c798a",
-      "slug": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch",
+      "slug": "un-collaboratore-economico-80-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch",
-        "it": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch",
-        "en": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch",
-        "de": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        "it": "un-collaboratore-economico-80-canton-du-valais-sion",
+        "en": "an-economic-collaborator-80-canton-du-valais-sion",
+        "de": "ein-wirtschaftlicher-mitarbeiter-80-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1559,16 +1581,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:13.959Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:13.959Z"
+      "firstSeenAt": "2026-11-13T09:41:13.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-d29777a523a4",
-      "slug": "un-substitut-ou-une-substitute-100-canton-valais-ch",
+      "slug": "un-sostituto-100-canton-du-valais-monthey",
       "slugByLocale": {
         "fr": "un-substitut-ou-une-substitute-100-canton-valais-ch",
-        "it": "un-substitut-ou-une-substitute-100-canton-valais-ch",
+        "it": "un-sostituto-100-canton-du-valais-monthey",
         "en": "un-substitut-ou-une-substitute-100-canton-valais-ch",
-        "de": "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        "de": "ein-ersatz-100-canton-du-valais-monthey"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1630,16 +1666,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:13.301Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:13.301Z"
+      "firstSeenAt": "2026-11-13T09:41:13.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-substitut-ou-une-substitute-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-1e5d7dbaaa4b",
-      "slug": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
+      "slug": "capo-della-sezione-infrastrutture-e-operazioni-100-canton-du-valais-sierre",
       "slugByLocale": {
         "fr": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
-        "it": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
-        "en": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch",
-        "de": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        "it": "capo-della-sezione-infrastrutture-e-operazioni-100-canton-du-valais-sierre",
+        "en": "a-head-of-the-infrastructure-and-operations-section-100-canton-du-valais-sierre",
+        "de": "leiter-der-sektion-infrastruktur-und-betrieb-100-canton-du-valais-sierre"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1701,16 +1748,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:41:12.663Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-28T05:35:45.231Z"
+      "firstSeenAt": "2026-08-28T05:35:45.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-e3aed5292d13",
-      "slug": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante",
+      "slug": "coordinatore-o-coordinatore-per-la-protezione-della-popolazione-rimontaggio-o-sostituzione-del-capo-em-occ-80-100-canton",
       "slugByLocale": {
         "fr": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante",
-        "it": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante",
-        "en": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante",
-        "de": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        "it": "coordinatore-o-coordinatore-per-la-protezione-della-popolazione-rimontaggio-o-sostituzione-del-capo-em-occ-80-100-canton",
+        "en": "a-coordinator-or-coordinator-for-the-protection-of-the-population-replacing-or-replacing-chief-em-occ-80-100-canton-du",
+        "de": "ein-koordinator-oder-koordinator-fur-den-schutz-der-bevolkerung-ersetzen-oder-ersetzen-chief-em-occ-80-100-canton-du"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1772,16 +1833,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:11.894Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:11.894Z"
+      "firstSeenAt": "2026-11-13T09:41:11.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ],
+        "en": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ],
+        "de": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ]
+      },
+      "previousSlugs": [
+        "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+      ]
     },
     {
       "id": "canton-valais-b0f4675c09df",
-      "slug": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch",
+      "slug": "cantante-o-cantonale-ii-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch",
-        "it": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch",
-        "en": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch",
-        "de": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        "it": "cantante-o-cantonale-ii-100-canton-du-valais-sion",
+        "en": "a-cantoner-or-cantoner-ii-100-canton-du-valais-sion",
+        "de": "a-kantoner-oder-kanton-ii-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1843,16 +1918,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:11.235Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:11.235Z"
+      "firstSeenAt": "2026-11-13T09:41:11.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-39425bc75a73",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-100-contratto-a-tempo-determinato-di-5-anni-canton-du-valais",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-100-contratto-a-tempo-determinato-di-5-anni-canton-du-valais",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-100-fixed-term-contract-of-5-years-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-100-befristeter-vertrag-von-5-jahren-canton-du"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1914,16 +2003,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:10.596Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:10.596Z"
+      "firstSeenAt": "2026-11-13T09:41:10.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+      ]
     },
     {
       "id": "canton-valais-226a99bdd0d1",
-      "slug": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch",
+      "slug": "responsabile-dei-servizi-aziendali-80-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch",
-        "it": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch",
-        "en": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch",
-        "de": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        "it": "responsabile-dei-servizi-aziendali-80-100-canton-du-valais-sion",
+        "en": "a-head-of-corporate-services-80-100-canton-du-valais-sion",
+        "de": "ein-head-of-corporate-services-80-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1985,7 +2088,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:41:09.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:41:09.950Z"
+      "firstSeenAt": "2026-11-13T09:41:09.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+      ]
     }
   ]
 }

@@ -3541,12 +3541,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-8cc6ec264747",
-      "slug": "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "dipl-professionista-m-f-d-gesundheitszentrum-fricktal-rheinfelden-c1a4d3",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "dipl-professionista-m-f-d-gesundheitszentrum-fricktal-rheinfelden-c1a4d3",
+        "en": "dipl-care-professional-m-f-d-gesundheitszentrum-fricktal-rheinfelden-c1a4d3",
+        "fr": "dipl-professionnel-de-soins-h-f-d-gesundheitszentrum-fricktal-rheinfelden-c1a4d3"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -3620,7 +3620,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-29T09:14:15.619Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-29T21:18:21.536Z"
+      "firstSeenAt": "2026-09-29T21:18:21.536Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

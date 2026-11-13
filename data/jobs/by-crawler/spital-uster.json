@@ -4629,12 +4629,12 @@
     },
     {
       "id": "spital-uster-e5bb24201d02",
-      "slug": "praktikum-soziale-arbeit-fh-per-studierende-80-akutspital-spital-uster",
+      "slug": "tirocinio-in-lavoro-sociale-sup-per-studenti-80-ospedale-per-acuti-spital-uster-uster",
       "slugByLocale": {
         "de": "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch",
-        "it": "praktikum-soziale-arbeit-fh-per-studierende-80-akutspital-spital-uster",
-        "en": "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch",
-        "fr": "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch"
+        "it": "tirocinio-in-lavoro-sociale-sup-per-studenti-80-ospedale-per-acuti-spital-uster-uster",
+        "en": "internship-social-work-fh-for-students-80-acute-hospital-spital-uster-uster",
+        "fr": "stage-travail-social-fh-pour-les-etudiants-80-hopital-aigu-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4683,11 +4683,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch",
+          "praktikum-soziale-arbeit-fh-per-studierende-80-akutspital-spital-uster"
+        ],
+        "en": [
+          "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch"
+        ],
+        "fr": [
           "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch"
+        "praktikum-soziale-arbeit-fh-fur-studierende-80-akutspital-spital-uster-ch",
+        "praktikum-soziale-arbeit-fh-per-studierende-80-akutspital-spital-uster"
       ],
       "salaryMin": 50400,
       "salaryMax": 93200,
@@ -4724,12 +4732,12 @@
     },
     {
       "id": "spital-uster-e8af2b65b198",
-      "slug": "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch",
+      "slug": "social-worker-social-worker-90-acute-hospital-spital-uster-uster",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch",
-        "it": "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch",
+        "it": "social-worker-social-worker-90-acute-hospital-spital-uster-uster",
         "en": "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch",
-        "fr": "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch"
+        "fr": "travailleur-social-travailleur-social-90-hopital-aigu-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4806,7 +4814,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T09:16:54.489Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:16:54.489Z"
+      "firstSeenAt": "2026-11-13T09:16:54.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-90-akutspital-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-2cd06c56e22c",

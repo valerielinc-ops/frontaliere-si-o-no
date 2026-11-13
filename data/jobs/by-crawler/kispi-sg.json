@@ -264,12 +264,12 @@
     },
     {
       "id": "kispi-sg-40e49ced4b86",
-      "slug": "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen",
+      "slug": "esperto-a-in-cure-infermieristiche-pratiche-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen",
-        "it": "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen",
-        "en": "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen",
-        "fr": "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen"
+        "it": "esperto-a-in-cure-infermieristiche-pratiche-80-100-ostschweizer-kinderspital-st-gallen",
+        "en": "nursing-practice-expert-80-100-ostschweizer-kinderspital-st-gallen",
+        "fr": "expert-e-en-soins-infirmiers-en-pratique-80-100-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -332,7 +332,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:39:33.215Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:39:33.215Z"
+      "firstSeenAt": "2026-11-13T09:39:33.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen"
+        ],
+        "en": [
+          "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen"
+        ],
+        "fr": [
+          "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexperte-in-praxis-80-100-kispi-sg-st-gallen"
+      ]
     },
     {
       "id": "kispi-sg-ce94bcf3201b",
