@@ -64,12 +64,14 @@ export async function stageSectionTreeLayout({
   mode = 'filesystem',
   readRegistry = readSectionTreeLayoutRegistry,
   probeWorker = requireWorkerSectionTreeLayout,
+  workerLayoutConfirmed = false,
   applyFilesystemFanout = fanoutSectionTree,
   applyIndexFanout = rewriteSectionTreeIndex,
   stderr = console.error,
 } = {}) {
   if (!section || !locale || !stage || !sub) throw new Error('section, locale, stage and sub are required');
   if (!['filesystem', 'index'].includes(mode)) throw new Error(`unsupported section tree staging mode: ${mode}`);
+  if (typeof workerLayoutConfirmed !== 'boolean') throw new Error('workerLayoutConfirmed must be a boolean');
   const registry = await readRegistry();
   const initialSections = sectionTreeLayoutSections(registry);
   const decision = decideSectionTreeFanout({
@@ -89,7 +91,10 @@ export async function stageSectionTreeLayout({
     throw new Error(`[section-tree-layout:preflight-required] ${section} crosses the automatic fan-out threshold in ${locale}, but is not in the durable registry; the cross-locale preflight must register and probe it before any section push`);
   }
   const sections = initialSections;
-  await probeWorker(section, sub);
+  // The section publisher probes the active Worker before its expensive
+  // canonical-tree measurement. It may consume that exact confirmation here
+  // after the measurement; direct callers keep the fail-closed probe default.
+  if (!workerLayoutConfirmed) await probeWorker(section, sub);
 
   let moved = 0;
   if (mode === 'filesystem') {
@@ -108,7 +113,7 @@ function flag(args, name, fallback) {
 }
 
 async function main(args = process.argv.slice(2)) {
-  if (args[0] !== 'stage') throw new Error('usage: section-tree-layout-stage.mjs stage --section NAME --locale LOCALE --pct PCT --stage DIR --sub PATH --mode filesystem|index');
+  if (args[0] !== 'stage') throw new Error('usage: section-tree-layout-stage.mjs stage --section NAME --locale LOCALE --pct PCT --stage DIR --sub PATH --mode filesystem|index [--worker-layout-confirmed]');
   const result = await stageSectionTreeLayout({
     section: flag(args, '--section'),
     locale: flag(args, '--locale'),
@@ -117,6 +122,7 @@ async function main(args = process.argv.slice(2)) {
     stage: flag(args, '--stage'),
     sub: flag(args, '--sub'),
     mode: flag(args, '--mode'),
+    workerLayoutConfirmed: args.includes('--worker-layout-confirmed'),
   });
   process.stdout.write(`${JSON.stringify(result)}\n`);
 }

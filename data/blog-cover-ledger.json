@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1169,
+      "5": 1171,
       "6": 5062
     },
-    "publishedCovers": 7912,
+    "publishedCovers": 7914,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218366,6 +218366,72 @@
         "provider": "openai-codex",
         "assetId": "article-votazione-fondo-rete-gas-wil",
         "imageUrl": "/images/blog/article-votazione-fondo-rete-gas-wil.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-giovani-donne-stipendi-svizzera": {
+      "cover": "/images/blog/article-giovani-donne-stipendi-svizzera.webp",
+      "hash": "38d1c8f0bc1f05efa2abb2f40bedb0ee1b0f599baedab81be66763b43457da11",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "giovani-donne-stipendi-svizzera",
+          "category": "pratico",
+          "date": "2026-10-19T03:17:11.592Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giovani-donne-stipendi-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-11-13",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-giovani-donne-stipendi-svizzera",
+        "imageUrl": "/images/blog/article-giovani-donne-stipendi-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-imc-oberengadin-weekend": {
+      "cover": "/images/blog/article-imc-oberengadin-weekend.webp",
+      "hash": "67ce765038805a8c2039a853a4394c930061accc538c446d11aa1879adec384f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "imc-oberengadin-weekend",
+          "category": "novita",
+          "date": "2026-11-13T12:59:39.920Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-imc-oberengadin-weekend.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-13",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-imc-oberengadin-weekend",
+        "imageUrl": "/images/blog/article-imc-oberengadin-weekend.webp",
         "evidence": "generated-engine-record"
       }
     }

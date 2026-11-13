@@ -162,8 +162,8 @@ describe('a portal\'s own «do you hold…?» field, with that document attached
     expect(planned.missingRequired.map((item: any) => item.fieldId)).toEqual(['f5']);
     // The agentic fallback's guard: its «yes» is not clicked, and the question goes to the candidate.
     const act = { ref: 'e21', action: 'click', value: '', document: 'none', question: field.label, answer: 'Oui', source: 'documents', evidence: '' };
-    const guarded = guardAgentStep({ status: 'act', reason: '', advanceRef: '', actions: [act], questions: [] }, some);
-    expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const guarded = guardAgentStep({ status: 'ACT', reason: '', advanceRef: '', actions: [act], questions: [] }, some);
+    expect(guarded).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     expect(guarded.questions.map((item: any) => item.question)).toEqual([field.label]);
     // The document with a file is answered as before.
     expect(attachedDocumentYes(some, yesNo('f6', 'Avez-vous un permis de conduire ?'))).toBe('Oui');
@@ -172,17 +172,17 @@ describe('a portal\'s own «do you hold…?» field, with that document attached
   // The agentic fallback reads no option list: its own guard (guardAgentStep) grounds the «yes» in the upload.
   it('lets the agentic fallback answer «yes» too, and only «yes»', () => {
     const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'documents', evidence: '', ...action });
-    const turn = (actions: any[] = [], questions: any[] = []) => ({ status: 'act', reason: '', advanceRef: '', actions, questions });
+    const turn = (actions: any[] = [], questions: any[] = []) => ({ status: 'ACT', reason: '', advanceRef: '', actions, questions });
     const question = 'Avez-vous un permis de conduire ?';
     expect(asksAttachedDocument(candidate, question)).toBe(true);
     expect(asksAttachedDocument(none, question)).toBe(false);
     // A knock-out question («permis de conduire»), answered from the document attached: the move runs.
     const yes = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), candidate);
-    expect(yes).toMatchObject({ status: 'act', questions: [] });
+    expect(yes).toMatchObject({ status: 'ACT', questions: [] });
     expect(yes.actions.map((action: any) => action.ref)).toEqual(['e12']);
     // Nothing attached: the candidate says.
     const unknown = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), none);
-    expect(unknown).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(unknown).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     expect(unknown.questions.map((item: any) => item.question)).toEqual([question]);
     // «No» with the licence attached is never clicked, and never becomes a question: the upload answered it.
     const denied = guardAgentStep(turn([act({ ref: 'e13', question, answer: 'Non' })]), candidate);
