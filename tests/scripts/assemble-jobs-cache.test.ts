@@ -285,17 +285,19 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
   });
 
-  it('keys the translation-held projection separately from published jobs', () => {
+  it('separates snapshots that include translation-held jobs from publishing snapshots', () => {
     const previous = process.env.JOBS_INCLUDE_TRANSLATION_HELD;
     try {
-      delete process.env.JOBS_INCLUDE_TRANSLATION_HELD;
-      const published = computeAssembleCacheKey();
       process.env.JOBS_INCLUDE_TRANSLATION_HELD = '1';
       const held = computeAssembleCacheKey();
+      delete process.env.JOBS_INCLUDE_TRANSLATION_HELD;
+      const publishing = computeAssembleCacheKey();
 
-      expect(held.inputFingerprint).toBe(published.inputFingerprint);
       expect(held.includeTranslationHeld).toBe(true);
-      expect(held.cacheKey).toBe(`${published.cacheKey}_withheld`);
+      expect(publishing.includeTranslationHeld).toBe(false);
+      expect(held.cacheKey).not.toBe(publishing.cacheKey);
+      expect(held.cacheKey).toMatch(/_withheld$/);
+      expect(publishing.cacheKey).not.toMatch(/_withheld$/);
     } finally {
       if (previous === undefined) delete process.env.JOBS_INCLUDE_TRANSLATION_HELD;
       else process.env.JOBS_INCLUDE_TRANSLATION_HELD = previous;
