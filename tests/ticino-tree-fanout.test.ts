@@ -52,6 +52,8 @@ describe('Ticino shard tree fan-out', () => {
       script.indexOf('# ── Stage subtree + offload'),
     );
     expect(helper).toContain('section_tree_measure_unfanned_pct');
+    expect(helper).toContain('SECTION_TREE_WORKER_LAYOUT_CONFIRMATION');
+    expect(helper).toContain('--worker-layout-confirmed');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" filesystem');
     expect(helper).not.toContain('--allow-local-transition');
