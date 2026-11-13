@@ -249,9 +249,10 @@ jobs:
     # disabilitato anche se il runner conserva la directory.
     env:
       NODE_COMPILE_CACHE: node_modules/.cache/node-compile
-      # Keep review classification aligned with the former pr-review-loop.
-      # This is consumed by both the re-review guard and tier selection.
-      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
+      # Tier/context mirror for generated data and static assets. The canonical
+      # fast-path and carry-forward predicate lives in review-test-policy.mjs;
+      # lockfiles remain a deliberate tier-only exception here.
+      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/|packages/articles/content/(blog-body(-ch)?/|image-credits/|seo/seo-blog(-[^/]+)?\.ts$|(article-index-exclusions|swiss-article-canonical-overrides)\.json$|(blog-articles-data|blogArticleIds|blog-meta(-ch)?-(de|en|fr|it)|routerBlogData|routerSwissData|swiss-articles-data)\.ts$))|^(.github/corpus-workflows/contract\.json|firestore\.indexes\.json)$|(^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock)$|\.(snap|avif|bmp|jpe?g|png|webp|gif|svg|ico|tiff?|woff2?|xml|csv|tsv|jsonl|ndjson)$'
     steps:
       - name: PR-body completeness + multi-issue Closes (no checkout, pull requests)
         if: ${{ !cancelled() && github.event_name == 'pull_request' }}
@@ -2784,7 +2785,7 @@ jobs:
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: Verify published blog cover ledger
-        if: ${{ steps.body_contract.outcome != 'failure' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
           # The remote main ref can advance while a push run is still in
           # flight. Compare against the immutable event/base commit instead

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { localeTitleDropsSourceWords } from './job-title-identity.mjs';
+import { mayReplacePublishedSlug } from './published-slug-stability.mjs';
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
@@ -2545,9 +2546,17 @@ export function ensureLocaleFields(job) {
     // distinct city openings (e.g. Lidl in Cadenazzo vs Locarno) into the
     // same slug even when the title-token Jaccard score exceeds 0.80.
     const _slugLocationHint = String(out.addressLocality || out.location || '');
+    // A copy of the IT slug or a wrong-language slug is a TITLE reason: once
+    // served, the slug stays canonical unless the job's identity moved
+    // (scripts/lib/published-slug-stability.mjs). A low-quality slug is a slug
+    // defect and stays repairable.
+    const mayRederivePublishedSlug = mayReplacePublishedSlug(currentSlug, {
+      company: out.company || '',
+      location: _slugLocationHint,
+    }, { job: out, locale });
     const willDiscardSlug =
       isLowQualityLocalizedSlug(currentSlug) ||
-      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug, {
+      (shouldRegenerateLocalizedSlug && mayRederivePublishedSlug && !isSlugStable(currentSlug, derivedSlug, {
         existingLocation: _slugLocationHint,
         newLocation: _slugLocationHint,
       }));

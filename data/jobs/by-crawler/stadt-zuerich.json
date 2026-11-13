@@ -3788,7 +3788,7 @@
       "slug": "assemblaggio-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automation-fitter-stadt-zurich",
+        "en": "automatic-assembler-stadt-zurich-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "fr": "monteur-automatique-stadt-zurich-zurich"
       },
@@ -3840,7 +3840,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automatic-assembler-stadt-zurich-zurich"
+        "automation-fitter-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3848,7 +3848,7 @@
         ],
         "en": [
           "automatikmonteur-in-stadt-zurich",
-          "automatic-assembler-stadt-zurich-zurich"
+          "automation-fitter-stadt-zurich"
         ],
         "fr": [
           "automatikmonteur-in-stadt-zurich"
@@ -4414,9 +4414,9 @@
       "slug": "automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automation-technician-stadt-zurich",
+        "en": "automatics-stadt-zurich-zurich",
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
-        "fr": "automaticien-ne-stadt-zurich"
+        "fr": "automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -4466,8 +4466,8 @@
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
         "automatiker-in-stadt-zurich",
-        "automatics-stadt-zurich-zurich",
-        "automatique-stadt-zurich-zurich"
+        "automation-technician-stadt-zurich",
+        "automaticien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4475,11 +4475,11 @@
         ],
         "en": [
           "automatiker-in-stadt-zurich",
-          "automatics-stadt-zurich-zurich"
+          "automation-technician-stadt-zurich"
         ],
         "fr": [
           "automatiker-in-stadt-zurich",
-          "automatique-stadt-zurich-zurich"
+          "automaticien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -4507,7 +4507,7 @@
         "it": "elettromeccanica-stadt-zurich-zurich",
         "en": "electromechanic-stadt-zurich-zurich",
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "fr": "electromecanicien-ne-stadt-zurich"
+        "fr": "electromecanique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -4557,7 +4557,7 @@
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "elektromechaniker-in-stadt-zurich",
-        "electromecanique-stadt-zurich-zurich"
+        "electromecanicien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4568,7 +4568,7 @@
         ],
         "fr": [
           "elektromechaniker-in-stadt-zurich",
-          "electromecanique-stadt-zurich-zurich"
+          "electromecanicien-ne-stadt-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -5377,7 +5377,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -5428,13 +5428,11 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
         ]
       },
       "needsRetranslation": true,
@@ -6261,8 +6259,8 @@
       "id": "stadt-zuerich-405b4ac0728d",
       "slug": "pedagogia-infantile-in-sss-stadt-zurich-zurich-9310a13e7f",
       "slugByLocale": {
-        "it": "pedagogia-infantile-in-sss-stadt-zurich-zurich-9310a13e7f",
-        "en": "childhoodeducator-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
+        "en": "childhood-education-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
         "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
@@ -6316,12 +6314,11 @@
           "kindheitspadagog-in-hf-stadt-zurich",
           "kindheitspadagog-in-hf-stadt-zurich-zurich-3448df0ee3",
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich",
           "pedagogia-infantile-in-sss-stadt-zurich"
         ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
-          "childhood-education-hf-stadt-zurich-zurich"
+          "childhoodeducator-hf-stadt-zurich"
         ],
         "fr": [
           "kindheitspadagog-in-hf-stadt-zurich"
@@ -6334,9 +6331,8 @@
         "kindheitspadagog-in-hf-stadt-zurich",
         "kindheitspadagog-in-hf-stadt-zurich-zurich-3448df0ee3",
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich",
-        "childhood-education-hf-stadt-zurich-zurich",
-        "pedagogia-infantile-in-sss-stadt-zurich"
+        "pedagogia-infantile-in-sss-stadt-zurich",
+        "childhoodeducator-hf-stadt-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-25T21:50:53.934Z",
@@ -7223,9 +7219,9 @@
       "slug": "responsabile-del-doposcuola-stadt-zurich-zurich-8afecf3484",
       "slugByLocale": {
         "it": "responsabile-del-doposcuola-stadt-zurich-zurich-8afecf3484",
-        "en": "daycare-supervisor-stadt-zurich",
+        "en": "after-school-care-manager-stadt-zurich-zurich",
         "de": "hortleiter-in-stadt-zuerich-zurigo-52044",
-        "fr": "responsabledegarderie-stadt-zurich"
+        "fr": "responsable-de-structure-parascolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -7275,8 +7271,8 @@
       "previousSlugs": [
         "hortleiter-in-stadt-zuerich-zurigo-52044",
         "hortleiter-in-stadt-zurich",
-        "after-school-care-manager-stadt-zurich-zurich",
-        "responsable-de-structure-parascolaire-stadt-zurich-zurich"
+        "daycare-supervisor-stadt-zurich",
+        "responsabledegarderie-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7284,11 +7280,11 @@
         ],
         "en": [
           "hortleiter-in-stadt-zurich",
-          "after-school-care-manager-stadt-zurich-zurich"
+          "daycare-supervisor-stadt-zurich"
         ],
         "fr": [
           "hortleiter-in-stadt-zurich",
-          "responsable-de-structure-parascolaire-stadt-zurich-zurich"
+          "responsabledegarderie-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:49:30.450Z",
@@ -9390,8 +9386,8 @@
       "id": "stadt-zuerich-c9ee943891a3",
       "slug": "pedagogia-infantile-in-sss-stadt-zurich-zurich-ad4312088f",
       "slugByLocale": {
-        "it": "pedagogia-infantile-in-sss-stadt-zurich-zurich-ad4312088f",
-        "en": "childhoodeducator-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
+        "en": "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
         "fr": "kindheitspadagog-in-hf-stadt-zurich-zurich"
       },
@@ -9444,21 +9440,19 @@
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
         "kindheitspadagog-in-hf-stadt-zurich",
         "kindheitspadagog-in-hf-stadt-zurich-zurich-1463313409",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
-        "childhood-education-hf-stadt-zurich-zurich-e49b8a",
-        "pedagogia-infantile-in-sss-stadt-zurich"
+        "pedagogia-infantile-in-sss-stadt-zurich",
+        "childhoodeducator-hf-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
           "kindheitspadagog-in-hf-stadt-zurich",
           "kindheitspadagog-in-hf-stadt-zurich-zurich-1463313409",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
           "pedagogia-infantile-in-sss-stadt-zurich"
         ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
-          "childhood-education-hf-stadt-zurich-zurich-e49b8a"
+          "childhoodeducator-hf-stadt-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -9672,7 +9666,7 @@
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "specialista-assistenza-bambini-afc-stadt-zurich-zurich-411899935a",
       "slugByLocale": {
-        "it": "specialista-assistenza-bambini-afc-stadt-zurich-zurich-411899935a",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -9724,14 +9718,12 @@
       "referenceNumber": "51137",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
         ]
       },
       "needsRetranslation": true,
@@ -9757,7 +9749,7 @@
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "specialista-assistenza-bambini-afc-stadt-zurich-zurich-562bc7edc9",
       "slugByLocale": {
-        "it": "specialista-assistenza-bambini-afc-stadt-zurich-zurich-562bc7edc9",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -9809,14 +9801,12 @@
       "referenceNumber": "51123",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
         ]
       },
       "needsRetranslation": true,
@@ -11062,7 +11052,7 @@
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -11117,13 +11107,11 @@
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ],
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
@@ -23173,9 +23161,9 @@
       "slug": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
       "slugByLocale": {
         "it": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
-        "en": "guidance-or-expert-support-stadt-zurich",
+        "en": "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
         "de": "sozialpadagog-in-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
-        "fr": "orientation-ou-appui-d-experts-stadt-zurich"
+        "fr": "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23231,18 +23219,18 @@
         ],
         "en": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "social-pedagogue-or-specialist-care-stadt-zurich-zurich"
+          "guidance-or-expert-support-stadt-zurich"
         ],
         "fr": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+          "orientation-ou-appui-d-experts-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "hortleitung-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
         "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
-        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+        "guidance-or-expert-support-stadt-zurich",
+        "orientation-ou-appui-d-experts-stadt-zurich"
       ],
       "firstSeenAt": "2026-11-09T10:08:37.401Z",
       "salaryMin": 63000,
@@ -26148,7 +26136,7 @@
         "it": "avvocato-stadt-zurich-zurich",
         "en": "lawyer-stadt-zurich-zurich",
         "de": "jurist-in-stadt-zuerich-zurigo-51605",
-        "fr": "juriste-stadt-zurich"
+        "fr": "avocat-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26198,7 +26186,7 @@
       "previousSlugs": [
         "jurist-in-stadt-zuerich-zurigo-51605",
         "jurist-in-stadt-zurich",
-        "avocat-stadt-zurich-zurich"
+        "juriste-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26209,7 +26197,7 @@
         ],
         "fr": [
           "jurist-in-stadt-zurich",
-          "avocat-stadt-zurich-zurich"
+          "juriste-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-26T21:53:48.302Z",
@@ -30720,7 +30708,7 @@
       "title": "Coach JOB PLUS EP",
       "titleByLocale": {
         "it": "Allenatore JOB PLUS EP",
-        "en": "Coach JOB PLUS EP",
+        "en": "JOB PLUS EP Coach",
         "de": "Coach JOB PLUS EP",
         "fr": "Coach JOB PLUS EP"
       },
@@ -34066,12 +34054,12 @@
     },
     {
       "id": "stadt-zuerich-48ab8f010741",
-      "slug": "teamleiter-in-verlegungsdienst-stadt-zurich-zurich",
+      "slug": "responsabile-del-team-del-servizio-di-trasferimento-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274",
-        "it": "teamleiter-in-verlegungsdienst-stadt-zurich-zurich",
-        "en": "teamleiter-in-verlegungsdienst-stadt-zurich-zurich",
-        "fr": "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
+        "it": "responsabile-del-team-del-servizio-di-trasferimento-stadt-zurich-zurich",
+        "en": "transfer-service-team-leader-stadt-zurich-zurich",
+        "fr": "responsable-d-equipe-du-service-de-transfert-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34079,16 +34067,16 @@
       "title": "Teamleiter*in Verlegungsdienst",
       "titleByLocale": {
         "de": "Teamleiter*in Verlegungsdienst",
-        "it": "Teamleiter*in Verlegungsdienst",
-        "en": "Teamleiter*in Verlegungsdienst",
-        "fr": "Teamleiter*in Verlegungsdienst"
+        "it": "Responsabile del team del servizio di trasferimento",
+        "en": "Transfer Service Team Leader",
+        "fr": "Responsable d’équipe du service de transfert"
       },
       "description": "Im Bereich Sanität suchen wir für unsere Abteilung eine engagierte Führungspersönlichkeit,\ndie Verantwortung übernimmt, Menschen bewegt und den operativen Alltag aktiv mitgestaltet.\nDafür besetzen wir per 01. April 2027 oder nach Vereinbarung eine vakante Stelle als Teamleiter*in Verlegungsdienst.\n\n• Du führst - 11 Mitarbeitende im Verlegungsdienst und bist nah am Team\n\n• Du gibst Orientierung, schaffst Verbindlichkeit und entwickelst Menschen weiter\n\n• Du triffst Entscheidungen, stehst dafür ein und gehst Konflikten nicht aus dem Weg\n\n• Du sorgst dafür, dass Standards nicht nur auf dem Papier stehen, sondern gelebt werden\n\n• Du bleibst im Sekundärbereich selbst im Einsatz, stellst einen reibungslosen Dienstbetrieb sicher und bringst dich in Projekte und die Weiterentwicklung von SRZ ein\n\n• Du übernimmst Verantwortung bei der Rekrutierung neuer Mitarbeitenden\n\n• Ausbildung als Dipl. Rettungssanitäter*in HF oder Transportsanitäter*in FA\n\n• Mehrjährige Berufserfahrung in einem schweizerischen Rettungsdienst und ausgewiesene fachliche Weiterbildungen\n\n• Führungserfahrung oder Führungsausbildung\n\n• Rückgrat, Empathie und die Fähigkeit, klare Entscheidungen zu treffen\n\n• Hohe psychische, körperliche und soziale Belastbarkeit\n\n• Führerausweis Kat. B121 / C1 / D1 sowie einwandfreier Leumund\n\n• Eine anspruchsvolle Führungsaufgabe mit Gestaltungsspielraum\n\n• Gute Entwicklungs- und Weiterbildungsmöglichkeiten in einem 24-Stunden-Betrieb\n\n• Ein engagiertes Team, indem Zusammenarbeit, Offenheit und gegenseitige Unterstützung zählen\n\n• Moderne Einsatzmittel und Dienstbekleidung\n\n• Zeitgemässe Arbeits- und Anstellungsbedingungen an einem modernen Arbeitsplatz in Zürich, du profitierst von einem Mobilitätsbeitrag und weiterer Vergünstigungen\n\nSchutz & Rettung Zürich (SRZ) vereinigt als Dienstabteilung des Sicherheitsdepartements die Berufs- und Milizfeuerwehr, die Sanität sowie die Einsatzleitzentrale (ELZ) für die Notrufe 144 und 118. Ausserdem gehören Zivilschutz, Feuerpolizei und ein Ausbildungszentrum mit angegliederter Höherer Fachschule für Rettungsberufe (HFRB) zur grössten zivilen Rettungsorganisation der Schweiz. Interventions- und Präventionseinheiten schützen und retten rund um die Uhr Menschen, Tiere, Sachwerte und die Umwelt in der Stadt Zürich, auf dem Flughafen Zürich und in der Agglomeration.",
       "descriptionByLocale": {
         "de": "Im Bereich Sanität suchen wir für unsere Abteilung eine engagierte Führungspersönlichkeit,\ndie Verantwortung übernimmt, Menschen bewegt und den operativen Alltag aktiv mitgestaltet.\nDafür besetzen wir per 01. April 2027 oder nach Vereinbarung eine vakante Stelle als Teamleiter*in Verlegungsdienst.\n\n• Du führst - 11 Mitarbeitende im Verlegungsdienst und bist nah am Team\n\n• Du gibst Orientierung, schaffst Verbindlichkeit und entwickelst Menschen weiter\n\n• Du triffst Entscheidungen, stehst dafür ein und gehst Konflikten nicht aus dem Weg\n\n• Du sorgst dafür, dass Standards nicht nur auf dem Papier stehen, sondern gelebt werden\n\n• Du bleibst im Sekundärbereich selbst im Einsatz, stellst einen reibungslosen Dienstbetrieb sicher und bringst dich in Projekte und die Weiterentwicklung von SRZ ein\n\n• Du übernimmst Verantwortung bei der Rekrutierung neuer Mitarbeitenden\n\n• Ausbildung als Dipl. Rettungssanitäter*in HF oder Transportsanitäter*in FA\n\n• Mehrjährige Berufserfahrung in einem schweizerischen Rettungsdienst und ausgewiesene fachliche Weiterbildungen\n\n• Führungserfahrung oder Führungsausbildung\n\n• Rückgrat, Empathie und die Fähigkeit, klare Entscheidungen zu treffen\n\n• Hohe psychische, körperliche und soziale Belastbarkeit\n\n• Führerausweis Kat. B121 / C1 / D1 sowie einwandfreier Leumund\n\n• Eine anspruchsvolle Führungsaufgabe mit Gestaltungsspielraum\n\n• Gute Entwicklungs- und Weiterbildungsmöglichkeiten in einem 24-Stunden-Betrieb\n\n• Ein engagiertes Team, indem Zusammenarbeit, Offenheit und gegenseitige Unterstützung zählen\n\n• Moderne Einsatzmittel und Dienstbekleidung\n\n• Zeitgemässe Arbeits- und Anstellungsbedingungen an einem modernen Arbeitsplatz in Zürich, du profitierst von einem Mobilitätsbeitrag und weiterer Vergünstigungen\n\nSchutz & Rettung Zürich (SRZ) vereinigt als Dienstabteilung des Sicherheitsdepartements die Berufs- und Milizfeuerwehr, die Sanität sowie die Einsatzleitzentrale (ELZ) für die Notrufe 144 und 118. Ausserdem gehören Zivilschutz, Feuerpolizei und ein Ausbildungszentrum mit angegliederter Höherer Fachschule für Rettungsberufe (HFRB) zur grössten zivilen Rettungsorganisation der Schweiz. Interventions- und Präventionseinheiten schützen und retten rund um die Uhr Menschen, Tiere, Sachwerte und die Umwelt in der Stadt Zürich, auf dem Flughafen Zürich und in der Agglomeration.",
-        "it": "Im Bereich Sanität suchen wir für unsere Abteilung eine engagierte Führungspersönlichkeit,\ndie Verantwortung übernimmt, Menschen bewegt und den operativen Alltag aktiv mitgestaltet.\nDafür besetzen wir per 01. April 2027 oder nach Vereinbarung eine vakante Stelle als Teamleiter*in Verlegungsdienst.\n\n• Du führst - 11 Mitarbeitende im Verlegungsdienst und bist nah am Team\n\n• Du gibst Orientierung, schaffst Verbindlichkeit und entwickelst Menschen weiter\n\n• Du triffst Entscheidungen, stehst dafür ein und gehst Konflikten nicht aus dem Weg\n\n• Du sorgst dafür, dass Standards nicht nur auf dem Papier stehen, sondern gelebt werden\n\n• Du bleibst im Sekundärbereich selbst im Einsatz, stellst einen reibungslosen Dienstbetrieb sicher und bringst dich in Projekte und die Weiterentwicklung von SRZ ein\n\n• Du übernimmst Verantwortung bei der Rekrutierung neuer Mitarbeitenden\n\n• Ausbildung als Dipl. Rettungssanitäter*in HF oder Transportsanitäter*in FA\n\n• Mehrjährige Berufserfahrung in einem schweizerischen Rettungsdienst und ausgewiesene fachliche Weiterbildungen\n\n• Führungserfahrung oder Führungsausbildung\n\n• Rückgrat, Empathie und die Fähigkeit, klare Entscheidungen zu treffen\n\n• Hohe psychische, körperliche und soziale Belastbarkeit\n\n• Führerausweis Kat. B121 / C1 / D1 sowie einwandfreier Leumund\n\n• Eine anspruchsvolle Führungsaufgabe mit Gestaltungsspielraum\n\n• Gute Entwicklungs- und Weiterbildungsmöglichkeiten in einem 24-Stunden-Betrieb\n\n• Ein engagiertes Team, indem Zusammenarbeit, Offenheit und gegenseitige Unterstützung zählen\n\n• Moderne Einsatzmittel und Dienstbekleidung\n\n• Zeitgemässe Arbeits- und Anstellungsbedingungen an einem modernen Arbeitsplatz in Zürich, du profitierst von einem Mobilitätsbeitrag und weiterer Vergünstigungen\n\nSchutz & Rettung Zürich (SRZ) vereinigt als Dienstabteilung des Sicherheitsdepartements die Berufs- und Milizfeuerwehr, die Sanität sowie die Einsatzleitzentrale (ELZ) für die Notrufe 144 und 118. Ausserdem gehören Zivilschutz, Feuerpolizei und ein Ausbildungszentrum mit angegliederter Höherer Fachschule für Rettungsberufe (HFRB) zur grössten zivilen Rettungsorganisation der Schweiz. Interventions- und Präventionseinheiten schützen und retten rund um die Uhr Menschen, Tiere, Sachwerte und die Umwelt in der Stadt Zürich, auf dem Flughafen Zürich und in der Agglomeration.",
-        "en": "Im Bereich Sanität suchen wir für unsere Abteilung eine engagierte Führungspersönlichkeit,\ndie Verantwortung übernimmt, Menschen bewegt und den operativen Alltag aktiv mitgestaltet.\nDafür besetzen wir per 01. April 2027 oder nach Vereinbarung eine vakante Stelle als Teamleiter*in Verlegungsdienst.\n\n• Du führst - 11 Mitarbeitende im Verlegungsdienst und bist nah am Team\n\n• Du gibst Orientierung, schaffst Verbindlichkeit und entwickelst Menschen weiter\n\n• Du triffst Entscheidungen, stehst dafür ein und gehst Konflikten nicht aus dem Weg\n\n• Du sorgst dafür, dass Standards nicht nur auf dem Papier stehen, sondern gelebt werden\n\n• Du bleibst im Sekundärbereich selbst im Einsatz, stellst einen reibungslosen Dienstbetrieb sicher und bringst dich in Projekte und die Weiterentwicklung von SRZ ein\n\n• Du übernimmst Verantwortung bei der Rekrutierung neuer Mitarbeitenden\n\n• Ausbildung als Dipl. Rettungssanitäter*in HF oder Transportsanitäter*in FA\n\n• Mehrjährige Berufserfahrung in einem schweizerischen Rettungsdienst und ausgewiesene fachliche Weiterbildungen\n\n• Führungserfahrung oder Führungsausbildung\n\n• Rückgrat, Empathie und die Fähigkeit, klare Entscheidungen zu treffen\n\n• Hohe psychische, körperliche und soziale Belastbarkeit\n\n• Führerausweis Kat. B121 / C1 / D1 sowie einwandfreier Leumund\n\n• Eine anspruchsvolle Führungsaufgabe mit Gestaltungsspielraum\n\n• Gute Entwicklungs- und Weiterbildungsmöglichkeiten in einem 24-Stunden-Betrieb\n\n• Ein engagiertes Team, indem Zusammenarbeit, Offenheit und gegenseitige Unterstützung zählen\n\n• Moderne Einsatzmittel und Dienstbekleidung\n\n• Zeitgemässe Arbeits- und Anstellungsbedingungen an einem modernen Arbeitsplatz in Zürich, du profitierst von einem Mobilitätsbeitrag und weiterer Vergünstigungen\n\nSchutz & Rettung Zürich (SRZ) vereinigt als Dienstabteilung des Sicherheitsdepartements die Berufs- und Milizfeuerwehr, die Sanität sowie die Einsatzleitzentrale (ELZ) für die Notrufe 144 und 118. Ausserdem gehören Zivilschutz, Feuerpolizei und ein Ausbildungszentrum mit angegliederter Höherer Fachschule für Rettungsberufe (HFRB) zur grössten zivilen Rettungsorganisation der Schweiz. Interventions- und Präventionseinheiten schützen und retten rund um die Uhr Menschen, Tiere, Sachwerte und die Umwelt in der Stadt Zürich, auf dem Flughafen Zürich und in der Agglomeration.",
-        "fr": "Im Bereich Sanität suchen wir für unsere Abteilung eine engagierte Führungspersönlichkeit,\ndie Verantwortung übernimmt, Menschen bewegt und den operativen Alltag aktiv mitgestaltet.\nDafür besetzen wir per 01. April 2027 oder nach Vereinbarung eine vakante Stelle als Teamleiter*in Verlegungsdienst.\n\n• Du führst - 11 Mitarbeitende im Verlegungsdienst und bist nah am Team\n\n• Du gibst Orientierung, schaffst Verbindlichkeit und entwickelst Menschen weiter\n\n• Du triffst Entscheidungen, stehst dafür ein und gehst Konflikten nicht aus dem Weg\n\n• Du sorgst dafür, dass Standards nicht nur auf dem Papier stehen, sondern gelebt werden\n\n• Du bleibst im Sekundärbereich selbst im Einsatz, stellst einen reibungslosen Dienstbetrieb sicher und bringst dich in Projekte und die Weiterentwicklung von SRZ ein\n\n• Du übernimmst Verantwortung bei der Rekrutierung neuer Mitarbeitenden\n\n• Ausbildung als Dipl. Rettungssanitäter*in HF oder Transportsanitäter*in FA\n\n• Mehrjährige Berufserfahrung in einem schweizerischen Rettungsdienst und ausgewiesene fachliche Weiterbildungen\n\n• Führungserfahrung oder Führungsausbildung\n\n• Rückgrat, Empathie und die Fähigkeit, klare Entscheidungen zu treffen\n\n• Hohe psychische, körperliche und soziale Belastbarkeit\n\n• Führerausweis Kat. B121 / C1 / D1 sowie einwandfreier Leumund\n\n• Eine anspruchsvolle Führungsaufgabe mit Gestaltungsspielraum\n\n• Gute Entwicklungs- und Weiterbildungsmöglichkeiten in einem 24-Stunden-Betrieb\n\n• Ein engagiertes Team, indem Zusammenarbeit, Offenheit und gegenseitige Unterstützung zählen\n\n• Moderne Einsatzmittel und Dienstbekleidung\n\n• Zeitgemässe Arbeits- und Anstellungsbedingungen an einem modernen Arbeitsplatz in Zürich, du profitierst von einem Mobilitätsbeitrag und weiterer Vergünstigungen\n\nSchutz & Rettung Zürich (SRZ) vereinigt als Dienstabteilung des Sicherheitsdepartements die Berufs- und Milizfeuerwehr, die Sanität sowie die Einsatzleitzentrale (ELZ) für die Notrufe 144 und 118. Ausserdem gehören Zivilschutz, Feuerpolizei und ein Ausbildungszentrum mit angegliederter Höherer Fachschule für Rettungsberufe (HFRB) zur grössten zivilen Rettungsorganisation der Schweiz. Interventions- und Präventionseinheiten schützen und retten rund um die Uhr Menschen, Tiere, Sachwerte und die Umwelt in der Stadt Zürich, auf dem Flughafen Zürich und in der Agglomeration."
+        "it": "Nel settore delle cure mediche, stiamo cercando un leader impegnato per il nostro dipartimento,\nprende la responsabilità, muove le persone e forma attivamente le operazioni quotidiane.\nPer questo riempiamo il 01. Aprile 2027 o per accordo una posizione vacante come capo squadra nel servizio di trasferimento.\n\n• Guida - 11 dipendenti nel servizio di trasferimento e sono vicini al team\n\n• Dare orientamento, creare impegno e sviluppare ulteriormente le persone\n\n• Si prendono decisioni, si alzi per loro e non evitare conflitti\n\n• Assicurarsi che gli standard non sono solo su carta, ma sono vissuti.\n\n• Si rimane in uso nel settore secondario stesso, garantire operazioni di servizio fluido e partecipare a progetti e l'ulteriore sviluppo di SRZ\n\n• Si assume la responsabilità di assumere nuovi dipendenti\n\n• Allenamento come Dipl. Paramedic HF o trasporto paramedico FA\n\n• Diversi anni di esperienza professionale in un servizio di soccorso svizzero e formazione professionale comprovata\n\n• Esperienza di leadership o formazione di leadership\n\n• Backbone, empatia e la capacità di prendere decisioni chiare\n\n• Alta resilienza psicologica, fisica e sociale\n\n• Patente di guida Cat. B121 / C1 / D1 e buona reputazione\n\n• Un impegnativo compito di leadership con ambito creativo\n\n• Buone opportunità di sviluppo e formazione in un'operazione di 24 ore\n\n• Un team dedicato in cui la collaborazione, l'apertura e il conteggio di supporto reciproco\n\n• Attrezzature moderne e abbigliamento di servizio\n\n• Le condizioni di lavoro e di lavoro contemporanee in un luogo di lavoro moderno a Zurigo, beneficiano di un contributo alla mobilità e di altri vantaggi\n\nProtezione e soccorso Zurigo (SRZ), come reparto di servizio del Dipartimento di Sicurezza, unisce i vigili del fuoco professionali e miliziali, il dipartimento medico e il centro di controllo operativo (ELZ) per le chiamate di emergenza 144 e 118. Inoltre, la protezione civile, la polizia antincendio e un centro di formazione con una scuola superiore affiliata per le professioni di soccorso (HFRB) appartengono alla più grande organizzazione di soccorso civile in Svizzera. Le unità di intervento e prevenzione proteggono e salvano le persone, gli animali, la proprietà e l'ambiente intorno all'orologio nella città di Zurigo, all'aeroporto di Zurigo e nell'agglomerato.",
+        "en": "In the area of medical care, we are looking for a committed leader for our department,\ntakes responsibility, moves people and actively shapes everyday operations.\nFor this we fill on 01. April 2027 or by arrangement a vacant position as team leader in transfer service.\n\n• You lead - 11 employees in the transfer service and are close to the team\n\n• You give orientation, create commitment and develop people further\n\n• You make decisions, stand up for them and do not avoid conflicts\n\n• You ensure that standards are not only on paper, but are lived.\n\n• You stay in use in the secondary sector yourself, ensure smooth service operations and get involved in projects and the further development of SRZ\n\n• You take responsibility for recruiting new employees\n\n• Training as a Dipl. Paramedic HF or transport paramedic FA\n\n• Several years of professional experience in a Swiss rescue service and proven professional training\n\n• Leadership experience or leadership training\n\n• Backbone, empathy and the ability to make clear decisions\n\n• High psychological, physical and social resilience\n\n• Driving licence Cat. B121 / C1 / D1 and good repute\n\n• A demanding leadership task with creative scope\n\n• Good development and further training opportunities in a 24-hour operation\n\n• A dedicated team where collaboration, openness and mutual support count\n\n• Modern equipment and service clothing\n\n• Contemporary working and employment conditions at a modern workplace in Zurich, you benefit from a mobility contribution and other benefits\n\nProtection & Rescue Zurich (SRZ), as a service department of the Department of Security, unites the professional and militia fire brigades, the medical department and the operational control center (ELZ) for the emergency calls 144 and 118. In addition, civil protection, fire police and a training center with an affiliated Higher School for Rescue Occupations (HFRB) belong to the largest civil rescue organization in Switzerland. Intervention and prevention units protect and save people, animals, property and the environment around the clock in the city of Zurich, at Zurich Airport and in the agglomeration.",
+        "fr": "Dans le domaine des soins médicaux, nous cherchons un leader engagé pour notre département,\nprend la responsabilité, déplace les gens et façonne activement les opérations quotidiennes.\nPour cela, nous remplissons le 01. Avril 2027 ou par arrangement un poste vacant comme chef d'équipe dans le service de transfert.\n\n• Vous dirigez - 11 employés dans le service de transfert et sont proches de l'équipe\n\n• Vous donnez de l'orientation, créez de l'engagement et développez les gens\n\n• Tu prends des décisions, tu les défends et tu n'évites pas les conflits\n\n• Vous vous assurez que les normes ne sont pas seulement sur papier, mais qu'elles sont respectées.\n\n• Vous restez vous-même en service dans le secteur secondaire, vous assurez des opérations de service en douceur et participez à des projets et au développement de SRZ\n\n• Vous prenez la responsabilité de recruter de nouveaux employés\n\n• Entraînement comme dipl. Paramédic HF ou paramédic FA transport\n\n• Plusieurs années d'expérience professionnelle dans un service de sauvetage suisse et une formation professionnelle éprouvée\n\n• Expérience en leadership ou formation en leadership\n\n• Dos, empathie et capacité à prendre des décisions claires\n\n• Haute résilience psychologique, physique et sociale\n\n• Permis de conduire Cat. B121 / C1 / D1 et bonne réputation\n\n• Une tâche de leadership exigeante avec une portée créative\n\n• Bon développement et possibilités de formation continue dans une opération de 24 heures\n\n• Une équipe dédiée où la collaboration, l'ouverture et le soutien mutuel comptent\n\n• Équipement moderne et vêtements de service\n\n• Conditions de travail et d'emploi contemporaines sur un lieu de travail moderne à Zurich, vous bénéficiez d'une contribution à la mobilité et d'autres avantages\n\nProtection & Rescue Zurich (SRZ), en tant que service du Département de la Sécurité, rassemble les pompiers professionnels et de la milice, le département médical et le centre de contrôle opérationnel (ELZ) pour les appels d'urgence 144 et 118. En outre, la protection civile, la police des incendies et un centre de formation avec une école supérieure affiliée pour les professions de sauvetage (HFRB) appartiennent à la plus grande organisation de secours civil en Suisse. Les unités d'intervention et de prévention protègent et sauvent les personnes, les animaux, les biens et l'environnement 24 heures sur 24 dans la ville de Zurich, à l'aéroport de Zurich et dans l'agglomération."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -34123,11 +34111,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274"
+          "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274",
+          "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
+        ],
+        "en": [
+          "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274"
+        "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274",
+        "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -34149,12 +34145,12 @@
     },
     {
       "id": "stadt-zuerich-310d149634d0",
-      "slug": "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278",
+      "slug": "responsabile-della-clinica-60-co-direzione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278",
-        "it": "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278",
-        "en": "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278",
-        "fr": "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278"
+        "it": "responsabile-della-clinica-60-co-direzione-stadt-zurich-zurich",
+        "en": "clinic-head-60-co-leadership-stadt-zurich-zurich",
+        "fr": "chef-fe-de-clinique-60-codirection-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34162,16 +34158,16 @@
       "title": "Klinikchef*in 60 % (Co-Leitung)",
       "titleByLocale": {
         "de": "Klinikchef*in 60 % (Co-Leitung)",
-        "it": "Klinikchef*in 60 % (Co-Leitung)",
-        "en": "Klinikchef*in 60 % (Co-Leitung)",
-        "fr": "Klinikchef*in 60 % (Co-Leitung)"
+        "it": "Responsabile della clinica 60 % (co-direzione)",
+        "en": "Clinic Head 60 % (Co-leadership)",
+        "fr": "Chef·fe de clinique 60 % (codirection)"
       },
       "description": "Wir suchen per 1. Juni 2027 oder nach Vereinbarung eine engagierte und motivierte Persönlichkeit.\n\n• Fachliche, personelle und organisatorische Co-Leitung der Schulzahnklinik Eggbühl\n\n• Sicherstellung einer qualitativ hochstehenden, modernen und patient*innenorientierten zahnmedizinischen Betreuung und Behandlung von Kindern und Jugendlichen\n\n• Überwachung und Optimierung klinischer Abläufe, Behandlungskonzepte und Qualitätsstandards\n\n• Betriebswirtschaftliche Planung der personellen und materiellen Ressourcen\n\n• Förderung einer wertschätzenden Teamkultur und eines konstruktiven, motivierenden Arbeitsumfelds\n\n• Pflege und Ausbau der Zusammenarbeit mit internen und externen Fachstellen sowie mit der Universität Zürich\n\n• Aktive Mitwirkung an der strategischen Weiterentwicklung des Schulzahnärztlichen Dienstes in Zusammenarbeit mit dem Leiter des Schulzahnärztlichen Dienstes sowie den Klinikchef*innen\n\n• Eidgenössisches Staatsexamen in Zahnmedizin und entsprechende Berufszulassung (MedReg)\n\n• Von Vorteil Fachzahnärzt*in für Kinderzahnmedizin\n\n• Mehrjährige Berufserfahrung in der Kinderzahnmedizin\n\n• Führungserfahrung und ausgewiesene Kompetenzen in der Personal- und Organisationsführung\n\n• Wertschätzender Führungsstil mit ausgeprägter Kommunikations- und Sozialkompetenz\n\n• Betriebswirtschaftliches Denken und eine hohe Dienstleistungsorientierung\n\n• Interesse an der Weiterentwicklung des Schulzahnärztlichen Dienstes\n\n• Verantwortungsvolle und vielseitige Führungsposition\n\n• Möglichkeit, die fachliche, organisatorische und strategische Entwicklung der Schulzahnklinik aktiv mitzugestalten\n\n• Engagiertes und kompetentes Team mit hoher kinderzahnmedizinischer Expertise\n\n• Spannendes fachliches Umfeld mit etablierten Kontakten zur Universität Zürich\n\n• Angenehme Arbeitsatmosphäre und eine modern eingerichtete Klinik\n\n• Attraktive Anstellungsbedingungen der Stadt Zürich\n\nDie Schulgesundheitsdienste sind eine Dienstabteilung des Stadtzürcher Schul- und Sportdepartements. Die medizinischen, psychologischen und pädagogischen Fachleute bilden ein Kompetenzzentrum für Prävention und Gesundheitsförderung, Beratung und Unterstützung sowie Information und Öffentlichkeitsarbeit zum Wohl der Kinder und Jugendlichen der Stadt Zürich. Der Schulzahnärztliche Dienst ist eine Abteilung der Schulgesundheitsdienste des Stadtzürcher Schul- und Sportdepartements und betreibt sechs Schulzahnkliniken verteilt auf die Schulkreise der Stadt Zürich.\n\nAuskünfte erteilt Ihnen gerne Herr Dr. med. dent. Oliver Vock, Leiter Schulzahnärztlicher Dienst der Stadt Zürich, E-Mail: oliver.vock@zuerich.ch\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen, welche Sie online einreichen.",
       "descriptionByLocale": {
         "de": "Wir suchen per 1. Juni 2027 oder nach Vereinbarung eine engagierte und motivierte Persönlichkeit.\n\n• Fachliche, personelle und organisatorische Co-Leitung der Schulzahnklinik Eggbühl\n\n• Sicherstellung einer qualitativ hochstehenden, modernen und patient*innenorientierten zahnmedizinischen Betreuung und Behandlung von Kindern und Jugendlichen\n\n• Überwachung und Optimierung klinischer Abläufe, Behandlungskonzepte und Qualitätsstandards\n\n• Betriebswirtschaftliche Planung der personellen und materiellen Ressourcen\n\n• Förderung einer wertschätzenden Teamkultur und eines konstruktiven, motivierenden Arbeitsumfelds\n\n• Pflege und Ausbau der Zusammenarbeit mit internen und externen Fachstellen sowie mit der Universität Zürich\n\n• Aktive Mitwirkung an der strategischen Weiterentwicklung des Schulzahnärztlichen Dienstes in Zusammenarbeit mit dem Leiter des Schulzahnärztlichen Dienstes sowie den Klinikchef*innen\n\n• Eidgenössisches Staatsexamen in Zahnmedizin und entsprechende Berufszulassung (MedReg)\n\n• Von Vorteil Fachzahnärzt*in für Kinderzahnmedizin\n\n• Mehrjährige Berufserfahrung in der Kinderzahnmedizin\n\n• Führungserfahrung und ausgewiesene Kompetenzen in der Personal- und Organisationsführung\n\n• Wertschätzender Führungsstil mit ausgeprägter Kommunikations- und Sozialkompetenz\n\n• Betriebswirtschaftliches Denken und eine hohe Dienstleistungsorientierung\n\n• Interesse an der Weiterentwicklung des Schulzahnärztlichen Dienstes\n\n• Verantwortungsvolle und vielseitige Führungsposition\n\n• Möglichkeit, die fachliche, organisatorische und strategische Entwicklung der Schulzahnklinik aktiv mitzugestalten\n\n• Engagiertes und kompetentes Team mit hoher kinderzahnmedizinischer Expertise\n\n• Spannendes fachliches Umfeld mit etablierten Kontakten zur Universität Zürich\n\n• Angenehme Arbeitsatmosphäre und eine modern eingerichtete Klinik\n\n• Attraktive Anstellungsbedingungen der Stadt Zürich\n\nDie Schulgesundheitsdienste sind eine Dienstabteilung des Stadtzürcher Schul- und Sportdepartements. Die medizinischen, psychologischen und pädagogischen Fachleute bilden ein Kompetenzzentrum für Prävention und Gesundheitsförderung, Beratung und Unterstützung sowie Information und Öffentlichkeitsarbeit zum Wohl der Kinder und Jugendlichen der Stadt Zürich. Der Schulzahnärztliche Dienst ist eine Abteilung der Schulgesundheitsdienste des Stadtzürcher Schul- und Sportdepartements und betreibt sechs Schulzahnkliniken verteilt auf die Schulkreise der Stadt Zürich.\n\nAuskünfte erteilt Ihnen gerne Herr Dr. med. dent. Oliver Vock, Leiter Schulzahnärztlicher Dienst der Stadt Zürich, E-Mail: oliver.vock@zuerich.ch\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen, welche Sie online einreichen.",
-        "it": "Wir suchen per 1. Juni 2027 oder nach Vereinbarung eine engagierte und motivierte Persönlichkeit.\n\n• Fachliche, personelle und organisatorische Co-Leitung der Schulzahnklinik Eggbühl\n\n• Sicherstellung einer qualitativ hochstehenden, modernen und patient*innenorientierten zahnmedizinischen Betreuung und Behandlung von Kindern und Jugendlichen\n\n• Überwachung und Optimierung klinischer Abläufe, Behandlungskonzepte und Qualitätsstandards\n\n• Betriebswirtschaftliche Planung der personellen und materiellen Ressourcen\n\n• Förderung einer wertschätzenden Teamkultur und eines konstruktiven, motivierenden Arbeitsumfelds\n\n• Pflege und Ausbau der Zusammenarbeit mit internen und externen Fachstellen sowie mit der Universität Zürich\n\n• Aktive Mitwirkung an der strategischen Weiterentwicklung des Schulzahnärztlichen Dienstes in Zusammenarbeit mit dem Leiter des Schulzahnärztlichen Dienstes sowie den Klinikchef*innen\n\n• Eidgenössisches Staatsexamen in Zahnmedizin und entsprechende Berufszulassung (MedReg)\n\n• Von Vorteil Fachzahnärzt*in für Kinderzahnmedizin\n\n• Mehrjährige Berufserfahrung in der Kinderzahnmedizin\n\n• Führungserfahrung und ausgewiesene Kompetenzen in der Personal- und Organisationsführung\n\n• Wertschätzender Führungsstil mit ausgeprägter Kommunikations- und Sozialkompetenz\n\n• Betriebswirtschaftliches Denken und eine hohe Dienstleistungsorientierung\n\n• Interesse an der Weiterentwicklung des Schulzahnärztlichen Dienstes\n\n• Verantwortungsvolle und vielseitige Führungsposition\n\n• Möglichkeit, die fachliche, organisatorische und strategische Entwicklung der Schulzahnklinik aktiv mitzugestalten\n\n• Engagiertes und kompetentes Team mit hoher kinderzahnmedizinischer Expertise\n\n• Spannendes fachliches Umfeld mit etablierten Kontakten zur Universität Zürich\n\n• Angenehme Arbeitsatmosphäre und eine modern eingerichtete Klinik\n\n• Attraktive Anstellungsbedingungen der Stadt Zürich\n\nDie Schulgesundheitsdienste sind eine Dienstabteilung des Stadtzürcher Schul- und Sportdepartements. Die medizinischen, psychologischen und pädagogischen Fachleute bilden ein Kompetenzzentrum für Prävention und Gesundheitsförderung, Beratung und Unterstützung sowie Information und Öffentlichkeitsarbeit zum Wohl der Kinder und Jugendlichen der Stadt Zürich. Der Schulzahnärztliche Dienst ist eine Abteilung der Schulgesundheitsdienste des Stadtzürcher Schul- und Sportdepartements und betreibt sechs Schulzahnkliniken verteilt auf die Schulkreise der Stadt Zürich.\n\nAuskünfte erteilt Ihnen gerne Herr Dr. med. dent. Oliver Vock, Leiter Schulzahnärztlicher Dienst der Stadt Zürich, E-Mail: oliver.vock@zuerich.ch\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen, welche Sie online einreichen.",
-        "en": "Wir suchen per 1. Juni 2027 oder nach Vereinbarung eine engagierte und motivierte Persönlichkeit.\n\n• Fachliche, personelle und organisatorische Co-Leitung der Schulzahnklinik Eggbühl\n\n• Sicherstellung einer qualitativ hochstehenden, modernen und patient*innenorientierten zahnmedizinischen Betreuung und Behandlung von Kindern und Jugendlichen\n\n• Überwachung und Optimierung klinischer Abläufe, Behandlungskonzepte und Qualitätsstandards\n\n• Betriebswirtschaftliche Planung der personellen und materiellen Ressourcen\n\n• Förderung einer wertschätzenden Teamkultur und eines konstruktiven, motivierenden Arbeitsumfelds\n\n• Pflege und Ausbau der Zusammenarbeit mit internen und externen Fachstellen sowie mit der Universität Zürich\n\n• Aktive Mitwirkung an der strategischen Weiterentwicklung des Schulzahnärztlichen Dienstes in Zusammenarbeit mit dem Leiter des Schulzahnärztlichen Dienstes sowie den Klinikchef*innen\n\n• Eidgenössisches Staatsexamen in Zahnmedizin und entsprechende Berufszulassung (MedReg)\n\n• Von Vorteil Fachzahnärzt*in für Kinderzahnmedizin\n\n• Mehrjährige Berufserfahrung in der Kinderzahnmedizin\n\n• Führungserfahrung und ausgewiesene Kompetenzen in der Personal- und Organisationsführung\n\n• Wertschätzender Führungsstil mit ausgeprägter Kommunikations- und Sozialkompetenz\n\n• Betriebswirtschaftliches Denken und eine hohe Dienstleistungsorientierung\n\n• Interesse an der Weiterentwicklung des Schulzahnärztlichen Dienstes\n\n• Verantwortungsvolle und vielseitige Führungsposition\n\n• Möglichkeit, die fachliche, organisatorische und strategische Entwicklung der Schulzahnklinik aktiv mitzugestalten\n\n• Engagiertes und kompetentes Team mit hoher kinderzahnmedizinischer Expertise\n\n• Spannendes fachliches Umfeld mit etablierten Kontakten zur Universität Zürich\n\n• Angenehme Arbeitsatmosphäre und eine modern eingerichtete Klinik\n\n• Attraktive Anstellungsbedingungen der Stadt Zürich\n\nDie Schulgesundheitsdienste sind eine Dienstabteilung des Stadtzürcher Schul- und Sportdepartements. Die medizinischen, psychologischen und pädagogischen Fachleute bilden ein Kompetenzzentrum für Prävention und Gesundheitsförderung, Beratung und Unterstützung sowie Information und Öffentlichkeitsarbeit zum Wohl der Kinder und Jugendlichen der Stadt Zürich. Der Schulzahnärztliche Dienst ist eine Abteilung der Schulgesundheitsdienste des Stadtzürcher Schul- und Sportdepartements und betreibt sechs Schulzahnkliniken verteilt auf die Schulkreise der Stadt Zürich.\n\nAuskünfte erteilt Ihnen gerne Herr Dr. med. dent. Oliver Vock, Leiter Schulzahnärztlicher Dienst der Stadt Zürich, E-Mail: oliver.vock@zuerich.ch\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen, welche Sie online einreichen.",
-        "fr": "Wir suchen per 1. Juni 2027 oder nach Vereinbarung eine engagierte und motivierte Persönlichkeit.\n\n• Fachliche, personelle und organisatorische Co-Leitung der Schulzahnklinik Eggbühl\n\n• Sicherstellung einer qualitativ hochstehenden, modernen und patient*innenorientierten zahnmedizinischen Betreuung und Behandlung von Kindern und Jugendlichen\n\n• Überwachung und Optimierung klinischer Abläufe, Behandlungskonzepte und Qualitätsstandards\n\n• Betriebswirtschaftliche Planung der personellen und materiellen Ressourcen\n\n• Förderung einer wertschätzenden Teamkultur und eines konstruktiven, motivierenden Arbeitsumfelds\n\n• Pflege und Ausbau der Zusammenarbeit mit internen und externen Fachstellen sowie mit der Universität Zürich\n\n• Aktive Mitwirkung an der strategischen Weiterentwicklung des Schulzahnärztlichen Dienstes in Zusammenarbeit mit dem Leiter des Schulzahnärztlichen Dienstes sowie den Klinikchef*innen\n\n• Eidgenössisches Staatsexamen in Zahnmedizin und entsprechende Berufszulassung (MedReg)\n\n• Von Vorteil Fachzahnärzt*in für Kinderzahnmedizin\n\n• Mehrjährige Berufserfahrung in der Kinderzahnmedizin\n\n• Führungserfahrung und ausgewiesene Kompetenzen in der Personal- und Organisationsführung\n\n• Wertschätzender Führungsstil mit ausgeprägter Kommunikations- und Sozialkompetenz\n\n• Betriebswirtschaftliches Denken und eine hohe Dienstleistungsorientierung\n\n• Interesse an der Weiterentwicklung des Schulzahnärztlichen Dienstes\n\n• Verantwortungsvolle und vielseitige Führungsposition\n\n• Möglichkeit, die fachliche, organisatorische und strategische Entwicklung der Schulzahnklinik aktiv mitzugestalten\n\n• Engagiertes und kompetentes Team mit hoher kinderzahnmedizinischer Expertise\n\n• Spannendes fachliches Umfeld mit etablierten Kontakten zur Universität Zürich\n\n• Angenehme Arbeitsatmosphäre und eine modern eingerichtete Klinik\n\n• Attraktive Anstellungsbedingungen der Stadt Zürich\n\nDie Schulgesundheitsdienste sind eine Dienstabteilung des Stadtzürcher Schul- und Sportdepartements. Die medizinischen, psychologischen und pädagogischen Fachleute bilden ein Kompetenzzentrum für Prävention und Gesundheitsförderung, Beratung und Unterstützung sowie Information und Öffentlichkeitsarbeit zum Wohl der Kinder und Jugendlichen der Stadt Zürich. Der Schulzahnärztliche Dienst ist eine Abteilung der Schulgesundheitsdienste des Stadtzürcher Schul- und Sportdepartements und betreibt sechs Schulzahnkliniken verteilt auf die Schulkreise der Stadt Zürich.\n\nAuskünfte erteilt Ihnen gerne Herr Dr. med. dent. Oliver Vock, Leiter Schulzahnärztlicher Dienst der Stadt Zürich, E-Mail: oliver.vock@zuerich.ch\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen, welche Sie online einreichen."
+        "it": "Stiamo cercando 1. Giugno 2027 o da accordo una personalità impegnata e motivata.\n\n• Cogestione professionale, personale e organizzativa della clinica dentale della scuola Eggbühl\n\n• Garantire la cura e il trattamento dentali di alta qualità, moderno e paziente di bambini e adolescenti\n\n• Monitoraggio e ottimizzazione dei processi clinici, concetti di trattamento e standard di qualità\n\n• Pianificazione aziendale delle risorse umane e materiali\n\n• Promuovere una cultura del team apprezzata e un ambiente di lavoro costruttivo e motivante\n\n• Mantenere e ampliare la cooperazione con gli organismi specializzati interni ed esterni nonché con l'Università di Zurigo\n\n• Partecipazione attiva allo sviluppo strategico del servizio odontoiatrico scolastico in collaborazione con il capo del servizio odontoiatrico scolastico e gli amministratori della clinica\n\n• Esame federale di stato in dentista e licenza professionale appropriata (MedReg)\n\n• dentista specializzato* per l'odontoiatria infantile\n\n• Diversi anni di esperienza professionale in odontoiatria pediatrica\n\n• Esperienza manageriale e comprovate competenze nelle risorse umane e nella gestione organizzativa\n\n• Stile di leadership apprezzata con una comunicazione forte e competenze sociali\n\n• Business thinking e un alto orientamento di servizio\n\n• Interessi per l'ulteriore sviluppo del Servizio Odontoiatrico Scuola\n\n• Posizione di leadership responsabile e versatile\n\n• Possibilità di modellare attivamente lo sviluppo professionale, organizzativo e strategico della clinica dentale scolastica\n\n• Squadra impegnata e competente con alta esperienza dentale bambino\n\n• Ambiente professionale emozionante con contatti consolidati all'Università di Zurigo\n\n• Piacevole atmosfera di lavoro e una clinica modernamente attrezzata\n\n• Condizioni di lavoro interessanti della città di Zurigo\n\nI servizi sanitari della scuola sono un dipartimento di servizio della scuola e dello sport della città di Zurigo. Gli specialisti medici, psicologici ed educativi costituiscono un centro di competenza per la prevenzione e la promozione della salute, la consulenza e il supporto nonché l'informazione e le relazioni pubbliche a beneficio dei bambini e degli adolescenti della città di Zurigo. Il Servizio Odontoiatrico Scuola è un dipartimento dei Servizi Sani della Scuola e dello Sport della Città di Zurigo e gestisce sei cliniche dentali scolastiche distribuite tra i circoli scolastici della città di Zurigo.\n\nSiete invitati a ricevere informazioni dal Dr. med. dent. Oliver Vock, Responsabile del Servizio Odontoiatrico della Città di Zurigo, e-mail: oliver.vock@zuerich.ch\n\nAttendiamo con ansia i vostri documenti di applicazione completi, che inviate online.",
+        "en": "We are looking for 1. June 2027 or by arrangement a committed and motivated personality.\n\n• Professional, personnel and organizational co-management of the school dental clinic Eggbühl\n\n• Ensuring high-quality, modern and patient-oriented dental care and treatment of children and adolescents\n\n• Monitoring and optimization of clinical processes, treatment concepts and quality standards\n\n• Business planning of human and material resources\n\n• Promoting an appreciative team culture and a constructive, motivating working environment\n\n• Maintaining and expanding cooperation with internal and external specialist bodies as well as with the University of Zurich\n\n• Active participation in the strategic development of the school dental service in cooperation with the head of the school dental service and the clinic directors\n\n• Federal State Examination in Dentistry and Appropriate Professional License (MedReg)\n\n• Advantageous specialist dentist* for child dentistry\n\n• Several years of professional experience in pediatric dentistry\n\n• Management experience and proven competences in human resources and organisational management\n\n• Appreciative leadership style with strong communication and social skills\n\n• Business thinking and a high service orientation\n\n• Interest in the further development of the School Dental Service\n\n• Responsible and versatile leadership position\n\n• Possibility to actively shape the professional, organizational and strategic development of the school dental clinic\n\n• Committed and competent team with high child dental expertise\n\n• Exciting professional environment with established contacts to the University of Zurich\n\n• Pleasant working atmosphere and a modernly equipped clinic\n\n• Attractive employment conditions of the City of Zurich\n\nThe School Health Services are a service department of the City of Zurich School and Sports Department. The medical, psychological and educational specialists form a competence center for prevention and health promotion, advice and support as well as information and public relations work for the benefit of the children and adolescents of the city of Zurich. The School Dental Service is a department of the School Health Services of the City of Zurich School and Sports Department and operates six school dental clinics distributed among the school circles of the city of Zurich.\n\nYou are welcome to receive information from Dr. med. dent. Oliver Vock, Head of the School Dental Service of the City of Zurich, e-mail: oliver.vock@zuerich.ch\n\nWe look forward to your complete application documents, which you submit online.",
+        "fr": "Nous cherchons 1. Juin 2027 ou par arrangement une personnalité engagée et motivée.\n\n• Cogestion professionnelle, personnelle et organisationnelle de la clinique dentaire Eggbühl\n\n• Assurer des soins dentaires de qualité, modernes et axés sur le patient et le traitement des enfants et des adolescents\n\n• Surveillance et optimisation des processus cliniques, des concepts de traitement et des normes de qualité\n\n• Planification des activités concernant les ressources humaines et matérielles\n\n• Promouvoir une culture d'équipe reconnaissante et un environnement de travail constructif et motivant\n\n• Maintenir et développer la coopération avec les organismes spécialisés internes et externes ainsi qu'avec l'Université de Zurich\n\n• Participation active au développement stratégique du service dentaire scolaire en coopération avec le chef du service dentaire scolaire et les directeurs de clinique\n\n• Examen d'État fédéral en dentisterie et licence professionnelle appropriée (MedReg)\n\n• dentiste spécialisé* avantageux pour la dentisterie enfantine\n\n• Plusieurs années d'expérience professionnelle en dentisterie pédiatrique\n\n• Expérience en gestion et compétences éprouvées en gestion des ressources humaines et organisationnelles\n\n• Appréciation de style de leadership avec une communication forte et des compétences sociales\n\n• La pensée d'entreprise et une orientation de service élevée\n\n• Intérêt pour le développement du service dentaire scolaire\n\n• Poste de direction responsable et polyvalent\n\n• Possibilité de façonner activement le développement professionnel, organisationnel et stratégique de la clinique dentaire scolaire\n\n• Équipe engagée et compétente avec une expertise dentaire élevée pour enfants\n\n• Un environnement professionnel passionnant avec des contacts établis avec l'Université de Zurich\n\n• Ambiance de travail agréable et une clinique moderne\n\n• Conditions d'emploi attrayantes de la ville de Zurich\n\nLes services de santé scolaire sont un service de l'école de Zurich et le service des sports. Les spécialistes médicaux, psychologiques et éducatifs forment un centre de compétences pour la prévention et la promotion de la santé, les conseils et le soutien ainsi que l'information et les relations publiques au profit des enfants et adolescents de la ville de Zurich. Le Service dentaire scolaire est un département du Service de santé scolaire de l'école et du département des sports de la ville de Zurich et gère six cliniques dentaires scolaires réparties entre les milieux scolaires de la ville de Zurich.\n\nVous pouvez recevoir des informations du Dr. med. dent. Oliver Vock, directeur du service dentaire scolaire de la ville de Zurich, e-mail: oliver.vock@zuerich.ch\n\nNous attendons avec impatience vos documents de candidature complets, que vous soumettez en ligne."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -34220,7 +34216,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:53:22.975Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:53:22.975Z"
+      "firstSeenAt": "2026-11-13T09:53:22.975Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278"
+        ],
+        "en": [
+          "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278"
+        ],
+        "fr": [
+          "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278"
+        ]
+      },
+      "previousSlugs": [
+        "klinikchef-in-60-co-leitung-stadt-zuerich-zurigo-52278"
+      ]
     },
     {
       "id": "stadt-zuerich-54df97a3b97a",
@@ -35250,7 +35260,7 @@
       "id": "stadt-zuerich-40e99d7f88af",
       "slug": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
+        "it": "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich",
         "en": "university-of-applied-sciences-practitioner-in-emergency-sleeping-area-stadt-zurich-zurich",
         "de": "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
         "fr": "professeur-a-l-universite-des-sciences-appliquees-en-zone-de-couchage-d-urgence-stadt-zurich-zurich"
@@ -35303,8 +35313,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-          "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
         ],
         "de": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
@@ -35312,8 +35321,7 @@
       },
       "previousSlugs": [
         "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-        "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
       ],
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:26:21.613Z",
@@ -36122,10 +36130,10 @@
       "id": "stadt-zuerich-d689fa857744",
       "slug": "stage-universitario-in-facility-management-stadt-zurich",
       "slugByLocale": {
-        "it": "stage-universitario-in-facility-management-stadt-zurich",
+        "it": "gestione-della-struttura-universitaria-stadt-zurich-zurich",
         "en": "university-internship-facility-management-stadt-zurich-zurich",
         "de": "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201",
-        "fr": "stage-universitaire-en-facility-management-stadt-zurich"
+        "fr": "gestion-des-installations-de-stages-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -36175,17 +36183,15 @@
       "previousSlugs": [
         "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201",
         "hochschulpraktikum-facility-management-stadt-zurich",
-        "gestione-della-struttura-universitaria-stadt-zurich-zurich",
-        "gestion-des-installations-de-stages-universitaires-stadt-zurich-zurich"
+        "stage-universitaire-en-facility-management-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201",
-          "hochschulpraktikum-facility-management-stadt-zurich",
-          "gestione-della-struttura-universitaria-stadt-zurich-zurich"
+          "hochschulpraktikum-facility-management-stadt-zurich"
         ],
         "fr": [
-          "gestion-des-installations-de-stages-universitaires-stadt-zurich-zurich"
+          "stage-universitaire-en-facility-management-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:57.033Z",

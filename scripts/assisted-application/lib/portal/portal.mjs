@@ -58,10 +58,12 @@ import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
-import { isWorkdayJobRouteBound, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
+import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 
-function workdayPostingRouteMismatch(pageUrl, applyUrl) {
-  return isWorkdayTenantUrl(applyUrl) && !isWorkdayJobRouteBound(pageUrl, applyUrl);
+function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
+  if (!isWorkdayTenantUrl(applyUrl)) return false;
+  if (isWorkdayTenantAccountRoute(pageUrl, applyUrl)) return workdayApplicationEntryProven !== true;
+  return !isWorkdayJobRouteBound(pageUrl, applyUrl);
 }
 
 export const WAVE1_CHANNELS = new Set([
@@ -3470,6 +3472,8 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // The caller still needs a matching posting before this flag can authorize
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
+  let workdayApplicationEntryProven = stageContext?.workdayApplicationEntryProven === true
+    || isWorkdayApplicationRouteBound(page.url(), stageContext?.applyUrl);
   let resolvedPostingUrl = '';
   let publicSearchTarget = false;
   let publicSearchSearched = false;
@@ -3478,6 +3482,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     page,
     snapshot,
     enteredThroughApplicationEntry,
+    workdayApplicationEntryProven,
     ...(resolvedPostingUrl ? { resolvedPostingUrl } : {}),
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
@@ -3509,7 +3514,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
-    if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl)) {
+    if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
     }
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
@@ -3563,13 +3568,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (cookies.status === 'unresolved') return result({ handoff: 'cookie_preferences_unresolved' });
     let workdayStage = null;
     if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
-      workdayStage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
+      workdayStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
+        ...stageContext, workdayApplicationEntryProven, url: page.url(),
+      });
       // Reject a Workday profile/talent-pool route before its generic fields
       // can be mistaken for the selected requisition's application form.
       if (workdayStage.kind === 'posting_mismatch') return result({ handoff: 'posting_mismatch' });
       // A resumed account/review page is already inside the application.
       // Its Apply belongs to the stage classifier and final guard below.
-      if (['receipt', 'review_navigation', 'final_review'].includes(workdayStage.kind) || workdayStage.prefinal
+      if (['account', 'receipt', 'review_navigation', 'final_review'].includes(workdayStage.kind) || workdayStage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
     if (hasApplicationForm(snapshot)) {
@@ -3581,10 +3588,12 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       return result();
     }
     if (stageContext) {
-      const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
+      const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, {
+        ...stageContext, workdayApplicationEntryProven, url: page.url(),
+      });
       // A resumed account/review page is already inside the application. Its
       // Apply belongs to the stage classifier and final guard below.
-      if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
+      if (['account', 'receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
     // A custom-domain Apply entry gets one click. If it leaves the browser on
@@ -3653,6 +3662,8 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
       const directApplicationUrl = verifiedDirectApplicationUrl(stageContext, page.url());
       if (directApplicationUrl) {
+        workdayApplicationEntryProven = isWorkdayApplicationRouteBound(directApplicationUrl, stageContext?.applyUrl)
+          || workdayApplicationEntryProven;
         await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
         await page.waitForTimeout(1200);
@@ -3669,6 +3680,8 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl, manual)
         : '';
       if (workdayManualTarget) {
+        workdayApplicationEntryProven = isWorkdayApplicationRouteBound(workdayManualTarget, stageContext?.applyUrl)
+          || workdayApplicationEntryProven;
         await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       } else if (customSuccessFactorsEntry && (manual || apply)?.href) {
         page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
@@ -7041,11 +7054,14 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
  * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '', applyUrl = '' } = {}) {
+export async function openFormSections(page, snapshot, {
+  files = {}, done = new Set(), tries = new Map(), channelType = '', applyUrl = '',
+  workdayApplicationEntryProven = false,
+} = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
   const cvUploadDiagnostics = [];
-  const routeMismatch = () => workdayPostingRouteMismatch(page.url(), applyUrl);
+  const routeMismatch = () => workdayPostingRouteMismatch(page.url(), applyUrl, workdayApplicationEntryProven);
   if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
   const attempt = (key) => {
     const count = (tries.get(key) || 0) + 1;
@@ -8482,6 +8498,7 @@ async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField
 export function pageControls(buttons, known, url, context = null) {
   const stage = context ? applicationStage(context.snapshot, { ...context, url }) : null;
   if (stage) {
+    if (stage.kind === 'account') return { submit: null, next: null, stage };
     if (stage.kind === 'application_start') return { submit: null, next: stage.control, stage };
     if (stage.kind === 'review_navigation') return { submit: null, next: stage.control, stage };
     if (['receipt', 'unknown_apply', 'posting_mismatch'].includes(stage.kind)) return { submit: null, next: null, stage };
@@ -9475,6 +9492,7 @@ export async function submitViaPortal(ctx) {
   let finalClickAttempt = null;
   let activeFinalFormGuard = null;
   const enteredFromMatchingPosting = verifiedPostingEntryFor(ctx);
+  let workdayApplicationEntryProven = false;
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
@@ -9659,7 +9677,10 @@ export async function submitViaPortal(ctx) {
     const uploadedCv = uploadedCvUrls.has(uploadedCvPageKey(page.url()))
       || earlierCvHeld(current.buttons, cvFileNames, keptCvUrls.has(page.url()));
     const snapshot = { ...current, text: await pageText(page), uploadedCv };
-    const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
+    const controls = pageControls(current.buttons, known, page.url(), {
+      snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      workdayApplicationEntryProven, job: ctx.job,
+    });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
       const lastStep = evidence.steps.at(-1);
@@ -9670,7 +9691,10 @@ export async function submitViaPortal(ctx) {
   };
   const confirmedReceipt = async (current) => {
     const snapshot = { ...current, text: await pageText(page) };
-    const stage = applicationStage(snapshot, { applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url() });
+    const stage = applicationStage(snapshot, {
+      applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+      workdayApplicationEntryProven, job: ctx.job, url: page.url(),
+    });
     if (stage.kind !== 'receipt') return null;
     const lastStep = evidence.steps.at(-1);
     if (lastStep) lastStep.applicationStage = { kind: 'receipt' };
@@ -9737,6 +9761,7 @@ export async function submitViaPortal(ctx) {
     const entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     sourceProtocol = snapshot.protocol || null;
@@ -9850,12 +9875,14 @@ export async function submitViaPortal(ctx) {
       applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+      workdayApplicationEntryProven,
       allowSingleExternalApplicationEntry: postingVacancyMatched,
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
     });
     ({ page, snapshot } = opened);
+    workdayApplicationEntryProven = workdayApplicationEntryProven || opened.workdayApplicationEntryProven === true;
     if (opened.resolvedPostingUrl) {
       postingUrl = opened.resolvedPostingUrl;
       postingVacancyMatched = true;
@@ -9899,6 +9926,46 @@ export async function submitViaPortal(ctx) {
       }
       const account = await ctx.accounts.load(host);
       return isOtpVerificationPage(current, host, account) ? { host, account } : null;
+    };
+    const MAX_WORKDAY_AUTH_RETURN_HOPS = 1;
+    let workdayAuthReturnHops = 0;
+    const restoreWorkdayApplication = async () => {
+      if (!workdayApplicationEntryProven) return await handoff('posting_mismatch');
+      const currentRoute = workdayJobRoute(page.url());
+      const currentApplicationSurface = hasApplicationForm(snapshot)
+        || Boolean(findButton(snapshot.buttons, NEXT_RE))
+        || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
+      if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
+        || (currentRoute?.suffix === 'manual' && !currentApplicationSurface)) {
+        if (workdayAuthReturnHops >= MAX_WORKDAY_AUTH_RETURN_HOPS) return await handoff('posting_mismatch');
+        const target = workdayManualApplicationUrl(ctx.applyUrl);
+        if (!target) return await handoff('posting_mismatch');
+        workdayAuthReturnHops += 1;
+        await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        snapshot = await extractFields(page, NAVIGATION);
+        if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)) return await handoff('posting_mismatch');
+      }
+      if (workdayJobRoute(page.url())?.suffix !== 'manual') {
+        const reopened = await openApplicationForm(context, page, snapshot, {
+          applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
+          postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+          workdayApplicationEntryProven,
+          allowSingleExternalApplicationEntry: postingVacancyMatched,
+          ...documentHostContext,
+          onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
+          cookieAgent,
+        });
+        ({ page, snapshot } = reopened);
+        workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
+        enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
+        if (reopened.handoff || !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)) {
+          return await handoff(reopened.handoff || 'posting_mismatch');
+        }
+      } else {
+        snapshot = await awaitFields(page, snapshot);
+      }
+      return null;
     };
     const match = await formMatch();
     evidence.postingMatch = match;
@@ -10217,7 +10284,8 @@ export async function submitViaPortal(ctx) {
       const existingReceipt = await confirmedReceipt(snapshot);
       if (existingReceipt) return existingReceipt;
       const currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
-        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+        workdayApplicationEntryProven, job: ctx.job, url: page.url(),
       });
       if (currentStage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
@@ -10252,18 +10320,25 @@ export async function submitViaPortal(ctx) {
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         snapshot = auth.snapshot;
-        if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+        if (auth.reopen && isWorkdayTenantUrl(ctx.applyUrl)
+          && authPageKind(snapshot) === 'none' && !codeField(snapshot)) {
+          const restored = await restoreWorkdayApplication();
+          if (restored) return restored;
+        } else if (auth.reopen && !isWorkdayTenantUrl(ctx.applyUrl)
+          && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+            workdayApplicationEntryProven,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
           });
           ({ page, snapshot } = reopened);
+          workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -10278,11 +10353,13 @@ export async function submitViaPortal(ctx) {
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
         const stage = applicationStage({ ...snapshot, text: await pageText(page) }, {
-          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+          workdayApplicationEntryProven, job: ctx.job, url: page.url(),
         });
         if (stage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
         const opened = await openFormSections(page, snapshot, {
           files: ctx.files, done: openedOnce, tries: openTries, channelType, applyUrl: ctx.applyUrl,
+          workdayApplicationEntryProven,
         });
         snapshot = opened.snapshot;
         if (opened.handoff) return await handoff(opened.handoff);
@@ -10319,7 +10396,7 @@ export async function submitViaPortal(ctx) {
       // sections still closed, the CV field inside one (review of #11033): it is the
       // form's page, so the posting is checked and the sections are opened BEFORE it
       // is taken for a login page.
-      if (snapshot.passwordVisible && !ownAccountForm(snapshot, channelType) && sendsApplication(snapshot)) {
+      if (currentStage.kind !== 'account' && snapshot.passwordVisible && !ownAccountForm(snapshot, channelType) && sendsApplication(snapshot)) {
         if (postingCheckPending) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
@@ -10330,7 +10407,13 @@ export async function submitViaPortal(ctx) {
       }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
-      let ownAccount = ownAccountForm(snapshot, channelType);
+      if (currentStage.kind === 'account' && !snapshot.passwordVisible) {
+        const verificationPage = Boolean(codeField(snapshot));
+        return await handoff(verificationPage ? 'account_verification' : 'account', {
+          accountFailure: accountFailure(verificationPage ? 'verification_unobserved' : 'login_unobserved', verificationPage ? 'verification' : 'login'),
+        });
+      }
+      let ownAccount = currentStage.kind !== 'account' && ownAccountForm(snapshot, channelType);
       if (ownAccount && !ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'application') });
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts) return await handoff('account', { accountFailure: accountFailure('unknown', 'login') });
@@ -10411,18 +10494,25 @@ export async function submitViaPortal(ctx) {
         if (duplicateAfterRecovery) return duplicateAfterRecovery;
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
-        if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+        if (auth.reopen && isWorkdayTenantUrl(ctx.applyUrl)
+          && authPageKind(snapshot) === 'none' && !codeField(snapshot)) {
+          const restored = await restoreWorkdayApplication();
+          if (restored) return restored;
+        } else if (auth.reopen && !isWorkdayTenantUrl(ctx.applyUrl)
+          && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
           await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           const reopened = await openApplicationForm(context, page, await extractFields(page, NAVIGATION), {
             applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
             postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+            workdayApplicationEntryProven,
             allowSingleExternalApplicationEntry: postingVacancyMatched,
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
           });
           ({ page, snapshot } = reopened);
+          workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -10661,9 +10751,9 @@ export async function submitViaPortal(ctx) {
           }
           const applied = [];
           for (const action of pendingActions) {
-            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl, workdayApplicationEntryProven)) return { results: applied, handoff: 'posting_mismatch' };
             applied.push(...await applyActions(page, snapshot.fields, [action], ctx.files, options));
-            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl, workdayApplicationEntryProven)) return { results: applied, handoff: 'posting_mismatch' };
           }
           return { results: applied, handoff: '' };
         };

@@ -505,7 +505,7 @@
       "slug": "saldatori-in-alluminio-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "saldatori-in-alluminio-stadler-rail-altenrhein",
-        "en": "aluminum-welder-stadler-rail-altenrhein",
+        "en": "aluminium-welders-stadler-rail-altenrhein",
         "de": "aluminiumschweisser-in-stadler-rail-ch",
         "fr": "soudeurs-en-aluminium-stadler-rail-altenrhein"
       },
@@ -553,7 +553,7 @@
       "previousSlugs": [
         "aluminiumschweisser-in-stadler-rail-ch",
         "aluminiumschweisser-in-stadler-rail-altenrhein",
-        "aluminium-welders-stadler-rail-altenrhein"
+        "aluminum-welder-stadler-rail-altenrhein"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -561,7 +561,7 @@
         ],
         "en": [
           "aluminiumschweisser-in-stadler-rail-altenrhein",
-          "aluminium-welders-stadler-rail-altenrhein"
+          "aluminum-welder-stadler-rail-altenrhein"
         ],
         "fr": [
           "aluminiumschweisser-in-stadler-rail-altenrhein"
@@ -591,9 +591,9 @@
       "slug": "verniciatore-in-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "verniciatore-in-stadler-rail-bussnang",
-        "en": "painter-stadler-rail-bussnang",
+        "en": "painters-in-stadler-rail-bussnang",
         "de": "lackierer-in-stadler-rail-ch",
-        "fr": "peintre-stadler-rail-bussnang"
+        "fr": "peintres-en-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -639,8 +639,8 @@
       "previousSlugs": [
         "lackierer-in-stadler-rail-ch",
         "lackierer-in-stadler-rail-bussnang",
-        "painters-in-stadler-rail-bussnang",
-        "peintres-en-stadler-rail-bussnang"
+        "painter-stadler-rail-bussnang",
+        "peintre-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -648,10 +648,10 @@
           "lackierer-in-stadler-rail-bussnang"
         ],
         "en": [
-          "painters-in-stadler-rail-bussnang"
+          "painter-stadler-rail-bussnang"
         ],
         "fr": [
-          "peintres-en-stadler-rail-bussnang"
+          "peintre-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-08-07T10:29:56.318Z",
@@ -2513,9 +2513,9 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "contract-manager-purchasing-stadler-rail-bussnang",
+        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
-        "fr": "responsable-contrats-et-achats-stadler-rail-bussnang"
+        "fr": "gestion-des-marches-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2561,8 +2561,8 @@
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
         "contract-manager-procurement-stadler-rail-bussnang",
-        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
-        "gestion-des-marches-stadler-rail-bussnang"
+        "contract-manager-purchasing-stadler-rail-bussnang",
+        "responsable-contrats-et-achats-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2571,11 +2571,11 @@
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
           "contract-manager-procurement-stadler-rail-bussnang",
-          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
+          "contract-manager-purchasing-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang",
-          "gestion-des-marches-stadler-rail-bussnang"
+          "responsable-contrats-et-achats-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:36.596Z",
@@ -2761,7 +2761,7 @@
       "id": "stadler-rail-443d5c41d46e",
       "slug": "system-test-ingegnere-stadler-rail-olten-26eec790fb",
       "slugByLocale": {
-        "it": "system-test-ingegnere-stadler-rail-olten-26eec790fb",
+        "it": "system-test-ingegnere-stadler-rail-olten",
         "en": "system-test-engineer-stadler-rail-ch",
         "de": "system-test-engineer-stadler-rail-ch",
         "fr": "system-test-ingenieur-stadler-rail-olten"
@@ -2808,13 +2808,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-test-engineer-stadler-rail-ch",
-        "system-test-ingegnere-stadler-rail-olten"
+        "system-test-engineer-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-test-engineer-stadler-rail-ch",
-          "system-test-ingegnere-stadler-rail-olten"
+          "system-test-engineer-stadler-rail-ch"
         ],
         "fr": [
           "system-test-engineer-stadler-rail-ch"
@@ -4870,9 +4868,9 @@
       "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
-        "en": "material-dispatcher-stadler-rail-st-margrethen",
+        "en": "disposal-of-materials-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
-        "fr": "detecteur-de-materiau-en-stadler-rail-st-margrethen"
+        "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -4920,8 +4918,8 @@
         "materialdisponent-in-stadler-rail-st-margrethen",
         "materiale-di-spedizione-in-stadler-rail-st-margrethen",
         "material-dispatch-in-stadler-rail-st-margrethen",
-        "disposal-of-materials-stadler-rail-st-margrethen",
-        "expedition-du-materiel-en-stadler-rail-st-margrethen"
+        "material-dispatcher-stadler-rail-st-margrethen",
+        "detecteur-de-materiau-en-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4932,11 +4930,11 @@
         "en": [
           "materialdisponent-in-stadler-rail-st-margrethen",
           "material-dispatch-in-stadler-rail-st-margrethen",
-          "disposal-of-materials-stadler-rail-st-margrethen"
+          "material-dispatcher-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen",
-          "expedition-du-materiel-en-stadler-rail-st-margrethen"
+          "detecteur-de-materiau-en-stadler-rail-st-margrethen"
         ]
       },
       "firstSeenAt": "2026-09-01T14:23:53.477Z",
@@ -7930,7 +7928,7 @@
         "it": "acquirente-principale-stadler-rail-bussnang",
         "en": "lead-pukir-stadler-rail-bussnang",
         "de": "lead-buyer-stadler-rail-ch",
-        "fr": "responsable-achats-stadler-rail-bussnang"
+        "fr": "acheteur-principal-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7977,7 +7975,7 @@
         "lead-buyer-stadler-rail-ch",
         "responsable-des-achats-stadler-rail-bussnang",
         "lead-buyer-stadler-rail-bussnang",
-        "acheteur-principal-stadler-rail-bussnang"
+        "responsable-achats-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7990,7 +7988,7 @@
           "lead-buyer-stadler-rail-ch",
           "responsable-des-achats-stadler-rail-bussnang",
           "lead-buyer-stadler-rail-bussnang",
-          "acheteur-principal-stadler-rail-bussnang"
+          "responsable-achats-stadler-rail-bussnang"
         ]
       },
       "firstSeenAt": "2026-10-05T21:47:16.367Z",
@@ -13186,9 +13184,9 @@
       "slug": "reclutamento-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "reclutamento-stadler-rail-wallisellen",
-        "en": "testing-and-commissioning-engineer-stadler-rail-wallisellen",
+        "en": "recruiting-stadler-rail-wallisellen",
         "de": "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "fr": "testing-commissioning-ingenieur-stadler-rail-wallisellen"
+        "fr": "recrutement-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13236,8 +13234,7 @@
         "testing-commissioning-ingenieur-stadler-rail-wallisellen",
         "recruiting-stadler-rail-ch",
         "testing-commissioning-engineer-stadler-rail-wallisellen",
-        "recruiting-stadler-rail-wallisellen",
-        "recrutement-stadler-rail-wallisellen"
+        "testing-and-commissioning-engineer-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13245,7 +13242,7 @@
         ],
         "en": [
           "testing-commissioning-engineer-stadler-rail-wallisellen",
-          "recruiting-stadler-rail-wallisellen"
+          "testing-and-commissioning-engineer-stadler-rail-wallisellen"
         ],
         "de": [
           "testing-commissioning-engineer-stadler-rail-ch",
@@ -13253,7 +13250,7 @@
           "recruiting-stadler-rail-ch"
         ],
         "fr": [
-          "recrutement-stadler-rail-wallisellen"
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
@@ -13281,7 +13278,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-test-e-messa-in-servizio-stadler-rail-wallisellen",
         "en": "testing-commissioning-engineer-stadler-rail-wallisellen-bae9b9",
-        "de": "testing-commissioning-ingenieur-stadler-rail-wallisellen",
+        "de": "pruf-und-inbetriebnahmeingenieur-stadler-rail-wallisellen",
         "fr": "testing-commissioning-engineer-stadler-rail-ch"
       },
       "company": "Stadler Rail",
@@ -13327,14 +13324,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "testing-commissioning-engineer-stadler-rail-ch",
-        "pruf-und-inbetriebnahmeingenieur-stadler-rail-wallisellen"
+        "testing-commissioning-ingenieur-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "testing-commissioning-engineer-stadler-rail-ch"
         ],
         "de": [
-          "pruf-und-inbetriebnahmeingenieur-stadler-rail-wallisellen"
+          "testing-commissioning-ingenieur-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:08.867Z",
@@ -14261,12 +14258,12 @@
     },
     {
       "id": "stadler-rail-6f7528092f7f",
-      "slug": "technischer-responsabile-inbetriebsetzung-modernisierung-reparatur-stadler-rail-frauenfeld",
+      "slug": "responsabile-tecnico-a-per-la-messa-in-servizio-la-modernizzazione-e-la-riparazione-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch",
-        "it": "technischer-responsabile-inbetriebsetzung-modernisierung-reparatur-stadler-rail-frauenfeld",
-        "en": "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch",
-        "fr": "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch"
+        "it": "responsabile-tecnico-a-per-la-messa-in-servizio-la-modernizzazione-e-la-riparazione-stadler-rail-frauenfeld",
+        "en": "technical-manager-commissioning-modernization-repair-stadler-rail-frauenfeld",
+        "fr": "responsable-technique-de-la-mise-en-service-de-la-modernisation-de-la-reparation-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14274,16 +14271,16 @@
       "title": "Technischer Leiter:in Inbetriebsetzung Modernisierung & Reparatur",
       "titleByLocale": {
         "de": "Technischer Leiter:in Inbetriebsetzung Modernisierung & Reparatur",
-        "it": "Technischer Responsabile Inbetriebsetzung Modernisierung & Reparatur",
-        "en": "Technischer Leiter:in Inbetriebsetzung Modernisierung & Reparatur",
-        "fr": "Technischer Leiter:in Inbetriebsetzung Modernisierung & Reparatur"
+        "it": "Responsabile tecnico/a per la messa in servizio, la modernizzazione e la riparazione",
+        "en": "Technical Manager: Commissioning, Modernization & Repair",
+        "fr": "Responsable technique de la mise en service, de la modernisation & de la réparation"
       },
       "description": "PROFIL\n\n– Abgeschlossene Berufsausbildung als Automatiker:in EFZ\n\n– Weiterbildung im Bereich Elektrotechnik, Systemtechnik oder vergleichbare technische Weiterbildung (HF/FH von Vorteil)\n\n– Mehrjährige Berufserfahrung in der Inbetriebsetzung komplexer elektrischer Systeme, vorzugsweise im Schienenfahrzeugbereich\n\n– Fundierte Kenntnisse in Elektrotechnik, Steuerungs- und Diagnosetechnik\n\n– Erfahrung in Typentests, Fahrzeugzulassungen und Kundenprojekten\n\n– Sehr gute Kenntnisse im Lesen und Bewerten von Elektroschemas sowie technischen Spezifikationen\n\n– Erfahrung in der Ausbildung, fachlichen Führung oder Entwicklung von Mitarbeitenden von Vorteil\n\n– Ausgeprägte analytische Fähigkeiten und hohe Problemlösungskompetenz\n\n– Selbständige, strukturierte und qualitätsbewusste Arbeitsweise\n\n– Kommunikationsstarke Persönlichkeit mit hoher technischer Kompetenz und Durchsetzungsvermögen\n\n– Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n– Reisebereitschaft für technische Einsätze im In- und Ausland\n\nAUFGABEN\n\n– Technische Gesamtverantwortung für die Inbetriebsetzung über sämtliche Projekte und Fahrzeugplattformen hinweg\n\n– Technische Unterstützung von Projekten bei anspruchsvollen Fragestellungen, Störungen und Eskalationen im Werk, während Typentests sowie bei Kunden vor Ort\n\n– Durchführung und Leitung von Reviews elektrischer Schemas, Funktionsbeschreibungen und Softwareanforderungsspezifikationen\n\n– Definition, Pflege und Weiterentwicklung von technischen Standards, Methoden und Arbeitsanweisungen für die Inbetriebsetzung\n\n– Planung, Organisation und Durchführung von Schulungen sowie Aus- und Weiterbildungsprogrammen für Inbetriebsetzungstechniker\n\n– Verantwortung für den Aufbau, die Förderung und Sicherung des technischen Know-hows innerhalb der Inbetriebsetzung\n\n– Sicherstellung eines strukturierten und nachhaltigen Onboardings neuer Mitarbeitender\n\n– Verantwortung für die Ausbildung und fachliche Entwicklung von Lernenden innerhalb der Inbetriebsetzung\n\n– Evaluation, Beschaffung und Standardisierung von Betriebs-, Mess- und Prüfmitteln\n\n– Unterstützung bei Typentests, Erstinbetriebnahmen, Zulassungsfahrten und technischen Abnahmen\n\n– Durchführung technischer Ursachenanalysen sowie Erarbeitung nachhaltiger Korrekturmassnahmen\n\n– Ansprechpartner für Kunden, Engineering und Produktion bei komplexen technischen Fragestellungen\n\n– Fachliche Verantwortung für den Aufbau und die Weiterentwicklung der Inbetriebsetzungs- und Typentestabteilung\n\n– Definition von Teststrategien, Prüfmethoden und technischen Standards für zukünftige Fahrzeugplattformen\n\n– Förderung des Wissens- und Erfahrungsaustauschs zwischen Inbetriebsetzung, Typentest, Engineering und Service",
       "descriptionByLocale": {
         "de": "PROFIL\n\n– Abgeschlossene Berufsausbildung als Automatiker:in EFZ\n\n– Weiterbildung im Bereich Elektrotechnik, Systemtechnik oder vergleichbare technische Weiterbildung (HF/FH von Vorteil)\n\n– Mehrjährige Berufserfahrung in der Inbetriebsetzung komplexer elektrischer Systeme, vorzugsweise im Schienenfahrzeugbereich\n\n– Fundierte Kenntnisse in Elektrotechnik, Steuerungs- und Diagnosetechnik\n\n– Erfahrung in Typentests, Fahrzeugzulassungen und Kundenprojekten\n\n– Sehr gute Kenntnisse im Lesen und Bewerten von Elektroschemas sowie technischen Spezifikationen\n\n– Erfahrung in der Ausbildung, fachlichen Führung oder Entwicklung von Mitarbeitenden von Vorteil\n\n– Ausgeprägte analytische Fähigkeiten und hohe Problemlösungskompetenz\n\n– Selbständige, strukturierte und qualitätsbewusste Arbeitsweise\n\n– Kommunikationsstarke Persönlichkeit mit hoher technischer Kompetenz und Durchsetzungsvermögen\n\n– Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n– Reisebereitschaft für technische Einsätze im In- und Ausland\n\nAUFGABEN\n\n– Technische Gesamtverantwortung für die Inbetriebsetzung über sämtliche Projekte und Fahrzeugplattformen hinweg\n\n– Technische Unterstützung von Projekten bei anspruchsvollen Fragestellungen, Störungen und Eskalationen im Werk, während Typentests sowie bei Kunden vor Ort\n\n– Durchführung und Leitung von Reviews elektrischer Schemas, Funktionsbeschreibungen und Softwareanforderungsspezifikationen\n\n– Definition, Pflege und Weiterentwicklung von technischen Standards, Methoden und Arbeitsanweisungen für die Inbetriebsetzung\n\n– Planung, Organisation und Durchführung von Schulungen sowie Aus- und Weiterbildungsprogrammen für Inbetriebsetzungstechniker\n\n– Verantwortung für den Aufbau, die Förderung und Sicherung des technischen Know-hows innerhalb der Inbetriebsetzung\n\n– Sicherstellung eines strukturierten und nachhaltigen Onboardings neuer Mitarbeitender\n\n– Verantwortung für die Ausbildung und fachliche Entwicklung von Lernenden innerhalb der Inbetriebsetzung\n\n– Evaluation, Beschaffung und Standardisierung von Betriebs-, Mess- und Prüfmitteln\n\n– Unterstützung bei Typentests, Erstinbetriebnahmen, Zulassungsfahrten und technischen Abnahmen\n\n– Durchführung technischer Ursachenanalysen sowie Erarbeitung nachhaltiger Korrekturmassnahmen\n\n– Ansprechpartner für Kunden, Engineering und Produktion bei komplexen technischen Fragestellungen\n\n– Fachliche Verantwortung für den Aufbau und die Weiterentwicklung der Inbetriebsetzungs- und Typentestabteilung\n\n– Definition von Teststrategien, Prüfmethoden und technischen Standards für zukünftige Fahrzeugplattformen\n\n– Förderung des Wissens- und Erfahrungsaustauschs zwischen Inbetriebsetzung, Typentest, Engineering und Service",
-        "it": "PROFIL\n\n– Abgeschlossene Berufsausbildung als Automatiker:in EFZ\n\n– Weiterbildung im Bereich Elektrotechnik, Systemtechnik oder vergleichbare technische Weiterbildung (HF/FH von Vorteil)\n\n– Mehrjährige Berufserfahrung in der Inbetriebsetzung komplexer elektrischer Systeme, vorzugsweise im Schienenfahrzeugbereich\n\n– Fundierte Kenntnisse in Elektrotechnik, Steuerungs- und Diagnosetechnik\n\n– Erfahrung in Typentests, Fahrzeugzulassungen und Kundenprojekten\n\n– Sehr gute Kenntnisse im Lesen und Bewerten von Elektroschemas sowie technischen Spezifikationen\n\n– Erfahrung in der Ausbildung, fachlichen Führung oder Entwicklung von Mitarbeitenden von Vorteil\n\n– Ausgeprägte analytische Fähigkeiten und hohe Problemlösungskompetenz\n\n– Selbständige, strukturierte und qualitätsbewusste Arbeitsweise\n\n– Kommunikationsstarke Persönlichkeit mit hoher technischer Kompetenz und Durchsetzungsvermögen\n\n– Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n– Reisebereitschaft für technische Einsätze im In- und Ausland\n\nAUFGABEN\n\n– Technische Gesamtverantwortung für die Inbetriebsetzung über sämtliche Projekte und Fahrzeugplattformen hinweg\n\n– Technische Unterstützung von Projekten bei anspruchsvollen Fragestellungen, Störungen und Eskalationen im Werk, während Typentests sowie bei Kunden vor Ort\n\n– Durchführung und Leitung von Reviews elektrischer Schemas, Funktionsbeschreibungen und Softwareanforderungsspezifikationen\n\n– Definition, Pflege und Weiterentwicklung von technischen Standards, Methoden und Arbeitsanweisungen für die Inbetriebsetzung\n\n– Planung, Organisation und Durchführung von Schulungen sowie Aus- und Weiterbildungsprogrammen für Inbetriebsetzungstechniker\n\n– Verantwortung für den Aufbau, die Förderung und Sicherung des technischen Know-hows innerhalb der Inbetriebsetzung\n\n– Sicherstellung eines strukturierten und nachhaltigen Onboardings neuer Mitarbeitender\n\n– Verantwortung für die Ausbildung und fachliche Entwicklung von Lernenden innerhalb der Inbetriebsetzung\n\n– Evaluation, Beschaffung und Standardisierung von Betriebs-, Mess- und Prüfmitteln\n\n– Unterstützung bei Typentests, Erstinbetriebnahmen, Zulassungsfahrten und technischen Abnahmen\n\n– Durchführung technischer Ursachenanalysen sowie Erarbeitung nachhaltiger Korrekturmassnahmen\n\n– Ansprechpartner für Kunden, Engineering und Produktion bei komplexen technischen Fragestellungen\n\n– Fachliche Verantwortung für den Aufbau und die Weiterentwicklung der Inbetriebsetzungs- und Typentestabteilung\n\n– Definition von Teststrategien, Prüfmethoden und technischen Standards für zukünftige Fahrzeugplattformen\n\n– Förderung des Wissens- und Erfahrungsaustauschs zwischen Inbetriebsetzung, Typentest, Engineering und Service",
-        "en": "PROFIL\n\n– Abgeschlossene Berufsausbildung als Automatiker:in EFZ\n\n– Weiterbildung im Bereich Elektrotechnik, Systemtechnik oder vergleichbare technische Weiterbildung (HF/FH von Vorteil)\n\n– Mehrjährige Berufserfahrung in der Inbetriebsetzung komplexer elektrischer Systeme, vorzugsweise im Schienenfahrzeugbereich\n\n– Fundierte Kenntnisse in Elektrotechnik, Steuerungs- und Diagnosetechnik\n\n– Erfahrung in Typentests, Fahrzeugzulassungen und Kundenprojekten\n\n– Sehr gute Kenntnisse im Lesen und Bewerten von Elektroschemas sowie technischen Spezifikationen\n\n– Erfahrung in der Ausbildung, fachlichen Führung oder Entwicklung von Mitarbeitenden von Vorteil\n\n– Ausgeprägte analytische Fähigkeiten und hohe Problemlösungskompetenz\n\n– Selbständige, strukturierte und qualitätsbewusste Arbeitsweise\n\n– Kommunikationsstarke Persönlichkeit mit hoher technischer Kompetenz und Durchsetzungsvermögen\n\n– Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n– Reisebereitschaft für technische Einsätze im In- und Ausland\n\nAUFGABEN\n\n– Technische Gesamtverantwortung für die Inbetriebsetzung über sämtliche Projekte und Fahrzeugplattformen hinweg\n\n– Technische Unterstützung von Projekten bei anspruchsvollen Fragestellungen, Störungen und Eskalationen im Werk, während Typentests sowie bei Kunden vor Ort\n\n– Durchführung und Leitung von Reviews elektrischer Schemas, Funktionsbeschreibungen und Softwareanforderungsspezifikationen\n\n– Definition, Pflege und Weiterentwicklung von technischen Standards, Methoden und Arbeitsanweisungen für die Inbetriebsetzung\n\n– Planung, Organisation und Durchführung von Schulungen sowie Aus- und Weiterbildungsprogrammen für Inbetriebsetzungstechniker\n\n– Verantwortung für den Aufbau, die Förderung und Sicherung des technischen Know-hows innerhalb der Inbetriebsetzung\n\n– Sicherstellung eines strukturierten und nachhaltigen Onboardings neuer Mitarbeitender\n\n– Verantwortung für die Ausbildung und fachliche Entwicklung von Lernenden innerhalb der Inbetriebsetzung\n\n– Evaluation, Beschaffung und Standardisierung von Betriebs-, Mess- und Prüfmitteln\n\n– Unterstützung bei Typentests, Erstinbetriebnahmen, Zulassungsfahrten und technischen Abnahmen\n\n– Durchführung technischer Ursachenanalysen sowie Erarbeitung nachhaltiger Korrekturmassnahmen\n\n– Ansprechpartner für Kunden, Engineering und Produktion bei komplexen technischen Fragestellungen\n\n– Fachliche Verantwortung für den Aufbau und die Weiterentwicklung der Inbetriebsetzungs- und Typentestabteilung\n\n– Definition von Teststrategien, Prüfmethoden und technischen Standards für zukünftige Fahrzeugplattformen\n\n– Förderung des Wissens- und Erfahrungsaustauschs zwischen Inbetriebsetzung, Typentest, Engineering und Service",
-        "fr": "PROFIL\n\n– Abgeschlossene Berufsausbildung als Automatiker:in EFZ\n\n– Weiterbildung im Bereich Elektrotechnik, Systemtechnik oder vergleichbare technische Weiterbildung (HF/FH von Vorteil)\n\n– Mehrjährige Berufserfahrung in der Inbetriebsetzung komplexer elektrischer Systeme, vorzugsweise im Schienenfahrzeugbereich\n\n– Fundierte Kenntnisse in Elektrotechnik, Steuerungs- und Diagnosetechnik\n\n– Erfahrung in Typentests, Fahrzeugzulassungen und Kundenprojekten\n\n– Sehr gute Kenntnisse im Lesen und Bewerten von Elektroschemas sowie technischen Spezifikationen\n\n– Erfahrung in der Ausbildung, fachlichen Führung oder Entwicklung von Mitarbeitenden von Vorteil\n\n– Ausgeprägte analytische Fähigkeiten und hohe Problemlösungskompetenz\n\n– Selbständige, strukturierte und qualitätsbewusste Arbeitsweise\n\n– Kommunikationsstarke Persönlichkeit mit hoher technischer Kompetenz und Durchsetzungsvermögen\n\n– Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n– Reisebereitschaft für technische Einsätze im In- und Ausland\n\nAUFGABEN\n\n– Technische Gesamtverantwortung für die Inbetriebsetzung über sämtliche Projekte und Fahrzeugplattformen hinweg\n\n– Technische Unterstützung von Projekten bei anspruchsvollen Fragestellungen, Störungen und Eskalationen im Werk, während Typentests sowie bei Kunden vor Ort\n\n– Durchführung und Leitung von Reviews elektrischer Schemas, Funktionsbeschreibungen und Softwareanforderungsspezifikationen\n\n– Definition, Pflege und Weiterentwicklung von technischen Standards, Methoden und Arbeitsanweisungen für die Inbetriebsetzung\n\n– Planung, Organisation und Durchführung von Schulungen sowie Aus- und Weiterbildungsprogrammen für Inbetriebsetzungstechniker\n\n– Verantwortung für den Aufbau, die Förderung und Sicherung des technischen Know-hows innerhalb der Inbetriebsetzung\n\n– Sicherstellung eines strukturierten und nachhaltigen Onboardings neuer Mitarbeitender\n\n– Verantwortung für die Ausbildung und fachliche Entwicklung von Lernenden innerhalb der Inbetriebsetzung\n\n– Evaluation, Beschaffung und Standardisierung von Betriebs-, Mess- und Prüfmitteln\n\n– Unterstützung bei Typentests, Erstinbetriebnahmen, Zulassungsfahrten und technischen Abnahmen\n\n– Durchführung technischer Ursachenanalysen sowie Erarbeitung nachhaltiger Korrekturmassnahmen\n\n– Ansprechpartner für Kunden, Engineering und Produktion bei komplexen technischen Fragestellungen\n\n– Fachliche Verantwortung für den Aufbau und die Weiterentwicklung der Inbetriebsetzungs- und Typentestabteilung\n\n– Definition von Teststrategien, Prüfmethoden und technischen Standards für zukünftige Fahrzeugplattformen\n\n– Förderung des Wissens- und Erfahrungsaustauschs zwischen Inbetriebsetzung, Typentest, Engineering und Service"
+        "it": "PROFESSIONALE\n\n– Formazione professionale completa come tecnico automatico: in EFZ\n\n– Ulteriore istruzione nel campo dell'ingegneria elettrica, dell'ingegneria del sistema o della formazione tecnica comparabile (HF/FH di vantaggio)\n\n– Diversi anni di esperienza professionale nella messa in servizio di sistemi elettrici complessi, preferibilmente nel settore dei veicoli ferroviari\n\n– Conoscenza approfondita dell'ingegneria elettrica, del controllo e dell'ingegneria diagnostica\n\n– Esperienza in test di tipo, omologazioni dei veicoli e progetti dei clienti\n\n– Ottima conoscenza nella lettura e valutazione di schemi elettrici e specifiche tecniche\n\n– L'esperienza nella formazione, la leadership professionale o lo sviluppo dei dipendenti è vantaggioso\n\nForte capacità analitiche e alte capacità di problem solving\n\n– Metodo di lavoro indipendente, strutturato e di qualità consapevole\n\n– forte personalità di comunicazione con elevata competenza tecnica e assertività\n\n– Buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n– Volontà di viaggiare per operazioni tecniche in patria e all'estero\n\nTASKS\n\n– Complessiva responsabilità tecnica per la messa in servizio su tutti i progetti e piattaforme di veicoli\n\n– Supporto tecnico per i progetti in problematiche, disordini ed escalation nello stabilimento, durante i test di tipo e presso i clienti in loco\n\nAttuazione e gestione delle recensioni di schemi elettrici, descrizioni funzionali e requisiti software specifiche\n\n– Definizione, manutenzione e ulteriore sviluppo di standard tecnici, metodi e istruzioni di lavoro per la messa in servizio\n\n– Pianificazione, organizzazione e realizzazione di programmi di formazione e formazione per la messa in servizio dei tecnici\n\n– Responsabilità per stabilire, promuovere e garantire il know-how tecnico all’interno della messa in servizio\n\nGarantire un'integrazione strutturata e sostenibile dei nuovi dipendenti\n\nResponsabilità per la formazione e lo sviluppo professionale degli studenti all'interno della start-up\n\n– Valutazione, approvvigionamento e standardizzazione delle apparecchiature operative, di misura e di prova\n\n– Supporto per test di tipo, messa in servizio iniziale, corsi di registrazione e approvazioni tecniche\n\n– effettuare analisi delle cause tecniche e sviluppare misure correttive sostenibili\n\n– Contatto per clienti, ingegneria e produzione in complessi problemi tecnici\n\n– Responsabilità professionale per la creazione e lo sviluppo del reparto di messa in servizio e test di tipo\n\nDefinizione di strategie di test, metodi di test e standard tecnici per future piattaforme di veicoli\n\n– Promuovere lo scambio di conoscenze ed esperienze tra messa in servizio, test di tipo, ingegneria e servizio",
+        "en": "PROFILE\n\n– Completed vocational training as an automatic technician:in EFZ\n\n– Further education in the field of electrical engineering, system engineering or comparable technical training (HF/FH of advantage)\n\n– Several years of professional experience in commissioning complex electrical systems, preferably in the rail vehicle sector\n\n– In-depth knowledge in electrical engineering, control and diagnostic engineering\n\n– Experience in type tests, vehicle approvals and customer projects\n\n– Very good knowledge in reading and evaluating electrical schemes and technical specifications\n\n– Experience in training, professional leadership or development of employees is beneficial\n\nStrong analytical skills and high problem-solving skills\n\n– Independent, structured and quality-conscious working method\n\n– strong communication personality with high technical competence and assertiveness\n\n– Good knowledge of German and English in word and writing\n\n– Willingness to travel for technical operations at home and abroad\n\nTASKS\n\n– Overall technical responsibility for commissioning across all projects and vehicle platforms\n\n– Technical support for projects in challenging issues, disruptions and escalations in the plant, during type tests and at customers on site\n\nImplementation and management of reviews of electrical schemes, functional descriptions and software requirements specifications\n\n– Definition, maintenance and further development of technical standards, methods and work instructions for commissioning\n\n– Planning, organisation and implementation of training and training programmes for commissioning technicians\n\n– Responsibility for establishing, promoting and securing technical know-how within commissioning\n\nEnsuring structured and sustainable onboarding of new employees\n\nResponsibility for the training and professional development of learners within the start-up\n\n– Evaluation, procurement and standardization of operating, measuring and testing equipment\n\n– Support for type tests, initial commissioning, registration runs and technical approvals\n\n– carry out technical root cause analyses and develop sustainable corrective measures\n\n– Contact for customers, engineering and production in complex technical issues\n\n– Professional responsibility for the establishment and further development of the commissioning and type test department\n\nDefinition of test strategies, test methods and technical standards for future vehicle platforms\n\n– Promoting the exchange of knowledge and experience between commissioning, type test, engineering and service",
+        "fr": "PROFIL\n\n– Formation professionnelle complète en tant que technicien automatique:dans EFZ\n\n– Formation complémentaire dans le domaine de l'ingénierie électrique, de l'ingénierie de systèmes ou d'une formation technique comparable (HF/FH d'avantage)\n\n– Plusieurs années d'expérience professionnelle dans la mise en service de systèmes électriques complexes, de préférence dans le secteur des véhicules ferroviaires\n\n– Connaissance approfondie en génie électrique, contrôle et génie diagnostique\n\n– Expérience dans les essais de type, les homologations de véhicule et les projets clients\n\n– Très bonne connaissance de la lecture et de l'évaluation des systèmes électriques et des spécifications techniques\n\n– L'expérience dans la formation, le leadership professionnel ou le perfectionnement des employés est bénéfique\n\nFortes compétences analytiques et compétences élevées en résolution de problèmes\n\n– Méthode de travail indépendante, structurée et soucieuse de la qualité\n\n– forte personnalité de communication avec une grande compétence technique et une assurance\n\n– Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n– Volonté de voyager pour des opérations techniques au pays et à l'étranger\n\nTÂCHES\n\n– Responsabilité technique globale pour la mise en service de tous les projets et plates-formes de véhicules\n\n– Soutien technique pour les projets dans les problèmes difficiles, les perturbations et les escalades dans l'usine, pendant les essais de type et chez les clients sur place\n\nMise en œuvre et gestion des examens des systèmes électriques, des descriptions fonctionnelles et des spécifications des logiciels\n\n– Définition, maintenance et développement des normes techniques, méthodes et instructions de travail pour la mise en service\n\n– Planification, organisation et mise en œuvre de programmes de formation et de formation pour les techniciens en commande\n\n– La responsabilité de l'établissement, de la promotion et de la sécurisation du savoir-faire technique au sein de la mise en service\n\nAssurer l'intégration structurée et durable des nouveaux employés\n\nResponsabilité de la formation et du développement professionnel des apprenants au sein de la start-up\n\n– Évaluation, achat et normalisation des équipements de fonctionnement, de mesure et d'essai\n\n– Support pour les essais de type, la mise en service initiale, les essais d'immatriculation et les homologations techniques\n\n– effectuer des analyses techniques des causes profondes et développer des mesures correctives durables\n\n– Contact pour les clients, l'ingénierie et la production dans des questions techniques complexes\n\n– Responsabilité professionnelle pour la mise en place et le développement du service de mise en service et d'essais de type\n\nDéfinition des stratégies d'essai, des méthodes d'essai et des normes techniques pour les futures plates-formes de véhicules\n\n– Promouvoir l'échange de connaissances et d'expériences entre mise en service, essai de type, ingénierie et service"
       },
       "location": "Frauenfeld",
       "canton": "TG",
@@ -14314,11 +14311,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch",
+          "technischer-responsabile-inbetriebsetzung-modernisierung-reparatur-stadler-rail-frauenfeld"
+        ],
+        "en": [
+          "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch"
+        ],
+        "fr": [
           "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch"
+        "technischer-leiter-in-inbetriebsetzung-modernisierung-reparatur-stadler-rail-ch",
+        "technischer-responsabile-inbetriebsetzung-modernisierung-reparatur-stadler-rail-frauenfeld"
       ],
       "salaryMin": 92000,
       "salaryMax": 140000,

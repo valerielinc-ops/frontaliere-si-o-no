@@ -1575,7 +1575,10 @@ describe('Bing-compatible full-tree crawler', () => {
       'utf8',
     );
     expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
-    expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
+    expect(jobsSeoSource).toMatch(
+      /return\s+activeJobSitemapLocs\.has\(href\)(?:\s*\|\|[\s\S]*?)?\s*\?\s*href\s*:\s*null;/,
+    );
+    expect(jobsSeoSource).toContain('jobSitemapLocOwner.get(href) === job');
     expect(jobsSeoSource).toContain('const related = perJob_related.flatMap');
     expect(jobsSeoSource).toContain('const href = activeCanonicalJobHref(relatedJob, locale);');
     expect(jobsSeoSource).toContain('return href ? [{ job: relatedJob, href }] : [];');

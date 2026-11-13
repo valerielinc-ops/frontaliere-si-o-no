@@ -65,6 +65,11 @@ describe('partizione test dataset-dipendenti', () => {
     expect(dependent).toContain('tests/job-locale-completeness.test.ts');
   });
 
+  it('non tratta un JSON statico importato come output dell’assemble', () => {
+    expect(dependent).not.toContain('tests/verdict-owner-reporters.test.ts');
+    expect(independent).toContain('tests/verdict-owner-reporters.test.ts');
+  });
+
   it('non propaga un arco type-only o una funzione pura del modulo lettore', () => {
     expect(dependent.filter((file) => B24_NON_READING_SELECTION.includes(file))).toEqual([]);
     expect(independent).toEqual(expect.arrayContaining(B24_NON_READING_SELECTION));

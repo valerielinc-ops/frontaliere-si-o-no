@@ -1,7 +1,7 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
-import { isWorkdayJobRouteBound, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
+import { isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
@@ -435,11 +435,21 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
  * stay unknown. A review instruction explicitly announcing the final commit
  * makes its Apply control the real guarded action.
  */
-export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
+export function applicationStage(snapshot, {
+  url = snapshot?.url,
+  applyUrl,
+  sourceProtocol = null,
+  postingEntry = false,
+  workdayApplicationEntryProven = false,
+  job = {},
+} = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
-  if (isWorkdayTenantUrl(applyUrl) && !isWorkdayJobRouteBound(url, applyUrl)) {
-    return { kind: 'posting_mismatch' };
+  if (isWorkdayTenantUrl(applyUrl)) {
+    if (isWorkdayTenantAccountRoute(url, applyUrl)) {
+      return workdayApplicationEntryProven === true ? { kind: 'account' } : { kind: 'posting_mismatch' };
+    }
+    if (!isWorkdayJobRouteBound(url, applyUrl)) return { kind: 'posting_mismatch' };
   }
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
   if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };

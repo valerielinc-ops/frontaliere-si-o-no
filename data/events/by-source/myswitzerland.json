@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-12T14:25:50.016Z",
+  "assembledAt": "2026-11-13T13:51:21.416Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -9951,12 +9951,11 @@
       },
       "startDate": "2026-11-17",
       "endDate": "2026-11-17",
-      "startTime": "19:00",
-      "category": "Theater",
-      "venue": "Bibliothek Niederholz",
+      "category": "Event",
+      "venue": "Riehen",
       "comune": "Riehen",
       "canton": "BS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/krimi-club-in-der-bibliothek-niederholz/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/krimi-club-in-der-bibliothek-niederholz/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -169378,14 +169377,13 @@
         "de": "Schachabend im Orzival",
         "fr": "Soirée échecs à l'Orzival"
       },
-      "startDate": "2026-09-24",
-      "endDate": "2026-11-26",
-      "startTime": "19:30",
+      "startDate": "2027-01-04",
+      "endDate": "2027-12-26",
       "category": "Event",
-      "venue": "Hostellerie d'Orzival",
+      "venue": "Vercorin",
       "comune": "Chalais",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/chess-evening-at-the-orzival/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chess-evening-at-the-orzival/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -169393,7 +169391,14 @@
         "lng": 7.5276566
       },
       "recurring": true,
-      "sourceDescriptionHash": "d04c911e8da20ff6c6415fec8a095710af375b01281f8946a255853bcd70d54a"
+      "sourceDescriptionHash": "e9ead98c7b4c84e53c68af3b983fe2ebe6cf48e39e515579114efd5f2b85909f",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Chalais",
+          "slug": "chess-evening-at-the-orzival-2026-09-24"
+        }
+      ]
     },
     {
       "id": "myswitzerland:07d3220bf73948bdbb760863a5433a96",
@@ -206200,7 +206205,6 @@
       },
       "startDate": "2027-05-10",
       "endDate": "2027-05-10",
-      "startTime": "20:00",
       "category": "Event",
       "venue": "Zurich",
       "comune": "Zürich",
@@ -206209,18 +206213,10 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
-        "lat": 47.3882558,
-        "lng": 8.5535396
+        "lat": 47.3882752,
+        "lng": 8.5534552
       },
       "recurring": false,
-      "performer": {
-        "name": "LesungMona PetriMusikZacharie Fogal (Tenor)Yerin Mira Läuchli (Sopran)Elias Conrad (Theorbe)KonzeptKlaus HemmerleTechnikFelix KellerBrian Lee"
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
       "sourceDescriptionHash": "7218f2f7bc5aefbcf82d176fd362f7ce5280e6c9d5ec1c286ea4816e310a1c16"
     },
     {
@@ -275946,6 +275942,466 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "8453c3a833811c52401ebaf50e4abaa7b84547667d41de8b97cda48fa09ffb01"
+    },
+    {
+      "id": "myswitzerland:09798302ba84478a806e78b1673fe9c6",
+      "title": "Fabio Landert - softe Zerstörung",
+      "titleByLocale": {
+        "it": "Fabio Landert - softe Zerstörung",
+        "en": "Fabio Landert - softe Zerstörung",
+        "de": "Fabio Landert - softe Zerstörung",
+        "fr": "Fabio Landert - softe Zerstörung"
+      },
+      "startDate": "2027-12-02",
+      "endDate": "2027-12-03",
+      "category": "Event",
+      "venue": "Grenchen",
+      "comune": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fabio-landert-softe-zerstoerung-7/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1911027,
+        "lng": 7.390466
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Fabio Landert"
+      },
+      "sourceDescriptionHash": "1491faaacfe4b94e19f12a3f5961767faa152c6fa73d4e0a7ba08f0f560ad26d"
+    },
+    {
+      "id": "myswitzerland:093456c39aff427988b5080d11191b27",
+      "title": "Saaner Abesitza 2026",
+      "titleByLocale": {
+        "it": "Saaner Abesitza 2026",
+        "en": "Saaner Abesitza 2026",
+        "de": "Saaner Abesitza 2026",
+        "fr": "Saaner Abesitza 2026"
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-18",
+      "category": "Event",
+      "venue": "Saanen",
+      "comune": "Saanen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/saaner-abesitza/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4898363,
+        "lng": 7.2605361
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Vorträgen"
+        },
+        {
+          "name": "Musik"
+        }
+      ],
+      "sourceDescriptionHash": "2528722880df74ada6184384b3e253b4003b2c72f9b68e10888d6483cb36b698"
+    },
+    {
+      "id": "myswitzerland:088729bed7b34402b3a3da00b2f330ce",
+      "title": "Space Odyssey",
+      "titleByLocale": {
+        "it": "Space Odyssey",
+        "en": "Space Odyssey",
+        "de": "Space Odyssey",
+        "fr": "Space Odyssey"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/space-odyssey-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5200725,
+        "lng": 6.6315445
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Jan Blomqvist, Romain Garcia und Julien Vertigo"
+      },
+      "performer": {
+        "name": "Jan Blomqvist"
+      },
+      "sourceDescriptionHash": "57f753c79500ec8882d448e2a882f29d073ad165c83dc5859e8138b690b03192"
+    },
+    {
+      "id": "myswitzerland:087e04c38862470b8f0585ee406cd0e9",
+      "title": "Opening of the Christmas Village",
+      "titleByLocale": {
+        "it": "Opening of the Christmas Village",
+        "en": "Opening of the Christmas Village",
+        "de": "Eröffnung des Weihnachtsdorfes",
+        "fr": "Ouverture du Village de Noël"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "category": "Event",
+      "venue": "Avenches",
+      "comune": "Avenches",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/opening-of-the-christmas-village/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8802403,
+        "lng": 7.040135
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Abend"
+      },
+      "sourceDescriptionHash": "3e5fafad79d69944ed96414af1b3867ae18dfdf2a0d760ef40307c0623802d39"
+    },
+    {
+      "id": "myswitzerland:08574d9ef0104968af190edfb352231e",
+      "title": "Boogie Woogie Tanzworkshop",
+      "titleByLocale": {
+        "it": "Boogie Woogie Tanzworkshop",
+        "en": "Boogie Woogie Tanzworkshop",
+        "de": "Boogie Woogie Tanzworkshop",
+        "fr": "Boogie Woogie Tanzworkshop"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/boogie-woogie-tanzworkshop-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8531635,
+        "lng": 9.5341214
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Sonja"
+        },
+        {
+          "name": "Francesco SecchiBring Dynamik"
+        },
+        {
+          "name": "Francesco Secchi"
+        }
+      ],
+      "sourceDescriptionHash": "ea56a5be60281012882776aee894588c43eb27a3a81b738a557dfa5bddaade17"
+    },
+    {
+      "id": "myswitzerland:07fee4b3bcb64e2aa55f7026638646a4",
+      "title": "Fidibus präsentiert: Schneewittli",
+      "titleByLocale": {
+        "it": "Fidibus präsentiert: Schneewittli",
+        "en": "Fidibus präsentiert: Schneewittli",
+        "de": "Fidibus präsentiert: Schneewittli",
+        "fr": "Fidibus präsentiert: Schneewittli"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Mels / Heiligkreuz",
+      "comune": "Mels",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fidibus-praesentiert-schneewittli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0467857,
+        "lng": 9.4195024
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e0f1fde0c48615f5da5d727be9a163232dc2876c62d5a191ba08a54e9d073232"
+    },
+    {
+      "id": "myswitzerland:066f02f7b7074a8c9e4967ec5bdb8538",
+      "title": "Architectural tour of the new buildings (in English)",
+      "titleByLocale": {
+        "it": "Architectural tour of the new buildings (in English)",
+        "en": "Architectural tour of the new buildings (in English)",
+        "de": "Architekturrundgang Neubauten (Englisch)",
+        "fr": "Visite guidée architecturale des nouveaux bâtiments (en anglais)"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/architectural-tour-of-the-new-buildings/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.582659,
+        "lng": 7.652434
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "af21277c4f1a05e96ec2b3044a4ee7741f532f6af5774b62e1d22cf287f82484"
+    },
+    {
+      "id": "myswitzerland:06696ecc71124c28aa3f991a9749b83c",
+      "title": "Bar sulla neve nel tepee",
+      "titleByLocale": {
+        "it": "Bar sulla neve nel tepee",
+        "en": "Snow Bar in the Teepee",
+        "de": "Schneebar im Tipi",
+        "fr": "Bar à neige dans un tipi"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2027-01-02",
+      "category": "Event",
+      "venue": "Escholzmatt-Marbach",
+      "comune": "Escholzmatt-Marbach",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/bar-sulla-neve-nel-tepee/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8500985,
+        "lng": 7.8955916
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "0fd969d00f699105d34c6fdc8290acb413e5d01ebcd2e14433b51fd6ddfe94bc"
+    },
+    {
+      "id": "myswitzerland:063ecaf874b64ba29e517b194149f78c",
+      "title": "Adventskonzert Voice5",
+      "titleByLocale": {
+        "it": "Adventskonzert Voice5",
+        "en": "Adventskonzert Voice5",
+        "de": "Adventskonzert Voice5",
+        "fr": "Adventskonzert Voice5"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "category": "Event",
+      "venue": "Bad Zurzach",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventskonzert-voice5/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5872518,
+        "lng": 8.2958946
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "cb47092dd967b6df62d04ee7e9a56b32c736afb46780dce2575613bdfc3e1685"
+    },
+    {
+      "id": "myswitzerland:059c809f30764ea999782a256f8da103",
+      "title": "St. Nicholas Day celebrations in the village of Gryon",
+      "titleByLocale": {
+        "it": "St. Nicholas Day celebrations in the village of Gryon",
+        "en": "St. Nicholas Day celebrations in the village of Gryon",
+        "de": "Nikolausfest im Dorf Gryon",
+        "fr": "Fête de la St-Nicolas au Village de Gryon"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Gryon",
+      "comune": "Gryon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/st-nicholas-day-celebrations-in-the-village-of-gryon/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2741141,
+        "lng": 7.0643112
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "58c8af4f8c1a6ddd3a30d9de2d5633d9b14f1f931b50040a1555eb4f7f3af732"
+    },
+    {
+      "id": "myswitzerland:05802bd69c5241d9845fac5ae7816e9f",
+      "title": "Festa popolare di Chestene a Greppen",
+      "titleByLocale": {
+        "it": "Festa popolare di Chestene a Greppen",
+        "en": "Chestene Chilbi Greppen",
+        "de": "Chestene Chilbi Greppen",
+        "fr": "Fête foraine de Chestene à Greppen"
+      },
+      "startDate": "2027-10-24",
+      "endDate": "2027-10-24",
+      "category": "Event",
+      "venue": "Greppen",
+      "comune": "Greppen",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/festa-popolare-di-chestene-a-greppen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0556551,
+        "lng": 8.4298987
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "685723a69e02fcc36bcdddc7b634c2506581fb8afda81b092b668e4ac7efcc19"
+    },
+    {
+      "id": "myswitzerland:056fb181129f4eaca1366849b7837c76",
+      "title": "Winterkonzert der Harmonie Wetzikon",
+      "titleByLocale": {
+        "it": "Winterkonzert der Harmonie Wetzikon",
+        "en": "Winterkonzert der Harmonie Wetzikon",
+        "de": "Winterkonzert der Harmonie Wetzikon",
+        "fr": "Winterkonzert der Harmonie Wetzikon"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Wetzikon",
+      "comune": "Wetzikon (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/winterkonzert-der-harmonie-wetzikon/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3265812,
+        "lng": 8.7982912
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4d8bf2d334f2243fa7b7f25266c5a791098632360b3ad377f2cb0449f8387097"
+    },
+    {
+      "id": "myswitzerland:05302e6998d34745ba05cd7693457184",
+      "title": "Page 34",
+      "titleByLocale": {
+        "it": "Page 34",
+        "en": "Page 34",
+        "de": "Page 34",
+        "fr": "Page 34"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Auvernier",
+      "comune": "Milvignes",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/page-34/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9748914,
+        "lng": 6.8777551
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "bae19fa273418c2555d5e2decbb731533df3a5de399f7a1949fb311251a33c47"
+    },
+    {
+      "id": "myswitzerland:04f01b3a8d2e4a41a3a3d6209f15b72d",
+      "title": "Aus der Reihe tanzen - Silvester war erst der Anfang – wir feiern nochmals!",
+      "titleByLocale": {
+        "it": "Aus der Reihe tanzen - Silvester war erst der Anfang – wir feiern nochmals!",
+        "en": "Aus der Reihe tanzen - Silvester war erst der Anfang – wir feiern nochmals!",
+        "de": "Aus der Reihe tanzen - Silvester war erst der Anfang – wir feiern nochmals!",
+        "fr": "Aus der Reihe tanzen - Silvester war erst der Anfang – wir feiern nochmals!"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Stans",
+      "comune": "Stans",
+      "canton": "NW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/aus-der-reihe-tanzen-silvester-war-erst-der-anfang-wir-feiern-nochmals/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.955549,
+        "lng": 8.3691502
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "aa10f037b6a46aefc386fec95958cf836fc0aad5846d7a988ef88c6f2389b2c6"
+    },
+    {
+      "id": "myswitzerland:0491045dece34021b74ec7ae6db9c789",
+      "title": "Claudio Zuccolini – Der Vorsorger",
+      "titleByLocale": {
+        "it": "Claudio Zuccolini – Der Vorsorger",
+        "en": "Claudio Zuccolini – Der Vorsorger",
+        "de": "Claudio Zuccolini – Der Vorsorger",
+        "fr": "Claudio Zuccolini – Der Vorsorger"
+      },
+      "startDate": "2027-09-30",
+      "endDate": "2028-02-03",
+      "category": "Event",
+      "venue": "Effretikon",
+      "comune": "Illnau-Effretikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/claudio-zuccolini-der-vorsorger-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4273872,
+        "lng": 8.6858063
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Claudio Zuccolini"
+      },
+      "sourceDescriptionHash": "46f21f294562faef7669d0de00a16d7ab33b2f7a4bd997ce96875c7b4fab6c06"
+    },
+    {
+      "id": "myswitzerland:047fe856ccd44565a3b16ee3a1bf50c6",
+      "title": "Adventskranz, Gesteck oder Türkranz - selbst gemacht!",
+      "titleByLocale": {
+        "it": "Adventskranz, Gesteck oder Türkranz - selbst gemacht!",
+        "en": "Adventskranz, Gesteck oder Türkranz - selbst gemacht!",
+        "de": "Adventskranz, Gesteck oder Türkranz - selbst gemacht!",
+        "fr": "Adventskranz, Gesteck oder Türkranz - selbst gemacht!"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Tann",
+      "comune": "Dürnten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventskranz-gesteck-oder-tuerkranz-selbst-gemacht/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.262382,
+        "lng": 8.849874
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "eff0a83b0d77b1a9d1fd1a3bc1a1d7d09151b4f360a12477b79bf24051c19525"
+    },
+    {
+      "id": "myswitzerland:02817a1f76ae464590c73cf01b761d7f",
+      "title": "Mad Muni Festival",
+      "titleByLocale": {
+        "it": "Mad Muni Festival",
+        "en": "Mad Muni Festival",
+        "de": "Mad Muni Festival",
+        "fr": "Mad Muni Festival"
+      },
+      "startDate": "2027-04-29",
+      "endDate": "2027-05-01",
+      "category": "Event",
+      "venue": "Saanen",
+      "comune": "Saanen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mad-muni-festival/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4839953,
+        "lng": 7.2487173
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "640142b3dc4be8738dc8b03de31bdd18009e7dc30af8da8449b584c2c9b765ac"
     }
   ]
 }

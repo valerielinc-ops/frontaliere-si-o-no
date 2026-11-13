@@ -18091,10 +18091,10 @@
     },
     {
       "id": "jumbo-6f34a71a-979",
-      "slug": "lagerist-in-jumbo-arbon",
+      "slug": "magazziniere-a-jumbo-arbon",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-arbon",
-        "it": "lagerist-in-jumbo-arbon",
+        "it": "magazziniere-a-jumbo-arbon",
         "en": "warehouseman-jumbo-arbon",
         "fr": "magasinier-jumbo-arbon"
       },
@@ -18103,7 +18103,7 @@
       "companyDomain": "jumbo.ch",
       "title": "Lagerist:in",
       "titleByLocale": {
-        "it": "Lagerist:in",
+        "it": "Magazziniere/a",
         "en": "Warehouseman",
         "de": "Lagerist:in",
         "fr": "Magasinier"
@@ -18171,7 +18171,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-13T09:15:19.372Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerist-in-jumbo-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "lagerist-in-jumbo-arbon"
+      ]
     },
     {
       "id": "jumbo-f812d732-b06",
@@ -19040,7 +19048,7 @@
       "slug": "consulente-di-vendita-garden-e-piante-jumbo-arbon-32205a4eac",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "it": "consulente-di-vendita-garden-e-piante-jumbo-arbon-32205a4eac",
+        "it": "consulente-di-vendita-garden-e-piante-jumbo-arbon",
         "en": "sales-consultant-garden-and-plants-jumbo-arbon",
         "fr": "conseiller-ere-de-vente-garden-et-plantes-jumbo-arbon"
       },
@@ -19104,14 +19112,12 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
-        "consulente-di-vendita-garden-e-piante-jumbo-arbon"
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
-          "consulente-di-vendita-garden-e-piante-jumbo-arbon"
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
         ],
         "en": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"

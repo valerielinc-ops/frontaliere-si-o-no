@@ -421,8 +421,10 @@
          demand) must appear only when the visitor clicks "Candidati" on a
          job-board section. Funding Choices calls this twice per page view;
          on the job board the call that carries OFFERWALL is held and released
-         by services/offerwallClickGate.ts, on every other page the Offerwall
-         alone is suppressed. Readable twin of FC_JOBBOARD_OFFERWALL_GATE_JS
+         by services/offerwallClickGate.ts. Google's AD_BLOCKING message is
+         suppressed everywhere in favor of the first-party application offer;
+         consent and other message types remain available. Readable twin of
+         FC_JOBBOARD_OFFERWALL_GATE_JS
          (build-plugins/constants.ts); tests/offerwall-click-gate-parity.test.ts
          executes both and pins this path regex to
          JOB_BOARD_SECTION_PATHNAME_RX (scripts/lib/jobBoardSections.mjs). -->
@@ -541,6 +543,9 @@
         }
         function handleControlledMessaging(message, previous){
           var E = g.MessageTypeEnum || {};
+          if (typeof E.AD_BLOCKING === 'number' || typeof E.AD_BLOCKING === 'string') {
+            previous = mergeDecisions(previous, { allow: false, types: [E.AD_BLOCKING] });
+          }
           // The first call arrives with an empty enum and must proceed at
           // once: holding it delays the CMP and the display ads. If a later
           // call is still unclassified, fail closed because the Offerwall
@@ -788,7 +793,7 @@
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
                   <div class="sh-skel sh-pulse" style="width:36px;height:36px;border-radius:10px;background:#f1f5f9;flex-shrink:0"></div>
                   <div style="flex:1;position:relative;height:44px;background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;display:flex;align-items:center;padding:0 44px 0 16px">
-                    <span style="font-size:13px;font-weight:700;color:#94a3b8;margin-right:8px">CHF</span>
+                    <span style="font-size:13px;font-weight:700;color:#475569;margin-right:8px">CHF</span>
                     <span style="font-size:22px;font-weight:700;color:#1e293b">75.000</span>
                   </div>
                   <div class="sh-skel sh-pulse" style="width:36px;height:36px;border-radius:10px;background:#f1f5f9;flex-shrink:0"></div>
@@ -1017,7 +1022,7 @@
 
         <!-- Mobile bottom navigation — matches React's fixed bottom-0 md:hidden grid-cols-6 h-14 -->
         <nav class="sh-mobile-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);border-top:1px solid rgba(226,232,240,0.5);height:56px;align-items:center;padding-bottom:env(safe-area-inset-bottom)">
-          <a href="/calcola-stipendio/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#3b82f6;border-radius:4px"></div><div style="font-size:12px;font-weight:600;color:#3b82f6">Calcola</div></a>
+          <a href="/calcola-stipendio/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#3b82f6;border-radius:4px"></div><div style="font-size:12px;font-weight:600;color:#533afd">Calcola</div></a>
           <a href="/compara-servizi/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Confronti</div></a>
           <a href="/tasse-e-pensione/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Fisco</div></a>
           <a href="/guida-frontaliere/" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:44px;text-decoration:none"><div class="sh-skel" style="width:20px;height:20px;background:#f1f5f9;border-radius:4px"></div><div style="font-size:12px;color:#64748b">Guida</div></a>
