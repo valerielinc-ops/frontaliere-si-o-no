@@ -98,8 +98,6 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
 
       # Metà dell'inventario legge il dataset assemblato, non le slice: senza
       # questi due passi quei test si autoskippano su `data/jobs.json` assente e
