@@ -3483,8 +3483,9 @@ function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
  * a fetch or sparse materialization fails.  The retry must restore that
  * temporary state before the action gets a second chance; otherwise the
  * action's own `clean` only observes the half-written checkout.  If the
- * partial repository has no HEAD, discard it only when its metadata is the
- * workspace's own `.git` directory; external or symlinked metadata remains
+ * partial repository has no HEAD, discard it only when its metadata is a
+ * canonical workspace repository or a linked Git worktree whose metadata
+ * points back to this workspace; arbitrary or symlinked metadata remains
  * fail-closed.
  */
 export function retrySparseCheckout({
@@ -3536,18 +3537,26 @@ export function retrySparseCheckout({
       '    echo "::error::Sparse checkout retry found unreadable Git metadata; refusing to reuse the workspace" >&2',
       '    return 1',
       '  fi',
-      '  local lock_files=()',
+      '  isSafeGitDir() {',
+      '    local workspace="$1" git_dir="$2" workspace_real common_git_dir',
+      '    [ -n "$workspace" ] && [ -n "$git_dir" ] && [ "$workspace" != "/" ] && [ -d "$workspace" ] || return 1',
+      '    [ ! -L "$workspace/.git" ] || return 1',
+      '    workspace_real="$(realpath "$workspace" 2>/dev/null)" || return 1',
+      '    git_dir="$(realpath "$git_dir" 2>/dev/null)" || return 1',
+      '    if [ -d "$workspace/.git" ]; then [ "$git_dir" = "$workspace_real/.git" ]; return; fi',
+      '    [ -f "$workspace/.git" ] || return 1',
+      '    common_git_dir="$(git -C "$workspace" rev-parse --git-common-dir 2>/dev/null)" || return 1',
+      '    common_git_dir="$(realpath "$common_git_dir" 2>/dev/null)" || return 1',
+      '    [ "$(dirname "$git_dir")" = "$(realpath "$common_git_dir/worktrees" 2>/dev/null)" ]',
+      '  }',
+      '  if ! isSafeGitDir "$workspace" "$git_dir"; then',
+      '    echo "::error::Sparse checkout retry found unsafe Git metadata; refusing to reuse the workspace" >&2',
+      '    return 1',
+      '  fi',
       '  while IFS= read -r -d "" lock_file; do',
-      '    lock_files+=("$lock_file")',
-      '  done < <(find "$git_dir" -type f -name "*.lock" -print0)',
-      '  for lock_file in "${lock_files[@]}"; do',
       '    unlink "$lock_file"',
-      '  done',
+      '  done < <(find "$git_dir" -type f -name "*.lock" -print0)',
       '  if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then',
-      '    if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
-      '      echo "::error::Sparse checkout retry found unsafe incomplete Git metadata; refusing to remove it" >&2',
-      '      return 1',
-      '    fi',
       '    rm -rf -- "$workspace/.git"',
       '    echo "Discarded incomplete Git metadata; the retry will initialize a clean sparse checkout"',
       '    return 0',
