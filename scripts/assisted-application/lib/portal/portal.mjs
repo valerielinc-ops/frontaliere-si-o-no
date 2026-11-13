@@ -10209,11 +10209,22 @@ export async function submitViaPortal(ctx) {
     // the selected vacancy: keep it as a posting mismatch until the owner can
     // inspect the page, rather than presenting a loading shell as a candidate
     // question.
-    if (!hasApplicationSurface(snapshot, {
+    const noApplicationSurface = !hasApplicationSurface(snapshot, {
       pageUrl: page.url(),
       postingUrl,
       postingMatch: match,
-    }) && !ctx.skipPostingCheck) startupNavigationHint ||= 'application_stage_unknown';
+    });
+    const accountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(initialOtpAccount);
+    const sameSelectedPostingShell = Boolean(ctx.postingUrl)
+      && samePostingAddress(page.url(), ctx.postingUrl)
+      && !hasApplicationForm(snapshot)
+      && snapshot.buttons.length > 0
+      && snapshot.buttons.every((button) => button.chrome === true)
+      && !(snapshot.links || []).some((link) => !link.chrome);
+    if ((noApplicationSurface || sameSelectedPostingShell) && !accountSurface && !ctx.skipPostingCheck) {
+      startupNavigationHint ||= ctx.postingUrl && samePostingAddress(page.url(), ctx.postingUrl)
+        ? 'posting_mismatch' : 'application_stage_unknown';
+    }
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
@@ -10638,9 +10649,10 @@ export async function submitViaPortal(ctx) {
       agentSubmitRefForPage = retainedAgentSubmitRef;
       const currentText = await pageText(page);
       const diversionHint = applicationDiversionHint({ ...snapshot, text: currentText });
-      const needsAutonomousNavigation = Boolean(startupNavigationHint)
+      const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
+      const needsAutonomousNavigation = !currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
-        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck);
+        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck));
       if (needsAutonomousNavigation) {
         const navigationHint = startupNavigationHint || (diversionHint ? 'application_stage_unknown'
           : currentStage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
