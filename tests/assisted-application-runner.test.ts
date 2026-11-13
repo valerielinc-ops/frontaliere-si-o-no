@@ -12,7 +12,7 @@ import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailored
 import { CV_TEXT_VERSION } from '../scripts/assisted-application/lib/cv-text.mjs';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
-import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
+import { checkPostingLiveness, resolvePublishedPostingAddressOf } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
@@ -947,6 +947,45 @@ describe('submit mode', () => {
 
     expect(runner).toHaveBeenCalledWith(expect.objectContaining({ applyUrl, postingUrl }));
     expect(fetchImpl).toHaveBeenCalledWith(postingUrl, expect.objectContaining({ redirect: 'manual' }));
+  });
+
+  it('uses the published Job-Room listing for draft and submit liveness while retaining the external target', async () => {
+    const id = '11111111-2222-3333-4444-555555555555';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
+    const detailUrl = `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`;
+    const externalUrl = 'https://team.jobs/de/jobs/123';
+    const postingPageRequests: string[] = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === detailUrl) return new Response(JSON.stringify({
+        description: POSTING, url: jobUrl, applyUrl: jobUrl, titleByLocale: { it: 'Infermiera di reparto' },
+      }), { status: 200 });
+      if (url === apiUrl) return new Response(JSON.stringify({
+        jobContent: { externalUrl, applyChannel: {} },
+      }), { status: 200, headers: { 'content-type': 'application/json' } });
+      if (url === jobUrl || url === externalUrl) {
+        postingPageRequests.push(url);
+        return new Response('<html><body><h1>Posto aperto</h1><p>Informazioni sul posto di lavoro.</p></body></html>', {
+          status: 200, headers: { 'content-type': 'text/html' },
+        });
+      }
+      if (url === JOB_ACTIVE_IDS_URL) return new Response('', { status: 404 });
+      return new Response('', { status: 404 });
+    });
+
+    const draft = await buildDraft({
+      order: { ...order, jobId, jobUrl, jobTitle: 'Infermiera di reparto', companyName: 'Ospedale Esempio' },
+      orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: fakeCodex(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl,
+      nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+
+    expect(postingPageRequests[0]).toBe(jobUrl);
+    expect(draft.job).toMatchObject({ postingUrl: externalUrl, publishedPostingUrl: jobUrl, applyUrl: externalUrl });
+    await expect(resolvePublishedPostingAddressOf(draft, { ...order, jobId, jobUrl }, {
+      fetchImpl, resolve: publicDns,
+    })).resolves.toBe(jobUrl);
   });
 
   it('keeps the verified Umantis vacancy URL for portal matching when liveness uses the published page', async () => {

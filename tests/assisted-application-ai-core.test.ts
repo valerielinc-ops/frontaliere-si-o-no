@@ -678,6 +678,7 @@ describe('job posting fetch', () => {
     const jobUrl = `https://www.job-room.ch/job-search/${id}`;
     const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
     const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
+    const externalUrl = 'https://team.jobs/de/jobs/456';
     const calls: string[] = [];
     const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
     const posting = await fetchJobPosting({ jobId, jobUrl }, {
@@ -732,7 +733,7 @@ describe('job posting fetch', () => {
         if (url === jobUrl) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
         if (url === apiUrl) {
           return new Response(JSON.stringify({
-            jobContent: { applyChannel: { formUrl: 'https://apply.acme.example/form', emailAddress: null } },
+            jobContent: { externalUrl, applyChannel: { formUrl: 'https://apply.acme.example/form', emailAddress: null } },
           }), { status: 200, headers: { 'content-type': 'application/json' } });
         }
         return new Response('', { status: 404 });
@@ -740,7 +741,10 @@ describe('job posting fetch', () => {
     });
 
     expect(calls).toEqual([`GET ${detailUrl}`, `GET ${jobUrl}`, `GET ${apiUrl}`]);
-    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, publishedPostingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
+    expect(posting).toMatchObject({
+      source: 'job_page', postingUrl: externalUrl, publishedPostingUrl: jobUrl,
+      applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true,
+    });
   });
 
   it('uses the Job-Room formUrl before its external advertisement URL', async () => {
