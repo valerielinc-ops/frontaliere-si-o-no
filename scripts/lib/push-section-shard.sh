@@ -674,8 +674,9 @@ push_section_shard() {
     fi
 
     # Measure the canonical representation before mutating the stage. The
-    # stage tool adds a sticky registry entry before probing the live Worker;
-    # only after that probe succeeds does it rewrite the filesystem or index.
+    # route probe above records an exact Worker confirmation; the stage tool
+    # validates the durable registry and consumes that confirmation after the
+    # measurement, before rewriting the filesystem or index.
     if [ "$delta_applied" = 1 ]; then
       if ! section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index "$section-$loc shard"; then
         echo "::error::$section-$loc shard: automatic tree fan-out staging failed" >&2
