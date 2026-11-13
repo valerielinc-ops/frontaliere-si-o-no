@@ -10086,7 +10086,14 @@ export async function submitViaPortal(ctx) {
     // the same page turn a stale role into an application form.
     if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl)
       && !postingVacancyMatched && !initialPublicJobSearch) startupNavigationHint = 'posting_mismatch';
-    if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
+    // The selected apply address is already provenance for a regional gate.
+    // Do not make this IP-level stop depend on the rendered title or on a
+    // possibly unrelated Apply card: a blocked page can have neither, while
+    // the exact `applyUrl` still identifies the requested posting.
+    const initialAddressIsSelected = samePostingAddress(postingUrl, ctx.applyUrl)
+      || (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl))
+      || enteredFromMatchingPosting;
+    if ((postingVacancyMatched || initialAddressIsSelected) && isApplicationRegionUnsupported(initialPageText)
       && !hasApplicationEntryControl(snapshot, {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, job: portalJob,
         pageTitle: postingTitle,
