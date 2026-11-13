@@ -107,6 +107,41 @@ describe('application stage ownership', () => {
       .toMatchObject({ kind: 'application_start', control: start });
   });
 
+  it('keeps the Swarovski Workday login module bound to the selected posting', () => {
+    const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
+    const loginUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';
+    const snapshot = {
+      url: loginUrl,
+      text: 'Connexion Créer un compte Vous avez oublié votre mot de passe ?',
+      fields: [
+        { kind: 'text', inputType: 'text', label: 'Adresse e-mail*', required: true, value: '' },
+        { kind: 'text', inputType: 'password', label: 'Mot de passe*', required: true, value: '' },
+      ],
+      buttons: [
+        { text: 'Lire tout le message sur la confidentialité', chrome: true },
+        { text: 'Refuser', chrome: true },
+        { text: 'Accepter les cookies', chrome: true },
+        { text: 'Visite Swarovski.com', chrome: true },
+        { text: 'Rechercher des emplois', chrome: true },
+        { text: 'Présentez-vous', chrome: true },
+        { text: 'Connexion' },
+        { text: 'Créer un compte' },
+        { text: 'Vous avez oublié votre mot de passe ?' },
+        { text: 'X', chrome: true },
+        { text: 'YouTube', chrome: true },
+        { text: 'LinkedIn', chrome: true },
+        { text: 'Facebook', chrome: true },
+      ],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: postingUrl, job: { title: 'Seasonal Sales Consultant' } }))
+      .toMatchObject({ kind: 'form' });
+    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/other-site/login' }, { applyUrl: postingUrl }))
+      .toMatchObject({ kind: 'posting_mismatch' });
+    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/forgotPassword' }, { applyUrl: postingUrl }))
+      .toMatchObject({ kind: 'posting_mismatch' });
+  });
+
   it.each([
     ['a non-Workday host', 'https://careers.example/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_123'],
     ['a non-start label', 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345'],
