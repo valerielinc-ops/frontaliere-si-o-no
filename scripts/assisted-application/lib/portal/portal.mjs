@@ -4430,8 +4430,8 @@ export function formPostingMatch(formText, job = {}, {
   }
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
+  if (successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
-  if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
   if (roleHeading === 'mismatch') return 'mismatch';
   if (direct === 'match' || roleHeading === 'match') return 'match';
   // A generic form reached through a posting's verified entry stays unknown:
