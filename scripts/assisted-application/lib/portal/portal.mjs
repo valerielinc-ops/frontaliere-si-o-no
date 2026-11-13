@@ -4026,8 +4026,8 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  'number', 'numero', 'nummer', 'date', 'datum', 'data', 'compilation', 'compilazione',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
-  'number', 'numero', 'nummer',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
@@ -4112,7 +4112,7 @@ const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder',
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
   'the', 'and', 'for', 'our', 'your', 'with', 'at', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
-  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
+  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'di', 'de', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
   'chez', 'avec', 'aux', 'une',
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
@@ -4218,6 +4218,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
+  const ourKinds = employerKindsOf([...ours]);
   // A title can put the selected employer and a different employer-like phrase
   // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
   // scan intentionally splits on dashes, so keep this explicit title-level
@@ -4225,7 +4226,8 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // line as a whole.
   if (titleNamesOwnEmployer(titleLine)) {
     const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
-    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
+    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word)
+      && (!EMPLOYER_KIND_CLASS.has(word) || !ourKinds.has(EMPLOYER_KIND_CLASS.get(word))))
       && words.some((word) => !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word) && !filler(word)))) return true;
   }
   // Page chrome may precede the posting's own heading. Ignore only known
@@ -4234,7 +4236,6 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (!titleNamesOwnEmployer(titleLine) && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
-  const ourKinds = employerKindsOf([...ours]);
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
@@ -4653,7 +4654,7 @@ function normalizeFormRoleTitle(value) {
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
     .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
+    .replace(/(?:^|[-–—|:]\s*)(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\s*$/iu, ' ')
     .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
     .replace(/\s+/g, ' ').trim();
 }
@@ -4690,8 +4691,9 @@ const FORM_HEADING_VOCABULARY = new Set([
 function formRoleHeadingStatus(formText, job = {}) {
   const candidates = jobTitleCandidates(job);
   if (!candidates.length) return 'unknown';
+  // Only the top lines can identify the selected posting; later form fields and questions are not role evidence.
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
-    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 3);
   const headings = lines.filter(value => !/^https?:\/\//iu.test(value)).map(normalizeFormRoleTitle).filter(Boolean);
   if (headings.some(heading => titleWordsOnly(heading, candidates))) return 'match';
   const neutral = new Set([

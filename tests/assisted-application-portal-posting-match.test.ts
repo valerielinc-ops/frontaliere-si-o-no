@@ -3,6 +3,7 @@ import {
   applicationEntryControls,
   formPostingMatch,
   jobRoomExternalAdTarget,
+  namesAnotherEmployer,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('application form posting identity', () => {
@@ -102,6 +103,11 @@ describe('application form posting identity', () => {
     const genericForm = 'Bewerbung\nVorname\nNachname\nE-Mail-Adresse\nWeiter';
     const job = { title: 'Pflegefachperson', company: 'Spital Esempio' };
     expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('unknown');
+    const numberedForm = 'Numero candidatura\nData di compilazione\nNome\nCognome';
+    expect(namesAnotherEmployer(numberedForm, job)).toBe(false);
+    expect(formPostingMatch(numberedForm, job, {
+      postingMatched: true, applicationEntry: true,
+    })).toBe('unknown');
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
   });
 
