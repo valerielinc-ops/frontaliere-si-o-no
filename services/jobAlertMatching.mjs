@@ -786,6 +786,9 @@ function jobMatchBaseFeatures(job) {
     // Descriptions are identical across recipient locales. Keep the normalized
     // copy once per job; the full locale-specific text is assembled lazily.
     descriptionText: (job.description || '').toLowerCase(),
+    // These compact locale-specific features are reused across alert batches;
+    // never retain a locale's concatenated description here.
+    localeFeatures: new Map(),
     jobCompany: normalizeCompanyToken(job.company),
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
@@ -797,17 +800,25 @@ function jobMatchBaseFeatures(job) {
 }
 
 function jobMatchFeaturesWithBase(job, locale, shared) {
-  const localizedTitles = locale
-    ? String((job.titleByLocale || {})[locale] || '')
-    : Object.values(job.titleByLocale || {}).join(' ');
-  const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
+  const localeKey = locale || '';
+  let localeFeatures = shared.localeFeatures.get(localeKey);
+  if (!localeFeatures) {
+    const localizedTitles = locale
+      ? String((job.titleByLocale || {})[locale] || '')
+      : Object.values(job.titleByLocale || {}).join(' ');
+    localeFeatures = {
+      titleText: `${job.title || ''} ${localizedTitles}`.toLowerCase(),
+      jobTokens: extractKeywords(
+        `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
+      ),
+    };
+    shared.localeFeatures.set(localeKey, localeFeatures);
+  }
   return {
-    titleText,
-    get fullText() { return `${titleText} ${shared.descriptionText}`; },
+    titleText: localeFeatures.titleText,
+    get fullText() { return `${localeFeatures.titleText} ${shared.descriptionText}`; },
     descriptionText: shared.descriptionText,
-    jobTokens: extractKeywords(
-      `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
-    ),
+    jobTokens: localeFeatures.jobTokens,
     jobCompany: shared.jobCompany,
     jobLoc: shared.jobLoc,
     jobCanton: shared.jobCanton,
@@ -986,10 +997,10 @@ function memoKeywordInFullText(entry, localeMemo, featureStore, keyword) {
 }
 
 /**
- * Run-scoped compact job data. Locale-independent base features and a capped
- * set of description keyword bitmaps are shared; full locale-specific text and
- * title/search bitmaps stay in the shorter-lived cache returned by
- * {@link createJobFeatureCache}.
+ * Run-scoped compact job data. Locale-independent base features, compact
+ * per-locale title/token features, and a capped set of description keyword
+ * bitmaps are shared. Search haystacks and per-batch bitmaps stay in the
+ * shorter-lived cache returned by {@link createJobFeatureCache}.
  *
  * A caller that mutates a job between scores must not reuse this store. The
  * default (no cache) recomputes exactly as before.
@@ -1061,8 +1072,9 @@ export function createJobFeatureStore() {
 
 /**
  * Batch-bounded memo around a {@link createJobFeatureStore}. Compact
- * locale-independent features are shared across plan batches; full locale
- * features and keyword/search bitmaps are released with each batch.
+ * locale-independent and per-locale title/token features are shared across
+ * plan batches; search haystacks and keyword/search bitmaps are released with
+ * each batch.
  */
 export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
   const byJob = new WeakMap();

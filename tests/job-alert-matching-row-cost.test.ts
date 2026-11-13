@@ -436,6 +436,7 @@ describe('matching cost per alert (#9314)', () => {
       expect(secondFeatures).not.toBe(entries.first[index].features);
       expect(secondFeatures.titleText).toBe(entries.first[index].features.titleText);
       expect(secondFeatures.descriptionText).toBe(entries.first[index].features.descriptionText);
+      expect(secondFeatures.jobTokens).toBe(entries.first[index].features.jobTokens);
       expect(secondFeatures.jobCategoryKeys).toBe(entries.first[index].features.jobCategoryKeys);
     });
     expect(descriptionLowercases).toBe(jobs.length);
