@@ -173,9 +173,37 @@ describe('collectDescriptionFixTasks groups the slots by language pair', () => {
     });
 
     expect(tasks.slice(0, 4).map((task: { job: { id: string } }) => task.job.id)).toEqual([
-      'j1', 'j2', 'j3', 'j4',
+      'j5', 'j1', 'j2', 'j3',
     ]);
-    expect(tasks[4].job.id).toBe('j5');
+    expect(tasks[4].job.id).toBe('j4');
+  });
+
+  it('keeps every stale source-copy task ahead of younger pairs', () => {
+    const now = Date.parse('2026-10-29T00:00:00.000Z');
+    const stale = Array.from({ length: 8 }, (_, index) => ({
+      job: {
+        id: `stale-${index + 1}`,
+        firstSeenAt: '2026-01-01T00:00:00.000Z',
+      },
+      sl: 'de',
+      locale: 'it',
+    }));
+    const younger = Array.from({ length: 8 }, (_, index) => ({
+      job: {
+        id: `young-${index + 1}`,
+        firstSeenAt: '2026-10-25T00:00:00.000Z',
+      },
+      sl: 'de',
+      locale: 'en',
+    }));
+
+    const ordered = orderDescriptionFixTasks([...stale, ...younger], {
+      ...Object.fromEntries(younger.map((task) => [task.job.id, 1000])),
+    }, { now });
+
+    expect(ordered.slice(0, stale.length).map((task) => task.job.id)).toEqual(
+      stale.map((task) => task.job.id),
+    );
   });
 
   it('rotates pairs after a bounded Codex-sized chunk', () => {

@@ -38,6 +38,11 @@ on:
         required: false
         type: string
         default: ''
+      history_since:
+        description: 'Walk only commits newer than this git date (default 45 days ago; "all" = unbounded).'
+        required: false
+        type: string
+        default: '45 days ago'
 
 concurrency:
   group: jobs-data-pipeline
@@ -76,6 +81,10 @@ jobs:
         env:
           CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
+          # The unbounded prefetch (every slice blob of the whole history) hit
+          # the 40-minute cap twice in run 43320183949 (2026-11-12); the walk
+          # below reads only the same window.
+          HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
         # The backfill reads each historical slice with `git show`. A blobless
         # checkout is safe only after the exact slice blobs are fetched in one
         # pack; otherwise every revision would trigger a separate lazy fetch.
@@ -113,6 +122,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
+          HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
           # Each checkpoint reruns the focused data gate before publishing.
           # A 64-key batch reached the 90-minute cap before its next commit in
           # run 36073258478. Sixteen bounds the uncommitted loss while keeping

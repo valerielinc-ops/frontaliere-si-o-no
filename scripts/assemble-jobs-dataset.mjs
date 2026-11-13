@@ -2844,6 +2844,113 @@ function withWrittenDescriptions(job) {
   return view;
 }
 
+/** Same identity evidence the build reads (build-plugins/shared/jobArchiveEvidence.ts). */
+function hasArchivedTitle(entry) {
+  const nonblank = (value) => typeof value === 'string' && value.trim().length > 0;
+  return nonblank(entry?.title) || Object.values(entry?.titleByLocale || {}).some(nonblank);
+}
+
+/** Every route slug a row answers on: current slugs, plus history when asked. */
+function sliceRowRouteSlugs(job, { withHistory = false } = {}) {
+  const routes = [];
+  const add = (value) => {
+    if (typeof value === 'string' && value.trim()) routes.push(value.trim());
+  };
+  add(job?.slug);
+  if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
+    for (const value of Object.values(job.slugByLocale)) add(value);
+  }
+  if (withHistory) {
+    if (Array.isArray(job?.previousSlugs)) job.previousSlugs.forEach(add);
+    if (job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const values of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(values)) values.forEach(add);
+      }
+    }
+  }
+  return routes;
+}
+
+/**
+ * Rows of the previous run that a slice write retires: no written row carries
+ * their identity (`resolveJobDiffKey`) and none answers on one of their routes
+ * (current slugs of the retired row against current + previous slugs of the
+ * written rows), and they were not handed to another crawler key. A renamed
+ * posting keeps its id or its old slug in `previousSlugs`, so it is not
+ * retired; a collapsed duplicate carries its slugs over, so it is not either.
+ *
+ * @param {object[]|null} priorJobs  The slice of the previous run.
+ * @param {object[]} writtenJobs      The rows this write persisted.
+ * @param {object[]} [handedOverJobs] Rows the ownership guard moved away.
+ * @returns {object[]}
+ */
+export function retiredSliceRows(priorJobs, writtenJobs, handedOverJobs = []) {
+  if (!Array.isArray(priorJobs) || priorJobs.length === 0) return [];
+  const liveKeys = new Set();
+  const liveRoutes = new Set();
+  for (const job of [...(Array.isArray(writtenJobs) ? writtenJobs : []), ...(handedOverJobs || [])]) {
+    if (!job || typeof job !== 'object') continue;
+    const key = resolveJobDiffKey(job);
+    if (key) liveKeys.add(key);
+    for (const route of sliceRowRouteSlugs(job, { withHistory: true })) liveRoutes.add(route);
+  }
+  return priorJobs.filter((job) => {
+    if (!job || typeof job !== 'object' || !job.slug) return false;
+    const key = resolveJobDiffKey(job);
+    if (key && liveKeys.has(key)) return false;
+    return !sliceRowRouteSlugs(job).some((route) => liveRoutes.has(route));
+  });
+}
+
+/**
+ * Archive the rows a slice write retired into the crawler's expired slice.
+ * Never fatal: this runs inside the crawler cron, where a throw abandons the
+ * whole run, and the slice itself is already written. A failure is logged
+ * with its cause so the missing archive records stay visible.
+ */
+function archiveRetiredSliceRows(crawlerKey, priorJobs, writtenJobs, handedOverJobs) {
+  const retired = retiredSliceRows(priorJobs, writtenJobs, handedOverJobs);
+  if (retired.length === 0) return 0;
+  try {
+    // A slug the archive already holds with a title was archived by the
+    // caller's own step (template pipeline, housekeeping, corroborated shrink)
+    // or by a previous write of this run: rewriting it would only move its
+    // expiredAt forward (same rule as archiveFilteredJobsToSlices).
+    // Read through readJsonFile (#18272) and fail closed: an archive that
+    // exists but cannot be read must not reach archiveRemovedJobsToSlice,
+    // whose own reader starts from `[]` on a parse error and would rewrite
+    // the slice with only this run's rows.
+    const expiredSlicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
+    const existingArchive = fs.existsSync(expiredSlicePath) ? readJsonFile(expiredSlicePath) : [];
+    if (!Array.isArray(existingArchive)) {
+      throw new Error(`existing archive ${path.basename(expiredSlicePath)} is not an array`);
+    }
+    const archivedWithTitle = new Set(
+      existingArchive
+        .filter((entry) => entry?.slug && hasArchivedTitle(entry))
+        .map((entry) => entry.slug),
+    );
+    const missing = retired.filter((job) => !archivedWithTitle.has(job.slug));
+    if (missing.length === 0) return 0;
+    const archived = archiveRemovedJobsToSlice(missing, crawlerKey, { activeJobs: writtenJobs });
+    console.log(
+      `  📦 Retired ${retired.length} row(s) from ${crawlerKey}: ${archived} new archive record(s) → `
+        + `data/jobs/expired/by-crawler/${crawlerKey}.json (expired soft-landing, not the unverified stub).`,
+    );
+    return archived;
+  } catch (err) {
+    // A slice past the push-safety ceiling must stop the run with its own
+    // message (assert-file-size-ceiling.mjs), not surface later as a push
+    // GitHub rejects.
+    if (err?.code === 'FILE_SIZE_CEILING') throw err;
+    console.error(
+      `  ❌ ${crawlerKey}: ${retired.length} retired row(s) NOT archived (${err?.message || err}) — `
+        + 'their URLs will be served as unverified stubs until backfill-expired-from-history runs.',
+    );
+    return 0;
+  }
+}
+
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
@@ -3300,6 +3407,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // and `collapseDuplicateRouteEntries` are: this runs inside the crawler cron,
   // where a throw abandons the whole run.
   let finalJobs = mergedJobs;
+  // Vacancies this write hands to the crawler key that already publishes them:
+  // still live under that key, so they are not retired rows (see
+  // archiveRetiredSliceRows below).
+  let ownershipHandedOver = [];
   if (!process.env.SKIP_OWNERSHIP_GUARD && !options.skipOwnershipGuard) {
     try {
       const ownership = loadSourceHostOwnership(ROOT, { urls: true });
@@ -3330,6 +3441,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
           console.error(`\n🚨 Ownership guard REFUSED for ${crawlerKey}: dropping ${owned.dropped.length}/${mergedJobs.length} vacancy would gut the slice (${breakdown}) — keeping all jobs. A stale alias slice on disk is the usual cause; run scripts/audit-duplicate-crawler-companies.mjs\n`);
         } else {
           finalJobs = owned.jobs;
+          const ownedKept = new Set(owned.jobs);
+          ownershipHandedOver = mergedJobs.filter((job) => !ownedKept.has(job));
           console.warn(`  🪪 Ownership guard: ${owned.dropped.length} vacancy already published by another crawler dropped from ${crawlerKey} (${breakdown})`);
         }
       }
@@ -3456,6 +3569,22 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // `currentEntry.slice.jobs` is the array decontamination rewrote in place:
   // exactly the jobs now in the slice file.
   recordPublishedSlice(crawlerKey, { beforeJobs: beforeJobsForSummary, afterJobs: currentEntry.slice.jobs });
+  // ── Retired rows → expired archive ────────────────────────────────────
+  // A row of the previous run that this write no longer carries leaves the
+  // site. Without an archive record its indexed URL is served as the noindex
+  // «Offerta non verificata» stub (build-plugins/shared/jobArchiveEvidence.ts)
+  // instead of the expired soft-landing with title, data and similar jobs.
+  // The template pipeline, housekeeping and the corroborated shrink path
+  // archived their own removals, but ~119 bespoke runners call this writer
+  // directly: an ordinary drop (one bando of ten, below the shrink guard) left
+  // nothing behind. Measured 2026-11-12: Città di Locarno (2026-11-07,
+  // b56ac5328bf0), Guess (2026-11-05, 2cef9bb5b374) and Sintetica
+  // (2026-11-10, d2f9db568bf6) dropped postings with GSC clicks that never
+  // reached data/jobs/expired/by-crawler. The archive merges by slug, so the
+  // callers that already archived see an idempotent write.
+  if (!options.skipRetiredArchive) {
+    archiveRetiredSliceRows(crawlerKey, priorJobs, currentEntry.slice.jobs, ownershipHandedOver);
+  }
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';
   console.log(`📂 Wrote jobs slice: data/jobs/by-crawler/${crawlerKey}.json (${finalJobs.length} jobs${hardeningSuffix})`);
 }

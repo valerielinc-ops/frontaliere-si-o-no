@@ -30,6 +30,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
+  assertExpiredSliceSize,
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
@@ -527,6 +528,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   if (added === 0 && existing.length === bySlug.size && repaired === 0
     && collapse.collapsed === 0 && collapse.repairedRoutes === 0) return 0;
   const archived = collapse.entries;
+  assertExpiredSliceSize(slicePath, archived);
   writeJson(slicePath, archived);
   return added;
 }

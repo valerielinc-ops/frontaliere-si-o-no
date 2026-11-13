@@ -9,7 +9,7 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
-import { candidateQuestionAnswerKey, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
+import { candidateQuestionAnswerKey, candidateWithEdits, mergeCandidateAnswerHistory, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION, questionsForCandidate, rememberCandidateAnswerHistory, rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { answerConfirmationSnapshotsFor, answerOriginsForQuestions, answerQuestionSnapshotQuestion, answerQuestionSnapshotsFor, loadRunnerAnswerContext, orderQuestionAnswerContext, planCandidateAnswerEvidence, rememberOrderQuestionAnswerSnapshots, resolveAnswerCommunicationLocale } from './assistedApplicationAnswerEvidence.js';
 import { answerContractRequiredDetails, normalizeAnswerCommunicationLocale } from './assistedApplicationAnswerConfirmation.js';
 import { answerRevisionText, candidateEditSnapshot, candidateReviewFlow, candidateVisibleAnswers, sameCandidateEditSnapshot } from './assistedApplicationEditSnapshot.js';
@@ -221,11 +221,14 @@ export async function commitRebuild({ db, bucket, orderId, flow, draft, state = 
       && (!edits || (same(current.draft.coverLetterPdfKey, draft.coverLetterPdfKey) && same(current.draft.candidateEditedAt, draft.candidateEditedAt)));
     if (!unchanged) return false;
     await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, orderSnapshot.data(), candidateAnswerLedger);
-    if (flowPatch && replaceAnswerMaps) {
-      const { answers, ...answerMaps } = flowPatch;
+    const committedFlowPatch = flowPatch && Array.isArray(flowPatch.candidateAnswerHistory)
+      ? { ...flowPatch, candidateAnswerHistory: mergeCandidateAnswerHistory(current.flow.candidateAnswerHistory, flowPatch.candidateAnswerHistory) }
+      : flowPatch;
+    if (committedFlowPatch && replaceAnswerMaps) {
+      const { answers, ...answerMaps } = committedFlowPatch;
       if (answers !== undefined) transaction.set(flowRef, { answers, updatedAt: nowMs }, { merge: true });
       if (Object.keys(answerMaps).length) transaction.set(flowRef, answerMaps, { mergeFields: Object.keys(answerMaps) });
-    } else if (flowPatch) transaction.set(flowRef, { ...flowPatch, updatedAt: nowMs }, { merge: true });
+    } else if (committedFlowPatch) transaction.set(flowRef, { ...committedFlowPatch, updatedAt: nowMs }, { merge: true });
     transaction.set(draftRef, draftPatch, { merge: true });
     return true;
   });
@@ -272,6 +275,8 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const orderContext = orderQuestionAnswerContext({ orderId, order, flow, draft, nowMs });
   const localQuestionDescriptors = Array.isArray(answerSnapshotQuestions) ? answerSnapshotQuestions
     : (draft?.questions || []).map(question => answerQuestionSnapshotQuestion({ question, draft }));
+  const candidateAnswerHistory = rememberCandidateAnswerHistory({ previous: flow?.candidateAnswerHistory,
+    questions: localQuestionDescriptors, changed: answers, round: Number(flow?.round) || 1, confirmedAt: nowMs, actor: answerActor });
   const currentQuestionSnapshots = answerQuestionSnapshotsFor({ orderId, questions: localQuestionDescriptors, draft, nowMs });
   const answerSourceKind = answerActor === 'candidate' ? 'direct_user' : answerActor === 'owner' ? 'owner_attested' : 'unknown';
   const currentConfirmationSnapshots = answerConfirmationSnapshotsFor({ userId: order?.userId, orderId, order, flow,
@@ -309,7 +314,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const orderQuestionAnswersEvidenceVersion = ['candidate', 'owner'].includes(answerActor)
     && Object.keys(questionAnswerSnapshots.snapshots).length > 0
       ? ORDER_QUESTION_ANSWER_EVIDENCE_VERSION : null;
-  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+  const nextFlow = { ...flow, answers: mergedAnswers, candidateAnswerHistory, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
     questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
     questionAnswerConfirmationHashes: questionAnswerSnapshots.confirmations,
     questionAnswerSources: questionAnswerSnapshots.sources,
@@ -345,8 +350,12 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
           guard: { answerIds: Object.keys(sourceQuestionSnapshotGuard), snapshots: sourceQuestionSnapshotGuard, storedAnswers: storedAnswerGuard,
             answerOrigins: confirmedAnswerOrigins, draftRound: Number(draft?.round) || 1, actor: answerActor, nowMs, communicationLocale } })) return false;
       await writeCandidateAnswerLedger(transaction, db, profileRef, profileSnapshot, currentOrder.data(), candidateAnswerLedger);
+      const committedCandidateAnswerHistory = rememberCandidateAnswerHistory({ previous: currentFlow.data()?.candidateAnswerHistory,
+        questions: localQuestionDescriptors, changed: answers, round: Number(currentFlow.data()?.round) || 1,
+        confirmedAt: nowMs, actor: answerActor });
       transaction.set(flowRef, {
         answers,
+        candidateAnswerHistory: committedCandidateAnswerHistory,
         ...(answerSuggestionDismissals ? { answerSuggestionDismissals } : {}),
         updatedAt: nowMs,
       }, { merge: true });
@@ -365,7 +374,7 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
   const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   const rebuildCommitted = await commitRebuild({
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
-    flowPatch: { answers, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
+    flowPatch: { answers, candidateAnswerHistory, questionAnswers, questionAnswerSnapshots: questionAnswerSnapshots.snapshots,
       questionAnswerSnapshotIds: questionAnswerSnapshots.questionIds, questionAnswerCompatibility: questionAnswerSnapshots.compatibility,
       questionAnswerConfirmationHashes: questionAnswerSnapshots.confirmations,
       questionAnswerSources: questionAnswerSnapshots.sources,

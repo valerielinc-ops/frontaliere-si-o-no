@@ -1,0 +1,97 @@
+name: Retired Jobs Archive Observer
+
+# Every posting that leaves the active job set must reach the expired archive
+# with its title; otherwise the build serves its URL as the noindex
+# «Offerta non verificata» stub instead of the expired soft-landing
+# (build-plugins/shared/jobArchiveEvidence.ts). Measured live on 2026-11-12:
+# 26 stubs among the 600 top job pages (5,5% of their clicks), postings that
+# bespoke crawler runners had dropped without archiving.
+#
+# Once a day this compares main with main 26 hours earlier and prints, per
+# crawler, the retired postings with no titled archive record and the titled
+# archive records that disappeared (an archive that shrinks between two
+# builds). Threshold 0 for both: a red run names the crawlers to recover with
+# backfill-expired-from-history.yml.
+
+on:
+  schedule:
+    - cron: '35 6 * * *'
+  workflow_dispatch:
+    inputs:
+      base:
+        description: 'Base revision (default: main 26 hours ago)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: retired-jobs-archive-observer
+  cancel-in-progress: false
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout (blobless; slice blobs are fetched in one pack below)
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+          sparse-checkout-cone-mode: true
+        timeout-minutes: 18
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Measure retired-job archive coverage
+        env:
+          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          INPUT_BASE: ${{ inputs.base }}
+          NODE_OPTIONS: '--max-old-space-size=6144'
+        run: |
+          set -euo pipefail
+          base="${INPUT_BASE:-}"
+          if [ -z "$base" ]; then
+            base="$(git rev-list -1 --first-parent --before='26 hours ago' HEAD)"
+          fi
+          echo "base=$base head=$(git rev-parse HEAD)"
+          node scripts/ci/check-retired-jobs-archived.mjs \
+            --base "$base" --head HEAD --prefetch \
+            --json "$RUNNER_TEMP/retired-jobs-archive.json" | tee "$RUNNER_TEMP/retired-jobs-archive.log"
+
+      - name: Step summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/retired-jobs-archive.log" ]; then
+            { echo '### Retired-job archive coverage'; echo '```'; cat "$RUNNER_TEMP/retired-jobs-archive.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Multi-line body passed through the environment and quoted once, so
+          # it reaches github-issue-creator.mjs intact.
+          ISSUE_DESCRIPTION: |
+            ## Job URLs left the active set without a titled expired record
+            The build serves them as noindex «Offerta non verificata» stubs.
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the crawlers listed in the run summary.
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "$ISSUE_DESCRIPTION" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

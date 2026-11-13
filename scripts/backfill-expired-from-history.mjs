@@ -29,6 +29,7 @@
  *   DRY_RUN=1   — log what would change, don't write
  *   MAX_COMMITS=N — cap history depth per file (default: unbounded)
  *   CRAWLER_KEYS=key-a,key-b — restrict one run to a bounded crawler batch
+ *   HISTORY_SINCE=<git date> — walk only commits newer than this ("all" = unbounded)
  */
 
 import fs from 'node:fs';
@@ -38,12 +39,14 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
+  assertExpiredSliceSize,
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { historySinceArgs } from './ci/prefetch-history-blobs.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { createFirstSeenMetadataIndex } from './lib/first-seen-history.mjs';
@@ -161,7 +164,7 @@ function listSliceFiles() {
 
 function listHistoryCommits(relPath) {
   try {
-    return git(['log', '--all', '--follow', '--format=%ct %H', '--', relPath])
+    return git(['log', '--all', '--follow', ...historySinceArgs(), '--format=%ct %H', '--', relPath])
       .trim()
       .split('\n')
       .filter(Boolean)
@@ -368,6 +371,7 @@ function processSlice(sliceFile) {
   ).entries;
   if (!DRY_RUN) {
     fs.mkdirSync(EXPIRED_DIR, { recursive: true });
+    assertExpiredSliceSize(expiredPath, archived);
     writeJsonAtomic(expiredPath, archived);
   }
   return {
