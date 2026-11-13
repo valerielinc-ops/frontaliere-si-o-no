@@ -327,7 +327,7 @@ describe('run-related-tests selection contract', () => {
     const directoryReader = [
       "import { readdirSync } from 'node:fs';",
       "import path from 'node:path';",
-      "const workflows = path.join('.', '.github', 'workflows');",
+      "const workflows = path.join('.github', 'workflows');",
       'readdirSync(workflows);',
       'export const contract = true;',
     ].join('\n');
