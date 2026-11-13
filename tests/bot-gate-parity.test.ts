@@ -18,12 +18,14 @@ import {
   matchesAutomationLanguageSignature,
   matchesAutomationScreenSignature,
   matchesSquareScreenFleetSignature,
+  isLikelySearchCrawler,
 } from '@/services/botPatterns';
-import { BOT_GATE_FN } from '@/build-plugins/constants';
+import { AD_RECOVERY_CONTENT, BOT_GATE_FN, SEARCH_CRAWLER_GATE_FN } from '@/build-plugins/constants';
 
 // Eval the inline gate string into a callable. It reads the global `navigator`
 // / `window` (jsdom), exactly as it would in a real browser static page.
 const inlineGate = new Function(`return (${BOT_GATE_FN});`)() as () => boolean;
+const inlineSearchCrawlerGate = new Function(`return (${SEARCH_CRAWLER_GATE_FN});`)() as () => boolean;
 
 const ORIGINAL_UA = window.navigator.userAgent;
 const ORIGINAL_WEBDRIVER = (window.navigator as Navigator & { webdriver?: boolean }).webdriver;
@@ -120,6 +122,38 @@ describe('bot-gate parity: BOT_GATE_FN ≡ isLikelyBot()', () => {
     } finally {
       delete (window as unknown as Record<string, unknown>).chrome;
     }
+  });
+});
+
+describe('static native-promotion gate excludes search crawlers', () => {
+  beforeEach(() => setWebdriver(false));
+  afterEach(() => {
+    setUserAgent(ORIGINAL_UA);
+    setWebdriver(ORIGINAL_WEBDRIVER);
+  });
+
+  it.each([
+    ['Googlebot', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'],
+    ['Google-InspectionTool', 'Mozilla/5.0 (compatible; Google-InspectionTool/1.0)'],
+    ['Bingbot', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'],
+    ['DuckDuckBot', 'DuckDuckBot/1.1; (+http://duckduckgo.com/duckduckbot.html)'],
+  ])('blocks %s from the native promotion', (_name, ua) => {
+    setUserAgent(ua);
+    expect(inlineSearchCrawlerGate()).toBe(true);
+    expect(inlineSearchCrawlerGate()).toBe(isLikelySearchCrawler());
+  });
+
+  it('allows a real visitor user agent and fails closed on an empty user agent', () => {
+    setUserAgent('Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/131.0');
+    expect(inlineSearchCrawlerGate()).toBe(false);
+    expect(inlineSearchCrawlerGate()).toBe(isLikelySearchCrawler());
+    setUserAgent('');
+    expect(inlineSearchCrawlerGate()).toBe(true);
+    expect(inlineSearchCrawlerGate()).toBe(isLikelySearchCrawler());
+  });
+
+  it('embeds the same search-crawler gate in the static recovery asset', () => {
+    expect(AD_RECOVERY_CONTENT).toContain(`||(${SEARCH_CRAWLER_GATE_FN})()`);
   });
 });
 
