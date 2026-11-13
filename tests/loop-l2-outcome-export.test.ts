@@ -194,7 +194,7 @@ describe('L2 read-only demand outcome export', () => {
       client: client as any,
       ga4Runner: async ({ body }) => {
         queries.push(body);
-        return body.dimensionFilter
+        return JSON.stringify(body.dimensionFilter).includes(L2_USEFUL_ACTION_EVENT)
           ? { rows: [{ dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '210' }] }] }
           : { rows: [
             { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '1200' }] },
