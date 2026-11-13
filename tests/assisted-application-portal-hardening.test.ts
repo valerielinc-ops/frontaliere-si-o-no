@@ -1162,7 +1162,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
     // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
     // every step of the form behind it (2026-10-07).
-    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account', 'Weiter', 'Continue', 'Avanti', 'Suivant', 'Save and continue']) {
       expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
     }
     expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);

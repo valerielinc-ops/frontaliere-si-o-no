@@ -3790,7 +3790,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...FORM_VOCABULARY,
   ]);
   const titleLine = text.split(/\r?\n/).map((line) => line.trim())
-    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line)) || '';
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !NEXT_RE.test(line)) || '';
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
