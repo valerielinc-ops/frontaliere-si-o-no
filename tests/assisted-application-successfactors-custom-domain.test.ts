@@ -100,4 +100,31 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
     const publicApplyUrl = 'https://career55.sapsf.eu/talentcommunity/apply/990021/';
     expect(isVerifiedPostingEntry({ applyUrl: publicApplyUrl, postingUrl })).toBe(true);
   });
+
+  it('requires route proof before binding a cross-origin public apply id', () => {
+    const publicApplyUrl = 'https://career55.sapsf.eu/talentcommunity/apply/990021/';
+    const unrelatedPostingUrl = 'https://unrelated.example/job/other/990021/';
+    expect(isVerifiedPostingEntry({ applyUrl: publicApplyUrl, postingUrl: unrelatedPostingUrl })).toBe(false);
+    expect(isVerifiedPostingEntry({
+      applyUrl: publicApplyUrl,
+      postingUrl: unrelatedPostingUrl,
+      postingRouteProof: { via: 'successfactors', applyUrl: publicApplyUrl, postingUrl: unrelatedPostingUrl },
+    })).toBe(true);
+  });
+
+  it('does not treat an unbound same-tenant career shell as this posting continuation', () => {
+    const genericCareer = { id: 'generic-career', text: 'Postuler »»', href: 'https://career55.sapsf.eu/career/' };
+    expect(applicationEntryControls(postingSnapshot([genericCareer]), context)).toEqual([]);
+  });
+
+  it('keeps the posting-bound Apply entry when an unrelated Apply link is also present', () => {
+    const bound = { id: 'bound', text: 'Postuler »»', href: applyUrl, chrome: true };
+    const unrelated = {
+      id: 'unrelated',
+      text: 'Postuler »»',
+      href: 'https://unrelated.example/job/other/990021/',
+      chrome: true,
+    };
+    expect(applicationEntryControls(postingSnapshot([bound, unrelated]), context)).toEqual([bound]);
+  });
 });

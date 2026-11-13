@@ -598,10 +598,11 @@ function sameSuccessFactorsTenantContinuation(sourceUrl, targetUrl) {
     const requisition = valuesFor('career_job_req_id');
     const namespace = valuesFor('career_ns');
     if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    const hasBoundIdentity = company.length > 0 || requisition.length > 0;
     if (company.length && company[0].toLowerCase() !== source.company) return false;
     if (requisition.length && requisition[0] !== source.requisition) return false;
     if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
-    return true;
+    return hasBoundIdentity;
   } catch {
     return false;
   }
@@ -649,8 +650,12 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
     // verified posting provenance survives on those tenants too.
     const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
+    const crossOriginProof = postingRouteProof?.via === 'successfactors'
+      && samePostingAddress(postingRouteProof.applyUrl, apply.href)
+      && samePostingAddress(postingRouteProof.postingUrl, posting.href);
     if (Boolean(applyId) && postingId === applyId
-      && (apply.origin === posting.origin || SUCCESS_FACTORS_HOST_RE.test(apply.hostname))) return true;
+      && (apply.origin === posting.origin
+        || (SUCCESS_FACTORS_HOST_RE.test(apply.hostname) && crossOriginProof))) return true;
     // Career Site Builder may expose the actual SuccessFactors module on a
     // different origin. Its requisition id is not the public job id, so the
     // URL alone cannot bind it to this posting. Trust it only when the
@@ -2022,11 +2027,12 @@ function successFactorsCustomPostingEntries(snapshot, context) {
   // Leave that existing disclosure flow to its stricter menu-owner checks.
   if (candidates.some((control) => control.popup === true || control.menuItem === true)) return null;
   if (!candidates.length) return [];
-  if (candidates.some((control) => !successFactorsCustomPostingControlBelongs(control, snapshot, context))) return [];
-  if (new Set(candidates.map(applicationEntryLabel)).size !== 1) return [];
+  const ownedCandidates = candidates.filter((control) => successFactorsCustomPostingControlBelongs(control, snapshot, context));
+  if (!ownedCandidates.length) return [];
+  if (new Set(ownedCandidates.map(applicationEntryLabel)).size !== 1) return [];
   // The same posting can repeat one direct CTA at the top and bottom. They
   // name one action, so use the first visible occurrence and never click both.
-  return candidates.slice(0, 1);
+  return ownedCandidates.slice(0, 1);
 }
 
 function successFactorsCustomPostingDestinationMatches(destinationUrl, sourceUrl, context = {}) {
