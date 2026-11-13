@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { applicationEntryControls, isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -19,6 +19,41 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it.each([
+    'Introduce yourself',
+    'Initiativbewerbung',
+    'Candidature spontanée',
+    'Candidatura spontanea',
+    'Job-Abo erstellen',
+    'Créer une alerte emploi',
+  ])('returns talent-pool and alert language as an agent hint, not a route stop: %s', (text) => {
+    expect(applicationDiversionHint({ title: text })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not call ordinary job-specific application labels a diversion', () => {
+    expect(applicationDiversionHint({ title: 'Apply for Payroll Specialist', text: 'Continue your application.' })).toBe('');
+  });
+
+  it('does not treat ordinary application copy containing Introduce yourself as a diversion', () => {
+    expect(applicationDiversionHint({
+      title: 'Payroll Specialist application',
+      text: 'Payroll Specialist application\nIntroduce yourself\nSubmit application',
+    })).toBe('');
+  });
+
+  it('recognizes a spontaneous-application warning in page text as a hint', () => {
+    expect(applicationDiversionHint({ text: 'Candidature spontanée: présentez-vous à notre équipe.' })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('ignores application copy and site job-alert links on a bound application form', () => {
+    expect(applicationDiversionHint({
+      title: 'Application',
+      text: 'Seasonal Sales Consultant — Introduce yourself — Submit application',
+      buttons: [{ text: 'Submit application', formId: 'application' }],
+      links: [{ text: 'Create a job alert', chrome: true }],
+    })).toBe('');
+  });
+
   it.each([
     'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
     'Applications from your region are not currently supported.',
