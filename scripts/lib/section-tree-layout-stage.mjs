@@ -7,6 +7,10 @@ import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section
 
 export const WORKER_LAYOUT_PROBE_ATTEMPTS = 18;
 export const WORKER_LAYOUT_PROBE_RETRY_MS = 20_000;
+// Cloudflare challenges Node/undici's default User-Agent on this public probe;
+// identify the publisher explicitly so the semantic Worker check reaches the
+// route instead of mistaking a bot challenge for a missing hash-v1 layout.
+export const WORKER_LAYOUT_PROBE_USER_AGENT = 'frontaliere-publish/1.0 (+https://frontaliereticino.ch/)';
 
 function responseHeader(response, name) {
   return response?.headers?.get?.(name) ?? response?.headers?.[name] ?? null;
@@ -33,6 +37,7 @@ export async function requireWorkerSectionTreeLayout(section, sub, {
       const response = await fetchImpl(url, {
         method: 'HEAD',
         cache: 'no-store',
+        headers: { 'user-agent': WORKER_LAYOUT_PROBE_USER_AGENT },
         signal: AbortSignal.timeout(20_000),
       });
       const generic = response?.headers?.get?.('x-frontaliere-section-tree-layout');

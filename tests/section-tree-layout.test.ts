@@ -21,7 +21,11 @@ import {
 import { decideSectionTreeFanout, parseFanoutAutoThreshold } from '../scripts/lib/section-tree-fanout-policy.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
-import { requireWorkerSectionTreeLayout, stageSectionTreeLayout } from '../scripts/lib/section-tree-layout-stage.mjs';
+import {
+  requireWorkerSectionTreeLayout,
+  stageSectionTreeLayout,
+  WORKER_LAYOUT_PROBE_USER_AGENT,
+} from '../scripts/lib/section-tree-layout-stage.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
 import { rewriteSectionTreeIndex, unfanoutSectionTree } from '../scripts/lib/ticino-tree-fanout.mjs';
@@ -586,6 +590,14 @@ describe('automatic section tree fan-out policy', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(urls[0]).toContain('__frontaliere_section_tree_layout=hash-v1');
     expect(urls[0]).toContain('section=lucerna');
+    expect(fetchImpl).toHaveBeenNthCalledWith(
+      1,
+      expect.any(String),
+      expect.objectContaining({
+        method: 'HEAD',
+        headers: { 'user-agent': WORKER_LAYOUT_PROBE_USER_AGENT },
+      }),
+    );
 
     await expect(requireWorkerSectionTreeLayout('lucerna', 'de/jobs-in-lucerne', {
       fetchImpl: async () => new Response(null, { status: 204 }),
