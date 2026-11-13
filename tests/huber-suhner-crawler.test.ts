@@ -223,6 +223,20 @@ describe('Huber+Suhner AG crawler parser', () => {
       expect(jobs).toHaveProperty('discoveredCount', 0);
       expect(jobs).toHaveProperty('fetchOutcome', 'selector_miss');
     });
+
+    it('does not claim filtered_empty when a parsed row has no observed location', async () => {
+      fetchHtmlMock.mockResolvedValue(`
+        <tr class="tableaslist_contentrow1">
+          <td><a href="/Vacancies/8322/Description/1">Database Engineer</a>
+          Online since: 04.11.2026</td>
+        </tr>`);
+
+      const jobs = await fetchAllHuberSuhnerJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect(jobs).toHaveProperty('discoveredCount', 1);
+      expect(jobs).toHaveProperty('fetchOutcome', 'selector_miss');
+    });
   });
 
   // ── HTML-entity decoding + Swiss-only scope filter ──

@@ -358,9 +358,11 @@ export async function fetchAllHuberSuhnerJobs() {
 
   if (swissEntries.length === 0) {
     console.warn('⚠️ No Swiss job listings found.');
+    const hasCompleteLocationObservation = entries.length > 0
+      && entries.every((entry) => entry.rawLocation.length > 0);
     return attachFetchMetadata([], {
       discoveredCount: entries.length,
-      fetchOutcome: entries.length > 0 ? 'filtered_empty' : 'selector_miss',
+      fetchOutcome: hasCompleteLocationObservation ? 'filtered_empty' : 'selector_miss',
     });
   }
 
