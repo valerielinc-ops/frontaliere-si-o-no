@@ -42,6 +42,17 @@ export function isPaginationSitemapEligible(page: number): boolean {
   return !(Number.isFinite(page) && page >= 2);
 }
 
+/**
+ * Append a paginated sitemap entry only when the shared P1 sitemap policy
+ * allows that page. Keeping the guard beside the mutation prevents an emitter
+ * from drifting when it changes how it assembles its locale set.
+ */
+export function pushPaginationSitemapEntry<T>(entries: T[], page: number, entry: T): boolean {
+  if (!isPaginationSitemapEligible(page)) return false;
+  entries.push(entry);
+  return true;
+}
+
 const PAGINATED_PATH_RE = /\/(?:page|pagina|seite)-(\d+)\/?$/;
 
 /**
