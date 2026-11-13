@@ -16029,8 +16029,8 @@ ${staticAnalyticsHtml}
  expiredRobotsTag = robotsMetaForContent(staticBody);
  }
  recordPhase('ejp:wc-robots', __tEjpWcRobots);
- if (!expiredRobotsTag.includes('noindex')) expiredIndexableLocales.add(locale);
  if (!localeOwned) {
+  if (!expiredRobotsTag.includes('noindex')) expiredIndexableLocales.add(locale);
   recordEmit('expired-sitemap-indexability', __tExpiredSoftLanding);
   continue;
  }
@@ -16112,6 +16112,7 @@ ${staticAnalyticsHtml}
  );
  const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml, skipForExpiredJobEdge, locale);
  if (wroteSoftLanding) {
+  if (!expiredRobotsTag.includes('noindex')) expiredIndexableLocales.add(locale);
   if (expiredArchiveOverflowOwned) {
    expiredArchivePublicationEvidence.record({
     locale,
@@ -16178,28 +16179,15 @@ ${staticAnalyticsHtml}
  // Each eligible locale then gets its OWN <url> entry (#3499), so reciprocal
  // hreflang survives sanitizeSitemapHreflangReciprocity().
  const itPath = paths.it ? withSlash(paths.it) : '';
- const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
- const itPageOverwritten = itPageFile && pathWasClaimed(itPageFile);
- if (itPath && expiredDemandIndexable && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
+ if (itPath && expiredDemandIndexable && itBodyWordCount >= MIN_INDEXABLE_WORDS
+     && expiredIndexableLocales.has('it') && !bridgeClaimedPaths.has(paths.it)) {
  // The same cluster decision that governs HTML also governs sitemap
  // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
  // own paths, so an active path (or an earlier expired winner) can never leak
  // back into an expired `<loc>` after the render loop mutates claimedJobPaths.
  const expiredSitemapLocales = indexableLocalePageSet(
   localeList,
-  (locale) => {
-   if (!expiredIndexableLocales.has(locale) || !expiredSitemapCandidateLocales.has(locale)) return false;
-   // The IT-owned sitemap build may use disk only for a locale it also
-   // renders. Sibling-locale path claims and edge decisions above are shared
-   // inputs, not evidence from this shard's dist.
-   if (shouldEmitLocale(locale)) {
-    const lPath = paths[locale];
-    const lFullPath = withSlash(lPath ?? '');
-    const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
-    if (!pathWasClaimed(lPageFile) && !fs.existsSync(lPageFile)) return false;
-   }
-   return true;
-  },
+  (locale) => expiredIndexableLocales.has(locale),
  );
  const lastmod = renderSitemapLastmod(ejData?.expiredAt);
  appendExpiredSitemapEntries(
