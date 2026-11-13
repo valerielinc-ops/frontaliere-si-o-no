@@ -348,6 +348,25 @@ describe('profili di sparse-checkout', () => {
       .toEqual([]);
   });
 
+  it('l analisi isolata non scambia identificatori Firestore per percorsi del checkout', () => {
+    const strictBuckets = (source: string) => bucketsReferencedBy(source, { strictPathTokens: true });
+    expect([...strictBuckets("const docs = await orderRef.collection('automation').get();")])
+      .not.toContain('docs/');
+    expect([...strictBuckets("const names = fs.readdirSync('docs');")])
+      .toContain('docs/');
+    expect([...strictBuckets("const dir = path.join(ROOT, 'data', 'jobs');")])
+      .toContain('data/jobs/');
+  });
+
+  it('non combina token di bucket da moduli indipendenti', () => {
+    const workflow = analyzeAll().find((item) => item.file === 'deploy-cloud-functions.yml');
+    const job = workflow?.jobs.find((item) => item.jobId === 'deploy-functions');
+    expect(job?.needs).not.toContain('docs/');
+    expect(job?.needs).not.toContain('public/data/');
+    expect(job?.needs).not.toContain('data/jobs/');
+    expect(job?.aboveCrossover).toBe(false);
+  }, TIMEOUT);
+
   it('preserva regex dopo un commento a blocco e il codice successivo', () => {
     const source = 'const r = /* c */ /[/*]/;\nconst x = import("./real.mjs");';
     const expected = source.replace('/* c */', '       ');

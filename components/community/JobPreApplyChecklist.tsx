@@ -35,12 +35,20 @@ const CHECKED_AT_DATE_LOCALES: Record<Locale, string> = {
 function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): value is ATSApplicationFormSnapshot {
   if (!value || value.provider !== 'ncoreplat' || !Array.isArray(value.fields) || value.fields.length === 0) return false;
   if (!Number.isFinite(Date.parse(value.checkedAt))) return false;
+  // Check raw delimiters too: URL implementations may erase empty ?/# in href.
+  if (/[?#]/.test(value.sourceUrl)) return false;
 
   try {
     const source = new URL(value.sourceUrl);
     return source.protocol === 'https:'
-      && source.hostname === 'app.ncoreplat.com'
-      && /^\/jobposition\/[1-9]\d*\//.test(source.pathname);
+      && source.hostname.toLowerCase() === 'app.ncoreplat.com'
+      && !source.port
+      && !source.username
+      && !source.password
+      && !source.search
+      && !source.hash
+      && source.href === `https://app.ncoreplat.com${source.pathname}`
+      && /^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(source.pathname);
   } catch {
     return false;
   }
