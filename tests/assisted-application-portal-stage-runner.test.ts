@@ -18,7 +18,7 @@ const applyUrl = 'https://careers.example/Careers/ApplicationMethods?jobId=42';
 const profileUrl = 'https://careers.example/Careers/ApplicationConfirmation?jobId=42';
 const reviewUrl = 'https://careers.example/Careers/ApplicationReview?jobId=42';
 const receiptUrl = 'https://careers.example/Careers/ApplicationComplete?jobId=42';
-const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
+const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, heading: title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
 const profile = snapshot(profileUrl, 'Since you have already submitted your personal information, the application process will be simpler.', [{ id: 'navigation', text: 'Apply', href: reviewUrl }]);
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
@@ -42,6 +42,9 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     evaluate: async (fn: Function) => {
       const source = String(fn);
       if (source.includes('navigator.userAgent')) return 'Chrome';
+      if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
+        return state.snapshot.heading ? [state.snapshot.heading] : [];
+      }
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
@@ -159,6 +162,83 @@ describe('runner final guard across three application stages', () => {
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
     expect(f.openClick).not.toHaveBeenCalled();
+  });
+
+  it('clicks one duplicated custom-domain Postuler entry and continues to the bound SuccessFactors sign-in', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager · Rechercher les offres', [
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const signInUrl = applyUrl;
+    const signIn = {
+      ...snapshot(signInUrl, 'Sign in to continue your application', [{ id: 'sign-in', text: 'Sign in' }]),
+      fields: [
+        { id: 'email', label: 'Email address', kind: 'text', inputType: 'email', required: true },
+        { id: 'password', label: 'Password', kind: 'text', inputType: 'password', required: true },
+      ],
+      passwordVisible: true,
+    };
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); state.snapshot = signIn; },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); state.snapshot = signIn; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(result.event.reason).not.toBe('application_stage_unknown');
+    expect(state.snapshot.url).toBe(signInUrl);
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not click the duplicate custom-domain CTA when the first click leaves the posting unchanged', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager', [
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
   });
 
   it('opens a Career Site Builder Apply dropdown and its own menu entry instead of stopping as an unknown stage', async () => {
@@ -447,7 +527,7 @@ describe('runner final guard across three application stages', () => {
   });
 
   it('resolves the explicit cookie choice before checking the Yellowshark posting identity', async () => {
-    const postingUrl = 'https://jobs.yellowshark.com/job/example/';
+    const postingUrl = 'https://jobs.yellowshark.com/job/example/?jobId=42';
     const cookieDialog = snapshot(postingUrl,
       'Dialog schliessen Alle akzeptieren Ablehnen Einstellungen anzeigen JETZT BEWERBEN',
       [
@@ -461,7 +541,7 @@ describe('runner final guard across three application stages', () => {
     cookieDialog.dialogs = [{ dialogId: 'yellowshark' }];
     cookieDialog.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'yellowshark'; });
     const visiblePosting = snapshot(postingUrl, 'Yellowshark AG · Infrastructure Strategy Manager', [
-      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager', disabled: false },
+      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager · Job ID: 42', disabled: false },
     ]);
     visiblePosting.title = 'Yellowshark AG — Infrastructure Strategy Manager';
     // The fixture halts at a CAPTCHA after the owned Apply control; it must
