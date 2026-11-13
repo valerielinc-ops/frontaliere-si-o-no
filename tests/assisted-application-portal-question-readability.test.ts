@@ -1528,6 +1528,67 @@ it('keeps deterministic German field copies when an unresolved same-language que
   ]);
 });
 
+it('keeps the federal SuccessFactors German page readable when localization is unavailable', async () => {
+  const buttons = [
+    'Optionen', 'Alle Abschnitte einblenden', 'Alle Abschnitte ausblenden', 'Meine Dokumente',
+    'Meine persönlichen Informationen', 'Stellenspezifische Informationen', 'Bewerbungsprofil anzeigen',
+    'Speichern', 'Bewerben',
+  ];
+  const fields = [
+    ['* Anrede', []],
+    ['* Vorname', []],
+    ['* Nachname', []],
+    ['* E-Mail-Adresse', []],
+    ['* Strasse / Nr.', []],
+    ['* Postleitzahl', []],
+    ['* Ort', []],
+    ['* Land', ['Keine Auswahl', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich']],
+    ['* Telefon', []],
+    ['* Erstsprache', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch', 'Rätoromanisch', 'Englisch', 'Andere']],
+    ['Zweitsprache (bei Mehrsprachigkeit)', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch', 'Rätoromanisch', 'Englisch', 'Andere']],
+    ['* Korrespondenzsprache', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch']],
+    ['Herkunftskanton', ['Keine Auswahl', 'Bern', 'Tessin', 'Zürich']],
+    ['* Wie haben Sie von dieser Stelle erfahren?', ['Keine Auswahl', 'Stellenportal Bund', 'Internet/Stellenportal', 'Zeitung', 'Soziale Medien', 'Empfehlung']],
+    ['Jobsharing-Partner/-in', []],
+    ['Bemerkungen', []],
+    ['Geburtsdatum', []],
+    ['* Haben Sie die Rekrutenschule (RS) der Schweizer Armee absolviert?', ['Ja', 'Nein']],
+    ['* Haben Sie eine Unteroffiziers- oder Offiziersschule der Schweizer Armee absolviert?', ['Ja', 'Nein']],
+    ['Haben Sie einen einwandfreien Leumund (Strafregister- und Betreibungsregisterauszug, beide ohne Einträge)?', ['Ja', 'Nein']],
+  ];
+  expect(buttons).toEqual(expect.arrayContaining(['Alle Abschnitte einblenden', 'Bewerben']));
+  expect(fields.map(([label]) => label)).toContain('* Erstsprache');
+
+  const questions = fields.map(([label, options], index) => ({
+    id: `bund-${index}`,
+    question: label,
+    applicationQuestion: label,
+    type: options.length ? 'choice' : 'text',
+    options,
+    applicationOptions: options,
+  }));
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(fields.length);
+  expect(request.questions.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+  expect(request.questions.find((question: any) => question.applicationQuestion === 'Erstsprache')).toMatchObject({
+    question: 'Lingua madre',
+    options: ['Seleziona', 'Tedesco', 'Francese', 'Italiano', 'Romancio', 'Inglese', 'Altro'],
+  });
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Korrespondenzsprache'))).toMatchObject({
+    question: 'Lingua di corrispondenza',
+    options: ['Seleziona', 'Tedesco', 'Francese', 'Italiano'],
+  });
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Rekrutenschule'))).toMatchObject({
+    question: 'Hai svolto la scuola reclute (SR) dell’esercito svizzero?',
+    options: ['Sì', 'No'],
+  });
+});
+
 it('does not use the same-language fast path when options are in another language', async () => {
   const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
   const result = await localizePortalQuestions([{
