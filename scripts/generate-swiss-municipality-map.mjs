@@ -11,8 +11,9 @@
  */
 
 import { createHash } from 'node:crypto';
+import { realpathSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -391,7 +392,7 @@ async function main() {
   console.log(`[swiss-municipality-map] SHA-256 ${createHash('sha256').update(json).digest('hex')}`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
   main().catch((error) => {
     console.error(`[swiss-municipality-map] ${error?.message || error}`);
     process.exitCode = 1;
