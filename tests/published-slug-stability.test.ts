@@ -20,6 +20,7 @@ import { ensureLocaleFields } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   jobSlugsUnpublished,
   mayReplacePublishedSlug,
+  jobDetailPathsFor,
   publishedSlugKeepsIdentity,
   slugWasServed,
 } from '../scripts/lib/published-slug-stability.mjs';
@@ -154,39 +155,60 @@ describe('publishedSlugKeepsIdentity', () => {
 });
 
 describe('served-URL ledger', () => {
-  it('a non-job route never marks a job slug as served', () => {
-    useLedger({
-      '/it/article/foo/': '2026-11-01',
-      '/blog/foo/': '2026-11-01',
-      '/cerca-lavoro-ticino/': '2026-01-01',
-      '/cerca-lavoro-ticino/lugano/': '2026-11-01',
-      '/cerca-lavoro-ticino/company-foo/': '2026-11-01',
-    });
-    expect(slugWasServed('it', 'foo')).toBe(false);
-    expect(slugWasServed('it', 'lugano')).toBe(false);
-    expect(slugWasServed('it', 'company-foo')).toBe(false);
+  const tiJob = cippaJob();
+  const agJob = cippaJob({ canton: 'AG', location: 'Baden', addressLocality: 'Baden' });
+
+  it('an article route never marks a job slug as served', () => {
+    useLedger({ '/it/article/foo/': '2026-11-01', '/blog/foo/': '2026-11-01' });
+    expect(slugWasServed('it', 'foo', tiJob)).toBe(false);
   });
 
-  it('a canonical job detail route marks its slug as served, per locale', () => {
-    useLedger({
-      [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
-      '/cerca-lavoro-ticino/lugano/job-slug/': '2026-09-15',
-      '/de/jobs-in-bern/kundendienst-transport-spezialist-cippa-trasporti-sa-bern/': '2026-10-01',
-    });
-    expect(slugWasServed('it', INDEXED_IT)).toBe(true);
-    expect(slugWasServed('it', 'job-slug')).toBe(true);
-    expect(slugWasServed('de', 'kundendienst-transport-spezialist-cippa-trasporti-sa-bern')).toBe(true);
-    expect(slugWasServed('en', INDEXED_IT)).toBe(false);
+  it('a company hub is not a job detail route', () => {
+    useLedger({ '/cerca-lavoro-ticino/company-foo/': '2026-11-01' });
+    expect(slugWasServed('it', 'company-foo', tiJob)).toBe(false);
+  });
+
+  it('a city hub is not a job detail route', () => {
+    useLedger({ '/cerca-lavoro-ticino/lugano/': '2026-11-01', '/cerca-lavoro-argovia/baden/': '2026-11-01' });
+    expect(slugWasServed('it', 'lugano', tiJob)).toBe(false);
+    expect(slugWasServed('it', 'baden', agJob)).toBe(false);
+  });
+
+  it('only the exact canonical path counts, never the last segment of another route', () => {
+    // buildCanonicalJobDetailPath (build-plugins/shared/jobDetailPath.ts) emits
+    // /[locale/]<section>/<slug>/ only: there is no city-nested detail route.
+    useLedger({ [`/cerca-lavoro-ticino/lugano/${INDEXED_IT}/`]: '2026-11-01', [`/cerca-lavoro-argovia/${INDEXED_IT}/`]: '2026-11-01' });
+    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(false);
+  });
+
+  it('the job\'s real canonical detail route is served, and only in its own language', () => {
+    useLedger({ [`/cerca-lavoro-ticino/${INDEXED_IT}/`]: '2026-09-02' });
+    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(true);
+    expect(slugWasServed('en', INDEXED_IT, tiJob)).toBe(false);
+    expect(slugWasServed('de', INDEXED_IT, tiJob)).toBe(false);
+  });
+
+  it('the legacy Ticino mirror of a non-TI job counts as served', () => {
+    useLedger({ '/cerca-lavoro-ticino/x-cippa-trasporti-sa-baden/': '2026-06-01' });
+    expect(slugWasServed('it', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
+  });
+
+  it('the canton section and the legacy Ticino mirror are both the job\'s paths', () => {
+    const [cantonPath] = jobDetailPathsFor('de', 'x-cippa-trasporti-sa-baden', agJob);
+    useLedger({ [cantonPath]: '2026-10-01' });
+    expect(slugWasServed('de', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
+    useLedger({ '/de/jobs-im-tessin/x-cippa-trasporti-sa-baden/': '2026-10-01' });
+    expect(slugWasServed('de', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
   });
 
   it('an absent ledger is unknown, a present but unreadable one fails closed', () => {
     useLedger(null);
-    expect(slugWasServed('it', INDEXED_IT)).toBeNull();
+    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBeNull();
     const broken = path.join(os.tmpdir(), `published-slug-ledger-broken-${process.pid}-${seq++}.json`);
     fs.writeFileSync(broken, '{"/cerca-lavoro-ticino/x": ', 'utf-8');
     tmpFiles.push(broken);
     process.env.URL_FIRST_SEEN_PATH_OVERRIDE = broken;
-    expect(() => slugWasServed('it', INDEXED_IT)).toThrow(/present but unreadable/);
+    expect(() => slugWasServed('it', INDEXED_IT, tiJob)).toThrow(/present but unreadable/);
   });
 });
 

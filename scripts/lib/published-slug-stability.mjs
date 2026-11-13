@@ -47,7 +47,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
 import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardSections.mjs';
-import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
+import { createRequire } from 'node:module';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
@@ -70,38 +70,73 @@ function identityTokens(value) {
   return slugTokenSet(slugify(String(value || '')));
 }
 
-function pathLocale(urlPath) {
-  if (urlPath.startsWith('/en/')) return 'en';
-  if (urlPath.startsWith('/de/')) return 'de';
-  if (urlPath.startsWith('/fr/')) return 'fr';
-  return 'it';
+/**
+ * One spelling per served URL: lower case, leading slash, one trailing slash,
+ * and no `/it/` prefix (the Italian board is served without it).
+ *
+ * @param {string} urlPath
+ * @returns {string}
+ */
+export function normalizeServedPath(urlPath) {
+  let clean = String(urlPath || '').trim().toLowerCase();
+  if (!clean.startsWith('/')) clean = `/${clean}`;
+  clean = `${clean.replace(/\/+$/, '')}/`;
+  return clean.replace(/^\/it\//, '/');
+}
+
+// Loaded on first use, like the ledger: the slug writers that import this
+// module also run from script-only sandboxes and sparse checkouts that carry
+// neither build-plugins/ nor the canton data, and only a lookup needs them.
+let resolvers = null;
+function cantonResolvers() {
+  if (!resolvers) {
+    const dataDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
+    const { SECTION_LEGACY_TI, createCantonResolvers } = createRequire(import.meta.url)('../../build-plugins/shared/cantonResolvers.mjs');
+    resolvers = {
+      SECTION_LEGACY_TI,
+      ...createCantonResolvers({
+      cantonSlugFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-url-slugs.json'), 'utf8')),
+      municipalitiesFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-municipalities.json'), 'utf8')),
+      }),
+    };
+  }
+  return resolvers;
 }
 
 /**
- * `locale|slug` of a canonical job DETAIL route (`/[en|de|fr/]<job-board
- * section>/<slug>/`), null for anything else. The ledger records every
- * sitemap URL — articles, hubs, tools — so a non-job route such as
- * `/it/article/foo/` must never mark a job slug `foo` as served. The section
- * test is the shared job-board recogniser (scripts/lib/jobBoardSections.mjs,
- * every canton section including the legacy Ticino ones).
+ * The canonical detail paths a build serves for `job` in `locale` with
+ * `slug`: the job's canton section — the formula of
+ * `buildCanonicalJobDetailPath` (build-plugins/shared/jobDetailPath.ts, TS-only,
+ * so mirrored here with the same `resolveJobCanton` + `resolveCantonSection`
+ * resolvers) — and the legacy Ticino section, which served every job before
+ * the canton sections and still carries bridges for non-TI jobs. Detail
+ * routes are always `/[locale/]<section>/<slug>/`: there is no city-nested
+ * detail route. Exact
+ * paths, so a hub, a company page, a pagination or an article that only shares
+ * the last segment never counts as the job's URL.
  *
- * @param {string} urlPath
- * @returns {string | null}
+ * @param {string} locale
+ * @param {string} slug
+ * @param {object | null} job
+ * @returns {string[]}
  */
-export function servedJobDetailKey(urlPath) {
-  const clean = String(urlPath || '').trim().toLowerCase();
-  if (!isJobBoardDetailPath(clean) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(clean)) return null;
-  const segments = clean.split('/').filter(Boolean);
-  const rest = /^(?:it|en|de|fr)$/.test(segments[0] || '') ? segments.slice(1) : segments;
-  return `${pathLocale(clean)}|${rest.at(-1)}`;
+export function jobDetailPathsFor(locale, slug, job = null) {
+  const clean = String(slug || '').trim();
+  if (!clean || !['it', 'en', 'de', 'fr'].includes(locale)) return [];
+  const { SECTION_LEGACY_TI, resolveCantonSection, resolveJobCanton } = cantonResolvers();
+  const canton = resolveJobCanton(job && typeof job === 'object' ? job : {});
+  const sections = new Set([resolveCantonSection(locale, canton), SECTION_LEGACY_TI[locale]]);
+  return [...sections].map((section) => normalizeServedPath(
+    locale === 'it' ? `/${section}/${clean}/` : `/${locale}/${section}/${clean}/`,
+  ));
 }
 
 let ledgerCache = { path: null, index: undefined };
 
 /**
- * The served-URL ledger as `locale|slug` → first date a canonical job detail
- * URL ending in that slug reached a sitemap. `data/url-first-seen.json` is
- * written by every deploy (`refresh-url-first-seen.mjs`) and is monotonic.
+ * The served-URL ledger as normalized path → first date the URL reached a
+ * sitemap. `data/url-first-seen.json` is written by every deploy
+ * (`refresh-url-first-seen.mjs`) and is monotonic.
  * `URL_FIRST_SEEN_PATH_OVERRIDE` points tests at a fixture.
  *
  * A checkout without the file returns null and the callers fall back to the
@@ -128,10 +163,19 @@ export function loadServedSlugLedger() {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
     throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but not a path → date object`);
   }
+  // Only job DETAIL routes enter the index: the shared positive predicate
+  // (`isJobBoardDetailPath`: job-board section + one segment, city hubs of
+  // every canton excluded) minus company hubs, which that predicate leaves to
+  // its callers. Lookups are then by the job's exact canonical paths
+  // (`jobDetailPathsFor`), never by the last segment alone.
+  // Loaded only once a ledger exists: job-board-detail-path.mjs imports the
+  // canton/city data files at module load, and the slug writers that import
+  // this module also run in sparse checkouts without the ledger.
+  const { isJobBoardDetailPath } = createRequire(import.meta.url)('./job-board-detail-path.mjs');
   const index = new Map();
   for (const [urlPath, date] of Object.entries(raw)) {
-    const key = servedJobDetailKey(urlPath);
-    if (!key) continue;
+    const key = normalizeServedPath(urlPath);
+    if (!isJobBoardDetailPath(key) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(key)) continue;
     const prev = index.get(key);
     if (!prev || String(date) < prev) index.set(key, String(date));
   }
@@ -140,19 +184,18 @@ export function loadServedSlugLedger() {
 }
 
 /**
- * Whether a canonical `locale` URL ending in `slug` was ever served.
- * null when the ledger is not available in this checkout.
+ * Whether one of the job's canonical `locale` detail URLs with `slug` was
+ * ever served. null when the ledger is not available in this checkout.
  *
  * @param {string} locale
  * @param {string} slug
+ * @param {object | null} [job]
  * @returns {boolean | null}
  */
-export function slugWasServed(locale, slug) {
+export function slugWasServed(locale, slug, job = null) {
   const ledger = loadServedSlugLedger();
   if (!ledger) return null;
-  const clean = String(slug || '').trim();
-  if (!clean || !locale) return false;
-  return ledger.has(`${locale}|${clean}`);
+  return jobDetailPathsFor(locale, slug, job).some((p) => ledger.has(p));
 }
 
 /**
@@ -213,6 +256,6 @@ export function mayReplacePublishedSlug(
 ) {
   if (!String(currentSlug || '').trim()) return true;
   if (jobSlugsUnpublished(job, { justReleased, nowMs })) return true;
-  if (locale && slugWasServed(locale, currentSlug) === false) return true;
+  if (locale && slugWasServed(locale, currentSlug, job) === false) return true;
   return !publishedSlugKeepsIdentity(currentSlug, identity);
 }
