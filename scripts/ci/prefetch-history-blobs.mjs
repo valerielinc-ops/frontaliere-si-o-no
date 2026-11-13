@@ -37,7 +37,7 @@ function runGit(args, options = {}) {
 /**
  * Extract only file blobs for the two historical slice directories. `git
  * rev-list --objects` also emits commits and trees, and may emit the same blob
- * through several refs; deduplicate before sending the wants to fetch-pack.
+ * through several refs; deduplicate before sending the object ids to Git.
  */
 export function historyBlobOidsFromRevList(output) {
   const oids = new Set();
@@ -59,10 +59,21 @@ function checkoutRemoteUrl() {
   return `https://x-access-token:${encodeURIComponent(token)}@github.com/${repository}.git`;
 }
 
+/**
+ * Build one HTTPS-capable fetch invocation for the requested reachable objects.
+ * `fetch-pack` is plumbing that does not dispatch an https URL through Git's
+ * transport helpers; the porcelain `fetch` command does, while still sending
+ * all object ids in one request/pack.
+ */
+export function historyBlobPrefetchArgs(oids, remote) {
+  return ['fetch', '--no-tags', '--no-write-fetch-head', remote, ...oids];
+}
+
 /** Fetch the given blob ids in one pack (shared with check-retired-jobs-archived.mjs). */
 export function prefetch(oids) {
-  const input = `${oids.join('\n')}\n`;
-  runGit(['fetch-pack', '--keep', '--no-progress', '--stdin', checkoutRemoteUrl()], { input });
+  runGit(historyBlobPrefetchArgs(oids, checkoutRemoteUrl()), {
+    env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
+  });
 }
 
 export function verifyPrefetchedBlobs(oids) {
