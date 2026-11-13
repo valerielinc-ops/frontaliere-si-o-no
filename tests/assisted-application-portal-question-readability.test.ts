@@ -1575,7 +1575,7 @@ it('keeps the federal SuccessFactors German page readable when localization is u
   expect(codex).not.toHaveBeenCalled();
   expect(request.questions).toHaveLength(fields.length);
   expect(request.questions.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
-  expect(request.questions.find((question: any) => question.applicationQuestion === 'Erstsprache')).toMatchObject({
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Erstsprache'))).toMatchObject({
     question: 'Lingua madre',
     options: ['Seleziona', 'Tedesco', 'Francese', 'Italiano', 'Romancio', 'Inglese', 'Altro'],
   });

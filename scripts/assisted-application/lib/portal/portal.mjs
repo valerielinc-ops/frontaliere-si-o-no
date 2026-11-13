@@ -5232,7 +5232,7 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
   yes: Object.freeze(['yes', 'ja', 'si', 'oui', 'vero', 'true']),
   no: Object.freeze(['no', 'nein', 'non', 'falso', 'false']),
   placeholder: Object.freeze([
-    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen',
+    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen', 'keine auswahl',
     'auswahlen', 'auswaehlen', 'choisir', 'selectionner', 'choose', 'select an option',
   ]),
 });
