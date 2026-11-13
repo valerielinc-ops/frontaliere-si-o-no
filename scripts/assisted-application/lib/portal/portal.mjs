@@ -1504,7 +1504,7 @@ const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButto
 function isPublicJobAlertField(field) {
   const inputType = String(field?.inputType || '').toLowerCase();
   if (field?.chrome || (inputType && !['number', 'text'].includes(inputType)) || field?.kind !== 'text') return false;
-  const text = [field?.label, field?.name, field?.id, field?.context, field?.section]
+  const text = [field?.label, field?.ariaLabel, field?.description]
     .filter(Boolean).join(' ').normalize('NFKC').replace(/\s+/gu, ' ').trim();
   return Boolean(text && PUBLIC_JOB_ALERT_FIELD_RE.test(text));
 }
