@@ -7,7 +7,7 @@ const reported = (value: string) => ({ postedDate: value, datePosted: value, pos
 const DAY = '2020-06-15';
 const FULL = `${DAY}T23:40:12.123+02:00`;
 const fixtures = new URL('./fixtures/cippatrasporti/', import.meta.url);
-const rawListing = readFileSync(new URL('listing.html', fixtures), 'utf8');
+const rawListing = readFileSync(new URL('ocean-listing.html', fixtures), 'utf8');
 const rawCustomer = readFileSync(new URL('customer-detail.html', fixtures), 'utf8');
 const rawOcean = readFileSync(new URL('ocean-detail.html', fixtures), 'utf8');
 afterEach(() => vi.unstubAllGlobals());
