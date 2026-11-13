@@ -1,6 +1,7 @@
 /**
  * Interactive Interview Coach & Roleplay Simulator,
  * ported from ai-job-search interview prep roleplay framework (MIT).
+ * Copyright (c) 2026 Mads Lorentzen.
  *
  * Provides a conversational mock interview experience for cross-border candidates
  * applying in Switzerland (Ticino, Grigioni, Zurigo, Basilea):

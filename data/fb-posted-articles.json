@@ -2,12 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "registro-imprese-varese-30-anni",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/registro-imprese-varese-30-anni/",
-      "ts": "2026-05-07T11:33:30.878Z",
-      "seed": true
-    },
-    {
       "id": "castellanza-investimenti-2025",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/castellanza-investimenti-2025/",
       "ts": "2026-05-07T12:21:31.574Z",
@@ -6329,6 +6323,23 @@
       "copyPillarId": "opportunita-concrete",
       "copyAngleIntent": "both",
       "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "frontalieri-disoccupati-costi-aggiuntivi",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-disoccupati-costi-aggiuntivi/",
+      "ts": "2026-11-13T17:54:33.748Z",
+      "fbPostId": "951226518080080_122131318005272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "2a09df9f964ac9fa",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
       "copyCta": "Leggi l'approfondimento."
     }
   ]
