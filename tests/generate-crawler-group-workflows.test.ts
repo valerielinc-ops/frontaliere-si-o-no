@@ -3374,7 +3374,7 @@ describe('cross-repo crawler execution artifacts', () => {
         'isSafeGitDir() {',
       );
       expect(retryPreparation.run).toContain('if ! isSafeGitDir "$workspace" "$git_dir"; then');
-      expect(retryPreparation.run).toContain('realpath "$workspace"');
+      expect(retryPreparation.run).toContain('realpath "$workspace/.git"');
       expect(retryPreparation.run).toContain('commondir');
       expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
@@ -4592,10 +4592,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With compact waiter, safe Git-metadata retry, and empty-workspace cleanup,
-    // size is 473969 bytes (<= 480000 budget).
+    // With the safe Git-metadata retry and empty-workspace cleanup, size is
+    // 479930 bytes (<= 480000 budget).
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473969);
+    expect(bytes).toBe(479930);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
