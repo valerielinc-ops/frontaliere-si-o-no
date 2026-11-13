@@ -73,6 +73,9 @@ describe('Job-Room external advertisement link', () => {
   it('does not guess when the external action is missing or ambiguous', () => {
     expect(jobRoomExternalAdTarget({ links: [] }, currentUrl)).toBe('');
     expect(jobRoomExternalAdTarget({ links: [
+      { text: 'Go to the external job posting', href: 'https://job-room.ch/job-search' },
+    ] }, 'https://job-room.ch/job-search/123/')).toBe('');
+    expect(jobRoomExternalAdTarget({ links: [
       { text: 'Go to external ad', href: externalUrl },
       { text: 'Andare all’annuncio esterno', href: 'https://agency.jobs/posting/123' },
     ] }, currentUrl)).toBe('');

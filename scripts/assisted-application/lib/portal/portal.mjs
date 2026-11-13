@@ -2566,8 +2566,9 @@ export function jobRoomExternalAdTarget(snapshot = {}, currentUrl = snapshot?.ur
     const target = linkNavigationTarget(control?.href, currentUrl);
     if (!target || !isFetchablePublicUrl(target)) continue;
     try {
-      if (isJobRoomPublicPostingRoute(target)) continue;
-      targets.add(new URL(target).href);
+      const targetUrl = new URL(target);
+      if (JOB_ROOM_HOSTS.has(targetUrl.hostname.toLowerCase())) continue;
+      targets.add(targetUrl.href);
     } catch {
       // Malformed controls provide no navigation evidence.
     }
