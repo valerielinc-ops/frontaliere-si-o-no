@@ -1805,9 +1805,9 @@ function candidateAnswerSuppressionContractForField(candidate, field) {
   const contracts = Array.isArray(candidate?.suppressedQuestionContracts) ? candidate.suppressedQuestionContracts : [];
   const labels = new Set([field?.label, field?.applicationQuestion, field?.question]
     .map(comparableAnswer).filter(Boolean));
-  if (!labels.size) return null;
   const idMatches = contracts.filter(contract => contract?.id && [field?.questionId, field?.id].includes(contract.id));
   if (idMatches.length) return idMatches.length === 1 ? idMatches[0] : { ambiguous: true };
+  if (!labels.size) return null;
   const matches = contracts.filter(contract => {
     const matchesLabel = (Array.isArray(contract?.labels) ? contract.labels : [])
       .some(label => labels.has(comparableAnswer(label)));

@@ -128,6 +128,25 @@ it('keeps duplicate portal labels open when preserved answer ownership is ambigu
     .toMatchObject({ actions: [], missingRequired: [expect.objectContaining({ fieldId: field.id })] });
 });
 
+it('keeps a suppressed candidate question open when its native field has no label', () => {
+  const question = { id: 'q1', source: 'portal', required: true, question: 'Do you agree?',
+    applicationQuestion: 'Do you agree?', type: 'text', options: [] };
+  const candidate = candidateForForm({
+    identity: { name: 'Test Person', firstName: 'Test', lastName: 'Person', email: '', phone: '' },
+    portalQuestions: [question],
+    suppressedQuestionIds: ['q1'],
+    suppressedAnswerContracts: [{ id: 'q1', status: 'answered', answer: 'yes', allowLiveMapping: false }],
+  });
+  const field = { id: 'q1', questionId: 'q1', label: '', kind: 'text', required: true };
+
+  expect(guardPlan({
+    actions: [{ fieldId: field.id, action: 'fill', value: 'yes', source: 'rule' }], missingRequired: [],
+  }, [field], candidate)).toMatchObject({
+    actions: [],
+    missingRequired: [expect.objectContaining({ fieldId: field.id })],
+  });
+});
+
 const hardRecoveryQuestion = {
   id: 'employer_question', source: 'portal', required: true,
   question: 'Employer-specific question', applicationQuestion: 'Employer-specific question',

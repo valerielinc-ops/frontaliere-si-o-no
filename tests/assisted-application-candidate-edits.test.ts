@@ -230,6 +230,47 @@ describe('candidate edits', () => {
     expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'notice', answer: '7 giorni', status: 'answered' }]);
   });
 
+  it('keeps a legacy same-id answer unknown when its original contract was not recorded', () => {
+    const nowMs = Date.now();
+    const question = { id: 'q1', question: 'Do you agree?', type: 'choice', options: ['yes', 'no'], required: true };
+    const history = [{ id: 'q1', status: 'answered', answer: 'yes', round: 1, confirmedAt: nowMs, source: 'candidate' }];
+
+    const diagnostics = candidateAnswerProjectionDiagnostics([question], { answers: { q1: 'yes' }, history, nowMs });
+    expect(diagnostics.incompatibleQuestionIds).toEqual(['q1']);
+    expect(diagnostics.suppressDefaultQuestionIds).toEqual(['q1']);
+    expect(diagnostics.suppressedAnswerContracts).toMatchObject([
+      { id: 'q1', status: 'answered', answer: 'yes', allowLiveMapping: false },
+    ]);
+    expect(candidateAnswersForQuestions([question], { q1: 'yes' }, {}, history, nowMs)).not.toHaveProperty('q1');
+    expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'q1', status: 'answered', answer: 'yes' }]);
+  });
+
+  it.each(['array', 'object'] as const)('does not reuse an answer when constraint %s overflow differs', kind => {
+    const nowMs = Date.now();
+    const array = Array.from({ length: 41 }, (_, index) => `rule-${index}`);
+    const changedArray = [...array];
+    changedArray[40] = 'changed-overflow-rule';
+    const object = Object.fromEntries(Array.from({ length: 41 }, (_, index) => [
+      `rule-${String(index).padStart(2, '0')}`, `value-${index}`,
+    ]));
+    const changedObject = { ...object, 'rule-40': 'changed-overflow-rule' };
+    const original = {
+      id: 'old_question', question: 'Have you worked with similar systems?', type: 'text',
+      validation: { vendorConstraints: kind === 'array' ? array : object },
+    };
+    const current = {
+      ...original,
+      id: 'new_question',
+      validation: { vendorConstraints: kind === 'array' ? changedArray : changedObject },
+    };
+    const history = rememberCandidateAnswerHistory({ questions: [original], changed: { old_question: 'yes' },
+      round: 1, confirmedAt: nowMs });
+
+    expect(candidateAnswerProjectionDiagnostics([current], { history, nowMs }).incompatibleQuestionIds)
+      .toEqual(['new_question']);
+    expect(candidateAnswersForQuestions([current], {}, {}, history, nowMs)).not.toHaveProperty('new_question');
+  });
+
   it('does not replace an explicit unknown multi-choice answer from memory', () => {
     const question = { id: 'contact_channels', question: 'How can we contact you?', type: 'multi_choice', options: ['Email', 'WhatsApp'] };
     const key = candidateQuestionAnswerKey(question);

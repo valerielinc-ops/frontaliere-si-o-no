@@ -338,14 +338,52 @@ function directAnswerForCurrentQuestion(value, question, nowMs = Date.now()) {
   return answerForCurrentQuestion(value, question, nowMs);
 }
 
+function stableConstraintCanonicalJson(value, ancestors = new Set()) {
+  if (value === null) return 'null';
+  if (typeof value === 'string' || typeof value === 'boolean') return JSON.stringify(value);
+  if (typeof value === 'number') return Number.isFinite(value) ? JSON.stringify(value) : 'null';
+  if (typeof value !== 'object') return 'null';
+  if (ancestors.has(value)) return '"[circular]"';
+  ancestors.add(value);
+  const serialized = Array.isArray(value)
+    ? `[${value.map(item => stableConstraintCanonicalJson(item, ancestors)).join(',')}]`
+    : `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableConstraintCanonicalJson(value[key], ancestors)}`).join(',')}}`;
+  ancestors.delete(value);
+  return serialized;
+}
+
+function stableConstraintDigest(value) {
+  return createHash('sha256').update(stableConstraintCanonicalJson(value)).digest('hex');
+}
+
+function stableConstraintOverflow(type, prefix, overflow) {
+  return {
+    $candidateAnswerConstraintOverflow: type,
+    prefix,
+    overflowCount: overflow.length,
+    overflowDigest: stableConstraintDigest(overflow),
+  };
+}
+
 function stableConstraintValue(value, depth = 0) {
-  if (depth > 4) return null;
-  if (value == null || typeof value === 'string' || typeof value === 'boolean') return value;
+  if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
   if (typeof value === 'number') return Number.isFinite(value) ? value : null;
-  if (Array.isArray(value)) return value.slice(0, 40).map(item => stableConstraintValue(item, depth + 1));
+  if (depth > 4) {
+    return { $candidateAnswerConstraintOverflow: 'depth', digest: stableConstraintDigest(value) };
+  }
+  if (Array.isArray(value)) {
+    const prefix = value.slice(0, 40).map(item => stableConstraintValue(item, depth + 1));
+    if (value.length <= 40) return prefix;
+    return stableConstraintOverflow('array', prefix, value.slice(40));
+  }
   if (typeof value !== 'object') return null;
-  return Object.fromEntries(Object.keys(value).sort().slice(0, 40)
-    .map(key => [key, stableConstraintValue(value[key], depth + 1)]));
+  const keys = Object.keys(value).sort();
+  const prefixKeys = keys.slice(0, 40);
+  const prefix = Object.fromEntries(prefixKeys.map(key => [key, stableConstraintValue(value[key], depth + 1)]));
+  if (keys.length <= 40) return prefix;
+  const overflowKeys = keys.slice(40);
+  const overflow = overflowKeys.map(key => [key, value[key]]);
+  return stableConstraintOverflow('object', prefix, overflow);
 }
 
 function candidateAnswerContractValues(question) {
@@ -546,7 +584,8 @@ export function candidateAnswerHistoryRecordForQuestionId(question, history) {
   const values = new Set(latest.map(record => JSON.stringify([record.status, answerValueKey(record.answer), record.semanticKey,
     record.questionText, record.context, record.section, record.autocomplete, record.candidateKey, record.questionType,
     record.answerContractKey, record.constraintsKey])));
-  return values.size === 1 ? latest.at(-1) : null;
+  if (values.size !== 1) return null;
+  return latest.at(-1);
 }
 
 function candidateAnswerHistoryStateForQuestionId(question, history) {
