@@ -10270,7 +10270,7 @@ export async function submitViaPortal(ctx) {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
         pageHeading: postingHeading,
-        postingUrl,
+        postingUrl: ctx.postingUrl,
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
