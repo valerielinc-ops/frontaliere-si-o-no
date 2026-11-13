@@ -110,6 +110,7 @@ describe('jobs SEO HTML cache fingerprints', () => {
     const restore = steps.find((step) => step.id === 'jobs-seo-html-cache');
     const save = steps.find((step) => step.name === 'Save jobs SEO HTML cache');
     const barrierSave = steps.find((step) => step.name === 'Save jobs SEO HTML cache after hreflang barrier failure');
+    const observer = steps.find((step) => step.id === 'jobs-seo-cache-hit-observer');
 
     expect(fingerprint.env.JOBS_SEO_HTML_CACHE_LOCALE).toBe('${{ matrix.locale }}');
     expect(restore.with.key).toContain("hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale))");
@@ -117,5 +118,15 @@ describe('jobs SEO HTML cache fingerprints', () => {
     expect(restore.with).not.toHaveProperty('restore-keys');
     expect(save.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
     expect(barrierSave.with.key).toContain('steps.jobs-seo-html-fingerprint.outputs.fingerprint');
+    expect(save.id).toBe('jobs-seo-html-save');
+    expect(barrierSave.id).toBe('jobs-seo-html-barrier-save');
+    expect(observer.if).toBe('always()');
+    expect(observer['continue-on-error']).toBe(true);
+    expect(observer.env.JOBS_SEO_CACHE_HIT).toContain('steps.jobs-seo-html-cache.outputs.cache-hit');
+    expect(observer.env.JOBS_SEO_CACHE_MATCHED_KEY).toContain('steps.jobs-seo-html-cache.outputs.cache-matched-key');
+    expect(observer.env.JOBS_SEO_BUILD_WALL_SECONDS).toContain('steps.build_step.outputs.wall_seconds');
+    expect(observer.run).toContain('jobsSeoCacheHit()');
+    expect(observer.run).toContain('^\\[jobs-seo-reuse\\] block=');
+    expect(observer.run).toContain('unknown');
   });
 });

@@ -21,7 +21,11 @@ import {
 import { decideSectionTreeFanout, parseFanoutAutoThreshold } from '../scripts/lib/section-tree-fanout-policy.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
-import { requireWorkerSectionTreeLayout, stageSectionTreeLayout } from '../scripts/lib/section-tree-layout-stage.mjs';
+import {
+  requireWorkerSectionTreeLayout,
+  stageSectionTreeLayout,
+  WORKER_LAYOUT_PROBE_USER_AGENT,
+} from '../scripts/lib/section-tree-layout-stage.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
@@ -592,7 +596,8 @@ describe('automatic section tree fan-out policy', () => {
     expect(urls[0]).toContain('__frontaliere_section_tree_layout=hash-v1');
     expect(urls[0]).toContain('section=lucerna');
     expect(requestOptions).toHaveLength(2);
-    expect(requestOptions.every((init) => (init.headers as Record<string, string>)['User-Agent'] === DEFAULT_LIVE_CHECK_USER_AGENT)).toBe(true);
+    expect(requestOptions.every((init) => (init.headers as Record<string, string>)['User-Agent'] === WORKER_LAYOUT_PROBE_USER_AGENT)).toBe(true);
+    expect(WORKER_LAYOUT_PROBE_USER_AGENT).toBe(DEFAULT_LIVE_CHECK_USER_AGENT);
 
     await expect(requireWorkerSectionTreeLayout('lucerna', 'de/jobs-in-lucerne', {
       fetchImpl: async () => new Response(null, { status: 204 }),
