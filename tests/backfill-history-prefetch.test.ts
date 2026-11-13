@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   historyBlobOidsFromRevList,
+  historyBlobDiscoveryArgs,
   historyBlobPrefetchArgs,
   historyBlobPrefetchInput,
   historySinceArgs,
@@ -29,6 +30,12 @@ describe('prefetch-history-blobs', () => {
     expect(historyBlobOidsFromRevList(`${oid} data/jobs/by-crawler/acme.json.bak\n`)).toEqual([]);
   });
 
+  it('accepts missing blob markers emitted by a blobless discovery walk', () => {
+    const oid = '1'.repeat(40);
+    const sha256Oid = '2'.repeat(64);
+    expect(historyBlobOidsFromRevList(`?${oid}\n?${oid}\n?${sha256Oid}\n`)).toEqual([oid, sha256Oid]);
+  });
+
   // Run 43320183949 (2026-11-12): the unbounded prefetch hit the 40-minute
   // step cap twice. The walk is bounded to a git date unless "all" is asked.
   it('bounds the history walk with HISTORY_SINCE', () => {
@@ -37,6 +44,19 @@ describe('prefetch-history-blobs', () => {
     expect(historySinceArgs('all')).toEqual([]);
     expect(historySinceArgs('')).toEqual([]);
     expect(historySinceArgs(undefined)).toEqual([]);
+  });
+
+  it('discovers missing slice blobs without allowing a lazy fetch', () => {
+    expect(historyBlobDiscoveryArgs('2026-09-20')).toEqual([
+      'rev-list',
+      '--objects',
+      '--all',
+      '--missing=print',
+      '--since=2026-09-20',
+      '--',
+      'data/jobs/by-crawler',
+      'data/jobs/expired/by-crawler',
+    ]);
   });
 
   it('uses Git transport support for the HTTPS prefetch instead of fetch-pack plumbing', () => {
