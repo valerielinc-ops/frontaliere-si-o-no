@@ -1,7 +1,7 @@
 name: Assisted application portal replay
 
 # Always publish the required `portal replay gate` job. The prepare step skips
-# the public replay when a PR changes no assisted-application runner path.
+# the public replay when a PR changes no family-specific runner path.
 on:
   pull_request:
     branches: [main]

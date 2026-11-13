@@ -47,7 +47,7 @@ const PORTAL_REPLAY_FAMILY_PATH_HINTS = Object.freeze({
   softgarden: Object.freeze(['softgarden', 'soft-garden']),
   umantis: Object.freeze(['umantis']),
   refline: Object.freeze(['refline']),
-  jobs_ch: Object.freeze(['jobs_ch', 'jobs-ch', 'jobroom']),
+  jobs_ch: Object.freeze(['jobs_ch', 'jobs-ch', 'jobroom', 'jobsch']),
   manatal: Object.freeze(['manatal']),
   workday: Object.freeze(['workday']),
   successfactors: Object.freeze(['successfactors', 'success-factors', 'sapsf']),
@@ -194,22 +194,20 @@ export function affectedPortalReplayPaths(diff) {
 
 export function affectedPortalReplayFamilies(pathsOrDiff) {
   const paths = Array.isArray(pathsOrDiff) ? pathsOrDiff : affectedPortalReplayPaths(pathsOrDiff);
-  if (paths.length === 0) return [];
-
   const families = new Set();
-  let sharedPathChanged = false;
   for (const value of paths) {
     const file = String(value || '').replace(/^\//u, '').toLowerCase();
     const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
       .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
       .map(([family]) => family);
-    if (matchedFamilies.length === 0) sharedPathChanged = true;
     for (const family of matchedFamilies) families.add(family);
   }
-
-  return sharedPathChanged
-    ? [...PORTAL_REPLAY_FAMILIES].sort()
-    : [...families].sort();
+  // Shared harness/helpers are intentionally not expanded to every family.
+  // A replay is a family-specific live check: a PR must opt a family in by
+  // changing a path that names that family. Shared replay code remains covered
+  // by the local fence/aggregator tests, while unrelated live ATS runs stay out
+  // of the PR matrix.
+  return [...families].sort();
 }
 
 function issueTitle(value) {
@@ -841,16 +839,16 @@ function argsForCli(argv) {
 async function prepareMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  if (!affected.length) {
+  const affectedFamilies = affectedPortalReplayFamilies(affected);
+  if (!affectedFamilies.length) {
     if (values['github-output']) appendFileSync(values['github-output'], 'run=false\nfamilies=[]\n');
-    console.log('portal replay: no runner paths changed');
+    console.log(affected.length ? 'portal replay: no family-specific runner paths changed' : 'portal replay: no runner paths changed');
     return 0;
   }
 
   const issues = values['stop-titles'] ? JSON.parse(readFileSync(values['stop-titles'], 'utf8')) : [];
   const stopHosts = extractPortalStopHosts(issues);
   const nowMs = Number(values['now-ms']) || Date.now();
-  const affectedFamilies = affectedPortalReplayFamilies(affected);
   const classifierRoot = path.resolve(values['classifier-root']);
   const { classifyApplicationChannel: baseClassifier } = await importFrom(classifierRoot, 'functions/src/assistedApplicationAiJob.js');
   const corpus = selectPortalReplayCorpus({ jobsByCrawler: path.resolve(values['data-dir']), stopIssues: issues, stopHosts, nowMs, classify: baseClassifier, families: affectedFamilies });
@@ -889,8 +887,11 @@ async function corpusMode(values) {
 async function detectMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  if (values['github-output']) appendFileSync(values['github-output'], `run=${affected.length ? 'true' : 'false'}\n`);
-  console.log(affected.length ? `portal replay: ${affected.length} runner paths changed` : 'portal replay: no runner paths changed');
+  const affectedFamilies = affectedPortalReplayFamilies(affected);
+  const run = affectedFamilies.length > 0;
+  if (values['github-output']) appendFileSync(values['github-output'], `run=${run ? 'true' : 'false'}\n`);
+  if (run) console.log(`portal replay: ${affectedFamilies.length} family-specific runner path(s) changed`);
+  else console.log(affected.length ? 'portal replay: no family-specific runner paths changed' : 'portal replay: no runner paths changed');
   return 0;
 }
 

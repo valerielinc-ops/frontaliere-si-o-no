@@ -390,13 +390,12 @@ describe('portal replay corpus', () => {
     ]);
   });
 
-  it('limits family replay to a family-specific path but keeps shared paths broad', () => {
+  it('limits family replay to family-specific paths and skips shared paths', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
-    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([
-      'employer_site', 'greenhouse', 'jobs_ch', 'lever', 'manatal', 'personio',
-      'refline', 'smartrecruiters', 'softgarden', 'successfactors', 'umantis', 'workday',
-    ]);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([]);
+    expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/jobsch-adapter.mjs'])).toEqual(['jobs_ch']);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([]);
   });
 });
 
