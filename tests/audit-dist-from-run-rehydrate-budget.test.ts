@@ -104,7 +104,7 @@ describe('audit-dist-from-run rehydrate runtime budget observer', () => {
 
   it('is called after both rehydrate commands and before the locale gate exit', () => {
     const run = rehydrateStepScript();
-    const locale = run.indexOf('bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?');
+    const locale = run.indexOf('bash scripts/lib/rehydrate-locale-shards.sh 2>&1');
     const sections = run.indexOf('bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?');
     const observer = run.indexOf('rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"');
     const exit = run.indexOf('if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi');

@@ -375,6 +375,7 @@ jobs:
           coproc LOCALE_REHYDRATE {
             bash scripts/lib/rehydrate-locale-shards.sh 2>&1
           }
+          LOCALE_REHYDRATE_PROCESS_PID="$LOCALE_REHYDRATE_PID"
           while IFS= read -r line; do
             printf '%s\n' "$line"
             case "$line" in
@@ -382,7 +383,7 @@ jobs:
             esac
           done <&"${LOCALE_REHYDRATE[0]}"
           LOCALE_RC=0
-          wait "$LOCALE_REHYDRATE_PID" || LOCALE_RC=$?
+          wait "$LOCALE_REHYDRATE_PROCESS_PID" || LOCALE_RC=$?
           localeRehydrateEnospcObserved "$LOCALE_RC" "$LOCALE_REHYDRATE_ENOSPC"
           SECTION_RC=0
           bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?
