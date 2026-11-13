@@ -148,6 +148,7 @@ describe('crawler workflow corpus transport', () => {
         path: 'generator/data/crawler-cross-repo-contract.json',
         sitePath: '.github/corpus-workflows/contract.json',
         mode: 'adapted',
+        adaptationIssue: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/1314',
         reason: 'legacy corpus adaptation',
         baseline,
       };
@@ -176,11 +177,45 @@ describe('crawler workflow corpus transport', () => {
         mode: 'identical',
       });
       expect(contractEntries[0]).not.toHaveProperty('reason');
+      expect(contractEntries[0]).not.toHaveProperty('adaptationIssue');
 
       expect(() => assertCrawlerManifestDelta({
         baseManifest: { files: [adaptedContract, identicalContract] },
         currentManifest: prepared,
       })).not.toThrow();
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  it('conserva il metadata storico adaptationIssue quando il contratto e gia identical', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-identical-metadata-'));
+    try {
+      const manifestPath = path.join(tmp, 'scripts/ci/loop-sync-manifest.json');
+      const entry = {
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        adaptationIssue: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/issues/1314',
+        reason: 'legacy corpus adaptation',
+        baseline: { site: '1111111111111111', corpus: '1111111111111111', alignedAt: '2026-01-01' },
+      };
+      fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+      fs.writeFileSync(manifestPath, `${JSON.stringify({ files: [entry] })}\n`);
+
+      prepareCrawlerWorkflowCorpusSync({
+        sourceDir: path.join(ROOT, '.github/corpus-workflows'),
+        corpusRoot: tmp,
+        alignedAt: '2026-01-01',
+      });
+
+      const prepared = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      expect(prepared.files).toContainEqual(expect.objectContaining({
+        sitePath: entry.sitePath,
+        mode: 'identical',
+        adaptationIssue: entry.adaptationIssue,
+        reason: entry.reason,
+      }));
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
     }
