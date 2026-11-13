@@ -221,7 +221,7 @@ Actions:
 - type: keystrokes into a ref, for a search box or a combobox that filters as you type.
 - select: a native select or a combobox; value = the option's label; the runner opens it, types and picks the option.
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
-- upload: a file input or an upload button; document = cv, cover_letter, or the slot of a document listed in documents.extra.
+- upload: a file input or an upload button; document = cv, cover_letter, photo for a requested portrait, or the slot of another document listed in documents.extra.
 - goto: navigate to a URL allowed by the rules above; use ref = "".
 - back: return to the previous page; use ref = "".
 - switch_tab: activate a browser tab by its listed numeric index; use ref = "".

@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
+import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -2128,6 +2129,8 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // neither href nor local posting markers. Never borrow this provenance on
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
+  const apply = comparablePortalRoute(context.applyUrl);
+  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '');
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
@@ -2135,11 +2138,20 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
+  const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
+    && !socialApplicationEntry(control));
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true
     && samePostingAddress(context.applyUrl, context.postingUrl)
     && samePostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
+  if (context.allowSingleExternalApplicationEntry === true
+    && verifiedFieldlessJobRoute
+    && apply && posting && current
+    && apply.origin === posting.origin && apply.pathname === posting.pathname && apply.search === posting.search
+    && current.origin === posting.origin && current.pathname === posting.pathname && current.search === posting.search
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && genericScriptEntries.length === 1 && allEntries.length === 1) return genericScriptEntries;
   // The official Stadt Zürich detail page is selected by its unique role link
   // before this loop reaches it. On that exact, fieldless detail route a sole
   // explicit Apply control is the only remaining handoff proof; a duplicate
@@ -8934,10 +8946,13 @@ export function portalRequiredDocumentFromField(field) {
   return {
     id: portalDocumentId(field, label, field.context || ''),
     label: label.slice(0, 160),
-    kind: 'other',
+    kind: isPhotoRequirement(label) ? 'photo' : 'other',
     required: true,
     quote: label.slice(0, 300),
     keywords,
+    ...(isPhotoRequirement(label) && typeof field.accept === 'string' ? { accept: field.accept.slice(0, 240) } : {}),
+    ...(isPhotoRequirement(label) && Number.isSafeInteger(field.maxFileSizeBytes) && field.maxFileSizeBytes > 0
+      ? { maxBytes: field.maxFileSizeBytes } : {}),
   };
 }
 
