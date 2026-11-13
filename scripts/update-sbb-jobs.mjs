@@ -275,7 +275,7 @@ function extractSbbAemJsonBody(body = '') {
   if (Array.isArray(parsed)) return text;
 
   // Jina's JSON response is an envelope; only unwrap the known data.content
-  // field and, when present, verify that it still identifies this SBB AEM URL.
+  // field and verify that it identifies this SBB AEM URL.
   // Do not reinterpret arbitrary objects or prose as a job feed.
   const data = parsed && typeof parsed === 'object' && !Array.isArray(parsed)
     ? parsed.data
