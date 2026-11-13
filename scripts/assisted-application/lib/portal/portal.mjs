@@ -1475,7 +1475,13 @@ const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|
 const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
 const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
-const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'www.job-room.ch']);
+const JOB_ROOM_HOSTS = new Set([
+  'job-room.ch', 'www.job-room.ch',
+  'arbeit.swiss', 'www.arbeit.swiss',
+  'travail.swiss', 'www.travail.swiss',
+  'lavoro.swiss', 'www.lavoro.swiss',
+  'work.swiss', 'www.work.swiss',
+]);
 const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
 const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
 const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
@@ -2548,23 +2554,10 @@ function linkNavigationTarget(href, base) {
   }
 }
 
-const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'arbeit.swiss', 'travail.swiss', 'lavoro.swiss', 'work.swiss']);
 const JOB_ROOM_EXTERNAL_AD_LABELS = new Set([
   "andare all'annuncio esterno", 'zum externen inserat', "vers l'annonce externe", 'go to external ad',
 ].map(value => value.normalize('NFKD').replace(/\p{M}/gu, '').replace(/[’']/g, ' ')
   .replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase()));
-
-function isJobRoomPostingRoute(value) {
-  try {
-    const url = new URL(String(value || ''));
-    const host = url.hostname.toLowerCase();
-    const knownHost = [...JOB_ROOM_HOSTS].some(domain => host === domain || host.endsWith(`.${domain}`));
-    const id = /^\/job-search\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i.exec(url.pathname)?.[1];
-    return url.protocol === 'https:' && !url.username && !url.password && knownHost && Boolean(id);
-  } catch {
-    return false;
-  }
-}
 
 function normalizeJobRoomExternalAdLabel(value) {
   return String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/[’']/g, ' ')
@@ -2573,7 +2566,7 @@ function normalizeJobRoomExternalAdLabel(value) {
 
 /** The sole explicit SECO link out of a Job-Room posting, or '' when it is absent or ambiguous. */
 export function jobRoomExternalAdTarget(snapshot = {}, currentUrl = snapshot?.url || '') {
-  if (!isJobRoomPostingRoute(currentUrl)) return '';
+  if (!isJobRoomPublicPostingRoute(currentUrl)) return '';
   const controls = [...(Array.isArray(snapshot.links) ? snapshot.links : []), ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : [])];
   const targets = new Set();
   for (const control of controls) {
@@ -2583,7 +2576,7 @@ export function jobRoomExternalAdTarget(snapshot = {}, currentUrl = snapshot?.ur
     const target = linkNavigationTarget(control?.href, currentUrl);
     if (!target || !isFetchablePublicUrl(target)) continue;
     try {
-      if (isJobRoomPostingRoute(target)) continue;
+      if (isJobRoomPublicPostingRoute(target)) continue;
       targets.add(new URL(target).href);
     } catch {
       // Malformed controls provide no navigation evidence.
