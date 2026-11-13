@@ -280,6 +280,25 @@ describe('all-known-job-slugs store — read/write round trip', () => {
     expect(keys).toEqual(entries.map(([slug, , partIndex]) => [slug, undefined, partIndex]));
   });
 
+  it('skips a malformed shard atomically in the streaming and merged readers', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.join(root, KNOWN_SLUGS_SHARD_DIR), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsShardFile(0, root),
+      '{"slugs":{"partial-entry":{"en":"/en/jobs/partial-entry"}},"unfinished":',
+    );
+    fs.writeFileSync(
+      knownSlugsShardFile(1, root),
+      JSON.stringify({ slugs: { 'valid-entry': { en: '/en/jobs/valid-entry' } } }),
+    );
+
+    const streamedEntries = [...iterateAllKnownJobSlugPartEntries(root)];
+    expect(streamedEntries.map(([slug]) => slug)).toEqual(['valid-entry']);
+    expect(readAllKnownJobSlugs(root)).toEqual({
+      'valid-entry': { en: '/en/jobs/valid-entry' },
+    });
+  });
+
   it('preserves non-locale metadata on an entry', () => {
     const root = mkTmp();
     const registry = {

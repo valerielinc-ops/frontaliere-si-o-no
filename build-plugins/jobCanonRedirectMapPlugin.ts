@@ -44,6 +44,8 @@ const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-pr
 const LOCALE_INDEX = new Map<JobCanonLocale, number>(JOB_CANON_LOCALES.map((locale, index) => [locale, index]));
 const WORKER_CANDIDATE_FLAG = 1 << 12;
 const WORKER_ACTIVE_ROUTE_FLAG = 1 << 13;
+const WORKER_DIRECT_FACT_MASK = ((1 << JOB_CANON_LOCALES.length) - 1)
+  | (((1 << JOB_CANON_LOCALES.length) - 1) << 4);
 
 type StageOperation = (typeof STAGE_OPERATIONS)[number];
 type LocaleEntry = Partial<Record<JobCanonLocale, string>> & {
@@ -701,8 +703,16 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
               scannedPartCount += 1;
               sampleHeap();
             }
+            let keyCandidateFlags = workerFlagsBySlug.get(key) ?? 0;
+            if ((keyCandidateFlags & WORKER_CANDIDATE_FLAG) !== 0) {
+              // A later store part replaces this slug's complete locale map.
+              // The iterator can also observe duplicate JSON keys, whose last
+              // value wins under JSON.parse, so each occurrence replaces only
+              // these direct facts while preserving route/candidate/native bits.
+              keyCandidateFlags &= ~WORKER_DIRECT_FACT_MASK;
+              workerFlagsBySlug.set(key, keyCandidateFlags);
+            }
             if (!paths || typeof paths !== 'object') continue;
-            const keyCandidateFlags = workerFlagsBySlug.get(key) ?? 0;
             for (const locale of JOB_CANON_LOCALES) {
               const value = paths[locale];
               if (typeof value !== 'string') continue;

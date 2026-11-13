@@ -8,7 +8,12 @@ import {
   assertMaxShardGrowthWithinPercent,
   jobCanonRedirectMapPlugin,
 } from '../build-plugins/jobCanonRedirectMapPlugin';
-import { writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import {
+  knownSlugsLegacyFile,
+  knownSlugsShardFile,
+  knownSlugsShardIndex,
+  writeAllKnownJobSlugs,
+} from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   buildActiveJobBridgePathPlan,
   classifyBridgePaths,
@@ -277,6 +282,19 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     { ...job('cross-z-newer', 'ZH', {
       it: 'cross-z-it', en: 'cross-foreign', de: 'cross-z-de', fr: 'cross-z-fr',
     }), datePosted: daysAgo(12) },
+    job('worker-override-claim', 'ZH', {
+      it: 'worker-override-claim-it', en: 'worker-override-claim-en',
+      de: 'worker-override-claim-de', fr: 'worker-override-claim-fr',
+    }, {
+      previousSlugsByLocale: {
+        it: [
+          'worker-override-omitted-en',
+          'worker-effective-direct-en',
+          'worker-native-recovery-en',
+          'worker-duplicate-entry-en',
+        ],
+      },
+    }),
   ];
 
   beforeAll(async () => {
@@ -324,7 +342,38 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
       'shared-active-prefix-conflict': {
         de: '/de/jobs-in-zurich/shared-active-prefix-conflict',
       },
+      'worker-override-omitted-en': { de: '/de/jobs-im-tessin/worker-override-omitted-en' },
+      'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
+      'worker-native-recovery-en': { de: '/de/jobs-im-tessin/worker-native-recovery-en' },
+      'worker-override-claim-en': { en: '/en/find-jobs-zurich/worker-native-recovery-en' },
+      'worker-duplicate-entry-en': { de: '/de/jobs-im-tessin/worker-duplicate-entry-en' },
     }, tmp);
+    const duplicateSlug = 'worker-duplicate-entry-en';
+    const duplicateShardFile = knownSlugsShardFile(knownSlugsShardIndex(duplicateSlug), tmp);
+    const duplicateShard = JSON.parse(fs.readFileSync(duplicateShardFile, 'utf-8')) as {
+      slugs: Record<string, Record<string, string>>;
+    };
+    delete duplicateShard.slugs[duplicateSlug];
+    const duplicateShardEntries = Object.entries(duplicateShard.slugs).map(([slug, paths]) =>
+      `    ${JSON.stringify(slug)}: ${JSON.stringify(paths)}`);
+    duplicateShardEntries.push(
+      `    ${JSON.stringify(duplicateSlug)}: ${JSON.stringify({ en: `/en/find-jobs-geneva/${duplicateSlug}` })}`,
+      `    ${JSON.stringify(duplicateSlug)}: ${JSON.stringify({ de: `/de/jobs-im-tessin/${duplicateSlug}` })}`,
+    );
+    fs.writeFileSync(
+      duplicateShardFile,
+      `{
+  "slugs": {
+${duplicateShardEntries.join(',\n')}
+  }
+}
+`,
+    );
+    fs.writeFileSync(knownSlugsLegacyFile(tmp), JSON.stringify({
+      'worker-override-omitted-en': { en: '/en/find-jobs-geneva/worker-override-omitted-en' },
+      'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
+      'worker-native-recovery-en': { en: '/en/find-jobs-geneva/worker-native-recovery-en' },
+    }));
     const plugin = jobCanonRedirectMapPlugin(tmp);
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
     try {
@@ -384,6 +433,15 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
   it('keeps a registry alias when active bridge candidates claim the same locale and slug', () => {
     expect(readEntry('registry-collision-old-v1')?.alias?.en)
       .toBe('/en/find-jobs-thurgau/registry-canonical-v1');
+  });
+
+  it('uses the effective registry locale map and preserves separate native recovery evidence', () => {
+    expect(readEntry('worker-override-omitted-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+    expect(readEntry('worker-duplicate-entry-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+    expect(readEntry('worker-effective-direct-en')?.alias?.en).toBeUndefined();
+    expect(readEntry('worker-native-recovery-en')?.alias?.en).toBeUndefined();
   });
 
   it('uses the stable SEO job order when a cross-locale bridge path has multiple claimants', () => {

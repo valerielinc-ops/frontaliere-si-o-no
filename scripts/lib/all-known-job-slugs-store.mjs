@@ -239,34 +239,38 @@ function jsonValueEnd(text, start) {
   return text.length;
 }
 
-function objectEntriesStart(text, propertyName) {
-  let cursor = skipJsonWhitespace(text, 0);
-  if (text[cursor] !== '{') throw new SyntaxError('Expected JSON object');
-  cursor = skipJsonWhitespace(text, cursor + 1);
-  while (cursor < text.length && text[cursor] !== '}') {
-    if (text[cursor] === ',') {
-      cursor = skipJsonWhitespace(text, cursor + 1);
-      continue;
-    }
+function validateJsonObjectEntries(text, objectStart, validateValue) {
+  let cursor = skipJsonWhitespace(text, objectStart + 1);
+  if (text[objectStart] !== '{') throw new SyntaxError('Expected JSON object');
+  if (text[cursor] === '}') return cursor + 1;
+
+  while (cursor < text.length) {
     const keyEnd = jsonStringEnd(text, cursor);
     const key = JSON.parse(text.slice(cursor, keyEnd));
     cursor = skipJsonWhitespace(text, keyEnd);
     if (text[cursor] !== ':') throw new SyntaxError('Expected JSON colon');
     const valueStart = skipJsonWhitespace(text, cursor + 1);
     const valueEnd = jsonValueEnd(text, valueStart);
-    if (propertyName === key && text[valueStart] === '{') return valueStart;
+    validateValue(key, valueStart, valueEnd);
     cursor = skipJsonWhitespace(text, valueEnd);
+    if (text[cursor] === '}') return cursor + 1;
+    if (text[cursor] !== ',') throw new SyntaxError('Expected JSON comma or object end');
+    cursor = skipJsonWhitespace(text, cursor + 1);
+    if (text[cursor] === '}') throw new SyntaxError('Trailing JSON comma');
   }
-  return -1;
+  throw new SyntaxError('Unterminated JSON object');
+}
+
+function assertJsonDocumentEnd(text, objectEnd) {
+  if (skipJsonWhitespace(text, objectEnd) !== text.length) {
+    throw new SyntaxError('Unexpected content after JSON object');
+  }
 }
 
 function* parseJsonObjectEntries(text, objectStart) {
   let cursor = skipJsonWhitespace(text, objectStart + 1);
-  while (cursor < text.length && text[cursor] !== '}') {
-    if (text[cursor] === ',') {
-      cursor = skipJsonWhitespace(text, cursor + 1);
-      continue;
-    }
+  if (text[cursor] === '}') return;
+  while (cursor < text.length) {
     const keyEnd = jsonStringEnd(text, cursor);
     const key = JSON.parse(text.slice(cursor, keyEnd));
     cursor = skipJsonWhitespace(text, keyEnd);
@@ -275,8 +279,37 @@ function* parseJsonObjectEntries(text, objectStart) {
     const valueEnd = jsonValueEnd(text, valueStart);
     yield [key, valueStart, valueEnd];
     cursor = skipJsonWhitespace(text, valueEnd);
+    if (text[cursor] === '}') return;
+    if (text[cursor] !== ',') throw new SyntaxError('Expected JSON comma or object end');
+    cursor = skipJsonWhitespace(text, cursor + 1);
+    if (text[cursor] === '}') throw new SyntaxError('Trailing JSON comma');
   }
-  if (text[cursor] !== '}') throw new SyntaxError('Unterminated JSON object');
+  throw new SyntaxError('Unterminated JSON object');
+}
+
+function validateLegacyPart(text, objectStart) {
+  const end = validateJsonObjectEntries(text, objectStart, (_key, valueStart, valueEnd) => {
+    JSON.parse(text.slice(valueStart, valueEnd));
+  });
+  assertJsonDocumentEnd(text, end);
+}
+
+function validateShardPart(text, objectStart) {
+  let slugsObjectStart = -1;
+  const end = validateJsonObjectEntries(text, objectStart, (key, valueStart, valueEnd) => {
+    if (key === 'slugs' && text[valueStart] === '{') {
+      const slugsEnd = validateJsonObjectEntries(text, valueStart, (_slug, entryStart, entryEnd) => {
+        JSON.parse(text.slice(entryStart, entryEnd));
+      });
+      if (slugsEnd !== valueEnd) throw new SyntaxError('Invalid slugs object boundary');
+      slugsObjectStart = valueStart;
+    } else {
+      JSON.parse(text.slice(valueStart, valueEnd));
+      if (key === 'slugs') slugsObjectStart = -1;
+    }
+  });
+  assertJsonDocumentEnd(text, end);
+  return slugsObjectStart;
 }
 
 /**
@@ -302,23 +335,30 @@ export function* iterateAllKnownJobSlugPartEntries(rootDir = process.cwd(), opti
     if (text) {
       const objectStart = skipJsonWhitespace(text, 0);
       if (text[objectStart] === '{') {
-        const currentPartIndex = partIndex;
-        for (const [slug, valueStart, valueEnd] of parseJsonObjectEntries(text, objectStart)) {
-          if (slug !== '__proto__') {
-            yield [slug, keysOnly ? undefined : JSON.parse(text.slice(valueStart, valueEnd)), currentPartIndex];
+        try {
+          validateLegacyPart(text, objectStart);
+          const currentPartIndex = partIndex;
+          for (const [slug, valueStart, valueEnd] of parseJsonObjectEntries(text, objectStart)) {
+            if (slug !== '__proto__') {
+              yield [slug, keysOnly ? undefined : JSON.parse(text.slice(valueStart, valueEnd)), currentPartIndex];
+            }
           }
+          partIndex += 1;
+        } catch {
+          /* skip an absent, malformed, or partially written legacy part atomically */
         }
-        partIndex += 1;
       }
     }
   }
 
   for (const file of listKnownSlugsShardFiles(rootDir)) {
     let text;
-    let objectStart;
+    let objectStart = -1;
     try {
       text = fs.readFileSync(file, 'utf-8');
-      objectStart = objectEntriesStart(text, 'slugs');
+      const rootStart = skipJsonWhitespace(text, 0);
+      if (text[rootStart] !== '{') continue;
+      objectStart = validateShardPart(text, rootStart);
     } catch {
       continue;
     }
