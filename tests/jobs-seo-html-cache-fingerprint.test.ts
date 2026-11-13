@@ -126,7 +126,7 @@ describe('jobs SEO HTML cache fingerprints', () => {
     expect(observer.env.JOBS_SEO_CACHE_MATCHED_KEY).toContain('steps.jobs-seo-html-cache.outputs.cache-matched-key');
     expect(observer.env.JOBS_SEO_BUILD_WALL_SECONDS).toContain('steps.build_step.outputs.wall_seconds');
     expect(observer.run).toContain('jobsSeoCacheHit()');
-    expect(observer.run).toContain('[jobs-seo-reuse] block=');
+    expect(observer.run).toContain('^\\[jobs-seo-reuse\\] block=');
     expect(observer.run).toContain('unknown');
   });
 });
