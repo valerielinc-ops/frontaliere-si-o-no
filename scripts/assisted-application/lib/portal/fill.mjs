@@ -94,13 +94,64 @@ const SUGGESTIONS_TIMEOUT_MS = 5000;
 const UPLOAD_SETTLE_MS = 45_000;
 const UPLOAD_QUIET_MS = 700;
 
+/** A custom choice can expose a checked DOM property while its visible label is the event boundary. */
+async function visibleChoiceLabelRequired(locator) {
+  if (typeof locator?.evaluate !== 'function') return false;
+  return locator.evaluate((element) => {
+    const type = String(element?.getAttribute?.('type') || '').toLowerCase();
+    if (!['checkbox', 'radio'].includes(type)) return false;
+    const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
+    if (!label) return false;
+    const style = element.ownerDocument.defaultView.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+    return style.display === 'none' || ['hidden', 'collapse'].includes(style.visibility)
+      || style.opacity === '0' || rect.width <= 1 || rect.height <= 1;
+  }, null, { timeout: 2000 }).catch(() => false);
+}
+
+/** Click a visible label as a person would; this is the fallback for custom controls, never a script click. */
+async function clickChoiceLabel(locator, observation, attempt, fallbackError = new Error('choice_label_unavailable')) {
+  if (typeof locator?.evaluate !== 'function') throw fallbackError;
+  const marked = await locator.evaluate((element) => {
+    const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
+    label?.setAttribute('data-aa-label', 'choice');
+    return Boolean(label);
+  }, null, { timeout: 2000 }).catch(() => false);
+  if (!marked) throw fallbackError;
+  const label = locator.locator('xpath=ancestor::html[1]//label[@data-aa-label="choice"]').first();
+  const hitObserver = observation && typeof label.evaluateHandle === 'function' ? await label.evaluateHandle(element => {
+    const controller = new element.ownerDocument.defaultView.AbortController();
+    element.addEventListener('click', event => {
+      const tag = event.target?.tagName?.toLowerCase();
+      element.setAttribute('data-aa-choice-hit', ['input', 'label', 'a', 'button', 'span', 'i'].includes(tag) ? tag : 'other');
+    }, { once: true, passive: true, capture: true, signal: controller.signal });
+    return controller;
+  }, null, { timeout: 2000 }).catch(() => null) : null;
+  try {
+    await attempt('label', () => label.click({ timeout: ACTION_TIMEOUT_MS }));
+  } finally {
+    await hitObserver?.evaluate(controller => controller.abort()).catch(() => {});
+    if (observation && typeof label.evaluate === 'function') observation.labelClickTag = await label.evaluate(element => {
+      const tag = element.getAttribute('data-aa-choice-hit');
+      element.removeAttribute('data-aa-choice-hit');
+      return ['input', 'label', 'a', 'button', 'span', 'i', 'other'].includes(tag) ? tag : null;
+    }, null, { timeout: 2000 }).catch(() => null);
+    await hitObserver?.dispose().catch(() => {});
+    await label.evaluate((element) => element.removeAttribute('data-aa-label')).catch(() => {});
+  }
+}
+
 /**
- * Custom-styled radios and checkboxes hide the native input (Workday): the
- * normal check, then a forced one, then a real click on the label. Never a
+ * Custom-styled radios and checkboxes hide the native input (Workday): use
+ * the visible label first, then the native check and forced check. Never a
  * script click (career-ops, Lever: a programmatic click on a box pops an
  * hCaptcha challenge in the middle of the form).
  */
 async function setChoice(locator, checked, observation = null) {
+  const verifyChoice = async () => {
+    const current = await locator.isChecked({ timeout: 2000 }).catch(() => null);
+    if (current !== checked) throw new Error('choice_not_registered');
+  };
   const attempt = async (method, action) => {
     if (observation) observation.method = method;
     try {
@@ -111,42 +162,34 @@ async function setChoice(locator, checked, observation = null) {
       throw error;
     }
   };
+  if (await visibleChoiceLabelRequired(locator)) {
+    const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
+    if (current === checked) return;
+    try {
+      await clickChoiceLabel(locator, observation, attempt);
+      await verifyChoice();
+      return;
+    } catch {
+      // If the visible label is no longer actionable after a redraw, retain
+      // the native paths below so the action can still fail closed.
+    }
+  }
   try {
-    await attempt('native', () => locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS }));
+    await attempt('native', async () => {
+      await locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS });
+      await verifyChoice();
+    });
   } catch {
     try {
-      await attempt('forced', () => locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS }));
+      await attempt('forced', async () => {
+        await locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS });
+        await verifyChoice();
+      });
     } catch (error) {
       const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
       if (current === checked) return;
-      // The label is what people click: marked in the page, then clicked in the same document (iframes too).
-      const marked = await locator.evaluate((element) => {
-        const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
-        label?.setAttribute('data-aa-label', 'choice');
-        return Boolean(label);
-      }, null, { timeout: 2000 }).catch(() => false);
-      if (!marked) throw error;
-      const label = locator.locator('xpath=ancestor::html[1]//label[@data-aa-label="choice"]').first();
-      const hitObserver = observation && typeof label.evaluateHandle === 'function' ? await label.evaluateHandle(element => {
-        const controller = new element.ownerDocument.defaultView.AbortController();
-        element.addEventListener('click', event => {
-          const tag = event.target?.tagName?.toLowerCase();
-          element.setAttribute('data-aa-choice-hit', ['input', 'label', 'a', 'button', 'span', 'i'].includes(tag) ? tag : 'other');
-        }, { once: true, passive: true, capture: true, signal: controller.signal });
-        return controller;
-      }, null, { timeout: 2000 }).catch(() => null) : null;
-      try {
-        await attempt('label', () => label.click({ timeout: ACTION_TIMEOUT_MS }));
-      } finally {
-        await hitObserver?.evaluate(controller => controller.abort()).catch(() => {});
-        if (observation && typeof label.evaluate === 'function') observation.labelClickTag = await label.evaluate(element => {
-          const tag = element.getAttribute('data-aa-choice-hit');
-          element.removeAttribute('data-aa-choice-hit');
-          return ['input', 'label', 'a', 'button', 'span', 'i', 'other'].includes(tag) ? tag : null;
-        }, null, { timeout: 2000 }).catch(() => null);
-        await hitObserver?.dispose().catch(() => {});
-      }
-      await label.evaluate((element) => element.removeAttribute('data-aa-label')).catch(() => {});
+      await clickChoiceLabel(locator, observation, attempt, error);
+      await verifyChoice();
     }
   }
 }
