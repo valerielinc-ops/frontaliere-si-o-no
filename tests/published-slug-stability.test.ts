@@ -159,18 +159,22 @@ describe('served-URL ledger', () => {
       '/it/article/foo/': '2026-11-01',
       '/blog/foo/': '2026-11-01',
       '/cerca-lavoro-ticino/': '2026-01-01',
+      '/cerca-lavoro-ticino/lugano/': '2026-11-01',
       '/cerca-lavoro-ticino/company-foo/': '2026-11-01',
     });
     expect(slugWasServed('it', 'foo')).toBe(false);
+    expect(slugWasServed('it', 'lugano')).toBe(false);
     expect(slugWasServed('it', 'company-foo')).toBe(false);
   });
 
   it('a canonical job detail route marks its slug as served, per locale', () => {
     useLedger({
       [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
+      '/cerca-lavoro-ticino/lugano/job-slug/': '2026-09-15',
       '/de/jobs-in-bern/kundendienst-transport-spezialist-cippa-trasporti-sa-bern/': '2026-10-01',
     });
     expect(slugWasServed('it', INDEXED_IT)).toBe(true);
+    expect(slugWasServed('it', 'job-slug')).toBe(true);
     expect(slugWasServed('de', 'kundendienst-transport-spezialist-cippa-trasporti-sa-bern')).toBe(true);
     expect(slugWasServed('en', INDEXED_IT)).toBe(false);
   });

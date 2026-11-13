@@ -46,10 +46,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
-import {
-  JOB_BOARD_COMPANY_HUB_PATH_RX,
-  JOB_BOARD_SECTION_PATHNAME_RX,
-} from './jobBoardSections.mjs';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardSections.mjs';
+import { isJobBoardDetailPath } from './job-board-detail-path.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
@@ -92,11 +90,10 @@ function pathLocale(urlPath) {
  */
 export function servedJobDetailKey(urlPath) {
   const clean = String(urlPath || '').trim().toLowerCase();
-  if (!JOB_BOARD_SECTION_PATHNAME_RX.test(clean) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(clean)) return null;
+  if (!isJobBoardDetailPath(clean) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(clean)) return null;
   const segments = clean.split('/').filter(Boolean);
   const rest = /^(?:it|en|de|fr)$/.test(segments[0] || '') ? segments.slice(1) : segments;
-  if (rest.length !== 2) return null;
-  return `${pathLocale(clean)}|${rest[1]}`;
+  return `${pathLocale(clean)}|${rest.at(-1)}`;
 }
 
 let ledgerCache = { path: null, index: undefined };
