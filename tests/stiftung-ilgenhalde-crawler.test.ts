@@ -24,8 +24,25 @@ describe('Stiftung Ilgenhalde crawler parser', () => {
       expect(isStiftungIlgenhaldeJob({ company: 'Stiftung Ilgenhalde' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isStiftungIlgenhaldeJob({ url: 'https://link.ostendis.com/jobs/123' })).toBe(true);
+    it('matches by employer-specific Ostendis publication', () => {
+      expect(isStiftungIlgenhaldeJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://link.ostendis.com/publication/lehre-als-fachperson-betreuung-efz/a0mjlsqqam67iioffat4y0weoja7oq5l2ar13kl2xeopjec7aljti675vk37jhry',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated jobs on shared ATS hosts', () => {
+      expect(isStiftungIlgenhaldeJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/other-employer-role',
+      })).toBe(false);
+      expect(isStiftungIlgenhaldeJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://link.ostendis.com/publication/other-employer-role/id',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

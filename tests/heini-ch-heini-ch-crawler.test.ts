@@ -24,8 +24,25 @@ describe('Heini Conditorei AG crawler parser', () => {
       expect(isHeiniChHeiniChJob({ company: 'Heini Conditorei AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isHeiniChHeiniChJob({ url: 'https://yousty.ch/jobs/123' })).toBe(true);
+    it('matches by employer-specific Yousty vacancy path', () => {
+      expect(isHeiniChHeiniChJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/123-baecker-in-konditor-in-efz-heini-conditorei-ag',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated jobs on shared ATS hosts', () => {
+      expect(isHeiniChHeiniChJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/other-employer-role',
+      })).toBe(false);
+      expect(isHeiniChHeiniChJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://link.ostendis.com/publication/other-employer-role/id',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

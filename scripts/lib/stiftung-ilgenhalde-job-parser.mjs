@@ -32,6 +32,9 @@ export const STIFTUNG_ILGENHALDE_COMPANY_NAME = 'Stiftung Ilgenhalde';
 export const STIFTUNG_ILGENHALDE_COMPANY_DOMAIN = 'link.ostendis.com';
 
 const CAREER_URL = 'https://link.ostendis.com/publication/lehre-als-fachperson-betreuung-efz/a0mjlsqqam67iioffat4y0weoja7oq5l2ar13kl2xeopjec7aljti675vk37jhry';
+const STIFTUNG_ILGENHALDE_PUBLICATION_PATH = new URL(CAREER_URL).pathname
+  .replace(/\/+$/, '')
+  .toLowerCase();
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -41,6 +44,16 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isStiftungIlgenhaldePublicationUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    return url.hostname.toLowerCase() === STIFTUNG_ILGENHALDE_COMPANY_DOMAIN
+      && url.pathname.replace(/\/+$/, '').toLowerCase() === STIFTUNG_ILGENHALDE_PUBLICATION_PATH;
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -56,13 +69,12 @@ export function isStiftungIlgenhaldeJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === STIFTUNG_ILGENHALDE_KEY ||
     key.startsWith('stiftung-ilgenhalde-') ||
     company.includes('stiftung ilgenhalde') ||
-    url.includes('link.ostendis.com')
+    isStiftungIlgenhaldePublicationUrl(job?.url)
   );
 }
 

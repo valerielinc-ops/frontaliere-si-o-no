@@ -32,6 +32,7 @@ export const HEINI_CH_HEINI_CH_COMPANY_NAME = 'Heini Conditorei AG';
 export const HEINI_CH_HEINI_CH_COMPANY_DOMAIN = 'yousty.ch';
 
 const CAREER_URL = 'https://www.yousty.ch/de-CH/lehrstellen/firmen/2237470-heini-conditorei-ag';
+const HEINI_CH_HEINI_CH_VACANCY_PATH_RE = /^\/(?:[a-z]{2}-[a-z]{2}\/)?(?:lehrstellen\/profile|places-d-apprentissage\/profils|posti-di-apprendistato\/profili)\/[^/?#]+-heini-conditorei-ag\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -41,6 +42,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isHeiniChHeiniChVacancyUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    const host = url.hostname.toLowerCase();
+    return (host === HEINI_CH_HEINI_CH_COMPANY_DOMAIN
+      || host === `www.${HEINI_CH_HEINI_CH_COMPANY_DOMAIN}`)
+      && HEINI_CH_HEINI_CH_VACANCY_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -56,13 +69,12 @@ export function isHeiniChHeiniChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === HEINI_CH_HEINI_CH_KEY ||
     key.startsWith('heini-ch-heini-ch-') ||
     company.includes('heini conditorei ag') ||
-    url.includes('yousty.ch')
+    isHeiniChHeiniChVacancyUrl(job?.url)
   );
 }
 
