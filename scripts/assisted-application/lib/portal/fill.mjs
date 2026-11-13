@@ -96,6 +96,7 @@ const UPLOAD_QUIET_MS = 700;
 
 /** A custom choice can expose a checked DOM property while its visible label is the event boundary. */
 async function visibleChoiceLabelRequired(locator) {
+  if (typeof locator?.evaluate !== 'function') return false;
   return locator.evaluate((element) => {
     const type = String(element?.getAttribute?.('type') || '').toLowerCase();
     if (!['checkbox', 'radio'].includes(type)) return false;
