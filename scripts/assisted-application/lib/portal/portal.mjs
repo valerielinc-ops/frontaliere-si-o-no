@@ -4758,7 +4758,7 @@ export function formPostingMatch(formText, job = {}, {
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
   const umantisPostingPair = isUmantisPostingEntry({
     applyUrl: formApplicationUrl,
-    postingUrl,
+    postingUrl: formPostingUrl,
     postingRouteProof,
   });
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
