@@ -927,6 +927,8 @@ function createSubstringMemo() {
   return { known: new Uint32Array(64), hit: new Uint32Array(64) };
 }
 
+const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
+
 /** @returns {-1|0|1} unknown, miss, hit */
 function memoRead(memo, index) {
   const word = index >>> 5;
@@ -989,10 +991,10 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 }
 
 /**
- * Run-scoped, locale-independent job features. Large locale-specific text and
- * alert-keyword bitmaps stay in the shorter-lived cache returned by
- * {@link createJobFeatureCache}; this store shares the normalized description
- * once per job without retaining a full feature object for every locale.
+ * Run-scoped compact job data. Locale-independent base features and a capped
+ * set of description keyword bitmaps are shared; full locale-specific text and
+ * title/search bitmaps stay in the shorter-lived cache returned by
+ * {@link createJobFeatureCache}.
  *
  * A caller that mutates a job between scores must not reuse this store. The
  * default (no cache) recomputes exactly as before.
@@ -1000,6 +1002,9 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
+  const jobIndexByJob = new WeakMap();
+  let jobCount = 0;
+  const descriptionMemos = new Map();
   const base = (job) => {
     let found = byJob.get(job);
     if (!found) {
@@ -1008,11 +1013,35 @@ export function createJobFeatureStore() {
     }
     return found;
   };
+  const jobIndex = (job) => {
+    let index = jobIndexByJob.get(job);
+    if (index === undefined) {
+      index = jobCount++;
+      jobIndexByJob.set(job, index);
+    }
+    return index;
+  };
+  const descriptionMemo = (keyword) => {
+    let memo = descriptionMemos.get(keyword);
+    if (memo) {
+      descriptionMemos.delete(keyword);
+      descriptionMemos.set(keyword, memo);
+      return memo;
+    }
+    memo = createSubstringMemo();
+    descriptionMemos.set(keyword, memo);
+    if (descriptionMemos.size > MAX_SHARED_DESCRIPTION_MEMOS) {
+      descriptionMemos.delete(descriptionMemos.keys().next().value);
+    }
+    return memo;
+  };
   return {
     get(job, locale) {
       return jobMatchFeaturesWithBase(job, locale, base(job));
     },
     base,
+    jobIndex,
+    descriptionMemo,
     pinnedKeys(job) {
       let keys = pinnedKeysByJob.get(job);
       if (!keys) {
@@ -1031,10 +1060,6 @@ export function createJobFeatureStore() {
  */
 export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
   const byJob = new WeakMap();
-  const jobIndexByJob = new WeakMap();
-  let jobCount = 0;
-  /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
-  const descriptionMemos = new Map();
   /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
   const spaces = new Map();
   const spaceFor = (key) => {
@@ -1055,15 +1080,10 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
     let found = byLocale.get(key);
     if (!found) {
       const space = spaceFor(key);
-      let jobIndex = jobIndexByJob.get(job);
-      if (jobIndex === undefined) {
-        jobIndex = jobCount++;
-        jobIndexByJob.set(job, jobIndex);
-      }
       found = {
         features: jobMatchFeaturesWithBase(job, locale, featureStore.base(job)),
         index: space.size++,
-        jobIndex,
+        jobIndex: featureStore.jobIndex(job),
         locHaystack: null,
         searchHaystack: null,
       };
@@ -1092,11 +1112,7 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
         localeMemo = createSubstringMemo();
         space.keywordMemos.set(keyword, localeMemo);
       }
-      let descriptionMemo = descriptionMemos.get(keyword);
-      if (!descriptionMemo) {
-        descriptionMemo = createSubstringMemo();
-        descriptionMemos.set(keyword, descriptionMemo);
-      }
+      const descriptionMemo = featureStore.descriptionMemo(keyword);
       return (entry) => memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword);
     },
     searchTest(locale, query) {

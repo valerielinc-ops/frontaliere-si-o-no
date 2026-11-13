@@ -443,6 +443,19 @@ describe('matching cost per alert (#9314)', () => {
     expect(entries.second.map((entry) => entry.index)).toEqual([0, 1]);
   });
 
+  it('reuses description keyword scans across fresh per-batch caches', () => {
+    const job = fixtureJobs()[6];
+    const store = createJobFeatureStore();
+    const { counts } = countDuring(() => {
+      for (const locale of ['en', 'it']) {
+        const cache = createJobFeatureCache(store);
+        const entry = cache.entry(job, locale);
+        expect(cache.keywordTest(locale, 'unlikely-keyword-not-in-fixture')(entry)).toBe(false);
+      }
+    });
+    expect(counts.descriptionScans).toBe(1);
+  });
+
   it('keeps bitmap indexes dense after the shared feature store has seen many jobs', () => {
     const store = createJobFeatureStore();
     const priorJobs = Array.from({ length: 2049 }, (_, index) => ({
