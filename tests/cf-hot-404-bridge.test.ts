@@ -287,3 +287,34 @@ describe('cfHot404BridgePlugin — canton-moved orphans are left to the Worker 3
     expect(fs.readFileSync(path.join(tmp, 'dist', `cerca-lavoro-berna/${slug}`, 'index.html'), 'utf8')).toBe('<html>CANTON PAGE</html>');
   });
 });
+
+describe('cfHot404BridgePlugin — German legacy section aliases stay origin 404s', () => {
+  let tmp: string;
+  const slug = 'schulbotschafter-in-stadt-zurich-zurich';
+  const legacyPath = '/de/jobs-im-zurich/' + slug;
+
+  beforeAll(async () => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cf-hot-legacy-de-'));
+    fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'data', 'cf-hot-404s.json'), JSON.stringify({
+      generatedAt: '2026-11-13T00:00:00.000Z',
+      source: 'cloudflare',
+      paths: [{ path: legacyPath, hits: 4 }],
+    }));
+    const { writeAllKnownJobSlugs } = await import('../scripts/lib/all-known-job-slugs-store.mjs');
+    writeAllKnownJobSlugs({ [slug]: { de: legacyPath } }, tmp);
+    const plugin = cfHot404BridgePlugin(tmp);
+    const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+    await closeBundle.handler.call({} as never);
+  });
+
+  afterAll(() => {
+    if (tmp) fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  it('writes no directory or flat compatibility page on the unroutable alias', () => {
+    const dist = path.join(tmp, 'dist');
+    expect(fs.existsSync(path.join(dist, 'de', 'jobs-im-zurich', slug, 'index.html'))).toBe(false);
+    expect(fs.existsSync(path.join(dist, 'de', 'jobs-im-zurich', slug + '.html'))).toBe(false);
+  });
+});
