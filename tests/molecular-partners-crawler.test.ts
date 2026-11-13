@@ -25,8 +25,10 @@ describe('Molecular Partners crawler parser', () => {
   describe('empty source proof', () => {
     const emptyListing = `
       <main>
-        <h2>No results</h2>
-        <p>No vacancies match your search criteria.</p>
+        <ul class="ts-offer-list">
+          <h2>No results</h2>
+          <p>No vacancies match your search criteria.</p>
+        </ul>
       </main>
     `;
 
@@ -42,7 +44,14 @@ describe('Molecular Partners crawler parser', () => {
 
     it('ignores empty markers that are hidden', () => {
       expect(isMolecularPartnersEmptyListingPage(
-        '<main><div hidden><h2>No results</h2><p>No vacancies match your search criteria.</p></div></main>',
+        '<main><ul class="ts-offer-list" hidden><h2>No results</h2><p>No vacancies match your search criteria.</p></ul></main>',
+      )).toBe(false);
+    });
+
+    it('does not combine markers from unrelated visible page regions', () => {
+      expect(isMolecularPartnersEmptyListingPage(
+        '<section><h2>No results</h2></section><footer><p>No vacancies match your search criteria.</p></footer>',
+        [],
       )).toBe(false);
     });
 

@@ -41,6 +41,7 @@ const LISTING_URL = `${PORTAL_BASE}/Pages/Offre/ListeOffre.aspx?lcid=2057`;
 const DETAIL_DELAY_MS = 300;
 const EMPTY_RESULT_HEADING_RE = /^no results$/i;
 const EMPTY_RESULT_MESSAGE_RE = /^no vacancies match your search criteria\.?$/i;
+const TALENTSOFT_LISTING_CONTAINER_SELECTOR = '.ts-offer-list';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -208,7 +209,8 @@ export function parseMolecularPartnersListing(html) {
 /**
  * Confirm Talentsoft's explicit empty-board state without treating a parser
  * miss as proof that the source is empty. The markers must be visible and
- * appear together; hidden/template/script copies are ignored.
+ * appear together inside Talentsoft's recognized listing container;
+ * hidden/template/script copies and page chrome are ignored.
  */
 export function isMolecularPartnersEmptyListingPage(
   html = '',
@@ -227,14 +229,21 @@ export function isMolecularPartnersEmptyListingPage(
     }
     return false;
   };
-  const visibleElements = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, div, span, li')]
+  const listingContainers = [...document.querySelectorAll(TALENTSOFT_LISTING_CONTAINER_SELECTOR)]
     .filter((element) => !isHidden(element));
-  const hasVisibleMarker = (pattern) => visibleElements.some((element) => (
-    pattern.test(normalizeSpace(element.textContent || ''))
-  ));
 
-  return hasVisibleMarker(EMPTY_RESULT_HEADING_RE)
-    && hasVisibleMarker(EMPTY_RESULT_MESSAGE_RE);
+  return listingContainers.some((container) => {
+    const visibleElements = [
+      container,
+      ...container.querySelectorAll('h1, h2, h3, h4, h5, h6, p, div, span, li'),
+    ].filter((element) => !isHidden(element));
+    const hasVisibleMarker = (pattern) => visibleElements.some((element) => (
+      pattern.test(normalizeSpace(element.textContent || ''))
+    ));
+
+    return hasVisibleMarker(EMPTY_RESULT_HEADING_RE)
+      && hasVisibleMarker(EMPTY_RESULT_MESSAGE_RE);
+  });
 }
 
 /**
