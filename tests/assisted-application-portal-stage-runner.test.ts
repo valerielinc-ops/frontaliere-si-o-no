@@ -10,7 +10,7 @@ vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async impo
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
     beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
 }));
-import { advancedToFinalReview, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { advancedToFinalReview, embeddedEngelvoelkersApplyUrlFromHtml, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
 
 const title = 'Infrastructure Strategy Manager';
@@ -27,15 +27,16 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   state.snapshot = source || initial;
   const buttonTransitions = options.buttonTransitions || {};
   const guard = vi.fn(async () => {
-    expect(state.snapshot.url).toBe(reviewUrl);
+    expect(state.snapshot.url).toBe(options.guardUrl || reviewUrl);
     expect(click).not.toHaveBeenCalled();
   });
-  const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = receipt; });
+  const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = options.receiptSnapshot || receipt; });
   const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; });
   const page: any = {
     url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
+      if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
@@ -45,6 +46,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
         return state.snapshot.heading ? [state.snapshot.heading] : [];
       }
+      if (source.includes("script#__NEXT_DATA__")) return options.embeddedHtml || '';
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     ...(options.agentSnapshot ? { ariaSnapshot: async () => options.agentSnapshot(state.snapshot) } : {}),
@@ -752,6 +754,83 @@ describe('runner final guard across three application stages', () => {
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('follows the selected Engel & Völkers Lever entry from a chrome-only detail shell', async () => {
+    const uuid = 'a6b47bf4-6819-48a4-bdab-f6160bd496ec';
+    const postingUrl = `https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/${uuid}`;
+    const leverApply = `https://jobs.eu.lever.co/engelvoelkers/${uuid}/apply`;
+    const leverReview = `${leverApply}/review`;
+    const leverReceipt = `${leverApply}/confirmation`;
+    const shell = {
+      url: postingUrl,
+      title: 'Careers',
+      heading: '',
+      text: '',
+      fields: [],
+      buttons: [
+        { text: 'open navigation', chrome: true },
+        { text: 'Comprare e affittare', chrome: true },
+        { text: 'Vendere un immobile', chrome: true },
+        { text: 'Agenti immobiliari', chrome: true },
+        { text: 'Commercial', chrome: true },
+        { text: 'Azienda', chrome: true },
+        { text: 'IT', chrome: true },
+        { text: 'Contattaci ora', chrome: true },
+        { text: 'vai all\'inizio', chrome: true },
+        { text: 'Gestisci le impostazioni [dato del candidato] cookie', chrome: true },
+      ],
+      errors: [], captcha: false, passwordVisible: false,
+    };
+    const embeddedHtml = `<script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+      props: { pageProps: { data: { details: { posting: {
+        id: uuid,
+        urls: { apply: leverApply },
+      } } } } },
+    })}</script>`;
+    const leverForm = {
+      ...shell,
+      url: leverApply,
+      title,
+      text: `Engel & Völkers — ${title}. Application form.`,
+      fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }],
+      buttons: [{ id: 'next', text: 'Next', formId: 'application', frame: 0, disabled: false }],
+    };
+    const leverReviewSnapshot = {
+      ...leverForm,
+      url: leverReview,
+      text: `Engel & Völkers — ${title}. Review your application. Select Submit to send it.`,
+      buttons: [{ id: 'commit', text: 'Submit', formId: 'application', frame: 0, disabled: false }],
+    };
+    const leverReceiptSnapshot = {
+      ...leverReviewSnapshot,
+      url: leverReceipt,
+      text: `Thank you for your application to ${title}.`,
+      fields: [],
+      buttons: [],
+    };
+    let finalClickCount = 0;
+    const f = fixture(shell, shell, review, null, {
+      postingUrl,
+      embeddedApplyUrl: leverApply,
+      embeddedHtml,
+      applySnapshot: leverForm,
+      guardUrl: leverReview,
+      receiptSnapshot: leverReceiptSnapshot,
+      buttonTransitions: {
+        '[data-aa-id="next"]': () => { state.snapshot = leverReviewSnapshot; },
+        '[data-aa-id="commit"]': () => { finalClickCount += 1; state.snapshot = leverReceiptSnapshot; },
+      },
+      job: { title, company: 'Engel & Völkers' },
+    });
+    expect(embeddedEngelvoelkersApplyUrlFromHtml(embeddedHtml, postingUrl)).toBe(leverApply);
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.page.goto).toHaveBeenCalledWith(leverApply, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(finalClickCount).toBe(1);
   });
 
   it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {

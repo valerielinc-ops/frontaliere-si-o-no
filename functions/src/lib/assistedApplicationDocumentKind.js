@@ -34,3 +34,36 @@ export function isDegreeCertificateRequirement(label) {
   const padded = ` ${normalized} `;
   return DEGREE_CERTIFICATE_LABELS.some(phrase => padded.includes(` ${phrase} `));
 }
+
+const PHOTO_LABEL_TERM = '(?:photo|photograph|photographie|foto|fotografia)';
+const IDENTITY_LABEL_TERM = '(?:id|identification|identity)';
+const IDENTITY_DOCUMENT_PHOTO_LABEL = new RegExp([
+  `\\b${PHOTO_LABEL_TERM} ${IDENTITY_LABEL_TERM}\\b`,
+  `\\b${IDENTITY_LABEL_TERM} ${PHOTO_LABEL_TERM}\\b`,
+  `\\b${PHOTO_LABEL_TERM}\\b(?:\\s+(?:of|for|the|a|an)){1,3}\\s+${IDENTITY_LABEL_TERM} (?:card|document)\\b`,
+  `\\b${IDENTITY_LABEL_TERM} (?:card|document)\\b(?:\\s+\\w+){0,2}\\s+\\b${PHOTO_LABEL_TERM}\\b`,
+].join('|'));
+
+/** Labels for a candidate portrait, as opposed to a CV or another record. */
+export function isPhotoRequirement(label, kind = null) {
+  const normalized = normalizeLabel(label);
+  if (normalized && IDENTITY_DOCUMENT_PHOTO_LABEL.test(normalized)) return false;
+  if (kind === 'photo') return true;
+  if (!normalized) return false;
+  const padded = ` ${normalized} `;
+  return [
+    'foto', 'fotos', 'fotografia', 'fotografie', 'fototessera', 'fototessere',
+    'fotografia tessera', 'fotografie tessera', 'foto tessera', 'foto tessere',
+    'photo', 'photos', 'photograph', 'photographs', 'photographie', 'photographies',
+    'portrait', 'portraits', 'headshot', 'headshots',
+    'bewerbungsfoto', 'bewerbungsfotos', 'bewerbungsbild', 'bewerbungsbilder',
+    'passfoto', 'passfotos', 'pasfoto', 'pasfotos', 'profilbild', 'profilbilder', 'profilfoto', 'profilfotos',
+    'profielfoto', 'profielfotos', 'portretfoto', 'portretfotos', 'lichtbild', 'lichtbilder',
+    'profile photo', 'profile photos', 'profile picture', 'profile pictures', 'passport photo', 'passport photos',
+    'application photo', 'application photos',
+    'photo identite', 'photo d identite', 'photographie identite', 'photographie d identite',
+    'photos identite', 'photos d identite', 'photographies identite', 'photographies d identite',
+    'photo de profil', 'photos de profil', 'photo profil', 'photos profil', 'photo de candidature',
+    'foto de perfil', 'fotos de perfil', 'fotografia de perfil', 'foto carnet', 'foto de carnet',
+  ].some(phrase => padded.includes(` ${phrase} `));
+}

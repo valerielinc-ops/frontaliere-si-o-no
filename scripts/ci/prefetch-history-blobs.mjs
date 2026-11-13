@@ -8,7 +8,9 @@
  * historical blobs as well and has grown past the checkout timeout. A
  * blobless checkout keeps the commit/tree walk complete; this script gathers
  * the exact slice blob object ids and asks Git for them in one pack, avoiding
- * one network lazy-fetch per `git show` in the backfill.
+ * one network lazy-fetch per `git show` in the backfill. The discovery walk
+ * must also stay offline: `--missing=print` reports the blob ids already
+ * present in the trees without making Git lazy-fetch each missing blob.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -38,10 +40,18 @@ function runGit(args, options = {}) {
  * Extract only file blobs for the two historical slice directories. `git
  * rev-list --objects` also emits commits and trees, and may emit the same blob
  * through several refs; deduplicate before sending the object ids to Git.
+ * With `--missing=print`, a blobless checkout emits missing object ids as
+ * `?<oid>` without a path. The command's pathspec scopes those markers to the
+ * two slice directories, so they are safe to include in the single fetch.
  */
 export function historyBlobOidsFromRevList(output) {
   const oids = new Set();
   for (const line of String(output).split('\n')) {
+    const missingMatch = line.match(/^\?([0-9a-f]{40}(?:[0-9a-f]{24})?)$/u);
+    if (missingMatch && OID_RE.test(missingMatch[1])) {
+      oids.add(missingMatch[1]);
+      continue;
+    }
     const match = line.match(/^([0-9a-f]{40}(?:[0-9a-f]{24})?)\s+(.+)$/u);
     if (!match || !OID_RE.test(match[1]) || !SLICE_PATH_RE.test(match[2])) continue;
     oids.add(match[1]);
@@ -83,7 +93,10 @@ export function prefetch(oids) {
 }
 
 export function verifyPrefetchedBlobs(oids) {
-  const output = runGit(['cat-file', '--batch-check'], { input: `${oids.join('\n')}\n` });
+  const output = runGit(['cat-file', '--batch-check'], {
+    input: `${oids.join('\n')}\n`,
+    env: { ...process.env, GIT_NO_LAZY_FETCH: '1' },
+  });
   const invalid = output
     .trim()
     .split('\n')
@@ -106,8 +119,22 @@ export function historySinceArgs(value = process.env.HISTORY_SINCE) {
   return since && since !== 'all' ? [`--since=${since}`] : [];
 }
 
+export function historyBlobDiscoveryArgs(value = process.env.HISTORY_SINCE) {
+  return [
+    'rev-list',
+    '--objects',
+    '--all',
+    '--missing=print',
+    ...historySinceArgs(value),
+    '--',
+    ...HISTORY_PATHS,
+  ];
+}
+
 export function main() {
-  const revList = runGit(['rev-list', '--objects', '--all', ...historySinceArgs(), '--', ...HISTORY_PATHS]);
+  const revList = runGit(historyBlobDiscoveryArgs(), {
+    env: { ...process.env, GIT_NO_LAZY_FETCH: '1' },
+  });
   const oids = historyBlobOidsFromRevList(revList);
   if (oids.length === 0) {
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);

@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { hasAddressContextOwnership } from '../../../../functions/src/lib/addressContextContract.js';
+import { isPhotoRequirement } from '../../../../functions/src/lib/assistedApplicationDocumentKind.js';
 import { PORTAL_QUESTION_PLACEHOLDERS, readablePortalQuestionText, portalQuestionText } from '../../../../functions/src/lib/portalQuestionText.js';
 import '../../extension/apply-control.js';
 /**
@@ -731,6 +732,34 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+const TEAM_JOBS_HOSTS = new Set(['team.jobs', 'www.team.jobs']);
+const TEAM_JOBS_DETAIL_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?(?:offres-demplois|offerte-di-lavoro|stellen|jobangebote|job-offers)\/(?:[^/]+\/){2}([A-Za-z0-9]+)\/?$/iu;
+const TEAM_JOBS_APPLY_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?jobs\/apply\/([A-Za-z0-9]+)\/?$/iu;
+
+function teamJobsRoute(value, routePattern) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password
+      || !TEAM_JOBS_HOSTS.has(url.hostname.toLowerCase())) return null;
+    const match = routePattern.exec(url.pathname);
+    return match ? { postingId: match[1] } : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * team.jobs keeps the public detail URL in the crawler record but renders its
+ * actual CTA as `/jobs/apply/<opaque-id>`. The opaque id is only a binding when
+ * both routes are on the trusted host and use the exact same route id; the
+ * host or route namespace alone must never select a neighbouring vacancy.
+ */
+function isTeamJobsPostingEntry({ applyUrl, postingUrl } = {}) {
+  const apply = teamJobsRoute(applyUrl, TEAM_JOBS_APPLY_ROUTE_RE);
+  const posting = teamJobsRoute(postingUrl, TEAM_JOBS_DETAIL_ROUTE_RE);
+  return Boolean(apply && posting && apply.postingId === posting.postingId);
+}
+
 function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
   const apply = workdayJobRoute(applyUrl);
   const posting = workdayJobRoute(postingUrl);
@@ -900,6 +929,7 @@ function verifiedPostingEntryFor(ctx = {}) {
 export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isTeamJobsPostingEntry({ applyUrl, postingUrl })
     || isWorkdayPostingEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
@@ -1036,6 +1066,65 @@ export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {})
     if (inferredPostingUrl) return inferredPostingUrl;
   }
   return umantisApplicationEntryUrl({ applyUrl: directUrl, postingUrl }) || directUrl;
+}
+
+const ENGELVOELKERS_POSTING_PATH_RE = /^\/ch\/(?:it|en|de|fr)\/azienda\/carriera\/offerte-di-lavoro\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/iu;
+const ENGELVOELKERS_LEVER_HOSTS = new Set(['jobs.lever.co', 'jobs.eu.lever.co']);
+
+/**
+ * An Engel & Völkers detail shell carries the selected vacancy's Lever form in
+ * its private Next.js payload, while the rendered surface can contain only
+ * site navigation and cookie controls. Use that payload only when both the
+ * source route and the Lever route carry the same vacancy UUID.
+ */
+export function embeddedEngelvoelkersApplyUrlFromHtml(html = '', postingUrl = '') {
+  let posting;
+  try {
+    posting = new URL(String(postingUrl || ''));
+  } catch {
+    return '';
+  }
+  if (posting.protocol !== 'https:' || posting.username || posting.password
+    || posting.hostname.toLowerCase() !== 'www.engelvoelkers.com') return '';
+  const postingMatch = ENGELVOELKERS_POSTING_PATH_RE.exec(posting.pathname);
+  if (!postingMatch) return '';
+  const postingUuid = postingMatch[1].toLowerCase();
+  const nextData = String(html || '').match(/<script\s+id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/iu)?.[1];
+  if (!nextData) return '';
+
+  let data;
+  try {
+    data = JSON.parse(nextData);
+  } catch {
+    return '';
+  }
+  const details = data?.props?.pageProps?.data?.details || data?.props?.pageProps?.details;
+  const postingData = details?.posting || details;
+  const payloadUuid = String(postingData?.id || '').trim().toLowerCase();
+  if (payloadUuid && payloadUuid !== postingUuid) return '';
+  const rawApplyUrl = String(postingData?.urls?.apply || details?.urls?.apply || '').trim();
+  if (!rawApplyUrl) return '';
+
+  let apply;
+  try {
+    apply = new URL(rawApplyUrl);
+  } catch {
+    return '';
+  }
+  if (apply.protocol !== 'https:' || apply.username || apply.password || apply.hash
+    || !ENGELVOELKERS_LEVER_HOSTS.has(apply.hostname.toLowerCase())) return '';
+  const pathSegments = apply.pathname.split('/').filter(Boolean).map(segment => {
+    try { return decodeURIComponent(segment).toLowerCase(); } catch { return segment.toLowerCase(); }
+  });
+  if (!pathSegments.includes(postingUuid) || pathSegments.at(-1) !== 'apply') return '';
+  return apply.href;
+}
+
+async function embeddedEngelvoelkersApplyUrl(page, stageContext) {
+  const postingUrl = String(stageContext?.postingUrl || stageContext?.applyUrl || '').trim();
+  if (!postingUrl || !samePostingAddress(page.url(), postingUrl)) return '';
+  const html = await page.evaluate(() => document.querySelector('script#__NEXT_DATA__')?.textContent || '').catch(() => '');
+  return embeddedEngelvoelkersApplyUrlFromHtml(html, postingUrl);
 }
 
 /** A saved Umantis vacancy address, only when it proves the current application route. */
@@ -2126,6 +2215,8 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // neither href nor local posting markers. Never borrow this provenance on
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
+  const apply = comparablePortalRoute(context.applyUrl);
+  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '');
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
@@ -2133,6 +2224,15 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
+  const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
+    && !socialApplicationEntry(control));
+  if (context.allowSingleExternalApplicationEntry === true
+    && verifiedFieldlessJobRoute
+    && apply && posting && current
+    && apply.origin === posting.origin && apply.pathname === posting.pathname && apply.search === posting.search
+    && current.origin === posting.origin && current.pathname === posting.pathname && current.search === posting.search
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && genericScriptEntries.length === 1 && allEntries.length === 1) return genericScriptEntries;
   // The official Stadt Zürich detail page is selected by its unique role link
   // before this loop reaches it. On that exact, fieldless detail route a sole
   // explicit Apply control is the only remaining handoff proof; a duplicate
@@ -3532,6 +3632,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let workdayApplicationEntryProven = stageContext?.workdayApplicationEntryProven === true
     || isWorkdayApplicationRouteBound(page.url(), stageContext?.applyUrl);
   let resolvedPostingUrl = '';
+  let resolvedApplicationUrl = '';
   let publicSearchTarget = false;
   let publicSearchSearched = false;
   let customSuccessFactorsEntryClicked = false;
@@ -3541,6 +3642,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     enteredThroughApplicationEntry,
     workdayApplicationEntryProven,
     ...(resolvedPostingUrl ? { resolvedPostingUrl } : {}),
+    ...(resolvedApplicationUrl ? { resolvedApplicationUrl } : {}),
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
   });
@@ -3643,6 +3745,25 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         snapshot = verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), applicantContext);
       }
       return result();
+    }
+    // Engel & Völkers can render only its site chrome on the vacancy route.
+    // The selected Lever entry is still present in __NEXT_DATA__; follow it
+    // only after binding both routes to the same vacancy UUID, then let the
+    // normal form/provenance checks handle the ATS page.
+    if (hop === 0) {
+      const embeddedApplicationUrl = await embeddedEngelvoelkersApplyUrl(page, stageContext);
+      if (embeddedApplicationUrl) {
+        enteredThroughApplicationEntry = true;
+        resolvedPostingUrl = String(stageContext?.postingUrl || page.url());
+        resolvedApplicationUrl = embeddedApplicationUrl;
+        stageContext = { ...stageContext, applyUrl: embeddedApplicationUrl, postingEntry: true };
+        await page.goto(embeddedApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await settle(page);
+        await page.waitForTimeout(1200);
+        snapshot = await extractFields(page, NAVIGATION);
+        reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
+        continue;
+      }
     }
     if (stageContext) {
       const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, {
@@ -8922,10 +9043,13 @@ export function portalRequiredDocumentFromField(field) {
   return {
     id: portalDocumentId(field, label, field.context || ''),
     label: label.slice(0, 160),
-    kind: 'other',
+    kind: isPhotoRequirement(label) ? 'photo' : 'other',
     required: true,
     quote: label.slice(0, 300),
     keywords,
+    ...(isPhotoRequirement(label) && typeof field.accept === 'string' ? { accept: field.accept.slice(0, 240) } : {}),
+    ...(isPhotoRequirement(label) && Number.isSafeInteger(field.maxFileSizeBytes) && field.maxFileSizeBytes > 0
+      ? { maxBytes: field.maxFileSizeBytes } : {}),
   };
 }
 
@@ -9472,6 +9596,7 @@ export async function readPortalRequirements(ctx) {
       ...(sourceDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: sourcePageUrl } : {}),
     });
     ({ page, snapshot } = opened);
+    if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
     if (opened.resolvedPostingUrl) {
       formPostingUrl = opened.resolvedPostingUrl;
       sourcePostingMatched = true;
@@ -10113,10 +10238,12 @@ export async function submitViaPortal(ctx) {
       cookieAgent,
     });
     ({ page, snapshot } = opened);
+    if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
     workdayApplicationEntryProven = workdayApplicationEntryProven || opened.workdayApplicationEntryProven === true;
     if (opened.resolvedPostingUrl) {
       postingUrl = opened.resolvedPostingUrl;
       postingVacancyMatched = true;
+      startupNavigationHint = '';
     }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
     if (opened.handoff) startupNavigationHint = opened.handoff;

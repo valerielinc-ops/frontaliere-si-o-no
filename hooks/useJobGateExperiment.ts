@@ -8,15 +8,15 @@
  * session and shared by the hook and the subscriber write, so the same arm tags
  * the telemetry and the Firestore document.
  *
- * Fail-safe paths, all ending in "not enrolled, promoted Spotlight":
- *   - JOBGATE_V5_EXPERIMENT_ENABLED missing/`false` (kill switch);
+ * Fail-safe paths, all ending in "not enrolled, promoted tinted":
+ *   - JOBGATE_V6_EXPERIMENT_ENABLED missing/`false` (kill switch);
  *   - Remote Config slower than LOAD_TIMEOUT_MS or throwing;
  *   - no stable visitor id (storage blocked) and no forced arm;
  *   - crawlers/bots (the caller passes `bypass`).
  *
- * A gate rendered before the assignment settles starts as promoted Spotlight
+ * A gate rendered before the assignment settles starts as the promoted tinted
  * and switches to its arm when Remote Config answers. That switch must not
- * move the page: every arm keeps the gate at Spotlight's height (jobGateSkin.ts), so the ad
+ * move the page: every arm keeps the gate at the promoted tinted treatment's height (jobGateSkin.ts), so the ad
  * slot below it stays put. A settled assignment is served synchronously, so a
  * gate rendered after it never starts as pending.
  */
@@ -37,15 +37,15 @@ import {
   type JobGateAssignment,
 } from '@/services/jobGateExperiment';
 
-/** Past this the page keeps the promoted Spotlight default for the session (no late flip). */
+/** Past this the page keeps the promoted tinted default for the session (no late flip). */
 export const JOBGATE_LOAD_TIMEOUT_MS = 3000;
 
 /**
  * Remembers which arm already produced `experiment_assigned` for this browser.
- * Versioned with the round so the prior v4 Spotlight exposure does not swallow
- * the new v5 baseline exposure.
+ * Versioned with the round so the prior v5 exposure does not swallow the new
+ * v6 control exposure.
  */
-export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v5_assigned';
+export const JOBGATE_ASSIGNED_STORAGE_KEY = 'frontaliere_jobgate_v6_assigned';
 
 /** Keep automated page loads out of every auth-gate surface. */
 export function shouldBypassJobGateExperiment(): boolean {
@@ -93,8 +93,8 @@ export function loadJobGateAssignment(): Promise<JobGateAssignment> {
 /**
  * The assignment the hook already started loading, or "not enrolled" when it
  * never did (crawler/bot bypass). The subscriber write awaits this instead of
- * starting its own load, so a bypassed visitor — shown the promoted Spotlight
- * gate and sending untagged events — can never get a `jobgate-v5:*` document.
+ * starting its own load, so a bypassed visitor — shown the promoted tinted
+ * gate and sending untagged events — can never get a `jobgate-v6:*` document.
  */
 export function currentJobGateAssignment(): Promise<JobGateAssignment> {
   return assignmentPromise ?? Promise.resolve(JOBGATE_NOT_ENROLLED);
@@ -131,7 +131,8 @@ export function recordJobGateExposure(assignment: JobGateAssignment): void {
 
 /**
  * The visitor's jobgate assignment. Starts at `JOBGATE_PENDING` (renders as
- * control, not enrolled) and settles once; `bypass` keeps crawlers and bots out.
+ * the tinted control, not enrolled) and settles once; `bypass` keeps crawlers
+ * and bots out.
  */
 export function useJobGateExperiment(bypass = false): JobGateAssignment {
   const [assignment, setAssignment] = useState<JobGateAssignment>(() => settledAssignment ?? JOBGATE_PENDING);
