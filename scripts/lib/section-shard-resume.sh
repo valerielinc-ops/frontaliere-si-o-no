@@ -44,12 +44,14 @@ section_shard_push_fast_forward() {
 }
 
 # section_shard_publish_resumable <stage> <repo> <base_sha> <target_tree>
-#   <checkpoint_ref> <main_commit_message> <label> [files_per_checkpoint]
+#   <checkpoint_ref> <main_commit_message> <label> [files_per_checkpoint] [base|empty]
 # A large delta is written to a private, non-Pages ref in bounded path chunks.
 # Each chunk commit is pushed before the next one, so its blobs remain in the
 # shard repository if the job deadline interrupts a later chunk. The final
 # commit is a single child of <base_sha> and is promoted to main only after the
-# complete target tree has been assembled and checked by the caller. A later
+# complete target tree has been assembled and checked by the caller. Layout
+# migrations may seed checkpoints from an empty index so an already oversized
+# canonical base tree is never repushed in intermediate checkpoint trees. A later
 # run fetches the checkpoint tip (blobless) and reuses its objects while
 # rebuilding from the still-live main tree. The checkpoint branch is keyed by
 # the base SHA and is deleted after successful promotion.
@@ -57,10 +59,11 @@ section_shard_publish_resumable() {
   local stage="$1" repo="$2" base_sha="$3" target_tree="$4"
   local checkpoint_ref="$5" main_message="$6" label="${7:-shard}"
   local files_per_checkpoint="${8:-10000}"
+  local checkpoint_seed="${9:-base}"
   local final_index partial_index work raw_diff chunk_count checkpoint_parent
   local chunk_file chunk_number partial_tree commit_message checkpoint_commit final_commit actual_tree
   local existing remote_sha checkpoint_message checkpoint_target checkpoint_progress checkpoint_plan partial_start
-  local completed_chunks checkpoint_chunks phase_started
+  local completed_chunks checkpoint_chunks phase_started empty_tree diff_base
   local chunk_plan_sha
 
   case "$files_per_checkpoint" in
@@ -73,6 +76,10 @@ section_shard_publish_resumable() {
     refs/heads/shard-resume/*) ;;
     *) echo "::error::$label: refusing unsafe checkpoint ref '$checkpoint_ref'" >&2; return 1 ;;
   esac
+  case "$checkpoint_seed" in
+    base|empty) ;;
+    *) echo "::error::$label: checkpoint seed must be base or empty" >&2; return 1 ;;
+  esac
 
   work="$(mktemp -d)" || return 1
   final_index="$stage/.git/index.shard-final"
@@ -83,8 +90,18 @@ section_shard_publish_resumable() {
     rm -rf "$work" "$final_index" "$partial_index"
     return 1
   fi
-  if ! GIT_INDEX_FILE="$final_index" git -C "$stage" diff --cached --raw -z --no-renames --abbrev=40 "$base_sha" > "$raw_diff"; then
-    echo "::error::$label: could not enumerate the complete delta against $base_sha" >&2
+  if [ "$checkpoint_seed" = empty ]; then
+    if ! empty_tree="$(git -C "$stage" mktree </dev/null)"; then
+      echo "::error::$label: could not create the empty checkpoint seed tree" >&2
+      rm -rf "$work" "$final_index" "$partial_index"
+      return 1
+    fi
+    diff_base="$empty_tree"
+  else
+    diff_base="$base_sha"
+  fi
+  if ! GIT_INDEX_FILE="$final_index" git -C "$stage" diff-index --cached --raw -z --no-renames --abbrev=40 "$diff_base" -- > "$raw_diff"; then
+    echo "::error::$label: could not enumerate the complete target against its checkpoint seed" >&2
     rm -rf "$work" "$final_index" "$partial_index"
     return 1
   fi
@@ -155,9 +172,10 @@ section_shard_publish_resumable() {
   if ! chunk_plan_sha="$(perl -MDigest::SHA -e '
       use strict;
       use warnings;
-      my ($files_per_chunk, @chunks) = @ARGV;
+      my ($files_per_chunk, $seed, @chunks) = @ARGV;
       my $sha = Digest::SHA->new(256);
       $sha->add("files-per-checkpoint=$files_per_chunk\0");
+      $sha->add("checkpoint-seed=$seed\0");
       my $index = 0;
       for my $path (@chunks) {
         open my $input, "<:raw", $path or die "open $path: $!";
@@ -172,11 +190,12 @@ section_shard_publish_resumable() {
       }
       die "checkpoint chunk plan is empty" unless $index;
       print $sha->hexdigest;
-    ' "$files_per_checkpoint" "$work"/chunk-*.info)"; then
+    ' "$files_per_checkpoint" "$checkpoint_seed" "$work"/chunk-*.info)"; then
     echo "::error::$label: could not fingerprint the ordered checkpoint chunk plan" >&2
     rm -rf "$work" "$final_index" "$partial_index"
     return 1
   fi
+  echo "$label: resumable checkpoint seed=$checkpoint_seed, chunks=$chunk_count, files-per-chunk=$files_per_checkpoint"
 
   if ! existing="$(git -C "$stage" ls-remote --heads "$repo" "$checkpoint_ref")"; then
     echo "::error::$label: could not inspect checkpoint ref $checkpoint_ref" >&2
@@ -226,6 +245,8 @@ section_shard_publish_resumable() {
 
   if [ "$completed_chunks" -gt 0 ]; then
     partial_start="$checkpoint_parent"
+  elif [ "$checkpoint_seed" = empty ]; then
+    partial_start="$empty_tree"
   else
     partial_start="$base_sha"
   fi

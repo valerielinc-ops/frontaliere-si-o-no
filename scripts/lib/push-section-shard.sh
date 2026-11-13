@@ -139,22 +139,6 @@ case "$loc" in
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
 
-# Hash-fanned section trees have a storage-only _tree layer. Delta mode cannot
-# describe that physical rewrite, so always use the full overlay for them. The
-# source build and all integrity/shrink guards remain unchanged.
-if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]; then
-  echo "::notice::$section-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
-  SHARD_PUSH_MODE=full
-fi
-if section_tree_uses_hash_fanout "$section" && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
-  # SHARD_PUSH_VERIFY is advisory delta-vs-full comparison plumbing. Its plan
-  # is path-based and cannot represent the physical fan-out without materializing
-  # the entire no-checkout verifier index; the real full push still runs all
-  # source-count, shrink, integrity and remote-push guards below.
-  echo "::notice::$section-$loc shard: skipping advisory delta verifier because the physical _tree fan-out is not delta-addressable"
-  SHARD_PUSH_VERIFY=0
-fi
-
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
@@ -226,9 +210,8 @@ shard_phase() {
 }
 
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token source_path_layout
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token source_path_layout manifest_path_layout
   local private_tmp previous_tmpdir
-  source_path_layout="$(section_tree_layout "$section")"
   _shard_phase_t="$SECONDS"
   SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc"
   : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
@@ -249,6 +232,23 @@ push_section_shard() {
   if [ ! -d "$dist_dir/$sub" ]; then
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
   fi
+
+  # The durable registry is the publisher's source of truth. A failed read
+  # must stop before selecting a canonical layout for this locale.
+  if ! section_tree_load_layout_registry; then return 1; fi
+  # Hash-layout sections use the full canonical overlay when the layout was
+  # already sticky at publisher start. A section crossing the threshold in
+  # this invocation remains delta-capable; its complete index path move is
+  # checkpointed from an empty seed before main is promoted.
+  if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]; then
+    echo "::notice::$section-$loc shard: using a full canonical overlay for the existing hash-v1 layout"
+    SHARD_PUSH_MODE=full
+  fi
+  if section_tree_uses_hash_fanout "$section" && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
+    echo "::notice::$section-$loc shard: skipping advisory delta verifier for the existing hash-v1 layout"
+    SHARD_PUSH_VERIFY=0
+  fi
+  source_path_layout="$(section_tree_layout "$section")" || return 1
 
   if section_tree_uses_hash_fanout "$section" && ! section_tree_require_worker_layout "$section" "$sub"; then
     return 1
@@ -315,7 +315,12 @@ push_section_shard() {
     incremental=0
     dcount=0
     prev_n=0
+    remote_base_sha=''
+    remote_layout_fanned=0
+    layout_migration=0
     delta_applied=0
+    SECTION_TREE_LAYOUT_MOVE_COUNT=0
+    SHARD_DELTA_LAYOUT_MOVED_PATHS=0
     delta_snapshot=''
     delta_fallback_reason=''
     delta_output="$RUNNER_TEMP/shard-delta-$section-$loc"
@@ -500,6 +505,11 @@ push_section_shard() {
       if git clone -q --depth 1 --filter=blob:none --no-checkout \
            "$clone_repo" "$stage" 2>/dev/null \
          && [ -d "$stage/.git" ]; then
+        if git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+          remote_base_sha="$(git -C "$stage" rev-parse HEAD)"
+          remote_layout_entry_type="$(git -C "$stage" cat-file -t "HEAD:$sub/_tree" 2>/dev/null || true)"
+          if [ "$remote_layout_entry_type" = tree ]; then remote_layout_fanned=1; fi
+        fi
         # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
         # checks — --no-checkout NEVER materializes a working-tree file, so a
         # `[ -f "$stage/.shard-deploys" ]` check here was always false (see
@@ -604,11 +614,6 @@ push_section_shard() {
       mkdir -p "$stage/$(dirname "$sub")"
       cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
       shard_phase overlay-copy
-      if ! section_tree_fanout_stage "$section" "$stage/$sub"; then
-        echo "::error::$section-$loc shard: unable to fan out the physical section tree" >&2
-        exit 1
-      fi
-      shard_phase tree-fanout
       if { [ "$SHARD_PUSH_MODE" = delta ] || [ "$verify_ready" = 1 ]; } \
          && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
         mkdir -p "$stage/$(dirname "$delta_sidecar")"
@@ -668,6 +673,38 @@ push_section_shard() {
       fi
     fi
 
+    # Measure the canonical representation before mutating the stage. The
+    # stage tool adds a sticky registry entry before probing the live Worker;
+    # only after that probe succeeds does it rewrite the filesystem or index.
+    if [ "$delta_applied" = 1 ]; then
+      if ! section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index "$section-$loc shard"; then
+        echo "::error::$section-$loc shard: automatic tree fan-out staging failed" >&2
+        exit 1
+      fi
+      SHARD_DELTA_LAYOUT_MOVED_PATHS="$SECTION_TREE_LAYOUT_MOVE_COUNT"
+    else
+      if ! section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" filesystem "$section-$loc shard"; then
+        echo "::error::$section-$loc shard: automatic tree fan-out staging failed" >&2
+        exit 1
+      fi
+    fi
+    if [ "$incremental" = 1 ] && [ "$remote_layout_fanned" = 0 ] \
+       && section_tree_uses_hash_fanout "$section"; then
+      layout_migration=1
+      if [ -z "$delta_base_sha" ]; then delta_base_sha="$remote_base_sha"; fi
+      if [ -z "$delta_checkpoint_ref" ] && [ -n "$delta_base_sha" ]; then
+        delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
+      fi
+      if [ "$verify_ready" = 1 ]; then
+        echo "::notice::$section-$loc shard: skipping advisory verifier because the target tree layout changed"
+        verify_ready=0
+      fi
+    fi
+    source_path_layout="$(section_tree_layout "$section")" || exit 1
+    manifest_path_layout="$(section_tree_manifest_layout "$section")" || exit 1
+    printf '%s' "$manifest_path_layout" > "$RUNNER_TEMP/shard-tree-layout-$section-$loc"
+    shard_phase tree-fanout
+
     if [ "$delta_applied" = 1 ] && [ "$cdn_rewrite_partial" = 1 ]; then
       # Records how to complete this staged copy, so the pack-step barrier can
       # re-run the full pass synchronously if the background one fails.
@@ -678,7 +715,7 @@ push_section_shard() {
       cd "$stage"
       git config user.email "valerielinc@gmail.com"
       git config user.name "Valerie Linc"
-      if [ "$SHARD_DELTA_CONTENT_CHANGES" -eq 0 ]; then
+      if [ "$SHARD_DELTA_CONTENT_CHANGES" -eq 0 ] && [ "$SHARD_DELTA_LAYOUT_MOVED_PATHS" -eq 0 ]; then
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
         if [ -n "$delta_checkpoint_ref" ]; then
           section_shard_checkpoint_cleanup "$stage" "$SHARD_REPO" "$delta_checkpoint_ref" "$section-$loc shard" || true
@@ -692,15 +729,18 @@ push_section_shard() {
         _push_attempted=0
         _tree_rc=0
         _resume_threshold="${SHARD_DELTA_RESUME_THRESHOLD:-200000}"
+        _resume_seed_mode=base
+        if [ "$SHARD_DELTA_LAYOUT_MOVED_PATHS" -gt 0 ]; then _resume_seed_mode=empty; fi
         case "$_resume_threshold" in
           ''|*[!0-9]*|0)
             echo "::error::$section-$loc shard: SHARD_DELTA_RESUME_THRESHOLD must be a positive integer" >&2
             exit 1
             ;;
         esac
-        _resume_path_count=$((SHARD_DELTA_CHANGED_FILES + SHARD_DELTA_REMOVED_FILES))
+        _resume_path_count=$((SHARD_DELTA_CHANGED_FILES + SHARD_DELTA_REMOVED_FILES + SHARD_DELTA_LAYOUT_MOVED_PATHS * 2))
         _resumable_active=0
-        if [ -n "$delta_checkpoint_ref" ] && [ "$_resume_path_count" -ge "$_resume_threshold" ]; then
+        if [ -n "$delta_checkpoint_ref" ] \
+           && { [ "$SHARD_DELTA_LAYOUT_MOVED_PATHS" -gt 0 ] || [ "$_resume_path_count" -ge "$_resume_threshold" ]; }; then
           _resumable_active=1
           echo "$section-$loc shard: resumable delta enabled for $_resume_path_count changed paths (threshold $_resume_threshold, chunk size ${SHARD_DELTA_CHECKPOINT_FILES:-10000})"
           shard_report_largest_tree "$stage" "$_delta_tree" "$section-$loc shard" || _tree_rc=$?
@@ -710,7 +750,7 @@ push_section_shard() {
             if section_shard_publish_resumable \
                 "$stage" "$SHARD_REPO" "$delta_base_sha" "$_delta_tree" \
                 "$delta_checkpoint_ref" "$_delta_message" "$section-$loc shard" \
-                "${SHARD_DELTA_CHECKPOINT_FILES:-10000}"; then
+                "${SHARD_DELTA_CHECKPOINT_FILES:-10000}" "$_resume_seed_mode"; then
               _push_ok=1
             else
               _push_rc=$?
@@ -776,31 +816,51 @@ push_section_shard() {
         echo "$section-$loc shard: no content changes vs remote — skipping push (already current)"
       else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
-      git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
-      shard_phase git-commit
       _push_ok=0
       _push_rc=0
       _push_attempted=0
       _tree_rc=0
-      shard_report_largest_tree "$stage" HEAD "$section-$loc shard" || _tree_rc=$?
-      shard_phase largest-tree
-      if [ "$_tree_rc" -eq 0 ]; then
-        _push_attempted=1
-        if [ "$missing_deploy_key" = 1 ]; then
-          if shard_pat_push "$stage" "$SHARD_REPO" "main" "$section-$loc shard" 1 "deploy-key missing"; then
+      if [ "$layout_migration" = 1 ] && [ -n "$delta_checkpoint_ref" ]; then
+        _target_tree="$(git write-tree --missing-ok)"
+        shard_report_largest_tree "$stage" "$_target_tree" "$section-$loc shard" || _tree_rc=$?
+        shard_phase largest-tree
+        if [ "$_tree_rc" -eq 0 ]; then
+          _push_attempted=1
+          if section_shard_publish_resumable \
+              "$stage" "$SHARD_REPO" "$delta_base_sha" "$_target_tree" \
+              "$delta_checkpoint_ref" "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})" \
+              "$section-$loc shard" "${SHARD_DELTA_CHECKPOINT_FILES:-10000}" empty; then
             _push_ok=1
           else
             _push_rc=$?
           fi
-        elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
-          _push_ok=1
         else
-          _push_rc=$?
+          _push_rc="$_tree_rc"
         fi
+        shard_phase resumable-layout-migration
       else
-        _push_rc="$_tree_rc"
+        git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
+        shard_phase git-commit
+        shard_report_largest_tree "$stage" HEAD "$section-$loc shard" || _tree_rc=$?
+        shard_phase largest-tree
+        if [ "$_tree_rc" -eq 0 ]; then
+          _push_attempted=1
+          if [ "$missing_deploy_key" = 1 ]; then
+            if shard_pat_push "$stage" "$SHARD_REPO" "main" "$section-$loc shard" 1 "deploy-key missing"; then
+              _push_ok=1
+            else
+              _push_rc=$?
+            fi
+          elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
+            _push_ok=1
+          else
+            _push_rc=$?
+          fi
+        else
+          _push_rc="$_tree_rc"
+        fi
+        shard_phase git-push
       fi
-      shard_phase git-push
       # Self-heal: 3 retries on the SAME incremental base never recover from a
       # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
       # object" / "early EOF" failure mode — incident 2026-07-24, run
@@ -822,7 +882,14 @@ push_section_shard() {
       fi
       [ "$_push_ok" = 1 ] || { echo "::error::$section-$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
       if [ "$verify_ready" = 1 ]; then
-        if actual_tree="$(git -C "$stage" rev-parse 'HEAD^{tree}' 2>/dev/null)"; then
+        if [ "$layout_migration" = 1 ]; then
+          actual_tree="$_target_tree"
+        elif actual_tree="$(git -C "$stage" rev-parse 'HEAD^{tree}' 2>/dev/null)"; then
+          :
+        else
+          actual_tree=''
+        fi
+        if [ -n "$actual_tree" ]; then
           shard_delta_verify_report \
             "$verify_stage" "$verify_base_tree" "$verify_plan_tree" \
             "$stage" "$actual_tree" "$verify_tool" "$SHARD_REPO" "$verify_plan_seconds"

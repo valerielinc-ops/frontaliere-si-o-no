@@ -8729,6 +8729,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasso-ilo-terzo-trimestre.title': 'Schweizer ILO-Quote steigt im dritten Quartal auf 5,6 %',
     'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Im dritten Quartal stieg die nach der Definition der Internationalen Arbeitsorganisation (IAO) berechnete Arbeitslosenquote in der Schweiz von 5,1 % in den vorangegangenen drei Monaten auf 5,6 %.',
     'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.fiscalita-svizzera-tre-livelli.title': 'Schweizer Steuerstruktur: Ebenen, Behörden und Sozialabgaben',
+    'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'Das Schweizer Steuersystem funktioniert auf drei Ebenen. Die ESTV/AFC verwaltet die direkte Bundessteuer und die Mehrwertsteuer.',
+    'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

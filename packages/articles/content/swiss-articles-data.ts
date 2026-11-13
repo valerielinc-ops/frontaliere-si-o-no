@@ -30355,6 +30355,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'fiscalita-svizzera-tre-livelli',
+    category: 'fiscale',
+    date: '2026-11-13T01:58:45.077Z',
+    image: '/images/blog/article-fiscalita-svizzera-tre-livelli.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

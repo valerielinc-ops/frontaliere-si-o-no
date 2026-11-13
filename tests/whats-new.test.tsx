@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
+import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, getUnreadCount, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
 import { buildPath } from '@/services/router';
 import itCore from '@/services/locales/it-core';
 import itWhatsnew from '@/services/locales/it-whatsnew';
@@ -43,6 +43,13 @@ describe('WhatsNewBell', () => {
     render(<WhatsNewBell onClick={vi.fn()} />);
     const badge = document.querySelector('[class*="bg-danger"]');
     expect(badge).toBeNull();
+  });
+
+  it('keeps same-day releases unread for users with a legacy date-only marker', () => {
+    const sameDayReleaseCount = RELEASES.filter((release) => release.date === RELEASES[0].date).length;
+    localStorage.setItem(STORAGE_KEY, RELEASES[0].date);
+
+    expect(getUnreadCount()).toBe(sameDayReleaseCount);
   });
 });
 
@@ -118,9 +125,9 @@ describe('WhatsNewModal', () => {
     expect(onClose).toHaveBeenCalled();
   });
 
-  it('persists last-seen date to localStorage on open', () => {
+  it('persists last-seen version to localStorage on open', () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
-    expect(localStorage.getItem(STORAGE_KEY)).toBe(RELEASES[0].date);
+    expect(localStorage.getItem(STORAGE_KEY)).toBe(RELEASES[0].version);
   });
 
   it('renders all release sections', { timeout: 30000 }, () => {

@@ -109,10 +109,13 @@
 import { readFile, access, mkdtemp, rm, readdir, stat } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
 import {
+  SECTION_TREE_FANOUT_SECTIONS,
   legacyTicinoTreeBucket,
   sectionTreeBucket,
   sectionUsesHashFanout,
 } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { createSectionTreeLayoutReader } from '../infra/cloudflare-worker/section-tree-layout.js';
+import { SECTION_TREE_LAYOUT_REGISTRY_URL } from '../infra/cloudflare-worker/section-tree-layout-schema.js';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -143,6 +146,7 @@ const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const DATA_DIR = join(ROOT, 'data');
 const HOST = 'https://frontaliereticino.ch';
+const sectionTreeLayoutReader = createSectionTreeLayoutReader({ url: SECTION_TREE_LAYOUT_REGISTRY_URL });
 const GITHUB_COMMIT_API = 'https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/commits';
 
 // ── Locale routing maps ──────────────────────────────────────────────────────
@@ -372,7 +376,7 @@ function extractAlternateHrefs(xml) {
 // A served path is the route a user hits, normalised (no trailing slash). For
 // shard trees, the file entry `<route>/index.html` (or `<route>.html`) yields
 // the route `/<route>`.
-function treeEntryToRoute(entry, section = null, loc = null) {
+function treeEntryToRoute(entry, section = null, loc = null, fannedSections = null) {
   // entry e.g. "de/jobs-im-tessin/x/index.html" → "/de/jobs-im-tessin/x"
   //            "de.html"                          → "/de"
   const toPublicRoute = (value) => {
@@ -389,7 +393,7 @@ function treeEntryToRoute(entry, section = null, loc = null) {
   // every fanned-out URL look absent from the served set. Keep this mapping
   // scoped to sections that use hash-v1 and derive the public section prefix
   // from the shared slug manifest so unrelated shards remain untouched.
-  const sectionSlug = sectionUsesHashFanout(section) && loc
+  const sectionSlug = sectionUsesHashFanout(section, fannedSections) && loc
     ? SECTION_SLUGS[section]?.[loc]
     : null;
   if (sectionSlug) {
@@ -564,6 +568,7 @@ async function buildServedSet() {
 
   // Shard routes: clone each shard tree (unless --no-shards).
   if (!NO_SHARDS) {
+    const fannedSections = await sectionTreeLayoutReader.sections({ requireRegistry: true });
     for (const [loc, repo] of Object.entries(SHARD_REPOS)) {
       log(`[404] listing ${loc} shard tree (${repo}) …`);
       // These locale shards must ALWAYS have content (unlike section shards
@@ -628,7 +633,7 @@ async function buildServedSet() {
       let n = 0;
       for (const e of entries) {
         if (!/\.html$/i.test(e)) continue;
-        served.add(treeEntryToRoute(e, section, loc));
+        served.add(treeEntryToRoute(e, section, loc, fannedSections));
         n++;
       }
       const floor = sectionShardFloor(section, loc);

@@ -110363,6 +110363,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiscalita-svizzera-tre-livelli': {
+    title: 'Struttura fiscale svizzera: livelli, autorità e contributi sociali',
+    description: 'La fiscalità svizzera opera su tre livelli. L\'AFC/ESTV gestisce IFD e IVA. Cantoni e comuni hanno regole fiscali proprie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, struttura, fiscale, livelli, autorità',
+    ogTitle: 'Fiscalità svizzera: livelli, AFC/ESTV e AVS/AI/IPG',
+    ogDescription: 'La fiscalità svizzera opera su tre livelli. L\'AFC/ESTV gestisce IFD e IVA.',
+    canonicalPath: '/articoli-svizzera/fiscalita-svizzera-tre-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Struttura fiscale svizzera: livelli, autorità e contributi sociali",
+      "description": "La fiscalità svizzera opera su tre livelli. L'AFC/ESTV gestisce IFD e IVA. Cantoni e comuni hanno regole fiscali proprie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fiscalita-svizzera-tre-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-13T01:58:45+00:00",
+      "dateModified": "2026-11-13T01:58:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fiscalita-svizzera-tre-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

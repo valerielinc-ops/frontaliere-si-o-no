@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { expiredArchiveCdnInvariantSha256 } from '../lib/expired-archive-html-invariant.mjs';
-import { sectionTreeLayout } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { sectionTreeLayout, sectionTreeLayoutAllowed } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 export const SHARD_MANIFEST_VERSION = 2;
 export const SHARD_VALIDATOR_VERSION = 'publisher-shard-content-v2';
@@ -121,8 +121,9 @@ export function createSectionManifest({
   if (!SHA_RE.test(String(sourceSha ?? '').toLowerCase())) throw new Error('source SHA must be a 40-character commit SHA');
   if (!fs.statSync(root).isDirectory()) throw new Error(`shard root is not a directory: ${root}`);
   const expectedLayout = sectionTreeLayout(section);
-  if (sourcePathLayout !== expectedLayout) {
-    throw new Error(`${section} sourcePathLayout must be ${expectedLayout}, received ${sourcePathLayout}`);
+  if (!sectionTreeLayoutAllowed(section, sourcePathLayout)) {
+    const allowed = expectedLayout === 'canonical' ? `canonical or ${section}-hash-v1` : expectedLayout;
+    throw new Error(`${section} sourcePathLayout must be ${allowed}, received ${sourcePathLayout}`);
   }
 
   const normalizedPrefix = String(prefix ?? '').replace(/^\/+|\/+$/gu, '');

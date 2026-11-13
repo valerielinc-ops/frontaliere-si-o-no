@@ -22,7 +22,11 @@ afterEach(() => {
 function captureOriginRequests() {
   const seen: Request[] = [];
   globalThis.fetch = async (input: RequestInfo | URL) => {
-    seen.push(input instanceof Request ? input : new Request(String(input)));
+    const request = input instanceof Request ? input : new Request(String(input));
+    if (new URL(request.url).pathname === '/edge/section-tree-layout.json') {
+      return new Response(null, { status: 404 });
+    }
+    seen.push(request);
     return new Response('<!doctype html><title>t</title>', {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });

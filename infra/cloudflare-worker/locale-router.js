@@ -69,7 +69,13 @@ import {
   sectionTreeBucket,
   sectionUsesHashFanout,
 } from './ticino-tree-bucket.js';
+import { createSectionTreeLayoutReader } from './section-tree-layout.js';
+import {
+  SECTION_TREE_LAYOUT_CDN_BASE,
+  SECTION_TREE_LAYOUT_REGISTRY_URL,
+} from './section-tree-layout-schema.js';
 export { SECTION_TREE_FANOUT_SECTIONS };
+const STATIC_SECTION_TREE_FANOUT = new Set(SECTION_TREE_FANOUT_SECTIONS);
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
@@ -432,8 +438,9 @@ function matchSection(pathname) {
 // unchanged, and Ticino's legacy prefix layout stays readable during rollout.
 const SECTION_TREE_FANOUT_DIR = '_tree';
 
-function sectionShardPhysicalPaths(pathname, route) {
-  if (!route || !sectionUsesHashFanout(route.section)) return [pathname];
+function sectionShardPhysicalPaths(pathname, route, fannedSections = STATIC_SECTION_TREE_FANOUT) {
+  if (!route) return [pathname];
+  const registryKnowsLayout = sectionUsesHashFanout(route.section) || fannedSections.has(route.section);
   const prefix = route.prefix;
   if (pathname === prefix || pathname === `${prefix}.html` || !pathname.startsWith(`${prefix}/`)) {
     return [pathname];
@@ -456,11 +463,17 @@ function sectionShardPhysicalPaths(pathname, route) {
   if (route.section === 'ticino') buckets.push(legacyTicinoTreeBucket(decodedEntry));
   const physical = buckets
     .map((bucket) => `${prefix}/${SECTION_TREE_FANOUT_DIR}/${bucket}/${entry}${suffix}`);
-  return [...new Set([...physical, pathname])];
+  // Isolates can retain a valid pre-transition registry for up to the cache
+  // TTL. For an unknown dynamic section, try its canonical path first and its
+  // hash-v1 path only after a 404. This keeps ordinary requests unchanged and
+  // lets a stale isolate serve the new tree while its registry catches up.
+  return registryKnowsLayout
+    ? [...new Set([...physical, pathname])]
+    : [...new Set([pathname, ...physical])];
 }
 
-function sectionShardPublicPath(pathname, route) {
-  if (!route || !sectionUsesHashFanout(route.section)) return pathname;
+function sectionShardPublicPath(pathname, route, _fannedSections = STATIC_SECTION_TREE_FANOUT) {
+  if (!route) return pathname;
   const physicalPrefix = `${route.prefix}/${SECTION_TREE_FANOUT_DIR}/`;
   if (!pathname.startsWith(physicalPrefix)) return pathname;
 
@@ -1005,7 +1018,16 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // build the same CDN URL it PUTs the file to, instead of a second hardcoded
 // copy of this domain — single source of truth for both the read (this
 // Worker) and write (that script) sides of the same key family.
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const CDN_BASE = SECTION_TREE_LAYOUT_CDN_BASE;
+export const sectionTreeLayoutReader = createSectionTreeLayoutReader({
+  url: SECTION_TREE_LAYOUT_REGISTRY_URL,
+});
+
+// Test harnesses reset the isolate-local registry cache between mocked R2
+// responses. Production keeps the same reader for the lifetime of the isolate.
+export function resetSectionTreeLayoutCacheForTests() {
+  sectionTreeLayoutReader.reset();
+}
 
 // Apple Pay domain verification is deliberately a fallback-only edge copy.
 // The Pages origin remains authoritative whenever the repository file is
@@ -1318,7 +1340,8 @@ async function recoverCantonDriftOrphan(url, locale) {
     const targetOrigin = SECTION_ORIGIN[route.section]?.[locale];
     if (!targetOrigin) return null;
     let availability = 'missing';
-    for (const physical of sectionShardPhysicalPaths(canonical, route)) {
+    const fannedSections = await sectionTreeLayoutReader.sections();
+    for (const physical of sectionShardPhysicalPaths(canonical, route, fannedSections)) {
       const state = await redirectTargetAvailability(physical, targetOrigin);
       if (state === 'live') { availability = 'live'; break; }
       if (state === 'unavailable') availability = 'unavailable';
@@ -3489,7 +3512,7 @@ async function lookupExpiredJobEdgePage(request, url, sectionRoute, { allowInact
 // within-locale recovery map/board to use — for an IT section subtree it is
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
-async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null) {
+async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null, fannedSections = STATIC_SECTION_TREE_FANOUT) {
   // Verification requests deliberately render the published edge record even
   // while the section is inactive and its static file still exists. This lets
   // rollout checks validate the exact Worker HTML before static suppression.
@@ -3511,7 +3534,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     });
   }
 
-  const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute);
+  const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute, fannedSections);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
 
@@ -3641,7 +3664,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       locUrl = null; // non-URL Location header → leave untouched
     }
     if (locUrl && locUrl.hostname === origin) {
-      locUrl.pathname = sectionShardPublicPath(locUrl.pathname, sectionRoute);
+      locUrl.pathname = sectionShardPublicPath(locUrl.pathname, sectionRoute, fannedSections);
       locUrl.hostname = url.hostname; // public apex
       const headers = new Headers(resp.headers);
       headers.set('location', locUrl.toString());
@@ -3964,12 +3987,13 @@ const router = {
     // also brings other IT paths through the !match passthrough below.
     const sec = matchSection(url.pathname);
     if (sec) {
+      const fannedSections = await sectionTreeLayoutReader.sections();
       const layoutProbeKey = `__frontaliere_${sec.section}_tree_layout`;
       const genericLayoutProbe = (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
         && url.searchParams.get('__frontaliere_section_tree_layout') === 'hash-v1'
         && url.searchParams.get('section') === sec.section;
       if (
-        sectionUsesHashFanout(sec.section)
+        fannedSections.has(sec.section)
         && (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
         && (genericLayoutProbe || url.searchParams.get(layoutProbeKey) === 'hash-v1')
       ) {
@@ -3984,7 +4008,7 @@ const router = {
           headers,
         });
       }
-      return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx, sec);
+      return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx, sec, fannedSections);
     }
 
     const match = url.pathname.match(LOCALE_RE);

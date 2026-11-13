@@ -13718,6 +13718,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Cross-border daily brief for workers, November 12, 2026: latest waits, fuel prices, CHF/EUR rate and active jobs in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'Daily figures for cross-border commuters, November 12, 2026: measured waits at each crossing, where fuel costs least, the latest franc-euro rate and active Swiss job listings on our board, with links to live pages.',
+    'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Permanent labor observatory between Italy and Switzerland is established',
+    'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'On November 20, the first activities of Forum Insubria 2050 will be presented at the Ville Ponti in Varese.',
+    'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

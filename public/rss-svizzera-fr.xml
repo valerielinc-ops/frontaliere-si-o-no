@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 12 Nov 2026 22:40:24 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 01:58:45 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Structure fiscale suisse : niveaux, autorités et cotisations sociales</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/fiscalite-suisse-trois-niveaux/</link>
+      <description><![CDATA[La fiscalité suisse fonctionne sur trois niveaux. L’AFC/l’ESTV gère l’IFD et la TVA.]]></description>
+      <content:encoded><![CDATA[## En bref
+- La fiscalité suisse fonctionne sur trois niveaux.
+- L’AFC/ESTV gère l’IFD et la TVA.
+- Les cantons et les communes ont leurs propres règles fiscales.
+- AVS/AI/APG : 5,3 % à la charge du salarié.
+
+## Faits clés
+- Niveaux fiscaux → fédéral, cantonal et communal
+- Autorité fédérale → AFC/ESTV
+- Impôts cantonaux et communaux → administrations cantonales
+- AVS/AI/APG → 5,3 % salarié ; 10,6 % total
+
+La Suisse part d’une structure fiscale à trois niveaux : l’impôt fédéral direct, les impôts cantonaux et les impôts communaux. C’est le premier élément à déterminer lorsque le sujet concerne un revenu généré à l’étranger et le risque de double imposition. Un poste étranger ne peut pas être interprété correctement sans savoir à quel niveau se rapporte l’impôt suisse et quelle autorité est compétente.
+
+Au niveau fédéral, l’AFC/ESTV est l’administration compétente pour l’impôt fédéral direct et la TVA. Les administrations cantonales gèrent quant à elles l’imposition cantonale et communale. Chaque canton a sa propre loi et son propre coefficient multiplicateur ; pour les communes, le coefficient multiplicateur s’applique à l’impôt cantonal. Pour comprendre le cas, l’élément à distinguer est donc l’autorité compétente du simple lieu où le paiement est reçu.
+
+Les documents disponibles n’identifient pas le type de revenu étranger, la période, le pays ou la procédure à appliquer ; ils ne permettent donc pas d’affirmer comment est calculée, au cas par cas, l’éventuelle suppression de la double imposition.
+
+### Le périmètre vérifiable
+
+Dans les documents disponibles, la référence aux contrôles n’est accompagnée ni d’une autorité ayant annoncé un contrôle, ni d’une date, ni d’une procédure, ni d’une sanction. Il n’est pas correct d’attribuer une opération à l’AFC/ESTV, aux cantons ou au Conseil fédéral sans ces éléments. La partie vérifiable est la carte des compétences, utile pour ne pas adresser une question fédérale au mauvais service ou pour ne pas confondre un impôt communal avec une cotisation sociale.
+
+Même les sigles ont un champ d’application précis. L’OFAS/BSV s’occupe de la sécurité sociale, y compris l’AVS, l’AI et la LPP, mais ne fixe pas les impôts. L’OFS/BFS produit des statistiques et ne fixe pas de taux. L’AVS/AHV, l’AI et l’IPG sont donc considérés comme des cotisations sociales lors de l’analyse d’un salaire ; en revanche, la TVA reste une compétence fédérale de l’AFC/ESTV. Cette séparation permet de lire le déclaration d'impôts sans transformer chaque retenue ou chaque paiement en un impôt sur le revenu étranger.
+## Séparer l'impôt des retenues à la source
+
+Le risque de confondre la double imposition avec le total des retenues sur salaire vient du fait que des éléments de nature différente peuvent apparaître sur une même fiche de paie. Les pourcentages de sécurité sociale et d'assurance ne constituent pas des taux d'imposition fédéraux directs et ne remplacent pas non plus la distinction entre impôts cantonaux et communaux.
+
+### Éléments qui affectent le salaire
+
+| Voix | Données indiquées | Lecture correcte |
+|---|---|---|
+| AVS/AVS, IA et IPG | 5,3% pour le salarié ; 10,6% globalement auprès de l'employeur | Cotisation sociale |
+| AD/AC | 1,1% jusqu'au maximum annuel | Cotisation liée au salaire |
+| LAI/LAA | 0,7 à 1,5% selon le secteur | Assurance accidents |
+| LPP/LPP | 7% entre 25 et 34 ans ; 10 % entre 35 et 44 ans ; 15% entre 45 et 54 ans ; 18% à partir de 55 ans jusqu'à l'âge de référence | Pourcentages sur salaire coordonné |
+| LAMal/LAMal | Assurance obligatoire pour les résidents, avec primes par habitant | Ce n'est pas un impôt ou une cotisation salariale |
+
+Le chiffre AVS/AI/IPG est donc distinct du prélèvement fiscal : la part indiquée pour le salarié est de 5,3%, tandis que la somme avec l'employeur atteint 10,6%. L'AD/AC est de 1,1 % jusqu'à un plafond annuel. Pour le LAINF/LAA le pourcentage indiqué varie de 0,7% à 1,5% selon le secteur. La LPP/LPP utilise plutôt le salaire coordonné et prévoit des pourcentages différents pour chaque tranche d'âge. Le matériel ne fournit pas de montant absolu à appliquer à ces éléments.
+
+La KVG/KVG suit une logique encore différente. L'assurance maladie est obligatoire pour les résidents et doit être souscrite dans les trois mois suivant l'arrivée. Il est privé, avec des primes per capita, et ne constitue ni un impôt ni une cotisation salariale. Les primes varient selon les cantons et les régions, tandis que la réduction des primes est une subvention cantonale. Pour les adultes, les franchises indiquées sont de CHF 300, 500, 1000, 1500, 2000 et 2500.
+
+Cette séparation est décisive pour la question des revenus étrangers. Une prime LAMal ou une cotisation AVS ne peut pas être considérée comme une preuve de l'impôt sur le revenu déjà payé. appartient à une autre catégorie. De même, une retenue à la source LPP/LPP ne permet pas à elle seule de reconstituer l'impôt dû en Suisse. Une comparaison correcte doit donc partir de la nature de l'article, et pas seulement du montant qui apparaît sur le bulletin de salaire suisse.
+
+La source n'indique pas de mécanisme général pour imputer l'impôt étranger aux entrées en Suisse. Il n'est donc pas possible de transformer ces pourcentages en une formule automatique pour éviter la double imposition, ni d'ajouter les cotisations sociales et les primes d'assurance pour obtenir un taux d'imposition unique.
+## Chiffres, mise à jour et limites
+
+Les chiffres du système suisse n'ont pas tous la même stabilité. Le document indique que certains montants sont indexés chaque année : le plafond du 3e pilier 3a, le seuil et la déduction de coordination LPP, le plafond AD/AC, les primes moyennes LAMal et le salaire médian. Lorsque l'année de référence n'est pas certaine, il n'est pas correct d'inscrire un montant précis ou de transférer automatiquement une valeur d'une année à l'autre.
+
+### Sources à vérifier
+
+Pour le cadre de la sécurité sociale, la référence à [UFAS] est également disponible (https://www.bsv.admin.ch/it/telelavoro). Le cadre fiscal reste distinct : l'UFAS/BSV s'occupe de la sécurité sociale, mais n'établit pas d'impôts.
+
+Pour l'impôt fédéral direct et la TVA, la juridiction indiquée reste celle de l'ALE/ESTV. Pour les impôts cantonaux et communaux, la référence institutionnelle est plutôt représentée par les administrations cantonales, car chaque canton a sa propre loi et son propre multiplicateur et la commune applique le multiplicateur au niveau cantonal. L'OFS/BFS peut fournir des statistiques, mais ne fixe pas les taux d'imposition. Une statistique ne remplace donc pas la règle applicable à un revenu.
+
+### Ce qui n'est pas documenté
+
+Le titre fait référence aux contrôles et à la double imposition, mais le matériel ne contient pas d'avis officiel, de date de début, de formulaire, de pénalité ou de procédure relative aux revenus produits à l'étranger. Il n’identifie même pas le type de revenu ni la situation fiscale spécifique. Pour cette raison, il n’est pas possible de présenter une déduction, une exonération ou un crédit automatique pour l’impôt payé à l’étranger.
+
+Les données vérifiables sont plus limitées: avant d'attribuer un paiement à une seule catégorie, il faut distinguer les impôts fédéraux, cantonaux et communaux de la sécurité sociale, de l'assurance-accidents et de la LAMal. Les pourcentages de masse salariale, les franchises et les primes ne doivent pas être confondus avec l'impôt sur le revenu ; les montants indexés nécessitent la bonne année; les règles cantonales exigent la référence à l'administration compétente.
+
+Pour commander des informations relatives à votre situation fiscale, la voie éditoriale pertinente est déclaration d'impôts.]]></content:encoded>
+      <pubDate>Fri, 13 Nov 2026 01:58:45 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/fiscalita-svizzera-tre-livelli</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fiscalita-svizzera-tre-livelli.webp" medium="image"/>
+    </item>
     <item>
       <title>Le taux ILO suisse monte à 5,6 % au troisième trimestre</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/taux-ilo-troisieme-trimestre/</link>
@@ -3305,85 +3376,6 @@ Pour l'aperçu des prestations AVS/LPP/rente.
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/adeguamento-rendite-superstiti-invalidita-2027</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-adeguamento-rendite-superstiti-invalidita-2027.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Achats d’occasion en Suisse : garantie et règles</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/regles-marche-aux-puces-suisse/</link>
-      <description><![CDATA[Une garantie d’un an, sauf exclusion explicite, s’applique en principe à l’achat d’un bien d’occasion dans un marché aux puces en Suisse.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Garantie d’un an, sauf exclusion explicite
-- Domaine public : les objets gratuits sont souvent interdits
-- Contrefaçons à la frontière : saisie possible et taxe d’environ 100 francs
-- Reçu : mieux vaut indiquer les coordonnées du vendeur
-
-## Faits clés
-- Garantie au marché aux puces : un an en principe
-- Exclusion : formule « vendu en l’état »
-- Reçu : coordonnées du vendeur
-- Domaine public : pratique souvent interdite
-- Frontière : taxe possible d’environ 100 francs
-- Référence : Gabriela Baumgartner, Radio SRF 1, 5 octobre 2026
-
-Une garantie d’un an, sauf exclusion explicite, s’applique en principe à l’achat d’un bien d’occasion dans un marché aux puces en Suisse. Cette règle s’inscrit dans le cadre du Code des obligations et concerne un marché qui comprend également les magasins d’occasion, les plateformes en ligne et les objets déposés gratuitement devant chez soi.
-
-Le vendeur peut exclure la garantie. Une formule comme « vendu en l’état » n’est pas présentée comme une simple phrase de circonstance : elle constitue une exclusion explicite. Quiconque accepte cette condition renonce aux droits correspondants. C’est pourquoi la source recommande de demander un reçu mentionnant au moins les coordonnées du vendeur. En cas de litige, il faut en effet pouvoir identifier la personne qui a vendu la marchandise.
-
-Le service rappelle les explications de Gabriela Baumgartner, diffusées par Radio SRF 1 le 5 octobre 2026. Ces indications concernent à la fois la relation entre vendeur et acheteur et la manière dont sont laissés les objets dont on ne veut plus.
-
-### Quand le don occupe la rue
-
-Laisser sur le trottoir ou au bord de la route des cartons de livres, des meubles ou d’autres biens portant la mention « gratuit » peut sembler anodin. Sur le plan juridique, toutefois, dans de nombreuses communes, ce geste peut relever de l’abandon illégal de déchets ; l’occupation du domaine public est en outre souvent interdite.
-
-Laisser des biens à donner dans l’espace public ne constitue pas un droit reconnu de manière générale. Les dispositions varient d’une ville à l’autre : certaines communes imposent des contraintes strictes, tandis que d’autres ne tolèrent la pratique que si les objets n’entravent pas le passage et sont retirés rapidement.
-
-Sur un terrain privé, en revanche, il est normalement possible de laisser des objets destinés à être donnés. La personne qui les met à disposition n’en conserve pas la propriété, laquelle passe à la personne qui les récupère. La seule exception concerne les objets contenus dans les sacs des collectes officielles de vêtements usagés : ils restent la propriété de l’organisation promotrice.
-## Garantie, reçu et mauvais achat
-
-La distinction entre la garantie et le droit de rétractation est le point qui peut le plus facilement prêter à confusion lors d’achats d’occasion. La garantie concerne les droits liés au bien acheté et peut être exclue par le vendeur. La rétractation, en revanche, concerne la possibilité de changer d’avis après la conclusion de l’achat : selon la source, le droit suisse ne prévoit pas de droit général de ce type.
-
-La situation présentée pour les différents canaux de vente peut être résumée comme suit :
-
-| Situation | Règle indiquée par la source |
-|---|---|
-| Marché aux puces | Garantie d’un an en principe ; le vendeur peut l’exclure |
-| Formule « vendu comme vu » | Exclusion explicite de la garantie ; l’acheteur renonce aux droits qui y sont liés |
-| Magasin d’occasion | Pour les biens d’occasion, garantie d’un an au lieu de deux |
-| Exclusion dans le magasin d’occasion | Autorisée si les clients en sont informés clairement |
-| Retour ou échange | Accordé uniquement si le vendeur le souhaite |
-
-Les magasins d’occasion sont des magasins à part entière. Leur activité n’écarte donc pas le régime de la garantie, mais la source indique que de nombreux commerçants l’excluent complètement. La condition indiquée est que l’information soit claire pour les clients. Dans le cas des marchés aux puces, il convient d’accorder la même attention aux formulations utilisées par le vendeur avant de conclure la transaction.
-
-### Le reçu comme élément d’identification
-
-Demander un reçu ne modifie pas automatiquement la garantie et ne transforme pas une exclusion en un droit. La fonction qui lui est attribuée dans le reportage est plus concrète : conserver au moins les informations concernant le vendeur permet de savoir à qui s’adresser en cas de contestations ultérieures. Sans identification, faire valoir une contestation peut devenir problématique précisément parce qu’il ne serait pas possible d’identifier la personne qui a vendu la marchandise.
-
-La source distingue en outre la garantie du simple changement d’avis. En cas de mauvais achat, vous ne pouvez pas présumer que le vendeur soit tenu de reprendre la marchandise. Il n’existe aucune obligation générale d’accepter un retour, et même un échange dépend de la volonté du commerçant. Le fait qu’un bien soit d’occasion, qu’il ait été acheté dans un magasin ou que l’acheteur ait changé d’avis ne crée pas, à lui seul, un droit général à sa restitution.
-
-La conséquence pratique décrite par le texte est une distinction entre ce que le vendeur doit éventuellement garantir et ce qu’il peut choisir de faire. La garantie peut être exclue lorsque cette exclusion est communiquée de manière explicite ou claire ; le retour et l’échange restent en revanche des initiatives volontaires. Pour cette raison, les conditions de l’achat et l’identité du vendeur revêtent une importance distincte : les premières définissent les droits liés à la garantie, la seconde permet d’identifier le cocontractant si une contestation survient.
-## Prix bas, marchandises contrefaites et frontière
-
-Le prix est l’une des principales raisons pour lesquelles les marchés aux puces attirent les acheteurs. La source invite toutefois à faire preuve d’une attention particulière lorsque le prix paraît exceptionnellement avantageux. Le critère indiqué n’est pas de considérer automatiquement toute bonne affaire comme suspecte, mais de vérifier soigneusement l’état de l’objet, de poser des questions au vendeur et d’évaluer si le montant est réellement plausible. En cas de doute, il est conseillé de se méfier ; si vous décidez malgré tout d’acheter, il est recommandé de demander un reçu.
-
-### Le cas du sac de marque
-
-On peut imaginer un sac de marque authentique cédé à un prix bien inférieur à sa valeur de marché. La personne qui l’achète n’est pas tenue de révéler au vendeur sa valeur réelle. Le vendeur pourrait toutefois contester ultérieurement le contrat, s’il prouvait l’avoir conclu sans connaître la valeur de l’objet.
-
-Le passage montre qu’un prix très bas n’est pas présenté par la source comme une preuve automatique d’illicéité ou de contrefaçon. Il s’agit plutôt d’un élément qui exige des vérifications plus attentives concernant le bien et la plausibilité de l’affaire. La source n’indique pas de seuil numérique au-delà duquel le prix devrait être considéré comme suspect et n’établit pas que tout achat très avantageux doive être refusé.
-
-### Le risque pour les personnes qui achètent au-delà de la frontière
-
-Commet une infraction la personne qui vend des biens volés ou contrefaits ; en revanche, la personne qui achète de bonne foi un article de ce type dans un marché aux puces suisse ne commet pas, selon le service, d’infraction pénale. Les difficultés les plus importantes se présentent pour les achats transfrontaliers, lorsque vous visitez les marchés aux puces des pays voisins puis rentrez dans la Confédération.
-
-Les produits de marque contrefaits sont surtout dans le collimateur des contrôles douaniers. S’ils sont découverts lors d’un contrôle, ils peuvent être saisis ; la personne qui les introduit en Suisse peut en outre devoir verser une taxe d’environ 100 francs. La source présente ce chiffre comme approximatif, et non comme un montant valable indistinctement pour chaque contrôle, et n’indique pas de sommes supplémentaires.
-
-La frontière marque donc une différence par rapport à l’achat de bonne foi effectué dans un marché aux puces suisse. Dans le premier cas décrit, l’acheteur ne commet pas d’infraction pénale ; dans le second, l’introduction de produits de marque contrefaits peut entraîner leur saisie et une taxe. La vérification de l’objet, les questions au vendeur et le reçu restent essentiels, des indications que la source associe à la fois à la protection de l’acheteur et à la possibilité de reconstituer l’achat.
-
-*Source: [rsi.ch](https://www.rsi.ch/info/dialogo/Mercatini-e-usato-cinque-cose-da-sapere--4155286.html)*]]></content:encoded>
-      <pubDate>Thu, 22 Oct 2026 03:59:33 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/regole-usato-mercatini-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-regole-usato-mercatini-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>

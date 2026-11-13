@@ -57,6 +57,8 @@ export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/lib/r2-section-lock.mjs',
   'scripts/lib/is-invoked-directly.mjs',
   'infra/cloudflare-worker/locale-router.js',
+  'infra/cloudflare-worker/section-tree-layout-schema.js',
+  'infra/cloudflare-worker/section-tree-layout.js',
   'scripts/lib/fuel-station-aliases.mjs',
   'build-plugins/shared/fuelRouteSlugs.mjs',
   'scripts/lib/pharmacySections.mjs',

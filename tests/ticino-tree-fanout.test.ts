@@ -27,8 +27,23 @@ describe('Ticino shard tree fan-out', () => {
     expect(WORKER_FANOUT_SECTIONS).toEqual(SCRIPT_FANOUT_SECTIONS);
   });
 
-  it('is wired into the section push and disables the incompatible delta path', () => {
+  it('keeps existing Ticino and Zurich layout markers while adapting Bern', () => {
+    const output = execFileSync(
+      'bash',
+      [
+        '-c',
+        'source "$1"; printf "%s\\n" "$(section_tree_layout ticino)" "$(section_tree_layout zurigo)" "$(section_tree_layout berna)" "$(section_tree_layout svizzera)"',
+        'section-layout-marker-test',
+        HELPER,
+      ],
+      { encoding: 'utf8' },
+    );
+    expect(output).toBe('ticino-hash-v1\nzurigo-hash-v1\nticino-hash-v1\ncanonical\n');
+  });
+
+  it('measures the canonical tree, persists/probes before layout change, and gates the fanned tree', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
+    const helper = readFileSync(HELPER, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
     expect(script).toContain('if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]');
     expect(script).toContain('skipping advisory delta verifier');
@@ -36,7 +51,30 @@ describe('Ticino shard tree fan-out', () => {
     expect(script.indexOf('section_tree_require_worker_layout "$section" "$sub"')).toBeLessThan(
       script.indexOf('# ── Stage subtree + offload'),
     );
-    expect(script).toContain('section_tree_fanout_stage "$section" "$stage/$sub"');
+    expect(helper).toContain('section_tree_measure_unfanned_pct');
+    expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index');
+    expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" filesystem');
+    expect(helper).not.toContain('--allow-local-transition');
+    expect(script).toContain('SHARD_DELTA_LAYOUT_MOVED_PATHS * 2');
+  });
+
+  it('maps dynamic registry sections through the same section-neutral bucket function', () => {
+    const previous = process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON;
+    try {
+      process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON = '["lucerna"]';
+      expect(sectionTreePhysicalPath('lucerna', 'lucerne-job/index.html')).toBe(
+        `_tree/${sectionTreeBucket('lucerne-job')}/lucerne-job/index.html`,
+      );
+      const marker = execFileSync(
+        'bash',
+        ['-c', 'source "$1" && section_tree_layout lucerna', 'dynamic-layout-marker-test', HELPER],
+        { encoding: 'utf8', env: { ...process.env, SECTION_TREE_LAYOUT_SECTIONS_JSON: '["lucerna"]' } },
+      );
+      expect(marker).toBe('ticino-hash-v1');
+    } finally {
+      if (previous === undefined) delete process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON;
+      else process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON = previous;
+    }
   });
 
   it('fails closed when the fan-out classifier is unavailable', () => {
@@ -233,10 +271,13 @@ describe('Ticino shard tree fan-out', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-probe-'));
     const bin = join(temp, 'bin');
     const fakeCurl = join(bin, 'curl');
+    const fakeSleep = join(bin, 'sleep');
     try {
       mkdirSync(bin);
       writeFileSync(fakeCurl, '#!/bin/sh\nprintf "%s\\n" "$TICINO_PROBE_RESPONSE"\nprintf "%s\\n" "$*" > "$TICINO_PROBE_ARGS"\n');
+      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
       chmodSync(fakeCurl, 0o755);
+      chmodSync(fakeSleep, 0o755);
       const invoke = (response: string) => {
         try {
           return execFileSync(

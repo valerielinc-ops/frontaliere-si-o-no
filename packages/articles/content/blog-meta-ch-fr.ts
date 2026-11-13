@@ -8729,6 +8729,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasso-ilo-terzo-trimestre.title': 'Le taux ILO suisse monte à 5,6 % au troisième trimestre',
     'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Au troisième trimestre, le taux de chômage calculé selon la définition de l’Organisation internationale du travail (ILO) est monté en Suisse à 5,6 %, contre 5,1 % au cours des trois mois précédents.',
     'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.fiscalita-svizzera-tre-livelli.title': 'Structure fiscale suisse : niveaux, autorités et cotisations sociales',
+    'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'La fiscalité suisse fonctionne sur trois niveaux. L’AFC/l’ESTV gère l’IFD et la TVA.',
+    'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
