@@ -731,6 +731,34 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+const TEAM_JOBS_HOSTS = new Set(['team.jobs', 'www.team.jobs']);
+const TEAM_JOBS_DETAIL_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?(?:offres-demplois|offerte-di-lavoro|stellen|jobangebote|job-offers)\/(?:[^/]+\/){2}([A-Za-z0-9]+)\/?$/iu;
+const TEAM_JOBS_APPLY_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?jobs\/apply\/([A-Za-z0-9]+)\/?$/iu;
+
+function teamJobsRoute(value, routePattern) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password
+      || !TEAM_JOBS_HOSTS.has(url.hostname.toLowerCase())) return null;
+    const match = routePattern.exec(url.pathname);
+    return match ? { postingId: match[1] } : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * team.jobs keeps the public detail URL in the crawler record but renders its
+ * actual CTA as `/jobs/apply/<opaque-id>`. The opaque id is only a binding when
+ * both routes are on the trusted host and use the exact same route id; the
+ * host or route namespace alone must never select a neighbouring vacancy.
+ */
+function isTeamJobsPostingEntry({ applyUrl, postingUrl } = {}) {
+  const apply = teamJobsRoute(applyUrl, TEAM_JOBS_APPLY_ROUTE_RE);
+  const posting = teamJobsRoute(postingUrl, TEAM_JOBS_DETAIL_ROUTE_RE);
+  return Boolean(apply && posting && apply.postingId === posting.postingId);
+}
+
 function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
   const apply = workdayJobRoute(applyUrl);
   const posting = workdayJobRoute(postingUrl);
@@ -900,6 +928,7 @@ function verifiedPostingEntryFor(ctx = {}) {
 export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isTeamJobsPostingEntry({ applyUrl, postingUrl })
     || isWorkdayPostingEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
 }
