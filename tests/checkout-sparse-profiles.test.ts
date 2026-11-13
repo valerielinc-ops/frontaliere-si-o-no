@@ -348,6 +348,23 @@ describe('profili di sparse-checkout', () => {
       .toEqual([]);
   });
 
+  it('non scambia identificatori Firestore per percorsi del checkout', () => {
+    expect([...bucketsReferencedBy("const docs = await orderRef.collection('automation').get();")])
+      .not.toContain('docs/');
+    expect([...bucketsReferencedBy("const names = fs.readdirSync('docs');")])
+      .toContain('docs/');
+    expect([...bucketsReferencedBy("const dir = path.join(ROOT, 'data', 'jobs');")])
+      .toContain('data/jobs/');
+  });
+
+  it('non combina token di bucket da moduli indipendenti', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+    const job = analyzeWorkflow(path.join(WF_DIR, 'deploy-cloud-functions.yml'), pkg.scripts)
+      .jobs.find((item) => item.jobId === 'deploy-functions');
+    expect(job?.needs).not.toContain('data/jobs/');
+    expect(job?.aboveCrossover).toBe(false);
+  }, TIMEOUT);
+
   it('preserva regex dopo un commento a blocco e il codice successivo', () => {
     const source = 'const r = /* c */ /[/*]/;\nconst x = import("./real.mjs");';
     const expected = source.replace('/* c */', '       ');
