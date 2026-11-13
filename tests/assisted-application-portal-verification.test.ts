@@ -111,6 +111,39 @@ describe('protected read-only portal inspection', () => {
     expect(close).toHaveBeenCalledTimes(1);
   });
 
+  it.each([true, false])('only allows cross-origin GET navigation when replay mode requests it: %s', async allowCrossOriginNavigation => {
+    const routeHandlers: Function[] = [];
+    const context: any = {
+      routeWebSocket: async () => {},
+      addInitScript: async () => {},
+      route: async (_pattern: string, handler: Function) => { routeHandlers.push(handler); },
+      close: async () => {},
+      newPage: async () => ({ goto: async () => { throw new Error('test_stop_before_network'); } }),
+    };
+    await expect(verifyPortalApplication({
+      applyUrl, targetUrl, job: {}, accounts: {}, allowCrossOriginNavigation,
+      isPublicHost: async () => true,
+      launch: async () => ({ newContext: async () => context, close: async () => {} }),
+    })).rejects.toThrow('test_stop_before_network');
+
+    const actionFor = async (method: string) => {
+      let action = '';
+      await routeHandlers[0]({
+        request: () => ({
+          url: () => 'https://ats.example.test/application',
+          method: () => method,
+          isNavigationRequest: () => true,
+        }),
+        abort: async () => { action = 'abort'; },
+        continue: async () => { action = 'continue'; },
+      });
+      return action;
+    };
+
+    expect(await actionFor('GET')).toBe(allowCrossOriginNavigation ? 'continue' : 'abort');
+    expect(await actionFor('POST')).toBe('abort');
+  });
+
   it('permits only the native sign-in endpoint for the sole authentication POST', () => {
     expect(safeSigninAction('https://careers.example/Login?jobId=42', applyUrl)).toBe(true);
     for (const action of ['https://careers.example/ApplicationSubmit?jobId=42', 'https://careers.example/submit?jobId=42', 'https://careers.example/Login/ApplicationSubmit?jobId=42', 'https://careers.example/ApplicationSave/Login?jobId=42', 'https://careers.example/Login?action=withdraw', 'https://foreign.example/Login', 'https://careers.example/apply']) expect(safeSigninAction(action, applyUrl)).toBe(false);

@@ -89,7 +89,13 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-    codex, launch: async () => browser, onBeforeSubmit: guard });
+    codex, launch: async () => browser, onBeforeSubmit: guard,
+    ...(options.portalReplay === true ? {
+      portalReplay: true,
+      portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
+      portalReplayMetrics: options.portalReplayMetrics,
+    } : {}),
+  });
   return { run, guard, click, openClick, page, codex };
 }
 
@@ -119,6 +125,26 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
     expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('blocks and records any final click reached in portal replay mode', async () => {
+    const portalReplayMetrics = { finalClickAttempts: 0 };
+    const finalReview = {
+      ...review,
+      buttons: [{ id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false }],
+    };
+    const f = fixture(profile, null, finalReview, null, {
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_replay_final_click_blocked' });
+    expect(portalReplayMetrics.finalClickAttempts).toBe(1);
+    expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).not.toHaveBeenCalled();
   });
 
@@ -629,6 +655,40 @@ describe('runner final guard across three application stages', () => {
     expect(applyClicked).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not inherit posting identity from a selected posting Apply click into a talent pool', async () => {
+    const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
+    const entry = { id: 'posting-apply', text: 'Apply now', frame: 0 };
+    const selectedPosting = {
+      ...snapshot(postingUrl, 'Career opportunities', [entry]),
+      title: 'Careers',
+      text: 'Career opportunities',
+    };
+    const talentPool = {
+      ...snapshot('https://jobs.example.test/talent-community/', 'Join our talent pool for future opportunities.', []),
+      title: 'Talent Pool',
+      text: 'Join our talent pool for future opportunities.',
+      fields: [{ id: 'email', kind: 'text', inputType: 'email', label: 'Email', required: true, formId: 'application', frame: 0 }],
+    };
+    const metrics = { finalClickAttempts: 0 };
+    const f = fixture(talentPool, selectedPosting, review, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Example Employer', title: 'Synthetic Role' },
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics: metrics,
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(metrics.finalClickAttempts).toBe(0);
   });
 
   it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {

@@ -7,7 +7,12 @@ const url = 'https://careers.helsana.ch/job/Synthetic-role/123/';
 const buttons = ['Mehr Optionen anzeigen', 'Stellen suchen', 'Löschen', 'Jetzt bewerben']
   .map(text => ({ text }));
 const snapshot = { url, buttons, fields: [] };
-const context = { postingUrl: url, applyUrl: url, allowSingleExternalApplicationEntry: true };
+const context = {
+  postingUrl: url,
+  applyUrl: url,
+  allowSingleExternalApplicationEntry: true,
+  selectedPostingIsApplicationUrl: true,
+};
 
 describe('verified posting script entry (#17253)', () => {
   it('opens the unique script CTA on the verified fieldless job detail', () => {
@@ -15,6 +20,26 @@ describe('verified posting script entry (#17253)', () => {
     // This exception belongs to entry navigation, never to final submission.
     expect(pageControls(buttons, { nextButtons: [], finalButtons: [] }, url,
       { snapshot, applyUrl: url }).submit).toBeNull();
+  });
+
+  it('accepts a unique script Apply control on the exact selected posting route without vendor identity', () => {
+    const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
+    const apply = { text: 'Apply now', frame: 0 };
+    const context = {
+      applyUrl: postingUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls({ url: postingUrl, fields: [], buttons: [apply] }, context)).toEqual([apply]);
+    expect(applicationEntryControls({ url: postingUrl, fields: [], buttons: [apply] }, {
+      ...context,
+      allowSingleExternalApplicationEntry: false,
+    })).toEqual([]);
+    expect(applicationEntryControls({ url: postingUrl, fields: [{ inputType: 'email' }], buttons: [apply] }, context)).toEqual([]);
+    expect(applicationEntryControls({ url: postingUrl, fields: [], buttons: [apply, { text: 'Apply to a talent pool', frame: 0 }] }, context)).toEqual([]);
+    expect(applicationEntryControls({ url: `${postingUrl}different/`, fields: [], buttons: [apply] }, context)).toEqual([]);
   });
 
   it.each([
