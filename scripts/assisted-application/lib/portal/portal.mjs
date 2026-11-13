@@ -4408,7 +4408,6 @@ export function formPostingMatch(formText, job = {}, {
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   if (isUmantisApplicationRoute(pageUrl) && hasConflictingUmantisVacancyRoute(pageUrl, [postingUrl])) return 'mismatch';
-  if (roleHeading === 'mismatch') return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
@@ -4433,6 +4432,7 @@ export function formPostingMatch(formText, job = {}, {
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
   if (direct === 'mismatch' && successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
+  if (roleHeading === 'mismatch') return 'mismatch';
   if (direct === 'match' || roleHeading === 'match') return 'match';
   // A generic form reached through a posting's verified entry stays unknown:
   // its provenance lets the runner continue, while its own text proves no
