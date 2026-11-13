@@ -74,7 +74,7 @@ describe('CV portrait extraction', () => {
       cvKey: outgoingKey,
     });
 
-    expect(prepared).toMatchObject({ documentId: 'portrait', file: { detectedType: 'jpg', name: 'photo.jpg' } });
+    expect(prepared).toMatchObject({ documentId: 'portrait', file: { detectedType: 'jpg', name: 'photo.jpg' }, sourceCvKey: cvKey });
   });
 
   it('uses the CV portrait when an existing candidate image does not match the field accept', async () => {

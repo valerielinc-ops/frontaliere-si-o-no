@@ -389,6 +389,7 @@ export async function submitApplication(ctx) {
         documentId: preparedPhoto.documentId,
         file: preparedPhoto.file,
         round: Number(draft.round) || 1,
+        sourceCvKey: preparedPhoto.sourceCvKey,
       });
       if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed' };
     }

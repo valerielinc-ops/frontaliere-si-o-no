@@ -35,10 +35,19 @@ export function isDegreeCertificateRequirement(label) {
   return DEGREE_CERTIFICATE_LABELS.some(phrase => padded.includes(` ${phrase} `));
 }
 
+const PHOTO_LABEL_TERM = '(?:photo|photograph|photographie|foto|fotografia)';
+const IDENTITY_LABEL_TERM = '(?:id|identification|identity)';
+const IDENTITY_DOCUMENT_PHOTO_LABEL = new RegExp([
+  `\\b${PHOTO_LABEL_TERM} ${IDENTITY_LABEL_TERM}\\b`,
+  `\\b${IDENTITY_LABEL_TERM} ${PHOTO_LABEL_TERM}\\b`,
+  `\\b${PHOTO_LABEL_TERM}\\b(?:\\s+(?:of|for|the|a|an)){1,3}\\s+${IDENTITY_LABEL_TERM} (?:card|document)\\b`,
+  `\\b${IDENTITY_LABEL_TERM} (?:card|document)\\b(?:\\s+\\w+){0,2}\\s+\\b${PHOTO_LABEL_TERM}\\b`,
+].join('|'));
+
 /** Labels for a candidate portrait, as opposed to a CV or another record. */
 export function isPhotoRequirement(label, kind = null) {
   const normalized = normalizeLabel(label);
-  if (normalized && /\b(?:photo|photograph|photographie|foto|fotografia) (?:id|identification|identity|identity card)\b|\b(?:id|identity|identification) (?:photo|photograph|photographie|foto|fotografia)\b/.test(normalized)) return false;
+  if (normalized && IDENTITY_DOCUMENT_PHOTO_LABEL.test(normalized)) return false;
   if (kind === 'photo') return true;
   if (!normalized) return false;
   const padded = ` ${normalized} `;
