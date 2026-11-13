@@ -24,6 +24,7 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
+import { withRegisteredCandidateEmail } from '../../../functions/src/assistedApplicationDocumentIdentity.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits,
   questionsForCandidate, requiredPortalConsentAffirmed, validatedCandidateAnswerForQuestion } from '../../../functions/src/assistedApplicationCandidateEdits.js';
@@ -253,9 +254,10 @@ const RENDERERS = new Set(['typst', 'legacy']);
  * that very file (`coverLetterRenderer`, written with every `coverLetterPdfKey`).
  * @returns {Promise<{pdf:Buffer, renderer:'typst'|'legacy'|null, key:string|null}>} key: where it already is (null when rebuilt)
  */
-export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs }) {
+export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs, auth = null }) {
   if (draft?.letterAddress) {
-    const { pdf, renderer } = await rebuildLetterPdf({ order, orderId, draft, flow, nowMs });
+    const documentOrder = await withRegisteredCandidateEmail(order, { auth });
+    const { pdf, renderer } = await rebuildLetterPdf({ order: documentOrder, orderId, draft, flow, nowMs });
     return { pdf: Buffer.from(pdf), renderer, key: null };
   }
   const [stored] = await bucket.file(draft.coverLetterPdfKey).download();
