@@ -689,7 +689,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -739,7 +739,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -748,7 +748,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -4527,12 +4527,12 @@
     },
     {
       "id": "unibe-f14ef2b33e35",
-      "slug": "mitarbeiterin-administration-finanzen-universitat-bern-bern",
+      "slug": "amministrazione-e-finanza-dei-dipendenti-universitat-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiterin-administration-amp-finanzen-unibe-bern",
-        "it": "mitarbeiterin-administration-finanzen-universitat-bern-bern",
-        "en": "mitarbeiterin-administration-finanzen-universitat-bern-bern",
-        "fr": "mitarbeiterin-administration-finanzen-universitat-bern-bern"
+        "it": "amministrazione-e-finanza-dei-dipendenti-universitat-bern-bern",
+        "en": "employee-administration-finance-universitat-bern-bern",
+        "fr": "administration-et-finances-des-employes-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4580,11 +4580,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-administration-amp-finanzen-unibe-bern"
+          "mitarbeiterin-administration-amp-finanzen-unibe-bern",
+          "mitarbeiterin-administration-finanzen-universitat-bern-bern"
+        ],
+        "en": [
+          "mitarbeiterin-administration-finanzen-universitat-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiterin-administration-finanzen-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-administration-amp-finanzen-unibe-bern"
+        "mitarbeiterin-administration-amp-finanzen-unibe-bern",
+        "mitarbeiterin-administration-finanzen-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

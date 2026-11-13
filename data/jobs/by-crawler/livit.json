@@ -2589,12 +2589,12 @@
     },
     {
       "id": "livit-d7ecdbddd35f",
-      "slug": "collaboratore-trice-kunden-e-service-center-livit-ag-zurich",
+      "slug": "collaboratore-trice-del-centro-clienti-e-servizi-livit-ag-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-kunden-und-service-center-livit-zurich",
-        "it": "collaboratore-trice-kunden-e-service-center-livit-ag-zurich",
-        "en": "mitarbeiter-in-kunden-und-service-center-livit-zurich",
-        "fr": "mitarbeiter-in-kunden-und-service-center-livit-zurich"
+        "it": "collaboratore-trice-del-centro-clienti-e-servizi-livit-ag-zurich",
+        "en": "customer-and-service-center-employee-livit-ag-zurich",
+        "fr": "collaborateur-rice-du-centre-clients-et-services-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2643,11 +2643,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kunden-und-service-center-livit-zurich",
+          "collaboratore-trice-kunden-e-service-center-livit-ag-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kunden-und-service-center-livit-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-kunden-und-service-center-livit-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kunden-und-service-center-livit-zurich"
+        "mitarbeiter-in-kunden-und-service-center-livit-zurich",
+        "collaboratore-trice-kunden-e-service-center-livit-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

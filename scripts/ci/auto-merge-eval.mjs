@@ -65,7 +65,11 @@
  * Exit 0 sempre (anche quando NON mergia): un gate non soddisfatto è un esito
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
-import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
+import {
+  isNonRuntimeCodePath,
+  NON_RUNTIME_CODE_FINGERPRINT_RE,
+  findTestOnlyApproval,
+} from './review-test-policy.mjs';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -263,7 +267,10 @@ export function prContributionFingerprint(sha) {
 // e degli exclude del diff reviewer. Così un push che tocca SOLO questi (es. un
 // crawler che rigenera `data/jobs/*.json`) NON cambia il fingerprint CODE → il
 // la validità della review resta comunque legata alla SHA esatta.
-export const NON_REVIEWABLE_FINGERPRINT_RE = /^(data|public|reports|_newsletter_variants|docs)\//;
+// Compatibility export for the legacy fingerprint API. The classification
+// itself lives in review-test-policy.mjs so the fast path, carry-forward and
+// tests cannot drift apart.
+export const NON_REVIEWABLE_FINGERPRINT_RE = NON_RUNTIME_CODE_FINGERPRINT_RE;
 
 /**
  * Costruisce il fingerprint del contributo CODE da `files` (l'array `.files`
@@ -276,7 +283,9 @@ export function codeContributionFingerprint(files) {
   if (!Array.isArray(files)) return null;
   const parts = [];
   for (const f of files) {
-    if ((isReviewTestPath(f.filename) && (!f.previous_filename || isReviewTestPath(f.previous_filename))) || NON_REVIEWABLE_FINGERPRINT_RE.test(f.filename || '')) continue; // dati/static: non è contributo CODE
+    const currentNonRuntime = isNonRuntimeCodePath(f.filename || '');
+    const previousNonRuntime = !f.previous_filename || isNonRuntimeCodePath(f.previous_filename);
+    if (currentNonRuntime && previousNonRuntime) continue; // dati/static/generated: non è contributo CODE
     // `patch` assente (binario/troppo grande) su un file CODE modificato -> bail.
     if (f.patch === undefined && f.status !== 'removed' && f.status !== 'added') return null;
     // Tieni SOLO le righe di contenuto +/- (escludi header +++/--- e hunk @@):
