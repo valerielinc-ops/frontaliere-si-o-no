@@ -1510,7 +1510,8 @@ function isPublicJobAlertField(field) {
 }
 
 function publicJobDetailFieldsAreOnlyAlert(snapshot = {}) {
-  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  if (!Array.isArray(snapshot.fields)) return false;
+  const fields = snapshot.fields;
   if (!fields.length) return true;
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
