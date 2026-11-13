@@ -205,6 +205,24 @@ class EdgeConfirmationDeadlineExceededError extends Error {
   }
 }
 
+/**
+ * A stable alias is present, but the CDN response is not the current producer
+ * bytes/policy. Fast emitters must not replace it: their checkout can be older
+ * than a deploy already in flight. The typed error lets a caller that knows it
+ * is only a pre-deploy automatic replay defer and let the validated deploy
+ * dispatch the writer again; every other caller remains fail-closed.
+ */
+export class StaleStableAliasError extends Error {
+  constructor(key, probeAnswer, versionedKey) {
+    super(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey}, while a fast emitter can bootstrap only a confirmed absence — HTML that references it must not be published`);
+    this.name = 'StaleStableAliasError';
+    this.code = 'CDN_STABLE_ALIAS_STALE';
+    this.key = key;
+    this.probeAnswer = probeAnswer;
+    this.versionedKey = versionedKey;
+  }
+}
+
 /** CDN keys of the files `listStaticScriptFiles()` returns. */
 export function shellAssetsFromStaticScripts(files) {
   const assets = [];
@@ -544,6 +562,9 @@ export async function ensureCdnShellAssets({
     }
     if (stablePairByKey.has(key)) {
       const { versionedKey } = stablePairByKey.get(key);
+      if (probeAnswer === 'stale') {
+        throw new StaleStableAliasError(key, probeAnswer, versionedKey);
+      }
       if (probeAnswer !== 'absent') {
         throw new Error(`${key}: the CDN does not serve the current stable alias (probe: ${probeAnswer}); only the full deploy may publish it from ${versionedKey}, while a fast emitter can bootstrap only a confirmed absence — HTML that references it must not be published`);
       }

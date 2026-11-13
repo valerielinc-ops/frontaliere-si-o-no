@@ -110324,6 +110324,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasso-ilo-terzo-trimestre': {
+    title: 'Tasso ILO svizzero sale al 5,6% nel terzo trimestre',
+    description: 'Il tasso ILO svizzero è salito al 5,6% nel terzo trimestre. 228\'000 disoccupati, con il 12,6% tra i 15-24enni.',
+    keywords: 'tasso disoccupazione svizzera, ILO 5,6%, terzo trimestre, 228000 disoccupati, giovani svizzera, USTAT',
+    ogTitle: 'Tasso ILO Svizzera 5,6% terzo trimestre',
+    ogDescription: 'Il tasso ILO svizzero è salito al 5,6% nel terzo trimestre. Le persone senza impiego sono 228\'000, con il tasso giovanile al 12,6%. Confronto con l\'UE.',
+    canonicalPath: '/articoli-svizzera/tasso-ilo-terzo-trimestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasso ILO svizzero sale al 5,6% nel terzo trimestre",
+      "description": "Il tasso ILO svizzero è salito al 5,6% nel terzo trimestre. 228'000 disoccupati, con il 12,6% tra i 15-24enni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tasso-ilo-terzo-trimestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-12T22:40:24+00:00",
+      "dateModified": "2026-11-12T22:40:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasso-ilo-terzo-trimestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

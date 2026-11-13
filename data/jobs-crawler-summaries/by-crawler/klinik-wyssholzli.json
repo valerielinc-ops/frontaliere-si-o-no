@@ -1,20 +1,69 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-11-12T09:44:39.027Z",
-  "total": 5,
+  "generatedAt": "2026-11-12T22:02:42.340Z",
+  "total": 6,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2986,
-  "avgDurationMs": 2986,
+  "durationMs": 3768,
+  "avgDurationMs": 3768,
   "durationHistory": [
-    2986
+    3768
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Koechin Koch 60–100% 2026 Temp",
+      "slug": "koechin-koch-60-100-2026-temp-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koechin_Koch_60-100-_2026_temp.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "2027-02-10T22:02:30.620Z",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Koechin_Koch_60-100-_2026_temp.pdf"
+      },
+      "id": "klinik-wyssholzli-5f16560c0e62",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
+      "crawledAtSource": "slice-writer",
+      "streetAddress": "Herzogenbuchsee",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-12T22:02:30.620Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -42,7 +91,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-25T09:44:20.440Z",
+      "validThrough": "2026-12-24T22:02:30.620Z",
       "_meta": {
         "sourceFilename": "Inserat-Psychiater_in-Ambulatorium-Bern_2026_ab-10.pdf"
       },
@@ -52,7 +101,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-12T09:44:20.440Z",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -89,7 +138,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-12T09:44:20.440Z",
+      "validThrough": "2026-12-12T22:02:30.620Z",
       "_meta": {
         "sourceFilename": "Psychologin_Psychotherapeutin_ambulant_2026_60-100.pdf"
       },
@@ -99,7 +148,7 @@
       "salaryMax": 71400,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-12T09:44:20.440Z",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -136,7 +185,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-30T09:44:20.440Z",
+      "validThrough": "2026-12-29T22:02:30.620Z",
       "_meta": {
         "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
       },
@@ -146,7 +195,7 @@
       "salaryMax": 71400,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-12T09:44:20.440Z",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -183,7 +232,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-04T09:44:20.440Z",
+      "validThrough": "2027-02-03T22:02:30.620Z",
       "_meta": {
         "sourceFilename": "Pflegefachfrau-HF_ca.-80-_02_2027.pdf"
       },
@@ -193,7 +242,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-12T09:44:20.440Z",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -230,7 +279,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-01-28T09:44:20.440Z",
+      "validThrough": "2027-01-27T22:02:30.620Z",
       "_meta": {
         "sourceFilename": "Praktikantin-Pflege.pdf"
       },
@@ -240,7 +289,7 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-12T09:44:20.440Z",
+      "crawledAt": "2026-11-12T22:02:30.620Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
@@ -254,5 +303,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

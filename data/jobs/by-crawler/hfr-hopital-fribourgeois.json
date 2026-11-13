@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-12T09:58:20.927Z",
-  "runId": "43190716962",
+  "assembledAt": "2026-11-12T21:39:29.913Z",
+  "runId": "43309660587",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:13.203Z",
+      "crawledAt": "2026-11-12T21:39:22.721Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:58:13.203Z",
+      "validThrough": "2027-01-27T21:39:22.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:12.617Z",
+      "crawledAt": "2026-11-12T21:39:21.885Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:58:12.617Z",
+      "validThrough": "2027-01-27T21:39:21.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:11.716Z",
+      "crawledAt": "2026-11-12T21:39:21.280Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:58:11.716Z",
+      "validThrough": "2027-01-27T21:39:21.280Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:10.827Z",
+      "crawledAt": "2026-11-12T21:39:20.707Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -341,7 +341,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:58:10.827Z",
+      "validThrough": "2027-01-27T21:39:20.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:09.917Z",
+      "crawledAt": "2026-11-12T21:39:20.119Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -423,7 +423,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:58:09.917Z",
+      "validThrough": "2027-01-27T21:39:20.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -458,7 +458,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:09.327Z",
+      "crawledAt": "2026-11-12T21:39:19.510Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -511,7 +511,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:58:09.327Z",
+      "validThrough": "2027-01-27T21:39:19.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -546,7 +546,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:08.717Z",
+      "crawledAt": "2026-11-12T21:39:18.947Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -597,7 +597,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:58:08.717Z",
+      "validThrough": "2027-01-27T21:39:18.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -632,7 +632,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:07.787Z",
+      "crawledAt": "2026-11-12T21:39:18.390Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -683,7 +683,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:58:07.787Z",
+      "validThrough": "2027-01-27T21:39:18.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -717,7 +717,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:07.186Z",
+      "crawledAt": "2026-11-12T21:39:17.559Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -765,7 +765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:07.186Z",
+      "validThrough": "2027-02-02T21:39:17.559Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:06.612Z",
+      "crawledAt": "2026-11-12T21:39:16.904Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -850,7 +850,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:06.612Z",
+      "validThrough": "2027-02-02T21:39:16.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -885,7 +885,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:05.687Z",
+      "crawledAt": "2026-11-12T21:39:16.349Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -936,7 +936,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:05.687Z",
+      "validThrough": "2027-02-02T21:39:16.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -971,7 +971,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:04.795Z",
+      "crawledAt": "2026-11-12T21:39:15.419Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1019,7 +1019,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:58:04.795Z",
+      "validThrough": "2027-02-02T21:39:15.419Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1054,7 +1054,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:03.883Z",
+      "crawledAt": "2026-11-12T21:39:14.773Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1105,7 +1105,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:58:03.883Z",
+      "validThrough": "2027-02-03T21:39:14.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1139,7 +1139,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:03.265Z",
+      "crawledAt": "2026-11-12T21:39:14.156Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1190,7 +1190,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:58:03.265Z",
+      "validThrough": "2027-02-03T21:39:14.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1225,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:02.383Z",
+      "crawledAt": "2026-11-12T21:39:13.586Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1276,7 +1276,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:58:02.383Z",
+      "validThrough": "2027-02-07T21:39:13.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1311,7 +1311,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1476",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:01.457Z",
+      "crawledAt": "2026-11-12T21:39:12.669Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -1362,41 +1362,41 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:58:01.457Z",
+      "validThrough": "2027-02-08T21:39:12.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ebed0423d502",
       "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
         "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland",
         "en": "medical-secretary-hopital-fribourgeois-hfr-fribourg-switzerland",
-        "de": "medizinische-sekretarin-hopital-fribourgeois-hfr-fribourg-switzerland"
+        "de": "medizinische-sekretarin-hopital-fribourgeois-hfr-fribourg-switzerland",
+        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Secrétaire médical-e",
       "titleByLocale": {
-        "fr": "Secrétaire médical-e",
         "it": "Segretario medico",
         "en": "Medical Secretary",
-        "de": "Medizinische Sekretärin"
+        "de": "Medizinische Sekretärin",
+        "fr": "Secrétaire médical-e"
       },
       "description": "Afin de compléter son équipe, la direction médicale recherche pour le secrétariat d’endoscopie et des centres opératoires de l' HFR Fribourg – Hôpital cantonal , un/une\n\n• planifier les rendez-vous médicaux du service et interdisciplinaires\n\n• planifier les interventions du service selon les directives internes du service\n\n• faire le relais central de toutes les demandes concernant le service d’endoscopie et les centres opératoires\n\n• communiquer et transmettre des informations de manière claire et précise en s’adaptant lors de situations particulières et/ou problématiques\n\n• assurer la coordination avec les autres services\n\n• assurer l’exécution des prestations du service de manière autonome et flexible, en étroite collaboration avec le médecin-chef, l’adjointe du médecin-chef ou la secrétaire responsable, tout en respectant l’organisation multisites, les normes et les directives du service\n\n• planifier, contrôler et mettre en œuvre un programme opératoire en connaissant les contraintes des différents services tout en axant les priorités sur une prise en charge de qualité du patient\n\n• accueillir les patient-e-s dans le secrétariat d’endoscopie\n\n• dactylographier les rapports médicaux\n\n• effectuer divers travaux administratifs inhérents au service d’endoscopie et des Centres opératoires\n\n• CFC d’employé-e de commerce ou équivalent, diplôme de secrétaire médical-e un atout\n\n• connaissances du milieu médical avec bonnes connaissances de la terminologie médicale un atout\n\n• maîtrise de la langue française avec de bonnes connaissances de l’allemand (B2 minimum)\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• connaissance des applications institutionnelles (Winscribe, Polypoint, MedFolio), un atout\n\n• excellente gestion du stress, adaptabilité, sens de l’organisation, flexibilité, facilité de communication et fiabilité, aisance relationnelle",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe, la direction médicale recherche pour le secrétariat d’endoscopie et des centres opératoires de l' HFR Fribourg – Hôpital cantonal , un/une\n\n• planifier les rendez-vous médicaux du service et interdisciplinaires\n\n• planifier les interventions du service selon les directives internes du service\n\n• faire le relais central de toutes les demandes concernant le service d’endoscopie et les centres opératoires\n\n• communiquer et transmettre des informations de manière claire et précise en s’adaptant lors de situations particulières et/ou problématiques\n\n• assurer la coordination avec les autres services\n\n• assurer l’exécution des prestations du service de manière autonome et flexible, en étroite collaboration avec le médecin-chef, l’adjointe du médecin-chef ou la secrétaire responsable, tout en respectant l’organisation multisites, les normes et les directives du service\n\n• planifier, contrôler et mettre en œuvre un programme opératoire en connaissant les contraintes des différents services tout en axant les priorités sur une prise en charge de qualité du patient\n\n• accueillir les patient-e-s dans le secrétariat d’endoscopie\n\n• dactylographier les rapports médicaux\n\n• effectuer divers travaux administratifs inhérents au service d’endoscopie et des Centres opératoires\n\n• CFC d’employé-e de commerce ou équivalent, diplôme de secrétaire médical-e un atout\n\n• connaissances du milieu médical avec bonnes connaissances de la terminologie médicale un atout\n\n• maîtrise de la langue française avec de bonnes connaissances de l’allemand (B2 minimum)\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• connaissance des applications institutionnelles (Winscribe, Polypoint, MedFolio), un atout\n\n• excellente gestion du stress, adaptabilité, sens de l’organisation, flexibilité, facilité de communication et fiabilité, aisance relationnelle",
         "it": "Per completare il suo team, il reparto medico sta cercando la segreteria dell'ufficio e i centri operativi dell'ospedale cantonale HFR Fribourg, uno/uno\n\n• pianificazione degli appuntamenti medici del dipartimento e interdisciplinari\n\n• interventi di servizio di pianificazione secondo le direttive di servizio interno\n\n• relè centrale tutte le richieste di servizio endoscopia e centri operativi\n\n• comunicare e trasmettere le informazioni in modo chiaro e preciso, adattandosi a situazioni specifiche e/o problematiche\n\n• garantire il coordinamento con altri servizi\n\n• garantire la consegna del servizio in modo indipendente e flessibile, in stretta collaborazione con il Chief Medical Officer, l'Assistente al Chief Medical Officer o il Segretario responsabile, nel rispetto dell'organizzazione multisito, degli standard e delle direttive del servizio\n\n• pianificazione, monitoraggio e attuazione di un programma operativo conoscendo i vincoli dei diversi servizi, concentrando le priorità sulla gestione della qualità del paziente\n\n• ricevere i pazienti nella segreteria di endoscopia\n\n• tipo di rapporti medici\n\n• svolgere vari lavori amministrativi inerenti al servizio dell'endoscopia e dei centri operativi\n\n• SWC dipendente aziendale o equivalente, grado di segretaria medica - un bene\n\n• conoscenza dell'ambiente medico con buona conoscenza della terminologia medica un bene\n\n• padronanza della lingua francese con buona conoscenza del tedesco (minimo B2)\n\n• strumenti informatici eccellenti (MS Office)\n\n• conoscenza delle applicazioni istituzionali (Winscribe, Polypoint, MedFolio), un asset\n\n• eccellente gestione dello stress, adattabilità, senso di organizzazione, flessibilità, facilità di comunicazione e affidabilità, facilità relazionale",
         "en": "In order to complete its team, the medical department is looking for the secretariat of the office and the operating centres of the HFR Fribourg – Cantonal Hospital, one/one\n\n• planning the medical appointments of the department and interdisciplinary\n\n• planning service interventions according to internal service directives\n\n• central relay all requests for endoscopy service and operating centres\n\n• communicating and transmitting information in a clear and accurate manner by adapting to specific and/or problematic situations\n\n• ensure coordination with other services\n\n• ensure the delivery of the service independently and flexibly, in close cooperation with the Chief Medical Officer, the Assistant to the Chief Medical Officer or the Secretary responsible, while respecting the multisite organisation, standards and directives of the service\n\n• planning, monitoring and implementing an operating programme by knowing the constraints of different services while focusing priorities on quality management of the patient\n\n• to receive patients in the secretariat of endoscopy\n\n• type medical reports\n\n• carry out various administrative work inherent in the service of endoscopy and the operating centres\n\n• SWC business employee or equivalent, medical secretary degree - an asset\n\n• knowledge of the medical environment with good knowledge of medical terminology an asset\n\n• mastery of the French language with good knowledge of German (minimum B2)\n\n• excellent computer tools (MS Office)\n\n• knowledge of institutional applications (Winscribe, Polypoint, MedFolio), an asset\n\n• excellent stress management, adaptability, sense of organization, flexibility, ease of communication and reliability, relational ease",
-        "de": "Um sein Team zu vervollständigen, sucht die medizinische Abteilung das Sekretariat des Büros und die Betriebszentren des HFR-Krankenhauses Fribourg, eins/eins\n\n• Planung der medizinischen Termine der Abteilung und interdisziplinär\n\n• Planung von Serviceinterventionen nach internen Servicerichtlinien\n\n• zentrale Relais alle Anfragen für Endoskopie-Service und Operationszentren\n\n• Kommunikation und Übermittlung von Informationen auf klare und genaue Weise durch Anpassung an spezifische und / oder problematische Situationen\n\n• Gewährleistung der Koordinierung mit anderen Diensten\n\n• Gewährleistung der unabhängigen und flexiblen Erbringung des Dienstes in enger Zusammenarbeit mit dem Chief Medical Officer, dem Assistenten des Chief Medical Officer oder dem verantwortlichen Sekretär unter Einhaltung der Organisation, der Normen und Richtlinien des Dienstes.\n\n• Planung, Überwachung und Umsetzung eines operationellen Programms durch Kenntnis der Zwänge verschiedener Dienstleistungen und Fokussierung auf das Qualitätsmanagement des Patienten\n\n• Patienten im Sekretariat der Endoskopie zu empfangen\n\n• Typgenehmigungen\n\n• Durchführung verschiedener administrativer Arbeiten im Zusammenhang mit der Endoskopie und den Operationszentren\n\n• SWC Business-Mitarbeiter oder gleichwertig, Medical Secretary Degree - ein Asset\n\n• Kenntnisse des medizinischen Umfelds mit guten Kenntnissen der medizinischen Terminologie ein Asset\n\n• Beherrschung der französischen Sprache mit guten Deutschkenntnissen (mindestens B2)\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• Kenntnisse institutioneller Anwendungen (Winscribe, Polypoint, MedFolio), ein Asset\n\n• ausgezeichnetes Stressmanagement, Anpassungsfähigkeit, Organisationssinn, Flexibilität, einfache Kommunikation und Zuverlässigkeit, relationale Leichtigkeit"
+        "de": "Um sein Team zu vervollständigen, sucht die medizinische Abteilung das Sekretariat des Büros und die Betriebszentren des HFR-Krankenhauses Fribourg, eins/eins\n\n• Planung der medizinischen Termine der Abteilung und interdisziplinär\n\n• Planung von Serviceinterventionen nach internen Servicerichtlinien\n\n• zentrale Relais alle Anfragen für Endoskopie-Service und Operationszentren\n\n• Kommunikation und Übermittlung von Informationen auf klare und genaue Weise durch Anpassung an spezifische und / oder problematische Situationen\n\n• Gewährleistung der Koordinierung mit anderen Diensten\n\n• Gewährleistung der unabhängigen und flexiblen Erbringung des Dienstes in enger Zusammenarbeit mit dem Chief Medical Officer, dem Assistenten des Chief Medical Officer oder dem verantwortlichen Sekretär unter Einhaltung der Organisation, der Normen und Richtlinien des Dienstes.\n\n• Planung, Überwachung und Umsetzung eines operationellen Programms durch Kenntnis der Zwänge verschiedener Dienstleistungen und Fokussierung auf das Qualitätsmanagement des Patienten\n\n• Patienten im Sekretariat der Endoskopie zu empfangen\n\n• Typgenehmigungen\n\n• Durchführung verschiedener administrativer Arbeiten im Zusammenhang mit der Endoskopie und den Operationszentren\n\n• SWC Business-Mitarbeiter oder gleichwertig, Medical Secretary Degree - ein Asset\n\n• Kenntnisse des medizinischen Umfelds mit guten Kenntnissen der medizinischen Terminologie ein Asset\n\n• Beherrschung der französischen Sprache mit guten Deutschkenntnissen (mindestens B2)\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• Kenntnisse institutioneller Anwendungen (Winscribe, Polypoint, MedFolio), ein Asset\n\n• ausgezeichnetes Stressmanagement, Anpassungsfähigkeit, Organisationssinn, Flexibilität, einfache Kommunikation und Zuverlässigkeit, relationale Leichtigkeit",
+        "fr": "Afin de compléter son équipe, la direction médicale recherche pour le secrétariat d’endoscopie et des centres opératoires de l' HFR Fribourg – Hôpital cantonal , un/une\n\n• planifier les rendez-vous médicaux du service et interdisciplinaires\n\n• planifier les interventions du service selon les directives internes du service\n\n• faire le relais central de toutes les demandes concernant le service d’endoscopie et les centres opératoires\n\n• communiquer et transmettre des informations de manière claire et précise en s’adaptant lors de situations particulières et/ou problématiques\n\n• assurer la coordination avec les autres services\n\n• assurer l’exécution des prestations du service de manière autonome et flexible, en étroite collaboration avec le médecin-chef, l’adjointe du médecin-chef ou la secrétaire responsable, tout en respectant l’organisation multisites, les normes et les directives du service\n\n• planifier, contrôler et mettre en œuvre un programme opératoire en connaissant les contraintes des différents services tout en axant les priorités sur une prise en charge de qualité du patient\n\n• accueillir les patient-e-s dans le secrétariat d’endoscopie\n\n• dactylographier les rapports médicaux\n\n• effectuer divers travaux administratifs inhérents au service d’endoscopie et des Centres opératoires\n\n• CFC d’employé-e de commerce ou équivalent, diplôme de secrétaire médical-e un atout\n\n• connaissances du milieu médical avec bonnes connaissances de la terminologie médicale un atout\n\n• maîtrise de la langue française avec de bonnes connaissances de l’allemand (B2 minimum)\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• connaissance des applications institutionnelles (Winscribe, Polypoint, MedFolio), un atout\n\n• excellente gestion du stress, adaptabilité, sens de l’organisation, flexibilité, facilité de communication et fiabilité, aisance relationnelle"
       },
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1419",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:58:00.862Z",
+      "crawledAt": "2026-11-12T21:39:12.095Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1417,9 +1417,22 @@
       "jobReqId": "1419",
       "externalId": "1419",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
+        ]
       },
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1434,23 +1447,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:58:00.862Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
-        ],
-        "en": [
-          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
-        ],
-        "de": [
-          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
-      ]
+      "validThrough": "2027-02-10T21:39:12.095Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

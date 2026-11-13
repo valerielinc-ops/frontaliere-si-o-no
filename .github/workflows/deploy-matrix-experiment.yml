@@ -108,6 +108,16 @@ on:
         type: boolean
         required: false
         default: false
+      heap_diagnostics:
+        description: 'Write compact V8 heap-space stats after the first closeBundle GC'
+        type: boolean
+        required: false
+        default: false
+      heap_profile:
+        description: 'Capture a Node.js sampled heap allocation profile for every locale × variant build'
+        type: boolean
+        required: false
+        default: false
       variants:
         description: 'One variant per line: name=KEY=VAL,KEY=VAL (empty value means no extra env)'
         type: string
@@ -465,6 +475,9 @@ jobs:
       DEPLOY_BUILD_ID: ${{ needs.prep.outputs.build_id }}
       BUILD_STOP_AFTER: ${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}
       CPU_PROFILE: ${{ inputs.cpu_profile == true && '1' || '' }}
+      HEAP_PROFILE: ${{ inputs.heap_profile == true && '1' || '' }}
+      V8_HEAP_DIAGNOSTICS: ${{ inputs.heap_diagnostics == true && '1' || '' }}
+      V8_HEAP_DIAGNOSTICS_FILE: /tmp/build-v8-heap.json
       # Same preload and variable as the jobs-seo bench work (agent A, commit
       # 0595e0979f0): scripts/ci/bench-frozen-clock.mjs freezes Date.now()
       # and argument-less new Date() at the run's build id.
@@ -802,6 +815,12 @@ jobs:
             rm -f /tmp/cpuprof/*.cpuprofile
             BUILD_NODE_OPTIONS="$BUILD_NODE_OPTIONS --cpu-prof --cpu-prof-dir=/tmp/cpuprof"
             echo "[cpu-profile] enabled dir=/tmp/cpuprof"
+          fi
+          if [ "${HEAP_PROFILE:-}" = '1' ]; then
+            mkdir -p /tmp/heap-profile
+            rm -f /tmp/heap-profile/*.heapprofile
+            BUILD_NODE_OPTIONS="$BUILD_NODE_OPTIONS --heap-prof --heap-prof-dir=/tmp/heap-profile"
+            echo "[heap-profile] enabled dir=/tmp/heap-profile"
           fi
           if [ -n "${BUILD_STOP_AFTER:-}" ]; then
             echo "[build-stop-after] requested=${BUILD_STOP_AFTER} (skip post-build SPA asset verification)"
@@ -1152,6 +1171,22 @@ jobs:
         with:
           name: cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
           path: /tmp/cpuprof/*.cpuprofile
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Upload V8 heap-space diagnostics
+        if: always() && inputs.heap_diagnostics == true
+        uses: actions/upload-artifact@v7
+        with:
+          name: v8-heap-spaces-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
+          path: /tmp/build-v8-heap.json
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Upload sampled heap profile
+        if: always() && inputs.heap_profile == true
+        uses: actions/upload-artifact@v7
+        with:
+          name: heap-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}
+          path: /tmp/heap-profile/*.heapprofile
           retention-days: 7
           if-no-files-found: warn
 

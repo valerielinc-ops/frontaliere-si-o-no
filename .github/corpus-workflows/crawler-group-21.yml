@@ -106,6 +106,14 @@ jobs:
         if: steps.site_checkout_primary.outcome == 'failure'
         run: |-
           set -euo pipefail
+          cleanWorkspaceBeforeRetry() {
+            local workspace="${GITHUB_WORKSPACE:-}"
+            if [ -z "$workspace" ] || [ "$workspace" = "/" ] || [ ! -d "$workspace" ]; then
+              echo "::error::GITHUB_WORKSPACE is empty, unsafe, or not a directory; refusing workspace cleanup" >&2
+              return 1
+            fi
+            find "$workspace" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+          }
           retrySparseCheckout() {
             local workspace="${GITHUB_WORKSPACE:-}"
             if [ -z "$workspace" ] || [ "$workspace" = "/" ]; then
@@ -113,6 +121,7 @@ jobs:
               return 1
             fi
             if [ ! -e "$workspace/.git" ]; then
+              cleanWorkspaceBeforeRetry
               echo "No partial Git metadata found; starting the retry from an empty workspace"
               return 0
             fi

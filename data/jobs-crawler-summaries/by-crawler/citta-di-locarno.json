@@ -1,7 +1,7 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-11-12T09:22:39.092Z",
+  "generatedAt": "2026-11-12T21:37:31.314Z",
   "total": 1,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5447,
-  "avgDurationMs": 5447,
+  "durationMs": 4005,
+  "avgDurationMs": 4005,
   "durationHistory": [
-    5447
+    4005
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,10 +45,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=ab51cfb8-b7ee-4213-9907-7006885ec07c,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T09:22:20.253Z",
+      "crawledAt": "2026-11-12T21:37:08.399Z",
       "firstSeenAt": "2026-11-06T09:22:11.397Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:20.253Z",
+      "validThrough": "2027-02-04T21:37:08.399Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -62,5 +62,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

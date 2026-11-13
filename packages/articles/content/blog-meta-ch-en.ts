@@ -8726,6 +8726,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dibattito-salario-minimo-5000.title': 'Minimum wage of 5,000 francs: the debate heats up',
     'blog.article.dibattito-salario-minimo-5000.excerpt': 'Debate on a minimum wage of CHF 5,000 for those who have completed an apprenticeship.',
     'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.tasso-ilo-terzo-trimestre.title': 'Swiss ILO rate rises to 5,6% in the third quarter',
+    'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'In the third quarter, the unemployment rate calculated according to the definition of the International Labour Organization (ILO) rose in Switzerland to 5,6%, from 5,1% in the previous three months.',
+    'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-11-12T09:30:38.921Z",
+  "generatedAt": "2026-11-12T21:56:43.690Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4918,
-  "avgDurationMs": 4918,
+  "durationMs": 4424,
+  "avgDurationMs": 4424,
   "durationHistory": [
-    4918
+    4424
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:30:20.394Z",
+      "crawledAt": "2026-11-12T21:56:24.448Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:20.394Z",
+      "validThrough": "2027-01-18T21:56:24.448Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job168872?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:30:19.767Z",
+      "crawledAt": "2026-11-12T21:56:23.869Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "addressRegion": "BE",
       "streetAddress": "Moosseedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:30:19.767Z",
+      "validThrough": "2027-02-04T21:56:23.869Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -120,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

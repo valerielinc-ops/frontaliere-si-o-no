@@ -227,6 +227,15 @@ jobs:
         # at 200/day. Post-publish: 15. Otherwise: the daily quota minus the
         # top-up reserve. Whichever run opens the quota day takes the large
         # share. A ledger Firestore does not have yet is bootstrapped here.
+        # URLs come from the live job sitemaps AND from the active-job dataset
+        # the build publishes on the data CDN (jobs-it-index.json +
+        # jobs-slug-map.json, ~11 MB brotli over HTTP): the sitemaps only move
+        # with a full publish, the offer pages also go live with the section
+        # shards. Fetched rather than checked out: data/jobs.json is not
+        # tracked, and assembling it needs data/jobs/ (1.4 GB) plus npm ci.
+        # The sparse checkout above only has to keep data/canton-*.json and
+        # the script's imports (tests/indexing-api-workflow-wiring.test.ts).
+        # Dataset unreadable → warning, sitemap URLs only.
         env:
           INPUT_MODE: ${{ github.event_name == 'schedule' && 'full' || inputs.mode }}
           INPUT_MAX: ${{ inputs.indexing_max }}

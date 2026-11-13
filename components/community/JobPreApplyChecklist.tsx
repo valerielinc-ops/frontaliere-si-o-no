@@ -1,103 +1,107 @@
 import React from 'react';
-import { ClipboardCheck, CheckCircle2, ShieldCheck, HelpCircle, FileText } from 'lucide-react';
+import { Asterisk, ClipboardCheck, ExternalLink, ShieldCheck } from 'lucide-react';
 
-export interface PreApplyFieldItem {
-  id: string;
+export interface ATSApplicationFormField {
   label: string;
-  expectedValue: string;
-  source: 'smart_default' | 'ats_field' | 'verified_benchmark';
-  helpText: string;
+  type: string;
+  required: boolean;
+  kind: 'question' | 'consent';
+}
+
+export interface ATSApplicationFormSnapshot {
+  provider: 'ncoreplat';
+  sourceUrl: string;
+  checkedAt: string;
+  stage: string;
+  fields: ATSApplicationFormField[];
 }
 
 export interface JobPreApplyChecklistProps {
   companyName: string;
-  canton?: string;
-  salaryBenchmarkChf?: string | null;
+  atsApplicationForm?: ATSApplicationFormSnapshot;
   className?: string;
+}
+
+function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): value is ATSApplicationFormSnapshot {
+  if (!value || value.provider !== 'ncoreplat' || !Array.isArray(value.fields) || value.fields.length === 0) return false;
+  if (!Number.isFinite(Date.parse(value.checkedAt))) return false;
+
+  try {
+    const source = new URL(value.sourceUrl);
+    return source.protocol === 'https:'
+      && source.hostname === 'app.ncoreplat.com'
+      && /^\/jobposition\/[1-9]\d*\//.test(source.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function formatCheckedAt(value: string): string {
+  const date = new Date(value);
+  return date.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 export const JobPreApplyChecklist: React.FC<JobPreApplyChecklistProps> = ({
   companyName,
-  canton = 'TI',
-  salaryBenchmarkChf = null,
+  atsApplicationForm,
   className = '',
 }) => {
-  const fields: PreApplyFieldItem[] = [
-    {
-      id: 'work_permit',
-      label: 'Permesso di soggiorno / Arbeitsbewilligung',
-      expectedValue: 'Permesso G Frontalieri (Cittadini UE/AELS)',
-      source: 'smart_default',
-      helpText: 'Il datore di lavoro svizzero richiederà la disponibilità del Permesso G per residenti nella fascia di confine.',
-    },
-    {
-      id: 'notice_period',
-      label: 'Termine di disdetta / Kündigungsfrist',
-      expectedValue: '3 mesi (Standard mercato svizzero)',
-      source: 'smart_default',
-      helpText: 'Preavviso standard conformemente all\'art. 335c CO svizzero.',
-    },
-    {
-      id: 'pensum',
-      label: 'Grado di occupazione / Pensum',
-      expectedValue: '100% (Tempo pieno) o da concordare',
-      source: 'smart_default',
-      helpText: 'Grado di impegno standard indicato per le posizioni aperte nel cantone.',
-    },
-    {
-      id: 'salary_expectation',
-      label: 'Aspettativa salariale / Lohnvorstellung',
-      expectedValue: salaryBenchmarkChf || 'Allineata ai salari mediani svizzeri (CHF lordi annui)',
-      source: 'verified_benchmark',
-      helpText: 'Indicare sempre la cifra lorda in franchi svizzeri (CHF), non in Euro.',
-    },
-  ];
+  if (!isVerifiedSnapshot(atsApplicationForm)) return null;
 
   return (
     <section
       data-testid="job-preapply-checklist"
       className={`rounded-2xl border border-edge bg-surface/90 p-4 sm:p-5 space-y-3.5 ${className}`}
-      aria-label={`Modulo ATS e requisiti di candidatura per ${companyName}`}
+      aria-label={`Campi ATS verificati per ${companyName}`}
     >
       <div className="flex items-center justify-between border-b border-edge/60 pb-2.5">
-        <h3 className="text-sm font-bold font-display uppercase tracking-wider text-heading flex items-center gap-2">
+        <h3 className="text-base font-semibold font-display text-heading flex items-center gap-2">
           <ClipboardCheck className="w-4 h-4 text-accent" />
           Domande previste nel modulo ATS ({companyName})
         </h3>
-        <span className="text-[11px] font-semibold text-success flex items-center gap-1">
+        <span className="text-xs font-semibold text-success flex items-center gap-1">
           <ShieldCheck className="w-3.5 h-3.5" />
-          Pre-compilabile
+          Fonte verificata
         </span>
       </div>
 
-      <p className="text-xs text-subtle leading-relaxed">
-        Prima di cliccare su <em>Candidati</em>, ecco i campi e le domande tipiche che il portale o l'ATS dell'azienda ti richiederà di compilare:
+      <p className="text-sm text-subtle leading-relaxed">
+        Campi visibili nella prima schermata pubblica del portale
+        {atsApplicationForm.stage ? ` “${atsApplicationForm.stage}”` : ''}:
       </p>
 
-      <div className="space-y-2 pt-1">
-        {fields.map((field) => (
-          <div
-            key={field.id}
-            className="p-2.5 rounded-xl bg-surface-raised border border-edge/50 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs"
+      <ul className="space-y-2 pt-1">
+        {atsApplicationForm.fields.map((field, index) => (
+          <li
+            key={`${field.type}:${field.label}:${index}`}
+            className="flex items-center justify-between gap-3 border-b border-edge/60 pb-2.5 text-sm last:border-b-0 last:pb-0"
           >
-            <div className="min-w-0 flex-1">
-              <span className="font-semibold text-heading block">{field.label}</span>
-              <span className="text-[11px] text-muted block mt-0.5">{field.helpText}</span>
-            </div>
-            <div className="flex items-center gap-1.5 shrink-0 bg-surface px-2.5 py-1 rounded-lg border border-edge font-medium text-accent">
-              <CheckCircle2 className="w-3.5 h-3.5 text-success" />
-              <span>{field.expectedValue}</span>
-            </div>
-          </div>
+            <span className="min-w-0 font-semibold text-heading">{field.label}</span>
+            <span className="flex items-center gap-1.5 shrink-0 text-xs text-subtle">
+              {field.required ? (
+                <><Asterisk className="w-3.5 h-3.5 text-accent" /> Obbligatorio</>
+              ) : 'Facoltativo'}
+              {field.kind === 'consent' && <span className="text-muted">· consenso</span>}
+            </span>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <div className="flex items-center gap-2 pt-1 text-[11px] text-muted">
-        <FileText className="w-3.5 h-3.5 text-accent shrink-0" />
-        <span>
-          Suggerimento: allega sempre un CV strutturato in standard ATS (singola colonna, senza tabelle complesse).
-        </span>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-t border-edge/60 pt-3 text-xs text-subtle">
+        <span>Controllato il {formatCheckedAt(atsApplicationForm.checkedAt)} sul portale dell’azienda.</span>
+        <a
+          href={atsApplicationForm.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 min-h-[44px] font-semibold text-accent hover:underline underline-offset-4"
+        >
+          Apri il modulo ATS originale
+          <ExternalLink className="w-3.5 h-3.5" />
+        </a>
       </div>
+      <p className="text-xs leading-relaxed text-subtle">
+        Il portale può chiedere altri dati nei passaggi successivi. Qui compaiono solo i campi osservati nella pagina pubblica, senza inviare la candidatura.
+      </p>
     </section>
   );
 };

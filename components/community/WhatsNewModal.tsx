@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo, type MouseEvent, type CSSPro
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, CheckCircle2 } from 'lucide-react';
 import { useTranslation, useLocale, useTranslationNamespace } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
-import { buildPath, type AppRoute } from '@/services/router';
+import { buildPath, JOB_BOARD_CANTON_AGGREGATE, type AppRoute } from '@/services/router';
 import { buildPharmacyPath, parsePharmacyRoute } from '@/services/pharmacies/routePaths';
 import {
  ACHIEVEMENTS,
@@ -20,6 +20,8 @@ interface ReleaseItem {
  titleKey: string;
  descKey: string;
  link?: { tab: string; subTab?: string };
+ /** Localized in-app destination for the release item. */
+ route?: AppRoute;
  /** Absolute path to a standalone static page outside the SPA tab system (e.g. /moduli/...). Mutually exclusive with `link`. */
  href?: string;
 }
@@ -35,6 +37,32 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
+  {
+    version: '3.101.4',
+    date: '2026-11-13',
+    titleKey: 'whatsNew.v31014.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v31014.jobMap.title',
+        descKey: 'whatsNew.v31014.jobMap.desc',
+        route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE },
+      },
+    ],
+  },
+  {
+    version: '3.101.3',
+    date: '2026-11-12',
+    titleKey: 'whatsNew.v31013.title',
+    items: [
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v31013.job-affinity.title',
+        descKey: 'whatsNew.v31013.job-affinity.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
   {
     version: '3.101.2',
     date: '2026-11-12',
@@ -3203,8 +3231,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const Icon = cfg.icon;
  const route = item.link ? releaseLinkToRoute(item.link) : null;
  const pharmacyPath = item.href ? parsePharmacyRoute(item.href) : null;
- const href = pharmacyPath ? buildPharmacyPath(pharmacyPath, locale) : item.href ? item.href : route ? buildPath(route, locale as any) : '';
- const isClickable = !!item.link || !!item.href;
+ const href = pharmacyPath ? buildPharmacyPath(pharmacyPath, locale) : item.route ? buildPath(item.route, locale) : item.href ? item.href : route ? buildPath(route, locale as any) : '';
+ const isClickable = !!item.link || !!item.href || !!item.route;
  const cardContent = (
  <>
  <span className={`mt-0.5 p-1 rounded-md shrink-0 ${cfg.bg}`}>

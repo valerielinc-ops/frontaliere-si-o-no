@@ -119,6 +119,7 @@ import {
 } from './shared/postWalkCoordinatorProfiler';
 import { logBuildMem } from './shared/buildMemLog';
 import { releaseIncrementalManifestState } from './shared/incrementalManifest.mjs';
+import { releaseTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { getClaimedPathCount, getClaimedPaths } from './sharedWriteRegistry';
 import {
   getKeywordLandingPlanSnapshot,
@@ -639,6 +640,13 @@ function buildPostWalkCoordinatorPlugin(
       order: 'post',
       sequential: true,
       handler: async () => {
+        // The traffic-evidence readers (jobs, events, plate-auction and
+        // related-search pages) all use plain parallel closeBundle hooks.
+        // This hook is `order: 'post'` + `sequential`, so Rollup has awaited
+        // every one of them before we get here: the first point where the
+        // shared singleton can be dropped without a concurrent reader seeing
+        // `evidence-released` or an emptied GSC demand index.
+        releaseTrafficEvidenceFilter(rootDir);
         const distDir = path.resolve(rootDir, 'dist');
         if (!fs.existsSync(distDir)) {
           // eslint-disable-next-line no-console

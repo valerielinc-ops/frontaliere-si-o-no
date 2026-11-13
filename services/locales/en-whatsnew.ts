@@ -6,6 +6,12 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31013.title': 'A clearer match with job requirements',
+  'whatsNew.v31013.job-affinity.title': 'Compare skills with the listing',
+  'whatsNew.v31013.job-affinity.desc': 'Job pages show which skills you enter also appear in the requirements. The percentage stays hidden when information is missing and does not assess qualifications or years of experience.',
+  'whatsNew.v31014.title': 'Swiss jobs, canton by canton',
+  'whatsNew.v31014.jobMap.title': 'An official map of cantons and municipalities',
+  'whatsNew.v31014.jobMap.desc': 'Explore job openings on official boundary maps with canton and municipal coats of arms, live counts and direct links to each location’s listings.',
   'whatsNew.v31012.title': 'More complete application documents',
   'whatsNew.v31012.assisted-application.title': 'Your email in your CV and cover letter',
   'whatsNew.v31012.assisted-application.desc': 'The tailored CV and cover letter now include the email address you provided for your assisted application.',

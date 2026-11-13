@@ -34,6 +34,7 @@
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-schluein-753614",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-winterthur-747299",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-zuerich-755616",
+    "https://team.lidl.ch/de/jobs/assistant-team-manager-operations-m-w-d-80-100-derendingen-770559",
     "https://team.lidl.ch/de/jobs/category-manager-m-w-d-80-100-weinfelden-754394",
     "https://team.lidl.ch/de/jobs/ch_-stv.-filialleiter-stv.-filialleiterin-m-w-d-80-kehrsatz-737358",
     "https://team.lidl.ch/de/jobs/ch_allrounder-verkauf-m-w-d-20-40-1-baden-daettwil-752471",
@@ -258,7 +259,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-12T09:40:17.219Z",
+  "updatedAt": "2026-11-12T21:48:13.199Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -970,6 +971,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/assistant-team-manager-operations-m-w-d-80-100-derendingen-770559": {
+      "location": "Derendingen",
+      "addressLocality": "Derendingen",
+      "canton": "SO",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-perlen-763040": {
       "location": "Perlen",

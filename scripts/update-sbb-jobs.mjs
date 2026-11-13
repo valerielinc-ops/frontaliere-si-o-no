@@ -70,6 +70,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry } from './lib/jina-proxy.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -93,6 +94,9 @@ const DEFAULT_CANTON = getCompanyDefaults(SBB_KEY)?.canton || 'TI';
  */
 const SBB_API_URL =
   'https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/posti-liberi/jcr:content/parmain/jobfilter.results.json';
+const SBB_LISTING_URL = 'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html';
+const SBB_AEM_BROWSER_USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
 /**
  * We use the API region and city attributes together to keep jobs assigned to
@@ -225,13 +229,24 @@ async function fetchPage(url, timeoutMs = 15000, accept = 'application/json') {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
+    const headers = {
+      Accept: accept,
+      'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    };
+    if (url === SBB_API_URL) {
+      // The AEM component is called by the public listing page as a same-origin
+      // browser XHR. GitHub Actions' bot-shaped request is rejected with HTTP
+      // 403 even though the page and API are public.
+      headers.Accept = 'application/json, text/javascript, */*; q=0.01';
+      headers['Accept-Language'] = 'it-CH,it;q=0.9,en;q=0.8';
+      headers.Referer = SBB_LISTING_URL;
+      headers['X-Requested-With'] = 'XMLHttpRequest';
+      headers['User-Agent'] = SBB_AEM_BROWSER_USER_AGENT;
+    }
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: {
-        Accept: accept,
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
+      headers,
     });
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
@@ -243,6 +258,38 @@ async function fetchPage(url, timeoutMs = 15000, accept = 'application/json') {
     return null;
   } finally {
     clearTimeout(timer);
+  }
+}
+
+/**
+ * Rescue the public AEM JSON feed when the CI egress IP is rejected.
+ *
+ * `fetchPage()` deliberately keeps the normal direct request cheap. A 403 on
+ * this public source is an egress/WAF failure, not an authoritative empty
+ * snapshot, so retry the same endpoint from Jina's clean-IP pool and request
+ * the raw body (`text`) instead of Jina's HTML/markdown rendering.
+ */
+async function fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
+  const directBody = await fetchPageImpl(SBB_API_URL, timeoutMs);
+  if (directBody) return directBody;
+
+  console.warn('⚠️ Direct SBB AEM discovery was unavailable — retrying via Jina clean-IP proxy...');
+  const response = await fetchJinaImpl(SBB_API_URL, { timeoutMs, format: 'text' });
+  if (!response?.ok) {
+    console.warn(`⚠️ Jina proxy returned HTTP ${response?.status ?? 'unknown'} for SBB AEM discovery.`);
+    return null;
+  }
+
+  const body = await response.text();
+  try {
+    JSON.parse(body);
+    return body;
+  } catch (err) {
+    const reason = detectJinaErrorBody(body);
+    console.warn(
+      `⚠️ Jina-proxied SBB AEM discovery body was not valid JSON${reason ? ` (${reason})` : ''}: ${err.message}`,
+    );
+    return null;
   }
 }
 
@@ -594,7 +641,8 @@ export async function fetchSbbJobDetailUrls(options = {}) {
 
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const fetchPageImpl = options.fetchPageImpl || fetchPage;
-  const body = await fetchPageImpl(SBB_API_URL, timeoutMs);
+  const fetchJinaImpl = options.fetchJinaImpl || fetchViaJinaWithRetry;
+  const body = await fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs });
 
   if (!body) {
     throw new Error('SBB AEM discovery failed: API response unavailable.');

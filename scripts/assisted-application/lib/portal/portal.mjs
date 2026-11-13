@@ -58,6 +58,11 @@ import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
+import { isWorkdayJobRouteBound, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
+
+function workdayPostingRouteMismatch(pageUrl, applyUrl) {
+  return isWorkdayTenantUrl(applyUrl) && !isWorkdayJobRouteBound(pageUrl, applyUrl);
+}
 
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch', 'manatal',
@@ -698,87 +703,47 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
-const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
-const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
-const WORKDAY_REQUISITION_SLUG_RE = /^.+_R-[a-z0-9][a-z0-9-]*$/i;
-
-/**
- * Parse only Workday's same-tenant job route and its two manual-application
- * continuations. The requisition suffix is part of the route identity; a
- * similar title, tenant, or neighbouring requisition cannot inherit proof.
- */
-function workdayJobRoute(value) {
-  try {
-    const url = new URL(String(value || ''));
-    if (url.protocol !== 'https:' || url.username || url.password || url.hash
-      || !WORKDAY_HOST_RE.test(url.hostname)) return null;
-    const rawSegments = url.pathname.split('/');
-    if (rawSegments[0] !== '') return null;
-    let segments = rawSegments.slice(1);
-    if (segments.at(-1) === '') segments.pop();
-    if (segments.some((segment) => segment === '')) return null;
-    let suffix = '';
-    if (segments.at(-1)?.toLowerCase() === 'applymanually'
-      && segments.at(-2)?.toLowerCase() === 'apply') {
-      segments = segments.slice(0, -2);
-      suffix = 'manual';
-    } else if (segments.at(-1)?.toLowerCase() === 'apply') {
-      segments = segments.slice(0, -1);
-      suffix = 'apply';
-    }
-    const jobIndex = segments.map((segment) => segment.toLowerCase()).lastIndexOf('job');
-    if (jobIndex < 0 || jobIndex === segments.length - 1) return null;
-    const site = segments.slice(0, jobIndex);
-    if (WORKDAY_LOCALE_SEGMENT_RE.test(site[0] || '')) site.shift();
-    const locationAndSlug = segments.slice(jobIndex + 1);
-    const requisitionSlug = locationAndSlug.at(-1) || '';
-    if (!site.length || locationAndSlug.length < 2 || !WORKDAY_REQUISITION_SLUG_RE.test(requisitionSlug)) return null;
-    const basePath = `/${segments.join('/')}`;
-    return {
-      origin: url.origin,
-      site,
-      location: locationAndSlug.slice(0, -1),
-      requisitionSlug,
-      suffix,
-      basePath,
-      search: url.search,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function sameWorkdayJobRoute(first, second) {
-  const sameParts = (left, right) => left.length === right.length
-    && left.every((part, index) => part === right[index]);
-  return Boolean(first && second && first.origin === second.origin
-    && first.requisitionSlug === second.requisitionSlug
-    && sameParts(first.site, second.site) && sameParts(first.location, second.location));
-}
-
 function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
   const apply = workdayJobRoute(applyUrl);
   const posting = workdayJobRoute(postingUrl);
   return sameWorkdayJobRoute(apply, posting)
-    && (apply.suffix === 'apply' || apply.suffix === 'manual'
+    && (apply.suffix === '' && posting.suffix === ''
+      || apply.suffix === 'apply' || apply.suffix === 'manual'
       || posting.suffix === 'apply' || posting.suffix === 'manual');
 }
 
 function workdayManualApplyEntry(control, snapshot, context = {}) {
   const current = workdayJobRoute(snapshot?.url);
   const expected = workdayJobRoute(context.applyUrl);
-  if (!current || current.suffix !== 'apply' || !sameWorkdayJobRoute(current, expected)
+  if (!current || !['', 'apply'].includes(current.suffix)
+    || (current.suffix === '' && control?.dialog !== true)
+    || control?.ariaHidden === true || control?.behindDialog === true
+    || !sameWorkdayJobRoute(current, expected)
     || control?.disabled || control?.chrome || (Number(control?.frame) || 0) !== 0
     || !MANUAL_APPLY_RE.test(String(control?.text || control?.label || '').trim())) return false;
-  if (!control?.href) return true;
-  const target = workdayJobRoute(control.href);
-  return Boolean(target?.suffix === 'manual' && sameWorkdayJobRoute(current, target));
+  if (!control?.href) return current.suffix === 'apply';
+  let href;
+  try { href = new URL(String(control.href), snapshot.url).href; } catch { return false; }
+  const target = workdayJobRoute(href);
+  return Boolean(target?.suffix === 'manual' && sameWorkdayJobRoute(current, target)
+    && sameWorkdayJobRoute(expected, target));
 }
 
-function workdayManualApplicationTarget(currentUrl, expectedUrl) {
+function workdayManualApplicationTarget(currentUrl, expectedUrl, control = {}) {
   const current = workdayJobRoute(currentUrl);
   const expected = workdayJobRoute(expectedUrl);
-  if (!current || current.suffix !== 'apply' || !sameWorkdayJobRoute(current, expected)) return '';
+  if (!current || !['', 'apply'].includes(current.suffix) || !sameWorkdayJobRoute(current, expected)) return '';
+  if (control?.href) {
+    try {
+      const href = new URL(String(control.href), currentUrl);
+      const target = workdayJobRoute(href.href);
+      return target?.suffix === 'manual' && sameWorkdayJobRoute(current, target)
+        && sameWorkdayJobRoute(expected, target) ? href.href : '';
+    } catch {
+      return '';
+    }
+  }
+  if (current.suffix !== 'apply') return '';
   return `${current.origin}${current.basePath}/apply/applyManually${current.search}`;
 }
 
@@ -1885,7 +1850,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
-  ];
+  ].filter((control) => control?.ariaHidden !== true && control?.behindDialog !== true);
   // A third-party sign-in («Apply with LinkedIn») cannot be completed by the
   // runner. A social item of an opened Apply menu is never an entry, and an
   // own entry always wins over a social one that merely comes first.
@@ -1897,7 +1862,23 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
     && applicationEntryBelongsToPosting(control, context));
   const workdayManualEntries = controls.filter((control) => workdayManualApplyEntry(control, snapshot, context));
-  matching.push(...workdayManualEntries.filter((control) => !matching.includes(control)));
+  if (workdayManualEntries.length === 1) return workdayManualEntries;
+  if (workdayManualEntries.length > 1) return [];
+  const workdayRoutePair = [context.applyUrl, context.postingUrl, snapshot.url].map(workdayJobRoute);
+  const [workdayApply, workdayPosting, workdayCurrent] = workdayRoutePair;
+  const workdayRouteBound = workdayApply && workdayPosting && workdayCurrent
+    && sameWorkdayJobRoute(workdayApply, workdayPosting)
+    && sameWorkdayJobRoute(workdayCurrent, workdayPosting);
+  const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
+    && startsApplication(control?.text || control?.label));
+  const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
+    && (control.frame || 0) === 0);
+  // Workday's posting can keep its Apply opener on the exact same requisition
+  // route. The `_R-...` route proves the posting; a sole visible Apply control
+  // on that fieldless page is the popup opener, while the profile's “Start”
+  // control does not match `startsApplication` and cannot compete.
+  if (workdayRouteBound && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && workdayScriptEntries.length === 1 && workdayEntries.length === 1) return workdayScriptEntries;
   const ownMatching = matching.filter((control) => !socialApplicationEntry(control));
   if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
@@ -3311,6 +3292,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
+    if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl)) {
+      return result({ handoff: 'posting_mismatch' });
+    }
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
@@ -3360,6 +3344,17 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const cookieStatus = ['none', 'dismissed', 'unresolved'].includes(cookies.status) ? cookies.status : 'unresolved';
     reportNavigation({ hop: hop + 1, phase: 'cookie_check', cookieStatus, controls: applicationControls, ownedEntries, entryResolution });
     if (cookies.status === 'unresolved') return result({ handoff: 'cookie_preferences_unresolved' });
+    let workdayStage = null;
+    if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
+      workdayStage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
+      // Reject a Workday profile/talent-pool route before its generic fields
+      // can be mistaken for the selected requisition's application form.
+      if (workdayStage.kind === 'posting_mismatch') return result({ handoff: 'posting_mismatch' });
+      // A resumed account/review page is already inside the application.
+      // Its Apply belongs to the stage classifier and final guard below.
+      if (['receipt', 'review_navigation', 'final_review'].includes(workdayStage.kind) || workdayStage.prefinal
+        || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
+    }
     if (hasApplicationForm(snapshot)) {
       const applicantContext = verifiedUmantisApplicantContext(stageContext, page.url());
       if (applicantContext) {
@@ -3369,9 +3364,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       return result();
     }
     if (stageContext) {
-      const stage = applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
-      // A resumed account/review page is already inside the application.
-      // Its Apply belongs to the stage classifier and final guard below.
+      const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, { ...stageContext, url: page.url() });
+      // A resumed account/review page is already inside the application. Its
+      // Apply belongs to the stage classifier and final guard below.
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
@@ -3387,7 +3382,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       });
     const selectableEntries = verifiedModuleRoute ? [] : ownedEntries;
     const buttonEntries = selectableEntries.filter((control) => (snapshot.buttons || []).includes(control));
-    const manual = buttonEntries.find((button) => MANUAL_APPLY_RE.test(button.text || button.label || '')) || null;
+    const manual = selectableEntries.find((control) => MANUAL_APPLY_RE.test(control.text || control.label || '')) || null;
     const apply = manual ? null : buttonEntries[0] || null;
     const linkEntry = manual || apply
       ? null
@@ -3444,7 +3439,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
       const workdayManualTarget = manual
-        ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl)
+        ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl, manual)
         : '';
       if (workdayManualTarget) {
         await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -4258,13 +4253,45 @@ const normalizeUmantisUploadRole = value => String(value || '')
 // the non-supporting veto so a «work permit» section cannot reject a diploma.
 const umantisUploadRole = field => normalizeUmantisUploadRole(field?.label || field?.name || field?.id);
 export const uploadedPortalFieldKey = (url, field) => `${url}|${field?.id || field?.label || ''}`;
+const uploadedCvPageKey = (value) => {
+  const route = workdayJobRoute(value);
+  if (!route) return String(value || '');
+  const location = [];
+  for (const part of route.location) {
+    try {
+      const normalized = decodeURIComponent(part).toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+      if (!normalized) return String(value || '');
+      location.push(normalized);
+    } catch {
+      return String(value || '');
+    }
+  }
+  return `workday:${JSON.stringify([route.origin, route.site, location, route.requisitionSlug])}`;
+};
 const portalUploadFieldIdentity = (field) => [
   field?.domId && `dom:${field.domId}`,
   field?.name && `name:${field.name}`,
   field?.label && `label:${field.label}`,
   field?.section && `section:${field.section}`,
   field?.context && `context:${field.context}`,
-].filter(Boolean).join('|') || field?.id || '';
+].filter(Boolean).join('|')
+  || field?.id || '';
+const portalUploadControlKey = (field) => field?.documentInstance && field?.controlInstance
+  ? `${field.documentInstance}|${field.controlInstance}` : '';
+const portalUploadStableControlKey = (field) => {
+  const identity = [
+    field?.domId && `dom:${field.domId}`,
+    field?.name && `name:${field.name}`,
+    field?.label && `label:${field.label}`,
+  ].filter(Boolean);
+  if (!identity.length) return '';
+  return JSON.stringify([
+    field?.frame ?? 0,
+    field?.form ?? null,
+    identity,
+    field?.section || '',
+  ]);
+};
 export const portalUploadActionKey = (url, pageEpoch, field, fileFields = [field], selectedRecords = []) => {
   const fieldIdentity = portalUploadFieldIdentity(field);
   const baseKey = uploadedPortalFieldKey(`${url}|step:${pageEpoch}`, { id: fieldIdentity });
@@ -5866,15 +5893,44 @@ const anonymousFileField = (field) => {
   return !label || machineLabel(label) || ANONYMOUS_FILE_LABEL_RE.test(label);
 };
 
-const hasSingleAnonymousFileField = (snapshot) => {
+const singleAnonymousFileField = (snapshot) => {
   const fileFields = (snapshot?.fields || []).filter(isFileField);
-  return fileFields.length === 1 && anonymousFileField(fileFields[0]);
+  return fileFields.length === 1 && anonymousFileField(fileFields[0]) ? fileFields[0] : null;
 };
+
+const hasSingleAnonymousFileField = (snapshot) => Boolean(singleAnonymousFileField(snapshot));
 
 const buttonMatchesDocumentContext = (button, contextPattern) => {
   const context = buttonHasExplicitDocumentContext(button);
   return !context || contextPattern.test(context);
 };
+
+const genericUploadPickerContextMatches = (button, contextPattern, otherPattern) => {
+  const section = String(button?.section || '').trim();
+  if (section && (contextPattern.test(section) || otherPattern.test(section) || isNonCvDocumentLabel(section))) {
+    return contextPattern.test(section) && !otherPattern.test(section) && !isNonCvDocumentLabel(section);
+  }
+  const context = [button?.context, button?.fileContext].filter(Boolean).join(' ');
+  return contextPattern.test(context) && !otherPattern.test(context) && !isNonCvDocumentLabel(context);
+};
+
+const anonymousCvPickerCandidate = (snapshot) => {
+  const field = singleAnonymousFileField(snapshot);
+  if (!field) return null;
+  const eligible = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button?.text || '').trim())) return false;
+    const context = buttonHasExplicitDocumentContext(button);
+    return !context || !(CV_DOCUMENT_CONTEXT_RE.test(context)
+      || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
+      || isNonCvDocumentLabel(context));
+  });
+  if (eligible.length !== 1) return null;
+  const [candidate] = eligible;
+  const candidateFrame = Number.isInteger(candidate.frame) ? candidate.frame : 0;
+  return candidateFrame === fieldFrame(field) ? candidate : null;
+};
+
+const isAnonymousCvPickerButton = (snapshot, button) => anonymousCvPickerCandidate(snapshot) === button;
 
 function stableUploadTriggerDiscriminator(button) {
   if (!button || typeof button !== 'object') return '';
@@ -5987,7 +6043,13 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
     if (!contextPattern.test(context)) continue;
     const text = String(button.text || '').trim();
-    if (pattern.test(text) || FILE_PICKER_ACTION_RE.test(text)) {
+    if (pattern.test(text)) {
+      add(button);
+      continue;
+    }
+    const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
+    if (FILE_PICKER_ACTION_RE.test(text)
+      && genericUploadPickerContextMatches(button, contextPattern, otherPattern)) {
       add(button);
       continue;
     }
@@ -6005,11 +6067,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   // the sole anonymous file field; multiple anonymous inputs stay ambiguous.
   if (hasAnonymousCvPicker && candidates.length === 0 && contextIconCandidates.length === 0) {
     for (const button of snapshot?.buttons || []) {
-      if (button.disabled || button.chrome || !FILE_PICKER_ACTION_RE.test(String(button.text || '').trim())) continue;
-      const context = buttonHasExplicitDocumentContext(button);
-      if (context && (CV_DOCUMENT_CONTEXT_RE.test(context)
-        || COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context)
-        || isNonCvDocumentLabel(context))) continue;
+      if (button.disabled || button.chrome || !isAnonymousCvPickerButton(snapshot, button)) continue;
       add(button);
     }
   }
@@ -6482,7 +6540,7 @@ function fileChooserAfterClick(page) {
 }
 
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
-async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace = null) {
+async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace = null, canUpload = () => true) {
   const finish = (status) => {
     if (trace) trace.status = status;
     return status;
@@ -6577,6 +6635,11 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     }
   }
   const target = firstTarget.target;
+  if (!canUpload()) {
+    if (page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
+    if (trace) trace.failure = 'posting_mismatch';
+    return finish('blocked');
+  }
   if (target?.chooser) {
     if (trace) trace.target = 'chooser';
     try {
@@ -6585,12 +6648,17 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
       // chooser's change event. Capture the triggering element before the
       // selection so the receipt check still has a stable reference when the
       // post-selection `chooser.element()` points at no node.
-      const initialInput = await chooser.element().catch(() => null);
+      const initialInput = await Promise.resolve().then(() => chooser.element()).catch(() => null);
       if (trace) trace.chooserElementBeforeSelection = Boolean(initialInput);
+      if (!canUpload()) {
+        if (page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
+        if (trace) trace.failure = 'posting_mismatch';
+        return finish('blocked');
+      }
       const receipt = await chooseChooserFiles(page, chooser, file);
       if (trace) trace.chooserResponse = receipt.accepted ? 'accepted' : 'not_confirmed';
       if (receipt.accepted) return finish('uploaded');
-      const refreshedInput = await chooser.element().catch(() => null);
+      const refreshedInput = await Promise.resolve().then(() => chooser.element()).catch(() => null);
       const inputs = [...new Set([initialInput, refreshedInput].filter(Boolean))];
       if (trace) trace.chooserElement = inputs.length > 0;
       let received = false;
@@ -6622,6 +6690,11 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     return finish('unavailable');
   }
   if (trace) trace.target = firstTarget.source === 'mounted' ? 'mounted' : 'dialog';
+  if (!canUpload()) {
+    if (page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
+    if (trace) trace.failure = 'posting_mismatch';
+    return finish('blocked');
+  }
   try {
     await input.setInputFiles(file);
   } catch {
@@ -6637,6 +6710,42 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   }
   await settle(page);
   return finish(closed ? 'uploaded' : 'uploaded_unconfirmed');
+}
+
+/** Upload the one anonymous field already mounted behind a generic Workday picker. */
+async function uploadThroughExistingFileField(page, field, file, trace = null, canUpload = () => true) {
+  if (!canUpload()) {
+    if (trace) trace.failure = 'posting_mismatch';
+    return 'blocked';
+  }
+  const locator = locatorFor(page, field);
+  try {
+    if (!canUpload()) {
+      if (trace) trace.failure = 'posting_mismatch';
+      return 'blocked';
+    }
+    const [result] = await applyActions(page, [field], [{
+      fieldId: field.id,
+      action: 'upload',
+      document: 'cv',
+    }], { cv: file }, { pause: async () => {} });
+    if (trace) {
+      trace.target = 'existing_field';
+      trace.selection = result?.ok ? 'succeeded' : 'failed';
+    }
+    if (!result?.ok) {
+      if (trace) trace.failure = result?.error || 'existing_field_selection_failed';
+      return 'unavailable';
+    }
+    const confirmed = await uploadReceipt(page, locator, [file], {
+      acceptedResponse: result.uploadAccepted === true,
+    });
+    if (trace) trace.portalReceipt = confirmed;
+    return confirmed ? 'uploaded' : 'uploaded_unconfirmed';
+  } catch (error) {
+    if (trace) trace.failure = error?.message === 'upload_http_failed' ? 'upload_http_failed' : 'existing_field_selection_failed';
+    return 'unavailable';
+  }
 }
 
 /** Dequeue an upload trigger that is still allowed after a portal redraw. */
@@ -6693,10 +6802,12 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
  * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '' } = {}) {
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '', applyUrl = '' } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
   const cvUploadDiagnostics = [];
+  const routeMismatch = () => workdayPostingRouteMismatch(page.url(), applyUrl);
+  if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
   const attempt = (key) => {
     const count = (tries.get(key) || 0) + 1;
     tries.set(key, count);
@@ -6739,6 +6850,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     await page.waitForTimeout(1000);
     current = await extractFields(page);
   }
+  if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
@@ -6749,6 +6861,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   // removes an earlier upload before replacing it and records the receipt and
   // failure in the same evidence as other planned uploads.
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
+    if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
     const triggerButton = nextAllowedUploadTrigger(page, current, 'cv', channelType, pendingCvTriggers, triedCvTriggers);
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCvTriggers.add(triggerKey);
@@ -6770,7 +6883,15 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       continue;
     }
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
-    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
+    const anonymousField = isAnonymousCvPickerButton(current, triggerButton)
+      ? singleAnonymousFileField(current) : null;
+    const boundWorkdayApplication = isWorkdayTenantUrl(page.url()) && Boolean(applyUrl)
+      && isWorkdayJobRouteBound(page.url(), applyUrl);
+    const canUpload = () => !routeMismatch();
+    cv = anonymousField && !boundWorkdayApplication
+      ? await uploadThroughExistingFileField(page, anonymousField, cvFile, trace, canUpload)
+      : await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace, canUpload);
+    if (cv === 'blocked') return { snapshot: current, handoff: 'posting_mismatch' };
     current = await extractFields(page);
     const uploadedCvField = current.fields.find(isCvFileField);
     trace.portalFileFieldObserved = Boolean(uploadedCvField);
@@ -6785,6 +6906,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const triedCoverLetterTriggers = new Set();
   let pendingCoverLetterTriggers = [];
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
+    if (routeMismatch()) return { snapshot: current, handoff: 'posting_mismatch' };
     const triggerButton = nextAllowedUploadTrigger(page, current, 'cover_letter', channelType, pendingCoverLetterTriggers, triedCoverLetterTriggers);
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
@@ -6793,7 +6915,8 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       ? { snapshot: triggerButton } : locatorFor(page, triggerButton);
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) continue;
-    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
+    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0, null, () => !routeMismatch());
+    if (coverLetter === 'blocked') return { snapshot: current, handoff: 'posting_mismatch' };
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
   }
@@ -7178,7 +7301,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       liveControl?.text, liveControl?.ariaLabel, liveControl?.title, liveControl?.labelledBy,
     );
     const workdayFormButton = liveControl?.tagName === 'BUTTON'
-      && WORKDAY_HOST_RE.test(portalHost)
+      && isWorkdayTenantUrl(currentUrl)
       && portalProtocol === 'https:'
       && candidate.disabled !== true
       && liveControl.disabled !== true
@@ -9289,7 +9412,7 @@ export async function submitViaPortal(ctx) {
     return knowledge.get(host);
   };
   const controlsFor = async (current, known) => {
-    const uploadedCv = uploadedCvUrls.has(page.url())
+    const uploadedCv = uploadedCvUrls.has(uploadedCvPageKey(page.url()))
       || earlierCvHeld(current.buttons, cvFileNames, keptCvUrls.has(page.url()));
     const snapshot = { ...current, text: await pageText(page), uploadedCv };
     const controls = pageControls(current.buttons, known, page.url(), { snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job });
@@ -9560,6 +9683,8 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    const uploadedNativeControls = new Set();
+    const uploadedNativeCvFields = new Set();
     // Exclude this run's selections from prior-file cleanup checks; upload retry
     // suppression remains field-scoped in `uploaded`.
     const selectedDocumentsThisRun = new Set();
@@ -9568,6 +9693,10 @@ export async function submitViaPortal(ctx) {
     // Bounded redraw recovery follows the logical wizard page, not the URL or
     // the loop counter (portals often keep one address for every SPA step).
     let pageEpoch = 0;
+    const nativeCvFieldKey = (field) => {
+      const identity = portalUploadStableControlKey(field);
+      return identity ? `${pageEpoch}|${identity}` : '';
+    };
     const uploadKeyForField = (fieldId, fields, url = page.url(), epoch = pageEpoch) => {
       const field = fields.find((item) => item.id === fieldId) || { id: fieldId };
       const baseKey = uploadedPortalFieldKey(`${url}|step:${epoch}`, { id: portalUploadFieldIdentity(field) });
@@ -9838,6 +9967,10 @@ export async function submitViaPortal(ctx) {
       else loopAttemptStarted = true;
       const existingReceipt = await confirmedReceipt(snapshot);
       if (existingReceipt) return existingReceipt;
+      const currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
+        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+      });
+      if (currentStage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
@@ -9895,15 +10028,22 @@ export async function submitViaPortal(ctx) {
       }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
-        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries, channelType });
+        const stage = applicationStage({ ...snapshot, text: await pageText(page) }, {
+          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+        });
+        if (stage.kind === 'posting_mismatch') return await handoff('posting_mismatch');
+        const opened = await openFormSections(page, snapshot, {
+          files: ctx.files, done: openedOnce, tries: openTries, channelType, applyUrl: ctx.applyUrl,
+        });
         snapshot = opened.snapshot;
+        if (opened.handoff) return await handoff(opened.handoff);
         if (opened.cvUploadDiagnostics?.length) evidence.steps.at(-1).cvUploadDiagnostics = opened.cvUploadDiagnostics;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
           if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
-            uploadedCvUrls.add(page.url());
+            uploadedCvUrls.add(uploadedCvPageKey(page.url()));
           }
           if (opened.cv !== 'unavailable' && opened.cvFieldKey) {
             const uploadedField = snapshot.fields.find((field) => uploadedPortalFieldKey(page.url(), field) === opened.cvFieldKey)
@@ -9911,6 +10051,12 @@ export async function submitViaPortal(ctx) {
             if (uploadedField) {
               const key = rememberUploadSelection(uploadedField.id, snapshot.fields);
               if (key) uploaded.add(key);
+              if (opened.cv === 'uploaded' && isWorkdayTenantUrl(page.url())) {
+                const controlKey = portalUploadControlKey(uploadedField);
+                if (controlKey) uploadedNativeControls.add(controlKey);
+                const stableControlKey = nativeCvFieldKey(uploadedField);
+                if (stableControlKey) uploadedNativeCvFields.add(stableControlKey);
+              }
             }
           }
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
@@ -10179,17 +10325,51 @@ export async function submitViaPortal(ctx) {
         // This synthetic action is executed by applyActions below, which resolves
         // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
         // are a separate path and are not used for this deterministic upload.
-        const automaticCvUploads = documentPaths(ctx.files, 'cv').length ? cvFields.map(field => ({
+        const cvPaths = documentPaths(ctx.files, 'cv');
+        const hasApprovedCv = cvPaths.length > 0;
+        const alreadyUploadedCvIds = new Set();
+        if (hasApprovedCv) {
+          const approvedCvNames = cvPaths.map(file => path.basename(file));
+          const workdayCvRouteAlreadyUploaded = uploadedCvUrls.has(uploadedCvPageKey(page.url()));
+          const singleWorkdayCvAlreadyUploaded = isWorkdayTenantUrl(page.url())
+            && cvFields.length === 1 && workdayCvRouteAlreadyUploaded;
+          if (isWorkdayTenantUrl(page.url())) {
+            evidence.steps.at(-1).cvUploadGuard = {
+              fieldCount: cvFields.length,
+              routeAlreadyUploaded: workdayCvRouteAlreadyUploaded,
+            };
+          }
+          for (const field of cvFields) {
+            const controlKey = portalUploadControlKey(field);
+            const stableControlKey = nativeCvFieldKey(field);
+            const workdayPage = isWorkdayTenantUrl(page.url());
+            const sameNativeControlUploaded = workdayPage && controlKey && uploadedNativeControls.has(controlKey);
+            const sameLogicalControlUploaded = workdayPage && stableControlKey && uploadedNativeCvFields.has(stableControlKey);
+            const selectedApprovedFile = !sameNativeControlUploaded && !sameLogicalControlUploaded
+              && uploadedCvUrls.has(uploadedCvPageKey(page.url()))
+              && await locatorFor(page, field).evaluate((element, fileNames) =>
+                [...(element.files || [])].some(file => fileNames.includes(file.name)), approvedCvNames).catch(() => false);
+            if (singleWorkdayCvAlreadyUploaded || sameNativeControlUploaded || sameLogicalControlUploaded || selectedApprovedFile) {
+              alreadyUploadedCvIds.add(field.id);
+            }
+          }
+        }
+        const automaticCvUploads = hasApprovedCv ? cvFields.filter(field => !alreadyUploadedCvIds.has(field.id)).map(field => ({
           fieldId: field.id, ref: field.ref, action: 'upload', value: '', document: 'cv', source: 'documents', evidence: '',
         })) : [];
+        const managedCvIds = hasApprovedCv ? new Set(cvFields.map(field => field.id)) : new Set();
         // One file action per CV control: a model-selected different file
         // must not overwrite the approved CV or leave two conflicting receipts.
-        const automaticCvIds = new Set(automaticCvUploads.map(upload => upload.fieldId));
-        const plannedActions = [...plan.actions.filter(action => !automaticCvIds.has(action.fieldId)), ...automaticCvUploads];
-        candidateQuestions = plan.missingRequired.filter(item => !automaticCvUploads.some(upload => upload.fieldId === item.fieldId));
+        const plannedActions = [...plan.actions.filter(action => !managedCvIds.has(action.fieldId)), ...automaticCvUploads];
+        candidateQuestions = plan.missingRequired.filter(item => !managedCvIds.has(item.fieldId));
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
         const uploadKey = (fieldId) => uploadKeyForField(fieldId, snapshot.fields, page.url(), pageEpoch);
+        for (const field of cvFields) {
+          if (!alreadyUploadedCvIds.has(field.id)) continue;
+          const key = uploadKey(field.id);
+          if (key) uploaded.add(key);
+        }
         const uploadKeys = new Map(plannedActions.filter((action) => action.action === 'upload')
           .map((action) => [action.fieldId, uploadKey(action.fieldId)]));
         if ([...uploadKeys.values()].some((key) => key === null)) {
@@ -10211,10 +10391,24 @@ export async function submitViaPortal(ctx) {
         const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox', 'combobox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        const applyBoundActions = async (pendingActions, options = {}) => {
+          if (!isWorkdayTenantUrl(ctx.applyUrl)) {
+            return { results: await applyActions(page, snapshot.fields, pendingActions, ctx.files, options), handoff: '' };
+          }
+          const applied = [];
+          for (const action of pendingActions) {
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+            applied.push(...await applyActions(page, snapshot.fields, [action], ctx.files, options));
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+          }
+          return { results: applied, handoff: '' };
+        };
         const selectedUploads = new Map();
+        const appliedChoices = await applyBoundActions(choices);
+        if (appliedChoices.handoff) return await handoff(appliedChoices.handoff);
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
-          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+          ...appliedChoices.results,
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (up to four times for one page), and nothing is typed into what is no longer there.
@@ -10228,16 +10422,20 @@ export async function submitViaPortal(ctx) {
               && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
           }
         }
-        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
-          onUploadSelection: (fieldId, paths) => {
-            selectedUploads.set(fieldId, paths);
-            if (paths.length) {
-              rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
-              const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
-              if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
-            }
-          },
-        }));
+        if (!redrawn) {
+          const appliedRemaining = await applyBoundActions(actions.filter((action) => !isChoice(action)), {
+            onUploadSelection: (fieldId, paths) => {
+              selectedUploads.set(fieldId, paths);
+              if (paths.length) {
+                rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
+                const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
+                if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
+              }
+            },
+          });
+          if (appliedRemaining.handoff) return await handoff(appliedRemaining.handoff);
+          results.push(...appliedRemaining.results);
+        }
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
             const result = results.find((item) => item.fieldId === action.fieldId);
@@ -10277,10 +10475,16 @@ export async function submitViaPortal(ctx) {
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
           if (uploadAction) {
             noteUpload(uploadAction.document, result.files);
-            if (uploadAction.document === 'cv') uploadedCvUrls.add(page.url());
+            if (uploadAction.document === 'cv') uploadedCvUrls.add(uploadedCvPageKey(page.url()));
           }
           const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
+          if (uploadAction?.document === 'cv' && field && isWorkdayTenantUrl(page.url())) {
+            const controlKey = portalUploadControlKey(field);
+            if (controlKey) uploadedNativeControls.add(controlKey);
+            const stableControlKey = nativeCvFieldKey(field);
+            if (stableControlKey) uploadedNativeCvFields.add(stableControlKey);
+          }
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
           const isCheckboxAction = ['check', 'uncheck'].includes(action.action);

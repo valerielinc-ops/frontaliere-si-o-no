@@ -320,6 +320,100 @@ export function parseDetailPage(html = '') {
 }
 
 /**
+ * Read the public first-step application form from an NCore job page.
+ *
+ * The snapshot intentionally contains labels and requiredness only. It never
+ * reads input values, which may contain applicant data when an ATS page is
+ * opened from an existing session.
+ *
+ * @param {string} html
+ * @param {{ sourceUrl?: string, checkedAt?: string }} options
+ * @returns {{ provider: 'ncoreplat', sourceUrl: string, checkedAt: string, stage: string, fields: Array<{ label: string, type: string, required: boolean, kind: 'question'|'consent' }> } | null}
+ */
+export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt = new Date().toISOString() } = {}) {
+  const verifiedSourceUrl = canonicalNcoreDetailUrl(sourceUrl);
+  if (!html || !verifiedSourceUrl || !Number.isFinite(Date.parse(checkedAt))) return null;
+
+  const { document } = new JSDOM(html).window;
+  const source = new URL(verifiedSourceUrl);
+  const sourcePath = source.pathname.replace(/\/+$/, '');
+  // NCore's public job-application form lives in #hiddenForm, is named
+  // "form", and posts back to that exact jobposition route. Do not infer the
+  // application form from page order: job pages may also contain login,
+  // newsletter, or other unrelated forms.
+  const form = [...document.querySelectorAll('#hiddenForm form[name="form"]')].find((candidate) => {
+    const rawAction = candidate.getAttribute('action')?.trim();
+    // The live NCore application form omits `action`, which means the browser
+    // posts back to this same jobposition route. If an action is declared,
+    // require it to target the same trusted NCore route.
+    if (!rawAction) return true;
+    let action;
+    try {
+      action = new URL(rawAction, verifiedSourceUrl);
+    } catch {
+      return false;
+    }
+    return action.protocol === 'https:'
+      && action.hostname.toLowerCase() === NCORE_HOST
+      && action.pathname.replace(/\/+$/, '') === sourcePath;
+  });
+  if (!form) return null;
+
+  const fields = [];
+  const seen = new Set();
+  const controls = [...form.querySelectorAll('input, select, textarea')];
+  for (const control of controls) {
+    const tag = control.tagName.toLowerCase();
+    const type = tag === 'input' ? String(control.getAttribute('type') || 'text').toLowerCase() : tag;
+    if (['hidden', 'submit', 'button', 'reset', 'image', 'password'].includes(type)) continue;
+    if (control.closest('[hidden], [aria-hidden="true"]')) continue;
+
+    const id = control.getAttribute('id') || '';
+    const labelElement = (id && [...form.querySelectorAll('label[for]')].find((label) => label.getAttribute('for') === id))
+      || control.closest('label');
+    const labelText = normalizeSpace(
+      labelElement?.textContent
+      || control.getAttribute('aria-label')
+      || control.getAttribute('placeholder')
+      || '',
+    );
+    if (!labelText) continue;
+
+    // “Remember me” controls persist an ATS login session; they are not
+    // application questions and must not be presented as candidate data.
+    if (type === 'checkbox' && /\b(?:remember me|ricordami|se souvenir de moi|m[eé]moriser ma session)\b/i.test(labelText)) continue;
+
+    const required = control.hasAttribute('required')
+      || String(control.getAttribute('aria-required') || '').trim().toLowerCase() === 'true'
+      || /\s\*\s*$/.test(labelText);
+    const label = labelText.replace(/\s*\*\s*$/, '').slice(0, 160);
+    const key = `${type}:${label.toLocaleLowerCase()}`;
+    if (!label || seen.has(key)) continue;
+    seen.add(key);
+    fields.push({
+      label,
+      type: ['text', 'email', 'tel', 'number', 'date', 'file', 'select', 'textarea', 'checkbox', 'radio'].includes(type) ? type : 'other',
+      required,
+      kind: type === 'checkbox' ? 'consent' : 'question',
+    });
+    if (fields.length >= 30) break;
+  }
+  if (fields.length === 0) return null;
+
+  const stage = [...document.querySelectorAll('h1, h2, h3, h4')]
+    .map((heading) => normalizeSpace(heading.textContent || ''))
+    .find((text) => /candidatur|apply|postul|bewerb/i.test(text)) || '';
+
+  return {
+    provider: 'ncoreplat',
+    sourceUrl: verifiedSourceUrl,
+    checkedAt,
+    stage: stage.slice(0, 120),
+    fields,
+  };
+}
+
+/**
  * Detect job category from title.
  */
 export function detectCategory(title = '') {

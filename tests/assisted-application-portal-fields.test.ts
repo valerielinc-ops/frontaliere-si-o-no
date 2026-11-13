@@ -37,6 +37,31 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it.each(['CV', 'Resume/CV', 'Lebenslauf', 'Curriculum'])('uses a Workday section title for a hidden unlabelled upload input: %s', (title) => {
+    const snapshot = extract(`<form><section><h2>${title}</h2>
+      <input id="file-upload-input-ref" data-automation-id="file-upload-input-ref" type="file" style="display:none">
+    </section></form>`, 'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Mendrisio-Outlet/Consultant_R-12345-1/apply/applyManually');
+
+    expect(snapshot.fields).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: 'file', label: title, section: title, domId: 'file-upload-input-ref' }),
+    ]));
+  });
+
+  it('marks Workday posting actions behind a visible popup and keeps the popup entry', () => {
+    const postingUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Mendrisio-Outlet/Consultant_R-12345-1';
+    const snapshot = extract(`<a role="button" href="${postingUrl}/apply">Postuler</a>
+      <div role="dialog" data-automation-id="wd-popup-frame">
+        <a href="${postingUrl}/apply/applyManually">Postuler manuellement</a>
+      </div>`, postingUrl);
+
+    expect(snapshot.buttons).toEqual(expect.arrayContaining([
+      expect.objectContaining({ text: 'Postuler', behindDialog: true }),
+    ]));
+    expect(snapshot.links).toEqual(expect.arrayContaining([
+      expect.objectContaining({ text: 'Postuler manuellement', dialog: true, behindDialog: false }),
+    ]));
+  });
+
   it('exposes the DOM group shared by split SuccessFactors job questions and their Apply action', () => {
     const snapshot = extract(`<main>
       <section><h2>Profilinformationen</h2><form>

@@ -5,6 +5,13 @@ import { describe, expect, it } from 'vitest';
 import { localeJobsSplitPlugin } from '../build-plugins/localeJobsSplitPlugin';
 
 const date = '2026-01-01';
+const atsApplicationForm = {
+  provider: 'ncoreplat',
+  sourceUrl: 'https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist/sintetica',
+  checkedAt: '2026-11-12T12:00:00.000Z',
+  stage: 'Inoltra ora la candidatura',
+  fields: [{ label: 'Nome', type: 'text', required: true, kind: 'question' }],
+};
 describe('additive publication date API projection', () => {
   it.each(['reported', 'unknown', undefined])('preserves %s provenance without backfilling legacy', (postingDateSource) => {
     const root = mkdtempSync(join(tmpdir(), 'date-projection-'));
@@ -14,6 +21,7 @@ describe('additive publication date API projection', () => {
         id: 'publication-projection', slug: 'publication-projection', title: 'Infermiere',
         company: 'Example SA', location: 'Lugano', canton: 'TI', description: 'Assistenza ai pazienti.',
         postingDateSource, datePosted: date, postedDate: date,
+        atsApplicationForm,
       }]));
       (localeJobsSplitPlugin(root).closeBundle as () => void)();
       for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -28,6 +36,7 @@ describe('additive publication date API projection', () => {
       expect(detail.postingDateSource).toBe(postingDateSource);
       expect(detail.datePosted).toBe(date);
       expect(detail.description).toBe('Assistenza ai pazienti.');
+      expect(detail.atsApplicationForm).toEqual(atsApplicationForm);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

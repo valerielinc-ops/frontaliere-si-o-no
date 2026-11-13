@@ -1,7 +1,7 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-11-12T09:20:00.083Z",
+  "generatedAt": "2026-11-12T21:51:40.812Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 50929,
-  "avgDurationMs": 50929,
+  "durationMs": 41829,
+  "avgDurationMs": 41829,
   "durationHistory": [
-    50929
+    41829
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:19:24.351Z",
+      "crawledAt": "2026-11-12T21:51:12.312Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "addressRegion": "VS",
       "streetAddress": "Val De Bagnes",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:19:24.351Z",
+      "validThrough": "2026-12-23T21:51:12.312Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:19:23.325Z",
+      "crawledAt": "2026-11-12T21:51:11.203Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:19:23.325Z",
+      "validThrough": "2026-12-29T21:51:11.203Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:19:21.826Z",
+      "crawledAt": "2026-11-12T21:51:10.105Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -150,7 +150,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:19:21.826Z",
+      "validThrough": "2026-12-12T21:51:10.105Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:19:10.565Z",
+      "crawledAt": "2026-11-12T21:51:01.515Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +195,7 @@
       "addressRegion": "BE",
       "streetAddress": "Saanen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T09:19:10.565Z",
+      "validThrough": "2026-12-12T21:51:01.515Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-permanent-80-m-w_zurich",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:18:56.810Z",
+      "crawledAt": "2026-11-12T21:50:50.061Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -240,7 +240,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:18:56.810Z",
+      "validThrough": "2027-02-08T21:50:50.061Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -262,7 +262,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80-m-w_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:18:54.686Z",
+      "crawledAt": "2026-11-12T21:50:49.079Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -285,7 +285,7 @@
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:18:54.686Z",
+      "validThrough": "2027-02-08T21:50:49.079Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -307,7 +307,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:18:52.374Z",
+      "crawledAt": "2026-11-12T21:50:46.447Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -330,7 +330,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:18:52.374Z",
+      "validThrough": "2027-02-08T21:50:46.447Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -341,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

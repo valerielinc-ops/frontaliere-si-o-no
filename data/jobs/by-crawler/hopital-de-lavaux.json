@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-11-12T09:19:36.071Z",
-  "runId": "43188643593",
+  "assembledAt": "2026-11-12T21:24:48.339Z",
+  "runId": "43307311307",
   "jobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:19:28.837Z",
+      "crawledAt": "2026-11-12T21:24:39.403Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:19:28.837Z",
+      "validThrough": "2027-01-06T21:24:39.403Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:19:28.836Z",
+      "crawledAt": "2026-11-12T21:24:39.402Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:19:28.836Z",
+      "validThrough": "2027-02-10T21:24:39.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:19:28.835Z",
+      "crawledAt": "2026-11-12T21:24:39.401Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:19:28.835Z",
+      "validThrough": "2027-01-11T21:24:39.401Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://app.beehire.com/invite/A7b1Yo_iU",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T09:19:28.832Z",
+      "crawledAt": "2026-11-12T21:24:39.398Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:19:28.832Z",
+      "validThrough": "2027-02-02T21:24:39.398Z",
       "validThroughSource": "last-observed-window"
     }
   ]

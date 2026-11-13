@@ -9,6 +9,7 @@
     "pdf"
   ],
   "seedUrls": [
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1060",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1059",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1054",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1053",
@@ -16,8 +17,16 @@
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1037"
   ],
   "notes": "Dedicated Clinique Le Noirmont crawler parses the Offres-demploi page and extracts descriptions from /File and /FileDownload PDF endpoints.",
-  "updatedAt": "2026-11-11T09:43:40.478Z",
+  "updatedAt": "2026-11-12T21:37:17.633Z",
   "seedMetaByUrl": {
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1060": {
+      "location": "Le Noirmont",
+      "canton": "JU",
+      "company": "Clinique Le Noirmont",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1059": {
       "location": "Le Noirmont",
       "canton": "JU",
