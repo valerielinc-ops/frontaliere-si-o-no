@@ -14738,7 +14738,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "ressources-humaines-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -14783,11 +14783,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "ressources-humaines-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "ressources-humaines-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -24241,7 +24241,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -24290,7 +24290,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24298,7 +24298,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -25141,9 +25141,9 @@
     },
     {
       "id": "bkw-191493111b2d",
-      "slug": "responsabile-di-progetto-hochbau-architektur-alle-bkw-bern",
+      "slug": "responsabile-di-progetto-per-edilizia-e-architettura-tutti-bkw-bern",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-hochbau-architektur-alle-bkw-bern",
+        "it": "responsabile-di-progetto-per-edilizia-e-architettura-tutti-bkw-bern",
         "en": "project-managerin-building-construction-architecture-all-bkw-bern",
         "de": "projektleiter-in-hochbau-architektur-alle-bkw-ch",
         "fr": "chef-de-projet-en-architecture-de-batiments-tous-bkw-bern"
@@ -25153,7 +25153,7 @@
       "companyDomain": "bkw.ch",
       "title": "Projektleiter:in Hochbau Architektur (alle)",
       "titleByLocale": {
-        "it": "Responsabile di progetto Hochbau Architektur (alle)",
+        "it": "Responsabile di progetto per edilizia e architettura (tutti)",
         "en": "Project Managerin Building Construction Architecture (all)",
         "de": "Projektleiter:in Hochbau Architektur (alle)",
         "fr": "Chef de projet en architecture de bâtiments (tous)"
@@ -25191,11 +25191,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-hochbau-architektur-alle-bkw-ch"
+        "projektleiter-in-hochbau-architektur-alle-bkw-ch",
+        "responsabile-di-progetto-hochbau-architektur-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-hochbau-architektur-alle-bkw-ch"
+          "projektleiter-in-hochbau-architektur-alle-bkw-ch",
+          "responsabile-di-progetto-hochbau-architektur-alle-bkw-bern"
         ],
         "en": [
           "projektleiter-in-hochbau-architektur-alle-bkw-ch"
@@ -25225,9 +25227,9 @@
     },
     {
       "id": "bkw-f13dd7a294ea",
-      "slug": "service-monteur-in-alle-bkw-ch",
+      "slug": "tecnico-a-di-assistenza-tutti-bkw-allschwil",
       "slugByLocale": {
-        "it": "service-monteur-in-alle-bkw-ch",
+        "it": "tecnico-a-di-assistenza-tutti-bkw-allschwil",
         "en": "serviceengineer-all-bkw-allschwil",
         "de": "service-monteur-in-alle-bkw-ch",
         "fr": "monteur-de-service-tous-bkw-allschwil"
@@ -25237,7 +25239,7 @@
       "companyDomain": "bkw.ch",
       "title": "Service-Monteur:in (alle)",
       "titleByLocale": {
-        "it": "Service-Monteur:in (alle)",
+        "it": "Tecnico/a di assistenza (tutti)",
         "en": "ServiceEngineer (all)",
         "de": "Service-Monteur:in (alle)",
         "fr": "Monteur de service (tous)"
@@ -25291,7 +25293,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:19:09.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-monteur-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-monteur-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-c1dd9db7cc0c",
@@ -25660,9 +25670,9 @@
     },
     {
       "id": "bkw-c37198ae51b7",
-      "slug": "bauleitende-r-monteur-in-alle-bkw-ch",
+      "slug": "montatore-trice-responsabile-del-cantiere-tutti-e-bkw-zurich",
       "slugByLocale": {
-        "it": "bauleitende-r-monteur-in-alle-bkw-ch",
+        "it": "montatore-trice-responsabile-del-cantiere-tutti-e-bkw-zurich",
         "en": "sitesupervisor-installer-all-bkw-zurich",
         "de": "bauleitende-r-monteur-in-alle-bkw-ch",
         "fr": "chef-fe-de-chantier-monteur-trice-tous-bkw-zurich"
@@ -25672,7 +25682,7 @@
       "companyDomain": "bkw.ch",
       "title": "Bauleitende:r Monteur:in (alle)",
       "titleByLocale": {
-        "it": "Bauleitende:r Monteur:in (alle)",
+        "it": "Montatore/trice responsabile del cantiere (tutti/e)",
         "en": "SiteSupervisor Installer (all)",
         "de": "Bauleitende:r Monteur:in (alle)",
         "fr": "Chef·fe de chantier Monteur · trice (tous)"
@@ -25726,7 +25736,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:19:09.268Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-99c60c41fbe3",

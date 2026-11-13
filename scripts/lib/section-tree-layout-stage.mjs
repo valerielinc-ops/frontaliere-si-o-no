@@ -3,10 +3,14 @@ import { isInvokedDirectly } from './is-invoked-directly.mjs';
 import { fanoutSectionTree, rewriteSectionTreeIndex } from './ticino-tree-fanout.mjs';
 import { parseFanoutAutoThreshold, decideSectionTreeFanout } from './section-tree-fanout-policy.mjs';
 import { readSectionTreeLayoutRegistry } from './section-tree-layout-registry.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
 import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section-tree-layout-schema.js';
 
 export const WORKER_LAYOUT_PROBE_ATTEMPTS = 18;
 export const WORKER_LAYOUT_PROBE_RETRY_MS = 20_000;
+// Main already centralizes the Cloudflare-safe publisher identity. Keep the
+// probe-specific contract from the publish PR without duplicating that UA.
+export const WORKER_LAYOUT_PROBE_USER_AGENT = DEFAULT_LIVE_CHECK_USER_AGENT;
 
 function responseHeader(response, name) {
   return response?.headers?.get?.(name) ?? response?.headers?.[name] ?? null;
@@ -33,6 +37,7 @@ export async function requireWorkerSectionTreeLayout(section, sub, {
       const response = await fetchImpl(url, {
         method: 'HEAD',
         cache: 'no-store',
+        headers: { 'User-Agent': WORKER_LAYOUT_PROBE_USER_AGENT },
         signal: AbortSignal.timeout(20_000),
       });
       const generic = response?.headers?.get?.('x-frontaliere-section-tree-layout');

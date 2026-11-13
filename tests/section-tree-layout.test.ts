@@ -21,7 +21,14 @@ import {
 import { decideSectionTreeFanout, parseFanoutAutoThreshold } from '../scripts/lib/section-tree-fanout-policy.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
-import { requireWorkerSectionTreeLayout, stageSectionTreeLayout } from '../scripts/lib/section-tree-layout-stage.mjs';
+import {
+  requireWorkerSectionTreeLayout,
+  stageSectionTreeLayout,
+  WORKER_LAYOUT_PROBE_USER_AGENT,
+} from '../scripts/lib/section-tree-layout-stage.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — script helpers are executable ESM modules without declarations.
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
 import { rewriteSectionTreeIndex, unfanoutSectionTree } from '../scripts/lib/ticino-tree-fanout.mjs';
@@ -277,6 +284,47 @@ describe('automatic section tree fan-out policy', () => {
     expect(probes.sort()).toEqual(sections.map((section) => `${section}:${section}-it`).sort());
   });
 
+  it('probes every sticky section for every locale before metric-backed shard pushes', async () => {
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const sections = [...SECTION_TREE_FANOUT_SECTIONS].sort();
+    const slugs = Object.fromEntries(sections.map((section) => [section, {
+      it: `${section}-it`,
+      en: `${section}-en`,
+      de: `${section}-de`,
+      fr: `${section}-fr`,
+    }]));
+    const metricsByLocale = Object.fromEntries(['it', 'en', 'de', 'fr'].map((locale) => [locale, {
+      version: 1,
+      locale,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+      treeLimitBytes: 1000,
+      sections: Object.fromEntries(sections.map((section) => [section, { bytes: 100, pct: 10 }])),
+    }]));
+    const probes: string[] = [];
+
+    const result = await runSectionTreeLayoutPreflight({
+      metricsByLocale,
+      locales: ['de', 'fr'],
+      sourceRunId,
+      sourceSha,
+      treeLimitBytes: 1000,
+      slugs,
+      readRegistry: async () => ({ version: 1, sections: {} }),
+      register: vi.fn(),
+      probeWorker: async (section: string, sub: string) => { probes.push(`${section}:${sub}`); },
+      stderr: () => {},
+    });
+
+    expect(result.ready).toBe(true);
+    expect(probes.sort()).toEqual(sections.flatMap((section) => [
+      `${section}:de/${section}-de`,
+      `${section}:fr/${section}-fr`,
+    ]).sort());
+  });
+
   it('uses the safe tree-limit default when the environment value is malformed', async () => {
     const previousLimit = process.env.SHARD_REMOTE_TREE_LIMIT_BYTES;
     process.env.SHARD_REMOTE_TREE_LIMIT_BYTES = 'not-a-number';
@@ -530,8 +578,10 @@ describe('automatic section tree fan-out policy', () => {
 
   it('retries the live Worker probe for the registry TTL and fails closed without its section header', async () => {
     const urls: string[] = [];
-    const fetchImpl = vi.fn(async (url: string) => {
+    const requestOptions: RequestInit[] = [];
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => {
       urls.push(url);
+      requestOptions.push(init ?? {});
       return urls.length === 1
         ? new Response(null, { status: 204 })
         : new Response(null, { status: 204, headers: { 'x-frontaliere-section-tree-layout': 'hash-v1', 'x-frontaliere-section': 'lucerna' } });
@@ -545,6 +595,9 @@ describe('automatic section tree fan-out policy', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(urls[0]).toContain('__frontaliere_section_tree_layout=hash-v1');
     expect(urls[0]).toContain('section=lucerna');
+    expect(requestOptions).toHaveLength(2);
+    expect(requestOptions.every((init) => (init.headers as Record<string, string>)['User-Agent'] === WORKER_LAYOUT_PROBE_USER_AGENT)).toBe(true);
+    expect(WORKER_LAYOUT_PROBE_USER_AGENT).toBe(DEFAULT_LIVE_CHECK_USER_AGENT);
 
     await expect(requireWorkerSectionTreeLayout('lucerna', 'de/jobs-in-lucerne', {
       fetchImpl: async () => new Response(null, { status: 204 }),

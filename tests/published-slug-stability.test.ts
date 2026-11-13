@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { ensureLocaleFields } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
@@ -156,7 +157,12 @@ describe('publishedSlugKeepsIdentity', () => {
 
 describe('served-URL ledger', () => {
   const tiJob = cippaJob();
-  const agJob = cippaJob({ canton: 'AG', location: 'Baden', addressLocality: 'Baden' });
+  const agJob = cippaJob({
+    canton: 'AG',
+    location: 'Baden',
+    addressLocality: 'Baden',
+    slug: 'x-cippa-trasporti-sa-baden',
+  });
 
   it('an article route never marks a job slug as served', () => {
     useLedger({ '/it/article/foo/': '2026-11-01', '/blog/foo/': '2026-11-01' });
@@ -174,31 +180,54 @@ describe('served-URL ledger', () => {
     expect(slugWasServed('it', 'baden', agJob)).toBe(false);
   });
 
-  it('only the exact canonical path counts, never the last segment of another route', () => {
-    // buildCanonicalJobDetailPath (build-plugins/shared/jobDetailPath.ts) emits
-    // /[locale/]<section>/<slug>/ only: there is no city-nested detail route.
-    useLedger({ [`/cerca-lavoro-ticino/lugano/${INDEXED_IT}/`]: '2026-11-01', [`/cerca-lavoro-argovia/${INDEXED_IT}/`]: '2026-11-01' });
+  it('does not let another canton section pin the same final slug', () => {
+    useLedger({ [`/cerca-lavoro-argovia/${INDEXED_IT}/`]: '2026-11-01' });
+    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(false);
+    expect(slugWasServed('it', INDEXED_IT, agJob)).toBe(true);
+  });
+
+  it('matches the renderer canton path and locale exactly', () => {
+    const slug = 'x-cippa-trasporti-sa-baden';
+    const canonicalPath = buildCanonicalJobDetailPath('de', agJob, slug);
+    expect(jobDetailPathsFor('de', slug, agJob)).toEqual([canonicalPath.replace(/\/$/, '')]);
+    useLedger({ [canonicalPath]: '2026-09-02' });
+    expect(slugWasServed('de', slug, agJob)).toBe(true);
+    expect(slugWasServed('en', slug, agJob)).toBe(false);
+  });
+
+  it('accepts only the explicit Italian legacy-TI active-job mirror', () => {
+    const slug = 'x-cippa-trasporti-sa-baden';
+    const canonicalPath = buildCanonicalJobDetailPath('it', agJob, slug);
+    const mirrorPath = '/cerca-lavoro-ticino/x-cippa-trasporti-sa-baden/';
+    expect(jobDetailPathsFor('it', slug, agJob)).toEqual([
+      canonicalPath.replace(/\/$/, ''),
+      mirrorPath.replace(/\/$/, ''),
+    ]);
+    useLedger({ [mirrorPath]: '2026-06-01' });
+    expect(slugWasServed('it', slug, agJob)).toBe(true);
+    useLedger({ '/de/jobs-im-tessin/x-cippa-trasporti-sa-baden/': '2026-06-01' });
+    expect(slugWasServed('de', slug, agJob)).toBe(false);
+  });
+
+  it('keeps the same final slug separate between Italian and English paths', () => {
+    useLedger({ [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}/`]: '2026-09-02' });
+    expect(slugWasServed('it', TITLE_DERIVED_IT, tiJob)).toBe(true);
+    expect(slugWasServed('en', TITLE_DERIVED_IT, tiJob)).toBe(false);
+  });
+
+  it('does not count a nested city route even when its final segment matches', () => {
+    useLedger({ [`/cerca-lavoro-ticino/lugano/${INDEXED_IT}/`]: '2026-11-01' });
     expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(false);
   });
 
-  it('the job\'s real canonical detail route is served, and only in its own language', () => {
-    useLedger({ [`/cerca-lavoro-ticino/${INDEXED_IT}/`]: '2026-09-02' });
+  it('uses the cippa IT canonical path and never lets its title bridge pin an English slug', () => {
+    useLedger({
+      [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
+      [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}`]: '2026-10-30',
+    });
     expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(true);
-    expect(slugWasServed('en', INDEXED_IT, tiJob)).toBe(false);
-    expect(slugWasServed('de', INDEXED_IT, tiJob)).toBe(false);
-  });
-
-  it('the legacy Ticino mirror of a non-TI job counts as served', () => {
-    useLedger({ '/cerca-lavoro-ticino/x-cippa-trasporti-sa-baden/': '2026-06-01' });
-    expect(slugWasServed('it', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
-  });
-
-  it('the canton section and the legacy Ticino mirror are both the job\'s paths', () => {
-    const [cantonPath] = jobDetailPathsFor('de', 'x-cippa-trasporti-sa-baden', agJob);
-    useLedger({ [cantonPath]: '2026-10-01' });
-    expect(slugWasServed('de', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
-    useLedger({ '/de/jobs-im-tessin/x-cippa-trasporti-sa-baden/': '2026-10-01' });
-    expect(slugWasServed('de', 'x-cippa-trasporti-sa-baden', agJob)).toBe(true);
+    expect(slugWasServed('it', TITLE_DERIVED_IT, tiJob)).toBe(true);
+    expect(slugWasServed('en', TITLE_DERIVED_IT, tiJob)).toBe(false);
   });
 
   it('an absent ledger is unknown, a present but unreadable one fails closed', () => {

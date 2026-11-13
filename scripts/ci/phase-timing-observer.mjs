@@ -57,18 +57,81 @@ export function parseJobOgImageStats(log) {
   for (const line of String(log).split(/\r?\n/u)) {
     const match = JOB_OG_STATS_RE.exec(line.trim());
     if (!match) continue;
-    matches.push({
+    const stats = {
       rendered: Number(match[1]),
       cached: Number(match[2]),
       skipped: Number(match[3]),
       errors: Number(match[4]),
       pruned: Number(match[5]),
-    });
+    };
+    if (Object.values(stats).some((value) => !Number.isSafeInteger(value) || value < 0)) return null;
+    matches.push(stats);
   }
   if (matches.length === 0) return null;
   const first = matches[0];
   if (matches.some((candidate) => JSON.stringify(candidate) !== JSON.stringify(first))) return null;
   return first;
+}
+
+function cacheRestoreState(cacheMatchedKey) {
+  if (typeof cacheMatchedKey !== 'string') return 'unknown';
+  return cacheMatchedKey.trim() === '' ? 'miss' : 'hit';
+}
+
+function validJobOgStats(stats) {
+  return stats !== null
+    && typeof stats === 'object'
+    && ['rendered', 'cached', 'skipped', 'errors', 'pruned'].every((key) => (
+      Number.isSafeInteger(stats[key]) && stats[key] >= 0
+    ));
+}
+
+/**
+ * Combine the phase median and the renderer's cache accounting without
+ * guessing when either side is absent. `rendered` is a cache miss and
+ * `cached` is a cache hit; skipped/error jobs are deliberately excluded from
+ * the cache population because they did not produce a successful hit/miss
+ * decision.
+ *
+ * @param {{phaseRows?: Array, stats?: object|null, cacheMatchedKey?: unknown}} input
+ * @returns {{marker:string, medianSeconds:number|null, seconds:number|null, cacheRestore:string, hits:number|null, misses:number|null, population:number|null, missRate:number|null, observed:boolean, status:string}}
+ */
+export function jobOgCacheChurnObserved({ phaseRows = [], stats = null, cacheMatchedKey } = {}) {
+  const phase = Array.isArray(phaseRows)
+    ? phaseRows.find((row) => row?.marker === JOB_OG_IMAGES_PHASE)
+    : null;
+  const parsedStats = validJobOgStats(stats) ? stats : null;
+  const hits = parsedStats?.cached ?? null;
+  const misses = parsedStats?.rendered ?? null;
+  const population = hits === null || misses === null ? null : hits + misses;
+  const missRate = population !== null && population > 0 ? misses / population : null;
+  const cacheRestore = cacheRestoreState(cacheMatchedKey);
+
+  let status = 'osservata';
+  if (parsedStats === null) {
+    status = 'contatori cache non osservabili';
+  } else if (!phase) {
+    status = 'durata non osservabile';
+  } else if (population === 0) {
+    status = 'popolazione cache vuota — miss-rate non definibile';
+  } else if (cacheRestore === 'miss' && parsedStats.rendered > 0 && parsedStats.cached === 0 && parsedStats.errors === 0) {
+    status = 'cache cold — warm-up atteso';
+  } else if (cacheRestore === 'unknown') {
+    status = 'contatori osservati; restore cache non osservabile';
+  }
+
+  return {
+    marker: JOB_OG_IMAGES_PHASE,
+    medianSeconds: Number.isFinite(phase?.baseline) ? phase.baseline : null,
+    seconds: Number.isFinite(phase?.seconds) ? phase.seconds : null,
+    cacheRestore,
+    hits,
+    misses,
+    population,
+    missRate,
+    observed: parsedStats !== null && phase != null && population !== null && population > 0,
+    status,
+  };
 }
 
 /**
@@ -230,6 +293,7 @@ export function observePhaseTimings({
   const historyRows = parseBuildProfileHistory(history, locale);
   const previous = historyRows.at(-1);
   const previousPhases = phaseMap(previous);
+  const jobOgStats = parseJobOgImageStats(log);
   const expectedColdJobOgCache = isExpectedColdJobOgCache(log, jobOgCacheMatchedKey);
   const rows = evaluatePhaseTimings({
     currentPhases: current,
@@ -252,6 +316,11 @@ export function observePhaseTimings({
     historySamples: historyRows.length,
     rows,
     regressions: rows.filter((row) => row.regression),
+    jobOgCacheChurn: jobOgCacheChurnObserved({
+      phaseRows: rows,
+      stats: jobOgStats,
+      cacheMatchedKey: jobOgCacheMatchedKey,
+    }),
   };
 }
 
@@ -278,6 +347,16 @@ export function formatPhaseTimingSummary(observation, threshold = PHASE_TIMING_T
     }
   }
   lines.push('', `Soglia advisory: max(mediana × ${threshold}, min(p90, mediana × ${PHASE_TIMING_SPREAD_CAP})); servono conferma del valore precedente e un eccesso materiale di almeno ${(PHASE_TIMING_MATERIAL_SHARE * 100).toFixed(0)}% delle mediane disponibili; il deploy non viene bloccato.`);
+
+  const churn = observation.jobOgCacheChurn ?? jobOgCacheChurnObserved();
+  lines.push(
+    '',
+    '### Job OG cache churn (osservazione advisory)',
+    '',
+    '| fase | mediana durata | restore cache | hit | miss | popolazione | miss-rate | stato |',
+    '|---|---:|---|---:|---:|---:|---:|---|',
+    `| \`${churn.marker}\` | ${churn.medianSeconds === null ? '—' : seconds(churn.medianSeconds)} | ${churn.cacheRestore} | ${churn.hits === null ? '—' : churn.hits} | ${churn.misses === null ? '—' : churn.misses} | ${churn.population === null ? '—' : churn.population} | ${churn.missRate === null ? '—' : `${(churn.missRate * 100).toFixed(1)}%`} | ${churn.status} |`,
+  );
   return lines.join('\n');
 }
 

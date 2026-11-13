@@ -1,0 +1,27 @@
+{
+  "companyKey": "convalere-ag",
+  "companyName": "Convalere AG",
+  "companyHost": "convalereag.jobs.personio.com",
+  "verifiedEmployerDomain": "convalere.ch",
+  "platform": "personio.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://convalereag.jobs.personio.com/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 110,
+  "sampleTitles": [
+    "Abteilungsleitung Sozialdienst <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5",
+    "BAZ-Leitung Betreuung Bundesasylzentren (m/w/d) <path d=\"M10.0005 3.5752C12.7755",
+    "BAZ-Leitung Betreuung Bundesasylzentren (m/w/d) <path d=\"M10.0005 3.5752C12.7755",
+    "BAZ-Leitung Betreuung Bundesasylzentren (m/w/d) <path d=\"M10.0005 3.5752C12.7755",
+    "BAZ-Leitung Betreuung Bundesasylzentren (m/w/d) <path d=\"M10.0005 3.5752C12.7755"
+  ],
+  "canton": "BL",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:54:28.295Z",
+  "candidateKey": "convalere@pratteln"
+}

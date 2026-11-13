@@ -1,0 +1,25 @@
+{
+  "companyKey": "alllinestechnology",
+  "companyName": "All Lines Technology",
+  "companyHost": "alllinestechnology.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alllinestechnology.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Application Developer - Emerging",
+    "Customer Success Manager",
+    "Desktop Support Technician",
+    "IT Support Analyst",
+    "MSP Operations Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:27.051Z",
+  "candidateKey": "alllinestechnology@applytojob.com"
+}

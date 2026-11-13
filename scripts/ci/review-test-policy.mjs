@@ -250,10 +250,23 @@ export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|s
 export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
 const NON_RUNTIME_CODE_DIRECTORY_RE = /^(?:data|public|reports|_newsletter_variants|docs|tests|__tests__)\//u;
+const NON_RUNTIME_CODE_GENERATED_CONTENT_RE = /^packages\/articles\/content\/(?:blog-body(?:-ch)?\/|image-credits\/|seo\/seo-blog(?:-[^/]+)?\.ts$|(?:article-index-exclusions|swiss-article-canonical-overrides)\.json$|(?:blog-articles-data|blogArticleIds|blog-meta(?:-ch)?-(?:de|en|fr|it)|routerBlogData|routerSwissData|swiss-articles-data)\.ts$)/u;
+const NON_RUNTIME_CODE_ASSET_RE = /\.(?:snap|avif|bmp|jpe?g|png|webp|gif|svg|ico|tiff?|woff2?|xml|csv|tsv|jsonl|ndjson)$/u;
 const NON_RUNTIME_CODE_EXACT_PATHS = new Set([
   '.github/corpus-workflows/contract.json',
   'firestore.indexes.json',
 ]);
+const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+const NON_RUNTIME_CODE_EXACT_PATH_RE = new RegExp(
+  `^(?:${[...NON_RUNTIME_CODE_EXACT_PATHS].map(escapeRegExp).join('|')})$`,
+  'u',
+);
+export const NON_RUNTIME_CODE_FINGERPRINT_RE = new RegExp([
+  NON_RUNTIME_CODE_DIRECTORY_RE.source,
+  NON_RUNTIME_CODE_GENERATED_CONTENT_RE.source,
+  NON_RUNTIME_CODE_ASSET_RE.source,
+  NON_RUNTIME_CODE_EXACT_PATH_RE.source,
+].join('|'), 'u');
 
 /**
  * Files in this set do not change application/runtime code. The list is
@@ -263,7 +276,7 @@ const NON_RUNTIME_CODE_EXACT_PATHS = new Set([
 export function isNonRuntimeCodePath(path) {
   if (typeof path !== 'string' || path.length === 0 || path.includes('\0')
       || path.startsWith('/') || path.split('/').includes('..')) return false;
-  return NON_RUNTIME_CODE_DIRECTORY_RE.test(path)
+  return NON_RUNTIME_CODE_FINGERPRINT_RE.test(path)
     || isReviewTestPath(path)
     || NON_RUNTIME_CODE_EXACT_PATHS.has(path);
 }

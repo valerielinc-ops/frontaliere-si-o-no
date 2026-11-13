@@ -212,13 +212,28 @@ describe('deploy IT build-to-publish handoff', () => {
 
     const early = namedStep(cdnSteps, 'Push generated assets to CDN (early — ahead of the shard pushes)');
     const retry = namedStep(cdnSteps, 'Retry early CDN push (before the section shards give up)');
+    const observer = namedStep(cdnSteps, 'Observe IT early CDN push budget (advisory)');
     const ready = namedStep(cdnSteps, 'Require IT CDN build id before shard pushes');
+    const retryIndex = cdnSteps.findIndex((step) => step.name === 'Retry early CDN push (before the section shards give up)');
+    const observerIndex = cdnSteps.findIndex((step) => step.name === 'Observe IT early CDN push budget (advisory)');
+    const readyIndex = cdnSteps.findIndex((step) => step.name === 'Require IT CDN build id before shard pushes');
     const gateIndex = groupSteps.findIndex((step) => step.name === 'Wait for current IT CDN build id before IT section pushes');
     const pushIndex = groupSteps.findIndex((step) => step.name === 'Push and package IT section group');
     expect(early?.run).toContain('bash scripts/lib/deploy-it-pages-prep.sh');
+    expect(early?.run).toContain('duration_s=');
     expect(early?.env?.DEPLOY_CDN_PUSH_ONLY).toBe('1');
+    expect(early?.env?.R2_TIMEOUT_OG_S).toBe('900');
     expect(early?.['timeout-minutes']).toBe(45);
     expect(retry?.if).toBe("steps.cdn-push-early.outcome == 'failure'");
+    expect(retry?.run).toContain('duration_s=');
+    expect(retry?.env?.R2_TIMEOUT_OG_S).toBeUndefined();
+    expect(observer?.if).toBe('always()');
+    expect(observer?.['continue-on-error']).toBe(true);
+    expect(observer?.run).toContain('cdnEarlyPushBudgetObserved()');
+    expect(observer?.run).toContain('GITHUB_STEP_SUMMARY');
+    expect(observer?.env?.R2_TIMEOUT_OG_S).toContain("'900'");
+    expect(retryIndex).toBeLessThan(observerIndex);
+    expect(observerIndex).toBeLessThan(readyIndex);
     expect(ready?.id).toBe('cdn-ready');
     expect([gateIndex, pushIndex]).toEqual([expect.any(Number), expect.any(Number)]);
     expect(gateIndex).toBeLessThan(pushIndex);

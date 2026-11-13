@@ -71,36 +71,41 @@ function identityTokens(value) {
 }
 
 /**
- * One spelling per served URL: lower case, leading slash, one trailing slash,
- * and no `/it/` prefix (the Italian board is served without it).
+ * Match the pathname form written by refresh-url-first-seen: leading slash,
+ * no trailing slash. Keep case and locale prefixes exact so aliases cannot
+ * stand in for a renderer-generated canonical path.
  *
  * @param {string} urlPath
  * @returns {string}
  */
 export function normalizeServedPath(urlPath) {
-  let clean = String(urlPath || '').trim().toLowerCase();
+  let clean = String(urlPath || '').trim();
   if (!clean.startsWith('/')) clean = `/${clean}`;
-  clean = `${clean.replace(/\/+$/, '')}/`;
-  return clean.replace(/^\/it\//, '/');
+  clean = clean.replace(/\/index\.html$/, '').replace(/\/+$/, '');
+  return clean || '/';
 }
 
 // Loaded on first use, like the ledger: the slug writers that import this
 // module also run from script-only sandboxes and sparse checkouts that carry
 // neither build-plugins/ nor the canton data, and only a lookup needs them.
-let resolvers = null;
+let routeResolvers = null;
 function cantonResolvers() {
-  if (!resolvers) {
+  if (!routeResolvers) {
     const dataDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
     const { SECTION_LEGACY_TI, createCantonResolvers } = createRequire(import.meta.url)('../../build-plugins/shared/cantonResolvers.mjs');
-    resolvers = {
+    routeResolvers = {
       SECTION_LEGACY_TI,
       ...createCantonResolvers({
-      cantonSlugFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-url-slugs.json'), 'utf8')),
-      municipalitiesFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-municipalities.json'), 'utf8')),
+        cantonSlugFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-url-slugs.json'), 'utf8')),
+        municipalitiesFile: JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-municipalities.json'), 'utf8')),
       }),
     };
   }
-  return resolvers;
+  return routeResolvers;
+}
+
+function normalizeCanonicalSlug(slug) {
+  return String(slug ?? '').trim().replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
 }
 
 /**
@@ -108,12 +113,12 @@ function cantonResolvers() {
  * `slug`: the job's canton section — the formula of
  * `buildCanonicalJobDetailPath` (build-plugins/shared/jobDetailPath.ts, TS-only,
  * so mirrored here with the same `resolveJobCanton` + `resolveCantonSection`
- * resolvers) — and the legacy Ticino section, which served every job before
- * the canton sections and still carries bridges for non-TI jobs. Detail
+ * resolvers). The only additional path is the Italian legacy-TI active-job
+ * bridge emitted for a non-TI job when its slug equals `job.slug`; other
+ * locale mirrors are not part of the active canonical-path contract. Detail
  * routes are always `/[locale/]<section>/<slug>/`: there is no city-nested
- * detail route. Exact
- * paths, so a hub, a company page, a pagination or an article that only shares
- * the last segment never counts as the job's URL.
+ * detail route. Exact paths ensure a different section, hub, company page,
+ * pagination or article that shares only the last segment never counts.
  *
  * @param {string} locale
  * @param {string} slug
@@ -121,14 +126,24 @@ function cantonResolvers() {
  * @returns {string[]}
  */
 export function jobDetailPathsFor(locale, slug, job = null) {
-  const clean = String(slug || '').trim();
-  if (!clean || !['it', 'en', 'de', 'fr'].includes(locale)) return [];
+  const clean = normalizeCanonicalSlug(slug);
+  if (!clean || !job || typeof job !== 'object' || !['it', 'en', 'de', 'fr'].includes(locale)) return [];
   const { SECTION_LEGACY_TI, resolveCantonSection, resolveJobCanton } = cantonResolvers();
-  const canton = resolveJobCanton(job && typeof job === 'object' ? job : {});
-  const sections = new Set([resolveCantonSection(locale, canton), SECTION_LEGACY_TI[locale]]);
-  return [...sections].map((section) => normalizeServedPath(
-    locale === 'it' ? `/${section}/${clean}/` : `/${locale}/${section}/${clean}/`,
-  ));
+  const canton = resolveJobCanton(job);
+  const section = resolveCantonSection(locale, canton);
+  const canonicalPath = normalizeServedPath(
+    `/${locale === 'it' ? '' : `${locale}/`}${section}/${clean}/`,
+  );
+  const paths = [canonicalPath];
+
+  // jobsSeoPagesPlugin emits this compatibility route only for the active IT
+  // master slug of a non-TI job. The canonical renderer path remains the
+  // canton-specific path above.
+  if (locale === 'it' && canton !== 'TI' && normalizeCanonicalSlug(job.slug) === clean) {
+    paths.push(normalizeServedPath(`/${SECTION_LEGACY_TI.it}/${clean}/`));
+  }
+
+  return [...new Set(paths)];
 }
 
 let ledgerCache = { path: null, index: undefined };
@@ -175,7 +190,7 @@ export function loadServedSlugLedger() {
   const index = new Map();
   for (const [urlPath, date] of Object.entries(raw)) {
     const key = normalizeServedPath(urlPath);
-    if (!isJobBoardDetailPath(key) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(key)) continue;
+    if (!isJobBoardDetailPath(key) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(key.toLowerCase())) continue;
     const prev = index.get(key);
     if (!prev || String(date) < prev) index.set(key, String(date));
   }

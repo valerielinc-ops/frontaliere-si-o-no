@@ -4053,9 +4053,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4106,17 +4106,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -8166,9 +8167,9 @@
     },
     {
       "id": "ottos-8dc144993428",
-      "slug": "verkaufsmitarbeiter-in-mobel-otto-s-ag-thal",
+      "slug": "addetto-a-alle-vendite-mobili-otto-s-ag-thal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-thal",
+        "it": "addetto-a-alle-vendite-mobili-otto-s-ag-thal",
         "en": "furniture-sales-associate-otto-s-ag-thal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-thal",
         "fr": "employe-e-commercial-e-dans-otto-s-ag-thal"
@@ -8178,7 +8179,7 @@
       "companyDomain": "ottos.ch",
       "title": "Verkaufsmitarbeiter:in Möbel",
       "titleByLocale": {
-        "it": "Verkaufsmitarbeiter:in Möbel",
+        "it": "Addetto/a alle vendite mobili",
         "en": "Furniture Sales Associate",
         "de": "Verkaufsmitarbeiter:in Möbel",
         "fr": "Employé (e) commercial (e) :dans"
@@ -8221,11 +8222,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-thal"
+        "verkaufsmitarbeiter-in-mobel-ottos-thal",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-thal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mobel-ottos-thal"
+          "verkaufsmitarbeiter-in-mobel-ottos-thal",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-thal"
         ]
       },
       "firstSeenAt": "2026-11-10T21:33:40.354Z",

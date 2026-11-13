@@ -171,7 +171,7 @@
     },
     {
       "id": "company-m5j503",
-      "slug": "disponent-in-kuchen-und-bader-80-100-fust-burgdorf",
+      "slug": "addetto-a-alla-pianificazione-di-cucine-e-bagni-80-100-fust-burgdorf",
       "company": "Fust",
       "title": "Disponent:in Küchen und Bäder 80% - 100%",
       "location": "Burgdorf",
@@ -198,8 +198,8 @@
       "crawledAt": "2026-11-13T09:48:00.856Z",
       "firstSeenAt": "2026-10-08T22:37:34.966Z",
       "titleByLocale": {
-        "it": "Disponent:in Küchen e Bäder 80% - 100%",
-        "en": "Disponent:in Küchen und Bäder 80% - 100%",
+        "it": "Addetto/a alla pianificazione di cucine e bagni 80% - 100%",
+        "en": "Kitchen and bathroom planner 80% - 100%",
         "de": "Disponent:in Küchen und Bäder 80% - 100%",
         "fr": "Organisateur :dans les cuisines et les salles de bains 80 % - 100 %"
       },
@@ -211,8 +211,8 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "disponent-in-kuchen-e-bader-80-100-fust-burgdorf",
-        "en": "disponent-in-kuchen-und-bader-80-100-fust-burgdorf",
+        "it": "addetto-a-alla-pianificazione-di-cucine-e-bagni-80-100-fust-burgdorf",
+        "en": "kitchen-and-bathroom-planner-80-100-fust-burgdorf",
         "de": "disponent-in-kuchen-und-bader-80-100-fust-burgdorf",
         "fr": "organisateur-dans-les-cuisines-et-les-salles-de-bains-80-100-fust-burgdorf"
       },
@@ -239,11 +239,18 @@
         }
       },
       "previousSlugs": [
-        "disponent-in-kuchen-und-bader-80-100-fust-burgdorf-bern"
+        "disponent-in-kuchen-und-bader-80-100-fust-burgdorf-bern",
+        "disponent-in-kuchen-e-bader-80-100-fust-burgdorf",
+        "disponent-in-kuchen-und-bader-80-100-fust-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-kuchen-und-bader-80-100-fust-burgdorf-bern"
+          "disponent-in-kuchen-und-bader-80-100-fust-burgdorf-bern",
+          "disponent-in-kuchen-e-bader-80-100-fust-burgdorf",
+          "disponent-in-kuchen-und-bader-80-100-fust-burgdorf"
+        ],
+        "en": [
+          "disponent-in-kuchen-und-bader-80-100-fust-burgdorf"
         ]
       },
       "salaryMin": 68500,
@@ -251,7 +258,7 @@
     },
     {
       "id": "company-6on10m",
-      "slug": "schreinermonteur-in-kuchen-bader-fust-oberburen",
+      "slug": "montatore-trice-di-falegnameria-per-cucine-e-bagni-fust-oberburen",
       "company": "Fust",
       "title": "Schreinermonteur:in Küchen & Bäder",
       "location": "Oberbüren",
@@ -278,8 +285,8 @@
       "crawledAt": "2026-11-13T09:48:00.856Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
-        "it": "Schreinermonteur:in Küchen & Bäder",
-        "en": "Schreinermonteur:in Küchen & Bäder",
+        "it": "Montatore/trice di falegnameria per cucine e bagni",
+        "en": "Carpenter Installer Kitchens & Bathrooms",
         "de": "Schreinermonteur:in Küchen & Bäder",
         "fr": "Monteur menuisier :dans les cuisines et les salles de bains"
       },
@@ -291,8 +298,8 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "schreinermonteur-in-kuchen-bader-fust-oberburen",
-        "en": "schreinermonteur-in-kuchen-bader-fust-oberburen",
+        "it": "montatore-trice-di-falegnameria-per-cucine-e-bagni-fust-oberburen",
+        "en": "carpenter-installer-kitchens-bathrooms-fust-oberburen",
         "de": "schreinermonteur-in-kuchen-bader-fust-oberburen",
         "fr": "monteur-menuisier-dans-les-cuisines-et-les-salles-de-bains-fust-oberburen"
       },
@@ -319,7 +326,18 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "schreinermonteur-in-kuchen-bader-fust-oberburen"
+        ],
+        "en": [
+          "schreinermonteur-in-kuchen-bader-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "schreinermonteur-in-kuchen-bader-fust-oberburen"
+      ]
     },
     {
       "id": "company-94aota",
