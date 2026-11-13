@@ -1416,8 +1416,13 @@ jobs:
               ;;
             10)
               set +e
-              result=$(node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-check 2>&1)
-              status=$?
+              if grep -Fq 'non-code-check' "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs"; then
+                result=$(node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-check 2>&1)
+                status=$?
+              else
+                result='Trusted main policy precedente al non-runtime-code fast path: percorso ordinario.'
+                status=10
+              fi
               set -e
               printf '%s\n' "$result"
               case "$status" in

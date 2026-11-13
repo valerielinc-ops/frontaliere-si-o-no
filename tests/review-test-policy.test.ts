@@ -697,6 +697,7 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('data/loop-fleet/loop-registry.json');
     expect(source).toContain('LOOP_FLEET_REGISTRY_PATH=');
     expect(source).toContain('non-code-check');
+    expect(source).toContain("grep -Fq 'non-code-check'");
     expect(source).toContain('non-code-post');
     expect(source).toContain('ledger_status=non-runtime-code');
     const ledgerScope = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_scope');
