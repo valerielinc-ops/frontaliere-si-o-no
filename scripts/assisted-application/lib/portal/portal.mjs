@@ -10392,6 +10392,9 @@ export async function submitViaPortal(ctx) {
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
         const applyBoundActions = async (pendingActions, options = {}) => {
+          if (!isWorkdayTenantUrl(ctx.applyUrl)) {
+            return { results: await applyActions(page, snapshot.fields, pendingActions, ctx.files, options), handoff: '' };
+          }
           const applied = [];
           for (const action of pendingActions) {
             if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
