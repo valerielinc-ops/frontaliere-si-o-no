@@ -6805,6 +6805,7 @@ ${companyFollowHtml}
  (locationPartition.byLocationSector as unknown as Map<unknown, unknown>).clear();
  };
  let editorialEntries = '';
+ const cityHubSiblingSitemapLocs = new Set<string>();
  {
  const editorialSitemapEntries: string[] = [];
  // SPA-matching cards via the shared renderer. Editorial models now carry
@@ -9116,7 +9117,6 @@ ${staticAnalyticsHtml}
  return getCantonDisplayLabel(canton, locale);
  };
  const cityHubSitemapEntries: string[] = [];
- const cityHubSiblingSitemapLocs = new Set<string>();
  const cityHubIndexableLocales = indexableLocalePageSet(localeList, () => true);
  let cityHubCantonPagesCount = 0;
  const CITY_HUB_JOB_LIST_CAP = 30;
