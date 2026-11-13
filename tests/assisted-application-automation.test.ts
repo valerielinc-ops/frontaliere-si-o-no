@@ -25,7 +25,7 @@ const {
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS, URGENT_FIELD_DISPATCH_TIMEOUT_MS } = await import('../functions/src/assistedApplicationFlow.js');
 const { autoRetryDelaysForFlow, portalAutoRetryAttemptsRemaining, portalRetryDueAt } = await import('../functions/src/assistedApplicationPortalRetryPolicy.js');
 const { draftRetryDueAt } = await import('../functions/src/assistedApplicationDraftRetryPolicy.js');
-const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+const { candidateQuestionAnswerKey, rememberCandidateAnswerHistory } = await import('../functions/src/assistedApplicationCandidateEdits.js');
 const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { answerConfirmationSnapshotsFor } = await import('../functions/src/assistedApplicationAnswerEvidence.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
@@ -155,6 +155,9 @@ describe('starting the flow', () => {
   it('reopens a withdrawn flow only after an explicit owner CV-replacement marker', async () => {
     const oldKey = CV_KEY;
     const newKey = `assisted-application-uploads/${ORDER}/reopen-eliana-cv-20261105.pdf`;
+    const answeredQuestion = { id: 'permit_before', question: 'Which permit do you hold?', type: 'choice', options: ['Permit G', 'Permit B'] };
+    const candidateAnswerHistory = rememberCandidateAnswerHistory({ questions: [answeredQuestion],
+      changed: { [answeredQuestion.id]: 'Permit G' }, round: 2, confirmedAt: T0 - 1, actor: 'candidate' });
     const before = paidOrder({
       cvStorageKey: oldKey,
       cvFileCheck: { key: oldKey, verdict: 'ok', detectedType: 'pdf' },
@@ -175,6 +178,7 @@ describe('starting the flow', () => {
       [`${ORDER_PATH}/automation/flow`]: {
         state: 'withdrawn', round: 2, heldBy: [], feedback: [{ round: 2, text: 'old feedback' }],
         history: [{ at: T0 - 1, event: 'candidate_withdraw', state: 'withdrawn' }],
+        candidateAnswerHistory,
       },
     });
     rc.values.ASSISTED_APPLICATION_AUTOMATION = 'true';
@@ -184,6 +188,7 @@ describe('starting the flow', () => {
     expect(result).toMatchObject({ started: true });
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
       state: 'drafting', round: 3, feedback: [], dispatch: { mode: 'draft', round: 3, reason: 'owner_reopen_after_withdrawal' },
+      candidateAnswerHistory,
     });
     expect(store.list(`${ORDER_PATH}/events/`).map((path) => store.read(path))).toEqual(
       expect.arrayContaining([expect.objectContaining({ eventType: 'start:owner_reopen_after_withdrawal', round: 3 })]),
