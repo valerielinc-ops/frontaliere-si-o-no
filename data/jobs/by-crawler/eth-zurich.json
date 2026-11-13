@@ -8843,12 +8843,12 @@
     },
     {
       "id": "eth-zurich-4f6c2b9dd911",
-      "slug": "fachspezialist-in-aus-e-weiterbildung-datennetze-m-w-d-eth-zurich",
+      "slug": "specialista-in-formazione-e-formazione-continua-per-le-reti-dati-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-in-aus-e-weiterbildung-datennetze-m-w-d-eth-zurich",
+        "it": "specialista-in-formazione-e-formazione-continua-per-le-reti-dati-m-f-d-eth-zurich-zurich",
         "en": "specialist-in-education-and-training-data-networks-m-f-d-eth-zurich-zurich",
         "de": "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch",
-        "fr": "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
+        "fr": "specialiste-de-la-formation-et-du-perfectionnement-en-reseaux-de-donnees-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8890,13 +8890,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
+        "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch",
+        "fachspezialist-in-aus-e-weiterbildung-datennetze-m-w-d-eth-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
+          "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch",
+          "fachspezialist-in-aus-e-weiterbildung-datennetze-m-w-d-eth-zurich"
         ],
         "en": [
+          "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "fachspezialist-in-aus-und-weiterbildung-datennetze-m-w-d-eth-zurich-ch"
         ]
       },
@@ -8927,9 +8932,9 @@
       "slug": "tecnico-edile-specializzato-in-sanitari-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich",
       "slugByLocale": {
         "it": "tecnico-edile-specializzato-in-sanitari-m-f-d-con-responsabilita-e-cuore-per-i-nostri-edifici-eth-zurich-zurich",
-        "en": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
+        "en": "building-technician-specializing-in-sanitation-m-f-d-with-responsibility-and-heart-for-our-buildings-eth-zurich-zurich",
         "de": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
-        "fr": "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
+        "fr": "technicien-ne-en-technique-du-batiment-specialisation-sanitaire-h-f-d-avec-responsabilite-et-passion-pour-nos-batiments"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8978,6 +8983,12 @@
         "it": [
           "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere",
           "gebaudetechniker-in-specializzazione-sanitar-m-w-d-con-verantwortung-e-herz-per-unsere-gebaude-eth-zurich"
+        ],
+        "en": [
+          "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
+        ],
+        "fr": [
+          "gebaudetechniker-in-fachrichtung-sanitar-m-w-d-mit-verantwortung-und-herz-fur-unsere"
         ]
       },
       "needsRetranslation": true,

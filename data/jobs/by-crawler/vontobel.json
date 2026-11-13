@@ -3427,12 +3427,12 @@
     },
     {
       "id": "vontobel-ff832d3dcc24",
-      "slug": "investment-advisor-vontobel-ch",
+      "slug": "investment-consulente-vontobel-zurich-gotthardstrasse-43",
       "slugByLocale": {
         "en": "investment-advisor-vontobel-ch",
-        "it": "investment-advisor-vontobel-ch",
-        "de": "investment-advisor-vontobel-ch",
-        "fr": "investment-advisor-vontobel-ch"
+        "it": "investment-consulente-vontobel-zurich-gotthardstrasse-43",
+        "de": "investment-berater-vontobel-zurich-gotthardstrasse-43",
+        "fr": "investment-conseiller-vontobel-zurich-gotthardstrasse-43"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -3495,7 +3495,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:37:47.100Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:37:47.100Z"
+      "firstSeenAt": "2026-11-13T09:37:47.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-advisor-vontobel-ch"
+        ],
+        "de": [
+          "investment-advisor-vontobel-ch"
+        ],
+        "fr": [
+          "investment-advisor-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investment-advisor-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-bec106d67c08",

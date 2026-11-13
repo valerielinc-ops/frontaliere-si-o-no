@@ -867,6 +867,46 @@ describe('deploy.yml — expired archive memory delta observation (#17888)', () 
   });
 });
 
+describe('deploy.yml — Rollup cap build memory budget observation (#18517)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+
+  it('wires a read-only, always-running report directly after memguard', () => {
+    const memguardIndex = steps.findIndex((step) => step.id === 'memguard');
+    const observer = steps.find((step) => step.id === 'build_memory_budget');
+    expect(observer, 'deploy.yml: manca l osservatore del budget memoria Rollup').toBeDefined();
+    expect(observer!.name).toBe('Observe build memory budget after Rollup cap');
+    expect(observer!.if).toBe('always()');
+    expect(observer!['continue-on-error']).toBe(true);
+    expect(steps.indexOf(observer!)).toBe(memguardIndex + 1);
+    expect(observer!.env).toMatchObject({
+      BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB: '13200',
+      BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS: '21000',
+      BUILD_MEMORY_BUDGET_REPORT_PATH: '/tmp/build-memory-peak.json',
+      BUILD_MEMORY_BUDGET_BREACH: '${{ steps.memguard.outputs.breach }}',
+      BUILD_MEMORY_BUDGET_PEAK_RSS_MB: '${{ steps.memguard.outputs.peak_rss_mb }}',
+      BUILD_MEMORY_BUDGET_PEAK_ANON_MB: '${{ steps.memguard.outputs.peak_anon_mb }}',
+      BUILD_MEMORY_BUDGET_WALL_SECONDS: '${{ steps.build_step.outputs.wall_seconds }}',
+    });
+    expect(observer!.run).toContain('buildMemoryBudgetObserved()');
+    expect(observer!.run).toContain('peak_rss_mb');
+    expect(observer!.run).toContain('peak_anon_mb');
+    expect(observer!.run).toContain('wall_seconds');
+    expect(observer!.run).toContain('report availability');
+    expect(observer!.run).toContain('not-comparable');
+    expect(observer!.run).toContain('350 minutes');
+    expect(observer!.run).toContain('revert: wall_seconds exceeded 350-minute budget');
+  });
+
+  it('keeps the existing build and memory gate wiring intact', () => {
+    const build = steps.find((step) => step.id === 'build_step');
+    const memguard = steps.find((step) => step.id === 'memguard');
+    expect(build!.run).toContain('wall_seconds=$SECONDS');
+    expect(memguard!.if).toBe('always()');
+    expect(memguard!.run).toContain('/tmp/build-memory-peak.json');
+  });
+});
+
 describe('deploy.yml — incremental manifest shadow observation (PR 1b)', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
   const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;

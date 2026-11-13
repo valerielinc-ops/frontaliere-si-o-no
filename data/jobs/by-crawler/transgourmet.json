@@ -2603,12 +2603,12 @@
     },
     {
       "id": "transgourmet-addf8324-365",
-      "slug": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+      "slug": "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon",
       "slugByLocale": {
         "de": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
-        "it": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
+        "it": "operazioni-aziendali-e-controllo-manager-80-100-transgourmet-dietikon",
         "en": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon",
-        "fr": "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        "fr": "operations-d-affaires-gestionnaire-de-controle-80-100-transgourmet-dietikon"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2688,7 +2688,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:18:19.735Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:19.735Z"
+      "firstSeenAt": "2026-11-13T09:18:19.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        ],
+        "fr": [
+          "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "business-operations-amp-controlling-manager-80-100-transgourmet-dietikon"
+      ]
     },
     {
       "id": "transgourmet-a9a122aa-8ee",

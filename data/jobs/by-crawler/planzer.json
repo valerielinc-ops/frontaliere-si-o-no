@@ -584,12 +584,12 @@
     },
     {
       "id": "planzer-e3b9f32a5a4a",
-      "slug": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+      "slug": "addetto-a-allo-smistamento-dei-pacchi-turno-serale-m-f-d-planzer-zurich-altstetten",
       "slugByLocale": {
         "de": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
-        "it": "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
-        "en": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
-        "fr": "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        "it": "addetto-a-allo-smistamento-dei-pacchi-turno-serale-m-f-d-planzer-zurich-altstetten",
+        "en": "employee-package-sorting-late-shift-m-f-d-planzer-zurich-altstetten",
+        "fr": "colis-d-employes-triant-le-quart-tardif-h-f-d-planzer-zurich-altstetten"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -639,11 +639,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+          "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "en": [
+          "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        ],
+        "fr": [
           "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
+        "mitarbeiter-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten",
+        "collaboratore-trice-paketsortierung-spatschicht-m-w-d-planzer-zurich-altstetten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -665,12 +673,12 @@
     },
     {
       "id": "planzer-52b8990a00d4",
-      "slug": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+      "slug": "specialista-di-veicoli-per-la-preparazione-di-veicoli-nuovi-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
-        "it": "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
-        "en": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
-        "fr": "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        "it": "specialista-di-veicoli-per-la-preparazione-di-veicoli-nuovi-m-f-d-planzer-dallikon",
+        "en": "vehicle-professional-for-the-new-vehicle-provision-m-f-d-planzer-dallikon",
+        "fr": "vehicule-professionnel-pour-la-nouvelle-disposition-de-vehicule-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -720,11 +728,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+          "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
           "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
         ]
       },
       "previousSlugs": [
-        "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
+        "fahrzeugprofi-fur-die-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon",
+        "fahrzeugprofi-per-la-neufahrzeug-bereitstellung-m-w-d-planzer-dallikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -746,12 +762,12 @@
     },
     {
       "id": "planzer-8373c52b6cef",
-      "slug": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
+      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
-        "it": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
+        "it": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
         "en": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
-        "fr": "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -814,7 +830,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-12T09:19:35.121Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-14T07:52:22.210Z"
+      "firstSeenAt": "2026-10-14T07:52:22.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-629f5bb3a0c4",

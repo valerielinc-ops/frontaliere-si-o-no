@@ -1017,12 +1017,12 @@
     },
     {
       "id": "weisse-arena-90992f86e2d4",
-      "slug": "shiftleader-in-weisse-arena-ch",
+      "slug": "responsabile-di-turno-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "shiftleader-in-weisse-arena-ch",
-        "it": "shiftleader-in-weisse-arena-ch",
-        "en": "shiftleader-in-weisse-arena-ch",
-        "fr": "shiftleader-in-weisse-arena-ch"
+        "it": "responsabile-di-turno-weisse-arena-gruppe-laax",
+        "en": "shift-leader-weisse-arena-gruppe-laax",
+        "fr": "responsable-de-shift-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1089,7 +1089,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:18:25.999Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-27T00:40:02.624Z"
+      "firstSeenAt": "2026-08-27T00:40:02.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "shiftleader-in-weisse-arena-ch"
+        ],
+        "en": [
+          "shiftleader-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "shiftleader-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "shiftleader-in-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-a7169823ff53",

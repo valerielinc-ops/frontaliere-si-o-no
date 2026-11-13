@@ -938,12 +938,12 @@
     },
     {
       "id": "bcvs-8a7e2de3230b",
-      "slug": "gerant-e-d-immeubles-banque-cantonale-du-valais-sion",
+      "slug": "gestione-degli-edifici-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "gerant-e-d-immeubles-bcvs-sion",
-        "it": "gerant-e-d-immeubles-banque-cantonale-du-valais-sion",
-        "en": "gerant-e-d-immeubles-bcvs-sion",
-        "de": "gerant-e-d-immeubles-bcvs-sion"
+        "it": "gestione-degli-edifici-banque-cantonale-du-valais-sion",
+        "en": "building-manager-banque-cantonale-du-valais-sion",
+        "de": "gebaudeleiter-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -1009,11 +1009,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-bcvs-sion",
+          "gerant-e-d-immeubles-banque-cantonale-du-valais-sion"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-bcvs-sion"
+        ],
+        "de": [
           "gerant-e-d-immeubles-bcvs-sion"
         ]
       },
       "previousSlugs": [
-        "gerant-e-d-immeubles-bcvs-sion"
+        "gerant-e-d-immeubles-bcvs-sion",
+        "gerant-e-d-immeubles-banque-cantonale-du-valais-sion"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

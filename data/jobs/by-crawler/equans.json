@@ -8741,9 +8741,9 @@
     },
     {
       "id": "equans-e3483cc714b5",
-      "slug": "allrounder-in-equans-zug",
+      "slug": "persona-tuttofare-equans-switzerland-zug",
       "slugByLocale": {
-        "it": "allrounder-in-equans-zug",
+        "it": "persona-tuttofare-equans-switzerland-zug",
         "en": "all-rounder-equans-switzerland-zug",
         "de": "allrounder-in-equans-zug",
         "fr": "polyvalent-e-equans-switzerland-zug"
@@ -8792,11 +8792,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-in-equans-switzerland-zug"
+        "allrounder-in-equans-switzerland-zug",
+        "allrounder-in-equans-zug"
       ],
       "previousSlugsByLocale": {
         "de": [
           "allrounder-in-equans-switzerland-zug"
+        ],
+        "it": [
+          "allrounder-in-equans-zug"
         ]
       },
       "firstSeenAt": "2026-10-01T09:13:44.427Z",
@@ -9149,9 +9153,9 @@
     },
     {
       "id": "equans-5f6ec1daac4d",
-      "slug": "objektleiter-in-equans-basel",
+      "slug": "responsabile-di-sito-equans-switzerland-basel",
       "slugByLocale": {
-        "it": "objektleiter-in-equans-basel",
+        "it": "responsabile-di-sito-equans-switzerland-basel",
         "en": "propertymanager-equans-switzerland-basel",
         "de": "objektleiter-in-equans-basel",
         "fr": "responsable-de-projet-equans-switzerland-basel"
@@ -9200,11 +9204,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "objektleiter-in-equans-switzerland-basel"
+        "objektleiter-in-equans-switzerland-basel",
+        "objektleiter-in-equans-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
           "objektleiter-in-equans-switzerland-basel"
+        ],
+        "it": [
+          "objektleiter-in-equans-basel"
         ]
       },
       "firstSeenAt": "2026-11-10T21:24:00.886Z",
@@ -9227,9 +9235,9 @@
     },
     {
       "id": "equans-edd7c4f0ac88",
-      "slug": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
+      "slug": "operatore-trice-della-centrale-di-sicurezza-equans-switzerland-zurich",
       "slugByLocale": {
-        "it": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
+        "it": "operatore-trice-della-centrale-di-sicurezza-equans-switzerland-zurich",
         "en": "security-officer-security-headquarters-equans-switzerland-zurich",
         "de": "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich",
         "fr": "employe-de-securite-dans-le-centre-de-securite-equans-switzerland-zurich"
@@ -9293,7 +9301,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:23:43.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsmitarbeiter-in-sicherheitszentrale-equans-zurich"
+      ]
     },
     {
       "id": "equans-109b1c98033c",
@@ -10204,8 +10220,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-ladenbau-equans-st-gallen",
         "it": "installatore-trice-elettrico-a-in-ladenbau-equans-switzerland-st-gallen",
-        "en": "elektroinstallateur-in-ladenbau-equans-st-gallen",
-        "fr": "elektroinstallateur-in-ladenbau-equans-st-gallen"
+        "en": "electrical-installer-shopfitting-equans-switzerland-st-gallen",
+        "fr": "installateur-rice-electricien-ne-en-amenagement-de-magasins-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10254,6 +10270,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-ladenbau-equans-st-gallen"
+        ],
+        "en": [
+          "elektroinstallateur-in-ladenbau-equans-st-gallen"
+        ],
+        "fr": [
           "elektroinstallateur-in-ladenbau-equans-st-gallen"
         ]
       },

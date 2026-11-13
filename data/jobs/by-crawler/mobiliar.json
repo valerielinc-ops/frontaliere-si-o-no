@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-11b19e92d5e0",
-      "slug": "administrative-assistenz-ceo-w-m-d-mobiliar-ch",
+      "slug": "amministratore-delegato-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "administrative-assistenz-ceo-w-m-d-mobiliar-ch",
-        "it": "administrative-assistenz-ceo-w-m-d-mobiliar-ch",
+        "it": "amministratore-delegato-m-f-d-die-mobiliar-bern",
         "en": "administrative-assistenz-ceo-w-m-d-mobiliar-ch",
-        "fr": "administrative-assistenz-ceo-w-m-d-mobiliar-ch"
+        "fr": "assistant-administratif-pdg-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -90,7 +90,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:15:00.751Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:15:00.751Z"
+      "firstSeenAt": "2026-11-13T09:15:00.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistenz-ceo-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "administrative-assistenz-ceo-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistenz-ceo-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-9d7b97afdc12",
@@ -6963,9 +6974,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7029,17 +7040,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

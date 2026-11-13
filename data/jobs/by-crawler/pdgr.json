@@ -406,8 +406,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -463,16 +463,17 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -1120,7 +1121,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1174,8 +1175,7 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1184,8 +1184,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1211,7 +1210,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "ergoterapista-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergoterapista-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1267,8 +1266,7 @@
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-pdgr-ch",
-        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1277,8 +1275,7 @@
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch",
-          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "terapista-occupazionale-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1417,7 +1414,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1467,7 +1464,7 @@
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
         "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1479,7 +1476,7 @@
         ],
         "fr": [
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "stagiaire-en-psychologie-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -3914,12 +3911,12 @@
     },
     {
       "id": "pdgr-f6ca674e6515",
-      "slug": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-cazis",
+      "slug": "addetto-a-alla-pulizia-degli-ambienti-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "mitarbeiter-in-raumpflege-pdgr-ch",
-        "it": "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-cazis",
-        "en": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-cazis",
-        "fr": "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-cazis"
+        "it": "addetto-a-alla-pulizia-degli-ambienti-psychiatrische-dienste-graubunden-cazis",
+        "en": "cleaning-staff-member-psychiatrische-dienste-graubunden-cazis",
+        "fr": "employe-e-de-nettoyage-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3970,11 +3967,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-raumpflege-pdgr-ch-2"
+          "mitarbeiter-in-raumpflege-pdgr-ch-2",
+          "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "en": [
+          "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-raumpflege-pdgr-ch-2"
+        "mitarbeiter-in-raumpflege-pdgr-ch-2",
+        "collaboratore-trice-in-raumpflege-psychiatrische-dienste-graubunden-cazis",
+        "mitarbeiter-in-raumpflege-psychiatrische-dienste-graubunden-cazis"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -3998,12 +4004,12 @@
     },
     {
       "id": "pdgr-4e69f437387b",
-      "slug": "oberarztin-oberarzt-pdgr-ch-2",
+      "slug": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-pdgr-ch",
-        "it": "oberarztin-oberarzt-pdgr-ch-2",
-        "en": "oberarztin-oberarzt-pdgr-ch-2",
-        "fr": "oberarztin-oberarzt-pdgr-ch-2"
+        "it": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-chur",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4081,7 +4087,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:30:06.869Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-04-14T10:28:30.371Z"
+      "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdgr-ch-2"
+      ]
     },
     {
       "id": "pdgr-9604288d7e1c",

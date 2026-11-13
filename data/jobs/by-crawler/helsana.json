@@ -2708,12 +2708,12 @@
     },
     {
       "id": "helsana-d4440f5b4e20",
-      "slug": "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern",
+      "slug": "consulente-assicurativo-in-materia-a-80-100-helsana-luzern",
       "slugByLocale": {
         "de": "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern",
-        "it": "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern",
-        "en": "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern",
-        "fr": "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern"
+        "it": "consulente-assicurativo-in-materia-a-80-100-helsana-luzern",
+        "en": "insurance-consultant-in-the-field-a-80-100-helsana-luzern",
+        "fr": "consultant-en-assurance-sur-le-terrain-a-80-100-helsana-luzern"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2775,16 +2775,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:29:21.955Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:29:21.955Z"
+      "firstSeenAt": "2026-11-13T09:29:21.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern"
+        ],
+        "en": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern"
+        ],
+        "fr": [
+          "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-im-aussendienst-a-80-100-helsana-luzern"
+      ]
     },
     {
       "id": "helsana-85b7bee02d21",
-      "slug": "beratender-arzt-per-la-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
+      "slug": "medico-consulente-per-la-valutazione-del-rischio-vvg-a-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "de": "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
-        "it": "beratender-arzt-per-la-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
-        "en": "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
+        "it": "medico-consulente-per-la-valutazione-del-rischio-vvg-a-80-100-helsana-dubendorf-stettbach",
+        "en": "consultant-doctor-for-risk-assessment-vvg-a-80-100-helsana-dubendorf-stettbach",
+        "fr": "consultant-medecin-pour-l-evaluation-des-risques-vvg-a-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2832,11 +2846,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
+          "beratender-arzt-per-la-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
           "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
         ]
       },
       "previousSlugs": [
-        "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
+        "beratender-arzt-fur-die-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach",
+        "beratender-arzt-per-la-risikoprufung-vvg-a-80-100-helsana-dubendorf-stettbach"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

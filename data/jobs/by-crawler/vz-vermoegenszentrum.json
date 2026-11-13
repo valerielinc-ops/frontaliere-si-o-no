@@ -7188,12 +7188,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-137f80fcfdae",
-      "slug": "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne",
+      "slug": "hr-collaboratore-organizzazione-di-formazione-vz-vermogenszentrum-lausanne-vaud",
       "slugByLocale": {
         "fr": "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch",
-        "it": "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne",
-        "en": "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne",
-        "de": "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch"
+        "it": "hr-collaboratore-organizzazione-di-formazione-vz-vermogenszentrum-lausanne-vaud",
+        "en": "hr-collaborator-training-organization-vz-vermogenszentrum-lausanne-vaud",
+        "de": "hr-collaborator-ausbildungsorganisation-vz-vermogenszentrum-lausanne-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7254,11 +7254,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch",
+          "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne"
+        ],
+        "en": [
+          "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne"
+        ],
+        "de": [
           "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch"
+        "collaborateur-trice-rh-organisation-des-formations-vz-vermoegenszentrum-ch",
+        "collaborateur-trice-rh-organisation-des-formations-vz-vermogenszentrum-lausanne"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
