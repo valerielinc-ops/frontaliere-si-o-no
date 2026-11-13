@@ -679,6 +679,7 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('download_main package.json');
     expect(source).toContain('download_main scripts/ci/mint-app-token.mjs');
     expect(source).toContain('download_main scripts/lib/githubApiHeaders.mjs');
+    expect(source).toContain('download_main functions/src/githubApiHeaders.js');
     expect(source).toContain('download_main scripts/ci/lib/review-input-revision.mjs');
     expect(source).toContain('download_main scripts/ci/lib/constants.mjs');
     expect(source).toContain('download_main scripts/ci/lib/pr-review-admission.mjs');
