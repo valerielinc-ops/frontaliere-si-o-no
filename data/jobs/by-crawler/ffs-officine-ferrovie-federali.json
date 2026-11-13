@@ -112,9 +112,9 @@
     },
     {
       "id": "sbb-351ab04cc079",
-      "slug": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
+      "slug": "analista-aziendale-facility-management-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
+        "it": "analista-aziendale-facility-management-ffs-officine-ferrovie-federali-bern",
         "en": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
         "de": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
         "fr": "analyste-d-affaires-en-gestion-des-installations-ffs-officine-ferrovie-federali-bern"
@@ -215,13 +215,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:07.199Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:07.199Z"
+      "firstSeenAt": "2026-11-10T21:28:07.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-318efd3fd54b",
-      "slug": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
+      "slug": "caposquadra-costruzione-di-binari-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
       "slugByLocale": {
-        "it": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
+        "it": "caposquadra-costruzione-di-binari-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "en": "foreman-track-construction-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "de": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "fr": "contremaitre-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
@@ -317,7 +325,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:29:24.706Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:24.706Z"
+      "firstSeenAt": "2026-11-10T21:29:24.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
+      ]
     },
     {
       "id": "sbb-da78f058b2c0",

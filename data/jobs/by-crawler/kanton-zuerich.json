@@ -1178,12 +1178,12 @@
     },
     {
       "id": "kanton-zuerich-92e1cac6f442",
-      "slug": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich",
+      "slug": "impiegato-a-contabilita-kantonale-verwaltung-zurich-8001-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-rechnungswesen-kanton-zuerich-8001-zurich",
-        "it": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich",
-        "en": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich",
-        "fr": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich"
+        "it": "impiegato-a-contabilita-kantonale-verwaltung-zurich-8001-zurich",
+        "en": "accounting-clerk-kantonale-verwaltung-zurich-8001-zurich",
+        "fr": "employe-e-administratif-ve-en-comptabilite-kantonale-verwaltung-zurich-8001-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1235,11 +1235,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-rechnungswesen-kanton-zuerich-8001-zurich"
+          "sachbearbeiter-in-rechnungswesen-kanton-zuerich-8001-zurich",
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-rechnungswesen-kanton-zuerich-8001-zurich"
+        "sachbearbeiter-in-rechnungswesen-kanton-zuerich-8001-zurich",
+        "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-8001-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

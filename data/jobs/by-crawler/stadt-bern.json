@@ -2596,12 +2596,12 @@
     },
     {
       "id": "stadt-bern-bfc7da7d8dae",
-      "slug": "leitung-rechtsdienst-direktion-per-bildung-soziales-e-sport-stadt-bern",
+      "slug": "responsabile-del-servizio-giuridico-direzione-per-l-istruzione-gli-affari-sociali-e-lo-sport-stadt-bern-bern",
       "slugByLocale": {
         "de": "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern",
-        "it": "leitung-rechtsdienst-direktion-per-bildung-soziales-e-sport-stadt-bern",
-        "en": "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern",
-        "fr": "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern"
+        "it": "responsabile-del-servizio-giuridico-direzione-per-l-istruzione-gli-affari-sociali-e-lo-sport-stadt-bern-bern",
+        "en": "head-of-legal-service-directorate-for-education-social-affairs-and-sports-stadt-bern-bern",
+        "fr": "chef-du-service-juridique-direction-de-l-education-des-affaires-sociales-et-des-sports-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2650,11 +2650,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern",
+          "leitung-rechtsdienst-direktion-per-bildung-soziales-e-sport-stadt-bern"
+        ],
+        "en": [
+          "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern"
+        ],
+        "fr": [
           "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern"
+        "leitung-rechtsdienst-direktion-fur-bildung-soziales-und-sport-stadt-bern-bern",
+        "leitung-rechtsdienst-direktion-per-bildung-soziales-e-sport-stadt-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -125,7 +125,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "professionnel-de-soins-viva-luzern"
+        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -192,7 +192,7 @@
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
-        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "professionnel-de-soins-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -226,7 +226,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+          "professionnel-de-soins-viva-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
@@ -2736,12 +2736,12 @@
     },
     {
       "id": "viva-luzern-7cd301d9af65",
-      "slug": "stv-leitung-betreuung-e-pflege-viva-luzern",
+      "slug": "vice-responsabile-dell-assistenza-e-delle-cure-viva-luzern-luzern",
       "slugByLocale": {
         "de": "stv-leitung-betreuung-und-pflege-viva-luzern-luzern",
-        "it": "stv-leitung-betreuung-e-pflege-viva-luzern",
-        "en": "stv-leitung-betreuung-und-pflege-viva-luzern-luzern",
-        "fr": "stv-leitung-betreuung-und-pflege-viva-luzern-luzern"
+        "it": "vice-responsabile-dell-assistenza-e-delle-cure-viva-luzern-luzern",
+        "en": "deputy-head-of-care-and-nursing-viva-luzern-luzern",
+        "fr": "gestion-des-soins-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -2790,11 +2790,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-leitung-betreuung-und-pflege-viva-luzern-luzern",
+          "stv-leitung-betreuung-e-pflege-viva-luzern"
+        ],
+        "en": [
+          "stv-leitung-betreuung-und-pflege-viva-luzern-luzern"
+        ],
+        "fr": [
           "stv-leitung-betreuung-und-pflege-viva-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "stv-leitung-betreuung-und-pflege-viva-luzern-luzern"
+        "stv-leitung-betreuung-und-pflege-viva-luzern-luzern",
+        "stv-leitung-betreuung-e-pflege-viva-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

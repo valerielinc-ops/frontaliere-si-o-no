@@ -2151,12 +2151,12 @@
     },
     {
       "id": "six-group-9d0d6d03be50",
-      "slug": "head-cyber-controls-six-group-zurich",
+      "slug": "controlli-informatici-di-testa-six-group-zurich",
       "slugByLocale": {
         "en": "head-cyber-controls-six-group-zurich",
-        "it": "head-cyber-controls-six-group-zurich",
+        "it": "controlli-informatici-di-testa-six-group-zurich",
         "de": "head-cyber-controls-six-group-zurich",
-        "fr": "head-cyber-controls-six-group-zurich"
+        "fr": "cybercontroles-de-tete-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2218,7 +2218,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:52:52.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:52:52.753Z"
+      "firstSeenAt": "2026-11-13T09:52:52.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-cyber-controls-six-group-zurich"
+        ],
+        "fr": [
+          "head-cyber-controls-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "head-cyber-controls-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-f3f4e5eac767",

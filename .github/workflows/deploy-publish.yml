@@ -575,7 +575,20 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
           R2_TIMEOUT_OG_S: '900'
-        run: bash scripts/lib/deploy-it-pages-prep.sh
+        run: |
+          started_at="$(date +%s)"
+          set +e
+          bash scripts/lib/deploy-it-pages-prep.sh
+          status=$?
+          ended_at="$(date +%s)"
+          set -e
+          {
+            echo "started_at=$started_at"
+            echo "ended_at=$ended_at"
+            echo "duration_s=$((ended_at - started_at))"
+            echo "r2_timeout_og_s=${R2_TIMEOUT_OG_S:-unknown}"
+          } >> "$GITHUB_OUTPUT"
+          exit "$status"
       - name: Save R2 OG manifest after early CDN push
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -593,7 +606,20 @@ jobs:
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           DEPLOY_CDN_PUSH_ONLY: '1'
-        run: bash scripts/lib/deploy-it-pages-prep.sh
+        run: |
+          started_at="$(date +%s)"
+          set +e
+          bash scripts/lib/deploy-it-pages-prep.sh
+          status=$?
+          ended_at="$(date +%s)"
+          set -e
+          {
+            echo "started_at=$started_at"
+            echo "ended_at=$ended_at"
+            echo "duration_s=$((ended_at - started_at))"
+            echo "r2_timeout_og_s=${R2_TIMEOUT_OG_S:-unknown}"
+          } >> "$GITHUB_OUTPUT"
+          exit "$status"
       - name: Save R2 OG manifest after early CDN retry
         if: ${{ always() && steps.cdn-push-early-retry.outcome != 'skipped' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -601,6 +627,86 @@ jobs:
         with:
           path: .cache/r2-og-published-manifest.json
           key: r2-og-published-${{ github.run_id }}-${{ hashFiles('.cache/r2-og-published-manifest.json') }}
+      - name: Observe IT early CDN push budget (advisory)
+        id: cdn-early-push-budget-observed
+        if: always()
+        continue-on-error: true
+        env:
+          EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
+          EARLY_STARTED_AT: ${{ steps.cdn-push-early.outputs.started_at }}
+          EARLY_ENDED_AT: ${{ steps.cdn-push-early.outputs.ended_at }}
+          EARLY_DURATION_S: ${{ steps.cdn-push-early.outputs.duration_s }}
+          RETRY_OUTCOME: ${{ steps.cdn-push-early-retry.outcome }}
+          RETRY_STARTED_AT: ${{ steps.cdn-push-early-retry.outputs.started_at }}
+          RETRY_ENDED_AT: ${{ steps.cdn-push-early-retry.outputs.ended_at }}
+          RETRY_DURATION_S: ${{ steps.cdn-push-early-retry.outputs.duration_s }}
+          R2_TIMEOUT_OG_S: ${{ steps.cdn-push-early.outputs.r2_timeout_og_s || steps.cdn-push-early-retry.outputs.r2_timeout_og_s || '900' }}
+        run: |
+          set -euo pipefail
+          cdnEarlyPushBudgetObserved() {
+            local cap_seconds=2700
+            local early_outcome="${EARLY_OUTCOME:-unknown}"
+            local retry_outcome="${RETRY_OUTCOME:-unknown}"
+            local early_duration="${EARLY_DURATION_S:-unknown}"
+            local retry_duration="${RETRY_DURATION_S:-unknown}"
+            local early_seconds=0
+            local retry_seconds=0
+            local early_recorded=0
+            local retry_recorded=0
+
+            if [[ "$early_duration" =~ ^[0-9]+$ ]]; then
+              early_seconds="$early_duration"
+              early_recorded=1
+            fi
+            if [[ "$retry_duration" =~ ^[0-9]+$ ]]; then
+              retry_seconds="$retry_duration"
+              retry_recorded=1
+            fi
+
+            local early_display='unknown'
+            local retry_display='unknown'
+            if (( early_recorded )); then early_display="${early_seconds}s"; fi
+            if (( retry_recorded )); then retry_display="${retry_seconds}s"; fi
+
+            local max_seconds=0
+            local max_display='unknown'
+            local comparison='not available (duration missing)'
+            if (( early_recorded || retry_recorded )); then
+              max_seconds="$early_seconds"
+              if (( retry_recorded && retry_seconds > max_seconds )); then max_seconds="$retry_seconds"; fi
+              max_display="${max_seconds}s"
+              if (( max_seconds <= cap_seconds )); then
+                comparison="within 45 min by $((cap_seconds - max_seconds))s"
+              else
+                comparison="over 45 min by $((max_seconds - cap_seconds))s"
+              fi
+            fi
+
+            local tail_display='unknown'
+            if [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${RETRY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
+              local tail_seconds=$((RETRY_ENDED_AT - EARLY_STARTED_AT))
+              (( tail_seconds < 0 )) && tail_seconds=0
+              tail_display="${tail_seconds}s"
+            elif [[ "${EARLY_STARTED_AT:-}" =~ ^[0-9]+$ ]] && [[ "${EARLY_ENDED_AT:-}" =~ ^[0-9]+$ ]]; then
+              local tail_seconds=$((EARLY_ENDED_AT - EARLY_STARTED_AT))
+              (( tail_seconds < 0 )) && tail_seconds=0
+              tail_display="${tail_seconds}s"
+            fi
+
+            {
+              echo '### IT early CDN push budget (advisory)'
+              echo
+              echo '| Attempt | Outcome | Duration | R2_TIMEOUT_OG_S | Comparison with 45-minute cap |'
+              echo '| --- | --- | ---: | ---: | --- |'
+              printf '| early push | `%s` | `%s` | `%s` | `%s` |\n' "$early_outcome" "$early_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| retry | `%s` | `%s` | `%s` | `%s` |\n' "$retry_outcome" "$retry_display" "${R2_TIMEOUT_OG_S:-unknown}" "$comparison"
+              printf '| measured early-push tail span | — | `%s` | — | max attempt `%s` |\n' "$tail_display" "$max_display"
+              echo
+              echo '_Read-only observer: this summary does not change the 45-minute step timeout, retry, or `cdn-ready` gate._'
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "cdnEarlyPushBudgetObserved: early=${early_outcome}/${early_display} retry=${retry_outcome}/${retry_display} tail=${tail_display} cap=2700s R2_TIMEOUT_OG_S=${R2_TIMEOUT_OG_S:-unknown}"
+          }
+          cdnEarlyPushBudgetObserved
       - name: Require IT CDN build id before shard pushes
         id: cdn-ready
         if: always()

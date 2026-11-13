@@ -905,12 +905,12 @@
     },
     {
       "id": "georg-fischer-de847d56fb9d",
-      "slug": "logistik-collaboratore-trice-cfc-dauernachtschicht-100-m-w-d-georg-fischer-seewis",
+      "slug": "addetto-alla-logistica-efz-turno-notturno-fisso-100-m-f-d-georg-fischer-seewis",
       "slugByLocale": {
         "de": "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch",
-        "it": "logistik-collaboratore-trice-cfc-dauernachtschicht-100-m-w-d-georg-fischer-seewis",
-        "en": "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch",
-        "fr": "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch"
+        "it": "addetto-alla-logistica-efz-turno-notturno-fisso-100-m-f-d-georg-fischer-seewis",
+        "en": "logistics-employees-efz-permanent-night-shift-100-m-f-d-georg-fischer-seewis",
+        "fr": "employes-de-logistique-efz-quart-de-nuit-permanent-100-h-f-d-georg-fischer-seewis"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -958,11 +958,19 @@
       "jobReqId": "JR11782",
       "previousSlugsByLocale": {
         "it": [
+          "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch",
+          "logistik-collaboratore-trice-cfc-dauernachtschicht-100-m-w-d-georg-fischer-seewis"
+        ],
+        "en": [
+          "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
           "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch"
         ]
       },
       "previousSlugs": [
-        "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch"
+        "logistik-mitarbeiter-efz-dauernachtschicht-100-m-w-d-georg-fischer-ch",
+        "logistik-collaboratore-trice-cfc-dauernachtschicht-100-m-w-d-georg-fischer-seewis"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
