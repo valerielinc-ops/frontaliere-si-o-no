@@ -888,7 +888,8 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-06-strip-markdown-bold-wrapper-from-job-titles-v1';
+export const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-06-strip-markdown-bold-wrapper-from-job-titles-v1';
+const ASSEMBLE_NODE_MAJOR = process.versions.node.split('.')[0];
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -899,7 +900,7 @@ const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-06-strip-markdown-bold-wrapper-fr
  *
  * Sorted by absolute path before hashing for cross-machine determinism.
  *
- * @returns {string} 16-char hex prefix of the sha256 fingerprint
+ * @returns {string} full sha256 fingerprint as 64 lowercase hex characters
  */
 export function computeAssembleInputFingerprint() {
   const dirs = [JOBS_SLICES_DIR, EXPIRED_SLICES_DIR, SUMMARIES_SLICES_DIR];
@@ -911,7 +912,7 @@ export function computeAssembleInputFingerprint() {
   const hasher = crypto.createHash('sha256');
   hasher.update(`version:${ASSEMBLE_OUTPUT_CACHE_VERSION}`);
   hasher.update('\0');
-  hasher.update(`node:${process.versions.node.split('.')[0]}`);
+  hasher.update(`node:${ASSEMBLE_NODE_MAJOR}`);
   hasher.update('\0');
   for (const f of files) {
     const buf = fs.readFileSync(f);
@@ -937,7 +938,7 @@ export function computeAssembleInputFingerprint() {
       hashRepoFile(hasher, abs);
     }
   }
-  return hasher.digest('hex').slice(0, 16);
+  return hasher.digest('hex');
 }
 
 /**
@@ -1053,6 +1054,42 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
     inputFingerprint,
     cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
   };
+}
+
+function assembleCacheFileContract({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+  const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
+  if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
+  if (withSummaries) requiredSnapshotFiles.push('jobs-crawler-summaries.json');
+  if (withStats) requiredSnapshotFiles.push('jobs-stats.json');
+  const allowedSnapshotFiles = withSummaries
+    ? requiredSnapshotFiles
+    : [...requiredSnapshotFiles, 'jobs-crawler-summaries.json'];
+  return { requiredSnapshotFiles, allowedSnapshotFiles };
+}
+
+/**
+ * Validate the metadata for an exact assembler snapshot before restoring any
+ * output files. A matching outer Actions cache key is not enough: the manifest
+ * must describe the full input hash, output version, runtime, mode and complete
+ * set of files expected by this invocation.
+ */
+export function isAssembleCacheManifestValid(manifest, expected) {
+  if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) return false;
+  if (!Array.isArray(manifest.snapshotFiles)
+    || manifest.snapshotFiles.some((name) => typeof name !== 'string')) return false;
+  const snapshotFileSet = new Set(manifest.snapshotFiles);
+  if (snapshotFileSet.size !== manifest.snapshotFiles.length) return false;
+  return manifest.inputFingerprint === expected.inputFingerprint
+    && manifest.cacheKey === expected.cacheKey
+    && manifest.outputCacheVersion === ASSEMBLE_OUTPUT_CACHE_VERSION
+    && manifest.nodeMajor === ASSEMBLE_NODE_MAJOR
+    && manifest.withStats === expected.withStats
+    && manifest.withSummaries === expected.withSummaries
+    && manifest.withExpired === expected.withExpired
+    && Number.isSafeInteger(manifest.fileCount)
+    && manifest.fileCount === manifest.snapshotFiles.length
+    && expected.requiredSnapshotFiles.every((name) => snapshotFileSet.has(name))
+    && manifest.snapshotFiles.every((name) => expected.allowedSnapshotFiles.includes(name));
 }
 
 /* ── I/O helpers ──────────────────────────────────────────────────────── */
@@ -5052,6 +5089,26 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
 
   if (fs.existsSync(manifestPath)) {
     const t0 = Date.now();
+    let manifest = null;
+    try {
+      manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    } catch {
+      // Invalid or unreadable manifests are cache misses.
+    }
+    const { requiredSnapshotFiles, allowedSnapshotFiles } = assembleCacheFileContract({
+      withStats,
+      withSummaries,
+      withExpired,
+    });
+    const manifestValid = isAssembleCacheManifestValid(manifest, {
+      inputFingerprint,
+      cacheKey,
+      withStats,
+      withSummaries,
+      withExpired,
+      requiredSnapshotFiles,
+      allowedSnapshotFiles,
+    });
     const restorePairs = [
       [path.join(cacheDir, 'jobs.json'), DATA_JOBS],
       [path.join(cacheDir, 'jobs.json'), PUBLIC_JOBS],
@@ -5061,18 +5118,23 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), DATA_EXPIRED]);
       restorePairs.push([path.join(cacheDir, 'expired-jobs.json'), PUBLIC_EXPIRED]);
     }
-    // Preserve the existing --no-summaries contract: a cache hit may restore
-    // the previous summary snapshot, while a cache miss leaves the file as-is.
-    restorePairs.push([path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES]);
+    // Preserve the --no-summaries contract: a snapshot may carry a prior
+    // summary, but a runner with no prior summary can still reuse the other
+    // exact outputs without manufacturing one.
+    if (withSummaries || (manifestValid && manifest.snapshotFiles.includes('jobs-crawler-summaries.json'))) {
+      restorePairs.push([path.join(cacheDir, 'jobs-crawler-summaries.json'), DATA_SUMMARIES]);
+    }
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
     }
-    // Verify the snapshot is complete BEFORE writing anything; a partial
-    // snapshot (e.g. previous run was without --stats) must fall through to
-    // a full miss rather than half-restoring outputs.
-    const allPresent = restorePairs.every(([src]) => fs.existsSync(src));
-    if (allPresent) {
+    // Verify the exact manifest and every required file BEFORE writing
+    // anything. A prefix restore, incompatible version or partial snapshot
+    // must fall through to a full miss rather than half-restoring outputs.
+    const allPresent = restorePairs.every(([src]) => {
+      try { return fs.statSync(src).isFile(); } catch { return false; }
+    });
+    if (manifestValid && allPresent) {
       const finishRestoreTiming = startPipelinePhase('jobs-dataset', 'restore cached artifacts');
       for (const [src, dst] of restorePairs) {
         fs.mkdirSync(path.dirname(dst), { recursive: true });
@@ -5089,7 +5151,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       finishDatasetTiming();
       return;
     }
-    console.log(`⚠️  assemble-jobs cache partial (key=${cacheKey.slice(0, 12)}..., missing snapshot files) — running full assembly`);
+    const missReason = manifestValid ? 'missing snapshot files' : 'manifest does not match current inputs or assembler';
+    console.log(`⚠️  assemble-jobs cache partial (key=${cacheKey.slice(0, 12)}..., ${missReason}) — running full assembly`);
   } else {
     console.log(`⚠️  assemble-jobs cache MISS (key=${cacheKey.slice(0, 12)}...) — running full assembly`);
   }
@@ -5450,7 +5513,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     if (withStats) {
       snapshotPairs.push([DATA_STATS, 'jobs-stats.json']);
     }
-    let snapshotted = 0;
+    const snapshotFiles = [];
     for (const [src, name] of snapshotPairs) {
       if (fs.existsSync(src)) {
         const dstPath = path.join(cacheDir, name);
@@ -5459,18 +5522,27 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
         // can replay the exact mtime — see the HIT-path utimesSync above.
         const srcStat = fs.statSync(src);
         fs.utimesSync(dstPath, srcStat.atime, srcStat.mtime);
-        snapshotted++;
+        snapshotFiles.push(name);
       }
+    }
+    const { requiredSnapshotFiles } = assembleCacheFileContract({ withStats, withSummaries, withExpired });
+    const missingRequiredFiles = requiredSnapshotFiles.filter((name) => !snapshotFiles.includes(name));
+    if (missingRequiredFiles.length > 0) {
+      throw new Error(`required snapshot files missing: ${missingRequiredFiles.join(', ')}`);
     }
     fs.writeFileSync(manifestPath, JSON.stringify({
       inputFingerprint,
+      cacheKey,
+      outputCacheVersion: ASSEMBLE_OUTPUT_CACHE_VERSION,
+      nodeMajor: ASSEMBLE_NODE_MAJOR,
       withStats,
       withSummaries,
       withExpired,
+      snapshotFiles,
       snapshotAt: new Date().toISOString(),
-      fileCount: snapshotted,
+      fileCount: snapshotFiles.length,
     }, null, 2));
-    console.log(`💾 assemble-jobs cached ${snapshotted} files at .cache/assemble-jobs/${cacheKey.slice(0, 12)}...`);
+    console.log(`💾 assemble-jobs cached ${snapshotFiles.length} files at .cache/assemble-jobs/${cacheKey.slice(0, 12)}...`);
 
     // Prune sibling subdirs (older fingerprint entries) so the GH Actions
     // cache that wraps CACHE_ROOT doesn't accumulate stale snapshots over
@@ -5490,6 +5562,14 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       console.warn(`⚠️  assemble-jobs sibling-prune failed (non-fatal): ${pruneErr.message}`);
     }
   } catch (err) {
+    // Actions cache keys are immutable. Remove a partial snapshot so any
+    // outer cache/save step skips this failed entry instead of pinning it
+    // forever under the exact input fingerprint.
+    try {
+      fs.rmSync(CACHE_ROOT, { recursive: true, force: true });
+    } catch (cleanupErr) {
+      console.warn(`⚠️  assemble-jobs partial-cache cleanup failed (non-fatal): ${cleanupErr.message}`);
+    }
     console.warn(`⚠️  assemble-jobs cache snapshot failed (non-fatal): ${err.message}`);
     finishSnapshotTiming('failure');
   }

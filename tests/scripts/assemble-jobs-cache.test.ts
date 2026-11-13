@@ -45,6 +45,8 @@ let tmpScriptUrl;
 let computeAssembleInputFingerprint;
 let listAssembleCodeClosure;
 let computeAssembleCacheKey;
+let isAssembleCacheManifestValid;
+let assembleOutputCacheVersion;
 
 beforeAll(async () => {
   // Build a minimal repo-shaped tmp dir so the script's `ROOT = path.resolve(__dirname, '..')`
@@ -61,14 +63,22 @@ beforeAll(async () => {
     { recursive: true },
   );
 
-  // scripts/jobs-url-helper.mjs (transitively imported via crawler-template.mjs)
-  // resolves canton URL sections via the shared build-plugins module + the two
-  // canton reference JSON files at module-load time — mirror that slice of the
-  // real repo layout too, or the import fails inside the sandbox.
+  // Transitive imports from the assembler also read shared build-plugins and
+  // services modules at module load. Mirror just those files and their small
+  // data dependencies in the sandbox, or importing the assembler fails.
   mkdirSync(path.join(tmpRoot, 'build-plugins', 'shared'), { recursive: true });
   cpSync(
     path.join(REPO_ROOT, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
     path.join(tmpRoot, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
+  );
+  cpSync(
+    path.join(REPO_ROOT, 'build-plugins', 'shared', 'companyHqAddresses.mjs'),
+    path.join(tmpRoot, 'build-plugins', 'shared', 'companyHqAddresses.mjs'),
+  );
+  mkdirSync(path.join(tmpRoot, 'services'), { recursive: true });
+  cpSync(
+    path.join(REPO_ROOT, 'services', 'employerChannelOrigin.mjs'),
+    path.join(tmpRoot, 'services', 'employerChannelOrigin.mjs'),
   );
   const articleSharedDir = path.join(tmpRoot, 'packages', 'articles', 'engine', 'shared');
   mkdirSync(articleSharedDir, { recursive: true });
@@ -104,6 +114,8 @@ beforeAll(async () => {
   computeAssembleInputFingerprint = mod.computeAssembleInputFingerprint;
   listAssembleCodeClosure = mod.listAssembleCodeClosure;
   computeAssembleCacheKey = mod.computeAssembleCacheKey;
+  isAssembleCacheManifestValid = mod.isAssembleCacheManifestValid;
+  assembleOutputCacheVersion = mod.ASSEMBLE_OUTPUT_CACHE_VERSION;
 });
 
 afterAll(() => {
@@ -120,10 +132,10 @@ function writeSlice(relPath, contents) {
 }
 
 describe('computeAssembleInputFingerprint', () => {
-  it('returns a deterministic 16-char hex string', () => {
+  it('returns the full deterministic SHA-256 fingerprint', () => {
     const fp = computeAssembleInputFingerprint();
     expect(typeof fp).toBe('string');
-    expect(fp).toMatch(/^[0-9a-f]{16}$/);
+    expect(fp).toMatch(/^[0-9a-f]{64}$/);
   });
 
   it('is stable across calls when slice files are unchanged', () => {
@@ -271,5 +283,88 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(computeAssembleCacheKey({ withStats: true }).cacheKey).toBe(`${fp}_stats`);
     expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
     expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
+  });
+});
+
+describe('isAssembleCacheManifestValid', () => {
+  function snapshotFixture({
+    withStats = true,
+    withSummaries = true,
+    withExpired = true,
+    snapshotFiles,
+  } = {}) {
+    const mode = { withStats, withSummaries, withExpired };
+    const { inputFingerprint, cacheKey } = computeAssembleCacheKey(mode);
+    const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
+    if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
+    if (withSummaries) requiredSnapshotFiles.push('jobs-crawler-summaries.json');
+    if (withStats) requiredSnapshotFiles.push('jobs-stats.json');
+    const allowedSnapshotFiles = withSummaries
+      ? requiredSnapshotFiles
+      : [...requiredSnapshotFiles, 'jobs-crawler-summaries.json'];
+    const files = snapshotFiles ?? requiredSnapshotFiles;
+    const expected = {
+      inputFingerprint,
+      cacheKey,
+      ...mode,
+      requiredSnapshotFiles,
+      allowedSnapshotFiles,
+    };
+    const manifest = {
+      ...mode,
+      inputFingerprint,
+      cacheKey,
+      outputCacheVersion: assembleOutputCacheVersion,
+      nodeMajor: process.versions.node.split('.')[0],
+      snapshotFiles: files,
+      fileCount: files.length,
+      snapshotAt: new Date().toISOString(),
+    };
+    return { manifest, expected };
+  }
+
+  it('accepts a complete manifest for the exact inputs, output version and mode', () => {
+    const { manifest, expected } = snapshotFixture();
+    expect(isAssembleCacheManifestValid(manifest, expected)).toBe(true);
+  });
+
+  it.each([
+    ['input fingerprint', { inputFingerprint: 'f'.repeat(64) }],
+    ['cache key', { cacheKey: 'different-key' }],
+    ['assembler output version', { outputCacheVersion: 'older-output-version' }],
+    ['Node major', { nodeMajor: String(Number(process.versions.node.split('.')[0]) + 1) }],
+    ['run mode', { withStats: false }],
+    ['snapshot file count', { fileCount: 4 }],
+  ])('rejects a manifest with a mismatched %s', (_field, patch) => {
+    const { manifest: baseline, expected } = snapshotFixture();
+    const manifest = { ...baseline, ...patch };
+    expect(isAssembleCacheManifestValid(manifest, expected)).toBe(false);
+  });
+
+  it('allows a missing prior summary only when summaries are not requested', () => {
+    const missingSummary = snapshotFixture({ withSummaries: false, withExpired: false, withStats: false });
+    expect(isAssembleCacheManifestValid(missingSummary.manifest, missingSummary.expected)).toBe(true);
+    expect(missingSummary.manifest.snapshotFiles).toEqual(['jobs.json', 'jobs-meta.json']);
+
+    const optionalSummary = snapshotFixture({
+      withSummaries: false,
+      withExpired: false,
+      withStats: false,
+      snapshotFiles: ['jobs.json', 'jobs-meta.json', 'jobs-crawler-summaries.json'],
+    });
+    expect(isAssembleCacheManifestValid(optionalSummary.manifest, optionalSummary.expected)).toBe(true);
+
+    const missingRequiredSummary = snapshotFixture({
+      snapshotFiles: ['jobs.json', 'jobs-meta.json', 'expired-jobs.json', 'jobs-stats.json'],
+    });
+    expect(isAssembleCacheManifestValid(missingRequiredSummary.manifest, missingRequiredSummary.expected)).toBe(false);
+  });
+
+  it('rejects missing, malformed and partial manifest values', () => {
+    const { expected, manifest } = snapshotFixture();
+    expect(isAssembleCacheManifestValid(null, expected)).toBe(false);
+    expect(isAssembleCacheManifestValid([], expected)).toBe(false);
+    expect(isAssembleCacheManifestValid({ ...manifest, fileCount: 4.5 }, expected)).toBe(false);
+    expect(isAssembleCacheManifestValid({ ...manifest, snapshotFiles: ['jobs.json', 'unknown.json'] }, expected)).toBe(false);
   });
 });
