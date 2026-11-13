@@ -22,10 +22,16 @@ export function createSectionTreeLayoutReader({
   let cacheUntil = 0;
   let pending = null;
 
-  async function sections() {
+  async function sections({ requireRegistry = false } = {}) {
+    const requireKnownRegistry = (value) => {
+      if (requireRegistry && !lastGood) {
+        throw new Error('section tree layout registry is unavailable; refusing to infer a dynamic layout');
+      }
+      return value;
+    };
     const currentTime = now();
-    if (cachedSections && currentTime < cacheUntil) return cachedSections;
-    if (pending) return pending;
+    if (cachedSections && currentTime < cacheUntil) return requireKnownRegistry(cachedSections);
+    if (pending) return requireKnownRegistry(await pending);
 
     pending = (async () => {
       const controller = new AbortController();
@@ -37,6 +43,12 @@ export function createSectionTreeLayoutReader({
           cache: 'no-store',
           signal: controller.signal,
         });
+        if (response?.status === 404) {
+          lastGood ??= new Set(SECTION_TREE_FANOUT_SECTIONS);
+          cachedSections = lastGood;
+          cacheUntil = now() + cacheTtlMs;
+          return lastGood;
+        }
         if (!response?.ok) throw new Error(`registry fetch returned ${response?.status ?? 'no response'}`);
         const body = await response.text();
         if (body.length > SECTION_TREE_LAYOUT_MAX_BYTES) throw new Error('registry exceeds the size limit');
@@ -57,7 +69,7 @@ export function createSectionTreeLayoutReader({
         pending = null;
       }
     })();
-    return pending;
+    return requireKnownRegistry(await pending);
   }
 
   function reset() {

@@ -69,11 +69,13 @@ import {
   sectionTreeBucket,
   sectionUsesHashFanout,
 } from './ticino-tree-bucket.js';
+import { createSectionTreeLayoutReader } from './section-tree-layout.js';
 import {
-  createSectionTreeLayoutReader,
-  SECTION_TREE_LAYOUT_REGISTRY_KEY,
-} from './section-tree-layout.js';
+  SECTION_TREE_LAYOUT_CDN_BASE,
+  SECTION_TREE_LAYOUT_REGISTRY_URL,
+} from './section-tree-layout-schema.js';
 export { SECTION_TREE_FANOUT_SECTIONS };
+const STATIC_SECTION_TREE_FANOUT = new Set(SECTION_TREE_FANOUT_SECTIONS);
 import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 import { resolveFuelStation } from '../../scripts/lib/fuel-station-aliases.mjs';
 import { EDGE_LEGACY_STUB_REDIRECTS } from './legacy-stub-redirects.generated.mjs';
@@ -436,7 +438,7 @@ function matchSection(pathname) {
 // unchanged, and Ticino's legacy prefix layout stays readable during rollout.
 const SECTION_TREE_FANOUT_DIR = '_tree';
 
-function sectionShardPhysicalPaths(pathname, route, fannedSections = new Set(SECTION_TREE_FANOUT_SECTIONS)) {
+function sectionShardPhysicalPaths(pathname, route, fannedSections = STATIC_SECTION_TREE_FANOUT) {
   if (!route) return [pathname];
   const registryKnowsLayout = sectionUsesHashFanout(route.section) || fannedSections.has(route.section);
   const prefix = route.prefix;
@@ -470,7 +472,7 @@ function sectionShardPhysicalPaths(pathname, route, fannedSections = new Set(SEC
     : [...new Set([pathname, ...physical])];
 }
 
-function sectionShardPublicPath(pathname, route, _fannedSections = new Set(SECTION_TREE_FANOUT_SECTIONS)) {
+function sectionShardPublicPath(pathname, route, _fannedSections = STATIC_SECTION_TREE_FANOUT) {
   if (!route) return pathname;
   const physicalPrefix = `${route.prefix}/${SECTION_TREE_FANOUT_DIR}/`;
   if (!pathname.startsWith(physicalPrefix)) return pathname;
@@ -1016,9 +1018,9 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // build the same CDN URL it PUTs the file to, instead of a second hardcoded
 // copy of this domain — single source of truth for both the read (this
 // Worker) and write (that script) sides of the same key family.
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const CDN_BASE = SECTION_TREE_LAYOUT_CDN_BASE;
 export const sectionTreeLayoutReader = createSectionTreeLayoutReader({
-  url: new URL(SECTION_TREE_LAYOUT_REGISTRY_KEY, `${CDN_BASE}/`).toString(),
+  url: SECTION_TREE_LAYOUT_REGISTRY_URL,
 });
 
 // Test harnesses reset the isolate-local registry cache between mocked R2
@@ -3510,7 +3512,7 @@ async function lookupExpiredJobEdgePage(request, url, sectionRoute, { allowInact
 // within-locale recovery map/board to use — for an IT section subtree it is
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
-async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null, fannedSections = new Set(SECTION_TREE_FANOUT_SECTIONS)) {
+async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null, fannedSections = STATIC_SECTION_TREE_FANOUT) {
   // Verification requests deliberately render the published edge record even
   // while the section is inactive and its static file still exists. This lets
   // rollout checks validate the exact Worker HTML before static suppression.

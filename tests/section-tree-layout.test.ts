@@ -464,4 +464,40 @@ describe('automatic section tree fan-out policy', () => {
     });
     expect(await coldFailure.sections()).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
   });
+
+  it('strict registry reads accept a missing registry but reject a fetch failure without a last good value', async () => {
+    const missing = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      fetchImpl: async () => new Response('', { status: 404 }),
+    });
+    expect(await missing.sections({ requireRegistry: true })).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
+
+    const unavailable = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      fetchImpl: async () => { throw new Error('offline'); },
+    });
+    await expect(unavailable.sections({ requireRegistry: true })).rejects.toThrow(/registry is unavailable/u);
+    expect(await unavailable.sections()).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
+  });
+
+  it('preserves dynamic last-good sections if the public registry later returns 404', async () => {
+    let now = 0;
+    let calls = 0;
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      now: () => now,
+      fetchImpl: async () => {
+        calls += 1;
+        if (calls > 1) return new Response('', { status: 404 });
+        return new Response(JSON.stringify({
+          version: 1,
+          sections: { lucerna: { layout: 'hash-v1', since: '2026-11-12T00:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } },
+        }), { status: 200 });
+      },
+    });
+    expect((await reader.sections()).has('lucerna')).toBe(true);
+    now += SECTION_TREE_LAYOUT_CACHE_TTL_MS + 1;
+    expect((await reader.sections({ requireRegistry: true })).has('lucerna')).toBe(true);
+    expect(calls).toBe(2);
+  });
 });

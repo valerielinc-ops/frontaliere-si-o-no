@@ -72,7 +72,7 @@ export async function stageSectionTreeLayout({
     threshold,
     alreadyFanned: initialSections.includes(section),
   });
-  if (Number(percent) >= 30) {
+  if (decision !== 'already' && Number(percent) >= 30) {
     stderr(`::warning::[tree-fanout] section=${section} locale=${locale} pct=${percent} warning=unfanned-tree-at-least-30`);
   }
   stderr(`[tree-fanout] section=${section} locale=${locale} pct=${percent} decision=${decision}`);

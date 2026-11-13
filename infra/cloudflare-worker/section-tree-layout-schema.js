@@ -2,6 +2,11 @@
 import { SECTION_TREE_FANOUT_SECTIONS } from './ticino-tree-bucket.js';
 
 export const SECTION_TREE_LAYOUT_REGISTRY_KEY = 'edge/section-tree-layout.json';
+export const SECTION_TREE_LAYOUT_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const SECTION_TREE_LAYOUT_REGISTRY_URL = new URL(
+  SECTION_TREE_LAYOUT_REGISTRY_KEY,
+  `${SECTION_TREE_LAYOUT_CDN_BASE}/`,
+).toString();
 const SECTION_NAME_RE = /^[a-z][a-z0-9-]*$/u;
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 

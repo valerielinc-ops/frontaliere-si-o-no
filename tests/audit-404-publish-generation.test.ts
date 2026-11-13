@@ -90,7 +90,7 @@ function loadHelpers(env: Record<string, string> = {}) {
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
     extractAlternateHrefs: (xml: string) => string[];
-    treeEntryToRoute: (entry: string, section?: string | null, loc?: string | null) => string;
+    treeEntryToRoute: (entry: string, section?: string | null, loc?: string | null, fannedSections?: Set<string>) => string;
     shardOwnerOf: (p: string) => { kind: string; section?: string; loc: string };
     classifyOffender: (p: string, gen: unknown) => string;
     splitByGeneration: (paths: string[], gen: unknown) => { unserved: string[]; skew: string[] };
@@ -195,6 +195,31 @@ describe('treeEntryToRoute — Zurich physical fan-out maps to public routes', (
       'zurigo',
       'de',
     )).toBe(`/de/jobs-in-zurich/_tree/${wrongBucket}/muratore`);
+  });
+});
+
+describe('treeEntryToRoute — runtime registry sections map to public routes', () => {
+  const { treeEntryToRoute } = loadHelpers();
+  const fannedSections = new Set([...SECTION_TREE_FANOUT_SECTIONS, 'grigioni']);
+
+  it('normalizes a dynamic registry section and keeps unknown sections physical', () => {
+    const bucket = sectionTreeBucket('jobs-in-graubuenden');
+    expect(treeEntryToRoute(
+      `fr/emplois-grisons/_tree/${bucket}/jobs-in-graubuenden/index.html`,
+      'grigioni',
+      'fr',
+      fannedSections,
+    )).toBe('/fr/emplois-grisons/jobs-in-graubuenden');
+    expect(treeEntryToRoute(
+      `fr/trouver-emploi-suisse/_tree/${bucket}/jobs-in-graubuenden/index.html`,
+      'svizzera',
+      'fr',
+    )).toBe(`/fr/trouver-emploi-suisse/_tree/${bucket}/jobs-in-graubuenden`);
+  });
+
+  it('loads the runtime layout registry before converting section shard entries', () => {
+    expect(SCRIPT).toContain('const fannedSections = await sectionTreeLayoutReader.sections({ requireRegistry: true });');
+    expect(SCRIPT).toContain('treeEntryToRoute(e, section, loc, fannedSections)');
   });
 });
 
