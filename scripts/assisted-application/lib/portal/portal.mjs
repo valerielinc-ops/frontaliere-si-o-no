@@ -4075,6 +4075,16 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   };
   const titleLine = text.split(/\r?\n/).map((line) => line.trim())
     .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
+  // A title can put the selected employer and a different employer-like phrase
+  // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
+  // scan intentionally splits on dashes, so keep this explicit title-level
+  // conflict check before the selected employer's own identity neutralizes the
+  // line as a whole.
+  if (titleNamesOwnEmployer(titleLine)) {
+    const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
+    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
+      && words.some((word) => !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word) && !filler(word)))) return true;
+  }
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
@@ -4585,6 +4595,7 @@ export function formPostingMatch(formText, job = {}, {
     : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  if (direct === 'match' && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
