@@ -768,7 +768,7 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  const legacyGermanSectionRoots = new Set<string>();
  const legacyGermanSectionPrefixes = Array.from(
   LEGACY_GERMAN_SECTION_ALIASES.keys(),
-  (section) => '/de/' + section + '/',
+  (section) => `${prefixByLocale.de}/${section}/`,
  );
  for (const loc of locales) {
  for (const code of [...codes, '_AGGREGATE_']) {
