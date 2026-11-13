@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-13T02:21:20.241Z",
+  "generatedAt": "2026-11-13T03:20:34.980Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -165948,6 +165948,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T23:14:47.569Z"
     },
+    "myswitzerland:e6e0bcbea445402892819bc17912563f::e93540f61cc64f8e345194c2fb1b12059888986b3536dd024d3dcbe74494dea1": {
+      "id": "myswitzerland:e6e0bcbea445402892819bc17912563f",
+      "sourceDescriptionHash": "e93540f61cc64f8e345194c2fb1b12059888986b3536dd024d3dcbe74494dea1",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gstaad; comune: Saanen; cantone: BE; categoria: Event; partecipante: Sommets Musicaux de Gstaad; data: 2027-01-30; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gstaad; comune: Saanen; cantone: BE; categoria: Event; partecipante: Sommets Musicaux de Gstaad; data: 2027-01-30; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Gstaad; municipality: Saanen; canton: BE; category: Event; participant: Sommets Musicaux de Gstaad; date: 2027-01-30; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Gstaad; gemeinde: Saanen; kanton: BE; kategorie: Event; mitwirkender: Sommets Musicaux de Gstaad; datum: 2027-01-30; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Gstaad; commune: Saanen; canton: BE; catégorie: Event; participant: Sommets Musicaux de Gstaad; date: 2027-01-30; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T03:16:01.364Z"
+    },
     "myswitzerland:e6f99dcae0b04d3e94e9409ec7e586af::813493c0271d6cbbd4a4a109b1b1c491ab53ed1fd9959761ff28762d6a1daea7": {
       "id": "myswitzerland:e6f99dcae0b04d3e94e9409ec7e586af",
       "sourceDescriptionHash": "813493c0271d6cbbd4a4a109b1b1c491ab53ed1fd9959761ff28762d6a1daea7",
@@ -194678,15 +194692,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:40:09.651Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:e6e0bcbea445402892819bc17912563f::e93540f61cc64f8e345194c2fb1b12059888986b3536dd024d3dcbe74494dea1": {
-      "id": "myswitzerland:e6e0bcbea445402892819bc17912563f",
-      "sourceDescriptionHash": "e93540f61cc64f8e345194c2fb1b12059888986b3536dd024d3dcbe74494dea1",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:23:12.558Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
