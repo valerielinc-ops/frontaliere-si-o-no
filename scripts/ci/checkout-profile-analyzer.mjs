@@ -484,12 +484,13 @@ export function bucketAliasPaths() {
 }
 
 /** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, alias-symlink, o enumerazione del padre. */
-export function bucketsReferencedBy(text) {
+export function bucketsReferencedBy(text, { strictPathTokens = false } = {}) {
   const source = String(text ?? '');
   const norm = normalizeJoins(source);
   const rawEnum = enumerationTargets(source).join('\n');
   const enumArgs = normalizeJoins(rawEnum);
-  const matches = (p, hay) => {
+  const legacyMatches = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
+  const strictMatches = (p, hay) => {
     // Bucket names such as `docs` also occur as ordinary identifiers (for
     // example Firestore query results named `docs`). A path token needs a
     // filesystem boundary after it; a bare word in code is not a checkout
@@ -497,7 +498,8 @@ export function bucketsReferencedBy(text) {
     const after = p.includes('/') ? "(?=$|[/\\s'\"`),])" : "(?=[/'\"`])";
     return new RegExp(`(?<![\\w$])(?<!!/)${esc(p)}${after}`, 'm').test(hay);
   };
-  const enumerates = (p) => new RegExp(
+  const matches = strictPathTokens ? strictMatches : legacyMatches;
+  const enumerates = (p) => strictPathTokens && new RegExp(
     "(?:^|[\\s'\"`(=,\\[])" + esc(p) + "(?:[/*\\s]|$)",
     'm',
   ).test(enumArgs);
@@ -527,22 +529,25 @@ export function bucketsReferencedBy(text) {
     const last = clean.split('/').pop();
     if (new RegExp(`['"]${esc(last)}['"]`).test(source)) { hit.add(b.id); continue; }
     // Oppure: qualcuno enumera il padre, quindi non nomina i figli.
-    if (refersTo(par, enumArgs, rawEnum) || enumerates(par)) hit.add(b.id);
+    const parentEnumerated = strictPathTokens
+      ? enumerates(par)
+      : new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs);
+    if (refersTo(par, enumArgs, rawEnum) || parentEnumerated) hit.add(b.id);
   }
   return hit;
 }
 
 const CODE_SOURCE = /\.(?:mjs|cjs|js|mts|cts|tsx?|jsx?)$/i;
 
-function bucketsReferencedByJobSources(exec, sources) {
+function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false } = {}) {
   // Keep the workflow commands and each loaded module separate. Combining
   // unrelated source text let a parent token in one module and a child token
   // in another fabricate a generated-data path that no code opens. Comments
   // in source files are not runtime dependencies either.
-  const needed = new Set(bucketsReferencedBy(exec));
+  const needed = new Set(bucketsReferencedBy(exec, { strictPathTokens }));
   for (const { rel, src } of sources) {
     const code = CODE_SOURCE.test(rel) ? stripSourceComments(src) : src;
-    for (const bucket of bucketsReferencedBy(code)) needed.add(bucket);
+    for (const bucket of bucketsReferencedBy(code, { strictPathTokens })) needed.add(bucket);
   }
   return needed;
 }
@@ -569,17 +574,21 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     : resolved;
   const codeCorpus = bucketResolved.map((r) => r.src).join('\n');
   const corpus = exec + '\n' + codeCorpus;
-  let needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedByJobSources(exec, bucketResolved);
+  // This is the job where both false positives were observed. Keep the stricter
+  // source/path analysis scoped here so unrelated generated profiles stay stable.
+  const isolatedCloudFunctionsSources = workflowFile === 'deploy-cloud-functions.yml' && jobId === 'deploy-functions';
+  let needs = opaqueBy.length
+    ? new Set(BUCKETS.map((b) => b.id))
+    : isolatedCloudFunctionsSources
+      ? bucketsReferencedByJobSources(exec, bucketResolved, { strictPathTokens: true })
+      : bucketsReferencedBy(corpus);
   if (workflowFile === 'social-copy-pack.yml' && jobId === 'generate') {
-    const executableSources = bucketResolved.map(({ rel, src }) => ({
-      rel,
-      src: CODE_SOURCE.test(rel) ? stripSourceComments(src) : src,
-    }));
-    needs = bucketsReferencedByJobSources(exec, executableSources);
+    const executableCode = bucketResolved.map((r) => stripSourceComments(r.src)).join('\n');
+    needs = bucketsReferencedBy(exec + '\n' + executableCode);
     const exactDocInputsPresent = SOCIAL_COPY_REQUIRED_SPARSE_PATHS
       .every((rel) => corpus.includes(rel.slice(1)));
-    const docsEnumerated = executableSources.some(({ src }) => enumerationTargets(src)
-      .some((target) => /(?:^|[/'"`\s])docs(?:\/|['"`\s),]|$)/.test(target)));
+    const docsEnumerated = enumerationTargets(executableCode)
+      .some((target) => /(?:^|[/'"`\s])docs(?:\/|['"`\s),]|$)/.test(target));
     // The workflow re-includes the three source documents individually. The
     // verifier checks every literal opened path against those sparse rules;
     // requiring all 706 docs because those exact files are read is a bucket

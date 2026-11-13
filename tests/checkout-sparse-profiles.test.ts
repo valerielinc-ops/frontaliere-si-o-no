@@ -37,6 +37,7 @@ import {
   CROSSOVER_MB,
   checkoutEntryPoints,
   analyzeAll,
+  analyzeWorkflow,
   bucketsReferencedBy,
   inlineModuleEntryPoints,
   transitiveClosure,
@@ -348,12 +349,13 @@ describe('profili di sparse-checkout', () => {
       .toEqual([]);
   });
 
-  it('non scambia identificatori Firestore per percorsi del checkout', () => {
-    expect([...bucketsReferencedBy("const docs = await orderRef.collection('automation').get();")])
+  it('l analisi isolata non scambia identificatori Firestore per percorsi del checkout', () => {
+    const strictBuckets = (source: string) => bucketsReferencedBy(source, { strictPathTokens: true });
+    expect([...strictBuckets("const docs = await orderRef.collection('automation').get();")])
       .not.toContain('docs/');
-    expect([...bucketsReferencedBy("const names = fs.readdirSync('docs');")])
+    expect([...strictBuckets("const names = fs.readdirSync('docs');")])
       .toContain('docs/');
-    expect([...bucketsReferencedBy("const dir = path.join(ROOT, 'data', 'jobs');")])
+    expect([...strictBuckets("const dir = path.join(ROOT, 'data', 'jobs');")])
       .toContain('data/jobs/');
   });
 
@@ -361,6 +363,8 @@ describe('profili di sparse-checkout', () => {
     const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
     const job = analyzeWorkflow(path.join(WF_DIR, 'deploy-cloud-functions.yml'), pkg.scripts)
       .jobs.find((item) => item.jobId === 'deploy-functions');
+    expect(job?.needs).not.toContain('docs/');
+    expect(job?.needs).not.toContain('public/data/');
     expect(job?.needs).not.toContain('data/jobs/');
     expect(job?.aboveCrossover).toBe(false);
   }, TIMEOUT);
