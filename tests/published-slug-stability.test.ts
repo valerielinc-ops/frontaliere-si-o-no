@@ -213,6 +213,14 @@ describe('hardenJobLocaleFields keeps a published slug when only the title moved
     expect(after.slugByLocale.it).toBe(TITLE_DERIVED_IT);
   });
 
+  it('never keeps a served slug that another job shares: the collision is handled as before', () => {
+    useLedger(CIPPA_LEDGER);
+    const twin = cippaJob({ id: 'cippatrasporti-000000000001', url: 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/twin-1.htm' });
+    const [first, second] = harden([cippaJob(), twin]);
+    expect(first.slugByLocale.it).toBe(TITLE_DERIVED_IT);
+    expect(second.slugByLocale.it).toBe(TITLE_DERIVED_IT);
+  });
+
   it('still re-derives the source-locale slug when the job really moved', () => {
     useLedger(null);
     const moved = cippaJob({

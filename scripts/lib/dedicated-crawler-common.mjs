@@ -1530,6 +1530,26 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
   // strands old job URLs. See registryPinnedLocaleSlug().
   const slugRegistry = loadSlugRegistry();
 
+  // A served slug that two jobs share is a route collision, not a URL to keep:
+  // the title re-derivation stays allowed there, exactly as before the
+  // published-slug rule, so keeping slugs never adds a colliding route.
+  const sharedLocaleSlugs = new Set();
+  {
+    const seen = new Set();
+    for (const job of raw) {
+      const sbl = job && job.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {};
+      for (const locale of DEFAULT_LOCALES) {
+        const slug = String(sbl[locale] || '').trim();
+        if (!slug) continue;
+        const key = `${locale}|${slug}`;
+        if (seen.has(key)) sharedLocaleSlugs.add(key);
+        else seen.add(key);
+      }
+    }
+  }
+  const keepsServedSlug = (job, locale, slug, identity) => !sharedLocaleSlugs.has(`${locale}|${slug}`)
+    && !mayReplacePublishedSlug(slug, identity, { job, locale });
+
   for (const job of raw) {
     let jobChanged = false;
     const registeredSlug = getRegisteredSlug(job, slugRegistry);
@@ -1912,7 +1932,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
             existingLocation: staleLocation,
             newLocation: staleLocation,
           });
-          if (wouldRederive && !mayReplacePublishedSlug(existingSlug, { company: staleCompany, location: staleLocation }, { job, locale })) {
+          if (wouldRederive && keepsServedSlug(job, locale, existingSlug, { company: staleCompany, location: staleLocation })) {
             // A served slug stays canonical when only the TITLE moved
             // (scripts/lib/published-slug-stability.mjs). This pass runs at
             // deploy on data/jobs.json: re-deriving here published a new URL
@@ -2102,7 +2122,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
         })) {
           continue; // slug is close enough — don't churn
         }
-        if (!isQualityRepair && !mayReplacePublishedSlug(localizedSlug, { company, location }, { job, locale })) {
+        if (!isQualityRepair && keepsServedSlug(job, locale, localizedSlug, { company, location })) {
           publishedSlugsKept += 1;
           if (slugWasServed(locale, nextSlug) === true) {
             addPreviousSlugForLocale(job, locale, nextSlug, 20, 'hardenJobLocaleFields/publishedSlugKept');
