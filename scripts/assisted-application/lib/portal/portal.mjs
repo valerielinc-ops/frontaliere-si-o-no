@@ -1477,7 +1477,7 @@ const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|st
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
 const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'www.job-room.ch']);
 const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
-const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|job)ausgeschreibung|aller à l['’]offre externe|accéder à l['’]offre externe)\b/iu;
+const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
 const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
 const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
   String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
@@ -1673,6 +1673,9 @@ function isJobRoomPublicPostingRoute(value) {
   }
 }
 
+// Job-Room's public detail route calls the official employer handoff «external
+// posting», not «Apply». Keep that vocabulary out of the shared Apply matcher:
+// only this exact host, route fingerprint and one external HTTPS target may use it.
 function isJobRoomExternalApplicationEntry(control, snapshot = {}, context = {}) {
   if (context?.allowSingleExternalApplicationEntry !== true || control?.disabled || control?.chrome
     || control?.ariaHidden === true || control?.behindDialog === true
