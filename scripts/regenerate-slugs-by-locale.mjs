@@ -9,8 +9,8 @@
  * This script ONLY:
  *   1. Reads titleByLocale[locale] + company + location
  *   2. Generates slugByLocale[locale] = slugify(title-company-location) for a
- *      locale that has no slug yet, or whose slug no longer carries the job's
- *      company/location (published-slug stability, 2026-11-13)
+ *      locale whose slug is missing, was never served, or no longer carries
+ *      the job's company/location (published-slug stability, 2026-11-13)
  *   3. Preserves old slugs in previousSlugs for SEO bridge pages
  *
  * It NEVER:
@@ -275,11 +275,12 @@ async function main() {
         // locale prefixes keep the routes distinct (same as a brand refresh).
         if (!brandRefresh && !truncatedTitle && otherSlugs.has(newSlug)) continue;
 
-        // A published slug stays canonical (scripts/lib/published-slug-stability.mjs):
+        // A served slug stays canonical (scripts/lib/published-slug-stability.mjs):
         // a re-translated title, a truncated translation or a slug that still
-        // copies another locale derive only a MISSING slug. Only a change of
-        // identity (company or location no longer in the slug) or a declared
-        // brand refresh may replace one that is already served.
+        // copies another locale only derive a slug that is missing or was never
+        // served (still held for translation, or released by this run). Only a
+        // change of identity (company or location no longer in the slug) or a
+        // declared brand refresh may replace one that is already served.
         if (!brandRefresh && !mayReplacePublishedSlug(currentSlug, { company, location }, { job, locale, justReleased: true })) {
           totalKeptPublished++;
           continue;
@@ -410,7 +411,7 @@ async function main() {
     console.log(`🔤 Source-locale: ${totalSourceRefreshed} slug riallineati dopo la rietichettatura`);
   }
   if (totalKeptPublished > 0) {
-    console.log(`🔒 Published slugs kept: ${totalKeptPublished} locale slug(s) whose title moved but whose company and location did not`);
+    console.log(`🔒 Published slugs kept: ${totalKeptPublished} locale slug(s) whose title moved on a served slug with unchanged company and location`);
   }
   if (totalPinned > 0) {
     console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);

@@ -2547,7 +2547,7 @@ export function ensureLocaleFields(job) {
     // same slug even when the title-token Jaccard score exceeds 0.80.
     const _slugLocationHint = String(out.addressLocality || out.location || '');
     // A copy of the IT slug or a wrong-language slug is a TITLE reason: once
-    // published, the slug stays canonical unless the job's identity moved
+    // served, the slug stays canonical unless the job's identity moved
     // (scripts/lib/published-slug-stability.mjs). A low-quality slug is a slug
     // defect and stays repairable.
     const mayRederivePublishedSlug = mayReplacePublishedSlug(currentSlug, {
