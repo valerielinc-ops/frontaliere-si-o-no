@@ -204,8 +204,8 @@ describe('planAlertMatch', () => {
 });
 
 describe('job-alert plan batching', () => {
-  it('plans one full match list at a time, independently of send capacity', () => {
-    expect(JOB_ALERT_PLAN_BATCH_SIZE).toBe(1);
+  it('keeps planning groups bounded independently of send capacity', () => {
+    expect(JOB_ALERT_PLAN_BATCH_SIZE).toBe(2);
   });
 
   it('never hands the sender more than the bounded plan batch, and invokes batches sequentially', async () => {

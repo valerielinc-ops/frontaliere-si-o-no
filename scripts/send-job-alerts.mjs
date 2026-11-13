@@ -220,11 +220,13 @@ export function resolveJobAlertCapacity({
   };
 }
 
-// Keep only one full matched list and its ranking metadata alive at a time.
+// Keep at most two full matched lists and their ranking metadata alive at once.
 // Broad backfilled alerts can each match thousands of rows; even after feature
 // caches were scoped per group, 16 simultaneous plans exceeded Node's 4 GiB
-// heap in production. Provider requests remain coalesced independently below.
-export const JOB_ALERT_PLAN_BATCH_SIZE = 1;
+// heap in production. Two plans still feed the 16-link prefetch pool without
+// retaining a large group of full match lists. Provider requests remain
+// coalesced independently below.
+export const JOB_ALERT_PLAN_BATCH_SIZE = 2;
 const JOB_ALERT_SEND_BATCH_SIZE = 64;
 
 /** Build per-run profile references; auxiliary state is fetched only after cadence. */
