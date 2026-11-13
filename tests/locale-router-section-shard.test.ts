@@ -81,6 +81,35 @@ let sectionTreeLayoutResponse: () => Response;
 let sectionTreeLayoutFetches: number;
 let cacheStore: Map<string, Response>;
 let cacheMatchCount: number;
+let cacheAliasWriteCount: number;
+let cachePathsAtMatch: string[][];
+let jobCanonFetchCount: number;
+let originPathsAtJobCanonFetch: string[][];
+
+const LUCERNA_FANOUT_REGISTRY = {
+  version: 1,
+  sections: {
+    lucerna: {
+      layout: 'hash-v1',
+      since: '2026-11-12T00:00:00.000Z',
+      reason: { locale: 'fr', pct: 44.2 },
+    },
+  },
+};
+
+function enableLucernaFanoutRegistry(): void {
+  sectionTreeLayoutResponse = () => Response.json(LUCERNA_FANOUT_REGISTRY);
+}
+
+function seedJobAliasRedirect(sourcePath: string, targetPath: string): void {
+  const key = new URL(APEX);
+  key.pathname = `/__worker-cache/job-alias/fr${sourcePath}`;
+  cacheStore.set(key.toString(), Response.json({ kind: 'redirect', target: targetPath }));
+}
+
+function aliasCacheKeys(): string[] {
+  return [...cacheStore.keys()].filter((key) => new URL(key).pathname.startsWith('/__worker-cache/job-alias/'));
+}
 
 beforeEach(() => {
   resetSectionTreeLayoutCacheForTests();
@@ -95,15 +124,21 @@ beforeEach(() => {
   sectionTreeLayoutFetches = 0;
   cacheStore = new Map<string, Response>();
   cacheMatchCount = 0;
+  cacheAliasWriteCount = 0;
+  cachePathsAtMatch = [];
+  jobCanonFetchCount = 0;
+  originPathsAtJobCanonFetch = [];
   const cache = {
     match: vi.fn(async (req: Request) => {
       cacheMatchCount += 1;
+      cachePathsAtMatch.push([...upstreamPathHistory]);
       const key = typeof req === 'string' ? req : req.url;
       const hit = cacheStore.get(key);
       return hit ? hit.clone() : undefined;
     }),
     put: vi.fn(async (req: Request, res: Response) => {
       const key = typeof req === 'string' ? req : req.url;
+      if (new URL(key).pathname.startsWith('/__worker-cache/job-alias/')) cacheAliasWriteCount += 1;
       cacheStore.set(key, res.clone());
     }),
   };
@@ -115,6 +150,10 @@ beforeEach(() => {
     if (upstreamUrl.hostname === 'cdn.frontaliereticino.ch' && upstreamUrl.pathname === '/edge/section-tree-layout.json') {
       sectionTreeLayoutFetches += 1;
       return sectionTreeLayoutResponse();
+    }
+    if (upstreamUrl.pathname.startsWith('/job-canon/')) {
+      jobCanonFetchCount += 1;
+      originPathsAtJobCanonFetch.push([...upstreamPathHistory]);
     }
     lastUpstreamHost = upstreamUrl.hostname;
     lastUpstreamPath = upstreamUrl.pathname;
@@ -238,20 +277,16 @@ describe('locale-router Ticino-section shard routing', () => {
     ]);
   });
 
-  it.each(['GET', 'HEAD'])('self-heals to a live hash path before alias recovery (%s)', async (method) => {
+  it.each(['GET', 'HEAD'])('waits for the flat fallback after a fanned-path 404 (%s)', async (method) => {
     const slug = 'frische-stelle-lucerna';
     const sourcePath = `/fr/trouver-emploi-lucerne/${slug}/`;
     const hashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(slug)}/${slug}/`;
     const cachedTarget = '/fr/trouver-emploi-lucerne/alte-kanonische-stelle/';
-    const cacheKey = new URL(APEX);
-    cacheKey.pathname = `/__worker-cache/job-alias/fr${sourcePath}`;
-    cacheStore.set(cacheKey.toString(), new Response(JSON.stringify({
-      kind: 'redirect',
-      target: cachedTarget,
-    }), { headers: { 'Cache-Control': 'public, max-age=86400, s-maxage=86400' } }));
+    enableLucernaFanoutRegistry();
+    seedJobAliasRedirect(sourcePath, cachedTarget);
     upstreamHandler = (url) => {
-      if (url.pathname === sourcePath) return new Response('canonical miss', { status: 404 });
-      if (url.pathname === hashPath) return new Response(method === 'HEAD' ? null : 'self-healed page', { status: 200 });
+      if (url.pathname === hashPath) return new Response('fanned miss', { status: 404 });
+      if (url.pathname === sourcePath) return new Response(method === 'HEAD' ? null : 'flat page', { status: 200 });
       return new Response(null, { status: 404 });
     };
 
@@ -264,11 +299,102 @@ describe('locale-router Ticino-section shard routing', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('location')).toBeNull();
     expect(cacheMatchCount).toBe(0);
+    expect(cacheAliasWriteCount).toBe(0);
+    expect(jobCanonFetchCount).toBe(0);
+    expect(upstreamPathHistory.filter((path) => path === sourcePath || path === hashPath)).toEqual([
+      hashPath,
+      sourcePath,
+    ]);
+    if (method === 'GET') expect(await response.text()).toBe('flat page');
+    else expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('reads a cached redirect only after fanned and flat 404s (%s)', async (method) => {
+    const slug = 'cached-job-lucerna';
+    const sourcePath = `/fr/trouver-emploi-lucerne/${slug}/`;
+    const hashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(slug)}/${slug}/`;
+    const targetPath = '/fr/trouver-emploi-lucerne/current-job/';
+    enableLucernaFanoutRegistry();
+    seedJobAliasRedirect(sourcePath, targetPath);
+    upstreamHandler = () => new Response(null, { status: 404 });
+
+    const response = await worker.fetch(new Request(`${APEX}${sourcePath}`, { method }), {}, ctx);
+
+    expect(response.status).toBe(301);
+    expect(response.headers.get('location')).toBe(targetPath);
+    expect(cacheMatchCount).toBe(1);
+    expect(cachePathsAtMatch[0].filter((path) => path === hashPath || path === sourcePath)).toEqual([
+      hashPath,
+      sourcePath,
+    ]);
+    expect(jobCanonFetchCount).toBe(0);
+    expect(cacheAliasWriteCount).toBe(0);
+    if (method === 'HEAD') expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('runs map recovery after both paths miss and caches only a verified alias (%s)', async (method) => {
+    const sourceSlug = 'legacy-job-lucerna';
+    const canonicalSlug = 'current-job-lucerna';
+    const sourcePath = `/fr/trouver-emploi-lucerne/${sourceSlug}/`;
+    const hashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(sourceSlug)}/${sourceSlug}/`;
+    const canonicalPath = `/fr/trouver-emploi-lucerne/${canonicalSlug}/`;
+    const canonicalHashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(canonicalSlug)}/${canonicalSlug}/`;
+    enableLucernaFanoutRegistry();
+    upstreamHandler = (url) => {
+      if (url.pathname.startsWith('/job-canon/')) {
+        return Response.json({ [sourceSlug]: { alias: { fr: canonicalPath } } });
+      }
+      if (url.hostname === SECTION_ORIGIN.lucerna.fr && url.pathname === canonicalHashPath) {
+        return new Response(method === 'HEAD' ? null : 'verified target', { status: 200 });
+      }
+      return new Response(null, { status: 404 });
+    };
+
+    const response = await worker.fetch(new Request(`${APEX}${sourcePath}`, { method }), {}, ctx);
+
+    expect(response.status).toBe(301);
+    expect(response.headers.get('location')).toBe(canonicalPath);
+    expect(cacheMatchCount).toBe(1);
+    expect(cachePathsAtMatch[0].filter((path) => path === hashPath || path === sourcePath)).toEqual([
+      hashPath,
+      sourcePath,
+    ]);
+    expect(jobCanonFetchCount).toBe(1);
+    expect(originPathsAtJobCanonFetch[0].filter((path) => path === hashPath || path === sourcePath)).toEqual([
+      hashPath,
+      sourcePath,
+    ]);
+    expect(cacheAliasWriteCount).toBe(1);
+    const [storedAliasKey] = aliasCacheKeys();
+    const storedAlias = cacheStore.get(storedAliasKey ?? '');
+    expect(storedAlias?.headers.get('Cache-Control')).toBe('public, max-age=86400, s-maxage=86400');
+    expect(await storedAlias?.clone().json()).toEqual({ kind: 'redirect', target: canonicalPath });
+    if (method === 'HEAD') expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('does not negative-cache an intermediate miss when the registry falls back to its static floor (%s)', async (method) => {
+    const slug = 'lucerna-migration-job';
+    const sourcePath = `/fr/trouver-emploi-lucerne/${slug}/`;
+    const hashPath = `/fr/trouver-emploi-lucerne/_tree/${sectionTreeBucket(slug)}/${slug}/`;
+    sectionTreeLayoutResponse = () => new Response('temporarily unavailable', { status: 503 });
+    upstreamHandler = (url) => {
+      if (url.pathname === sourcePath) return new Response('flat miss', { status: 404 });
+      if (url.pathname === hashPath) return new Response(method === 'HEAD' ? null : 'hash page', { status: 200 });
+      return new Response(null, { status: 404 });
+    };
+
+    const response = await worker.fetch(new Request(`${APEX}${sourcePath}`, { method }), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(sectionTreeLayoutFetches).toBe(1);
     expect(upstreamPathHistory.filter((path) => path === sourcePath || path === hashPath)).toEqual([
       sourcePath,
       hashPath,
     ]);
-    if (method === 'GET') expect(await response.text()).toBe('self-healed page');
+    expect(cacheMatchCount).toBe(0);
+    expect(cacheAliasWriteCount).toBe(0);
+    expect(aliasCacheKeys()).toEqual([]);
+    if (method === 'GET') expect(await response.text()).toBe('hash page');
     else expect(await response.text()).toBe('');
   });
 
