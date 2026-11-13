@@ -89,11 +89,15 @@ const MB = 1024 * 1024;
 /** A shard is closed (a new one opened) when a new row would take it past this. */
 export const EXPIRED_SLICE_SHARD_TARGET_BYTES = 45 * MB;
 
+// Only an ABSENT directory is an empty archive. Any other failure (EIO,
+// EACCES, ENOTDIR…) must propagate: read as `[]`, a writer would rewrite the
+// crawler's archive with only the rows of the current run.
 function listNames(dir) {
   try {
     return fs.readdirSync(dir);
-  } catch {
-    return [];
+  } catch (error) {
+    if (error?.code === 'ENOENT') return [];
+    throw error;
   }
 }
 
@@ -239,16 +243,20 @@ export function writeExpiredSliceRows(key, rows, opts = {}) {
 
   // An in-place update can grow a file. Spill its tail to the open shard
   // rather than let the hard ceiling refuse a write the store can place.
+  // The spilled rows are re-placed in canonical FILE order (lower index
+  // first, each file's tail in its own order), never reversed.
   const spilled = [];
   for (const index of [...ownedByIndex.keys()].sort((a, b) => a - b)) {
     const owned = ownedByIndex.get(index);
+    const tail = [];
     while (bytesByIndex.get(index) > hardCeiling && countByIndex.get(index) > 1) {
       const row = owned.pop();
       bytesByIndex.set(index, bytesByIndex.get(index) - costOf.get(row));
       countByIndex.set(index, countByIndex.get(index) - 1);
       assigned.delete(row);
-      spilled.unshift(row);
+      tail.unshift(row);
     }
+    spilled.push(...tail);
   }
 
   let open = existing.length > 0 ? Math.max(...existing.map((shard) => shard.index)) : 0;
@@ -347,14 +355,51 @@ export function splitExpiredSliceMonolith(key, opts = {}) {
     return { name, path: path.join(dir, name), rows: chunk.rows, bytes: bucketBytes(chunk.costs) };
   });
   for (const file of files) assertByteSizeCeiling(file.path, file.bytes, hardCeiling);
-  if (opts.apply !== false) {
-    for (const file of files) writeJsonAtomic(file.path, file.rows);
-    fs.rmSync(shards[0].path);
-  }
+  if (opts.apply !== false) commitSplit(shards[0].path, files, opts.onStep);
   return {
     rows: rows.length,
     files: files.map(({ name, bytes, rows: fileRows }) => ({ name, bytes, rows: fileRows.length })),
   };
+}
+
+/**
+ * Replace the monolith with `files` so that no reader ever sees the monolith
+ * next to (partial) shards, which would duplicate rows:
+ *   1. every shard is written to `<name>.split-tmp` (not a slice name, so no
+ *      reader lists it);
+ *   2. the monolith is renamed to `<key>.json.split-backup` (not a slice name);
+ *   3. the staged shards are renamed into place;
+ *   4. the backup is removed.
+ * Any error rolls back to the original state: staged and committed shards are
+ * removed and the monolith is restored. `onStep(step, name)` is a test seam.
+ */
+function commitSplit(monolithPath, files, onStep) {
+  const backupPath = `${monolithPath}.split-backup`;
+  const staged = [];
+  const committed = [];
+  let monolithMoved = false;
+  try {
+    for (const file of files) {
+      const tmpPath = `${file.path}.split-tmp`;
+      fs.writeFileSync(tmpPath, `${JSON.stringify(file.rows, null, 2)}\n`);
+      staged.push({ tmpPath, finalPath: file.path });
+      onStep?.('staged', file.name);
+    }
+    fs.renameSync(monolithPath, backupPath);
+    monolithMoved = true;
+    onStep?.('monolith-moved', path.basename(monolithPath));
+    for (const { tmpPath, finalPath } of staged) {
+      fs.renameSync(tmpPath, finalPath);
+      committed.push(finalPath);
+      onStep?.('committed', path.basename(finalPath));
+    }
+  } catch (error) {
+    for (const finalPath of committed) fs.rmSync(finalPath, { force: true });
+    for (const { tmpPath } of staged) fs.rmSync(tmpPath, { force: true });
+    if (monolithMoved) fs.renameSync(backupPath, monolithPath);
+    throw error;
+  }
+  fs.rmSync(backupPath, { force: true });
 }
 
 /** Remove every file of `key` (monolith and shards). Returns the removed names. */

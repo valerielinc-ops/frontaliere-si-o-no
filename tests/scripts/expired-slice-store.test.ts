@@ -13,7 +13,7 @@
  *
  * Everything runs in a temporary directory: no tracked file is written.
  */
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -47,6 +47,7 @@ function tmpExpiredDir() {
 }
 
 afterEach(() => {
+  vi.restoreAllMocks();
   for (const dir of dirs.splice(0)) fs.rmSync(dir, { recursive: true, force: true });
 });
 
@@ -81,6 +82,10 @@ describe('expired slice naming', () => {
       ['coop-ticino.shard-002.json', 'coop-ticino-x.json', 'coop-ticino.json', 'coop-ticino.shard-001.json'],
       'coop-ticino',
     )).toEqual(['coop-ticino.json', 'coop-ticino.shard-001.json', 'coop-ticino.shard-002.json']);
+    // Past shard-999 the index keeps growing and the order stays numeric.
+    expect(expiredSliceFileName('coop-ticino', 1000)).toBe('coop-ticino.shard-1000.json');
+    expect(expiredSliceNamesForKey(['coop-ticino.shard-1000.json', 'coop-ticino.shard-999.json'], 'coop-ticino'))
+      .toEqual(['coop-ticino.shard-999.json', 'coop-ticino.shard-1000.json']);
   });
 
   it('keeps the 45 MB target well under the 90 MB ceiling', () => {
@@ -214,6 +219,54 @@ describe('expired slice writer', () => {
       .toEqual(new Set(rows.map((row) => row.slug)));
   });
 
+  it('re-places rows spilled from several files in canonical file order, never reversed', () => {
+    const dir = tmpExpiredDir();
+    const [A, B, C, D] = [1, 2, 3, 4].map((n) => entry(n));
+    writeRaw(dir, 'coop-ticino.json', [A, B]);
+    writeRaw(dir, 'coop-ticino.shard-001.json', [C, D]);
+    const rowBytes = expiredRowBytes(A);
+    // Each file can hold one row: both tails (B, D) spill, and each spilled
+    // row needs its own new shard.
+    const ceiling = 3 + rowBytes + 1;
+    const result = writeExpiredSliceRows('coop-ticino', [A, B, C, D], {
+      dir,
+      shardTargetBytes: ceiling,
+      hardCeilingBytes: ceiling,
+    });
+    expect(result.files.map((file) => file.name)).toEqual([
+      'coop-ticino.json',
+      'coop-ticino.shard-001.json',
+      'coop-ticino.shard-002.json',
+      'coop-ticino.shard-003.json',
+    ]);
+    // A and C stay where they were; the spilled tails keep their order B, D
+    // (the reversed placement read back as A, C, D, B).
+    expect(readExpiredSliceRows('coop-ticino', { dir }).map((row) => row.slug))
+      .toEqual([A, C, B, D].map((row) => row.slug));
+    for (const name of filesOf(dir)) {
+      expect(fs.statSync(path.join(dir, name)).size).toBeLessThanOrEqual(ceiling);
+    }
+  });
+
+  it('fails before any write when the archive directory cannot be listed (EIO/EACCES), and treats only ENOENT as empty', () => {
+    const dir = tmpExpiredDir();
+    writeRaw(dir, 'coop-ticino.json', [entry(1)]);
+    const before = fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8');
+    const realReaddir = fs.readdirSync;
+    for (const code of ['EIO', 'EACCES']) {
+      const spy = vi.spyOn(fs, 'readdirSync').mockImplementation(((target: fs.PathLike, ...rest: unknown[]) => {
+        if (String(target) === dir) throw Object.assign(new Error(`${code}: simulated`), { code });
+        return (realReaddir as any)(target, ...rest);
+      }) as typeof fs.readdirSync);
+      expect(() => writeExpiredSliceRows('coop-ticino', [entry(2)], { dir })).toThrow(code);
+      expect(() => readExpiredSliceRows('coop-ticino', { dir })).toThrow(code);
+      spy.mockRestore();
+    }
+    expect(filesOf(dir)).toEqual(['coop-ticino.json']);
+    expect(fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8')).toBe(before);
+    expect(readExpiredSliceRows('coop-ticino', { dir: path.join(dir, 'absent') })).toEqual([]);
+  });
+
   it('refuses a single row the ceiling cannot hold and writes nothing', () => {
     const dir = tmpExpiredDir();
     writeRaw(dir, 'coop-ticino.json', [entry(1)]);
@@ -326,6 +379,39 @@ describe('offline split of a monolith', () => {
     }
     // A writer after the split keeps every row where it is.
     expect(writeExpiredSliceRows('coop-ticino', after, { dir, shardTargetBytes: target }).written).toEqual([]);
+  });
+
+  it('is transactional: a failure after the first shard is staged leaves the monolith alone, never monolith + shards', () => {
+    const rows = Array.from({ length: 25 }, (_, n) => entry(n, `descrizione ${'z'.repeat(n * 7)}`));
+    const target = 3 + rows.slice(0, 8).reduce((sum, row) => sum + expiredRowBytes(row), 0);
+    for (const failAt of ['staged', 'monolith-moved', 'committed']) {
+      const dir = tmpExpiredDir();
+      writeRaw(dir, 'coop-ticino.json', rows);
+      const before = fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8');
+      const seen: string[] = [];
+      expect(() => splitExpiredSliceMonolith('coop-ticino', {
+        dir,
+        shardTargetBytes: target,
+        onStep: (step: string, name: string) => {
+          seen.push(`${step}:${name}`);
+          // Readers never see the monolith next to a committed shard.
+          const visible = listExpiredSliceFiles('coop-ticino', { dir }).map((file) => file.name);
+          expect(visible.includes('coop-ticino.json') && visible.length > 1).toBe(false);
+          if (step === failAt) throw new Error(`injected failure at ${step}`);
+        },
+      })).toThrow(`injected failure at ${failAt}`);
+      expect(seen[0]).toMatch(/^staged:coop-ticino\.shard-001\.json$/);
+      // Rolled back: exactly the original monolith, no staged or partial file.
+      expect(filesOf(dir)).toEqual(['coop-ticino.json']);
+      expect(fs.readFileSync(path.join(dir, 'coop-ticino.json'), 'utf8')).toBe(before);
+    }
+
+    // Without a failure the split completes and no scratch file is left.
+    const dir = tmpExpiredDir();
+    writeRaw(dir, 'coop-ticino.json', rows);
+    splitExpiredSliceMonolith('coop-ticino', { dir, shardTargetBytes: target });
+    expect(filesOf(dir).every((name) => /^coop-ticino\.shard-\d{3}\.json$/.test(name))).toBe(true);
+    expect(readExpiredSliceRows('coop-ticino', { dir })).toEqual(rows);
   });
 
   it('refuses to split an archive that already has shards', () => {

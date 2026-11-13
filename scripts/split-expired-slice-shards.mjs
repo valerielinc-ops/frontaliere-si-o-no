@@ -44,12 +44,20 @@ function parseArgs(argv) {
 
 export function main(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
-  let keys = args.keys;
+  // `--key a --key a` splits `a` once.
+  let keys = [...new Set(args.keys)];
   if (args.allOverTarget) {
     keys = listExpiredSliceKeys({ dir: args.dir }).filter((key) => {
       const files = listExpiredSliceFiles(key, { dir: args.dir });
-      return files.length === 1 && files[0].index === 0
-        && fs.statSync(files[0].path).size > EXPIRED_SLICE_SHARD_TARGET_BYTES;
+      if (files.length !== 1 || files[0].index !== 0) return false;
+      let size = 0;
+      try {
+        size = fs.statSync(files[0].path).size;
+      } catch (error) {
+        if (error?.code === 'ENOENT') return false; // gone since the listing
+        throw error;
+      }
+      return size > EXPIRED_SLICE_SHARD_TARGET_BYTES;
     });
   }
   if (keys.length === 0) {
