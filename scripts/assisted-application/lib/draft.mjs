@@ -170,7 +170,7 @@ export async function buildDraft(ctx) {
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 
-  const posting = await fetchJobPosting(order, { fetchImpl, maxPostingChars: MAX_SOURCE_CHARS });
+  const posting = await fetchJobPosting(order, { fetchImpl, maxPostingChars: MAX_SOURCE_CHARS, resolve: ctx.resolve });
   const liveness = await checkPostingLiveness({ order, posting, fetchImpl, resolve: ctx.resolve });
   log('liveness', liveness.page?.result || 'n/a', liveness.page?.code || '', liveness.closed ? 'CLOSED' : '');
   if (liveness.closed) throw new DraftAbort('posting_closed', `posting_closed:${liveness.page?.code || 'dataset'}`);
@@ -387,13 +387,14 @@ export async function buildDraft(ctx) {
     applicationEmail: requirements.applicationEmail,
   });
   const postingUrl = posting.postingUrl || order.jobUrl || (channel.type === 'employer_site' ? channel.applyUrl : '');
+  const jobRoomFormUrlSelected = Boolean(posting.jobRoomFormUrl && posting.jobRoomFormUrl === posting.applyUrl);
   // The employer's page is the native source of truth for its «Apply» control.
   // Re-read it when the published apply URL is a separate portal address too:
   // Prospective listings can retain a SuccessFactors sign-in bookmark while
   // the live posting's online application is a different channel (PastaHR).
   // A failed/ambiguous lookup keeps the published address, so this remains a
   // bounded, fail-open repair rather than a guessed URL rewrite.
-  if (postingUrl && (channel.type === 'employer_site' || postingUrl !== channel.applyUrl)) {
+  if (postingUrl && !jobRoomFormUrlSelected && (channel.type === 'employer_site' || postingUrl !== channel.applyUrl)) {
     const target = await resolveApplyUrl(postingUrl, { fetchImpl, resolve: ctx.resolve });
     const applyUrl = target.via ? target.applyUrl : postingUrl;
     const resolvedChannel = classifyApplicationChannel({ applyUrl, postingText, applicationEmail: requirements.applicationEmail });
@@ -413,6 +414,22 @@ export async function buildDraft(ctx) {
   // (career-ops apply.md): the candidate answers them on the first review,
   // not in a second round at submit time. Questions already asked are kept.
   const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
+  const portalTitleByLocale = Object.fromEntries(Object.entries(posting.titles || {})
+    .filter(([key, value]) => ['it', 'en', 'de', 'fr'].includes(String(key).toLowerCase().split(/[-_]/)[0]) && typeof value === 'string' && value.trim())
+    .map(([key, value]) => [String(key).toLowerCase().split(/[-_]/)[0], value.trim().slice(0, 300)]));
+  const portalJob = {
+    title,
+    company: order.companyName || '',
+    sourceTitle: posting.sourceTitle || '',
+    postingTitle: posting.sourceTitle || '',
+    sourceLang: posting.sourceLang || '',
+    titleByLocale: portalTitleByLocale,
+    titles: portalTitleByLocale,
+    jobRoomChannelResolved: posting.jobRoomChannelResolved === true,
+    jobRoomApplyUrl: posting.jobRoomApplyUrl || '',
+    jobRoomFormUrl: posting.jobRoomFormUrl || '',
+    jobRoomExternalUrl: posting.jobRoomExternalUrl || '',
+  };
   const readPortal = ctx.readPortalRequirements || ctx.readPortalQuestions;
   const portalPostingUrl = postingAddressForPortal({
     applyUrl: channel.applyUrl,
@@ -432,7 +449,7 @@ export async function buildDraft(ctx) {
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       postingUrl: portalPostingUrl,
-      job: { title, company: order.companyName || '' },
+      job: portalJob,
       ...(channel.via === 'successfactors' ? {
         postingRouteProof: {
           via: 'successfactors',
@@ -560,6 +577,14 @@ export async function buildDraft(ctx) {
     job: {
       source: posting.source,
       title,
+      sourceTitle: posting.sourceTitle || '',
+      postingTitle: posting.sourceTitle || '',
+      sourceLang: posting.sourceLang || '',
+      titleByLocale: portalTitleByLocale,
+      jobRoomChannelResolved: posting.jobRoomChannelResolved === true,
+      jobRoomApplyUrl: posting.jobRoomApplyUrl || '',
+      jobRoomFormUrl: posting.jobRoomFormUrl || '',
+      jobRoomExternalUrl: posting.jobRoomExternalUrl || '',
       postingUrl: posting.postingUrl || order.jobUrl || '',
       applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000),
     },
