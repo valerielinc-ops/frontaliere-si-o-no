@@ -52,8 +52,12 @@ function decodeNcoreMarkup(value = '') {
 
 function canonicalNcoreDetailUrl(value = '') {
   let url;
+  const source = decodeNcoreMarkup(value);
+  // Some WHATWG URL implementations normalize a bare query or fragment away.
+  // Reject the raw delimiters before parsing so verification is runtime-stable.
+  if (/[?#]/.test(source)) return null;
   try {
-    url = new URL(decodeNcoreMarkup(value), NCORE_BASE_URL);
+    url = new URL(source, NCORE_BASE_URL);
   } catch {
     return null;
   }
