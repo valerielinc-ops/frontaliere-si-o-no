@@ -1485,7 +1485,7 @@ const JOB_ROOM_HOSTS = new Set([
   'work.swiss', 'www.work.swiss',
 ]);
 const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
-const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
+const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer|ad)|zum externen (?:inserat|(?:stellen|job)angebot)|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|(?:aller|accéder) à l['’](?:offre|annonce) externe|vers l['’](?:offre|annonce) externe)\b/iu;
 const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
 const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
   String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
