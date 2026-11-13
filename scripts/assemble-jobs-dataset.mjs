@@ -964,6 +964,7 @@ export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/url-first-seen.json',
   'data/canton-url-slugs.json',
   'data/canton-municipalities.json',
+  'data/profession-landing-routes.json',
   'data/crawler-companies-auto.json',
   'data/jobs-crawler-config.json',
   'data/ticino-companies-extra.json',
