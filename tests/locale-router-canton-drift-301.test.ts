@@ -14,7 +14,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
+import worker, { jobCanonTarget, jobCanonV2ShardKey } from '../infra/cloudflare-worker/locale-router.js';
+import { jobSlugShardKey } from '../services/jobSlugShards';
 
 const APEX = 'https://frontaliereticino.ch';
 const pendingCacheWrites: Promise<unknown>[] = [];
@@ -90,7 +91,108 @@ function mockFetch(
   });
 }
 
+function mockVersionedFetch(options: {
+  v2Status?: number;
+  v2Map?: Record<string, Record<string, string>> | null;
+  v1Status?: number;
+  v1Map?: Record<string, Record<string, string>> | null;
+  originStatus?: number;
+} = {}): string[] {
+  const {
+    v2Status = 200,
+    v2Map = null,
+    v1Status = 404,
+    v1Map = null,
+    originStatus = 404,
+  } = options;
+  const canonRequests: string[] = [];
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+    const u = fetchUrl(input);
+    if (u.includes('/job-canon/')) {
+      canonRequests.push(u);
+      const isV2 = u.includes('/job-canon/v2/');
+      const status = isV2 ? v2Status : v1Status;
+      const map = isV2 ? v2Map : v1Map;
+      return new Response(map === null ? 'not found' : JSON.stringify(map), {
+        status,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+    return new Response(originStatus === 404 ? 'gh-pages-404' : 'ok', { status: originStatus });
+  });
+  return canonRequests;
+}
+
 describe('locale-router canton-drift 301', () => {
+  it('reads v2 first and does not fetch v1 when the v2 shard exists', async () => {
+    const slug = 'some-job-xyz';
+    const canonRequests = mockVersionedFetch({
+      v2Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
+    expect(canonRequests).toHaveLength(1);
+    expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+  });
+
+  it('does not fall back to v1 when a successful v2 shard lacks the slug', async () => {
+    const slug = 'some-job-xyz';
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const canonRequests = mockVersionedFetch({
+      v2Map: {},
+      v1Status: 200,
+      v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+    expect(canonRequests.length).toBeGreaterThan(0);
+    expect(canonRequests.every((request) => request.includes('/job-canon/v2/'))).toBe(true);
+    expect(log).not.toHaveBeenCalled();
+  });
+
+  it.each([404, 410])(
+    'falls back to v1 only when v2 returns %i and logs the fallback event',
+    async (v2Status) => {
+      const slug = 'some-job-xyz';
+      const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+      const canonRequests = mockVersionedFetch({
+        v2Status,
+        v1Status: 200,
+        v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+      });
+
+      const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+      expect(res.status).toBe(301);
+      expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
+      expect(canonRequests).toHaveLength(2);
+      expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+      expect(canonRequests[1]).toContain('/job-canon/so.json');
+      expect(log).toHaveBeenCalledTimes(1);
+      expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+    },
+  );
+
+  it('fails closed on a v2 error other than 404/410 without trying v1', async () => {
+    const slug = 'some-job-xyz';
+    const canonRequests = mockVersionedFetch({
+      v2Status: 503,
+      v2Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+      v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(canonRequests).toHaveLength(1);
+    expect(canonRequests[0]).toContain('/job-canon/v2/');
+  });
+
   it('301s a known orphan slug to its current canonical page', async () => {
     mockFetch(404, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
@@ -335,6 +437,22 @@ describe('jobCanonTarget', () => {
     expect(jobCanonTarget({ alias: { fr: '/fr/x/t?q=1' } }, 's', 'fr')).toBeNull();
     expect(jobCanonTarget({ alias: 'nope' }, 's', 'fr')).toBeNull();
     expect(jobCanonTarget('legacy-string', 's', 'fr')).toBeNull();
+  });
+});
+
+describe('jobCanonV2ShardKey', () => {
+  it.each([
+    'some-job-xyz',
+    'verkäufer-im-aussendienst',
+    'français-été-2026',
+  ])('mirrors the client slug-map djb2-xor hash for normalized slug %s', (input) => {
+    const normalized = input.toLowerCase();
+    const v2Key = jobCanonV2ShardKey(normalized);
+    const v2Index = Number.parseInt(v2Key, 16);
+    const clientKey = jobSlugShardKey(normalized);
+
+    expect(v2Key).toMatch(/^[0-9a-f]{3}$/);
+    expect((v2Index % 256).toString(16).padStart(2, '0')).toBe(clientKey);
   });
 });
 

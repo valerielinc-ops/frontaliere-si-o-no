@@ -160,6 +160,47 @@ describe('locale-router canton-root-validity guard — pruned company hub (#3015
 const EXPIRED = (prefix: string, locale: string) => ({ 'expired-old-job-slug': { [locale]: prefix } });
 
 describe('locale-router canton-root-validity guard — expired job-detail slug (#3015b)', () => {
+  it('counts v1 fallback for both canton recovery and the expired-job registry check', async () => {
+    const target = '/de/jobs-im-tessin/';
+    const map = EXPIRED('/de/jobs-im-tessin', 'de');
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(
+      async (input: RequestInfo | URL) => {
+        const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+        const { pathname } = new URL(u);
+        if (pathname.startsWith('/job-canon/v2/')) return new Response('not found', { status: 404 });
+        if (pathname.startsWith('/job-canon/')) {
+          return new Response(JSON.stringify(map), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+        const isGuardedTarget = pathname === target;
+        return new Response(isGuardedTarget ? 'ok' : 'gh-pages-404', { status: isGuardedTarget ? 200 : 404 });
+      },
+    );
+
+    const res = await worker.fetch(
+      new Request(`${APEX}/de/jobs-im-tessin/expired-old-job-slug/`),
+      {},
+      ctx,
+    );
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(target);
+    const canonPaths = fetchMock.mock.calls.map(([input]) => {
+      const requestUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+      return new URL(requestUrl).pathname;
+    }).filter((pathname) => pathname.startsWith('/job-canon/'));
+    expect(canonPaths).toHaveLength(4);
+    expect(canonPaths[0]).toMatch(/^\/job-canon\/v2\/[0-9a-f]{3}\.json$/);
+    expect(canonPaths[1]).toBe('/job-canon/ex.json');
+    expect(canonPaths[2]).toBe(canonPaths[0]);
+    expect(canonPaths[3]).toBe('/job-canon/ex.json');
+    expect(log).toHaveBeenCalledTimes(2);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+  });
+
   it('301s a DE registry-known expired job (page gone) to a live section root', async () => {
     mockFetch('/de/jobs-im-tessin/', 200, EXPIRED('/de/jobs-im-tessin', 'de'));
 
