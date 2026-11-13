@@ -241,14 +241,6 @@ function normalizeOwnedTransportEntry(entry, destination) {
   }
 
   const normalized = structuredClone(entry);
-  // A contract entry can retain the reason from its short-lived adapted form.
-  // It is historical metadata, not a second mapping identity; normalize it so
-  // an adapted entry and its later identical entry can converge after a merge.
-  if (normalized.sitePath === '.github/corpus-workflows/contract.json'
-      && normalized.mode === 'identical'
-      && typeof normalized.reason === 'string') {
-    delete normalized.reason;
-  }
   if (convergentAdapted) {
     normalized.mode = 'identical';
     delete normalized.reason;
@@ -346,12 +338,9 @@ export function assertCrawlerManifestDelta({
     normalizedCurrentManifest.files,
     mappings,
   );
-  expected.files = normalizeTransportManifestEntries(
-    (expected.files ?? []).filter((entry) => (
-      !isLegacyObserverTransportEntry(entry, mappings.get(entry.sitePath))
-    )),
-    mappings,
-  );
+  expected.files = (expected.files ?? []).filter((entry) => (
+    !isLegacyObserverTransportEntry(entry, mappings.get(entry.sitePath))
+  ));
   const currentOwned = new Map();
   for (const entry of normalizedCurrentManifest.files ?? []) {
     if (!mappings.has(entry.sitePath)) continue;
@@ -387,6 +376,11 @@ export function assertCrawlerManifestDelta({
       baseEntry.baseline.corpus = watchdogRuntimeDigest;
     }
   }
+  // Validate every required current mapping before normalizing the baseline.
+  // A historical, non-convergent adapted entry in the baseline must remain
+  // visible to the ownership check; normalizing it first would replace the
+  // contract error with an unrelated duplicate/mapping error.
+  expected.files = normalizeTransportManifestEntries(expected.files, mappings);
   if (canonicalManifestJson(normalizedCurrentManifest) !== canonicalManifestJson(expected)) {
     throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
   }
