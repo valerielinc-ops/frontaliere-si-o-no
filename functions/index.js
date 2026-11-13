@@ -3365,6 +3365,9 @@ export const processCandidateCvProfileUpload = onCall(
       return { status: result.status, parserVersion: result.parserVersion };
     } catch (error) {
       const code = error instanceof Error ? error.message : '';
+      if (code === 'candidate_cv_managed_by_another_service') {
+        throw new HttpsError('failed-precondition', code);
+      }
       if (['invalid_candidate_cv_upload', 'candidate_cv_file_too_large', 'candidate_cv_unsupported_type', 'candidate_cv_file_type_mismatch'].includes(code)) {
         throw new HttpsError('invalid-argument', code);
       }

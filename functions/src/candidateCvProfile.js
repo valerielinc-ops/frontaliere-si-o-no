@@ -584,6 +584,10 @@ export async function processCandidateProfileCvUpload({
   const [oldProfileSnapshot, oldSourceSnapshot] = await Promise.all([profileRef.get(), sourceRef.get()]);
   const oldProfile = oldProfileSnapshot.exists ? oldProfileSnapshot.data() || {} : null;
   const oldSource = oldSourceSnapshot.exists ? oldSourceSnapshot.data() || {} : null;
+  if (oldProfile && safeSourceType(oldProfile.cvDocument?.sourceType || oldProfile.sourceType) !== 'candidate_profile') {
+    await file.delete({ ignoreNotFound: true });
+    throw new Error('candidate_cv_managed_by_another_service');
+  }
   const oldStorageKey = oldSource?.userId === uid && isProfileCvKey(uid, oldSource.cvStorageKey)
     ? oldSource.cvStorageKey
     : '';
