@@ -114,7 +114,13 @@ import {
   handleManageApplicationConcierge,
   expireApplicationConciergeServices,
 } from './src/applicationConciergeCore.js';
-import { enrichCandidateProfileFromCv, refreshCandidateCvProfile as refreshCandidateCvProfileRecord } from './src/candidateCvProfile.js';
+import {
+  deleteCandidateProfileCv,
+  discardCandidateProfileCvUpload,
+  enrichCandidateProfileFromCv,
+  processCandidateProfileCvUpload,
+  refreshCandidateCvProfile as refreshCandidateCvProfileRecord,
+} from './src/candidateCvProfile.js';
 import {
   queueConciergeMatchesForCandidateAnswerUpdate,
   queueSubmittedConciergeLetterFeedback,
@@ -3336,6 +3342,127 @@ export const refreshCandidateCvProfile = onCall(
     } catch (error) {
       console.error('[refreshCandidateCvProfile]', error instanceof Error ? error.name : 'unknown_error');
       throw new HttpsError('internal', 'cv_profile_refresh_failed');
+    }
+  },
+);
+
+// Candidates may add their own private CV from the job matcher. Storage rules
+// permit only a small create under the caller's UID; this callable validates
+// both the private object key and its actual file signature before parsing it.
+export const processCandidateCvProfileUpload = onCall(
+  { region: 'europe-west6', memory: '1GiB', concurrency: 1, maxInstances: 2, timeoutSeconds: 180 },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      const result = await processCandidateProfileCvUpload({
+        db: getAdminDb(),
+        userId,
+        storageKey: request.data?.storageKey,
+        sourceId: request.data?.sourceId,
+        fileName: request.data?.fileName,
+      });
+      return { status: result.status, parserVersion: result.parserVersion };
+    } catch (error) {
+      const code = error instanceof Error ? error.message : '';
+      if (['invalid_candidate_cv_upload', 'candidate_cv_file_too_large', 'candidate_cv_unsupported_type', 'candidate_cv_file_type_mismatch'].includes(code)) {
+        throw new HttpsError('invalid-argument', code);
+      }
+      console.error('[processCandidateCvProfileUpload]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'candidate_cv_processing_failed');
+    }
+  },
+);
+
+export const discardCandidateCvProfileUpload = onCall(
+  { region: 'europe-west6', memory: '256MiB' },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      return await discardCandidateProfileCvUpload({
+        db: getAdminDb(),
+        userId,
+        sourceId: request.data?.sourceId,
+      });
+    } catch (error) {
+      console.error('[discardCandidateCvProfileUpload]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'candidate_cv_cleanup_failed');
+    }
+  },
+);
+
+// The signed-in owner can keep a reusable skill list separate from the parser's
+// suggestions. Firestore rules expose it read-only; writes stay server-owned.
+export const saveCandidateJobProfileSkills = onCall(
+  { region: 'europe-west6', memory: '256MiB' },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    const input = request.data?.skills;
+    if (!Array.isArray(input) || input.length > 40) throw new HttpsError('invalid-argument', 'invalid_candidate_skills');
+    const skills = [];
+    const seen = new Set();
+    for (const value of input) {
+      if (typeof value !== 'string') throw new HttpsError('invalid-argument', 'invalid_candidate_skill');
+      const skill = value.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 100);
+      const key = skill.toLocaleLowerCase();
+      if (!skill || seen.has(key)) continue;
+      seen.add(key);
+      skills.push(skill);
+    }
+    await getAdminDb().collection('candidate_job_profiles').doc(userId).set({
+      userId,
+      skills,
+      updatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    return { saved: true, count: skills.length };
+  },
+);
+
+// Job-alert CV ranking is a separate, explicit choice from application-intent
+// personalization. Only the owner's parser projection can enable it.
+export const setCandidateCvJobAlertPersonalization = onCall(
+  { region: 'europe-west6', memory: '256MiB' },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    const enabled = request.data?.enabled;
+    if (typeof enabled !== 'boolean') throw new HttpsError('invalid-argument', 'invalid_cv_alert_preference');
+    const profileRef = getAdminDb().collection('user_cv_profiles').doc(userId);
+    const profile = await profileRef.get();
+    const data = profile.exists ? profile.data() || {} : {};
+    const skills = Array.isArray(data.profile?.skills) ? data.profile.skills : [];
+    const languages = Array.isArray(data.profile?.languages) ? data.profile.languages : [];
+    if (enabled && (data.status !== 'ready'
+      || ![...skills, ...languages].some((skill) => typeof skill === 'string' && skill.trim()))) {
+      throw new HttpsError('failed-precondition', 'candidate_cv_skills_unavailable');
+    }
+    if (!profile.exists && !enabled) return { enabled: false };
+    await profileRef.set({
+      userId,
+      jobAlertPersonalizationEnabled: enabled,
+      jobAlertPersonalizationUpdatedAt: FieldValue.serverTimestamp(),
+    }, { merge: true });
+    return { enabled };
+  },
+);
+
+export const deleteCandidateCvProfile = onCall(
+  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 60 },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      const result = await deleteCandidateProfileCv({ db: getAdminDb(), userId });
+      if (!result.deleted && result.reason === 'managed_by_another_service') {
+        throw new HttpsError('failed-precondition', 'candidate_cv_managed_by_another_service');
+      }
+      return result;
+    } catch (error) {
+      if (error instanceof HttpsError) throw error;
+      console.error('[deleteCandidateCvProfile]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'candidate_cv_delete_failed');
     }
   },
 );

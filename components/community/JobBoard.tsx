@@ -11767,9 +11767,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   <div className="space-y-2">
    <JobCvFitMatcher
     key={authUser?.uid || 'anonymous'}
-    requirements={Array.isArray(requirements) ? requirements : []}
+    requirements={Array.isArray(canonicalRequirements) ? canonicalRequirements : []}
     userId={authUser?.uid}
     locale={locale}
+    onRequireAuth={onRequireAuth}
     onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
    />
    {bilingualCvStatus !== 'ready' && (

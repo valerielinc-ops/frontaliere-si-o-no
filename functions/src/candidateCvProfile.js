@@ -20,6 +20,8 @@ export { CV_PROFILE_PARSER_VERSION } from './candidateCvProfileContract.js';
 const MAX_SEARCH_TEXT = 18_000;
 const MAX_SKILLS = 40;
 const MAX_EXPERIENCE_LINES = 12;
+const MAX_PROFILE_CV_BYTES = 5 * 1024 * 1024;
+const PROFILE_CV_PREFIX = 'candidate-cv-profiles';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const SKILL_HEADING_RE = /^(?:skills?|core skills?|key skills?|digital skills?|technical skills?|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze(?: tecniche| chiave| professionali)?|compétences?(?: techniques| clés| cles| informatiques)?|competences(?: techniques| cles| informatiques)?|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen)\s*:?$/i;
@@ -491,14 +493,176 @@ function sourceFileName(storageKey) {
 }
 
 function safeSourceType(value) {
-  return ['application_concierge', 'assisted_application'].includes(value) ? value : 'unknown';
+  return ['application_concierge', 'assisted_application', 'candidate_profile'].includes(value) ? value : 'unknown';
 }
 
 function sourceRefFor(db, sourceType, sourceId) {
   if (!db || !sourceId) return null;
   if (sourceType === 'application_concierge') return db.collection('application_concierge_services').doc(sourceId);
   if (sourceType === 'assisted_application') return db.collection('assisted_applications').doc(sourceId);
+  if (sourceType === 'candidate_profile') return db.collection('candidate_cv_sources').doc(sourceId);
   return null;
+}
+
+function isProfileCvKey(userId, key) {
+  return String(key || '').startsWith(`${PROFILE_CV_PREFIX}/${userId}/`)
+    && /^[A-Za-z0-9_-]{16,80}$/.test(String(key || '').slice(`${PROFILE_CV_PREFIX}/${userId}/`.length));
+}
+
+function profileCvFileName(value) {
+  const name = String(value || '').replace(/[\\/]/g, '').replace(/[\u0000-\u001f\u007f]/g, '').trim();
+  const extension = name.match(/\.(pdf|docx?)$/i)?.[0] || '';
+  if (!extension) return '';
+  const base = clean(name.slice(0, -extension.length), 140);
+  return `${base}${extension}`.slice(0, 160);
+}
+
+/**
+ * Finalize a signed-in candidate's private profile CV upload. The caller must
+ * pass the authenticated UID; the storage key is checked against it here and
+ * the private source record is never returned to the browser.
+ */
+export async function processCandidateProfileCvUpload({
+  db = getAdminDb(),
+  bucket = null,
+  userId,
+  storageKey,
+  sourceId,
+  fileName,
+  uploadedAt = null,
+} = {}) {
+  const uid = String(userId || '').trim();
+  const id = String(sourceId || '').trim();
+  const name = profileCvFileName(fileName);
+  if (!uid || !/^[A-Za-z0-9_-]{16,80}$/.test(id) || !name || storageKey !== `${PROFILE_CV_PREFIX}/${uid}/${id}`) {
+    throw new Error('invalid_candidate_cv_upload');
+  }
+
+  const storageBucket = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+  const file = storageBucket.file(storageKey);
+  let metadata;
+  try {
+    [metadata] = await file.getMetadata();
+  } catch (error) {
+    await file.delete({ ignoreNotFound: true });
+    throw error;
+  }
+  const size = Number(metadata?.size);
+  if (!Number.isSafeInteger(size) || size <= 0 || size > MAX_PROFILE_CV_BYTES) {
+    await file.delete({ ignoreNotFound: true });
+    throw new Error('candidate_cv_file_too_large');
+  }
+  const declaredType = String(metadata?.contentType || '').toLowerCase();
+  const allowedTypes = new Set([
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  ]);
+  if (!allowedTypes.has(declaredType)) {
+    await file.delete({ ignoreNotFound: true });
+    throw new Error('candidate_cv_unsupported_type');
+  }
+
+  let buffer;
+  try {
+    [buffer] = await file.download();
+  } catch (error) {
+    await file.delete({ ignoreNotFound: true });
+    throw error;
+  }
+  const detectedType = detectCvFileType(buffer.subarray(0, 8));
+  const extension = name.split('.').pop().toLowerCase();
+  if (!detectedType || (extension === 'pdf' && detectedType !== 'pdf')
+    || (extension === 'doc' && detectedType !== 'doc')
+    || (extension === 'docx' && detectedType !== 'docx')) {
+    await file.delete({ ignoreNotFound: true });
+    throw new Error('candidate_cv_file_type_mismatch');
+  }
+
+  const profileRef = db.collection('user_cv_profiles').doc(uid);
+  const sourceRef = db.collection('candidate_cv_sources').doc(uid);
+  const [oldProfileSnapshot, oldSourceSnapshot] = await Promise.all([profileRef.get(), sourceRef.get()]);
+  const oldProfile = oldProfileSnapshot.exists ? oldProfileSnapshot.data() || {} : null;
+  const oldSource = oldSourceSnapshot.exists ? oldSourceSnapshot.data() || {} : null;
+  const oldStorageKey = oldSource?.userId === uid && isProfileCvKey(uid, oldSource.cvStorageKey)
+    ? oldSource.cvStorageKey
+    : '';
+  const stampedAt = uploadedAt || Timestamp.now();
+  await sourceRef.set({
+    userId: uid,
+    sourceType: 'candidate_profile',
+    sourceId: uid,
+    cvStorageKey: storageKey,
+    cvFileName: name,
+    cvUploadedAt: stampedAt,
+    updatedAt: FieldValue.serverTimestamp(),
+  }, { merge: true });
+
+  try {
+    const result = await enrichCandidateProfileFromCv({
+      db,
+      bucket: storageBucket,
+      userId: uid,
+      sourceId: uid,
+      sourceType: 'candidate_profile',
+      cvStorageKey: storageKey,
+      fileNameOverride: name,
+      uploadedAt: stampedAt,
+    });
+    if (oldStorageKey && oldStorageKey !== storageKey) {
+      await storageBucket.file(oldStorageKey).delete({ ignoreNotFound: true });
+    }
+    return { status: result.status, parserVersion: result.parserVersion || null };
+  } catch (error) {
+    if (oldSource) await sourceRef.set(oldSource, { merge: false });
+    else await sourceRef.delete();
+    if (oldProfile) await profileRef.set(oldProfile, { merge: false });
+    else await profileRef.delete();
+    await file.delete({ ignoreNotFound: true });
+    throw error;
+  }
+}
+
+/** Delete a CV uploaded through the candidate's own profile matcher. */
+export async function deleteCandidateProfileCv({ db = getAdminDb(), bucket = null, userId } = {}) {
+  const uid = String(userId || '').trim();
+  if (!uid) return { deleted: false, reason: 'missing_user' };
+  const profileRef = db.collection('user_cv_profiles').doc(uid);
+  const profileSnapshot = await profileRef.get();
+  if (!profileSnapshot.exists) return { deleted: false, reason: 'missing_profile' };
+  const profile = profileSnapshot.data() || {};
+  const cvDocument = profile.cvDocument || {};
+  if (safeSourceType(cvDocument.sourceType || profile.sourceType) !== 'candidate_profile') {
+    return { deleted: false, reason: 'managed_by_another_service' };
+  }
+
+  const sourceRef = db.collection('candidate_cv_sources').doc(uid);
+  const sourceSnapshot = await sourceRef.get();
+  if (sourceSnapshot.exists) {
+    const source = sourceSnapshot.data() || {};
+    const key = source.userId === uid && isProfileCvKey(uid, source.cvStorageKey) ? source.cvStorageKey : '';
+    if (key) {
+      const storageBucket = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+      await storageBucket.file(key).delete({ ignoreNotFound: true });
+    }
+    await sourceRef.delete();
+  }
+  await db.collection('candidate_job_profiles').doc(uid).delete();
+  await profileRef.delete();
+  return { deleted: true };
+}
+
+/** Clean an uploaded object if the browser lost the finalize response. */
+export async function discardCandidateProfileCvUpload({ db = getAdminDb(), bucket = null, userId, sourceId } = {}) {
+  const uid = String(userId || '').trim();
+  const id = String(sourceId || '').trim();
+  if (!uid || !/^[A-Za-z0-9_-]{16,80}$/.test(id)) return { deleted: false };
+  const key = `${PROFILE_CV_PREFIX}/${uid}/${id}`;
+  const sourceSnapshot = await db.collection('candidate_cv_sources').doc(uid).get();
+  if (sourceSnapshot.exists && sourceSnapshot.data()?.cvStorageKey === key) return { deleted: false };
+  const storageBucket = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+  await storageBucket.file(key).delete({ ignoreNotFound: true });
+  return { deleted: true };
 }
 
 /**
@@ -512,13 +676,14 @@ export async function enrichCandidateProfileFromCv({
   sourceId,
   sourceType,
   cvStorageKey,
+  fileNameOverride = '',
   uploadedAt = null,
   updateSource = true,
 } = {}) {
   if (!userId || !sourceId || !cvStorageKey) return { status: 'skipped', reason: 'missing_input' };
   const profileRef = db.collection('user_cv_profiles').doc(String(userId));
   const sourceRef = updateSource ? sourceRefFor(db, safeSourceType(sourceType), sourceId) : null;
-  const fileName = sourceFileName(cvStorageKey);
+  const fileName = clean(fileNameOverride || sourceFileName(cvStorageKey), 160);
   const source = safeSourceType(sourceType);
   const now = Timestamp.now();
   await profileRef.set({
@@ -592,13 +757,15 @@ export async function refreshCandidateCvProfile({ db = getAdminDb(), userId } = 
   const sourceId = String(cvDocument.sourceId || profileRecord.sourceId || '');
   const sourceCollection = sourceType === 'application_concierge'
     ? 'application_concierge_services'
-    : sourceType === 'assisted_application' ? 'assisted_applications' : '';
+    : sourceType === 'assisted_application' ? 'assisted_applications'
+      : sourceType === 'candidate_profile' ? 'candidate_cv_sources' : '';
   if (!sourceCollection || !sourceId) return { status: 'unavailable' };
 
   const sourceSnapshot = await db.collection(sourceCollection).doc(sourceId).get();
   if (!sourceSnapshot.exists) return { status: 'unavailable' };
   const source = sourceSnapshot.data() || {};
   if (String(source.userId || '') !== String(userId) || !source.cvStorageKey) return { status: 'unavailable' };
+  if (sourceType === 'candidate_profile' && !isProfileCvKey(userId, source.cvStorageKey)) return { status: 'unavailable' };
 
   const result = await enrichCandidateProfileFromCv({
     db,
@@ -606,6 +773,7 @@ export async function refreshCandidateCvProfile({ db = getAdminDb(), userId } = 
     sourceId,
     sourceType,
     cvStorageKey: source.cvStorageKey,
+    fileNameOverride: source.cvFileName || cvDocument.fileName || '',
     uploadedAt: source.cvUploadedAt || cvDocument.uploadedAt || null,
     updateSource: false,
   });
