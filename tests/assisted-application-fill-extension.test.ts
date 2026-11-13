@@ -1087,6 +1087,36 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
   });
 
+  it('keeps runner ownership aligned for required marketing and role-form shell controls', () => {
+    const { window, read } = runnerPage(`<header><form>
+      <input name="newsletter" required>
+      <input name="notizie">
+      <input name="jobbenachrichtigung">
+    </form></header>
+    <div role="form">
+      <select id="languageDropdown"><option value="en">English</option></select>
+      <button type="button">🌙</button>
+    </div>`, 'https://jobs.example.ch/apply');
+    const snapshot = read();
+    const newsletter = snapshot.fields.find((field: any) => field.name === 'newsletter');
+    const marketing = snapshot.fields.filter((field: any) => ['notizie', 'jobbenachrichtigung'].includes(field.name));
+    const language = snapshot.fields.find((field: any) => field.domId === 'languageDropdown');
+    const theme = snapshot.buttons.find((button: any) => button.text === '🌙');
+
+    expect(newsletter).toMatchObject({ required: true });
+    expect(newsletter).not.toHaveProperty('chrome');
+    expect(marketing).toHaveLength(2);
+    expect(marketing).toEqual(expect.arrayContaining([
+      expect.objectContaining({ name: 'notizie', chrome: true }),
+      expect.objectContaining({ name: 'jobbenachrichtigung', chrome: true }),
+    ]));
+    expect(language).toBeDefined();
+    expect(language).not.toHaveProperty('chrome');
+    expect(theme).toBeDefined();
+    expect(theme).not.toHaveProperty('chrome');
+    window.close();
+  });
+
   it('keeps an Italian apply link ahead of the field snapshot budget', () => {
     const navigation = Array.from({ length: 60 }, (_, index) => `<button type="button">Action ${index}</button>`).join('');
     const { window, read } = runnerPage(`${navigation}<a class="btn" href="/apply">Applica ora</a>`, 'https://jobs.example.ch/posting/example');

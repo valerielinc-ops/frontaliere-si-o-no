@@ -565,7 +565,8 @@ function nativeQuestionText(value, counter = null) {
     element.getAttribute('placeholder'),
     labelFor(element),
   ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
-  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|job\s*alert|stellenalarm|job[- ]?abo|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/i;
+  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/iu;
+  const applicationFormFor = (element) => element.form || element.closest('form, [role="form"]');
   const siteMarketingIdentity = (element) => [
     element.getAttribute('name'),
     element.id,
@@ -579,6 +580,7 @@ function nativeQuestionText(value, counter = null) {
     element.form?.innerText || element.form?.textContent,
   ].filter(Boolean).join(' ');
   const isSiteMarketingControl = (element) => inSiteChrome(element)
+    && !hasRequiredControlSignal(element)
     && SITE_MARKETING_TEXT_RE.test(siteMarketingIdentity(element));
   const isSiteSearchForm = (form) => {
     if (!form) return false;
@@ -594,7 +596,7 @@ function nativeQuestionText(value, counter = null) {
   const isApplicationOwnedControl = (element) => {
     if (isSiteMarketingControl(element)) return false;
     if (hasRequiredControlSignal(element)) return true;
-    const form = element.form || element.closest('form');
+    const form = applicationFormFor(element);
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
@@ -614,12 +616,12 @@ function nativeQuestionText(value, counter = null) {
       : '')).normalize('NFKC');
     const machineLanguageControl = siteLanguageMachineIdentity(element);
     const nativeLanguageSelect = tag === 'select' && (inSiteChrome(element)
-      || (machineLanguageControl && !element.form && !element.closest('form')));
+      || (machineLanguageControl && !applicationFormFor(element)));
     // Some employer shells render the language menu in the page content
     // rather than inside a header/nav landmark. An unowned button with an
     // exact language label is still site chrome; a button in an application
     // form remains candidate-owned through the form guard below.
-    const ownerlessLanguageButton = buttonLike && !element.form && !element.closest('form');
+    const ownerlessLanguageButton = buttonLike && !applicationFormFor(element);
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
@@ -634,7 +636,7 @@ function nativeQuestionText(value, counter = null) {
   const isSiteThemeControl = (element) => {
     const tag = element.tagName.toLowerCase();
     const buttonLike = tag === 'button' || element.getAttribute('role') === 'button';
-    if (!buttonLike || element.form || element.closest('form') || hasRequiredControlSignal(element)) return false;
+    if (!buttonLike || applicationFormFor(element) || hasRequiredControlSignal(element)) return false;
     const identity = [
       element.id,
       element.getAttribute('name'),
@@ -647,10 +649,9 @@ function nativeQuestionText(value, counter = null) {
     const visibleName = clean(element.innerText || element.textContent || '');
     return SITE_THEME_CONTROL_RE.test(identity) || SITE_THEME_ICON_RE.test(visibleName);
   };
-  const SITE_MARKETING_FIELD_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie)\b/iu;
   const isSiteMarketingField = (element) => {
     if (!inSiteChrome(element) || hasRequiredControlSignal(element)) return false;
-    const form = element.form || element.closest('form');
+    const form = applicationFormFor(element);
     const surface = [
       form?.id,
       form?.className,
@@ -661,7 +662,7 @@ function nativeQuestionText(value, counter = null) {
       element.getAttribute('placeholder'),
       labelFor(element),
     ].filter(Boolean).join(' ');
-    return SITE_MARKETING_FIELD_RE.test(surface);
+    return SITE_MARKETING_TEXT_RE.test(surface);
   };
   const isSiteChromeControl = (element) => isSiteLanguageControl(element) || isSiteThemeControl(element)
     || isSiteMarketingField(element)
