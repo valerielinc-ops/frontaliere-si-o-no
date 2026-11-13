@@ -190,6 +190,62 @@
       ],
       "createdAt": "2026-11-12T16:54:42.784Z",
       "expiresAt": "2026-11-14T04:54:42.784Z"
+    },
+    {
+      "id": "reel-2026-11-12",
+      "channel": "instagram",
+      "kind": "reel",
+      "day": "2026-11-12",
+      "caption": "Redditi esteri: il passaggio pratico da capire\n\n📌 Concorso generale 2026 educatori — Pro Senectute Ticino e Moesano — 34 visualizzazioni ieri.\n\nSegui Frontaliere per orientarti sui redditi esteri.\nFonte e dettagli sono nel link in bio.\nVoce sintetica; la narrazione ripete il testo verificato mostrato nel video.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-11-12-reel-follow-0.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-job-2026-11-12-reel-follow.mp4",
+        "bytes": 766420,
+        "sha256": "228fd865d0a7de8f365204eb255a81306a8b6d290070b25f1f15cdc7ab6a11b9",
+        "durationMs": 25440,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "reel-follow"
+      },
+      "ledgerEntries": [
+        {
+          "id": "job:concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano",
+          "kind": "reel",
+          "sourceKind": "job",
+          "sourceId": "concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-follow-concorso-generale-2026-educatori-pro-senectute-ticino-e-moesano-lugano--cp2a09df9f964ac9fa-reel.ig-reel-follow-practical.apasso-pratico.d",
+          "day": "2026-11-12",
+          "views": 34,
+          "creativeId": "reel-follow",
+          "creativeBaseId": "reel",
+          "creativeVariant": "reel-follow",
+          "creativeLabel": "Aggiornamento da seguire",
+          "creativeObjective": "follow",
+          "primaryMetric": "follows",
+          "engagementMechanic": "profile-follow",
+          "hookType": "useful-update",
+          "attentionMechanic": "verified-update",
+          "engagementLoop": "follow-for-reliable-updates",
+          "followUpFormat": "none",
+          "creativeFormat": "reel",
+          "copyMode": "codex",
+          "copySlot": "reel",
+          "copyPromptVersion": "frontaliere-social-copy-v5",
+          "copyPackId": "2a09df9f964ac9fa",
+          "copyTemplateId": "ig-reel-follow-practical",
+          "copyAssignmentMode": "deterministic",
+          "copyObjective": "follow",
+          "copyAngleId": "passo-pratico",
+          "copyPillarId": "opportunita-concrete",
+          "copyAngleIntent": "both",
+          "copyHook": "Redditi esteri: il passaggio pratico da capire",
+          "copyCta": "Segui Frontaliere per orientarti sui redditi esteri."
+        }
+      ],
+      "createdAt": "2026-11-13T15:40:32.254Z",
+      "expiresAt": "2026-11-15T15:40:32.254Z"
     }
   ]
 }
