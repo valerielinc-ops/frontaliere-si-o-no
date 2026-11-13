@@ -11,6 +11,7 @@
  *   AA_PORTAL_E2E_FOCUS=diagnostics node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=umantis node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=modal-application node scripts/assisted-application/portal-e2e.mjs
+ *   AA_PORTAL_E2E_FOCUS=successfactors-custom-domain node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=workday-tenant node scripts/assisted-application/portal-e2e.mjs
  *   AA_PORTAL_E2E_FOCUS=workday-tenant-smoke node scripts/assisted-application/portal-e2e.mjs
  *
@@ -190,7 +191,7 @@ async function createWorkdayTlsFixture(directory) {
     'basicConstraints=critical,CA:FALSE',
     'keyUsage=critical,digitalSignature,keyEncipherment',
     'extendedKeyUsage=serverAuth',
-    'subjectAltName=DNS:workday.localhost,DNS:acme.wd3.myworkdayjobs.com',
+      'subjectAltName=DNS:workday.localhost,DNS:acme.wd3.myworkdayjobs.com,DNS:career55.successfactors.localhost,DNS:job.fictional-employer.localhost',
     '',
   ].join('\n'));
 
@@ -274,6 +275,9 @@ function fakePortal() {
     .replace(/(window\.location(?:\.href)?\s*=\s*)(['"])(\/[^'"]*)\2/gi, (_match, assignment, quote, target) => `${assignment}${quote}${bindLocalReceiptTarget(target)}${quote}`);
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, privacyValidationRetry: false, privacyValidationRetries: 0, applicationPrivacySubmissions: [], flaky: false, cookieManager: '' };
+  // Career Site Builder custom-domain entry: apply.sapsf-style module URL →
+  // employer-hosted public posting → the same requisition's module/login.
+  const successFactorsCustom = { postingViews: 0, entryClicks: 0, loginSubmissions: 0, applications: [], loginAfterClick: false, popup: false };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
@@ -594,6 +598,45 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(bindLocalReceiptTargets(html)); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: bindLocalReceiptTarget(to), ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
+    const requestHost = String(req.headers.host || '').split(':')[0].toLowerCase();
+    const customSfApply = new URLSearchParams({ company: 'Fixture', career_job_req_id: '77123', career_ns: 'job_application', jobid: 'sf-custom-domain-fixture' });
+    const customSfApplyPath = `/career?${customSfApply}`;
+    if (route === 'GET /career' && requestHost === 'career55.successfactors.localhost') {
+      const hasSession = /(?:^|;\s*)sfCustomSid=fixture-session(?:;|$)/.test(req.headers.cookie || '');
+      const fromPosting = url.searchParams.get('entry') === 'posting-cta'
+        || /\/job\/customer-success-manager\/990021\//i.test(req.headers.referer || '');
+      if (!hasSession && !fromPosting) {
+        res.writeHead(302, { location: `https://job.fictional-employer.localhost:${req.socket.localPort}/job/customer-success-manager/990021/?jobid=sf-custom-domain-fixture` });
+        return res.end();
+      }
+      if (fromPosting) successFactorsCustom.entryClicks += 1;
+      if (!hasSession && fromPosting && successFactorsCustom.loginAfterClick) {
+        return send(page('Sign in to your account', `${form('/sf/custom-domain-login', '<label for="sf-custom-email">Email address *</label><input id="sf-custom-email" name="email" type="email" autocomplete="username" required><label for="sf-custom-password">Password *</label><input id="sf-custom-password" name="password" type="password" autocomplete="current-password" required><button type="submit">Sign in</button>')}<p>Sign in to continue your application.</p>`));
+      }
+      return send(page('Customer Success Manager | Fictional Employer', `<h1>Customer Success Manager</h1><p>Fictional Employer GmbH</p>
+        ${form('/sf/custom-domain-submit?jobid=sf-custom-domain-fixture', '<label for="sf-custom-first">First name *</label><input id="sf-custom-first" name="first" required><label for="sf-custom-last">Last name *</label><input id="sf-custom-last" name="last" required><label for="sf-custom-email">Email address *</label><input id="sf-custom-email" name="email" type="email" required><label for="sf-custom-cv">CV *</label><input id="sf-custom-cv" name="cv" type="file" required><button type="submit">Submit application</button>', true)}`));
+    }
+    if (route === 'GET /job/customer-success-manager/990021/' && requestHost === 'job.fictional-employer.localhost') {
+      successFactorsCustom.postingViews += 1;
+      const target = `https://career55.successfactors.localhost:${req.socket.localPort}${customSfApplyPath}&entry=posting-cta`;
+      const popup = successFactorsCustom.popup ? ' target="_blank"' : '';
+      return send(page('Customer Success Manager | Fictional Employer', `<header><nav><a href="#">Postes vacants</a><a href="#">Candidature spontanée</a><a href="#">Mon profil de candidature</a><a href="#">Langue</a>
+          <button type="button">Rechercher les offres</button><button type="reset">Réinitialiser</button><button type="button">Créer une alerte</button></nav><a role="button"${popup} href="${target}">Postuler »»</a></header>
+        <section><h1>Customer Success Manager</h1><p>Fictional Employer GmbH</p><a role="button"${popup} href="${target}">Postuler »»</a></section>`));
+    }
+    if (route === 'POST /sf/custom-domain-login' && requestHost === 'career55.successfactors.localhost') {
+      const body = new URLSearchParams(await readBody(req));
+      if (body.get('email') !== 'synthetic@applicant.invalid' || body.get('password') !== 'Synthetic-Password-123!') {
+        return send(page('Sign in to your account', '<h1>Invalid credentials</h1>'));
+      }
+      successFactorsCustom.loginSubmissions += 1;
+      return redirect(customSfApplyPath, { 'set-cookie': 'sfCustomSid=fixture-session; Path=/; Secure; SameSite=Lax' });
+    }
+    if (route === 'POST /sf/custom-domain-submit' && requestHost === 'career55.successfactors.localhost') {
+      const raw = await readBody(req);
+      successFactorsCustom.applications.push({ hasCv: /name="cv"; filename="candidate-cv\.pdf"/i.test(raw) });
+      return send(page('Application received', '<h1>Thank you for your application for Customer Success Manager</h1>'));
+    }
     const tenantWorkdayRequest = /(?:^|\.)wd\d+\.myworkdayjobs\.com(?::\d+)?$/i.test(String(req.headers.host || ''));
     if (tenantWorkdayRequest) workday.tenantRequests.push(`${req.method} ${url.pathname}${url.search}`);
     if (tenantWorkdayRequest && req.method === 'GET' && /\/introduceYourself\/?$/i.test(url.pathname)) {
@@ -1431,7 +1474,7 @@ function fakePortal() {
   const hasCurrentReceiptKey = (value) => {
     try { return new URL(value).searchParams.get(receiptJobParam) === receiptJobId; } catch { return false; }
   };
-  return { server, state, coop, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey };
+  return { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey };
 }
 
 /**
@@ -2221,7 +2264,7 @@ async function hiddenFutureStepFileCheck({ executablePath, check }) {
 }
 
 async function main() {
-  const { server, state, coop, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey } = fakePortal();
+  const { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey } = fakePortal();
   const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
   const tlsFixture = await createWorkdayTlsFixture(dir);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -2423,6 +2466,78 @@ async function main() {
       privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
       && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
   };
+  const runSuccessFactorsCustomDomainChecks = async () => {
+    const customHost = 'career55.successfactors.localhost';
+    const customAccounts = {
+      ...accounts,
+      async load(host) {
+        if (host === customHost) return { email: 'synthetic@applicant.invalid', password: 'Synthetic-Password-123!', createdAt: Date.now(), verifiedAt: Date.now(), status: 'created' };
+        return accounts.load(host);
+      },
+    };
+    const applyUrl = `https://career55.successfactors.localhost:${workdayServer.address().port}/career?company=Fixture&career_job_req_id=77123&career_ns=job_application&jobid=sf-custom-domain-fixture`;
+    const postingUrl = `https://job.fictional-employer.localhost:${workdayServer.address().port}/job/customer-success-manager/990021/?jobid=sf-custom-domain-fixture`;
+    const job = { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' };
+    const candidate = {
+      identity: { email: 'candidate@applicant.invalid', firstName: 'Sam', lastName: 'Example' },
+      profile: {},
+      answers: {},
+      portalQuestionsAnswered: [],
+    };
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const customLaunch = () => launchChromium({
+      headless: true,
+      executablePath,
+      args: [`--ignore-certificate-errors-spki-list=${tlsFixture.spkiPin}`],
+    });
+    const runCustom = (options = {}) => {
+      successFactorsCustom.entryClicks = 0;
+      successFactorsCustom.applications.length = 0;
+      successFactorsCustom.loginSubmissions = 0;
+      return run({
+        capturePortalNavigationDiagnostics: true,
+        applyUrl,
+        postingUrl,
+        postingRouteProof,
+        channelType: 'successfactors',
+        job,
+        candidate,
+        launch: customLaunch,
+        ...options,
+      });
+    };
+
+    successFactorsCustom.popup = false;
+    successFactorsCustom.loginAfterClick = false;
+    const sameTab = await runCustom();
+    check('SuccessFactors custom-domain entry follows the same-requisition CTA and submits one CV application',
+      sameTab.event.type === 'submit_succeeded' && successFactorsCustom.entryClicks === 1
+        && successFactorsCustom.applications.length === 1 && successFactorsCustom.applications[0].hasCv
+        && sameTab.event.reason !== 'application_stage_unknown',
+      stopContext(sameTab));
+
+    successFactorsCustom.popup = true;
+    const popup = await runCustom();
+    check('SuccessFactors custom-domain CTA opened in a new tab reaches the requisition form and submits once',
+      popup.event.type === 'submit_succeeded' && successFactorsCustom.entryClicks === 1
+        && successFactorsCustom.applications.length === 1 && successFactorsCustom.applications[0].hasCv
+        && popup.event.reason !== 'application_stage_unknown',
+      stopContext(popup));
+
+    successFactorsCustom.popup = false;
+    successFactorsCustom.loginAfterClick = true;
+    const login = await runCustom({ accounts: customAccounts });
+    const signInSteps = login.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
+    check('SuccessFactors custom-domain CTA continues through the tenant sign-in before submitting the CV',
+      login.event.type === 'submit_succeeded' && successFactorsCustom.entryClicks === 1
+        && successFactorsCustom.loginSubmissions === 1 && successFactorsCustom.applications.length === 1
+        && successFactorsCustom.applications[0].hasCv && signInSteps.includes('sign_in')
+        && login.event.reason !== 'application_stage_unknown',
+      stopContext(login));
+
+    successFactorsCustom.popup = false;
+    successFactorsCustom.loginAfterClick = false;
+  };
   const workdayFocus = process.env.AA_PORTAL_E2E_FOCUS;
   const focusWorkdayTenant = workdayFocus === 'workday-tenant';
   const focusWorkdayTenantSmoke = workdayFocus === 'workday-tenant-smoke';
@@ -2433,12 +2548,15 @@ async function main() {
   const focusDiagnostics = workdayFocus === 'diagnostics';
   const focusUmantis = workdayFocus === 'umantis';
   const focusModalApplication = workdayFocus === 'modal-application';
+  const focusSuccessFactorsCustomDomain = workdayFocus === 'successfactors-custom-domain';
   try {
-    if (!focusModalApplication && !focusWorkdayTenant && !focusWorkdayTenantSmoke) await hiddenFutureStepFileCheck({ executablePath, check });
+    if (!focusModalApplication && !focusWorkdayTenant && !focusWorkdayTenantSmoke && !focusSuccessFactorsCustomDomain) await hiddenFutureStepFileCheck({ executablePath, check });
     if (focusWorkday) {
       await workdayAccountChecks({ base: workdayBase, tenantBase: workdayTenantBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId }, workdayFocus === 'workday-assisted', focusWorkdayTenant || focusWorkdayTenantSmoke, focusWorkdayTenantSmoke);
     } else if (focusCoop) {
       await runCoopChecks();
+    } else if (focusSuccessFactorsCustomDomain) {
+      await runSuccessFactorsCustomDomainChecks();
     } else if (focusAgentBirthDate) {
       const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: portalTestCandidate({ dateOfBirth: null }) });
       const asked = unknown.event.questions || [];
@@ -2492,6 +2610,7 @@ async function main() {
     // Keep this timing-sensitive portal first in the full suite; the same
     // scenarios also run alone through AA_PORTAL_E2E_FOCUS=coop.
     await runCoopChecks();
+    await runSuccessFactorsCustomDomainChecks();
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -2880,7 +2999,7 @@ async function main() {
     await workdayAccountChecks({ base: workdayBase, tenantBase: workdayTenantBase, state, workday, files, executablePath, browserTlsSpkiPin: tlsFixture.spkiPin, check, bindReceiptJobId });
     }
 
-    if (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis && !focusModalApplication) {
+    if (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis && !focusModalApplication && !focusSuccessFactorsCustomDomain) {
       const resetRegistration = () => {
         state.accounts.clear();
         state.verified.clear();

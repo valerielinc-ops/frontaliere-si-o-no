@@ -1343,7 +1343,7 @@ function nativeQuestionText(value, counter = null) {
   const applicationEntryLabel = (value) => {
     const label = clean(value);
     return (/^applica(?: ora| adesso| subito)?$/i.test(label)
-      || /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»“”‘’"']*(?=\s|$)/i.test(label))
+      || /(?:^|\s)[([{«»“”‘’"'›•*-]*(?:apply(?:-now)?|bewerben|bewerbung starten|zur bewerbung|candidati|candidarsi|invia (?:la (?:tua|sua) )?candidatura|invii la sua candidatura|inviate (?:la (?:vostra|sua) )?candidatura|candidatura\s+online|postuler|postulez|je postule)[.!?:,;)\]}«»›“”‘’"']*(?=\s|$)/i.test(label))
       && !/(?:später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i.test(label);
   };
   // Text around an external Apply link is useful only inside a bounded job
