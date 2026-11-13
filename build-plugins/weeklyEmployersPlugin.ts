@@ -38,6 +38,7 @@ import {
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -4101,7 +4102,7 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   const mainPath = np.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const raw = readJsonFile(mainPath);
       if (Array.isArray(raw)) {
         for (const j of raw) {
           const key = String(j?.slug || j?.id || '');

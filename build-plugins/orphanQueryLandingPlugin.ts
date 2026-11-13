@@ -39,6 +39,7 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
@@ -179,7 +180,7 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
   const mainPath = path.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
+      const raw = readJsonFile(mainPath);
       if (Array.isArray(raw)) {
         for (const j of raw) {
           const key = String(j?.slug || j?.id || '');
