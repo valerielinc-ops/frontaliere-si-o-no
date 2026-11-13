@@ -303,6 +303,7 @@ describe('automatic section tree fan-out policy', () => {
       locales: ['de', 'fr'],
       sourceRunId,
       sourceSha,
+      treeLimitBytes: 1000,
       slugs,
       readRegistry: async () => ({ version: 1, sections: {} }),
       register: vi.fn(),
