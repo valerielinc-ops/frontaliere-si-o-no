@@ -168,9 +168,10 @@ describe('runner final guard across three application stages', () => {
     const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
     const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
     const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
     const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager · Rechercher les offres', [
-      { id: 'apply-top', text: 'Postuler »»', chrome: true },
-      { id: 'apply-bottom', text: 'Postuler »»', chrome: true },
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
       { id: 'alert', text: 'Créer une alerte', chrome: true },
       { id: 'profile', text: 'Mon profil de candidature', chrome: true },
     ]);
@@ -211,9 +212,10 @@ describe('runner final guard across three application stages', () => {
     const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
     const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
     const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
     const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager', [
-      { id: 'apply-top', text: 'Postuler »»', chrome: true },
-      { id: 'apply-bottom', text: 'Postuler »»', chrome: true },
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
       { id: 'alert', text: 'Créer une alerte', chrome: true },
       { id: 'profile', text: 'Mon profil de candidature', chrome: true },
     ]);
