@@ -91,6 +91,25 @@ const DETAIL_FETCH_DELAY_MS = 250;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
+function attachFetchMetadata(jobs, { discoveredCount, fetchOutcome } = {}) {
+  if (!Array.isArray(jobs)) return jobs;
+  if (Number.isFinite(discoveredCount)) {
+    Object.defineProperty(jobs, 'discoveredCount', {
+      value: discoveredCount,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  if (fetchOutcome) {
+    Object.defineProperty(jobs, 'fetchOutcome', {
+      value: fetchOutcome,
+      enumerable: false,
+      configurable: true,
+    });
+  }
+  return jobs;
+}
+
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
@@ -339,7 +358,10 @@ export async function fetchAllHuberSuhnerJobs() {
 
   if (swissEntries.length === 0) {
     console.warn('⚠️ No Swiss job listings found.');
-    return [];
+    return attachFetchMetadata([], {
+      discoveredCount: entries.length,
+      fetchOutcome: entries.length > 0 ? 'filtered_empty' : 'selector_miss',
+    });
   }
 
   const jobs = [];
@@ -423,7 +445,7 @@ export async function fetchAllHuberSuhnerJobs() {
   }
 
   console.log(`\n📋 Total ${HUBER_SUHNER_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
-  return jobs;
+  return attachFetchMetadata(jobs, { discoveredCount: entries.length });
 }
 
 // Exported for unit tests.

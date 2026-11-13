@@ -1,7 +1,13 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+const fetchHtmlMock = vi.hoisted(() => vi.fn());
+vi.mock('../scripts/lib/crawler-template.mjs', async importOriginal => ({
+  ...await importOriginal<typeof import('../scripts/lib/crawler-template.mjs')>(),
+  fetchHtml: fetchHtmlMock,
+}));
 import {
   HUBER_SUHNER_KEY,
   HUBER_SUHNER_COMPANY_NAME,
+  fetchAllHuberSuhnerJobs,
   isHuberSuhnerJob,
   isTrustedDomain,
   parseListing,
@@ -184,6 +190,38 @@ describe('Huber+Suhner AG crawler parser', () => {
     it('excludes blind/spontaneous application placeholder rows', () => {
       const rows = parseListing(fixture);
       expect(rows.some((r) => r.id === '9999')).toBe(false);
+    });
+  });
+
+  describe('fetch observation contract', () => {
+    it('reports a populated non-Swiss board as filtered_empty instead of an unobserved zero', async () => {
+      fetchHtmlMock.mockResolvedValue(`
+        <tr class="tableaslist_contentrow1">
+          <td><a href="/Vacancies/8322/Description/1">Database Engineer</a>
+          <span class="tableaslist_element_1152495">&nbsp;|&nbsp; Poland, Krzeszowice</span>
+          Online since: 04.11.2026</td>
+        </tr>
+        <tr class="tableaslist_contentrow2">
+          <td><a href="/Vacancies/8338/Description/1">Product Marketing Specialist</a>
+          <span class="tableaslist_element_1152495">&nbsp;|&nbsp; Cambridge</span>
+          Online since: 03.11.2026</td>
+        </tr>`);
+
+      const jobs = await fetchAllHuberSuhnerJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect(jobs).toHaveProperty('discoveredCount', 2);
+      expect(jobs).toHaveProperty('fetchOutcome', 'filtered_empty');
+    });
+
+    it('does not claim filtered_empty when the listing selector finds no rows', async () => {
+      fetchHtmlMock.mockResolvedValue('<main>No vacancies loaded</main>');
+
+      const jobs = await fetchAllHuberSuhnerJobs();
+
+      expect(jobs).toHaveLength(0);
+      expect(jobs).toHaveProperty('discoveredCount', 0);
+      expect(jobs).toHaveProperty('fetchOutcome', 'selector_miss');
     });
   });
 
