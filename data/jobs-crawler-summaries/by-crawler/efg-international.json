@@ -1,297 +1,20 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-12T21:20:37.332Z",
+  "generatedAt": "2026-11-13T09:17:45.160Z",
   "total": 18,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 13668,
-  "avgDurationMs": 13668,
+  "durationMs": 14185,
+  "avgDurationMs": 14185,
   "durationHistory": [
-    13668
+    14185
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "efg-6384",
-      "slug": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Business Risk Manager - PB COO - BRM (TEMP)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6384",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Languages required: English, German, French and Italian",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
-              "Willing to go the extra mile, efficient and resourceful"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry",
-              "Excellent data analysis and and Program Languages (Python",
-              "Languages required",
-              "Pro-active and clear communicator with strong organizational skills"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Role",
-                "paragraphs": [
-                  "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Main Responsibilites",
-                "paragraphs": [],
-                "bullets": [
-                  "Execute all BRM controls on Investment Solutions area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-                  "Preparation of the IS RSC and IS BRM control report",
-                  "Ensure that the identified control NOKs and related risk mitigating actions are timely remediated",
-                  "Contribution on preparation of the annual IS risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
-                  "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
-                  "Report on the internal control environment and potentially arising risks or issues.",
-                  "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews",
-                  "Key contact person a IS Area Level for IT, tools, trainings topics and issues"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-13T13:51:30.827Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
-      "postingDateSource": "unknown",
-      "postalCode": "8001",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "EFG International AG",
-        "streetAddress": "Bleicherweg 8",
-        "postalCode": "8001",
-        "addressLocality": "Zurich",
-        "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:48:45.577Z"
-      },
-      "streetAddress": "Bleicherweg 8",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "efg-6327",
-      "slug": "ricevitore-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Receptionist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player",
-              "Proven experience in intervention management;",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
-              "Fluent in German and English is a must. French/Italian would be strongly valued;",
-              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
-              "Accurate and detail oriented;",
-              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
-              "Communicative, trustworthy presence, politeness;",
-              "Able to work in a challenging, pressure and dynamic environment."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Successfully completed commercial education;",
-              "Proven experience in hospitality/hôtellerie;",
-              "Service-oriented, flexible, reliable, and a strong team player"
-            ],
-            "keywords": [
-              "Successfully completed commercial education",
-              "Proven experience in hospitality/hôtellerie",
-              "Service-oriented",
-              "Proven experience in intervention management",
-              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
-                  "<span><strong>JOB DESCRIPTION</strong></span>",
-                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Main activities",
-                "paragraphs": [],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "1. Hospitality services",
-                "paragraphs": [
-                  "<br><strong>2. Admin support</strong>"
-                ],
-                "bullets": [
-                  "Follow the Hospitality service protocol (SOP).",
-                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
-                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
-                  "Set up and restore lounges/conference rooms + service.",
-                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
-                  "Organise and book meeting rooms.",
-                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
-                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
-                  "Register external visitors and issue badges.",
-                  "Keep statistics (number of clients/visitors).",
-                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
-                  "Prepare \"Welcome Packs,\" and organize induction day"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-09-13T13:51:30.824Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "",
-      "salaryMin": 113000,
-      "salaryMax": 198500,
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-21T11:19:19.247Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
-      "postingDateSource": "unknown",
-      "postalCode": "8001",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "EFG International AG",
-        "streetAddress": "Bleicherweg 8",
-        "postalCode": "8001",
-        "addressLocality": "Zurich",
-        "addressRegion": "ZH",
-        "checkedAt": "2026-10-31T20:48:45.577Z"
-      },
-      "streetAddress": "Bleicherweg 8",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T22:21:01.758Z",
-      "validThroughSource": "build-clock-fallback",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6488",
@@ -327,7 +50,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.713Z",
+      "crawledAt": "2026-11-13T09:17:27.323Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -343,7 +66,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:20:25.713Z",
+      "validThrough": "2026-12-14T09:17:27.323Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -469,7 +192,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.709Z",
+      "crawledAt": "2026-11-13T09:17:27.315Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -485,7 +208,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T21:20:25.709Z",
+      "validThrough": "2026-12-16T09:17:27.315Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -532,7 +255,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.684Z",
+      "crawledAt": "2026-11-13T09:17:27.277Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -554,7 +277,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:20:25.684Z",
+      "validThrough": "2027-01-18T09:17:27.277Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -668,7 +391,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.678Z",
+      "crawledAt": "2026-11-13T09:17:27.273Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -685,7 +408,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:20:25.678Z",
+      "validThrough": "2026-12-13T09:17:27.273Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -729,7 +452,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.672Z",
+      "crawledAt": "2026-11-13T09:17:27.269Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -746,7 +469,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:20:25.672Z",
+      "validThrough": "2026-12-13T09:17:27.269Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -863,7 +586,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.651Z",
+      "crawledAt": "2026-11-13T09:17:27.250Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -891,12 +614,71 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:20:25.651Z",
+      "validThrough": "2026-12-13T09:17:27.250Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6560",
+      "slug": "dba-capo-squadra-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "DBA team leader",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-05T14:59:48+00:00",
+      "postedDate": "2026-11-05T14:59:48+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6560",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Database Administration</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Switzerland, Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As DBA Team Leader, you will lead EFG’s database administration function and be accountable for the availability, security, performance, resilience, and lifecycle management of the bank’s database platforms. This role combines hands-on technical leadership with people management, service ownership, operational governance, capacity planning, automation, and continuous improvement.</span></p><p><span>You will oversee a heterogeneous database landscape (including Oracle, SQL Server, MySQL, PostgreSQL and Azure database services), ensuring robust support for business‑critical banking applications, regulatory requirements, and strategic transformation projects. You will also drive database optimisation and innovation, contributing to the evolution of EFG’s database strategy across on‑premises, hybrid, and cloud environments.</span></p><p><span>The position is based in Geneva and may require participation in an on‑call rotation and occasional work during weekends to support planned activities and critical incidents.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Lead, coach, and develop the DBA team, setting priorities, allocating work, and ensuring appropriate skills coverage, mentoring, and knowledge transfer.</span></p><p><span>· Own the operational delivery and lifecycle management of the bank’s Oracle, SQL Server, MySQL, PostgreSQL and Azure database services, ensuring stable and efficient platforms for business‑critical systems.</span></p><p><span>· Define, implement, and enforce standards for database architecture, engineering, security, backup and recovery, monitoring, patching, and performance, in line with regulatory, risk, and audit expectations.</span></p><p><span>· Ensure database availability, resilience, capacity, and recoverability in accordance with agreed service levels and business continuity requirements, including high‑availability and disaster‑recovery architectures (e.g. Oracle Exadata, Oracle Data Guard).</span></p><p><span>· Lead incident, problem, and change management activities for database services, including root‑cause analysis, preventive actions, and clear communication to IT management and key stakeholders.</span></p><p><span>· Drive performance tuning, capacity planning, upgrades, migrations, platform consolidation, and cloud adoption initiatives, supporting the bank’s digital and data strategy.</span></p><p><span>· Maintain effective controls for privileged access, vulnerability remediation, data protection, audit evidence, and compliance, in close collaboration with Information Security, Risk, and Compliance functions.</span></p><p><span>· Partner with Application Development, Infrastructure, Cloud, Architecture, Security, and Project Management teams to design and deliver secure, scalable, and supportable database solutions for new and existing applications.</span></p><p><span>· Manage relationships with external service providers and vendors, including licences, maintenance contracts, and database‑related budgets, within the agreed governance framework.</span></p><p><span>· Organise and participate in the on‑call rotation, ensuring appropriate operational coverage and readiness, and provide senior escalation support for complex database issues and business‑critical projects.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: Bachelor’s degree in Computer Science, Information Technology, or a related field.</span><br><span>· Preferred: Postgraduate degree and/or relevant professional certifications in database technologies or cloud platforms are an advantage.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum of 10 years of experience in database administration in complex, high‑availability environments, ideally within financial services or similarly regulated industries.</span><br><span>· Several years of proven experience in a technical leadership and/or people‑management role, leading DBA teams or similar infrastructure teams.</span><br><span>· Demonstrated track record in managing mission‑critical database platforms supporting core business applications and regulatory requirements.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Advanced, hands‑on expertise in Oracle and Microsoft SQL Server administration, including installation, configuration, performance tuning, backup and recovery, and troubleshooting.</span><br><span>· Practical experience with MySQL and PostgreSQL; exposure to heterogeneous database environments is a strong asset.</span><br><span>· Strong experience with Oracle Exadata, Oracle Data Guard, and high‑availability and disaster‑recovery architectures.</span><br><span>· Deep understanding of database architecture, performance optimisation, capacity management, security, resilience, and platform lifecycle management.</span><br><span>· Experience with Azure SQL Database and other Azure data services, including hybrid and cloud migration scenarios, is highly desirable.</span><br><span>· Proficiency with scripting and automation tools used to standardise and improve database operations and monitoring.</span><br><span>· Strong service ownership mindset, with proven capabilities in planning, vendor management, risk management, and decision‑making.</span><br><span>· Excellent communication and stakeholder‑management skills, with the ability to explain technical risks, options, and recommendations to both technical and non‑technical audiences.</span><br><span>· Ability to remain composed, provide clear leadership, and make sound decisions during critical incidents in high‑availability, business‑critical environments.</span><br><span>· Willingness and flexibility to lead and participate in an on‑call rotation and to support planned work outside normal business hours, including weekends when required.</span></p><p><span><strong>Languages</strong></span><br><span>· Fluent in French and English (spoken and written). Additional languages are an asset.</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-13T09:17:27.241Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:17:27.241Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:13:58.262Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -938,7 +720,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.646Z",
+      "crawledAt": "2026-11-13T09:17:27.234Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -949,7 +731,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:20:25.646Z",
+      "validThrough": "2027-02-02T09:17:27.234Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "_qualityScore": 99,
@@ -997,7 +779,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.641Z",
+      "crawledAt": "2026-11-13T09:17:27.226Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -1008,72 +790,13 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:20:25.641Z",
+      "validThrough": "2027-02-02T09:17:27.226Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6560",
-      "slug": "dba-capo-squadra-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "DBA team leader",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05T14:59:48+00:00",
-      "postedDate": "2026-11-05T14:59:48+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6560",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Database Administration</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Switzerland, Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As DBA Team Leader, you will lead EFG’s database administration function and be accountable for the availability, security, performance, resilience, and lifecycle management of the bank’s database platforms. This role combines hands-on technical leadership with people management, service ownership, operational governance, capacity planning, automation, and continuous improvement.</span></p><p><span>You will oversee a heterogeneous database landscape (including Oracle, SQL Server, MySQL, PostgreSQL and Azure database services), ensuring robust support for business‑critical banking applications, regulatory requirements, and strategic transformation projects. You will also drive database optimisation and innovation, contributing to the evolution of EFG’s database strategy across on‑premises, hybrid, and cloud environments.</span></p><p><span>The position is based in Geneva and may require participation in an on‑call rotation and occasional work during weekends to support planned activities and critical incidents.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Lead, coach, and develop the DBA team, setting priorities, allocating work, and ensuring appropriate skills coverage, mentoring, and knowledge transfer.</span></p><p><span>· Own the operational delivery and lifecycle management of the bank’s Oracle, SQL Server, MySQL, PostgreSQL and Azure database services, ensuring stable and efficient platforms for business‑critical systems.</span></p><p><span>· Define, implement, and enforce standards for database architecture, engineering, security, backup and recovery, monitoring, patching, and performance, in line with regulatory, risk, and audit expectations.</span></p><p><span>· Ensure database availability, resilience, capacity, and recoverability in accordance with agreed service levels and business continuity requirements, including high‑availability and disaster‑recovery architectures (e.g. Oracle Exadata, Oracle Data Guard).</span></p><p><span>· Lead incident, problem, and change management activities for database services, including root‑cause analysis, preventive actions, and clear communication to IT management and key stakeholders.</span></p><p><span>· Drive performance tuning, capacity planning, upgrades, migrations, platform consolidation, and cloud adoption initiatives, supporting the bank’s digital and data strategy.</span></p><p><span>· Maintain effective controls for privileged access, vulnerability remediation, data protection, audit evidence, and compliance, in close collaboration with Information Security, Risk, and Compliance functions.</span></p><p><span>· Partner with Application Development, Infrastructure, Cloud, Architecture, Security, and Project Management teams to design and deliver secure, scalable, and supportable database solutions for new and existing applications.</span></p><p><span>· Manage relationships with external service providers and vendors, including licences, maintenance contracts, and database‑related budgets, within the agreed governance framework.</span></p><p><span>· Organise and participate in the on‑call rotation, ensuring appropriate operational coverage and readiness, and provide senior escalation support for complex database issues and business‑critical projects.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: Bachelor’s degree in Computer Science, Information Technology, or a related field.</span><br><span>· Preferred: Postgraduate degree and/or relevant professional certifications in database technologies or cloud platforms are an advantage.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum of 10 years of experience in database administration in complex, high‑availability environments, ideally within financial services or similarly regulated industries.</span><br><span>· Several years of proven experience in a technical leadership and/or people‑management role, leading DBA teams or similar infrastructure teams.</span><br><span>· Demonstrated track record in managing mission‑critical database platforms supporting core business applications and regulatory requirements.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Advanced, hands‑on expertise in Oracle and Microsoft SQL Server administration, including installation, configuration, performance tuning, backup and recovery, and troubleshooting.</span><br><span>· Practical experience with MySQL and PostgreSQL; exposure to heterogeneous database environments is a strong asset.</span><br><span>· Strong experience with Oracle Exadata, Oracle Data Guard, and high‑availability and disaster‑recovery architectures.</span><br><span>· Deep understanding of database architecture, performance optimisation, capacity management, security, resilience, and platform lifecycle management.</span><br><span>· Experience with Azure SQL Database and other Azure data services, including hybrid and cloud migration scenarios, is highly desirable.</span><br><span>· Proficiency with scripting and automation tools used to standardise and improve database operations and monitoring.</span><br><span>· Strong service ownership mindset, with proven capabilities in planning, vendor management, risk management, and decision‑making.</span><br><span>· Excellent communication and stakeholder‑management skills, with the ability to explain technical risks, options, and recommendations to both technical and non‑technical audiences.</span><br><span>· Ability to remain composed, provide clear leadership, and make sound decisions during critical incidents in high‑availability, business‑critical environments.</span><br><span>· Willingness and flexibility to lead and participate in an on‑call rotation and to support planned work outside normal business hours, including weekends when required.</span></p><p><span><strong>Languages</strong></span><br><span>· Fluent in French and English (spoken and written). Additional languages are an asset.</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-12T21:20:25.635Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:20:25.635Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:13:58.262Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -1115,7 +838,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-12T21:20:25.627Z",
+      "crawledAt": "2026-11-13T09:17:27.221Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -1138,7 +861,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:20:25.627Z",
+      "validThrough": "2026-12-26T09:17:27.221Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "_qualityScore": 99,
@@ -2019,5 +1742,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }
