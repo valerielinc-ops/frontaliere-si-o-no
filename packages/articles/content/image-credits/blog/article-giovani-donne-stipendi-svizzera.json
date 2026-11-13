@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-giovani-donne-stipendi-svizzera.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-11-13T12:56:41.895Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-11-13",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-giovani-donne-stipendi-svizzera",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "b76ffa7984318bdac0c579732df5e3831bd7ad2c548a4eb7b29420a4c9254802",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "38d1c8f0bc1f05efa2abb2f40bedb0ee1b0f599baedab81be66763b43457da11",
+    "bytes": 75912,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-11-13T12:56:41.895Z",
+    "verifiedAt": "2026-11-13T12:57:02.646Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-giovani-donne-stipendi-svizzera.webp",
+    "area": "Svizzera. Safety retry: absolutely no signs, lettering, words, numbers, logos, labels, banners, watermarks, or signature-like marks anywhere in the image.",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Original generic synthetic editorial illustration of a young woman studying alongside financial items; no text, logos, identifiable faces, or specific real event."
+    }
+  }
+}
