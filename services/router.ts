@@ -3223,16 +3223,16 @@ export function parsePath(pathname: string): ParseResult {
        }
        // P1.3 Phase 2 — data-driven city match. `isKnownCityHub` consults
        // `data/canton-municipalities.json` so any of the 26 cantons can
-       // route `/<section>/<city>/` to `jobBoardCity`. For TI the legacy
-       // 5-city set continues to match (BFS municipalities include
-       // Lugano/Mendrisio/Bellinzona/Locarno/Chiasso). Non-aggregator
+       // route `/<section>/<city>/` to `jobBoardCity`. The five established
+       // TI URLs keep their legacy pages; the other TI municipality routes
+       // are emitted by the per-canton city-hub generator. Non-aggregator
        // cantons only — aggregator pages (`_AGGREGATE_`) don't have a
        // single canton scope, so a known city slug must be unambiguous
        // across cantons (handled inside `isKnownCityHub`).
        const cantonForCityLookup = cantonCode !== '_AGGREGATE_' ? cantonCode : undefined;
        if (isKnownCityHub(rawSecond, cantonForCityLookup)) {
-         // Build emits a real per-city static HTML at this path (city-jobs-hub
-         // plugin) with the jobs already filtered and ranked for the city.
+         // Build emits a real per-city static HTML at this path with the jobs
+         // already filtered and ranked for the city.
          // staticOverlay:true keeps that SSR content visible — without it the
          // SPA hydration replaces the 3 city-filtered cards with a generic
          // canton-wide SERP (jobBoardCity is currently a dead field downstream).
