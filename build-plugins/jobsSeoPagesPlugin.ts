@@ -16,6 +16,7 @@ import {
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
 import { releaseExpiredArchiveRowAfterRender } from './shared/expiredArchiveRetention';
 import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneSelfHealTracking';
+import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -80,7 +81,11 @@ import {
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { hasClusterStopwordLead } from './shared/searchSlugStopwords';
 import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
-import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
+import {
+ isPaginationNoindex,
+ isPaginationSitemapEligible,
+ pushPaginationSitemapEntry,
+} from './shared/paginationIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -9263,7 +9268,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -9409,7 +9418,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  }
@@ -13351,6 +13364,8 @@ ${staticAnalyticsHtml}
  };
  const isCurrentSlug = (slug: string): boolean =>
   ((currentSlugs.get(slug) ?? 0) & CURRENT_JOB_SLUG) !== 0;
+ const isCurrentSlugForLocale = (slug: string, locale: JobSeoLocale): boolean =>
+  ((currentSlugs.get(slug) ?? 0) & localeOwnerBit(locale)) !== 0;
  // Collect slug values that differ from slugByLocale.it — these are legacy
  // identifier slugs that no longer have an active page at that path. They
  // should be treated as previous slugs (bridge pages), not as current.
@@ -14448,6 +14463,8 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
+ let expiredSkippedActiveSlug = 0;
+ let expiredLegacySectionCanonicalized = 0;
  const EXPIRED_SITEMAP_CHUNK_ENTRIES = 10_000;
  const expiredSitemapBuffer: string[] = [];
  const expiredSitemapPath = np.join(distDir, 'sitemap-jobs-expired.xml');
@@ -14722,6 +14739,31 @@ ${staticAnalyticsHtml}
  _qwFlat(safeTargets.flatPath!, html);
  return true;
  };
+ const resolveExpiredPathForEmission = (
+  locale: JobSeoLocale,
+  trackedPath: string,
+  slug: string,
+ ) => resolveExpiredEmitPath({
+  locale,
+  trackedPath,
+  slug,
+  isActiveSlug: (candidateSlug, candidateLocale) =>
+   isCurrentSlugForLocale(candidateSlug, candidateLocale),
+  isTargetOccupied: (candidatePath, candidateLocale) => {
+   const canonicalPath = candidatePath.endsWith('/') ? candidatePath : candidatePath + '/';
+   const relPathKey = canonicalPath.replace(/^\/+|\/+$/g, '');
+   const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
+   if (!safeTargets) return true;
+   return claimedJobPaths.has(localePathClaimKey(canonicalPath))
+    || pagePathClaims.has(candidateLocale, canonicalPath)
+    || bridgeClaimedPaths.has(canonicalPath)
+    || bridgeClaimedPaths.has('/' + relPathKey)
+    || activeJobDirs.has(relPathKey)
+    || pathWasClaimed(safeTargets.indexPath)
+    || fs.existsSync(safeTargets.indexPath)
+    || Boolean(safeTargets.flatPath && fs.existsSync(safeTargets.flatPath));
+  },
+ });
 
  // Keep both employer and recent recommendations in the archived job's canton.
  const archiveRecommendations = buildArchiveJobRecommendations(validJobs);
@@ -14977,7 +15019,31 @@ ${staticAnalyticsHtml}
  // the same winner, even though only one shard writes each locale's HTML.
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
  const slug = expiredSlugs[expiredSlugIndex];
- const paths = tracking[slug];
+ const trackedPaths = tracking[slug];
+ let paths = trackedPaths;
+ let resolvedPaths: Record<string, string> | undefined;
+ for (const locale of localeList) {
+  const trackedPath = trackedPaths[locale];
+  if (!trackedPath) continue;
+  const pathResolution = resolveExpiredPathForEmission(locale, trackedPath, slug);
+  if (pathResolution.kind === 'skip') {
+   if (pathResolution.reason === 'active-slug') expiredSkippedActiveSlug++;
+   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   delete resolvedPaths[locale];
+   continue;
+  }
+  if (pathResolution.canonicalizedLegacySection) {
+   expiredLegacySectionCanonicalized++;
+   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   resolvedPaths[locale] = pathResolution.path;
+  }
+ }
+ if (resolvedPaths) paths = resolvedPaths;
+ if (!localeList.some((locale) => paths[locale])) {
+  releaseExpiredSweepSlug(slug, expiredSlugIndex);
+  await drainExpiredSweepSlot(expiredSlugIndex);
+  continue;
+ }
  const expiredArchiveOverflowOwned = !expiredBySlug.has(slug) && expiredSliceOverflow.has(slug);
  const ejData = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
 
@@ -15117,7 +15183,10 @@ ${staticAnalyticsHtml}
  // normal previous-slug phase will replace this with the active job's full
  // content when it has a readable canonical page; this snapshot is the
  // lossless fallback for a historical URL whose active cache is unavailable.
- if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(relPath)) {
+ // The emit path may have been canonicalized above, but fallback identity stays
+ // keyed by the original tracking path for the later self-healing lookup.
+ const historicalArchivePath = trackedPaths[locale] || relPath;
+ if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(historicalArchivePath)) {
   const fallbackDescription = String(
    ejData?.descriptionByLocale?.[locale]
    || ejData?.descriptionByLocale?.it
@@ -15126,7 +15195,7 @@ ${staticAnalyticsHtml}
    || gscInfo?.descriptionByLocale?.it
    || '',
   );
-  historicalArchiveFallbacks.set(relPath, {
+  historicalArchiveFallbacks.set(historicalArchivePath, {
    recordedIdentity: hasRealTitle,
    title: String(recordedTitleForLocale(locale) || slugInfo?.title || ''),
    company: jobCompany,
@@ -16049,6 +16118,8 @@ ${staticAnalyticsHtml}
  jobsSeoMemContext.sitemap.entries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
+  expiredSkippedActiveSlug,
+  expiredLegacySectionCanonicalized,
   expiredSitemapEntries: expiredSitemapEntryCount,
   sitemapEntries: expiredSitemapEntryCount,
   progressiveExpiredArchiveRowsReleased,
@@ -16155,7 +16226,11 @@ ${staticAnalyticsHtml}
  // not let a job bridge occupy `/azienda-*` and produce a page without the
  // company-hub canonical contract (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
- const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const trackedPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const pathResolution = resolveExpiredPathForEmission(baseLocale, trackedPath, foreignSlug);
+ if (pathResolution.kind === 'skip') continue;
+ const relPath = pathResolution.path;
+ if (pathResolution.canonicalizedLegacySection) expiredLegacySectionCanonicalized++;
  const edgeCanonicalPath = normalizeExpiredJobEdgePath(relPath);
  if (edgeCanonicalPath && expiredJobEdgeStaticSkipPaths.has(edgeCanonicalPath)) continue;
  if (isDistPathOverFilesystemLimits(relPath)) {
@@ -17270,8 +17345,17 @@ ${staticAnalyticsHtml}
  if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
  const paths = tracking[slug];
  for (const locale of localeList) {
- const relPath = paths?.[locale];
- if (!relPath) continue;
+ const trackedPath = paths?.[locale];
+ if (!trackedPath) continue;
+ const pathResolution = resolveExpiredPathForEmission(locale, trackedPath, slug);
+ if (pathResolution.kind === 'skip') continue;
+ const relPath = pathResolution.path;
+ if (pathResolution.canonicalizedLegacySection && shouldEmitLocale(locale)) {
+  expiredLegacySectionCanonicalized++;
+ }
+ const emissionPaths = pathResolution.canonicalizedLegacySection
+  ? { ...paths, [locale]: relPath }
+  : paths;
  // Keep the self-healing safety net aligned with the expired renderer: a
  // native non-Ticino detail page owns this locale+slug and the Worker handles
  // the legacy-TI URL with a redirect. Recreating a 200 tombstone here would
@@ -17346,8 +17430,8 @@ ${staticAnalyticsHtml}
  continue;
  }
 
- const archive = historicalArchiveFallbacks.get(relPath);
- const hreflangLinks = buildTrackedHreflangLinks(slug, paths);
+ const archive = historicalArchiveFallbacks.get(trackedPath);
+ const hreflangLinks = buildTrackedHreflangLinks(slug, emissionPaths);
  const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
  const wroteHistorical = writeSoftLandingPage(relPath.replace(/^\//, ''), html);
  if (!wroteHistorical) continue;
@@ -17363,6 +17447,11 @@ ${staticAnalyticsHtml}
  if (healedCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Preserved ${historicalFallbackCount} historical tracking paths with full archive pages (${historicalArchiveCount} reused archived payloads)`);
  }
+ console.log(
+  `\x1b[36m[jobs-seo-pages]\x1b[0m expired emit policy: ` +
+  `expiredSkippedActiveSlug=${expiredSkippedActiveSlug} ` +
+  `expiredLegacySectionCanonicalized=${expiredLegacySectionCanonicalized}`,
+ );
  if (skippedFilesystemLimitPaths > 0) {
   console.warn(`[jobs-seo-pages] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
  }

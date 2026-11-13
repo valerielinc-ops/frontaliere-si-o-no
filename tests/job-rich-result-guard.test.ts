@@ -12,6 +12,7 @@ import {
   evaluateRichShare,
   seededSample,
   SETTLE_DAYS,
+  isIndexedUrlInspection,
 } from '../scripts/lib/job-rich-result-guard.mjs';
 
 const series = (start: string, clicks: number[]) =>
@@ -25,6 +26,15 @@ describe('hasJobPostingRichResult', () => {
       { richResultType: 'Job Postings', items: [{ name: 'Operatore' }] },
     ] })).toBe(true);
     expect(hasJobPostingRichResult(undefined)).toBe(false);
+  });
+});
+
+describe('isIndexedUrlInspection', () => {
+  it('requires the index-status PASS verdict', () => {
+    expect(isIndexedUrlInspection({ verdict: 'PASS' })).toBe(true);
+    expect(isIndexedUrlInspection({ verdict: 'NEUTRAL' })).toBe(false);
+    expect(isIndexedUrlInspection({ verdict: 'UNKNOWN' })).toBe(false);
+    expect(isIndexedUrlInspection(undefined)).toBe(false);
   });
 });
 
@@ -73,10 +83,14 @@ describe('pickEvaluationDay', () => {
 });
 
 describe('evaluateRichShare', () => {
-  const row = (liveJob: boolean, hasJobs: boolean, inspected = true) => ({ liveJob, hasJobs, inspected });
-  it('counts only live, inspected job pages and alerts under 80%', () => {
+  const row = (liveJob: boolean, hasJobs: boolean, inspected = true, indexed = true) => ({ liveJob, hasJobs, inspected, indexed });
+  it('counts only live, inspected, indexed job pages and alerts under 80%', () => {
     const rows = [...Array(20).fill(row(true, true)), ...Array(7).fill(row(true, false)), row(false, false), row(true, false, false)];
     expect(evaluateRichShare(rows)).toMatchObject({ eligible: 27, withJobs: 20, alert: true, reason: 'below-threshold' });
+  });
+  it('does not count live pages that Google has not indexed yet', () => {
+    const rows = [...Array(9).fill(row(true, true)), ...Array(8).fill(row(true, false, true, false))];
+    expect(evaluateRichShare(rows)).toMatchObject({ eligible: 9, withJobs: 9, alert: false, reason: 'small-sample' });
   });
   it('stays quiet at or above 80% and on a too-small sample', () => {
     expect(evaluateRichShare([...Array(8).fill(row(true, true)), ...Array(2).fill(row(true, false))]).alert).toBe(false);

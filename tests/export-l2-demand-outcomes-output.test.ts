@@ -6,6 +6,7 @@ import {
   buildL2DemandExport,
   buildL2ExportSummary,
   main,
+  L2_USEFUL_ACTION_EVENT,
   SUMMARY_CANDIDATE_LIMIT,
 } from '../scripts/ci/export-l2-demand-outcomes.mjs';
 import { validateDemandSnapshot } from '../scripts/ci/loop-l2-demand-utility.mjs';
@@ -36,7 +37,7 @@ function largeSnapshot() {
 const fakeClient = { accessToken: async () => 'test-token' };
 
 async function fakeGa4Runner({ body }: { body: any }) {
-  return body.dimensionFilter
+  return JSON.stringify(body.dimensionFilter).includes(L2_USEFUL_ACTION_EVENT)
     ? { rows: [{ dimensionValues: [{ value: '/ricerca/query-numero-1-lavoro-ticino/' }], metricValues: [{ value: '3' }] }] }
     : { rows: [
       { dimensionValues: [{ value: '/ricerca/query-numero-1-lavoro-ticino/' }], metricValues: [{ value: '40' }] },

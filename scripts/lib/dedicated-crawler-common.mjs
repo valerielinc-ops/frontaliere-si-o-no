@@ -1939,7 +1939,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
             // while the slice kept the indexed one. A derived URL that earlier
             // builds did serve stays reachable as a bridge.
             publishedSlugsKept += 1;
-            if (slugWasServed(locale, derived) === true) {
+            if (slugWasServed(locale, derived, job) === true) {
               addPreviousSlugForLocale(job, locale, derived, 20, 'hardenJobLocaleFields/publishedSlugKept');
               jobChanged = true;
             }
@@ -2124,7 +2124,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
         }
         if (!isQualityRepair && keepsServedSlug(job, locale, localizedSlug, { company, location })) {
           publishedSlugsKept += 1;
-          if (slugWasServed(locale, nextSlug) === true) {
+          if (slugWasServed(locale, nextSlug, job) === true) {
             addPreviousSlugForLocale(job, locale, nextSlug, 20, 'hardenJobLocaleFields/publishedSlugKept');
             jobChanged = true;
           }

@@ -100,7 +100,7 @@ export function candidateRules(candidateLocale) {
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
-- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
+- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). A requested portrait photo has the dedicated document slot "photo"; use it only when documents.extra lists that slot. Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
 - A yes/no question that only asks whether the candidate holds a document listed in documents.extra (they attach it to this application): its "yes", source "documents". When it asks more about the document (a category, a grade, a date), it is an eligibility question as any other.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
@@ -2248,16 +2248,20 @@ export function guardPlan(plan, fields, candidate = null) {
     if (Array.isArray(field.labels)) {
       privacyRepresentations.push(...field.labels.filter(value => typeof value === 'string'));
     }
+    const purePrivacyReviewAcknowledgment = privacyRepresentations.some(value =>
+      isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations));
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
-    // A policy default may choose a checkbox, but a consent named by its own
-    // fieldset legend keeps consent provenance when its associated label is empty.
-    const ownedConsentWithEmptyNativeLabel = ownConsent(field) && field.emptyNativeLabelOwnedLegend === true;
-    if (action.action === 'check' && action.source === 'policy_default' && ownedConsentWithEmptyNativeLabel) {
+    // A pure read-acknowledgment may retain policy-default provenance. An
+    // explicit application consent keeps consent provenance, including when
+    // its label is directly attached to the control.
+    const ownedConsent = ownConsent(field);
+    if (action.action === 'check' && action.source === 'policy_default' && ownedConsent
+      && !purePrivacyReviewAcknowledgment) {
       action = { ...action, source: 'consent' };
     }
     if (action.action === 'check'
@@ -2286,7 +2290,7 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
-        source: known.source === 'policy_default' && ownedConsentWithEmptyNativeLabel ? 'consent' : known.source, evidence: '' };
+      source: known.source === 'policy_default' && ownedConsent && !purePrivacyReviewAcknowledgment ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

@@ -2369,7 +2369,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
+      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'consent', evidence: '' },
     ]);
     // A policy-defaultable privacy notice stays checked despite an opposing plan action; a prompt value stays blank and an optional newsletter may be cleared.
     const projected = guardPlan({
@@ -2393,7 +2393,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('uses policy defaults for application privacy acknowledgments and keeps marketing/fact questions', () => {
+  it('keeps consent provenance for application acknowledgments and policy defaults for review statements', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2411,7 +2411,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
     expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([
-      ['c1', 'policy_default'], ['c4', 'policy_default'], ['c5', 'policy_default'], ['c6', 'policy_default'],
+      ['c1', 'consent'], ['c4', 'policy_default'], ['c5', 'consent'], ['c6', 'consent'],
     ]);
     // Marketing and a checkbox that also declares a candidate fact remain questions.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);

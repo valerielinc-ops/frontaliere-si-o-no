@@ -540,8 +540,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingMatch: 'match',
     })).toBe(false);
     expect(hasApplicationSurface({}, {
-      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
-      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      pageUrl: postingUrl,
+      postingUrl,
       postingMatch: 'match',
     })).toBe(true);
     const umantisPostingUrl = 'https://company.umantis.com/Vacancies/123/Description/456';
@@ -1707,8 +1707,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
   it('applies the same knock-out rule to the agent', () => {
     const candidate = { answers: {}, profile: { languages: ['Tedesco B2'] }, portalQuestionsAnswered: [] };
-    const turn = (evidence: string, answer: string) => ({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Livello di tedesco', answer, source: 'profile', evidence }] });
-    expect(guardAgentStep(turn('', 'C1'), candidate)).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const turn = (evidence: string, answer: string) => ({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Livello di tedesco', answer, source: 'profile', evidence }] });
+    expect(guardAgentStep(turn('', 'C1'), candidate)).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     expect(guardAgentStep(turn('Tedesco B2', 'B2'), candidate).actions).toHaveLength(1);
   });
 
@@ -1719,12 +1719,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const plan = guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [field], candidate);
     expect(plan.actions).toEqual([]);
     expect(plan.missingRequired.map((item: any) => item.fieldId)).toEqual(['k1']);
-    const agent = guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
-    expect(agent).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const agent = guardAgentStep({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
+    expect(agent).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     // Second review: levels are read where the quote names the language asked.
     const mixed = { answers: {}, profile: { languages: ['Deutsch B2; Englisch C2'] }, portalQuestionsAnswered: [] };
     expect(guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }], missingRequired: [] }, [field], mixed).actions).toEqual([]);
-    expect(guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }] }, mixed)).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(guardAgentStep({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }] }, mixed)).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     // The same quote does support a "yes" to B2 or lower, in another language's words too.
     const b2 = guardPlan({ actions: [{ fieldId: 'k2', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [{ ...field, id: 'k2', label: 'Tedesco almeno B1?' }], candidate);
     expect(b2.actions).toHaveLength(1);

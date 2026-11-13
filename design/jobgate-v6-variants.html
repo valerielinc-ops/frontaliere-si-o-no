@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JobGate v6 — esplorazione visiva</title>
+  <style>
+    :root {
+      --primary: #533afd;
+      --primary-hover: #4529e6;
+      --primary-soft: #f5f3ff;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --surface-raised: #f1f5f9;
+      --heading: #0f172a;
+      --strong: #1e293b;
+      --body: #334155;
+      --subtle: #475569;
+      --muted: #64748b;
+      --edge: #e2e8f0;
+      --success: #059669;
+      --navy: #0a2540;
+      --on-accent: #ffffff;
+      --dark-edge: #334155;
+      --accent-dark: #a78bfa;
+      --shadow-subtle: 0 1px 3px rgba(50, 50, 93, .08), 0 1px 2px rgba(0, 0, 0, .04);
+      --shadow-standard: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+      --shadow-raised: 0 6px 12px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .06);
+      --gate-bg: var(--surface);
+      --gate-text: var(--heading);
+      --gate-body: var(--subtle);
+      --gate-border: var(--edge);
+      --gate-accent: var(--primary);
+      --gate-button-text: var(--on-accent);
+      --gate-muted: var(--muted);
+      --input-muted: var(--muted);
+      --gate-radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--heading);
+      background: var(--surface-alt);
+      font: 400 16px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    }
+
+    button, input, summary { font: inherit; }
+    button { cursor: default; }
+
+    .page {
+      width: min(1680px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--edge);
+    }
+
+    .page-header h1 {
+      max-width: 700px;
+      margin: 0;
+      font: 600 clamp(1.65rem, 3vw, 2.5rem)/1.08 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: -.03em;
+    }
+
+    .page-header p {
+      max-width: 620px;
+      margin: 10px 0 0;
+      color: var(--subtle);
+    }
+
+    .status-note {
+      flex: 0 0 auto;
+      max-width: 300px;
+      padding: 12px 14px;
+      color: var(--strong);
+      background: var(--surface);
+      border: 1px solid var(--edge);
+      border-radius: 12px;
+      box-shadow: var(--shadow-subtle);
+      font-size: .75rem;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin: 22px 0;
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 9px; height: 9px; display: inline-block; border-radius: 50%; background: var(--primary); }
+    .legend .exploratory i { background: var(--navy); }
+    .legend .conservative i { background: var(--success); }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .variant-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .variant-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      min-height: 88px;
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--edge);
+    }
+
+    .variant-meta h2 {
+      margin: 0;
+      font: 600 1rem/1.15 Space Grotesk, ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: -.015em;
+    }
+
+    .variant-meta p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: .75rem;
+      line-height: 1.35;
+    }
+
+    .variant-id {
+      flex: 0 0 auto;
+      color: var(--primary);
+      font: 700 .75rem/1 Inter, ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: .04em;
+    }
+
+    .gate-preview {
+      display: flex;
+      flex: 1;
+      min-height: 570px;
+      padding: 16px;
+      background: var(--surface-alt);
+    }
+
+    .job-gate {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 535px;
+      padding: 20px;
+      color: var(--gate-text);
+      background: var(--gate-bg);
+      border: 1px solid var(--gate-border);
+      border-radius: var(--gate-radius);
+      box-shadow: none;
+    }
+
+    .job-context {
+      display: grid;
+      gap: 4px;
+      padding-bottom: 14px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--gate-border);
+    }
+
+    .job-context strong {
+      overflow: hidden;
+      color: var(--gate-text);
+      font: 600 .98rem/1.2 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .job-context span { color: var(--gate-body); font-size: .72rem; }
+
+    .gate-heading {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--gate-text);
+      font: 700 1.02rem/1.18 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: -.015em;
+    }
+
+    .gate-heading svg { flex: 0 0 auto; margin-top: 1px; color: var(--gate-accent); }
+
+    .gate-subtitle {
+      margin: 9px 0 0;
+      color: var(--gate-body);
+      font-size: .75rem;
+      line-height: 1.45;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 7px;
+      padding: 0;
+      margin: 14px 0 0;
+      color: var(--gate-body);
+      font-size: .75rem;
+      list-style: none;
+    }
+
+    .trust-list li { display: flex; gap: 7px; align-items: center; }
+    .trust-list svg { flex: 0 0 auto; color: var(--primary); }
+
+    .consent {
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+      margin-top: 13px;
+      color: var(--gate-body);
+      font-size: .75rem;
+      line-height: 1.4;
+    }
+
+    /* The live gate renders a disclosure notice, not an acceptance checkbox. */
+    .consent input { display: none; }
+
+    .social-proof {
+      margin: 11px 0 0;
+      color: var(--gate-accent);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .actions {
+      display: grid;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 42px;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 12px;
+      color: var(--strong);
+      background: var(--surface);
+      border: 1px solid var(--edge);
+      border-radius: 8px;
+      font-size: .73rem;
+      font-weight: 700;
+    }
+
+    .btn svg { display: none; }
+    .btn.google::before,
+    .btn.linkedin::before {
+      content: '';
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .btn.google::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z'/%3E%3Cpath fill='%2334A853' d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z'/%3E%3Cpath fill='%23FBBC05' d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z'/%3E%3Cpath fill='%23EA4335' d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z'/%3E%3C/svg%3E");
+    }
+    .btn.linkedin::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230A66C2' d='M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.21 0 22.22 0Z'/%3E%3C/svg%3E");
+    }
+
+    .email-divider {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--gate-muted);
+      font-size: .75rem;
+    }
+
+    .email-divider::before, .email-divider::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: var(--gate-border);
+    }
+
+    .email-form { display: grid; gap: 8px; }
+
+    .email-form input {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 10px;
+      color: var(--gate-text);
+      background: var(--surface);
+      border: 1px solid var(--gate-border);
+      border-radius: 8px;
+      font-size: .73rem;
+    }
+
+    .email-form input::placeholder { color: var(--input-muted); }
+
+    .btn.email {
+      color: var(--gate-button-text);
+      background: var(--gate-accent);
+      border-color: var(--gate-accent);
+    }
+
+    .variant-card small {
+      display: block;
+      padding: 0 16px 14px;
+      color: var(--muted);
+      font-size: .75rem;
+      line-height: 1.35;
+    }
+
+    /* 01 — current tinted surface, with a measured lift. */
+    .v01 .job-gate {
+      --gate-bg: var(--primary-soft);
+      --gate-border: var(--primary);
+      --gate-accent: var(--primary);
+      --gate-muted: var(--subtle);
+      box-shadow: var(--shadow-raised);
+    }
+
+    /* 02 — tinted surface with a crisp double frame. */
+    .v02 .job-gate {
+      --gate-bg: var(--primary-soft);
+      --gate-border: var(--primary);
+      --gate-muted: var(--subtle);
+      border-width: 2px;
+      box-shadow: inset 0 0 0 2px var(--surface);
+    }
+
+    /* 03 — quieter tinted arm: the CTA owns the contrast. */
+    .v03 .job-gate {
+      --gate-bg: var(--surface);
+      --gate-border: var(--edge);
+      --gate-accent: var(--primary);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    /* 04 — one-pixel accent rail at the top, no shadow. */
+    .v04 .job-gate {
+      --gate-bg: var(--primary-soft);
+      --gate-border: var(--edge);
+      --gate-muted: var(--subtle);
+    }
+    .v04 .job-gate::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      background: var(--primary);
+      border-radius: var(--gate-radius) var(--gate-radius) 0 0;
+    }
+
+    /* 05 — editorial rule, more page than card. */
+    .v05 .job-gate {
+      --gate-border: var(--edge);
+      --gate-radius: 6px;
+      border-right-color: transparent;
+      border-left-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .v05 .job-context { border-bottom-color: var(--primary); }
+
+    /* 06 — Swiss precision: compact geometry and quiet hierarchy. */
+    .v06 .job-gate {
+      --gate-border: var(--edge);
+      --gate-radius: 6px;
+      padding: 18px;
+    }
+    .v06 .gate-heading { font-size: 1rem; letter-spacing: 0; }
+    .v06 .job-context strong { letter-spacing: .01em; }
+    .v06 .btn { border-radius: 6px; }
+
+    /* 07 — dossier surface: the gate feels like a trustworthy document. */
+    .v07 .job-gate {
+      --gate-bg: var(--surface-alt);
+      --gate-border: var(--edge);
+      --gate-radius: 12px;
+      box-shadow: var(--shadow-standard);
+    }
+    .v07 .job-context { background: var(--surface); margin: -20px -20px 15px; padding: 15px 20px 14px; }
+
+    /* 08 — benefit ledger: trust is read as a sequence, not a paragraph. */
+    .v08 .job-gate { --gate-border: var(--edge); }
+    .v08 .trust-list { gap: 0; border-top: 1px solid var(--gate-border); }
+    .v08 .trust-list li { padding: 7px 0; border-bottom: 1px solid var(--gate-border); }
+
+    /* 09 — action focus: the email path is visibly primary. */
+    .v09 .job-gate { --gate-border: var(--primary); box-shadow: var(--shadow-standard); }
+    .v09 .btn.email { min-height: 48px; font-size: .78rem; }
+    .v09 .social-proof { color: var(--primary); }
+
+    /* 10 — quiet focus: almost no container signal, only the action speaks. */
+    .v10 .job-gate {
+      --gate-bg: var(--surface-alt);
+      --gate-border: transparent;
+      --gate-accent: var(--primary);
+      border-radius: 6px;
+    }
+    .v10 .job-context { border-bottom-color: var(--edge); }
+
+    /* 11 — utility panel: high-information, compact, still touch-safe. */
+    .v11 .job-gate {
+      --gate-bg: var(--surface);
+      --gate-border: var(--edge);
+      --gate-radius: 8px;
+      padding: 16px;
+    }
+    .v11 .gate-subtitle { font-size: .75rem; }
+    .v11 .trust-list { gap: 4px; margin-top: 10px; }
+    .v11 .consent { margin-top: 10px; }
+
+    /* 12 — layered stack: tinted outer field, white action tray. */
+    .v12 .job-gate {
+      --gate-bg: var(--primary-soft);
+      --gate-border: var(--primary);
+      --gate-muted: var(--subtle);
+    }
+    .v12 .actions {
+      padding: 13px;
+      margin-right: -5px;
+      margin-left: -5px;
+      background: var(--surface);
+      border: 1px solid var(--primary-soft);
+      border-radius: 12px;
+    }
+
+    /* 13 — navy companion: a strong, trustworthy dark surface. */
+    .v13 .job-gate {
+      --gate-bg: var(--navy);
+      --gate-text: #f8fafc;
+      --gate-body: #cbd5e1;
+      --gate-border: var(--dark-edge);
+      --gate-accent: var(--accent-dark);
+      --gate-button-text: var(--navy);
+      --gate-muted: #cbd5e1;
+      --input-muted: var(--muted);
+      box-shadow: var(--shadow-raised);
+    }
+    .v13 .job-context { border-color: var(--dark-edge); }
+    .v13 .btn { color: var(--strong); }
+    .v13 .btn.email { color: var(--gate-button-text); background: var(--accent-dark); border-color: var(--accent-dark); }
+    .v13 .email-form input { color: var(--heading); }
+
+    /* 14 — ink & accent: monochrome shell, electric action. */
+    .v14 .job-gate {
+      --gate-bg: var(--heading);
+      --gate-text: #f8fafc;
+      --gate-body: #cbd5e1;
+      --gate-border: var(--dark-edge);
+      --gate-accent: var(--accent-dark);
+      --gate-button-text: var(--heading);
+      --gate-muted: #cbd5e1;
+      --input-muted: var(--muted);
+      --gate-radius: 8px;
+    }
+    .v14 .job-context { border-color: var(--dark-edge); }
+    .v14 .btn { color: #f8fafc; background: var(--strong); border-color: var(--subtle); }
+    .v14 .btn.email { color: var(--gate-button-text); background: var(--accent-dark); border-color: var(--accent-dark); }
+    .v14 .email-form input { color: var(--heading); }
+
+    /* 15 — full accent: an intentionally expressive purple field. */
+    .v15 .job-gate {
+      --gate-bg: var(--primary);
+      --gate-text: #ffffff;
+      --gate-body: var(--primary-soft);
+      --gate-border: var(--primary-hover);
+      --gate-accent: #ffffff;
+      --gate-button-text: var(--primary);
+      --gate-muted: var(--primary-soft);
+      --input-muted: var(--muted);
+      --gate-radius: 16px;
+      box-shadow: var(--shadow-standard);
+    }
+    .v15 .job-context { border-color: rgba(255,255,255,.3); }
+    .v15 .btn { color: var(--strong); background: #ffffff; border-color: #ffffff; }
+    .v15 .btn.email { color: var(--primary); background: #ffffff; border-color: #ffffff; }
+    .v15 .email-form input { color: var(--heading); }
+
+    /* 16 — industrial precision: the deliberate departure candidate. */
+    .v16 .job-gate {
+      --gate-border: var(--heading);
+      --gate-radius: 6px;
+      border-width: 2px;
+      box-shadow: 4px 4px 0 var(--heading);
+    }
+    .v16 .job-context { border-bottom-width: 2px; border-bottom-color: var(--heading); }
+    .v16 .gate-heading { font-size: 1rem; letter-spacing: -.03em; }
+    .v16 .btn { border-width: 2px; border-color: var(--heading); border-radius: 6px; }
+
+    @media (max-width: 1240px) {
+      .board { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 920px) {
+      .page-header { display: block; }
+      .status-note { max-width: none; margin-top: 18px; }
+      .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .page { width: min(100% - 20px, 500px); padding-top: 20px; }
+      .board { grid-template-columns: 1fr; }
+      .gate-preview { min-height: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <div>
+        <h1>JobGate v6: 16 direzioni visive</h1>
+        <p>Esplorazione Impeccable sul gate attuale. Copy, ordine, consenso, metodi di accesso e dimensioni operative restano invariati; cambia solo la grammatica visiva.</p>
+      </div>
+      <div class="status-note"><strong>Control:</strong> tinted.<br><strong>Selezionati:</strong> V6-13 Navy Companion, V6-02 Tinted Frame, V6-07 Dossier.<br>Copy, disclosure e metodi restano identici; cambia solo la pelle visiva.</div>
+    </header>
+    <div class="legend" aria-label="Legenda">
+      <span class="conservative"><i></i> conservativa / pronta al test</span>
+      <span><i></i> intermedia / da validare</span>
+      <span class="exploratory"><i></i> esplorativa / rischio maggiore</span>
+    </div>
+    <section class="board" aria-label="Varianti visuali">
+      <article class="variant-card v01">
+        <header class="variant-meta"><div><h2>Tinted Elevated</h2><p>La tinted con elevazione leggera.</p></div><span class="variant-id">V6-01</span></header>
+        <div class="gate-preview"><div class="job-gate">
+          <div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div>
+          <div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div>
+          <p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p>
+          <ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul>
+          <label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label>
+          <p class="social-proof">Annunci disponibili</p>
+          <div class="actions"><button class="btn google"><svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Continua con Google</button><button class="btn linkedin"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.21 0 22.22 0Z"/></svg>Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div>
+        </div></div><small>Ipotesi: più separazione dal contenuto senza introdurre nuova struttura.</small>
+      </article>
+
+      <article class="variant-card v02">
+        <header class="variant-meta"><div><h2>Tinted Frame</h2><p>Contorno netto, superficie morbida.</p></div><span class="variant-id">V6-02</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: un bordo memorabile migliora la riconoscibilità del punto di accesso.</small>
+      </article>
+
+      <article class="variant-card v03">
+        <header class="variant-meta"><div><h2>Soft Surface</h2><p>Tinted ridotta: enfasi tutta sulla CTA.</p></div><span class="variant-id">V6-03</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: ridurre il framing elimina rumore e lascia emergere il percorso email.</small>
+      </article>
+
+      <article class="variant-card v04">
+        <header class="variant-meta"><div><h2>Accent Rail</h2><p>Una sola linea viola per guidare l’occhio.</p></div><span class="variant-id">V6-04</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: un segnale lineare comunica direzione senza aumentare il peso della card.</small>
+      </article>
+
+      <article class="variant-card v05">
+        <header class="variant-meta"><div><h2>Editorial Rule</h2><p>Il gate come parte del contenuto, non come modalità.</p></div><span class="variant-id">V6-05</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: il gate editoriale sembra meno interruttivo e può preservare la fiducia nel contenuto.</small>
+      </article>
+
+      <article class="variant-card v06">
+        <header class="variant-meta"><div><h2>Swiss Precision</h2><p>Geometria compatta, ritmo preciso, zero ornamento.</p></div><span class="variant-id">V6-06</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: una composizione più rigorosa riduce il carico cognitivo su traffico mobile.</small>
+      </article>
+
+      <article class="variant-card v07">
+        <header class="variant-meta"><div><h2>Dossier</h2><p>Il gate come documento affidabile da consultare.</p></div><span class="variant-id">V6-07</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: la superficie rialzata aumenta la percezione di un passaggio protetto e serio.</small>
+      </article>
+
+      <article class="variant-card v08">
+        <header class="variant-meta"><div><h2>Trust Ledger</h2><p>Benefici leggibili come una sequenza verificabile.</p></div><span class="variant-id">V6-08</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: separare meglio i tre motivi per iscriversi aiuta la scansione senza cambiare il copy.</small>
+      </article>
+
+      <article class="variant-card v09">
+        <header class="variant-meta"><div><h2>Action Focus</h2><p>Una CTA più presente, senza cambiare l’ordine.</p></div><span class="variant-id">V6-09</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: un contrasto d’azione maggiore facilita il primo click senza alterare la scelta del metodo.</small>
+      </article>
+
+      <article class="variant-card v10">
+        <header class="variant-meta"><div><h2>Quiet Focus</h2><p>Contenitore quasi invisibile, azione chiara.</p></div><span class="variant-id">V6-10</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: il gate si integra meglio nella pagina e riduce la sensazione di blocco.</small>
+      </article>
+
+      <article class="variant-card v11">
+        <header class="variant-meta"><div><h2>Utility Panel</h2><p>Densità pratica per utenti già orientati.</p></div><span class="variant-id">V6-11</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: meno spazio morto aumenta la velocità di scelta sui visitatori ad alta intenzione.</small>
+      </article>
+
+      <article class="variant-card v12">
+        <header class="variant-meta"><div><h2>Layered Stack</h2><p>Superficie tinted, azioni raccolte in un tray.</p></div><span class="variant-id">V6-12</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: separare chiaramente contenuto e metodi riduce il tempo di orientamento.</small>
+      </article>
+
+      <article class="variant-card v13">
+        <header class="variant-meta"><div><h2>Navy Companion</h2><p>Scuro autorevole, coerente con i contesti di fiducia.</p></div><span class="variant-id">V6-13</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: più autorevolezza percepita può sostenere la fiducia prima del login.</small>
+      </article>
+
+      <article class="variant-card v14">
+        <header class="variant-meta"><div><h2>Ink &amp; Accent</h2><p>Monocromatico con un solo punto d’azione.</p></div><span class="variant-id">V6-14</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: un contenitore scuro rende il gate più memorabile e l’accento più raro.</small>
+      </article>
+
+      <article class="variant-card v15">
+        <header class="variant-meta"><div><h2>Purple Field</h2><p>Departure espressiva: il brand prende tutta la scena.</p></div><span class="variant-id">V6-15</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: un segnale molto forte aumenta la salienza, ma può sovrapporsi al contenuto dell’annuncio.</small>
+      </article>
+
+      <article class="variant-card v16">
+        <header class="variant-meta"><div><h2>Industrial Precision</h2><p>Departure ad alto contrasto, più editoriale-operativa.</p></div><span class="variant-id">V6-16</span></header>
+        <div class="gate-preview"><div class="job-gate"><div class="job-context"><strong>Analista contabile</strong><span>Lugano · Tempo pieno · CHF 72–84k</span></div><div class="gate-heading"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>Accedi gratis per leggere l’offerta completa</span></div><p class="gate-subtitle">Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore.</p><ul class="trust-list"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>Gratis · Per sempre</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/></svg>Nessuno spam. Cancellazione in un click.</li></ul><label class="consent"><input type="checkbox"><span>Accetto di ricevere comunicazioni utili per frontalieri. Posso cancellarmi in ogni momento.</span></label><p class="social-proof">Annunci disponibili</p><div class="actions"><button class="btn google">Continua con Google</button><button class="btn linkedin">Continua con LinkedIn</button><div class="email-divider">oppure con email</div><div class="email-form"><input placeholder="La tua email"><button class="btn email">Continua con email</button></div></div></div></div><small>Ipotesi: la cornice decisa rende l’accesso evidente, con rischio di risultare più “campagna” che prodotto.</small>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

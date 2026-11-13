@@ -58,6 +58,20 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('always classifies a non-TI German legacy section as canton-moved when tracking repeats that path', () => {
+    const slug = 'schulbotschafter-in-stadt-zurich-zurich';
+    const idx = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>([
+      [slug, { de: '/de/jobs-im-zurich/' + slug }],
+    ]);
+    expect(
+      resolveSearchConsoleCompatTarget('/de/jobs-im-zurich/' + slug, idx),
+    ).toEqual({
+      canonicalPath: '/de/jobs-in-zurich/' + slug + '/',
+      kind: 'canton-moved',
+      locale: 'de',
+    });
+  });
+
   it('falls back to the URL-section listing when the slug is unknown or already canonical', () => {
     const idx = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>([
       ['data-engineer-acme-lugano', { it: '/cerca-lavoro-ticino/data-engineer-acme-lugano' }],

@@ -1045,18 +1045,20 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
           break;
         }
       }
-      // An already approved round held only by obsolete/missing operational
-      // answers can resume on a normal tick. Never release unknown holds,
-      // missing documents, owner flags or a known closed posting.
+      // An already approved round resumes when the platform now has every
+      // held answer or document (including a portrait recovered from the CV).
+      // Never release unknown holds, owner flags or a known closed posting.
       if (state === 'needs_candidate_action' && !event.postingExpired && !current.postingExpiredAt
         && current.heldBy.length > 0
-        && current.heldBy.every(held => String(held).startsWith('question:')
-          && (draft?.questions || []).some(question => question.id === String(held).slice(9)))
+        && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHoldsBelongToDraft(current.heldBy, draft, flow)
         && flags.owner.length === 0 && candidateHolds(flags).length === 0
         && roundWasSent(flow, current.round)) {
+        const reason = current.heldBy.some((held) => String(held).startsWith('document:'))
+          ? 'resolved_candidate_requirements' : 'resolved_candidate_answers';
         effects = isPostalSubmission(flow)
           ? enterReadyPostalHandoff()
-          : enterSubmitting(next, 'resolved_candidate_answers');
+          : enterSubmitting(next, reason);
         break;
       }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {

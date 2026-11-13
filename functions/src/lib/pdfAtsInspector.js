@@ -1,6 +1,7 @@
 /**
  * Advanced ATS Text-Layer & Layout Inspector,
  * ported from ai-job-search tools/verify_pdf.py and verify_layout.py (MIT).
+ * Copyright (c) 2026 Mads Lorentzen.
  *
  * Verifies that the rendered CV / cover letter text layer will parse cleanly
  * in international and Swiss ATS platforms (Workday, SuccessFactors, Taleo, Umantis, Refline):

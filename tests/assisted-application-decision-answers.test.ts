@@ -286,4 +286,5 @@ describe('the engine in the run, before asking the candidate', () => {
     expect(await decideLiveQuestions({ questions: [question], candidate: { platformFacts: {} }, codex: null })).toMatchObject({ ids: [] });
     expect(await decideLiveQuestions({ questions: [question], candidate: {}, codex: async () => ({ decisions: [] }) })).toMatchObject({ ids: [] });
   });
+
 });

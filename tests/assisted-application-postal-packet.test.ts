@@ -65,6 +65,21 @@ describe('paper application packet readiness', () => {
     expect(missing).toMatchObject({ ready: false, missingDocuments: ['Certificati di studio e di lavoro'] });
   });
 
+  it('keeps a photo requirement missing when its uploaded image violates the portal field', () => {
+    const input: any = postalSources();
+    input.draft.requiredDocuments.push({
+      id: 'portal_photo', label: 'Foto', kind: 'photo', required: true, accept: 'image/jpeg', maxBytes: 1024,
+    });
+    input.flow.documents.portal_photo = { files: [{
+      key: `${folder}/doc-portal_photo-0-1234abcd.png`, name: 'photo.png', size: 512, detectedType: 'png',
+    }] };
+
+    const packet = postalPacketSources(input);
+
+    expect(packet.documents.map((file: any) => file.documentId)).not.toContain('portal_photo');
+    expect(packet.missingDocuments).toContain('Foto');
+  });
+
   it('merges local PDF and passport-photo scans into the server packet in the browser', async () => {
     const basePdf = await pdfWithPages(1);
     const localPdf = new File([await pdfWithPages(2)], 'health-scan.pdf', { type: 'application/pdf' });

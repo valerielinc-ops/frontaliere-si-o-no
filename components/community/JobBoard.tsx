@@ -2606,7 +2606,7 @@ function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
 
 /**
  * The gate's unified subscriber write. An enrolled jobgate visitor also gets
- * `variant: 'jobgate-v5:<arm>'` on the document (the readout's join key); the
+ * `variant: 'jobgate-v6:<arm>'` on the document (the readout's join key); the
  * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
  * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
  */
@@ -10459,8 +10459,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = selectedJob.descriptionPreview || jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
- // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
- // fail-safe product default. Copy and order stay fixed in every arm.
+ // jobgate-v6: visual treatment per arm; tinted control is also the fail-safe
+ // product default. Copy, order, disclosure and methods stay fixed in every arm.
  const gateSkin = jobGateSkin(jobGate.arm);
  const inlineEmailForm = (
  <form
@@ -10494,7 +10494,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  placeholder={t('jobBoard.authGateEmailPlaceholder')}
  className={gateSkin.emailInput}
  />
- {/* `spotlight` keeps the CTA enabled on an empty field: the input is
+ {/* The v6 skins keep the CTA enabled on an empty field: the input is
      `required`, so the browser stops the submit and focuses it. */}
  <button
  type="submit"
@@ -10658,7 +10658,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed).
-     jobgate-v5 arms change only contrast/accent through `gateSkin`
+     jobgate-v6 arms change only presentation through `gateSkin`
      (components/community/jobGateSkin.ts). */}
  {(() => {
  const gateHeading = (

@@ -6,8 +6,129 @@ import ts from 'typescript';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from '../build-plugins/shared/jobArchiveEvidence';
 import { resolveCantonSection, resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { jobTitleLocaleQualifiers } from '../build-plugins/shared/jobTitleLocaleCollision';
+import { resolveExpiredEmitPath } from '../build-plugins/shared/expiredEmitPath';
 
 describe('recorded versus URL-inferred job identity', () => {
+  it('uses the original German alias key for archived identity while rendering at the canonical path', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const selfHealingStart = source.indexOf('/* ── Self-healing: cover any tracking paths');
+    const selfHealingEnd = source.indexOf('/* ── Flush all buffered writes', selfHealingStart);
+    expect(selfHealingStart).toBeGreaterThan(-1);
+    expect(selfHealingEnd).toBeGreaterThan(selfHealingStart);
+    const selfHealing = source.slice(selfHealingStart, selfHealingEnd);
+    const lookupStart = selfHealing.indexOf('const archive = historicalArchiveFallbacks.get(');
+    const lookupEnd = selfHealing.indexOf(';', lookupStart) + 1;
+    expect(lookupStart).toBeGreaterThan(-1);
+    const lookup = selfHealing.slice(lookupStart, lookupEnd);
+    expect(lookup).toBe('const archive = historicalArchiveFallbacks.get(trackedPath);');
+
+    const archiveKeyStatement = 'const historicalArchivePath = trackedPaths[locale] || relPath;';
+    expect(source).toContain(archiveKeyStatement);
+    expect(source).toContain('historicalArchiveFallbacks.set(historicalArchivePath, {');
+
+    const slug = 'archived-zurich-role';
+    const trackedPath = `/de/jobs-im-zurich/${slug}/`;
+    const resolution = resolveExpiredEmitPath({
+      locale: 'de',
+      trackedPath,
+      slug,
+      isActiveSlug: () => false,
+      isTargetOccupied: () => false,
+    });
+    expect(resolution).toEqual({
+      kind: 'emit',
+      path: `/de/jobs-in-zurich/${slug}/`,
+      canonicalizedLegacySection: true,
+    });
+    if (resolution.kind !== 'emit') throw new Error('expected a free canonical legacy-section target');
+    const archiveKey = new Function(
+      'trackedPaths', 'locale', 'relPath', `${archiveKeyStatement}\nreturn historicalArchivePath;`,
+    )({ de: trackedPath }, 'de', resolution.path);
+    expect(archiveKey).toBe(trackedPath);
+
+    const recordedArchive = {
+      recordedIdentity: true,
+      title: 'Verifizierter Archivberuf',
+      company: 'Beispiel Arbeitgeber',
+      location: 'Zürich',
+      canton: 'ZH',
+      description: 'Gespeicherte Beschreibung aus dem Archiv.',
+    };
+    const lookupCode = ts.transpileModule(`${lookup}\nreturn archive;`, {
+      compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+    }).outputText;
+    const archive = new Function(
+      'historicalArchiveFallbacks',
+      'trackedPath',
+      'relPath',
+      lookupCode,
+    )(
+      new Map([[archiveKey, recordedArchive]]),
+      trackedPath,
+      resolution.path,
+    );
+    expect(archive).toBe(recordedArchive);
+
+    const rendererStart = source.indexOf('const buildHistoricalArchiveHtml = (');
+    const rendererEnd = source.indexOf('// Iterate the large registry directly', rendererStart);
+    expect(rendererStart).toBeGreaterThan(-1);
+    expect(rendererEnd).toBeGreaterThan(rendererStart);
+    const rendererCode = ts.transpileModule(
+      `${source.slice(rendererStart, rendererEnd)}\nreturn buildHistoricalArchiveHtml;`,
+      { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } },
+    ).outputText;
+    const renderHistoricalArchive = new Function(
+      'historicalArchiveCopy', 'unverifiedJobCopy', 'extractInfoFromSlug',
+      'stripLiteralMarkdownFromTitle', 'sharedResolveJobCanton', 'DEFAULT_CANTON',
+      'AGGREGATE_KEY', 'buildCantonAwareSection', 'localePrefix', 'BASE_URL',
+      'withSlash', 'jobTitleLocaleQualifiers', 'composeSerpJobTitle', 'esc', 'finalizeJobBoardTitle',
+      'UNVERIFIED_JOB_SOCIAL_PREVIEW', 'stripLeadingSectionLabel',
+      'renderJobDescriptionContent', 'renderJobPostingDescription',
+      'historicalArchiveHeading', 'inlineScriptJson', 'cantonSectionName',
+      'getCantonDisplayLabel', 'buildArchivedJobPosting', 'knownEmployerProfileSlugs',
+      'countHtmlBodyWords', 'MIN_INDEXABLE_WORDS', 'ROBOTS_INDEX_ENHANCED',
+      'ROBOTS_NOINDEX_FOLLOW', 'buildSoftLandingHtml', rendererCode,
+    )(
+      { de: { notice: 'Archiviert', original: 'Originalanzeige', next: 'Weitere Angebote', cta: 'Alle Angebote', details: 'Details', headingQualifier: '', noDescription: 'Keine Beschreibung', nextBody: 'Weitere Anzeigen.' } },
+      unverifiedJobCopy,
+      () => ({ company: '', location: '' }),
+      String,
+      resolveJobCanton,
+      'TI',
+      '_AGGREGATE_',
+      resolveCantonSection,
+      { it: '', en: '/en', de: '/de', fr: '/fr' },
+      'https://frontaliereticino.ch',
+      (value: string) => value.replace(/\/+$/, '') + '/',
+      jobTitleLocaleQualifiers,
+      (title: string) => title,
+      String,
+      String,
+      {},
+      String,
+      (description: string) => description,
+      (description: string) => description,
+      (title: string) => title,
+      JSON.stringify,
+      (_locale: string, label: string) => `Jobs in ${label}`,
+      () => 'Zürich',
+      () => null,
+      new Set(),
+      () => 100,
+      50,
+      'index,follow',
+      'noindex,follow',
+      (...parts: unknown[]) => parts.join('\n'),
+    );
+    const html = renderHistoricalArchive(slug, resolution.path, 'de', archive);
+
+    expect(html).toContain(resolution.path);
+    expect(html).toContain(recordedArchive.title);
+    expect(html).toContain(recordedArchive.description);
+    expect(html).not.toContain(trackedPath);
+    expect(html).not.toContain(unverifiedJobCopy.de.title);
+  });
+
   it.each(['it', 'en', 'de', 'fr'] as const)('does not assign a partial archive canton to unknown %s navigation', (locale) => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     const normal = source.slice(source.indexOf('const hasRealTitle = hasRecordedJobIdentity(ejData)'));

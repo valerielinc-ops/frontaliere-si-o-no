@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, startsApplication } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -355,6 +355,10 @@ describe('fill extension: patterns', () => {
     expect(F.APPLY_RE.test('mailto:apply+foo@example.ch')).toBe(false);
     expect(F.APPLY_RE.test('Apply now')).toBe(true);
     expect(F.pageState(document).start?.textContent).toBe('Apply now');
+  });
+
+  it.each(['Postuler »»', 'Bewerben »»', 'Candidati »»', 'Apply »»', 'Postuler ›'])('recognizes a decorated SuccessFactors Apply control: %s', label => {
+    expect(startsApplication(label)).toBe(true);
   });
 
   it('uses the runner’s own patterns', () => {
@@ -1081,6 +1085,36 @@ describe('fill extension: the runner’s reading on any portal', () => {
     // Plain Node renders it: a test bundler may print the function differently.
     const check = spawnSync(process.execPath, [resolve(extension, 'build-runner-fields.mjs'), '--check'], { encoding: 'utf8' });
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
+  });
+
+  it('keeps runner ownership aligned for required marketing and role-form shell controls', () => {
+    const { window, read } = runnerPage(`<header><form>
+      <input name="newsletter" required>
+      <input name="notizie">
+      <input name="jobbenachrichtigung">
+    </form></header>
+    <div role="form">
+      <select id="languageDropdown"><option value="en">English</option></select>
+      <button type="button">🌙</button>
+    </div>`, 'https://jobs.example.ch/apply');
+    const snapshot = read();
+    const newsletter = snapshot.fields.find((field: any) => field.name === 'newsletter');
+    const marketing = snapshot.fields.filter((field: any) => ['notizie', 'jobbenachrichtigung'].includes(field.name));
+    const language = snapshot.fields.find((field: any) => field.domId === 'languageDropdown');
+    const theme = snapshot.buttons.find((button: any) => button.text === '🌙');
+
+    expect(newsletter).toMatchObject({ required: true });
+    expect(newsletter).not.toHaveProperty('chrome');
+    expect(marketing).toHaveLength(2);
+    expect(marketing).toEqual(expect.arrayContaining([
+      expect.objectContaining({ name: 'notizie', chrome: true }),
+      expect.objectContaining({ name: 'jobbenachrichtigung', chrome: true }),
+    ]));
+    expect(language).toBeDefined();
+    expect(language).not.toHaveProperty('chrome');
+    expect(theme).toBeDefined();
+    expect(theme).not.toHaveProperty('chrome');
+    window.close();
   });
 
   it('keeps an Italian apply link ahead of the field snapshot budget', () => {
