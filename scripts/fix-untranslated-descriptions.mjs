@@ -40,6 +40,7 @@ import {
   buildTrafficPriority,
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
+import { isTranslationQueueStale } from './lib/translation-queue-age.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -97,6 +98,13 @@ export function orderDescriptionFixTasks(tasks, popularity = {}, { now = Date.no
   const { order } = buildTrafficPriority(entries, popularity, {
     lane: 'relocalize-pending-jobs',
     now,
+    // Phase 2e is already a source-copy repair lane. Its 20% oldest reserve
+    // prevents starvation in the general cascade, but it does not guarantee
+    // that this bounded repair lane reaches every description that has been
+    // serving the source text for a week or more. Keep the shared stale
+    // predicate here so the audit and the writer agree on the boundary.
+    priorityOf: (job) => isTranslationQueueStale(job, now),
+    priorityBeforeFresh: true,
   });
 
   // Keep short runs of one language pair together so the Codex batcher can
@@ -106,23 +114,35 @@ export function orderDescriptionFixTasks(tasks, popularity = {}, { now = Date.no
   // source-copy descriptions in later slices stayed untouched. Six is the
   // normal Phase 2e in-flight width (three Codex lanes × two descriptions), so
   // it preserves useful batching without letting one pair monopolize a run.
-  const pairQueues = new Map();
+  // Rotate stale and younger repair classes separately: otherwise six younger
+  // tasks from another language pair could be inserted before the seventh stale
+  // task, defeating the bounded-lane guarantee when MAX cuts the list.
+  const rotatePairs = (entries) => {
+    const pairQueues = new Map();
+    for (const entry of entries) {
+      const task = entry.__descriptionFixTask;
+      const key = pair(task);
+      const queue = pairQueues.get(key) || [];
+      queue.push(task);
+      pairQueues.set(key, queue);
+    }
+    const activePairs = [...pairQueues.keys()];
+    const ordered = [];
+    while (activePairs.length > 0) {
+      const key = activePairs.shift();
+      const queue = pairQueues.get(key);
+      ordered.push(...queue.splice(0, 6));
+      if (queue.length > 0) activePairs.push(key);
+    }
+    return ordered;
+  };
+
+  const stale = [];
+  const younger = [];
   for (const entry of order) {
-    const task = entry.__descriptionFixTask;
-    const key = pair(task);
-    const queue = pairQueues.get(key) || [];
-    queue.push(task);
-    pairQueues.set(key, queue);
+    (isTranslationQueueStale(entry, now) ? stale : younger).push(entry);
   }
-  const activePairs = [...pairQueues.keys()];
-  const ordered = [];
-  while (activePairs.length > 0) {
-    const key = activePairs.shift();
-    const queue = pairQueues.get(key);
-    ordered.push(...queue.splice(0, 6));
-    if (queue.length > 0) activePairs.push(key);
-  }
-  return ordered;
+  return [...rotatePairs(stale), ...rotatePairs(younger)];
 }
 
 /**
