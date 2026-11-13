@@ -536,7 +536,23 @@ function compatibleAnswerQuestionTypes(previous, current) {
   return oldType === newType || HISTORY_COMPATIBLE_QUESTION_TYPES.has([oldType, newType].sort().join('|'));
 }
 
+function isLegacySameIdCandidateAnswerHistory(record, question) {
+  const id = String(question?.id || '').trim();
+  return Boolean(id && record?.id === id && !record.answerContractKey && !record.constraintsKey);
+}
+
+function candidateAnswerHistoryQuestionType(record, question) {
+  if (record?.questionType) return record.questionType;
+  return isLegacySameIdCandidateAnswerHistory(record, question)
+    ? candidateAnswerHistoryIdentity(question).questionType
+    : '';
+}
+
 function candidateAnswerQuestionTopicMatches(record, question) {
+  // Before contract hashes existed, the stable question id is the only
+  // available link to the current question. Cross-id matches still require
+  // the persisted topic identity below.
+  if (isLegacySameIdCandidateAnswerHistory(record, question)) return true;
   const current = candidateAnswerHistoryIdentity(question);
   const contextsCompatible = ['context', 'section', 'autocomplete'].every(field =>
     !record[field] || !current[field] || record[field] === current[field]);
@@ -551,14 +567,20 @@ function candidateAnswerQuestionTopicMatches(record, question) {
 
 function compatibleAnswerQuestionIdentity(record, question) {
   const current = candidateAnswerHistoryIdentity(question);
-  return Boolean(record.constraintsKey && current.constraintsKey && record.constraintsKey === current.constraintsKey
+  const constraintsKey = isLegacySameIdCandidateAnswerHistory(record, question)
+    ? current.constraintsKey
+    : record.constraintsKey;
+  return Boolean(constraintsKey && current.constraintsKey && constraintsKey === current.constraintsKey
     && candidateAnswerQuestionTopicMatches(record, question));
 }
 
 function compatibleAnswerQuestionContract(record, question) {
   const current = candidateAnswerHistoryIdentity(question);
-  return Boolean(record.answerContractKey && current.answerContractKey
-    && record.answerContractKey === current.answerContractKey
+  const answerContractKey = isLegacySameIdCandidateAnswerHistory(record, question)
+    ? current.answerContractKey
+    : record.answerContractKey;
+  return Boolean(answerContractKey && current.answerContractKey
+    && answerContractKey === current.answerContractKey
     && candidateAnswerQuestionTopicMatches(record, question));
 }
 
@@ -606,7 +628,7 @@ function candidateHistoryAnswerForQuestion(question, history, nowMs) {
     : answerForCurrentQuestion(record.answer, question, nowMs);
   if (record.status !== 'answered' || !hasQuestionAnswer(record.answer)
     || !compatibleAnswerQuestionIdentity(record, question)
-    || !compatibleAnswerQuestionTypes(record.questionType, question?.type)
+    || !compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(record, question), question?.type)
     || currentAnswer === undefined) return undefined;
   return currentAnswer;
 }
@@ -694,7 +716,7 @@ export function candidateAnswerProjectionDiagnostics(questions, {
       const savedState = candidateAnswerHistoryStateForQuestionId(question, history);
       const saved = savedState.record;
       const savedTypeCompatible = Boolean(saved && saved.status === 'answered'
-        && compatibleAnswerQuestionTypes(saved.questionType, question.type));
+        && compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(saved, question), question.type));
       const savedContractCompatible = savedTypeCompatible && compatibleAnswerQuestionContract(saved, question);
       const savedFullyCompatible = savedContractCompatible && compatibleAnswerQuestionIdentity(saved, question);
       const directCurrent = directAnswerForCurrentQuestion(direct, question, nowMs);
@@ -716,7 +738,7 @@ export function candidateAnswerProjectionDiagnostics(questions, {
         addSuppressed(question);
         incompatible.add(id);
       } else if (record?.status === 'answered') {
-        const typeCompatible = compatibleAnswerQuestionTypes(record.questionType, question.type);
+        const typeCompatible = compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(record, question), question.type);
         const contractCompatible = typeCompatible && compatibleAnswerQuestionContract(record, question);
         const fullyCompatible = contractCompatible && compatibleAnswerQuestionIdentity(record, question);
         const answer = record.id === id
@@ -794,7 +816,7 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
       continue;
     }
     if (saved === null || (saved && (saved.status !== 'answered'
-      || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
+      || !compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(saved, question), question.type)
       || !compatibleAnswerQuestionIdentity(saved, question)))) {
       const key = candidateQuestionAnswerKey(question);
       if (key) unknownKeys.add(key);

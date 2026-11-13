@@ -230,18 +230,16 @@ describe('candidate edits', () => {
     expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'notice', answer: '7 giorni', status: 'answered' }]);
   });
 
-  it('keeps a legacy same-id answer unknown when its original contract was not recorded', () => {
+  it('backfills current contract hashes for a legacy same-id answer', () => {
     const nowMs = Date.now();
     const question = { id: 'q1', question: 'Do you agree?', type: 'choice', options: ['yes', 'no'], required: true };
     const history = [{ id: 'q1', status: 'answered', answer: 'yes', round: 1, confirmedAt: nowMs, source: 'candidate' }];
 
     const diagnostics = candidateAnswerProjectionDiagnostics([question], { answers: { q1: 'yes' }, history, nowMs });
-    expect(diagnostics.incompatibleQuestionIds).toEqual(['q1']);
-    expect(diagnostics.suppressDefaultQuestionIds).toEqual(['q1']);
-    expect(diagnostics.suppressedAnswerContracts).toMatchObject([
-      { id: 'q1', status: 'answered', answer: 'yes', allowLiveMapping: false },
-    ]);
-    expect(candidateAnswersForQuestions([question], { q1: 'yes' }, {}, history, nowMs)).not.toHaveProperty('q1');
+    expect(diagnostics.incompatibleQuestionIds).not.toContain('q1');
+    expect(diagnostics.suppressDefaultQuestionIds).not.toContain('q1');
+    expect(diagnostics.suppressedAnswerContracts).toEqual([]);
+    expect(candidateAnswersForQuestions([question], { q1: 'yes' }, {}, history, nowMs)).toEqual({ q1: 'yes' });
     expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'q1', status: 'answered', answer: 'yes' }]);
   });
 
