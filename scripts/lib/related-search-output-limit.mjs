@@ -40,8 +40,17 @@ export const CANDIDATES_SIZE_LIMIT_BYTES = 90 * MB; // 90 MB
  * Resolve the push-safety ceiling for a given related-search file path.
  * Defaults to the tight `OUTPUT_SIZE_LIMIT_BYTES` for any unrecognized file.
  */
+/**
+ * Per-crawler expired archive slices (data/jobs/expired/by-crawler/<key>.json)
+ * grow with every retired posting; the largest (coop-ticino) was 83,6 MB on
+ * 2026-11-12. Same 10 MB headroom under GitHub's 100 MB as the candidates file.
+ */
+export const EXPIRED_SLICE_SIZE_LIMIT_BYTES = 90 * MB; // 90 MB
+
 export function sizeLimitForPath(path) {
-  return /related-search-candidates\.json$/.test(path)
-    ? CANDIDATES_SIZE_LIMIT_BYTES
-    : OUTPUT_SIZE_LIMIT_BYTES;
+  if (/related-search-candidates\.json$/.test(path)) return CANDIDATES_SIZE_LIMIT_BYTES;
+  if (/(^|[\\/])data[\\/]jobs[\\/]expired[\\/]by-crawler[\\/][^\\/]+\.json$/.test(path)) {
+    return EXPIRED_SLICE_SIZE_LIMIT_BYTES;
+  }
+  return OUTPUT_SIZE_LIMIT_BYTES;
 }
