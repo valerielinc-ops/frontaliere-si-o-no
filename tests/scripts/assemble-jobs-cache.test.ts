@@ -284,6 +284,23 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(computeAssembleCacheKey({ withSummaries: false }).cacheKey).toBe(`${fp}_nostats_nosummaries`);
     expect(computeAssembleCacheKey({ withExpired: false }).cacheKey).toBe(`${fp}_nostats_activeonly`);
   });
+
+  it('keys the translation-held projection separately from published jobs', () => {
+    const previous = process.env.JOBS_INCLUDE_TRANSLATION_HELD;
+    try {
+      delete process.env.JOBS_INCLUDE_TRANSLATION_HELD;
+      const published = computeAssembleCacheKey();
+      process.env.JOBS_INCLUDE_TRANSLATION_HELD = '1';
+      const held = computeAssembleCacheKey();
+
+      expect(held.inputFingerprint).toBe(published.inputFingerprint);
+      expect(held.includeTranslationHeld).toBe(true);
+      expect(held.cacheKey).toBe(`${published.cacheKey}_withheld`);
+    } finally {
+      if (previous === undefined) delete process.env.JOBS_INCLUDE_TRANSLATION_HELD;
+      else process.env.JOBS_INCLUDE_TRANSLATION_HELD = previous;
+    }
+  });
 });
 
 describe('isAssembleCacheManifestValid', () => {
@@ -294,7 +311,7 @@ describe('isAssembleCacheManifestValid', () => {
     snapshotFiles,
   } = {}) {
     const mode = { withStats, withSummaries, withExpired };
-    const { inputFingerprint, cacheKey } = computeAssembleCacheKey(mode);
+    const { inputFingerprint, cacheKey, includeTranslationHeld } = computeAssembleCacheKey(mode);
     const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
     if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
     if (withSummaries) requiredSnapshotFiles.push('jobs-crawler-summaries.json');
@@ -306,6 +323,7 @@ describe('isAssembleCacheManifestValid', () => {
     const expected = {
       inputFingerprint,
       cacheKey,
+      includeTranslationHeld,
       ...mode,
       requiredSnapshotFiles,
       allowedSnapshotFiles,
@@ -316,6 +334,7 @@ describe('isAssembleCacheManifestValid', () => {
       cacheKey,
       outputCacheVersion: assembleOutputCacheVersion,
       nodeMajor: process.versions.node.split('.')[0],
+      includeTranslationHeld,
       snapshotFiles: files,
       fileCount: files.length,
       snapshotAt: new Date().toISOString(),
@@ -326,6 +345,14 @@ describe('isAssembleCacheManifestValid', () => {
   it('accepts a complete manifest for the exact inputs, output version and mode', () => {
     const { manifest, expected } = snapshotFixture();
     expect(isAssembleCacheManifestValid(manifest, expected)).toBe(true);
+  });
+
+  it('rejects a manifest from the other translation-held projection', () => {
+    const { manifest, expected } = snapshotFixture();
+    expect(isAssembleCacheManifestValid({
+      ...manifest,
+      includeTranslationHeld: !manifest.includeTranslationHeld,
+    }, expected)).toBe(false);
   });
 
   it.each([

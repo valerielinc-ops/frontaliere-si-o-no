@@ -888,7 +888,7 @@ const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
 // `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
 // writes both on a full build; the cache-HIT path must restore both too.
 const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
-export const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-08-06-strip-markdown-bold-wrapper-from-job-titles-v1';
+export const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-11-13-translation-held-mode-in-manifest-v1';
 const ASSEMBLE_NODE_MAJOR = process.versions.node.split('.')[0];
 
 /**
@@ -1042,7 +1042,7 @@ function hashRepoFile(hasher, abs) {
 export function computeAssembleCacheKey({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const inputFingerprint = computeAssembleInputFingerprint();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
-  const includeHeld = includeTranslationHeldFromEnv();
+  const includeTranslationHeld = includeTranslationHeldFromEnv();
   // The suffix is part of the key because the snapshot below copies whatever is
   // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
   // .json, so sharing a key with a full run would let a later full run restore
@@ -1052,7 +1052,8 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
   // included) must never be restored by a publishing run, hence `_withheld`.
   return {
     inputFingerprint,
-    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeHeld ? '_withheld' : ''}`,
+    cacheKey: `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}${withExpired ? '' : '_activeonly'}${skipReconciliation ? '_noreconcile' : ''}${includeTranslationHeld ? '_withheld' : ''}`,
+    includeTranslationHeld,
   };
 }
 
@@ -1083,6 +1084,7 @@ export function isAssembleCacheManifestValid(manifest, expected) {
     && manifest.cacheKey === expected.cacheKey
     && manifest.outputCacheVersion === ASSEMBLE_OUTPUT_CACHE_VERSION
     && manifest.nodeMajor === ASSEMBLE_NODE_MAJOR
+    && manifest.includeTranslationHeld === expected.includeTranslationHeld
     && manifest.withStats === expected.withStats
     && manifest.withSummaries === expected.withSummaries
     && manifest.withExpired === expected.withExpired
@@ -5081,7 +5083,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
   const finishFingerprintTiming = startPipelinePhase('jobs-dataset', 'input fingerprint and cache lookup');
-  const { inputFingerprint, cacheKey } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
+  const { inputFingerprint, cacheKey, includeTranslationHeld } = computeAssembleCacheKey({ withStats, withSummaries, withExpired });
   finishFingerprintTiming();
   const skipReconciliation = String(process.env.JOBS_SKIP_RECONCILIATION || '0') === '1';
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
@@ -5103,6 +5105,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
     const manifestValid = isAssembleCacheManifestValid(manifest, {
       inputFingerprint,
       cacheKey,
+      includeTranslationHeld,
       withStats,
       withSummaries,
       withExpired,
@@ -5182,7 +5185,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // scaduti girano sempre sui soli pubblicati: un job trattenuto non è mai
   // stato pubblico e non deve assorbire né generare route storiche.
   const finishActiveOutputTiming = startPipelinePhase('jobs-dataset', 'active dataset reconciliation and writes');
-  const includeHeld = includeTranslationHeldFromEnv();
+  const includeHeld = includeTranslationHeld;
   let assembled = assembledAll;
   let publishedJobs = assembledAll;
   let holdSummary = null;
@@ -5535,6 +5538,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       cacheKey,
       outputCacheVersion: ASSEMBLE_OUTPUT_CACHE_VERSION,
       nodeMajor: ASSEMBLE_NODE_MAJOR,
+      includeTranslationHeld,
       withStats,
       withSummaries,
       withExpired,
