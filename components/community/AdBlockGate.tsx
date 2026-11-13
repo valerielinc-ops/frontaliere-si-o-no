@@ -19,6 +19,7 @@ type GateLocale = 'it' | 'en' | 'de' | 'fr';
 type CloseReason = 'close_button' | 'continue_reading' | 'backdrop' | 'escape' | 'cta_click';
 
 const SESSION_DISMISSAL_KEY = 'ft_native_application_offer_dismissed_v1';
+const SESSION_SHOWN_KEY = 'ft_native_application_offer_seen_v1';
 
 const COPY: Record<GateLocale, {
   label: string;
@@ -118,6 +119,27 @@ function wasDismissedThisSession(): boolean {
   }
 }
 
+function wasShownThisSession(): boolean {
+  if (typeof window === 'undefined') return false;
+  if ((window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown) return true;
+  try {
+    return sessionStorage.getItem(SESSION_SHOWN_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function rememberShown(): void {
+  if (typeof window !== 'undefined') {
+    (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown = true;
+  }
+  try {
+    sessionStorage.setItem(SESSION_SHOWN_KEY, '1');
+  } catch {
+    // The window flag still coordinates both first-party promotion surfaces during this page visit.
+  }
+}
+
 function rememberDismissal(): void {
   try {
     sessionStorage.setItem(SESSION_DISMISSAL_KEY, '1');
@@ -174,6 +196,7 @@ const AdBlockGate: React.FC = () => {
       || isEngagedVisitor()
       || isApplicationConciergeSurface()
       || wasDismissedThisSession()
+      || wasShownThisSession()
     ) return;
 
     let cancelled = false;
@@ -188,7 +211,9 @@ const AdBlockGate: React.FC = () => {
         || isApplicationConciergeSurface()
         || dismissedRef.current
         || wasDismissedThisSession()
+        || wasShownThisSession()
       ) return;
+      rememberShown();
       setOpen(true);
       trackOffer('impression', 'adblock_detected');
     }).catch(() => {
