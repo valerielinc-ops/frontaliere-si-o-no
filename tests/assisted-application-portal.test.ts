@@ -1989,6 +1989,38 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(result).toEqual([expect.objectContaining({ fieldId: 'privacy', ok: false, error: 'choice_not_registered' })]);
   });
 
+  it('clicks the visible label when a custom Workday consent input is visually hidden', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const control: any = {
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        if (source.includes('getBoundingClientRect') || source.includes('data-aa-label')) return true;
+        return null;
+      }),
+      locator: vi.fn(() => ({
+        first: () => ({
+          click: vi.fn(async () => { labelClicks += 1; checked = true; }),
+          evaluate: vi.fn(async () => null),
+        }),
+      })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'terms', kind: 'checkbox', inputType: 'checkbox', label: "J'ai lu et j'accepte les conditions générales", required: false,
+    }], [{ fieldId: 'terms', action: 'check', value: '' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'terms', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).not.toHaveBeenCalled();
+  });
+
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
     let selected = '';
     const localizedOption = {
