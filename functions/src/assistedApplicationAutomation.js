@@ -475,7 +475,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         reason: dispatch.reason || null,
       };
     }
-    const persistedFlow = { ...nextFlow, answers: transitionAnswers,
+    // Keep the submitted values as their source records; transitionAnswers is
+    // a validated projection for this decision, not a replacement for what
+    // the candidate or owner actually saved.
+    const persistedFlow = { ...nextFlow, answers: flow.answers && typeof flow.answers === 'object' && !Array.isArray(flow.answers)
+      ? flow.answers : {},
       questionAnswers: candidateAnswerContext.orderAnswers, questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
       questionAnswerSnapshotIds: candidateAnswerContext.orderAnswerSnapshotIds,
       questionAnswerCompatibility: candidateAnswerContext.orderAnswerCompatibility,

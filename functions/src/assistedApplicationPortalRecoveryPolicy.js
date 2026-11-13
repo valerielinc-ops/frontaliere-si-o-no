@@ -118,7 +118,9 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
   const directProjection = candidateAnswersForQuestions(questions, directAnswers, flow.questionAnswers || {}, flow.candidateAnswerHistory || []);
   if (questions.some(question => Object.hasOwn(directAnswers, question.id)
     && (!Object.hasOwn(directProjection, question.id)
-      || validatedCandidateAnswerForQuestion(directProjection[question.id], question) === undefined))) return false;
+      || (validatedCandidateAnswerForQuestion(directProjection[question.id], question) === undefined
+        && !(operationalQuestionTopic(question)
+          && operationalAnswerReadyForDiscovery(question, directProjection[question.id])))))) return false;
   const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
   const projected = withOperationalQuestionAnswers(questions, answers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
   return questions.every(question => {
