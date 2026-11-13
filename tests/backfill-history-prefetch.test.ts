@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { historyBlobOidsFromRevList } from '../scripts/ci/prefetch-history-blobs.mjs';
+import { historyBlobOidsFromRevList, historySinceArgs } from '../scripts/ci/prefetch-history-blobs.mjs';
 
 describe('prefetch-history-blobs', () => {
   it('selects and deduplicates only active and expired crawler slice blobs', () => {
@@ -22,5 +22,15 @@ describe('prefetch-history-blobs', () => {
     const oid = 'f'.repeat(64);
     expect(historyBlobOidsFromRevList(`${oid} data/jobs/by-crawler/acme.json\n`)).toEqual([oid]);
     expect(historyBlobOidsFromRevList(`${oid} data/jobs/by-crawler/acme.json.bak\n`)).toEqual([]);
+  });
+
+  // Run 43320183949 (2026-11-12): the unbounded prefetch hit the 40-minute
+  // step cap twice. The walk is bounded to a git date unless "all" is asked.
+  it('bounds the history walk with HISTORY_SINCE', () => {
+    expect(historySinceArgs('45 days ago')).toEqual(['--since=45 days ago']);
+    expect(historySinceArgs('2026-09-20')).toEqual(['--since=2026-09-20']);
+    expect(historySinceArgs('all')).toEqual([]);
+    expect(historySinceArgs('')).toEqual([]);
+    expect(historySinceArgs(undefined)).toEqual([]);
   });
 });

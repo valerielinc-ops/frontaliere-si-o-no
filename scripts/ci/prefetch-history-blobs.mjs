@@ -80,8 +80,17 @@ export function verifyPrefetchedBlobs(oids) {
   }
 }
 
+/**
+ * `HISTORY_SINCE` (a git date, e.g. "45 days ago") bounds the walk to the same
+ * window the backfill reads; empty or "all" keeps the whole history.
+ */
+export function historySinceArgs(value = process.env.HISTORY_SINCE) {
+  const since = String(value || '').trim();
+  return since && since !== 'all' ? [`--since=${since}`] : [];
+}
+
 export function main() {
-  const revList = runGit(['rev-list', '--objects', '--all', '--', ...HISTORY_PATHS]);
+  const revList = runGit(['rev-list', '--objects', '--all', ...historySinceArgs(), '--', ...HISTORY_PATHS]);
   const oids = historyBlobOidsFromRevList(revList);
   if (oids.length === 0) {
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
