@@ -323,6 +323,37 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).toContain('required=false');
   });
 
+  it('scopes workflow directory readers to the workflow family they inspect', () => {
+    const directoryReader = [
+      "import { readdirSync } from 'node:fs';",
+      "import path from 'node:path';",
+      "const workflows = path.join('.', '.github', 'workflows');",
+      'readdirSync(workflows);',
+      'export const contract = true;',
+    ].join('\n');
+    const root = fixture({
+      '.github/workflows/tests.yml': 'name: tests\n',
+      '.github/workflows/crawler-group-01.yml': 'name: crawler group\n',
+      '.github/workflows/reconcile-expired-route-duplicates.yml': 'run: node scripts/audit-expired-at-parsable.mjs\n',
+      '.github/workflows/unrelated.yml': 'name: unrelated\n',
+      'tests/nord-anglia-crawler.test.ts': directoryReader,
+      'tests/expired-at-parsable.test.ts': directoryReader,
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    const testsWorkflow = select(root, ['.github/workflows/tests.yml']);
+    expect(testsWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
+    expect(testsWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+
+    const crawlerWorkflow = select(root, ['.github/workflows/crawler-group-01.yml']);
+    expect(crawlerWorkflow.stdout).toContain('tests/nord-anglia-crawler.test.ts');
+    expect(crawlerWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+
+    const expiredWorkflow = select(root, ['.github/workflows/reconcile-expired-route-duplicates.yml']);
+    expect(expiredWorkflow.stdout).toContain('tests/expired-at-parsable.test.ts');
+    expect(expiredWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
+  });
+
   it('fails fast when a source change has no statically related runnable test', () => {
     const root = fixture({
       'services/orphan.mjs': 'export const orphan = true;\n',
