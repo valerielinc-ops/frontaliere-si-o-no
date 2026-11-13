@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-11-12T21:41:59.310Z",
-  "runId": "43309660587",
+  "assembledAt": "2026-11-13T09:35:18.792Z",
+  "runId": "43400567795",
   "jobs": [
     {
       "id": "sune-egge-7c8cadfd59a2",
@@ -34,7 +34,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2814735",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:41:51.300Z",
+      "crawledAt": "2026-11-13T09:35:11.957Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:41:51.300Z",
+      "validThrough": "2026-12-24T09:35:11.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2763228",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:41:50.739Z",
+      "crawledAt": "2026-11-13T09:35:11.793Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:41:50.739Z",
+      "validThrough": "2026-12-13T09:35:11.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +201,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:41:50.154Z",
+      "crawledAt": "2026-11-13T09:35:11.188Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:41:50.154Z",
+      "validThrough": "2026-12-21T09:35:11.188Z",
       "validThroughSource": "last-observed-window"
     }
   ]
