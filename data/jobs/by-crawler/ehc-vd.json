@@ -502,7 +502,7 @@
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
       },
@@ -570,7 +570,7 @@
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
-        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -579,7 +579,7 @@
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.978Z",
@@ -1378,7 +1378,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1449,7 +1449,7 @@
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
         "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-generaliste-ehc-vd-morges",
-        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1458,7 +1458,7 @@
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
           "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.972Z",
@@ -5753,12 +5753,12 @@
     },
     {
       "id": "ehc-vd-a56e08aad6c0",
-      "slug": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
+      "slug": "medico-pediatrico-con-interesse-per-il-neurosviluppo-m-f-ensemble-hospitalier-de-la-cote-ehc-lavigny",
       "slugByLocale": {
         "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-        "it": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-        "en": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-        "de": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        "it": "medico-pediatrico-con-interesse-per-il-neurosviluppo-m-f-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "en": "pediatric-doctor-with-interest-in-neurodevelopment-m-f-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "de": "kinderarzt-mit-interesse-an-der-neuroentwicklung-m-w-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5820,13 +5820,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T09:14:06.463Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-19T09:58:50.954Z"
+      "firstSeenAt": "2026-05-19T09:58:50.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        ],
+        "en": [
+          "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        ],
+        "de": [
+          "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+      ]
     },
     {
       "id": "ehc-vd-eadc1d66981e",
       "slug": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges-1354eec425",
       "slugByLocale": {
-        "it": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges-1354eec425",
+        "it": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "specialist-physician-in-endocrinology-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spezialist-arzt-in-endokrinologie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges"
@@ -5905,8 +5919,7 @@
         "facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
         "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges",
-        "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5915,8 +5928,7 @@
           "facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges",
           "medecin-specialiste-en-rhumatologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges",
-          "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges"
         ],
         "en": [
           "specialist-rheumatologist-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -5954,7 +5966,7 @@
       "slugByLocale": {
         "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "surgical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -6001,7 +6013,7 @@
       "previousSlugs": [
         "infirmier-en-chirurgie-f-h-ehc-vd-morges",
         "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6009,7 +6021,7 @@
         ],
         "de": [
           "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "chirurgische-krankenschwester-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.245Z",

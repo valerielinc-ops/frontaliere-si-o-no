@@ -336,12 +336,12 @@
     },
     {
       "id": "seco-jobroom-18cfcff1-28c6-4413-aab0-385dc3ae099d",
-      "slug": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1",
+      "slug": "dipendenti-commerciali-nella-pianificazione-della-produzione-100-f-m-div-ref299070d-scintilla-ag-st-niklaus-vs-18cfcff1",
       "slugByLocale": {
-        "en": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1",
-        "it": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1",
+        "en": "commercial-employees-in-production-planning-100-f-m-div-ref299070d-scintilla-ag-st-niklaus-vs-18cfcff1",
+        "it": "dipendenti-commerciali-nella-pianificazione-della-produzione-100-f-m-div-ref299070d-scintilla-ag-st-niklaus-vs-18cfcff1",
         "de": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1",
-        "fr": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1"
+        "fr": "employes-commerciaux-en-planification-de-la-production-100-f-m-div-ref299070d-scintilla-ag-st-niklaus-vs-18cfcff1"
       },
       "slugDisambiguator": "18cfcff1",
       "company": "Scintilla AG",
@@ -406,7 +406,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1"
+        ],
+        "en": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1"
+        ],
+        "fr": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-18cfcff1"
+      ]
     },
     {
       "id": "seco-jobroom-1cf5dfd7-0ce7-46a6-a5fe-140b848784a0",
@@ -579,12 +593,12 @@
     },
     {
       "id": "seco-jobroom-393bdc41-96f9-4ff1-a186-481c46c20084",
-      "slug": "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis",
+      "slug": "dipl-infermieristica-professionale-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
-        "it": "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis",
-        "en": "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
-        "fr": "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41"
+        "it": "dipl-infermieristica-professionale-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
+        "en": "dipl-nursing-professional-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
+        "fr": "c-est-quoi-professionnels-des-soins-infirmiers-evang-pflege-und-altersheim-thusis-thusis-393bdc41"
       },
       "slugDisambiguator": "393bdc41",
       "company": "Evang. Pflege- und Altersheim Thusis",
@@ -635,11 +649,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
+          "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis"
+        ],
+        "en": [
+          "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41"
+        ],
+        "fr": [
           "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41"
+        "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis-thusis-393bdc41",
+        "dipl-pflegefachperson-evang-pflege-und-altersheim-thusis"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -657,7 +679,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-4019e536-04cc-4d1c-8dc6-07ef3c4043a9",
@@ -734,12 +756,12 @@
     },
     {
       "id": "seco-jobroom-44a07545-defd-4b11-a320-b3fc08ed6b17",
-      "slug": "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545",
+      "slug": "venditore-venditrice-con-responsabilita-di-turno-60-80-lidl-schweiz-ag-schluein-44a07545",
       "slugByLocale": {
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545",
-        "it": "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545"
+        "it": "venditore-venditrice-con-responsabilita-di-turno-60-80-lidl-schweiz-ag-schluein-44a07545",
+        "en": "seller-with-shift-responsibility-60-80-lidl-schweiz-ag-schluein-44a07545",
+        "fr": "vendeur-avec-responsabilite-de-quart-60-80-lidl-schweiz-ag-schluein-44a07545"
       },
       "slugDisambiguator": "44a07545",
       "company": "Lidl Schweiz AG",
@@ -805,16 +827,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-verkauferin-mit-schichtverantwortung-60-80-lidl-schweiz-ag-schluein-44a07545"
+      ]
     },
     {
       "id": "seco-jobroom-57b86aa9-a2d1-435e-8446-4089e11ced9d",
-      "slug": "charpentier-sigma-talent-sa-verbier-57b86aa9",
+      "slug": "carpenter-sigma-talent-sa-verbier-57b86aa9",
       "slugByLocale": {
         "fr": "charpentier-sigma-talent-sa-verbier-57b86aa9",
-        "it": "charpentier-sigma-talent-sa-verbier-57b86aa9",
+        "it": "carpenter-sigma-talent-sa-verbier-57b86aa9",
         "en": "charpentier-sigma-talent-sa-verbier-57b86aa9",
-        "de": "charpentier-sigma-talent-sa-verbier-57b86aa9"
+        "de": "zimmermann-sigma-talent-sa-verbier-57b86aa9"
       },
       "slugDisambiguator": "57b86aa9",
       "company": "SIGMA Talent SA",
@@ -879,16 +915,27 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charpentier-sigma-talent-sa-verbier-57b86aa9"
+        ],
+        "de": [
+          "charpentier-sigma-talent-sa-verbier-57b86aa9"
+        ]
+      },
+      "previousSlugs": [
+        "charpentier-sigma-talent-sa-verbier-57b86aa9"
+      ]
     },
     {
       "id": "seco-jobroom-58d9f56e-e4be-4a79-8e10-e27e9fcd08f3",
-      "slug": "bauleiter-in-hochbau-lazzarini-ag-chur",
+      "slug": "responsabile-di-cantiere-nell-edilizia-lazzarini-ag-chur-58d9f56e",
       "slugByLocale": {
         "de": "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e",
-        "it": "bauleiter-in-hochbau-lazzarini-ag-chur",
-        "en": "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e",
-        "fr": "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e"
+        "it": "responsabile-di-cantiere-nell-edilizia-lazzarini-ag-chur-58d9f56e",
+        "en": "construction-manager-building-construction-lazzarini-ag-chur-58d9f56e",
+        "fr": "conducteur-rice-de-travaux-dans-le-batiment-lazzarini-ag-chur-58d9f56e"
       },
       "slugDisambiguator": "58d9f56e",
       "company": "Lazzarini AG",
@@ -940,11 +987,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e",
+          "bauleiter-in-hochbau-lazzarini-ag-chur"
+        ],
+        "en": [
+          "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e"
+        ],
+        "fr": [
           "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e"
         ]
       },
       "previousSlugs": [
-        "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e"
+        "bauleiter-in-hochbau-lazzarini-ag-chur-58d9f56e",
+        "bauleiter-in-hochbau-lazzarini-ag-chur"
       ],
       "salaryMin": 70000,
       "salaryMax": 89000,
@@ -962,14 +1017,14 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-5b326473-e068-41ac-b291-7521f3b22a6f",
-      "slug": "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473",
+      "slug": "cames-scroller-lemco-precision-sa-vionnaz-5b326473",
       "slugByLocale": {
         "fr": "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473",
-        "it": "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473",
+        "it": "cames-scroller-lemco-precision-sa-vionnaz-5b326473",
         "en": "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473",
         "de": "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473"
       },
@@ -1036,7 +1091,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473"
+        ]
+      },
+      "previousSlugs": [
+        "decolleteur-a-cames-lemco-precision-sa-vionnaz-5b326473"
+      ]
     },
     {
       "id": "seco-jobroom-6a6e10ef-ac9c-4a06-a862-2702ce20a544",
@@ -1218,8 +1281,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6",
         "it": "collaboratore-trice-in-servizio-interno-80-100-in-davos-zurich-generalagentur-pieder-decurtins-thusis",
-        "en": "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6",
-        "fr": "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6"
+        "en": "inside-sales-employee-80-100-in-davos-zurich-generalagentur-pieder-decurtins-thusis-912459b6",
+        "fr": "collaborateur-rice-au-service-interne-80-100-a-davos-zurich-generalagentur-pieder-decurtins-thusis-912459b6"
       },
       "slugDisambiguator": "912459b6",
       "company": "Zürich, Generalagentur Pieder Decurtins",
@@ -1272,6 +1335,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6"
+        ],
+        "en": [
+          "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6"
+        ],
+        "fr": [
+          "mitarbeiter-in-innendienst-80-100-in-davos-zurich-generalagentur-pieder-912459b6"
         ]
       },
       "previousSlugs": [
@@ -1293,16 +1362,16 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-adaeebe4-fd5f-4943-ac9a-7df35f8bc9e1",
-      "slug": "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4",
+      "slug": "dipendente-multiuso-l-antre-d-eux-champoussin-champoussin-adaeebe4",
       "slugByLocale": {
         "fr": "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4",
-        "it": "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4",
-        "en": "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4",
-        "de": "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4"
+        "it": "dipendente-multiuso-l-antre-d-eux-champoussin-champoussin-adaeebe4",
+        "en": "multipurpose-employee-l-antre-d-eux-champoussin-champoussin-adaeebe4",
+        "de": "mehrzweckarbeitnehmer-l-antre-d-eux-champoussin-champoussin-adaeebe4"
       },
       "slugDisambiguator": "adaeebe4",
       "company": "L'Antre d'Eux Champoussin",
@@ -1367,7 +1436,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4"
+        ],
+        "en": [
+          "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4"
+        ],
+        "de": [
+          "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4"
+        ]
+      },
+      "previousSlugs": [
+        "employe-polyvalent-l-antre-d-eux-champoussin-champoussin-adaeebe4"
+      ]
     },
     {
       "id": "seco-jobroom-b6518742-54cc-4d1c-ab7d-b39862b5e5b9",
@@ -1451,11 +1534,11 @@
     },
     {
       "id": "seco-jobroom-b93f30d4-a67d-46ab-9ea6-e2dc4aa06911",
-      "slug": "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
+      "slug": "carrozzieri-lattonie-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
       "slugByLocale": {
         "de": "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
-        "it": "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
-        "en": "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
+        "it": "carrozzieri-lattonie-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
+        "en": "carrozziers-lattonie-carrozzeria-di-ascenzo-sa-biasca-b93f30d4",
         "fr": "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4"
       },
       "slugDisambiguator": "b93f30d4",
@@ -1521,7 +1604,18 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4"
+        ],
+        "en": [
+          "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4"
+        ]
+      },
+      "previousSlugs": [
+        "carrozziere-lattoniere-carrozzeria-di-ascenzo-sa-biasca-b93f30d4"
+      ]
     },
     {
       "id": "seco-jobroom-be1bc627-a807-45d8-93d5-a55af19aec2e",
@@ -1597,12 +1691,12 @@
     },
     {
       "id": "seco-jobroom-be2a57f1-d8fd-4e1a-9a73-21c41077721a",
-      "slug": "kundenberater-in-privatkunden-e-gewerbe-in-davos-zurich-generalagentur-pieder-decurtins-thusis",
+      "slug": "consulente-per-clienti-privati-e-commerciali-a-davos-zurich-generalagentur-pieder-decurtins-thusis-be2a57f1",
       "slugByLocale": {
         "de": "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1",
-        "it": "kundenberater-in-privatkunden-e-gewerbe-in-davos-zurich-generalagentur-pieder-decurtins-thusis",
-        "en": "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1",
-        "fr": "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1"
+        "it": "consulente-per-clienti-privati-e-commerciali-a-davos-zurich-generalagentur-pieder-decurtins-thusis-be2a57f1",
+        "en": "customer-advisor-for-private-customers-and-commercial-clients-in-davos-zurich-generalagentur-pieder-decurtins-be2a57f1",
+        "fr": "conseiller-ere-a-la-clientele-privee-et-commerciale-a-davos-zurich-generalagentur-pieder-decurtins-thusis-be2a57f1"
       },
       "slugDisambiguator": "be2a57f1",
       "company": "Zürich, Generalagentur Pieder Decurtins",
@@ -1654,11 +1748,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1",
+          "kundenberater-in-privatkunden-e-gewerbe-in-davos-zurich-generalagentur-pieder-decurtins-thusis"
+        ],
+        "en": [
+          "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1"
+        ],
+        "fr": [
           "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1"
+        "kundenberater-in-privatkunden-und-gewerbe-in-davos-zurich-generalagentur-pieder-be2a57f1",
+        "kundenberater-in-privatkunden-e-gewerbe-in-davos-zurich-generalagentur-pieder-decurtins-thusis"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1676,7 +1778,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-c142ac87-7212-47e7-a561-20d4baf4d37e",
@@ -1750,7 +1852,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-c222f0c0-d76d-4119-959c-31ab780d4c0f",
@@ -1758,8 +1860,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0",
         "it": "collaboratore-trice-hotellerie-evang-pflege-und-altersheim-thusis",
-        "en": "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0",
-        "fr": "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0"
+        "en": "hotel-employee-evang-pflege-und-altersheim-thusis-thusis-c222f0c0",
+        "fr": "collaborateur-trice-en-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0"
       },
       "slugDisambiguator": "c222f0c0",
       "company": "Evang. Pflege- und Altersheim Thusis",
@@ -1812,6 +1914,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0"
+        ],
+        "en": [
+          "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotellerie-evang-pflege-und-altersheim-thusis-thusis-c222f0c0"
         ]
       },
       "previousSlugs": [
@@ -1833,7 +1941,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-d083bc69-9cec-4f1c-99c6-765880ada1bb",
@@ -1841,8 +1949,8 @@
       "slugByLocale": {
         "de": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69",
         "it": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-rheintal-schanfigg-kanton-graubunden-chur",
-        "en": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69",
-        "fr": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69"
+        "en": "forestry-internship-at-the-office-for-forestry-and-natural-hazards-rheintal-schanfigg-region-kanton-graubunden-d083bc69",
+        "fr": "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-rheintal-schanfig-kanton-graubunden-d083bc69"
       },
       "slugDisambiguator": "d083bc69",
       "company": "Kanton Graubünden",
@@ -1895,6 +2003,12 @@
       "previousSlugsByLocale": {
         "it": [
           "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69"
+        ],
+        "en": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69"
+        ],
+        "fr": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-d083bc69"
         ]
       },
       "previousSlugs": [
@@ -1916,7 +2030,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-d2a27cdb-2a72-4311-b435-ef4273e50a5d",
@@ -2073,12 +2187,12 @@
     },
     {
       "id": "seco-jobroom-d3a5bc27-f50e-4d96-a3db-d4d8c15fb110",
-      "slug": "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27",
+      "slug": "proprietario-del-prodotto-del-software-80-100-hamilton-ag-bonaduz-d3a5bc27",
       "slugByLocale": {
         "de": "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27",
-        "it": "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27",
+        "it": "proprietario-del-prodotto-del-software-80-100-hamilton-ag-bonaduz-d3a5bc27",
         "en": "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27",
-        "fr": "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27"
+        "fr": "proprietaire-de-produits-logiciels-80-100-hamilton-ag-bonaduz-d3a5bc27"
       },
       "slugDisambiguator": "d3a5bc27",
       "company": "Hamilton AG",
@@ -2158,16 +2272,27 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldSince": "2026-11-13T09:38:04.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27"
+        ],
+        "fr": [
+          "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27"
+        ]
+      },
+      "previousSlugs": [
+        "software-product-owner-80-100-hamilton-ag-bonaduz-d3a5bc27"
+      ]
     },
     {
       "id": "seco-jobroom-d411eb8c-1767-40a1-8d18-b2ff7ccbedda",
-      "slug": "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c",
+      "slug": "founding-ricerca-ingegnere-avec-competence-gmbh-lugano-d411eb8c",
       "slugByLocale": {
         "en": "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c",
-        "it": "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c",
-        "de": "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c",
-        "fr": "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c"
+        "it": "founding-ricerca-ingegnere-avec-competence-gmbh-lugano-d411eb8c",
+        "de": "founding-forschung-ingenieur-avec-competence-gmbh-lugano-d411eb8c",
+        "fr": "founding-recherche-ingenieur-avec-competence-gmbh-lugano-d411eb8c"
       },
       "slugDisambiguator": "d411eb8c",
       "company": "avec compétence GmbH",
@@ -2231,7 +2356,21 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T09:35:22.803Z"
+      "firstSeenAt": "2026-11-13T09:35:22.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c"
+        ],
+        "de": [
+          "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c"
+        ],
+        "fr": [
+          "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c"
+        ]
+      },
+      "previousSlugs": [
+        "founding-research-engineer-avec-competence-gmbh-lugano-d411eb8c"
+      ]
     },
     {
       "id": "seco-jobroom-ea3d13ea-3163-4c1e-9ae0-2ad6bb581cf7",
@@ -3066,12 +3205,12 @@
     },
     {
       "id": "seco-jobroom-14e3945a-4641-4bef-a11e-6bedd8210804",
-      "slug": "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a",
+      "slug": "dipl-cura-esperto-anestesia-nds-hf-m-f-d-op-gamma-60-100-carepeople-ag-schiers-14e3945a",
       "slugByLocale": {
         "de": "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a",
-        "it": "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a",
-        "en": "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a",
-        "fr": "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a"
+        "it": "dipl-cura-esperto-anestesia-nds-hf-m-f-d-op-gamma-60-100-carepeople-ag-schiers-14e3945a",
+        "en": "dipl-expert-anesthesia-care-nds-hf-m-f-d-op-range-60-100-carepeople-ag-schiers-14e3945a",
+        "fr": "dipl-soins-d-anesthesie-experts-nds-hf-h-f-d-op-gamme-60-100-carepeople-ag-schiers-14e3945a"
       },
       "slugDisambiguator": "14e3945a",
       "company": "CarePeople AG",
@@ -3136,7 +3275,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a"
+        ],
+        "en": [
+          "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a"
+        ],
+        "fr": [
+          "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experte-anasthesiepflege-nds-hf-m-w-d-op-bereich-60-100-carepeople-ag-14e3945a"
+      ]
     },
     {
       "id": "seco-jobroom-16ef9975-bf71-42d3-ae7e-3096f1a82a15",
@@ -3387,11 +3540,11 @@
     },
     {
       "id": "seco-jobroom-1ec0eacd-e12d-4874-a78f-efb9ac174619",
-      "slug": "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd",
+      "slug": "assistente-di-sala-operatoria-atsso-medicalis-sion-1ec0eacd",
       "slugByLocale": {
         "de": "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd",
-        "it": "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd",
-        "en": "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd",
+        "it": "assistente-di-sala-operatoria-atsso-medicalis-sion-1ec0eacd",
+        "en": "operating-room-assistant-atsso-medicalis-sion-1ec0eacd",
         "fr": "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd"
       },
       "slugDisambiguator": "1ec0eacd",
@@ -3458,7 +3611,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd"
+        ],
+        "en": [
+          "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-bloc-operatoire-atsso-medicalis-sion-1ec0eacd"
+      ]
     },
     {
       "id": "seco-jobroom-21c5a370-8c44-4753-8b61-341a50fa6129",
@@ -3879,12 +4043,12 @@
     },
     {
       "id": "seco-jobroom-306f8b62-0e67-44c5-970e-8f7ae590e805",
-      "slug": "facility-technician-united-machining-losone-306f8b62",
+      "slug": "facilita-tecnico-united-machining-losone-306f8b62",
       "slugByLocale": {
         "de": "facility-technician-united-machining-losone-306f8b62",
-        "it": "facility-technician-united-machining-losone-306f8b62",
-        "en": "facility-technician-united-machining-losone-306f8b62",
-        "fr": "facility-technician-united-machining-losone-306f8b62"
+        "it": "facilita-tecnico-united-machining-losone-306f8b62",
+        "en": "facilities-technician-united-machining-losone-306f8b62",
+        "fr": "facility-technicien-united-machining-losone-306f8b62"
       },
       "slugDisambiguator": "306f8b62",
       "company": "UNITED MACHINING",
@@ -3950,7 +4114,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facility-technician-united-machining-losone-306f8b62"
+        ],
+        "en": [
+          "facility-technician-united-machining-losone-306f8b62"
+        ],
+        "fr": [
+          "facility-technician-united-machining-losone-306f8b62"
+        ]
+      },
+      "previousSlugs": [
+        "facility-technician-united-machining-losone-306f8b62"
+      ]
     },
     {
       "id": "seco-jobroom-3422f070-1a2a-4a2d-9247-e17c759a6748",
@@ -4613,12 +4791,12 @@
     },
     {
       "id": "seco-jobroom-4e9ffb6e-397c-4fe6-b270-4343edf17112",
-      "slug": "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e",
+      "slug": "produzione-leader-di-gruppo-m-f-d-jabil-raron-4e9ffb6e",
       "slugByLocale": {
         "de": "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e",
-        "it": "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e",
-        "en": "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e",
-        "fr": "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e"
+        "it": "produzione-leader-di-gruppo-m-f-d-jabil-raron-4e9ffb6e",
+        "en": "group-leader-production-m-f-d-jabil-raron-4e9ffb6e",
+        "fr": "chef-de-groupe-production-h-f-d-jabil-raron-4e9ffb6e"
       },
       "slugDisambiguator": "4e9ffb6e",
       "company": "Jabil",
@@ -4683,7 +4861,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e"
+        ],
+        "en": [
+          "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e"
+        ],
+        "fr": [
+          "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-produktion-m-w-d-jabil-raron-4e9ffb6e"
+      ]
     },
     {
       "id": "seco-jobroom-53b06d09-d433-4788-8f40-af0414c0b03b",
@@ -6530,12 +6722,12 @@
     },
     {
       "id": "seco-jobroom-8933d935-b04c-423a-bc29-969c781b7cf1",
-      "slug": "gesamtprojektleiter-m-w-d-manpower-termine-8933d935",
+      "slug": "general-project-manager-m-f-d-manpower-termine-8933d935",
       "slugByLocale": {
         "de": "gesamtprojektleiter-m-w-d-manpower-termine-8933d935",
-        "it": "gesamtprojektleiter-m-w-d-manpower-termine-8933d935",
+        "it": "general-project-manager-m-f-d-manpower-termine-8933d935",
         "en": "gesamtprojektleiter-m-w-d-manpower-termine-8933d935",
-        "fr": "gesamtprojektleiter-m-w-d-manpower-termine-8933d935"
+        "fr": "directeur-general-de-projet-h-f-d-manpower-termine-8933d935"
       },
       "slugDisambiguator": "8933d935",
       "company": "Manpower",
@@ -6600,7 +6792,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gesamtprojektleiter-m-w-d-manpower-termine-8933d935"
+        ],
+        "fr": [
+          "gesamtprojektleiter-m-w-d-manpower-termine-8933d935"
+        ]
+      },
+      "previousSlugs": [
+        "gesamtprojektleiter-m-w-d-manpower-termine-8933d935"
+      ]
     },
     {
       "id": "seco-jobroom-89d93efd-76dd-4892-a336-16298c078e0d",
@@ -6776,12 +6979,12 @@
     },
     {
       "id": "seco-jobroom-8ca87f21-3263-4bd0-b30a-573c7059ab47",
-      "slug": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21",
+      "slug": "dipendenti-commerciali-nella-pianificazione-della-produzione-100-f-m-div-ref299070d-robert-bosch-ag-st-niklaus-8ca87f21",
       "slugByLocale": {
         "de": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21",
-        "it": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21",
-        "en": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21",
-        "fr": "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21"
+        "it": "dipendenti-commerciali-nella-pianificazione-della-produzione-100-f-m-div-ref299070d-robert-bosch-ag-st-niklaus-8ca87f21",
+        "en": "commercial-employees-in-production-planning-100-f-m-div-ref299070d-robert-bosch-ag-st-niklaus-8ca87f21",
+        "fr": "employes-commerciaux-en-planification-de-la-production-100-f-m-div-ref299070d-robert-bosch-ag-st-niklaus-8ca87f21"
       },
       "slugDisambiguator": "8ca87f21",
       "company": "Robert Bosch AG",
@@ -6846,7 +7049,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21"
+        ],
+        "en": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21"
+        ],
+        "fr": [
+          "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannische-angestellte-in-der-produktionsplanung-100-w-m-div-ref299070d-8ca87f21"
+      ]
     },
     {
       "id": "seco-jobroom-8f96819f-a1fe-488e-b022-5bf7c9fdde98",
@@ -8192,12 +8409,12 @@
     },
     {
       "id": "seco-jobroom-c4fae560-5fc0-4d73-b160-282363df34f9",
-      "slug": "kuchenhilfe-koch-event-coople-ag-laax-c4fae560",
+      "slug": "cucina-aiuto-evento-di-cucina-coople-ag-laax-c4fae560",
       "slugByLocale": {
         "de": "kuchenhilfe-koch-event-coople-ag-laax-c4fae560",
-        "it": "kuchenhilfe-koch-event-coople-ag-laax-c4fae560",
-        "en": "kuchenhilfe-koch-event-coople-ag-laax-c4fae560",
-        "fr": "kuchenhilfe-koch-event-coople-ag-laax-c4fae560"
+        "it": "cucina-aiuto-evento-di-cucina-coople-ag-laax-c4fae560",
+        "en": "kitchen-help-cooking-event-coople-ag-laax-c4fae560",
+        "fr": "aide-de-cuisine-evenement-de-cuisine-coople-ag-laax-c4fae560"
       },
       "slugDisambiguator": "c4fae560",
       "company": "Coople AG",
@@ -8262,7 +8479,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenhilfe-koch-event-coople-ag-laax-c4fae560"
+        ],
+        "en": [
+          "kuchenhilfe-koch-event-coople-ag-laax-c4fae560"
+        ],
+        "fr": [
+          "kuchenhilfe-koch-event-coople-ag-laax-c4fae560"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenhilfe-koch-event-coople-ag-laax-c4fae560"
+      ]
     },
     {
       "id": "seco-jobroom-c904fb64-7914-4fa3-92e4-c7a6891c746a",
@@ -8352,12 +8583,12 @@
     },
     {
       "id": "seco-jobroom-ced787b7-4d01-4e7c-9de4-50040e9e4140",
-      "slug": "automation-engineer-hays-schweiz-ag-visp-ced787b7",
+      "slug": "automation-ingegnere-hays-schweiz-ag-visp-ced787b7",
       "slugByLocale": {
         "de": "automation-engineer-hays-schweiz-ag-visp-ced787b7",
-        "it": "automation-engineer-hays-schweiz-ag-visp-ced787b7",
+        "it": "automation-ingegnere-hays-schweiz-ag-visp-ced787b7",
         "en": "automation-engineer-hays-schweiz-ag-visp-ced787b7",
-        "fr": "automation-engineer-hays-schweiz-ag-visp-ced787b7"
+        "fr": "automation-ingenieur-hays-schweiz-ag-visp-ced787b7"
       },
       "slugDisambiguator": "ced787b7",
       "company": "Hays (Schweiz) AG",
@@ -8423,7 +8654,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldSince": "2026-11-13T09:38:04.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-hays-schweiz-ag-visp-ced787b7"
+        ],
+        "fr": [
+          "automation-engineer-hays-schweiz-ag-visp-ced787b7"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-hays-schweiz-ag-visp-ced787b7"
+      ]
     },
     {
       "id": "seco-jobroom-e15babe5-488f-4a42-ae96-b254bf304f6c",
@@ -9332,7 +9574,7 @@
       "slug": "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann",
       "slugByLocale": {
         "it": "detailhandelsfachmann-frau-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann",
-        "en": "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae",
+        "en": "retail-specialist-efz-food-retail-specialist-cfc-metzgerei-wursterei-viehhandel-rene-meyer-turtmann-019c4fae",
         "de": "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae",
         "fr": "specialiste-du-commerce-de-detail-cfc-food-gestionnaire-du-commerce-de-detail-cfc-metzgerei-wursterei-019c4fae"
       },
@@ -9389,6 +9631,9 @@
           "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
         ],
         "fr": [
+          "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
+        ],
+        "en": [
           "detailhandelsfachmann-frau-efz-food-gestionnaire-du-commerce-de-detail-cfc-019c4fae"
         ]
       },
@@ -11117,7 +11362,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-3233dd1e-eae3-11ef-a83e-82588dc8ab8d",
@@ -11293,10 +11538,10 @@
     },
     {
       "id": "seco-jobroom-338431e2-2d7e-4783-a29a-1efc0091bec5",
-      "slug": "operatori-cnc-torni-frese-adecco-bellinzona-338431e2",
+      "slug": "cnc-fini-frese-adecco-bellinzona-338431e2",
       "slugByLocale": {
         "de": "operatori-cnc-torni-frese-adecco-bellinzona-338431e2",
-        "it": "operatori-cnc-torni-frese-adecco-bellinzona-338431e2",
+        "it": "cnc-fini-frese-adecco-bellinzona-338431e2",
         "en": "operatori-cnc-torni-frese-adecco-bellinzona-338431e2",
         "fr": "operatori-cnc-torni-frese-adecco-bellinzona-338431e2"
       },
@@ -11363,7 +11608,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatori-cnc-torni-frese-adecco-bellinzona-338431e2"
+        ]
+      },
+      "previousSlugs": [
+        "operatori-cnc-torni-frese-adecco-bellinzona-338431e2"
+      ]
     },
     {
       "id": "seco-jobroom-37df975d-074c-4c47-aa9d-eff9af9ed46e",
@@ -11626,7 +11879,7 @@
         "de": "cartongessista-m-f-d-das-team-ag-mendrisio-3aaff728",
         "it": "cartongessista-m-f-d-das-team-ag-mendrisio-3aaff728",
         "en": "cartongessista-m-f-d-das-team-ag-mendrisio-3aaff728",
-        "fr": "cartongessista-m-f-d-das-team-ag-mendrisio-3aaff728"
+        "fr": "cartongesista-h-f-d-z-das-team-ag-mendrisio-3aaff728"
       },
       "slugDisambiguator": "3aaff728",
       "company": "das team ag",
@@ -11691,7 +11944,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-3d239926-8f78-4cb4-bc40-75a94677a7c5",
@@ -13966,11 +14219,11 @@
     },
     {
       "id": "seco-jobroom-86765dd9-bf25-416c-92ae-e80efefb5e7d",
-      "slug": "piastrellista-m-f-d-das-team-ag-lugano-86765dd9",
+      "slug": "plumcake-m-f-d-das-team-ag-lugano-86765dd9",
       "slugByLocale": {
         "de": "piastrellista-m-f-d-das-team-ag-lugano-86765dd9",
-        "it": "piastrellista-m-f-d-das-team-ag-lugano-86765dd9",
-        "en": "piastrellista-m-f-d-das-team-ag-lugano-86765dd9",
+        "it": "plumcake-m-f-d-das-team-ag-lugano-86765dd9",
+        "en": "paistrellista-m-f-d-das-team-ag-lugano-86765dd9",
         "fr": "piastrellista-m-f-d-das-team-ag-lugano-86765dd9"
       },
       "slugDisambiguator": "86765dd9",
@@ -14036,7 +14289,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "piastrellista-m-f-d-das-team-ag-lugano-86765dd9"
+        ],
+        "en": [
+          "piastrellista-m-f-d-das-team-ag-lugano-86765dd9"
+        ]
+      },
+      "previousSlugs": [
+        "piastrellista-m-f-d-das-team-ag-lugano-86765dd9"
+      ]
     },
     {
       "id": "seco-jobroom-89ae06b0-289f-48b6-a1fc-49ffd96fe8b9",
@@ -14256,7 +14520,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-96b59433-1dc0-4f8b-8929-f336db7a0dc3",
@@ -14857,7 +15121,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-a710dd9c-6a9b-47c8-9f81-ed33cb0831da",
@@ -16027,12 +16291,12 @@
     },
     {
       "id": "seco-jobroom-e292fc79-08bd-4246-971b-1c16a2b328fd",
-      "slug": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79",
+      "slug": "polimeccanica-in-funzionamento-a-2-turni-80-100-m-f-d-hamilton-bonaduz-e292fc79",
       "slugByLocale": {
         "de": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79",
-        "it": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79",
-        "en": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79",
-        "fr": "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79"
+        "it": "polimeccanica-in-funzionamento-a-2-turni-80-100-m-f-d-hamilton-bonaduz-e292fc79",
+        "en": "polymechanics-in-2-shift-operation-80-100-m-f-d-hamilton-bonaduz-e292fc79",
+        "fr": "polymecanique-en-2-equipes-80-100-h-f-d-hamilton-bonaduz-e292fc79"
       },
       "slugDisambiguator": "e292fc79",
       "company": "Hamilton",
@@ -16111,7 +16375,21 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79"
+        ],
+        "en": [
+          "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79"
+        ],
+        "fr": [
+          "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-im-2-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-e292fc79"
+      ]
     },
     {
       "id": "seco-jobroom-e30a0c20-6cd3-4d44-ba28-ee944a3aeb1b",
@@ -16273,12 +16551,12 @@
     },
     {
       "id": "seco-jobroom-e480004d-b13e-4714-8746-6c06805eb5f3",
-      "slug": "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d",
+      "slug": "assistente-alla-gestione-m-f-d-100-michael-page-termine-e480004d",
       "slugByLocale": {
         "de": "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d",
-        "it": "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d",
-        "en": "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d",
-        "fr": "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d"
+        "it": "assistente-alla-gestione-m-f-d-100-michael-page-termine-e480004d",
+        "en": "assistant-to-the-management-m-f-d-100-michael-page-termine-e480004d",
+        "fr": "assistant-de-la-direction-h-f-d-100-michael-page-termine-e480004d"
       },
       "slugDisambiguator": "e480004d",
       "company": "Michael Page",
@@ -16343,7 +16621,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d"
+        ],
+        "en": [
+          "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d"
+        ],
+        "fr": [
+          "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-der-geschaftsleitung-m-w-d-100-michael-page-termine-e480004d"
+      ]
     },
     {
       "id": "seco-jobroom-e9aeec9f-71ff-49a8-9ec5-68f64bcd58f5",
@@ -16433,12 +16725,12 @@
     },
     {
       "id": "seco-jobroom-ee584830-0e78-487b-8298-8171a503a99c",
-      "slug": "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830",
+      "slug": "proprietario-del-prodotto-del-software-80-100-m-f-d-hamilton-bonaduz-ee584830",
       "slugByLocale": {
         "de": "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830",
-        "it": "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830",
+        "it": "proprietario-del-prodotto-del-software-80-100-m-f-d-hamilton-bonaduz-ee584830",
         "en": "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830",
-        "fr": "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830"
+        "fr": "proprietaire-de-produits-logiciels-80-100-h-f-d-hamilton-bonaduz-ee584830"
       },
       "slugDisambiguator": "ee584830",
       "company": "Hamilton",
@@ -16517,7 +16809,18 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830"
+        ],
+        "fr": [
+          "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830"
+        ]
+      },
+      "previousSlugs": [
+        "software-product-owner-80-100-w-m-d-hamilton-bonaduz-ee584830"
+      ]
     },
     {
       "id": "seco-jobroom-f300c98c-5125-4cba-a416-636926b2273a",
@@ -17074,10 +17377,10 @@
     },
     {
       "id": "seco-jobroom-06a6e2fc-45e7-4dac-81a2-40853ad65d46",
-      "slug": "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
+      "slug": "montatore-montatrice-di-impianti-per-porte-automatiche-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
       "slugByLocale": {
-        "it": "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
-        "en": "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
+        "it": "montatore-montatrice-di-impianti-per-porte-automatiche-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
+        "en": "systems-installer-automatic-doors-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
         "de": "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc",
         "fr": "equipement-installateur-dans-portes-automatiques-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc"
       },
@@ -17143,7 +17446,18 @@
       "streetAddress": "Eyholz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc"
+        ],
+        "en": [
+          "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc"
+        ]
+      },
+      "previousSlugs": [
+        "anlagen-monteur-in-automatische-turen-80-100-gilgen-door-systems-ag-eyholz-06a6e2fc"
+      ]
     },
     {
       "id": "seco-jobroom-07d0e26a-0f26-4481-a898-b2dc617bd531",
@@ -17579,9 +17893,9 @@
     },
     {
       "id": "seco-jobroom-0e0cbcd2-f45d-40b5-ba4f-8fca08ef3996",
-      "slug": "automatiker-in-betriebselektriker-in-valser-m-w-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
+      "slug": "tecnico-a-di-automazione-elettricista-industriale-valser-m-f-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
       "slugByLocale": {
-        "it": "automatiker-in-betriebselektriker-in-valser-m-w-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
+        "it": "tecnico-a-di-automazione-elettricista-industriale-valser-m-f-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
         "en": "automator-plant-electrician-valser-m-f-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
         "de": "automatiker-in-betriebselektriker-in-valser-m-w-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2",
         "fr": "automaticien-electricien-d-exploitation-valser-h-f-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2"
@@ -17648,7 +17962,15 @@
       "streetAddress": "Vals",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-betriebselektriker-in-valser-m-w-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-betriebselektriker-in-valser-m-w-d-coca-cola-hbc-schweiz-ag-vals-0e0cbcd2"
+      ]
     },
     {
       "id": "seco-jobroom-0e7d285c-6b96-4388-8373-0e5326e5ce0d",
@@ -19130,12 +19452,12 @@
     },
     {
       "id": "seco-jobroom-537cc2ba-abc2-494c-8b13-46946a3f56de",
-      "slug": "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba",
+      "slug": "carrellista-m-f-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-schweiz-ag-vals-537cc2ba",
       "slugByLocale": {
-        "it": "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba",
+        "it": "carrellista-m-f-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-schweiz-ag-vals-537cc2ba",
         "en": "forklift-driver-m-f-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-schweiz-ag-vals-537cc2ba",
         "de": "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba",
-        "fr": "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba"
+        "fr": "cariste-h-f-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-schweiz-ag-vals-537cc2ba"
       },
       "slugDisambiguator": "537cc2ba",
       "company": "Valser Mineralquellen Eine Division der Coca-Cola HBC Schweiz AG",
@@ -19199,7 +19521,18 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba"
+        ],
+        "fr": [
+          "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba"
+        ]
+      },
+      "previousSlugs": [
+        "staplerfahrer-in-m-w-d-valser-mineralquellen-eine-division-der-coca-cola-hbc-537cc2ba"
+      ]
     },
     {
       "id": "seco-jobroom-541362ab-67c4-4d40-a410-c577d49703a2",
@@ -19609,7 +19942,7 @@
       "slug": "collaboratore-responsabile-care-win24-ag-succursale-ticino-castione-5d81e27d",
       "slugByLocale": {
         "it": "collaboratore-responsabile-care-win24-ag-succursale-ticino-castione-5d81e27d",
-        "en": "collaboratore-sanitario-care-win24-ag-succursale-ticino-castione-5d81e27d",
+        "en": "healthcare-assistant-care-win24-ag-succursale-ticino-castione-5d81e27d",
         "de": "collaboratore-sanitario-care-win24-ag-succursale-ticino-castione-5d81e27d",
         "fr": "collaborateur-sanitaire-care-win24-ag-succursale-ticino-castione-5d81e27d"
       },
@@ -19667,6 +20000,9 @@
         ],
         "fr": [
           "collaboratore-sanitario-care-win24-ag-succursale-ticino-castione-5d81e27d"
+        ],
+        "en": [
+          "collaboratore-sanitario-care-win24-ag-succursale-ticino-castione-5d81e27d"
         ]
       },
       "needsRetranslation": true,
@@ -19686,7 +20022,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-5f0c3dfb-f94d-4663-b3f1-7c70a4701a3c",
@@ -20273,9 +20609,9 @@
     },
     {
       "id": "seco-jobroom-73f44885-ffad-4f57-8518-8757b08b50a8",
-      "slug": "verkaufer-in-shell-migrolino-tankstelle-7302-landquart-reichle-staff-gmbh-73f44885",
+      "slug": "venditore-venditrice-presso-la-stazione-di-servizio-shell-migrolino-7302-landquart-reichle-staff-gmbh-landquart-73f44885",
       "slugByLocale": {
-        "it": "verkaufer-in-shell-migrolino-tankstelle-7302-landquart-reichle-staff-gmbh-73f44885",
+        "it": "venditore-venditrice-presso-la-stazione-di-servizio-shell-migrolino-7302-landquart-reichle-staff-gmbh-landquart-73f44885",
         "en": "seller-shell-migrolino-gas-station-7302-landquart-reichle-staff-gmbh-landquart-73f44885",
         "de": "verkaufer-in-shell-migrolino-tankstelle-7302-landquart-reichle-staff-gmbh-73f44885",
         "fr": "vendeur-e-shell-migrolino-station-service-7302-landquart-reichle-staff-gmbh-landquart-73f44885"
@@ -20342,13 +20678,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-shell-migrolino-tankstelle-7302-landquart-reichle-staff-gmbh-73f44885"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-shell-migrolino-tankstelle-7302-landquart-reichle-staff-gmbh-73f44885"
+      ]
     },
     {
       "id": "seco-jobroom-762eaa5d-294e-4d6c-85bf-dfec71427135",
-      "slug": "verkaufsberater-in-aussendienst-swisscom-directories-ag-landquart-762eaa5d",
+      "slug": "consulente-di-vendita-esterno-a-swisscom-directories-ag-landquart-762eaa5d",
       "slugByLocale": {
-        "it": "verkaufsberater-in-aussendienst-swisscom-directories-ag-landquart-762eaa5d",
+        "it": "consulente-di-vendita-esterno-a-swisscom-directories-ag-landquart-762eaa5d",
         "en": "sales-consultant-field-service-swisscom-directories-ag-landquart-762eaa5d",
         "de": "verkaufsberater-in-aussendienst-swisscom-directories-ag-landquart-762eaa5d",
         "fr": "conseiller-de-vente-dans-le-service-externe-swisscom-directories-ag-landquart-762eaa5d"
@@ -20415,7 +20759,15 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-10T22:04:13.480Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-aussendienst-swisscom-directories-ag-landquart-762eaa5d"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-aussendienst-swisscom-directories-ag-landquart-762eaa5d"
+      ]
     },
     {
       "id": "seco-jobroom-77556ca6-eb02-4dea-b51e-fb9e0627239c",
@@ -20510,7 +20862,7 @@
         "it": "rappresentante-del-committente-con-opzione-per-la-gestione-del-sito-90-100-m-f-d-progress-personal-ag-st-moritz-787d9277",
         "en": "builder-representatives-with-option-for-site-management-90-100-m-f-d-progress-personal-ag-st-moritz-787d9277",
         "de": "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
-        "fr": "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277"
+        "fr": "representants-du-constructeur-avec-option-pour-la-gestion-du-site-90-100-h-f-d-progress-personal-ag-st-moritz-787d9277"
       },
       "slugDisambiguator": "787d9277",
       "company": "Progress Personal AG",
@@ -20558,7 +20910,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "representants-du-constructeur-avec-option-pour-la-gestion-du-site-90-100-h-f-d-progress-personal-ag-st-moritz-787d9277"
+          "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277"
         ],
         "it": [
           "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
@@ -20570,8 +20922,7 @@
       },
       "previousSlugs": [
         "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
-        "bauherrenvertreter-con-option-per-la-standortleitung-90-100-m-w-d-progress-personal-ag-st-moritz",
-        "representants-du-constructeur-avec-option-pour-la-gestion-du-site-90-100-h-f-d-progress-personal-ag-st-moritz-787d9277"
+        "bauherrenvertreter-con-option-per-la-standortleitung-90-100-m-w-d-progress-personal-ag-st-moritz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
@@ -21336,7 +21687,7 @@
       "slug": "chef-d-equipe-contremaitre-genie-civil-acces-personnel-sa-martigny-9afcbe4b",
       "slugByLocale": {
         "it": "chef-d-equipe-contremaitre-genie-civil-acces-personnel-sa-martigny-9afcbe4b",
-        "en": "chef-d-equipe-contremaitre-genie-civil-acces-personnel-sa-martigny-9afcbe4b",
+        "en": "team-leader-civil-engineering-foreman-acces-personnel-sa-martigny-9afcbe4b",
         "de": "chef-d-equipe-contremaitre-genie-civil-acces-personnel-sa-martigny-9afcbe4b",
         "fr": "chef-d-equipe-contremaitre-genie-civil-acces-personnel-sa-martigny-9afcbe4b"
       },
@@ -46308,12 +46659,12 @@
     },
     {
       "id": "seco-jobroom-3041eb45-45fd-4a7c-9c05-7b282135aa04",
-      "slug": "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45",
+      "slug": "dipendente-di-manutenzione-30-80-iss-facility-services-ag-grimisuat-3041eb45",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45",
-        "it": "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45",
-        "en": "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45",
-        "de": "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45"
+        "it": "dipendente-di-manutenzione-30-80-iss-facility-services-ag-grimisuat-3041eb45",
+        "en": "maintenance-employee-30-80-iss-facility-services-ag-grimisuat-3041eb45",
+        "de": "instandhaltungsmitarbeiter-30-80-iss-facility-services-ag-grimisuat-3041eb45"
       },
       "slugDisambiguator": "3041eb45",
       "company": "ISS Facility Services AG",
@@ -46378,7 +46729,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45"
+        ],
+        "en": [
+          "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45"
+        ],
+        "de": [
+          "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-entretien-30-80-iss-facility-services-ag-grimisuat-3041eb45"
+      ]
     },
     {
       "id": "seco-jobroom-312af3f0-b41c-43c1-a4a7-d9def4d8ad92",
@@ -47314,12 +47679,12 @@
     },
     {
       "id": "seco-jobroom-38f3a27f-653a-48cf-8010-bab43576acf0",
-      "slug": "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f",
+      "slug": "operatore-trice-aziendale-bau-agro-personal-ag-rhazuns-38f3a27f",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f",
-        "it": "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f",
-        "en": "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f",
-        "fr": "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f"
+        "it": "operatore-trice-aziendale-bau-agro-personal-ag-rhazuns-38f3a27f",
+        "en": "operations-employee-bau-agro-personal-ag-rhazuns-38f3a27f",
+        "fr": "employe-e-d-exploitation-bau-agro-personal-ag-rhazuns-38f3a27f"
       },
       "slugDisambiguator": "38f3a27f",
       "company": "Bau + Agro Personal AG",
@@ -47385,7 +47750,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-bau-agro-personal-ag-rhazuns-38f3a27f"
+      ]
     },
     {
       "id": "seco-jobroom-3afb94a3-4cee-4b58-a055-d4b5e6728d78",
@@ -47479,12 +47858,12 @@
     },
     {
       "id": "seco-jobroom-3db5f2fe-da1a-4a92-bf31-2c06cceeb8c6",
-      "slug": "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
+      "slug": "dipendente-polyvalent-e-m-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
       "slugByLocale": {
         "fr": "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
-        "it": "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
-        "en": "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
-        "de": "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
+        "it": "dipendente-polyvalent-e-m-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
+        "en": "employee-polyvalent-e-m-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe",
+        "de": "mitarbeiter-polyvalent-e-m-w-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
       },
       "slugDisambiguator": "3db5f2fe",
       "company": "Eden Resort Anzère",
@@ -47549,7 +47928,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
+        ],
+        "en": [
+          "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
+        ],
+        "de": [
+          "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-polyvalent-e-h-f-anzere-vs-eden-resort-anzere-anzere-3db5f2fe"
+      ]
     },
     {
       "id": "seco-jobroom-45e999f3-eef8-488f-b427-ae26a084fabd",
@@ -47754,12 +48147,12 @@
     },
     {
       "id": "seco-jobroom-4b3234c6-6cf6-48e5-855f-a7337862875c",
-      "slug": "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
+      "slug": "collaboratore-trice-cameriere-a-m-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
       "slugByLocale": {
         "fr": "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
-        "it": "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
-        "en": "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
-        "de": "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
+        "it": "collaboratore-trice-cameriere-a-m-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
+        "en": "server-associate-m-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6",
+        "de": "mitarbeiter-in-kellner-in-m-w-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
       },
       "slugDisambiguator": "4b3234c6",
       "company": "Eden Resort Anzère",
@@ -47825,7 +48218,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
+        ],
+        "en": [
+          "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
+        ],
+        "de": [
+          "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-serveur-se-h-f-anzere-vs-eden-resort-anzere-anzere-4b3234c6"
+      ]
     },
     {
       "id": "seco-jobroom-4e1012a0-869d-4f28-9a04-def17d2b9dad",
@@ -48508,7 +48915,7 @@
         "de": "call-center-agent-ambrofood-sa-rivera-57a25dfa",
         "it": "call-center-agent-ambrofood-sa-rivera-57a25dfa",
         "en": "call-center-agent-ambrofood-sa-rivera-57a25dfa",
-        "fr": "call-center-agent-ambrofood-sa-rivera-57a25dfa"
+        "fr": "agent-du-centre-d-appels-ambrofood-sa-rivera-57a25dfa"
       },
       "slugDisambiguator": "57a25dfa",
       "company": "Ambrofood SA",
@@ -48574,7 +48981,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-5c4a95e1-de1c-4ab6-90b2-92fb3fba3efb",
@@ -49311,7 +49718,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-7a21a24f-6b87-4e0a-a734-812767a33d17",
@@ -49402,9 +49809,9 @@
       "slug": "ausiliario-a-tecnica-della-costruzione-job-ticino-sa-camorino-7a46ba64",
       "slugByLocale": {
         "it": "ausiliario-a-tecnica-della-costruzione-job-ticino-sa-camorino-7a46ba64",
-        "en": "ausiliario-a-tecnica-della-costruzione-job-ticino-sa-camorino-7a46ba64",
-        "de": "ausiliario-a-tecnica-della-costruzione-job-ticino-sa-camorino-7a46ba64",
-        "fr": "ausiliario-a-tecnica-della-costruzione-job-ticino-sa-camorino-7a46ba64"
+        "en": "auxiliary-a-construction-technique-job-ticino-sa-camorino-7a46ba64",
+        "de": "hilfseinrichtungen-a-bautechnik-job-ticino-sa-camorino-7a46ba64",
+        "fr": "auxiliaire-a-technique-de-construction-job-ticino-sa-camorino-7a46ba64"
       },
       "slugDisambiguator": "7a46ba64",
       "company": "JOB Ticino SA",
@@ -49469,7 +49876,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-8032d50e-2245-408c-adc7-29de81b4d7d6",
@@ -50819,12 +51226,12 @@
     },
     {
       "id": "seco-jobroom-a3e6215a-b70f-49ea-90a7-106506aabd71",
-      "slug": "collaboratore-trice-in-der-qualitatskontrolle-work24-com-ag-grusch",
+      "slug": "addetto-a-al-controllo-qualita-work24-com-ag-grusch-a3e6215a",
       "slugByLocale": {
         "de": "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a",
-        "it": "collaboratore-trice-in-der-qualitatskontrolle-work24-com-ag-grusch",
-        "en": "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a",
-        "fr": "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a"
+        "it": "addetto-a-al-controllo-qualita-work24-com-ag-grusch-a3e6215a",
+        "en": "quality-control-employee-work24-com-ag-grusch-a3e6215a",
+        "fr": "collaborateur-trice-au-controle-de-la-qualite-work24-com-ag-grusch-a3e6215a"
       },
       "slugDisambiguator": "a3e6215a",
       "company": "work24.com ag",
@@ -50875,11 +51282,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a",
+          "collaboratore-trice-in-der-qualitatskontrolle-work24-com-ag-grusch"
+        ],
+        "en": [
+          "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a"
+        ],
+        "fr": [
           "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a"
+        "mitarbeiter-in-in-der-qualitatskontrolle-work24-com-ag-grusch-a3e6215a",
+        "collaboratore-trice-in-der-qualitatskontrolle-work24-com-ag-grusch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -50898,7 +51313,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-a5ceab29-3381-4f37-ac5f-975f21390657",
@@ -51149,9 +51564,9 @@
       "slug": "ausiliario-di-servizio-ristorante-albergo-carcani-ascona-ae427220",
       "slugByLocale": {
         "it": "ausiliario-di-servizio-ristorante-albergo-carcani-ascona-ae427220",
-        "en": "ausiliario-di-servizio-ristorante-albergo-carcani-ascona-ae427220",
+        "en": "service-auxiliary-restaurant-albergo-carcani-ascona-ae427220",
         "de": "ausiliario-di-servizio-ristorante-albergo-carcani-ascona-ae427220",
-        "fr": "ausiliario-di-servizio-ristorante-albergo-carcani-ascona-ae427220"
+        "fr": "service-auxiliaire-restaurant-albergo-carcani-ascona-ae427220"
       },
       "slugDisambiguator": "ae427220",
       "company": "Albergo Carcani",
@@ -51216,7 +51631,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-aec221b1-6e6e-491f-b18b-a04d235b020d",
@@ -51551,12 +51966,12 @@
     },
     {
       "id": "seco-jobroom-c0757e1b-38bb-4fb5-9e8f-0a21444f2d93",
-      "slug": "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b",
+      "slug": "addetto-a-tuttofare-bau-agro-personal-ag-rhazuns-c0757e1b",
       "slugByLocale": {
         "de": "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b",
-        "it": "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b",
-        "en": "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b",
-        "fr": "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b"
+        "it": "addetto-a-tuttofare-bau-agro-personal-ag-rhazuns-c0757e1b",
+        "en": "all-rounder-bau-agro-personal-ag-rhazuns-c0757e1b",
+        "fr": "employe-e-polyvalent-e-bau-agro-personal-ag-rhazuns-c0757e1b"
       },
       "slugDisambiguator": "c0757e1b",
       "company": "Bau + Agro Personal AG",
@@ -51622,16 +52037,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b"
+        ],
+        "en": [
+          "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b"
+        ],
+        "fr": [
+          "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-bau-agro-personal-ag-rhazuns-c0757e1b"
+      ]
     },
     {
       "id": "seco-jobroom-c234f3e0-aae7-421e-94c6-6466193593a7",
-      "slug": "koch-oki-san-kenoki-st-moritz-c234f3e0",
+      "slug": "cucina-oki-san-kenoki-st-moritz-c234f3e0",
       "slugByLocale": {
         "de": "koch-oki-san-kenoki-st-moritz-c234f3e0",
-        "it": "koch-oki-san-kenoki-st-moritz-c234f3e0",
-        "en": "koch-oki-san-kenoki-st-moritz-c234f3e0",
-        "fr": "koch-oki-san-kenoki-st-moritz-c234f3e0"
+        "it": "cucina-oki-san-kenoki-st-moritz-c234f3e0",
+        "en": "cooking-oki-san-kenoki-st-moritz-c234f3e0",
+        "fr": "cuisson-oki-san-kenoki-st-moritz-c234f3e0"
       },
       "slugDisambiguator": "c234f3e0",
       "company": "OKI-SAN KENOKI",
@@ -51696,16 +52125,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-oki-san-kenoki-st-moritz-c234f3e0"
+        ],
+        "en": [
+          "koch-oki-san-kenoki-st-moritz-c234f3e0"
+        ],
+        "fr": [
+          "koch-oki-san-kenoki-st-moritz-c234f3e0"
+        ]
+      },
+      "previousSlugs": [
+        "koch-oki-san-kenoki-st-moritz-c234f3e0"
+      ]
     },
     {
       "id": "seco-jobroom-c42bb5e6-d76e-4537-a243-912f8a14c3d6",
-      "slug": "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
+      "slug": "collaboratore-party-chef-fe-m-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
       "slugByLocale": {
         "fr": "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
-        "it": "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
-        "en": "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
-        "de": "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
+        "it": "collaboratore-party-chef-fe-m-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
+        "en": "collaborator-party-chef-fe-m-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6",
+        "de": "mitarbeiterpartei-chef-fe-m-w-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
       },
       "slugDisambiguator": "c42bb5e6",
       "company": "Eden Resort Anzère",
@@ -51770,7 +52213,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
+        ],
+        "en": [
+          "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
+        ],
+        "de": [
+          "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-chef-fe-de-partie-h-f-anzere-vs-eden-resort-anzere-anzere-c42bb5e6"
+      ]
     },
     {
       "id": "seco-jobroom-c433f225-0ac4-4d68-a2fa-1b97754a62f7",
@@ -51848,9 +52305,9 @@
       "slug": "casseroliere-pesce-pazzo-lugano-c9f5f2c7",
       "slugByLocale": {
         "it": "casseroliere-pesce-pazzo-lugano-c9f5f2c7",
-        "en": "casseroliere-pesce-pazzo-lugano-c9f5f2c7",
-        "de": "casseroliere-pesce-pazzo-lugano-c9f5f2c7",
-        "fr": "casseroliere-pesce-pazzo-lugano-c9f5f2c7"
+        "en": "pot-washer-pesce-pazzo-lugano-c9f5f2c7",
+        "de": "topfwascher-pesce-pazzo-lugano-c9f5f2c7",
+        "fr": "casserolier-pesce-pazzo-lugano-c9f5f2c7"
       },
       "slugDisambiguator": "c9f5f2c7",
       "company": "PESCE PAZZO",
@@ -51916,7 +52373,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-d03d58dd-9e0d-4066-81cf-22b03dbbcdf8",
@@ -52008,12 +52465,12 @@
     },
     {
       "id": "seco-jobroom-d0c5a456-52ba-4b26-9880-fdae01bb4503",
-      "slug": "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456",
+      "slug": "cooker-m-f-hotelis-sa-vouvry-d0c5a456",
       "slugByLocale": {
         "fr": "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456",
-        "it": "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456",
+        "it": "cooker-m-f-hotelis-sa-vouvry-d0c5a456",
         "en": "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456",
-        "de": "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456"
+        "de": "kocher-m-w-hotelis-sa-vouvry-d0c5a456"
       },
       "slugDisambiguator": "d0c5a456",
       "company": "Hotelis SA",
@@ -52078,7 +52535,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456"
+        ],
+        "de": [
+          "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-h-f-hotelis-sa-vouvry-d0c5a456"
+      ]
     },
     {
       "id": "seco-jobroom-d35bf3ab-3e6b-4395-9f27-facbabc6b108",
@@ -52388,9 +52856,9 @@
       "slug": "ausiliario-di-servizio-ristorante-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf",
       "slugByLocale": {
         "it": "ausiliario-di-servizio-ristorante-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf",
-        "en": "ausiliario-di-servizio-ristorante-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf",
+        "en": "service-auxiliary-restaurant-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf",
         "de": "ausiliario-di-servizio-ristorante-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf",
-        "fr": "ausiliario-di-servizio-ristorante-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf"
+        "fr": "service-auxiliaire-restaurant-ristorante-camino-di-dawodi-ruvigliana-dbfa7aaf"
       },
       "slugDisambiguator": "dbfa7aaf",
       "company": "Ristorante Camino di Dawodi",
@@ -52455,16 +52923,16 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z"
     },
     {
       "id": "seco-jobroom-e1b40a4c-4ea9-46c9-ba1e-e7d48a38d248",
-      "slug": "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
+      "slug": "cuoca-cuoco-m-f-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
       "slugByLocale": {
         "fr": "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
-        "it": "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
-        "en": "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
-        "de": "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
+        "it": "cuoca-cuoco-m-f-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
+        "en": "cook-kitchen-m-f-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c",
+        "de": "koch-kuche-m-w-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
       },
       "slugDisambiguator": "e1b40a4c",
       "company": "Restaurant Coop Conthey Bassin",
@@ -52530,7 +52998,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
+        ],
+        "en": [
+          "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
+        ],
+        "de": [
+          "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
+        ]
+      },
+      "previousSlugs": [
+        "cuisiniere-cuisinier-f-h-d-restaurant-coop-conthey-bassin-conthey-e1b40a4c"
+      ]
     },
     {
       "id": "seco-jobroom-e280fc8c-3941-4d03-81e3-19fbb4649ec0",
@@ -53030,9 +53512,9 @@
       "slug": "impiegato-di-pulizie-ok-job-sa-grancia-f326bf24",
       "slugByLocale": {
         "it": "impiegato-di-pulizie-ok-job-sa-grancia-f326bf24",
-        "en": "impiegato-di-pulizie-ok-job-sa-grancia-f326bf24",
-        "de": "impiegato-di-pulizie-ok-job-sa-grancia-f326bf24",
-        "fr": "impiegato-di-pulizie-ok-job-sa-grancia-f326bf24"
+        "en": "employee-di-pulizie-ok-job-sa-grancia-f326bf24",
+        "de": "angestellter-di-pulizie-ok-job-sa-grancia-f326bf24",
+        "fr": "employe-di-pulizie-ok-job-sa-grancia-f326bf24"
       },
       "slugDisambiguator": "f326bf24",
       "company": "OK JOB SA",
@@ -53100,12 +53582,12 @@
     },
     {
       "id": "seco-jobroom-f3389455-6fc9-4bda-954c-5d3b46e95b21",
-      "slug": "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
+      "slug": "addetti-e-alle-pulizie-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
-        "it": "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
-        "en": "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
-        "fr": "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
+        "it": "addetti-e-alle-pulizie-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
+        "en": "cleaning-staff-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455",
+        "fr": "collaborateur-trice-de-nettoyage-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
       },
       "slugDisambiguator": "f3389455",
       "company": "Edelweiss Services GmbH",
@@ -53171,7 +53653,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
+        ]
+      },
+      "previousSlugs": [
+        "reinigungsmitarbeiter-innen-40-100-edelweiss-services-gmbh-flims-waldhaus-f3389455"
+      ]
     },
     {
       "id": "seco-jobroom-f9404ab7-7d73-4480-a7c9-468949e5cf32",
@@ -53247,12 +53743,12 @@
     },
     {
       "id": "seco-jobroom-f9ef145b-bf54-4a32-89d2-ff42519fe9ae",
-      "slug": "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b",
+      "slug": "servizio-di-collaborazione-esterno-globo-m-f-a-60-les-blanchisseries-generales-lbg-sa-sion-f9ef145b",
       "slugByLocale": {
         "de": "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b",
-        "it": "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b",
-        "en": "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b",
-        "fr": "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b"
+        "it": "servizio-di-collaborazione-esterno-globo-m-f-a-60-les-blanchisseries-generales-lbg-sa-sion-f9ef145b",
+        "en": "collaborator-service-external-globo-m-f-a-60-les-blanchisseries-generales-lbg-sa-sion-f9ef145b",
+        "fr": "service-de-collaborateurs-externes-globo-h-f-de-60-les-blanchisseries-generales-lbg-sa-sion-f9ef145b"
       },
       "slugDisambiguator": "f9ef145b",
       "company": "Les Blanchisseries Générales LBG SA",
@@ -53317,7 +53813,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-13T09:35:22.803Z",
-      "translationHoldSince": "2026-11-13T09:38:04.947Z"
+      "translationHoldReleasedAt": "2026-11-13T15:25:12.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b"
+        ],
+        "en": [
+          "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b"
+        ],
+        "fr": [
+          "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-service-externe-globo-h-f-a-60-les-blanchisseries-generales-lbg-sa-f9ef145b"
+      ]
     },
     {
       "id": "seco-jobroom-fb63374c-1600-4961-ba05-dd45a7b970a0",
@@ -54349,7 +54859,7 @@
       "slugByLocale": {
         "it": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50",
         "en": "orologiaio-di-production-multitime-quartz-sa-losone-240a1e50",
-        "de": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50",
+        "de": "produktionsuhr-multitime-quartz-sa-losone-240a1e50",
         "fr": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50"
       },
       "slugDisambiguator": "240a1e50",
@@ -54397,14 +54907,6 @@
       "validThrough": "2027-01-04T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
-        ]
-      },
-      "previousSlugs": [
-        "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
-      ],
       "firstSeenAt": "2026-11-12T09:35:51.012Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -59654,9 +60156,9 @@
       "slug": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "en": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "de": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "fr": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+        "en": "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "de": "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "fr": "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
       },
       "slugDisambiguator": "b08e3218",
       "company": "Edilservizi Swiss Sagl",
@@ -59705,19 +60207,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "en": [
-          "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "fr": [
-          "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+        "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -65417,7 +65917,7 @@
       "slug": "event-manager-ferrovia-monte-generoso-sa-capolago-4c4b5dee",
       "slugByLocale": {
         "it": "event-manager-ferrovia-monte-generoso-sa-capolago-4c4b5dee",
-        "en": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "en": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-4c4b5dee",
         "de": "veranstaltungsleiter-ferrovia-monte-generoso-sa-capolago-4c4b5dee",
         "fr": "gestionnaire-d-evenements-ferrovia-monte-generoso-sa-capolago-4c4b5dee"
       },
@@ -65467,11 +65967,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-4c4b5dee"
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-4c4b5dee"
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ]
       },
       "firstSeenAt": "2026-11-11T09:50:36.624Z",
@@ -71333,7 +71833,7 @@
       "slug": "event-manager-grand-hotel-locarno-locarno-d6291ea4",
       "slugByLocale": {
         "it": "event-manager-grand-hotel-locarno-locarno-d6291ea4",
-        "en": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "en": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-d6291ea4",
         "de": "veranstaltungsleiter-grand-hotel-locarno-locarno-d6291ea4",
         "fr": "gestionnaire-d-evenements-grand-hotel-locarno-locarno-d6291ea4"
       },
@@ -71383,11 +71883,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-d6291ea4"
+        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-d6291ea4"
+          "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         ]
       },
       "firstSeenAt": "2026-11-11T09:50:36.624Z",
@@ -74629,9 +75129,9 @@
       "slug": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
       "slugByLocale": {
         "it": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "en": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
+        "en": "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270",
         "de": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "fr": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+        "fr": "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270"
       },
       "slugDisambiguator": "28955270",
       "company": "Prim'frais Valais SA",
@@ -74680,8 +75180,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
-          "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ],
         "it": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
@@ -74690,15 +75190,14 @@
         ],
         "en": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-          "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ]
       },
       "previousSlugs": [
         "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
         "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
         "un-a-collaboratore-trice-stagionale-all-80-prim-frais-valais-sa-zermatt-28955270",
-        "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-        "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
       ],
       "firstSeenAt": "2026-11-02T11:10:41.077Z",
       "salaryMin": 48400,
@@ -76594,7 +77093,7 @@
       "slugByLocale": {
         "it": "impiegato-di-pulizie-il-team-sa-locarno-56ea34a6",
         "en": "employee-di-pulizie-il-team-sa-locarno-56ea34a6",
-        "de": "impiegato-di-pulizie-il-team-sa-locarno-56ea34a6",
+        "de": "reinigungspersonal-il-team-sa-locarno-56ea34a6",
         "fr": "employe-di-pulizie-il-team-sa-locarno-56ea34a6"
       },
       "slugDisambiguator": "56ea34a6",
@@ -76642,14 +77141,6 @@
       "validThrough": "2027-01-01T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "reinigungspersonal-il-team-sa-locarno-56ea34a6"
-        ]
-      },
-      "previousSlugs": [
-        "reinigungspersonal-il-team-sa-locarno-56ea34a6"
-      ],
       "firstSeenAt": "2026-11-10T09:36:06.423Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -79647,9 +80138,9 @@
       "slug": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
       "slugByLocale": {
         "it": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
-        "en": "pittore-cappottista-das-team-ag-ligornetto",
-        "de": "pittore-cappottista-das-team-ag-ligornetto",
-        "fr": "pittore-cappottista-das-team-ag-ligornetto"
+        "en": "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
+        "de": "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
+        "fr": "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
       },
       "slugDisambiguator": "acb3823c",
       "company": "das team ag",
@@ -79697,19 +80188,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "en": [
-          "external-insulation-painter-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "fr": [
-          "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ]
       },
       "previousSlugs": [
-        "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
-        "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
-        "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+        "pittore-cappottista-das-team-ag-ligornetto"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -89100,9 +89589,9 @@
       "slug": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
       "slugByLocale": {
         "it": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "en": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "de": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "fr": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+        "en": "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "de": "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "fr": "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
       },
       "slugDisambiguator": "1aa6bc44",
       "company": "il team sa",
@@ -89150,19 +89639,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "en": [
-          "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "fr": [
-          "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+        "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -89353,9 +89840,9 @@
       "slug": "pittore-il-team-sa-bellinzona-23db02a3",
       "slugByLocale": {
         "it": "pittore-il-team-sa-bellinzona-23db02a3",
-        "en": "pittore-il-team-sa-bellinzona",
-        "de": "pittore-il-team-sa-bellinzona",
-        "fr": "pittore-il-team-sa-bellinzona"
+        "en": "painter-il-team-sa-bellinzona-23db02a3",
+        "de": "maler-il-team-sa-bellinzona-23db02a3",
+        "fr": "peintre-il-team-sa-bellinzona-23db02a3"
       },
       "slugDisambiguator": "23db02a3",
       "company": "il team sa",
@@ -89404,19 +89891,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "en": [
-          "painter-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "fr": [
-          "peintre-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-bellinzona-23db02a3",
-        "painter-il-team-sa-bellinzona-23db02a3",
-        "peintre-il-team-sa-bellinzona-23db02a3"
+        "pittore-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -92179,7 +92664,7 @@
       "slugByLocale": {
         "it": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
         "en": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
-        "de": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona",
+        "de": "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1",
         "fr": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1"
       },
       "slugDisambiguator": "70e2e8c1",
@@ -92229,11 +92714,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+          "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+        "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -92671,9 +93156,9 @@
       "slug": "aiuto-pittore-il-team-sa-grancia-8178d34c",
       "slugByLocale": {
         "it": "aiuto-pittore-il-team-sa-grancia-8178d34c",
-        "en": "aiuto-pittore-il-team-sa-grancia",
-        "de": "aiuto-pittore-il-team-sa-grancia",
-        "fr": "aiuto-pittore-il-team-sa-grancia"
+        "en": "help-painter-il-team-sa-grancia-8178d34c",
+        "de": "malerhilfe-il-team-sa-grancia-8178d34c",
+        "fr": "aide-peintre-il-team-sa-grancia-8178d34c"
       },
       "slugDisambiguator": "8178d34c",
       "company": "il team sa",
@@ -92721,19 +93206,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "malerhilfe-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "en": [
-          "help-painter-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "fr": [
-          "aide-peintre-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ]
       },
       "previousSlugs": [
-        "malerhilfe-il-team-sa-grancia-8178d34c",
-        "help-painter-il-team-sa-grancia-8178d34c",
-        "aide-peintre-il-team-sa-grancia-8178d34c"
+        "aiuto-pittore-il-team-sa-grancia"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -110270,9 +110753,9 @@
       "slug": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
-        "en": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "de": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "fr": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+        "en": "construction-worker-il-team-sa-bellinzona-7f00910d",
+        "de": "bauarbeiter-il-team-sa-bellinzona-7f00910d",
+        "fr": "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
       },
       "slugDisambiguator": "7f00910d",
       "company": "il team sa",
@@ -110321,19 +110804,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bauarbeiter-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "en": [
-          "construction-worker-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "fr": [
-          "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-il-team-sa-bellinzona-7f00910d",
-        "construction-worker-il-team-sa-bellinzona-7f00910d",
-        "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+        "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 49500,
@@ -121238,9 +121719,9 @@
       "slug": "pittore-il-team-sa-solduno-d6cbdc66",
       "slugByLocale": {
         "it": "pittore-il-team-sa-solduno-d6cbdc66",
-        "en": "pittore-il-team-sa-solduno",
-        "de": "pittore-il-team-sa-solduno",
-        "fr": "pittore-il-team-sa-solduno"
+        "en": "painter-il-team-sa-solduno-d6cbdc66",
+        "de": "maler-il-team-sa-solduno-d6cbdc66",
+        "fr": "peintre-il-team-sa-solduno-d6cbdc66"
       },
       "slugDisambiguator": "d6cbdc66",
       "company": "il team sa",
@@ -121288,19 +121769,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "en": [
-          "painter-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "fr": [
-          "peintre-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-solduno-d6cbdc66",
-        "painter-il-team-sa-solduno-d6cbdc66",
-        "peintre-il-team-sa-solduno-d6cbdc66"
+        "pittore-il-team-sa-solduno"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -133622,9 +134101,9 @@
       "slug": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
       "slugByLocale": {
         "it": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
-        "en": "lagermitarbeiter-conforama-suisse-sa-chur",
+        "en": "warehouse-employees-conforama-suisse-sa-chur-6d96af81",
         "de": "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "fr": "lagermitarbeiter-conforama-suisse-sa-chur"
+        "fr": "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81"
       },
       "slugDisambiguator": "6d96af81",
       "company": "Conforama Suisse SA",
@@ -133672,8 +134151,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ],
         "it": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
@@ -133681,14 +134160,12 @@
         ],
         "en": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-          "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ]
       },
       "previousSlugs": [
         "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "lagermitarbeiter-conforama-suisse-sa-chur",
-        "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-        "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+        "lagermitarbeiter-conforama-suisse-sa-chur"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 57500,
@@ -157724,7 +158201,7 @@
         "it": "infermiera-ticinocure-sa-manno-a6ff2a39",
         "en": "nurse-ticinocure-sa-manno-a6ff2a39",
         "de": "infermiera-ticinocure-sa-manno",
-        "fr": "infirmiere-ticinocure-sa-manno"
+        "fr": "infirmier-ticinocure-sa-manno-a6ff2a39"
       },
       "slugDisambiguator": "a6ff2a39",
       "company": "TICINOCURE SA",
@@ -157785,13 +158262,13 @@
         "fr": [
           "infermiere-ticinocure-sa-manno-a6ff2a39",
           "infermiera-ticinocure-sa-manno",
-          "infirmier-ticinocure-sa-manno-a6ff2a39"
+          "infirmiere-ticinocure-sa-manno"
         ]
       },
       "previousSlugs": [
         "infermiere-ticinocure-sa-manno-a6ff2a39",
         "infermiera-ticinocure-sa-manno",
-        "infirmier-ticinocure-sa-manno-a6ff2a39"
+        "infirmiere-ticinocure-sa-manno"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -170509,7 +170986,7 @@
       "slug": "dipendente-di-assemblaggio-produzione-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
       "slugByLocale": {
         "it": "dipendente-di-assemblaggio-produzione-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-        "en": "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld",
+        "en": "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
         "de": "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
         "fr": "employe-de-montage-production-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
       },
@@ -170560,8 +171037,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
+          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
+          "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld"
         ],
         "it": [
           "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
@@ -170573,8 +171050,7 @@
       },
       "previousSlugs": [
         "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72",
-        "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld",
-        "assembly-production-employee-grischa-plast-kunststofftechnik-ag-maienfeld-3aa93a72"
+        "montage-produktion-mitarbeiterin-grischa-plast-kunststofftechnik-ag-maienfeld"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 57500,
@@ -171160,9 +171636,9 @@
       "slug": "macellaio-m-f-d-das-team-ag-lugano-4d6c4658",
       "slugByLocale": {
         "it": "macellaio-m-f-d-das-team-ag-lugano-4d6c4658",
-        "en": "macellaio-m-w-d-das-team-ag-lugano",
-        "de": "macellaio-m-w-d-das-team-ag-lugano",
-        "fr": "macellaio-m-w-d-das-team-ag-lugano"
+        "en": "m-f-d-butcher-das-team-ag-lugano-4d6c4658",
+        "de": "m-w-d-butcher-das-team-ag-lugano-4d6c4658",
+        "fr": "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
       },
       "slugDisambiguator": "4d6c4658",
       "company": "das team ag",
@@ -171210,19 +171686,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "m-w-d-butcher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ],
         "en": [
-          "m-f-d-butcher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ],
         "fr": [
-          "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
+          "macellaio-m-w-d-das-team-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "m-w-d-butcher-das-team-ag-lugano-4d6c4658",
-        "m-f-d-butcher-das-team-ag-lugano-4d6c4658",
-        "h-f-d-boucher-das-team-ag-lugano-4d6c4658"
+        "macellaio-m-w-d-das-team-ag-lugano"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -183747,7 +184221,7 @@
       "slug": "operatori-operatrici-camera-sterile-flexsis-ag-mendrisio-lugano-358555f1",
       "slugByLocale": {
         "it": "operatori-operatrici-camera-sterile-flexsis-ag-mendrisio-lugano-358555f1",
-        "en": "operatori-operatrici-camera-sterile-flexsis-ag-mendrisio-lugano-358555f1",
+        "en": "sterile-room-operators-flexsis-ag-mendrisio-lugano-358555f1",
         "de": "operatori-operatrici-kamera-steril-flexsis-ag-mendrisio-lugano-358555f1",
         "fr": "operatori-operatrici-camera-sterile-flexsis-ag-mendrisio-lugano-358555f1"
       },
@@ -185198,9 +185672,9 @@
       "slug": "lavoratori-di-perforazione-m-f-collardi-st-moritz-2f7409c6",
       "slugByLocale": {
         "it": "lavoratori-di-perforazione-m-f-collardi-st-moritz-2f7409c6",
-        "en": "foreur-m-w-d-collardi-st-moritz",
+        "en": "drill-workers-m-f-collardi-st-moritz-2f7409c6",
         "de": "foreur-m-w-d-collardi-st-moritz",
-        "fr": "foret-m-w-d-collardi-st-moritz"
+        "fr": "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
       },
       "slugDisambiguator": "2f7409c6",
       "company": "Collardi",
@@ -185257,20 +185731,19 @@
         ],
         "en": [
           "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
-          "drill-workers-m-f-collardi-st-moritz-2f7409c6"
+          "foreur-m-w-d-collardi-st-moritz"
         ],
         "fr": [
           "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
           "foreur-m-w-d-collardi-st-moritz",
-          "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
+          "foret-m-w-d-collardi-st-moritz"
         ]
       },
       "previousSlugs": [
         "bohrarbeiter-m-w-collardi-st-moritz-2f7409c6",
         "foreur-h-f-collardi-st-moritz-2f7409c6",
         "foreur-m-w-d-collardi-st-moritz",
-        "drill-workers-m-f-collardi-st-moritz-2f7409c6",
-        "ouvriers-de-forage-h-f-collardi-st-moritz-2f7409c6"
+        "foret-m-w-d-collardi-st-moritz"
       ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 57500,

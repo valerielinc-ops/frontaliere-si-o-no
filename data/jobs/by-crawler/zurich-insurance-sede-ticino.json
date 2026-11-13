@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1377395657",
-      "slug": "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "tesoriere-eme-e-vita-100-zurich-insurance-zurich-1377395657",
       "slugByLocale": {
         "en": "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich",
-        "it": "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich",
-        "de": "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich",
-        "fr": "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich"
+        "it": "tesoriere-eme-e-vita-100-zurich-insurance-zurich-1377395657",
+        "de": "schatzmeister-eme-und-leben-100-zurich-insurance-zurich-1377395657",
+        "fr": "tresorier-eme-et-vie-100-zurich-insurance-zurich-1377395657"
       },
       "slugDisambiguator": "1377395657",
       "company": "Zurich Insurance",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:30:55.565Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:30:55.565Z"
+      "firstSeenAt": "2026-11-13T09:30:55.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "de": [
+          "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "treasurer-eme-and-life-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1377337057",
-      "slug": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "attuario-a-senior-per-il-pricing-vita-aziendale-e-pensioni-m-f-d-zurich-insurance-zurich-1377337057",
       "slugByLocale": {
         "de": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "attuario-a-senior-per-il-pricing-vita-aziendale-e-pensioni-m-f-d-zurich-insurance-zurich-1377337057",
         "en": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "actuaire-principal-des-prix-vie-d-entreprise-pensions-h-f-d-zurich-insurance-zurich-1377337057"
       },
       "slugDisambiguator": "1377337057",
       "company": "Zurich Insurance",
@@ -146,7 +160,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:30:55.565Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:56:26.262Z"
+      "firstSeenAt": "2026-09-09T13:56:26.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-pricing-actuary-corporate-life-pensions-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1377382157",
@@ -223,12 +248,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1377269857",
-      "slug": "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
+      "slug": "team-clienti-specializzato-ktg-m-f-d-zurich-insurance-kriens-1377269857",
       "slugByLocale": {
         "de": "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
-        "it": "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
-        "en": "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
-        "fr": "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+        "it": "team-clienti-specializzato-ktg-m-f-d-zurich-insurance-kriens-1377269857",
+        "en": "specialist-customer-team-ktg-m-f-d-zurich-insurance-kriens-1377269857",
+        "fr": "equipe-client-specialisee-ktg-h-f-d-zurich-insurance-kriens-1377269857"
       },
       "slugDisambiguator": "1377269857",
       "company": "Zurich Insurance",
@@ -291,7 +316,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:30:55.565Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:30:55.565Z"
+      "firstSeenAt": "2026-11-13T09:30:55.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+        ],
+        "en": [
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+        ],
+        "fr": [
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1377045557",

@@ -4653,12 +4653,12 @@
     },
     {
       "id": "srg-ssr-054159bcd31d",
-      "slug": "collaborateur-trice-accueil-srg-ssr-bern",
+      "slug": "collaboratore-srg-ssr-bern",
       "slugByLocale": {
         "fr": "collaborateur-trice-accueil-srg-ssr-bern",
-        "it": "collaborateur-trice-accueil-srg-ssr-bern",
-        "en": "collaborateur-trice-accueil-srg-ssr-bern",
-        "de": "collaborateur-trice-accueil-srg-ssr-bern"
+        "it": "collaboratore-srg-ssr-bern",
+        "en": "collaborator-srg-ssr-bern",
+        "de": "mitarbeiter-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4741,7 +4741,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:16:19.389Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:16:19.389Z"
+      "firstSeenAt": "2026-11-13T09:16:19.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-accueil-srg-ssr-bern"
+        ],
+        "en": [
+          "collaborateur-trice-accueil-srg-ssr-bern"
+        ],
+        "de": [
+          "collaborateur-trice-accueil-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-accueil-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-bc189cc4257c",

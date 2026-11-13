@@ -2121,12 +2121,12 @@
     },
     {
       "id": "mediamarkt-97598",
-      "slug": "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch",
+      "slug": "consulente-di-vendita-nuovi-media-60-80-m-f-d-mediamarkt-kriens",
       "slugByLocale": {
         "de": "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch",
-        "it": "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch",
-        "en": "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch",
-        "fr": "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch"
+        "it": "consulente-di-vendita-nuovi-media-60-80-m-f-d-mediamarkt-kriens",
+        "en": "sales-advisor-new-media-60-80-m-f-d-mediamarkt-kriens",
+        "fr": "conseiller-ere-de-vente-nouveaux-medias-60-80-h-f-d-mediamarkt-kriens"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2191,16 +2191,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:50:10.596Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:57:57.172Z"
+      "firstSeenAt": "2026-10-05T21:57:57.172Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-neue-medien-60-80-m-w-d-mediamarkt-kriens-ch"
+      ]
     },
     {
       "id": "mediamarkt-99656",
-      "slug": "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich",
+      "slug": "addetto-a-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
       "slugByLocale": {
         "de": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
-        "it": "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich",
-        "en": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
-        "fr": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        "it": "addetto-a-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
+        "en": "saturday-sales-assistant-20-m-f-d-mediamarkt-zurich",
+        "fr": "auxiliaire-du-samedi-collaborateur-rice-de-vente-20-h-f-d-mediamarkt-zurich"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2251,11 +2265,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
+          "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich"
+        ],
+        "en": [
+          "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        ],
+        "fr": [
           "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
+        "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich"
       ],
       "salaryMin": 16600,
       "salaryMax": 25500,
@@ -2277,12 +2299,12 @@
     },
     {
       "id": "mediamarkt-98622",
-      "slug": "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch",
+      "slug": "consulente-di-vendita-100-m-f-d-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch",
-        "it": "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch",
-        "en": "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch",
-        "fr": "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch"
+        "it": "consulente-di-vendita-100-m-f-d-mediamarkt-gumligen",
+        "en": "sales-advisor-100-m-f-d-mediamarkt-gumligen",
+        "fr": "conseiller-ere-de-vente-100-h-f-d-mediamarkt-gumligen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2347,16 +2369,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:50:10.587Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:57:57.181Z"
+      "firstSeenAt": "2026-10-05T21:57:57.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-100-m-w-d-mediamarkt-gumligen-ch"
+      ]
     },
     {
       "id": "mediamarkt-98623",
-      "slug": "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch",
+      "slug": "consulente-di-vendita-60-80-m-f-d-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch",
-        "it": "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch",
-        "en": "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch",
-        "fr": "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch"
+        "it": "consulente-di-vendita-60-80-m-f-d-mediamarkt-gumligen",
+        "en": "sales-advisor-60-80-m-f-d-mediamarkt-gumligen",
+        "fr": "conseiller-ere-de-vente-60-80-h-f-d-mediamarkt-gumligen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2421,16 +2457,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:50:10.587Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:57:57.180Z"
+      "firstSeenAt": "2026-10-05T21:57:57.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-60-80-m-w-d-mediamarkt-gumligen-ch"
+      ]
     },
     {
       "id": "mediamarkt-98625",
-      "slug": "collaboratore-trice-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen",
+      "slug": "addetto-a-alla-cassa-e-al-servizio-clienti-100-m-f-d-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch",
-        "it": "collaboratore-trice-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen",
-        "en": "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch",
-        "fr": "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch"
+        "it": "addetto-a-alla-cassa-e-al-servizio-clienti-100-m-f-d-mediamarkt-gumligen",
+        "en": "checkout-customer-service-employee-100-m-f-d-mediamarkt-gumligen",
+        "fr": "collaborateur-trice-caisse-service-clientele-100-h-f-d-mediamarkt-gumligen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2481,11 +2531,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch",
+          "collaboratore-trice-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch"
+        "mitarbeiter-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen-ch",
+        "collaboratore-trice-in-kasse-kundendienst-100-m-w-d-mediamarkt-gumligen"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2507,12 +2565,12 @@
     },
     {
       "id": "mediamarkt-98624",
-      "slug": "collaboratore-trice-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen",
+      "slug": "addetto-a-alla-cassa-e-al-servizio-clienti-60-80-m-f-d-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch",
-        "it": "collaboratore-trice-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen",
-        "en": "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch",
-        "fr": "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch"
+        "it": "addetto-a-alla-cassa-e-al-servizio-clienti-60-80-m-f-d-mediamarkt-gumligen",
+        "en": "checkout-customer-service-employee-60-80-m-f-d-mediamarkt-gumligen",
+        "fr": "collaborateur-trice-caisse-service-clientele-60-80-h-f-d-mediamarkt-gumligen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2563,11 +2621,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch",
+          "collaboratore-trice-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch"
+        "mitarbeiter-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen-ch",
+        "collaboratore-trice-in-kasse-kundendienst-60-80-m-w-d-mediamarkt-gumligen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94800,
@@ -2589,12 +2655,12 @@
     },
     {
       "id": "mediamarkt-100208",
-      "slug": "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch",
+      "slug": "addetto-a-alla-logistica-100-mediamarkt-gumligen",
       "slugByLocale": {
         "de": "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch",
-        "it": "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch",
-        "en": "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch",
-        "fr": "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch"
+        "it": "addetto-a-alla-logistica-100-mediamarkt-gumligen",
+        "en": "logistics-employee-100-mediamarkt-gumligen",
+        "fr": "collaborateur-rice-logistique-100-mediamarkt-gumligen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2659,7 +2725,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:50:10.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-05T21:57:57.135Z"
+      "firstSeenAt": "2026-10-05T21:57:57.135Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch"
+        ],
+        "en": [
+          "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch"
+        ],
+        "fr": [
+          "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistikmitarbeiter-in-100-mediamarkt-gumligen-ch"
+      ]
     }
   ]
 }

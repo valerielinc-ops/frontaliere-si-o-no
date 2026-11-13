@@ -1350,8 +1350,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
         "it": "infermiere-certificato-hf-fh-30-50-spitex-flawil-degersheim-flawil",
-        "en": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-flawil-degersheim-flawil",
-        "fr": "diplomierte-pflegefachperson-hf-fh-30-50-spitex-flawil-degersheim-flawil"
+        "en": "certified-nurse-hf-fh-30-50-spitex-flawil-degersheim-flawil",
+        "fr": "infirmiere-agreee-hf-fh-30-50-spitex-flawil-degersheim-flawil"
       },
       "company": "Spitex Flawil-Degersheim",
       "companyKey": "spitex-ch",
@@ -1402,16 +1402,15 @@
           "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil"
         ],
         "en": [
-          "certified-nurse-hf-fh-30-50-spitex-flawil-degersheim-flawil"
+          "diplomierte-pflegefachperson-hf-fh-30-50-spitex-flawil-degersheim-flawil"
         ],
         "fr": [
-          "infirmiere-agreee-hf-fh-30-50-spitex-flawil-degersheim-flawil"
+          "diplomierte-pflegefachperson-hf-fh-30-50-spitex-flawil-degersheim-flawil"
         ]
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-30-50-spitex-ch-flawil",
-        "certified-nurse-hf-fh-30-50-spitex-flawil-degersheim-flawil",
-        "infirmiere-agreee-hf-fh-30-50-spitex-flawil-degersheim-flawil"
+        "diplomierte-pflegefachperson-hf-fh-30-50-spitex-flawil-degersheim-flawil"
       ],
       "salaryMin": 40800,
       "salaryMax": 57000,
@@ -1433,12 +1432,12 @@
     },
     {
       "id": "spitex-ch-2a0632ab12ae",
-      "slug": "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh",
+      "slug": "gestione-del-team-pulizia-e-supporto-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "de": "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh",
-        "it": "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh",
-        "en": "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh",
-        "fr": "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh"
+        "it": "gestione-del-team-pulizia-e-supporto-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "team-management-housekeeping-support-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "gestion-d-equipe-entretien-et-soutien-80-100-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -1500,7 +1499,21 @@
       "streetAddress": "Weiningen ZH",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T09:16:34.884Z"
+      "firstSeenAt": "2026-11-13T09:16:34.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh"
+        ],
+        "en": [
+          "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh"
+        ],
+        "fr": [
+          "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hauswirtschaft-betreuung-80-100-spitex-spitex-ch-weiningen-zh"
+      ]
     },
     {
       "id": "spitex-ch-879eacb705ad",
@@ -2832,9 +2845,9 @@
     },
     {
       "id": "spitex-ch-eea362542f9e",
-      "slug": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
+      "slug": "ausiliario-a-di-cura-srk-spitex-spitex-der-seegemeinden-weggis",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
+        "it": "ausiliario-a-di-cura-srk-spitex-spitex-der-seegemeinden-weggis",
         "en": "nursingassistant-srk-spitex-spitex-der-seegemeinden-weggis",
         "de": "pflegehelfer-in-srk-spitex-spitex-ch-weggis",
         "fr": "auxiliaire-de-sante-a-la-crs-a-l-asd-spitex-der-seegemeinden-weggis"
@@ -2899,7 +2912,15 @@
       "streetAddress": "Weggis",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-spitex-spitex-ch-weggis"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-spitex-spitex-ch-weggis"
+      ]
     },
     {
       "id": "spitex-ch-8dfe9775d85e",

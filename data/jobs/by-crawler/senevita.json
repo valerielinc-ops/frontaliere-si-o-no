@@ -8944,7 +8944,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8990,7 +8990,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9000,7 +9000,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -12391,8 +12391,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich",
         "it": "collaboratore-trice-in-hauswirtschaft-80-senevita-zh-zurich",
-        "en": "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich",
-        "fr": "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich"
+        "en": "housekeeping-employee-80-senevita-zh-zurich",
+        "fr": "employe-e-en-intendance-80-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12441,6 +12441,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-80-senevita-zh-zurich"
         ]
       },
