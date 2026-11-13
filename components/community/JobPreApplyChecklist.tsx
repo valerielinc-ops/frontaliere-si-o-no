@@ -45,7 +45,8 @@ function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): valu
       && !source.password
       && !source.search
       && !source.hash
-      && /^\/jobposition\/[1-9]\d*\//.test(source.pathname);
+      && source.href === `https://app.ncoreplat.com${source.pathname}`
+      && /^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(source.pathname);
   } catch {
     return false;
   }
