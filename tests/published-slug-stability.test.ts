@@ -155,8 +155,14 @@ describe('publishedSlugKeepsIdentity', () => {
 
 describe('served-URL ledger', () => {
   it('a non-job route never marks a job slug as served', () => {
-    useLedger({ '/it/article/foo/': '2026-11-01', '/blog/foo/': '2026-11-01', '/cerca-lavoro-ticino/': '2026-01-01' });
+    useLedger({
+      '/it/article/foo/': '2026-11-01',
+      '/blog/foo/': '2026-11-01',
+      '/cerca-lavoro-ticino/': '2026-01-01',
+      '/cerca-lavoro-ticino/company-foo/': '2026-11-01',
+    });
     expect(slugWasServed('it', 'foo')).toBe(false);
+    expect(slugWasServed('it', 'company-foo')).toBe(false);
   });
 
   it('a canonical job detail route marks its slug as served, per locale', () => {
