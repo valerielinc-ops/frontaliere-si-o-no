@@ -275,6 +275,67 @@ ${entries}
 `;
 }
 
+const SITEMAP_LOC_OPEN = Buffer.from('<loc>');
+const SITEMAP_LOC_CLOSE = Buffer.from('</loc>');
+
+/**
+ * Visit `<loc>` values without decoding the whole sitemap into one V8 string.
+ *
+ * A locale-shard build uses the locs only to find foreign route paths, but a
+ * large jobs sitemap can be larger than Node's maximum string length. Keep the
+ * parser byte-oriented so a tag or URL split across read-stream chunks is
+ * still handled, and decode only the individual URL between matching tags.
+ */
+export async function forEachSitemapLocInFile(
+  filePath: string,
+  onLoc: (loc: string) => void,
+): Promise<void> {
+  const stream = fs.createReadStream(filePath, { highWaterMark: 64 * 1024 });
+  let pending = Buffer.alloc(0);
+
+  try {
+    for await (const rawChunk of stream) {
+      const chunk = Buffer.isBuffer(rawChunk) ? rawChunk : Buffer.from(rawChunk);
+      const data = pending.length > 0 ? Buffer.concat([pending, chunk]) : chunk;
+      let cursor = 0;
+      let nextPending = Buffer.alloc(0);
+
+      for (;;) {
+        const open = data.indexOf(SITEMAP_LOC_OPEN, cursor);
+        if (open < 0) {
+          // Retain only the suffix that can become a split `<loc>` tag on the
+          // next read. URL bytes are decoded only after `</loc>` is present.
+          nextPending = data.subarray(Math.max(0, data.length - SITEMAP_LOC_OPEN.length + 1));
+          break;
+        }
+
+        const valueStart = open + SITEMAP_LOC_OPEN.length;
+        const close = data.indexOf(SITEMAP_LOC_CLOSE, valueStart);
+        if (close < 0) {
+          // Keep the complete opening tag and the partial URL until the next
+          // chunk supplies the closing tag.
+          nextPending = data.subarray(open);
+          break;
+        }
+
+        const value = data.subarray(valueStart, close).toString('utf8');
+        // Match extractSitemapLocs' `+` quantifier: an empty `<loc>` is not a
+        // sitemap entry and must not turn into a new URL parsing error here.
+        if (value.length > 0) onLoc(value);
+        cursor = close + SITEMAP_LOC_CLOSE.length;
+        if (cursor >= data.length) {
+          nextPending = Buffer.alloc(0);
+          break;
+        }
+      }
+
+      pending = nextPending;
+    }
+  } finally {
+    stream.destroy();
+  }
+}
+
 /**
  * Return only the route directories that a locale shard may need to inspect.
  *
@@ -285,7 +346,7 @@ ${entries}
  * probing only those route paths; on an all-locale build no foreign probe can
  * run, so an empty candidate set deliberately disables the inventory walk.
  */
-function collectForeignDirectoryCandidates(distDir: string): Set<string> {
+async function collectForeignDirectoryCandidates(distDir: string): Promise<Set<string>> {
   const candidates = new Set<string>();
   if (EMIT_ALL_LOCALES) return candidates;
 
@@ -293,12 +354,11 @@ function collectForeignDirectoryCandidates(distDir: string): Set<string> {
     .readdirSync(distDir)
     .filter((file) => SITEMAP_FILE_PATTERN.test(file) && !EXCLUDED_SITEMAP_FILES.has(file));
   for (const file of sitemapFiles) {
-    const xml = fs.readFileSync(path.join(distDir, file), 'utf-8');
-    for (const loc of extractSitemapLocs(xml)) {
+    await forEachSitemapLocInFile(path.join(distDir, file), (loc) => {
       const urlPath = new URL(loc).pathname.replace(/\/+$/u, '');
-      if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
+      if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) return;
       candidates.add(path.join(distDir, urlPath));
-    }
+    });
   }
   return candidates;
 }
@@ -595,9 +655,9 @@ export async function reconcileFinalSitemapsWithDist(
       console.log(`[sitemap-alias-detail] ${step} wall_s=${((performance.now() - startedAt) / 1000).toFixed(1)}`);
     }
   };
-  const foreignDirectoryIndex = await __detail('foreign-candidates', () => createForeignDirectoryIndex(
+  const foreignDirectoryIndex = await __detail('foreign-candidates', async () => createForeignDirectoryIndex(
     distDir,
-    options.ignoreShardOwnership ? new Set<string>() : collectForeignDirectoryCandidates(distDir),
+    options.ignoreShardOwnership ? new Set<string>() : await collectForeignDirectoryCandidates(distDir),
   ));
   await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir, {
     ...finalOptions,
