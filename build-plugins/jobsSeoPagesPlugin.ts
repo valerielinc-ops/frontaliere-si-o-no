@@ -96,6 +96,12 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
+ createLocalePagePathClaims,
+ indexableLocalePageSet,
+ isIndexableLocalePage,
+ reciprocalSitemapLocaleGroups,
+} from './shared/indexableLocalePages';
+import {
  activeJobPathOwnerKey,
  buildActiveJobPathOwners,
  localizedActiveJobSlug,
@@ -2890,6 +2896,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
  jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const localeList = JOB_SEO_LOCALES;
+ const allIndexablePageLocales = indexableLocalePageSet(localeList, () => true);
  const localizedSlug = localizedActiveJobSlug;
 
  // Fixture-data guard — drop test/dev seed records (e.g. "Fixture Corp SA")
@@ -3633,6 +3640,11 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  /** Tracks every dist/ directory written by the active-job page generator
  * so that expired soft-landing pages never overwrite a live job page. */
  const activeJobDirs = new Set<string>();
+ // Shard-independent route owners from earlier page emitters. The build that
+ // writes the shared sitemap may not contain sibling HTML, so record exact
+ // locale/path decisions as those emitters accept their routes (including
+ // noindex bridges) instead of inferring ownership from the current dist.
+ const pagePathClaims = createLocalePagePathClaims(localeList);
  jobsSeoMemContext.activeJobDirs = activeJobDirs;
  // Owner decision 2026-10-24: every active job detail written by THIS build
  // carries JobPosting. Fed with the final HTML (fresh render or cache reuse)
@@ -3962,12 +3974,16 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  const activeCanonicalJobHref = (
   job: any,
   locale: 'it' | 'en' | 'de' | 'fr',
+  includeSiblingLocale = false,
  ): string | null => {
   const slug = localizedSlug(job, locale);
   if (!slug) return null;
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
-  return activeJobSitemapLocs.has(href) ? href : null;
+  return activeJobSitemapLocs.has(href)
+   || (includeSiblingLocale && jobSitemapLocOwner.get(href) === job)
+   ? href
+   : null;
  };
  // Ticino hub data area. /cerca-lavoro-ticino/ (+ locale twins) is emitted by
  // staticPagesPlugin, which has no view of the active-detail registry above,
@@ -4410,6 +4426,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
     ) === job,
  ),
  );
+ for (const eligibleLocale of activeJobEligibleLocales) {
+  pagePathClaims.claim(eligibleLocale, perLocaleCanonicalPath[eligibleLocale]);
+ }
  const hreflangHtml = buildLocaleAlternateBlock({
  eligibleLocales: activeJobEligibleLocales,
  hrefFor: (alternateLocale) => {
@@ -6093,6 +6112,18 @@ ${staticAnalyticsHtml}
  // indexable page first, defeating that bridge's file-exists guard and
  // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
  if (isBrandAlias(cSlug)) continue;
+ for (const locale of localeList) {
+  const prefix = companyRoutePrefix[locale];
+  const section = sectionByLocale[locale];
+  pagePathClaims.claim(locale, `${localePrefix[locale]}/${section}/${prefix}-${cSlug}`);
+  for (const rawSlug of rawSlugs) {
+   pagePathClaims.claim(locale, `${localePrefix[locale]}/${section}/${prefix}-${rawSlug}`);
+  }
+  const brandEntry = BRAND_CANONICAL_MAP[cSlug];
+  for (const aliasSlug of brandEntry?.aliases ?? []) {
+   pagePathClaims.claim(locale, `${localePrefix[locale]}/${section}/${prefix}-${aliasSlug}`);
+  }
+ }
  // The canton-local TI company index needs the same emitted-slug registry
  // as the other cantons; employer keys are not canonical company slugs.
  markCantonCompanyHub('TI', {
@@ -7058,8 +7089,12 @@ ${companyFollowHtml}
  // section for backward compatibility (non-canton editorial pages: the
  // official gazette).
  sectionFor: (locale: typeof localeList[number]) => string = (l) => sectionByLocale[l],
+ indexableLocales: ReadonlySet<typeof localeList[number]> = allIndexablePageLocales,
  ) => {
+ const sitemapLocales = localeList.filter((locale) => isIndexableLocalePage(locale, indexableLocales));
+ if (!sitemapLocales.includes('it')) return;
  const itModel = buildModel('it');
+ editorialSearchSlugsByLocale.get('it')?.add(itModel.slug);
  const itPath = withSlash(`/${sectionFor('it')}/${itModel.slug}`.replace(/\/+/g, '/'));
  // Sitemap-jobs alignment (Issue 18): never advertise a URL whose static
  // HTML wasn't actually emitted to dist/. The same plugin emits both the
@@ -7073,29 +7108,31 @@ ${companyFollowHtml}
  if (!itEmitted) return;
  const localePaths = new Map<typeof localeList[number], string>();
  localePaths.set('it', itPath);
- for (const locale of localeList) {
+ for (const locale of sitemapLocales) {
  if (locale === 'it') continue;
  const localeModel = buildModel(locale);
+ editorialSearchSlugsByLocale.get(locale)?.add(localeModel.slug);
  const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${localeModel.slug}`.replace(/\/+/g, '/'));
  localePaths.set(locale, path);
  }
- const alternateLinks = localeList.map((locale) =>
- `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${localePaths.get(locale)}" />`,
+ const groups = reciprocalSitemapLocaleGroups(
+  localeList,
+  indexableLocales,
+  (locale) => `${BASE_URL}${localePaths.get(locale)!}`,
+ );
+ // This set is the shared render decision: the locale emitter uses it to
+ // gate full indexable pages, and the sitemap uses it to emit reciprocal
+ // locs. The IT sitemap build cannot use sibling files in its own dist as
+ // evidence because those files belong to other locale builds.
+ for (const group of groups) {
+ pagePathClaims.claim(group.locale, localePaths.get(group.locale)!);
+ const alternateLinks = group.alternates.map(({ locale, href }) =>
+ `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
  ).join('\n');
- // Every locale gets its own reciprocal <loc> entry (all share the same
- // alternates set) -- an IT-only push here would leave en/de/fr as
- // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity
- // (#3499). Still only push a non-IT locale whose HTML was actually
- // emitted, preserving the Issue-18 dead-link guarantee per-locale.
- for (const locale of localeList) {
- const path = localePaths.get(locale)!;
- if (locale !== 'it') {
- const dirIndex = np.join(distDir, path.slice(1).replace(/\/$/, ''), 'index.html');
- const flatHtml = np.join(distDir, path.replace(/\/+$/, '').slice(1) + '.html');
- const emitted = pathWasClaimed(dirIndex) || pathWasClaimed(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
- if (!emitted) continue;
- }
- editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${path}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
+ const xDefault = indexableLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`
+  : '';
+ editorialSitemapEntries.push(` <url>\n <loc>${group.href}</loc>\n${alternateLinks}${xDefault}\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
  }
  };
 
@@ -7150,12 +7187,25 @@ ${companyFollowHtml}
  }
  editorialBelowFloorBridges++;
  };
+ const reserveAndEmitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {
+ // Reserve the route on every locale shard so later search/keyword sitemap
+ // decisions see the noindex bridge even when its owning page is elsewhere.
+ editorialSearchSlugsByLocale.get(locale)?.add(slug);
+ pagePathClaims.claim(
+  locale,
+  withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, canton)}/${slug}`.replace(/\/+/g, '/')),
+ );
+ if (shouldEmitLocale(locale)) emitEditorialBelowFloorBridge(locale, canton, slug);
+ };
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ const editorialPageLocales = indexableLocalePageSet(
+  localeList,
+  () => (editorialCantonJobCounts.get(editorialCanton) ?? 0) >= MIN_JOBS_FOR_CANTON_PAGE,
+ );
+ if (!isIndexableLocalePage('it', editorialPageLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, getJobTodayLandingSlug(locale, editorialCanton));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, getJobTodayLandingSlug(locale, editorialCanton));
  }
  continue;
  }
@@ -7167,7 +7217,7 @@ ${companyFollowHtml}
  // so TI URLs stay byte-identical.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, editorialPageLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
  jobs: validJobs,
@@ -7310,11 +7360,11 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
- }), '0.8', sectionByLocaleCanton);
+ }), '0.8', sectionByLocaleCanton, editorialPageLocales);
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!shouldEmitLocale(locale) || !isIndexableLocalePage(locale, allIndexablePageLocales)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdGazette = startTimer();
  const model = buildJobOfficialGazetteLandingModel({
  jobs: validJobs,
@@ -7471,20 +7521,23 @@ ${staticAnalyticsHtml}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
- }), '0.78');
+ }), '0.78', undefined, allIndexablePageLocales);
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ const editorialPageLocales = indexableLocalePageSet(
+  localeList,
+  () => (editorialCantonJobCounts.get(editorialCanton) ?? 0) >= MIN_JOBS_FOR_CANTON_PAGE,
+ );
+ if (!isIndexableLocalePage('it', editorialPageLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, getJobNursesHubSlug(locale, editorialCanton));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, getJobNursesHubSlug(locale, editorialCanton));
  }
  continue;
  }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, editorialPageLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
  jobs: validJobs,
@@ -7658,22 +7711,25 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
- }), '0.77', sectionByLocaleCanton);
+ }), '0.77', sectionByLocaleCanton, editorialPageLocales);
  }
 
  /* ── Editorial landing: global part-time ───────────────────── */
  for (const editorialCanton of EDITORIAL_CANTONS) {
- if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
+ const editorialPageLocales = indexableLocalePageSet(
+  localeList,
+  () => (editorialCantonJobCounts.get(editorialCanton) ?? 0) >= MIN_JOBS_FOR_CANTON_PAGE,
+ );
+ if (!isIndexableLocalePage('it', editorialPageLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, getJobPartTimeLandingSlug(locale, editorialCanton));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, getJobPartTimeLandingSlug(locale, editorialCanton));
  }
  continue;
  }
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, editorialPageLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
  jobs: validJobs,
@@ -7834,7 +7890,7 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
- }), '0.76', sectionByLocaleCanton);
+ }), '0.76', sectionByLocaleCanton, editorialPageLocales);
  }
 
  /* ── Demand-qualified intent landings ───────────────────────────────
@@ -7858,16 +7914,19 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  canton: editorialCanton,
  });
- if (italianIntentModel.totalJobs < JOB_INTENT_MIN_INDEXABLE_JOBS) {
+ const intentIndexableLocales = indexableLocalePageSet(
+  localeList,
+  () => italianIntentModel.totalJobs >= JOB_INTENT_MIN_INDEXABLE_JOBS,
+ );
+ if (!isIndexableLocalePage('it', intentIndexableLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, getJobIntentLandingSlug(locale, intentKey));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, getJobIntentLandingSlug(locale, intentKey));
  }
  continue;
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
+ if (!isIndexableLocalePage(locale, intentIndexableLocales) || !shouldEmitLocale(locale)) continue;
  const __tEdIntent = startTimer();
  const model = buildJobIntentLandingModel({
  jobs: validJobs,
@@ -8013,7 +8072,7 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
- }), '0.78', sectionByLocaleCanton);
+ }), '0.78', sectionByLocaleCanton, intentIndexableLocales);
  }
 
  // Primary CTA label — same copy as professionLandingsCopy.primaryCtaLabel;
@@ -8028,8 +8087,7 @@ ${staticAnalyticsHtml}
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
  }
  continue;
  }
@@ -8047,16 +8105,19 @@ ${staticAnalyticsHtml}
  canton: editorialCanton,
  partition: careClusterPartition,
  });
- if (italianCareModel.totalJobs === 0) {
+ const careIndexableLocales = indexableLocalePageSet(
+  localeList,
+  () => italianCareModel.totalJobs > 0,
+ );
+ if (!isIndexableLocalePage('it', careIndexableLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
+ reserveAndEmitEditorialBelowFloorBridge(locale, editorialCanton, careClusterSlug(clusterKey, editorialCanton, locale));
  }
  continue;
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, careIndexableLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdCareVariant = startTimer();
  const model = buildJobCareVariantLandingModel({
  jobs: validJobs,
@@ -8210,7 +8271,7 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
- }), '0.71', sectionByLocaleCanton);
+ }), '0.71', sectionByLocaleCanton, careIndexableLocales);
  }
  if (editorialBelowFloorBridges > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 editorial-canton below-floor bridges: ${editorialBelowFloorBridges} (today/nurses/part-time/care-variant combined)`);
@@ -8219,6 +8280,13 @@ ${staticAnalyticsHtml}
 
  let locationFamilyBelowFloorBridges = 0;
  const writeLocationFamilyBridge = (canonicalPath: string, targetPath: string, locale: 'it' | 'en' | 'de' | 'fr'): void => {
+ const pathAlreadyClaimed = pagePathClaims.has(locale, canonicalPath);
+ if (pathAlreadyClaimed) return;
+ // Reserve the route even on shards that do not write its HTML, so later
+ // keyword and expired-page decisions share the owning locale's route set.
+ pagePathClaims.claim(locale, canonicalPath);
+ editorialSearchSlugsByLocale.get(locale)?.add(canonicalPath.replace(/\/+$/, '').split('/').pop() || '');
+ if (!shouldEmitLocale(locale)) return;
  const html = buildCanonicalBridgePage({
  canonicalUrl: `${BASE_URL}${targetPath}`,
  pathLabel: targetPath,
@@ -8309,16 +8377,19 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianLocationModel.totalJobs === 0) {
+ const locationIndexableLocales = indexableLocalePageSet(
+  localeList,
+  () => italianLocationModel.totalJobs > 0,
+ );
+ if (!isIndexableLocalePage('it', locationIndexableLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
  emitLocationBelowFloorBridge(locale, location);
  }
  continue;
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, locationIndexableLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdLocation = startTimer();
  const model = buildJobLocationLandingModel({
  jobs: validJobs,
@@ -8529,7 +8600,7 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  partition: locationPartition,
- }), '0.75');
+ }), '0.75', undefined, locationIndexableLocales);
  }
 
  // Geo-hub city: add a dedicated sitemap entry for the clean canonical
@@ -8542,11 +8613,39 @@ ${staticAnalyticsHtml}
  );
  if (cityHubKey) {
  const itPath = `/${sectionByLocale.it}/${CITY_HUB_SLUG.it[cityHubKey]}/`.replace(/\/+/g, '/');
- const alternateLinks = localeList.map((locale) => {
- const altPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${CITY_HUB_SLUG[locale][cityHubKey]}/`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${altPath}" />`;
- }).join('\n');
- editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ const cityLocalePaths = new Map<typeof localeList[number], string>();
+ for (const locale of localeList) {
+ const locationModel = buildJobLocationLandingModel({
+  jobs: validJobs,
+  locale,
+  location,
+  now: new Date().toISOString(),
+  localizedSlug,
+  baseUrl: BASE_URL,
+  sectionSlug: sectionByLocale[locale],
+  localePrefix: localePrefix[locale],
+  partition: locationPartition,
+ });
+ editorialSearchSlugsByLocale.get(locale)?.add(locationModel.slug);
+ const cityPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${CITY_HUB_SLUG[locale][cityHubKey]}/`.replace(/\/+/g, '/');
+ cityLocalePaths.set(locale, `${BASE_URL}${withSlash(cityPath)}`);
+  pagePathClaims.claim(locale, cityPath);
+  pagePathClaims.claim(locale, `${localePrefix[locale]}/${sectionByLocale[locale]}/${locationModel.slug}`);
+ }
+ const cityGroups = reciprocalSitemapLocaleGroups(
+  localeList,
+  locationIndexableLocales,
+  (locale) => cityLocalePaths.get(locale)!,
+ );
+ for (const group of cityGroups) {
+ const alternateLinks = group.alternates.map(({ locale, href }) =>
+ ` <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
+ ).join('\n');
+ const xDefault = locationIndexableLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`
+  : '';
+ editorialSitemapEntries.push(` <url>\n <loc>${group.href}</loc>\n${alternateLinks}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ }
  }
  }
 
@@ -8563,16 +8662,16 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianTypeModel.totalJobs === 0) {
+ const locationTypeIndexableLocales = indexableLocalePageSet(localeList, () => italianTypeModel.totalJobs > 0);
+ if (!isIndexableLocalePage('it', locationTypeIndexableLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
  emitLocationTypeBelowFloorBridge(locale, location, typeKey);
  }
  continue;
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, locationTypeIndexableLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdContractType = startTimer();
  const model = buildJobLocationTypeLandingModel({
  jobs: validJobs,
@@ -8715,7 +8814,7 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  partition: locationPartition,
- }), '0.68');
+ }), '0.68', undefined, locationTypeIndexableLocales);
  }
 
  for (const sectorKey of editorialSectorKeys) {
@@ -8731,16 +8830,16 @@ ${staticAnalyticsHtml}
  localePrefix: localePrefix.it,
  partition: locationPartition,
  });
- if (italianSectorModel.totalJobs === 0) {
+ const locationSectorIndexableLocales = indexableLocalePageSet(localeList, () => italianSectorModel.totalJobs > 0);
+ if (!isIndexableLocalePage('it', locationSectorIndexableLocales)) {
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
  emitLocationSectorBelowFloorBridge(locale, location, sectorKey);
  }
  continue;
  }
 
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, locationSectorIndexableLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdSector = startTimer();
  const model = buildJobLocationSectorLandingModel({
  jobs: validJobs,
@@ -8883,7 +8982,7 @@ ${staticAnalyticsHtml}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  partition: locationPartition,
- }), '0.67');
+ }), '0.67', undefined, locationSectorIndexableLocales);
  }
  }
  if (locationFamilyBelowFloorBridges > 0) {
@@ -9017,6 +9116,7 @@ ${staticAnalyticsHtml}
  return getCantonDisplayLabel(canton, locale);
  };
  const cityHubSitemapEntries: string[] = [];
+ const cityHubIndexableLocales = indexableLocalePageSet(localeList, () => true);
  let cityHubCantonPagesCount = 0;
  const CITY_HUB_JOB_LIST_CAP = 30;
  for (const canton of SHARED_ALL_CANTON_CODES) {
@@ -9075,7 +9175,7 @@ ${staticAnalyticsHtml}
  const isCityEmpty = cityJobs.length === 0;
  const fallbackCount = isCityEmpty ? cappedJobs.length : 0;
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!shouldEmitLocale(locale) || !isIndexableLocalePage(locale, cityHubIndexableLocales)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${citySlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -9166,7 +9266,7 @@ ${staticAnalyticsHtml}
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
  const bodyHtml = `<header class="s-S_0cal sx-hero">${renderLatestPostingKicker(cityJobs, locale, 'class="s-zNiFzy sx-kick"')}<h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => companyCityLinkLabel(locale, l.companyName, l.cityDisplay), (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
- const cityHubIndexable = true;
+ const cityHubIndexable = isIndexableLocalePage(locale, cityHubIndexableLocales);
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -9198,7 +9298,7 @@ ${staticAnalyticsHtml}
  distDir,
  // Zero-result city pages still carry the city identity, the fallback
  // inventory and the commuter context, so they are not thin rescue pages.
- robots: 'index,follow',
+ robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
@@ -9232,22 +9332,23 @@ ${staticAnalyticsHtml}
  const lp = `${localePrefix[l]}/${lSection}/${citySlug}/`.replace(/\/+/g, '/');
  localePaths.set(l, lp);
  }
- const smAlternates = localeList.map((l) =>
- `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`,
+ const cityHubGroups = reciprocalSitemapLocaleGroups(
+  localeList,
+  cityHubIndexableLocales,
+  (locale) => `${BASE_URL}${localePaths.get(locale)!}`,
+ );
+ // The canonical municipality list above is the shared page decision: every
+ // locale build emits these indexable city hubs, while the IT build owns this
+ // shared sitemap and has no sibling-locale HTML in its dist.
+ for (const group of cityHubGroups) {
+ pagePathClaims.claim(group.locale, localePaths.get(group.locale)!);
+ const smAlternates = group.alternates.map(({ locale, href }) =>
+ `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
  ).join('\n');
- // Every locale gets its own reciprocal <loc> entry (#3499) -- an IT-only
- // push here left en/de/fr city-hub pages (written above in the locale
- // loop) as one-sided alternates, stripped by
- // sanitizeSitemapHreflangReciprocity. Only push a non-IT locale whose
- // HTML was actually written (dead-link guard, same intent as
- // pushEditorialSitemapEntry above).
- for (const l of localeList) {
- const p = localePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
- cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ const xDefault = cityHubIndexableLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`
+  : '';
+ cityHubSitemapEntries.push(` <url>\n <loc>${group.href}</loc>\n${smAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
  }
  }
  }
@@ -9280,6 +9381,13 @@ ${staticAnalyticsHtml}
  fr: { title: (n) => `Emploi au Tessin - Page ${n} | Frontaliere Ticino`, desc: (n, f, t) => `Page ${n}: offres d'emploi ${f}\u2013${t} au Tessin. Mises \u00e0 jour quotidiennement.`, heading: (n) => `Offres d'emploi au Tessin \u2014 Page ${n}` },
  };
  for (let pageNum = 2; pageNum <= totalListingPages; pageNum++) {
+ const paginationIndexableLocales = indexableLocalePageSet(
+  localeList,
+  () => !isPaginationNoindex(pageNum),
+ );
+ const paginationSitemapLocales = isPaginationSitemapEligible(pageNum)
+  ? paginationIndexableLocales
+  : new Set<typeof localeList[number]>();
  const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
  const pgJobs = ticinoPaginationJobs.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
@@ -9347,7 +9455,7 @@ ${staticAnalyticsHtml}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  // P1 noindex plan (paginationIndexPolicy): page 11+ stays 200 + linked, leaves the index.
- ...(isPaginationNoindex(pageNum) ? { robots: 'noindex,follow' } : {}),
+ ...(!isIndexableLocalePage(locale, paginationIndexableLocales) ? { robots: 'noindex,follow' } : {}),
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: true }))}`,
  distDir,
@@ -9369,19 +9477,19 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
  pgLocalePaths.set(l, lp);
  }
- const pgSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePaths.get(l)}" />`).join('\n');
+ for (const [locale, path] of pgLocalePaths) pagePathClaims.claim(locale, path);
+ const pgSmAlternates = [...paginationSitemapLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePaths.get(l)}" />`).join('\n');
  // Every locale gets its own reciprocal <loc> entry (#3499) -- pushing only
  // IT here left en/de/fr paginated-listing pages (written above) as
  // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
- for (const l of localeList) {
+ for (const l of paginationSitemapLocales) {
  const p = pgLocalePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
  // P1 noindex plan: page 2+ of a listing is never advertised in a sitemap
  // (paginationIndexPolicy) — it stays reachable through page 1's pager.
- if (isPaginationSitemapEligible(pageNum)) paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ const xDefault = paginationSitemapLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />`
+  : '';
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -9408,6 +9516,13 @@ ${staticAnalyticsHtml}
  });
  const cTotalPages = Math.min(MAX_LISTING_PAGES, Math.ceil(cSorted.length / JOBS_PER_LISTING_PAGE));
  for (let pageNum = 2; pageNum <= cTotalPages; pageNum++) {
+ const paginationIndexableLocales = indexableLocalePageSet(
+  localeList,
+  () => !isPaginationNoindex(pageNum),
+ );
+ const paginationSitemapLocales = isPaginationSitemapEligible(pageNum)
+  ? paginationIndexableLocales
+  : new Set<typeof localeList[number]>();
  const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
  const pgJobs = cSorted.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
@@ -9485,7 +9600,7 @@ ${staticAnalyticsHtml}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  // P1 noindex plan (paginationIndexPolicy): page 11+ stays 200 + linked, leaves the index.
- ...(isPaginationNoindex(pageNum) ? { robots: 'noindex,follow' } : {}),
+ ...(!isIndexableLocalePage(locale, paginationIndexableLocales) ? { robots: 'noindex,follow' } : {}),
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n ${renderJobBoardListingDensityProse(locale, { subject: pgListName, location: cDisplay, resultCount: pgJobs.length, companyCount: pgCompanyCount, locationCount: pgLocationCount, pageLabel: String(pageNum) })}\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
  distDir,
@@ -9509,18 +9624,18 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/'));
  pgLocalePathsCanton.set(l, lp);
  }
- const pgSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePathsCanton.get(l)}" />`).join('\n');
+ for (const [locale, path] of pgLocalePathsCanton) pagePathClaims.claim(locale, path);
+ const pgSmAlternates = [...paginationSitemapLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${pgLocalePathsCanton.get(l)}" />`).join('\n');
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see legacy
  // TI block above for rationale.
- for (const l of localeList) {
+ for (const l of paginationSitemapLocales) {
  const p = pgLocalePathsCanton.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
  // P1 noindex plan: page 2+ of a listing is never advertised in a sitemap
  // (paginationIndexPolicy) — it stays reachable through page 1's pager.
- if (isPaginationSitemapEligible(pageNum)) paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ const xDefault = paginationSitemapLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />`
+  : '';
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
  }
  }
@@ -9578,7 +9693,11 @@ ${staticAnalyticsHtml}
  const catPageJobs = catJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+  const pageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+  pagePathClaims.claim(locale, buildJobCategoryPath(locale, sectionByLocale[locale], catKey, pageSlug));
+ }
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale) || !isIndexableLocalePage(locale, allIndexablePageLocales)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const catPageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
  const catCanonicalPath = buildJobCategoryPath(locale, sectionByLocale[locale], catKey, catPageSlug);
@@ -9680,15 +9799,11 @@ ${staticAnalyticsHtml}
  const lp = buildJobCategoryPath(l, sectionByLocale[l], catKey);
  catLocalePaths.set(l, lp);
  }
- const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePaths.get(l)}" />`).join('\n');
+ const catSmAlternates = [...allIndexablePageLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePaths.get(l)}" />`).join('\n');
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
- for (const l of localeList) {
+ for (const l of allIndexablePageLocales) {
  const p = catLocalePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
  categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
  }
@@ -9720,7 +9835,12 @@ ${staticAnalyticsHtml}
  const catPageJobs = sortedCantonCatJobs.slice(catStart, catStart + CATEGORY_LISTING_PAGE_SIZE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+  const section = sharedResolveCantonSection(locale, canton);
+  const pageSlug = catPage > 1 ? `${paginationSlugs[locale]}-${catPage}` : undefined;
+  pagePathClaims.claim(locale, buildJobCategoryPath(locale, section, catKey, pageSlug));
+ }
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale) || !isIndexableLocalePage(locale, allIndexablePageLocales)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const cDisplay = cantonDisplayLocalCat(canton, locale);
@@ -9823,15 +9943,11 @@ ${staticAnalyticsHtml}
  const lp = buildJobCategoryPath(l, lSection, catKey);
  catLocalePathsCanton.set(l, lp);
  }
- const catSmAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePathsCanton.get(l)}" />`).join('\n');
+ const catSmAlternates = [...allIndexablePageLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${catLocalePathsCanton.get(l)}" />`).join('\n');
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see legacy
  // TI block above for rationale.
- for (const l of localeList) {
+ for (const l of allIndexablePageLocales) {
  const p = catLocalePathsCanton.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
  categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
  }
@@ -9898,13 +10014,17 @@ ${staticAnalyticsHtml}
  const isAggregate = canton === AGGREGATE_KEY;
  const bySector = cantonSectorBuckets.get(canton);
  for (const sector of SECTOR_HUB_KEYS) {
+ for (const locale of localeList) {
+  const section = sharedResolveCantonSection(locale, canton);
+  pagePathClaims.claim(locale, `${localePrefix[locale]}/${section}/${SECTOR_HUB_SLUG[locale][sector]}`);
+ }
  const sJobsByLocale = isAggregate ? aggregateSectorBuckets.get(sector) : bySector?.get(sector);
  // Source of truth for seoHubsPlugin's canton `settori` hub: record that a
  // crawlable `/{section}/{sectorSlug}/` page exists for this (canton, sector)
  // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
  markCantonSectorPage(canton, sector);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!shouldEmitLocale(locale) || !isIndexableLocalePage(locale, allIndexablePageLocales)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const sJobs = sJobsByLocale?.get(locale) ?? [];
  const sSorted = [...sJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
@@ -10110,15 +10230,11 @@ ${staticAnalyticsHtml}
  const lp = `${localePrefix[l]}/${lSection}/${lSectorSlug}/`.replace(/\/+/g, '/');
  localePaths.set(l, lp);
  }
- const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ const smAlternates = [...allIndexablePageLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
- for (const l of localeList) {
+ for (const l of allIndexablePageLocales) {
  const p = localePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
  sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
  }
  }
@@ -10458,7 +10574,15 @@ ${staticAnalyticsHtml}
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) {
+ const companyCantonPageLocales = indexableLocalePageSet(
+  localeList,
+  () => companyJobs.length >= MIN_JOBS_PER_CANTON_COMPANY,
+ );
+ for (const locale of localeList) {
+  const section = sharedResolveCantonSection(locale, canton);
+  pagePathClaims.claim(locale, `${localePrefix[locale]}/${section}/${companyRoutePrefix[locale]}-${cSlug}`);
+ }
+ if (!isIndexableLocalePage('it', companyCantonPageLocales)) {
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCantonBelowFloorBridge(locale, canton, companyName, sortedJobs, `${companyRoutePrefix[locale]}-${cSlug}`);
@@ -10478,7 +10602,7 @@ ${staticAnalyticsHtml}
  // cards and ItemList so structured data describes every visible card.
  const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, companyCantonPageLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -10672,16 +10796,19 @@ ${staticAnalyticsHtml}
  const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
  localePaths.set(l, lp);
  }
- const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ const companyCantonGroups = reciprocalSitemapLocaleGroups(
+  localeList,
+  companyCantonPageLocales,
+  (locale) => `${BASE_URL}${localePaths.get(locale)!}`,
+ );
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
- for (const l of localeList) {
- const p = localePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
- companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
+ for (const group of companyCantonGroups) {
+ const alternates = group.alternates.map(({ locale, href }) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`).join('\n');
+ const xDefault = companyCantonPageLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`
+  : '';
+ companyCantonSitemapEntries.push(` <url>\n <loc>${group.href}</loc>\n${alternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
  }
  }
  }
@@ -10765,7 +10892,14 @@ ${staticAnalyticsHtml}
  if (!byCompany) continue;
  for (const [cSlug, byCity] of byCompany) {
  for (const [citySlug, { name: companyName, cityDisplay, jobs: ccJobs }] of byCity) {
- if (ccJobs.length < MIN_JOBS_PER_CANTON_COMPANY_CITY) {
+ const companyCityPageLocales = indexableLocalePageSet(
+  localeList,
+  () => ccJobs.length >= MIN_JOBS_PER_CANTON_COMPANY_CITY,
+ );
+ for (const locale of localeList) {
+  pagePathClaims.claim(locale, companyCityHubPath(locale, canton, cSlug, citySlug));
+ }
+ if (!isIndexableLocalePage('it', companyCityPageLocales)) {
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  emitCompanyCityBelowFloorBridge(locale, canton, `${companyRoutePrefix[locale]}-${cSlug}-${citySlug}`);
@@ -10781,7 +10915,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sortedJobs.slice(0, COMPANY_CITY_JOB_CAP);
  for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!isIndexableLocalePage(locale, companyCityPageLocales) || !shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCity = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -10936,16 +11070,19 @@ ${staticAnalyticsHtml}
  const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
  localePaths.set(l, lp);
  }
- const smAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localePaths.get(l)}" />`).join('\n');
+ const companyCityGroups = reciprocalSitemapLocaleGroups(
+  localeList,
+  companyCityPageLocales,
+  (locale) => `${BASE_URL}${localePaths.get(locale)!}`,
+ );
  // Every locale gets its own reciprocal <loc> entry (#3499) -- see
  // pushEditorialSitemapEntry above for rationale.
- for (const l of localeList) {
- const p = localePaths.get(l)!;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
- companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
+ for (const group of companyCityGroups) {
+ const alternates = group.alternates.map(({ locale, href }) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`).join('\n');
+ const xDefault = companyCityPageLocales.has('it')
+  ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`
+  : '';
+ companyCitySitemapEntries.push(` <url>\n <loc>${group.href}</loc>\n${alternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
  }
  }
  }
@@ -11117,6 +11254,10 @@ ${staticAnalyticsHtml}
  // within the same kwPage iteration, so they necessarily read the same
  // frozen Set. Non-issue, closed.
  const kwEmittedLocales = new Set<typeof localeList[number]>();
+ const keywordActiveJobCollision = (locale: typeof localeList[number], slug: string): boolean => {
+ const owner = activeJobPathOwners.get(activeJobPathOwnerKey('TI', locale, slug));
+ return owner !== undefined && (activeJobIds === null || activeJobIds.has(stableJobId(owner)));
+ };
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const kwJobs = kwJobsByLocale.get(locale) ?? [];
@@ -11128,7 +11269,7 @@ ${staticAnalyticsHtml}
  if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
  const kwCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kwFullSlug}`.replace(/\/+/g, '/'));
  const kwRelDir = kwCanonicalPath.slice(1).replace(/\/+$/, '');
- if (activeJobDirs.has(kwRelDir)) continue;
+ if (activeJobDirs.has(kwRelDir) || pagePathClaims.has(locale, kwCanonicalPath)) continue;
  const kwCanonicalUrl = `${BASE_URL}${kwCanonicalPath}`;
  const kwQueryDisplay = String(kwPage.query || '').trim();
  // F3a — delegate title/description to the shared CTR-optimized helpers so
@@ -11302,37 +11443,41 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'));
  kwLocalePaths.set(l, lp);
  }
+ const kwPageLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!kwEligibleLocales.has(locale)) return false;
+   const slug = `${searchRoutePrefix[locale]}-${kwSlug}`;
+   const path = kwLocalePaths.get(locale)!;
+   if (editorialSearchSlugsByLocale.get(locale)?.has(slug)) return false;
+   if (pagePathClaims.has(locale, path)) return false;
+   if (shouldEmitLocale(locale)) return kwEmittedLocales.has(locale);
+   const pathKey = path.replace(/^\/+|\/+$/g, '');
+   return !activeJobDirs.has(pathKey) && !keywordActiveJobCollision(locale, slug);
+  },
+ );
+ for (const locale of kwPageLocales) pagePathClaims.claim(locale, kwLocalePaths.get(locale)!);
  // The ONE set that decides this keyword page's whole sitemap contribution:
  // which locales get a <loc>, which appear as alternates, and whether
  // x-default is backed. Reciprocity only asks that every advertised
  // alternate is itself a published <loc> — so alternates and locs MUST come
  // from the same set, or shrinking one silently breaks the other.
  //
- // Three filters, in the order their evidence becomes available:
- //   1. the anti-doorway floor (`kwEligibleLocales`) — shard-stable by
- //      construction, so every shard agrees on it (issue #5114);
- //   2. for a locale THIS shard renders: what the emit loop actually wrote
- //      (`kwEmittedLocales`). This is what carries the two overrides the
- //      floor cannot see; before it, a page skipped by an override still
- //      got a <loc> pointing at another emitter's URL;
- //   3. for a locale ANOTHER shard renders: the dist existence stat, the
- //      only evidence available here. `it` stays exempt from it because on
- //      a non-IT shard the IT page is written elsewhere and a stat would
- //      false-negative — note that sitemaps ship from the it/main shard
- //      (localeEmitFilter: non-locale files are owned by `it`), so in the
- //      build that actually publishes this file `it` always takes branch 2.
- const kwSitemapLocales = new Set<typeof localeList[number]>();
- for (const l of localeList) {
- if (!kwDemandIndexable) break; // P1: a noindex group has no sitemap entry
- if (!kwEligibleLocales.has(l)) continue;
- if (shouldEmitLocale(l)) {
- if (!kwEmittedLocales.has(l)) continue;
- } else if (l !== 'it') {
- const dirIndex = np.join(distDir, kwLocalePaths.get(l)!.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
- kwSitemapLocales.add(l);
- }
+ // The sitemap decision is derived from the same shard-stable page inputs:
+ // the anti-doorway floor, demand/noindex result, editorial duplicate map
+ // and canonical override. For a locale this shard owns, the recorded emit
+ // result remains authoritative. Sibling files are absent by design and
+ // cannot be used as a substitute for those decisions.
+ const kwSitemapLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!kwDemandIndexable || !kwPageLocales.has(locale)) return false;
+   const slug = `${searchRoutePrefix[locale]}-${kwSlug}`;
+   const url = `${BASE_URL}${kwLocalePaths.get(locale)}`;
+   if (resolveCanonicalUrl(slug, url) !== url) return false;
+   return true;
+  },
+ );
  const kwSmAlternates = buildSitemapAlternateBlock({
  eligibleLocales: kwSitemapLocales,
  hrefFor: (l) => `${BASE_URL}${kwLocalePaths.get(l)}`,
@@ -11413,10 +11558,24 @@ ${staticAnalyticsHtml}
  // sitemap gate below.
  const ssDemandIndexable = isSearchLandingDemandIndexable(key, searchLandingGroupPaths(key));
  if (!ssDemandIndexable) searchLandingDemandNoindexCount++;
+ const searchStatsPageLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!_eligibleLocales.has(locale)) return false;
+   const slug = `${searchRoutePrefix[locale]}-${key}`;
+   return !editorialSearchSlugsByLocale.get(locale)?.has(slug);
+  },
+ );
+ for (const locale of searchStatsPageLocales) {
+  pagePathClaims.claim(
+   locale,
+   withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${searchRoutePrefix[locale]}-${key}`.replace(/\/+/g, '/')),
+  );
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
- if (!_eligibleLocales.has(locale)) continue;
+ if (!searchStatsPageLocales.has(locale)) continue;
  const matchingJobs = matchingJobsByLocale[locale].length > 0
  ? matchingJobsByLocale[locale]
  : fallbackMatchingJobs;
@@ -11604,11 +11763,21 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
  sLocalePaths.set(l, lp);
  }
+ const searchStatsSitemapLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!searchStatsPageLocales.has(locale)) return false;
+   const slug = sLocaleSlugs.get(locale)!;
+   const url = `${BASE_URL}${sLocalePaths.get(locale)!}`;
+   return !editorialSearchSlugsByLocale.get(locale)?.has(slug)
+    && resolveCanonicalUrl(slug, url) === url;
+  },
+ );
  const sAlternates = buildSitemapAlternateBlock({
- eligibleLocales: _eligibleLocales,
+ eligibleLocales: searchStatsSitemapLocales,
  hrefFor: (l) => `${BASE_URL}${sLocalePaths.get(l)}`,
  });
- const sXDefault = _eligibleLocales.has('it')
+ const sXDefault = searchStatsSitemapLocales.has('it')
  ? ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`
  : '';
  // SEO: skip -- page self-canonicalizes elsewhere (Semrush gate).
@@ -11620,18 +11789,8 @@ ${staticAnalyticsHtml}
  // pointing elsewhere -- never advertise it as a sitemap loc. Checked
  // per-locale (#3499) -- en/de/fr can independently self-canonicalize even
  // when the IT slug doesn't.
- for (const l of localeList) {
- if (!_eligibleLocales.has(l)) continue;
- const lSlug = sLocaleSlugs.get(l)!;
- const lp = sLocalePaths.get(l)!;
- const lUrl = `${BASE_URL}${lp}`;
- const isEditorialDuplicate = editorialSearchSlugsByLocale.get(l)?.has(lSlug) === true;
- const overrideUrl = resolveCanonicalUrl(lSlug, lUrl);
- if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, lp.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
+ for (const l of searchStatsSitemapLocales) {
+ const lUrl = `${BASE_URL}${sLocalePaths.get(l)!}`;
  searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${sAlternates}\n${sXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
@@ -11656,6 +11815,19 @@ ${staticAnalyticsHtml}
  // P1: `matchingJobs` is locale-agnostic, so one verdict covers the group.
  const cmDemandIndexable = isSearchLandingDemandIndexable(comboKey, searchLandingGroupPaths(comboKey));
  if (!cmDemandIndexable) searchLandingDemandNoindexCount++;
+ const comboPageLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   const slug = `${searchRoutePrefix[locale]}-${comboKey}`;
+   return !editorialSearchSlugsByLocale.get(locale)?.has(slug) && !searchLeaderMap.has(comboKey);
+  },
+ );
+ for (const locale of comboPageLocales) {
+  pagePathClaims.claim(
+   locale,
+   withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${searchRoutePrefix[locale]}-${comboKey}`.replace(/\/+/g, '/')),
+  );
+ }
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -11822,23 +11994,26 @@ ${staticAnalyticsHtml}
  const cp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
  cLocalePaths.set(l, cp);
  }
- const cAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${cLocalePaths.get(l)}" />`).join('\n');
- const cXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${cItUrl}" />`;
+ const comboSitemapLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!cmDemandIndexable || matchingJobs.length < GSC_SEARCH_LANDING_MIN_JOBS || !comboPageLocales.has(locale)) return false;
+   const slug = cLocaleSlugs.get(locale)!;
+   const url = `${BASE_URL}${cLocalePaths.get(locale)!}`;
+   return !editorialSearchSlugsByLocale.get(locale)?.has(slug)
+    && resolveCanonicalUrl(slug, url) === url;
+  },
+ );
+ const cAlternates = [...comboSitemapLocales].map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${cLocalePaths.get(l)}" />`).join('\n');
+ const cXDefault = comboSitemapLocales.has('it')
+  ? ` <xhtml:link rel="alternate" hreflang="x-default" href="${cItUrl}" />`
+  : '';
  // SEO: skip -- page self-canonicalizes elsewhere (Semrush gate).
  // Same rationale as the search-leader block above: editorial duplicates
  // and canonical-override slugs must never be advertised under their
  // own URL. Checked per-locale (#3499).
- for (const l of localeList) {
- const lSlug = cLocaleSlugs.get(l)!;
- const cp = cLocalePaths.get(l)!;
- const lUrl = `${BASE_URL}${cp}`;
- const isEditorialDuplicate = editorialSearchSlugsByLocale.get(l)?.has(lSlug) === true;
- const overrideUrl = resolveCanonicalUrl(lSlug, lUrl);
- if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
- if (l !== 'it') {
- const dirIndex = np.join(distDir, cp.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
- }
+ for (const l of comboSitemapLocales) {
+ const lUrl = `${BASE_URL}${cLocalePaths.get(l)!}`;
  searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${cAlternates}\n${cXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
  }
@@ -12229,8 +12404,7 @@ ${staticAnalyticsHtml}
  // one-sided alternates, stripped by sanitizeSitemapHreflangReciprocity.
  // The IT leg owns this shared sitemap, but it cannot inspect sibling locale
  // output: non-IT company hubs are written by their own matrix legs. Keep the
- // on-disk dead-link guard only when this build owns the locale; the publisher
- // gate then verifies every cross-locale entry against that locale's manifest.
+ // on-disk dead-link guard only when this build owns that locale.
  const entries: string[] = [];
  for (const l of localeList) {
  const p = localePaths.get(l)!;
@@ -12251,15 +12425,80 @@ ${staticAnalyticsHtml}
  const keywordSitemap = keywordSitemapEntries.length > 0 ? '\n' + keywordSitemapEntries.join('\n') : '';
  // #3516: independent segments (search clusters, keyword pages, …) can emit
  // the same <loc> twice within this one file — dedupe keep-first at assembly.
- const sitemapJobs = dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
+ const sitemapJobsXml = dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
+ type CantonLocaleLandingShardEntry = {
+  loc: string;
+  lastmod?: string;
+  changefreq?: string;
+  priority?: number;
+  _canton: string;
+  _locale: Exclude<typeof localeList[number], 'it'>;
+  alternates: Array<{ hreflang: string; href: string }>;
+ };
+ const cantonLocaleLandingShardEntries: CantonLocaleLandingShardEntry[] = [];
+ const cantonLocaleSectionOwners = new Map<string, {
+  canton: string;
+  locale: Exclude<typeof localeList[number], 'it'>;
+ }>();
+ for (const locale of ['en', 'de', 'fr'] as const) {
+  for (const canton of [...SHARED_ALL_CANTON_CODES, AGGREGATE_KEY]) {
+   const section = buildCantonAwareSection(locale, canton);
+   cantonLocaleSectionOwners.set(`/${locale}/${section}/`, { canton, locale });
+  }
+ }
+ // Keep the IT entries in the legacy sitemap, which is the cache-hit source
+ // for active-job URLs. Canton-scoped sibling-locale entries belong in the
+ // existing canton/locale shards: adding the restored manifest population to
+ // sitemap-jobs.xml would exceed the 50k URL ceiling (and its 39k warning
+ // target) before the shard writer sees them. This includes the Switzerland
+ // aggregate section, which uses the same shard key as its existing root.
+ const sitemapJobs = sitemapJobsXml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
+  const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
+  if (!loc) return block;
+  let pathname: string;
+  try {
+   pathname = new URL(loc).pathname;
+  } catch {
+   return block;
+  }
+  let owner: { canton: string; locale: Exclude<typeof localeList[number], 'it'> } | undefined;
+  let matchedPrefix: string | undefined;
+  for (const [prefix, candidate] of cantonLocaleSectionOwners) {
+   if (pathname.startsWith(prefix)) {
+    owner = candidate;
+    matchedPrefix = prefix;
+    break;
+   }
+  }
+  // Keep each locale's exact canton-section root in the legacy sitemap; the
+  // P1.11 shard filter already avoids duplicating roots listed here.
+  if (!owner || pathname === matchedPrefix) return block;
+
+  const lastmod = /<lastmod>([^<]+)<\/lastmod>/.exec(block)?.[1];
+  const changefreq = /<changefreq>([^<]+)<\/changefreq>/.exec(block)?.[1];
+  const priorityText = /<priority>([^<]+)<\/priority>/.exec(block)?.[1];
+  const priority = priorityText === undefined ? undefined : Number(priorityText);
+  const alternates = [...block.matchAll(/<xhtml:link[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"[^>]*\/?\s*>/g)]
+   .map((match) => ({ hreflang: match[1], href: match[2] }));
+  cantonLocaleLandingShardEntries.push({
+   loc,
+   _canton: owner.canton,
+   _locale: owner.locale,
+   alternates,
+   ...(lastmod ? { lastmod } : {}),
+   ...(changefreq ? { changefreq } : {}),
+   ...(priority !== undefined && Number.isFinite(priority) ? { priority } : {}),
+  });
+  return '';
+ });
  const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
  fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
  // Every <loc> of sitemap-jobs.xml. The canton shards below must not repeat
  // any of them: 22,384 of the 22,480 shard URLs were the same IT job details
  // already listed here (measured live 2026-10-24). sitemap-jobs.xml keeps
  // them because relatedSearchClustersPlugin rebuilds the active-job allowlist
- // from this file on a cache-hit path; the shards keep only what this file
- // does not list (canton roots, and locale variants when they qualify).
+ // from this file on a cache-hit path; shards keep only URLs this file omits:
+ // canton roots, non-IT canton-scoped landings, and qualifying job variants.
  const legacyJobSitemapLocs = new Set<string>();
  for (const m of sitemapJobs.matchAll(/<loc>([^<]+)<\/loc>/g)) legacyJobSitemapLocs.add(m[1]);
 
@@ -12301,6 +12540,7 @@ ${staticAnalyticsHtml}
   *        │   EN/DE/FR variants, same hreflang group, same real <lastmod>
   *        ▼
   *   urls = [{ loc, lastmod, alternates, ... }] + canton roots
+  *        + non-IT canton-scoped landing entries moved out of sitemap-jobs.xml
   *        │
   *        ├─► drop every <loc> sitemap-jobs.xml already lists (one sitemap per URL)
   *        ├─► splitToShards(shardKey = canton[-locale]) ──► sitemap-jobs-{slug}[-{locale}].xml
@@ -12341,8 +12581,8 @@ ${staticAnalyticsHtml}
    // (sitemap-jobs-zurigo-de.xml): ~67k variants would not fit the 50,000-URL
    // cap of a per-canton file, and splitToShards still caps every key at
    // SITEMAP_SHARD_CAP. Canton roots (below) keep the plain canton shard.
-   type ShardUrl = { loc: string; lastmod?: string; changefreq: string; priority: number; _canton: string; _locale?: string; alternates?: Array<{ hreflang: string; href: string }> };
-   const shardUrls: ShardUrl[] = [];
+   type ShardUrl = { loc: string; lastmod?: string; changefreq?: string; priority?: number; _canton: string; _locale?: string; alternates?: Array<{ hreflang: string; href: string }> };
+   const shardUrls: ShardUrl[] = [...cantonLocaleLandingShardEntries];
    for (const group of jobSitemapHreflangGroups) {
      for (const { locale, loc } of group.localeUrls) {
        shardUrls.push({
@@ -14670,7 +14910,7 @@ ${staticAnalyticsHtml}
    requestedSections: expiredJobEdgeRequestedSections,
   }));
  }
- const writeSoftLandingPage = (outRelPath: string, html: string, skipForExpiredJobEdge = false) => {
+ const writeSoftLandingPage = (outRelPath: string, html: string, skipForExpiredJobEdge = false, locale?: typeof localeList[number]) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
  const normPath = outRelPath.replace(/\/+$/, '');
  const distPath = `/${normPath}`;
@@ -14692,7 +14932,7 @@ ${staticAnalyticsHtml}
  const targetFile = safeTargets.indexPath;
  const canonicalPath = `/${normPath}/`;
  const intentionallyEdgeSkipped = skipForExpiredJobEdge || expiredJobEdgeStaticSkipPaths.has(canonicalPath);
- if (pathWasClaimed(targetFile) || activeJobDirs.has(normPath)) {
+ if ((locale && pagePathClaims.has(locale, canonicalPath)) || pathWasClaimed(targetFile) || activeJobDirs.has(normPath)) {
   if (intentionallyEdgeSkipped) {
    throw new Error(`Expired-job edge rollout cannot remove a path already claimed by another page: ${distPath}`);
   }
@@ -14991,6 +15231,7 @@ ${staticAnalyticsHtml}
 
  // Track IT page word count for sitemap inclusion decision
  let itBodyWordCount = 0;
+ const expiredIndexableLocales = new Set<typeof localeList[number]>();
  // P1 noindex plan (shared/expiredJobIndexPolicy.ts): one verdict per job,
  // shared by every locale page and the sitemap entry. Probes every locale's
  // tracked path plus each locale's legacy-section path, the same family of
@@ -15013,6 +15254,32 @@ ${staticAnalyticsHtml}
   nowMs: expiredJobEdgeEvidenceNowMs,
  });
  if (expiredJobEdgeSelected) expiredJobEdgeCandidateCount++;
+ // Compute the structural sitemap population before rendering any sibling
+ // body. The IT shard only needs a decision-only render for locale paths that
+ // can actually appear in its sitemap; unsafe, claimed, bridge and edge-owned
+ // paths must stay excluded by the same shared predicate below.
+ const expiredSitemapCandidateLocales = indexableLocalePageSet(
+  localeList,
+  (candidateLocale) => {
+   const candidatePath = paths[candidateLocale];
+   if (!candidatePath || !expiredClusterClaim.unclaimedLocales.has(candidateLocale)) return false;
+   if (bridgeClaimedPaths.has(candidatePath) || legacyTiPathRecoveredByWorker(candidateLocale, slug, candidatePath)) return false;
+   const candidatePathKey = candidatePath.replace(/^\/+|\/+$/g, '');
+   if (pagePathClaims.has(candidateLocale, candidatePath)
+       || (shouldEmitLocale(candidateLocale) && activeJobDirs.has(candidatePathKey))) return false;
+   const candidateFullPath = withSlash(candidatePath);
+   if (isDistPathOverFilesystemLimits(candidateFullPath)
+       || !isSafeDistPath(candidateFullPath)
+       || !getSafeDistPageTargets(distDir, candidateFullPath)) return false;
+   const edgeSection = expiredJobEdgeSectionForPath(candidateFullPath, candidateLocale);
+   return !shouldSkipExpiredJobStaticPage({
+    selected: expiredJobEdgeSelected,
+    section: edgeSection,
+    requestedSections: expiredJobEdgeRequestedSections,
+    datasetRecordAdded: true,
+   });
+  },
+ );
 
  // ── Per-slug invariants (hoisted out of the per-locale loop) ──
  // These values depend only on the slug, not on the locale. Computing
@@ -15122,12 +15389,19 @@ ${staticAnalyticsHtml}
  // reserve the same winner for a colliding tracking path, even though only
  // one shard writes that locale's HTML.
  claimedJobPaths.add(__slPathKey);
- // Per-locale shard build (BUILD_LOCALE): skip the expensive soft-landing
- // render/emit for locales this shard isn't responsible for (this loop is
- // ~57% of jobs-seo wall, 319k pages). The expired sitemap (it/main-owned,
- // built below from `paths` + the shared claim registry (IT) + cross-locale alternates)
- // is unaffected. No-op in the default all-locale build.
- if (!shouldEmitLocale(locale)) continue;
+ // Per-locale shard build (BUILD_LOCALE): sibling pages are not written here.
+ // The IT sitemap still needs each sibling's exact content-floor/noindex
+ // verdict, so an IT build renders only the sibling's static body for that
+ // decision after the IT page qualifies the group. It skips shell, JSON-LD,
+ // reuse, and all writes below.
+ const localeOwned = shouldEmitLocale(locale);
+ const decideSiblingIndexability = !localeOwned
+  && shouldEmitLocale('it')
+  && expiredSitemapCandidateLocales.has(locale)
+  && hasRealTitle
+  && expiredDemandIndexable
+  && itBodyWordCount >= MIN_INDEXABLE_WORDS;
+ if (!localeOwned && !decideSiblingIndexability) continue;
  const __tExpiredSoftLanding = startTimer();
  const __tEjpTitle = phaseTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
@@ -15328,7 +15602,7 @@ ${staticAnalyticsHtml}
     ? sameCompanyActiveJobs
     : selectRecentJobs(slug, slug, jobCanton);
    const similarActiveJobs = similarSource.flatMap((job: any) => {
-    const href = activeCanonicalJobHref(job, locale);
+    const href = activeCanonicalJobHref(job, locale, !localeOwned);
     const title = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(job, locale));
     if (!href || !title) return [];
     return [{
@@ -15535,7 +15809,7 @@ ${staticAnalyticsHtml}
    : '';
   return currentJobPostingLd;
  };
- const softLandingReuse = jobsSeoReuse?.lookup(
+ const softLandingReuse = localeOwned ? jobsSeoReuse?.lookup(
   locale,
   relPath,
   'expired-soft-landing',
@@ -15548,7 +15822,7 @@ ${staticAnalyticsHtml}
     return replaceJobPostingJsonLdWithChange(html, getCurrentJobPostingLd());
    },
   },
- );
+ ) : null;
  let softLandingHtml: string;
  let expiredRobotsTag: string;
  if (!softLandingReuse?.hit || jobsSeoReuse?.shouldRender(softLandingReuse)) {
@@ -15601,7 +15875,7 @@ ${staticAnalyticsHtml}
  if (sameCompanyActiveJobs.length > 0) {
  const companyJobsHeading = locale === 'it' ? `Altre offerte di ${esc(jobCompany)}` : locale === 'en' ? `More jobs at ${esc(jobCompany)}` : locale === 'de' ? `Weitere Stellen bei ${esc(jobCompany)}` : `Autres offres chez ${esc(jobCompany)}`;
  const companyJobsList = sameCompanyActiveJobs.flatMap((j: any) => {
- const jHref = activeCanonicalJobHref(j, locale);
+ const jHref = activeCanonicalJobHref(j, locale, !localeOwned);
  if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(j, locale));
  return [`<li><a href="${jHref}"${jobSaveLinkAttrs(j)}>${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
@@ -15667,7 +15941,7 @@ ${staticAnalyticsHtml}
  if (recentJobs.length > 0) {
  const recentHeading = locale === 'it' ? 'Altre posizioni attive' : locale === 'en' ? 'Other active positions' : locale === 'de' ? 'Weitere offene Stellen' : 'Autres postes actifs';
  const recentList = recentJobs.flatMap((j: any) => {
- const jHref = activeCanonicalJobHref(j, locale);
+ const jHref = activeCanonicalJobHref(j, locale, !localeOwned);
  if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(localizedJobDisplayTitle(j, locale));
  const jCompany = String(j.company || '');
@@ -15749,6 +16023,11 @@ ${staticAnalyticsHtml}
  expiredRobotsTag = robotsMetaForContent(staticBody);
  }
  recordPhase('ejp:wc-robots', __tEjpWcRobots);
+ if (!expiredRobotsTag.includes('noindex')) expiredIndexableLocales.add(locale);
+ if (!localeOwned) {
+  recordEmit('expired-sitemap-indexability', __tExpiredSoftLanding);
+  continue;
+ }
 
  const __tEjpJsonld = phaseTimer();
  // Build JSON-LD scripts for the archived page and its breadcrumbs.
@@ -15825,7 +16104,7 @@ ${staticAnalyticsHtml}
  const skipForExpiredJobEdge = Boolean(
   canonicalEdgePath && expiredJobEdgeStaticSkipPathsByLocale.get(locale)?.has(canonicalEdgePath),
  );
- const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml, skipForExpiredJobEdge);
+ const wroteSoftLanding = writeSoftLandingPage(relPath.slice(1), softLandingHtml, skipForExpiredJobEdge, locale);
  if (wroteSoftLanding) {
   if (expiredArchiveOverflowOwned) {
    expiredArchivePublicationEvidence.record({
@@ -15887,11 +16166,11 @@ ${staticAnalyticsHtml}
  // Only add expired slugs to sitemap when:
  // 1. The IT page has enough content (>= MIN_INDEXABLE_WORDS) -- thin content wastes crawl budget
  // 2. The IT page was actually written (not overwritten by an active page)
- // Group-inclusion gate stays IT-anchored (unchanged) -- see shard-invariance
- // comment below for why per-locale word-count isn't available here. Once the
- // group qualifies, each locale gets its OWN <url> entry (#3499) instead of an
- // IT-only entry with one-sided alternates, so non-reciprocal en/de/fr hreflang
- // survives sanitizeSitemapHreflangReciprocity().
+ // Group inclusion stays IT-anchored. Each locale must also pass the exact
+ // robots/content-floor decision used by its page emitter; in a split IT build
+ // `expiredIndexableLocales` is filled by decision-only sibling body renders.
+ // Each eligible locale then gets its OWN <url> entry (#3499), so reciprocal
+ // hreflang survives sanitizeSitemapHreflangReciprocity().
  const itPath = paths.it ? withSlash(paths.it) : '';
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && pathWasClaimed(itPageFile);
@@ -15900,23 +16179,22 @@ ${staticAnalyticsHtml}
  // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
  // own paths, so an active path (or an earlier expired winner) can never leak
  // back into an expired `<loc>` after the render loop mutates claimedJobPaths.
- const expiredSitemapLocales = new Set<AlternateLocale>();
- // Per-locale push (#3499): non-IT locales additionally require their own
- // soft-landing page to actually exist on disk -- `paths` is shard-invariant
- // but render/emit is shard-gated (`shouldEmitLocale`, L~11223), so a
- // non-owning shard never wrote non-IT HTML this run; fall back to
- // `fs.existsSync` for HTML already emitted by an earlier shard/run.
- for (const l of localeList) {
- const lPath = paths[l];
- if (!lPath || !expiredClusterClaim.unclaimedLocales.has(l)) continue;
- if (bridgeClaimedPaths.has(lPath)) continue;
- const lFullPath = withSlash(lPath);
- if (l !== 'it') {
- const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
- if (!pathWasClaimed(lPageFile) && !fs.existsSync(lPageFile)) continue;
- }
- expiredSitemapLocales.add(l);
- }
+ const expiredSitemapLocales = indexableLocalePageSet(
+  localeList,
+  (locale) => {
+   if (!expiredIndexableLocales.has(locale) || !expiredSitemapCandidateLocales.has(locale)) return false;
+   // The IT-owned sitemap build may use disk only for a locale it also
+   // renders. Sibling-locale path claims and edge decisions above are shared
+   // inputs, not evidence from this shard's dist.
+   if (shouldEmitLocale(locale)) {
+    const lPath = paths[locale];
+    const lFullPath = withSlash(lPath ?? '');
+    const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
+    if (!pathWasClaimed(lPageFile) && !fs.existsSync(lPageFile)) return false;
+   }
+   return true;
+  },
+ );
  const lastmod = renderSitemapLastmod(ejData?.expiredAt);
  appendExpiredSitemapEntries(
   buildExpiredSitemapClusterEntries(paths, expiredClusterClaim, {

@@ -14,6 +14,9 @@ import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { getJobTodayLandingSlug } from '../../build-plugins/jobEditorialLanding';
+import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -37,7 +40,7 @@ const fixtures: Fixture[] = [
   { slug: 'operaio-heartbeat-zurigo', canton: 'ZH', location: 'Zürich', expectedLastmod: null,
     dates: { postingDateSource: 'unknown', crawledAt: daysAgo(0) } },
 ];
-const jobs = fixtures.map((f, i) => ({
+const detailJobs = fixtures.map((f, i) => ({
   id: f.slug, slug: f.slug, title: `Posizione ${i}`,
   titleByLocale: { it: `Posizione ${i}`, en: `Position ${i}`, de: `Stelle ${i}`, fr: `Poste ${i}` },
   company: `Contract Example ${i} SA`, companyKey: `contract-example-${i}`, canton: f.canton,
@@ -47,13 +50,55 @@ const jobs = fixtures.map((f, i) => ({
   url: `https://example.test/careers/${f.slug}/`,
   ...f.dates,
 }));
+const editorialJobs = Array.from({ length: 5 }, (_, i) => ({
+  id: `baden-editorial-${i}`, slug: `baden-editorial-${i}`,
+  title: `Specialista amministrativo Baden ${i}`,
+  titleByLocale: { it: `Specialista amministrativo Baden ${i}`, en: `Administrative specialist Baden ${i}`, de: `Verwaltungsspezialist Baden ${i}`, fr: `Spécialiste administratif Baden ${i}` },
+  company: `Baden Editorial Example ${i} SA`, companyKey: `baden-editorial-example-${i}`,
+  canton: 'AG', location: 'Baden', addressLocality: 'Baden',
+  description, descriptionByLocale: Object.fromEntries(locales.map((l) => [l, description])),
+  employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
+  datePosted: daysAgo(1), postedDate: daysAgo(1), crawledAt: daysAgo(1),
+}));
+const keywordJobs = Array.from({ length: 3 }, (_, i) => ({
+  id: `collision-keyword-${i}`,
+  slug: i === 0 ? 'ricerca-collision-marker' : `collision-keyword-${i}`,
+  title: `Collision marker position ${i}`,
+  titleByLocale: { it: `Collision marker posizione ${i}`, en: `Collision marker position ${i}`, de: `Collision marker Stelle ${i}`, fr: `Collision marker poste ${i}` },
+  company: `Collision Marker Example ${i} SA`, companyKey: `collision-marker-example-${i}`,
+  canton: 'TI', location: 'Lugano', addressLocality: 'Lugano',
+  description: `${description} Collision marker.`,
+  descriptionByLocale: Object.fromEntries(locales.map((l) => [l, `${description} Collision marker.`])),
+  employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
+  datePosted: daysAgo(1), postedDate: daysAgo(1), crawledAt: daysAgo(1),
+}));
+const jobs = [...detailJobs, ...editorialJobs, ...keywordJobs];
 
 // An older record of the same vacancy (same id and slugs): only the most
 // recent one may own the URLs, so every locale <loc> must appear exactly once.
-const olderDuplicate = { ...jobs[0], firstSeenAt: daysAgo(40), datePosted: daysAgo(40), postedDate: daysAgo(40) };
+const olderDuplicate = { ...detailJobs[0], firstSeenAt: daysAgo(40), datePosted: daysAgo(40), postedDate: daysAgo(40) };
 
 let root: string;
 let dist: string;
+let monolithicItPageHashes: Map<string, string> | null = null;
+let monolithicSitemapJobsBlocks: Array<Omit<UrlBlock, 'file'>> | null = null;
+
+function snapshotItPages(): Map<string, string> {
+  const hashes = new Map<string, string>();
+  const visit = (dir: string, relative = '') => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const rel = path.posix.join(relative, entry.name);
+      if (entry.isDirectory()) {
+        if (!relative && ['en', 'de', 'fr'].includes(entry.name)) continue;
+        visit(path.join(dir, entry.name), rel);
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        hashes.set(rel, createHash('sha256').update(fs.readFileSync(path.join(dir, entry.name))).digest('hex'));
+      }
+    }
+  };
+  visit(dist);
+  return hashes;
+}
 
 type UrlBlock = { file: string; loc: string; lastmod: string | null; priority: string | null; alternates: string[] };
 function sitemapFiles(): string[] {
@@ -68,6 +113,12 @@ function urlBlocks(file: string): UrlBlock[] {
     priority: /<priority>([^<]+)<\/priority>/.exec(m[1])?.[1] ?? null,
     alternates: [...m[1].matchAll(/<xhtml:link[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/g)].map((a) => `${a[1]}=${a[2]}`).sort(),
   }));
+}
+
+function sitemapJobsSnapshot(): Array<Omit<UrlBlock, 'file'>> {
+  return urlBlocks('sitemap-jobs.xml')
+    .map(({ loc, lastmod, priority, alternates }) => ({ loc, lastmod, priority, alternates }))
+    .sort((a, b) => a.loc.localeCompare(b.loc));
 }
 
 async function runGenerator(buildLocale: string | undefined): Promise<void> {
@@ -88,6 +139,36 @@ async function runGenerator(buildLocale: string | undefined): Promise<void> {
     fs.writeFileSync(path.join(dist, 'index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
     fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
     fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, olderDuplicate]));
+    const expiredOwnerSlug = 'expired-owner-split-build';
+    const expiredOwnerPaths = {
+      it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
+      en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
+      de: `/${resolveCantonSection('de', 'BASILEA')}/${getJobTodayLandingSlug('de', 'BASILEA')}/`,
+      fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
+    };
+    fs.writeFileSync(path.join(root, 'data/all-known-job-slugs.json'), JSON.stringify({
+      [expiredOwnerSlug]: expiredOwnerPaths,
+    }));
+    fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify([{
+      id: expiredOwnerSlug,
+      slug: expiredOwnerSlug,
+      title: 'Expired owner split-build fixture',
+      titleByLocale: { it: 'Annuncio archiviato', en: 'Archived listing', de: 'Archivierte Stelle', fr: 'Offre archivée' },
+      company: 'Expired Owner Example AG',
+      canton: 'AG',
+      location: 'Baden',
+      expiredAt: daysAgo(1),
+      description,
+      descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, description])),
+    }]));
+    fs.writeFileSync(path.join(root, 'data/keyword-pages-config.json'), JSON.stringify({
+      pages: [{
+        slug: 'collision-marker',
+        query: 'collision marker',
+        filterKeywords: ['collision'],
+        copy: { it: { title: 'Offerte collision marker', heading: 'Offerte collision marker' } },
+      }],
+    }));
     await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
     (localeJobsSplitPlugin(root).closeBundle as () => void)();
     await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
@@ -100,7 +181,13 @@ async function runGenerator(buildLocale: string | undefined): Promise<void> {
 // `undefined` = monolithic build (all locales); 'it' = the production IT leg,
 // which renders only IT pages but writes the sitemaps for all four locales.
 describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD_LOCALE=%s)', (buildLocale) => {
-  beforeAll(() => runGenerator(buildLocale), 300_000);
+  beforeAll(async () => {
+    await runGenerator(buildLocale);
+    if (buildLocale === undefined) {
+      monolithicItPageHashes = snapshotItPages();
+      monolithicSitemapJobsBlocks = sitemapJobsSnapshot();
+    }
+  }, 300_000);
   afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); }, 120_000);
 
   it('gives every job detail the listing date as <lastmod>, never the crawl heartbeat', () => {
@@ -147,6 +234,95 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
     }).sort();
 
     expect(locales).toEqual(['de', 'en', 'fr', 'it']);
+  });
+
+  it('keeps reciprocal city and editorial entries when the IT sitemap build has no sibling pages', () => {
+    if (buildLocale !== 'it') return;
+    const blocks = sitemapFiles()
+      .filter((file) => file.startsWith('sitemap-jobs'))
+      .flatMap(urlBlocks);
+    const cityPaths = {
+      it: '/cerca-lavoro-argovia/baden/',
+      en: '/en/find-jobs-aargau/baden/',
+      de: '/de/jobs-im-aargau/baden/',
+      fr: '/fr/trouver-emploi-argovie/baden/',
+    };
+    const cityGroup = blocks.filter(({ loc }) => Object.values(cityPaths).some((route) => loc.endsWith(route)));
+    expect(cityGroup.map(({ loc }) => loc).sort()).toEqual(
+      Object.values(cityPaths).map((route) => `https://frontaliereticino.ch${route}`).sort(),
+    );
+    const expectedCityAlternates = [
+      ...Object.entries(cityPaths).map(([locale, route]) => `${locale}=https://frontaliereticino.ch${route}`),
+      `x-default=https://frontaliereticino.ch${cityPaths.it}`,
+    ].sort();
+    const cityFiles = {
+      it: 'sitemap-jobs.xml',
+      en: 'sitemap-jobs-argovia-en.xml',
+      de: 'sitemap-jobs-argovia-de.xml',
+      fr: 'sitemap-jobs-argovia-fr.xml',
+    };
+    for (const block of cityGroup) {
+      expect(block.alternates).toEqual(expectedCityAlternates);
+      expect(block.priority).toBe('0.85');
+      const locale = Object.entries(cityPaths).find(([, route]) => block.loc.endsWith(route))?.[0] as keyof typeof cityFiles;
+      expect(block.file).toBe(cityFiles[locale]);
+    }
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      expect(fs.existsSync(path.join(dist, cityPaths[locale].slice(1), 'index.html'))).toBe(false);
+    }
+
+    const todayPath = (locale: (typeof locales)[number], canton: string) =>
+      `/${locale === 'it' ? '' : `${locale}/`}${resolveCantonSection(locale, canton)}/${getJobTodayLandingSlug(locale, canton)}/`;
+    const todayRoutes = Object.fromEntries(locales.map((locale) => [
+      locale,
+      `https://frontaliereticino.ch${todayPath(locale, 'AG')}`,
+    ])) as Record<(typeof locales)[number], string>;
+    const todayGroup = blocks.filter(({ loc }) => Object.values(todayRoutes).includes(loc));
+    expect(todayGroup.map(({ loc }) => loc).sort()).toEqual(Object.values(todayRoutes).sort());
+    for (const block of todayGroup) expect(block.alternates).toEqual([
+      ...Object.entries(todayRoutes).map(([locale, href]) => `${locale}=${href}`),
+      `x-default=${todayRoutes.it}`,
+    ].sort());
+    for (const block of todayGroup.filter(({ loc }) => !loc.endsWith(todayPath('it', 'AG')))) {
+      expect(block.file).toMatch(/^sitemap-jobs-argovia-(en|de|fr)\.xml$/);
+    }
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      expect(fs.existsSync(path.join(dist, todayPath(locale, 'AG').slice(1), 'index.html'))).toBe(false);
+    }
+
+    const belowFloorPath = todayPath('it', 'BASILEA');
+    const belowFloorFile = path.join(dist, belowFloorPath.slice(1), 'index.html');
+    expect(fs.readFileSync(belowFloorFile, 'utf8')).toMatch(/name="robots" content="noindex,follow"/);
+    expect(blocks.some(({ loc }) => loc.endsWith(belowFloorPath))).toBe(false);
+    const deBelowFloorPath = todayPath('de', 'BASILEA');
+    const deBelowFloorFile = path.join(dist, deBelowFloorPath.slice(1), 'index.html');
+    if (buildLocale === undefined) {
+      expect(fs.readFileSync(deBelowFloorFile, 'utf8')).toMatch(/name="robots" content="noindex,follow"/);
+    } else {
+      expect(fs.existsSync(deBelowFloorFile)).toBe(false);
+    }
+
+    const expiredOwnerPaths = {
+      it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
+      en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
+      de: deBelowFloorPath,
+      fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
+    };
+    const allBlocks = sitemapFiles().flatMap(urlBlocks);
+    for (const locale of ['it', 'en', 'fr'] as const) {
+      expect(allBlocks.some(({ loc }) => loc.endsWith(expiredOwnerPaths[locale]))).toBe(true);
+    }
+    expect(allBlocks.some(({ loc }) => loc.endsWith(expiredOwnerPaths.de))).toBe(false);
+
+    const keywordLocs = blocks.filter(({ loc }) => /\/(?:search|suche|recherche)-collision-marker\/$/.test(new URL(loc).pathname));
+    expect(keywordLocs.map(({ loc }) => new URL(loc).pathname.split('/')[1]).sort()).toEqual(['de', 'en', 'fr']);
+    expect(keywordLocs.every(({ alternates }) => alternates.map((alt) => alt.split('=')[0]).sort().join(',') === 'de,en,fr')).toBe(true);
+    expect(blocks.some(({ loc }) => loc.endsWith('/cerca-lavoro-ticino/ricerca-collision-marker/'))).toBe(true);
+
+    expect(monolithicItPageHashes).not.toBeNull();
+    expect(snapshotItPages()).toEqual(monolithicItPageHashes);
+    expect(monolithicSitemapJobsBlocks).not.toBeNull();
+    expect(sitemapJobsSnapshot()).toEqual(monolithicSitemapJobsBlocks);
   });
 
   it('never writes the build date as a <url> lastmod', () => {
