@@ -22,6 +22,7 @@ const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import
 const {
   answerConciergeClarifications, conciergePlatformFacts, conciergePlatformInputs, platformAnswerInputs, platformQuestionShape,
 } = await import('../functions/src/applicationConciergePlatformAnswers.js');
+const { operationalDefaultAnswer } = await import('../functions/src/assistedApplicationOperationalAnswers.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { decisionsSystemPrompt } = await import('../functions/src/assistedApplicationDecisionAnswers.js');
 const { platformAnswerEvidenceSources } = await import('../functions/src/lib/sourceCitations.js');
@@ -146,6 +147,22 @@ describe('the platform answers what the concierge eligibility check asks', () =>
       expect.objectContaining({ questionId: 'payroll_diploma', answer: 'No', principle: 'cv_fact' }),
     ]));
     expect(result.refusals.map((entry: any) => entry.questionId)).toEqual(['payroll_diploma']);
+  });
+
+  it('does not let the final platform backfill answer an unresolved experience question', async () => {
+    const question = { id: 'experience_text', source: 'match', question: 'Describe your experience with payroll', type: 'text', options: [], required: true };
+    const facts = {
+      ...conciergePlatformFacts({ service: SERVICE, profile: PROFILE, job: JOB }),
+      cvAnswers: {
+        experience_text: {
+          value: 'Payroll experience', kind: 'behavioral', labels: ['describe your experience with payroll'], version: 'cv-answers-v2',
+        },
+      },
+    };
+    expect(operationalDefaultAnswer(question, { locale: 'en', facts })?.value).toBe('Payroll experience');
+    const result = await answerConciergeClarifications({ facts, questions: [question], cvText: CV, locale: 'en' });
+    expect(result.entries).toEqual([]);
+    expect(result.left).toEqual([question]);
   });
 
   it('leaves to the candidate only what is theirs, and never overrides their own answer', async () => {

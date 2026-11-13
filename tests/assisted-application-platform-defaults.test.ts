@@ -273,6 +273,20 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(platformDefaultAnswer(modelChosenType, unknownModelType, { locale: 'en' })).toBeNull();
   });
 
+  it('keeps a known nationality fallback for a compatible narrow passport negative', () => {
+    const swissPassport = { id: 'passport_swiss', source: 'portal', question: 'Do you hold a Swiss passport?', type: 'yes_no', options: [] };
+    expect(platformCandidateFacts({
+      order: { candidateFacts: { nationality: 'italiana' } }, locale: 'en', questions: [swissPassport],
+      candidatePassportAnswers: [{ question: swissPassport, value: 'no' }],
+    })).toMatchObject({ passport: 'eu_efta', passportSource: 'nationality' });
+  });
+
+  it('recognizes negative EU wording before the positive EU token', () => {
+    expect(platformCandidateFacts({
+      passportOverride: { provided: true, value: 'not EU' }, locale: 'en',
+    })).toMatchObject({ passport: 'other', passportSource: 'candidate' });
+  });
+
   it('maps a verified EU/EFTA decision to the localized passport answer and the matching live option', () => {
     const binaryByLocale = {
       it: { question: 'Possiedi un passaporto svizzero/UE/AELS?', yes: 'Sì' },

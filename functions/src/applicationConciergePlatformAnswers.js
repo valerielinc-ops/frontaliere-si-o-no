@@ -233,6 +233,7 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
   for (const item of required) {
     if (String(candidateAnswers?.[item.shaped.id] ?? '').trim()
       || entries.some((entry) => entry.questionId === item.shaped.id)) continue;
+    if (!platformQuestionTopic(item.shaped)?.startsWith('passport_')) continue;
     const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
     if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
   }

@@ -926,7 +926,7 @@ function passportClassFromText(value) {
   const raw = clean(value, 100);
   if (CANDIDATE_PASSPORTS.includes(raw)) return raw;
   const text = fold(raw);
-  if (/\b(?:other|altro|andere\w*|autre|non eu|non ue|extra eu|extra ue|drittstaat\w*|third country)\b/.test(text)) return 'other';
+  if (/\b(?:other|altro|andere\w*|autre|not eu|not efta|non eu|non ue|extra eu|extra ue|drittstaat\w*|third country)\b/.test(text)) return 'other';
   const swiss = /\b(?:swiss|switzerland|svizzer\w*|schweiz\w*|suisse|ch)\b/.test(text);
   const euEfta = /\b(?:eu|efta|aels|aele|aeel|ue|europe\w*|europa\w*)\b/.test(text);
   if (swiss && euEfta) return '';
@@ -980,6 +980,26 @@ function passportFromCandidateAnswer(question, value, permitStatus) {
   return passportFromBinary(topic, passportBinaryAnswer(value), permitStatus);
 }
 
+function candidatePassportFact(candidatePassportAnswers, permitStatus, nationality) {
+  const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, permitStatus));
+  const unique = [...new Set(values.filter(Boolean))];
+  if (values.every(Boolean) && unique.length === 1) return { passport: unique[0], passportSource: 'candidate' };
+
+  // A narrow negative only excludes the class named by that question. If the candidate did not declare a class,
+  // keep the known nationality fallback (for example Italian nationality + «no» to Swiss passport => EU/EFTA).
+  const nationalityPassport = passportOf({ nationality });
+  const compatibleNegative = nationalityPassport && values.every((value) => !value)
+    && candidatePassportAnswers.every(({ question, value }) => {
+      const topic = platformQuestionTopic(question);
+      if (passportBinaryAnswer(value) !== 'no') return false;
+      if (topic === 'passport_swiss') return nationalityPassport !== 'swiss';
+      if (topic === 'passport_eu_efta') return nationalityPassport !== 'eu_efta';
+      return false;
+    });
+  if (compatibleNegative) return { passport: nationalityPassport, passportSource: 'nationality' };
+  return { passport: '', passportSource: 'candidate' };
+}
+
 function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
   const answers = [];
   for (const question of Array.isArray(questions) ? questions : []) {
@@ -1002,9 +1022,7 @@ function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
 export function withVerifiedPassportAnswers(facts = {}, { questions = [], decisionAnswers = {}, candidatePassportAnswers = [] } = {}) {
   const current = facts && typeof facts === 'object' ? facts : {};
   if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
-    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, current.permitStatus));
-    const unique = [...new Set(values.filter(Boolean))];
-    return { ...current, passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+    return { ...current, ...candidatePassportFact(candidatePassportAnswers, current.permitStatus, current.nationalityCode || current.nationality) };
   }
   if (current.passportSource === 'candidate' || current.passportSource === 'nationality'
     || CANDIDATE_PASSPORTS.includes(current.passport)) return current;
@@ -1017,9 +1035,7 @@ function passportFactOf({ uploaded, nationality, nationalityCode, permitStatus, 
     return { passport: passportClassFromText(passportOverride.value), passportSource: 'candidate' };
   }
   if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
-    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, permitStatus));
-    const unique = [...new Set(values.filter(Boolean))];
-    return { passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+    return candidatePassportFact(candidatePassportAnswers, permitStatus, nationalityCode || nationality);
   }
   // A present but empty upload answer is the candidate's word. Older orders have no passport key and can use
   // the lower-priority nationality or verified-question sources below.
