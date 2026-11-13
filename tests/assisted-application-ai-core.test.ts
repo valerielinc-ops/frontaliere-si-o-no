@@ -678,7 +678,6 @@ describe('job posting fetch', () => {
     const jobUrl = `https://www.job-room.ch/job-search/${id}`;
     const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
     const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
-    const externalUrl = 'https://team.jobs/de/jobs/456';
     const calls: string[] = [];
     const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
     const posting = await fetchJobPosting({ jobId, jobUrl }, {
@@ -722,6 +721,7 @@ describe('job posting fetch', () => {
     const jobUrl = `https://www.job-room.ch/job-search/${id}`;
     const apiUrl = `https://www.job-room.ch/jobadservice/api/jobAdvertisements/${id}`;
     const detailUrl = `https://cdn.frontaliereticino.ch/data/job-detail/${jobId}.json`;
+    const externalUrl = 'https://team.jobs/de/jobs/456';
     const calls: string[] = [];
     const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
     const page = `<html><body><h1>Job</h1><p>${'Descrizione del ruolo. '.repeat(20)}</p></body></html>`;
