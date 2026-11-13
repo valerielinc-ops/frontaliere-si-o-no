@@ -459,6 +459,22 @@ const relatedSourceTestScopes = [
       /^tests\/assisted-application-(?:employer-response|no-refund-after-start|review)\.test\.[cm]?[jt]sx?$/,
     ],
   },
+  {
+    // The landing builders are shared by the SSG plugins, the router and the
+    // hydrated JobBoard. A reverse walk through the latter two reaches the
+    // app shell and makes a landing-builder change look like a UI-wide change.
+    // Keep the owning landing/route contracts, while preventing that runtime
+    // fan-out from admitting every app test.
+    matches: (file) => file === 'build-plugins/jobEditorialLanding.ts'
+      || file === 'build-plugins/jobIntentLanding.ts',
+    tests: [
+      /^tests\/build-plugins\/job-sitemap-generator-contract\.test\.[cm]?[jt]sx?$/,
+      /^tests\/(?:job-editorial-enrichment|job-editorial-landing|job-intent-landing|job-landing-publication-provenance|job-recency-landing|multi-canton-seo)\.test\.[cm]?[jt]sx?$/,
+      /^tests\/seo\/(?:cathedral-editorial-slug-tables|cathedral-phase8d-ti-invariance|search-pages-head-contract)\.test\.[cm]?[jt]sx?$/,
+      /^tests\/regression\/recency-router-guards\.test\.[cm]?[jt]sx?$/,
+      /^tests\/router\/job-intent-routing\.test\.[cm]?[jt]sx?$/,
+    ],
+  },
 ];
 const sourceTestScopeFor = (file) => relatedSourceTestScopes.find((scope) => scope.matches(file)) || null;
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
