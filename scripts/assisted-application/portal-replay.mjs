@@ -34,7 +34,7 @@ let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
-const PORTAL_REPLAY_FAMILIES = new Set([
+export const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
 ]);
@@ -195,19 +195,31 @@ export function affectedPortalReplayPaths(diff) {
 export function affectedPortalReplayFamilies(pathsOrDiff) {
   const paths = Array.isArray(pathsOrDiff) ? pathsOrDiff : affectedPortalReplayPaths(pathsOrDiff);
   const families = new Set();
+  let sharedRunnerPathChanged = false;
   for (const value of paths) {
     const file = String(value || '').replace(/^\//u, '').toLowerCase();
     const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
       .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
       .map(([family]) => family);
-    for (const family of matchedFamilies) families.add(family);
+    if (matchedFamilies.length) {
+      for (const family of matchedFamilies) families.add(family);
+    } else if (isPortalReplayAffectedPath(file)) {
+      sharedRunnerPathChanged = true;
+    }
   }
-  // Shared harness/helpers are intentionally not expanded to every family.
-  // A replay is a family-specific live check: a PR must opt a family in by
-  // changing a path that names that family. Shared replay code remains covered
-  // by the local fence/aggregator tests, while unrelated live ATS runs stay out
-  // of the PR matrix.
-  return [...families].sort();
+  // Shared runner code is a dependency of every ATS family. A change to it
+  // must therefore replay the complete matrix; otherwise the PR can change a
+  // common navigation or safety path while selecting no live runner at all.
+  return sharedRunnerPathChanged ? [...PORTAL_REPLAY_FAMILIES].sort() : [...families].sort();
+}
+
+export function trustedPortalReplayFenceRoot(baseRoot) {
+  const trustedRoot = path.resolve(baseRoot);
+  const fencePath = path.join(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs');
+  if (!existsSync(fencePath)) {
+    throw Object.assign(new Error('portal_replay_fence_unavailable'), { code: 'portal_replay_fence_unavailable' });
+  }
+  return trustedRoot;
 }
 
 function issueTitle(value) {
@@ -904,12 +916,10 @@ async function compareMode(values) {
   const baseRecords = [];
   const headRecords = [];
   let nodeEgressFence = null;
-  const trustedRoot = path.resolve(values['base-root']);
+  const trustedRoot = trustedPortalReplayFenceRoot(values['base-root']);
   const headRoot = path.resolve(values['head-root']);
-  const trustedFenceRoot = existsSync(path.join(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'))
-    ? trustedRoot : headRoot;
   const [fenceApi, trustedNetwork, trustedBrowser] = await Promise.all([
-    importFrom(trustedFenceRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'),
+    importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'),
     importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
     importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
   ]);

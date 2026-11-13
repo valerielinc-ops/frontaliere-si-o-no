@@ -1,7 +1,8 @@
 name: Assisted application portal replay
 
 # Always publish the required `portal replay gate` job. The prepare step skips
-# the public replay when a PR changes no family-specific runner path.
+# the public replay when a PR changes no runner path. Shared runner changes
+# expand to the complete family matrix.
 on:
   pull_request:
     branches: [main]
@@ -23,18 +24,6 @@ jobs:
     outputs:
       run: ${{ steps.detect.outputs.run }}
     steps:
-      - name: Checkout runner path detector
-        uses: actions/checkout@v7
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 1
-          persist-credentials: false
-          sparse-checkout: |
-            functions/src
-            scripts/assisted-application
-          sparse-checkout-cone-mode: true
-
       - name: Checkout trusted base replay CLI
         uses: actions/checkout@v7
         with:
@@ -61,7 +50,9 @@ jobs:
       - name: Detect whether the runner needs replay
         id: detect
         run: |
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
+          set -euo pipefail
+          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          test -f "$portal_replay_cli"
           node "$portal_replay_cli" detect \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
             --github-output "$GITHUB_OUTPUT"
@@ -77,21 +68,6 @@ jobs:
       now_ms: ${{ steps.prepare.outputs.now_ms }}
       stop_hosts: ${{ steps.prepare.outputs.stop_hosts }}
     steps:
-      - name: Checkout PR source
-        uses: actions/checkout@v7
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 1
-          persist-credentials: false
-          sparse-checkout: |
-            .github/workflows
-            functions/src
-            packages
-            scripts/assisted-application
-            scripts/lib
-          sparse-checkout-cone-mode: true
-
       - name: Checkout base classifier
         uses: actions/checkout@v7
         with:
@@ -125,7 +101,9 @@ jobs:
         id: prepare
         run: |
           replay_now_ms="$(node -p 'Date.now()')"
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
+          set -euo pipefail
+          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          test -f "$portal_replay_cli"
           node "$portal_replay_cli" prepare \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
             --data-dir .portal-base/data/jobs/by-crawler \
@@ -219,7 +197,9 @@ jobs:
           PORTAL_REPLAY_STOP_HOSTS: ${{ needs.prepare.outputs.stop_hosts }}
         run: |
           printf '%s' "$PORTAL_REPLAY_STOP_HOSTS" > "$RUNNER_TEMP/portal-replay-stop-hosts.json"
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
+          set -euo pipefail
+          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          test -f "$portal_replay_cli"
           node "$portal_replay_cli" corpus \
             --data-dir .portal-base/data/jobs/by-crawler \
             --classifier-root .portal-base \
@@ -263,7 +243,9 @@ jobs:
           PORTAL_REPLAY_FAMILY: ${{ matrix.family }}
           PORTAL_REPLAY_REPORT: ${{ runner.temp }}/portal-replay-${{ matrix.family }}.json
         run: |
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
+          set -euo pipefail
+          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          test -f "$portal_replay_cli"
           replay=(node "$portal_replay_cli" compare \
             --base-root .portal-base \
             --head-root . \
@@ -309,19 +291,6 @@ jobs:
       - name: Succeed without setup when no replay path changed
         if: needs.detect.result == 'success' && needs.detect.outputs.run != 'true'
         run: echo 'portal replay not required for this diff'
-
-      - name: Checkout report aggregator
-        if: needs.detect.outputs.run == 'true' || needs.detect.result != 'success'
-        uses: actions/checkout@v7
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 1
-          persist-credentials: false
-          sparse-checkout: |
-            functions/src
-            scripts/assisted-application
-          sparse-checkout-cone-mode: true
 
       - name: Checkout trusted base replay CLI
         if: needs.detect.outputs.run == 'true' || needs.detect.result != 'success'
@@ -371,7 +340,9 @@ jobs:
           else
             effective_prepare_result=success
           fi
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
+          set -euo pipefail
+          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          test -f "$portal_replay_cli"
           node "$portal_replay_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \

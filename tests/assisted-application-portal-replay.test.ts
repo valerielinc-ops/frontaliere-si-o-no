@@ -14,8 +14,10 @@ import {
   aggregatePortalReplayGate,
   comparePortalReplayFamily,
   extractPortalStopHosts,
+  PORTAL_REPLAY_FAMILIES,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
+  trustedPortalReplayFenceRoot,
 } from '../scripts/assisted-application/portal-replay.mjs';
 
 const tempDirs: string[] = [];
@@ -390,12 +392,17 @@ describe('portal replay corpus', () => {
     ]);
   });
 
-  it('limits family replay to family-specific paths and skips shared paths', () => {
+  it('limits family replay to family-specific paths and expands shared paths to all families', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
-    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([]);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/jobsch-adapter.mjs'])).toEqual(['jobs_ch']);
-    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([]);
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+  });
+
+  it('does not fall back to a PR-controlled replay fence when the trusted base lacks it', () => {
+    const baseRoot = tempDir();
+    expect(() => trustedPortalReplayFenceRoot(baseRoot)).toThrowError(/portal_replay_fence_unavailable/iu);
   });
 });
 
@@ -416,6 +423,8 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
+    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });
 });
 
