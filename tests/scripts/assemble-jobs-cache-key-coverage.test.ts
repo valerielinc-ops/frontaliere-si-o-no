@@ -60,6 +60,11 @@ const NOT_ASSEMBLY_INPUTS: Record<string, string> = {
   'data/jobs-crawler-audit.json': 'crawler audit written by shared-jobs-crawler, untracked',
   'data/seo-404-compat': 'shard naming helper only (shard-file-naming), not read by the assembly',
   'data/all-known-job-slugs': 'shard naming helper only (shard-file-naming), not read by the assembly',
+  // Reached through assert-file-size-ceiling.mjs, which the expired archive
+  // writer imports for the slice size ceiling: the limit table only NAMES the
+  // related-search outputs in its doc comments, nothing reads them.
+  'data/related-search-candidates.json': 'related-search output named by the size-limit table (related-search-output-limit), never read by assembleJobsDataset',
+  'data/related-search-enriched.json': 'related-search output named by the size-limit table (related-search-output-limit), never read by assembleJobsDataset',
 };
 
 const DATA_REF_RX = /'data'((?:\s*,\s*'[^']+')+)|['"`](data\/[A-Za-z0-9_.\/-]+)/g;
