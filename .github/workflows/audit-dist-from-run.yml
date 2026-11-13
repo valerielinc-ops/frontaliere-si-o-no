@@ -339,6 +339,30 @@ jobs:
             } >> "$summary_path"
           }
 
+          # Read-only follow-up for PR #17654: the first full audit after the
+          # raw-ZIP rehydrate change must say whether locale rehydration
+          # completed and whether the runner still reported ENOSPC. Keep the
+          # original exit code and fail-closed gate untouched.
+          localeRehydrateEnospcObserved() {
+            local locale_rc="$1"
+            local enospc="$2"
+            local completed=false
+            local summary_path="${GITHUB_STEP_SUMMARY:-/dev/stdout}"
+
+            if [ "$locale_rc" -eq 0 ]; then
+              completed=true
+            fi
+
+            {
+              echo '### Locale rehydrate ENOSPC observation (advisory)'
+              echo
+              echo '| metric | observed | reference |'
+              echo '| --- | --- | --- |'
+              echo "| locale_rehydrate_completed | \`$completed\` | locale rc=\`$locale_rc\` |"
+              echo "| locale_rehydrate_enospc | \`$enospc\` | log phrase \`No space left on device\` |"
+            } >> "$summary_path"
+          }
+
           REHYDRATE_STARTED_AT="$(date +%s)"
 
           # Same order and same failure contract as post-deploy-validate-dist.yml:
@@ -347,8 +371,19 @@ jobs:
           # degrade coverage). Sections must not run concurrently with the locale
           # pass: rehydrate_section writes into dist/$loc/<section>, nested inside
           # the subtree rehydrate_locale wipes and repopulates.
+          LOCALE_REHYDRATE_ENOSPC=not-observed
+          coproc LOCALE_REHYDRATE {
+            bash scripts/lib/rehydrate-locale-shards.sh 2>&1
+          }
+          while IFS= read -r line; do
+            printf '%s\n' "$line"
+            case "$line" in
+              *"No space left on device"*) LOCALE_REHYDRATE_ENOSPC=observed ;;
+            esac
+          done <&"${LOCALE_REHYDRATE[0]}"
           LOCALE_RC=0
-          bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?
+          wait "$LOCALE_REHYDRATE_PID" || LOCALE_RC=$?
+          localeRehydrateEnospcObserved "$LOCALE_RC" "$LOCALE_REHYDRATE_ENOSPC"
           SECTION_RC=0
           bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?
           # Worker-level artifact/clone misses are the documented fail-soft
