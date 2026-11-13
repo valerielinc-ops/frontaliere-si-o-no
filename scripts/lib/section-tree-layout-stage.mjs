@@ -3,6 +3,7 @@ import { isInvokedDirectly } from './is-invoked-directly.mjs';
 import { fanoutSectionTree, rewriteSectionTreeIndex } from './ticino-tree-fanout.mjs';
 import { parseFanoutAutoThreshold, decideSectionTreeFanout } from './section-tree-fanout-policy.mjs';
 import { readSectionTreeLayoutRegistry } from './section-tree-layout-registry.mjs';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
 import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section-tree-layout-schema.js';
 
 export const WORKER_LAYOUT_PROBE_ATTEMPTS = 18;
@@ -33,6 +34,7 @@ export async function requireWorkerSectionTreeLayout(section, sub, {
       const response = await fetchImpl(url, {
         method: 'HEAD',
         cache: 'no-store',
+        headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
         signal: AbortSignal.timeout(20_000),
       });
       const generic = response?.headers?.get?.('x-frontaliere-section-tree-layout');
