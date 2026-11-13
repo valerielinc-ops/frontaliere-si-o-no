@@ -175,7 +175,11 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
   // What the platform answers (a rule, the CV, the decision engine: owner directive 2026-11-10), as the review page
   // proposes it to the candidate: shown next to the owner's field, never saved as the owner's answer.
   const { defaults: platformDefaults } = draft
-    ? withOperationalQuestionAnswers(visibleQuestions, candidateState.answers, { locale: communicationLocale, facts: candidateState.platformFacts })
+    ? withOperationalQuestionAnswers(visibleQuestions, candidateState.answers, {
+      locale: communicationLocale, facts: candidateState.platformFacts,
+      suppressDefaultQuestionIds: candidateState.candidateAnswerDefaultSuppressionIds,
+      candidateAnswerSuppressedQuestionContracts: candidateState.candidateAnswerSuppressedQuestionContracts,
+    })
     : { defaults: {} };
   const platformAnswers = Object.fromEntries(Object.entries(platformDefaults)
     .map(([id, answer]) => [id, { value: String(answer.value ?? ''), provenance: platformAnswerProvenance(answer), ...(answer.principle ? { principle: answer.principle } : {}) }]));

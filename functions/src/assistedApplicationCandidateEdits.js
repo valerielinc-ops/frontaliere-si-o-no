@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { UNKNOWN_ANSWER_VALUES, isUnknownAnswer } from './lib/unknownAnswer.js';
 import { addressContextContract } from './lib/addressContextContract.js';
 import { candidateAnswerFact, candidateFactAnswerForQuestion, candidateFactIdentity, candidateQuestionFact } from './lib/candidateAnswerFacts.js';
@@ -124,6 +125,22 @@ function optionsIdentity(question) {
   return values.length > QUESTION_OPTION_DESCRIPTOR_LIMIT
     ? `v1_${questionHash(values.join('|'))}`
     : values.join('|');
+}
+
+function answerConstraintOptionsIdentity(question) {
+  const type = String(question?.type || '').trim().toLowerCase();
+  const descriptors = currentOptionDescriptors(question);
+  if (type === 'checkbox' && !descriptors.length) return 'binary:affirmative|negative';
+  if (type === 'yes_no' && !descriptors.length) return 'binary:affirmative|negative';
+  if (!['choice', 'radio', 'select', 'yes_no'].includes(type)) return optionsIdentity(questionForAnswerIdentity(question));
+  const positiveAliases = new Set(['yes', 'si', 'ja', 'oui', 'true', '1']);
+  const negativeAliases = new Set(['no', 'nein', 'non', 'false', '0']);
+  const positive = descriptors.filter(option => option.aliases.some(alias => positiveAliases.has(normalizeQuestionValue(alias))));
+  const negative = descriptors.filter(option => option.aliases.some(alias => negativeAliases.has(normalizeQuestionValue(alias))));
+  if (descriptors.length === 2 && positive.length === 1 && negative.length === 1 && positive[0] !== negative[0]) {
+    return 'binary:affirmative|negative';
+  }
+  return optionsIdentity(questionForAnswerIdentity(question));
 }
 
 function questionTextIdentity(question, text) {
@@ -303,6 +320,103 @@ function isDirectAnswerInvalidForCurrentContract(question, value, nowMs) {
   return DRIVING_LICENCE_QUESTION_RE.test(wording) && Boolean(permitStatusOf(value));
 }
 
+function isPermitStatusQuestion(question) {
+  const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
+    .filter(Boolean).join(' ');
+  return !DRIVING_LICENCE_QUESTION_RE.test(wording) && isPermitField(wording) && asksHeldStatus(wording);
+}
+
+// An answer already saved under this question id is still the candidate's own
+// response when a catalogue has not arrived yet. It is kept for the runner to
+// compare with the live control; it is never projected to a different id.
+function directAnswerForCurrentQuestion(value, question, nowMs = Date.now()) {
+  const type = String(question?.type || '').trim().toLowerCase();
+  if (CATALOG_ANSWER_QUESTION_TYPES.has(type) && optionValues(question).length === 0 && hasQuestionAnswer(value)) return value;
+  if (isPermitStatusQuestion(question) && typeof value === 'string' && value.trim()) {
+    return answerForCurrentQuestion(value, question, nowMs) ?? value;
+  }
+  return answerForCurrentQuestion(value, question, nowMs);
+}
+
+function stableConstraintCanonicalJson(value, ancestors = new Set()) {
+  if (value === null) return 'null';
+  if (typeof value === 'string' || typeof value === 'boolean') return JSON.stringify(value);
+  if (typeof value === 'number') return Number.isFinite(value) ? JSON.stringify(value) : 'null';
+  if (typeof value !== 'object') return 'null';
+  if (ancestors.has(value)) return '"[circular]"';
+  ancestors.add(value);
+  const serialized = Array.isArray(value)
+    ? `[${value.map(item => stableConstraintCanonicalJson(item, ancestors)).join(',')}]`
+    : `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableConstraintCanonicalJson(value[key], ancestors)}`).join(',')}}`;
+  ancestors.delete(value);
+  return serialized;
+}
+
+function stableConstraintDigest(value) {
+  return createHash('sha256').update(stableConstraintCanonicalJson(value)).digest('hex');
+}
+
+function stableConstraintOverflow(type, prefix, overflow) {
+  return {
+    $candidateAnswerConstraintOverflow: type,
+    prefix,
+    overflowCount: overflow.length,
+    overflowDigest: stableConstraintDigest(overflow),
+  };
+}
+
+function stableConstraintValue(value, depth = 0) {
+  if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (depth > 4) {
+    return { $candidateAnswerConstraintOverflow: 'depth', digest: stableConstraintDigest(value) };
+  }
+  if (Array.isArray(value)) {
+    const prefix = value.slice(0, 40).map(item => stableConstraintValue(item, depth + 1));
+    if (value.length <= 40) return prefix;
+    return stableConstraintOverflow('array', prefix, value.slice(40));
+  }
+  if (typeof value !== 'object') return null;
+  const keys = Object.keys(value).sort();
+  const prefixKeys = keys.slice(0, 40);
+  const prefix = Object.fromEntries(prefixKeys.map(key => [key, stableConstraintValue(value[key], depth + 1)]));
+  if (keys.length <= 40) return prefix;
+  const overflowKeys = keys.slice(40);
+  const overflow = overflowKeys.map(key => [key, value[key]]);
+  return stableConstraintOverflow('object', prefix, overflow);
+}
+
+function candidateAnswerContractValues(question) {
+  return {
+    why: normalizeQuestionValue(question?.why || '').slice(0, 500),
+    validation: stableConstraintValue(question?.validation || {}),
+    minDate: String(question?.minDate || '').slice(0, 80),
+    maxDate: String(question?.maxDate || '').slice(0, 80),
+    min: stableConstraintValue(question?.min),
+    max: stableConstraintValue(question?.max),
+    minLength: stableConstraintValue(question?.minLength),
+    maxLength: stableConstraintValue(question?.maxLength),
+    pattern: String(question?.pattern || '').slice(0, 240),
+    required: question?.required === true,
+    affirmativeConsent: question?.requiresAffirmativeConsent === true,
+  };
+}
+
+function candidateAnswerCompatibilityKey(question) {
+  return createHash('sha256').update(JSON.stringify(candidateAnswerContractValues(question))).digest('hex');
+}
+
+function candidateAnswerConstraintsKey(question) {
+  const permitStatus = isPermitStatusQuestion(question);
+  const constraints = {
+    ...candidateAnswerContractValues(question),
+    // The permit review deliberately keeps an owner's literal status even if
+    // the native catalogue changes. Other catalogues are answer constraints.
+    options: permitStatus ? '' : answerConstraintOptionsIdentity(question),
+  };
+  return createHash('sha256').update(JSON.stringify(constraints)).digest('hex');
+}
+
 function candidateAnswerHistoryIdentity(question) {
   const identityQuestion = questionForAnswerIdentity(question);
   const rawText = String(identityQuestion?.question || '').trim();
@@ -315,6 +429,8 @@ function candidateAnswerHistoryIdentity(question) {
     autocomplete: normalizeQuestionValue(identityQuestion?.autocomplete).slice(0, 240),
     candidateKey: candidateQuestionAnswerKey(question).slice(0, 180),
     questionType: String(question?.type || '').trim().toLowerCase().slice(0, 40),
+    answerContractKey: candidateAnswerCompatibilityKey(question),
+    constraintsKey: candidateAnswerConstraintsKey(question),
   };
 }
 
@@ -348,6 +464,8 @@ export function candidateAnswerHistoryState(history) {
       autocomplete: String(record.autocomplete || '').slice(0, 240),
       candidateKey: String(record.candidateKey || '').slice(0, 180),
       questionType: String(record.questionType || '').slice(0, 40),
+      answerContractKey: String(record.answerContractKey || '').slice(0, 64),
+      constraintsKey: String(record.constraintsKey || '').slice(0, 64),
       answer,
       status,
       round,
@@ -362,7 +480,8 @@ export function mergeCandidateAnswerHistory(previous = [], next = []) {
   const merged = new Map();
   for (const record of [...candidateAnswerHistoryState(previous), ...candidateAnswerHistoryState(next)]) {
     const identity = JSON.stringify([record.id, record.round, record.semanticKey, record.questionText, record.context,
-      record.section, record.autocomplete, record.candidateKey, record.questionType, record.status, answerValueKey(record.answer)]);
+      record.section, record.autocomplete, record.candidateKey, record.questionType, record.answerContractKey,
+      record.constraintsKey, record.status, answerValueKey(record.answer)]);
     const current = merged.get(identity);
     if (!current || record.confirmedAt >= current.confirmedAt) merged.set(identity, record);
   }
@@ -387,13 +506,17 @@ export function rememberCandidateAnswerHistory({ previous = [], questions = [], 
     const sameEntry = history.findIndex(record => record.id === id && record.round === Number(round)
       && record.semanticKey === identity.semanticKey && record.questionText === identity.questionText
       && record.context === identity.context && record.section === identity.section && record.autocomplete === identity.autocomplete
-      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType && record.status === status
+      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType
+      && record.answerContractKey === identity.answerContractKey
+      && record.constraintsKey === identity.constraintsKey && record.status === status
       && answerValueKey(record.answer) === answerValueKey(answer));
     const latestForId = history.filter(record => record.id === id).reduce((latest, record) => Math.max(latest, record.confirmedAt), 0);
     const sameCandidateEntry = record => record.round === Number(round)
       && record.semanticKey === identity.semanticKey && record.questionText === identity.questionText
       && record.context === identity.context && record.section === identity.section && record.autocomplete === identity.autocomplete
-      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType && record.status === status
+      && record.candidateKey === identity.candidateKey && record.questionType === identity.questionType
+      && record.answerContractKey === identity.answerContractKey
+      && record.constraintsKey === identity.constraintsKey && record.status === status
       && answerValueKey(record.answer) === answerValueKey(answer);
     const latestHasConflict = history.some(record => record.id === id && record.confirmedAt === latestForId && !sameCandidateEntry(record));
     const sameEntryIsLatest = sameEntry >= 0 && history[sameEntry].confirmedAt === latestForId && !latestHasConflict;
@@ -413,7 +536,23 @@ function compatibleAnswerQuestionTypes(previous, current) {
   return oldType === newType || HISTORY_COMPATIBLE_QUESTION_TYPES.has([oldType, newType].sort().join('|'));
 }
 
-function compatibleAnswerQuestionIdentity(record, question) {
+function isLegacySameIdCandidateAnswerHistory(record, question) {
+  const id = String(question?.id || '').trim();
+  return Boolean(id && record?.id === id && !record.answerContractKey && !record.constraintsKey);
+}
+
+function candidateAnswerHistoryQuestionType(record, question) {
+  if (record?.questionType) return record.questionType;
+  return isLegacySameIdCandidateAnswerHistory(record, question)
+    ? candidateAnswerHistoryIdentity(question).questionType
+    : '';
+}
+
+function candidateAnswerQuestionTopicMatches(record, question) {
+  // Before contract hashes existed, the stable question id is the only
+  // available link to the current question. Cross-id matches still require
+  // the persisted topic identity below.
+  if (isLegacySameIdCandidateAnswerHistory(record, question)) return true;
   const current = candidateAnswerHistoryIdentity(question);
   const contextsCompatible = ['context', 'section', 'autocomplete'].every(field =>
     !record[field] || !current[field] || record[field] === current[field]);
@@ -426,6 +565,38 @@ function compatibleAnswerQuestionIdentity(record, question) {
   return contextsCompatible && !languageContractsConflict && (semanticMatch || textMatch || candidateKeyMatch);
 }
 
+function compatibleAnswerQuestionIdentity(record, question) {
+  const current = candidateAnswerHistoryIdentity(question);
+  const constraintsKey = isLegacySameIdCandidateAnswerHistory(record, question)
+    ? current.constraintsKey
+    : record.constraintsKey;
+  return Boolean(constraintsKey && current.constraintsKey && constraintsKey === current.constraintsKey
+    && candidateAnswerQuestionTopicMatches(record, question));
+}
+
+function compatibleAnswerQuestionContract(record, question) {
+  const current = candidateAnswerHistoryIdentity(question);
+  const answerContractKey = isLegacySameIdCandidateAnswerHistory(record, question)
+    ? current.answerContractKey
+    : record.answerContractKey;
+  return Boolean(answerContractKey && current.answerContractKey
+    && answerContractKey === current.answerContractKey
+    && candidateAnswerQuestionTopicMatches(record, question));
+}
+
+function candidateAnswerHistoryStateForQuestion(question, history) {
+  const id = String(question?.id || '').trim();
+  const matches = candidateAnswerHistoryState(history).filter(record => record.id === id
+    || candidateAnswerQuestionTopicMatches(record, question));
+  if (!matches.length) return { present: false, record: null, ambiguous: false };
+  const latestAt = Math.max(...matches.map(record => record.confirmedAt));
+  const latest = matches.filter(record => record.confirmedAt === latestAt);
+  const values = new Set(latest.map(record => JSON.stringify([record.status, answerValueKey(record.answer), record.semanticKey,
+    record.questionText, record.context, record.section, record.autocomplete, record.candidateKey, record.questionType,
+    record.answerContractKey, record.constraintsKey])));
+  return { present: true, record: values.size === 1 ? latest.at(-1) : null, ambiguous: values.size !== 1 };
+}
+
 export function candidateAnswerHistoryRecordForQuestionId(question, history) {
   const id = String(question?.id || '').trim();
   const matches = candidateAnswerHistoryState(history).filter(record => record.id === id);
@@ -433,21 +604,31 @@ export function candidateAnswerHistoryRecordForQuestionId(question, history) {
   const latestAt = Math.max(...matches.map(record => record.confirmedAt));
   const latest = matches.filter(record => record.confirmedAt === latestAt);
   const values = new Set(latest.map(record => JSON.stringify([record.status, answerValueKey(record.answer), record.semanticKey,
-    record.questionText, record.context, record.section, record.autocomplete, record.candidateKey, record.questionType])));
-  return values.size === 1 ? latest.at(-1) : null;
+    record.questionText, record.context, record.section, record.autocomplete, record.candidateKey, record.questionType,
+    record.answerContractKey, record.constraintsKey])));
+  if (values.size !== 1) return null;
+  return latest.at(-1);
+}
+
+function candidateAnswerHistoryStateForQuestionId(question, history) {
+  const record = candidateAnswerHistoryRecordForQuestionId(question, history);
+  return { present: record !== undefined, record, ambiguous: record === null };
 }
 
 function candidateHistoryAnswerForQuestion(question, history, nowMs) {
-  const matches = candidateAnswerHistoryState(history).filter(record => compatibleAnswerQuestionIdentity(record, question));
+  const matches = candidateAnswerHistoryState(history).filter(record => candidateAnswerQuestionTopicMatches(record, question));
   if (!matches.length) return undefined;
   const latestAt = Math.max(...matches.map(record => record.confirmedAt));
   const latest = matches.filter(record => record.confirmedAt === latestAt);
   const values = new Set(latest.map(record => `${record.status}:${answerValueKey(record.answer)}`));
   if (values.size !== 1) return undefined;
   const record = latest.at(-1);
-  const currentAnswer = answerForCurrentQuestion(record.answer, question, nowMs);
+  const currentAnswer = record.id === String(question?.id || '')
+    ? directAnswerForCurrentQuestion(record.answer, question, nowMs)
+    : answerForCurrentQuestion(record.answer, question, nowMs);
   if (record.status !== 'answered' || !hasQuestionAnswer(record.answer)
-    || !compatibleAnswerQuestionTypes(record.questionType, question?.type)
+    || !compatibleAnswerQuestionIdentity(record, question)
+    || !compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(record, question), question?.type)
     || currentAnswer === undefined) return undefined;
   return currentAnswer;
 }
@@ -499,6 +680,100 @@ export function candidateQuestionAnswerKey(question) {
   return `question_${questionHash(`${type}\u0000${scopedContext}\u0000${normalized}\u0000${options}`)}`;
 }
 
+/**
+ * Candidate-owned answer state that cannot be projected must keep platform
+ * defaults away from that question. Incompatible answers are also reported
+ * to metadata recovery, which must leave the whole draft untouched.
+ */
+export function candidateAnswerProjectionDiagnostics(questions, {
+  answers = {}, memory = {}, history = [], nowMs = Date.now(), canExpressAnswer = null,
+} = {}) {
+  const suppressed = new Set();
+  const incompatible = new Set();
+  const suppressedAnswerContracts = [];
+  const addSuppressed = (question, { status = 'unknown', answer = undefined, allowLiveMapping = false } = {}) => {
+    const id = String(question?.id || '').trim();
+    if (!id) return;
+    suppressed.add(id);
+    suppressedAnswerContracts.push({
+      id,
+      labels: [...new Set([question.applicationQuestion, question.portalQuestion, question.question, question.label]
+        .filter(value => typeof value === 'string' && value.trim()).map(value => value.trim().slice(0, 520)))],
+      status,
+      ...(status === 'answered' && hasQuestionAnswer(answer) ? { answer } : {}),
+      allowLiveMapping: allowLiveMapping === true,
+    });
+  };
+  for (const question of Array.isArray(questions) ? questions : []) {
+    const id = String(question?.id || '').trim();
+    if (!id) continue;
+    const direct = answers && typeof answers === 'object' ? answers[id] : undefined;
+    if (isUnknownAnswer(direct)) {
+      addSuppressed(question);
+      continue;
+    }
+    if (hasQuestionAnswer(direct)) {
+      const savedState = candidateAnswerHistoryStateForQuestionId(question, history);
+      const saved = savedState.record;
+      const savedTypeCompatible = Boolean(saved && saved.status === 'answered'
+        && compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(saved, question), question.type));
+      const savedContractCompatible = savedTypeCompatible && compatibleAnswerQuestionContract(saved, question);
+      const savedFullyCompatible = savedContractCompatible && compatibleAnswerQuestionIdentity(saved, question);
+      const directCurrent = directAnswerForCurrentQuestion(direct, question, nowMs);
+      const directExpressible = directCurrent !== undefined
+        || (typeof canExpressAnswer === 'function' && canExpressAnswer(question, direct));
+      const liveMappingAllowed = directExpressible && (!savedState.present || savedContractCompatible);
+      const invalidHistory = savedState.ambiguous || (savedState.present && !savedFullyCompatible && !liveMappingAllowed);
+      if (invalidHistory || (savedState.present && !savedFullyCompatible) || !directExpressible) {
+        addSuppressed(question, { status: 'answered', answer: direct,
+          allowLiveMapping: !savedState.present || savedContractCompatible });
+        if (invalidHistory || !directExpressible) incompatible.add(id);
+      }
+      continue;
+    }
+    const historical = candidateAnswerHistoryStateForQuestion(question, history);
+    if (historical.present) {
+      const record = historical.record;
+      if (historical.ambiguous) {
+        addSuppressed(question);
+        incompatible.add(id);
+      } else if (record?.status === 'answered') {
+        const typeCompatible = compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(record, question), question.type);
+        const contractCompatible = typeCompatible && compatibleAnswerQuestionContract(record, question);
+        const fullyCompatible = contractCompatible && compatibleAnswerQuestionIdentity(record, question);
+        const answer = record.id === id
+          ? directAnswerForCurrentQuestion(record.answer, question, nowMs)
+          : answerForCurrentQuestion(record.answer, question, nowMs);
+        const liveExpressible = record.id === id && contractCompatible
+          && (answer !== undefined || (typeof canExpressAnswer === 'function' && canExpressAnswer(question, record.answer)));
+        if (!fullyCompatible || answer === undefined) {
+          addSuppressed(question, { status: 'answered', answer: record.answer,
+            allowLiveMapping: record.id === id && contractCompatible });
+          if (!liveExpressible) incompatible.add(id);
+        }
+      } else {
+        addSuppressed(question);
+      }
+      continue;
+    }
+    const key = candidateQuestionAnswerKey(question);
+    if (key && Object.hasOwn(memory || {}, key)) {
+      const remembered = memory[key];
+      if (!hasQuestionAnswer(remembered)) {
+        addSuppressed(question);
+      } else if (answerForCurrentQuestion(remembered, question, nowMs) === undefined) {
+        addSuppressed(question, { status: 'answered', answer: remembered });
+        if (!(typeof canExpressAnswer === 'function' && canExpressAnswer(question, remembered))) incompatible.add(id);
+      }
+    }
+  }
+  return {
+    suppressDefaultQuestionIds: [...suppressed],
+    incompatibleQuestionIds: [...incompatible],
+    suppressedAnswerContracts,
+  };
+}
+
 /** Reuse candidate answers only when their topic is unambiguous and the value fits the current contract. */
 export function candidateAnswersForQuestions(questions, answers = {}, memory = {}, history = [], nowMs = Date.now()) {
   const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
@@ -541,7 +816,7 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
       continue;
     }
     if (saved === null || (saved && (saved.status !== 'answered'
-      || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
+      || !compatibleAnswerQuestionTypes(candidateAnswerHistoryQuestionType(saved, question), question.type)
       || !compatibleAnswerQuestionIdentity(saved, question)))) {
       const key = candidateQuestionAnswerKey(question);
       if (key) unknownKeys.add(key);
@@ -549,8 +824,8 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
       delete result[question.id];
       continue;
     }
-    const current = answerForCurrentQuestion(result[question.id], question, nowMs);
-    if (current !== undefined && question?.requiresAffirmativeConsent === true
+    const current = directAnswerForCurrentQuestion(result[question.id], question, nowMs);
+    if (current === undefined && question?.requiresAffirmativeConsent === true
       && hasQuestionAnswer(result[question.id]) && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
     if (current !== undefined) result[question.id] = current;
     else if (!isLegacyPermitAnswer(question, result[question.id])) delete result[question.id];
@@ -564,11 +839,13 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     const current = answerForCurrentQuestion(value, question, nowMs);
     if (current === undefined) continue;
     const previous = currentValues.get(key);
-    if (!previous) currentValues.set(key, { value: current, comparable: answerValueKey(current) });
-    else if (previous.comparable !== answerValueKey(current)) conflicts.add(key);
+    if (!previous) currentValues.set(key, { value, comparable: answerValueKey(value), constraintsKey: candidateAnswerConstraintsKey(question) });
+    else if (previous.comparable !== answerValueKey(value)
+      || previous.constraintsKey !== candidateAnswerConstraintsKey(question)) conflicts.add(key);
   }
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || hasQuestionAnswer(result[question.id])) continue;
+    if (candidateAnswerHistoryStateForQuestion(question, history).present) continue;
     const key = candidateQuestionAnswerKey(question);
     if (!key || conflicts.has(key) || unknownKeys.has(key)) continue;
     const remembered = Object.hasOwn(memory || {}, key) ? memory[key] : undefined;
@@ -956,6 +1233,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   // Asked at CV upload (owner decision 2026-11-09): the candidate's own word, below a correction of theirs.
   const uploaded = order?.candidateFacts && typeof order.candidateFacts === 'object' ? order.candidateFacts : {};
   if (!has(overrides, 'nationality') && !clean(profile.nationality, 80) && clean(uploaded.nationality, 80)) profile.nationality = clean(uploaded.nationality, 80);
+  const answerProjection = candidateAnswerProjectionDiagnostics(draft?.questions, {
+    answers: flow?.answers || {}, memory: flow?.questionAnswers || {}, history: flow?.candidateAnswerHistory || [], nowMs,
+  });
   const answers = candidateAnswersForQuestions(draft?.questions, flow?.answers || {}, flow?.questionAnswers || {},
     flow?.candidateAnswerHistory || [], nowMs);
   // A required portal can repeat the applicant's identity e-mail as a
@@ -1023,7 +1303,9 @@ export function candidateWithEdits({ order, draft, flow, locale: requestedLocale
   platformFacts.decisionAnswers = verifiedDecisionAnswers(draft?.questions, draft?.factSources?.text, {
     postingTitle: draft?.job?.title || '', postingRequirements: Array.isArray(draft?.requirements) ? draft.requirements : [],
   });
-  return { identity, profile, answers, overrides, personal, platformFacts };
+  return { identity, profile, answers, overrides, personal, platformFacts,
+    candidateAnswerDefaultSuppressionIds: answerProjection.suppressDefaultQuestionIds,
+    candidateAnswerSuppressedQuestionContracts: answerProjection.suppressedAnswerContracts };
 }
 
 /**
