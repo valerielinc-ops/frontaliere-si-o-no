@@ -167,7 +167,8 @@ describe('translate-pending budget benchmark', () => {
     const production = productionRepairLaneGate();
     const benchmark = workflow().jobs.benchmark.steps.find((step) => step.name === 'Run budget gate');
 
-    expect(workflow().on.pull_request?.paths).toContain('.github/workflows/translate-pending-logic.yml');
+    expect(workflow().on.pull_request).toBeUndefined();
+    expect(workflow().on.workflow_dispatch).toBeDefined();
     expect(benchmark?.env?.REPAIR_LANE_DEADLINE_MS).toBe(production?.env?.REPAIR_LANE_DEADLINE_MS);
     expect(benchmark?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe(production?.env?.REPAIR_LANE_MIN_REMAINING_MS);
   });
