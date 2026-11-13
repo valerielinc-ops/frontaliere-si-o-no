@@ -189,6 +189,9 @@ function reportRows(report, label) {
   if (rows.some((row) => row?.dimensionValues?.some((dimension) => dimension?.value === '(other)'))) {
     throw new Error(`GA4 ${label} report contains an (other) bucket`);
   }
+  if (report.metadata?.dataLossFromOtherRow === true) {
+    throw new Error(`GA4 ${label} report has dataLossFromOtherRow`);
+  }
   return rows;
 }
 

@@ -149,6 +149,20 @@ describe('L2 read-only demand outcome export', () => {
     })).toThrow('truncated');
   });
 
+  it('rejects GA4 other-row data loss even when the folded row is omitted', () => {
+    expect(() => buildL2OutcomeCounts({
+      landingPaths: ['/ricerca/offerte-lavoro-ticino/'],
+      landingSessionReport: {
+        metadata: { dataLossFromOtherRow: true },
+        rows: [{
+          dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }],
+          metricValues: [{ value: '1000' }],
+        }],
+      },
+      usefulActionReport: { rows: [] },
+    })).toThrow('dataLossFromOtherRow');
+  });
+
   it('adds only reconciled non-negative counts to the GSC snapshot', () => {
     const output = buildL2DemandExport(source(), {
       eligibleLandingSessions: 1200,
