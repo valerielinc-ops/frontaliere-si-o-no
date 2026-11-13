@@ -29,7 +29,9 @@ export const DEFAULT_WINDOW_DAYS = 8;
 export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
 export const L2_USEFUL_ACTION_EVENT_CONTRACT = Object.freeze({
   usefulActionEvent: L2_USEFUL_ACTION_EVENT,
-  landingDimension: 'landingPagePlusQueryString',
+  // The L2 cohort is path-based. Avoid query-string cardinality so GA4 does
+  // not fold valid landing paths into the `(other)` bucket before the join.
+  landingDimension: 'landingPage',
   sessionMetric: 'sessions',
   sessionJoin: 'GA4 session-scoped landing page',
 });
@@ -129,6 +131,7 @@ export function buildL2LandingSessionReportBody({
   startDate,
   endDate,
   eventName = null,
+  landingPaths = null,
   limit = MAX_GA4_ROWS,
 } = {}) {
   if (!text(startDate) || !text(endDate)) throw new Error('a complete telemetry window is required');
@@ -141,14 +144,35 @@ export function buildL2LandingSessionReportBody({
     metrics: [{ name: L2_USEFUL_ACTION_EVENT_CONTRACT.sessionMetric }],
     limit,
   };
+  const filters = [];
   if (eventName !== null) {
     if (!text(eventName)) throw new Error('eventName must be a non-empty string');
-    body.dimensionFilter = {
+    filters.push({
       filter: {
         fieldName: 'eventName',
         stringFilter: { value: eventName, matchType: 'EXACT' },
       },
-    };
+    });
+  }
+  if (landingPaths !== null) {
+    if (!Array.isArray(landingPaths) || landingPaths.length === 0) {
+      throw new Error('landingPaths must be a non-empty array');
+    }
+    const normalizedPaths = [...new Set(landingPaths.map(normalizeLandingPath))].sort();
+    if (normalizedPaths.some((landingPath) => !landingPath)) {
+      throw new Error('landingPaths must contain valid paths');
+    }
+    filters.push({
+      filter: {
+        fieldName: L2_USEFUL_ACTION_EVENT_CONTRACT.landingDimension,
+        inListFilter: { values: normalizedPaths, caseSensitive: true },
+      },
+    });
+  }
+  if (filters.length === 1) {
+    body.dimensionFilter = filters[0];
+  } else if (filters.length > 1) {
+    body.dimensionFilter = { andGroup: { expressions: filters } };
   }
   return body;
 }
@@ -278,8 +302,12 @@ export async function exportL2({
   const token = await analytics.accessToken();
   const runReport = (body) => ga4Runner({ token, body, propertyId });
   const [landingSessionReport, usefulActionReport] = await Promise.all([
-    runReport(buildL2LandingSessionReportBody(range)),
-    runReport(buildL2LandingSessionReportBody({ ...range, eventName: L2_USEFUL_ACTION_EVENT })),
+    runReport(buildL2LandingSessionReportBody({ ...range, landingPaths: paths })),
+    runReport(buildL2LandingSessionReportBody({
+      ...range,
+      eventName: L2_USEFUL_ACTION_EVENT,
+      landingPaths: paths,
+    })),
   ]);
   const outcomes = buildL2OutcomeCounts({
     landingPaths: paths,

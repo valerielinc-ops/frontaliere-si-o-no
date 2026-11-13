@@ -69,7 +69,7 @@ describe('L2 read-only demand outcome export', () => {
       eventName: L2_USEFUL_ACTION_EVENT,
     });
     expect(landingReport).toMatchObject({
-      dimensions: [{ name: 'landingPagePlusQueryString' }],
+      dimensions: [{ name: 'landingPage' }],
       metrics: [{ name: 'sessions' }],
     });
     expect(usefulReport.dimensionFilter.filter).toMatchObject({
@@ -77,6 +77,43 @@ describe('L2 read-only demand outcome export', () => {
       stringFilter: { value: L2_USEFUL_ACTION_EVENT, matchType: 'EXACT' },
     });
     expect(JSON.stringify(landingReport)).not.toMatch(/email|distinct_id|person_id/iu);
+  });
+
+  it('scopes both reports to the path-only GSC cohort', () => {
+    const landingReport = buildL2LandingSessionReportBody({
+      startDate: '2026-09-04',
+      endDate: '2026-09-12',
+      landingPaths: ['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/?utm_source=gsc'],
+    });
+    const usefulReport = buildL2LandingSessionReportBody({
+      startDate: '2026-09-04',
+      endDate: '2026-09-12',
+      eventName: L2_USEFUL_ACTION_EVENT,
+      landingPaths: ['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/'],
+    });
+    expect(landingReport.dimensionFilter).toEqual({
+      filter: {
+        fieldName: 'landingPage',
+        inListFilter: {
+          values: ['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/'],
+          caseSensitive: true,
+        },
+      },
+    });
+    expect(usefulReport.dimensionFilter).toEqual({
+      andGroup: {
+        expressions: [
+          { filter: { fieldName: 'eventName', stringFilter: { value: L2_USEFUL_ACTION_EVENT, matchType: 'EXACT' } } },
+          { filter: {
+            fieldName: 'landingPage',
+            inListFilter: {
+              values: ['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/'],
+              caseSensitive: true,
+            },
+          } },
+        ],
+      },
+    });
   });
 
   it('joins only GSC paths and rejects incomplete GA4 aggregation', () => {
@@ -167,7 +204,8 @@ describe('L2 read-only demand outcome export', () => {
     });
     expect(output.outcomes).toEqual({ eligibleLandingSessions: 2100, usefulActions: 210 });
     expect(queries).toHaveLength(2);
-    expect(queries.some((body: any) => body.dimensionFilter?.filter?.stringFilter?.value === L2_USEFUL_ACTION_EVENT)).toBe(true);
+    expect(queries.some((body: any) => JSON.stringify(body.dimensionFilter).includes(L2_USEFUL_ACTION_EVENT))).toBe(true);
+    expect(queries.every((body: any) => JSON.stringify(body.dimensionFilter).includes('landingPage'))).toBe(true);
     expect(JSON.parse(fs.readFileSync(outputPath, 'utf8')).outcomes).toEqual(output.outcomes);
   });
 });
