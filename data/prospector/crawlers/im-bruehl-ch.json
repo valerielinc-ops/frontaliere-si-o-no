@@ -1,0 +1,25 @@
+{
+  "companyKey": "im-bruehl-ch",
+  "companyName": "Alters- & Pflegeheim Im Brühl",
+  "companyHost": "oda-gsag.ch",
+  "verifiedEmployerDomain": "im-bruehl.ch",
+  "platform": "oda-gsag.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.oda-gsag.ch/offene-stellen"
+  ],
+  "detailTemplate": "/uploads/Dokumente/Stelleninserate/Foerderkreis/Stiftung-Schuermatt/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Fachfrau / Fachmann Betreuung Wohnen Erwachsene",
+    "Betreuung von Menschen mit anspruchsvollen",
+    "Fachmitarbeiterin / Fachmitarbeiter"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:56:45.927Z",
+  "candidateKey": "alters-pflegeheim-im-bruhl@spreitenbach"
+}

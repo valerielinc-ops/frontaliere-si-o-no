@@ -1,0 +1,23 @@
+{
+  "companyKey": "moveup-ch-4",
+  "companyName": "Move UP SA",
+  "companyHost": "jobs.moveup.ch",
+  "verifiedEmployerDomain": "moveup.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.moveup.ch/job/40674?referrer=Move+UP"
+  ],
+  "detailTemplate": "/job/40674",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Reprise d&#39;&#201;tude d&#39;Avocat &#224; Gen&#232;ve"
+  ],
+  "canton": "VD",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:50:54.025Z",
+  "candidateKey": "move-up@gland"
+}

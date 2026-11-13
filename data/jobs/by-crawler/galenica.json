@@ -1763,7 +1763,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T09:15:26.538Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent / Assistentin Schulungen & Events (w/m/d)",
@@ -2748,7 +2749,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T09:15:26.538Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -3278,7 +3280,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-13T09:15:26.538Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenzjahr für Pharmaziestudierende (w/m/d)",

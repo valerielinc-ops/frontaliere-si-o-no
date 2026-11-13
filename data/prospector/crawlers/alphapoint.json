@@ -1,0 +1,25 @@
+{
+  "companyKey": "alphapoint",
+  "companyName": "AlphaPoint",
+  "companyHost": "alphapoint.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alphapoint.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Enterprise Sales Executive",
+    "Enterprise Sales Executive (Latam Region)",
+    "Enterprise Sales Executive (Latam Region)",
+    "Sales Development Representative",
+    "Sales Development Representative (SDR)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:29.595Z",
+  "candidateKey": "alphapoint@applytojob.com"
+}
