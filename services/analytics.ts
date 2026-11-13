@@ -114,6 +114,7 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleVignetteInjectedOpaqueError,
  isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
@@ -1802,6 +1803,10 @@ export const Analytics = {
  // page: WebKit gives their frames the document URL, so they would read as
  // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
  if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
+ // Google vignette-injected code can surface the opaque `Na` exception with
+ // every frame attributed to the document URL (#18592). Keep this narrow and
+ // fail-open so a real first-party error on an ad page remains observable.
+ if (isGoogleVignetteInjectedOpaqueError(msg, `${errorStack}\n${event.filename || ''}`, window.location.href)) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1845,6 +1850,9 @@ export const Analytics = {
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
  // …and from the scripts Chrome for iOS / the Google app inject (#8773).
  if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
+ // The same document-attributed Google vignette signature can arrive as a
+ // rejection instead of a window error (#18592).
+ if (isGoogleVignetteInjectedOpaqueError(message, stack, window.location.href)) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
