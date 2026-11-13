@@ -1162,9 +1162,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
     // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
     // every step of the form behind it (2026-10-07).
-    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account', 'Weiter', 'Continue', 'Avanti', 'Suivant', 'Save and continue']) {
       expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
     }
+    expect(namesAnotherEmployer('Weiter — Other Resort\nConcierge', palace)).toBe(true);
     expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);
     expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
@@ -1186,6 +1187,20 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // Without a posting that named the company there is no fallback at all.
     expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
     expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    const umantisPage = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    const umantisPosting = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Description/1';
+    expect(formPostingMatch('Weiter', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('match');
+    expect(formPostingMatch('Weiter — Other Hotel', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
     // The whole name on the form is the direct match, as ever.
     expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
     expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');

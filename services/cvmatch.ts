@@ -161,6 +161,71 @@ const SKILLS: SkillDefinition[] = [
     labels: { it: 'Project management', en: 'Project management', de: 'Projektmanagement', fr: 'Gestion de projet' },
     aliases: ['project management', 'gestione progetti', 'projektmanagement', 'gestion de projet'],
   },
+  {
+    id: 'communication',
+    labels: { it: 'Comunicazione', en: 'Communication', de: 'Kommunikation', fr: 'Communication' },
+    aliases: ['comunicazione', 'communication', 'kommunikation'],
+  },
+  {
+    id: 'customer-service',
+    labels: { it: 'Servizio clienti', en: 'Customer service', de: 'Kundenservice', fr: 'Service client' },
+    aliases: ['servizio clienti', 'customer service', 'customer care', 'kundenservice', 'kundenbetreuung', 'service client', 'service clientèle'],
+  },
+  {
+    id: 'sales',
+    labels: { it: 'Vendite', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
+    aliases: ['vendite', 'vendita', 'sales', 'vertrieb', 'vente', 'commercial'],
+  },
+  {
+    id: 'data-analysis',
+    labels: { it: 'Analisi dei dati', en: 'Data analysis', de: 'Datenanalyse', fr: 'Analyse de données' },
+    aliases: ['analisi dei dati', 'analisi dati', 'data analysis', 'datenanalyse', 'analyse de données', 'analyse des données'],
+  },
+  {
+    id: 'microsoft-office',
+    labels: { it: 'Microsoft Office', en: 'Microsoft Office', de: 'Microsoft Office', fr: 'Microsoft Office' },
+    aliases: ['microsoft office', 'ms office', 'suite office', 'office suite', 'office 365'],
+  },
+  {
+    id: 'accounting',
+    labels: { it: 'Contabilità', en: 'Accounting', de: 'Buchhaltung', fr: 'Comptabilité' },
+    aliases: ['contabilità', 'accounting', 'buchhaltung', 'comptabilité', 'comptabilite'],
+  },
+  {
+    id: 'marketing',
+    labels: { it: 'Marketing', en: 'Marketing', de: 'Marketing', fr: 'Marketing' },
+    aliases: ['marketing', 'digital marketing', 'marketing digitale'],
+  },
+  {
+    id: 'human-resources',
+    labels: { it: 'Risorse umane', en: 'Human resources', de: 'Personalwesen', fr: 'Ressources humaines' },
+    aliases: ['risorse umane', 'human resources', 'hr', 'personalwesen', 'ressources humaines'],
+  },
+  {
+    id: 'leadership',
+    labels: { it: 'Leadership', en: 'Leadership', de: 'Führung', fr: 'Leadership' },
+    aliases: ['leadership', 'guida di un team', 'team leadership', 'führung', 'management d’équipe'],
+  },
+  {
+    id: 'problem-solving',
+    labels: { it: 'Risoluzione dei problemi', en: 'Problem solving', de: 'Problemlösung', fr: 'Résolution de problèmes' },
+    aliases: ['risoluzione dei problemi', 'problem solving', 'problemlösung', 'résolution de problèmes', 'resolution de problemes'],
+  },
+  {
+    id: 'quality-control',
+    labels: { it: 'Controllo qualità', en: 'Quality control', de: 'Qualitätskontrolle', fr: 'Contrôle qualité' },
+    aliases: ['controllo qualità', 'quality control', 'qualitätskontrolle', 'contrôle qualité', 'controle qualite'],
+  },
+  {
+    id: 'logistics',
+    labels: { it: 'Logistica', en: 'Logistics', de: 'Logistik', fr: 'Logistique' },
+    aliases: ['logistica', 'logistics', 'logistik', 'logistique'],
+  },
+  {
+    id: 'administration',
+    labels: { it: 'Amministrazione', en: 'Administration', de: 'Administration', fr: 'Administration' },
+    aliases: ['amministrazione', 'administration', 'administrative tasks', 'amministrativo', 'amministrativa'],
+  },
 ];
 
 function normalizeSkillText(value: string): string {
@@ -193,13 +258,19 @@ function uniqueLabels(skills: SkillDefinition[], locale: CvMatchLocale): string[
 /** Return a conservative skill overlap score; unavailable evidence stays null. */
 export function computeCvMatch(input: CvMatchInput): CvMatchResult {
   const locale = input.locale || 'it';
-  const candidateText = (Array.isArray(input.candidateSkills) ? input.candidateSkills : [])
+  const candidateEntries = (Array.isArray(input.candidateSkills) ? input.candidateSkills : [])
     .filter((skill): skill is string => typeof skill === 'string')
-    .join(' ');
-  const jobText = [
+    .map((skill) => skill.trim())
+    .filter(Boolean)
+    .filter((skill, index, list) => list.findIndex((candidate) => normalizeSkillText(candidate) === normalizeSkillText(skill)) === index);
+  const candidateText = candidateEntries.join(' ');
+  const jobRequirementEntries = [
     ...(Array.isArray(input.jobRequirements) ? input.jobRequirements : []),
     ...(Array.isArray(input.preferredSkills) ? input.preferredSkills : []),
-  ].filter((skill): skill is string => typeof skill === 'string').join(' ');
+  ].filter((skill): skill is string => typeof skill === 'string' && Boolean(skill.trim()));
+  const jobText = [
+    ...jobRequirementEntries,
+  ].join(' ');
 
   const candidateDefinitions = matchingDefinitions(candidateText);
   const jobDefinitions = matchingDefinitions(jobText);
@@ -208,23 +279,41 @@ export function computeCvMatch(input: CvMatchInput): CvMatchResult {
   const matchedDefinitions = jobDefinitions.filter((skill) => candidateIds.has(skill.id));
   const missingDefinitions = jobDefinitions.filter((skill) => !candidateIds.has(skill.id));
   const candidateOnlyDefinitions = candidateDefinitions.filter((skill) => !jobIds.has(skill.id));
+  const exactCandidateEntries = candidateEntries.filter((entry) => {
+    const normalizedEntry = normalizeSkillText(entry);
+    if (!normalizedEntry || matchingDefinitions(entry).some((definition) => jobIds.has(definition.id))) return false;
+    return jobRequirementEntries.some((requirement) => containsPhrase(normalizeSkillText(requirement), normalizedEntry));
+  });
+  const exactCandidateLabels = exactCandidateEntries.filter((entry) => (
+    !jobDefinitions.some((definition) => normalizeSkillText(definition.labels[locale] || definition.labels.it) === normalizeSkillText(entry))
+  ));
+  const matchedLabels = uniqueLabels(matchedDefinitions, locale);
+  const jobLabels = uniqueLabels(jobDefinitions, locale);
+  const exactLabels = exactCandidateLabels;
 
   let status: CvMatchStatus;
   if (!candidateText.trim()) status = 'missing-profile';
-  else if (jobDefinitions.length === 0) status = 'no-job-skills';
-  else if (candidateDefinitions.length === 0) status = 'unrecognized-profile';
+  else if (jobLabels.length + exactLabels.length === 0) status = 'no-job-skills';
   else status = 'ready';
 
-  const overall = status === 'ready' && jobDefinitions.length > 0
-    ? Math.round((matchedDefinitions.length / jobDefinitions.length) * 100)
+  const denominator = jobLabels.length + exactLabels.length;
+  const matchedCount = matchedLabels.length + exactLabels.length;
+  const overall = status === 'ready' && denominator > 0
+    ? Math.round((matchedCount / denominator) * 100)
     : null;
+
+  const candidateOnlyLabels = uniqueLabels(candidateOnlyDefinitions, locale);
+  const unmatchedCustomEntries = candidateEntries.filter((entry) => (
+    matchingDefinitions(entry).length === 0
+    && !exactCandidateEntries.includes(entry)
+  ));
 
   return {
     status,
     overall,
-    jobSkills: uniqueLabels(jobDefinitions, locale),
-    matchedSkills: uniqueLabels(matchedDefinitions, locale),
+    jobSkills: [...jobLabels, ...exactLabels],
+    matchedSkills: [...matchedLabels, ...exactLabels],
     missingSkills: uniqueLabels(missingDefinitions, locale),
-    candidateOnlySkills: uniqueLabels(candidateOnlyDefinitions, locale),
+    candidateOnlySkills: [...candidateOnlyLabels, ...unmatchedCustomEntries],
   };
 }

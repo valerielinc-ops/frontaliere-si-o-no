@@ -165,6 +165,21 @@ describe('check-retired-jobs-archived CLI', () => {
     expect(result.stdout).toContain('retired acme: gone');
   });
 
+  it('reads an archive split into `<key>.shard-NNN.json` as the archive of `<key>`', () => {
+    const shard = path.join(repo, 'data/jobs/expired/by-crawler/acme.shard-001.json');
+    const base = commitSlices({ jobs: [job('kept'), job('gone')] }, [], 'base sharded');
+    fs.writeFileSync(shard, JSON.stringify([job('gone')]));
+    const head = commitSlices({ jobs: [job('kept')] }, [], 'archived into a shard');
+    const archived = observe(base, head);
+    expect(archived.status, archived.stderr).toBe(0);
+
+    fs.rmSync(shard);
+    const lost = observe(head, commitSlices({ jobs: [job('kept')] }, [], 'shard lost'));
+    expect(lost.status).toBe(1);
+    // Labelled with the crawler key, not the shard file name.
+    expect(lost.stdout).toContain('lost acme: gone');
+  });
+
   it('fails closed (exit 2, "cannot read") on a slice with an unsupported root', () => {
     const base = commitSlices({ jobs: [job('kept')] }, [], 'valid');
     const head = commitSlices({ unexpected: [] }, [], 'malformed');

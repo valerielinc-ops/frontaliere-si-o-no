@@ -194,6 +194,36 @@ describe('run-related-tests selection contract', () => {
     expect(conciergeChange.stdout).not.toContain('tests/AdBlockGate.test.tsx');
   });
 
+  it('scopes shared job landing roots before they reach the app shell', () => {
+    const landingSources = [
+      'build-plugins/jobEditorialLanding.ts',
+      'build-plugins/jobIntentLanding.ts',
+    ];
+    const owningTests = [
+      'tests/job-editorial-landing.test.ts',
+      'tests/router/job-intent-routing.test.ts',
+    ];
+    const root = fixture({
+      'build-plugins/jobEditorialLanding.ts': 'export const landing = true;\n',
+      'build-plugins/jobIntentLanding.ts': 'export const intent = true;\n',
+      'services/router.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const route = true;\n",
+      'components/community/JobBoard.tsx': "import '../../build-plugins/jobEditorialLanding'; export const board = true;\n",
+      'components/App.tsx': "import './community/JobBoard'; import '../services/router'; export const app = true;\n",
+      'tests/job-editorial-landing.test.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const landingContract = true;\n",
+      'tests/router/job-intent-routing.test.ts': "import '../../services/router'; export const routeContract = true;\n",
+      'tests/AdBlockGate.test.tsx': "import '../components/App'; export const unrelatedUi = true;\n",
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    for (const source of landingSources) {
+      const result = select(root, [source]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      for (const test of owningTests) expect(result.stdout).toContain(test);
+      expect(result.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+      expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    }
+  });
+
   it('selects the trusted mid-plugin equivalence suite when the shared flag facade changes', () => {
     const source = 'build-plugins/shared/midPluginFlags.ts';
     const trusted = 'tests/mid-plugins-equivalence.test.ts';

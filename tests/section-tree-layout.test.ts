@@ -161,6 +161,122 @@ describe('automatic section tree fan-out policy', () => {
     })).rejects.toThrow(/artifact identity mismatch/u);
   });
 
+  it('keeps a pre-contract source with zero metrics on sticky registry probes only', async () => {
+    const workspace = tempDir('section-tree-layout-legacy-');
+    const metricsDir = join(workspace, 'metrics');
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const metrics = await loadSectionTreeLayoutMetricsFromArtifacts({
+      metricsDir,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+      sourceHasMetricsContract: false,
+    });
+    expect(metrics).toBeNull();
+    expect(existsSync(metricsDir)).toBe(true);
+
+    const sections = [...new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna'])].sort();
+    const slugs = Object.fromEntries(sections.map((section) => [section, {
+      it: `${section}-it`,
+      en: `${section}-en`,
+      de: `${section}-de`,
+      fr: `${section}-fr`,
+    }]));
+    const registry = {
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T12:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    };
+    const probes: string[] = [];
+    const register = vi.fn();
+    const messages: string[] = [];
+    const result = await runSectionTreeLayoutPreflight({
+      metricsByLocale: metrics,
+      locales: ['de', 'fr'],
+      sourceRunId,
+      sourceSha,
+      slugs,
+      readRegistry: async () => registry,
+      register,
+      probeWorker: async (section: string, sub: string) => { probes.push(`${section}:${sub}`); },
+      stderr: (message: string) => messages.push(message),
+    });
+
+    expect(result.legacy).toBe(true);
+    expect(result.decisions).toEqual({});
+    expect(result.sections).toEqual(sections);
+    expect(register).not.toHaveBeenCalled();
+    expect(probes.sort()).toEqual(sections.flatMap((section) => [
+      `${section}:de/${section}-de`,
+      `${section}:fr/${section}-fr`,
+    ]).sort());
+    expect(messages).toContain('[section-tree-layout] legacy source without metrics: sticky registry only');
+  });
+
+  it('fails closed when a source with the metrics contract is missing one locale artifact', async () => {
+    const metricsDir = tempDir('section-tree-layout-contract-missing-locale-');
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    for (const locale of ['it', 'en', 'de']) {
+      const artifactDir = join(metricsDir, `section-tree-layout-metrics-${locale}-${sourceRunId}-1`);
+      mkdirSync(artifactDir, { recursive: true });
+      writeFileSync(join(artifactDir, `${locale}.json`), JSON.stringify({
+        locale,
+        sourceRunId,
+        sourceRunAttempt: 1,
+        sourceSha,
+      }));
+    }
+
+    await expect(loadSectionTreeLayoutMetricsFromArtifacts({
+      metricsDir,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+      sourceHasMetricsContract: true,
+    })).rejects.toThrow(/source run is missing metrics for fr across its attempts/u);
+  });
+
+  it('uses the IT route set for an IT-only section push', async () => {
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const sections = [...new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna'])].sort();
+    const slugs = Object.fromEntries(sections.map((section) => [section, { it: `${section}-it` }]));
+    const probes: string[] = [];
+    const register = vi.fn();
+    const result = await runSectionTreeLayoutPreflight({
+      metricsByLocale: null,
+      locales: ['it'],
+      sourceRunId,
+      sourceSha,
+      slugs,
+      readRegistry: async () => ({
+        version: 1,
+        sections: {
+          lucerna: {
+            layout: 'hash-v1',
+            since: '2026-11-12T12:00:00.000Z',
+            reason: { locale: 'de', pct: 44.2 },
+          },
+        },
+      }),
+      register,
+      probeWorker: async (section: string, sub: string) => { probes.push(`${section}:${sub}`); },
+      stderr: () => {},
+    });
+
+    expect(result.locales).toEqual(['it']);
+    expect(result.sections).toEqual(sections);
+    expect(register).not.toHaveBeenCalled();
+    expect(probes.sort()).toEqual(sections.map((section) => `${section}:${section}-it`).sort());
+  });
+
   it('uses the safe tree-limit default when the environment value is malformed', async () => {
     const previousLimit = process.env.SHARD_REMOTE_TREE_LIMIT_BYTES;
     process.env.SHARD_REMOTE_TREE_LIMIT_BYTES = 'not-a-number';
@@ -441,6 +557,7 @@ describe('automatic section tree fan-out policy', () => {
   it('requires build metrics and the cross-locale preflight before both shard push jobs', () => {
     const buildWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy.yml'), 'utf8');
     const publishWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy-publish.yml'), 'utf8');
+    const preflightJob = publishWorkflow.split('  preflight-section-tree-layouts:')[1].split('\n  publish-it-cdn:')[0];
     expect(buildWorkflow).toContain('section-tree-layout-metrics-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}');
     expect(buildWorkflow).toContain('measure-section-tree-layout-metrics.mjs');
     expect(buildWorkflow).toContain('--source-run-attempt "$SECTION_TREE_METRICS_SOURCE_RUN_ATTEMPT"');
@@ -448,8 +565,16 @@ describe('automatic section tree fan-out policy', () => {
     expect(publishWorkflow).toContain('pattern: section-tree-layout-metrics-*-${{ inputs.source_run_id }}-*');
     expect(publishWorkflow).toContain('merge-multiple: false');
     expect(publishWorkflow).toContain('--source-run-attempt "$SOURCE_RUN_ATTEMPT"');
+    expect(preflightJob).toContain("needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]'");
+    expect(preflightJob).toMatch(/contains\(fromJSON\(needs\.resolve-publish-plan\.outputs\.tail_locales\), 'it'\)/u);
+    expect(preflightJob).toContain('git cat-file -e "$SOURCE_SHA:scripts/ci/measure-section-tree-layout-metrics.mjs"');
+    expect(preflightJob).toContain('PENDING_NONIT_LOCALES: ${{ needs.resolve-publish-receipts.outputs.pending_nonit_locales }}');
+    expect(preflightJob).toContain('--locales "$PREFLIGHT_LOCALES"');
+    expect(preflightJob).toContain('--source-has-metrics-contract "$SOURCE_HAS_METRICS_CONTRACT"');
     expect(publishWorkflow).toMatch(/push-it-shard-groups:[\s\S]*?needs: \[[^\]]*preflight-section-tree-layouts/u);
     expect(publishWorkflow).toMatch(/publish-nonit-shards:[\s\S]*?needs: \[[^\]]*preflight-section-tree-layouts/u);
+    expect(publishWorkflow).toMatch(/push-it-shard-groups:[\s\S]*?needs\.preflight-section-tree-layouts\.result == 'success'/u);
+    expect(publishWorkflow).toMatch(/publish-nonit-shards:[\s\S]*?needs\.preflight-section-tree-layouts\.result == 'success'/u);
   });
 
   it('queues the durable full-deploy preflight when a fast publish hits a threshold before registration', () => {

@@ -370,8 +370,9 @@ jobs:
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # Make the layout decision once for the complete four-locale source before
-  # either parallel shard publisher can push. Missing or stale measurements
-  # block the section pushes; this prevents per-locale layout races.
+  # either parallel shard publisher can push. A source predating the metrics
+  # contract can only pass through sticky-registry probes; contracted sources
+  # still fail closed when any locale measurement is missing.
   preflight-section-tree-layouts:
     name: Preflight sticky section tree layouts
     needs: [resolve-publish-plan, resolve-publish-receipts]
@@ -379,7 +380,8 @@ jobs:
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-receipts.result == 'success' &&
-          needs.resolve-publish-receipts.outputs.pending_locales != '[]' }}
+          (needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]' ||
+           contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -401,6 +403,23 @@ jobs:
             /scripts/ci/section-tree-layout-preflight.mjs
             /infra/cloudflare-worker/
           sparse-checkout-cone-mode: false
+
+      - name: Check the source tree metrics contract
+        id: source-contract
+        env:
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$SOURCE_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "::error::source SHA is invalid; refusing section pushes"
+            exit 1
+          fi
+          git fetch --no-tags --depth=1 origin "$SOURCE_SHA"
+          if git cat-file -e "$SOURCE_SHA:scripts/ci/measure-section-tree-layout-metrics.mjs" 2>/dev/null; then
+            echo "has_metrics_contract=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_metrics_contract=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -447,14 +466,29 @@ jobs:
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
           SOURCE_RUN_ATTEMPT: ${{ needs.resolve-publish-plan.outputs.source_run_attempt }}
           SOURCE_SHA: ${{ inputs.source_sha }}
+          SOURCE_HAS_METRICS_CONTRACT: ${{ steps.source-contract.outputs.has_metrics_contract }}
+          PENDING_NONIT_LOCALES: ${{ needs.resolve-publish-receipts.outputs.pending_nonit_locales }}
+          TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
           METRICS_DIR: ${{ runner.temp }}/section-tree-layout-metrics
         run: |
           set -euo pipefail
+          PREFLIGHT_LOCALES="$(node -e '
+            const pending = JSON.parse(process.env.PENDING_NONIT_LOCALES || "[]");
+            const tail = JSON.parse(process.env.TAIL_LOCALES || "[]");
+            const locales = [...new Set([...pending, ...(tail.includes("it") ? ["it"] : [])])];
+            process.stdout.write(locales.join(","));
+          ')"
+          if [ -z "$PREFLIGHT_LOCALES" ]; then
+            echo "::error::preflight has no section-push locales; refusing section pushes"
+            exit 1
+          fi
           node scripts/ci/section-tree-layout-preflight.mjs \
             --metrics-dir "$METRICS_DIR" \
             --source-run-id "$SOURCE_RUN_ID" \
             --source-run-attempt "$SOURCE_RUN_ATTEMPT" \
             --source-sha "$SOURCE_SHA" \
+            --source-has-metrics-contract "$SOURCE_HAS_METRICS_CONTRACT" \
+            --locales "$PREFLIGHT_LOCALES" \
             --threshold "$FANOUT_AUTO_THRESHOLD_PCT" \
             --tree-limit "$SHARD_REMOTE_TREE_LIMIT_BYTES" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"

@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-11-12T21:56:30.041Z",
-  "runId": "43308226152",
+  "assembledAt": "2026-11-13T09:18:21.456Z",
+  "runId": "43399372944",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:21.882Z",
+      "crawledAt": "2026-11-13T09:18:10.617Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -101,7 +103,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:21.882Z",
+      "validThrough": "2026-12-13T09:18:10.617Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -136,7 +138,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:20.739Z",
+      "crawledAt": "2026-11-13T09:18:09.588Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -207,7 +209,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:20.739Z",
+      "validThrough": "2026-12-13T09:18:09.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +244,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:19.606Z",
+      "crawledAt": "2026-11-13T09:18:08.514Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -304,7 +306,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:19.606Z",
+      "validThrough": "2026-12-13T09:18:08.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +340,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:18.463Z",
+      "crawledAt": "2026-11-13T09:18:07.443Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -463,7 +465,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:18.463Z",
+      "validThrough": "2026-12-13T09:18:07.443Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -497,7 +499,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:17.312Z",
+      "crawledAt": "2026-11-13T09:18:06.405Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -615,7 +617,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:17.312Z",
+      "validThrough": "2026-12-13T09:18:06.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -650,7 +652,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:16.217Z",
+      "crawledAt": "2026-11-13T09:18:05.337Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -731,7 +733,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:16.217Z",
+      "validThrough": "2026-12-13T09:18:05.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +768,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:15.107Z",
+      "crawledAt": "2026-11-13T09:18:04.338Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -860,7 +862,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:15.107Z",
+      "validThrough": "2026-12-13T09:18:04.338Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -868,9 +870,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -895,7 +897,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:13.997Z",
+      "crawledAt": "2026-11-13T09:18:03.303Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -948,18 +950,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -993,7 +995,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:13.997Z",
+      "validThrough": "2026-12-13T09:18:03.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1028,7 +1030,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:12.875Z",
+      "crawledAt": "2026-11-13T09:18:02.276Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1115,7 +1117,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:12.875Z",
+      "validThrough": "2026-12-13T09:18:02.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1152,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:11.758Z",
+      "crawledAt": "2026-11-13T09:18:01.236Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1233,7 +1235,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:11.758Z",
+      "validThrough": "2026-12-13T09:18:01.236Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1268,7 +1270,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:10.624Z",
+      "crawledAt": "2026-11-13T09:18:00.174Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1358,7 +1360,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:10.624Z",
+      "validThrough": "2026-12-13T09:18:00.174Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1393,7 +1395,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:09.455Z",
+      "crawledAt": "2026-11-13T09:17:59.093Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1486,7 +1488,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:09.455Z",
+      "validThrough": "2026-12-13T09:17:59.093Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1520,7 +1522,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:08.318Z",
+      "crawledAt": "2026-11-13T09:17:58.044Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1613,7 +1615,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:08.318Z",
+      "validThrough": "2026-12-13T09:17:58.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1647,7 +1649,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:07.171Z",
+      "crawledAt": "2026-11-13T09:17:56.991Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1728,7 +1730,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:07.171Z",
+      "validThrough": "2026-12-13T09:17:56.991Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1762,7 +1764,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:05.995Z",
+      "crawledAt": "2026-11-13T09:17:55.938Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1856,7 +1858,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:05.995Z",
+      "validThrough": "2026-12-13T09:17:55.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1891,7 +1893,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:04.829Z",
+      "crawledAt": "2026-11-13T09:17:54.927Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1980,7 +1982,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:04.829Z",
+      "validThrough": "2026-12-13T09:17:54.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2014,7 +2016,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:03.692Z",
+      "crawledAt": "2026-11-13T09:17:53.866Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2104,7 +2106,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:03.692Z",
+      "validThrough": "2026-12-13T09:17:53.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2139,7 +2141,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:02.522Z",
+      "crawledAt": "2026-11-13T09:17:52.800Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2227,7 +2229,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:02.522Z",
+      "validThrough": "2026-12-13T09:17:52.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2262,7 +2264,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:56:01.372Z",
+      "crawledAt": "2026-11-13T09:17:51.749Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2366,7 +2368,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:01.372Z",
+      "validThrough": "2026-12-13T09:17:51.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2400,7 +2402,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:56:00.216Z",
+      "crawledAt": "2026-11-13T09:17:50.700Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2492,7 +2494,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:56:00.216Z",
+      "validThrough": "2026-12-13T09:17:50.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2526,7 +2528,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:59.042Z",
+      "crawledAt": "2026-11-13T09:17:49.671Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2591,7 +2593,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:59.042Z",
+      "validThrough": "2026-12-13T09:17:49.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2626,7 +2628,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:57.893Z",
+      "crawledAt": "2026-11-13T09:17:48.671Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2691,7 +2693,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:57.893Z",
+      "validThrough": "2026-12-13T09:17:48.671Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2726,7 +2728,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:56.729Z",
+      "crawledAt": "2026-11-13T09:17:47.615Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2791,7 +2793,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:56.729Z",
+      "validThrough": "2026-12-13T09:17:47.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2825,7 +2827,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:55.625Z",
+      "crawledAt": "2026-11-13T09:17:46.601Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2890,7 +2892,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:55.625Z",
+      "validThrough": "2026-12-13T09:17:46.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2898,7 +2900,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2925,7 +2927,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:54.526Z",
+      "crawledAt": "2026-11-13T09:17:45.541Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2949,7 +2951,7 @@
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen",
-        "nursingexpert-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2958,7 +2960,7 @@
         "en": [
           "care-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen",
-          "nursingexpert-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2995,7 +2997,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:54.526Z",
+      "validThrough": "2026-12-13T09:17:45.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3030,7 +3032,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:53.387Z",
+      "crawledAt": "2026-11-13T09:17:44.498Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3097,7 +3099,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:53.387Z",
+      "validThrough": "2026-12-13T09:17:44.498Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3131,7 +3133,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:52.294Z",
+      "crawledAt": "2026-11-13T09:17:43.468Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3211,7 +3213,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:52.294Z",
+      "validThrough": "2026-12-13T09:17:43.468Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3246,7 +3248,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:51.184Z",
+      "crawledAt": "2026-11-13T09:17:42.421Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3311,7 +3313,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:55:51.184Z",
+      "validThrough": "2026-12-13T09:17:42.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3346,7 +3348,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:50.086Z",
+      "crawledAt": "2026-11-13T09:17:41.305Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3411,7 +3413,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T21:55:50.086Z",
+      "validThrough": "2026-12-19T09:17:41.305Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3445,7 +3447,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:48.975Z",
+      "crawledAt": "2026-11-13T09:17:40.270Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3512,7 +3514,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-07T21:55:48.975Z",
+      "validThrough": "2027-01-08T09:17:40.270Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3547,7 +3549,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:47.805Z",
+      "crawledAt": "2026-11-13T09:17:39.232Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3617,7 +3619,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:55:47.805Z",
+      "validThrough": "2027-01-12T09:17:39.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3651,7 +3653,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:46.685Z",
+      "crawledAt": "2026-11-13T09:17:38.234Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3718,7 +3720,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:55:46.685Z",
+      "validThrough": "2027-01-12T09:17:38.234Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3752,7 +3754,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:45.566Z",
+      "crawledAt": "2026-11-13T09:17:37.171Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3817,7 +3819,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-21T21:55:45.566Z",
+      "validThrough": "2027-01-22T09:17:37.171Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:44.399Z",
+      "crawledAt": "2026-11-13T09:17:36.131Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3916,7 +3918,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:55:44.399Z",
+      "validThrough": "2027-02-11T09:17:36.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3951,7 +3953,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:43.278Z",
+      "crawledAt": "2026-11-13T09:17:35.135Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4016,7 +4018,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:55:43.278Z",
+      "validThrough": "2027-01-26T09:17:35.135Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4051,7 +4053,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:42.141Z",
+      "crawledAt": "2026-11-13T09:17:34.105Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4116,7 +4118,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:55:42.141Z",
+      "validThrough": "2027-01-26T09:17:34.105Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4150,7 +4152,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:41.020Z",
+      "crawledAt": "2026-11-13T09:17:32.978Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4215,7 +4217,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:55:41.020Z",
+      "validThrough": "2027-01-28T09:17:32.978Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4250,7 +4252,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-12T21:55:39.889Z",
+      "crawledAt": "2026-11-13T09:17:31.952Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4319,7 +4321,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:55:39.889Z",
+      "validThrough": "2027-01-29T09:17:31.952Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4353,7 +4355,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1318/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:38.754Z",
+      "crawledAt": "2026-11-13T09:17:30.887Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4420,16 +4422,16 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:55:38.754Z",
+      "validThrough": "2027-02-03T09:17:30.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "see-spital-c7b6592d6efa",
       "slug": "consulente-hr-see-spital-horgen",
       "slugByLocale": {
-        "de": "hr-berater-in-see-spital-ch",
         "it": "consulente-hr-see-spital-horgen",
         "en": "hr-consultant-see-spital-horgen",
+        "de": "hr-berater-in-see-spital-ch",
         "fr": "conseiller-conseillere-rh-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -4437,16 +4439,16 @@
       "companyDomain": "see-spital.ch",
       "title": "HR Berater*in",
       "titleByLocale": {
-        "de": "HR Berater*in",
         "it": "Consulente HR",
         "en": "HR Consultant",
+        "de": "HR Berater*in",
         "fr": "Conseiller/conseillère RH"
       },
       "description": "Per Februar 2027 oder nach Vereinbarung suchen wir für unser HR-Team eine*n HR Berater*in\n80-100%\n\nDein Aufgabengebiet:\n\n• Du bist die erste Anlaufstelle für allgemeine HR-Fragen und Anliegen unserer Mitarbeiter*innen und Führungskräfte.\n• Du berätst und unterstützt bei alltäglichen personalrelevanten Fragestellungen und sorgst für eine unkomplizierte und lösungsorientierte Begleitung.\n• Du führst bzw. begleitest regelmässige Gespräche mit Mitarbeiter*innen und Führungskräften, holst Bedürfnisse ab und erkennst Handlungsbedarf.\n• Du behältst den Überblick über offene Anliegen und sorgst für eine gute Zusammenarbeit und einen reibungslosen Informationsfluss innerhalb der HR-Abteilung.\n• Du unterstützt bei Bedarf in allgemeinen administrativen Aufgaben und bringst dich aktiv in die Weiterentwicklung unserer HR-Dienstleistungen ein.\n\nDein Profil:\n\n• Du verfügst über eine kaufmännische Grundausbildung und eine Weiterbildung im HR-Bereich (z. B. HR-Fachfrau*mann mit eidg. Fachausweis) oder eine vergleichbare Qualifikation.\n• Du bringst Erfahrung in einer vergleichbaren HR-Funktion mit, idealerweise im Gesundheitswesen.\n• Du bist eine aufgeschlossene, empathische und dienstleistungsorientierte Persönlichkeit, die gerne mit Menschen arbeitet.\n• Du verfügst über gute kommunikative Fähigkeiten, hörst aufmerksam zu und kannst auch unterschiedliche Bedürfnisse richtig einordnen.\n• Du arbeitest selbständig, strukturiert und zuverlässig und verstehst es, Prioritäten zu setzen.\n• Du hast Freude an der Zusammenarbeit im Team und verstehst dich als verbindende Schnittstelle innerhalb der HR-Abteilung.\n• Du bist diskret, vertrauenswürdig und gehst professionell mit sensiblen Informationen um.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
       "descriptionByLocale": {
-        "de": "Per Februar 2027 oder nach Vereinbarung suchen wir für unser HR-Team eine*n HR Berater*in\n80-100%\n\nDein Aufgabengebiet:\n\n• Du bist die erste Anlaufstelle für allgemeine HR-Fragen und Anliegen unserer Mitarbeiter*innen und Führungskräfte.\n• Du berätst und unterstützt bei alltäglichen personalrelevanten Fragestellungen und sorgst für eine unkomplizierte und lösungsorientierte Begleitung.\n• Du führst bzw. begleitest regelmässige Gespräche mit Mitarbeiter*innen und Führungskräften, holst Bedürfnisse ab und erkennst Handlungsbedarf.\n• Du behältst den Überblick über offene Anliegen und sorgst für eine gute Zusammenarbeit und einen reibungslosen Informationsfluss innerhalb der HR-Abteilung.\n• Du unterstützt bei Bedarf in allgemeinen administrativen Aufgaben und bringst dich aktiv in die Weiterentwicklung unserer HR-Dienstleistungen ein.\n\nDein Profil:\n\n• Du verfügst über eine kaufmännische Grundausbildung und eine Weiterbildung im HR-Bereich (z. B. HR-Fachfrau*mann mit eidg. Fachausweis) oder eine vergleichbare Qualifikation.\n• Du bringst Erfahrung in einer vergleichbaren HR-Funktion mit, idealerweise im Gesundheitswesen.\n• Du bist eine aufgeschlossene, empathische und dienstleistungsorientierte Persönlichkeit, die gerne mit Menschen arbeitet.\n• Du verfügst über gute kommunikative Fähigkeiten, hörst aufmerksam zu und kannst auch unterschiedliche Bedürfnisse richtig einordnen.\n• Du arbeitest selbständig, strukturiert und zuverlässig und verstehst es, Prioritäten zu setzen.\n• Du hast Freude an der Zusammenarbeit im Team und verstehst dich als verbindende Schnittstelle innerhalb der HR-Abteilung.\n• Du bist diskret, vertrauenswürdig und gehst professionell mit sensiblen Informationen um.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "it": "A partire dal febbraio 2027 o d'accordo stiamo cercando un consulente HR per il nostro team HR\n80-100%\n\nLa vostra area di responsabilità:\n\n• Sei il primo punto di contatto per le domande e le preoccupazioni generali delle risorse umane dei nostri dipendenti e manager.\n• Si consiglia e si supporta con le domande di personale di tutti i giorni e garantire un supporto semplice e orientato alla soluzione.\n• Condurre o accompagnare discussioni regolari con dipendenti e manager, raccogliere le esigenze e riconoscere la necessità di azione.\n• Tenere traccia delle preoccupazioni aperte e garantire una buona cooperazione e un flusso regolare di informazioni all'interno del dipartimento HR.\n• Se necessario, si sosterrà in compiti amministrativi generali e parteciperanno attivamente all'ulteriore sviluppo dei nostri servizi HR.\n\nIl tuo profilo:\n\n• Hai una formazione di base commerciale e un'ulteriore formazione nell'area HR (ad esempio, donna professionale HR*man con un certificato professionale federale) o una qualifica paragonabile.\n• Porti esperienza in una funzione HR paragonabile, idealmente nel settore sanitario.\n• Sei una personalità aperta, empatica e orientata al servizio che ama lavorare con le persone.\n• Hai buone capacità di comunicazione, ascoltare attentamente e può anche classificare correttamente le diverse esigenze.\n• Si lavora in modo indipendente, strutturato e affidabile e capire come impostare le priorità.\n• Ti piace lavorare insieme in un team e vedere te stesso come un'interfaccia di collegamento all'interno del reparto risorse umane.\n• Sei discreto, affidabile e professionale con informazioni sensibili.\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economico.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a proprio agio – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente. Le applicazioni fisiche non possono essere considerate o restituite.\n\nBenefici\nOltre ai numerosi vantaggi di Fringe (servizi aggiuntivi), si beneficiano di promozioni mirate e ulteriori offerte di istruzione a tutti i livelli. Condizioni di lavoro moderne\n• 42 ore settimanali (docenti 50)\n• Gli straordinari sono solitamente compensati dal tempo libero della stessa durata\n• 5 settimane di vacanza, a partire da 50 anni 6 settimane\n• Quotidiano 20 min\n• Il tempo di cambio è considerato come orario di lavoro\n• Possibilità di Home Office\n\nFormazione continua\n• Formazione interna per i dipendenti\n• Partecipazione ai costi e all'orario di lavoro per un'ulteriore formazione e formazione da parte del datore di lavoro\n• Come ospedale per l'istruzione e la formazione, offriamo vari stage e apprendisti\n• Seminari di sviluppo della leadership\n\nRiduzioni e condizioni\n• Consigli nutrizionali ridotti e massaggio\n• Vaccinazione annuale di libero scambio\n• Barca Ospedale in affitto\n• Pasti gratuiti per i lavoratori notturni\n• In Horgen e nella zona circostante, diverse aziende selezionate concedono almeno il 10% di sconto per presentare la carta d'identità (ad esempio i biglietti annuali Free Zoo Zurich, 15% di sconto in Alpamare, Brack.ch fino al 25% e più).\n• Sconti delle pulci presso i partner di amag (Audi, VW, Seat, Skoda), BWM e Mini e Mercedes e Smart\n\nAssicurazione estesa\n• See-Spital offre 16 settimane di congedo di maternità al 100% di prosecuzione salariale invece della legalmente richiesto 14 settimane all'80%\n• Premio per l'assicurazione complementare contro gli infortuni (privato) a spese del datore di lavoro\n\nBilancia della vita lavorativa\n• Possibilità di impiego parziale e oraria (su richiesta)\n• Ore lavorative flessibili (ore lavorative annuali)\n• Opportunità per congedo non pagato\n\nGestione della salute sul lavoro\n• Salute e sicurezza sul lavoro\n• Team e attività ospedaliere (Summer Festival, Christmas Apéro)\n• Gestione della presenza\n• Gestione dei casi esterni\n• Gestione generazionale\n\nAltri vantaggi\n• Bonus fedeltà da 10 anni di servizio ogni 5 anni (vacanze o salari)\n• 13. Salari mensili (pagamento giugno e dicembre)\n• Camere e appartamenti del personale a Horgen e Kilchberg\n• Comitato del personale\n• Opzioni di cibo economiche nel ristorante del personale",
         "en": "As of February 2027 or by agreement we are looking for an HR consultant for our HR team\n80-100%\n\nYour area of responsibility:\n\n• You are the first point of contact for general HR questions and concerns of our employees and managers.\n• You advise and support with everyday personnel-relevant questions and ensure an uncomplicated and solution-oriented support.\n• You conduct or accompany regular discussions with employees and managers, pick up needs and recognize the need for action.\n• You keep track of open concerns and ensure good cooperation and a smooth flow of information within the HR department.\n• If necessary, you will support in general administrative tasks and actively participate in the further development of our HR services.\n\nYour profile:\n\n• You have a commercial basic education and a further education in the HR area (e.g. HR professional woman*man with a federal professional certificate) or a comparable qualification.\n• You bring experience in a comparable HR function, ideally in healthcare.\n• You are an open-minded, empathetic and service-oriented personality who enjoys working with people.\n• You have good communication skills, listen carefully and can also correctly classify different needs.\n• You work independently, structured and reliable and understand how to set priorities.\n• You enjoy working together in a team and see yourself as a connecting interface within the HR department.\n• You are discreet, trustworthy and professional with sensitive information.\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel comfortable – lake views included.\n• Diverse benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately. Physical applications cannot be considered or returned.\n\nBenefits\nIn addition to numerous Fringe Benefits (additional services), you benefit from targeted promotion and further education offers at all levels. Modern employment conditions\n• 42 hour week (Doctors 50)\n• Overtime is usually compensated by free time of the same duration\n• 5 weeks holiday, from 50 years of age 6 week\n• Daily 20 min paid break\n• Changing time is considered as working time\n• Possibility for Home Office\n\nOngoing training\n• Internal training for employees\n• Participation in costs and working time for further education and training by employer\n• As an education and training hospital, we offer various internships and apprenticeships\n• Leadership Development Seminars\n\nRebates and conditions\n• Reduced nutrition advice and massage\n• Annual free flu vaccination\n• Hospital boat for rent\n• Free meals for night workers\n• In Horgen and the surrounding area, various selected companies grant at least 10% discount when presenting the identity card (e.g. Free Zoo Zurich annual tickets, 15% discount in the Alpamare, Brack.ch up to 25% and more).\n• Fleet discounts at amag partners (Audi, VW, Seat, Skoda), BWM and Mini as well as Mercedes and Smart\n\nExtensive insurance\n• See-Spital offers 16 weeks of maternity leave at 100% wage continuation instead of the legally required 14 weeks at 80%\n• Premium for accident supplementary insurance (private) at the expense of the employer\n\nWork-life balance\n• Possibility of part-time and hourly employment (on demand)\n• Flexible working hours (annual working hours)\n• Opportunity for unpaid leave\n\nOccupational health management\n• Occupational health and safety\n• Team and hospital-wide activities (Summer Festival, Christmas Apéro)\n• Presence management\n• External case management\n• Generational management\n\nOther benefits\n• Loyalty bonus from 10 years of service every 5 years (vacations or wages)\n• 13. Monthly wage (disbursement June and December)\n• Staff rooms and apartments in Horgen and Kilchberg\n• Staff Committee\n• Cheap food options in the staff restaurant",
+        "de": "Per Februar 2027 oder nach Vereinbarung suchen wir für unser HR-Team eine*n HR Berater*in\n80-100%\n\nDein Aufgabengebiet:\n\n• Du bist die erste Anlaufstelle für allgemeine HR-Fragen und Anliegen unserer Mitarbeiter*innen und Führungskräfte.\n• Du berätst und unterstützt bei alltäglichen personalrelevanten Fragestellungen und sorgst für eine unkomplizierte und lösungsorientierte Begleitung.\n• Du führst bzw. begleitest regelmässige Gespräche mit Mitarbeiter*innen und Führungskräften, holst Bedürfnisse ab und erkennst Handlungsbedarf.\n• Du behältst den Überblick über offene Anliegen und sorgst für eine gute Zusammenarbeit und einen reibungslosen Informationsfluss innerhalb der HR-Abteilung.\n• Du unterstützt bei Bedarf in allgemeinen administrativen Aufgaben und bringst dich aktiv in die Weiterentwicklung unserer HR-Dienstleistungen ein.\n\nDein Profil:\n\n• Du verfügst über eine kaufmännische Grundausbildung und eine Weiterbildung im HR-Bereich (z. B. HR-Fachfrau*mann mit eidg. Fachausweis) oder eine vergleichbare Qualifikation.\n• Du bringst Erfahrung in einer vergleichbaren HR-Funktion mit, idealerweise im Gesundheitswesen.\n• Du bist eine aufgeschlossene, empathische und dienstleistungsorientierte Persönlichkeit, die gerne mit Menschen arbeitet.\n• Du verfügst über gute kommunikative Fähigkeiten, hörst aufmerksam zu und kannst auch unterschiedliche Bedürfnisse richtig einordnen.\n• Du arbeitest selbständig, strukturiert und zuverlässig und verstehst es, Prioritäten zu setzen.\n• Du hast Freude an der Zusammenarbeit im Team und verstehst dich als verbindende Schnittstelle innerhalb der HR-Abteilung.\n• Du bist diskret, vertrauenswürdig und gehst professionell mit sensiblen Informationen um.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "fr": "En février 2027 ou d'un commun accord, nous cherchons un consultant en RH pour notre équipe RH\n80-100%\n\nVotre domaine de responsabilité :\n\n• Vous êtes le premier point de contact pour les questions et préoccupations générales en RH de nos employés et gestionnaires.\n• Vous conseillez et supportez avec des questions courantes concernant le personnel et assurez un soutien simple et orienté vers la solution.\n• Vous conduisez ou accompagnez des discussions régulières avec les employés et les gestionnaires, répondez aux besoins et reconnaissez la nécessité d'agir.\n• Vous surveillez les préoccupations ouvertes et vous assurez une bonne coopération et un flux d'information en douceur au sein du service RH.\n• Si nécessaire, vous soutenirz les tâches administratives générales et participerez activement au développement de nos services RH.\n\nVotre profil:\n\n• Vous avez une formation de base commerciale et une formation complémentaire dans le domaine des RH (p. ex., une femme professionnelle en RH* ayant un certificat professionnel fédéral) ou une qualification comparable.\n• Vous apportez de l'expérience dans une fonction RH comparable, idéalement dans les soins de santé.\n• Vous êtes une personnalité ouverte d'esprit, empathique et orientée vers le service qui aime travailler avec les gens.\n• Vous avez de bonnes compétences en communication, écoutez attentivement et pouvez également classer correctement différents besoins.\n• Vous travaillez de façon indépendante, structurée et fiable et vous comprenez comment établir des priorités.\n• Vous aimez travailler ensemble dans une équipe et vous considérer comme une interface de connexion au sein du département RH.\n• Vous êtes discret, fiable et professionnel avec des informations sensibles.\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à l'aise – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue.\n• Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé. Les applications physiques ne peuvent être envisagées ou retournées.\n\nAvantages\nEn plus de nombreux Fringe Benefits (services supplémentaires), vous bénéficiez d'offres ciblées de promotion et de formation continue à tous les niveaux. Conditions d'emploi modernes\n• Semaine de 42 heures (Doctors 50)\n• Les heures supplémentaires sont généralement compensées par un temps libre de même durée\n• 5 semaines de vacances, à partir de 50 ans 6 semaines\n• Pause quotidienne payée de 20 min\n• Le changement de temps est considéré comme du temps de travail\n• Possibilité pour le Home Office\n\nFormation continue\n• Formation interne des salariés\n• Participation des employeurs aux coûts et au temps de travail pour la formation continue\n• En tant qu'hôpital d'éducation et de formation, nous proposons divers stages et apprentissages\n• Séminaires de perfectionnement en leadership\n\nRemboursements et conditions\n• Conseils nutritionnels et massages réduits\n• Vaccination annuelle gratuite contre la grippe\n• Bateau hospitalier à louer\n• Repas gratuits pour les travailleurs de nuit\n• À Horgen et dans les environs, diverses entreprises sélectionnées accordent au moins 10% de réduction lors de la présentation de la carte d'identité (par exemple, les billets annuels du Zoo gratuit de Zurich, 15% de réduction dans l'Alpamare, Brack.ch jusqu'à 25% et plus).\n• Réductions de flotte chez les partenaires amag (Audi, VW, Seat, Skoda), BWM et Mini ainsi que Mercedes et Smart\n\nAssurance étendue\n• See-Spital offre 16 semaines de congé de maternité à 100% de maintien du salaire au lieu des 14 semaines légalement requises à 80%\n• Prime pour assurance complémentaire accident (privée) aux frais de l'employeur\n\nÉquilibre travail-vie privée\n• Possibilité d'emploi à temps partiel et horaire (sur demande)\n• Temps de travail flexible (heures de travail annuelles)\n• Possibilité de congé non rémunéré\n\nGestion de la santé au travail\n• Santé et sécurité au travail\n• Activités en équipe et à l'échelle de l'hôpital (Festival d'été, Apéro de Noël)\n• Gestion de la présence\n• Gestion externe des dossiers\n• Gestion des générations\n\nAutres prestations\n• Prime de fidélité à partir de 10 ans de service tous les 5 ans (vacances ou salaires)\n• 13. Salaire mensuel (dépenses de juin et décembre)\n• Chambres du personnel et appartements à Horgen et Kilchberg\n• Comité du personnel\n• Options de restauration pas cher dans le restaurant du personnel"
       },
       "location": "Horgen",
@@ -4454,8 +4456,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1326/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-11-12T21:55:37.601Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-11-13T09:17:29.879Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4472,11 +4474,24 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1326/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "hr-berater-in-see-spital-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-berater-in-see-spital-ch"
+        ],
+        "en": [
+          "hr-berater-in-see-spital-ch"
+        ],
+        "fr": [
+          "hr-berater-in-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-12T21:55:37.601Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4507,31 +4522,16 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:55:37.601Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:55:37.601Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-berater-in-see-spital-ch"
-        ],
-        "en": [
-          "hr-berater-in-see-spital-ch"
-        ],
-        "fr": [
-          "hr-berater-in-see-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "hr-berater-in-see-spital-ch"
-      ]
+      "validThrough": "2027-02-11T09:17:29.879Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "see-spital-beffe2e12303",
       "slug": "dipl-specialista-infermieristico-man-hf-interdisciplinare-in-servizio-notturno-see-spital-horgen",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch",
         "it": "dipl-specialista-infermieristico-man-hf-interdisciplinare-in-servizio-notturno-see-spital-horgen",
         "en": "dipl-nursing-specialist-man-hf-interdisciplinary-on-night-duty-see-spital-horgen",
+        "de": "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-homme-hf-interdisciplinaire-en-service-de-nuit-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -4539,16 +4539,16 @@
       "companyDomain": "see-spital.ch",
       "title": "Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst",
         "it": "Dipl. Specialista infermieristico*man HF interdisciplinare - in servizio notturno",
         "en": "Dipl. Nursing specialist*man HF interdisciplinary - on night duty",
+        "de": "Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst",
         "fr": "Dipl. Spécialiste des soins infirmiers* homme HF interdisciplinaire - en service de nuit"
       },
       "description": "Für unsere interdisziplinäre Belegarztabteilung suchen wir per sofort oder nach Vereinbarung eine*n Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst\n20-100%\n\nIhr Aufgabengebiet:\n\n• Kompetente Pflege auf höchstem Niveau: Sie kümmern sich um die Pflege und Betreuung unserer Patient*innen im interprofessionellen Behandlungsteam und steuern den Pflegeprozess für die Ihnen zugeteilten Patient*innen.\n• Verantwortung übernehmen: Sie tragen die Verantwortung für die Pflegeprozesse und sorgen für eine reibungslose und qualitativ hochwertige Versorgung.\n• Interdisziplinäre Zusammenarbeit: Sie koordinieren sich mit anderen Berufsgruppen und nehmen aktiv an der interdisziplinären Behandlung unserer Patient*innen teil.\n• Mitwirken an der Ausbildung: Sie unterstützen bei der praktischen Ausbildung von Studierenden und Lernenden.\n\nIhr Profil:\n\n• Eine abgeschlossene und in der Schweiz anerkannte Diplomausbildung in der Pflege auf Tertiärniveau (HF / FH / DN 2).\n• Berufserfahrung in einem Akutspital in der Schweiz, die Ihnen ermöglicht, in einem dynamischen Umfeld sicher zu agieren.\n• Bereitschaft, Pflegediagnostik praktisch anzuwenden und die elektronische Patient*innendokumentation effizient zu nutzen.\n• Flexibilität, Engagement und Belastbarkeit.\n• Pflegequalität , individuelle Pflegeplanung und Umsetzung sind für Sie das A und O.\n• Aktive Zusammenarbeit mit den Lernenden und Studierenden in der Praxis zur Förderung und Forderung deren Eigenständigkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Sie bringen Flexibilität – wir richten uns nach Ihren Wünschen.\n• Es empfängt sie ein offenes und humorvolles Team.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
       "descriptionByLocale": {
-        "de": "Für unsere interdisziplinäre Belegarztabteilung suchen wir per sofort oder nach Vereinbarung eine*n Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst\n20-100%\n\nIhr Aufgabengebiet:\n\n• Kompetente Pflege auf höchstem Niveau: Sie kümmern sich um die Pflege und Betreuung unserer Patient*innen im interprofessionellen Behandlungsteam und steuern den Pflegeprozess für die Ihnen zugeteilten Patient*innen.\n• Verantwortung übernehmen: Sie tragen die Verantwortung für die Pflegeprozesse und sorgen für eine reibungslose und qualitativ hochwertige Versorgung.\n• Interdisziplinäre Zusammenarbeit: Sie koordinieren sich mit anderen Berufsgruppen und nehmen aktiv an der interdisziplinären Behandlung unserer Patient*innen teil.\n• Mitwirken an der Ausbildung: Sie unterstützen bei der praktischen Ausbildung von Studierenden und Lernenden.\n\nIhr Profil:\n\n• Eine abgeschlossene und in der Schweiz anerkannte Diplomausbildung in der Pflege auf Tertiärniveau (HF / FH / DN 2).\n• Berufserfahrung in einem Akutspital in der Schweiz, die Ihnen ermöglicht, in einem dynamischen Umfeld sicher zu agieren.\n• Bereitschaft, Pflegediagnostik praktisch anzuwenden und die elektronische Patient*innendokumentation effizient zu nutzen.\n• Flexibilität, Engagement und Belastbarkeit.\n• Pflegequalität , individuelle Pflegeplanung und Umsetzung sind für Sie das A und O.\n• Aktive Zusammenarbeit mit den Lernenden und Studierenden in der Praxis zur Förderung und Forderung deren Eigenständigkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Sie bringen Flexibilität – wir richten uns nach Ihren Wünschen.\n• Es empfängt sie ein offenes und humorvolles Team.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "it": "Per il nostro reparto certificato medico interdisciplinare stiamo cercando un *n Dipl. Specialista infermieristico*man HF interdisciplinare - in servizio notturno\n20-100%\n\nLe tue responsabilità:\n\n• Cura competente al più alto livello: si prende cura della cura e la cura dei nostri pazienti nel team di trattamento interprofessionale e controllare il processo di cura per i pazienti assegnati a voi.\n• Assunzione di responsabilità: Lei è responsabile dei processi di cura e assicura la cura liscia e di alta qualità.\n• Cooperazione interdisciplinare: coordinati con altri gruppi professionali e partecipi attivamente al trattamento interdisciplinare dei nostri pazienti.\n• Partecipazione all'istruzione: sostenere la formazione pratica degli studenti e degli studenti.\n\nIl tuo profilo:\n\n• Completo e riconosciuto in Svizzera diploma in cura a livello terziario (HF / FH / DN 2).\n• Esperienza professionale in un ospedale acuto in Svizzera, che consente di agire in modo sicuro in un ambiente dinamico.\n• Volontà di applicare la diagnostica di allattamento in pratica e di utilizzare la documentazione elettronica del paziente in modo efficiente.\n• Flessibilità, impegno e resilienza.\n• La qualità della cura, la pianificazione individuale e l'implementazione sono la chiave per voi.\n• Cooperazione attiva con studenti e studenti in pratica per promuovere e richiedere la loro indipendenza.\n\nCosa ti offriamo:\n\n• Lavorare in modo indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Portate flessibilità – ci adattiamo ai vostri desideri.\n• Ricevono una squadra aperta e divertente.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, così come i posti di parcheggio del personale economico.\n• Infrastrutture moderne e un ambiente di lavoro in cui si può sentire a casa – vista lago incluso.\n• Vantaggi diversi – da grandi sconti per i dipendenti a ulteriori offerte di istruzione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionalmente che privatamente.\n\nBenefici\nOltre ai numerosi vantaggi di Fringe (servizi aggiuntivi), si beneficiano di promozioni mirate e ulteriori offerte di istruzione a tutti i livelli. Condizioni di lavoro moderne\n• 42 ore settimanali (docenti 50)\n• Gli straordinari sono solitamente compensati dal tempo libero della stessa durata\n• 5 settimane di vacanza, a partire da 50 anni 6 settimane\n• Quotidiano 20 min\n• Il tempo di cambio è considerato come orario di lavoro\n• Possibilità di Home Office\n\nFormazione continua\n• Formazione interna per i dipendenti\n• Partecipazione ai costi e all'orario di lavoro per un'ulteriore formazione e formazione da parte del datore di lavoro\n• Come ospedale per l'istruzione e la formazione, offriamo vari stage e apprendisti\n• Seminari di sviluppo della leadership\n\nRiduzioni e condizioni\n• Consigli nutrizionali ridotti e massaggio\n• Vaccinazione annuale di libero scambio\n• Barca Ospedale in affitto\n• Pasti gratuiti per i lavoratori notturni\n• In Horgen e nella zona circostante, diverse aziende selezionate concedono almeno il 10% di sconto per presentare la carta d'identità (ad esempio i biglietti annuali Free Zoo Zurich, 15% di sconto in Alpamare, Brack.ch fino al 25% e più).\n• Sconti delle pulci presso i partner di amag (Audi, VW, Seat, Skoda), BWM e Mini e Mercedes e Smart\n\nAssicurazione estesa\n• See-Spital offre 16 settimane di congedo di maternità al 100% di prosecuzione salariale invece della legalmente richiesto 14 settimane all'80%\n• Premio per l'assicurazione complementare contro gli infortuni (privato) a spese del datore di lavoro\n\nBilancia della vita lavorativa\n• Possibilità di impiego parziale e oraria (su richiesta)\n• Ore lavorative flessibili (ore lavorative annuali)\n• Opportunità per congedo non pagato\n\nGestione della salute sul lavoro\n• Salute e sicurezza sul lavoro\n• Team e attività ospedaliere (Summer Festival, Christmas Apéro)\n• Gestione della presenza\n• Gestione dei casi esterni\n• Gestione generazionale\n\nAltri vantaggi\n• Bonus fedeltà da 10 anni di servizio ogni 5 anni (vacanze o salari)\n• 13. Salari mensili (pagamento giugno e dicembre)\n• Camere e appartamenti del personale a Horgen e Kilchberg\n• Comitato del personale\n• Opzioni di cibo economiche nel ristorante del personale",
         "en": "For our interdisciplinary medical certificate department we are looking for a *n Dipl. Nursing specialist*man HF interdisciplinary - on night duty\n20-100%\n\nYour responsibilities:\n\n• Competent care at the highest level: You take care of the care and care of our patients in the interprofessional treatment team and control the care process for the patients assigned to you.\n• Taking responsibility: You are responsible for the care processes and ensure smooth and high-quality care.\n• Interdisciplinary cooperation: You coordinate with other professional groups and actively participate in the interdisciplinary treatment of our patients.\n• Participation in education: You support the practical training of students and learners.\n\nYour profile:\n\n• Completed and recognised in Switzerland diploma in care at tertiary level (HF / FH / DN 2).\n• Professional experience in an acute care hospital in Switzerland, which enables you to act safely in a dynamic environment.\n• Willingness to apply nursing diagnostics in practice and to use electronic patient documentation efficiently.\n• Flexibility, commitment and resilience.\n• Care quality, individual care planning and implementation are the key to you.\n• Active cooperation with learners and students in practice to promote and demand their independence.\n\nWhat we offer you:\n\n• Working independently in a motivated and collegial team that supports each other.\n• You bring flexibility – we adapt to your wishes.\n• They receive an open and humorous team.\n• A place of work with the best connection to public transport, as well as cost-effective staff parking spaces.\n• Modern infrastructure and a working environment in which you can feel at home – lake views included.\n• Diverse benefits – from great employee discounts to further education offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which has a lot to offer you both professionally and privately.\n\nBenefits\nIn addition to numerous Fringe Benefits (additional services), you benefit from targeted promotion and further education offers at all levels. Modern employment conditions\n• 42 hour week (Doctors 50)\n• Overtime is usually compensated by free time of the same duration\n• 5 weeks holiday, from 50 years of age 6 week\n• Daily 20 min paid break\n• Changing time is considered as working time\n• Possibility for Home Office\n\nOngoing training\n• Internal training for employees\n• Participation in costs and working time for further education and training by employer\n• As an education and training hospital, we offer various internships and apprenticeships\n• Leadership Development Seminars\n\nRebates and conditions\n• Reduced nutrition advice and massage\n• Annual free flu vaccination\n• Hospital boat for rent\n• Free meals for night workers\n• In Horgen and the surrounding area, various selected companies grant at least 10% discount when presenting the identity card (e.g. Free Zoo Zurich annual tickets, 15% discount in the Alpamare, Brack.ch up to 25% and more).\n• Fleet discounts at amag partners (Audi, VW, Seat, Skoda), BWM and Mini as well as Mercedes and Smart\n\nExtensive insurance\n• See-Spital offers 16 weeks of maternity leave at 100% wage continuation instead of the legally required 14 weeks at 80%\n• Premium for accident supplementary insurance (private) at the expense of the employer\n\nWork-life balance\n• Possibility of part-time and hourly employment (on demand)\n• Flexible working hours (annual working hours)\n• Opportunity for unpaid leave\n\nOccupational health management\n• Occupational health and safety\n• Team and hospital-wide activities (Summer Festival, Christmas Apéro)\n• Presence management\n• External case management\n• Generational management\n\nOther benefits\n• Loyalty bonus from 10 years of service every 5 years (vacations or wages)\n• 13. Monthly wage (disbursement June and December)\n• Staff rooms and apartments in Horgen and Kilchberg\n• Staff Committee\n• Cheap food options in the staff restaurant",
+        "de": "Für unsere interdisziplinäre Belegarztabteilung suchen wir per sofort oder nach Vereinbarung eine*n Dipl. Pflegefachfrau*mann HF interdisziplinär - im Nachtdienst\n20-100%\n\nIhr Aufgabengebiet:\n\n• Kompetente Pflege auf höchstem Niveau: Sie kümmern sich um die Pflege und Betreuung unserer Patient*innen im interprofessionellen Behandlungsteam und steuern den Pflegeprozess für die Ihnen zugeteilten Patient*innen.\n• Verantwortung übernehmen: Sie tragen die Verantwortung für die Pflegeprozesse und sorgen für eine reibungslose und qualitativ hochwertige Versorgung.\n• Interdisziplinäre Zusammenarbeit: Sie koordinieren sich mit anderen Berufsgruppen und nehmen aktiv an der interdisziplinären Behandlung unserer Patient*innen teil.\n• Mitwirken an der Ausbildung: Sie unterstützen bei der praktischen Ausbildung von Studierenden und Lernenden.\n\nIhr Profil:\n\n• Eine abgeschlossene und in der Schweiz anerkannte Diplomausbildung in der Pflege auf Tertiärniveau (HF / FH / DN 2).\n• Berufserfahrung in einem Akutspital in der Schweiz, die Ihnen ermöglicht, in einem dynamischen Umfeld sicher zu agieren.\n• Bereitschaft, Pflegediagnostik praktisch anzuwenden und die elektronische Patient*innendokumentation effizient zu nutzen.\n• Flexibilität, Engagement und Belastbarkeit.\n• Pflegequalität , individuelle Pflegeplanung und Umsetzung sind für Sie das A und O.\n• Aktive Zusammenarbeit mit den Lernenden und Studierenden in der Praxis zur Förderung und Forderung deren Eigenständigkeit.\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Sie bringen Flexibilität – wir richten uns nach Ihren Wünschen.\n• Es empfängt sie ein offenes und humorvolles Team.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
         "fr": "Pour notre département de certificat médical interdisciplinaire nous cherchons un *n Dipl. Spécialiste des soins infirmiers* homme HF interdisciplinaire - en service de nuit\n20-100%\n\nVos responsabilités :\n\n• Soins compétents au plus haut niveau : Vous prenez soin des soins et des soins de nos patients dans l'équipe interprofessionnelle de traitement et contrôlez le processus de soins des patients qui vous sont assignés.\n• Prise en charge : Vous êtes responsable des processus de soins et vous assurez des soins de qualité.\n• Coopération interdisciplinaire : Vous coordonnez avec d'autres groupes professionnels et participez activement au traitement interdisciplinaire de nos patients.\n• Participation à l'éducation: Vous soutenez la formation pratique des étudiants et des apprenants.\n\nVotre profil:\n\n• Achevé et reconnu en Suisse diplôme de soins de niveau supérieur (HF / FH / DN 2).\n• Expérience professionnelle dans un hôpital de soins actifs en Suisse, qui vous permet d'agir en toute sécurité dans un environnement dynamique.\n• Volonté d'appliquer le diagnostic infirmier dans la pratique et d'utiliser efficacement la documentation électronique des patients.\n• Flexibilité, engagement et résilience.\n• La qualité des soins, la planification et la mise en oeuvre des soins individuels sont la clé pour vous.\n• Coopération active avec les apprenants et les étudiants dans la pratique pour promouvoir et exiger leur indépendance.\n\nCe que nous vous offrons:\n\n• Travailler de façon indépendante dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Vous apportez de la flexibilité – nous nous adaptons à vos souhaits.\n• Ils reçoivent une équipe ouverte et humoristique.\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement du personnel rentable.\n• Infrastructure moderne et environnement de travail dans lequel vous pouvez vous sentir à la maison – vue sur le lac inclus.\n• Avantages divers – de grandes réductions pour les employés aux offres de formation continue.\n• Une atmosphère de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnellement et en privé.\n\nAvantages\nEn plus de nombreux Fringe Benefits (services supplémentaires), vous bénéficiez d'offres ciblées de promotion et de formation continue à tous les niveaux. Conditions d'emploi modernes\n• Semaine de 42 heures (Doctors 50)\n• Les heures supplémentaires sont généralement compensées par un temps libre de même durée\n• 5 semaines de vacances, à partir de 50 ans 6 semaines\n• Pause quotidienne payée de 20 min\n• Le changement de temps est considéré comme du temps de travail\n• Possibilité pour le Home Office\n\nFormation continue\n• Formation interne des salariés\n• Participation des employeurs aux coûts et au temps de travail pour la formation continue\n• En tant qu'hôpital d'éducation et de formation, nous proposons divers stages et apprentissages\n• Séminaires de perfectionnement en leadership\n\nRemboursements et conditions\n• Conseils nutritionnels et massages réduits\n• Vaccination annuelle gratuite contre la grippe\n• Bateau hospitalier à louer\n• Repas gratuits pour les travailleurs de nuit\n• À Horgen et dans les environs, diverses entreprises sélectionnées accordent au moins 10% de réduction lors de la présentation de la carte d'identité (par exemple, les billets annuels du Zoo gratuit de Zurich, 15% de réduction dans l'Alpamare, Brack.ch jusqu'à 25% et plus).\n• Réductions de flotte chez les partenaires amag (Audi, VW, Seat, Skoda), BWM et Mini ainsi que Mercedes et Smart\n\nAssurance étendue\n• See-Spital offre 16 semaines de congé de maternité à 100% de maintien du salaire au lieu des 14 semaines légalement requises à 80%\n• Prime pour assurance complémentaire accident (privée) aux frais de l'employeur\n\nÉquilibre travail-vie privée\n• Possibilité d'emploi à temps partiel et horaire (sur demande)\n• Temps de travail flexible (heures de travail annuelles)\n• Possibilité de congé non rémunéré\n\nGestion de la santé au travail\n• Santé et sécurité au travail\n• Activités en équipe et à l'échelle de l'hôpital (Festival d'été, Apéro de Noël)\n• Gestion de la présence\n• Gestion externe des dossiers\n• Gestion des générations\n\nAutres prestations\n• Prime de fidélité à partir de 10 ans de service tous les 5 ans (vacances ou salaires)\n• 13. Salaire mensuel (dépenses de juin et décembre)\n• Chambres du personnel et appartements à Horgen et Kilchberg\n• Comité du personnel\n• Options de restauration pas cher dans le restaurant du personnel"
       },
       "location": "Horgen",
@@ -4556,7 +4556,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1325/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:55:36.480Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-11-13T09:17:28.833Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4573,11 +4574,13 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1325/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch",
+        "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-horgen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch",
@@ -4590,10 +4593,7 @@
           "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-interdisziplinar-im-nachtdienst-see-spital-horgen"
-      ],
+      "firstSeenAt": "2026-11-12T21:55:36.480Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4624,9 +4624,8 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:55:36.480Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:55:36.480Z"
+      "validThrough": "2027-02-11T09:17:28.833Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

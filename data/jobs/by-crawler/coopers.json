@@ -1,7 +1,7 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-11-12T21:40:17.716Z",
-  "runId": "43308403749",
+  "assembledAt": "2026-11-13T09:23:02.247Z",
+  "runId": "43399520334",
   "jobs": [
     {
       "id": "coopers-76e7d5c21035",
@@ -34,7 +34,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:08.109Z",
+      "crawledAt": "2026-11-13T09:22:54.140Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:08.109Z",
+      "validThrough": "2026-12-13T09:22:54.140Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,7 +132,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:07.124Z",
+      "crawledAt": "2026-11-13T09:22:53.142Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:07.124Z",
+      "validThrough": "2026-12-13T09:22:53.142Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -228,7 +228,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:06.058Z",
+      "crawledAt": "2026-11-13T09:22:52.148Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "postalCode": "8500",
       "streetAddress": "Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:06.058Z",
+      "validThrough": "2026-12-13T09:22:52.148Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:05.031Z",
+      "crawledAt": "2026-11-13T09:22:51.099Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "postalCode": "8500",
       "streetAddress": "Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:05.031Z",
+      "validThrough": "2026-12-13T09:22:51.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -417,7 +417,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42VV4D",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:03.941Z",
+      "crawledAt": "2026-11-13T09:22:50.100Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -449,16 +449,16 @@
           "Recruiting, Customer acquisition, Executive Search, Management"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-11T21:28:14.582Z",
+      "previousSlugs": [
+        "senior-executive-search-consultant-m-w-d-coopers-basel-stadt"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-executive-search-consultant-m-w-d-coopers-basel-stadt"
         ]
       },
-      "previousSlugs": [
-        "senior-executive-search-consultant-m-w-d-coopers-basel-stadt"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-11T21:28:14.582Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -475,7 +475,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:03.941Z",
+      "validThrough": "2026-12-13T09:22:50.100Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -509,7 +509,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:02.753Z",
+      "crawledAt": "2026-11-13T09:22:49.103Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -584,7 +584,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:02.753Z",
+      "validThrough": "2026-12-13T09:22:49.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -618,7 +618,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:01.735Z",
+      "crawledAt": "2026-11-13T09:22:48.119Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -675,7 +675,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:01.735Z",
+      "validThrough": "2026-12-13T09:22:48.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -709,7 +709,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:00.497Z",
+      "crawledAt": "2026-11-13T09:22:47.143Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:40:00.497Z",
+      "validThrough": "2026-12-13T09:22:47.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -800,7 +800,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:59.360Z",
+      "crawledAt": "2026-11-13T09:22:46.159Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -856,7 +856,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:59.360Z",
+      "validThrough": "2026-12-13T09:22:46.159Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +890,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3R97SF",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:58.075Z",
+      "crawledAt": "2026-11-13T09:22:45.164Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -961,7 +961,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T21:39:58.075Z",
+      "validThrough": "2027-01-02T09:22:45.164Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -995,7 +995,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:56.840Z",
+      "crawledAt": "2026-11-13T09:22:44.167Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1066,7 +1066,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:56.840Z",
+      "validThrough": "2026-12-13T09:22:44.167Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1100,7 +1100,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:55.681Z",
+      "crawledAt": "2026-11-13T09:22:43.178Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1156,7 +1156,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:55.681Z",
+      "validThrough": "2026-12-13T09:22:43.178Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1190,7 +1190,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:54.378Z",
+      "crawledAt": "2026-11-13T09:22:42.150Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1249,7 +1249,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:54.378Z",
+      "validThrough": "2026-12-13T09:22:42.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1283,7 +1283,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:53.121Z",
+      "crawledAt": "2026-11-13T09:22:41.166Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1340,7 +1340,7 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:53.121Z",
+      "validThrough": "2026-12-13T09:22:41.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1374,7 +1374,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5LY2U0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:51.703Z",
+      "crawledAt": "2026-11-13T09:22:40.152Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1439,7 +1439,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:39:51.703Z",
+      "validThrough": "2026-12-15T09:22:40.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1473,7 +1473,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:50.320Z",
+      "crawledAt": "2026-11-13T09:22:39.156Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1534,7 +1534,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:50.320Z",
+      "validThrough": "2026-12-13T09:22:39.156Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1568,7 +1568,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UZ52R4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:48.849Z",
+      "crawledAt": "2026-11-13T09:22:38.158Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1632,7 +1632,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:39:48.849Z",
+      "validThrough": "2026-12-26T09:22:38.158Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1666,7 +1666,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9TBS41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:46.979Z",
+      "crawledAt": "2026-11-13T09:22:37.175Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1736,7 +1736,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:39:46.979Z",
+      "validThrough": "2026-12-27T09:22:37.175Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1770,7 +1770,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3Z1HK0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:45.871Z",
+      "crawledAt": "2026-11-13T09:22:36.172Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1830,7 +1830,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:39:45.871Z",
+      "validThrough": "2026-12-29T09:22:36.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1864,7 +1864,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1OL47N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:44.872Z",
+      "crawledAt": "2026-11-13T09:22:35.160Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1927,7 +1927,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:44.872Z",
+      "validThrough": "2027-01-04T09:22:35.160Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1961,7 +1961,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4I3MY5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:43.876Z",
+      "crawledAt": "2026-11-13T09:22:34.172Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2028,7 +2028,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:43.876Z",
+      "validThrough": "2027-01-04T09:22:34.172Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2062,7 +2062,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=I78UM2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:42.764Z",
+      "crawledAt": "2026-11-13T09:22:33.178Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2126,7 +2126,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:42.764Z",
+      "validThrough": "2027-01-04T09:22:33.178Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2160,7 +2160,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=783GQX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:41.682Z",
+      "crawledAt": "2026-11-13T09:22:32.201Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2225,7 +2225,7 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:41.682Z",
+      "validThrough": "2027-01-04T09:22:32.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2259,7 +2259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F273KQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:40.676Z",
+      "crawledAt": "2026-11-13T09:22:31.182Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2313,7 +2313,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:40.676Z",
+      "validThrough": "2027-01-04T09:22:31.182Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2347,7 +2347,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=820BAG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:39.690Z",
+      "crawledAt": "2026-11-13T09:22:30.201Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2408,7 +2408,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:39.690Z",
+      "validThrough": "2027-01-04T09:22:30.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2442,7 +2442,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=44R2RI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:38.695Z",
+      "crawledAt": "2026-11-13T09:22:29.222Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2503,7 +2503,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:39:38.695Z",
+      "validThrough": "2027-01-04T09:22:29.222Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2537,7 +2537,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=YQ4T19",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:37.671Z",
+      "crawledAt": "2026-11-13T09:22:28.211Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2601,7 +2601,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:39:37.671Z",
+      "validThrough": "2027-01-05T09:22:28.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2635,7 +2635,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9Q2C5X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:36.549Z",
+      "crawledAt": "2026-11-13T09:22:27.181Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2685,7 +2685,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:39:36.549Z",
+      "validThrough": "2027-01-05T09:22:27.181Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2719,7 +2719,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=334KOY",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:35.555Z",
+      "crawledAt": "2026-11-13T09:22:26.200Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2779,7 +2779,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:39:35.555Z",
+      "validThrough": "2027-01-05T09:22:26.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2813,7 +2813,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VN392S",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:34.573Z",
+      "crawledAt": "2026-11-13T09:22:25.203Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2876,7 +2876,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:39:34.573Z",
+      "validThrough": "2027-01-05T09:22:25.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2910,7 +2910,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P4KY41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:33.525Z",
+      "crawledAt": "2026-11-13T09:22:24.205Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2968,7 +2968,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:39:33.525Z",
+      "validThrough": "2027-01-05T09:22:24.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3002,7 +3002,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=189JTN",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:31.512Z",
+      "crawledAt": "2026-11-13T09:22:22.207Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3063,7 +3063,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:39:31.512Z",
+      "validThrough": "2027-01-08T09:22:22.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3097,7 +3097,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R07J1R",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:30.502Z",
+      "crawledAt": "2026-11-13T09:22:21.200Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3155,7 +3155,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:39:30.502Z",
+      "validThrough": "2027-01-08T09:22:21.200Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3189,7 +3189,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4XL43L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:29.364Z",
+      "crawledAt": "2026-11-13T09:22:20.195Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3254,7 +3254,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:39:29.364Z",
+      "validThrough": "2027-01-08T09:22:20.195Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3288,7 +3288,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=NEH518",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:28.348Z",
+      "crawledAt": "2026-11-13T09:22:18.973Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3350,7 +3350,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:39:28.348Z",
+      "validThrough": "2027-01-08T09:22:18.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3384,7 +3384,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:27.329Z",
+      "crawledAt": "2026-11-13T09:22:17.939Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3448,7 +3448,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:39:27.329Z",
+      "validThrough": "2026-12-13T09:22:17.939Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3482,7 +3482,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0EZP96",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:26.339Z",
+      "crawledAt": "2026-11-13T09:22:16.948Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3548,7 +3548,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T21:39:26.339Z",
+      "validThrough": "2027-01-08T09:22:16.948Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3582,7 +3582,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9H9RY6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:25.325Z",
+      "crawledAt": "2026-11-13T09:22:15.941Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3631,7 +3631,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T21:39:25.325Z",
+      "validThrough": "2027-01-09T09:22:15.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3665,7 +3665,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OUE247",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:24.316Z",
+      "crawledAt": "2026-11-13T09:22:14.921Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3729,7 +3729,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T21:39:24.316Z",
+      "validThrough": "2027-01-09T09:22:14.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3763,7 +3763,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=CV360Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:22.860Z",
+      "crawledAt": "2026-11-13T09:22:13.922Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3824,7 +3824,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T21:39:22.860Z",
+      "validThrough": "2027-01-09T09:22:13.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3858,7 +3858,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K1CZ09",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:21.854Z",
+      "crawledAt": "2026-11-13T09:22:12.902Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3919,7 +3919,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T21:39:21.854Z",
+      "validThrough": "2027-01-09T09:22:12.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3953,7 +3953,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FZJ349",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:20.805Z",
+      "crawledAt": "2026-11-13T09:22:11.901Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4016,7 +4016,7 @@
       "postalCode": "8200",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:39:20.805Z",
+      "validThrough": "2027-01-10T09:22:11.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4050,7 +4050,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J8U26E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:18.810Z",
+      "crawledAt": "2026-11-13T09:22:10.924Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4081,7 +4081,9 @@
           "Java, Business Analyse"
         ]
       },
-      "firstSeenAt": "2026-11-11T21:27:31.621Z",
+      "previousSlugs": [
+        "business-systems-analyst-m-f-d-coopers-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-systems-analyst-m-f-d-coopers-aargau"
@@ -4090,9 +4092,7 @@
           "business-systems-analyst-m-f-d-coopers-aargau"
         ]
       },
-      "previousSlugs": [
-        "business-systems-analyst-m-f-d-coopers-aargau"
-      ],
+      "firstSeenAt": "2026-11-11T21:27:31.621Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4109,7 +4109,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:39:18.810Z",
+      "validThrough": "2027-01-10T09:22:10.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4143,7 +4143,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5SPR40",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:17.672Z",
+      "crawledAt": "2026-11-13T09:22:09.889Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4179,7 +4179,9 @@
           "01.12.2026 - 31.12.2027 (Option auf Verlängerung)"
         ]
       },
-      "firstSeenAt": "2026-11-11T21:27:30.636Z",
+      "previousSlugs": [
+        "software-solution-architect-m-w-d-coopers-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-solution-architect-m-w-d-coopers-bern"
@@ -4188,9 +4190,7 @@
           "software-solution-architect-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "software-solution-architect-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-11-11T21:27:30.636Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -4207,7 +4207,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:39:17.672Z",
+      "validThrough": "2027-01-10T09:22:09.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4241,7 +4241,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:39:16.635Z",
+      "crawledAt": "2026-11-13T09:22:08.890Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4300,15 +4300,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:39:16.635Z",
+      "validThrough": "2026-12-20T09:22:08.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-6157db705cd6",
       "slug": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug",
       "slugByLocale": {
-        "en": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug",
         "it": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug",
+        "en": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug",
         "de": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug",
         "fr": "compliance-specialist-m-f-d-grant-sponsoring-donation-gsd-process-m-f-d-coopers-zug"
       },
@@ -4317,15 +4317,15 @@
       "companyDomain": "coopers.ch",
       "title": "Compliance Specialist (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)",
       "titleByLocale": {
-        "en": "Compliance Specialist (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)",
         "it": "Compliance Specialista (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)",
+        "en": "Compliance Specialist (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)",
         "de": "Compliance Spezialist (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)",
         "fr": "Compliance Spécialiste (m/f/d) – Grant, Sponsoring & Donation (GSD) Process (m/f/d)"
       },
       "description": "For our client, we are looking for an experienced System Support Engineer (m/f/d) who will be responsible for installing, maintaining, supporting, and troubleshooting Diagnostic Systems throughout their entire lifecycle, from development to post-launch.\n\nIn this role, you will provide technical expertise across hardware and software support, system qualification (IQ/OQ), preventive maintenance, technical troubleshooting, and system servicing. You will work closely with cross-functional teams to ensure reliable system performance, compliance with quality standards, and efficient technical support of diagnostic systems across development and global trial environments.\n\nStart date: asap/by arrangement\n\nPlaned Durration: 12 Months (extension possible)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Rotkreuz\n\nRemote: on side\n\nYour Tasks:\n• You manage commercial and medical sponsoring activities throughout their entire lifecycle—from initial approval and contract support to gathering, reviewing, and archiving all required documentation (attendee lists, event reports, photos, receipts) to ensure a complete audit trail.\n• You screen incoming sponsorship requests and supporting documents (official request letters, detailed agendas, overall event budgets, up-to-date HCP CVs). Review compliance due diligence checks for HCOs and HCPs, and prepare sponsorship and engagement agreements (mostly in German, some in English) using standard templates.\n• You evaluate requests against internal Roche policies and the Swiss Medtech Code. Screen for key risk factors (e.g., events held during ski season, purely tourist destinations, inappropriate entertainment or side programs, and gifts to HCPs).\n• You set up new vendors/creditors (HCOs, HCPs, event agencies) and create/approve Purchase Orders (POs).\n• You track and coordinate financial steps through to invoice verification and approval workflows.\n• You act as the key point of contact for external sponsoring requesters and doctors' associations (coordinating event logistics/approvals), as well as internal business owners, event management, marketing, medical affairs, and local/global compliance teams.\n• You maintain audit-ready, compliant records and file all process-related documents in line with information compliance standards.\n• You review the existing end-to-end GSD process from start to finish to reduce operational complexity.\n• You identify gaps, manual bottlenecks, and redundant handoffs.\n• You develop, revive, and roll out practical solutions to digitize, simplify, and streamline workflows (including updating roles and responsibilities).\n\nYour Profile:\n• You have a minimum of a Bachelor’s degree (Master’s degree preferred), ideally in Law, Compliance, Business Administration, or a related field, to effectively engage with highly educated stakeholders.\n• You have 3–5 years of proven experience in healthcare compliance, ethics compliance, legal operations, or sponsorship management within the Pharma or MedTech industry.\n• You bring solid working knowledge of the Swiss Medtech Code (mandatory—legal background alone is not sufficient) and MedTech Europe guidelines.\n• You have a good understanding of relevant Swiss healthcare law (e.g., TPA/HMG, TPO/VAM) and basic familiarity with broader regulatory frameworks (such as IVDR).\n• You are business fluent in both German and English (written and spoken), as most contracts are in German (with some English contracts for the French-speaking region).\n• You have proficiency in MS Office; highly self-driven, flexible, detail-oriented, and pragmatic project/stakeholder manager with strong communication skills.\n\nNice to have:\n• You bring prior experience with internal systems, processes, and compliance policies.\n• You have hands-on experience opening/onboarding new suppliers and creating/managing Purchase Orders (POs).\n• You have practical experience with disclosing transfers of value under Swiss Medtech and MedTech Europe rules.\n• You speak French\n\nJob profile\n• Life Sciences - Validation & Qualification\n• Zug\n• Contracting\n• Part Time, 80-100%\n• asap - 1 Year contract\n• System Qualification (IQ/OQ), Diagnostic Systems, Hardware Support, troubleshooting, Technical Support, System Maintenance, Quality Management Systems",
       "descriptionByLocale": {
-        "en": "For our client, we are looking for an experienced System Support Engineer (m/f/d) who will be responsible for installing, maintaining, supporting, and troubleshooting Diagnostic Systems throughout their entire lifecycle, from development to post-launch.\n\nIn this role, you will provide technical expertise across hardware and software support, system qualification (IQ/OQ), preventive maintenance, technical troubleshooting, and system servicing. You will work closely with cross-functional teams to ensure reliable system performance, compliance with quality standards, and efficient technical support of diagnostic systems across development and global trial environments.\n\nStart date: asap/by arrangement\n\nPlaned Durration: 12 Months (extension possible)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Rotkreuz\n\nRemote: on side\n\nYour Tasks:\n• You manage commercial and medical sponsoring activities throughout their entire lifecycle—from initial approval and contract support to gathering, reviewing, and archiving all required documentation (attendee lists, event reports, photos, receipts) to ensure a complete audit trail.\n• You screen incoming sponsorship requests and supporting documents (official request letters, detailed agendas, overall event budgets, up-to-date HCP CVs). Review compliance due diligence checks for HCOs and HCPs, and prepare sponsorship and engagement agreements (mostly in German, some in English) using standard templates.\n• You evaluate requests against internal Roche policies and the Swiss Medtech Code. Screen for key risk factors (e.g., events held during ski season, purely tourist destinations, inappropriate entertainment or side programs, and gifts to HCPs).\n• You set up new vendors/creditors (HCOs, HCPs, event agencies) and create/approve Purchase Orders (POs).\n• You track and coordinate financial steps through to invoice verification and approval workflows.\n• You act as the key point of contact for external sponsoring requesters and doctors' associations (coordinating event logistics/approvals), as well as internal business owners, event management, marketing, medical affairs, and local/global compliance teams.\n• You maintain audit-ready, compliant records and file all process-related documents in line with information compliance standards.\n• You review the existing end-to-end GSD process from start to finish to reduce operational complexity.\n• You identify gaps, manual bottlenecks, and redundant handoffs.\n• You develop, revive, and roll out practical solutions to digitize, simplify, and streamline workflows (including updating roles and responsibilities).\n\nYour Profile:\n• You have a minimum of a Bachelor’s degree (Master’s degree preferred), ideally in Law, Compliance, Business Administration, or a related field, to effectively engage with highly educated stakeholders.\n• You have 3–5 years of proven experience in healthcare compliance, ethics compliance, legal operations, or sponsorship management within the Pharma or MedTech industry.\n• You bring solid working knowledge of the Swiss Medtech Code (mandatory—legal background alone is not sufficient) and MedTech Europe guidelines.\n• You have a good understanding of relevant Swiss healthcare law (e.g., TPA/HMG, TPO/VAM) and basic familiarity with broader regulatory frameworks (such as IVDR).\n• You are business fluent in both German and English (written and spoken), as most contracts are in German (with some English contracts for the French-speaking region).\n• You have proficiency in MS Office; highly self-driven, flexible, detail-oriented, and pragmatic project/stakeholder manager with strong communication skills.\n\nNice to have:\n• You bring prior experience with internal systems, processes, and compliance policies.\n• You have hands-on experience opening/onboarding new suppliers and creating/managing Purchase Orders (POs).\n• You have practical experience with disclosing transfers of value under Swiss Medtech and MedTech Europe rules.\n• You speak French\n\nJob profile\n• Life Sciences - Validation & Qualification\n• Zug\n• Contracting\n• Part Time, 80-100%\n• asap - 1 Year contract\n• System Qualification (IQ/OQ), Diagnostic Systems, Hardware Support, troubleshooting, Technical Support, System Maintenance, Quality Management Systems",
         "it": "Per il nostro cliente, stiamo cercando un esperto ingegnere di supporto di sistema (m/f/d) che sarà responsabile per l'installazione, il mantenimento, il supporto e la risoluzione dei problemi sistemi diagnostici durante tutto il loro ciclo di vita, dallo sviluppo al post-lancio.\n\nIn questo ruolo, fornire competenze tecniche attraverso il supporto hardware e software, la qualificazione di sistema (IQ/OQ), la manutenzione preventiva, la risoluzione dei problemi tecnici e la manutenzione del sistema. Potrai lavorare a stretto contatto con i team interfunzionali per garantire prestazioni di sistema affidabili, conformità con gli standard di qualità e un supporto tecnico efficiente dei sistemi diagnostici attraverso lo sviluppo e gli ambienti di prova globali.\n\nData di inizio: asap/by\n\nDurata prevista: 12 mesi (estensione possibile)\n\nCarico di lavoro: 80-100%\n\nTipo di contratto: Contratto\n\nPosizione: Rotkreuz\n\nTelecomando: sul lato\n\nI vostri compiti:\n• Gestisci le attività di sponsorizzazione commerciale e medica in tutto il loro ciclo di vita, dall'approvazione iniziale e dal supporto contrattuale per raccogliere, rivedere e archiviare tutta la documentazione richiesta (elenco di esperti, report eventi, foto, ricevute) per garantire un percorso completo di audit.\n• Si visualizzano richieste di sponsorizzazione in arrivo e documenti di supporto (lettere di richiesta ufficiali, agenda dettagliata, budget per eventi globali, CV HCP aggiornati). Verificare la conformità dei controlli di diligenza per HCO e HCP, e preparare accordi di sponsorizzazione e di impegno (soprattutto in tedesco, alcuni in inglese) utilizzando modelli standard.\n• Valuta le richieste contro le politiche Roche interne e il Codice Medtech svizzero. Schermo per fattori di rischio chiave (ad esempio, eventi tenuti durante la stagione sciistica, mete puramente turistiche, intrattenimento inappropriato o programmi collaterali, e regali per HCP).\n• Hai istituito nuovi fornitori/creditori (HCO, HCP, agenzie di eventi) e creare / approvare ordini di acquisto (PO).\n• Traccia e coordina i passi finanziari attraverso la verifica della fattura e i flussi di lavoro di approvazione.\n• L'utente agisce come punto chiave di contatto per i richiedenti sponsor esterni e le associazioni dei medici (coordinando logistica/omologazioni degli eventi), nonché per i proprietari di affari interni, gestione degli eventi, marketing, affari medici e team di compliance locali/globali.\n• L'utente mantiene i record di audit, conformi e archivia tutti i documenti relativi al processo in linea con gli standard di conformità delle informazioni.\n• Si esamina il processo GSD end-to-end esistente dall'inizio alla fine per ridurre la complessità operativa.\n• Identifichi le lacune, le strozzature manuali e le manopole ridondanti.\n• Sviluppi, rianima e sviluppi soluzioni pratiche per digitalizzare, semplificare e ottimizzare i flussi di lavoro (compreso l'aggiornamento di ruoli e responsabilità).\n\nIl tuo profilo:\n• Hai un minimo di un diploma di laurea (la laurea preferita da Master), idealmente in Diritto, Compliance, Business Administration, o un campo correlato, per impegnarsi efficacemente con parti interessate altamente istruite.\n• Hai 3–5 anni di esperienza comprovata nella compliance sanitaria, nel rispetto dell'etica, nelle operazioni legali o nella gestione della sponsorizzazione nel settore Pharma o MedTech.\n• Porti solide conoscenze di lavoro del Codice Medtech svizzero (obbligatorio-solo background legale non è sufficiente) e le linee guida MedTech Europe.\n• Hai una buona comprensione del diritto sanitario svizzero rilevante (ad esempio, TPA/HMG, TPO/VAM) e la familiarità di base con i più ampi quadri normativi (come IVDR).\n• Lei è fluente di affari sia in tedesco che in inglese (scritto e parlato), come la maggior parte dei contratti sono in tedesco (con alcuni contratti inglesi per la regione francofona).\n• Hai competenza in MS Office; direttore di progetto/stakeholder altamente guidato, flessibile, orientato ai dettagli e pragmatico con forti capacità di comunicazione.\n\nBello da avere:\n• Porti una precedente esperienza con sistemi, processi e politiche di conformità interne.\n• Hai esperienza pratica apertura / onboard nuovi fornitori e la creazione / gestione ordini di acquisto (PO).\n• Hai esperienza pratica con la divulgazione di trasferimenti di valore secondo le norme Swiss Medtech e MedTech Europe.\n• Parli francese\n\nProfilo del lavoro\n• Scienze della vita - Validazione & Qualifica\n• Zucchero\n• Contratti\n• Tempo parziale, 80-100%\n• asap - Contratto di 1 anno\n• Qualificazione di sistema (IQ/OQ), sistemi diagnostici, supporto hardware, risoluzione dei problemi, supporto tecnico, manutenzione di sistema, sistemi di gestione della qualità",
+        "en": "For our client, we are looking for an experienced System Support Engineer (m/f/d) who will be responsible for installing, maintaining, supporting, and troubleshooting Diagnostic Systems throughout their entire lifecycle, from development to post-launch.\n\nIn this role, you will provide technical expertise across hardware and software support, system qualification (IQ/OQ), preventive maintenance, technical troubleshooting, and system servicing. You will work closely with cross-functional teams to ensure reliable system performance, compliance with quality standards, and efficient technical support of diagnostic systems across development and global trial environments.\n\nStart date: asap/by arrangement\n\nPlaned Durration: 12 Months (extension possible)\n\nWorkload: 80-100%\n\nContract Type: Contracting\n\nLocation: Rotkreuz\n\nRemote: on side\n\nYour Tasks:\n• You manage commercial and medical sponsoring activities throughout their entire lifecycle—from initial approval and contract support to gathering, reviewing, and archiving all required documentation (attendee lists, event reports, photos, receipts) to ensure a complete audit trail.\n• You screen incoming sponsorship requests and supporting documents (official request letters, detailed agendas, overall event budgets, up-to-date HCP CVs). Review compliance due diligence checks for HCOs and HCPs, and prepare sponsorship and engagement agreements (mostly in German, some in English) using standard templates.\n• You evaluate requests against internal Roche policies and the Swiss Medtech Code. Screen for key risk factors (e.g., events held during ski season, purely tourist destinations, inappropriate entertainment or side programs, and gifts to HCPs).\n• You set up new vendors/creditors (HCOs, HCPs, event agencies) and create/approve Purchase Orders (POs).\n• You track and coordinate financial steps through to invoice verification and approval workflows.\n• You act as the key point of contact for external sponsoring requesters and doctors' associations (coordinating event logistics/approvals), as well as internal business owners, event management, marketing, medical affairs, and local/global compliance teams.\n• You maintain audit-ready, compliant records and file all process-related documents in line with information compliance standards.\n• You review the existing end-to-end GSD process from start to finish to reduce operational complexity.\n• You identify gaps, manual bottlenecks, and redundant handoffs.\n• You develop, revive, and roll out practical solutions to digitize, simplify, and streamline workflows (including updating roles and responsibilities).\n\nYour Profile:\n• You have a minimum of a Bachelor’s degree (Master’s degree preferred), ideally in Law, Compliance, Business Administration, or a related field, to effectively engage with highly educated stakeholders.\n• You have 3–5 years of proven experience in healthcare compliance, ethics compliance, legal operations, or sponsorship management within the Pharma or MedTech industry.\n• You bring solid working knowledge of the Swiss Medtech Code (mandatory—legal background alone is not sufficient) and MedTech Europe guidelines.\n• You have a good understanding of relevant Swiss healthcare law (e.g., TPA/HMG, TPO/VAM) and basic familiarity with broader regulatory frameworks (such as IVDR).\n• You are business fluent in both German and English (written and spoken), as most contracts are in German (with some English contracts for the French-speaking region).\n• You have proficiency in MS Office; highly self-driven, flexible, detail-oriented, and pragmatic project/stakeholder manager with strong communication skills.\n\nNice to have:\n• You bring prior experience with internal systems, processes, and compliance policies.\n• You have hands-on experience opening/onboarding new suppliers and creating/managing Purchase Orders (POs).\n• You have practical experience with disclosing transfers of value under Swiss Medtech and MedTech Europe rules.\n• You speak French\n\nJob profile\n• Life Sciences - Validation & Qualification\n• Zug\n• Contracting\n• Part Time, 80-100%\n• asap - 1 Year contract\n• System Qualification (IQ/OQ), Diagnostic Systems, Hardware Support, troubleshooting, Technical Support, System Maintenance, Quality Management Systems",
         "de": "Für unseren Kunden suchen wir einen erfahrenen System Support Engineer (m/w/d), der für die Installation, Wartung, Unterstützung und Fehlerbehebung von Diagnosesystemen während ihres gesamten Lebenszyklus, von der Entwicklung bis zum Post-Launch, verantwortlich ist.\n\nIn dieser Rolle bieten Sie technisches Fachwissen über Hardware- und Softwareunterstützung, Systemqualifikation (IQ / OQ), präventive Wartung, technische Fehlersuche und Systemwartung. Sie arbeiten eng mit funktionsübergreifenden Teams zusammen, um eine zuverlässige Systemleistung, die Einhaltung von Qualitätsstandards und eine effiziente technische Unterstützung von Diagnosesystemen in Entwicklungs- und globalen Testumgebungen sicherzustellen.\n\nStartdatum: asap/by arrangement\n\nGeplante Dauer: 12 Monate (Verlängerung möglich)\n\nWorkload: 80-100%\n\nArt des Vertrags: Vertrag\n\nStandort: Rotkreuz\n\nFernbedienung: an der Seite\n\nIhre Aufgaben:\n• Sie verwalten kommerzielle und medizinische Sponsoring-Aktivitäten während ihres gesamten Lebenszyklus - von der Erstgenehmigung und Vertragsunterstützung bis hin zur Sammlung, Überprüfung und Archivierung aller erforderlichen Dokumentationen (Teilnehmerlisten, Veranstaltungsberichte, Fotos, Quittungen), um einen vollständigen Audit-Trail zu gewährleisten.\n• Sie prüfen eingehende Sponsoringanfragen und unterstützende Dokumente (offizielle Anfrageschreiben, detaillierte Tagesordnungen, Gesamtbudgets der Veranstaltungen, aktuelle HCP-Lebensläufe). Überprüfen Sie die Compliance-Prüfungen für HCOs und HCPs und erstellen Sie Sponsoring- und Engagement-Vereinbarungen (meist in deutscher Sprache, einige in englischer Sprache) unter Verwendung von Standardvorlagen.\n• Sie bewerten Anfragen mit internen Roche-Richtlinien und dem Swiss Medtech Code. Bildschirm nach wichtigen Risikofaktoren (z. B. Veranstaltungen während der Skisaison, rein touristische Ziele, unangemessene Unterhaltungs- oder Nebenprogramme und Geschenke an HCPs).\n• Sie gründen neue Anbieter / Gläubiger (HCOs, HCPs, Eventagenturen) und erstellen / genehmigen Bestellungen (POs).\n• Sie verfolgen und koordinieren finanzielle Schritte bis hin zu den Workflows zur Überprüfung und Genehmigung von Rechnungen.\n• Sie fungieren als Ansprechpartner für externe Sponsoring-Antragsteller und Ärzteverbände (koordinierende Eventlogistik/Genehmigungen) sowie interne Unternehmer, Eventmanagement, Marketing, Medical Affairs und lokale/globale Compliance-Teams.\n• Sie führen auditbereite, konforme Aufzeichnungen und archivieren alle prozessbezogenen Dokumente gemäß den Standards für die Compliance mit Informationen.\n• Sie überprüfen den bestehenden End-to-End-GSD-Prozess von Anfang bis Ende, um die betriebliche Komplexität zu reduzieren.\n• Sie identifizieren Lücken, manuelle Engpässe und redundante Übergaben.\n• Sie entwickeln, beleben und rollen praktische Lösungen aus, um Workflows zu digitalisieren, zu vereinfachen und zu rationalisieren (einschließlich der Aktualisierung von Rollen und Verantwortlichkeiten).\n\nIhr Profil:\n• Sie haben mindestens einen Bachelor-Abschluss (Master-Abschluss bevorzugt), idealerweise in Law, Compliance, Business Administration oder einem verwandten Bereich, um sich effektiv mit hochqualifizierten Stakeholdern zu beschäftigen.\n• Sie verfügen über 3-5 Jahre Erfahrung in den Bereichen Compliance im Gesundheitswesen, Ethik-Compliance, rechtliche Operationen oder Sponsoring-Management in der Pharma- oder MedTech-Branche.\n• Sie verfügen über fundierte Kenntnisse des Swiss Medtech Code (obligatorisch – der rechtliche Hintergrund allein reicht nicht aus) und der MedTech Europe Richtlinien.\n• Sie haben ein gutes Verständnis für relevantes Schweizer Gesundheitsrecht (z.B. TPA/HMG, TPO/VAM) und grundlegende Vertrautheit mit breiteren regulatorischen Rahmenbedingungen (z.B. IVDR).\n• Sie sprechen fließend Deutsch und Englisch (schriftlich und gesprochen), da die meisten Verträge auf Deutsch sind (mit einigen englischen Verträgen für den französischsprachigen Raum).\n• Sie haben Kenntnisse in MS Office; hochgradig selbstgesteuert, flexibel, detailorientiert und pragmatischer Projekt- / Stakeholder-Manager mit starken Kommunikationsfähigkeiten.\n\nSchön zu haben:\n• Sie bringen bereits Erfahrungen mit internen Systemen, Prozessen und Compliance-Richtlinien mit.\n• Sie haben praktische Erfahrung beim Eröffnen / Einsteigen neuer Lieferanten und Erstellen / Verwalten von Bestellungen (POs).\n• Sie haben praktische Erfahrung mit der Offenlegung von Wertübertragungen nach den Regeln von Swiss Medtech und MedTech Europe.\n• Du sprichst Französisch\n\nStellenprofil\n• Life Sciences - Validierung & Qualifizierung\n• Zug\n• Vertrag\n• Teilzeit, 80-100%\n• asap - 1 Jahr Vertrag\n• Systemqualifikation (IQ/OQ), Diagnosesysteme, Hardware-Support, Fehlerbehebung, Technischer Support, Systemwartung, Qualitätsmanagementsysteme",
         "fr": "Pour notre client, nous recherchons un ingénieur expérimenté du support système (h/f/d) qui sera responsable de l'installation, de la maintenance, de la prise en charge et du dépannage des systèmes de diagnostic tout au long de leur cycle de vie, du développement à la post-lancement.\n\nDans ce rôle, vous fournirez une expertise technique à travers le support matériel et logiciel, la qualification du système (IQ/OQ), la maintenance préventive, le dépannage technique et l'entretien du système. Vous travaillerez en étroite collaboration avec des équipes interfonctionnelles afin d'assurer une performance fiable du système, le respect des normes de qualité et un soutien technique efficace des systèmes de diagnostic dans les environnements de développement et d'essais mondiaux.\n\nDate de début: selon les modalités\n\nDurée prévue: 12 mois (extension possible)\n\nCharge de travail: 80-100%\n\nType de contrat: Contrat\n\nLieu: Rotkreuz\n\nTélécommande: sur le côté\n\nVos tâches:\n• Vous gérez les activités de parrainage commercial et médical tout au long de leur cycle de vie, depuis l'approbation initiale et le soutien contractuel jusqu'à la collecte, l'examen et l'archivage de tous les documents requis (listes des participants, rapports d'événements, photos, reçus) pour assurer une piste de vérification complète.\n• Vous passez en revue les demandes de commandites et les documents à l'appui (lettres de demandes officielles, ordres du jour détaillés, budgets globaux des événements, CV HCP à jour). Examiner les vérifications de la conformité pour les HCO et les HCP, et préparer des ententes de parrainage et d'engagement (principalement en allemand, certains en anglais) à l'aide de modèles standard.\n• Vous évaluez les demandes contre les politiques internes de Roche et le Code suisse Medtech. Écran pour les principaux facteurs de risque (p. ex., les événements tenus pendant la saison de ski, les destinations purement touristiques, les divertissements inappropriés ou les programmes parallèles, et les cadeaux aux PCH).\n• Vous créez de nouveaux fournisseurs/créanciers (HCO, HCP, agences événementielles) et créez/approuvez des bons de commande (PO).\n• Vous suivez et coordonnez les étapes financières jusqu'aux processus de vérification et d'approbation des factures.\n• Vous êtes le point de contact principal pour les demandeurs externes et les associations de médecins (coordonner la logistique/approbation des événements), ainsi que les propriétaires d'entreprises internes, la gestion des événements, le marketing, les affaires médicales et les équipes de conformité locales/mondiales.\n• Vous conservez des dossiers conformes prêts à l'audit et déposez tous les documents liés au processus conformément aux normes de conformité à l'information.\n• Vous examinez le processus GSD de bout en bout existant du début à la fin pour réduire la complexité opérationnelle.\n• Vous identifiez les lacunes, les goulets d'étranglement manuels et les transferts redondants.\n• Vous développez, relancez et déployez des solutions pratiques pour numériser, simplifier et rationaliser les workflows (y compris la mise à jour des rôles et des responsabilités).\n\nVotre profil:\n• Vous avez un minimum d'un baccalauréat (diplôme de maîtrise préféré), idéalement en droit, conformité, administration des affaires, ou un domaine connexe, pour engager efficacement avec des intervenants hautement éduqués.\n• Vous disposez de 3 à 5 ans d'expérience prouvée dans les domaines de la conformité des soins de santé, de l'éthique, des opérations juridiques ou de la gestion des commandites au sein de l'industrie Pharma ou MedTech.\n• Vous apportez une solide connaissance de travail du Code suisse Medtech (obligatoire – le contexte juridique à lui seul n'est pas suffisant) et des lignes directrices MedTech Europe.\n• Vous avez une bonne compréhension du droit suisse en matière de santé (p. ex., TPA/HMG, TPO/VAM) et une connaissance fondamentale des cadres réglementaires plus larges (tels que IVDR).\n• Vous êtes une entreprise parlant couramment l'allemand et l'anglais (écrit et parlé), comme la plupart des contrats sont en allemand (avec quelques contrats anglais pour la région francophone).\n• Vous avez des compétences en MS Office; hautement autonome, flexible, axé sur les détails et pragmatique gestionnaire de projets/intervenants avec de solides compétences en communication.\n\nSympa d'avoir:\n• Vous apportez une expérience préalable avec les systèmes internes, les processus et les politiques de conformité.\n• Vous avez une expérience pratique d'ouverture/à bord de nouveaux fournisseurs et de création/gestion de commandes (PO).\n• Vous avez une expérience pratique de la divulgation des transferts de valeur selon les règles de Swiss Medtech et MedTech Europe.\n• Vous parlez français\n\nProfil d'emploi\n• Sciences de la vie - Validation et qualification\n• Zug\n• Contrats\n• Temps partiel, 80-100%\n• asap - Contrat de 1 an\n• Qualification système (IQ/OQ), Systèmes de diagnostic, Support matériel, dépannage, Support technique, Maintenance du système, Systèmes de gestion de la qualité"
       },
@@ -4334,7 +4334,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DU207T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:15.663Z",
+      "crawledAt": "2026-11-13T09:22:07.846Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4362,10 +4362,10 @@
           "Life Sciences - Validation & Qualification",
           "Contracting",
           "Part Time, 80-100%",
-          "asap - 1 Year contract",
-          "System Qualification (IQ/OQ), Diagnostic Systems, Hardware Support, troubleshooting, Technical Support, System Maintenance, Quality Management Systems"
+          "asap - 1 Year contract"
         ]
       },
+      "firstSeenAt": "2026-11-12T21:39:15.663Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -4382,16 +4382,15 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:39:15.663Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:39:15.663Z"
+      "validThrough": "2027-01-11T09:22:07.846Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-252ebbe4bdea",
       "slug": "progetto-analitico-lead-technical-r-d-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "en": "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt",
         "it": "progetto-analitico-lead-technical-r-d-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt",
         "de": "analytischer-projektleiter-technische-forschung-und-entwicklung-m-w-d-coopers-group-ag-basel-stadt",
         "fr": "chef-de-projet-analytique-r-d-technique-h-f-d-coopers-group-ag-basel-stadt"
       },
@@ -4400,15 +4399,15 @@
       "companyDomain": "coopers.ch",
       "title": "Analytical Project Lead – Technical R&D (m/f/d)",
       "titleByLocale": {
-        "en": "Analytical Project Lead – Technical R&D (m/f/d)",
         "it": "Progetto analitico Lead – Technical R&D (m/f/d)",
+        "en": "Analytical Project Lead – Technical R&D (m/f/d)",
         "de": "Analytischer Projektleiter – Technische Forschung und Entwicklung (m/w/d)",
         "fr": "Chef de projet analytique – R-D technique (h/f/d)"
       },
       "description": "Do you have a strong experience in the analytical development of synthetic drug substances with a specialization for peptides? Then you might be the team member who we are looking for!\n\nYour responsibilities:\n• You serve as the Analytical SME/analytical project lead (APL), driving the development of state-of-the-art analytical control packages for synthetic molecules, including direct materials, IPCs, intermediates, and crude APIs.\n• You actively contribute to portfolio delivery by ensuring efficient and effective process development analytics, including the adoption of modern techniques like modeling and simulation.\n• You coach technicians and junior scientists on project work and serving as a central point of contact for project-related information\n• You supervise internal laboratory activities and / or testing activities at CLOs/CDMOs\n• You collaborate cross-functionally with key partners in research and early development, Regulatory, and Quality to ensure seamless project execution and alignment.\n• You author, review, and approve critical documents and regulatory dossiers (e.g., QIMPD, NDA) while ensuring compliance with quality standards and data integrity.\n• You act as a Chemistry Project Lead (CPL), leading external testing activities at CDMOs or CLOs.\n\nYour background:\n• A Master's or Ph.D. in chemistry, pharmacy, or a related field.\n• Min. 5 years of professional experience within the analytical development of synthetic peptides.\n• You have a robust foundation in liquid chromatography (HPLC and UHPLC) with proficiency in various detection methods, including UV, Mass Spectrometry (MS), fluorescence, and charged aerosol detection.\n• You possess a solid understanding of analytical chemistry, particularly chromatographic techniques (HPLC, GC), titrations, and various physicochemical methods.\n• You demonstrate excellent collaboration, technical supervision, and project management skills, with a structured and rigorous approach\n• Digital acumen to support digital transformation initiatives; familiarity with statistical analysis of analytical data is also advantageous\n\nJob profile\n• Life Sciences - R&D Laboratory\n• Basel-Stadt\n• Contracting\n• Full Time\n• Analytical methods",
       "descriptionByLocale": {
-        "en": "Do you have a strong experience in the analytical development of synthetic drug substances with a specialization for peptides? Then you might be the team member who we are looking for!\n\nYour responsibilities:\n• You serve as the Analytical SME/analytical project lead (APL), driving the development of state-of-the-art analytical control packages for synthetic molecules, including direct materials, IPCs, intermediates, and crude APIs.\n• You actively contribute to portfolio delivery by ensuring efficient and effective process development analytics, including the adoption of modern techniques like modeling and simulation.\n• You coach technicians and junior scientists on project work and serving as a central point of contact for project-related information\n• You supervise internal laboratory activities and / or testing activities at CLOs/CDMOs\n• You collaborate cross-functionally with key partners in research and early development, Regulatory, and Quality to ensure seamless project execution and alignment.\n• You author, review, and approve critical documents and regulatory dossiers (e.g., QIMPD, NDA) while ensuring compliance with quality standards and data integrity.\n• You act as a Chemistry Project Lead (CPL), leading external testing activities at CDMOs or CLOs.\n\nYour background:\n• A Master's or Ph.D. in chemistry, pharmacy, or a related field.\n• Min. 5 years of professional experience within the analytical development of synthetic peptides.\n• You have a robust foundation in liquid chromatography (HPLC and UHPLC) with proficiency in various detection methods, including UV, Mass Spectrometry (MS), fluorescence, and charged aerosol detection.\n• You possess a solid understanding of analytical chemistry, particularly chromatographic techniques (HPLC, GC), titrations, and various physicochemical methods.\n• You demonstrate excellent collaboration, technical supervision, and project management skills, with a structured and rigorous approach\n• Digital acumen to support digital transformation initiatives; familiarity with statistical analysis of analytical data is also advantageous\n\nJob profile\n• Life Sciences - R&D Laboratory\n• Basel-Stadt\n• Contracting\n• Full Time\n• Analytical methods",
         "it": "Hai una forte esperienza nello sviluppo analitico delle sostanze chimiche sintetiche con una specializzazione per i peptidi? Allora potrebbe essere il membro del team che stiamo cercando!\n\nLe tue responsabilità:\n• Lei funge da guida di progetto analitico PMI/analytical (APL), guidando lo sviluppo di pacchetti di controllo analitico all'avanguardia per molecole sintetiche, inclusi materiali diretti, IPC, intermedi e API grezze.\n• Contribuisci attivamente alla consegna del portafoglio garantendo analisi di sviluppo di processo efficienti ed efficaci, tra cui l'adozione di tecniche moderne come la modellazione e la simulazione.\n• Lei allena tecnici e giovani scienziati sul lavoro di progetto e serve come punto centrale di contatto per le informazioni relative al progetto\n• Si supervisionano attività di laboratorio interne e/o attività di test presso CLOs/CDMOs\n• Collabori in modo interfunzionale con partner chiave nella ricerca e nello sviluppo precoce, nella regolamentazione e nella qualità per garantire l'esecuzione e l'allineamento del progetto senza soluzione di continuità.\n• L'utente autorizza, esamina e approva i documenti critici e i dossier normativi (ad esempio QIMPD, NDA) garantendo al contempo il rispetto degli standard di qualità e dell'integrità dei dati.\n• Si agisce come un progetto di chimica Piombo (CPL), leader attività di test esterni presso CDMO o CLO.\n\nIl tuo sfondo:\n• Un Master o Ph.D. in chimica, farmacia o un campo correlato.\n• Min. 5 anni di esperienza professionale all'interno dello sviluppo analitico di peptidi sintetici.\n• Hai una solida base in cromatografia liquida (HPLC e UHPLC) con competenza in vari metodi di rilevamento, tra cui UV, spettrometria di massa (MS), fluorescenza e rilevamento di aerosol carica.\n• Possiedi una solida comprensione della chimica analitica, in particolare delle tecniche cromatografiche (HPLC, GC), delle titrazioni e dei vari metodi fisicochimici.\n• Lei dimostra eccellenti capacità di collaborazione, supervisione tecnica e gestione del progetto, con un approccio strutturato e rigoroso\n• Acuma digitale per sostenere le iniziative di trasformazione digitale; la familiarità con l'analisi statistica dei dati analitici è anche vantaggiosa\n\nProfilo del lavoro\n• Scienze della vita - R&D Laboratory\n• Basilea-Stato\n• Contratti\n• Tempo pieno\n• Metodi analitici",
+        "en": "Do you have a strong experience in the analytical development of synthetic drug substances with a specialization for peptides? Then you might be the team member who we are looking for!\n\nYour responsibilities:\n• You serve as the Analytical SME/analytical project lead (APL), driving the development of state-of-the-art analytical control packages for synthetic molecules, including direct materials, IPCs, intermediates, and crude APIs.\n• You actively contribute to portfolio delivery by ensuring efficient and effective process development analytics, including the adoption of modern techniques like modeling and simulation.\n• You coach technicians and junior scientists on project work and serving as a central point of contact for project-related information\n• You supervise internal laboratory activities and / or testing activities at CLOs/CDMOs\n• You collaborate cross-functionally with key partners in research and early development, Regulatory, and Quality to ensure seamless project execution and alignment.\n• You author, review, and approve critical documents and regulatory dossiers (e.g., QIMPD, NDA) while ensuring compliance with quality standards and data integrity.\n• You act as a Chemistry Project Lead (CPL), leading external testing activities at CDMOs or CLOs.\n\nYour background:\n• A Master's or Ph.D. in chemistry, pharmacy, or a related field.\n• Min. 5 years of professional experience within the analytical development of synthetic peptides.\n• You have a robust foundation in liquid chromatography (HPLC and UHPLC) with proficiency in various detection methods, including UV, Mass Spectrometry (MS), fluorescence, and charged aerosol detection.\n• You possess a solid understanding of analytical chemistry, particularly chromatographic techniques (HPLC, GC), titrations, and various physicochemical methods.\n• You demonstrate excellent collaboration, technical supervision, and project management skills, with a structured and rigorous approach\n• Digital acumen to support digital transformation initiatives; familiarity with statistical analysis of analytical data is also advantageous\n\nJob profile\n• Life Sciences - R&D Laboratory\n• Basel-Stadt\n• Contracting\n• Full Time\n• Analytical methods",
         "de": "Haben Sie eine starke Erfahrung in der analytischen Entwicklung von synthetischen Wirkstoffen mit einer Spezialisierung für Peptide? Dann sind Sie vielleicht das Teammitglied, das wir suchen!\n\nIhre Aufgaben:\n• Sie sind als Analytical SME/analytical project lead (APL) tätig und treiben die Entwicklung modernster analytischer Kontrollpakete für synthetische Moleküle voran, darunter Direktmaterialien, IPCs, Zwischenprodukte und Roh-APIs.\n• Sie tragen aktiv zur Portfoliobereitstellung bei, indem Sie eine effiziente und effektive Prozessentwicklungsanalyse sicherstellen, einschließlich der Einführung moderner Techniken wie Modellierung und Simulation.\n• Sie coachen Techniker und Nachwuchswissenschaftler bei der Projektarbeit und dienen als zentrale Anlaufstelle für projektbezogene Informationen\n• Sie beaufsichtigen interne Laboraktivitäten und / oder Testaktivitäten bei CLOs / CDMOs\n• Sie arbeiten funktionsübergreifend mit wichtigen Partnern in Forschung und Frühentwicklung, Regulierung und Qualität zusammen, um eine nahtlose Projektabwicklung und -ausrichtung zu gewährleisten.\n• Sie verfassen, überprüfen und genehmigen kritische Dokumente und regulatorische Dossiers (z. B. QIMPD, NDA) und gewährleisten gleichzeitig die Einhaltung von Qualitätsstandards und Datenintegrität.\n• Sie sind als Chemieprojektleiter (CPL) tätig und leiten externe Testaktivitäten bei CDMOs oder CLOs.\n\nIhr Hintergrund:\n• Ein Master oder Ph.D. in Chemie, Apotheke oder einem verwandten Bereich.\n• Min. 5 Jahre Berufserfahrung in der analytischen Entwicklung von synthetischen Peptiden.\n• Sie haben eine robuste Grundlage in der Flüssigkeitschromatographie (HPLC und UHPLC) mit Kenntnissen in verschiedenen Nachweismethoden, einschließlich UV, Massenspektrometrie (MS), Fluoreszenz und geladener Aerosoldetektion.\n• Sie besitzen ein solides Verständnis der analytischen Chemie, insbesondere chromatographische Techniken (HPLC, GC), Titrationen und verschiedene physikalisch-chemische Methoden.\n• Sie zeigen hervorragende Zusammenarbeit, technische Überwachung und Projektmanagementfähigkeiten mit einem strukturierten und strengen Ansatz\n• Digitaler Scharfsinn zur Unterstützung digitaler Transformationsinitiativen; Vertrautheit mit der statistischen Analyse analytischer Daten ist ebenfalls von Vorteil\n\nStellenprofil\n• Life Sciences - R&D Labor\n• Basel-Stadt\n• Vertrag\n• Vollzeit\n• Analysemethoden",
         "fr": "Avez-vous une solide expérience dans le développement analytique de substances médicamenteuses synthétiques avec une spécialisation pour les peptides? Alors vous pourriez être le membre de l'équipe que nous cherchons !\n\nVos responsabilités :\n• Vous servez de responsable de projet analytique (APL) pour les PME et les PME, et vous dirigez le développement de paquets de contrôle analytique de pointe pour les molécules synthétiques, y compris les matériaux directs, les IPC, les intermédiaires et les API brutes.\n• Vous contribuez activement à la prestation du portefeuille en assurant une analyse de développement de processus efficace et efficiente, y compris l'adoption de techniques modernes comme la modélisation et la simulation.\n• Vous entraînez des techniciens et des scientifiques subalternes sur le travail du projet et vous servez de point de contact central pour l'information relative au projet\n• Vous supervisez les activités de laboratoire internes et/ou les activités de test chez les ACL/OCDM\n• Vous collaborez de façon interfonctionnelle avec des partenaires clés dans la recherche et le développement précoce, la réglementation et la qualité pour assurer l'exécution et l'alignement des projets.\n• Vous rédigez, examinez et approuvez les documents essentiels et les dossiers réglementaires (p. ex., la DPQM, la NDA) tout en assurant le respect des normes de qualité et de l'intégrité des données.\n• Vous agissez comme chef de projet de chimie (CPL), dirigeant les activités d'essais externes chez CDMOs ou CLOs.\n\nVotre historique:\n• Maîtrise ou doctorat en chimie, pharmacie ou domaine connexe.\n• Moins de 5 ans d'expérience professionnelle dans le développement analytique des peptides synthétiques.\n• Vous avez une base solide en chromatographie liquide (HPLC et UHPLC) avec compétence dans diverses méthodes de détection, y compris les UV, la spectrométrie de masse (MS), la fluorescence et la détection d'aérosols chargés.\n• Vous possédez une solide compréhension de la chimie analytique, en particulier les techniques chromatographiques (HPLC, GC), les titrages et diverses méthodes physicochimiques.\n• Vous démontrez une excellente collaboration, une supervision technique et des compétences en gestion de projet, avec une approche structurée et rigoureuse\n• La connaissance de l'analyse statistique des données analytiques est également avantageuse.\n\nProfil d'emploi\n• Sciences de la vie - Laboratoire de R-D\n• Bâle-Stadt\n• Contrats\n• Temps plein\n• Méthodes d'analyse"
       },
@@ -4417,7 +4416,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=68XLU0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:39:14.442Z",
+      "crawledAt": "2026-11-13T09:22:06.819Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4449,6 +4448,21 @@
           "Analytical methods"
         ]
       },
+      "previousSlugs": [
+        "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "firstSeenAt": "2026-11-12T21:39:14.442Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -4465,23 +4479,8 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:39:14.442Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:39:14.442Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
-        ],
-        "de": [
-          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
-        ],
-        "fr": [
-          "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
-        ]
-      },
-      "previousSlugs": [
-        "analytical-project-lead-technical-r-d-m-f-d-coopers-basel-stadt"
-      ]
+      "validThrough": "2027-01-11T09:22:06.819Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-2e3757c8f99c",
@@ -4578,7 +4577,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:28:01.186Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-14d33a3919ad",
@@ -4674,7 +4673,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T21:27:57.279Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-1196091e1c88",
@@ -4771,7 +4770,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:27:56.307Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-46c542c8390e",
@@ -4864,296 +4863,6 @@
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T21:27:48.355Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "coopers-9c6230b096fd",
-      "slug": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
-        "en": "clerk-goods-receipt-invoice-control-m-f-d-coopers-group-ag-zug",
-        "de": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
-        "fr": "collaborateur-trice-administratif-ve-reception-des-marchandises-controle-des-factures-h-f-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Sachbearbeiter:in - Wareneingang & Rechnungskontrolle (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a amministrativo/a - Ricevimento merci e controllo delle fatture (m/f/d)",
-        "en": "Clerk - Goods Receipt & Invoice Control (m/f/d)",
-        "de": "Sachbearbeiter:in - Wareneingang & Rechnungskontrolle (m/w/d)",
-        "fr": "Collaborateur·trice administratif·ve - réception des marchandises & contrôle des factures (h/f/d)"
-      },
-      "description": "Für unseren Kunden in Zug , suchen wir eine:n motivierte:n und aufgeschlossene:n Sachbearbeiter:in - Wareneingang & Rechnungskontrolle.\n\nDeine Aufgaben:\n• Erfassung, Aufbereitung und Kontrolle von Warenrechnungen\n• Pflege und Aktualisierung von Daten im System\n• Prüfung und Freigabe von Zahlungen\n• Ansprechperson für interne Abteilungen wie Einkauf, Wareneingang und Verkauf sowie für externe Spediteure\n• Unterstützung bei allgemeinen administrativen Tätigkeiten\n\nDein Profil:\n• Erfahrung im kaufmännischen oder administrativen Umfeld\n• Zahlenaffinität sowie eine genaue, strukturierte und sorgfältige Arbeitsweise\n• Gute IT-Anwenderkenntnisse\n• Kenntnisse in Microsoft Dynamics 365 (D365) von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse sowie Grundkenntnisse in Englisch\n\nJob profile\n• Administration - Various\n• Zug\n• Contracting\n• Part Time, 50%\n• ab sofort - 3 Monate mit Option auf Verlängerung/Internalisierung\n• Büroadministration\n\nJob benefits\n• Company laptop\n• Coopers Care\n• First-name terms\n• Modern workspace",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente a Zug, stiamo cercando un:n motivato:n e open-minded:n clerk:in - ricevuta di merci & fattura di controllo.\n\nI vostri compiti:\n• Registrazione, preparazione e controllo delle fatture fisiche\n• Manutenzione e aggiornamento dei dati nel sistema\n• Verifica e rilascio dei pagamenti\n• Persona di contatto per i dipartimenti interni come l'acquisto, la ricevuta di merci e le vendite, nonché per gli spedizionieri esterni\n• Sostegno alle attività amministrative generali\n\nIl tuo profilo:\n• Esperienza nell'ambiente commerciale o amministrativo\n• Numero di affinità e metodo di lavoro preciso, strutturato e attento\n• Buona conoscenza degli utenti IT\n• Conoscenza di Microsoft Dynamics 365 (D365)\n• Lavoro autonomo, affidabile e responsabile\n• Molto buona conoscenza della conoscenza tedesca e di base dell'inglese\n\nProfili di lavoro\n• Amministrazione - Varie\n• Treno\n• Contratti\n• Tempo parziale, 80-100 %\n• da ora - 3 mesi con opzione per estensione/internalizzazione\n• Amministrazione\n\nPrestazioni di lavoro\n• Computer aziendale\n• Coopers Care\n• Termini di primo nome\n• Spazio di lavoro moderno",
-        "en": "For our customer in Zug, we are looking for a:n motivated:n and open-minded:n clerk:in - goods receipt & invoice control.\n\nYour tasks:\n• Recording, preparation and control of physical invoices\n• Maintenance and updating of data in the system\n• Verification and release of payments\n• Contact person for internal departments such as purchasing, goods receipt and sales as well as for external forwarders\n• Support for general administrative activities\n\nYour profile:\n• Experience in the commercial or administrative environment\n• Number affinity and a precise, structured and careful working method\n• Good IT user knowledge\n• Knowledge of Microsoft Dynamics 365 (D365)\n• Self-employed, reliable and responsible work\n• Very good knowledge of German and basic knowledge of English\n\nJob profiles\n• Administration - Various\n• Train\n• Contracting\n• Part Time, 80-100 %\n• from now - 3 months with option for extension/internalization\n• Office administration\n\nJob benefits\n• Company laptop\n• Coopers Care\n• First-name terms\n• Modern workspace",
-        "de": "Für unseren Kunden in Zug , suchen wir eine:n motivierte:n und aufgeschlossene:n Sachbearbeiter:in - Wareneingang & Rechnungskontrolle.\n\nDeine Aufgaben:\n• Erfassung, Aufbereitung und Kontrolle von Warenrechnungen\n• Pflege und Aktualisierung von Daten im System\n• Prüfung und Freigabe von Zahlungen\n• Ansprechperson für interne Abteilungen wie Einkauf, Wareneingang und Verkauf sowie für externe Spediteure\n• Unterstützung bei allgemeinen administrativen Tätigkeiten\n\nDein Profil:\n• Erfahrung im kaufmännischen oder administrativen Umfeld\n• Zahlenaffinität sowie eine genaue, strukturierte und sorgfältige Arbeitsweise\n• Gute IT-Anwenderkenntnisse\n• Kenntnisse in Microsoft Dynamics 365 (D365) von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse sowie Grundkenntnisse in Englisch\n\nJob profile\n• Administration - Various\n• Zug\n• Contracting\n• Part Time, 50%\n• ab sofort - 3 Monate mit Option auf Verlängerung/Internalisierung\n• Büroadministration\n\nJob benefits\n• Company laptop\n• Coopers Care\n• First-name terms\n• Modern workspace",
-        "fr": "Pour notre client à Zug, nous recherchons un:n motivé:n et ouvert d'esprit:n commis:in - récépissé des marchandises & contrôle des factures.\n\nVos tâches:\n• Enregistrement, préparation et contrôle des factures matérielles\n• Maintenance et mise à jour des données du système\n• Vérification et libération des paiements\n• Personne-ressource pour les services internes tels que l'achat, la réception et la vente de marchandises ainsi que pour les transitaires externes\n• Appui aux activités administratives générales\n\nVotre profil:\n• Expérience dans l'environnement commercial ou administratif\n• L'affinité numérique et une méthode de travail précise, structurée et prudente\n• Bonne connaissance de l'utilisateur informatique\n• Connaissance de Microsoft Dynamics 365 (D365)\n• Travail indépendant, travail fiable et responsable\n• Très bonne connaissance de l'allemand et connaissance de base de l'anglais\n\nProfils d'emploi\n• Administration - Divers\n• Train\n• Contrats\n• Temps partiel, 80-100 %\n• à partir de maintenant - 3 mois avec possibilité d'extension/internalisation\n• Administration des bureaux\n\nPrestations d'emploi\n• Ordinateur portable de la société\n• Coopers Care\n• Termes de prénom\n• Espace de travail moderne"
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=EHF530",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:30:27.675Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-26T00:00:00Z",
-      "postedDate": "2026-10-26T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=EHF530",
-      "requirements": [
-        "Administration - Various",
-        "Contracting",
-        "Part Time, 50%",
-        "ab sofort - 3 Monate mit Option auf Verlängerung/Internalisierung",
-        "Büroadministration"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Administration - Various",
-          "Contracting",
-          "Part Time, 80-100%",
-          "ab sofort - 3 Monate mit Option auf Verlängerung/Internalisierung",
-          "Büroadministration",
-          "Part Time, 50%"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
-        ],
-        "en": [
-          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
-        ],
-        "fr": [
-          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-10-26T21:31:46.301Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6300",
-      "streetAddress": "Zug",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:30:27.675Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-8c472b4d7c43",
-      "slug": "responsabile-di-progetto-m-w-d-coopers-group-ag-bern",
-      "slugByLocale": {
-        "it": "responsabile-di-progetto-m-w-d-coopers-group-ag-bern",
-        "en": "project-manager-m-w-d-coopers-group-ag-bern",
-        "de": "projektleiter-in-m-w-d-coopers-bern",
-        "fr": "chef-de-projet-m-w-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Projektleiter:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile di progetto (m/w/d)",
-        "en": "Project Manager (m/w/d)",
-        "de": "Projektleiter:in (m/w/d)",
-        "fr": "Chef de projet (m/w/d)"
-      },
-      "description": "Für unseren Kunden aus der Bundesverwaltung suchen wir eine:n erfahrene:n Projektleiter:in IT. In dieser vielseitigen Rolle übernimmst du die operative Steuerung und Koordination anspruchsvoller IT-Projekte und stellst eine effiziente Umsetzung der definierten Projektziele sicher.\n\nDeine Aufgaben:\n• Unterstützung und fachlich kompetente Stellvertretung des internen Projektleiters innerhalb der definierten Aufgaben, Kompetenzen und Verantwortlichkeiten\n• Planung, Steuerung und Koordination von Teilprojekten über sämtliche Projektphasen hinweg\n• Überwachung von Projektfortschritten, Meilensteinen, Ressourcen und Kosten sowie Sicherstellung der Einhaltung definierter Projektziele\n• Identifikation, Bewertung und Nachverfolgung von Projektrisiken, Abhängigkeiten und offenen Massnahmen sowie frühzeitige Einleitung geeigneter Gegenmassnahmen\n• Sicherstellung einer strukturierten Aufgabenplanung, Priorisierung und konsequenten Nachverfolgung von Projektaktivitäten in Jira\n• Koordination und Abstimmung mit internen und externen Stakeholdern sowie Sicherstellung eines transparenten und zeitgerechten Informationsflusses\n• Anwendung und Weiterentwicklung der vorgegebenen agilen Arbeitsmethoden und Projektmanagementprozesse\n• Erstellung, Pflege und Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation in Confluence sowie weiteren vorgesehenen Systemen\n• Aufbereitung und Dokumentation relevanter Projektinformationen, Lieferergebnisse, Entscheidungen und Statusberichte\n• Unterstützung bei der kontinuierlichen Optimierung von Projektabläufen sowie Sicherstellung einer effizienten Zusammenarbeit zwischen den beteiligten Anspruchsgruppen\n\nDein Profil:\n• Höhere Berufsbildung (HF) oder Fachhochschulabschluss in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im IT-Projektmanagement sowie in der eigenständigen Steuerung und Koordination von Teilprojekten\n• Fundierte Kenntnisse in klassischen und agilen Projektmanagementmethoden sowie Erfahrung in der Anwendung strukturierter Projektmanagementprozesse\n• Sehr gute Kenntnisse im Umgang mit Jira und Confluence zur Projektplanung, Aufgabensteuerung und Dokumentation\n• Erfahrung im Projektcontrolling, insbesondere in der Überwachung von Ressourcen, Kosten, Terminen, Meilensteinen und Risiken\n• Ausgeprägte organisatorische und koordinative Fähigkeiten sowie Erfahrung im Umgang mit unterschiedlichen Stakeholdern\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung, Durchsetzungsvermögen und analytischem Denkvermögen\n• Sehr gute Kommunikationsfähigkeiten sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten und zu vermitteln\n• Sehr gute Deutschkenntnisse in Wort und Schrift, gutes Englisch von Vorteil\n• Sauberer Leumund ist zwingend\n• Erfahrung in Projekten der öffentlichen Verwaltung oder im sicherheitsrelevanten Umfeld von Vorteil\n• Zertifizierungen in HERMES, IPMA, PRINCE2 oder agilen Projektmanagementmethoden von Vorteil\n\nJob profile\n• IT - IT Infrastructure & Operations\n• IT - IT Management\n• IT - Project Management\n• IT - Quality Management\n• Bern\n• Contracting\n• Part Time, 80-100%\n• 01.01.2027 - 31.12.2027 (Option auf Verlängerung)\n• HERMES, Jira, Confluence, Project Management",
-      "descriptionByLocale": {
-        "it": "Per i nostri clienti dell'Amministrazione federale stiamo cercando un:n esperto:n project manager:in IT. In questo ruolo versatile, si prende il controllo operativo e il coordinamento di progetti IT esigenti e garantire un'implementazione efficiente degli obiettivi di progetto definiti.\n\nI vostri compiti:\n• Sostegno e delegato competente del responsabile del progetto interno all'interno delle attività, competenze e responsabilità definite\n• Pianificazione, controllo e coordinamento dei sottoprogetti in tutte le fasi del progetto\n• Monitoraggio del progresso del progetto, delle pietre miliari, delle risorse e dei costi e del rispetto degli obiettivi di progetto definiti\n• Identificazione, valutazione e monitoraggio dei rischi di progetto, dipendenze e misure aperte, nonché l'implementazione precoce di adeguate contromisure\n• Garantire la pianificazione delle attività strutturate, la priorità e il monitoraggio coerente delle attività di progetto in Jira\n• Coordinamento e coordinamento con gli stakeholder interni ed esterni, nonché garantire un flusso trasparente e tempestivo di informazioni\n• Applicazione e ulteriore sviluppo dei metodi di lavoro agili predefiniti e dei processi di gestione dei progetti\n• Creazione, manutenzione e garanzia di una documentazione completa e comprensibile del progetto in Confluenza e altri sistemi previsti\n• Preparazione e documentazione delle informazioni relative al progetto, dei risultati delle consegne, delle decisioni e dei rapporti di stato\n• Sostegno all'ottimizzazione continua dei processi di progetto e alla cooperazione efficiente tra gli stakeholder coinvolti\n\nIl tuo profilo:\n• Formazione professionale superiore (HF) o università di laurea in scienze applicate in informatica, informatica aziendale, amministrazione aziendale o una qualifica comparabile\n• Diversi anni di esperienza nella gestione dei progetti IT e nel controllo indipendente e coordinamento dei sottoprogetti\n• Conoscenza approfondita dei metodi di gestione dei progetti classici e agili e l'esperienza nell'applicazione dei processi di gestione dei progetti strutturati\n• Conoscenza molto buona nel trattare con Jira e Confluence per la pianificazione del progetto, la gestione delle attività e la documentazione\n• Esperienza nel controllo del progetto, soprattutto nel monitoraggio delle risorse, dei costi, delle scadenze, delle pietre miliari e dei rischi\n• Forte capacità organizzative e coordinate e l'esperienza nel trattare con diversi stakeholder\n• Metodo di lavoro strutturato, indipendente e orientato alla soluzione con elevata responsabilità personale, assertività e capacità di pensiero analitico\n• Molto buone capacità di comunicazione e la capacità di preparare e comunicare problemi complessi appropriati al destinatario\n• Molto buona conoscenza del tedesco in parola e scrittura, buon inglese è vantaggioso\n• Clean Leumund è obbligatorio\n• L'esperienza nei progetti di pubblica amministrazione o in un ambiente favorevole alla sicurezza\n• Le certificazioni in HERMES, IPMA, PRINCE2 o i metodi di gestione dei progetti agili sono vantaggiosi\n\nProfili di lavoro\n• IT - Infrastrutture e Operazioni IT\n• IT - Gestione IT\n• IT - Project Management\n• IT - Gestione della qualità\n• Berna\n• Contraente\n• Tempo parziale, 80-100 %\n• 01.01.2027 - 31.12.2027 (opzione da estendere)\n• HERMES, Jira, Confluenza, Project Management",
-        "en": "For our customer from the Federal Administration we are looking for a:n experienced:n project manager:in IT. In this versatile role, you take over the operational control and coordination of demanding IT projects and ensure an efficient implementation of the defined project goals.\n\nYour tasks:\n• Support and competent deputy of the internal project manager within the defined tasks, competences and responsibilities\n• Planning, control and coordination of sub-projects across all project phases\n• Monitoring project progress, milestones, resources and costs and ensuring compliance with defined project objectives\n• Identification, evaluation and tracking of project risks, dependencies and open measures as well as early implementation of appropriate countermeasures\n• Ensuring structured task planning, prioritization and consistent tracking of project activities in Jira\n• Coordination and coordination with internal and external stakeholders as well as ensuring a transparent and timely flow of information\n• Application and further development of the predefined agile working methods and project management processes\n• Creation, maintenance and assurance of a complete and comprehensible project documentation in Confluence and other planned systems\n• Preparation and documentation of relevant project information, delivery results, decisions and status reports\n• Support for the continuous optimisation of project processes and ensuring efficient cooperation between the stakeholders involved\n\nYour profile:\n• Higher vocational training (HF) or university of applied sciences degree in computer science, business informatics, business administration or a comparable qualification\n• Several years of experience in IT project management as well as in the independent control and coordination of subprojects\n• In-depth knowledge of classical and agile project management methods as well as experience in the application of structured project management processes\n• Very good knowledge in dealing with Jira and Confluence for project planning, task management and documentation\n• Experience in project controlling, especially in monitoring resources, costs, deadlines, milestones and risks\n• Strong organisational and coordinative skills as well as experience in dealing with different stakeholders\n• Structured, independent and solution-oriented working method with high personal responsibility, assertiveness and analytical thinking skills\n• Very good communication skills as well as the ability to prepare and communicate complex issues appropriate to the addressee\n• Very good knowledge of German in word and writing, good English is advantageous\n• Clean Leumund is mandatory\n• Experience in public administration projects or in a security-relevant environment is beneficial\n• Certifications in HERMES, IPMA, PRINCE2 or agile project management methods are advantageous\n\nJob profiles\n• IT - IT Infrastructure and Operations\n• IT - IT Management\n• IT - Project Management\n• IT - Quality Management\n• Bern\n• Contracting\n• Part Time, 80-100 %\n• 01.01.2027 - 31.12.2027 (option to extend)\n• HERMES, Jira, Confluence, Project Management",
-        "de": "Für unseren Kunden aus der Bundesverwaltung suchen wir eine:n erfahrene:n Projektleiter:in IT. In dieser vielseitigen Rolle übernimmst du die operative Steuerung und Koordination anspruchsvoller IT-Projekte und stellst eine effiziente Umsetzung der definierten Projektziele sicher.\n\nDeine Aufgaben:\n• Unterstützung und fachlich kompetente Stellvertretung des internen Projektleiters innerhalb der definierten Aufgaben, Kompetenzen und Verantwortlichkeiten\n• Planung, Steuerung und Koordination von Teilprojekten über sämtliche Projektphasen hinweg\n• Überwachung von Projektfortschritten, Meilensteinen, Ressourcen und Kosten sowie Sicherstellung der Einhaltung definierter Projektziele\n• Identifikation, Bewertung und Nachverfolgung von Projektrisiken, Abhängigkeiten und offenen Massnahmen sowie frühzeitige Einleitung geeigneter Gegenmassnahmen\n• Sicherstellung einer strukturierten Aufgabenplanung, Priorisierung und konsequenten Nachverfolgung von Projektaktivitäten in Jira\n• Koordination und Abstimmung mit internen und externen Stakeholdern sowie Sicherstellung eines transparenten und zeitgerechten Informationsflusses\n• Anwendung und Weiterentwicklung der vorgegebenen agilen Arbeitsmethoden und Projektmanagementprozesse\n• Erstellung, Pflege und Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation in Confluence sowie weiteren vorgesehenen Systemen\n• Aufbereitung und Dokumentation relevanter Projektinformationen, Lieferergebnisse, Entscheidungen und Statusberichte\n• Unterstützung bei der kontinuierlichen Optimierung von Projektabläufen sowie Sicherstellung einer effizienten Zusammenarbeit zwischen den beteiligten Anspruchsgruppen\n\nDein Profil:\n• Höhere Berufsbildung (HF) oder Fachhochschulabschluss in Informatik, Wirtschaftsinformatik, Betriebswirtschaft oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im IT-Projektmanagement sowie in der eigenständigen Steuerung und Koordination von Teilprojekten\n• Fundierte Kenntnisse in klassischen und agilen Projektmanagementmethoden sowie Erfahrung in der Anwendung strukturierter Projektmanagementprozesse\n• Sehr gute Kenntnisse im Umgang mit Jira und Confluence zur Projektplanung, Aufgabensteuerung und Dokumentation\n• Erfahrung im Projektcontrolling, insbesondere in der Überwachung von Ressourcen, Kosten, Terminen, Meilensteinen und Risiken\n• Ausgeprägte organisatorische und koordinative Fähigkeiten sowie Erfahrung im Umgang mit unterschiedlichen Stakeholdern\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung, Durchsetzungsvermögen und analytischem Denkvermögen\n• Sehr gute Kommunikationsfähigkeiten sowie die Fähigkeit, komplexe Sachverhalte adressatengerecht aufzubereiten und zu vermitteln\n• Sehr gute Deutschkenntnisse in Wort und Schrift, gutes Englisch von Vorteil\n• Sauberer Leumund ist zwingend\n• Erfahrung in Projekten der öffentlichen Verwaltung oder im sicherheitsrelevanten Umfeld von Vorteil\n• Zertifizierungen in HERMES, IPMA, PRINCE2 oder agilen Projektmanagementmethoden von Vorteil\n\nJob profile\n• IT - IT Infrastructure & Operations\n• IT - IT Management\n• IT - Project Management\n• IT - Quality Management\n• Bern\n• Contracting\n• Part Time, 80-100%\n• 01.01.2027 - 31.12.2027 (Option auf Verlängerung)\n• HERMES, Jira, Confluence, Project Management",
-        "fr": "Pour notre client de l'Administration fédérale, nous recherchons un:n expérimenté:n gestionnaire de projet:in IT. Dans ce rôle polyvalent, vous prenez en charge le contrôle opérationnel et la coordination des projets informatiques exigeants et assurez une mise en œuvre efficace des objectifs du projet définis.\n\nVos tâches :\n• Soutien et adjoint compétent du gestionnaire de projet interne dans le cadre des tâches, compétences et responsabilités définies\n• Planification, contrôle et coordination des sous-projets pour toutes les phases du projet\n• Suivi des progrès, des étapes, des ressources et des coûts du projet et respect des objectifs définis\n• Identification, évaluation et suivi des risques, des dépendances et des mesures ouvertes, ainsi que mise en œuvre rapide de contre-mesures appropriées\n• Assurer la planification structurée des tâches, la hiérarchisation des priorités et le suivi cohérent des activités de projet à Jira\n• Coordination et coordination avec les parties prenantes internes et externes ainsi qu'un flux d'informations transparent et rapide\n• Application et développement des méthodes de travail agiles et des processus de gestion de projet prédéfinis\n• Création, maintenance et assurance d'une documentation complète et compréhensible du projet dans Confluence et autres systèmes prévus\n• Élaboration et documentation des informations pertinentes sur les projets, des résultats de l ' exécution, des décisions et des rapports de situation\n• Soutien à l'optimisation continue des processus de projet et à la coopération efficace entre les parties prenantes concernées\n\nVotre profil:\n• Formation professionnelle supérieure (HF) ou université de sciences appliquées en informatique, informatique des entreprises, administration des entreprises ou une qualification comparable\n• Plusieurs années d'expérience dans la gestion de projets informatiques ainsi que dans le contrôle et la coordination indépendants des sous-projets\n• Connaissance approfondie des méthodes de gestion de projet classiques et agiles ainsi que de l'expérience acquise dans l'application de processus structurés de gestion de projet\n• Très bonne connaissance des relations avec Jira et Confluence pour la planification de projets, la gestion des tâches et la documentation\n• Expérience en matière de contrôle des projets, notamment en matière de suivi des ressources, des coûts, des échéances, des jalons et des risques\n• Fortes compétences organisationnelles et coordinatives ainsi que l'expérience dans le traitement avec les différentes parties prenantes\n• Méthode de travail structurée, indépendante et axée sur la solution, avec une haute responsabilité personnelle, une assurance et des compétences de réflexion analytique\n• Très bonnes compétences en communication ainsi que la capacité de préparer et de communiquer des questions complexes adaptées au destinataire\n• Très bonne connaissance de l'allemand dans la parole et l'écriture, bon anglais est avantageux\n• Clean Leumund est obligatoire\n• L'expérience dans les projets d'administration publique ou dans un environnement sécuritaire est bénéfique\n• Les certifications dans les méthodes HERMES, IPMA, PRINCE2 ou de gestion de projet agile sont avantageuses\n\nProfils d'emploi\n• IT - Infrastructure et opérations de TI\n• Gestion informatique\n• IT - Gestion de projet\n• IT - Gestion de la qualité\n• Berne\n• Contrats\n• Temps partiel, 80-100 %\n• 01.01.2027 - 31.12.2027 (option de prolongation)\n• HERMES, Jira, Confluence, Gestion de projet"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7MQ5O5",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:30:23.831Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28T00:00:00Z",
-      "postedDate": "2026-10-28T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=7MQ5O5",
-      "requirements": [
-        "IT - IT Infrastructure & Operations",
-        "IT - IT Management",
-        "IT - Project Management",
-        "IT - Quality Management",
-        "Bern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "01.01.2027 - 31.12.2027 (Option auf Verlängerung)",
-        "HERMES, Jira, Confluence, Project Management"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - IT Infrastructure & Operations",
-          "IT - IT Management",
-          "IT - Project Management",
-          "IT - Quality Management",
-          "Contracting",
-          "Part Time, 80-100%",
-          "01.01.2027 - 31.12.2027 (Option auf Verlängerung)",
-          "HERMES, Jira, Confluence, Project Management"
-        ]
-      },
-      "previousSlugs": [
-        "projektleiter-in-m-w-d-coopers-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektleiter-in-m-w-d-coopers-bern"
-        ],
-        "en": [
-          "projektleiter-in-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "projektleiter-in-m-w-d-coopers-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T20:08:33.675Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:30:23.831Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "coopers-d75dd4b7d24f",
-      "slug": "java-fullstack-software-engineer-spring-boot-angular-m-w-d-coopers-bern",
-      "slugByLocale": {
-        "it": "java-fullstack-software-engineer-spring-boot-angular-m-w-d-coopers-bern",
-        "en": "java-fullstack-software-engineer-spring-boot-angular-m-w-d-coopers-bern",
-        "de": "java-fullstack-software-engineer-spring-boot-angular-m-w-d-coopers-bern",
-        "fr": "ingenieur-logiciel-java-fullstack-spring-boot-angular-h-f-d-coopers-group-ag-bern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Java Fullstack Software Engineer (Spring Boot / Angular) (m/w/d)",
-      "titleByLocale": {
-        "it": "Java Fullstack Software Ingegnere (Spring Boot / Angular) (m/w/d)",
-        "en": "Java Fullstack Software Engineer (Spring Boot / Angular) (m/f/d)",
-        "de": "Java Fullstack Software Engineer (Spring Boot / Angular) (m/w/d)",
-        "fr": "Ingénieur logiciel Java Fullstack (Spring Boot / Angular) (h/f/d)"
-      },
-      "description": "Für unseren Kunden aus der Logistikbranche in Bern , suchen wir eine:n erfahrene:n, motivierte:n und aufgeschlossene:n Java Fullstack Software Engineer (Spring Boot / Angular).\n\nIn diesem Projekt arbeitest du an der Entwicklung einer modernen, skalierbaren Softwarelösung zur datenbasierten Routenplanung und Optimierung komplexer logistischer Prozesse. Gemeinsam mit einem interdisziplinären Scrum DevOps Team gestaltest du eine neue Systemlandschaft auf Basis einer Microservice-Architektur und setzt moderne Technologien sowie Machine Learning ein, um effiziente und zuverlässige Planungslösungen zu ermöglichen.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung moderner Java-Applikationen innerhalb einer Microservice-Architektur\n• Konzeption und Implementierung von Backend-Services mit Java, Spring und Spring Boot\n• Entwicklung und Integration von Frontend-Komponenten mit Angular\n• Implementierung und Anbindung von RESTful APIs sowie Dokumentation mittels Swagger\n• Einsatz von Apache Kafka zur ereignisbasierten Kommunikation zwischen Microservices\n• Containerisierung und Betrieb von Anwendungen mit Docker und Kubernetes\n• Mitarbeit an der Entwicklung datenbasierter Optimierungslösungen im Zusammenspiel mit Machine Learning\n• Sicherstellung einer hohen Codequalität durch Unit Tests, Code Reviews und etablierte Entwicklungsstandards\n• Aktive Mitarbeit in einem interdisziplinären Scrum DevOps Team sowie Mitverantwortung für die Erreichung der Sprintziele\n• Enge Zusammenarbeit mit Softwareentwicklern, Machine Learning Engineers, Business Analysten und UX-Spezialisten\n• Kontinuierlicher Wissensaustausch und Mitgestaltung technischer Lösungen und Architekturentscheidungen\n\nDein Profil:\n• Abgeschlossenes Studium in Informatik, Software Engineering oder vergleichbare Qualifikation durch praktische Erfahrung\n• Mindestens 3 Jahre Erfahrung in der Java-Softwareentwicklung\n• Fundierte Kenntnisse in Java, Spring und Spring Boot\n• Praktische Erfahrung mit Angular und der Entwicklung moderner Webanwendungen\n• Gute Kenntnisse in Apache Kafka sowie im Aufbau und Betrieb von Microservice-Architekturen\n• Erfahrung mit RESTful APIs und Swagger\n• Kenntnisse in Docker und Kubernetes sowie modernen DevOps-Umgebungen\n• Hoher Qualitätsanspruch an Softwareentwicklung, insbesondere Clean Code, Unit Testing und Code Reviews\n• Praktische Erfahrung mit agilen Entwicklungsmethoden und Scrum\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ausgeprägte Teamfähigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nJob profile\n• IT - Software Engineering\n• Bern\n• Contracting\n• Part Time, 60-100%\n• 04.01.2027 - 31.12.2027\n• Java, Angular, Spring Boot\n\nJob benefits\n• Cantine\n• Company laptop\n• Coopers Care\n• First-name terms\n• Good public transport connection\n• Home Office\n• Modern workspace\n• Work-life-balance",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente dal settore della logistica a Berna, stiamo cercando un:n esperto:n, motivato:n e open-minded:n Java Fullstack Software Engineer (Stivale a scatto / angolare).\n\nIn questo progetto, lavorerai sullo sviluppo di una soluzione software moderna e scalabile per la pianificazione e l'ottimizzazione dei processi logistici complessi. Insieme a un team interdisciplinare Scrum DevOps, disegnate un nuovo paesaggio di sistema basato su un'architettura microservice e utilizzate tecnologie moderne e machine learning per consentire soluzioni di pianificazione efficienti e affidabili.\n\nI vostri compiti:\n• Sviluppo e sviluppo di applicazioni Java moderne all'interno di un'architettura microservice\n• Concezione e realizzazione di servizi backend con Java, Spring e Spring Boot\n• Sviluppo e integrazione dei componenti frontend con Angular\n• Attuazione e connessione delle API RESTful e documentazione utilizzando Swagger\n• Utilizzo di Apache Kafka per la comunicazione basata su eventi tra microservizi\n• Containerizzazione e funzionamento delle applicazioni con Docker e Kubernetes\n• Partecipazione allo sviluppo di soluzioni di ottimizzazione basate sui dati in collaborazione con l'apprendimento automatico\n• Garantire un'alta qualità del codice attraverso test di unità, recensioni di codice e standard di sviluppo consolidati\n• Partecipazione attiva a un team interdisciplinare Scrum DevOps e responsabilità congiunta per raggiungere gli obiettivi di sprint\n• stretta collaborazione con sviluppatori di software, ingegneri di machine learning, analisti di business e specialisti UX\n• Scambio continuo di conoscenze e partecipazione a soluzioni tecniche e decisioni architettoniche\n\nIl tuo profilo:\n• Laurea completa in informatica, ingegneria del software o qualificazione comparabile attraverso esperienza pratica\n• Almeno 3 anni di esperienza nello sviluppo software Java\n• Conoscenza approfondita di Java, Spring e Spring Boot\n• Esperienza pratica con Angular e lo sviluppo di applicazioni web moderne\n• Buona conoscenza di Apache Kafka e la costruzione e il funzionamento di architetture microservice\n• Esperienza con API e Swagger RESTful\n• Conoscenza di Docker e Kubernetes così come moderni ambienti DevOps\n• Standard di alta qualità per lo sviluppo del software, in particolare codice pulito, test unità e recensioni di codice\n• Esperienza pratica con metodi di sviluppo agili e Scrum\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione e forte lavoro di squadra\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Berna\n• Contratti\n• Tempo parziale, 60-100 %\n• 04.01.2027 - 31.12.2027\n• Java, Angular, Spring Boot\n\nPrestazioni di lavoro\n• Cantina\n• Computer aziendale\n• Coopers Care\n• Termini di primo nome\n• Buona connessione con i trasporti pubblici\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa",
-        "en": "For our customer from the logistics industry in Bern, we are looking for a:n experienced:n, motivated:n and open-minded:n Java Fullstack Software Engineer (Spring Boot / Angular).\n\nIn this project, you will work on the development of a modern, scalable software solution for data-based route planning and optimization of complex logistical processes. Together with an interdisciplinary Scrum DevOps team, you will design a new system landscape based on a microservice architecture and use modern technologies and machine learning to enable efficient and reliable planning solutions.\n\nYour tasks:\n• Development and further development of modern Java applications within a microservice architecture\n• Conception and implementation of backend services with Java, Spring and Spring Boot\n• Development and integration of frontend components with Angular\n• Implementation and connection of RESTful APIs as well as documentation using Swagger\n• Use of Apache Kafka for event-based communication between microservices\n• Containerization and operation of applications with Docker and Kubernetes\n• Participation in the development of data-based optimization solutions in conjunction with machine learning\n• Ensuring high code quality through unit tests, code reviews and established development standards\n• Active participation in an interdisciplinary Scrum DevOps team and joint responsibility for achieving the sprint goals\n• Close cooperation with software developers, machine learning engineers, business analysts and UX specialists\n• Continuous knowledge exchange and participation in technical solutions and architectural decisions\n\nYour profile:\n• Completed degree in computer science, software engineering or comparable qualification through practical experience\n• At least 3 years of experience in Java software development\n• In-depth knowledge of Java, Spring and Spring Boot\n• Practical experience with Angular and the development of modern web applications\n• Good knowledge of Apache Kafka and the construction and operation of microservice architectures\n• Experience with RESTful APIs and Swaggers\n• Knowledge of Docker and Kubernetes as well as modern DevOps environments\n• High quality standards for software development, in particular clean code, unit testing and code reviews\n• Practical experience with agile development methods and Scrum\n• Independent, structured and solution-oriented working method as well as strong teamwork\n• Very good knowledge of German and English in word and writing\n\nJob profiles\n• IT - Software Engineering\n• Bern\n• Contracting\n• Part Time, 60-100 %\n• 04.01.2027 - 31.12.2027\n• Java, Angular, Spring Boot\n\nJob benefits\n• Cantine\n• Company laptop\n• Coopers Care\n• First-name terms\n• Good public transport connection\n• Home Office\n• Modern workspace\n• Work-life balance",
-        "de": "Für unseren Kunden aus der Logistikbranche in Bern , suchen wir eine:n erfahrene:n, motivierte:n und aufgeschlossene:n Java Fullstack Software Engineer (Spring Boot / Angular).\n\nIn diesem Projekt arbeitest du an der Entwicklung einer modernen, skalierbaren Softwarelösung zur datenbasierten Routenplanung und Optimierung komplexer logistischer Prozesse. Gemeinsam mit einem interdisziplinären Scrum DevOps Team gestaltest du eine neue Systemlandschaft auf Basis einer Microservice-Architektur und setzt moderne Technologien sowie Machine Learning ein, um effiziente und zuverlässige Planungslösungen zu ermöglichen.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung moderner Java-Applikationen innerhalb einer Microservice-Architektur\n• Konzeption und Implementierung von Backend-Services mit Java, Spring und Spring Boot\n• Entwicklung und Integration von Frontend-Komponenten mit Angular\n• Implementierung und Anbindung von RESTful APIs sowie Dokumentation mittels Swagger\n• Einsatz von Apache Kafka zur ereignisbasierten Kommunikation zwischen Microservices\n• Containerisierung und Betrieb von Anwendungen mit Docker und Kubernetes\n• Mitarbeit an der Entwicklung datenbasierter Optimierungslösungen im Zusammenspiel mit Machine Learning\n• Sicherstellung einer hohen Codequalität durch Unit Tests, Code Reviews und etablierte Entwicklungsstandards\n• Aktive Mitarbeit in einem interdisziplinären Scrum DevOps Team sowie Mitverantwortung für die Erreichung der Sprintziele\n• Enge Zusammenarbeit mit Softwareentwicklern, Machine Learning Engineers, Business Analysten und UX-Spezialisten\n• Kontinuierlicher Wissensaustausch und Mitgestaltung technischer Lösungen und Architekturentscheidungen\n\nDein Profil:\n• Abgeschlossenes Studium in Informatik, Software Engineering oder vergleichbare Qualifikation durch praktische Erfahrung\n• Mindestens 3 Jahre Erfahrung in der Java-Softwareentwicklung\n• Fundierte Kenntnisse in Java, Spring und Spring Boot\n• Praktische Erfahrung mit Angular und der Entwicklung moderner Webanwendungen\n• Gute Kenntnisse in Apache Kafka sowie im Aufbau und Betrieb von Microservice-Architekturen\n• Erfahrung mit RESTful APIs und Swagger\n• Kenntnisse in Docker und Kubernetes sowie modernen DevOps-Umgebungen\n• Hoher Qualitätsanspruch an Softwareentwicklung, insbesondere Clean Code, Unit Testing und Code Reviews\n• Praktische Erfahrung mit agilen Entwicklungsmethoden und Scrum\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ausgeprägte Teamfähigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nJob profile\n• IT - Software Engineering\n• Bern\n• Contracting\n• Part Time, 60-100%\n• 04.01.2027 - 31.12.2027\n• Java, Angular, Spring Boot\n\nJob benefits\n• Cantine\n• Company laptop\n• Coopers Care\n• First-name terms\n• Good public transport connection\n• Home Office\n• Modern workspace\n• Work-life-balance",
-        "fr": "Pour notre client de l'industrie de la logistique à Berne, nous recherchons un:n expérimenté:n, motivé:n et ouvert d'esprit:n Java Fullstack Software Engineer (Spring Boot / Angular).\n\nDans ce projet, vous travaillerez sur le développement d'une solution logicielle moderne et évolutive pour la planification de parcours basée sur les données et l'optimisation de processus logistiques complexes. Avec une équipe interdisciplinaire Scrum DevOps, vous concevrez un nouveau paysage système basé sur une architecture microservice et utiliserez les technologies modernes et l'apprentissage machine pour permettre des solutions de planification efficaces et fiables.\n\nVos tâches:\n• Développement et développement d'applications Java modernes dans une architecture de microservice\n• Conception et mise en œuvre de services backend avec Java, Spring et Spring Boot\n• Développement et intégration de composants frontend avec Angular\n• Mise en œuvre et connexion des API RESTful ainsi que la documentation en utilisant Swagger\n• Utilisation d'Apache Kafka pour la communication événementielle entre microservices\n• Conteneurisation et fonctionnement des applications avec Docker et Kubernetes\n• Participation au développement de solutions d'optimisation basées sur les données en conjonction avec l'apprentissage automatique\n• Assurer une qualité de code élevée au moyen de tests unitaires, d'examens de code et de normes de développement établies\n• Participation active à une équipe interdisciplinaire Scrum DevOps et responsabilité conjointe pour atteindre les objectifs du sprint\n• Coopération étroite avec les développeurs de logiciels, les ingénieurs d'apprentissage automatique, les analystes d'affaires et les spécialistes des UX\n• Échange continu de connaissances et participation aux solutions techniques et aux décisions architecturales\n\nVotre profil:\n• Diplôme d'informatique, de génie logiciel ou de qualification comparable obtenu grâce à une expérience pratique\n• Au moins 3 ans d'expérience dans le développement de logiciels Java\n• Connaissance approfondie de Java, Spring et Spring Boot\n• Expérience pratique avec Angular et le développement d'applications web modernes\n• Bonne connaissance d'Apache Kafka et la construction et le fonctionnement des architectures de microservices\n• Expérience avec les API et les Swaggers RESTful\n• Connaissance de Docker et Kubernetes ainsi que des environnements DevOps modernes\n• Normes de qualité élevées pour le développement de logiciels, en particulier code propre, essais unitaires et révisions de code\n• Expérience pratique avec les méthodes de développement agile et Scrum\n• Méthode de travail indépendante, structurée et axée sur les solutions, ainsi qu'un solide travail d'équipe\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nProfils d'emploi\n• IT - Génie logiciel\n• Belgique\n• Contrats\n• Temps partiel, 60-100 %\n• 04.01.2027 - 31.12.2027\n• Java, Angulaire, Botte de printemps\n\nPrestations d'emploi\n• Cantine\n• Ordinateur portable de la société\n• Coopers Care\n• Termes de prénom\n• Bonne connexion aux transports publics\n• Ministère de l ' intérieur\n• Espace de travail moderne\n• Équilibre travail-vie privée"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=566XKE",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-11T09:30:05.797Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-09T00:00:00Z",
-      "postedDate": "2026-11-09T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=566XKE",
-      "requirements": [
-        "IT - Software Engineering",
-        "Bern",
-        "Contracting",
-        "Part Time, 60-100%",
-        "04.01.2027 - 31.12.2027",
-        "Java, Angular, Spring Boot"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Part Time, 60-100%",
-          "04.01.2027 - 31.12.2027",
-          "Java, Angular, Spring Boot"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-09T21:17:48.639Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:30:05.797Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }

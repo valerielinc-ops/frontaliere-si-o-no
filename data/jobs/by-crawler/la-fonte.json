@@ -1,7 +1,7 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-11-12T21:36:53.356Z",
-  "runId": "43308403749",
+  "assembledAt": "2026-11-13T09:21:31.979Z",
+  "runId": "43399520334",
   "jobs": [
     {
       "title": "Operatrice/tore socioassistenziale 50%-70% presso Fonte 3",
@@ -45,7 +45,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-12T21:36:49.035Z",
+      "crawledAt": "2026-11-13T09:21:28.125Z",
       "id": "fondazione-la-fonte-c3f68b4580e1",
       "salaryMin": 34700,
       "salaryMax": 52500,
@@ -66,7 +66,7 @@
       "postalCode": "6991",
       "streetAddress": "Neggio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:36:49.035Z",
+      "validThrough": "2027-02-05T09:21:28.125Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T09:29:15.469Z"
     },
@@ -112,7 +112,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-12T21:36:49.035Z",
+      "crawledAt": "2026-11-13T09:21:28.125Z",
       "id": "fondazione-la-fonte-d63b378e7e86",
       "salaryMin": 29700,
       "salaryMax": 45000,
@@ -133,7 +133,7 @@
       "postalCode": "6991",
       "streetAddress": "Neggio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:36:49.035Z",
+      "validThrough": "2027-02-05T09:21:28.125Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T09:29:15.469Z"
     },
@@ -179,7 +179,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-12T21:36:49.035Z",
+      "crawledAt": "2026-11-13T09:21:28.125Z",
       "id": "fondazione-la-fonte-319213f47039",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -201,7 +201,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-17T21:20:49.576Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T21:36:49.035Z",
+      "validThrough": "2027-01-16T09:21:28.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -237,16 +237,16 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
+        "en": "staying-down-fondazione-la-fonte-luganese-malcantone",
+        "de": "bleib-unten-fondazione-la-fonte-luganese-malcantone",
+        "fr": "rester-baisse-fondazione-la-fonte-luganese-malcantone"
       },
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-12T21:36:49.035Z",
+      "crawledAt": "2026-11-13T09:21:28.125Z",
       "id": "fondazione-la-fonte-8ea3b422c946",
       "previousSlugsByLocale": {
         "it": [
@@ -254,21 +254,19 @@
         ],
         "en": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "staying-down-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "de": [
           "stagiaire-la-fonte-luganese-malcantone",
-          "bleib-unten-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "fr": [
-          "rester-baisse-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ]
       },
       "previousSlugs": [
         "stagiaire-la-fonte-luganese-malcantone",
-        "staying-down-fondazione-la-fonte-luganese-malcantone",
-        "bleib-unten-fondazione-la-fonte-luganese-malcantone",
-        "rester-baisse-fondazione-la-fonte-luganese-malcantone"
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -290,7 +288,7 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddress": "Luganese, Malcantone",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:36:49.035Z",
+      "validThrough": "2026-12-13T09:21:28.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -335,7 +333,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-11-12T21:36:49.035Z",
+      "crawledAt": "2026-11-13T09:21:28.125Z",
       "id": "fondazione-la-fonte-485211a481ee",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -357,7 +355,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:36:49.035Z",
+      "validThrough": "2026-12-13T09:21:28.125Z",
       "validThroughSource": "last-observed-window"
     }
   ]

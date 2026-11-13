@@ -45,6 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isHeldFromPublication } from '../lib/translation-publication-hold.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
+import { expiredSliceKeyOf } from '../lib/expired-slice-names.mjs';
 import { DEFAULT_JSON_STRING_LIMIT, parseLargeJsonArray } from '../lib/read-large-json.mjs';
 import { prefetch as prefetchBlobs, verifyPrefetchedBlobs } from './prefetch-history-blobs.mjs';
 
@@ -158,7 +159,8 @@ function sliceTree(rev, dir) {
   if (!out) return [];
   return out.split('\n').map((line) => {
     const [meta, name] = line.split('\t');
-    return { oid: meta.split(' ')[2], key: name.replace(/\.json$/u, ''), name };
+    // `<key>.shard-NNN.json` belongs to `<key>` (expired-slice-store.mjs).
+    return { oid: meta.split(' ')[2], key: expiredSliceKeyOf(name) ?? name.replace(/\.json$/u, ''), name };
   }).filter((entry) => isSliceFile(entry.name));
 }
 
@@ -275,7 +277,10 @@ async function readRevision(reader, tree) {
   const out = new Map();
   for (const entry of tree) {
     try {
-      out.set(entry.key, rowsOf(await reader.read(entry.oid)).map(slim).filter(Boolean));
+      const rows = rowsOf(await reader.read(entry.oid)).map(slim).filter(Boolean);
+      // A sharded archive has several files per key: concatenate them.
+      if (out.has(entry.key)) out.get(entry.key).push(...rows);
+      else out.set(entry.key, rows);
     } catch (error) {
       throw new Error(`cannot read ${entry.name} (${entry.oid}): ${error.message}`);
     }
