@@ -335,6 +335,18 @@ describe('parseNcoreApplicationForm', () => {
     expect(parseNcoreApplicationForm(html, { sourceUrl, checkedAt })).toBeNull();
   });
 
+  it.each([
+    ['non-default port', 'https://app.ncoreplat.com:8443/jobposition/808005/cmc-senior-specialist/sintetica'],
+    ['query string', `${sourceUrl}?step=2`],
+    ['fragment', `${sourceUrl}#application-form`],
+    ['embedded credentials', sourceUrl.replace('https://', 'https://candidate@')],
+  ])('rejects a non-canonical source URL with %s', (_reason, invalidSourceUrl) => {
+    expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
+      sourceUrl: invalidSourceUrl,
+      checkedAt,
+    })).toBeNull();
+  });
+
   it('rejects unverified forms and pages without the NCore application form marker', () => {
     expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
       sourceUrl: 'https://evil.example/jobposition/808005/cmc/sintetica',

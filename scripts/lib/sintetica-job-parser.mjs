@@ -57,7 +57,13 @@ function canonicalNcoreDetailUrl(value = '') {
   } catch {
     return null;
   }
-  if (url.protocol !== 'https:' || url.hostname.toLowerCase() !== NCORE_HOST) return null;
+  if (url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash) return null;
   if (!/^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(url.pathname)) return null;
   return url.href;
 }

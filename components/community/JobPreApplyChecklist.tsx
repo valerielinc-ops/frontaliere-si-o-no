@@ -39,7 +39,12 @@ function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): valu
   try {
     const source = new URL(value.sourceUrl);
     return source.protocol === 'https:'
-      && source.hostname === 'app.ncoreplat.com'
+      && source.hostname.toLowerCase() === 'app.ncoreplat.com'
+      && !source.port
+      && !source.username
+      && !source.password
+      && !source.search
+      && !source.hash
       && /^\/jobposition\/[1-9]\d*\//.test(source.pathname);
   } catch {
     return false;

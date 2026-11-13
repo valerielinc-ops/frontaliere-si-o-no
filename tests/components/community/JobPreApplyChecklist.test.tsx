@@ -68,6 +68,10 @@ describe('JobPreApplyChecklist', () => {
   it.each([
     ['missing source data', undefined],
     ['untrusted source host', { ...snapshot, sourceUrl: 'https://evil.example/jobposition/808005/sintetica' }],
+    ['non-default source port', { ...snapshot, sourceUrl: 'https://app.ncoreplat.com:8443/jobposition/808005/sintetica' }],
+    ['source query string', { ...snapshot, sourceUrl: `${snapshot.sourceUrl}?step=2` }],
+    ['source fragment', { ...snapshot, sourceUrl: `${snapshot.sourceUrl}#application-form` }],
+    ['source credentials', { ...snapshot, sourceUrl: snapshot.sourceUrl.replace('https://', 'https://candidate@') }],
     ['invalid check date', { ...snapshot, checkedAt: 'not-a-date' }],
   ])('does not render for %s', async (_label, atsApplicationForm) => {
     await prepareLocale('it');
