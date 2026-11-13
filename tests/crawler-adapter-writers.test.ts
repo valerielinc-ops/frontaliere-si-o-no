@@ -493,7 +493,31 @@ describe('SBB two-source discovery invariants', () => {
     })).resolves.toMatchObject({ urls: [sbbUrl], targetJobs: 1, sourceZero: false });
     expect(fetchJina).toHaveBeenCalledWith(
       expect.stringContaining('jobfilter.results.json'),
-      expect.objectContaining({ format: 'text', timeoutMs: 1000 }),
+      expect.objectContaining({ format: 'text', accept: 'application/json', timeoutMs: 1000 }),
+    );
+  });
+
+  it('unwraps the Jina JSON envelope instead of treating its content as the AEM body', async () => {
+    const aemJob = {
+      id: '1', title: 'Macchinista', links: { directlink: sbbUrl },
+      attributes: { '100': ['Bellinzona'], '110': ['Ticino (TI)'], '160': ['100%'] },
+    };
+    const fetchJina = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify({
+        data: { url, content: JSON.stringify([aemJob]) },
+      }),
+    }));
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).resolves.toMatchObject({ urls: [sbbUrl], targetJobs: 1, sourceZero: false });
+    expect(fetchJina).toHaveBeenCalledWith(
+      expect.stringContaining('jobfilter.results.json'),
+      expect.objectContaining({ accept: 'application/json', validateBody: expect.any(Function) }),
     );
   });
 
