@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1161,
+      "5": 1163,
       "6": 5062
     },
-    "publishedCovers": 7904,
+    "publishedCovers": 7906,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218102,6 +218102,72 @@
         "provider": "openai-codex",
         "assetId": "article-pfiffner-450-posti-pratteln",
         "imageUrl": "/images/blog/article-pfiffner-450-posti-pratteln.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fiscalita-svizzera-tre-livelli": {
+      "cover": "/images/blog/article-fiscalita-svizzera-tre-livelli.webp",
+      "hash": "5531970c5ccbc05efcbe9b2a55891b308666ff02c78cc8e4456d1f79bd4964f8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fiscalita-svizzera-tre-livelli",
+          "category": "fiscale",
+          "date": "2026-11-13T01:58:45.077Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fiscalita-svizzera-tre-livelli.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-13",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fiscalita-svizzera-tre-livelli",
+        "imageUrl": "/images/blog/article-fiscalita-svizzera-tre-livelli.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lavoro-transfrontaliero-osservatorio": {
+      "cover": "/images/blog/article-lavoro-transfrontaliero-osservatorio.webp",
+      "hash": "fb2626bd770717006848ec48e5035ed0d0300d7374354b2fa52c8656ee6f827a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lavoro-transfrontaliero-osservatorio",
+          "category": "novita",
+          "date": "2026-11-13T02:39:53.379Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lavoro-transfrontaliero-osservatorio.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-13",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lavoro-transfrontaliero-osservatorio",
+        "imageUrl": "/images/blog/article-lavoro-transfrontaliero-osservatorio.webp",
         "evidence": "generated-engine-record"
       }
     }

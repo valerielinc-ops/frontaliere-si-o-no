@@ -8729,6 +8729,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasso-ilo-terzo-trimestre.title': 'Tasso ILO svizzero sale al 5,6% nel terzo trimestre',
     'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Nel terzo trimestre il tasso di disoccupazione calcolato secondo la definizione dell’Organizzazione internazionale del lavoro (ILO) è salito in Svizzera al 5,6%, dal 5,1% dei tre mesi precedenti.',
     'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.fiscalita-svizzera-tre-livelli.title': 'Struttura fiscale svizzera: livelli, autorità e contributi sociali',
+    'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'La fiscalità svizzera opera su tre livelli. L\'AFC/ESTV gestisce IFD e IVA.',
+    'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
