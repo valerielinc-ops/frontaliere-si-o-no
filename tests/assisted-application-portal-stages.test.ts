@@ -107,7 +107,7 @@ describe('application stage ownership', () => {
       .toMatchObject({ kind: 'application_start', control: start });
   });
 
-  it('keeps the Swarovski Workday login module bound to the selected posting', () => {
+  it('treats the Swarovski Workday login route as account only after selected application entry proof', () => {
     const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
     const loginUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';
     const snapshot = {
@@ -134,9 +134,17 @@ describe('application stage ownership', () => {
       ],
     };
 
+    expect(applicationStage(snapshot, {
+      applyUrl: postingUrl,
+      job: { title: 'Seasonal Sales Consultant' },
+      workdayApplicationEntryProven: true,
+    })).toMatchObject({ kind: 'account' });
     expect(applicationStage(snapshot, { applyUrl: postingUrl, job: { title: 'Seasonal Sales Consultant' } }))
-      .toMatchObject({ kind: 'form' });
-    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/other-site/login' }, { applyUrl: postingUrl }))
+      .toMatchObject({ kind: 'posting_mismatch' });
+    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/other-site/login' }, {
+      applyUrl: postingUrl,
+      workdayApplicationEntryProven: true,
+    }))
       .toMatchObject({ kind: 'posting_mismatch' });
     expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/forgotPassword' }, { applyUrl: postingUrl }))
       .toMatchObject({ kind: 'posting_mismatch' });
@@ -655,5 +663,49 @@ describe('application stage ownership', () => {
     'Merci pour votre candidature pour Infrastructure Strategy Manager.',
   ])('continues to accept a completed receipt in the selected communication language: %s', text => {
     expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
+  });
+});
+
+describe('Workday account route stages', () => {
+  const workdayApplyUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Mendrisio-Outlet/Consultant_R-12345-1/apply/applyManually';
+  const loginUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/login';
+  const login = {
+    url: loginUrl,
+    text: 'Connexion Adresse e-mail Mot de passe Créer un compte',
+    fields: [
+      { id: 'email', inputType: 'email', label: 'Adresse e-mail' },
+      { id: 'password', inputType: 'password', label: 'Mot de passe' },
+    ],
+    buttons: [{ id: 'sign-in', text: 'Connexion' }],
+  };
+
+  it('accepts the login page as an account stage only after this run entered the selected apply route', () => {
+    expect(applicationStage(login, {
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+    })).toEqual({ kind: 'account' });
+    expect(applicationStage(login, { applyUrl: workdayApplyUrl })).toEqual({ kind: 'posting_mismatch' });
+  });
+
+  it.each([
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/introduceYourself',
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/OtherSite/login',
+    'https://other.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/login',
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Other/Consultant_R-54321-2',
+  ])('keeps non-account and unselected routes mismatched even with entry proof: %s', (url) => {
+    expect(applicationStage({ ...login, url }, {
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+    })).toEqual({ kind: 'posting_mismatch' });
+  });
+
+  it('does not expose account controls as application next or submit buttons', () => {
+    const result = pageControls(login.buttons, known, loginUrl, {
+      snapshot: login,
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+      job,
+    });
+    expect(result).toMatchObject({ stage: { kind: 'account' }, submit: null, next: null });
   });
 });
