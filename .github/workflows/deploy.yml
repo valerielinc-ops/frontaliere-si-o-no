@@ -1138,61 +1138,61 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs');
 
-          const numericMetric = (value) => {
+          const budgetNumericMetric = (value) => {
             const text = String(value ?? '').trim();
             if (!/^\d+(?:\.\d+)?$/.test(text)) return null;
             const number = Number(text);
             return Number.isFinite(number) ? number : null;
           };
 
-          const markdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
+          const budgetMarkdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
 
           function buildMemoryBudgetObserved() {
-            const baselineRss = numericMetric(process.env.BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB);
-            const maxWallSeconds = numericMetric(process.env.BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS);
-            const peakRss = numericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_RSS_MB);
-            const peakAnon = numericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_ANON_MB);
-            const wallSeconds = numericMetric(process.env.BUILD_MEMORY_BUDGET_WALL_SECONDS);
+            const baselineRss = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB);
+            const maxWallSeconds = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS);
+            const budgetPeakRss = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_RSS_MB);
+            const budgetPeakAnon = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_ANON_MB);
+            const budgetWallSeconds = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_WALL_SECONDS);
             const reportPath = String(process.env.BUILD_MEMORY_BUDGET_REPORT_PATH ?? '').trim();
-            const buildOutcome = String(process.env.BUILD_MEMORY_BUDGET_BUILD_OUTCOME ?? '').trim() || 'unknown';
+            const budgetBuildOutcome = String(process.env.BUILD_MEMORY_BUDGET_BUILD_OUTCOME ?? '').trim() || 'unknown';
             const breach = String(process.env.BUILD_MEMORY_BUDGET_BREACH ?? '').trim();
             const baselineLabel = String(process.env.BUILD_MEMORY_BUDGET_BASELINE_LABEL ?? '').trim() || 'baseline unavailable';
 
-            let reportAvailable = false;
+            let budgetReportAvailable = false;
             try {
               const stat = fs.statSync(reportPath);
-              reportAvailable = stat.isFile() && stat.size > 0;
+              budgetReportAvailable = stat.isFile() && stat.size > 0;
             } catch {
-              reportAvailable = false;
+              budgetReportAvailable = false;
             }
 
             const missing = [];
-            if (!reportAvailable) missing.push('report');
-            if (peakRss === null) missing.push('peak_rss_mb');
-            if (peakAnon === null) missing.push('peak_anon_mb');
-            if (wallSeconds === null) missing.push('wall_seconds');
+            if (!budgetReportAvailable) missing.push('report');
+            if (budgetPeakRss === null) missing.push('peak_rss_mb');
+            if (budgetPeakAnon === null) missing.push('peak_anon_mb');
+            if (budgetWallSeconds === null) missing.push('wall_seconds');
             const comparable = missing.length === 0;
-            const reportStatus = reportAvailable
+            const reportStatus = budgetReportAvailable
               ? (missing.length === 0 ? 'available' : `partial: missing ${missing.join(', ')}`)
               : 'missing';
 
-            const rssDelta = peakRss !== null && baselineRss !== null ? peakRss - baselineRss : null;
+            const rssDelta = budgetPeakRss !== null && baselineRss !== null ? budgetPeakRss - baselineRss : null;
             const rssComparison = rssDelta === null
               ? 'not-comparable: RSS or baseline unavailable'
               : `${rssDelta >= 0 ? '+' : ''}${rssDelta} MB vs ${baselineRss} MB`;
-            const wallComparison = wallSeconds === null || maxWallSeconds === null
+            const wallComparison = budgetWallSeconds === null || maxWallSeconds === null
               ? 'not-comparable: duration unavailable'
-              : wallSeconds > maxWallSeconds
-                ? `over 350-minute budget (${wallSeconds}s > ${maxWallSeconds}s)`
-                : `within 350-minute budget (${wallSeconds}s <= ${maxWallSeconds}s)`;
+              : budgetWallSeconds > maxWallSeconds
+                ? `over 350-minute budget (${budgetWallSeconds}s > ${maxWallSeconds}s)`
+                : `within 350-minute budget (${budgetWallSeconds}s <= ${maxWallSeconds}s)`;
             const comparability = comparable
               ? 'comparable: complete memory and duration report'
               : `not-comparable: missing ${missing.join(', ')}`;
 
             const triggers = [];
             if (breach) triggers.push(`revert: dynamic memory threshold breached (${breach})`);
-            if (wallSeconds !== null && maxWallSeconds !== null && wallSeconds > maxWallSeconds) {
-              triggers.push(`revert: wall_seconds exceeded 350-minute budget (${wallSeconds}s)`);
+            if (budgetWallSeconds !== null && maxWallSeconds !== null && budgetWallSeconds > maxWallSeconds) {
+              triggers.push(`revert: wall_seconds exceeded 350-minute budget (${budgetWallSeconds}s)`);
             }
             const revertTrigger = triggers.length > 0
               ? triggers.join('; ')
@@ -1207,12 +1207,12 @@ jobs:
               '',
               '| metric | observed | baseline / budget | comparison |',
               '| --- | ---: | ---: | --- |',
-              `| peak_rss_mb | \`${markdownCell(peakRss)}\` | \`${markdownCell(baselineLabel)}\` | \`${markdownCell(rssComparison)}\` |`,
-              `| peak_anon_mb | \`${markdownCell(peakAnon)}\` | not recorded in ${markdownCell(baselineLabel)} | n/a |`,
-              `| wall_seconds | \`${markdownCell(wallSeconds)}\` | \`<= ${markdownCell(maxWallSeconds)}\` (350 minutes) | \`${markdownCell(wallComparison)}\` |`,
-              `| report availability | \`${markdownCell(reportStatus)}\` | RSS + anon peak + duration required | \`${markdownCell(comparability)}\` |`,
-              `| build outcome | \`${markdownCell(buildOutcome)}\` | success expected | n/a |`,
-              `| revert trigger | \`${markdownCell(revertTrigger)}\` | timeout or duration >350 minutes | n/a |`,
+              `| peak_rss_mb | \`${budgetMarkdownCell(budgetPeakRss)}\` | \`${budgetMarkdownCell(baselineLabel)}\` | \`${budgetMarkdownCell(rssComparison)}\` |`,
+              `| peak_anon_mb | \`${budgetMarkdownCell(budgetPeakAnon)}\` | not recorded in ${budgetMarkdownCell(baselineLabel)} | n/a |`,
+              `| wall_seconds | \`${budgetMarkdownCell(budgetWallSeconds)}\` | \`<= ${budgetMarkdownCell(maxWallSeconds)}\` (350 minutes) | \`${budgetMarkdownCell(wallComparison)}\` |`,
+              `| report availability | \`${budgetMarkdownCell(reportStatus)}\` | RSS + anon peak + duration required | \`${budgetMarkdownCell(comparability)}\` |`,
+              `| build outcome | \`${budgetMarkdownCell(budgetBuildOutcome)}\` | success expected | n/a |`,
+              `| revert trigger | \`${budgetMarkdownCell(revertTrigger)}\` | timeout or duration >350 minutes | n/a |`,
               '',
               'Missing data stays non-comparable; the memory guard, Rollup cap, and deploy behavior are unchanged.',
               '',
@@ -1231,8 +1231,8 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_OUTPUT, `${outputs}\n`);
             console.log(
               `[buildMemoryBudgetObserved] report=${reportStatus} comparable=${comparable} ` +
-              `peak_rss_mb=${peakRss ?? 'unknown'} peak_anon_mb=${peakAnon ?? 'unknown'} ` +
-              `wall_seconds=${wallSeconds ?? 'unknown'} trigger=${revertTrigger}`,
+              `peak_rss_mb=${budgetPeakRss ?? 'unknown'} peak_anon_mb=${budgetPeakAnon ?? 'unknown'} ` +
+              `wall_seconds=${budgetWallSeconds ?? 'unknown'} trigger=${revertTrigger}`,
             );
           }
 
