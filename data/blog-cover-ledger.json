@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1163,
+      "5": 1164,
       "6": 5062
     },
-    "publishedCovers": 7906,
+    "publishedCovers": 7907,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218168,6 +218168,39 @@
         "provider": "openai-codex",
         "assetId": "article-lavoro-transfrontaliero-osservatorio",
         "imageUrl": "/images/blog/article-lavoro-transfrontaliero-osservatorio.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-decisioni-grand-conseil-10-novembre": {
+      "cover": "/images/blog/article-decisioni-grand-conseil-10-novembre.webp",
+      "hash": "433a937577ca82b200d19b772dd48892700101df885de4f5d0e226d6a64bfb6d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "decisioni-grand-conseil-10-novembre",
+          "category": "novita",
+          "date": "2026-11-13T05:02:37.860Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-decisioni-grand-conseil-10-novembre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-13",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-decisioni-grand-conseil-10-novembre",
+        "imageUrl": "/images/blog/article-decisioni-grand-conseil-10-novembre.webp",
         "evidence": "generated-engine-record"
       }
     }

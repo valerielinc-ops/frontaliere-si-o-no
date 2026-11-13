@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1165,
-  "generatedAt": "2026-11-13T04:24:01.894Z",
+  "assetCount": 1166,
+  "generatedAt": "2026-11-13T05:25:19.846Z",
   "assets": [
     {
       "schema": 1,
@@ -49857,6 +49857,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic editorial scene of an anonymous lakeside meeting in Ticino; no readable text, logos, or identifiable people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-decisioni-grand-conseil-10-novembre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "d445e4fc8ed6cb2df19090251f75df2152f1ffc4965f3b9a217bf64cdd3ff639",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "433a937577ca82b200d19b772dd48892700101df885de4f5d0e226d6a64bfb6d",
+      "bytes": 175562,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-13T05:02:05.128Z",
+      "verifiedAt": "2026-11-13T05:02:37.748Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-decisioni-grand-conseil-10-novembre.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Synthetic photorealistic illustration of a Swiss cantonal government building; no readable text, logos, watermarks, recognizable faces, or foreground people."
       }
     }
   ]
