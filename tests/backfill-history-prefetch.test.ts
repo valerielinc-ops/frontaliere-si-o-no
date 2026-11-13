@@ -44,6 +44,8 @@ describe('prefetch-history-blobs', () => {
 
     expect(historyBlobPrefetchArgs(oids, remote)).toEqual([
       'fetch',
+      '--keep',
+      '--no-progress',
       '--no-tags',
       '--no-write-fetch-head',
       remote,

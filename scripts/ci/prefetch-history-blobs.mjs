@@ -66,7 +66,7 @@ function checkoutRemoteUrl() {
  * all object ids in one request/pack.
  */
 export function historyBlobPrefetchArgs(oids, remote) {
-  return ['fetch', '--no-tags', '--no-write-fetch-head', remote, ...oids];
+  return ['fetch', '--keep', '--no-progress', '--no-tags', '--no-write-fetch-head', remote, ...oids];
 }
 
 /** Fetch the given blob ids in one pack (shared with check-retired-jobs-archived.mjs). */
