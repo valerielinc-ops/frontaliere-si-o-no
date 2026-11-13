@@ -13,6 +13,8 @@ const TIMEOUT_WORKFLOWS = [
 ];
 const TRANSLATE_PENDING_LOGIC = '.github/workflows/translate-pending-logic.yml';
 const TRANSLATE_PENDING_MANUAL = '.github/workflows/translate-pending.yml';
+const TRANSLATE_PENDING_BUDGET_BENCHMARK = '.github/workflows/translate-pending-budget-benchmark.yml';
+const PR_JOB_TIMEOUT_LIMIT_MINUTES = 120;
 
 function stepsOf(file: string): Array<Record<string, any>> {
   const document = YAML.parse(readFileSync(join(ROOT, file), 'utf8')) as any;
@@ -23,6 +25,59 @@ function isClaudeStep(step: Record<string, any>): boolean {
   return step.uses === 'anthropics/claude-code-action@v1'
     || step.uses === './.github/actions/claude-codex-fallback';
 }
+
+const AUTOMATIC_PR_TRIGGER_NAMES = new Set(['pull_request', 'pull_request_target']);
+
+function hasAutomaticPrTrigger(events: unknown): boolean {
+  if (typeof events === 'string') return AUTOMATIC_PR_TRIGGER_NAMES.has(events);
+  if (Array.isArray(events)) {
+    return events.some((event) => typeof event === 'string' && AUTOMATIC_PR_TRIGGER_NAMES.has(event));
+  }
+  if (events === null || typeof events !== 'object') return false;
+  return [...AUTOMATIC_PR_TRIGGER_NAMES].some((name) => Object.hasOwn(events, name));
+}
+
+describe('automatic PR workflow budgets', () => {
+  it('recognizes block, sequence, scalar, and empty-map PR triggers', () => {
+    expect(hasAutomaticPrTrigger({ pull_request: { branches: ['main'] } })).toBe(true);
+    expect(hasAutomaticPrTrigger({ pull_request_target: null })).toBe(true);
+    expect(hasAutomaticPrTrigger(['pull_request'])).toBe(true);
+    expect(hasAutomaticPrTrigger('pull_request_target')).toBe(true);
+    expect(hasAutomaticPrTrigger({ workflow_dispatch: {} })).toBe(false);
+  });
+
+  it('bounds automatic PR workflows and keeps long benchmarks manual-only', () => {
+    const workflowDir = join(ROOT, '.github/workflows');
+    const offenders: string[] = [];
+
+    for (const name of readdirSync(workflowDir).filter((entry) => /\.ya?ml$/u.test(entry))) {
+      const document = YAML.parse(readFileSync(join(workflowDir, name), 'utf8')) as any;
+      const events = document.on ?? document['on'] ?? {};
+      if (!hasAutomaticPrTrigger(events)) continue;
+
+      for (const [jobName, job] of Object.entries(document.jobs ?? {}) as Array<[string, any]>) {
+        const timeout = job['timeout-minutes'];
+        if (!Number.isInteger(timeout) || timeout <= 0) {
+          offenders.push(`${name}:${jobName} has no explicit positive timeout-minutes`);
+          continue;
+        }
+
+        // The primary required test gate keeps its existing six-hour safety cap.
+        if (name === 'tests.yml' && jobName === 'vitest') continue;
+        if (timeout > PR_JOB_TIMEOUT_LIMIT_MINUTES) {
+          offenders.push(`${name}:${jobName} timeout ${timeout}m exceeds ${PR_JOB_TIMEOUT_LIMIT_MINUTES}m`);
+        }
+      }
+    }
+
+    expect(offenders).toEqual([]);
+
+    const benchmark = YAML.parse(readFileSync(join(ROOT, TRANSLATE_PENDING_BUDGET_BENCHMARK), 'utf8')) as any;
+    const events = benchmark.on ?? benchmark['on'] ?? {};
+    expect(hasAutomaticPrTrigger(events)).toBe(false);
+    expect(Object.hasOwn(events, 'workflow_dispatch')).toBe(true);
+  });
+});
 
 describe('timeout-capped Claude workflows keep their downstream diagnostics alive (#7341)', () => {
   it('does not put a needs.result failure branch behind implicit success()', () => {

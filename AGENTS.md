@@ -33,6 +33,18 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Workflow
 
+### Costo dei workflow PR
+
+- Una richiesta di evidenza sulla stessa HEAD vale per quella prova: non
+  trasformarla in un trigger `pull_request` permanente. Benchmark, repair lane
+  o workload LLM che possono superare 120 minuti restano `workflow_dispatch`
+  manuali, con la SHA da misurare indicata esplicitamente.
+- Ogni job attivato da `pull_request` o `pull_request_target` dichiara
+  `timeout-minutes` e non supera 120. L'unica eccezione è il job richiesto
+  `.github/workflows/tests.yml:vitest`, che mantiene il proprio limite di
+  sicurezza. Il contratto è verificato da
+  `tests/workflow-timeout-contract.test.ts`.
+
 ### Contratto comune del PR body
 
 `.github/pull_request_template.md`, questo documento e `ISSUES.md` condividono la
