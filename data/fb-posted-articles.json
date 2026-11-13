@@ -2,24 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "svizzera-2100-scenari-frontalieri",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-2100-scenari-frontalieri/",
-      "ts": "2026-05-07T10:22:03.437Z",
-      "seed": true
-    },
-    {
-      "id": "sbb-controllers-bonuses-fines-ticino-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/sbb-controllers-bonuses-fines-ticino-2026/",
-      "ts": "2026-05-07T10:52:52.435Z",
-      "seed": true
-    },
-    {
-      "id": "nuovo-farmaco-leucemia-linfatica-cronica",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/nuovo-farmaco-leucemia-linfatica-cronica/",
-      "ts": "2026-05-07T11:03:38.580Z",
-      "seed": true
-    },
-    {
       "id": "registro-imprese-varese-30-anni",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/registro-imprese-varese-30-anni/",
       "ts": "2026-05-07T11:33:30.878Z",
@@ -6286,6 +6268,57 @@
       "url": "https://frontaliereticino.ch/articoli-svizzera/tasso-ilo-terzo-trimestre/",
       "ts": "2026-11-13T01:58:27.224Z",
       "fbPostId": "951226518080080_122131257981272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "iniziativa-congedo-parentale-riuscita",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/iniziativa-congedo-parentale-riuscita/",
+      "ts": "2026-11-13T09:44:11.354Z",
+      "fbPostId": "951226518080080_122131287489272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto utile prima di valutare una scelta oltreconfine.",
+      "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "lavoro-transfrontaliero-osservatorio",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/lavoro-transfrontaliero-osservatorio/",
+      "ts": "2026-11-13T09:44:18.011Z",
+      "fbPostId": "951226518080080_122131287567272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v4",
+      "copyPackId": "1fb417e247af2a71",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un passaggio pratico per leggere un tema oltreconfine con più chiarezza.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "fiscalita-svizzera-tre-livelli",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/fiscalita-svizzera-tre-livelli/",
+      "ts": "2026-11-13T09:44:22.613Z",
+      "fbPostId": "951226518080080_122131287615272498",
       "copyMode": "codex",
       "copySlot": "article",
       "copyPromptVersion": "frontaliere-social-copy-v4",
