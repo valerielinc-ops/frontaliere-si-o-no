@@ -11,8 +11,8 @@ import {
 import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
 import { CV_TEXT_VERSION } from '../scripts/assisted-application/lib/cv-text.mjs';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
-import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
-import { checkPostingLiveness, resolvePublishedPostingAddressOf } from '../scripts/assisted-application/lib/posting-liveness.mjs';
+import { classifyLiveness, classifyWorkdayLiveness, isHardClosed, resolvePublishedPostingAddressOf } from '../scripts/assisted-application/lib/liveness.mjs';
+import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, portalNeedsPlanner, submitApplication as submitApplicationImpl } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';

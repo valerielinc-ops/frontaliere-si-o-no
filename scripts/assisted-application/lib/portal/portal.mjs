@@ -4238,6 +4238,9 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
+    // Employer-like names in the recruiting platform's attribution footer do
+    // not identify the employer that owns the application form.
+    if (/^\s*(?:powered|provided|developed|hosted)\s+by\b/iu.test(phrase)) continue;
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     // The same words with their case, when they line up one to one: a phrase in normal case (upper and lower
     // letters, no web address) writes a name with a capital and the sentence around it in lower case.
@@ -4648,15 +4651,15 @@ export async function postingMainHeading(page) {
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
 function normalizeFormRoleTitle(value) {
-  return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
+  const text = String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
     .replace(/\(?\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)?/giu, ' ')
     .replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
-    .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
-    .replace(/(?:^|[-–—|:]\s*)(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\s*$/iu, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
-    .replace(/\s+/g, ' ').trim();
+    .replace(/\(\s*\d{1,20}\s*\)/g, ' ');
+  return text.split(PHRASE_END_RE).map((segment) => segment.trim())
+    .filter((segment) => segment && !isGenericFormChromeSegment(segment))
+    .join(' ').replace(/\s+/g, ' ').trim();
 }
 function titleWordsOnly(line, title) {
   const candidates = jobTitleCandidates(title);
@@ -4674,6 +4677,7 @@ function titleWordsOnly(line, title) {
 const FORM_HEADING_VOCABULARY = new Set([
   ...FORM_VOCABULARY,
   ...FILLER_WORDS,
+  'account', 'create', 'profile', 'careers',
   'personal', 'information', 'informationen', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
   'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
   'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
@@ -4688,14 +4692,31 @@ const FORM_HEADING_VOCABULARY = new Set([
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
 
+const FORM_CHROME_WORDS = new Set([
+  ...FORM_HEADING_VOCABULARY,
+  ...EMPLOYER_KIND_WORDS,
+  'bewerbung', 'bewerbungsformular', 'application', 'candidatura', 'candidature', 'postulation',
+  'tracking', 'system', 'process', 'prozess', 'processo', 'processus', 'portal', 'career', 'careerportal', 'jobportal', 'im',
+]);
+const OTHER_EMPLOYER_MARKER_WORDS = new Set([
+  'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
+  'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
+]);
+
+function isGenericFormChromeSegment(segment) {
+  const words = normalizeWords(segment).split(' ').filter(Boolean);
+  if (!words.length || words.some((word) => OTHER_EMPLOYER_MARKER_WORDS.has(word))) return false;
+  return words.every((word) => FORM_CHROME_WORDS.has(word) || /^\d+$/u.test(word));
+}
+
 function formRoleHeadingStatus(formText, job = {}) {
   const candidates = jobTitleCandidates(job);
   if (!candidates.length) return 'unknown';
-  // Only the top lines can identify the selected posting; later form fields and questions are not role evidence.
+  // Skip a few leading account and navigation headings so the role can still
+  // bind when it appears just below them. Stop at the first substantive line:
+  // later form fields and questions are not role evidence.
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
-    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 3);
-  const headings = lines.filter(value => !/^https?:\/\//iu.test(value)).map(normalizeFormRoleTitle).filter(Boolean);
-  if (headings.some(heading => titleWordsOnly(heading, candidates))) return 'match';
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
   const neutral = new Set([
     ...FORM_HEADING_VOCABULARY,
     ...TITLE_GENDER_MARKERS,
@@ -4703,8 +4724,16 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
-  return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
-    .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
+  for (const line of lines) {
+    if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
+    const heading = normalizeFormRoleTitle(line);
+    if (!heading) continue;
+    if (titleWordsOnly(heading, candidates)) return 'match';
+    const words = normalizeWords(heading).split(' ').filter(Boolean);
+    if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
+    return 'mismatch';
+  }
+  return 'unknown';
 }
 
 // Umantis titles append the application surface to the portal's own role
