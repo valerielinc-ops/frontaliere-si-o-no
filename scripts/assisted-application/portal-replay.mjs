@@ -902,6 +902,7 @@ async function compareMode(values) {
   const timeoutMs = Math.min(180_000, Math.max(20_000, Number(values['timeout-ms']) || 90_000));
   const baseRecords = [];
   const headRecords = [];
+  let nodeEgressFence = null;
   const trustedRoot = path.resolve(values['base-root']);
   const headRoot = path.resolve(values['head-root']);
   const trustedFenceRoot = existsSync(path.join(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'))
@@ -933,7 +934,7 @@ async function compareMode(values) {
       headless: process.env.ASSISTED_APPLICATION_HEADED !== '1',
       args: ['--window-size=1366,900'],
     });
-    fenceApi.installPortalReplayNodeEgressFence({
+    nodeEgressFence = fenceApi.installPortalReplayNodeEgressFence({
       allowedUnixSocket: process.env.CODEX_AUTH_BROKER_SOCKET || '',
       onBlocked: () => {
         const metrics = replayMetricsContext.getStore();
@@ -962,6 +963,7 @@ async function compareMode(values) {
     console.log(`portal replay ${family}: ${comparison.status.toUpperCase()} (${comparison.cases.length} listings)`);
     return comparison.status === 'pass' ? 0 : 1;
   } finally {
+    nodeEgressFence?.restore();
     await sharedReplayBrowser?.close().catch(() => {});
     await sharedHeadReplayBrowser?.close().catch(() => {});
     sharedReplayBrowser = null;

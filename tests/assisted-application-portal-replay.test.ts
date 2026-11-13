@@ -288,6 +288,22 @@ describe('portal replay read-only fence', () => {
     expect(page.context().request).toBeUndefined();
     expect(page.context().browser).toBeUndefined();
   });
+
+  it('keeps Playwright cleanup methods intact on the trusted context while hiding them from the runner', async () => {
+    const context = fakeContext() as any;
+    let cleanupCalls = 0;
+    const cleanup = () => { cleanupCalls += 1; };
+    context.off = cleanup;
+    context.removeAllListeners = cleanup;
+    const replayContext = sealPortalReplayContext(context);
+
+    await replayContext.off('page');
+    await replayContext.removeAllListeners();
+
+    expect(context.off).toBe(cleanup);
+    expect(context.removeAllListeners).toBe(cleanup);
+    expect(cleanupCalls).toBe(0);
+  });
 });
 
 describe('portal replay corpus', () => {

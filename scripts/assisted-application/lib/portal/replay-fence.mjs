@@ -391,16 +391,6 @@ export async function installPortalReplayFence(context, {
 /** Seal Playwright escape hatches and pin the runner's first navigation to the sampled listing. */
 export function sealPortalReplayContext(context, { firstNavigationUrl = '' } = {}) {
   if (!context || typeof context.route !== 'function') throw new Error('portal_replay_fence_unavailable');
-  const sealRouteMutationMethods = (target, names) => {
-    for (const name of names) {
-      if (typeof target?.[name] !== 'function') continue;
-      Object.defineProperty(target, name, { configurable: false, writable: false, value: async () => {} });
-    }
-  };
-  sealRouteMutationMethods(context, ['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners']);
-  if (typeof context.on === 'function') {
-    context.on('page', (page) => sealRouteMutationMethods(page, ['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners']));
-  }
   let safeContext;
   let firstNavigationPending = Boolean(firstNavigationUrl);
   const wrapFrame = (frame) => {
@@ -419,10 +409,6 @@ export function sealPortalReplayContext(context, { firstNavigationUrl = '' } = {
     if (!page || typeof page !== 'object') return page;
     return new Proxy(page, {
       get(target, property) {
-        if (['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners'].includes(property)
-          && Object.getOwnPropertyDescriptor(target, property)?.configurable === false) {
-          return Reflect.get(target, property, target);
-        }
         if (['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners'].includes(property)) {
           return async () => {};
         }
@@ -441,12 +427,6 @@ export function sealPortalReplayContext(context, { firstNavigationUrl = '' } = {
   safeContext = new Proxy(context, {
     get(target, property) {
       if (property === 'request' || property === 'browser' || property === 'newCDPSession') return undefined;
-      if (['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners'].includes(property)
-        && Object.getOwnPropertyDescriptor(target, property)?.configurable === false) {
-        // Proxy invariants require the exact value of non-configurable own
-        // methods; the methods were already replaced with sealed no-ops.
-        return Reflect.get(target, property, target);
-      }
       if (['route', 'routeFromHAR', 'routeWebSocket', 'unroute', 'unrouteAll', 'off', 'removeListener', 'removeAllListeners'].includes(property)) {
         return async () => {};
       }
