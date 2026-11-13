@@ -277,6 +277,46 @@ describe('automatic section tree fan-out policy', () => {
     expect(probes.sort()).toEqual(sections.map((section) => `${section}:${section}-it`).sort());
   });
 
+  it('probes every sticky section for every locale before metric-backed shard pushes', async () => {
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const sections = [...SECTION_TREE_FANOUT_SECTIONS].sort();
+    const slugs = Object.fromEntries(sections.map((section) => [section, {
+      it: `${section}-it`,
+      en: `${section}-en`,
+      de: `${section}-de`,
+      fr: `${section}-fr`,
+    }]));
+    const metricsByLocale = Object.fromEntries(['it', 'en', 'de', 'fr'].map((locale) => [locale, {
+      version: 1,
+      locale,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+      treeLimitBytes: 1000,
+      sections: Object.fromEntries(sections.map((section) => [section, { bytes: 100, pct: 10 }])),
+    }]));
+    const probes: string[] = [];
+
+    const result = await runSectionTreeLayoutPreflight({
+      metricsByLocale,
+      locales: ['de', 'fr'],
+      sourceRunId,
+      sourceSha,
+      slugs,
+      readRegistry: async () => ({ version: 1, sections: {} }),
+      register: vi.fn(),
+      probeWorker: async (section: string, sub: string) => { probes.push(`${section}:${sub}`); },
+      stderr: () => {},
+    });
+
+    expect(result.ready).toBe(true);
+    expect(probes.sort()).toEqual(sections.flatMap((section) => [
+      `${section}:de/${section}-de`,
+      `${section}:fr/${section}-fr`,
+    ]).sort());
+  });
+
   it('uses the safe tree-limit default when the environment value is malformed', async () => {
     const previousLimit = process.env.SHARD_REMOTE_TREE_LIMIT_BYTES;
     process.env.SHARD_REMOTE_TREE_LIMIT_BYTES = 'not-a-number';
