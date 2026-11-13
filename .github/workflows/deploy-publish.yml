@@ -369,6 +369,96 @@ jobs:
             --locales "$(node -e 'process.stdout.write(JSON.parse(process.env.TAIL_LOCALES || "[]").join(","))')" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
+  # Make the layout decision once for the complete four-locale source before
+  # either parallel shard publisher can push. Missing or stale measurements
+  # block the section pushes; this prevents per-locale layout races.
+  preflight-section-tree-layouts:
+    name: Preflight sticky section tree layouts
+    needs: [resolve-publish-plan, resolve-publish-receipts]
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-publish-receipts.result == 'success' &&
+          needs.resolve-publish-receipts.outputs.pending_locales != '[]' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      ready: ${{ steps.preflight.outputs.ready }}
+    steps:
+      - name: Checkout current layout publisher
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /package.json
+            /package-lock.json
+            /scripts/load-rc-env.mjs
+            /scripts/lib/
+            /scripts/ci/measure-section-tree-layout-metrics.mjs
+            /scripts/ci/section-tree-layout-preflight.mjs
+            /infra/cloudflare-worker/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: layout-node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.layout-node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Download section tree metrics from all source-run attempts
+        uses: actions/download-artifact@v8
+        with:
+          pattern: section-tree-layout-metrics-*-${{ inputs.source_run_id }}-*
+          path: ${{ runner.temp }}/section-tree-layout-metrics
+          merge-multiple: false
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Register and probe cross-locale fan-out decisions
+        id: preflight
+        env:
+          FANOUT_AUTO_THRESHOLD_PCT: ${{ vars.FANOUT_AUTO_THRESHOLD_PCT || '40' }}
+          SHARD_REMOTE_TREE_LIMIT_BYTES: '52428800'
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_RUN_ATTEMPT: ${{ needs.resolve-publish-plan.outputs.source_run_attempt }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          METRICS_DIR: ${{ runner.temp }}/section-tree-layout-metrics
+        run: |
+          set -euo pipefail
+          node scripts/ci/section-tree-layout-preflight.mjs \
+            --metrics-dir "$METRICS_DIR" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-run-attempt "$SOURCE_RUN_ATTEMPT" \
+            --source-sha "$SOURCE_SHA" \
+            --threshold "$FANOUT_AUTO_THRESHOLD_PCT" \
+            --tree-limit "$SHARD_REMOTE_TREE_LIMIT_BYTES" \
+            --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
+
   # ───────────────────────────────────────────────────────────────────────
   # Publish the IT CDN payload before either IT or non-IT HTML shard pushes.
   # Its success is an explicit dependency of both fan-outs.
@@ -505,10 +595,11 @@ jobs:
   # count in the immutable source plan.
   push-it-shard-groups:
     name: Push IT section group (${{ matrix.group }})
-    needs: [resolve-publish-plan, publish-it-cdn]
+    needs: [resolve-publish-plan, publish-it-cdn, preflight-section-tree-layouts]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.preflight-section-tree-layouts.result == 'success' &&
           contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') &&
           needs.publish-it-cdn.result == 'success' }}
     strategy:
@@ -665,6 +756,7 @@ jobs:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          FANOUT_AUTO_THRESHOLD_PCT: ${{ vars.FANOUT_AUTO_THRESHOLD_PCT || '40' }}
           SHARD_DELTA_CDN_REWRITE: ${{ vars.SHARD_DELTA_CDN_REWRITE == '' && 'changed' || vars.SHARD_DELTA_CDN_REWRITE }}
           SHARD_PUSH_VERIFY: ${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}
           OFFLOAD_CDN_WORKERS: '4'
@@ -1089,11 +1181,12 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   publish-nonit-shards:
     name: Publish non-IT shard tail (${{ matrix.locale }})
-    needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn, preflight-section-tree-layouts]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          needs.preflight-section-tree-layouts.result == 'success' &&
           needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]' &&
           needs.resolve-publish-receipts.result == 'success' &&
           needs.publish-it-cdn.result == 'success' }}
@@ -1543,6 +1636,7 @@ jobs:
           SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
           SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
           SHARD_PUSH_MODE: ${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}
+          FANOUT_AUTO_THRESHOLD_PCT: ${{ vars.FANOUT_AUTO_THRESHOLD_PCT || '40' }}
           # Default to rewriting only the files a delta push reads; the staged
           # copy is completed in background for validation. Set the repo
           # variable to `off` to restore the full pre-push rewrite.
@@ -1784,7 +1878,7 @@ jobs:
             fi
             # Never pack a staged copy the deferred CDN rewrite did not complete.
             shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" "$loc" || return 0
-            local slug sub src packed_n persisted_src_n live_src_n
+            local slug sub src packed_n persisted_src_n live_src_n layout_file source_path_layout
             slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' "$PUBLISHER_ROOT/scripts/lib/section-shard-slugs.json")"
             sub="$loc/$slug"
             src="$RUNNER_TEMP/${section}-src-$loc/dist"
@@ -1825,6 +1919,12 @@ jobs:
               rm -rf "$src"
               return 1
             fi
+            layout_file="$RUNNER_TEMP/shard-tree-layout-$section-$loc"
+            if [ ! -s "$layout_file" ]; then
+              echo "::error::missing staged tree layout receipt for $section-$loc"
+              return 1
+            fi
+            source_path_layout="$(cat "$layout_file")"
             node "$PUBLISHER_ROOT/scripts/ci/shard-content-manifest.mjs" create-section \
               --root "$src/$sub" \
               --prefix "$sub" \
@@ -1833,6 +1933,7 @@ jobs:
               --source-run-id "$SOURCE_RUN_ID" \
               --source-sha "$SOURCE_SHA" \
               --artifact-run-id "$GITHUB_RUN_ID" \
+              --source-path-layout "$source_path_layout" \
               --tar "$RUNNER_TEMP/$section-dist-$loc.tar" \
               --page-manifest "$RUNNER_TEMP/locale-sitemap-manifest-$loc.json" \
               --evidence-manifest "$PUBLISHER_DIST/assets/expired-archive-evidence-$loc.json" \

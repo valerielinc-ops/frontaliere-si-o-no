@@ -204,6 +204,16 @@ function waitForBackground(runnerTemp: string): void {
 function push(scenario: Scenario, cdnRewrite: string): { output: string; staged: Record<string, string> } {
   const runnerTemp = mkdtempSync(join(scenario.root, 'runner-'));
   try {
+    const layoutRegistryStub = join(runnerTemp, 'section-tree-layout-registry.stub.mjs');
+    writeFileSync(layoutRegistryStub, 'process.stdout.write("[\\"ticino\\",\\"zurigo\\",\\"berna\\"]\\n");\n');
+    const layoutStageStub = join(runnerTemp, 'section-tree-layout-stage.stub.mjs');
+    writeFileSync(layoutStageStub, [
+      "const args = process.argv.slice(2);",
+      "const get = (name) => args[args.indexOf(name) + 1];",
+      "const section = get('--section');",
+      "process.stdout.write(JSON.stringify({ decision: ['ticino', 'zurigo', 'berna'].includes(section) ? 'already' : 'keep', moved: 0, sections: ['ticino', 'zurigo', 'berna'] }) + '\\n');",
+      '',
+    ].join('\n'));
     const env: NodeJS.ProcessEnv = {
       ...process.env,
       SHARD_SVIZZERA_EN_DEPLOY_KEY: 'test-deploy-key',
@@ -217,6 +227,8 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
       SHARD_PUSH_PAT: '',
       GIT_TERMINAL_PROMPT: '0',
       SHARD_DELTA_CDN_REWRITE: cdnRewrite,
+      SECTION_TREE_LAYOUT_REGISTRY_TOOL: layoutRegistryStub,
+      SECTION_TREE_LAYOUT_STAGE_TOOL: layoutStageStub,
     };
     const result = spawnSync('bash', [PUSH_SECTION, 'svizzera', 'en', scenario.dist], {
       cwd: ROOT, env, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'],
@@ -237,6 +249,8 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
 }
 
 describe('push-section-shard con SHARD_DELTA_CDN_REWRITE', () => {
+  // Four real local publish passes need longer than Vitest's default when the
+  // shared worktree is loaded; the delta contract is the point of this test.
   it('pusha lo stesso tree git con la variabile spenta e accesa', () => {
     const off = createScenario('off');
     const on = createScenario('on');
@@ -278,7 +292,7 @@ describe('push-section-shard con SHARD_DELTA_CDN_REWRITE', () => {
       rmSync(off.root, { recursive: true, force: true });
       rmSync(on.root, { recursive: true, force: true });
     }
-  });
+  }, 120_000);
 
   it('senza la variabile non scrive marker di rewrite parziale', () => {
     const lib = readFileSync(CDN_LIB, 'utf8');

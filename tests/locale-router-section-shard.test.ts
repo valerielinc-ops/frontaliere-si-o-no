@@ -23,7 +23,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { SECTION_ROUTES, SECTION_TREE_FANOUT_SECTIONS } from '../infra/cloudflare-worker/locale-router.js';
+import worker, {
+  resetSectionTreeLayoutCacheForTests,
+  SECTION_ROUTES,
+  SECTION_TREE_FANOUT_SECTIONS,
+} from '../infra/cloudflare-worker/locale-router.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
 import {
@@ -60,6 +64,12 @@ const SECTION_ORIGIN = {
     de: 'origin-berna-de.frontaliereticino.ch',
     fr: 'origin-berna-fr.frontaliereticino.ch',
   },
+  lucerna: {
+    it: 'origin-lucerna-it.frontaliereticino.ch',
+    en: 'origin-lucerna-en.frontaliereticino.ch',
+    de: 'origin-lucerna-de.frontaliereticino.ch',
+    fr: 'origin-lucerna-fr.frontaliereticino.ch',
+  },
 };
 
 /** Capture the upstream request the Worker fetches for a given public path. */
@@ -67,12 +77,20 @@ let lastUpstreamHost: string | null;
 let lastUpstreamPath: string | null;
 let upstreamPathHistory: string[];
 let upstreamHandler: (url: URL) => Response;
+let sectionTreeLayoutResponse: () => Response;
+let sectionTreeLayoutFetches: number;
 
 beforeEach(() => {
+  resetSectionTreeLayoutCacheForTests();
   lastUpstreamHost = null;
   lastUpstreamPath = null;
   upstreamPathHistory = [];
   upstreamHandler = () => new Response('<html>page</html>', { status: 200 });
+  sectionTreeLayoutResponse = () => new Response(JSON.stringify({ version: 1, sections: {} }), {
+    status: 200,
+    headers: { 'content-type': 'application/json' },
+  });
+  sectionTreeLayoutFetches = 0;
   const cacheStore = new Map<string, Response>();
   const cache = {
     match: vi.fn(async (req: Request) => {
@@ -90,6 +108,10 @@ beforeEach(() => {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
     const upstreamUrl = new URL(reqUrl);
+    if (upstreamUrl.hostname === 'cdn.frontaliereticino.ch' && upstreamUrl.pathname === '/edge/section-tree-layout.json') {
+      sectionTreeLayoutFetches += 1;
+      return sectionTreeLayoutResponse();
+    }
     lastUpstreamHost = upstreamUrl.hostname;
     lastUpstreamPath = upstreamUrl.pathname;
     upstreamPathHistory.push(upstreamUrl.pathname);
@@ -321,6 +343,97 @@ describe('locale-router Berna-section shard routing', () => {
 
   it('exposes the expected static fan-out floor', () => {
     expect(SECTION_TREE_FANOUT_SECTIONS).toEqual(['ticino', 'zurigo', 'berna']);
+  });
+
+  it('routes registry-fanned sections through hash-v1 and falls back to the canonical path during migration', async () => {
+    const route = SECTION_ROUTES.find((entry: { section: string; locale: string }) => entry.section === 'lucerna' && entry.locale === 'de');
+    expect(route).toBeDefined();
+    sectionTreeLayoutResponse = () => new Response(JSON.stringify({
+      version: 1,
+      sections: { lucerna: { layout: 'hash-v1', since: '2026-11-12T00:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } },
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+    upstreamHandler = (url) => url.pathname.includes('/_tree/')
+      ? new Response(null, { status: 404 })
+      : new Response('<html>canonical fallback</html>', { status: 200 });
+
+    const page = `${APEX}${route.prefix}/sample-job/`;
+    const response = await worker.fetch(new Request(page), {}, ctx);
+    expect(response.status).toBe(200);
+    expect(await response.text()).toContain('canonical fallback');
+    expect(upstreamPathHistory).toEqual([
+      route.prefix + `/_tree/${sectionTreeBucket('sample-job')}/sample-job/`,
+      route.prefix + '/sample-job/',
+    ]);
+    expect(sectionTreeLayoutFetches).toBe(1);
+  });
+
+  it('advertises hash-v1 through the generic probe for a registry-fanned section', async () => {
+    const route = SECTION_ROUTES.find((entry: { section: string; locale: string }) => entry.section === 'lucerna' && entry.locale === 'de');
+    expect(route).toBeDefined();
+    sectionTreeLayoutResponse = () => new Response(JSON.stringify({
+      version: 1,
+      sections: { lucerna: { layout: 'hash-v1', since: '2026-11-12T00:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } },
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+    const response = await worker.fetch(new Request(
+      `${APEX}${route.prefix}/?__frontaliere_section_tree_layout=hash-v1&section=lucerna`,
+      { method: 'HEAD' },
+    ), {}, ctx);
+    expect(response.status).toBe(204);
+    expect(response.headers.get('x-frontaliere-section-tree-layout')).toBe('hash-v1');
+    expect(response.headers.get('x-frontaliere-section')).toBe('lucerna');
+    expect(response.headers.get('x-frontaliere-lucerna-tree-layout')).toBe('hash-v1');
+    expect(upstreamPathHistory).toEqual([]);
+  });
+
+  it('serves a newly fanned tree through a stale isolate registry after the canonical path misses', async () => {
+    const route = SECTION_ROUTES.find((entry: { section: string; locale: string }) => entry.section === 'lucerna' && entry.locale === 'de');
+    expect(route).toBeDefined();
+    let registered = false;
+    sectionTreeLayoutResponse = () => new Response(JSON.stringify({
+      version: 1,
+      sections: registered
+        ? { lucerna: { layout: 'hash-v1', since: '2026-11-12T00:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } }
+        : {},
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+    upstreamHandler = (url) => new Response('<html>canonical</html>', { status: 200 });
+
+    const root = await worker.fetch(new Request(`${APEX}${route.prefix}/`), {}, ctx);
+    expect(root.status).toBe(200);
+    expect(sectionTreeLayoutFetches).toBe(1);
+
+    registered = true;
+    upstreamPathHistory = [];
+    upstreamHandler = (url) => url.pathname.includes('/_tree/')
+      ? new Response('<html>hash-v1</html>', { status: 200 })
+      : new Response(null, { status: 404 });
+    const page = await worker.fetch(new Request(`${APEX}${route.prefix}/after-registry-write/`), {}, ctx);
+
+    expect(page.status).toBe(200);
+    expect(await page.text()).toContain('hash-v1');
+    expect(upstreamPathHistory).toEqual([
+      route.prefix + '/after-registry-write/',
+      route.prefix + `/_tree/${sectionTreeBucket('after-registry-write')}/after-registry-write/`,
+    ]);
+    expect(sectionTreeLayoutFetches).toBe(1);
+  });
+
+  it('rewrites a registry-fanned physical redirect back to its public URL', async () => {
+    const route = SECTION_ROUTES.find((entry: { section: string; locale: string }) => entry.section === 'lucerna' && entry.locale === 'de');
+    expect(route).toBeDefined();
+    sectionTreeLayoutResponse = () => new Response(JSON.stringify({
+      version: 1,
+      sections: { lucerna: { layout: 'hash-v1', since: '2026-11-12T00:00:00.000Z', reason: { locale: 'de', pct: 44.2 } } },
+    }), { status: 200, headers: { 'content-type': 'application/json' } });
+    upstreamHandler = (url) => new Response(null, {
+      status: 301,
+      headers: { location: `https://${SECTION_ORIGIN.lucerna.de}${url.pathname}continued/` },
+    });
+
+    const slug = 'sample-job';
+    const response = await worker.fetch(new Request(`${APEX}${route.prefix}/${slug}/`), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(new URL(response.headers.get('location') as string).pathname).toBe(`${route.prefix}/${slug}/continued/`);
+    expect(new URL(response.headers.get('location') as string).hostname).toBe('frontaliereticino.ch');
   });
 });
 

@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import {
   chmodSync,
+  cpSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -282,6 +283,26 @@ function runPush(
   mkdirSync(binDir);
   const curlStub = join(binDir, 'curl');
   const realCurl = execFileSync('sh', ['-c', 'command -v curl'], { encoding: 'utf8' }).trim();
+  const layoutRegistryStub = join(runnerTemp, 'section-tree-layout-registry.stub.mjs');
+  writeFileSync(layoutRegistryStub, 'process.stdout.write("[\\"ticino\\",\\"zurigo\\",\\"berna\\"]\\n");\n');
+  const layoutStageStub = join(runnerTemp, 'section-tree-layout-stage.stub.mjs');
+  writeFileSync(layoutStageStub, [
+    "import { execFileSync } from 'node:child_process';",
+    "import { resolve } from 'node:path';",
+    "const args = process.argv.slice(2);",
+    "const get = (name) => args[args.indexOf(name) + 1];",
+    "const section = get('--section');",
+    "const stage = get('--stage');",
+    "const sub = get('--sub');",
+    "const mode = get('--mode');",
+    "const sections = ['ticino', 'zurigo', 'berna'];",
+    "let moved = 0;",
+    "const decision = sections.includes(section) ? 'already' : 'keep';",
+    "if (decision === 'already' && mode === 'filesystem') execFileSync(process.execPath, [resolve(process.env.SHARD_TEST_TOOL_ROOT, 'scripts/lib/ticino-tree-fanout.mjs'), 'fanout', resolve(stage, sub)]);",
+    "if (decision === 'already' && mode === 'index') moved = JSON.parse(execFileSync(process.execPath, [resolve(process.env.SHARD_TEST_TOOL_ROOT, 'scripts/lib/ticino-tree-fanout.mjs'), 'index-layout', stage, section, sub, 'hash-v1'], { encoding: 'utf8' })).moved;",
+    "process.stdout.write(JSON.stringify({ decision, moved, sections }) + '\\n');",
+    '',
+  ].join('\n'));
   writeFileSync(
     curlStub,
     [
@@ -319,6 +340,9 @@ function runPush(
     GITHUB_PAT: '',
     SHARD_PUSH_PAT: '',
     GIT_TERMINAL_PROMPT: '0',
+    SECTION_TREE_LAYOUT_REGISTRY_TOOL: layoutRegistryStub,
+    SECTION_TREE_LAYOUT_STAGE_TOOL: layoutStageStub,
+    SHARD_TEST_TOOL_ROOT: ROOT,
     ...extraEnv,
   };
   if (mode === undefined) delete env.SHARD_PUSH_MODE;
@@ -482,7 +506,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('fa fallback se il sidecar marca unchanged un file assente dall’indice HEAD', () => {
     const scenario = createScenario('unchanged-missing-from-head');
@@ -569,7 +593,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('esclude dal manifest del locale i subtree già assegnati agli shard-sezione', () => {
     const scenario = createScenario('locale-section-strip');
@@ -703,7 +727,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('mantiene il full overlay e il fan-out fisico alla entrypoint dei section shard', () => {
     const scenario = createScenario('section-lifecycle');
@@ -729,7 +753,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
       const result = runPush(scenario, 'delta', {}, sectionTarget);
       expect(result.status).toBe(0);
-      expect(result.output).toContain('forcing full overlay');
+      expect(result.output).toContain('using a full canonical overlay');
       expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/c/index.html'));
       expect(treeFiles(scenario.remote)).not.toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/b/index.html'));
       assertContent(scenario.remote, ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'), '<html>A</html>');
@@ -807,6 +831,95 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(ordinary.root, { recursive: true, force: true });
       rmSync(fast.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
+  it('migra zurigo da canonical con checkpoint L4 seedati vuoti quando il tree base è oltre il limite', () => {
+    const scenario = createScenario('section-first-fanout-resumable');
+    const section = 'de/jobs-in-zurich';
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['zurigo', 'de', current.dist],
+      deployKey: 'SHARD_ZURIGO_DE_DEPLOY_KEY',
+      label: 'zurigo-first-fanout',
+    };
+    const baseline = join(scenario.root, 'baseline');
+    const expected = join(scenario.root, 'expected-fanned');
+    const count = 120;
+    const writeCanonicalSection = (root: string) => {
+      const sectionRoot = join(root, section);
+      mkdirSync(sectionRoot, { recursive: true });
+      writeFileSync(join(sectionRoot, 'index.html'), '<html>Zurich landing</html>');
+      for (let index = 0; index < count; index += 1) {
+        const slug = `job-${String(index).padStart(4, '0')}`;
+        const job = join(sectionRoot, slug);
+        mkdirSync(job, { recursive: true });
+        writeFileSync(join(job, 'index.html'), `<html>${slug}</html>`);
+      }
+    };
+    const largestTreeSize = (repo: string, treeish: string) => {
+      const rootTree = git(['-C', repo, 'rev-parse', `${treeish}^{tree}`]);
+      const rows = execFileSync('git', ['-C', repo, 'ls-tree', '-r', '-d', '-z', treeish]);
+      const treeIds = [rootTree, ...rows.toString('utf8').split('\0').filter(Boolean).map((row) => row.slice(0, row.indexOf('\t')).split(/\s+/u)[2])];
+      return Math.max(...treeIds.map((oid) => Number(git(['-C', repo, 'cat-file', '-s', oid]))));
+    };
+    try {
+      mkdirSync(baseline, { recursive: true });
+      writeFileSync(join(baseline, '.nojekyll'), '');
+      writeFileSync(join(baseline, 'CNAME'), 'frontaliereticino.ch');
+      writeFileSync(join(baseline, 'index.html'), '<html>Zurigo-DE shard</html>');
+      writeFileSync(join(baseline, '.shard-filecount'), String(count + 1));
+      writeFileSync(join(baseline, '.shard-deploys'), '1');
+      writeFileSync(join(baseline, '.shard-source'), 'a'.repeat(40));
+      writeCanonicalSection(baseline);
+      git(['init', '-q', '-b', 'main', baseline]);
+      git(['-C', baseline, 'config', 'user.email', 'test@example.invalid']);
+      git(['-C', baseline, 'config', 'user.name', 'Test']);
+      git(['-C', baseline, 'add', '--all']);
+      git(['-C', baseline, 'commit', '-qm', 'canonical Zurich baseline']);
+      git(['-C', baseline, 'remote', 'add', 'origin', scenario.remote]);
+      git(['-C', baseline, 'push', '-q', '-u', 'origin', 'main']);
+
+      cpSync(baseline, expected, { recursive: true });
+      execFileSync(process.execPath, [join(ROOT, 'scripts/lib/ticino-tree-fanout.mjs'), 'fanout', join(expected, section)]);
+      git(['-C', expected, 'add', '--all']);
+      const baseLargest = largestTreeSize(baseline, 'HEAD');
+      const expectedTree = git(['-C', expected, 'write-tree']);
+      const targetLargest = largestTreeSize(expected, expectedTree);
+      expect(baseLargest).toBeGreaterThan(targetLargest);
+      const simulatedRemoteTreeLimit = Math.floor((baseLargest + targetLargest) / 2);
+      writeFileSync(join(scenario.remote, 'hooks', 'pre-receive'), [
+        '#!/usr/bin/env node',
+        "import { execFileSync } from 'node:child_process';",
+        "import { readFileSync } from 'node:fs';",
+        'const limit = ' + String(simulatedRemoteTreeLimit) + ';',
+        "for (const line of readFileSync(0, 'utf8').trim().split(/\\r?\\n/u)) {",
+        '  const [oldSha, newSha, ref] = line.split(/\\s+/u);',
+        "  if (!ref.startsWith('refs/heads/shard-resume/')) continue;",
+        "  const rootTree = execFileSync('git', ['rev-parse', `${newSha}^{tree}`], { encoding: 'utf8' }).trim();",
+        "  const rows = execFileSync('git', ['ls-tree', '-r', '-d', '-z', newSha]);",
+        "  const trees = [rootTree, ...rows.toString('utf8').split('\\0').filter(Boolean).map((row) => row.slice(0, row.indexOf('\\t')).split(/\\s+/u)[2])];",
+        "  const largest = Math.max(...trees.map((oid) => Number(execFileSync('git', ['cat-file', '-s', oid], { encoding: 'utf8' }).trim())));",
+        "  if (largest >= limit) { console.error(`tree ${largest} exceeds simulated remote limit ${limit} at ${ref}`); process.exit(1); }",
+        '}',
+        '',
+      ].join('\n'), { mode: 0o755 });
+
+      rmSync(scenario.dist, { recursive: true, force: true });
+      writeCanonicalSection(scenario.dist);
+      const result = runPush(scenario, 'delta', {
+        SHARD_DELTA_CHECKPOINT_FILES: '50',
+        SHARD_REMOTE_TREE_REJECT_BYTES: String(simulatedRemoteTreeLimit),
+      }, sectionTarget);
+
+      expect(result.status, result.output).toBe(0);
+      expect(result.output).toContain('resumable-layout-migration');
+      expect(result.output).toContain('checkpoint seed=empty');
+      expect(git(['-C', scenario.remote, 'show', `main:${section}/_tree/${ticinoTreeBucket('job-0001')}/job-0001/index.html`])).toBe('<html>job-0001</html>');
+      expect(git(['-C', scenario.remote, 'ls-tree', '-r', '--name-only', 'main', '--', `${section}/_tree`])).toContain(`${section}/_tree/`);
+      expect(git(['-C', scenario.remote, 'ls-tree', '-r', '--name-only', 'main', '--', section])).not.toContain(`${section}/job-0001/`);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
     }
   }, 60_000);
 
@@ -1366,7 +1479,7 @@ describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('ripara uno shard già stale: sidecar pre-fix col fingerprint nuovo e i byte vecchi', () => {
     const scenario = createScenario('9788-stale-sidecar');

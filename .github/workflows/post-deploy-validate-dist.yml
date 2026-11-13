@@ -65,6 +65,8 @@ jobs:
             data/sitemap-family-coverage-declarations.json
             infra/cloudflare-worker/locale-router.js
             infra/cloudflare-worker/ticino-tree-bucket.js
+            infra/cloudflare-worker/section-tree-layout.js
+            infra/cloudflare-worker/section-tree-layout-schema.js
             infra/cloudflare-worker/legacy-stub-redirects.generated.mjs
             services/publicConfigConstants.mjs
             scripts/lib/pharmacySections.mjs

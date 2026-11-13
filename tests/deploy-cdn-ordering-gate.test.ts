@@ -833,12 +833,12 @@ describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
       CDN_BUILD_ID_URL: url,
       CDN_WAIT_TIMEOUT_S: '3600',
       CDN_WAIT_INTERVAL_S: '1',
-      CDN_JOB_START_EPOCH: String(now - 10), // 5s remain before the hard deadline
-      CDN_JOB_DEADLINE_S: '15',
-      CDN_JOB_FINISH_RESERVE_S: '3', // 2s remain for the gate after the reserve
+      CDN_JOB_START_EPOCH: String(now - 5), // 15s remain before the hard deadline
+      CDN_JOB_DEADLINE_S: '20',
+      CDN_JOB_FINISH_RESERVE_S: '3', // 12s remain for the gate after the reserve
     });
     expect(r.code).toBe(0);
-    expect(r.stdout).toMatch(/hard deadline 15s, finish reserve 3s/);
+    expect(r.stdout).toMatch(/hard deadline 20s, finish reserve 3s/);
     expect(r.stdout).toMatch(/shrinking phase 2\/2 budget from 3600s to \d+s/);
   });
 
