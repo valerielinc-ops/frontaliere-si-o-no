@@ -109,7 +109,7 @@ describe('translate-pending budget benchmark', () => {
     expect(parsed.jobs.benchmark['timeout-minutes']).toBe(350);
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).toBe('${{ github.workspace }}/translate-pending-budget-benchmark.json');
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).not.toContain('runner.temp');
-    expect(parsed.jobs.benchmark.env?.BENCHMARK_SOURCE_REF)
+    expect(parsed.jobs.benchmark.env?.BENCHMARK_DISPATCH_REF)
       .toBe('${{ inputs.source_ref || github.sha }}');
     const checkout = parsed.jobs.benchmark.steps.find((step) => step.name === 'Checkout benchmark ref');
     expect(checkout?.uses).toBe('actions/checkout@v7');

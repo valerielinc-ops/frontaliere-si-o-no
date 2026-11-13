@@ -36,7 +36,7 @@ jobs:
       TRANSLATE_RUN_CLOCK_REQUIRED: '1'
       BENCHMARK_PHASE: ${{ inputs.phase || 'descriptions' }}
       BENCHMARK_MAX_CANDIDATES: ${{ inputs.max_candidates || '2000' }}
-      BENCHMARK_SOURCE_REF: ${{ inputs.source_ref || github.sha }}
+      BENCHMARK_DISPATCH_REF: ${{ inputs.source_ref || github.sha }}
       BENCHMARK_BASELINE_RUN: '42348235004'
       BENCHMARK_BASELINE_LANE_MINUTES: '73'
       BENCHMARK_BASELINE_NOTE: 'Historical Phase 2e lane duration; the downstream persistence queue did not complete before the 350min cap.'
@@ -59,7 +59,7 @@ jobs:
       - name: Initialize benchmark report
         env:
           BENCHMARK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: node scripts/ci/translate-pending-budget-benchmark.mjs --init --phase "$BENCHMARK_PHASE" --source-ref "$BENCHMARK_SOURCE_REF" --run-url "$BENCHMARK_RUN_URL" --report "$BENCHMARK_REPORT"
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --init --phase "$BENCHMARK_PHASE" --source-ref "$BENCHMARK_DISPATCH_REF" --run-url "$BENCHMARK_RUN_URL" --report "$BENCHMARK_REPORT"
 
       - name: Prepare Firebase credentials for Remote Config
         env:
