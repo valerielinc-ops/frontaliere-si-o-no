@@ -1245,12 +1245,12 @@
     },
     {
       "id": "jsafrasarasin-3fdccfbec1f9",
-      "slug": "fund-research-analyst-jsafrasarasin-ch",
+      "slug": "fund-ricerca-analista-j-safra-sarasin-zurich-ch",
       "slugByLocale": {
         "en": "fund-research-analyst-jsafrasarasin-ch",
-        "it": "fund-research-analyst-jsafrasarasin-ch",
-        "de": "fund-research-analyst-jsafrasarasin-ch",
-        "fr": "fund-research-analyst-jsafrasarasin-ch"
+        "it": "fund-ricerca-analista-j-safra-sarasin-zurich-ch",
+        "de": "fund-forschung-analyst-j-safra-sarasin-zurich-ch",
+        "fr": "fund-recherche-analyste-j-safra-sarasin-zurich-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1312,7 +1312,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:19:53.613Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:50:25.419Z"
+      "firstSeenAt": "2026-09-19T22:50:25.419Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fund-research-analyst-jsafrasarasin-ch"
+        ],
+        "de": [
+          "fund-research-analyst-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "fund-research-analyst-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fund-research-analyst-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-a2702e010cdb",

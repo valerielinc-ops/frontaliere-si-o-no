@@ -7576,9 +7576,9 @@
     },
     {
       "id": "roche-28269ff24ebf",
-      "slug": "senior-learning-specialista-im-bereich-qa-training-roche-basel",
+      "slug": "senior-learning-specialist-nell-ambito-della-formazione-qa-roche-basel",
       "slugByLocale": {
-        "it": "senior-learning-specialista-im-bereich-qa-training-roche-basel",
+        "it": "senior-learning-specialist-nell-ambito-della-formazione-qa-roche-basel",
         "en": "senior-learning-specialist-in-qa-training-roche-basel",
         "de": "senior-learning-specialist-im-bereich-qa-training-roche-ch",
         "fr": "specialiste-senior-de-l-apprentissage-dans-le-domaine-de-la-formation-a-l-assurance-qualite-roche-basel"
@@ -7623,11 +7623,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-learning-specialist-im-bereich-qa-training-roche-ch"
+        "senior-learning-specialist-im-bereich-qa-training-roche-ch",
+        "senior-learning-specialista-im-bereich-qa-training-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-learning-specialist-im-bereich-qa-training-roche-ch"
+          "senior-learning-specialist-im-bereich-qa-training-roche-ch",
+          "senior-learning-specialista-im-bereich-qa-training-roche-basel"
         ],
         "en": [
           "senior-learning-specialist-im-bereich-qa-training-roche-ch"
@@ -8068,9 +8070,9 @@
       "slug": "tirocinante-roche-kaiseraugst",
       "slugByLocale": {
         "it": "tirocinante-roche-kaiseraugst",
-        "en": "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "en": "internal-roche-kaiseraugst",
         "de": "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-        "fr": "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
+        "fr": "stagiaire-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8115,8 +8117,8 @@
         "praktikum-im-bereich-quality-control-pharma-roche-ch",
         "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
         "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-        "internal-roche-kaiseraugst",
-        "stagiaire-roche-kaiseraugst"
+        "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8124,14 +8126,14 @@
         ],
         "en": [
           "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-          "internal-roche-kaiseraugst"
+          "internship-in-quality-control-pharma-roche-kaiseraugst"
         ],
         "de": [
           "praktikum-im-bereich-quality-control-pharma-roche-ch"
         ],
         "fr": [
           "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-          "stagiaire-roche-kaiseraugst"
+          "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -8402,12 +8404,12 @@
     },
     {
       "id": "roche-7ae3912355ce",
-      "slug": "product-manager-martech-ai-roche-ch",
+      "slug": "responsabile-del-prodotto-martech-ai-roche-rotkreuz",
       "slugByLocale": {
         "en": "product-manager-martech-ai-roche-ch",
-        "it": "product-manager-martech-ai-roche-ch",
-        "de": "product-manager-martech-ai-roche-ch",
-        "fr": "product-manager-martech-ai-roche-ch"
+        "it": "responsabile-del-prodotto-martech-ai-roche-rotkreuz",
+        "de": "produktmanager-martech-ai-roche-rotkreuz",
+        "fr": "gestionnaire-de-produits-martech-ai-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8469,16 +8471,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:14:52.209Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:14:52.209Z"
+      "firstSeenAt": "2026-11-13T09:14:52.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-martech-ai-roche-ch"
+        ],
+        "de": [
+          "product-manager-martech-ai-roche-ch"
+        ],
+        "fr": [
+          "product-manager-martech-ai-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-martech-ai-roche-ch"
+      ]
     },
     {
       "id": "roche-4c1127b3feff",
-      "slug": "social-media-channel-manager-roche-ch",
+      "slug": "gestore-canali-social-media-roche-rotkreuz",
       "slugByLocale": {
         "en": "social-media-channel-manager-roche-ch",
-        "it": "social-media-channel-manager-roche-ch",
+        "it": "gestore-canali-social-media-roche-rotkreuz",
         "de": "social-media-channel-manager-roche-ch",
-        "fr": "social-media-channel-manager-roche-ch"
+        "fr": "gestionnaire-de-canaux-de-medias-sociaux-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8541,7 +8557,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:14:50.782Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:14:50.782Z"
+      "firstSeenAt": "2026-11-13T09:14:50.782Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "social-media-channel-manager-roche-ch"
+        ],
+        "fr": [
+          "social-media-channel-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "social-media-channel-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-7eb7e69cacbe",
@@ -8617,12 +8644,12 @@
     },
     {
       "id": "roche-93e5f355ab80",
-      "slug": "content-librarian-manager-roche-ch",
+      "slug": "responsabile-bibliotecario-roche-rotkreuz",
       "slugByLocale": {
         "en": "content-librarian-manager-roche-ch",
-        "it": "content-librarian-manager-roche-ch",
-        "de": "content-librarian-manager-roche-ch",
-        "fr": "content-librarian-manager-roche-ch"
+        "it": "responsabile-bibliotecario-roche-rotkreuz",
+        "de": "bibliotheksverwaltung-fur-inhalte-roche-rotkreuz",
+        "fr": "gestionnaire-de-bibliotheque-du-contenu-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8684,7 +8711,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:14:48.159Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:14:48.159Z"
+      "firstSeenAt": "2026-11-13T09:14:48.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "content-librarian-manager-roche-ch"
+        ],
+        "de": [
+          "content-librarian-manager-roche-ch"
+        ],
+        "fr": [
+          "content-librarian-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "content-librarian-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-1318a3eed05b",
@@ -8692,8 +8733,8 @@
       "slugByLocale": {
         "en": "business-support-manager-digital-sales-enablement-roche-ch",
         "it": "business-support-manager-digital-sales-enablement-roche-ch",
-        "de": "business-support-manager-digital-sales-enablement-roche-ch",
-        "fr": "business-support-manager-digital-sales-enablement-roche-ch"
+        "de": "business-support-manager-digitale-verkaufsforderung-roche-rotkreuz",
+        "fr": "gestionnaire-de-soutien-aux-entreprises-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8759,12 +8800,12 @@
     },
     {
       "id": "roche-acdf3654fe47",
-      "slug": "subchapter-lead-brand-and-creative-management-roche-ch",
+      "slug": "subchapter-lead-brand-e-gestione-creativa-roche-rotkreuz",
       "slugByLocale": {
         "en": "subchapter-lead-brand-and-creative-management-roche-ch",
-        "it": "subchapter-lead-brand-and-creative-management-roche-ch",
+        "it": "subchapter-lead-brand-e-gestione-creativa-roche-rotkreuz",
         "de": "subchapter-lead-brand-and-creative-management-roche-ch",
-        "fr": "subchapter-lead-brand-and-creative-management-roche-ch"
+        "fr": "sous-chapitre-marque-principale-et-gestion-creative-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8826,7 +8867,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:14:44.828Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:14:44.828Z"
+      "firstSeenAt": "2026-11-13T09:14:44.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "subchapter-lead-brand-and-creative-management-roche-ch"
+        ],
+        "fr": [
+          "subchapter-lead-brand-and-creative-management-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "subchapter-lead-brand-and-creative-management-roche-ch"
+      ]
     },
     {
       "id": "roche-e771f3b92114",
@@ -8835,7 +8887,7 @@
         "en": "subchapter-lead-b2c-solutions-marketing-roche-ch",
         "it": "subchapter-lead-b2c-solutions-marketing-roche-ch",
         "de": "subchapter-lead-b2c-solutions-marketing-roche-ch",
-        "fr": "subchapter-lead-b2c-solutions-marketing-roche-ch"
+        "fr": "sous-chapitre-leader-b2c-solutions-marketing-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8906,7 +8958,7 @@
         "en": "lead-ai-technology-consultant-roche-ch",
         "it": "lead-ai-technology-consultant-roche-ch",
         "de": "lead-ai-technology-consultant-roche-ch",
-        "fr": "lead-ai-technology-consultant-roche-ch"
+        "fr": "conseiller-en-technologie-de-l-ia-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",

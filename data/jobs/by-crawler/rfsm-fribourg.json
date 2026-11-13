@@ -193,11 +193,11 @@
     },
     {
       "id": "rfsm-fribourg-3cc28f73de1b",
-      "slug": "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane",
+      "slug": "responsabile-di-reparto-fnpg-villars-sur-glane-reparto-saturno-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
       "slugByLocale": {
         "de": "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane",
-        "it": "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane",
-        "en": "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane",
+        "it": "responsabile-di-reparto-fnpg-villars-sur-glane-reparto-saturno-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
+        "en": "ward-manager-fnpg-villars-sur-glane-ward-saturn-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
         "fr": "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -261,7 +261,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:36:55.365Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:36:55.365Z"
+      "firstSeenAt": "2026-11-13T09:36:55.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane"
+        ],
+        "en": [
+          "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-fnpg-villars-sur-glane-station-saturn-rfsm-fribourg-villars-sur-glane"
+      ]
     },
     {
       "id": "etat-de-fribourg-a34b5ee0d4b1",
@@ -694,12 +705,12 @@
     },
     {
       "id": "rfsm-fribourg-7ffb0bdeda9a",
-      "slug": "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens",
+      "slug": "infermiera-rfsm-marsens-hermes-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
         "fr": "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens",
-        "it": "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens",
-        "en": "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens",
-        "de": "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens"
+        "it": "infermiera-rfsm-marsens-hermes-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "nurse-rfsm-marsens-hermes-unit-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "krankenschwester-rfsm-marsens-einheit-hermes-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -761,7 +772,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:36:50.646Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:36:50.646Z"
+      "firstSeenAt": "2026-11-13T09:36:50.646Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens"
+        ],
+        "de": [
+          "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-rfsm-marsens-unite-hermes-rfsm-fribourg-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-6b52fabc4e84",

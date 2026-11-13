@@ -4349,12 +4349,12 @@
     },
     {
       "id": "hug-d80a67c03804",
-      "slug": "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug",
+      "slug": "servizio-civile-fisioterapista-sul-sito-crans-montana-100-hug-crans-montana",
       "slugByLocale": {
         "fr": "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug",
-        "it": "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug",
-        "en": "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug",
-        "de": "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug"
+        "it": "servizio-civile-fisioterapista-sul-sito-crans-montana-100-hug-crans-montana",
+        "en": "civilian-service-physiotherapist-on-the-crans-montana-site-100-hug-crans-montana",
+        "de": "zivildienst-physiotherapeut-am-standort-crans-montana-100-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4417,16 +4417,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:18:07.059Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:07.059Z"
+      "firstSeenAt": "2026-11-13T09:18:07.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug"
+        ],
+        "en": [
+          "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug"
+        ],
+        "de": [
+          "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "service-civil-affectation-d-aide-physiotherapeute-sur-le-site-de-crans-montana-100-hug"
+      ]
     },
     {
       "id": "hug-ad07b3134548",
-      "slug": "medecin-interne-crans-montana-100-hug-crans-montana",
+      "slug": "medico-interno-crans-montana-100-hug-crans-montana",
       "slugByLocale": {
         "fr": "medecin-interne-crans-montana-100-hug-crans-montana",
-        "it": "medecin-interne-crans-montana-100-hug-crans-montana",
-        "en": "medecin-interne-crans-montana-100-hug-crans-montana",
-        "de": "medecin-interne-crans-montana-100-hug-crans-montana"
+        "it": "medico-interno-crans-montana-100-hug-crans-montana",
+        "en": "internal-physician-crans-montana-100-hug-crans-montana",
+        "de": "innerer-arzt-crans-montana-100-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4489,7 +4503,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:18:07.056Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:07.056Z"
+      "firstSeenAt": "2026-11-13T09:18:07.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-crans-montana-100-hug-crans-montana"
+        ],
+        "en": [
+          "medecin-interne-crans-montana-100-hug-crans-montana"
+        ],
+        "de": [
+          "medecin-interne-crans-montana-100-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-crans-montana-100-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-d43187499a0e",
@@ -4577,12 +4605,12 @@
     },
     {
       "id": "hug-d9d59da821bb",
-      "slug": "stage-de-master-en-physique-medicale-100-hug-geneve",
+      "slug": "master-in-fisica-medica-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-de-master-en-physique-medicale-100-hug-geneve",
-        "it": "stage-de-master-en-physique-medicale-100-hug-geneve",
-        "en": "stage-de-master-en-physique-medicale-100-hug-geneve",
-        "de": "stage-de-master-en-physique-medicale-100-hug-geneve"
+        "it": "master-in-fisica-medica-100-hug-geneve",
+        "en": "master-s-degree-in-medical-physics-100-hug-geneve",
+        "de": "master-in-medizinischer-physik-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4646,16 +4674,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:18:07.046Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:07.046Z"
+      "firstSeenAt": "2026-11-13T09:18:07.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
+        ],
+        "en": [
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
+        ],
+        "de": [
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-de-master-en-physique-medicale-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-625404da4cee",
-      "slug": "psychologue-a-l-unite-vih-40-hug-geneve",
+      "slug": "psicologo-dell-unita-hiv-40-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-a-l-unite-vih-40-hug-geneve",
-        "it": "psychologue-a-l-unite-vih-40-hug-geneve",
-        "en": "psychologue-a-l-unite-vih-40-hug-geneve",
-        "de": "psychologue-a-l-unite-vih-40-hug-geneve"
+        "it": "psicologo-dell-unita-hiv-40-hug-geneve",
+        "en": "psychologist-at-hiv-unit-40-hug-geneve",
+        "de": "psychologe-in-der-hiv-einheit-40-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4718,7 +4760,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:18:07.038Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:07.038Z"
+      "firstSeenAt": "2026-11-13T09:18:07.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-a-l-unite-vih-40-hug-geneve"
+        ],
+        "en": [
+          "psychologue-a-l-unite-vih-40-hug-geneve"
+        ],
+        "de": [
+          "psychologue-a-l-unite-vih-40-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-a-l-unite-vih-40-hug-geneve"
+      ]
     }
   ]
 }
