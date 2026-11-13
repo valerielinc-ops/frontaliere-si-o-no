@@ -4,7 +4,8 @@
  * platform whether it will let us post yet, and prints one verdict per channel.
  *
  * The decision table is scripts/lib/social-readiness.mjs (pure, unit-tested).
- * This file is only the network half: read-only Meta probes, no writes, no post.
+ * This file is the read-only network probe plus the optional local posted-ledger
+ * activation check; it never writes or publishes.
  *
  *   Instagram  GET  /{FB_PAGE_ID}?fields=id,access_token,tasks,instagram_business_account
  *              GET  /me/permissions
@@ -30,10 +31,11 @@
  *   node scripts/check-social-publish-readiness.mjs --json     # machine-readable
  *   node scripts/check-social-publish-readiness.mjs --json --actionable-only
  *   node scripts/check-social-publish-readiness.mjs --ready-channels   # names, space-separated
+ *   node scripts/check-social-publish-readiness.mjs --activation-required-channels
  *   node scripts/check-social-publish-readiness.mjs --action-required-channels
  *   node scripts/check-social-publish-readiness.mjs --reason=tiktok    # one reason line
  *
- * The last two exist so .github/workflows/social-publish-readiness-watch.yml
+ * The last three exist so .github/workflows/social-publish-readiness-watch.yml
  * can read a verdict without an inline `node -e` reaching into the JSON: an
  * eval one-liner inside YAML inside a shell loop is three layers of quoting to
  * get wrong, and it fails silently by printing nothing.
@@ -44,11 +46,17 @@
  *                                              read (never printed) to detect
  *                                              a channel that is already ready
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { parseLedger } from './lib/social-publish-queue.mjs';
 import {
   classifyAll,
   actionableChannels,
   formatVerdictTable,
   instagramSetupActionChannels,
+  readyChannelsNeedingActivation,
   READY,
 } from './lib/social-readiness.mjs';
 import { probeInstagramPageLink } from './lib/instagram-page-link-probe.mjs';
@@ -58,11 +66,31 @@ import {
   probeInstagramPublisherToken,
 } from './lib/instagram-publisher-readiness-probes.mjs';
 
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ACTIVATION_LEDGER_CHANNELS = new Set(['instagram', 'tiktok']);
+
+function readPostedLedger(channel) {
+  const file = path.join(ROOT, 'data', `${channel}-posted.json`);
+  try {
+    return parseLedger(readFileSync(file, 'utf8'));
+  } catch (error) {
+    if (error?.code === 'ENOENT') return parseLedger(null);
+    throw new Error(`cannot read ${channel} posted ledger: ${error.message}`, { cause: error });
+  }
+}
+
+function activationLedgers(verdicts) {
+  return Object.fromEntries(verdicts
+    .filter((verdict) => verdict.state === READY && ACTIVATION_LEDGER_CHANNELS.has(verdict.channel))
+    .map((verdict) => [verdict.channel, readPostedLedger(verdict.channel)]));
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const asJson = args.includes('--json');
   const actionableOnly = args.includes('--actionable-only');
   const readyOnly = args.includes('--ready-channels');
+  const activationRequiredOnly = args.includes('--activation-required-channels');
   const actionRequiredOnly = args.includes('--action-required-channels');
   const reasonFor = args.find((a) => a.startsWith('--reason='))?.split('=')[1];
   const env = process.env;
@@ -104,6 +132,12 @@ async function main() {
   const probes = { instagram };
   const all = classifyAll({ env, probes });
 
+  if (activationRequiredOnly) {
+    console.log(readyChannelsNeedingActivation(all, activationLedgers(all))
+      .map((v) => v.channel)
+      .join(' '));
+    return;
+  }
   if (readyOnly) {
     console.log(all.filter((v) => v.state === READY).map((v) => v.channel).join(' '));
     return;
