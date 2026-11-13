@@ -83,7 +83,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
   const { t } = useTranslation();
   const [candidateSkillsText, setCandidateSkillsText] = useState(() => loadCandidateSkills(userId));
   const [skillsLoadedFor, setSkillsLoadedFor] = useState<string | null>(null);
-  const [isEditing, setIsEditing] = useState(() => !loadCandidateSkills(userId).trim());
+  const [isEditing, setIsEditing] = useState(false);
   const [cvProfile, setCvProfile] = useState<UserCvProfileRecord | null>(null);
   const [isUploadingCv, setIsUploadingCv] = useState(false);
   const [isRemovingCv, setIsRemovingCv] = useState(false);
@@ -104,6 +104,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
     let cancelled = false;
     setCvProfile(null);
     setSkillsLoadedFor(null);
+    setIsEditing(false);
     setCvError('');
     setCvStatus('');
     if (!userId) {
@@ -119,7 +120,6 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
         const initialSkills = savedSkills ?? (profile ? cvSkillsFromProfile(profile) : skillEntries(loadCandidateSkills(userId)));
         setCvProfile(profile?.userId === userId ? profile : null);
         setCandidateSkillsText(initialSkills.join(', '));
-        setIsEditing(initialSkills.length === 0);
         setSkillsLoadedFor(userId);
       })
       .catch(() => {
