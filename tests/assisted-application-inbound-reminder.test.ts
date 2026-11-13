@@ -17,8 +17,8 @@ const { runAutomationEffect } = await import('../functions/src/assistedApplicati
 
 // A portal's automatic reminder of an application the robot started there and did not send (SBB on
 // SuccessFactors, 2026-11-10; reconstructed with invented names, hosts and posting). Owner directive: a
-// portal's codes, confirmations, receipts and reminders never reach the candidate. Anything that asks for
-// what only the candidate can do still does.
+// portal's codes, confirmations, receipts and reminders never reach the candidate. A candidate-only request
+// for documents or information still does.
 const ORDER = 'order_REMINDER1';
 const ORDER_PATH = `assisted_applications/${ORDER}`;
 const FLOW_PATH = `${ORDER_PATH}/automation/flow`;
@@ -53,6 +53,7 @@ const SBB_SUBJECT = 'Deine Bewerbung abschliessen';
 const VARIANTS: Array<[string, string, string]> = [
   ['German (formal)', 'Ihre Bewerbung', 'Guten Tag\n\nSie haben Ihre Bewerbung noch nicht abgeschlossen. Bitte melden Sie sich an und schliessen Sie Ihre Bewerbung ab.\n\nFreundliche Grüsse\nIhr Recruiting-Team'],
   ['German (incomplete)', 'Erinnerung', 'Ihre Bewerbung ist noch unvollständig. Klicken Sie auf den Link, um Ihre Bewerbung abzuschließen.'],
+  ['German (almost complete)', 'Sie waren so nah dran!', 'Beinahe hätten Sie erfolgreich Ihre Bewerbung ausgefüllt. Vollenden Sie Ihre Bewerbung ganz einfach mit diesem Bewerbungsformular: https://career9.ats.example.test/apply?token=fake-token'],
   ['Italian', 'La tua candidatura', 'Gentile candidata,\n\nla sua candidatura non è stata completata. La invitiamo a completare la candidatura tramite il link qui sotto.\n\nCordiali saluti'],
   ['Italian (incomplete)', 'Promemoria', 'La tua candidatura risulta incompleta. Accedi al portale per completare la candidatura.'],
   ['French', 'Votre candidature', 'Madame,\n\nVotre candidature n’a pas encore été finalisée. Veuillez vous connecter et finaliser votre candidature sur notre portail.\n\nMeilleures salutations'],
@@ -178,6 +179,23 @@ describe('a portal’s reminder of an application started and not sent', () => {
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
+  it('keeps the near-complete reminder even when the order is already marked submitted', async () => {
+    const { store, alias } = await setup();
+    await store.db.collection('assisted_applications').doc(ORDER).set({
+      submissionStatus: 'submitted', automationState: 'submitted', submittedAt: 900,
+    }, { merge: true });
+    const text = 'Beinahe hätten Sie erfolgreich Ihre Bewerbung ausgefüllt. Vollenden Sie Ihre Bewerbung ganz einfach mit diesem Bewerbungsformular: https://career9.ats.example.test/apply?token=fake-token';
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Sie waren so nah dran!', text }) });
+    expect(inbox).toMatchObject({
+      portalApplicationReminder: true,
+      correlationStatus: 'unknown',
+      forwarded: { status: 'skipped', reason: 'portal_application_reminder' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'submitted', automationState: 'submitted' });
+    expect(events(store)).toEqual([]);
+  });
+
   it('is never read as an acknowledgement: a submission of unknown outcome stays unknown', async () => {
     const { store, alias } = await setup({
       flow: { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'] },
@@ -226,13 +244,14 @@ describe('what still reaches the candidate', () => {
     ['a request to call back', 'Ihre Bewerbung', 'Ihre Bewerbung ist noch unvollständig. Bitte rufen Sie mich zurück.\n\nErika Beispiel', {}],
     ['a redirect to the employer’s portal', 'Your application', 'Thank you for your interest. Please submit your application through our online portal.', {}],
     ['a general rule about incomplete applications', 'Hinweis', 'Unvollständige Bewerbungen werden nicht berücksichtigt.', {}],
-    ['a receipt of the application', 'Ihre Bewerbung', 'Vielen Dank für Ihre Bewerbung. Wir haben Ihre Bewerbung erhalten.', { category: 'auto_acknowledgement', needsReply: false }],
+    ['a human receipt without a candidate action', 'Ihre Bewerbung', 'Vielen Dank für Ihre Bewerbung. Wir haben Ihre Bewerbung erhalten.', { category: 'auto_acknowledgement', needsReply: false }],
   ])('%s', async (_name, subject, text, model) => {
     expect(remindsOf(mail({ subject, text }), answer(model))).toBe(false);
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject, text }), model: answer(model) });
     expect(inbox.portalApplicationReminder).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
+    expect(sendCascade).not.toHaveBeenCalled();
     expect(events(store)).toEqual([]);
   });
 

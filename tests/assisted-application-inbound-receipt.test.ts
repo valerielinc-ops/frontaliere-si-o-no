@@ -6,8 +6,13 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
 }));
 
+vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({
+  postalPacketReadiness: vi.fn(async () => null),
+}));
+
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
 const { automaticApplicationReceipt, classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound, runAssistedApplicationInboundForwardSweep } = await import('../functions/src/assistedApplicationInbound.js');
+const { handleAutomationAdminAction, loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
 const { parseMimeMessage } = await import('../functions/src/lib/mimeMessage.js');
 const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
@@ -148,6 +153,23 @@ describe('an automatic receipt of the application', () => {
     expect(receiptOf(mail({ text, headers: ['Auto-Submitted: no'] }))).toBe(false);
   });
 
+  it('keeps the employer receipt with informative links and an ordinary sign-off', async () => {
+    const text = 'Wir haben Ihre Bewerbungsunterlagen mit Freude erhalten – aber noch nicht gelesen. Wir melden uns so bald wie möglich.\n\nTipps zur Bewerbung: https://stelle.example.test/tipps\nLinkedIn: https://social.example.test/company\nDatenschutz: https://stelle.example.test/datenschutz\n\nFreundliche Grüsse\nIhr Recruiting-Team';
+    const raw = mail({
+      text,
+      from: 'Kundenservice <customerservice@stelle.example.test>',
+      headers: ['List-Unsubscribe: <https://stelle.example.test/unsubscribe>'],
+    });
+    expect(classifyByRules({ subject: 'Ihre Bewerbung', text })).toBe('auto_acknowledgement');
+    expect(receiptOf(raw)).toBe(true);
+
+    const { store, alias } = await setup();
+    const { processed, inbox, sendCascade } = await deliver({ store, alias, raw });
+    expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'skipped' });
+    expect(inbox).toMatchObject({ automaticApplicationReceipt: true, correlationStatus: 'verified' });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
   it('reads a registered application as received, in every language', () => {
     expect(classifyByRules({ subject: '', text: 'Confermiamo che la sua candidatura è stata registrata.' })).toBe('auto_acknowledgement');
     expect(classifyByRules({ subject: '', text: 'Ihre Bewerbung wurde erfolgreich registriert.' })).toBe('auto_acknowledgement');
@@ -201,12 +223,13 @@ describe('what still reaches the candidate', () => {
     expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 
-  it('a person’s acknowledgement, which says nothing of a machine', async () => {
+  it('keeps a person’s acknowledgement without a candidate action in the concierge', async () => {
     const text = 'Guten Tag\n\nVielen Dank, wir haben Ihre Bewerbung erhalten und melden uns nächste Woche.\n\nFreundliche Grüsse\nErika Beispiel';
     expect(receiptOf(mail({ text, from: 'Erika Beispiel <erika.beispiel@stelle.example.test>' }))).toBe(false);
     const { store, alias } = await setup();
-    const { sendCascade } = await deliver({ store, alias, raw: mail({ text, from: 'Erika Beispiel <erika.beispiel@stelle.example.test>' }) });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ text, from: 'Erika Beispiel <erika.beispiel@stelle.example.test>' }) });
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it.each([
@@ -229,12 +252,103 @@ describe('what still reaches the candidate', () => {
   it('a receipt the model reads as something else', async () => {
     expect(receiptOf(mail(), answer({ category: 'other' }))).toBe(false);
     const { store, alias } = await setup();
-    const { sendCascade } = await deliver({ store, alias, raw: mail(), model: answer({ category: 'other' }) });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), model: answer({ category: 'other' }) });
+    expect(inbox).toMatchObject({ category: 'other', correlationStatus: 'unknown', ownerReviewRequired: true, forwarded: { status: 'skipped', reason: 'owner_review' } });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('an offer of help is not a request: the receipt stays a system signal', () => {
     expect(receiptOf(mail({ text: `${ENGLISH}\n\nIf you have any questions, please contact our recruiting team.` }))).toBe(true);
     expect(receiptOf(mail({ text: `${FEDERAL}\n\nBei Fragen kontaktieren Sie bitte unser Rekrutierungsteam.` }))).toBe(true);
+  });
+});
+
+describe('owner review of an unclassified automated message', () => {
+  it('holds it from the candidate until an explicit owner action, then forwards at most once', async () => {
+    const { store, alias } = await setup();
+    const raw = mail({
+      subject: 'Notification',
+      text: 'Please review this update in your candidate account.',
+      from: 'Notifications <notifications@stelle.example.test>',
+      headers: ['Auto-Submitted: auto-generated'],
+    });
+    const { inbox, sendCascade, bucket, messageId } = await deliver({
+      store, alias, raw, model: answer({ category: 'other', needsReply: true }),
+    });
+    expect(inbox).toMatchObject({
+      category: 'other', correlationStatus: 'unknown',
+      ownerReviewRequired: true, ownerReviewStatus: 'pending',
+      forwarded: { status: 'skipped', reason: 'owner_review' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+    await expect(loadAutomationForAdmin(store.db, ORDER)).resolves.toMatchObject({
+      inbox: [expect.objectContaining({ messageId, ownerReviewRequired: true, ownerReviewStatus: 'pending' })],
+    });
+
+    const action = () => handleAutomationAdminAction(store.db, {
+      action: 'automationForwardInbound', orderId: ORDER, messageId,
+    }, 'owner@example.test', {
+      bucket, sendCascade, runKey: async () => RUN_KEY, nowMs: 2000,
+    });
+    await expect(action()).resolves.toMatchObject({ ok: true, forwarded: 'sent' });
+    await expect(action()).resolves.toMatchObject({ ok: true, forwarded: 'sent', duplicate: true });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)).toMatchObject({ ownerReviewStatus: 'approved', forwarded: { status: 'sent' } });
+  });
+
+  it('forwards a human interview invitation or rejection', async () => {
+    for (const [text, category] of [
+      ['Gerne laden wir Sie zu einem Vorstellungsgespräch am 12. Dezember ein.', 'interview_invite'],
+      ['Leider können wir Ihre Bewerbung nicht berücksichtigen.', 'rejection'],
+    ]) {
+      const { store, alias } = await setup();
+      const { inbox, sendCascade } = await deliver({
+        store, alias,
+        raw: mail({ from: 'Erika Beispiel <erika@stelle.example.test>', text }),
+        model: answer({ category, needsReply: false }),
+      });
+      expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('forwards an `other` message from a person when the text asks for a reply', async () => {
+    const { store, alias } = await setup();
+    const text = 'Könnten Sie bitte bestätigen, ob Sie ab Januar verfügbar sind?';
+    const { inbox, sendCascade } = await deliver({
+      store, alias,
+      raw: mail({ from: 'Erika Beispiel <erika@stelle.example.test>', text }),
+      model: answer({ category: 'other', needsReply: true }),
+    });
+    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('forwards a clearly classified candidate question even when sent automatically', async () => {
+    const { store, alias } = await setup();
+    const text = 'Sind Sie ab Januar verfügbar?';
+    const { inbox, sendCascade } = await deliver({
+      store, alias,
+      raw: mail({ from: 'Notifications <notifications@stelle.example.test>', text, headers: ['Auto-Submitted: auto-generated'] }),
+      model: answer({ category: 'question', needsReply: true }),
+    });
+    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses deterministic document requests to resolve an automated `other` message', async () => {
+    const { store, alias } = await setup();
+    const { inbox, sendCascade } = await deliver({
+      store, alias,
+      raw: mail({
+        from: 'Notifications <notifications@stelle.example.test>',
+        text: 'Please upload your employment certificates.',
+        headers: ['Auto-Submitted: auto-generated'],
+      }),
+      model: answer({ category: 'other', needsReply: false }),
+    });
+    expect(inbox).toMatchObject({ category: 'other', forwarded: { status: 'sent' } });
+    expect(inbox.ownerReviewRequired).toBeUndefined();
+    expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 });

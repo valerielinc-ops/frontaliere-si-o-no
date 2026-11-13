@@ -46,6 +46,7 @@ import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { portalApplicationContractView } from './lib/portalApplicationContract.js';
+import { forwardAssistedApplicationInboundByOwner } from './assistedApplicationInbound.js';
 
 export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationStart',
@@ -65,6 +66,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationMarkClicked',
   'automationMarkSubmitted',
   'automationVerificationLink',
+  'automationForwardInbound',
 ]);
 
 const OWNER_FLAGS = new Set(['fact_check', 'no_posting', 'channel_unknown', 'legitimacy']);
@@ -109,11 +111,13 @@ async function sentView(sent, sign) {
 
 /** Flow + draft as the owner queue shows them (no raw CV text). */
 export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
-  const [flowSnapshot, draftSnapshot, inboxSnapshot, accountsSnapshot, followupSnapshot, orderSnapshot] = await Promise.all([
+  const [flowSnapshot, draftSnapshot, inboxSnapshot, pendingReviewSnapshot, accountsSnapshot, followupSnapshot, orderSnapshot] = await Promise.all([
     flowRefFor(db, orderId).get(),
     draftRefFor(db, orderId).get(),
     // Only the latest ten, from the database: an order may collect many messages.
     orderRefFor(db, orderId).collection('inbox').orderBy('receivedAt', 'desc').limit(10).get(),
+    // Pending owner reviews stay visible even after newer messages arrive.
+    orderRefFor(db, orderId).collection('inbox').where('ownerReviewStatus', '==', 'pending').limit(100).get(),
     orderRefFor(db, orderId).collection(AUTOMATION_SUBCOLLECTION).doc(PORTAL_ACCOUNTS_DOC_ID).get(),
     followupRefFor(db, orderId).get(),
     orderRefFor(db, orderId).get(),
@@ -142,10 +146,13 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       lastSignInAt: entry.lastSignInAt || null,
       revealedAt: entry.revealedAt || null,
     }));
-  const inbox = (inboxSnapshot.docs || []).map((doc) => doc.data() || {})
+  const inboxDocs = new Map();
+  for (const doc of [...(pendingReviewSnapshot.docs || []), ...(inboxSnapshot.docs || [])]) inboxDocs.set(doc.id, doc);
+  const inbox = [...inboxDocs.values()].map((doc) => ({ id: doc.id, ...(doc.data() || {}) }))
     .sort((left, right) => Number(right.receivedAt || 0) - Number(left.receivedAt || 0))
-    .slice(0, 10)
+    .slice(0, 110)
     .map((item) => ({
+      messageId: item.id,
       receivedAt: item.receivedAt || null,
       from: item.from || '',
       subject: item.subject || '',
@@ -154,6 +161,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       interviewWhen: item.interviewWhen || '',
       forwarded: item.forwarded?.status || null,
       forwardedReason: item.forwarded?.reason || null,
+      ownerReviewRequired: item.ownerReviewRequired === true,
+      ownerReviewStatus: item.ownerReviewStatus || null,
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup && !orderSnapshot.data()?.candidateAlias?.address) return null;
   // One signature per key and load: the CV that left is usually the tailored CV signed here already.
@@ -535,7 +544,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
  * @param {FirebaseFirestore.Firestore} db
  * @param {object} raw request body (action + fields)
  * @param {string} adminEmail
- * @param {{runEffect:Function, bucket?:object, nowMs?:number}} deps
+ * @param {{runEffect:Function, bucket?:object, sendCascade?:Function, runKey?:Function, nowMs?:number}} deps
  */
 export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
   const nowMs = deps.nowMs || Date.now();
@@ -714,6 +723,24 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
     }
     case 'automationVerificationLink':
       return { ok: true, ...(await verificationLinkFor(db, orderId, { sinceMs: Number(raw.since) || 0 })) };
+    case 'automationForwardInbound': {
+      const messageId = clean(raw.messageId, 200);
+      if (!messageId) throw new AutomationAdminError('invalid_input');
+      const runKey = deps.runKey ? await deps.runKey() : '';
+      if (!deps.bucket || !deps.sendCascade || !runKey) throw new AutomationAdminError('forward_unavailable', 503);
+      try {
+        const result = await forwardAssistedApplicationInboundByOwner({
+          db, bucket: deps.bucket, orderId, messageId, runKey,
+          sendCascade: deps.sendCascade, nowMs,
+        });
+        return { ok: true, ...result };
+      } catch (error) {
+        const code = error instanceof Error ? error.message : 'forward_failed';
+        if (code === 'inbound_message_not_found') throw new AutomationAdminError(code, 404);
+        if (code === 'owner_review_not_pending') throw new AutomationAdminError(code, 409);
+        throw error;
+      }
+    }
     case 'automationMarkSubmitted': {
       // The fill extension saw the portal's confirmation, or Valerie says so.
       const via = raw.via === 'extension' ? 'owner_extension' : 'owner';
