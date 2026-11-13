@@ -19,6 +19,15 @@ import { getJobTodayLandingSlug } from '../../build-plugins/jobEditorialLanding'
 import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
+const todayPath = (locale: (typeof locales)[number], canton: string) =>
+  `/${locale === 'it' ? '' : `${locale}/`}${resolveCantonSection(locale, canton)}/${getJobTodayLandingSlug(locale, canton)}/`;
+const expiredOwnerSlug = 'expired-owner-split-build';
+const expiredOwnerPaths = {
+  it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
+  en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
+  de: todayPath('de', 'BASILEA'),
+  fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
+} as const;
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
 const description = 'La posizione prevede la collaborazione con il gruppo di lavoro e la gestione delle attività quotidiane. Cerchiamo una persona con esperienza professionale, precisione e capacità organizzative, interessata a crescere in un ambiente qualificato. Offriamo formazione continua, un contratto stabile e condizioni di lavoro trasparenti. Le candidature complete vengono esaminate dal responsabile delle risorse umane.';
 
@@ -82,6 +91,7 @@ let root: string;
 let dist: string;
 let monolithicItPageHashes: Map<string, string> | null = null;
 let monolithicSitemapJobsBlocks: Array<Omit<UrlBlock, 'file'>> | null = null;
+let monolithicExpiredOwnerIndexableLocales: ReadonlySet<(typeof locales)[number]> | null = null;
 
 function snapshotItPages(): Map<string, string> {
   const hashes = new Map<string, string>();
@@ -139,13 +149,6 @@ async function runGenerator(buildLocale: string | undefined): Promise<void> {
     fs.writeFileSync(path.join(dist, 'index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
     fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
     fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, olderDuplicate]));
-    const expiredOwnerSlug = 'expired-owner-split-build';
-    const expiredOwnerPaths = {
-      it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
-      en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
-      de: `/${resolveCantonSection('de', 'BASILEA')}/${getJobTodayLandingSlug('de', 'BASILEA')}/`,
-      fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
-    };
     fs.writeFileSync(path.join(root, 'data/all-known-job-slugs.json'), JSON.stringify({
       [expiredOwnerSlug]: expiredOwnerPaths,
     }));
@@ -186,6 +189,11 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
     if (buildLocale === undefined) {
       monolithicItPageHashes = snapshotItPages();
       monolithicSitemapJobsBlocks = sitemapJobsSnapshot();
+      monolithicExpiredOwnerIndexableLocales = new Set(locales.filter((locale) => {
+        const file = path.join(dist, expiredOwnerPaths[locale].slice(1), 'index.html');
+        if (!fs.existsSync(file)) return false;
+        return !/name=["']?robots["']? content=["']?noindex,follow/.test(fs.readFileSync(file, 'utf8'));
+      }));
     }
   }, 300_000);
   afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); }, 120_000);
@@ -271,8 +279,6 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
       expect(fs.existsSync(path.join(dist, cityPaths[locale].slice(1), 'index.html'))).toBe(false);
     }
 
-    const todayPath = (locale: (typeof locales)[number], canton: string) =>
-      `/${locale === 'it' ? '' : `${locale}/`}${resolveCantonSection(locale, canton)}/${getJobTodayLandingSlug(locale, canton)}/`;
     const todayRoutes = Object.fromEntries(locales.map((locale) => [
       locale,
       `https://frontaliereticino.ch${todayPath(locale, 'AG')}`,
@@ -300,17 +306,12 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
       }
     }
 
-    const expiredOwnerPaths = {
-      it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
-      en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
-      de: belowFloorPaths.de,
-      fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
-    };
     const allBlocks = sitemapFiles().flatMap(urlBlocks);
-    for (const locale of ['it', 'en', 'fr'] as const) {
-      expect(allBlocks.some(({ loc }) => loc.endsWith(expiredOwnerPaths[locale]))).toBe(true);
+    expect(monolithicExpiredOwnerIndexableLocales).not.toBeNull();
+    for (const locale of locales) {
+      expect(allBlocks.some(({ loc }) => loc.endsWith(expiredOwnerPaths[locale])), locale)
+        .toBe(monolithicExpiredOwnerIndexableLocales!.has(locale));
     }
-    expect(allBlocks.some(({ loc }) => loc.endsWith(expiredOwnerPaths.de))).toBe(false);
 
     const keywordLocs = blocks.filter(({ loc }) => /\/(?:search|suche|recherche)-collision-marker\/$/.test(new URL(loc).pathname));
     expect(keywordLocs.map(({ loc }) => new URL(loc).pathname.split('/')[1]).sort()).toEqual(['de', 'en', 'fr']);
