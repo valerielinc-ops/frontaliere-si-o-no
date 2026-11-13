@@ -38,4 +38,13 @@ describe('assisted application recovery marker', () => {
     expect(deployWorkflow.jobs['deploy-functions'].steps.filter((step: any) => step.id === 'checkout_primary' || step.id === 'checkout_retry')
       .every((step: any) => step.with.ref === '${{ github.sha }}')).toBe(true);
   });
+
+  it('deploys Firestore indexes before assisted application recovery queries', () => {
+    const steps = deployWorkflow.jobs['deploy-functions'].steps;
+    const indexesStep = steps.findIndex((step: any) => step.name === 'Deploy Firestore indexes');
+    const recoveryStep = steps.findIndex((step: any) => step.name === 'Queue one safe recovery for failed draft runs');
+
+    expect(indexesStep).toBeGreaterThan(-1);
+    expect(recoveryStep).toBeGreaterThan(indexesStep);
+  });
 });

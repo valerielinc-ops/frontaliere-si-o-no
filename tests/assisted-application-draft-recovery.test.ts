@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
 import {
@@ -7,7 +7,11 @@ import {
   DRAFT_AUTO_RETRY_DELAY_MS,
   draftRetryDueAt,
 } from '../functions/src/assistedApplicationDraftRetryPolicy.js';
-import { reconcileDraftFailures } from '../scripts/assisted-application/reconcile-draft-failures.mjs';
+import {
+  isFirestoreIndexUnavailableError,
+  reconcileCandidateDocumentEmails,
+  reconcileDraftFailures,
+} from '../scripts/assisted-application/reconcile-draft-failures.mjs';
 import {
   DRAFT_CANDIDATE_EMAIL_DOCUMENT_RECOVERY_VERSION,
   DRAFT_CANDIDATE_EMAIL_DOCUMENT_RECOVERY_RETRY_DELAY_MS,
@@ -207,6 +211,52 @@ describe('contact-only recovery of a draft generated without candidate email', (
     await bucket.file(pdfKey).save(pdf);
     return { pdfKey, renderer: 'test', photo: false, size: pdf.length };
   };
+
+  it('recognizes only failed-precondition errors that identify a missing index', () => {
+    expect(isFirestoreIndexUnavailableError(Object.assign(new Error(
+      '9 FAILED_PRECONDITION: The query requires a COLLECTION_GROUP_ASC index for collection automation',
+    ), { code: 9 }))).toBe(true);
+    expect(isFirestoreIndexUnavailableError(Object.assign(new Error('query requires an index'), { code: 9 }))).toBe(true);
+    expect(isFirestoreIndexUnavailableError(Object.assign(new Error('index is unavailable'), { code: 13 }))).toBe(false);
+  });
+
+  it('warns and defers candidate-document recovery while its collection-group index is unavailable', async () => {
+    const indexError = Object.assign(new Error(
+      '9 FAILED_PRECONDITION: The query requires a COLLECTION_GROUP_ASC index for collection automation',
+    ), { code: 9 });
+    const get = vi.fn().mockRejectedValue(indexError);
+    const limit = vi.fn(() => ({ get }));
+    const orderBy = vi.fn(() => ({ limit }));
+    const where = vi.fn(() => ({ orderBy }));
+    const collectionGroup = vi.fn(() => ({ where }));
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    try {
+      const result = await reconcileCandidateDocumentEmails({ db: { collectionGroup }, nowMs: now });
+
+      expect(collectionGroup).toHaveBeenCalledWith('automation');
+      expect(where).toHaveBeenCalledWith(
+        'draftCandidateEmailRecoveryVersion', '==', DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION,
+      );
+      expect(orderBy).toHaveBeenCalledWith('__name__');
+      expect(result).toMatchObject({ scanned: 0, indexUnavailable: true, apply: false });
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('deferred until a later deploy'));
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('keeps unrelated Firestore failures fatal', async () => {
+    const error = Object.assign(new Error('permission denied'), { code: 7 });
+    const get = vi.fn().mockRejectedValue(error);
+    const db = {
+      collectionGroup: () => ({
+        where: () => ({ orderBy: () => ({ limit: () => ({ get }) }) }),
+      }),
+    };
+
+    await expect(reconcileCandidateDocumentEmails({ db, nowMs: now })).rejects.toBe(error);
+  });
 
   it('adds the registered email to rendered documents once without changing state, answers, or letter text', async () => {
     const store = documentFixture();
