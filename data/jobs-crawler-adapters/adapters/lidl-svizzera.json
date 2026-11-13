@@ -56,10 +56,10 @@
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-region-thurgau-m-w-d-80-100-weinfelden-770864",
     "https://team.lidl.ch/de/jobs/junior-category-manager-m-w-d-80-100-weinfelden-740825",
     "https://team.lidl.ch/de/jobs/junior-manager-arbeitssicherheit-m-w-d-80-100-weinfelden-757422",
+    "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-brig-742364",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-flueelen-760695",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-20-40-visp-732786",
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-60-80-m-w-d-buetzberg-756817",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-duebendorf-755625",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-seewen-696620",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-stans-693686",
@@ -113,9 +113,9 @@
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-sortiment-m-w-d-80-100-sevaz-757975",
     "https://team.lidl.ch/de/jobs/senior-category-manager-obst-gemuese-m-w-d-80-100-weinfelden-770656",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-40-schluein-747393",
-    "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-bremgarten-770033",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-aarberg-763547",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-brig-742358",
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-aegerten-770567",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-baar-754154",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-baden-757728",
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-bern-686600",
@@ -174,10 +174,8 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-sarnen-760699",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-schlieren-756435",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-aegerten-740400",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-basel-bs-757903",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-biberist-751970",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-ostermundigen-768958",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-solothurn-761114",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-spiez-736184",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-thun-770955",
@@ -259,7 +257,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-12T21:48:13.199Z",
+  "updatedAt": "2026-11-13T09:54:14.994Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -558,15 +556,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-ostermundigen-768958": {
-      "location": "Ostermundigen",
-      "addressLocality": "Ostermundigen",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-thusis-754240": {
       "location": "Thusis",
       "addressLocality": "Thusis",
@@ -756,14 +745,14 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-aegerten-740400": {
+    "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-aegerten-770567": {
       "location": "Aegerten",
       "addressLocality": "Aegerten",
       "canton": "BE",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
-      "contract": "Part-time"
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-biel-bienne-752740": {
       "location": "Biel/Bienne",
@@ -981,6 +970,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593": {
+      "location": "Derendingen",
+      "addressLocality": "Derendingen",
+      "canton": "SO",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-perlen-763040": {
       "location": "Perlen",
       "addressLocality": "Perlen",
@@ -1045,15 +1043,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/354-verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-buetzberg-756811": {
-      "location": "Bützberg",
-      "addressLocality": "Bützberg",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-60-80-m-w-d-buetzberg-756817": {
       "location": "Bützberg",
       "addressLocality": "Bützberg",
       "canton": "BE",
@@ -1390,15 +1379,6 @@
       "location": "Adliswil",
       "addressLocality": "Adliswil",
       "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-bremgarten-770033": {
-      "location": "Bremgarten",
-      "addressLocality": "Bremgarten",
-      "canton": "AG",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",

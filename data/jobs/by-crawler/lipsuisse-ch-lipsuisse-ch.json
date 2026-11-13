@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lipsuisse-ch-lipsuisse-ch",
-  "assembledAt": "2026-11-12T22:02:17.547Z",
-  "runId": "43309835982",
+  "assembledAt": "2026-11-13T09:35:51.526Z",
+  "runId": "43400714900",
   "jobs": [
     {
       "id": "lipsuisse-ch-lipsuisse-ch-15d58340f84d",
@@ -34,7 +34,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T22:02:11.080Z",
+      "crawledAt": "2026-11-13T09:35:46.336Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:02:11.080Z",
+      "validThrough": "2027-02-04T09:35:46.336Z",
       "validThroughSource": "last-observed-window"
     }
   ]

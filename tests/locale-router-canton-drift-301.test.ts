@@ -14,21 +14,61 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
+import worker, { jobCanonTarget, jobCanonV2ShardKey } from '../infra/cloudflare-worker/locale-router.js';
+import { jobSlugShardKey } from '../services/jobSlugShards';
 
 const APEX = 'https://frontaliereticino.ch';
-const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
+const pendingCacheWrites: Promise<unknown>[] = [];
+const cacheEntries = new Map<string, Response>();
+let cacheMatchCount = 0;
+const ctx = {
+  waitUntil: (promise: Promise<unknown>) => pendingCacheWrites.push(promise),
+} as unknown as ExecutionContext;
+
+function cacheKey(input: RequestInfo | URL): string {
+  return typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+}
+
+function fetchUrl(input: RequestInfo | URL): string {
+  return typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+}
+
+function seedJobAliasCache(source: string, value: Record<string, string>, ttl: number): void {
+  const url = new URL(source);
+  const normalizedPath = `${url.pathname.replace(/\/+$/, '')}/`;
+  const key = new URL(url.origin);
+  key.pathname = `/__worker-cache/job-alias/fr${normalizedPath}`;
+  cacheEntries.set(key.toString(), new Response(JSON.stringify(value), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl}`,
+    },
+  }));
+}
+
+async function flushCacheWrites(): Promise<void> {
+  await Promise.all(pendingCacheWrites.splice(0));
+}
 
 beforeEach(() => {
-  // recoverCantonDriftOrphan never reads the Cache API, but the happy-path 200
-  // branch does — provide a no-op shim so any code path is safe.
-  const cache = { match: vi.fn(async () => undefined), put: vi.fn(async () => {}) };
-  (globalThis as unknown as { caches: { default: typeof cache } }).caches = { default: cache };
+  cacheEntries.clear();
+  pendingCacheWrites.length = 0;
+  cacheMatchCount = 0;
+  const cache = {
+    match: vi.fn(async (input: RequestInfo | URL) => {
+      cacheMatchCount += 1;
+      return cacheEntries.get(cacheKey(input))?.clone();
+    }),
+    put: vi.fn(async (input: RequestInfo | URL, response: Response) => {
+      cacheEntries.set(cacheKey(input), response.clone());
+    }),
+  };
+  vi.stubGlobal('caches', { default: cache });
 });
 
 afterEach(() => {
   vi.restoreAllMocks();
-  delete (globalThis as unknown as { caches?: unknown }).caches;
+  vi.unstubAllGlobals();
 });
 
 /**
@@ -51,7 +91,108 @@ function mockFetch(
   });
 }
 
+function mockVersionedFetch(options: {
+  v2Status?: number;
+  v2Map?: Record<string, Record<string, string>> | null;
+  v1Status?: number;
+  v1Map?: Record<string, Record<string, string>> | null;
+  originStatus?: number;
+} = {}): string[] {
+  const {
+    v2Status = 200,
+    v2Map = null,
+    v1Status = 404,
+    v1Map = null,
+    originStatus = 404,
+  } = options;
+  const canonRequests: string[] = [];
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+    const u = fetchUrl(input);
+    if (u.includes('/job-canon/')) {
+      canonRequests.push(u);
+      const isV2 = u.includes('/job-canon/v2/');
+      const status = isV2 ? v2Status : v1Status;
+      const map = isV2 ? v2Map : v1Map;
+      return new Response(map === null ? 'not found' : JSON.stringify(map), {
+        status,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+    return new Response(originStatus === 404 ? 'gh-pages-404' : 'ok', { status: originStatus });
+  });
+  return canonRequests;
+}
+
 describe('locale-router canton-drift 301', () => {
+  it('reads v2 first and does not fetch v1 when the v2 shard exists', async () => {
+    const slug = 'some-job-xyz';
+    const canonRequests = mockVersionedFetch({
+      v2Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
+    expect(canonRequests).toHaveLength(1);
+    expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+  });
+
+  it('does not fall back to v1 when a successful v2 shard lacks the slug', async () => {
+    const slug = 'some-job-xyz';
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const canonRequests = mockVersionedFetch({
+      v2Map: {},
+      v1Status: 200,
+      v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+    expect(canonRequests.length).toBeGreaterThan(0);
+    expect(canonRequests.every((request) => request.includes('/job-canon/v2/'))).toBe(true);
+    expect(log).not.toHaveBeenCalled();
+  });
+
+  it.each([404, 410])(
+    'falls back to v1 only when v2 returns %i and logs the fallback event',
+    async (v2Status) => {
+      const slug = 'some-job-xyz';
+      const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+      const canonRequests = mockVersionedFetch({
+        v2Status,
+        v1Status: 200,
+        v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+      });
+
+      const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+      expect(res.status).toBe(301);
+      expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
+      expect(canonRequests).toHaveLength(2);
+      expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+      expect(canonRequests[1]).toContain('/job-canon/so.json');
+      expect(log).toHaveBeenCalledTimes(1);
+      expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+    },
+  );
+
+  it('fails closed on a v2 error other than 404/410 without trying v1', async () => {
+    const slug = 'some-job-xyz';
+    const canonRequests = mockVersionedFetch({
+      v2Status: 503,
+      v2Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+      v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(canonRequests).toHaveLength(1);
+    expect(canonRequests[0]).toContain('/job-canon/v2/');
+  });
+
   it('301s a known orphan slug to its current canonical page', async () => {
     mockFetch(404, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
@@ -296,5 +437,169 @@ describe('jobCanonTarget', () => {
     expect(jobCanonTarget({ alias: { fr: '/fr/x/t?q=1' } }, 's', 'fr')).toBeNull();
     expect(jobCanonTarget({ alias: 'nope' }, 's', 'fr')).toBeNull();
     expect(jobCanonTarget('legacy-string', 's', 'fr')).toBeNull();
+  });
+});
+
+describe('jobCanonV2ShardKey', () => {
+  it.each([
+    'some-job-xyz',
+    'verkäufer-im-aussendienst',
+    'français-été-2026',
+  ])('mirrors the client slug-map djb2-xor hash for normalized slug %s', (input) => {
+    const normalized = input.toLowerCase();
+    const v2Key = jobCanonV2ShardKey(normalized);
+    const v2Index = Number.parseInt(v2Key, 16);
+    const clientKey = jobSlugShardKey(normalized);
+
+    expect(v2Key).toMatch(/^[0-9a-f]{3}$/);
+    expect((v2Index % 256).toString(16).padStart(2, '0')).toBe(clientKey);
+  });
+});
+
+describe('locale-router job alias edge cache', () => {
+  const itSlug = 'acquirente-strategico-yellowshark-ag-weinfelden';
+  const frTarget = '/fr/trouver-emploi-thurgovie/acheteur-strategique-yellowshark-ag-weinfelden';
+  const source = `${APEX}/fr/trouver-emploi-tessin/${itSlug}/`;
+
+  function mockAliasRoute(targetStatus: () => number = () => 200) {
+    return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.includes('/job-canon/')) {
+        return Response.json({ [itSlug]: { it: '/cerca-lavoro-turgovia', alias: { fr: frTarget } } });
+      }
+      if (url.pathname === `${frTarget}/` && url.hostname === 'origin-turgovia-fr.frontaliereticino.ch') {
+        return new Response('target', { status: targetStatus() });
+      }
+      return new Response('missing', { status: 404 });
+    });
+  }
+
+  function mockOriginStatus(status: number) {
+    return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const method = input instanceof Request ? input.method : 'GET';
+      return new Response(method === 'HEAD' ? null : status === 200 ? 'live page' : 'missing', { status });
+    });
+  }
+
+  it('serves the second verified 301 after origin 404 without a map or target fetch', async () => {
+    const fetchMock = mockAliasRoute();
+
+    const first = await worker.fetch(new Request(`${source}?from=first`), {}, ctx);
+    expect(first.status).toBe(301);
+    expect(first.headers.get('Location')).toBe(`${frTarget}/?from=first`);
+    await flushCacheWrites();
+
+    const [stored] = [...cacheEntries.values()];
+    expect(stored).toBeDefined();
+    expect(stored.headers.get('Cache-Control')).toBe('public, max-age=86400, s-maxage=86400');
+    expect(await stored.clone().json()).toEqual({ kind: 'redirect', target: `${frTarget}/` });
+    const [storedKey] = [...cacheEntries.keys()];
+    expect(new URL(storedKey ?? APEX).pathname).toBe(`/__worker-cache/job-alias/fr/fr/trouver-emploi-tessin/${itSlug}/`);
+
+    fetchMock.mockClear();
+    const matchesBeforeSecond = cacheMatchCount;
+    const second = await worker.fetch(new Request(`${source.replace(/\/$/, '')}?from=second`), {}, ctx);
+    expect(second.status).toBe(301);
+    expect(second.headers.get('Location')).toBe(`${frTarget}/?from=second`);
+    expect(second.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
+    expect(cacheMatchCount).toBe(matchesBeforeSecond + 1);
+    const secondFetches = fetchMock.mock.calls.map(([input]) => fetchUrl(input));
+    expect(secondFetches.length).toBeGreaterThan(0);
+    expect(secondFetches.every((url) => !url.includes('/job-canon/') && !url.includes(frTarget))).toBe(true);
+  });
+
+  it.each(['GET', 'HEAD'])('origin 200 wins over a cached redirect (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'redirect', target: `${frTarget}/` }, 86400);
+    const fetchMock = mockOriginStatus(200);
+
+    const response = await worker.fetch(new Request(source, { method }), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(fetchMock).toHaveBeenCalled();
+    if (method === 'GET') expect(await response.text()).toBe('live page');
+    else expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('origin 200 wins over a cached not-found (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'not-found' }, 600);
+    const fetchMock = mockOriginStatus(200);
+
+    const response = await worker.fetch(new Request(source, { method }), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(fetchMock).toHaveBeenCalled();
+    if (method === 'GET') expect(await response.text()).toBe('live page');
+    else expect(await response.text()).toBe('');
+  });
+
+  it.each(['GET', 'HEAD'])('uses cached redirect only after origin 404 (%s)', async (method) => {
+    seedJobAliasCache(source, { kind: 'redirect', target: `${frTarget}/` }, 86400);
+    const fetchMock = mockAliasRoute();
+
+    const response = await worker.fetch(new Request(`${source}?from=${method.toLowerCase()}`, { method }), {}, ctx);
+
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe(`${frTarget}/?from=${method.toLowerCase()}`);
+    expect(cacheMatchCount).toBe(1);
+    expect(fetchMock).toHaveBeenCalled();
+    const fetches = fetchMock.mock.calls.map(([input]) => fetchUrl(input));
+    expect(fetches.every((url) => !url.includes('/job-canon/') && !url.includes(frTarget))).toBe(true);
+    if (method === 'HEAD') expect(await response.text()).toBe('');
+  });
+
+  it('does not cache a destination verification failure', async () => {
+    let targetStatus = 503;
+    const fetchMock = mockAliasRoute(() => targetStatus);
+
+    const unavailable = await worker.fetch(new Request(source), {}, ctx);
+    expect(unavailable.status).toBe(503);
+    await flushCacheWrites();
+    expect(cacheEntries.size).toBe(0);
+
+    targetStatus = 200;
+    fetchMock.mockClear();
+    const recovered = await worker.fetch(new Request(source), {}, ctx);
+    expect(recovered.status).toBe(301);
+    expect(fetchMock).toHaveBeenCalled();
+  });
+
+  it('does not negative-cache a mapped alias whose destination is missing', async () => {
+    const fetchMock = mockAliasRoute(() => 404);
+
+    const missing = await worker.fetch(new Request(source), {}, ctx);
+    expect(missing.status).toBe(404);
+    await flushCacheWrites();
+    expect(cacheEntries.size).toBe(0);
+    expect(fetchMock).toHaveBeenCalled();
+  });
+
+  it('caches a canonical-null 404 for 10 minutes', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname.includes('/job-canon/')) return Response.json({});
+      return new Response('missing', { status: 404 });
+    });
+
+    const first = await worker.fetch(new Request(source), {}, ctx);
+    expect(first.status).toBe(404);
+    await flushCacheWrites();
+    const [stored] = [...cacheEntries.values()];
+    expect(stored).toBeDefined();
+    expect(stored.headers.get('Cache-Control')).toBe('public, max-age=600, s-maxage=600');
+    expect(await stored.clone().json()).toEqual({ kind: 'not-found' });
+
+    fetchMock.mockClear();
+    const matchesBeforeSecond = cacheMatchCount;
+    const second = await worker.fetch(new Request(source), {}, ctx);
+    expect(second.status).toBe(404);
+    expect(second.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
+    expect(cacheMatchCount).toBe(matchesBeforeSecond + 1);
+    expect(fetchMock).toHaveBeenCalled();
+    expect(fetchMock.mock.calls.map(([input]) => fetchUrl(input))
+      .every((url) => !url.includes('/job-canon/'))).toBe(true);
   });
 });

@@ -35,7 +35,8 @@ export function candidateEditContract({ orderId, order, flow, draft, communicati
   const locale = normalizeAnswerCommunicationLocale(communicationLocale)
     || normalizeAnswerCommunicationLocale(order?.locale) || 'it';
   const candidateFlow = candidateEditFlow({ orderId, order, flow, draft, nowMs });
-  const { answers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
+  const { answers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale })
     .map(field => fieldView(field, { draft, flow: candidateFlow, locale }))
     .sort((left, right) => left.key.localeCompare(right.key));
@@ -44,7 +45,8 @@ export function candidateEditContract({ orderId, order, flow, draft, communicati
       to: String(draft.applicationEmail.to || ''),
       subject: String(draft.applicationEmail.subject || ''),
       // The body the review page shows: the same platform defaults (assistedApplicationReview.js).
-      body: operationalEmailBody(draft, answers, { facts: platformFacts }),
+      body: operationalEmailBody(draft, answers, { facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+        candidateAnswerSuppressedQuestionContracts }),
     }
     : null;
   return {

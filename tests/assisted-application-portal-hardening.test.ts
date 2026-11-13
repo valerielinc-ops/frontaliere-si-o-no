@@ -796,6 +796,73 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     ]);
   });
 
+  it.each([
+    ['fr', 'Créer une alerte', 'Sélectionnez la fréquence (en jours) de réception d’une alerte :'],
+    ['en', 'Create an alert', 'Select how often (in days) to receive an alert:'],
+    ['en-job', 'Create a job alert', 'Select how often (in days) to receive an alert:'],
+    ['en-job-no-article', 'Create job alert', 'Select how often (in days) to receive an alert:'],
+    ['de', 'Benachrichtigung erstellen', 'Wählen Sie aus, wie oft (in Tagen) Sie eine Benachrichtigung erhalten möchten:'],
+    ['it', 'Crea un avviso', 'Seleziona la frequenza (in giorni) di ricezione di un avviso:'],
+  ])('accepts a Jobs2Web script Apply beside the public alert widget (%s)', (_locale, alertAction, alertField) => {
+    const postingUrl = 'https://job.groupe-e.ch/job/cheffe-chef-equipe-infrastructures/123456/';
+    const applyUrl = 'https://job.groupe-e.ch/talentcommunity/apply/123456/?locale=fr_FR';
+    const apply = { text: 'Postuler »', frame: 0, disabled: false };
+    const snapshot = {
+      url: postingUrl,
+      fields: [{ id: 'alert-frequency', kind: 'text', inputType: 'text', label: alertField, required: true, value: '7', formId: 'job-alert' }],
+      buttons: [
+        { text: 'Langue', chrome: true },
+        { text: 'Afficher plus d’options', chrome: true },
+        { text: 'Rechercher les offres', chrome: true },
+        { text: 'Réinitialiser', chrome: true },
+        { text: alertAction, chrome: true },
+        apply,
+        { text: 'Gestionnaire de consentements pour les cookies', chrome: true },
+      ],
+      links: [],
+    };
+    const context = {
+      applyUrl,
+      postingUrl,
+      job: { company: 'Groupe E', title: 'Cheffe ou Chef d’équipe infrastructures' },
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
+    expect(applicationEntryControls({
+      ...snapshot,
+      fields: [{ ...snapshot.fields[0], label: 'Quel est votre niveau de motivation pour ce poste ?' }],
+    }, context)).toEqual([]);
+  });
+
+  it('rejects an alert-only script Apply on a non-Jobs2Web job route', () => {
+    const postingUrl = 'https://careers.example.test/job/cheffe-chef-equipe-infrastructures/123456/';
+    const snapshot = {
+      url: postingUrl,
+      fields: [{
+        id: 'alert-frequency',
+        kind: 'text',
+        inputType: 'text',
+        label: 'Select how often (in days) to receive an alert:',
+        required: true,
+        value: '7',
+        formId: 'job-alert',
+      }],
+      buttons: [
+        { text: 'Create a job alert', chrome: true },
+        { text: 'Postuler »', frame: 0, disabled: false },
+      ],
+      links: [],
+    };
+
+    expect(applicationEntryControls(snapshot, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Example', title: 'Cheffe ou Chef d’équipe infrastructures' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
   it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
@@ -1095,9 +1162,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
     // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
     // every step of the form behind it (2026-10-07).
-    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account', 'Weiter', 'Continue', 'Avanti', 'Suivant', 'Save and continue']) {
       expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
     }
+    expect(namesAnotherEmployer('Weiter — Other Resort\nConcierge', palace)).toBe(true);
     expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);
     expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
@@ -1119,6 +1187,20 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // Without a posting that named the company there is no fallback at all.
     expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
     expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    const umantisPage = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    const umantisPosting = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Description/1';
+    expect(formPostingMatch('Weiter', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('match');
+    expect(formPostingMatch('Weiter — Other Hotel', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
     // The whole name on the form is the direct match, as ever.
     expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
     expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');

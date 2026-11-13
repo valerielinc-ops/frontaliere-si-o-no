@@ -40,6 +40,7 @@ import {
 } from './job-identity.mjs';
 import { isHeldFromPublication } from './translation-publication-hold.mjs';
 import { assertByteSizeCeiling } from './assert-file-size-ceiling.mjs';
+import { readExpiredSliceRows, readExpiredSliceShards, writeExpiredSliceRows } from './expired-slice-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -544,7 +545,9 @@ export function assertExpiredSliceSize(slicePath, entries) {
 }
 
 /**
- * Read a crawler's expired slice (read-only; missing or corrupt → `[]`).
+ * Read a crawler's expired archive — the monolith and every
+ * `<key>.shard-NNN.json` (scripts/lib/expired-slice-store.mjs) — read-only;
+ * missing or corrupt → `[]`.
  *
  * @param {string} crawlerKey
  * @param {{ dir?: string }} [opts]
@@ -554,8 +557,7 @@ export function readExpiredSlice(crawlerKey, opts = {}) {
   if (!crawlerKey) return [];
   const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
   try {
-    const raw = JSON.parse(fs.readFileSync(path.join(dir, `${crawlerKey}.json`), 'utf-8'));
-    return Array.isArray(raw) ? raw : [];
+    return readExpiredSliceRows(crawlerKey, { dir });
   } catch {
     return [];
   }
@@ -567,15 +569,12 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
 
   const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
   fs.mkdirSync(dir, { recursive: true });
-  const slicePath = path.join(dir, `${crawlerKey}.json`);
 
-  let existing = [];
-  try {
-    existing = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
-    if (!Array.isArray(existing)) existing = [];
-  } catch {
-    existing = [];
-  }
+  // Every file of the crawler's archive (monolith + shards). Fails closed on
+  // an unreadable file: starting from `[]` would rewrite it with only this
+  // run's rows.
+  const shards = readExpiredSliceShards(crawlerKey, { dir });
+  const existing = shards.flatMap((shard) => shard.rows);
   const repaired = normalizeExpiredAtEntries(existing, {
     source: `archive-removed-jobs-to-slice/${crawlerKey}`,
   });
@@ -638,8 +637,8 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     || collapsed.repairedRoutes > 0
     || routeRepair.changed > 0;
   if (!needsArchiveWrite && !routeChanged) return 0;
-  assertExpiredSliceSize(slicePath, archived);
-  writeJsonAtomic(slicePath, archived);
+  // Per-file 90 MB ceiling + shard placement (expired-slice-store.mjs).
+  writeExpiredSliceRows(crawlerKey, archived, { dir, existing: shards });
   return added;
 }
 

@@ -8732,6 +8732,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fiscalita-svizzera-tre-livelli.title': 'Struttura fiscale svizzera: livelli, autorità e contributi sociali',
     'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'La fiscalità svizzera opera su tre livelli. L\'AFC/ESTV gestisce IFD e IVA.',
     'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Riuscita iniziativa congedo parentale 18 settimane',
+    'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'La proposta di garantire 18 settimane di congedo parentale a madri e padri ha ricevuto la conferma ufficiale del successo il 30 settembre.',
+    'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

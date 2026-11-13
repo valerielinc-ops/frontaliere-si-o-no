@@ -4,12 +4,12 @@ import { reconcilePortalQuestions } from '../scripts/assisted-application/reconc
 import { PORTAL_CONTRACT_RECONCILIATION_VERSION, portalContractContextHash, portalContractEpisode, portalContractSourceUrl,
   revalidatedPortalQuestions, relaxablePortalQuestionTopic, legacyPortalContractEligible } from '../scripts/assisted-application/lib/portal/question-contract-reconciliation.mjs';
 import { buildReviewPayload } from '../functions/src/assistedApplicationReview.js';
-import { candidateWithEdits, questionsForCandidate } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerProjectionDiagnostics, candidateWithEdits, questionsForCandidate, rememberCandidateAnswerHistory } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { reconcilePortalCode } from '../scripts/assisted-application/reconcile-portal-code.mjs';
 import { operationalPortalRecoveryReady, portalQuestionHoldsDefinitelyUnsent, portalRecoveryDefinitelyUnsent } from '../functions/src/assistedApplicationPortalRecoveryPolicy.js';
 import { transition } from '../functions/src/assistedApplicationFlow.js';
-import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 const now = Date.now();
@@ -51,6 +51,100 @@ const options = (store: ReturnType<typeof fixture>) => ({ db: store.db, now: () 
 it('keeps a mixed owner hold, or one without resolved draft questions, closed', () => {
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['question:q1', 'portal:portal_needs_candidate'] } })).toBe(false);
   expect(operationalPortalRecoveryReady({ flow: { heldBy: ['portal:portal_needs_candidate'] } })).toBe(false);
+});
+
+it('keeps an incompatible saved answer open through live portal answer fallbacks', () => {
+  const nationality = { id: 'nationality', source: 'portal', required: true, question: 'Nationality',
+    applicationQuestion: 'Nationality', type: 'choice', options: ['Italy', 'France'] };
+  const candidate = candidateForForm({
+    identity: { name: 'Test Person', firstName: 'Test', lastName: 'Person', email: '', phone: '' },
+    profile: { nationality: 'Italy' },
+    draft: { portalAnswers: { answers: [{ question: 'Nationality', answer: 'Italy', source: 'answers' }] } },
+    portalQuestions: [nationality],
+    suppressedQuestionIds: [nationality.id],
+  });
+  const field = { id: 'native-nationality', label: 'Nationality', kind: 'select', required: true,
+    options: [{ label: 'Italy', value: 'IT' }, { label: 'France', value: 'FR' }] };
+
+  expect(candidate.portalQuestionsAnswered).toEqual([]);
+  expect(autoAnswersForPortalQuestions({ questions: [nationality], candidate, suppressedQuestionIds: [nationality.id] })).toEqual({});
+  expect(candidateAnswerForField(candidate, field)).toBeNull();
+  expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Italy', source: 'profile' }], missingRequired: [] }, [field], candidate))
+    .toMatchObject({ actions: [], missingRequired: [expect.objectContaining({ fieldId: field.id })] });
+});
+
+it('lets the live control map a same-id answer only when its non-catalog contract still matches', () => {
+  const previous = { id: 'notice', source: 'portal', required: true, question: 'Attuale periodo di preavviso',
+    applicationQuestion: 'Attuale periodo di preavviso', why: 'Dichiara il preavviso attuale.', type: 'choice', options: [] };
+  const current = { ...previous, options: ['Meno di 1 mese'] };
+  const history = rememberCandidateAnswerHistory({ questions: [previous], changed: { notice: '7 giorni' },
+    round: 1, confirmedAt: now, actor: 'candidate' });
+  const diagnostics = candidateAnswerProjectionDiagnostics([current], {
+    answers: { notice: '7 giorni' }, history, nowMs: now,
+    canExpressAnswer: (question, answer) => answer === '7 giorni' && question.options.includes('Meno di 1 mese'),
+  });
+  const changedMeaning = { ...current, why: 'Indica il periodo minimo richiesto per iniziare.' };
+  expect(candidateAnswerProjectionDiagnostics([changedMeaning], {
+    answers: { notice: '7 giorni' }, history, nowMs: now,
+    canExpressAnswer: (question, answer) => answer === '7 giorni' && question.options.includes('Meno di 1 mese'),
+  }).incompatibleQuestionIds).toEqual(['notice']);
+  const candidate = candidateForForm({
+    identity: { name: 'Test Person', firstName: 'Test', lastName: 'Person', email: '', phone: '' },
+    portalQuestions: [current], suppressedQuestionIds: diagnostics.suppressDefaultQuestionIds,
+    suppressedAnswerContracts: diagnostics.suppressedAnswerContracts,
+  });
+  const expressible = { id: 'native-notice', kind: 'select', label: current.applicationQuestion, required: true,
+    options: [{ label: 'Meno di 1 mese', value: 'under-month' }] };
+  const incompatible = { ...expressible, options: [{ label: '3 mesi', value: 'three-months' }] };
+
+  expect(diagnostics.incompatibleQuestionIds).toEqual([]);
+  expect(candidateAnswerForField(candidate, expressible)).toMatchObject({ value: 'Meno di 1 mese', source: 'answers' });
+  expect(guardPlan({ actions: [], missingRequired: [] }, [expressible], candidate).actions)
+    .toContainEqual(expect.objectContaining({ fieldId: expressible.id, value: 'Meno di 1 mese', source: 'answers' }));
+  expect(candidateAnswerForField(candidate, incompatible)).toBeNull();
+  expect(guardPlan({ actions: [{ fieldId: incompatible.id, action: 'select', value: '3 mesi', source: 'profile' }], missingRequired: [] }, [incompatible], candidate))
+    .toMatchObject({ actions: [], missingRequired: [expect.objectContaining({ fieldId: incompatible.id })] });
+});
+
+it('keeps duplicate portal labels open when preserved answer ownership is ambiguous', () => {
+  const questions = [
+    { id: 'current_notice', source: 'portal', required: true, question: 'Notice period', applicationQuestion: 'Notice period', context: 'Current role' },
+    { id: 'previous_notice', source: 'portal', required: true, question: 'Notice period', applicationQuestion: 'Notice period', context: 'Previous role' },
+  ];
+  const candidate = candidateForForm({
+    identity: { name: 'Test Person', firstName: 'Test', lastName: 'Person', email: '', phone: '' },
+    portalQuestions: questions,
+    suppressedQuestionIds: questions.map(question => question.id),
+    suppressedAnswerContracts: [
+      { id: 'current_notice', status: 'answered', answer: 'One month', allowLiveMapping: true },
+      { id: 'previous_notice', status: 'unknown', allowLiveMapping: false },
+    ],
+  });
+  const field = { id: 'native-notice', label: 'Notice period', kind: 'select', required: true,
+    options: [{ label: 'One month', value: 'one-month' }] };
+
+  expect(candidateAnswerForField(candidate, field)).toBeNull();
+  expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'One month', source: 'profile' }], missingRequired: [] }, [field], candidate))
+    .toMatchObject({ actions: [], missingRequired: [expect.objectContaining({ fieldId: field.id })] });
+});
+
+it('keeps a suppressed candidate question open when its native field has no label', () => {
+  const question = { id: 'q1', source: 'portal', required: true, question: 'Do you agree?',
+    applicationQuestion: 'Do you agree?', type: 'text', options: [] };
+  const candidate = candidateForForm({
+    identity: { name: 'Test Person', firstName: 'Test', lastName: 'Person', email: '', phone: '' },
+    portalQuestions: [question],
+    suppressedQuestionIds: ['q1'],
+    suppressedAnswerContracts: [{ id: 'q1', status: 'answered', answer: 'yes', allowLiveMapping: false }],
+  });
+  const field = { id: 'q1', questionId: 'q1', label: '', kind: 'text', required: true };
+
+  expect(guardPlan({
+    actions: [{ fieldId: field.id, action: 'fill', value: 'yes', source: 'rule' }], missingRequired: [],
+  }, [field], candidate)).toMatchObject({
+    actions: [],
+    missingRequired: [expect.objectContaining({ fieldId: field.id })],
+  });
 });
 
 const hardRecoveryQuestion = {
@@ -246,7 +340,9 @@ describe('legacy operational portal contract reconciliation', () => {
       .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
     const edited = candidateWithEdits(queued);
     const candidate = candidateForForm({ identity: edited.identity, profile: edited.profile, answers: edited.answers,
-      draft: queued.draft, portalQuestions: queued.draft.questions.filter(item => item.source === 'portal') });
+      draft: queued.draft, portalQuestions: queued.draft.questions.filter(item => item.source === 'portal'),
+      suppressedQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+      suppressedAnswerContracts: edited.candidateAnswerSuppressedQuestionContracts });
     const noticeField = (labels: string[]) => ({ id: 'native-notice', kind: 'select', label: 'Attuale periodo di preavviso',
       required: true, options: labels.map(item => ({ label: item, value: item })) });
     for (const field of [noticeField(['6 mesi', '3 mesi', '1 mesi']), noticeField([])]) {

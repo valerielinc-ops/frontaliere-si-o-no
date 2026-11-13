@@ -2,9 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
   candidateAnswersForQuestions,
+  candidateAnswerHistoryState,
+  candidateAnswerProjectionDiagnostics,
   candidateQuestionAnswerKey,
   questionsForCandidate,
   rememberCandidateQuestionAnswers,
+  rememberCandidateAnswerHistory,
   factSourcesNow,
   fieldView,
   formAnswersWithEdits,
@@ -14,6 +17,7 @@ import {
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
 import { sanitizeProfile } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { withOperationalQuestionAnswers } from '../functions/src/assistedApplicationOperationalAnswers.js';
 
 const LETTER = [
   'Gentili Signore e Signori,',
@@ -203,6 +207,66 @@ describe('candidate edits', () => {
       applicationQuestion: 'Do you hold a valid Swiss work permit?',
     };
     expect(candidateAnswersForQuestions([differentQuestion], {}, memory)).not.toHaveProperty(differentQuestion.id);
+  });
+
+  it('keeps an incompatible saved answer in history and suppresses a platform default', () => {
+    const nowMs = Date.now();
+    const original = { id: 'notice', question: 'Attuale periodo di preavviso', why: 'Dichiara il preavviso attuale.',
+      type: 'choice', options: ['7 giorni', '3 mesi'], required: true };
+    const current = { ...original, options: ['3 mesi'] };
+    const history = rememberCandidateAnswerHistory({ questions: [original], changed: { notice: '7 giorni' },
+      round: 1, confirmedAt: nowMs });
+
+    const diagnostics = candidateAnswerProjectionDiagnostics([current], { history, nowMs });
+    expect(diagnostics.incompatibleQuestionIds).toEqual(['notice']);
+    expect(candidateAnswersForQuestions([current], {}, {}, history, nowMs)).not.toHaveProperty('notice');
+    expect(candidateAnswersForQuestions([current], {}, { [candidateQuestionAnswerKey(current)]: '3 mesi' }, history, nowMs))
+      .not.toHaveProperty('notice');
+    const form = withOperationalQuestionAnswers([current], {}, {
+      locale: 'it', suppressDefaultQuestionIds: diagnostics.suppressDefaultQuestionIds,
+    });
+    expect(form.answers).not.toHaveProperty('notice');
+    expect(form.defaults).not.toHaveProperty('notice');
+    expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'notice', answer: '7 giorni', status: 'answered' }]);
+  });
+
+  it('backfills current contract hashes for a legacy same-id answer', () => {
+    const nowMs = Date.now();
+    const question = { id: 'q1', question: 'Do you agree?', type: 'choice', options: ['yes', 'no'], required: true };
+    const history = [{ id: 'q1', status: 'answered', answer: 'yes', round: 1, confirmedAt: nowMs, source: 'candidate' }];
+
+    const diagnostics = candidateAnswerProjectionDiagnostics([question], { answers: { q1: 'yes' }, history, nowMs });
+    expect(diagnostics.incompatibleQuestionIds).not.toContain('q1');
+    expect(diagnostics.suppressDefaultQuestionIds).not.toContain('q1');
+    expect(diagnostics.suppressedAnswerContracts).toEqual([]);
+    expect(candidateAnswersForQuestions([question], { q1: 'yes' }, {}, history, nowMs)).toEqual({ q1: 'yes' });
+    expect(candidateAnswerHistoryState(history)).toMatchObject([{ id: 'q1', status: 'answered', answer: 'yes' }]);
+  });
+
+  it.each(['array', 'object'] as const)('does not reuse an answer when constraint %s overflow differs', kind => {
+    const nowMs = Date.now();
+    const array = Array.from({ length: 41 }, (_, index) => `rule-${index}`);
+    const changedArray = [...array];
+    changedArray[40] = 'changed-overflow-rule';
+    const object = Object.fromEntries(Array.from({ length: 41 }, (_, index) => [
+      `rule-${String(index).padStart(2, '0')}`, `value-${index}`,
+    ]));
+    const changedObject = { ...object, 'rule-40': 'changed-overflow-rule' };
+    const original = {
+      id: 'old_question', question: 'Have you worked with similar systems?', type: 'text',
+      validation: { vendorConstraints: kind === 'array' ? array : object },
+    };
+    const current = {
+      ...original,
+      id: 'new_question',
+      validation: { vendorConstraints: kind === 'array' ? changedArray : changedObject },
+    };
+    const history = rememberCandidateAnswerHistory({ questions: [original], changed: { old_question: 'yes' },
+      round: 1, confirmedAt: nowMs });
+
+    expect(candidateAnswerProjectionDiagnostics([current], { history, nowMs }).incompatibleQuestionIds)
+      .toEqual(['new_question']);
+    expect(candidateAnswersForQuestions([current], {}, {}, history, nowMs)).not.toHaveProperty('new_question');
   });
 
   it('does not replace an explicit unknown multi-choice answer from memory', () => {

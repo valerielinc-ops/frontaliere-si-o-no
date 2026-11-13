@@ -10,6 +10,16 @@ import { ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from '../../../function
 export const MAX_RUNNER_EVENT_BYTES = 512 * 1024;
 export const MAX_RUNNER_EVENT_QUESTION_DETAILS = ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT;
 
+function boundedConstraintValue(value, depth = 0) {
+  if (depth > 4) return null;
+  if (value == null || typeof value === 'string' || typeof value === 'boolean') return value;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (Array.isArray(value)) return value.slice(0, 40).map(item => boundedConstraintValue(item, depth + 1));
+  if (typeof value !== 'object') return null;
+  return Object.fromEntries(Object.keys(value).sort().slice(0, 40)
+    .map(key => [key, boundedConstraintValue(value[key], depth + 1)]));
+}
+
 /**
  * Candidate-safe question metadata for runner events. Keep the ATS prompt and
  * fingerprints for long prompts or oversized native option lists so
@@ -25,6 +35,7 @@ export function questionDetailsForEvent(rawQuestions, getPortalQuestionKey = () 
     if (question.source === 'portal' || question.source === 'match') result.source = question.source;
     const applicationQuestion = String(question.applicationQuestion || question.portalQuestion || '').trim();
     if (applicationQuestion) result.applicationQuestion = applicationQuestion.slice(0, 240);
+    if (question.why != null) result.why = String(question.why).slice(0, 520);
     const questionIdentityFingerprint = candidateQuestionTextFingerprint(question);
     if (questionIdentityFingerprint) result.questionIdentityFingerprint = questionIdentityFingerprint;
     for (const key of ['context', 'section']) {
@@ -35,6 +46,15 @@ export function questionDetailsForEvent(rawQuestions, getPortalQuestionKey = () 
     if (autocomplete) result.autocomplete = autocomplete.slice(0, 100);
     const type = String(question.type || '').trim();
     if (type) result.type = type.slice(0, 40);
+    if (typeof question.required === 'boolean') result.required = question.required;
+    if (question.validation != null) result.validation = boundedConstraintValue(question.validation);
+    for (const key of ['minDate', 'maxDate', 'pattern']) {
+      if (question[key] != null) result[key] = String(question[key]).slice(0, key === 'pattern' ? 240 : 80);
+    }
+    for (const key of ['min', 'max', 'minLength', 'maxLength']) {
+      if (question[key] != null) result[key] = boundedConstraintValue(question[key]);
+    }
+    if (question.requiresAffirmativeConsent === true) result.requiresAffirmativeConsent = true;
     const semanticKey = getPortalQuestionKey(question);
     if (semanticKey) result.semanticKey = semanticKey.slice(0, 500);
     const applicationOptionsFingerprint = candidateQuestionOptionsFingerprint(question);

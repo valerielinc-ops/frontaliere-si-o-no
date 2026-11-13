@@ -6,6 +6,12 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31021.title': 'Reuse your CV skills across job listings',
+  'whatsNew.v31021.cv-affinity.title': 'Upload a CV and compare its skills with a job',
+  'whatsNew.v31021.cv-affinity.desc': 'Your CV stays in your private profile. You can review and edit extracted skills, reuse them across listings, and optionally let them refine job-alert ranking.',
+  'whatsNew.v31020.title': 'See ATS questions before applying',
+  'whatsNew.v31020.sinteticaAts.title': 'Verified fields in Sintetica’s application form',
+  'whatsNew.v31020.sinteticaAts.desc': 'Sintetica job pages show the fields on the public first step of the application form, which are required, and when they were checked. Open the original form to verify; later steps may ask for more information.',
   'whatsNew.v31013.title': 'A clearer match with job requirements',
   'whatsNew.v31013.job-affinity.title': 'Compare skills with the listing',
   'whatsNew.v31013.job-affinity.desc': 'Job pages show which skills you enter also appear in the requirements. The percentage stays hidden when information is missing and does not assess qualifications or years of experience.',

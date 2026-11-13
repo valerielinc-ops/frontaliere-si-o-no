@@ -1,7 +1,7 @@
 {
   "key": "benisasa-ch",
   "label": "Benisa SA",
-  "generatedAt": "2026-11-12T22:04:52.679Z",
+  "generatedAt": "2026-11-13T09:38:43.469Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -16,16 +16,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 15748,
-  "avgDurationMs": 15748,
+  "unchangedCount": 3,
+  "durationMs": 14673,
+  "avgDurationMs": 14673,
   "durationHistory": [
-    15748
+    14673
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "benisasa-ch-4bcebb0ad8b7",
       "slug": "pianificatore-elettricista-afc-cadempino-ti-benisasa-ch-ch",
@@ -38,7 +40,7 @@
       "url": "https://www.benisasa.ch/jobs/pianificatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T22:04:21.750Z",
+      "crawledAt": "2026-11-13T09:38:18.776Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -61,7 +63,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T22:04:21.750Z",
+      "validThrough": "2027-02-10T09:38:18.776Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -83,7 +85,7 @@
       "url": "https://www.benisasa.ch/jobs/installatore-elettricista-afc",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T22:04:21.749Z",
+      "crawledAt": "2026-11-13T09:38:18.772Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -106,7 +108,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T22:04:21.749Z",
+      "validThrough": "2027-02-10T09:38:18.772Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -128,7 +130,7 @@
       "url": "https://www.benisasa.ch/jobs/capo-progetto-in-installazione-e-sicurezza",
       "source": "Benisa SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T22:04:21.747Z",
+      "crawledAt": "2026-11-13T09:38:18.770Z",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -151,7 +153,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T22:04:21.747Z",
+      "validThrough": "2027-02-10T09:38:18.770Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -162,7 +164,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }

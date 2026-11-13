@@ -162,16 +162,20 @@
     "slugByLocale": {
       "it": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-su-chiamata-sodexo-suisse-sa-deredingen",
       "en": "maintenance-cleaner-m-f-d-on-call-sodexo-suisse-sa-deredingen",
-      "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen",
+      "de": "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen-67ee1bf3",
       "fr": "agent-e-de-nettoyage-d-entretien-h-f-d-sur-appel-sodexo-suisse-sa-deredingen"
     },
     "sector": "Ristorazione collettiva / Facility Management",
     "expiredAt": "2026-10-27T21:17:11.683Z",
-    "previousSlugs": [
-      "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen-67ee1bf3",
+        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
+      ],
+      "en": [
+        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
+      ],
+      "fr": [
         "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
       ]
     },
@@ -182,7 +186,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://sodexo-suisse.concludis.de/prj/shw/d156d4836ea87dd732cfda175b7911cb_0/5771/unterhaltsreiniger_in_m_w_d_auf_abruf.htm?b=0&lang=de_de",
-    "firstSeenAt": "2026-10-07T21:17:33.604Z"
+    "firstSeenAt": "2026-10-07T21:17:33.604Z",
+    "previousSlugs": [
+      "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
+    ]
   },
   {
     "slug": "responsabile-empfang-100-m-w-d-sodexo-suisse-sa-zurich-flughafen",

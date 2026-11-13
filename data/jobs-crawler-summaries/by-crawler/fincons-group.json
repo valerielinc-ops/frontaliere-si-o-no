@@ -1,7 +1,7 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-11-12T21:23:04.448Z",
+  "generatedAt": "2026-11-13T09:23:32.627Z",
   "total": 31,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 31,
-  "durationMs": 9580,
-  "avgDurationMs": 9580,
+  "durationMs": 9042,
+  "avgDurationMs": 9042,
   "durationHistory": [
-    9580
+    9042
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -58,7 +58,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -108,7 +108,7 @@
       "firstSeenAt": "2026-10-06T09:19:26.553Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -157,7 +157,7 @@
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "en",
       "postedDate": "2026-07-07",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -207,7 +207,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
     },
     {
       "title": "Professional Applikations-Entwickler:in 80 - 100%",
-      "slug": "professional-applikations-entwickler-in-80-100-fincons-group-full-time",
+      "slug": "sviluppatore-trice-di-applicazioni-professional-80-100-fincons-group-bern",
       "url": "https://fincons.applytojob.com/apply/ZXHIVRLFoF/Professional-ApplikationsEntwicklerin-80-100",
       "applyUrl": "https://fincons.applytojob.com/apply/ZXHIVRLFoF/Professional-ApplikationsEntwicklerin-80-100",
       "company": "Fincons Group",
@@ -240,7 +240,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-19T21:22:35.552Z",
+      "validThrough": "2026-12-19T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -250,7 +250,6 @@
         "listingDepartment": ""
       },
       "id": "fincons-group-c747e29c8de5",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -258,7 +257,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T22:53:40.684Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -289,7 +288,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-20",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -308,7 +307,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -339,7 +338,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-08",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -358,7 +357,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -408,7 +407,7 @@
       "firstSeenAt": "2026-10-05T09:15:13.275Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -458,7 +457,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -508,7 +507,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -559,7 +558,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:33:06.968Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -610,7 +609,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:19:47.984Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -641,7 +640,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-12-18T21:22:35.552Z",
+      "validThrough": "2026-12-18T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -660,7 +659,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -672,7 +671,7 @@
     },
     {
       "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-bern-95fa6611a7",
+      "slug": "sviluppatore-trice-senior-di-applicazioni-80-100-fincons-group-bern",
       "url": "https://fincons.applytojob.com/apply/bRRlAFaeHA/Senior-ApplikationsEntwicklerin-80-100",
       "applyUrl": "https://fincons.applytojob.com/apply/bRRlAFaeHA/Senior-ApplikationsEntwicklerin-80-100",
       "company": "Fincons Group",
@@ -703,7 +702,6 @@
         "listingDepartment": ""
       },
       "id": "fincons-group-8ec6f30654af",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -711,7 +709,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -723,7 +721,7 @@
     },
     {
       "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-bern-c96307c232",
+      "slug": "sviluppatore-trice-senior-di-applicazioni-80-100-fincons-group-bern-7ef770",
       "url": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
       "applyUrl": "https://fincons.applytojob.com/apply/8isI3BcIjo/Senior-ApplikationsEntwicklerin-80-100",
       "company": "Fincons Group",
@@ -754,7 +752,6 @@
         "listingDepartment": ""
       },
       "id": "fincons-group-28a96ac10896",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -762,7 +759,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -813,7 +810,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -863,7 +860,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -894,7 +891,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-28",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -913,7 +910,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -963,7 +960,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1013,7 +1010,7 @@
       "firstSeenAt": "2026-10-06T21:12:53.461Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1063,7 +1060,7 @@
       "firstSeenAt": "2026-10-06T21:12:53.461Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1094,7 +1091,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-29",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -1113,7 +1110,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1144,7 +1141,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "",
-      "validThrough": "2026-12-18T21:22:35.552Z",
+      "validThrough": "2026-12-18T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -1163,7 +1160,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1213,7 +1210,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1264,7 +1261,7 @@
       "needsRetranslation": true,
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1295,7 +1292,7 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-08-10",
-      "validThrough": "2026-12-12T21:22:35.552Z",
+      "validThrough": "2026-12-13T09:23:20.199Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "metadata": {
@@ -1314,7 +1311,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1364,7 +1361,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1414,7 +1411,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1465,7 +1462,7 @@
       "needsRetranslation": true,
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1515,7 +1512,7 @@
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-12T21:22:35.552Z",
+      "crawledAt": "2026-11-13T09:23:20.199Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -1526,5 +1523,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }

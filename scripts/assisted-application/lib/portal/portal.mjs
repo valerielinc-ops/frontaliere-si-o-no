@@ -1175,7 +1175,7 @@ export { portalQuestionId, portalQuestionKey, slugId };
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {}, platformFacts = null }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {}, job = {}, currentAnswerIds = [], answerSources = {}, platformFacts = null, suppressedQuestionIds = [], suppressedAnswerContracts = [] }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -1184,7 +1184,21 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   // 2026-11-10, platformCandidateFacts `permitStatusSource: 'deduced'`): never over an answer of theirs.
   const status = permitStatusOf(profile.permitStatus) || permitStatusOf(answers.work_permit)
     || (platformFacts?.permitStatusSource === 'deduced' && !String(answers.work_permit ?? '').trim() ? permitStatusOf(platformFacts.permitStatus) : '');
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources);
+  const suppressedQuestionIdSet = new Set(Array.isArray(suppressedQuestionIds) ? suppressedQuestionIds : []);
+  const suppressedAnswersById = new Map((Array.isArray(suppressedAnswerContracts) ? suppressedAnswerContracts : [])
+    .filter(contract => typeof contract?.id === 'string').map(contract => [contract.id, contract]));
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers, currentAnswerIds, answerSources, suppressedQuestionIdSet);
+  const suppressedQuestionContracts = portalQuestions.filter(question => suppressedQuestionIdSet.has(question?.id)).map(question => ({
+    id: String(question.id),
+    labels: [...new Set([question.applicationQuestion, question.portalQuestion, question.question]
+      .filter(value => typeof value === 'string' && value.trim()).map(value => value.trim().slice(0, 520)))],
+    topic: questionTopic(question.applicationQuestion || question.question, question.context || '', question),
+    status: suppressedAnswersById.get(question.id)?.status || 'unknown',
+    ...(suppressedAnswersById.get(question.id)?.status === 'answered'
+      && Object.hasOwn(suppressedAnswersById.get(question.id), 'answer')
+      ? { answer: suppressedAnswersById.get(question.id).answer } : {}),
+    allowLiveMapping: suppressedAnswersById.get(question.id)?.allowLiveMapping === true,
+  }));
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const resolved = resolveResidenceAddress(profile.address, profile.location);
@@ -1268,6 +1282,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       civilStatus: personal?.civilStatus || facts?.civilStatusLabel || '',
     },
     platformFacts: facts,
+    suppressedQuestionContracts,
     // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
     // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
     // «Svizzera» or «Schweiz» never backs a nationality answer.
@@ -1339,9 +1354,9 @@ const accountRegistrationSnapshot = (snapshot) => ({
   fields: (snapshot?.fields || []).map(accountRegistrationField),
 });
 
-function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}) {
+function portalAnswersForQuestions(questions, answers, previousAnswers = [], currentAnswerIds = [], answerSources = {}, suppressedQuestionIds = new Set()) {
   const attestedIds = new Set(currentAnswerIds);
-  const items = questions.map((question) => {
+  const items = questions.filter(question => !suppressedQuestionIds.has(question?.id)).map((question) => {
     const raw = String(answers[question.id] ?? '').trim();
     const projected = operationalAnswerForOption(question, raw) || raw;
     const mapped = portalAnswerForApplication(question, projected);
@@ -1368,7 +1383,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
-    .filter((question) => question?.id && (String(answers[question.id] ?? '').trim()
+    .filter((question) => question?.id && (suppressedQuestionIds.has(question.id) || String(answers[question.id] ?? '').trim()
       || (addressAnswerNeedsOwnership(question.applicationQuestion || question.question, question) && Object.hasOwn(answers, question.id))))
     .map((question) => keyFor({ applicationQuestion: question.applicationQuestion, question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '', ...addressMetadata(question) })));
   const priorGroups = new Map();
@@ -1399,10 +1414,11 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = [], cur
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
-export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null } = {}) {
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {}, sources = null, suppressedQuestionIds = [] } = {}) {
   const out = {};
+  const suppressed = new Set(Array.isArray(suppressedQuestionIds) ? suppressedQuestionIds : []);
   for (const question of questions) {
-    if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
+    if (question?.source !== 'portal' || !question.required || suppressed.has(question.id) || String(answers?.[question.id] ?? '').trim()) continue;
     const options = (Array.isArray(question.applicationOptions) && question.applicationOptions.length
       ? question.applicationOptions
       : Array.isArray(question.options) ? question.options : [])
@@ -1458,6 +1474,14 @@ const APPLICATION_IDENTITY_FIELD_RE = /(?:e-?mail|vorname|nachname|first\s+name|
 const PUBLIC_JOB_RESULTS_BACK_RE = /^(?:tornare ai risultati(?: della ricerca)?|back to search results|zurück zu den suchergebnissen|retour aux résultats de recherche)\b/iu;
 const PUBLIC_JOB_DETAIL_INFO_RE = /^(?:informazioni sul posto|job information|stelleninformationen|informations sur le poste)\b/iu;
 const PUBLIC_JOB_DETAIL_TOOL_RE = /^(?:copiare il link|copy link|link kopieren|copier le lien|invia link|send link|link senden|stampare(?: la pagina)?|print(?: page)?|drucken|imprimer(?: la page)?)\b/iu;
+const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'www.job-room.ch']);
+const JOB_ROOM_PUBLIC_DETAIL_PATH_RE = /^\/job-search\/[^/]+\/?$/iu;
+const JOB_ROOM_EXTERNAL_APPLICATION_RE = /^(?:[•·▪›»→*–—-]\s*)*(?:andare all['’]annuncio esterno|go to (?:the )?external (?:job )?(?:posting|listing|offer)|zum externen (?:stellen|job)angebot|zur externen (?:stellenausschreibung|stellenanzeige|jobanzeige|jobangebot)|aller à l['’](?:offre|annonce) externe|accéder à l['’](?:offre|annonce) externe)\b/iu;
+const PUBLIC_JOB_ALERT_ACTION_RE = /^(?:create(?:\s+(?:an|a))?(?:\s+job)?\s+alert|créer\s+une\s+alerte|benachrichtigung\s+erstellen|crea(?:re)?\s+un\s+avviso)\b/iu;
+const PUBLIC_JOB_ALERT_FIELD_RE = new RegExp([
+  String.raw`\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b.{0,160}\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b`,
+  String.raw`\b(?:alert(?:s)?|alerte(?:s)?|notification(?:s)?|benachrichtigung(?:en)?|avvis(?:o|i))\b.{0,160}\b(?:frequency|how\s+often|fréquence|frequenz|frequenza|day(?:s)?|jour(?:s)?|tag(?:e|en)?|giorn(?:o|i))\b`,
+].join('|'), 'iu');
 
 const isGalleryPagingButton = (button, pattern) => !button?.chrome && pattern.test(String(button.text || ''));
 const isGalleryNavigationButton = (button) => isGalleryPagingButton(button, GALLERY_PREVIOUS_RE)
@@ -1494,6 +1518,28 @@ const controlOwnershipText = (button) => [
 ].filter(Boolean).join(' ');
 const isApplicationControl = (button) => APPLICATION_CONTROL_RE.test(controlOwnershipText(button));
 const galleryToolScopes = (buttons) => new Set(buttons.filter(isGalleryToolButton).map(portalControlScope));
+
+function isPublicJobAlertField(field) {
+  const inputType = String(field?.inputType || '').toLowerCase();
+  if (field?.chrome || (inputType && !['number', 'text'].includes(inputType)) || field?.kind !== 'text') return false;
+  const text = [field?.label, field?.ariaLabel, field?.description]
+    .filter(Boolean).join(' ').normalize('NFKC').replace(/\s+/gu, ' ').trim();
+  return Boolean(text && PUBLIC_JOB_ALERT_FIELD_RE.test(text));
+}
+
+function publicJobDetailFieldsAreOnlyAlert(snapshot = {}) {
+  if (!Array.isArray(snapshot.fields)) return false;
+  const fields = snapshot.fields;
+  if (!fields.length) return true;
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ];
+  const hasAlertAction = controls.some((control) => !control?.disabled && PUBLIC_JOB_ALERT_ACTION_RE.test([
+    control?.text, control?.label, control?.ariaLabel, control?.title,
+  ].filter(Boolean).join(' ').replace(/\s+/gu, ' ').trim()));
+  return hasAlertAction && fields.every(isPublicJobAlertField);
+}
 
 function galleryNavigationButtons(buttons) {
   const galleryTools = galleryToolScopes(buttons);
@@ -1603,6 +1649,61 @@ function isNonApplicationSurface(snapshot = {}, options = {}) {
   return isNonApplicationGallerySurface(snapshot)
     || isNonApplicationJobDetailSurface(snapshot, options)
     || isNonApplicationJobSearchSurface(snapshot, options);
+}
+
+function jobRoomControlText(control) {
+  return [control?.text, control?.label, control?.ariaLabel, control?.title]
+    .map((value) => String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim())
+    .find(Boolean) || '';
+}
+
+function isJobRoomExternalApplicationLabel(control) {
+  return JOB_ROOM_EXTERNAL_APPLICATION_RE.test(jobRoomControlText(control));
+}
+
+function isJobRoomPublicPostingRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
+      && JOB_ROOM_HOSTS.has(url.hostname.toLowerCase())
+      && JOB_ROOM_PUBLIC_DETAIL_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
+// Job-Room's public detail route calls the official employer handoff «external
+// posting», not «Apply». Keep that vocabulary out of the shared Apply matcher:
+// only this exact host, route fingerprint and one external HTTPS target may use it.
+function isJobRoomExternalApplicationEntry(control, snapshot = {}, context = {}) {
+  if (context?.allowSingleExternalApplicationEntry !== true || control?.disabled || control?.chrome
+    || control?.ariaHidden === true || control?.behindDialog === true
+    || !isJobRoomExternalApplicationLabel(control)) return false;
+  const pageUrl = String(snapshot?.url || '');
+  if (!isJobRoomPublicPostingRoute(pageUrl)
+    || !samePostingAddress(pageUrl, context.postingUrl)
+    || !samePostingAddress(pageUrl, context.applyUrl)
+    || !isNonApplicationJobDetailSurface(snapshot)) return false;
+  if (!control?.href) return true;
+  try {
+    const target = new URL(String(control.href), pageUrl);
+    return target.protocol === 'https:' && !target.username && !target.password && !target.hash
+      && !JOB_ROOM_HOSTS.has(target.hostname.toLowerCase())
+      && !samePostingAddress(target.href, pageUrl);
+  } catch {
+    return false;
+  }
+}
+
+function jobRoomExternalApplicationEntryProven(snapshot = {}, context = {}) {
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ].filter((control) => control?.ariaHidden !== true && control?.behindDialog !== true);
+  const entries = controls.filter((control) => isJobRoomExternalApplicationEntry(control, snapshot, context));
+  const competingApplicationControl = controls.some((control) => !isJobRoomExternalApplicationLabel(control)
+    && !control?.disabled && !control?.chrome && startsApplication(control?.text || control?.label));
+  return entries.length === 1 && !competingApplicationControl;
 }
 
 function learnedApplicationControls(buttons, known, path) {
@@ -1882,6 +1983,10 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   if (ownMatching.length) return ownMatching;
   if (matching.length || context.allowSingleExternalApplicationEntry !== true) return matching;
 
+  if (jobRoomExternalApplicationEntryProven(snapshot, context)) {
+    return controls.filter((control) => isJobRoomExternalApplicationEntry(control, snapshot, context));
+  }
+
   const genericEntries = controls.filter((control) => genericUmantisApplicationEntryBelongsToPosting(control, snapshot, context));
   const competingSemanticEntry = controls.some((control) => !genericApplicationEntryLabel(control?.text || control?.label)
     && startsApplication(control?.text || control?.label));
@@ -1918,7 +2023,12 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
-    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && isSuccessFactorsPostingEntry(context)
+    // Jobs2Web detail pages can expose the required alert-frequency input
+    // beside their sole script Apply button. The route shape alone is shared
+    // by arbitrary portals, so the verified Jobs2Web identity must also bind
+    // the apply route to this posting before the alert-only exception applies.
+    && publicJobDetailFieldsAreOnlyAlert(snapshot)
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   // SuccessFactors Career Site Builder repeats one Apply dropdown above and
   // below the vacancy. Identical disclosure toggles are one entry: open the
@@ -3319,7 +3429,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       ...(Array.isArray(snapshot.links) ? snapshot.links : []),
     ];
     const applicationControls = allControls.filter((control) => !control?.disabled && !control?.chrome
-      && startsApplication(control?.text || control?.label));
+      && (startsApplication(control?.text || control?.label) || isJobRoomExternalApplicationLabel(control)));
     const ownedEntries = applicationEntryControls(snapshot, stageContext);
     const entryContextChecks = applicationControls.map((control) => {
       const context = String(control?.vacancyContext || '').trim();
@@ -3668,6 +3778,11 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
 // Keep it significant elsewhere because it can be part of an employer name («Coop One»).
 const isSelectOneLabelToken = (words, index) => (words[index] === 'select' && words[index + 1] === 'one')
   || (words[index] === 'one' && words[index - 1] === 'select');
+const isStandaloneNextLabel = (value) => {
+  const label = String(value || '').replace(/\s+/g, ' ').trim();
+  const match = NEXT_RE.exec(label);
+  return Boolean(match && !label.slice(match[0].length).trim());
+};
 
 /**
  * The form names an employer that is not the order's (reviews of #11033).
@@ -3753,7 +3868,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     })));
   };
   const titleLine = text.split(/\r?\n/).map((line) => line.trim())
-    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line)) || '';
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
@@ -8993,10 +9108,15 @@ export async function readPortalRequirements(ctx) {
       job: ctx.job,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
+    const sourceJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
+      applyUrl: stageApplyUrl,
+      postingUrl: ctx.postingUrl || page.url(),
+      allowSingleExternalApplicationEntry: true,
+    });
     // A posting published as a document: its host page stands for it once the document is the order's.
     const sourceDocument = hasJobContract ? await postingDocumentHostMatch(snapshot, ctx, page.url()) : null;
     const sourceDocumentHost = sourceDocument?.identity === true;
-    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
+    let sourcePostingMatched = hasJobContract && (sourceDocumentHost || sourceJobRoomEntryProven || hasVacancySpecificPostingEvidence(sourcePostingText, ctx.job, {
       pageUrl: page.url(),
       pageTitle: sourceTitle,
       pageHeading: await postingMainHeading(page),
@@ -9555,6 +9675,11 @@ export async function submitViaPortal(ctx) {
       job: ctx.job,
       allowSingleExternalApplicationEntry: true,
     }).length === 1;
+    const initialJobRoomEntryProven = jobRoomExternalApplicationEntryProven(snapshot, {
+      applyUrl: ctx.applyUrl,
+      postingUrl: ctx.postingUrl || postingUrl,
+      allowSingleExternalApplicationEntry: true,
+    });
     // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
@@ -9585,7 +9710,7 @@ export async function submitViaPortal(ctx) {
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
       && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
-    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven
+    let postingVacancyMatched = enteredFromMatchingPosting || postingDocumentHost || workdayRouteEntryProven || initialJobRoomEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, ctx.job, {
         pageUrl: postingUrl,
         pageTitle: postingTitle,

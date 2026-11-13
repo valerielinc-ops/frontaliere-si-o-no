@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sophia-genetics",
-  "assembledAt": "2026-11-12T21:32:24.274Z",
-  "runId": "43308585666",
+  "assembledAt": "2026-11-13T09:27:41.101Z",
+  "runId": "43399669725",
   "jobs": [
     {
       "id": "sophia-genetics-09e77f4ecb94",
@@ -34,7 +34,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/1B53D0A7AB/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:14.399Z",
+      "crawledAt": "2026-11-13T09:27:35.576Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -55,7 +55,9 @@
       "jobReqId": "1B53D0A7AB",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-11T21:27:16.866Z",
+      "previousSlugs": [
+        "systems-manager-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "systems-manager-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle"
@@ -64,9 +66,7 @@
           "systems-manager-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle"
         ]
       },
-      "previousSlugs": [
-        "systems-manager-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle"
-      ],
+      "firstSeenAt": "2026-11-11T21:27:16.866Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -81,7 +81,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:32:14.399Z",
+      "validThrough": "2027-02-09T09:27:35.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:13.857Z",
+      "crawledAt": "2026-11-13T09:27:34.955Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -151,7 +151,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:32:13.857Z",
+      "validThrough": "2026-12-13T09:27:34.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -185,7 +185,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:13.790Z",
+      "crawledAt": "2026-11-13T09:27:34.866Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -221,7 +221,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:32:13.790Z",
+      "validThrough": "2026-12-13T09:27:34.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -255,7 +255,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:13.632Z",
+      "crawledAt": "2026-11-13T09:27:34.578Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -299,7 +299,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:32:13.632Z",
+      "validThrough": "2026-12-13T09:27:34.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -333,7 +333,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/5282592E1F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:13.072Z",
+      "crawledAt": "2026-11-13T09:27:33.966Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -369,7 +369,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:32:13.072Z",
+      "validThrough": "2027-01-26T09:27:33.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:32:12.707Z",
+      "crawledAt": "2026-11-13T09:27:33.559Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -439,7 +439,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:32:12.707Z",
+      "validThrough": "2026-12-17T09:27:33.559Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -22,35 +22,33 @@
  * the origin-{loc} URL, tiered across colos. Positive responses keep the
  * configured TTL; 5xx responses are never cached.
  *
- * Cache API (caches.default): apex-keyed. WRITTEN on every happy-path shard
- * 200 (below); READ only when the origin fails (5xx / timeout / network) to
- * serve a stale copy — see serveStaleOnError + the cache.match() note below.
- * The stored copy does double duty: (1) stale-if-error (serve last-good 200
- * instead of propagating an origin 5xx to crawlers/users), and (2) the over-cap
- * fail-open path on the free plan — when the daily cap is exceeded and the
- * route is configured `request_limit_fail_open: true`, Cloudflare bypasses the
- * Worker and the request flows through the normal CDN pipeline, which finds
- * this apex-keyed copy (a zone Cache Rule marks /en|/de|/fr eligible for cache
- * lookup — see scripts/cf-locale-failover-setup.mjs, re-run by deploy-worker.yml
- * after every deploy). A routed Worker is invoked on EVERY matching request —
- * the edge cache cannot answer in front of it ("Workers run before the cache")
- * — so this never reduces invocation count; it only changes WHAT is served on
- * error (last-good 200 vs an error page).
+ * Cache API (caches.default): apex-keyed last-good copies are WRITTEN on every
+ * happy-path shard 200 (below) and READ when the origin fails (5xx / timeout /
+ * network) to serve stale. Separate synthetic-key entries cache verified job
+ * alias redirects and definitive unresolved-job 404s; GET/HEAD job-detail paths
+ * check those entries only after the origin confirms a 404. The last-good copy does
+ * double duty: (1) stale-if-error (serve last-good 200 instead of propagating
+ * an origin 5xx to crawlers/users), and (2) the over-cap fail-open path on the
+ * free plan — when the daily cap is exceeded and the route is configured
+ * `request_limit_fail_open: true`, Cloudflare bypasses the Worker and the
+ * request flows through the normal CDN pipeline, which finds this apex-keyed
+ * copy (a zone Cache Rule marks /en|/de|/fr eligible for cache lookup — see
+ * scripts/cf-locale-failover-setup.mjs, re-run by deploy-worker.yml after every
+ * deploy). A routed Worker is invoked on EVERY matching request — the edge
+ * cache cannot answer in front of it ("Workers run before the cache") — so
+ * this never reduces invocation count; it only changes WHAT is served on error
+ * or for a previously resolved job alias.
  *
  * Cache API history (#1791/#1814/#1830/#1842): every Cache API op is logged in
  * zone analytics as a synthetic `requestSource: edgeWorkerCacheAPI` row —
  * cache.match() MISSes as phantom 504s (misread as an outage, three PR cycles
- * burned) and cache.put()s as 204s. This Worker therefore: (a) calls
- * cache.match() ONLY on the origin-error path (serveStaleOnError), never on the
- * happy path — there the origin has already failed, so there is no live origin
- * body to tee: the request path stays single-consumer and the #1791 deadlock
- * class (a slow eyeball consumer stalling a tee'd cache branch) remains
- * structurally impossible; the happy-path put copy is likewise built from an
- * explicit arrayBuffer, not a stream tee. The extra phantom-504 match rows are
- * bounded by the origin failure rate (~0.02%, ~50/day zone-wide) and filtered
- * out by the `requestSource: "eyeball"` monitoring since #1842
- * (scripts/lib/cf-analytics.mjs); (b) tolerates the returning 204 put rows for
- * the same reason. Keep both properties when touching this.
+ * burned) and cache.put()s as 204s. The stale-copy match remains restricted to
+ * the origin-error path (serveStaleOnError), where no live origin body can be
+ * stalled by a tee. Job-alias matches run only after a job-detail origin 404,
+ * so their MISS rows remain on that recovery path; monitoring filters
+ * `requestSource: "eyeball"` since #1842 (scripts/lib/cf-analytics.mjs). The
+ * happy-path last-good put copy remains built from an explicit arrayBuffer, not
+ * a stream tee. Keep these properties when touching this.
  *
  * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
  * requests bypass this Worker entirely.
@@ -824,13 +822,14 @@ export function determineCachePolicy(request, url) {
 //
 // The slug→{locale: section-prefix} map is emitted by jobCanonRedirectMapPlugin
 // and pushed to cdn.frontaliereticino.ch/job-canon/<shard>.json (CDN-offloaded,
-// same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). Fetched
-// here as a plain cross-origin subrequest (Workers fetch() is not CORS-bound,
-// unlike public/404.html's browser-context fetch) and edge-cached
+// same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). During the
+// reshard migration this Worker checks the v2 hash shard first, then falls back
+// to that v1 path only when v2 is absent. The browser 404 consumer stays on v1
+// until S2. Fetched here as a plain cross-origin subrequest (Workers fetch() is
+// not CORS-bound, unlike public/404.html's browser-context fetch) and edge-cached
 // (cacheEverything + cacheTtlByStatus) so repeat 404s for the same shard don't
-// re-hit the CDN. Best-effort throughout: any miss/timeout/parse error returns
-// null and the normal 404 path
-// runs.
+// re-hit the CDN. Errors fail closed; a miss after both versions leaves the
+// normal 404 path in control.
 //
 // LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
 // locales — only the section prefix is localized. The map value is therefore a
@@ -841,12 +840,13 @@ export function determineCachePolicy(request, url) {
 // permanent 301 that crosses locales (which would de-index the localized canonical
 // and is far worse than the soft-404 it replaces).
 //
-// Baseline matching mirrors public/404.html (jobRe + shard key) and
-// jobCanonRedirectMapPlugin; numeric suffixes additionally require a verified
-// registry target in this server-side recovery path.
-// (shard key). It is duplicated, not imported: this Worker is a standalone runtime
-// deployed by wrangler, not part of the Vite bundle, so it cannot share the TS
-// build-plugin modules. Keep the three copies in lockstep when touching any one.
+// Baseline matching mirrors public/404.html (jobRe + v1 shard key) and
+// jobCanonRedirectMapPlugin; the v2 hash mirrors services/jobSlugShards.ts.
+// Numeric suffixes additionally require a verified registry target in this
+// server-side recovery path. These helpers are mirrored, not imported: this
+// Worker is a standalone runtime deployed by wrangler, not part of the Vite
+// bundle, so it cannot share the TS build-plugin modules. Keep the copies in
+// lockstep when touching any one.
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
 
@@ -1005,6 +1005,10 @@ function aliasVerificationUnavailable(url) {
 
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
+const JOB_ALIAS_REDIRECT_CACHE_TTL = 86400; // 24 h — verified slug mappings are stable
+const JOB_ALIAS_NEGATIVE_CACHE_TTL = 600; // 10 min — unknown slugs can appear in a later deploy
+const JOB_ALIAS_CACHE_KEY_PREFIX = '/__worker-cache/job-alias/';
+const CANTON_DRIFT_CANONICAL_NULL = Symbol('canton-drift-canonical-null');
 // CDN-offloaded (see comment above recoverCantonDriftOrphan). MIRRORS the
 // literal in public/404.html — duplicated, not imported, same reason as
 // JOB_DETAIL_RE above (standalone Worker runtime, not part of the Vite bundle).
@@ -1238,13 +1242,68 @@ async function recoverEmployerProfileAlias(url, origin) {
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
 
-// Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
-// shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
-// padded to length 2.
+// Shard key for the legacy /job-canon/<sk>.json. MIRRORS public/404.html +
+// the plugin's v1 shardKey(): first 2 chars of the lowercased slug,
+// non-alphanumerics → '_', padded to length 2.
 function jobCanonShardKey(slug) {
   let sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
   if (sk.length < 2) sk = (sk + '__').slice(0, 2);
   return sk;
+}
+
+// The v1 live corpus was 238,512,449 bytes (2026-11-13): 256 buckets produced
+// a 970,410-byte maximum and 932,070-byte median. With 4096 buckets the live
+// maximum was 72,180 bytes and the median 58,221 bytes, inside both v2 limits.
+const JOB_CANON_V2_SHARD_COUNT = 4096;
+
+// djb2-xor mirror of services/jobSlugShards.ts. `slug` is already normalized
+// by lowerSegment() before it reaches this helper.
+export function jobCanonV2ShardKey(slug) {
+  let h = 5381;
+  for (let i = 0; i < slug.length; i++) {
+    h = ((h * 33) ^ slug.charCodeAt(i)) >>> 0;
+  }
+  return (h % JOB_CANON_V2_SHARD_COUNT).toString(16).padStart(3, '0');
+}
+
+// Read both Worker consumers from the same versioned registry path. Every v1
+// attempt is emitted as a structured event so the seven-day S3 zero-use window
+// includes recovery and expired-job lookups alike.
+async function fetchJobCanonMap(slug) {
+  const mapPaths = [
+    { version: 'v2', path: `/job-canon/v2/${jobCanonV2ShardKey(slug)}.json` },
+    { version: 'v1', path: `/job-canon/${jobCanonShardKey(slug)}.json` },
+  ];
+  for (const { version, path: mapPath } of mapPaths) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+    try {
+      const mapUrl = new URL(mapPath, CDN_BASE);
+      const resp = await fetch(mapUrl.toString(), {
+        signal: controller.signal,
+        cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
+      });
+      if (resp.status === 404 || resp.status === 410) {
+        if (version === 'v2') {
+          try {
+            console.log(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+          } catch {
+            // Logging must not block the v1 recovery path.
+          }
+          try { await resp.body?.cancel(); } catch { /* best-effort connection release */ }
+          continue;
+        }
+        return { kind: 'missing' };
+      }
+      if (!resp.ok) return { kind: 'unavailable' };
+      return { kind: 'map', map: await resp.json() };
+    } catch {
+      return { kind: 'unavailable' };
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  return { kind: 'unavailable' };
 }
 
 // Returns a 301 Response to the slug's current canonical page when the requested
@@ -1291,38 +1350,87 @@ export function jobCanonTarget(entry, slug, locale) {
   return `${alias.replace(/\/+$/, '')}/`;
 }
 
+// Cache keys use the normalized source path and request locale, but not its
+// query string: a cached target path can then preserve each request's own
+// query on the 301 Location. The synthetic path is never served directly.
+function jobAliasCacheKeyForUrl(url, locale) {
+  if (!['it', 'en', 'de', 'fr'].includes(locale) || !JOB_DETAIL_RE.test(url.pathname)) return null;
+  const normalizedPath = `${url.pathname.replace(/\/+$/, '')}/`;
+  const keyUrl = new URL(url.origin);
+  keyUrl.pathname = `${JOB_ALIAS_CACHE_KEY_PREFIX}${locale}${normalizedPath}`;
+  return new Request(keyUrl.toString(), { method: 'GET' });
+}
+
+function storeJobAliasCacheResult(ctx, key, value, ttl) {
+  if (!key) return;
+  try {
+    const write = caches.default.put(key, new Response(JSON.stringify(value), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': `public, max-age=${ttl}, s-maxage=${ttl}`,
+      },
+    }));
+    const pending = Promise.resolve(write).catch(() => {});
+    if (typeof ctx?.waitUntil === 'function') ctx.waitUntil(pending);
+  } catch {
+    // Alias cache is best-effort; never change a verified live response.
+  }
+}
+
+async function readJobAliasCacheResult(request, url, locale, sectionRoute, key) {
+  if (!key) return null;
+  try {
+    const cached = await caches.default.match(key);
+    if (!cached || cached.status !== 200) return null;
+    const value = await cached.json();
+    if (value?.kind === 'redirect') {
+      const target = value.target;
+      const targetRoute = typeof target === 'string' ? matchSection(target) : null;
+      const sourcePath = `${url.pathname.replace(/\/+$/, '')}/`;
+      if (!targetRoute || targetRoute.locale !== locale || target === sourcePath
+        || target.includes('?') || target.includes('#')) return null;
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: `${target}${url.search}${url.hash}`,
+          'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+        },
+      });
+    }
+    if (value?.kind === 'not-found') {
+      const page = renderNotFoundPage(url.pathname, locale, sectionRoute);
+      if (page === null) return null;
+      return new Response(request.method === 'HEAD' ? null : page, {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/html; charset=utf-8',
+          'Content-Language': locale,
+          'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+        },
+      });
+    }
+  } catch {
+    // Cache API miss or corrupt entry: continue through the normal origin path.
+  }
+  return null;
+}
+
 // (en|de|fr) so the 301 stays within-locale, never cross-locale to IT.
-async function recoverCantonDriftOrphan(url, locale) {
+async function recoverCantonDriftOrphan(url, locale, aliasCacheKey, ctx) {
   const m = url.pathname.match(JOB_DETAIL_RE);
   if (!m) return null;
   const slug = lowerSegment(m[1]);
-  const sk = jobCanonShardKey(slug);
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
-  let map;
-  try {
-    const mapUrl = new URL(`/job-canon/${sk}.json`, CDN_BASE);
-    const resp = await fetch(mapUrl.toString(), {
-      signal: controller.signal,
-      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
-    });
-    if (resp.status === 404 || resp.status === 410) return null;
-    if (!resp.ok) return aliasVerificationUnavailable(url);
-    map = await resp.json();
-  } catch {
-    return aliasVerificationUnavailable(url);
-  } finally {
-    clearTimeout(timer);
-  }
-
+  const mapResult = await fetchJobCanonMap(slug);
+  if (mapResult.kind === 'missing') return CANTON_DRIFT_CANONICAL_NULL;
+  if (mapResult.kind === 'unavailable') return aliasVerificationUnavailable(url);
+  const map = mapResult.map;
   if (!isPlainObject(map)) return aliasVerificationUnavailable(url);
   const entry = map[slug];
   // Per-locale object only: a legacy string value (IT-only map from a stale
   // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
-  if (!entry || typeof entry !== 'object') return null;
+  if (!entry || typeof entry !== 'object') return CANTON_DRIFT_CANONICAL_NULL;
   const canonical = jobCanonTarget(entry, slug, locale);
-  if (!canonical) return null; // unknown/expired slug for this locale → soft 404 fallback
+  if (!canonical) return CANTON_DRIFT_CANONICAL_NULL; // unknown/expired slug for this locale → soft 404 fallback
   // Never 301 to the path we are already on (avoids a redirect loop).
   if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
 
@@ -1334,6 +1442,7 @@ async function recoverCantonDriftOrphan(url, locale) {
   // verification: the target is a different URL, so we only make the 301
   // permanent after seeing it live.
   const viaAlias = typeof entry[locale] !== 'string' || !entry[locale];
+  let destinationVerified = false;
   if (m[2] || viaAlias) {
     const route = matchSection(canonical);
     if (!route || route.locale !== locale) return null;
@@ -1348,8 +1457,12 @@ async function recoverCantonDriftOrphan(url, locale) {
     }
     if (availability === 'unavailable') return aliasVerificationUnavailable(url);
     if (availability !== 'live') return null;
+    destinationVerified = true;
   }
 
+  if (destinationVerified) {
+    storeJobAliasCacheResult(ctx, aliasCacheKey, { kind: 'redirect', target: canonical }, JOB_ALIAS_REDIRECT_CACHE_TTL);
+  }
   const location = canonical + url.search + url.hash;
   return new Response(null, {
     status: 301,
@@ -3058,26 +3171,12 @@ async function recoverFuelStationAlias(url, origin) {
 // 'unknown' = the shard is absent or has no row for the slug; 'unavailable' =
 // the registry could not be read, which must not be mistaken for absence.
 async function jobCanonSlugState(slug) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
-  try {
-    const mapUrl = new URL(`/job-canon/${jobCanonShardKey(slug)}.json`, CDN_BASE);
-    const resp = await fetch(mapUrl.toString(), {
-      signal: controller.signal,
-      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
-    });
-    if (resp.status === 404 || resp.status === 410) return 'unknown';
-    if (!resp.ok) return 'unavailable';
-    const map = await resp.json();
-    if (!isPlainObject(map)) return 'unavailable';
-    return Object.prototype.hasOwnProperty.call(map, slug) && isPlainObject(map[slug])
-      ? 'known'
-      : 'unknown';
-  } catch {
-    return 'unavailable';
-  } finally {
-    clearTimeout(timer);
-  }
+  const mapResult = await fetchJobCanonMap(slug);
+  if (mapResult.kind === 'missing') return 'unknown';
+  if (mapResult.kind === 'unavailable' || !isPlainObject(mapResult.map)) return 'unavailable';
+  return Object.prototype.hasOwnProperty.call(mapResult.map, slug) && isPlainObject(mapResult.map[slug])
+    ? 'known'
+    : 'unknown';
 }
 
 // Returns a 301 Response to the canton section root when the requested path is a
@@ -3534,6 +3633,9 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     });
   }
 
+  const jobAliasCacheKey = request.method === 'GET' || request.method === 'HEAD'
+    ? jobAliasCacheKeyForUrl(url, recoveryLocale)
+    : null;
   const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute, fannedSections);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
@@ -3688,6 +3790,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // HEAD uses the same registry and GET destination probes as GET: otherwise
   // the exact same legacy URL advertises a 301 to users but a 404 to HEAD clients.
   // Unknown slugs still fall through to the soft 404 below.
+  let negativeAliasCacheCandidate = false;
   if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin);
     if (queryRedirect) return queryRedirect;
@@ -3695,8 +3798,17 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (employerRedirect) return employerRedirect;
     const fuelStationRedirect = await recoverFuelStationAlias(url, origin);
     if (fuelStationRedirect) return fuelStationRedirect;
-    const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
-    if (redirect) return redirect;
+    const cachedJobAliasResponse = await readJobAliasCacheResult(
+      request,
+      url,
+      recoveryLocale,
+      sectionRoute,
+      jobAliasCacheKey,
+    );
+    if (cachedJobAliasResponse) return cachedJobAliasResponse;
+    const redirect = await recoverCantonDriftOrphan(url, recoveryLocale, jobAliasCacheKey, ctx);
+    if (redirect === CANTON_DRIFT_CANONICAL_NULL) negativeAliasCacheCandidate = true;
+    else if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
     if (companyRedirect) return companyRedirect;
     // #3015: already-correct-prefix company hub that was pruned from the build —
@@ -3715,6 +3827,9 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
   // absorbed by the edge instead of re-invoking the Worker.
   if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
+    if (negativeAliasCacheCandidate) {
+      storeJobAliasCacheResult(ctx, jobAliasCacheKey, { kind: 'not-found' }, JOB_ALIAS_NEGATIVE_CACHE_TTL);
+    }
     // Localized body (see renderNotFoundPage). Fresh headers: the origin's
     // Content-Length/ETag describe the Italian 404.html, not this document.
     const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);

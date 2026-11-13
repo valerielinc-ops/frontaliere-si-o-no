@@ -51,6 +51,7 @@ import {
 import { chromeErrorPageFailure, navigationInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 export { PORTAL_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
 import {
+  candidateAnswerProjectionDiagnostics,
   candidateAnswersForQuestions,
   validatedCandidateAnswerForQuestion,
   candidateAnswerHistoryState,
@@ -210,9 +211,13 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
   if (requiredDocumentsFor(draft, flow).some((document) => document.delivery === 'offline')
     && flow?.postalSubmission?.enabled !== true) owner.push('postal_submission_missing');
   const candidateFlow = { ...(flow && typeof flow === 'object' ? flow : {}), answers, questionAnswers };
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow });
+  const { profile, answers: candidateAnswers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow: candidateFlow });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
-  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, {
+    locale: platformFacts?.locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts,
+  }).answers;
   const candidate = questions
     .filter((question) => question.required
       && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
@@ -805,6 +810,8 @@ function knownAnswerForQuestion(question, { draft, answers, questionAnswers, can
   if (invalidDirectInGroup) return undefined;
   if (hasAnswer(projected?.[question.id])
     && validatedCandidateAnswerForQuestion(projected[question.id], question) !== undefined) return projected[question.id];
+  const answerState = candidateAnswerProjectionDiagnostics([question], { answers, memory: questionAnswers, history: candidateAnswerHistory });
+  if (answerState.suppressDefaultQuestionIds.includes(question.id)) return undefined;
   const portalAnswer = portalAnswerForQuestion(question, draft);
   if (hasAnswer(portalAnswer)) {
     const portalProjection = candidateAnswersForQuestions([question], { [question.id]: portalAnswer }, {}, candidateAnswerHistory);

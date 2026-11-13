@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-11-12T21:25:59.470Z",
-  "runId": "43307133920",
+  "assembledAt": "2026-11-13T09:17:36.690Z",
+  "runId": "43398490487",
   "jobs": [
     {
       "id": "cedes-3fa516c3ca31",
@@ -48,7 +48,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:25:53.439Z",
+      "crawledAt": "2026-11-13T09:17:29.092Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
@@ -93,7 +93,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:25:53.439Z",
+      "validThrough": "2026-12-13T09:17:29.092Z",
       "validThroughSource": "last-observed-window"
     }
   ]

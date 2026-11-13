@@ -34,18 +34,21 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { readJsonFile } from './lib/read-large-json.mjs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
-  assertExpiredSliceSize,
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import {
+  listExpiredSliceFiles,
+  readExpiredSliceShards,
+  writeExpiredSliceRows,
+} from './lib/expired-slice-store.mjs';
 import { historySinceArgs } from './ci/prefetch-history-blobs.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
@@ -182,7 +185,14 @@ function listHistoryCommits(relPath) {
 function processSlice(sliceFile) {
   const crawlerKey = path.basename(sliceFile, '.json');
   const currentRel = `data/jobs/by-crawler/${sliceFile}`;
-  const expiredRel = `data/jobs/expired/by-crawler/${sliceFile}`;
+  // The archive is the monolith plus its `<key>.shard-NNN.json` files
+  // (scripts/lib/expired-slice-store.mjs): walk the history of each of them.
+  const expiredRels = [
+    `data/jobs/expired/by-crawler/${sliceFile}`,
+    ...listExpiredSliceFiles(crawlerKey, { dir: EXPIRED_DIR })
+      .filter((file) => file.index > 0)
+      .map((file) => `data/jobs/expired/by-crawler/${file.name}`),
+  ];
   const currentPath = path.join(BY_CRAWLER_DIR, sliceFile);
   if (!fs.existsSync(currentPath)) return null;
 
@@ -205,7 +215,7 @@ function processSlice(sliceFile) {
   const commitBySha = new Map();
   for (const commit of [
     ...listHistoryCommits(currentRel),
-    ...listHistoryCommits(expiredRel),
+    ...expiredRels.flatMap((expiredRel) => listHistoryCommits(expiredRel)),
   ]) {
     const prior = commitBySha.get(commit.sha);
     if (!prior || commit.timestamp > prior.timestamp) commitBySha.set(commit.sha, commit);
@@ -249,13 +259,14 @@ function processSlice(sliceFile) {
       }
     }
 
-    let expiredBlob = null;
-    try {
-      expiredBlob = git(['show', `${sha}:${expiredRel}`], { quiet: true });
-    } catch {
-      // The per-crawler archive was introduced after the active slice.
-    }
-    if (expiredBlob != null) {
+    for (const expiredRel of expiredRels) {
+      let expiredBlob = null;
+      try {
+        expiredBlob = git(['show', `${sha}:${expiredRel}`], { quiet: true });
+      } catch {
+        // The per-crawler archive (or this shard) did not exist at that commit.
+      }
+      if (expiredBlob == null) continue;
       for (const entry of readJobsFromSlice(expiredBlob)) {
         if (!entry?.slug) continue;
         const previous = historicalExpiredBySlug.get(entry.slug);
@@ -272,14 +283,10 @@ function processSlice(sliceFile) {
   // Read any existing expired slice, merge by slug. We keep entries whose
   // expiredAt is newer (the existing slice may already have entries from
   // PR #703 or earlier cleanup-jobs runs that we shouldn't downgrade).
-  const expiredPath = path.join(EXPIRED_DIR, sliceFile);
-  let existing = [];
-  if (fs.existsSync(expiredPath)) {
-    try {
-      const parsed = readJsonFile(expiredPath);
-      if (Array.isArray(parsed)) existing = parsed;
-    } catch { /* malformed → start fresh */ }
-  }
+  // Monolith + shards through the store. An unreadable file fails the run:
+  // starting fresh would rewrite it with only the recovered rows.
+  const existingShards = readExpiredSliceShards(crawlerKey, { dir: EXPIRED_DIR });
+  const existing = existingShards.flatMap((shard) => shard.rows);
 
   const bySlug = new Map();
   for (const ej of existing) {
@@ -370,9 +377,8 @@ function processSlice(sliceFile) {
     { source: 'backfill-expired-from-history' },
   ).entries;
   if (!DRY_RUN) {
-    fs.mkdirSync(EXPIRED_DIR, { recursive: true });
-    assertExpiredSliceSize(expiredPath, archived);
-    writeJsonAtomic(expiredPath, archived);
+    // Shard placement + the 90 MB ceiling on every file.
+    writeExpiredSliceRows(crawlerKey, archived, { dir: EXPIRED_DIR, existing: existingShards });
   }
   return {
     crawlerKey,

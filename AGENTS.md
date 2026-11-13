@@ -33,6 +33,18 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Workflow
 
+### Costo dei workflow PR
+
+- Una richiesta di evidenza sulla stessa HEAD vale per quella prova: non
+  trasformarla in un trigger `pull_request` permanente. Benchmark, repair lane
+  o workload LLM che possono superare 120 minuti restano `workflow_dispatch`
+  manuali, con la SHA da misurare indicata esplicitamente.
+- Ogni job attivato da `pull_request` o `pull_request_target` dichiara
+  `timeout-minutes` e non supera 120. L'unica eccezione è il job richiesto
+  `.github/workflows/tests.yml:vitest`, che mantiene il proprio limite di
+  sicurezza. Il contratto è verificato da
+  `tests/workflow-timeout-contract.test.ts`.
+
 ### Contratto comune del PR body
 
 `.github/pull_request_template.md`, questo documento e `ISSUES.md` condividono la
@@ -129,23 +141,7 @@ gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run_id> -f audits=<aud
 CI required job `tests.yml` (`vitest (unit + integration)`): `npm ci`, source guards, `node scripts/assemble-jobs-dataset.mjs --stats`, `node scripts/migrate-all-known-job-slugs-canton-aware.mjs`, test correlati/Vitest e, per le PR, review Codex Luna Max + `Require approving Codex review`, tutto sulla stessa HEAD.
 
 - **Required check unico**: `tests.yml` si attiva sull'evento `pull_request` e mantiene test e review nello stesso job; la review non è un workflow successivo e non è un prerequisito per aprire la PR. Il gate deve però concludere con approvazione Codex sulla HEAD esatta prima dell'opt-in al native auto-merge. Il provider agentico usa `CODEX_AUTH_JSON`; non assumere un fallback Claude/Anthropic.
-- **Pre-PR si girano i test IMPATTATI dal diff, non la suite intera** — `scripts/ci/run-related-tests.mjs` seleziona il grafo statico dalla root del worktree:
-  ```bash
-  git fetch origin main -q
-  base="$(git merge-base origin/main HEAD 2>/dev/null || true)"
-  if [ -n "$base" ] && git diff --name-only "$base" > changed-paths.txt; then
-    git ls-files --others --exclude-standard >> changed-paths.txt
-    sort -u -o changed-paths.txt changed-paths.txt
-    printf 'complete\n' > changed-paths-status.txt
-  else
-    : > changed-paths.txt
-    printf 'partial\n' > changed-paths-status.txt
-    echo '⚠️ merge-base con origin/main non risolto → nessuna selezione affidabile, suite intera'
-  fi
-  node scripts/ci/run-related-tests.mjs
-  ```
--  `changed-paths.txt` è input del runner: `complete` solo con merge-base e `git diff` riusciti, `partial` → suite intera. Il ref va usato **senza punti** per includere anche untracked; controlla l'elenco. `N tracked file(s) unreadable …` da symlink esclusi nello sparse è atteso salvo crescita anomala. Dettaglio: `docs/AGENTS-HISTORY.md#test-verdi-gate`.
-- **La suite intera NON è l'oracolo pre-PR in uno sparse worktree.** Usala (`node scripts/assemble-jobs-dataset.mjs && npm test`, con `onnxruntime-node`) solo per copertura completa e confrontala con `origin/main`; `public/`/`data/` assenti possono causare rossi ereditati.
+- **Gate test:** i test locali sono facoltativi e non sono un prerequisito per aprire la PR. Il workflow required `tests.yml` si attiva su `pull_request` e verifica source guards, typecheck, test correlati/Vitest e review Codex sulla stessa HEAD; correggi gli esiti rossi prima dell'auto-merge. Non saltare o ridurre il gate.
 - **Un test non scrive MAI in un file tracciato.** Redirigi in `os.tmpdir()` e parametrizza il path via env (modello `GSC_ORPHAN_CLUSTERS_OUT`); il cron mantiene il path canonico. Lo impone `tests/tracked-files-guard.global.ts`.
 - **I file gestiti dai cron NON si committano né si pushano da locale.** Elenco in `scripts/dev/local-ignore-cron.sh`; controlla `git status` prima di `git add -A`, togli quei path dallo stage: `--skip-worktree` non si eredita nei worktree.
 - **Test fixture: mai date assolute.** Usa `daysAgo(n)` per `crawledAt`/`datePosted`; dettaglio: `docs/AGENTS-HISTORY.md#test-fixture-relative-dates`.

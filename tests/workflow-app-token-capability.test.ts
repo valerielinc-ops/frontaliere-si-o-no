@@ -213,6 +213,7 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'stale-pr-rescuer.yml :: rescue :: Scan open PRs and flag stalled ones': { reason: 'no-publish', why: 'etichetta e commenta le PR ferme' },
   'stale-pr-rescuer.yml :: rescue :: Orphan PR custodian': { reason: 'no-publish', why: 'commenta ed etichetta le PR orfane' },
   'tests.yml :: vitest :: Publish bounded ledger-only automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
+  'tests.yml :: vitest :: Publish non-runtime-code automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish automatic LGTM for a tests-only PR': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish carry-forward LGTM (code contribution unchanged)': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: post-review :: Resolve post-review write-capable identity -> env.APP_TOKEN': { reason: 'no-publish', why: 'verifica la capacita del token prima delle mutation' },

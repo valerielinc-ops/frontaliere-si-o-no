@@ -18,6 +18,7 @@ import {
   detectSinteticaSite,
   SINTETICA_SITES,
 } from '@/scripts/update-sintetica-jobs.mjs';
+import { mergePreserveLocaleData } from '@/scripts/lib/dedicated-crawler-common.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -102,7 +103,7 @@ const FIXTURE_NCORE_APPLICATION_PAGE = `
   <div id="hiddenForm">
   <form name="form" class="form-horizontal" method="post">
     <label for="first-name">Nome <span>*</span></label>
-    <input id="first-name" name="first_name" type="text" required value="value-must-not-be-captured">
+    <input id="first-name" name="form[basic_personal_data][name]" type="text" required value="value-must-not-be-captured">
     <label for="last-name">Cognome *</label>
     <input id="last-name" name="last_name" type="text" required>
     <label for="availability">Disponibilità</label>
@@ -188,6 +189,15 @@ describe('parseListingPage', () => {
 
   it('does not recover a route suffix from an external URL', () => {
     expect(parseListingPage('<script>https://evil.example/jobposition/42/x/sintetica</script>')).toEqual([]);
+  });
+
+  it.each([
+    'https://app.ncoreplat.com/jobposition/123/foo?utm=1',
+    'https://app.ncoreplat.com/jobposition/123/foo#application',
+    'https://app.ncoreplat.com/jobposition/123/foo?',
+    'https://app.ncoreplat.com/jobposition/123/foo#',
+  ])('rejects embedded non-canonical NCore URL: %s', (url) => {
+    expect(parseListingPage(`<script>${url}</script>`)).toEqual([]);
   });
 });
 
@@ -301,6 +311,55 @@ describe('parseNcoreApplicationForm', () => {
     expect(JSON.stringify(snapshot)).not.toContain('csrf');
   });
 
+  it('normalizes accepted timestamps to UTC ISO before publishing them', () => {
+    const snapshot = parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
+      sourceUrl,
+      checkedAt: '2026-11-12T13:00:00+01:00',
+    });
+
+    expect(snapshot?.checkedAt).toBe('2026-11-12T12:00:00.000Z');
+  });
+
+  it('skips an unrelated form when duplicate NCore application containers appear', () => {
+    const html = `
+      <div id="hiddenForm">
+        <form name="form"><label>Email<input type="email" name="email"></label></form>
+      </div>
+      <div id="hiddenForm">
+        <form name="form"><label>Nome<input type="text" name="form[basic_personal_data][name]" required></label></form>
+      </div>
+    `;
+
+    const snapshot = parseNcoreApplicationForm(html, { sourceUrl, checkedAt });
+
+    expect(snapshot?.fields.map((field) => field.label)).toEqual(['Nome']);
+  });
+
+  it.each([
+    'https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist/sintetica?step=2',
+    'https://app.ncoreplat.com:8443/jobposition/808005/cmc-senior-specialist/sintetica',
+  ])('rejects a marked form posting to an alternate route: %s', (action) => {
+    const html = `<div id="hiddenForm"><form name="form" action="${action}"><label>Email<input type="email" name="form[basic_personal_data][email]"></label></form></div>`;
+
+    expect(parseNcoreApplicationForm(html, { sourceUrl, checkedAt })).toBeNull();
+  });
+
+  it.each([
+    ['non-default port', 'https://app.ncoreplat.com:8443/jobposition/808005/cmc-senior-specialist/sintetica'],
+    ['query string', `${sourceUrl}?step=2`],
+    ['empty query delimiter', `${sourceUrl}?`],
+    ['fragment', `${sourceUrl}#application-form`],
+    ['empty fragment delimiter', `${sourceUrl}#`],
+    ['embedded credentials', sourceUrl.replace('https://', 'https://candidate@')],
+    ['missing slug', 'https://app.ncoreplat.com/jobposition/808005/'],
+    ['too many slug segments', 'https://app.ncoreplat.com/jobposition/808005/cmc/sintetica/extra'],
+  ])('rejects a non-canonical source URL with %s', (_reason, invalidSourceUrl) => {
+    expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
+      sourceUrl: invalidSourceUrl,
+      checkedAt,
+    })).toBeNull();
+  });
+
   it('rejects unverified forms and pages without the NCore application form marker', () => {
     expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
       sourceUrl: 'https://evil.example/jobposition/808005/cmc/sintetica',
@@ -314,6 +373,38 @@ describe('parseNcoreApplicationForm', () => {
       sourceUrl,
       checkedAt,
     })).toBeNull();
+  });
+});
+
+describe('Sintetica ATS snapshot merge', () => {
+  it('drops an old snapshot when the current page did not yield a form instead of refreshing its checkedAt', () => {
+    const url = 'https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist/sintetica';
+    const oldSnapshot = {
+      provider: 'ncoreplat' as const,
+      sourceUrl: url,
+      checkedAt: '2026-11-12T12:00:00.000Z',
+      stage: 'Inoltra ora la candidatura',
+      fields: [{ label: 'Nome', type: 'text', required: true, kind: 'question' as const }],
+    };
+    const prior = {
+      id: 'sintetica-808005', url, title: 'CMC Senior Specialist', company: 'Sintetica SA', companyKey: 'sintetica',
+      slug: 'cmc-senior-specialist', description: 'CMC description', sourceLang: 'en',
+      titleByLocale: { it: 'Specialista senior CMC', en: 'CMC Senior Specialist', de: 'CMC-Spezialist', fr: 'Spécialiste CMC' },
+      descriptionByLocale: { it: 'Descrizione CMC', en: 'CMC description', de: 'CMC-Beschreibung', fr: 'Description CMC' },
+      slugByLocale: { it: 'specialista-cmc', en: 'cmc-senior-specialist', de: 'cmc-spezialist', fr: 'specialiste-cmc' },
+      atsApplicationForm: oldSnapshot,
+    };
+    const fresh = {
+      id: prior.id, url, title: prior.title, company: prior.company, companyKey: prior.companyKey,
+      slug: prior.slug, description: prior.description, sourceLang: prior.sourceLang,
+      titleByLocale: prior.titleByLocale,
+      descriptionByLocale: prior.descriptionByLocale,
+      slugByLocale: prior.slugByLocale,
+    };
+
+    const [merged] = mergePreserveLocaleData([prior], [fresh]);
+
+    expect(merged).not.toHaveProperty('atsApplicationForm');
   });
 });
 

@@ -22,7 +22,7 @@ import {
 } from './lib/constants.mjs';
 import {
   findTestOnlyApproval,
-  TEST_REVIEW_MARKER,
+  NON_RUNTIME_CODE_REVIEW_MARKER,
 } from './review-test-policy.mjs';
 import {
   fetchPrFiles,
@@ -208,16 +208,17 @@ export function reviewIsApprovedOnHead(review, head) {
 }
 
 /**
- * Tests-only is a separate, narrower approval class. `github-actions[bot]`
- * must never become a general reviewer identity: this branch is accepted only
- * for the exact marker emitted by `review-test-policy.mjs`, with a clean
- * structured verdict pinned to the current HEAD. The caller still has to pass
- * the result of `findTestOnlyApproval`, which independently re-checks the
- * complete PR file list before this pure decision function is called.
+ * Non-runtime-code is a separate, narrower approval class.
+ * `github-actions[bot]` must never become a general reviewer identity: this
+ * branch is accepted only for the exact marker emitted by
+ * `review-test-policy.mjs`, with a clean structured verdict pinned to the
+ * current HEAD. The caller still has to pass the result of
+ * `findTestOnlyApproval`, which independently re-checks the complete PR file
+ * list before this pure decision function is called.
  */
 function testOnlyReviewIsApproved(review, head, reviewRevision) {
   if (!review || review.commit_id !== head) return false;
-  if (!String(review.body || '').includes(TEST_REVIEW_MARKER)) return false;
+  if (!String(review.body || '').includes(NON_RUNTIME_CODE_REVIEW_MARKER)) return false;
   if (!reviewHasInputRevision(review.body, reviewRevision)) return false;
   if (!['COMMENTED', 'APPROVED'].includes(String(review.state || '').toUpperCase())) return false;
   return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
@@ -660,7 +661,7 @@ export function evaluateNativeAutoMerge({
   }
   const approval = review || verifiedTestOnlyReview;
   const reviewScope = testOnlyApproval
-    ? 'tests-only review verificata sul current HEAD'
+    ? 'non-runtime-code/test automatic review verificata sul current HEAD'
     : reviewGateException.allow
     ? 'review-gate outside-diff verificato sulla stessa HEAD'
     : 'review exact-head';

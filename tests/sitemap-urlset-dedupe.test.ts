@@ -23,6 +23,16 @@ const countLoc = (xml: string, loc: string): number =>
   xml.split(`<loc>${loc}</loc>`).length - 1;
 
 describe('emitSitemapXml — per-file <loc> dedup (#3516)', () => {
+  it('preserves two-decimal priorities when routing entries into canton shards', () => {
+    const xml = emitSitemapXml([
+      { loc: 'https://frontaliereticino.ch/de/jobs-im-aargau/baden/', priority: 0.85 },
+      { loc: 'https://frontaliereticino.ch/de/jobs-im-aargau/', priority: 0.7 },
+    ]);
+
+    expect(xml).toContain('<priority>0.85</priority>');
+    expect(xml).toContain('<priority>0.7</priority>');
+  });
+
   it('emits a repeated loc only once (keep-first)', () => {
     const xml = emitSitemapXml([
       { loc: 'https://frontaliereticino.ch/a/', lastmod: '2026-01-01', priority: 0.6 },

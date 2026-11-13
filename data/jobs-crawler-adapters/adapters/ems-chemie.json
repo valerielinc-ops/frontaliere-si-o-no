@@ -8,6 +8,9 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/b4fec261-a148-4ac1-9e86-8ec4f8f063e3",
+    "https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/aff89eab-0659-45db-b671-33d65989caef",
+    "https://jobs.ems-group.com/offene-stellen/produktentwickler-entwicklungschemiker-m-w-d-fuer-polyurethane-elastomere-oder-epoxy/91aef04e-b9ff-43ac-8c18-e1d595d959bb",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489",
     "https://jobs.ems-group.com/offene-stellen/schichtelektriker-m-w-d/c9287292-12d6-46dc-ab2e-1041cbb7cc17",
     "https://jobs.ems-group.com/offene-stellen/leiter-technik-m-w-d/534ea978-1424-465a-ae37-10b7dbfad33b",
@@ -22,6 +25,18 @@
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/3a80fbd8-c730-4cab-afa4-20a6b7e0b452"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/b4fec261-a148-4ac1-9e86-8ec4f8f063e3": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
+    "https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/aff89eab-0659-45db-b671-33d65989caef": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
+    "https://jobs.ems-group.com/offene-stellen/produktentwickler-entwicklungschemiker-m-w-d-fuer-polyurethane-elastomere-oder-epoxy/91aef04e-b9ff-43ac-8c18-e1d595d959bb": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/c321ad51-e806-4927-9d95-a04f501ab489": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -72,5 +87,5 @@
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-11-12T21:39:47.693Z"
+  "updatedAt": "2026-11-13T09:16:53.134Z"
 }
