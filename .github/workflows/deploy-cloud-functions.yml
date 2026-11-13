@@ -133,6 +133,12 @@ jobs:
         # observed signature once; all other deploy failures remain fatal.
         run: node scripts/ci/deploy-cloud-functions-with-retry.mjs
 
+      - name: Deploy Firestore indexes
+        # Publish indexes before recovery queries that depend on them. Firestore
+        # may still be building an index after this command succeeds; the
+        # recovery script then defers that query without failing this deploy.
+        run: firebase deploy --only firestore:indexes --project frontaliere-ticino
+
       - name: Reconcile definitely unsent assisted applications
         # The migration arrives in a dependent PR. Run only after this deploy
         # has published the transport fixes; never dispatch a send directly.
@@ -162,9 +168,6 @@ jobs:
           if [ -f scripts/assisted-application/reconcile-operational-answers.mjs ]; then
             timeout 180s node scripts/assisted-application/reconcile-operational-answers.mjs --apply
           fi
-
-      - name: Deploy Firestore indexes
-        run: firebase deploy --only firestore:indexes --project frontaliere-ticino
 
       - name: Report failure to GitHub Issues
         if: failure() && (steps.checkout_primary.outcome == 'success' || steps.checkout_retry.outcome == 'success')

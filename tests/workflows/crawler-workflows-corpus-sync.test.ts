@@ -221,6 +221,43 @@ describe('crawler workflow corpus transport', () => {
     }
   });
 
+  it('preserva il vincolo remoteDigestRequired sul contratto gia identical', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-remote-digest-'));
+    try {
+      const manifestPath = path.join(tmp, 'scripts/ci/loop-sync-manifest.json');
+      const entry = {
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        reason: 'remote digest is required before reattestation',
+        remoteDigestRequired: true,
+        baseline: { site: '1111111111111111', corpus: '1111111111111111', alignedAt: '2026-01-01' },
+      };
+      fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+      fs.writeFileSync(manifestPath, `${JSON.stringify({ files: [entry] })}\n`);
+
+      prepareCrawlerWorkflowCorpusSync({
+        sourceDir: path.join(ROOT, '.github/corpus-workflows'),
+        corpusRoot: tmp,
+        alignedAt: '2026-01-01',
+      });
+
+      const prepared = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      expect(prepared.files).toContainEqual(expect.objectContaining({
+        sitePath: entry.sitePath,
+        mode: 'identical',
+        reason: entry.reason,
+        remoteDigestRequired: true,
+      }));
+      expect(() => assertCrawlerManifestDelta({
+        baseManifest: { files: [entry] },
+        currentManifest: prepared,
+      })).not.toThrow();
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
   it('converge il riferimento adaptationIssue senza reason quando il corpus ha gia perso la motivazione testuale', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-adaptation-issue-only-'));
     try {
