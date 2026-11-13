@@ -1073,7 +1073,7 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
   };
   return {
     get(job, locale) {
-      return featureStore.get(job, locale);
+      return entry(job, locale).features;
     },
     /**
      * Internal to {@link createAlertScorer}: the cache entry of `job` in
