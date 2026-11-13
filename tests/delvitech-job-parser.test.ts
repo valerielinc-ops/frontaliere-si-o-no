@@ -38,7 +38,35 @@ describe('Delvitech job parser', () => {
       'https://delvi.tech/customer-support-manager/',
     ]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
-    expect(jobs.delvitechListingRecordCount).toBe(3);
+    expect(jobs.delvitechListingRecordCount).toBe(2);
+  });
+
+  it('accepts a path-relative detail link under the career listing path', () => {
+    const html = `
+      <div class="post-content">
+        <div class="fusion-layout-column">
+          <a class="fusion-column-anchor" href="job-123"></a>
+          <h5>Engineer</h5>
+        </div>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      href: 'https://legacy.delvi.tech/career/job-123',
+      title: 'Engineer',
+    });
+  });
+
+  it('does not count external-only anchors as Delvitech listing records', () => {
+    const html = `
+      <div class="post-content">
+        <a class="fusion-column-anchor" href="https://external.example/jobs/1"></a>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(0);
+    expect(jobs.delvitechListingRecordCount).toBe(0);
   });
 
   it('parses detail sections and apply email', () => {
