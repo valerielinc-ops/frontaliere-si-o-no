@@ -2933,6 +2933,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dibattito-salario-minimo-5000': { it: 'dibattito-salario-minimo-5000', en: 'minimum-wage-debate-5000', de: 'mindestlohn-debatte-5000', fr: 'debat-salaire-minimum-5000' },
  'tasso-ilo-terzo-trimestre': { it: 'tasso-ilo-terzo-trimestre', en: 'ilo-rate-third-quarter', de: 'ilo-rate-drittquartal', fr: 'taux-ilo-troisieme-trimestre' },
  'fiscalita-svizzera-tre-livelli': { it: 'fiscalita-svizzera-tre-livelli', en: 'swiss-tax-three-levels', de: 'schweizer-steuer-drei-ebenen', fr: 'fiscalite-suisse-trois-niveaux' },
+ 'iniziativa-congedo-parentale-riuscita': { it: 'iniziativa-congedo-parentale-riuscita', en: 'parental-leave-initiative-succeeded', de: 'elterngeld-initiative-erfolgreich', fr: 'initiative-conge-parental-reussie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

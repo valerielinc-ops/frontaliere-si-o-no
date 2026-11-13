@@ -30365,6 +30365,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'iniziativa-congedo-parentale-riuscita',
+    category: 'novita',
+    date: '2026-11-13T06:03:38.183Z',
+    image: '/images/blog/article-iniziativa-congedo-parentale-riuscita.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

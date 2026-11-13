@@ -8732,6 +8732,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fiscalita-svizzera-tre-livelli.title': 'Swiss tax structure: levels, authorities and social contributions',
     'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'Swiss taxation operates at three levels. The AFC/ESTV administers direct federal tax and VAT.',
     'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Successful 18-week parental leave initiative',
+    'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'The proposal to guarantee 18 weeks of parental leave for mothers and fathers received official confirmation of its success on September 30.',
+    'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

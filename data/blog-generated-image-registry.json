@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1166,
-  "generatedAt": "2026-11-13T05:25:19.846Z",
+  "assetCount": 1167,
+  "generatedAt": "2026-11-13T06:42:29.705Z",
   "assets": [
     {
       "schema": 1,
@@ -49900,6 +49900,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Synthetic photorealistic illustration of a Swiss cantonal government building; no readable text, logos, watermarks, recognizable faces, or foreground people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-iniziativa-congedo-parentale-riuscita",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "4dc974ccd4a640dbb4d0c4cbbc92632a8f2cbf740ed86f1d3f04ea7f0c1e5ac4",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "88d06b70e8399d7f8326f4f3d12219c913c617ae5c8c5a2c7e05e95d049ab1a5",
+      "bytes": 132462,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-13T06:02:56.793Z",
+      "verifiedAt": "2026-11-13T06:03:37.321Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-iniziativa-congedo-parentale-riuscita.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic editorial illustration of an anonymous Swiss family by a lake; no text, logos, identifiable faces, or specific event."
       }
     }
   ]
