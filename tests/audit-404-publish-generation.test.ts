@@ -205,11 +205,11 @@ describe('treeEntryToRoute — runtime registry sections map to public routes', 
   it('normalizes a dynamic registry section and keeps unknown sections physical', () => {
     const bucket = sectionTreeBucket('jobs-in-graubuenden');
     expect(treeEntryToRoute(
-      `fr/emplois-grisons/_tree/${bucket}/jobs-in-graubuenden/index.html`,
+      `fr/trouver-emploi-grisons/_tree/${bucket}/jobs-in-graubuenden/index.html`,
       'grigioni',
       'fr',
       fannedSections,
-    )).toBe('/fr/emplois-grisons/jobs-in-graubuenden');
+    )).toBe('/fr/trouver-emploi-grisons/jobs-in-graubuenden');
     expect(treeEntryToRoute(
       `fr/trouver-emploi-suisse/_tree/${bucket}/jobs-in-graubuenden/index.html`,
       'svizzera',
