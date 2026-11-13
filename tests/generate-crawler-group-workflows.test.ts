@@ -3375,7 +3375,9 @@ describe('cross-repo crawler execution artifacts', () => {
       );
       expect(retryPreparation.run).toContain('if ! isSafeGitDir "$workspace" "$git_dir"; then');
       expect(retryPreparation.run).toContain('realpath "$workspace/.git"');
-      expect(retryPreparation.run).toContain('commondir');
+      expect(retryPreparation.run).toContain(
+        'git -C "$workspace" rev-parse --git-common-dir',
+      );
       expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
       );
