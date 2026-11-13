@@ -780,30 +780,12 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
   return inArea.length >= minLocal ? inArea : inArea.concat(rest);
 }
 
-/**
- * The job-side half of {@link scoreJobForAlert}: every string/token set that
- * depends ONLY on the job and the recipient locale, never on the alert.
- *
- * Computing these is most of the scorer's cost (lower-casing a ~2.5 KB
- * description, tokenising the title, canonicalising the company) and the daily
- * sender repeats it for every alert x every job — 4,353 alerts x 3,567 jobs in
- * run 35422626497, ~4.5 of the ~9 minutes of the matching loop. Pure: same job
- * + locale in, same features out.
- *
- * @param {object} job
- * @param {string} [locale]
- */
-export function jobMatchFeatures(job, locale) {
-  const localizedTitles = locale
-    ? String((job.titleByLocale || {})[locale] || '')
-    : Object.values(job.titleByLocale || {}).join(' ');
-  const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
+/** Small locale-independent values retained between alert batches. */
+function jobMatchBaseFeatures(job) {
   return {
-    titleText,
-    fullText: `${titleText} ${(job.description || '').toLowerCase()}`,
-    jobTokens: extractKeywords(
-      `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
-    ),
+    // Descriptions are identical across recipient locales. Keep the normalized
+    // copy once per job; the full locale-specific text is assembled lazily.
+    descriptionText: (job.description || '').toLowerCase(),
     jobCompany: normalizeCompanyToken(job.company),
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
@@ -812,6 +794,39 @@ export function jobMatchFeatures(job, locale) {
     jobTaxonomyValues: jobTaxonomyValues(job),
     jobContract: String(job.contract || '').toLowerCase(),
   };
+}
+
+function jobMatchFeaturesWithBase(job, locale, shared) {
+  const localizedTitles = locale
+    ? String((job.titleByLocale || {})[locale] || '')
+    : Object.values(job.titleByLocale || {}).join(' ');
+  const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();
+  return {
+    titleText,
+    get fullText() { return `${titleText} ${shared.descriptionText}`; },
+    descriptionText: shared.descriptionText,
+    jobTokens: extractKeywords(
+      `${job.title || ''} ${localizedTitles} ${job.category || ''} ${job.sector || ''}`,
+    ),
+    jobCompany: shared.jobCompany,
+    jobLoc: shared.jobLoc,
+    jobCanton: shared.jobCanton,
+    jobSector: shared.jobSector,
+    jobCategoryKeys: shared.jobCategoryKeys,
+    jobTaxonomyValues: shared.jobTaxonomyValues,
+    jobContract: shared.jobContract,
+  };
+}
+
+/**
+ * The job-side half of {@link scoreJobForAlert}: values that depend only on
+ * the job and recipient locale, never on the alert.
+ *
+ * @param {object} job
+ * @param {string} [locale]
+ */
+export function jobMatchFeatures(job, locale) {
+  return jobMatchFeaturesWithBase(job, locale, jobMatchBaseFeatures(job));
 }
 
 /**
@@ -864,6 +879,21 @@ function includesAny(haystack, needles) {
   return false;
 }
 
+/** The only possible hit not fully inside one text segment. */
+function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
+  const edgeLength = Math.max(0, keyword.length - 1);
+  const titleTail = titleText.slice(Math.max(0, titleText.length - edgeLength));
+  const descriptionHead = descriptionText.slice(0, edgeLength);
+  return `${titleTail} ${descriptionHead}`.includes(keyword);
+}
+
+/** `titleText + ' ' + descriptionText` without building that large string. */
+function keywordInTextParts(titleText, descriptionText, keyword) {
+  return titleText.includes(keyword)
+    || descriptionText.includes(keyword)
+    || keywordAcrossTextJoin(titleText, descriptionText, keyword);
+}
+
 function searchHaystack(job, features, locale) {
   const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
   const cantonNames = cantonSearchTokens(job.canton);
@@ -879,7 +909,9 @@ function compileSearchQuery(query) {
 
 function matchesSearchQuery(compiled, job, features, locale, cached = null) {
   // Unknown/unsupported script is never an empty AND matching everything.
-  if (compiled.tokens.length === 0) return features.fullText.includes(compiled.query);
+  if (compiled.tokens.length === 0) {
+    return keywordInTextParts(features.titleText, features.descriptionText, compiled.query);
+  }
   const haystack = cached
     ? (cached.searchHaystack ??= searchHaystack(job, features, locale))
     : searchHaystack(job, features, locale);
@@ -931,7 +963,7 @@ function memoWrite(memo, index, found) {
  * inside the description, or across the joining space; the three checks below
  * cover exactly those cases, so the answer is the plain `includes` answer.
  *
- * @param {{features: {titleText: string, fullText: string}, index: number, jobIndex: number}} entry
+ * @param {{features: {titleText: string, descriptionText: string}, index: number, jobIndex: number}} entry
  * @param {ReturnType<typeof createSubstringMemo>} localeMemo (locale, keyword) memo over entry indexes
  * @param {ReturnType<typeof createSubstringMemo>} descriptionMemo keyword memo over job indexes
  * @param {string} keyword
@@ -940,33 +972,27 @@ function memoWrite(memo, index, found) {
 function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
   const known = memoRead(localeMemo, entry.index);
   if (known !== -1) return known === 1;
-  const { titleText, fullText } = entry.features;
-  const join = titleText.length; // fullText[join] is the joining space
+  const { titleText, descriptionText } = entry.features;
   let found = titleText.includes(keyword);
   if (!found) {
     const inDescription = memoRead(descriptionMemo, entry.jobIndex);
     if (inDescription !== -1) {
       found = inDescription === 1;
     } else {
-      found = fullText.includes(keyword, join + 1);
+      found = descriptionText.includes(keyword);
       memoWrite(descriptionMemo, entry.jobIndex, found);
     }
   }
-  if (!found) {
-    found = fullText
-      .slice(Math.max(0, join - keyword.length + 1), join + keyword.length)
-      .includes(keyword);
-  }
+  if (!found) found = keywordAcrossTextJoin(titleText, descriptionText, keyword);
   memoWrite(localeMemo, entry.index, found);
   return found;
 }
 
 /**
- * Run-scoped memo of immutable job-side features, keyed by job identity and
- * locale. This store deliberately contains no alert-keyword bitmaps: those are
- * audience-dependent and stay in the shorter-lived cache returned by
- * {@link createJobFeatureCache}. Reusing this store across plan batches avoids
- * rebuilding normalized descriptions and other job features for every batch.
+ * Run-scoped, locale-independent job features. Large locale-specific text and
+ * alert-keyword bitmaps stay in the shorter-lived cache returned by
+ * {@link createJobFeatureCache}; this store shares the normalized description
+ * once per job without retaining a full feature object for every locale.
  *
  * A caller that mutates a job between scores must not reuse this store. The
  * default (no cache) recomputes exactly as before.
@@ -974,26 +1000,19 @@ function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
 export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
-  const entry = (job, locale) => {
-    let byLocale = byJob.get(job);
-    if (!byLocale) {
-      byLocale = new Map();
-      byJob.set(job, byLocale);
-    }
-    const key = locale || '';
-    let found = byLocale.get(key);
+  const base = (job) => {
+    let found = byJob.get(job);
     if (!found) {
-      const features = jobMatchFeatures(job, locale);
-      found = { features, locHaystack: null, searchHaystack: null };
-      byLocale.set(key, found);
+      found = jobMatchBaseFeatures(job);
+      byJob.set(job, found);
     }
     return found;
   };
   return {
     get(job, locale) {
-      return entry(job, locale).features;
+      return jobMatchFeaturesWithBase(job, locale, base(job));
     },
-    entry,
+    base,
     pinnedKeys(job) {
       let keys = pinnedKeysByJob.get(job);
       if (!keys) {
@@ -1006,10 +1025,9 @@ export function createJobFeatureStore() {
 }
 
 /**
- * Audience-bounded memo around a {@link createJobFeatureStore}. Per-job
- * features and stable indexes can be shared across plan batches, while keyword
- * and search bitmaps are released with each batch instead of growing with the
- * full audience.
+ * Batch-bounded memo around a {@link createJobFeatureStore}. Compact
+ * locale-independent features are shared across plan batches; full locale
+ * features and keyword/search bitmaps are released with each batch.
  */
 export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
   const byJob = new WeakMap();
@@ -1036,23 +1054,18 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
     const key = locale || '';
     let found = byLocale.get(key);
     if (!found) {
-      const featureEntry = featureStore.entry(job, locale);
       const space = spaceFor(key);
       let jobIndex = jobIndexByJob.get(job);
       if (jobIndex === undefined) {
         jobIndex = jobCount++;
         jobIndexByJob.set(job, jobIndex);
       }
-      // Bitmap indexes are dense and local to this cache. The underlying
-      // feature values (including lazy job-only haystacks) remain run-scoped.
       found = {
-        features: featureEntry.features,
+        features: jobMatchFeaturesWithBase(job, locale, featureStore.base(job)),
         index: space.size++,
         jobIndex,
-        get locHaystack() { return featureEntry.locHaystack; },
-        set locHaystack(value) { featureEntry.locHaystack = value; },
-        get searchHaystack() { return featureEntry.searchHaystack; },
-        set searchHaystack(value) { featureEntry.searchHaystack = value; },
+        locHaystack: null,
+        searchHaystack: null,
       };
       byLocale.set(key, found);
     }
@@ -1203,7 +1216,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     const cached = featureCache ? featureCache.entry(job, locale) : null;
     const features = cached ? cached.features : jobMatchFeatures(job, locale);
     const {
-      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories,
+      titleText, descriptionText, jobTokens, jobCategoryKeys: jobCategories,
       jobTaxonomyValues: jobTaxonomy = new Set(),
       jobLoc, jobCanton, jobSector, jobContract,
     } = features;
@@ -1240,7 +1253,9 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
       let hit = searchTests.length > 0
         && searchTests.every((test) => test(job, cached, features));
       for (let k = 0; searchTests.length === 0 && k < hardList.length; k++) {
-        const found = keywordTests ? keywordTests[k](cached) : fullText.includes(hardList[k]);
+        const found = keywordTests
+          ? keywordTests[k](cached)
+          : keywordInTextParts(titleText, descriptionText, hardList[k]);
         if (found) { hit = true; break; }
       }
       if (!hit && searchTests.length === 0 && hardCategoryKeys.size > 0) {

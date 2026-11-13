@@ -399,7 +399,7 @@ describe('matching cost per alert (#9314)', () => {
     expect(jobSide(geoAlerts(6 * LOCALES.length))).toBe(once);
   });
 
-  it('reuses immutable job features across fresh per-batch keyword caches', () => {
+  it('reuses compact job features across fresh per-batch keyword caches', () => {
     const jobs = [fixtureJobs()[6], fixtureJobs()[1]];
     const alert = {
       id: 'across-batches',
@@ -409,29 +409,38 @@ describe('matching cost per alert (#9314)', () => {
     };
     const profile = profileOf(alert);
     const expectedScores = jobs.map((job) => scoreJobForAlert(job, profile, 'en'));
-    const oneBatchCost = countDuring(() => {
-      const cache = createJobFeatureCache(createJobFeatureStore());
-      jobs.forEach((job) => cache.get(job, 'en'));
-    }).counts.normalizations;
-
     const store = createJobFeatureStore();
     const firstBatchCache = createJobFeatureCache(store);
     const secondBatchCache = createJobFeatureCache(store);
-    const { result: entries, counts } = countDuring(() => ({
-      first: jobs.map((job) => firstBatchCache.entry(job, 'en')),
-      second: [...jobs].reverse().map((job) => secondBatchCache.entry(job, 'en')),
-    }));
+    const originalLowercase = String.prototype.toLowerCase;
+    let descriptionLowercases = 0;
+    const entries = (() => {
+      String.prototype.toLowerCase = function (this: string, ...args: []) {
+        if (jobs.some((job) => this === job.description)) descriptionLowercases++;
+        return originalLowercase.apply(this, args);
+      };
+      try {
+        return {
+          first: jobs.map((job) => firstBatchCache.entry(job, 'en')),
+          second: [...jobs].reverse().map((job) => secondBatchCache.entry(job, 'en')),
+        };
+      } finally {
+        String.prototype.toLowerCase = originalLowercase;
+      }
+    })();
 
     jobs.forEach((job, index) => {
       expect(scoreJobForAlert(job, profile, 'en', firstBatchCache)).toBe(expectedScores[index]);
       expect(scoreJobForAlert(job, profile, 'en', secondBatchCache)).toBe(expectedScores[index]);
-      const secondEntry = entries.second.find((entry) => entry.features === entries.first[index].features);
-      expect(secondEntry).toBeDefined();
-      expect(secondEntry?.features).toBe(entries.first[index].features);
-      expect(entries.first[index].index).toBe(index);
-      expect(secondEntry?.index).toBe(jobs.length - 1 - index);
+      const secondFeatures = entries.second[jobs.length - 1 - index].features;
+      expect(secondFeatures).not.toBe(entries.first[index].features);
+      expect(secondFeatures.titleText).toBe(entries.first[index].features.titleText);
+      expect(secondFeatures.descriptionText).toBe(entries.first[index].features.descriptionText);
+      expect(secondFeatures.jobCategoryKeys).toBe(entries.first[index].features.jobCategoryKeys);
     });
-    expect(counts.normalizations).toBe(oneBatchCost);
+    expect(descriptionLowercases).toBe(jobs.length);
+    expect(entries.first.map((entry) => entry.index)).toEqual([0, 1]);
+    expect(entries.second.map((entry) => entry.index)).toEqual([0, 1]);
   });
 
   it('keeps bitmap indexes dense after the shared feature store has seen many jobs', () => {
