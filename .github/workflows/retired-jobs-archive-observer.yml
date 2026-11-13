@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - name: Checkout (blobless; slice blobs are fetched in one pack below)
+      - name: Checkout (blobless; missing slice blobs are fetched in bounded packs)
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
