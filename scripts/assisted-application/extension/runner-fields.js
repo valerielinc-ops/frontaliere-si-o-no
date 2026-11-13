@@ -555,6 +555,21 @@ function nativeQuestionText(value, counter = null) {
     element.getAttribute('placeholder'),
     labelFor(element),
   ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
+  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|job\s*alert|stellenalarm|job[- ]?abo|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/i;
+  const siteMarketingIdentity = (element) => [
+    element.getAttribute('name'),
+    element.id,
+    element.getAttribute('aria-label'),
+    element.getAttribute('placeholder'),
+    labelFor(element),
+    element.form?.getAttribute('aria-label'),
+    element.form?.getAttribute('name'),
+    element.form?.id,
+    element.innerText || element.textContent,
+    element.form?.innerText || element.form?.textContent,
+  ].filter(Boolean).join(' ');
+  const isSiteMarketingControl = (element) => inSiteChrome(element)
+    && SITE_MARKETING_TEXT_RE.test(siteMarketingIdentity(element));
   const isSiteSearchForm = (form) => {
     if (!form) return false;
     if (form.getAttribute('role') === 'search' || form.closest('[role="search"]')) return true;
@@ -567,6 +582,7 @@ function nativeQuestionText(value, counter = null) {
     });
   };
   const isApplicationOwnedControl = (element) => {
+    if (isSiteMarketingControl(element)) return false;
     if (hasRequiredControlSignal(element)) return true;
     const form = element.form || element.closest('form');
     if (form && !isSiteSearchForm(form)) return true;
@@ -594,7 +610,24 @@ function nativeQuestionText(value, counter = null) {
       || hasRequiredControlSignal(element, label)) return false;
     return true;
   };
+  const SITE_MARKETING_FIELD_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie)\b/iu;
+  const isSiteMarketingField = (element) => {
+    if (!inSiteChrome(element) || hasRequiredControlSignal(element)) return false;
+    const form = element.form || element.closest('form');
+    const surface = [
+      form?.id,
+      form?.className,
+      form?.getAttribute('aria-label'),
+      form?.innerText || form?.textContent,
+      element.getAttribute('name'),
+      element.id,
+      element.getAttribute('placeholder'),
+      labelFor(element),
+    ].filter(Boolean).join(' ');
+    return SITE_MARKETING_FIELD_RE.test(surface);
+  };
   const isSiteChromeControl = (element) => isSiteLanguageControl(element)
+    || isSiteMarketingField(element)
     || (inSiteChrome(element) && !isApplicationOwnedControl(element));
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
@@ -1039,6 +1072,7 @@ function nativeQuestionText(value, counter = null) {
       accept: '',
       autocomplete: clean(picker.getAttribute('autocomplete') || ''),
       invalid: picker.getAttribute('aria-invalid') === 'true',
+      ...(isSiteChromeControl(picker) ? { chrome: true } : {}),
     });
   }
   // Which <form> a control is sent with (-1: none). A password in the form
@@ -1110,6 +1144,7 @@ function nativeQuestionText(value, counter = null) {
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',
+      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     };
     if (tag === 'select') {
       field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));
