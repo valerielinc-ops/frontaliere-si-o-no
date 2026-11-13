@@ -84,6 +84,11 @@ export function installPortalReplayNodeEgressFence({ allowedUnixSocket = '', onB
     try { onBlocked({ api, reason: 'node_egress' }); } catch { /* metrics stay fail-closed */ }
     return Object.assign(new Error('portal_replay_node_egress_blocked'), { code: 'portal_replay_node_egress_blocked' });
   };
+  const loopbackOnlyLookup = (original, api) => function guardedPortalReplayLookup(...args) {
+    const hostname = String(args[0] || '').replace(/^\[|\]$/gu, '').toLowerCase();
+    if (hostname === '127.0.0.1' || hostname === '::1' || hostname === 'localhost') return original.apply(this, args);
+    throw blocked(api);
+  };
   const replace = (target, key, value) => {
     const descriptor = Object.getOwnPropertyDescriptor(target, key);
     originals.push({ target, key, descriptor, value: target[key] });
@@ -108,19 +113,19 @@ export function installPortalReplayNodeEgressFence({ allowedUnixSocket = '', onB
     throw blocked(api);
   };
 
-  for (const [target, key, api] of [
+  for (const [target, key, api, replacement] of [
     [http, 'request', 'http.request'], [http, 'get', 'http.get'],
     [https, 'request', 'https.request'], [https, 'get', 'https.get'],
     [tls, 'connect', 'tls.connect'],
     [http2, 'connect', 'http2.connect'], [dgram, 'createSocket', 'dgram.createSocket'],
     [inspector, 'open', 'inspector.open'],
-    [dns, 'lookup', 'dns.lookup'], [dns, 'lookupService', 'dns.lookupService'],
+    [dns, 'lookup', 'dns.lookup', loopbackOnlyLookup(dns.lookup, 'dns.lookup')], [dns, 'lookupService', 'dns.lookupService'],
     [dns, 'resolve', 'dns.resolve'], [dns, 'resolve4', 'dns.resolve4'], [dns, 'resolve6', 'dns.resolve6'],
     [dns, 'resolveAny', 'dns.resolveAny'], [dns, 'resolveCaa', 'dns.resolveCaa'], [dns, 'resolveCname', 'dns.resolveCname'],
     [dns, 'resolveMx', 'dns.resolveMx'], [dns, 'resolveNaptr', 'dns.resolveNaptr'], [dns, 'resolveNs', 'dns.resolveNs'],
     [dns, 'resolvePtr', 'dns.resolvePtr'], [dns, 'resolveSoa', 'dns.resolveSoa'], [dns, 'resolveSrv', 'dns.resolveSrv'],
     [dns, 'resolveTxt', 'dns.resolveTxt'], [dns, 'reverse', 'dns.reverse'],
-    [dnsPromises, 'lookup', 'dns.promises.lookup'], [dnsPromises, 'lookupService', 'dns.promises.lookupService'],
+    [dnsPromises, 'lookup', 'dns.promises.lookup', loopbackOnlyLookup(dnsPromises.lookup, 'dns.promises.lookup')], [dnsPromises, 'lookupService', 'dns.promises.lookupService'],
     [dnsPromises, 'resolve', 'dns.promises.resolve'], [dnsPromises, 'resolve4', 'dns.promises.resolve4'],
     [dnsPromises, 'resolve6', 'dns.promises.resolve6'], [dnsPromises, 'resolveAny', 'dns.promises.resolveAny'],
     [dnsPromises, 'resolveCaa', 'dns.promises.resolveCaa'], [dnsPromises, 'resolveCname', 'dns.promises.resolveCname'],
@@ -129,7 +134,7 @@ export function installPortalReplayNodeEgressFence({ allowedUnixSocket = '', onB
     [dnsPromises, 'resolveSoa', 'dns.promises.resolveSoa'], [dnsPromises, 'resolveSrv', 'dns.promises.resolveSrv'],
     [dnsPromises, 'resolveTxt', 'dns.promises.resolveTxt'], [dnsPromises, 'reverse', 'dns.promises.reverse'],
   ]) {
-    if (typeof target[key] === 'function') replace(target, key, deny(api));
+    if (typeof target[key] === 'function') replace(target, key, replacement || deny(api));
   }
   replace(net, 'connect', denyConnect('net.connect'));
   replace(net, 'createConnection', denyConnect('net.createConnection'));

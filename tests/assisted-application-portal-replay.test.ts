@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { runInNewContext } from 'node:vm';
 import { JSDOM } from 'jsdom';
+import { startPortalDiagnostics, warmPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
 import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
 import {
   affectedPortalReplayFamilies,
@@ -185,6 +186,43 @@ describe('portal replay read-only fence', () => {
       tunnel?.destroy();
       await proxy.close();
       await new Promise<void>((resolve) => upstream.close(() => resolve()));
+    }
+  });
+
+  it('allows the trusted local replay proxy to bind while external Node DNS stays blocked', async () => {
+    const directory = tempDir();
+    const brokerPath = join(directory, 'broker.sock');
+    const broker = createNetServer((socket) => socket.end('broker-ok'));
+    await new Promise<void>((resolve) => broker.listen(brokerPath, resolve));
+    const fence = installPortalReplayNodeEgressFence({ allowedUnixSocket: brokerPath });
+    let proxy: Awaited<ReturnType<typeof createPinnedPublicHttpsProxy>> | null = null;
+    try {
+      proxy = await createPinnedPublicHttpsProxy();
+      expect(proxy.server).toMatch(/^http:\/\/127\.0\.0\.1:/u);
+      expect(fence.metrics.blockedAttempts).toBe(0);
+    } finally {
+      await proxy?.close();
+      fence.restore();
+      await new Promise<void>((resolve) => broker.close(() => resolve()));
+    }
+  });
+
+  it('warms diagnostic bundling before the Node egress fence blocks child processes', async () => {
+    await warmPortalDiagnostics();
+    const fence = installPortalReplayNodeEgressFence({ allowedUnixSocket: '/tmp/portal-replay-test-broker.sock' });
+    const context: any = {
+      on: () => {},
+      off: () => {},
+      pages: () => [],
+      exposeBinding: async () => {},
+      addInitScript: async () => {},
+    };
+    try {
+      const diagnostics = startPortalDiagnostics(context);
+      await diagnostics.installFetchObserver();
+      expect(fence.metrics.blockedAttempts).toBe(0);
+    } finally {
+      fence.restore();
     }
   });
 

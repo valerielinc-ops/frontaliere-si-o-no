@@ -62,9 +62,6 @@ jobs:
         id: detect
         run: |
           portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          if [[ -f .portal-base/scripts/assisted-application/portal-replay.mjs ]]; then
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          fi
           node "$portal_replay_cli" detect \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
             --github-output "$GITHUB_OUTPUT"
@@ -129,9 +126,6 @@ jobs:
         run: |
           replay_now_ms="$(node -p 'Date.now()')"
           portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          if [[ -f .portal-base/scripts/assisted-application/portal-replay.mjs ]]; then
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          fi
           node "$portal_replay_cli" prepare \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
             --data-dir .portal-base/data/jobs/by-crawler \
@@ -227,9 +221,6 @@ jobs:
         run: |
           printf '%s' "$PORTAL_REPLAY_STOP_HOSTS" > "$RUNNER_TEMP/portal-replay-stop-hosts.json"
           portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          if [[ -f .portal-base/scripts/assisted-application/portal-replay.mjs ]]; then
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          fi
           node "$portal_replay_cli" corpus \
             --data-dir .portal-base/data/jobs/by-crawler \
             --classifier-root .portal-base \
@@ -274,9 +265,6 @@ jobs:
           PORTAL_REPLAY_REPORT: ${{ runner.temp }}/portal-replay-${{ matrix.family }}.json
         run: |
           portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          if [[ -f .portal-base/scripts/assisted-application/portal-replay.mjs ]]; then
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          fi
           replay=(node "$portal_replay_cli" compare \
             --base-root .portal-base \
             --head-root . \
@@ -385,9 +373,6 @@ jobs:
             effective_prepare_result=success
           fi
           portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          if [[ -f .portal-base/scripts/assisted-application/portal-replay.mjs ]]; then
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
-          fi
           node "$portal_replay_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \

@@ -27,8 +27,8 @@ import { classifyApplicationChannel } from '../../functions/src/assistedApplicat
 const nodeRequire = createRequire(import.meta.url);
 const trustedNet = nodeRequire('node:net');
 const trustedSocketConnect = trustedNet.Socket.prototype.connect;
-const trustedNetConnect = (options) => trustedSocketConnect.call(new trustedNet.Socket(), options);
 const trustedDnsLookup = nodeRequire('node:dns/promises').lookup;
+const trustedNetConnect = (options) => trustedSocketConnect.call(new trustedNet.Socket(), { ...options, lookup: trustedDnsLookup });
 let sharedReplayBrowser = null;
 let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
@@ -364,6 +364,20 @@ async function importFrom(root, relativePath) {
   return import(pathToFileURL(path.resolve(root, relativePath)).href);
 }
 
+async function warmPortalDiagnosticsModule(module) {
+  if (typeof module?.warmPortalDiagnostics === 'function') {
+    await module.warmPortalDiagnostics();
+    return;
+  }
+  // The trusted base checkout may predate the explicit warm-up export. Use
+  // its public diagnostics adapter with a no-op context so the shared esbuild
+  // service is started before the Node egress fence is installed.
+  if (typeof module?.startPortalDiagnostics !== 'function') return;
+  const context = { on() {}, off() {}, pages: () => [], exposeBinding: async () => {}, addInitScript: async () => {} };
+  const diagnostics = module.startPortalDiagnostics(context);
+  await diagnostics.installFetchObserver();
+}
+
 function portalReplayCandidate() {
   return {
     identity: {
@@ -600,6 +614,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       accounts: null,
       knowledge: null,
       codex,
+      resolve: trustedDnsLookup,
       resolvePublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
       dryRun: true,
       portalReplay: true,
@@ -896,6 +911,9 @@ async function compareMode(values) {
     importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
     importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
   ]);
+  const diagnosticModules = await Promise.all([...new Set([trustedRoot, headRoot])]
+    .map((root) => importFrom(root, 'scripts/assisted-application/lib/portal/diagnostics.mjs')));
+  await Promise.all(diagnosticModules.map(warmPortalDiagnosticsModule));
   const preflightByKey = new Map();
   for (const record of records) {
     let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
