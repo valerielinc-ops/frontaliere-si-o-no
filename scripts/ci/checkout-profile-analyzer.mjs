@@ -484,12 +484,25 @@ export function bucketAliasPaths() {
 }
 
 /** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, alias-symlink, o enumerazione del padre. */
-export function bucketsReferencedBy(text) {
+export function bucketsReferencedBy(text, { strictPathTokens = false } = {}) {
   const source = String(text ?? '');
   const norm = normalizeJoins(source);
   const rawEnum = enumerationTargets(source).join('\n');
   const enumArgs = normalizeJoins(rawEnum);
-  const matches = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
+  const legacyMatches = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
+  const strictMatches = (p, hay) => {
+    // Bucket names such as `docs` also occur as ordinary identifiers (for
+    // example Firestore query results named `docs`). A path token needs a
+    // filesystem boundary after it; a bare word in code is not a checkout
+    // dependency. Do not match the `/` in a sparse exclusion (`!/docs/`).
+    const after = p.includes('/') ? "(?=$|[/\\s'\"`),])" : "(?=[/'\"`])";
+    return new RegExp(`(?<![\\w$])(?<!!/)${esc(p)}${after}`, 'm').test(hay);
+  };
+  const matches = strictPathTokens ? strictMatches : legacyMatches;
+  const enumerates = (p) => strictPathTokens && new RegExp(
+    "(?:^|[\\s'\"`(=,\\[])" + esc(p) + "(?:[/*\\s]|$)",
+    'm',
+  ).test(enumArgs);
   // Si cerca sul testo GREZZO e su quello normalizzato, e si prende l'unione.
   // La normalizzazione serve a scoprire `path.join(ROOT, 'public', 'images')`,
   // ma applicata da sola ne perde altri: un array di percorsi come
@@ -501,7 +514,7 @@ export function bucketsReferencedBy(text) {
   const hit = new Set();
   for (const b of BUCKETS) {
     const clean = b.id.replace(/\/$/, '');
-    if (refersTo(clean, norm, source)) { hit.add(b.id); continue; }
+    if (refersTo(clean, norm, source) || enumerates(clean)) { hit.add(b.id); continue; }
     const aliasPaths = bucketAliasPaths().get(b.id);
     if (aliasPaths) {
       let aliased = false;
@@ -516,9 +529,27 @@ export function bucketsReferencedBy(text) {
     const last = clean.split('/').pop();
     if (new RegExp(`['"]${esc(last)}['"]`).test(source)) { hit.add(b.id); continue; }
     // Oppure: qualcuno enumera il padre, quindi non nomina i figli.
-    if (refersTo(par, enumArgs, rawEnum) || new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs)) hit.add(b.id);
+    const parentEnumerated = strictPathTokens
+      ? enumerates(par)
+      : new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs);
+    if (refersTo(par, enumArgs, rawEnum) || parentEnumerated) hit.add(b.id);
   }
   return hit;
+}
+
+const CODE_SOURCE = /\.(?:mjs|cjs|js|mts|cts|tsx?|jsx?)$/i;
+
+function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false } = {}) {
+  // Keep the workflow commands and each loaded module separate. Combining
+  // unrelated source text let a parent token in one module and a child token
+  // in another fabricate a generated-data path that no code opens. Comments
+  // in source files are not runtime dependencies either.
+  const needed = new Set(bucketsReferencedBy(exec, { strictPathTokens }));
+  for (const { rel, src } of sources) {
+    const code = CODE_SOURCE.test(rel) ? stripSourceComments(src) : src;
+    for (const bucket of bucketsReferencedBy(code, { strictPathTokens })) needed.add(bucket);
+  }
+  return needed;
 }
 
 // `git-commit-data.sh` contains the legacy shared-data path as well as the
@@ -543,7 +574,14 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     : resolved;
   const codeCorpus = bucketResolved.map((r) => r.src).join('\n');
   const corpus = exec + '\n' + codeCorpus;
-  let needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
+  // This is the job where both false positives were observed. Keep the stricter
+  // source/path analysis scoped here so unrelated generated profiles stay stable.
+  const isolatedCloudFunctionsSources = workflowFile === 'deploy-cloud-functions.yml' && jobId === 'deploy-functions';
+  let needs = opaqueBy.length
+    ? new Set(BUCKETS.map((b) => b.id))
+    : isolatedCloudFunctionsSources
+      ? bucketsReferencedByJobSources(exec, bucketResolved, { strictPathTokens: true })
+      : bucketsReferencedBy(corpus);
   if (workflowFile === 'social-copy-pack.yml' && jobId === 'generate') {
     const executableCode = bucketResolved.map((r) => stripSourceComments(r.src)).join('\n');
     needs = bucketsReferencedBy(exec + '\n' + executableCode);

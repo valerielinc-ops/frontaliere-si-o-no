@@ -12,6 +12,8 @@ import {
   draftAutoRetryCountValue,
 } from '../../functions/src/assistedApplicationDraftRetryPolicy.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
+import { recoverCandidateDocumentEmail } from '../../functions/src/assistedApplicationCandidateDocumentEmailRecovery.js';
 
 export const DRAFT_RECOVERY_VERSION = 'draft-recovery-v1';
 
@@ -108,10 +110,54 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
   return summary;
 }
 
+/** Repair contact-only document rendering for drafts produced by the older email recovery. */
+export async function reconcileCandidateDocumentEmails({
+  db,
+  bucket = null,
+  auth = null,
+  apply = false,
+  nowMs = Date.now(),
+  recover = recoverCandidateDocumentEmail,
+} = {}) {
+  const summary = { scanned: 0, eligible: 0, updated: 0, skipped: 0, retryScheduled: 0, apply };
+  if (!db || typeof db.collectionGroup !== 'function') return summary;
+
+  let cursor;
+  do {
+    let query = db.collectionGroup('automation')
+      .where('draftCandidateEmailRecoveryVersion', '==', DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION)
+      .orderBy('__name__').limit(100);
+    if (cursor) query = query.startAfter(cursor);
+    const page = await query.get();
+    for (const flowDoc of page.docs) {
+      const orderRef = flowDoc.ref.parent.parent;
+      const orderId = orderRef?.id;
+      summary.scanned++;
+      if (!orderId) continue;
+      const outcome = await recover({ db, bucket, auth, orderId, nowMs, apply });
+      if (outcome.status === 'eligible') summary.eligible++;
+      else if (outcome.status === 'updated') summary.updated++;
+      else if (outcome.status === 'skipped') summary.skipped++;
+      else if (outcome.status === 'retry_scheduled') summary.retryScheduled++;
+    }
+    cursor = page.docs.length === 100 ? page.docs.at(-1) : null;
+  } while (cursor);
+  return summary;
+}
+
 if (isInvokedDirectly(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.some(arg => !['--apply', '--dry-run'].includes(arg)) || (args.includes('--apply') && args.includes('--dry-run'))) {
     throw new Error('Usage: reconcile-draft-failures.mjs [--dry-run | --apply]');
   }
-  console.log(JSON.stringify(await reconcileDraftFailures({ db: await getFirestoreDb(), apply: args.includes('--apply') })));
+  const db = await getFirestoreDb();
+  const { getStorage } = await import('firebase-admin/storage');
+  const apply = args.includes('--apply');
+  const draftFailures = await reconcileDraftFailures({ db, apply });
+  const candidateDocuments = await reconcileCandidateDocumentEmails({
+    db,
+    bucket: getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+    apply,
+  });
+  console.log(JSON.stringify({ ...draftFailures, candidateDocuments }));
 }

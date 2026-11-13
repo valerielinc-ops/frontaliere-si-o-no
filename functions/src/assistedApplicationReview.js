@@ -407,8 +407,11 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // The answers shown are candidateVisibleAnswers' (the handler passes the ones its revisions hash).
   const candidateFlow = { ...candidateEditFlow({ orderId, order, flow, draft, nowMs }),
     answers: visibleAnswers || candidateVisibleAnswers({ orderId, order, flow, draft, nowMs }) };
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
-  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale, facts: platformFacts });
+  const { profile, answers: candidateAnswers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
+  const answerProjectionOptions = { locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts };
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, answerProjectionOptions);
   const askedQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
   // Owner directive 2026-11-10 (DECISIONS.md: «modificabili, non bloccanti»): every answer the platform gives
   // (a rule, the CV, a decision of the engine) is shown, already filled in and editable, with where it comes
@@ -460,7 +463,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
   const applicationEmail = channel.type === 'email' && draft?.applicationEmail
-    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers, { facts: platformFacts }) }
+    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject,
+      body: operationalEmailBody(draft, candidateAnswers, { facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+        candidateAnswerSuppressedQuestionContracts }) }
     : null;
   const editSnapshot = candidateEditSnapshot({ secret: editSnapshotSecret, orderId, order, flow, draft,
     communicationLocale: locale, nowMs });

@@ -52,19 +52,30 @@ function decodeNcoreMarkup(value = '') {
 
 function canonicalNcoreDetailUrl(value = '') {
   let url;
+  const source = decodeNcoreMarkup(value);
+  // Some WHATWG URL implementations normalize a bare query or fragment away.
+  // Reject the raw delimiters before parsing so verification is runtime-stable.
+  if (/[?#]/.test(source)) return null;
   try {
-    url = new URL(decodeNcoreMarkup(value), NCORE_BASE_URL);
+    url = new URL(source, NCORE_BASE_URL);
   } catch {
     return null;
   }
-  if (url.protocol !== 'https:' || url.hostname.toLowerCase() !== NCORE_HOST) return null;
+  if (url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== NCORE_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+    || url.href !== `https://${NCORE_HOST}${url.pathname}`) return null;
   if (!/^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(url.pathname)) return null;
   return url.href;
 }
 
 function extractEmbeddedNcoreDetailUrls(html = '') {
   const source = decodeNcoreMarkup(html);
-  const routePattern = /(?<![A-Za-z0-9._-])(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?/gi;
+  const routePattern = /(?<![A-Za-z0-9._-])(?:https:\/\/app\.ncoreplat\.com)?\/jobposition\/[1-9]\d*\/[^/?#"'<>\\\s,}\]]+(?:\/[^/?#"'<>\\\s,}\]]+)?(?:[?#][^"'<>\\\s,}\]]*)?/gi;
   const urls = new Set();
   for (const match of source.matchAll(routePattern)) {
     const canonical = canonicalNcoreDetailUrl(match[0]);
