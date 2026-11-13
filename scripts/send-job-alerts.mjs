@@ -220,13 +220,11 @@ export function resolveJobAlertCapacity({
   };
 }
 
-// Keep the full matched list only for a bounded number of alerts at a time.
-// Each plan retains its full match list and ranking metadata until its cards
-// are rendered. The 2026-11-12 production run exhausted Node's 4 GiB heap while
-// starting its 11th 64-alert plan group; broad alerts can each scan ~19k rows.
-// Keep planning groups below the provider's 64-recipient send batch so the
-// working set is bounded independently of the audience size.
-export const JOB_ALERT_PLAN_BATCH_SIZE = 16;
+// Keep only one full matched list and its ranking metadata alive at a time.
+// Broad backfilled alerts can each match thousands of rows; even after feature
+// caches were scoped per group, 16 simultaneous plans exceeded Node's 4 GiB
+// heap in production. Provider requests remain coalesced independently below.
+export const JOB_ALERT_PLAN_BATCH_SIZE = 1;
 const JOB_ALERT_SEND_BATCH_SIZE = 64;
 
 /** Build per-run profile references; auxiliary state is fetched only after cadence. */
