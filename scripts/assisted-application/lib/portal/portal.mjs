@@ -47,7 +47,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { isFetchablePublicUrl, resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { operationalAnswerForOption, operationalDefaultAnswer, operationalQuestionTopic } from '../../../../functions/src/assistedApplicationOperationalAnswers.js';
-import { decideLiveQuestions } from '../decision-answers.mjs';
+import { decideLiveQuestions, platformFactsAfterLiveDecisions } from '../decision-answers.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { asksHeldStatus, isPermitField, nationalityLabelOf, nationalityOf, permitOptions, permitStatusFromCandidate, permitStatusOf, permitStatement, permitStatusQuestion, permitStatusQuestionWhy, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
@@ -10020,7 +10020,7 @@ export async function submitViaPortal(ctx) {
         if (engine.decisions.length) (evidence.steps.at(-1).decisions ||= []).push(...engine.decisions);
         if (engine.ids.length) {
           const facts = ctx.candidate.platformFacts;
-          facts.decisionAnswers = { ...(facts.decisionAnswers || {}), ...engine.decided };
+          Object.assign(facts, platformFactsAfterLiveDecisions(facts, fresh, engine.decided));
           log(`decision engine: ${engine.ids.length} of ${fresh.length} questions decided, planning again`);
           return { replan: true };
         }
