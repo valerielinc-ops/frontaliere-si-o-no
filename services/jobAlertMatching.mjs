@@ -928,6 +928,7 @@ function createSubstringMemo() {
 }
 
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
+const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
 
 /** @returns {-1|0|1} unknown, miss, hit */
 function memoRead(memo, index) {
@@ -967,23 +968,17 @@ function memoWrite(memo, index, found) {
  *
  * @param {{features: {titleText: string, descriptionText: string}, index: number, jobIndex: number}} entry
  * @param {ReturnType<typeof createSubstringMemo>} localeMemo (locale, keyword) memo over entry indexes
- * @param {ReturnType<typeof createSubstringMemo>} descriptionMemo keyword memo over job indexes
+ * @param {ReturnType<typeof createJobFeatureStore>} featureStore
  * @param {string} keyword
  * @returns {boolean}
  */
-function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
+function memoKeywordInFullText(entry, localeMemo, featureStore, keyword) {
   const known = memoRead(localeMemo, entry.index);
   if (known !== -1) return known === 1;
   const { titleText, descriptionText } = entry.features;
   let found = titleText.includes(keyword);
   if (!found) {
-    const inDescription = memoRead(descriptionMemo, entry.jobIndex);
-    if (inDescription !== -1) {
-      found = inDescription === 1;
-    } else {
-      found = descriptionText.includes(keyword);
-      memoWrite(descriptionMemo, entry.jobIndex, found);
-    }
+    found = featureStore.descriptionContains(keyword, entry.jobIndex, descriptionText);
   }
   if (!found) found = keywordAcrossTextJoin(titleText, descriptionText, keyword);
   memoWrite(localeMemo, entry.index, found);
@@ -1035,13 +1030,24 @@ export function createJobFeatureStore() {
     }
     return memo;
   };
+  const descriptionContains = (keyword, index, text) => {
+    // Bound bitmap growth as well as memo count: 2,048 memos × two bitmaps ×
+    // 65,536 bits stays at 32 MiB. Later jobs are scanned without memoizing.
+    if (index >= MAX_SHARED_DESCRIPTION_MEMO_JOBS) return text.includes(keyword);
+    const memo = descriptionMemo(keyword);
+    const known = memoRead(memo, index);
+    if (known !== -1) return known === 1;
+    const found = text.includes(keyword);
+    memoWrite(memo, index, found);
+    return found;
+  };
   return {
     get(job, locale) {
       return jobMatchFeaturesWithBase(job, locale, base(job));
     },
     base,
     jobIndex,
-    descriptionMemo,
+    descriptionContains,
     pinnedKeys(job) {
       let keys = pinnedKeysByJob.get(job);
       if (!keys) {
@@ -1112,8 +1118,9 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
         localeMemo = createSubstringMemo();
         space.keywordMemos.set(keyword, localeMemo);
       }
-      const descriptionMemo = featureStore.descriptionMemo(keyword);
-      return (entry) => memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword);
+      // Keep bitmap ownership inside the feature store's capped LRU: alert
+      // scorer closures must not retain memo objects after LRU eviction.
+      return (entry) => memoKeywordInFullText(entry, localeMemo, featureStore, keyword);
     },
     searchTest(locale, query) {
       const space = spaceFor(locale || '');

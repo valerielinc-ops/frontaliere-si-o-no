@@ -456,6 +456,17 @@ describe('matching cost per alert (#9314)', () => {
     expect(counts.descriptionScans).toBe(1);
   });
 
+  it('does not grow shared description bitmaps beyond the fixed job-index ceiling', () => {
+    const store = createJobFeatureStore();
+    const description = `${FILLER} ${FILLER}`;
+    const { counts } = countDuring(() => {
+      expect(store.descriptionContains('not-present', 65_536, description)).toBe(false);
+      expect(store.descriptionContains('not-present', 65_536, description)).toBe(false);
+    });
+    // Above the bitmap ceiling, results stay correct but are not retained.
+    expect(counts.descriptionScans).toBe(2);
+  });
+
   it('keeps bitmap indexes dense after the shared feature store has seen many jobs', () => {
     const store = createJobFeatureStore();
     const priorJobs = Array.from({ length: 2049 }, (_, index) => ({
