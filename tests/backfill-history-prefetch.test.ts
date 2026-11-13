@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { historyBlobOidsFromRevList, historySinceArgs } from '../scripts/ci/prefetch-history-blobs.mjs';
+import {
+  historyBlobOidsFromRevList,
+  historyBlobPrefetchArgs,
+  historyBlobPrefetchInput,
+  historySinceArgs,
+} from '../scripts/ci/prefetch-history-blobs.mjs';
 
 describe('prefetch-history-blobs', () => {
   it('selects and deduplicates only active and expired crawler slice blobs', () => {
@@ -32,5 +37,21 @@ describe('prefetch-history-blobs', () => {
     expect(historySinceArgs('all')).toEqual([]);
     expect(historySinceArgs('')).toEqual([]);
     expect(historySinceArgs(undefined)).toEqual([]);
+  });
+
+  it('uses Git transport support for the HTTPS prefetch instead of fetch-pack plumbing', () => {
+    const remote = 'https://github.com/owner/repo.git';
+    const oids = ['a'.repeat(40), 'b'.repeat(40)];
+
+    expect(historyBlobPrefetchArgs(remote)).toEqual([
+      'fetch',
+      '--keep',
+      '--no-progress',
+      '--no-tags',
+      '--no-write-fetch-head',
+      '--stdin',
+      remote,
+    ]);
+    expect(historyBlobPrefetchInput(oids)).toBe(`${oids.join('\n')}\n`);
   });
 });
