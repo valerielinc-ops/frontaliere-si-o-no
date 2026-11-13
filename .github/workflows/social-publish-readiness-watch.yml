@@ -19,8 +19,9 @@ name: Social Publish Readiness Watch
 # scripts/lib/github-issue-creator.mjs, zero-Claude bash+node (see AGENTS.md
 # "Auth automazioni & frugalità quota" — no claude-code-action, no Max quota).
 #
-# It opens deduplicated issues for READY channels that need activation and
-# ACTION_REQUIRED and CREDENTIAL_MISSING states that need an owner to verify identity, linkage, or
+# It opens deduplicated issues for READY channels whose scheduled publisher has
+# not produced a recent confirmed ledger entry, plus ACTION_REQUIRED and
+# CREDENTIAL_MISSING states that need an owner to verify identity, linkage, or
 # configuration. A missing Page field is ambiguous (link or scopes), so the
 # issue asks for verification instead of declaring the account disconnected.
 # TikTok remains policy-held for this internal workflow; a channel waiting on
@@ -106,24 +107,25 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/check-social-publish-readiness.mjs | tee readiness.txt
-          READY="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
-          echo "ready=$READY" >> "$GITHUB_OUTPUT"
+          ACTIVATION_REQUIRED="$(node scripts/check-social-publish-readiness.mjs --activation-required-channels)"
+          echo "activation_required=$ACTIVATION_REQUIRED" >> "$GITHUB_OUTPUT"
           ACTION_REQUIRED="$(node scripts/check-social-publish-readiness.mjs --action-required-channels)"
           echo "action_required=$ACTION_REQUIRED" >> "$GITHUB_OUTPUT"
 
-      # One issue per newly-ready channel. The title's first 60 chars are stable
-      # and carry the channel name FIRST, so the dedup key discriminates between
-      # channels instead of collapsing all three onto one issue (see the
-      # dedup-title rule in AGENTS.md → "Dedup a MONTE").
-      - name: Alert on any channel that can publish (dedup, zero-Claude)
-        if: steps.probe.outputs.ready != ''
+      # One issue per ready channel whose own posted ledger has not yet proved
+      # activation. The title's first 60 chars are stable and carry the
+      # channel name FIRST, so the dedup key discriminates between channels
+      # instead of collapsing all three onto one issue (see the dedup-title
+      # rule in AGENTS.md → "Dedup a MONTE").
+      - name: Alert on ready channels without recent delivery (dedup, zero-Claude)
+        if: steps.probe.outputs.activation_required != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          READY_CHANNELS: ${{ steps.probe.outputs.ready }}
+          ACTIVATION_REQUIRED_CHANNELS: ${{ steps.probe.outputs.activation_required }}
         run: |
           set -euo pipefail
-          for CH in $READY_CHANNELS; do
+          for CH in $ACTIVATION_REQUIRED_CHANNELS; do
             REASON="$(node scripts/check-social-publish-readiness.mjs "--reason=$CH")"
             node scripts/lib/github-issue-creator.mjs \
               --title "$CH publishing is unblocked — activate the poster" \
@@ -135,7 +137,7 @@ jobs:
                 "> ${REASON}" \
                 "" \
                 "### Why this is an alert and not good news on its own" \
-                "The poster fail-soft-skips when a credential is missing and reports success either way, so a channel that becomes able to publish stays silent until somebody looks. That is exactly how the Instagram/TikTok Remote Config values sat unused while \`load-rc-env.mjs\` did not map them." \
+                "A ready channel still needs a recent confirmed entry in its own posted ledger; without that proof, the scheduled publisher may still be fail-soft-skipping before it reaches the browser route." \
                 "" \
                 "### What to check" \
                 "- the channel's daily broadcast workflow is no longer logging a soft-skip" \
