@@ -38,6 +38,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.102.0',
+    date: '2026-11-13',
+    titleKey: 'whatsNew.v31020.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v31020.sinteticaAts.title',
+        descKey: 'whatsNew.v31020.sinteticaAts.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
     version: '3.101.4',
     date: '2026-11-13',
     titleKey: 'whatsNew.v31014.title',
@@ -2942,17 +2955,45 @@ function getLastSeen(): string | null {
  }
 }
 
-function setLastSeen(date: string): void {
+function setLastSeen(version: string): void {
  try {
- localStorage.setItem(STORAGE_KEY, date);
+ localStorage.setItem(STORAGE_KEY, version);
  } catch { /* quota / private mode */ }
 }
 
-/** Count releases newer than the last-seen date. */
+function compareReleaseVersions(a: string, b: string): number {
+ const left = a.split('.').map(Number);
+ const right = b.split('.').map(Number);
+ for (let i = 0; i < Math.max(left.length, right.length); i++) {
+ const delta = (left[i] ?? 0) - (right[i] ?? 0);
+ if (delta !== 0) return delta;
+ }
+ return 0;
+}
+
+/** Count releases newer than the last-seen version, including same-day releases. */
 export function getUnreadCount(): number {
  const lastSeen = getLastSeen();
  if (!lastSeen) return RELEASES.length;
- return RELEASES.filter((r) => r.date > lastSeen).length;
+ const lastSeenRelease = RELEASES.find((release) => release.version === lastSeen);
+ if (lastSeenRelease) {
+ return RELEASES.filter((release) => compareReleaseVersions(release.version, lastSeenRelease.version) > 0).length;
+ }
+
+ // Older builds stored only a date. If releases were added later on that same
+ // date, use the previous release date as the migration boundary so the new
+ // entries still get a badge; this can repeat an already-read same-day note.
+ if (/^\d{4}-\d{2}-\d{2}$/.test(lastSeen)) {
+ const sameDayReleaseExists = RELEASES.some((release) => release.date === lastSeen);
+ const priorReleases = RELEASES
+ .filter((release) => sameDayReleaseExists ? release.date < lastSeen : release.date <= lastSeen)
+ .sort((a, b) => compareReleaseVersions(b.version, a.version));
+ const priorVersion = priorReleases[0]?.version;
+ if (!priorVersion) return RELEASES.length;
+ return RELEASES.filter((release) => compareReleaseVersions(release.version, priorVersion) > 0).length;
+ }
+
+ return RELEASES.length;
 }
 
 /** Get all releases for external use (e.g. tests). */
@@ -3118,7 +3159,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  // Mark as read when modal opens
  useEffect(() => {
  if (open && RELEASES.length > 0) {
- setLastSeen(RELEASES[0].date);
+ setLastSeen(RELEASES[0].version);
  // Gamification
  import('@/components/community/GamificationWidget')
  .then((m) => m.unlockAchievement('whats_new_reader'))
