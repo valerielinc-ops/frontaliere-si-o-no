@@ -1,15 +1,6 @@
 /**
- * A job's published per-locale slug stays canonical when only its title moves.
- *
- * Live case (2026-11-12, build e6a1c674): the cippatrasporti slice kept
- * `slugByLocale.it = servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso`
- * (the URL Google had indexed, 425 impressions in 28 days), while the deploy-time
- * `hardenJobLocaleFields` pass over data/jobs.json re-derived the source-locale
- * slug from the current IT title ("Customer Service Transport Specialist") and
- * published `customer-service-transport-specialist-cippa-trasporti-sa-chiasso`.
- * The indexed URL became a noindex bridge. The rule now lives in
- * scripts/lib/published-slug-stability.mjs and is shared by the three slug
- * writers that re-derive from titles.
+ * Synthetic coverage for published-slug stability and exact served-path
+ * matching. All filesystem fixtures stay under the OS temporary directory.
  */
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -17,74 +8,69 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
-import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
+import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath.ts';
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { ensureLocaleFields } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
+  URL_FIRST_SEEN_SHARD_IDS,
+  urlFirstSeenShardFileName,
+} from '../scripts/lib/url-first-seen-store.mjs';
+import {
   jobSlugsUnpublished,
-  mayReplacePublishedSlug,
   jobDetailPathsFor,
+  mayReplacePublishedSlug,
   publishedSlugKeepsIdentity,
   slugWasServed,
 } from '../scripts/lib/published-slug-stability.mjs';
 
-const INDEXED_IT = 'servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso';
-const TITLE_DERIVED_IT = 'customer-service-transport-specialist-cippa-trasporti-sa-chiasso';
-const COMPANY = 'Cippà Trasporti SA';
+const PREFERRED_SLUG = 'synthetic-role-synthetic-employer-sampletown';
+const TITLE_DERIVED_SLUG = 'synthetic-support-specialist-synthetic-employer-sampletown';
+const COMPANY = 'Synthetic Employer';
+const LOCATION = 'Sampletown';
 const DESCRIPTION = [
-  'Cippà Trasporti è una società solida e dinamica che da oltre cinquant\'anni supporta aziende',
-  'e partner con soluzioni di trasporto, logistica e servizi doganali in Italia e nel mondo.',
-  'Per la nostra sede di Chiasso siamo alla ricerca di una persona appassionata, con spirito di',
-  'iniziativa e voglia di costruire relazioni durature con clienti e partner, che abbia esperienza',
-  'nel settore delle spedizioni internazionali. Entrerai a far parte di un team dinamico e avrai',
-  'la possibilità di crescere. Mansioni principali: gestione degli ordini di trasporto, contatto',
-  'quotidiano con i clienti, coordinamento con i vettori e con l\'ufficio doganale, monitoraggio',
-  'delle spedizioni e risoluzione delle anomalie. Requisiti: esperienza nel servizio clienti,',
-  'ottima conoscenza dell\'italiano e dell\'inglese, precisione e capacità organizzative.',
+  'Synthetic fixture text used to exercise slug preservation behavior.',
+  'It describes an example role at an example employer in a fictional location.',
+  'No production record, route, metric, or personal information is represented.',
 ].join(' ');
 
 function daysAgo(n: number): string {
   return new Date(Date.now() - n * 86_400_000).toISOString();
 }
 
-function cippaJob(overrides: Record<string, unknown> = {}) {
+function servedDate(daysAgoCount: number): string {
+  return daysAgo(daysAgoCount).slice(0, 10);
+}
+
+function syntheticJob(overrides: Record<string, unknown> = {}) {
   return {
-    id: 'cippatrasporti-c38396f76831',
-    slug: INDEXED_IT,
+    id: 'synthetic-job-0001',
+    slug: PREFERRED_SLUG,
     slugByLocale: {
-      it: INDEXED_IT,
-      en: 'customer-service-transport-specialist-cippa-trasporti-sa-lugano',
-      de: 'kundendienst-transport-spezialist-cippa-trasporti-sa-lugano',
-      fr: 'service-client-transport-specialiste-cippa-trasporti-sa-chiasso',
+      it: PREFERRED_SLUG,
+      en: 'synthetic-support-specialist-en',
+      de: 'synthetic-support-specialist-de',
+      fr: 'synthetic-support-specialist-fr',
     },
     company: COMPANY,
-    companyKey: 'cippatrasporti',
-    title: 'Customer Service Transport Specialist',
+    companyKey: 'synthetic-employer',
+    title: 'Synthetic Support Specialist',
     titleByLocale: {
-      it: 'Customer Service Transport Specialist',
-      en: 'Customer Service Specialist',
-      de: 'Kundendienst Transport Spezialist',
-      fr: 'Service Client Transport Spécialiste',
+      it: 'Synthetic Support Specialist',
+      en: 'Synthetic Support Specialist',
+      de: 'Synthetische Support-Fachkraft',
+      fr: 'Spécialiste du support synthétique',
     },
     description: DESCRIPTION,
-    descriptionByLocale: { it: DESCRIPTION },
-    location: 'Chiasso',
-    addressLocality: 'Chiasso',
+    descriptionByLocale: { it: DESCRIPTION, en: DESCRIPTION, de: DESCRIPTION, fr: DESCRIPTION },
+    location: LOCATION,
+    addressLocality: LOCATION,
     canton: 'TI',
     sourceLang: 'it',
-    url: 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Chiasso-672753984.htm',
+    url: 'https://example.invalid/synthetic-job/0001',
     crawledAt: daysAgo(1),
     datePosted: daysAgo(30),
-    previousSlugsByLocale: {
-      it: [
-        'servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano',
-        'customer-service-transport-specialist-cippatrasporti-ch',
-      ],
-    },
-    previousSlugs: [
-      'servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano',
-      'customer-service-transport-specialist-cippatrasporti-ch',
-    ],
+    previousSlugsByLocale: { it: ['synthetic-previous-role'] },
+    previousSlugs: ['synthetic-previous-role'],
     ...overrides,
   };
 }
@@ -94,8 +80,8 @@ let seq = 0;
 const previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
 const previousLedgerOverride = process.env.URL_FIRST_SEEN_PATH_OVERRIDE;
 afterEach(() => {
-  for (const f of tmpFiles.splice(0)) {
-    try { fs.unlinkSync(f); } catch { /* already gone */ }
+  for (const file of tmpFiles.splice(0)) {
+    fs.rmSync(file, { recursive: true, force: true });
   }
   if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
   else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
@@ -103,14 +89,49 @@ afterEach(() => {
   else process.env.URL_FIRST_SEEN_PATH_OVERRIDE = previousLedgerOverride;
 });
 
+function canonicalPath(locale: string, job: object, slug: string): string {
+  return buildCanonicalJobDetailPath(locale, job, slug).replace(/\/$/, '');
+}
+
+function syntheticLedger(job: object) {
+  return {
+    [canonicalPath('it', job, PREFERRED_SLUG)]: servedDate(80),
+    [canonicalPath('it', job, TITLE_DERIVED_SLUG)]: servedDate(20),
+    [canonicalPath('en', job, TITLE_DERIVED_SLUG)]: servedDate(80),
+  };
+}
+
+/** A file-shaped override keeps these tests independent of the deploy ledger. */
+function useLedger(entries: Record<string, string> | null) {
+  const ledgerPath = path.join(os.tmpdir(), `published-slug-ledger-${process.pid}-${seq++}.json`);
+  if (entries) {
+    fs.writeFileSync(ledgerPath, JSON.stringify(entries), 'utf8');
+    tmpFiles.push(ledgerPath);
+  }
+  process.env.URL_FIRST_SEEN_PATH_OVERRIDE = ledgerPath;
+}
+
+/** Every hardening call gets isolated registry and job files under tmpdir. */
+function harden(jobs: object[]) {
+  const registryPath = path.join(os.tmpdir(), `published-slug-registry-${process.pid}-${seq++}.json`);
+  fs.writeFileSync(registryPath, '{}', 'utf8');
+  tmpFiles.push(registryPath);
+  process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryPath;
+  const jobsPath = path.join(os.tmpdir(), `published-slug-harden-${process.pid}-${seq++}.json`);
+  tmpFiles.push(jobsPath);
+  fs.writeFileSync(jobsPath, JSON.stringify(jobs), 'utf8');
+  hardenJobLocaleFields({ dataJobsPath: jobsPath });
+  return JSON.parse(fs.readFileSync(jobsPath, 'utf8'));
+}
+
 describe('script-only published-slug imports', () => {
-  it('does not load the route classifier until a served ledger needs route parsing', () => {
-    const loaderPath = path.join(os.tmpdir(), `published-slug-route-core-guard-${process.pid}-${seq++}.mjs`);
+  it('does not load route matching code until a served ledger needs it', () => {
+    const loaderPath = path.join(os.tmpdir(), `published-slug-loader-${process.pid}-${seq++}.mjs`);
     const moduleUrl = pathToFileURL(path.resolve(process.cwd(), 'scripts/lib/published-slug-stability.mjs')).href;
     fs.writeFileSync(loaderPath, `
 export async function resolve(specifier, context, nextResolve) {
   if (specifier.endsWith('/job-board-detail-path-core.mjs')) {
-    throw new Error('route classifier was loaded eagerly');
+    throw new Error('route matcher loaded eagerly');
   }
   return nextResolve(specifier, context);
 }
@@ -121,253 +142,225 @@ export async function resolve(specifier, context, nextResolve) {
         '--input-type=module',
         '--eval',
         `import { publishedSlugKeepsIdentity } from ${JSON.stringify(moduleUrl)};
-if (!publishedSlugKeepsIdentity('cippa-trasporti-sa-chiasso', { company: 'Cippà Trasporti SA', location: 'Chiasso' })) process.exit(2);`,
+if (!publishedSlugKeepsIdentity('${PREFERRED_SLUG}', { company: '${COMPANY}', location: '${LOCATION}' })) process.exit(2);`,
       ], { encoding: 'utf8' });
       expect(result.error).toBeUndefined();
       expect(result.status).toBe(0);
-      expect(result.stderr).not.toContain('route classifier was loaded eagerly');
+      expect(result.stderr).not.toContain('route matcher loaded eagerly');
     } finally {
       fs.rmSync(loaderPath, { force: true });
     }
   });
 });
 
-/** Served-URL ledger fixture (data/url-first-seen.json shape); null = absent. */
-function useLedger(entries: Record<string, string> | null) {
-  const ledgerPath = path.join(os.tmpdir(), `published-slug-ledger-${process.pid}-${seq++}.json`);
-  if (entries) {
-    fs.writeFileSync(ledgerPath, JSON.stringify(entries), 'utf-8');
-    tmpFiles.push(ledgerPath);
-  }
-  process.env.URL_FIRST_SEEN_PATH_OVERRIDE = ledgerPath;
-}
-
-/** The live ledger rows of the cippatrasporti posting (2026-11-13). */
-const CIPPA_LEDGER = {
-  [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
-  [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}`]: '2026-10-30',
-  '/en/find-jobs-ticino/customer-service-transport-specialist-cippa-trasporti-sa-lugano': '2026-09-02',
-};
-
-/** hardenJobLocaleFields caches per path: every call gets a fresh file. */
-function harden(jobs: object[]) {
-  const registryPath = path.join(os.tmpdir(), `published-slug-registry-${process.pid}-${seq}.json`);
-  fs.writeFileSync(registryPath, '{}', 'utf-8');
-  tmpFiles.push(registryPath);
-  process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryPath;
-  const file = path.join(os.tmpdir(), `published-slug-harden-${process.pid}-${seq++}.json`);
-  tmpFiles.push(file);
-  fs.writeFileSync(file, JSON.stringify(jobs), 'utf-8');
-  hardenJobLocaleFields({ dataJobsPath: file });
-  return JSON.parse(fs.readFileSync(file, 'utf-8'));
-}
-
-describe('publishedSlugKeepsIdentity', () => {
-  it('a slug carrying the company and the location keeps the identity, whatever its title words', () => {
+describe('published slug identity', () => {
+  it('keeps a slug carrying the employer and location when title words change', () => {
     useLedger(null);
-    const identity = { company: COMPANY, location: 'Chiasso' };
-    expect(publishedSlugKeepsIdentity(INDEXED_IT, identity)).toBe(true);
-    expect(publishedSlugKeepsIdentity(TITLE_DERIVED_IT, identity)).toBe(true);
-    expect(mayReplacePublishedSlug(INDEXED_IT, identity)).toBe(false);
+    const identity = { company: COMPANY, location: LOCATION };
+    expect(publishedSlugKeepsIdentity(PREFERRED_SLUG, identity)).toBe(true);
+    expect(publishedSlugKeepsIdentity(TITLE_DERIVED_SLUG, identity)).toBe(true);
+    expect(mayReplacePublishedSlug(PREFERRED_SLUG, identity)).toBe(false);
   });
 
-  it('a relocation, a missing company tail or a missing slug may be re-derived', () => {
-    const identity = { company: COMPANY, location: 'Chiasso' };
-    expect(mayReplacePublishedSlug('customer-service-transport-specialist-cippa-trasporti-sa-lugano', identity)).toBe(true);
-    expect(mayReplacePublishedSlug('customer-service-transport-specialist-cippatrasporti-ch', identity)).toBe(true);
+  it('allows re-derivation after a move or when identity tokens are missing', () => {
+    const identity = { company: COMPANY, location: LOCATION };
+    expect(mayReplacePublishedSlug('synthetic-role-synthetic-employer-oldtown', identity)).toBe(true);
+    expect(mayReplacePublishedSlug('synthetic-role-oldtown', identity)).toBe(true);
     expect(mayReplacePublishedSlug('', identity)).toBe(true);
   });
 
-  it('a brand relabel whose only shared token is the city is an identity change', () => {
+  it('does not treat a shared location token as employer identity', () => {
     expect(mayReplacePublishedSlug(
-      'assistenzarztin-assistenzarzt-zentrum-fur-soziale-psychiatrie-puk-zuerich-dietikon',
-      { company: 'Psychiatrische Universitätsklinik Zürich', location: 'Dietikon' },
+      'synthetic-role-sampletown',
+      { company: 'Different Organization', location: LOCATION },
     )).toBe(true);
   });
 });
 
-describe('served-URL ledger', () => {
-  const tiJob = cippaJob();
-  const agJob = cippaJob({
-    canton: 'AG',
-    location: 'Baden',
-    addressLocality: 'Baden',
-    slug: 'x-cippa-trasporti-sa-baden',
+describe('served-path ledger matching', () => {
+  const tiJob = syntheticJob();
+  const agJob = syntheticJob({ canton: 'AG', location: 'Sampletown East', addressLocality: 'Sampletown East' });
+
+  it('does not treat synthetic content paths as job details', () => {
+    useLedger({
+      '/synthetic-content/sample-entry/': servedDate(10),
+      '/synthetic-news/sample-entry/': servedDate(10),
+    });
+    expect(slugWasServed('it', 'sample-entry', tiJob)).toBe(false);
   });
 
-  it('an article route never marks a job slug as served', () => {
-    useLedger({ '/it/article/foo/': '2026-11-01', '/blog/foo/': '2026-11-01' });
-    expect(slugWasServed('it', 'foo', tiJob)).toBe(false);
-  });
-
-  it('a company hub is not a job detail route', () => {
-    useLedger({ '/cerca-lavoro-ticino/company-foo/': '2026-11-01' });
-    expect(slugWasServed('it', 'company-foo', tiJob)).toBe(false);
-  });
-
-  it('a city hub is not a job detail route', () => {
-    useLedger({ '/cerca-lavoro-ticino/lugano/': '2026-11-01', '/cerca-lavoro-argovia/baden/': '2026-11-01' });
-    expect(slugWasServed('it', 'lugano', tiJob)).toBe(false);
-    expect(slugWasServed('it', 'baden', agJob)).toBe(false);
+  it('does not treat a company hub shape as a job detail', () => {
+    const detail = canonicalPath('it', tiJob, 'synthetic-employer-key');
+    const companyHub = detail.replace(/[^/]+$/, 'company-synthetic-employer');
+    useLedger({ [companyHub]: servedDate(10) });
+    expect(slugWasServed('it', 'company-synthetic-employer', tiJob)).toBe(false);
   });
 
   it('does not let another canton section pin the same final slug', () => {
-    useLedger({ [`/cerca-lavoro-argovia/${INDEXED_IT}/`]: '2026-11-01' });
-    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(false);
-    expect(slugWasServed('it', INDEXED_IT, agJob)).toBe(true);
+    const otherCantonPath = canonicalPath('it', agJob, PREFERRED_SLUG);
+    useLedger({ [otherCantonPath]: servedDate(10) });
+    expect(slugWasServed('it', PREFERRED_SLUG, tiJob)).toBe(false);
+    expect(slugWasServed('it', PREFERRED_SLUG, agJob)).toBe(true);
   });
 
-  it('matches the renderer canton path and locale exactly', () => {
-    const slug = 'x-cippa-trasporti-sa-baden';
-    const canonicalPath = buildCanonicalJobDetailPath('de', agJob, slug);
-    expect(jobDetailPathsFor('de', slug, agJob)).toEqual([canonicalPath.replace(/\/$/, '')]);
-    useLedger({ [canonicalPath]: '2026-09-02' });
+  it('matches the renderer path with its locale and canton section', () => {
+    const slug = 'synthetic-east-role';
+    const renderedPath = buildCanonicalJobDetailPath('de', agJob, slug);
+    expect(jobDetailPathsFor('de', slug, agJob)).toEqual([renderedPath.replace(/\/$/, '')]);
+    useLedger({ [renderedPath]: servedDate(40) });
     expect(slugWasServed('de', slug, agJob)).toBe(true);
     expect(slugWasServed('en', slug, agJob)).toBe(false);
   });
 
-  it('accepts only the explicit Italian legacy-TI active-job mirror', () => {
-    const slug = 'x-cippa-trasporti-sa-baden';
-    const canonicalPath = buildCanonicalJobDetailPath('it', agJob, slug);
-    const mirrorPath = '/cerca-lavoro-ticino/x-cippa-trasporti-sa-baden/';
-    expect(jobDetailPathsFor('it', slug, agJob)).toEqual([
-      canonicalPath.replace(/\/$/, ''),
-      mirrorPath.replace(/\/$/, ''),
-    ]);
-    useLedger({ [mirrorPath]: '2026-06-01' });
+  it('accepts only the explicit Italian legacy mirror for an active non-TI slug', () => {
+    const slug = PREFERRED_SLUG;
+    const renderedPath = buildCanonicalJobDetailPath('it', agJob, slug);
+    const paths = jobDetailPathsFor('it', slug, agJob);
+    expect(paths[0]).toBe(renderedPath.replace(/\/$/, ''));
+    expect(paths).toHaveLength(2);
+    expect(jobDetailPathsFor('de', slug, agJob)).toHaveLength(1);
+    const legacyMirror = paths[1];
+    useLedger({ [legacyMirror]: servedDate(100) });
     expect(slugWasServed('it', slug, agJob)).toBe(true);
-    useLedger({ '/de/jobs-im-tessin/x-cippa-trasporti-sa-baden/': '2026-06-01' });
     expect(slugWasServed('de', slug, agJob)).toBe(false);
   });
 
-  it('keeps the same final slug separate between Italian and English paths', () => {
-    useLedger({ [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}/`]: '2026-09-02' });
-    expect(slugWasServed('it', TITLE_DERIVED_IT, tiJob)).toBe(true);
-    expect(slugWasServed('en', TITLE_DERIVED_IT, tiJob)).toBe(false);
+  it('keeps identical final slug text separate across locales', () => {
+    const italianPath = canonicalPath('it', tiJob, TITLE_DERIVED_SLUG);
+    useLedger({ [italianPath]: servedDate(40) });
+    expect(slugWasServed('it', TITLE_DERIVED_SLUG, tiJob)).toBe(true);
+    expect(slugWasServed('en', TITLE_DERIVED_SLUG, tiJob)).toBe(false);
   });
 
-  it('does not count a nested city route even when its final segment matches', () => {
-    useLedger({ [`/cerca-lavoro-ticino/lugano/${INDEXED_IT}/`]: '2026-11-01' });
-    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(false);
+  it('rejects an extra nested segment even when the final slug matches', () => {
+    const detail = canonicalPath('it', tiJob, PREFERRED_SLUG);
+    const nestedPath = detail.replace(/\/([^/]+)$/, '/synthetic-city/$1');
+    useLedger({ [nestedPath]: servedDate(10) });
+    expect(slugWasServed('it', PREFERRED_SLUG, tiJob)).toBe(false);
   });
 
-  it('uses the cippa IT canonical path and never lets its title bridge pin an English slug', () => {
+  it('keeps the served Italian slug stable without pinning the English title slug', () => {
     useLedger({
-      [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
-      [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}`]: '2026-10-30',
+      [canonicalPath('it', tiJob, PREFERRED_SLUG)]: servedDate(80),
+      [canonicalPath('it', tiJob, TITLE_DERIVED_SLUG)]: servedDate(20),
     });
-    expect(buildCanonicalJobDetailPath('it', tiJob, INDEXED_IT))
-      .toBe(`/cerca-lavoro-ticino/${INDEXED_IT}/`);
-    expect(jobDetailPathsFor('it', INDEXED_IT, tiJob))
-      .toEqual([buildCanonicalJobDetailPath('it', tiJob, INDEXED_IT).replace(/\/$/, '')]);
-    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(true);
-    expect(slugWasServed('it', TITLE_DERIVED_IT, tiJob)).toBe(true);
-    expect(slugWasServed('en', TITLE_DERIVED_IT, tiJob)).toBe(false);
-    expect(mayReplacePublishedSlug(TITLE_DERIVED_IT, { company: COMPANY, location: 'Chiasso' }, {
+    expect(slugWasServed('it', PREFERRED_SLUG, tiJob)).toBe(true);
+    expect(slugWasServed('it', TITLE_DERIVED_SLUG, tiJob)).toBe(true);
+    expect(slugWasServed('en', TITLE_DERIVED_SLUG, tiJob)).toBe(false);
+    expect(mayReplacePublishedSlug(TITLE_DERIVED_SLUG, { company: COMPANY, location: LOCATION }, {
       job: tiJob,
       locale: 'en',
     })).toBe(true);
   });
 
-  it('an absent ledger is unknown, a present but unreadable one fails closed', () => {
+  it('distinguishes an absent ledger from a present but unreadable ledger', () => {
     useLedger(null);
-    expect(slugWasServed('it', INDEXED_IT, tiJob)).toBeNull();
+    expect(slugWasServed('it', PREFERRED_SLUG, tiJob)).toBeNull();
     const broken = path.join(os.tmpdir(), `published-slug-ledger-broken-${process.pid}-${seq++}.json`);
-    fs.writeFileSync(broken, '{"/cerca-lavoro-ticino/x": ', 'utf-8');
+    fs.writeFileSync(broken, '{"synthetic-path": ', 'utf8');
     tmpFiles.push(broken);
     process.env.URL_FIRST_SEEN_PATH_OVERRIDE = broken;
-    expect(() => slugWasServed('it', INDEXED_IT, tiJob)).toThrow(/present but unreadable/);
+    expect(() => slugWasServed('it', PREFERRED_SLUG, tiJob)).toThrow(/present but unreadable/);
+  });
+
+  it('fails closed when a present sharded ledger contains an unreadable shard', () => {
+    const ledgerDir = fs.mkdtempSync(path.join(os.tmpdir(), `published-slug-shards-${process.pid}-`));
+    tmpFiles.push(ledgerDir);
+    for (const shardId of URL_FIRST_SEEN_SHARD_IDS) {
+      fs.writeFileSync(path.join(ledgerDir, urlFirstSeenShardFileName(shardId)), '{}', 'utf8');
+    }
+    const brokenShard = path.join(ledgerDir, urlFirstSeenShardFileName(URL_FIRST_SEEN_SHARD_IDS[0]));
+    fs.writeFileSync(brokenShard, '{"synthetic-path": ', 'utf8');
+    process.env.URL_FIRST_SEEN_PATH_OVERRIDE = ledgerDir;
+    expect(() => slugWasServed('it', PREFERRED_SLUG, tiJob)).toThrow(/present but unreadable/);
   });
 });
 
-describe('slugs that were never served are still derived as new ones', () => {
-  const sourceTitle = 'Schreiner/in für Werkstattarbeiten';
-  const heldJob = {
-    id: 'fachkraft-e52cf272d2b3',
-    companyKey: 'fachkraft',
-    sourceLang: 'de',
-    title: sourceTitle,
-    titleByLocale: { de: sourceTitle, it: sourceTitle, en: sourceTitle, fr: sourceTitle },
-    translationHoldSince: daysAgo(2),
-  };
-  const identity = { company: 'fachkraft.ch GmbH', location: 'Wil SG' };
-  const copiedSlug = 'schreiner-in-fur-werkstattarbeiten-fachkraft-ch-gmbh-wil-sg';
+describe('synthetic publication windows', () => {
+  const identity = { company: 'Synthetic Employer', location: 'Sampletown' };
+  const copiedSlug = 'synthetic-workshop-specialist-synthetic-employer-sampletown';
 
-  it('an agency job held for translation has no published slug yet', () => {
-    expect(jobSlugsUnpublished(heldJob)).toBe(true);
-    expect(mayReplacePublishedSlug(copiedSlug, identity, { job: heldJob })).toBe(true);
+  it('does not classify an unknown synthetic employer as translation-gated', () => {
+    const job = syntheticJob({ translationHoldSince: daysAgo(2) });
+    expect(jobSlugsUnpublished(job)).toBe(false);
   });
 
-  it('the release window opens only for the translate-run regeneration', () => {
-    const released = { ...heldJob, translationHoldSince: undefined, translationHoldReleasedAt: daysAgo(0.05) };
+  it('opens the recent-release window only for translate-run regeneration', () => {
+    const released = syntheticJob({ translationHoldReleasedAt: daysAgo(0.05) });
+    expect(jobSlugsUnpublished(released, { justReleased: true })).toBe(true);
     expect(mayReplacePublishedSlug(copiedSlug, identity, { job: released, justReleased: true })).toBe(true);
+    expect(jobSlugsUnpublished(released)).toBe(false);
     expect(mayReplacePublishedSlug(copiedSlug, identity, { job: released })).toBe(false);
     const releasedLongAgo = { ...released, translationHoldReleasedAt: daysAgo(3) };
     expect(mayReplacePublishedSlug(copiedSlug, identity, { job: releasedLongAgo, justReleased: true })).toBe(false);
   });
 });
 
-describe('hardenJobLocaleFields keeps a published slug when only the title moved', () => {
-  it('keeps the indexed IT slug of the cippatrasporti posting and bridges the derived one it served', () => {
-    useLedger(CIPPA_LEDGER);
-    const [after] = harden([cippaJob()]);
-    expect(after.slugByLocale.it).toBe(INDEXED_IT);
-    expect(after.slug).toBe(INDEXED_IT);
-    // The title-derived URL earlier builds served stays reachable as a bridge,
-    // and the canonical slug never lands in its own bridge list (no cycle).
-    expect(after.previousSlugsByLocale.it).toContain(TITLE_DERIVED_IT);
-    expect(after.previousSlugsByLocale.it).not.toContain(INDEXED_IT);
+describe('hardenJobLocaleFields keeps a served slug when only the title changes', () => {
+  it('keeps a served preferred slug and retains a served title-derived alias', () => {
+    const job = syntheticJob();
+    useLedger(syntheticLedger(job));
+    const [after] = harden([job]);
+    expect(after.slugByLocale.it).toBe(PREFERRED_SLUG);
+    expect(after.slug).toBe(PREFERRED_SLUG);
+    expect(after.previousSlugsByLocale.it).toContain(TITLE_DERIVED_SLUG);
+    expect(after.previousSlugsByLocale.it).not.toContain(PREFERRED_SLUG);
   });
 
-  it('without the ledger keeps the slice slug and mints no bridge', () => {
+  it('keeps the slice slug and mints no bridge when the ledger is absent', () => {
     useLedger(null);
-    const [after] = harden([cippaJob()]);
-    expect(after.slugByLocale.it).toBe(INDEXED_IT);
-    expect(after.previousSlugsByLocale?.it ?? []).not.toContain(TITLE_DERIVED_IT);
+    const [after] = harden([syntheticJob()]);
+    expect(after.slugByLocale.it).toBe(PREFERRED_SLUG);
+    expect(after.previousSlugsByLocale?.it ?? []).not.toContain(TITLE_DERIVED_SLUG);
   });
 
-  it('is idempotent: a second pass over its own output changes nothing', () => {
-    useLedger(CIPPA_LEDGER);
-    const [first] = harden([cippaJob()]);
+  it('is idempotent across repeated passes', () => {
+    const job = syntheticJob();
+    useLedger(syntheticLedger(job));
+    const [first] = harden([job]);
     const [second] = harden([first]);
     expect(second.slugByLocale).toEqual(first.slugByLocale);
     expect(second.slug).toBe(first.slug);
     expect(second.previousSlugsByLocale).toEqual(first.previousSlugsByLocale);
   });
 
-  it('a slice slug that never reached a sitemap is not published: the served derivation stays', () => {
-    useLedger({ [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}`]: '2026-10-30' });
-    const [after] = harden([cippaJob()]);
-    expect(after.slugByLocale.it).toBe(TITLE_DERIVED_IT);
+  it('keeps a served title-derived slug when the preferred slice slug was never served', () => {
+    const job = syntheticJob();
+    useLedger({ [canonicalPath('it', job, TITLE_DERIVED_SLUG)]: servedDate(20) });
+    const [after] = harden([job]);
+    expect(after.slugByLocale.it).toBe(TITLE_DERIVED_SLUG);
   });
 
-  it('never keeps a served slug that another job shares: the collision is handled as before', () => {
-    useLedger(CIPPA_LEDGER);
-    const twin = cippaJob({ id: 'cippatrasporti-000000000001', url: 'https://cippatrasporti.altamiraweb.com/annunci-lavoro/twin-1.htm' });
-    const [first, second] = harden([cippaJob(), twin]);
-    expect(first.slugByLocale.it).toBe(TITLE_DERIVED_IT);
-    expect(second.slugByLocale.it).toBe(TITLE_DERIVED_IT);
+  it('preserves existing collision handling for synthetic duplicate jobs', () => {
+    const job = syntheticJob();
+    useLedger(syntheticLedger(job));
+    const twin = syntheticJob({ id: 'synthetic-job-0002', url: 'https://example.invalid/synthetic-job/0002' });
+    const [first, second] = harden([job, twin]);
+    expect(first.slugByLocale.it).toBe(TITLE_DERIVED_SLUG);
+    expect(second.slugByLocale.it).toBe(TITLE_DERIVED_SLUG);
   });
 
-  it('still re-derives the source-locale slug when the job really moved', () => {
+  it('still re-derives a slug after the synthetic job moves', () => {
     useLedger(null);
-    const moved = cippaJob({
-      slug: 'servizio-clienti-transport-specialista-cippa-trasporti-sa-mendrisio',
+    const moved = syntheticJob({
+      slug: 'synthetic-role-synthetic-employer-oldtown',
+      location: 'Newtown',
+      addressLocality: 'Newtown',
       slugByLocale: {
-        it: 'servizio-clienti-transport-specialista-cippa-trasporti-sa-mendrisio',
-        en: 'customer-service-transport-specialist-cippa-trasporti-sa-chiasso',
-        de: 'kundendienst-transport-spezialist-cippa-trasporti-sa-chiasso',
-        fr: 'service-client-transport-specialiste-cippa-trasporti-sa-chiasso',
+        it: 'synthetic-role-synthetic-employer-oldtown',
+        en: 'synthetic-support-specialist-oldtown',
+        de: 'synthetic-support-specialist-altstadt',
+        fr: 'synthetic-support-specialist-vieilleville',
       },
     });
     const [after] = harden([moved]);
-    expect(after.slugByLocale.it).toBe(TITLE_DERIVED_IT);
-    expect(after.previousSlugsByLocale.it).toContain('servizio-clienti-transport-specialista-cippa-trasporti-sa-mendrisio');
+    expect(after.slugByLocale.it).toBe('synthetic-support-specialist-synthetic-employer-newtown');
+    expect(after.previousSlugsByLocale.it).toContain('synthetic-role-synthetic-employer-oldtown');
   });
 
-  it('fills a missing locale slug as before', () => {
+  it('still fills a missing locale slug', () => {
     useLedger(null);
-    const job = cippaJob();
+    const job = syntheticJob();
     delete (job.slugByLocale as Record<string, string>).fr;
     const [after] = harden([job]);
     expect(String(after.slugByLocale.fr || '')).not.toBe('');
@@ -375,25 +368,23 @@ describe('hardenJobLocaleFields keeps a published slug when only the title moved
 });
 
 describe('ensureLocaleFields keeps a published translated slug', () => {
-  it('does not discard a non-IT slug that copies the IT slug once it is published', () => {
+  it('does not discard a non-Italian slug copied from the preferred locale once served', () => {
     useLedger(null);
-    const job = cippaJob({
+    const job = syntheticJob({
       slugByLocale: {
-        it: INDEXED_IT,
-        en: INDEXED_IT,
-        de: 'kundendienst-transport-spezialist-cippa-trasporti-sa-chiasso',
-        fr: 'service-client-transport-specialiste-cippa-trasporti-sa-chiasso',
+        it: PREFERRED_SLUG,
+        en: PREFERRED_SLUG,
+        de: 'synthetic-support-specialist-sampletown',
+        fr: 'synthetic-support-specialist-sampletown',
       },
-      // A translation that keeps every employer word (not a truncation), so
-      // the copy-of-IT branch is the one that would re-derive.
       titleByLocale: {
-        it: 'Customer Service Transport Specialist',
-        en: 'Transport Customer Service Specialist',
-        de: 'Kundendienst Transport Spezialist',
-        fr: 'Service Client Transport Spécialiste',
+        it: 'Synthetic Support Specialist',
+        en: 'Synthetic Support Specialist',
+        de: 'Synthetic Support Specialist',
+        fr: 'Synthetic Support Specialist',
       },
     });
-    const out = ensureLocaleFields(job);
-    expect(out.slugByLocale.en).toBe(INDEXED_IT);
+    const output = ensureLocaleFields(job);
+    expect(output.slugByLocale.en).toBe(PREFERRED_SLUG);
   });
 });
