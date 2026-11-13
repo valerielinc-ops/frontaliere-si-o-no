@@ -1112,6 +1112,133 @@ jobs:
             echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
 
+      # Read-only evidence for the first comparable build after the Rollup
+      # `maxParallelFileOps: 64` cap (#18517). Keep this immediately after the
+      # memguard reader: a later publish/tail step must not be able to consume
+      # the 350-minute budget before the verdict is written. Missing or partial
+      # data is explicitly non-comparable; it never changes the memory gate or
+      # the deploy path.
+      - name: Observe build memory budget after Rollup cap
+        id: build_memory_budget
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB: '13200'
+          BUILD_MEMORY_BUDGET_BASELINE_LABEL: 'pre-merge run #36355 (~13.2 GB RSS)'
+          BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS: '21000'
+          BUILD_MEMORY_BUDGET_REPORT_PATH: /tmp/build-memory-peak.json
+          BUILD_MEMORY_BUDGET_BUILD_OUTCOME: ${{ steps.build_step.outcome }}
+          BUILD_MEMORY_BUDGET_BREACH: ${{ steps.memguard.outputs.breach }}
+          BUILD_MEMORY_BUDGET_PEAK_RSS_MB: ${{ steps.memguard.outputs.peak_rss_mb }}
+          BUILD_MEMORY_BUDGET_PEAK_ANON_MB: ${{ steps.memguard.outputs.peak_anon_mb }}
+          BUILD_MEMORY_BUDGET_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const budgetNumericMetric = (value) => {
+            const text = String(value ?? '').trim();
+            if (!/^\d+(?:\.\d+)?$/.test(text)) return null;
+            const number = Number(text);
+            return Number.isFinite(number) ? number : null;
+          };
+
+          const budgetMarkdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
+
+          function buildMemoryBudgetObserved() {
+            const baselineRss = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB);
+            const maxWallSeconds = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS);
+            const budgetPeakRss = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_RSS_MB);
+            const budgetPeakAnon = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_PEAK_ANON_MB);
+            const budgetWallSeconds = budgetNumericMetric(process.env.BUILD_MEMORY_BUDGET_WALL_SECONDS);
+            const reportPath = String(process.env.BUILD_MEMORY_BUDGET_REPORT_PATH ?? '').trim();
+            const budgetBuildOutcome = String(process.env.BUILD_MEMORY_BUDGET_BUILD_OUTCOME ?? '').trim() || 'unknown';
+            const breach = String(process.env.BUILD_MEMORY_BUDGET_BREACH ?? '').trim();
+            const baselineLabel = String(process.env.BUILD_MEMORY_BUDGET_BASELINE_LABEL ?? '').trim() || 'baseline unavailable';
+
+            let budgetReportAvailable = false;
+            try {
+              const stat = fs.statSync(reportPath);
+              budgetReportAvailable = stat.isFile() && stat.size > 0;
+            } catch {
+              budgetReportAvailable = false;
+            }
+
+            const missing = [];
+            if (!budgetReportAvailable) missing.push('report');
+            if (budgetPeakRss === null) missing.push('peak_rss_mb');
+            if (budgetPeakAnon === null) missing.push('peak_anon_mb');
+            if (budgetWallSeconds === null) missing.push('wall_seconds');
+            const comparable = missing.length === 0;
+            const reportStatus = budgetReportAvailable
+              ? (missing.length === 0 ? 'available' : `partial: missing ${missing.join(', ')}`)
+              : 'missing';
+
+            const rssDelta = budgetPeakRss !== null && baselineRss !== null ? budgetPeakRss - baselineRss : null;
+            const rssComparison = rssDelta === null
+              ? 'not-comparable: RSS or baseline unavailable'
+              : `${rssDelta >= 0 ? '+' : ''}${rssDelta} MB vs ${baselineRss} MB`;
+            const wallComparison = budgetWallSeconds === null || maxWallSeconds === null
+              ? 'not-comparable: duration unavailable'
+              : budgetWallSeconds > maxWallSeconds
+                ? `over 350-minute budget (${budgetWallSeconds}s > ${maxWallSeconds}s)`
+                : `within 350-minute budget (${budgetWallSeconds}s <= ${maxWallSeconds}s)`;
+            const comparability = comparable
+              ? 'comparable: complete memory and duration report'
+              : `not-comparable: missing ${missing.join(', ')}`;
+
+            const triggers = [];
+            if (breach) triggers.push(`revert: dynamic memory threshold breached (${breach})`);
+            if (budgetWallSeconds !== null && maxWallSeconds !== null && budgetWallSeconds > maxWallSeconds) {
+              triggers.push(`revert: wall_seconds exceeded 350-minute budget (${budgetWallSeconds}s)`);
+            }
+            const revertTrigger = triggers.length > 0
+              ? triggers.join('; ')
+              : comparable
+                ? 'not-triggered: no memory breach and duration within 350-minute budget'
+                : 'not-comparable: report unavailable or incomplete; do not infer a pass';
+
+            const summary = [
+              '### Build memory budget after Rollup cap (advisory)',
+              '',
+              'The first complete post-merge build is the comparison point for PR #17596; this observer is read-only.',
+              '',
+              '| metric | observed | baseline / budget | comparison |',
+              '| --- | ---: | ---: | --- |',
+              `| peak_rss_mb | \`${budgetMarkdownCell(budgetPeakRss)}\` | \`${budgetMarkdownCell(baselineLabel)}\` | \`${budgetMarkdownCell(rssComparison)}\` |`,
+              `| peak_anon_mb | \`${budgetMarkdownCell(budgetPeakAnon)}\` | not recorded in ${budgetMarkdownCell(baselineLabel)} | n/a |`,
+              `| wall_seconds | \`${budgetMarkdownCell(budgetWallSeconds)}\` | \`<= ${budgetMarkdownCell(maxWallSeconds)}\` (350 minutes) | \`${budgetMarkdownCell(wallComparison)}\` |`,
+              `| report availability | \`${budgetMarkdownCell(reportStatus)}\` | RSS + anon peak + duration required | \`${budgetMarkdownCell(comparability)}\` |`,
+              `| build outcome | \`${budgetMarkdownCell(budgetBuildOutcome)}\` | success expected | n/a |`,
+              `| revert trigger | \`${budgetMarkdownCell(revertTrigger)}\` | timeout or duration >350 minutes | n/a |`,
+              '',
+              'Missing data stays non-comparable; the memory guard, Rollup cap, and deploy behavior are unchanged.',
+              '',
+            ].join('\n');
+
+            const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+            if (summaryPath) fs.appendFileSync(summaryPath, summary);
+            else process.stdout.write(summary);
+
+            const outputs = [
+              `report_status=${reportStatus}`,
+              `comparable=${comparable}`,
+              `peak_rss_delta_mb=${rssDelta ?? 'unknown'}`,
+              `wall_budget_status=${wallComparison}`,
+            ].join('\n');
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `${outputs}\n`);
+            console.log(
+              `[buildMemoryBudgetObserved] report=${reportStatus} comparable=${comparable} ` +
+              `peak_rss_mb=${budgetPeakRss ?? 'unknown'} peak_anon_mb=${budgetPeakAnon ?? 'unknown'} ` +
+              `wall_seconds=${budgetWallSeconds ?? 'unknown'} trigger=${revertTrigger}`,
+            );
+          }
+
+          buildMemoryBudgetObserved();
+          NODE
+
       # Run 42293933497 rendered 33,689 cards in 4,036s with zero cache hits,
       # then failed a later full-corpus SEO gate. Save once the OG plugin marks
       # its completed pass, even if that later gate fails. Each WebP is atomic;

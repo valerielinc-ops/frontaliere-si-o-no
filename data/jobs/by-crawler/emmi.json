@@ -202,7 +202,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -263,7 +263,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -271,7 +271,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -7988,9 +7988,9 @@
     },
     {
       "id": "emmi-dece212b4c16",
-      "slug": "teamleiter-in-produktion-emmi-ch",
+      "slug": "responsabile-del-team-di-produzione-emmi-emmen-luzern",
       "slugByLocale": {
-        "it": "teamleiter-in-produktion-emmi-ch",
+        "it": "responsabile-del-team-di-produzione-emmi-emmen-luzern",
         "en": "production-team-leader-emmi-emmen-luzern",
         "de": "teamleiter-in-produktion-emmi-ch",
         "fr": "chef-d-equipe-en-production-emmi-emmen-luzern"
@@ -8058,7 +8058,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:18:02.116Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-produktion-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-produktion-emmi-ch"
+      ]
     },
     {
       "id": "emmi-bde29e2d3b43",

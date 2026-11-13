@@ -1654,12 +1654,12 @@
     },
     {
       "id": "evam-vaud-8706615",
-      "slug": "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch",
+      "slug": "capo-dell-ente-finanziario-100-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch",
-        "it": "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch",
-        "en": "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch",
-        "de": "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch"
+        "it": "capo-dell-ente-finanziario-100-cdi-evam-lausanne",
+        "en": "head-of-the-financial-entity-100-cdi-evam-lausanne",
+        "de": "leiter-des-finanzinstituts-100-cdi-evam-lausanne"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1718,7 +1718,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:28:14.833Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:28:14.833Z"
+      "firstSeenAt": "2026-11-13T09:28:14.833Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-l-entite-finances-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8530918",

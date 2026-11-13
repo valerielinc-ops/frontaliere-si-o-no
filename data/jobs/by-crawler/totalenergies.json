@@ -1182,12 +1182,12 @@
     },
     {
       "id": "totalenergies-9beffbdbc5bd",
-      "slug": "tilt-engagement-coordinator-intern-totalenergies-geneve",
+      "slug": "tilt-engagement-coordinatore-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "tilt-engagement-coordinator-intern-totalenergies-geneve",
-        "it": "tilt-engagement-coordinator-intern-totalenergies-geneve",
-        "de": "tilt-engagement-coordinator-intern-totalenergies-geneve",
-        "fr": "tilt-engagement-coordinator-intern-totalenergies-geneve"
+        "it": "tilt-engagement-coordinatore-tirocinante-totalenergies-geneve",
+        "de": "tilt-engagement-koordinator-praktikant-totalenergies-geneve",
+        "fr": "tilt-engagement-coordinateur-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -1251,7 +1251,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-28T09:18:27.582Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:18:27.582Z"
+      "firstSeenAt": "2026-11-13T09:18:27.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tilt-engagement-coordinator-intern-totalenergies-geneve"
+        ],
+        "de": [
+          "tilt-engagement-coordinator-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "tilt-engagement-coordinator-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "tilt-engagement-coordinator-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-3ee23698b0d3",
@@ -1341,7 +1355,7 @@
       "slugByLocale": {
         "en": "quantitative-modeling-analyst-eu-power-totalenergies-geneve",
         "it": "quantitative-modeling-analyst-eu-power-totalenergies-geneve",
-        "de": "quantitative-modeling-analyst-eu-power-totalenergies-geneve",
+        "de": "quantitative-modellierung-von-analysten-eu-macht-totalenergies-geneve",
         "fr": "quantitative-modeling-analyst-eu-power-totalenergies-geneve"
       },
       "company": "TotalEnergies",

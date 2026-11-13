@@ -28653,12 +28653,12 @@
     {
       "id": "hirslanden-f452ace2e30b",
       "externalId": "1457100733",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park",
+      "slug": "dipl-dialisi-professionale-infermieristica-a-80-hirslanden-klinik-hirslanden-klinik-im-park",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park",
-        "it": "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park",
-        "en": "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park"
+        "it": "dipl-dialisi-professionale-infermieristica-a-80-hirslanden-klinik-hirslanden-klinik-im-park",
+        "en": "dipl-nursing-professional-dialysis-a-80-hirslanden-klinik-hirslanden-klinik-im-park",
+        "fr": "diplome-professionnel-en-soins-infirmiers-dialyse-a-80-hirslanden-klinik-hirslanden-klinik-im-park"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28720,7 +28720,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:17:19.861Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:17:19.861Z"
+      "firstSeenAt": "2026-11-13T09:17:19.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-dialyse-a-80-hirslanden-hirslanden-klinik-im-park"
+      ]
     },
     {
       "id": "hirslanden-ed484a174bae",

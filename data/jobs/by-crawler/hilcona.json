@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-162b6fcf61c6",
-      "slug": "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne",
+      "slug": "responsabile-del-confezionamento-di-salumi-a-cheseaux-bell-schweiz-ag-cheseaux-sur-lausanne",
       "slugByLocale": {
         "de": "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "it": "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "en": "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "fr": "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne"
+        "it": "responsabile-del-confezionamento-di-salumi-a-cheseaux-bell-schweiz-ag-cheseaux-sur-lausanne",
+        "en": "responsible-for-the-packaging-of-sausages-in-cheseaux-bell-schweiz-ag-cheseaux-sur-lausanne",
+        "fr": "responsable-de-l-emballage-des-saucisses-a-cheseaux-bell-schweiz-ag-cheseaux-sur-lausanne"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -70,7 +70,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:21:58.412Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:21:58.412Z"
+      "firstSeenAt": "2026-11-13T09:21:58.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ],
+        "en": [
+          "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ],
+        "fr": [
+          "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-fuer-die-verpackung-von-wurstwaren-in-cheseaux-hilcona-cheseaux-sur-lausanne"
+      ]
     },
     {
       "id": "hilcona-1705b6438560",
@@ -4080,12 +4094,12 @@
     },
     {
       "id": "hilcona-0c5b3440c9db",
-      "slug": "laborant-in-60-hilcona-dallikon",
+      "slug": "laboratorio-in-60-eisberg-ag-dallikon",
       "slugByLocale": {
         "de": "laborant-in-60-hilcona-dallikon",
-        "it": "laborant-in-60-hilcona-dallikon",
-        "en": "laborant-in-60-hilcona-dallikon",
-        "fr": "laborant-in-60-hilcona-dallikon"
+        "it": "laboratorio-in-60-eisberg-ag-dallikon",
+        "en": "laboratory-in-60-eisberg-ag-dallikon",
+        "fr": "laboratoire-en-60-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -4155,7 +4169,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T09:21:08.032Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:21:08.032Z"
+      "firstSeenAt": "2026-11-13T09:21:08.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-in-60-hilcona-dallikon"
+        ],
+        "en": [
+          "laborant-in-60-hilcona-dallikon"
+        ],
+        "fr": [
+          "laborant-in-60-hilcona-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-in-60-hilcona-dallikon"
+      ]
     },
     {
       "id": "hilcona-3e7e02ff1b7a",
