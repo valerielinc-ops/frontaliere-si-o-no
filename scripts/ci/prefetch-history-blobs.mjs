@@ -8,7 +8,9 @@
  * keeps commit and tree metadata local. This script finds relevant commits
  * without a path-limited revision walk, resolves only the two slice directory
  * trees at those commits, then fetches and verifies every matching blob in
- * bounded packs before the backfill starts.
+ * bounded packs before the backfill starts. Metadata discovery and local
+ * verification disable partial-clone lazy fetching so only the explicit,
+ * bounded fetch downloads historical blobs.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -47,8 +49,8 @@ export function historySafeGitErrorMessage(error) {
   return message.replace(/https:\/\/x-access-token:[^@\s]+@github\.com/gu, 'https://github.com');
 }
 
-function noLazyFetchEnv() {
-  return { ...process.env, GIT_NO_LAZY_FETCH: '1' };
+export function historyMetadataEnv(baseEnv = process.env) {
+  return { ...baseEnv, GIT_NO_LAZY_FETCH: '1' };
 }
 
 function checkoutRemoteUrl() {
@@ -255,7 +257,7 @@ export function prefetch(oids) {
 export function verifyPrefetchedBlobs(oids) {
   const output = runGit(['cat-file', '--batch-check'], {
     input: historyBlobPrefetchInput(oids),
-    env: noLazyFetchEnv(),
+    env: historyMetadataEnv(),
   });
   const invalid = output
     .trim()
@@ -277,7 +279,7 @@ export function historySinceArgs(value = process.env.HISTORY_SINCE) {
 }
 
 export function main() {
-  const env = noLazyFetchEnv();
+  const env = historyMetadataEnv();
   console.log('🔎 Listing commits in the HISTORY_SINCE window.');
   const commitOutput = runGit(historyCommitWalkArgs(), { env });
   const commitOids = commitOutput.trim().split('\n').filter((oid) => OID_RE.test(oid));

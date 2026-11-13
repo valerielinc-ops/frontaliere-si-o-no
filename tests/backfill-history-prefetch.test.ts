@@ -8,6 +8,7 @@ import {
   historyCommitOidsFromDiffTree,
   historyCommitWalkArgs,
   historyDiffTreeArgs,
+  historyMetadataEnv,
   historySafeGitErrorMessage,
   historySinceArgs,
   historySliceTreeRefInput,
@@ -28,6 +29,13 @@ function treeResponse(treeOid: string, body: Buffer): Buffer {
 }
 
 describe('prefetch-history-blobs', () => {
+  it('keeps historical metadata discovery offline in a blobless checkout', () => {
+    expect(historyMetadataEnv({ CI: 'true', GIT_NO_LAZY_FETCH: '0' })).toEqual({
+      CI: 'true',
+      GIT_NO_LAZY_FETCH: '1',
+    });
+  });
+
   it('keeps the complete commit window and both slice families in discovery', () => {
     expect(historySinceArgs('2026-09-20')).toEqual(['--since=2026-09-20']);
     expect(historySinceArgs('all')).toEqual([]);
