@@ -144,20 +144,18 @@ function isLegacyObserverTransportEntry(entry, destination) {
 }
 
 function isConvergentAdaptedTransportEntry(entry, sitePath) {
-  return CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
-    && entry?.mode === 'adapted'
-    && typeof entry?.reason === 'string'
-    && (
-      Object.keys(entry).sort().join(',') === 'baseline,mode,path,reason,sitePath'
-      || (
-        Object.keys(entry).sort().join(',') === HISTORICAL_ADAPTATION_METADATA_KEYS
-        && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)
-      )
-      || (
-        Object.keys(entry).sort().join(',') === ADAPTATION_ISSUE_ONLY_KEYS
-        && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)
-      )
-    );
+  if (!CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(sitePath)
+      || entry?.mode !== 'adapted') return false;
+  const keys = Object.keys(entry).sort().join(',');
+  if (keys === 'baseline,mode,path,reason,sitePath') {
+    return typeof entry.reason === 'string';
+  }
+  if (keys === HISTORICAL_ADAPTATION_METADATA_KEYS) {
+    return typeof entry.reason === 'string'
+      && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
+  }
+  return keys === ADAPTATION_ISSUE_ONLY_KEYS
+    && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
 }
 
 function sha16(content) {
