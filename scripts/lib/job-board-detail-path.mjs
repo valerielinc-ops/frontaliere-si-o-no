@@ -18,8 +18,9 @@ let matcher;
 
 /**
  * Sparse-checkout adapter for tools that need the route helper without the
- * generated canton data. The assembler imports the data-driven core directly,
- * so changes to this fallback do not invalidate its cached output.
+ * generated canton data. The assembly path uses the data-driven core through
+ * the slug-stability rule, so changes to this fallback do not invalidate its
+ * cached output.
  */
 function getMatcher() {
   if (matcher !== undefined) return matcher;
