@@ -2021,6 +2021,39 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.setChecked).not.toHaveBeenCalled();
   });
 
+  it('falls back to the native radio check when a custom label click does not commit', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const label = {
+      click: vi.fn(async () => { labelClicks += 1; }),
+      evaluate: vi.fn(async () => null),
+    };
+    const control: any = {
+      count: vi.fn(async () => 1),
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        return source.includes('getBoundingClientRect') || source.includes('data-aa-label');
+      }),
+      locator: vi.fn(() => ({ first: () => label })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'workday-radio', kind: 'radio', inputType: 'radio', label: 'No', required: true,
+      options: [{ label: 'No', value: 'no' }],
+    }], [{ fieldId: 'workday-radio', action: 'select', value: 'No' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'workday-radio', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).toHaveBeenCalledWith(true, { force: true, timeout: 6000 });
+    expect(checked).toBe(true);
+  });
+
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
     let selected = '';
     const localizedOption = {

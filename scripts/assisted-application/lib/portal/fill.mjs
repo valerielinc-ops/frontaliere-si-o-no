@@ -111,6 +111,7 @@ async function visibleChoiceLabelRequired(locator) {
 
 /** Click a visible label as a person would; this is the fallback for custom controls, never a script click. */
 async function clickChoiceLabel(locator, observation, attempt, fallbackError = new Error('choice_label_unavailable')) {
+  if (typeof locator?.evaluate !== 'function') throw fallbackError;
   const marked = await locator.evaluate((element) => {
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
     label?.setAttribute('data-aa-label', 'choice');
@@ -147,6 +148,10 @@ async function clickChoiceLabel(locator, observation, attempt, fallbackError = n
  * hCaptcha challenge in the middle of the form).
  */
 async function setChoice(locator, checked, observation = null) {
+  const verifyChoice = async () => {
+    const current = await locator.isChecked({ timeout: 2000 }).catch(() => null);
+    if (current !== checked) throw new Error('choice_not_registered');
+  };
   const attempt = async (method, action) => {
     if (observation) observation.method = method;
     try {
@@ -162,6 +167,7 @@ async function setChoice(locator, checked, observation = null) {
     if (current === checked) return;
     try {
       await clickChoiceLabel(locator, observation, attempt);
+      await verifyChoice();
       return;
     } catch {
       // If the visible label is no longer actionable after a redraw, retain
@@ -169,14 +175,21 @@ async function setChoice(locator, checked, observation = null) {
     }
   }
   try {
-    await attempt('native', () => locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS }));
+    await attempt('native', async () => {
+      await locator.setChecked(checked, { timeout: ACTION_TIMEOUT_MS });
+      await verifyChoice();
+    });
   } catch {
     try {
-      await attempt('forced', () => locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS }));
+      await attempt('forced', async () => {
+        await locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS });
+        await verifyChoice();
+      });
     } catch (error) {
       const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
       if (current === checked) return;
       await clickChoiceLabel(locator, observation, attempt, error);
+      await verifyChoice();
     }
   }
 }
