@@ -40,7 +40,7 @@ const PORTAL_BASE = 'https://molecularpartners-career.talent-soft.com';
 const LISTING_URL = `${PORTAL_BASE}/Pages/Offre/ListeOffre.aspx?lcid=2057`;
 const DETAIL_DELAY_MS = 300;
 const EMPTY_RESULT_HEADING_RE = /^no results$/i;
-const EMPTY_RESULT_MESSAGE_RE = /^no vacancies match your search criteria(?:\.|$)/i;
+const EMPTY_RESULT_MESSAGE_RE = /^no vacancies match your search criteria(?:\.|\. we suggest changing your criteria or viewing all the vacancies by clicking the "view all vacancies" link\.)?$/i;
 const TALENTSOFT_LISTING_CONTAINER_SELECTOR = [
   '.ts-offer-list',
   '.ts-ol-container-list-results-no-result',

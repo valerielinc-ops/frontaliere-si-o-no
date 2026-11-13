@@ -52,6 +52,13 @@ describe('Molecular Partners crawler parser', () => {
       )).toBe(false);
     });
 
+    it('rejects a diagnostic suffix after the empty message', () => {
+      expect(isMolecularPartnersEmptyListingPage(
+        '<div class="ts-ol-container-list-results-no-result"><h2>No results</h2><p>No vacancies match your search criteria. Open roles are listed below</p></div>',
+        [],
+      )).toBe(false);
+    });
+
     it('ignores empty markers that are hidden', () => {
       expect(isMolecularPartnersEmptyListingPage(
         '<main><ul class="ts-offer-list" hidden><h2>No results</h2><p>No vacancies match your search criteria.</p></ul></main>',
