@@ -310,6 +310,7 @@ describe('rerender-article-hubs deployment ordering', () => {
   const shellAssets = rerenderSteps.find(
     (step: { id?: string; name?: string }) => step.name === 'Ensure the static shell scripts are on the CDN',
   );
+  const summary = rerenderSteps.find((step: { name?: string }) => step.name === 'Summary');
   const publisher = YAML.parse(fs.readFileSync(path.join(ROOT, PUBLISH_WORKFLOW), 'utf8'));
   const watchdog = publisher?.jobs?.['runtime-watchdog'];
   const dispatch = watchdog?.steps?.find(
@@ -365,5 +366,7 @@ describe('rerender-article-hubs deployment ordering', () => {
         "steps.ensure_shell_assets.outputs.deferred != 'true'",
       );
     }
+    expect(summary?.env?.SHELL_ASSET_DEFERRED).toContain('steps.ensure_shell_assets.outputs.deferred');
+    expect(String(summary?.run ?? '')).toContain('shell asset gate deferred');
   });
 });

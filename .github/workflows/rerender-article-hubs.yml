@@ -715,7 +715,6 @@ jobs:
         continue-on-error: true
         env:
           INPUT_SECTION: ${{ matrix.section }}
-          SHELL_ASSET_DEFERRED: ${{ steps.ensure_shell_assets.outputs.deferred }}
         run: |
           set -uo pipefail
           SUMMARY="$RUNNER_TEMP/hubs/summary.json"
@@ -769,6 +768,7 @@ jobs:
         if: always()
         env:
           INPUT_SECTION: ${{ matrix.section }}
+          SHELL_ASSET_DEFERRED: ${{ steps.ensure_shell_assets.outputs.deferred }}
         run: |
           {
             echo "### rerender-article-hubs — $INPUT_SECTION"
