@@ -32,6 +32,8 @@ const copy: SwissBubbleMapCopy = {
   unmappedOffers: (count) => `${count} offerte non localizzate.`,
   closeDetails: (name) => `Chiudi i dettagli di ${name}`,
   mapAriaLabel: 'Mappa della Svizzera',
+  cantonMapAriaLabel: (name) => `Mappa di ${name}`,
+  mapInteractionHint: (mode) => mode === 'national' ? 'Tocca un cantone per vedere le offerte.' : 'Tocca un comune per vedere le offerte.',
   cantonsListAriaLabel: 'Elenco dei cantoni',
   municipalitiesListAriaLabel: 'Elenco dei comuni',
   swisstopoAttribution: 'Confini: swisstopo',
@@ -41,7 +43,6 @@ const copy: SwissBubbleMapCopy = {
 
 const totalJobsByCanton = Object.fromEntries(cantons.map(({ cantonCode, count }) => [cantonCode, count]));
 const buildCityHref = vi.fn((cantonCode: string, cityName: string) => `/cerca-lavoro-svizzera/${cantonCode.toLowerCase()}/${cityName.toLowerCase()}/`);
-const onViewCityJobs = vi.fn();
 
 describe('SwissBubbleMap', () => {
   it('shows all 26 cantons with their symbols and canonical job links', () => {
@@ -55,12 +56,12 @@ describe('SwissBubbleMap', () => {
         locale="it"
         copy={copy}
         buildCityHref={buildCityHref}
-        onViewCityJobs={onViewCityJobs}
       />,
     );
 
     expect(CANTON_CODES).toHaveLength(26);
     expect(screen.getByRole('region', { name: 'Mappa della Svizzera' })).toBeTruthy();
+    expect(screen.getByText('Tocca un cantone per vedere le offerte.')).toBeTruthy();
     expect(screen.getAllByTestId(/^map-marker-canton-/)).toHaveLength(26);
     expect(screen.getAllByRole('link', { name: /Visualizza lavori:/i })).toHaveLength(26);
     expect(screen.getByTestId('map-marker-canton-ZH')).toBeTruthy();
@@ -79,10 +80,10 @@ describe('SwissBubbleMap', () => {
         locale="it"
         copy={copy}
         buildCityHref={buildCityHref}
-        onViewCityJobs={onViewCityJobs}
       />,
     );
 
+    expect(screen.getByText('Tocca un comune per vedere le offerte.')).toBeTruthy();
     const lugano = screen.getByTestId('map-marker-municipality-5192');
     fireEvent.click(lugano);
 
@@ -106,7 +107,6 @@ describe('SwissBubbleMap', () => {
         locale="it"
         copy={copy}
         buildCityHref={buildCityHref}
-        onViewCityJobs={onViewCityJobs}
       />,
     );
 
@@ -124,7 +124,6 @@ describe('SwissBubbleMap', () => {
         locale="it"
         copy={copy}
         buildCityHref={buildCityHref}
-        onViewCityJobs={onViewCityJobs}
       />,
     );
 
@@ -133,8 +132,7 @@ describe('SwissBubbleMap', () => {
     expect(within(screen.getByRole('region', { name: 'Elenco dei comuni' })).getByText(copy.municipalLogoNote)).toBeTruthy();
   });
 
-  it('uses a local action for a municipality without a canonical page', () => {
-    const viewJobs = vi.fn();
+  it('does not offer a local-filter fallback for a municipality without a canonical page', () => {
     render(
       <SwissBubbleMap
         mode="canton"
@@ -145,14 +143,12 @@ describe('SwissBubbleMap', () => {
         locale="it"
         copy={copy}
         buildCityHref={() => null}
-        onViewCityJobs={viewJobs}
       />,
     );
 
-    fireEvent.click(screen.getByTestId('map-marker-municipality-5266'));
     expect(screen.queryByRole('link', { name: /Visualizza lavori/i })).toBeNull();
-    fireEvent.click(screen.getByRole('button', { name: /Visualizza lavori: Stabio/i }));
-    expect(viewJobs).toHaveBeenCalledWith('TI', 'Stabio');
+    expect(screen.queryByRole('button', { name: /Visualizza lavori: Stabio/i })).toBeNull();
+    expect(screen.getByText('3 offerte non localizzate.')).toBeTruthy();
   });
 
   it('keeps a current official symbol and coordinates for every BFS municipality', () => {

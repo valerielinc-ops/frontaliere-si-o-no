@@ -8732,6 +8732,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fiscalita-svizzera-tre-livelli.title': 'Schweizer Steuerstruktur: Ebenen, Behörden und Sozialabgaben',
     'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'Das Schweizer Steuersystem funktioniert auf drei Ebenen. Die ESTV/AFC verwaltet die direkte Bundessteuer und die Mehrwertsteuer.',
     'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.iniziativa-congedo-parentale-riuscita.title': 'Erfolgreiche Initiative für 18 Wochen Elternurlaub',
+    'blog.article.iniziativa-congedo-parentale-riuscita.excerpt': 'Der Vorschlag, Müttern und Vätern 18 Wochen Elternurlaub zu garantieren, erhielt am 30. September die offizielle Bestätigung seines Erfolgs.',
+    'blog.article.iniziativa-congedo-parentale-riuscita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
