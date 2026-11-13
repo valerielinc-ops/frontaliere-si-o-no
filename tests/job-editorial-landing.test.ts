@@ -135,7 +135,7 @@ describe('jobEditorialLanding', () => {
       const common = {
         jobs,
         locale,
-        now: '2026-03-09T10:00:00.000+01:00',
+        now: new Date().toISOString(),
         localizedSlug: (item: Record<string, unknown>) => String(item.slug),
         baseUrl: 'https://frontaliereticino.ch',
         sectionSlug: 'jobs-in-aargau',
