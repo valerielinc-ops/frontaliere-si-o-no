@@ -524,7 +524,7 @@ describe('the same grammar on the canonical consent path', () => {
     const plan = guardPlan({ actions: [], missingRequired: [] }, [field], candidate);
     return {
       own: ownConsent(field),
-      mandated: plan.actions.some((action: any) => action.action === 'check' && action.source === 'consent'),
+      mandated: plan.actions.some((action: any) => action.action === 'check' && ['consent', 'policy_default'].includes(action.source)),
       asked: plan.missingRequired.length,
     };
   };
