@@ -234,24 +234,29 @@ describe('a portal’s reminder of an application started and not sent', () => {
   });
 });
 
-describe('what still reaches the candidate', () => {
+describe('which content is forwarded to the candidate', () => {
   it.each([
-    ['a recruiter’s document request with a contact person', 'Bewerbung', 'Guten Tag\n\nBitte vervollständigen Sie Ihre Bewerbung und laden Sie Ihre Arbeitszeugnisse hoch.\n\nFreundliche Grüsse\nErika Beispiel, HR Business Partner, +41 00 000 00 00', { category: 'documents_request', requestedDocuments: ['Arbeitszeugnisse'] }],
-    ['a document request inside the reminder sentence', 'Candidatura', 'Per completare la candidatura La preghiamo di inviarci il suo certificato di lavoro.', { category: 'documents_request' }],
-    ['an interview invitation', 'Your application', 'Your application is incomplete. We would nonetheless like to invite you to an interview on Monday, 14 December at 10:00.', { category: 'interview_invite', interviewWhen: 'Monday, 14 December, 10:00' }],
-    ['an assessment', 'Your application', 'Please complete your application by completing the online test within five days.', { category: 'assessment' }],
-    ['a question for the candidate', 'Your application', 'Your application is incomplete. Are you available for a call next week?', {}],
-    ['a request to call back', 'Ihre Bewerbung', 'Ihre Bewerbung ist noch unvollständig. Bitte rufen Sie mich zurück.\n\nErika Beispiel', {}],
-    ['a redirect to the employer’s portal', 'Your application', 'Thank you for your interest. Please submit your application through our online portal.', {}],
-    ['a general rule about incomplete applications', 'Hinweis', 'Unvollständige Bewerbungen werden nicht berücksichtigt.', {}],
-    ['a human receipt without a candidate action', 'Ihre Bewerbung', 'Vielen Dank für Ihre Bewerbung. Wir haben Ihre Bewerbung erhalten.', { category: 'auto_acknowledgement', needsReply: false }],
-  ])('%s', async (_name, subject, text, model) => {
+    ['a recruiter’s document request with a contact person', 'Bewerbung', 'Guten Tag\n\nBitte vervollständigen Sie Ihre Bewerbung und laden Sie Ihre Arbeitszeugnisse hoch.\n\nFreundliche Grüsse\nErika Beispiel, HR Business Partner, +41 00 000 00 00', { category: 'documents_request', requestedDocuments: ['Arbeitszeugnisse'] }, true],
+    ['a document request inside the reminder sentence', 'Candidatura', 'Per completare la candidatura La preghiamo di inviarci il suo certificato di lavoro.', { category: 'documents_request' }, true],
+    ['an interview invitation', 'Your application', 'Your application is incomplete. We would nonetheless like to invite you to an interview on Monday, 14 December at 10:00.', { category: 'interview_invite', interviewWhen: 'Monday, 14 December, 10:00' }, true],
+    ['an assessment', 'Your application', 'Please complete your application by completing the online test within five days.', { category: 'assessment' }, true],
+    ['a question for the candidate', 'Your application', 'Your application is incomplete. Are you available for a call next week?', {}, true],
+    ['a request to call back', 'Ihre Bewerbung', 'Ihre Bewerbung ist noch unvollständig. Bitte rufen Sie mich zurück.\n\nErika Beispiel', {}, true],
+    ['a redirect to the employer’s portal', 'Your application', 'Thank you for your interest. Please submit your application through our online portal.', {}, true],
+    ['a general rule about incomplete applications', 'Hinweis', 'Unvollständige Bewerbungen werden nicht berücksichtigt.', { needsReply: false }, false],
+    ['a human receipt without a candidate action', 'Ihre Bewerbung', 'Vielen Dank für Ihre Bewerbung. Wir haben Ihre Bewerbung erhalten.', { category: 'auto_acknowledgement', needsReply: false }, false],
+  ])('%s', async (_name, subject, text, model, shouldForward) => {
     expect(remindsOf(mail({ subject, text }), answer(model))).toBe(false);
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject, text }), model: answer(model) });
     expect(inbox.portalApplicationReminder).toBeUndefined();
-    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
-    expect(sendCascade).not.toHaveBeenCalled();
+    if (shouldForward) {
+      expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    } else {
+      expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
+      expect(sendCascade).not.toHaveBeenCalled();
+    }
     expect(events(store)).toEqual([]);
   });
 

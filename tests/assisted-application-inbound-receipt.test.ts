@@ -324,7 +324,7 @@ describe('owner review of an unclassified automated message', () => {
     expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 
-  it('forwards a clearly classified candidate question even when sent automatically', async () => {
+  it('keeps an automatically sent candidate question in the concierge', async () => {
     const { store, alias } = await setup();
     const text = 'Sind Sie ab Januar verfügbar?';
     const { inbox, sendCascade } = await deliver({
@@ -332,8 +332,8 @@ describe('owner review of an unclassified automated message', () => {
       raw: mail({ from: 'Notifications <notifications@stelle.example.test>', text, headers: ['Auto-Submitted: auto-generated'] }),
       model: answer({ category: 'question', needsReply: true }),
     });
-    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('uses deterministic document requests to resolve an automated `other` message', async () => {

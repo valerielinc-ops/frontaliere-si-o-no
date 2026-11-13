@@ -1136,10 +1136,12 @@ const CANDIDATE_ACTION_CATEGORIES = new Set(['interview_invite', 'rejection', 'o
 function candidateForwardAllowed(message, classification) {
   if (CANDIDATE_ACTION_CATEGORIES.has(classification.category)) return true;
   const rules = readByRules(message);
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
   if (CANDIDATE_ACTION_CATEGORIES.has(rules.category)
-    || [...sentencesOf(rules.subject), ...sentencesOf(rules.text)].some((sentence) => changesInterview(sentence) || checksInterviewDetails(sentence))) return true;
+    || sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+      || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || checksInterviewDetails(sentence))) return true;
   if (rules.category === 'verification') return false;
-  if (classification.category === 'question' && classification.needsReply === true) return true;
+  if (classification.category === 'question' && classification.needsReply === true && !automatedMessage(message)) return true;
   if (rules.category === 'auto_acknowledgement') return false;
   return classification.category === 'other' && classification.needsReply === true && !automatedMessage(message);
 }
@@ -1378,6 +1380,7 @@ export async function forwardAssistedApplicationInboundByOwner({ db, bucket, ord
   const ref = orderRef.collection('inbox').doc(messageId);
   let result = null;
   await db.runTransaction(async (transaction) => {
+    result = null;
     const snapshot = await transaction.get(ref);
     const current = snapshot.data();
     const delivery = current?.forwardDelivery || {};
@@ -1547,7 +1550,7 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
         : applicationReminder
         ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
-        : recorded.category === 'verification'
+        : recorded.category === 'verification' && !mayForwardToCandidate
         ? { status: 'skipped', reason: 'account_verification', attempts: 0, lastError: null }
         : ownerReviewRequired
         ? { status: 'skipped', reason: 'owner_review', attempts: 0, lastError: null }
