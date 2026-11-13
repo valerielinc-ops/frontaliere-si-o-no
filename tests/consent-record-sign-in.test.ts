@@ -413,7 +413,7 @@ describe('jobgate-v4: a social login from the gate carries the arm, like the ema
     expect(auth.jobGateSubscriberVariantFor(
       { ...enrolledContext, experimentId: 'jobgate-v6', variant: 'control' },
       'job_gate',
-    )).toBeNull();
+    )).toBe('jobgate-v6:control');
     expect(auth.jobGateSubscriberVariantFor(null, 'job_gate')).toBeNull();
   });
 });
