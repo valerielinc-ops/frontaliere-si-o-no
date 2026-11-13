@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-13T14:41:14.699Z",
+  "updatedAt": "2026-11-13T14:43:16.593Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -129218,12 +129218,12 @@
     },
     "averecura@uetikon-am-see": {
       "key": "averecura@uetikon-am-see",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-25T04:11:19.634Z",
-      "updatedAt": "2026-11-12T14:23:34.105Z",
+      "updatedAt": "2026-11-13T14:43:16.457Z",
       "name": "averecura holding ag",
       "city": "Uetikon am See",
       "zip": "8707",
@@ -129469,7 +129469,13 @@
         }
       ],
       "promotionPr": "18328",
-      "promotionBranch": "prospector/promote-2026-11-12"
+      "promotionBranch": "prospector/promote-2026-11-12",
+      "promotedAt": "2026-11-12T19:04:26Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-13T09:27:59.756Z",
+      "firstCrawlerJobCount": 1
     },
     "averio.ch": {
       "key": "averio.ch",
@@ -148086,12 +148092,12 @@
     },
     "bank-slm@munsingen": {
       "key": "bank-slm@munsingen",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.360Z",
-      "updatedAt": "2026-11-12T14:23:34.104Z",
+      "updatedAt": "2026-11-13T14:43:16.457Z",
       "name": "Bank SLM AG",
       "city": "Münsingen",
       "zip": "3110",
@@ -148792,7 +148798,13 @@
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
       "emailDomainHints": [],
       "promotionPr": "18328",
-      "promotionBranch": "prospector/promote-2026-11-12"
+      "promotionBranch": "prospector/promote-2026-11-12",
+      "promotedAt": "2026-11-12T19:04:26Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "bank-zimmerberg@horgen": {
       "key": "bank-zimmerberg@horgen",
@@ -1346657,7 +1346669,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-12T14:23:03.380Z",
+      "updatedAt": "2026-11-13T14:43:16.458Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1347257,7 +1347269,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-12T09:38:59.690Z",
+      "firstCrawlerOutputAt": "2026-11-13T09:37:20.401Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
