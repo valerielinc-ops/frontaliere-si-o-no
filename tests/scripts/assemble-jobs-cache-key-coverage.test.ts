@@ -14,8 +14,8 @@
  * It also pins the workflow side: every workflow that caches the assembler's
  * output keys actions/cache on the script's own `--print-cache-key` (through
  * .github/actions/assemble-jobs-cache-key; no second, weaker hashFiles()
- * definition), the send-* ones without a restore-keys fallback, and the
- * newsletter no longer turns a failed assembly into a green step with `|| echo`.
+ * definition), none uses a prefix restore, tests/deploy save completed
+ * snapshots explicitly, and the newsletter keeps assembly failures visible.
  */
 import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
@@ -140,13 +140,12 @@ describe('workflows key the assemble-jobs cache on the assembler fingerprint', (
     );
     expect(action).toContain('node scripts/assemble-jobs-dataset.mjs --print-cache-key $ASSEMBLE_ARGS');
     // Only a well-formed key reaches the output; anything else leaves it empty.
-    expect(action).toContain("grep -Eq '^[0-9a-f]{16}_[a-z_]+$'");
+    expect(action).toContain("grep -Eq '^[0-9a-f]{64}_[a-z_]+$'");
   });
 
-  // Every workflow that caches .cache/assemble-jobs. A hashFiles() over a subset
-  // of the inputs gives an exact actions/cache hit on a directory whose
-  // internal key no longer matches: the script re-assembles and the save is
-  // skipped because the key exists, run after run.
+  // Every workflow that caches .cache/assemble-jobs. Prefix restores can only
+  // download snapshots for another input hash; the assembler must reject them
+  // and rebuild, so every workflow must request an exact key only.
   const CACHING = [
     'deploy.yml',
     'tests.yml',
@@ -157,6 +156,15 @@ describe('workflows key the assemble-jobs cache on the assembler fingerprint', (
     'send-company-alerts.yml',
     'send-saved-jobs-digest.yml',
     'send-newsletter.yml',
+    'send-application-intent-reminders.yml',
+    'linkedin-member-daily.yml',
+    'live-data-gates.yml',
+    'og-jobs-cache-prewarm.yml',
+    'reddit-jobs-daily-schedule.yml',
+    'telegram-channel-broadcast.yml',
+    'fb-jobs-daily-schedule.yml',
+    'instagram-daily-broadcast.yml',
+    'tiktok-daily-broadcast.yml',
   ];
   for (const wf of CACHING) {
     it(`${wf}: the key comes from the assembler, never from hashFiles()`, () => {
@@ -168,6 +176,17 @@ describe('workflows key the assemble-jobs cache on the assembler fingerprint', (
         expect(line).toContain('steps.assemble_cache_key.outputs.key');
         expect(line).not.toContain('hashFiles(');
       }
+      expect(src).not.toMatch(/restore-keys:[^\n]*\n\s*assemble-jobs-[^\n]*/);
+    });
+  }
+
+  for (const wf of ['tests.yml', 'deploy.yml']) {
+    it(`${wf}: saves an assembled exact snapshot independently of later failures`, () => {
+      const src = readWf(wf);
+      expect(src).toContain('uses: actions/cache/restore@v6');
+      expect(src).toContain('uses: actions/cache/save@v6');
+      expect(src).toMatch(/Save assemble-jobs cache\n\s*if:.*steps\.assemble_jobs\.outcome == 'success'/);
+      expect(src).toMatch(/- name: Cache assemble-jobs output\n\s*id: assemble_cache/);
     });
   }
 

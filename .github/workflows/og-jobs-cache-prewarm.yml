@@ -92,8 +92,6 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
 
       - name: Assemble deploy job dataset
         run: node scripts/assemble-jobs-dataset.mjs --stats

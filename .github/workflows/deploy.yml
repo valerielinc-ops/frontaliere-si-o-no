@@ -339,15 +339,22 @@ jobs:
         with:
           args: --stats
       - name: Cache assemble-jobs output
+        id: assemble_cache
         if: steps.assemble_cache_key.outputs.key != ''
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
       - name: Assemble jobs dataset from per-crawler slices
+        id: assemble_jobs
         run: node scripts/assemble-jobs-dataset.mjs --stats
+      - name: Save assemble-jobs cache
+        if: ${{ steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
       - name: Active-jobs regression check
         # Block deploy if active jobs dropped >25% vs baseline. Catches mass
         # job loss that slips past the assemble hard-fail (crawler outages,
