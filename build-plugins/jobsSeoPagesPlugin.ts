@@ -80,7 +80,11 @@ import {
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { hasClusterStopwordLead } from './shared/searchSlugStopwords';
 import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
-import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
+import {
+ isPaginationNoindex,
+ isPaginationSitemapEligible,
+ pushPaginationSitemapEntry,
+} from './shared/paginationIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -9263,7 +9267,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -9409,7 +9417,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  }

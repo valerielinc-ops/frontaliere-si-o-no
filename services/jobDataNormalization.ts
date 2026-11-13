@@ -250,10 +250,12 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  // #6504 residual: the official site exposes only a small favicon; this is
  // the published Imerys mark from the company-origin Commons file.
  'favresa-ch': 'https://www.favresa.ch/content/files/images/logos/logos/fsa-cdff-cfr-logo.svg',
+ 'fixit-ch': 'https://www.fixit.ch/_assets/bd57d1d19f854a7c5ab0e8585adcd1fe/Favicons/fixit/ch/apple-touch-icon.1794349594.png',
  'fondazione-san-gottardo': cLogo('fsangottardo.ch'),
  'freestarinformatik': 'https://www.freestarinformatik.ch/favicon.ico',
  'grund-ag-ch': 'https://grund-ag.ch/wp-content/uploads/2022/11/cropped-FAVICON-192x192.png',
  'hanseisenring': 'https://hanseisenring.ch/favicon-96x96.png',
+ 'heini-ch-heini-ch': 'https://cdn.webshopapp.com/shops/292421/themes/169587/v/2584380/assets/favicon.ico?20250307123549',
  'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
  'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
  'fart': gFavicon('fartiamo.ch'),
@@ -548,6 +550,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'staubli': cLogo('staubli.com'),
  'stgag': cLogo('stgag.ch'),
  'stiftung-diaconis': cLogo('diaconis.ch'),
+ 'stiftung-ilgenhalde': 'https://stiftungilgenhalde.ch/wp-content/themes/indy-ilgenhalde/assets/favicons/apple-touch-icon.png',
  'stiftung-kind-autismus': cLogo('kind-autismus.ch'),
  'straumann': cLogo('straumann.com'),
  'stryker': cLogo('stryker.com'),

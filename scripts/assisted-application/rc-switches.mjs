@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * rc-switches.mjs — read and set the three Remote Config switches of the
- * assisted application: the PDF renderer, one dossier or separate files, the
- * candidate's own DOCX as a third CV choice.
+ * rc-switches.mjs — read and set the Remote Config switches of the assisted
+ * application: PDF rendering, dossier layout, candidate DOCX use, and agent
+ * navigation.
  *
- * Touches ONLY those three parameters. Of a switch that exists it replaces the
+ * Touches ONLY those parameters. Of a switch that exists it replaces the
  * top-level default value and nothing else: what the parameter has (conditional
  * values, description, type) stays, and nothing it lacks is added. The rest of
  * the template (other parameters, conditions, groups) goes back as it was read.
@@ -38,6 +38,7 @@ import { INPLACE_KEY, docxInPlaceMode } from '../../functions/src/assistedApplic
 import { RENDERER_KEY, pdfRendererMode } from '../../functions/src/assistedApplicationPdfRenderer.js';
 import { stageRcParamValue, updateRcTemplateWithEtag } from '../lib/remote-config-admin.mjs';
 import { DOSSIER_KEY, dossierMode } from './lib/dossier.mjs';
+import { AGENT_NAVIGATION_KEY, agentNavigationEnabled } from './lib/portal/agent.mjs';
 
 export const RC_PROJECT_ID = 'frontaliere-ticino';
 
@@ -63,6 +64,11 @@ export const RC_SWITCHES = {
     description: '"on" writes the adapted lines into the candidate\'s own DOCX as a third CV choice (default: off).',
     values: ['off', 'on'],
     read: (value) => docxInPlaceMode({ env: { [INPLACE_KEY]: value } }),
+  },
+  [AGENT_NAVIGATION_KEY]: {
+    description: '"off" restores the legacy single-page assisted-application fallback (default: on).',
+    values: ['on', 'off'],
+    read: (value) => agentNavigationEnabled({ [AGENT_NAVIGATION_KEY]: value }) ? 'on' : 'off',
   },
 };
 

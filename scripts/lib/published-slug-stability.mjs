@@ -43,11 +43,15 @@
  */
 
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
-import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardSections.mjs';
-import { createRequire } from 'node:module';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardCompanyHubPath.mjs';
+import {
+  createJobBoardDetailPathMatcher,
+  parseJobBoardDetailPath,
+} from './job-board-detail-path-core.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
@@ -57,6 +61,18 @@ import {
 const DEFAULT_LEDGER_PATH = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data', 'url-first-seen.json',
 );
+const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
+let jobBoardDetailPathMatcher;
+
+function getJobBoardDetailPathMatcher() {
+  if (!jobBoardDetailPathMatcher) {
+    jobBoardDetailPathMatcher = createJobBoardDetailPathMatcher({
+      cantonSlugFile: readJsonFile(path.join(DATA_DIR, 'canton-url-slugs.json')),
+      municipalitiesFile: readJsonFile(path.join(DATA_DIR, 'canton-municipalities.json')),
+    });
+  }
+  return jobBoardDetailPathMatcher;
+}
 
 /**
  * An agency job held for translation is not published, and translate-pending
@@ -178,19 +194,18 @@ export function loadServedSlugLedger() {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
     throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but not a path → date object`);
   }
-  // Only job DETAIL routes enter the index: the shared positive predicate
-  // (`isJobBoardDetailPath`: job-board section + one segment, city hubs of
-  // every canton excluded) minus company hubs, which that predicate leaves to
-  // its callers. Lookups are then by the job's exact canonical paths
-  // (`jobDetailPathsFor`), never by the last segment alone.
-  // Loaded only once a ledger exists: job-board-detail-path.mjs imports the
-  // canton/city data files at module load, and the slug writers that import
-  // this module also run in sparse checkouts without the ledger.
-  const { isJobBoardDetailPath } = createRequire(import.meta.url)('./job-board-detail-path.mjs');
+  // Only job DETAIL routes enter the index. The parser validates the route
+  // shape, the data-backed matcher rejects unknown sections and city hubs, and
+  // the company matcher removes company pages. Keep the complete normalized
+  // path as the key so lookups compare the route emitted for this job.
   const index = new Map();
   for (const [urlPath, date] of Object.entries(raw)) {
     const key = normalizeServedPath(urlPath);
-    if (!isJobBoardDetailPath(key) || JOB_BOARD_COMPANY_HUB_PATH_RX.test(key.toLowerCase())) continue;
+    if (
+      !parseJobBoardDetailPath(key)
+      || JOB_BOARD_COMPANY_HUB_PATH_RX.test(key.toLowerCase())
+      || !getJobBoardDetailPathMatcher()(key)
+    ) continue;
     const prev = index.get(key);
     if (!prev || String(date) < prev) index.set(key, String(date));
   }

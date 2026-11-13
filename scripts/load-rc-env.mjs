@@ -182,6 +182,8 @@ export const RC_TO_ENV = {
   ASSISTED_APPLICATION_DOSSIER_MODE: ['ASSISTED_APPLICATION_DOSSIER_MODE'],
   // "on" writes the adapted lines into the candidate's own DOCX as a third CV choice (default: off).
   ASSISTED_APPLICATION_DOCX_INPLACE: ['ASSISTED_APPLICATION_DOCX_INPLACE'],
+  // "off" restores the legacy single-page assisted-application fallback (default: on).
+  ASSISTED_APPLICATION_AGENT_NAVIGATION: ['ASSISTED_APPLICATION_AGENT_NAVIGATION'],
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —
@@ -647,6 +649,7 @@ export const PLAIN_WORD_RC_KEYS = new Set([
   'ASSISTED_APPLICATION_PDF_RENDERER',
   'ASSISTED_APPLICATION_DOSSIER_MODE',
   'ASSISTED_APPLICATION_DOCX_INPLACE',
+  'ASSISTED_APPLICATION_AGENT_NAVIGATION',
   'TIKTOK_VIDEO_CREATIVE_MODE',
 ]);
 

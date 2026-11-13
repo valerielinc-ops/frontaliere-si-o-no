@@ -28,6 +28,9 @@ export const INTERNEZZO_AG_COMPANY_NAME = 'Internezzo AG';
 export const INTERNEZZO_AG_COMPANY_DOMAIN = 'link.ostendis.com';
 
 const CAREER_URL = 'https://link.ostendis.com/publication/buchhaltungs-und-office-allrounder-in/b5iri3n0gom4x6gveta6dkaeckzck3p6ydjk6cporphkjkgqt30kpdiz660qdab3';
+const INTERNEZZO_AG_PUBLICATION_PATH = new URL(CAREER_URL).pathname
+  .replace(/\/+$/, '')
+  .toLowerCase();
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +40,16 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isInternezzoAgPublicationUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    return url.hostname.toLowerCase() === INTERNEZZO_AG_COMPANY_DOMAIN
+      && url.pathname.replace(/\/+$/, '').toLowerCase() === INTERNEZZO_AG_PUBLICATION_PATH;
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -52,13 +65,12 @@ export function isInternezzoAgJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === INTERNEZZO_AG_KEY ||
     key.startsWith('internezzo-ag-') ||
     company.includes('internezzo ag') ||
-    url.includes('link.ostendis.com')
+    isInternezzoAgPublicationUrl(job?.url)
   );
 }
 
