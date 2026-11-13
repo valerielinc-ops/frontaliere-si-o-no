@@ -832,6 +832,48 @@ function isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, { re
 }
 
 /**
+ * Resolve the assembled record that SURVIVED a proven cross-crawler dedup.
+ *
+ * The same two pieces of evidence that prove the removal name the survivor:
+ * the run-bound cleanup-jobs decision records it as `retainedJob`, and the
+ * title+company+location fallback points at the reference record with that
+ * key. The answer is a single record or `null` — never a guess: two reference
+ * records sharing the key are distinct postings, and handing the pruned
+ * routes to the wrong one would 301 an indexed URL to another vacancy.
+ *
+ * Returns a function `(filePath, removedJob) => survivor | null` so the
+ * reference indexes are built once per prune run, not once per removed job.
+ */
+export function createCrossCrawlerDedupSurvivorResolver(referenceJobs) {
+  const evidence = crossCrawlerDedupEvidence(referenceJobs);
+  const reference = Array.isArray(evidence.reference) ? evidence.reference : [];
+  const proofEntries = Array.isArray(evidence.proof?.entries) ? evidence.proof.entries : [];
+  const byIdentity = new Map();
+  const byKey = new Map();
+  const index = (map, key, job) => {
+    if (!key) return;
+    const list = map.get(key);
+    if (list) list.push(job);
+    else map.set(key, [job]);
+  };
+  for (const job of reference) {
+    index(byIdentity, jobIdentity(job), job);
+    index(byKey, titleCompanyLocationKey(job), job);
+  }
+  const single = (list) => (Array.isArray(list) && list.length === 1 ? list[0] : null);
+
+  return (filePath, removedJob) => {
+    if (!isProvenCrossCrawlerDedupRemovalWithEvidence(filePath, removedJob, evidence)) return null;
+    const decision = proofEntries.find((entry) => isValidCrossCrawlerDedupEntry(entry, removedJob));
+    if (decision) {
+      const retained = single(byIdentity.get(jobIdentity(decision.retainedJob)));
+      if (retained) return retained;
+    }
+    return single(byKey.get(titleCompanyLocationKey(removedJob)));
+  };
+}
+
+/**
  * Prove the assembler's expired-ghost cleanup before allowing a large archive
  * shrink. The proof is tied to the exact entries being removed: every removed
  * entry must be named by the reconciler and independently match an active job

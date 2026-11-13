@@ -1888,12 +1888,12 @@
     },
     {
       "id": "spital-davos-8d93c3f7be28",
-      "slug": "apprendistato-entwickler-in-digitales-business-o-informatiker-in-cfc-spital-davos",
+      "slug": "posto-di-apprendistato-come-sviluppatore-trice-di-business-digitale-o-informatico-a-efz-spital-davos-davos",
       "slugByLocale": {
         "de": "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch",
-        "it": "apprendistato-entwickler-in-digitales-business-o-informatiker-in-cfc-spital-davos",
-        "en": "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch",
-        "fr": "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch"
+        "it": "posto-di-apprendistato-come-sviluppatore-trice-di-business-digitale-o-informatico-a-efz-spital-davos-davos",
+        "en": "apprenticeship-position-digital-business-developer-or-it-specialist-efz-spital-davos-davos",
+        "fr": "place-d-apprentissage-de-developpeur-euse-en-business-numerique-ou-d-informaticien-ne-cfc-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1942,11 +1942,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch",
+          "apprendistato-entwickler-in-digitales-business-o-informatiker-in-cfc-spital-davos"
+        ],
+        "en": [
+          "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch"
+        ],
+        "fr": [
           "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch"
+        "lehrstelle-entwickler-in-digitales-business-oder-informatiker-in-efz-spital-davos-ch",
+        "apprendistato-entwickler-in-digitales-business-o-informatiker-in-cfc-spital-davos"
       ],
       "salaryMin": 54000,
       "salaryMax": 91500,

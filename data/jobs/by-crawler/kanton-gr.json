@@ -877,12 +877,12 @@
     },
     {
       "id": "kanton-gr-4a06ff8e6fc4",
-      "slug": "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis",
+      "slug": "addetto-a-alla-manutenzione-stradale-nel-team-di-pulizia-delle-gallerie-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
         "de": "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch",
-        "it": "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis",
-        "en": "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis",
-        "fr": "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis"
+        "it": "addetto-a-alla-manutenzione-stradale-nel-team-di-pulizia-delle-gallerie-kantonale-verwaltung-graubunden-thusis",
+        "en": "road-maintenance-worker-in-the-tunnel-cleaning-team-kantonale-verwaltung-graubunden-thusis",
+        "fr": "agent-e-d-entretien-routier-au-sein-de-l-equipe-de-nettoyage-des-tunnels-kantonale-verwaltung-graubunden-thusis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -934,11 +934,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch"
+          "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch",
+          "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis"
+        ],
+        "en": [
+          "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis"
+        ],
+        "fr": [
+          "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis"
         ]
       },
       "previousSlugs": [
-        "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch"
+        "strassenwart-in-im-team-tunnelreinigung-kanton-gr-ch",
+        "strassenwart-in-im-team-tunnelreinigung-kantonale-verwaltung-graubunden-thusis"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -962,12 +970,12 @@
     },
     {
       "id": "kanton-gr-8b000fd4617e",
-      "slug": "strassenwart-in-kanton-gr-ch",
+      "slug": "addetto-a-alla-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
         "de": "strassenwart-in-kanton-gr-ch",
-        "it": "strassenwart-in-kanton-gr-ch",
-        "en": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "it": "addetto-a-alla-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
+        "en": "road-maintenance-worker-kantonale-verwaltung-graubunden-ilanz",
+        "fr": "cantonnier-ere-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1035,16 +1043,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T21:20:41.375Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:17:53.019Z"
+      "firstSeenAt": "2026-11-06T21:17:53.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "en": [
+          "strassenwart-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "strassenwart-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwart-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-f24a80d0ba68",
-      "slug": "handwerker-in-elektro-kanton-gr-ch",
+      "slug": "artigiano-a-elettricita-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
         "de": "handwerker-in-elektro-kanton-gr-ch",
-        "it": "handwerker-in-elektro-kanton-gr-ch",
-        "en": "handwerker-in-elektro-kanton-gr-ch",
-        "fr": "handwerker-in-elektro-kanton-gr-ch"
+        "it": "artigiano-a-elettricita-kantonale-verwaltung-graubunden-thusis",
+        "en": "tradesperson-electrical-kantonale-verwaltung-graubunden-thusis",
+        "fr": "artisan-e-electricite-kantonale-verwaltung-graubunden-thusis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1112,16 +1134,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:20:40.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:40.666Z"
+      "firstSeenAt": "2026-11-12T21:20:40.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handwerker-in-elektro-kanton-gr-ch"
+        ],
+        "en": [
+          "handwerker-in-elektro-kanton-gr-ch"
+        ],
+        "fr": [
+          "handwerker-in-elektro-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "handwerker-in-elektro-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-30078dac0b27",
-      "slug": "candidato-a-in-riqualificazione-in-come-bauleiter-in-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "persona-proveniente-da-un-altro-settore-come-direttore-direttrice-dei-lavori-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
         "de": "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch",
-        "it": "candidato-a-in-riqualificazione-in-come-bauleiter-in-kantonale-verwaltung-graubunden-ilanz",
-        "en": "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch",
-        "fr": "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch"
+        "it": "persona-proveniente-da-un-altro-settore-come-direttore-direttrice-dei-lavori-kantonale-verwaltung-graubunden-ilanz",
+        "en": "career-changer-as-construction-manager-kantonale-verwaltung-graubunden-ilanz",
+        "fr": "personne-en-reconversion-professionnelle-comme-conducteur-trice-de-travaux-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1173,11 +1209,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch",
+          "candidato-a-in-riqualificazione-in-come-bauleiter-in-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "en": [
+          "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch"
+        ],
+        "fr": [
           "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch"
+        "quereinsteiger-in-als-bauleiter-in-kanton-gr-ch",
+        "candidato-a-in-riqualificazione-in-come-bauleiter-in-kantonale-verwaltung-graubunden-ilanz"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1201,12 +1245,12 @@
     },
     {
       "id": "kanton-gr-edafe014f92d",
-      "slug": "jurist-in-rechtsdienst-kanton-gr-ch",
+      "slug": "giurista-del-servizio-giuridico-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "jurist-in-rechtsdienst-kanton-gr-ch",
-        "it": "jurist-in-rechtsdienst-kanton-gr-ch",
-        "en": "jurist-in-rechtsdienst-kanton-gr-ch",
-        "fr": "jurist-in-rechtsdienst-kanton-gr-ch"
+        "it": "giurista-del-servizio-giuridico-kantonale-verwaltung-graubunden-chur",
+        "en": "legal-officer-legal-services-kantonale-verwaltung-graubunden-chur",
+        "fr": "juriste-au-service-juridique-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1274,7 +1318,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:20:38.369Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:38.369Z"
+      "firstSeenAt": "2026-11-12T21:20:38.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-rechtsdienst-kanton-gr-ch"
+        ],
+        "en": [
+          "jurist-in-rechtsdienst-kanton-gr-ch"
+        ],
+        "fr": [
+          "jurist-in-rechtsdienst-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-rechtsdienst-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-76b57d5da90e",
@@ -1282,8 +1340,8 @@
       "slugByLocale": {
         "de": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg",
         "it": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-rheintal-schanfigg-kantonale-verwaltung-graubunden-chur",
-        "en": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg",
-        "fr": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg"
+        "en": "forestry-internship-at-the-office-for-forestry-and-natural-hazards-rheintal-schanfigg-region-kantonale-verwaltung",
+        "fr": "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-rheintal-schanfig-kantonale-verwaltung"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1336,6 +1394,12 @@
       "previousSlugsByLocale": {
         "it": [
           "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg"
+        ],
+        "en": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg"
+        ],
+        "fr": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-rheintal-schanfigg"
         ]
       },
       "previousSlugs": [
@@ -1367,8 +1431,8 @@
       "slugByLocale": {
         "de": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
         "it": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-mittelbunden-moesano-kantonale-verwaltung-graubunden-tiefencastel",
-        "en": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden",
-        "fr": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+        "en": "forestry-vocational-internship-at-the-office-for-forest-and-natural-hazards-central-grisons-moesano-region-kantonale",
+        "fr": "stage-en-foresterie-a-l-office-des-forets-et-des-risques-naturels-region-de-mittelbunden-moesano-kantonale-verwaltung"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1421,6 +1485,12 @@
       "previousSlugsByLocale": {
         "it": [
           "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+        ],
+        "en": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
+        ],
+        "fr": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-mittelbunden"
         ]
       },
       "previousSlugs": [
@@ -1452,8 +1522,8 @@
       "slugByLocale": {
         "de": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft",
         "it": "forstliches-berufspraktikum-beim-amt-per-wald-e-naturgefahren-region-herrschaft-prattigau-davos-kantonale-verwaltung-graubunden-landquart",
-        "en": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft",
-        "fr": "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft"
+        "en": "forestry-internship-at-the-office-for-forestry-and-natural-hazards-dominion-prettigau-davos-region-kantonale-verwaltung",
+        "fr": "stage-en-foresterie-a-l-office-for-forestry-and-natural-hazards-region-du-dominion-prettigau-davos-kantonale-verwaltung"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1506,6 +1576,12 @@
       "previousSlugsByLocale": {
         "it": [
           "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft"
+        ],
+        "en": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft"
+        ],
+        "fr": [
+          "forstliches-berufspraktikum-beim-amt-fur-wald-und-naturgefahren-region-herrschaft"
         ]
       },
       "previousSlugs": [
@@ -1533,12 +1609,12 @@
     },
     {
       "id": "kanton-gr-31fbe5952e8d",
-      "slug": "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis",
+      "slug": "addetto-a-all-amministrazione-e-ai-progetti-digitali-a-tempo-determinato-fino-al-31-12-2028-kantonale-verwaltung",
       "slugByLocale": {
         "de": "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kanton-gr-ch",
-        "it": "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis",
-        "en": "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis",
-        "fr": "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis"
+        "it": "addetto-a-all-amministrazione-e-ai-progetti-digitali-a-tempo-determinato-fino-al-31-12-2028-kantonale-verwaltung",
+        "en": "administrative-and-digital-projects-officer-fixed-term-until-31-december-2028-kantonale-verwaltung-graubunden-cazis",
+        "fr": "collaborateur-trice-administratif-ve-projets-numeriques-contrat-a-duree-determinee-jusqu-au-31-decembre-2028-kantonale"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1590,11 +1666,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kanton-gr-ch"
+          "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kanton-gr-ch",
+          "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kanton-gr-ch"
+        "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kanton-gr-ch",
+        "sachbearbeiter-in-administration-digitale-projekte-befristet-bis-31-12-2028-kantonale-verwaltung-graubunden-cazis"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1618,12 +1702,12 @@
     },
     {
       "id": "kanton-gr-ab58b05a170e",
-      "slug": "fachverantwortliche-r-rassismuspravention-e-diskriminierungsschutz-fachstelle-integration-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-della-prevenzione-del-razzismo-e-della-protezione-dalla-discriminazione-servizio-specializzato-per-l",
       "slugByLocale": {
         "de": "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle",
-        "it": "fachverantwortliche-r-rassismuspravention-e-diskriminierungsschutz-fachstelle-integration-kantonale-verwaltung-graubunden-chur",
-        "en": "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle",
-        "fr": "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle"
+        "it": "responsabile-della-prevenzione-del-razzismo-e-della-protezione-dalla-discriminazione-servizio-specializzato-per-l",
+        "en": "responsible-for-prevention-of-racism-and-protection-of-discrimination-integrating-department-kantonale-verwaltung",
+        "fr": "responsable-de-la-prevention-du-racisme-et-de-la-protection-de-la-discrimination-departement-d-integration-kantonale"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1675,11 +1759,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle",
+          "fachverantwortliche-r-rassismuspravention-e-diskriminierungsschutz-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle"
+        ],
+        "fr": [
           "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle"
+        "fachverantwortliche-r-rassismuspravention-und-diskriminierungsschutz-fachstelle",
+        "fachverantwortliche-r-rassismuspravention-e-diskriminierungsschutz-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1703,12 +1795,12 @@
     },
     {
       "id": "kanton-gr-2dbf7c12a71c",
-      "slug": "betreuer-in-haushandwerker-in-kanton-gr-ch",
+      "slug": "assistente-manutentore-trice-tuttofare-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "betreuer-in-haushandwerker-in-kanton-gr-ch",
-        "it": "betreuer-in-haushandwerker-in-kanton-gr-ch",
-        "en": "betreuer-in-haushandwerker-in-kanton-gr-ch",
-        "fr": "betreuer-in-haushandwerker-in-kanton-gr-ch"
+        "it": "assistente-manutentore-trice-tuttofare-kantonale-verwaltung-graubunden-chur",
+        "en": "supervisor-handyman-kantonale-verwaltung-graubunden-chur",
+        "fr": "accompagnateur-trice-ouvrier-ere-polyvalent-e-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1776,16 +1868,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:20:34.165Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:34.165Z"
+      "firstSeenAt": "2026-11-12T21:20:34.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuer-in-haushandwerker-in-kanton-gr-ch"
+        ],
+        "en": [
+          "betreuer-in-haushandwerker-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "betreuer-in-haushandwerker-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betreuer-in-haushandwerker-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-86666e517d91",
-      "slug": "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur",
+      "slug": "stage-di-scienza-presso-il-museo-dei-grigioni-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kanton-gr-ch",
-        "it": "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur",
-        "en": "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur",
-        "fr": "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
+        "it": "stage-di-scienza-presso-il-museo-dei-grigioni-kantonale-verwaltung-graubunden-chur",
+        "en": "science-internship-at-the-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur",
+        "fr": "stage-en-sciences-au-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1836,11 +1942,19 @@
       "pensum": "60-100%",
       "previousSlugsByLocale": {
         "it": [
-          "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kanton-gr-ch"
+          "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kanton-gr-ch",
+          "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kanton-gr-ch"
+        "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kanton-gr-ch",
+        "naturwissenschaftliches-praktikum-im-bundner-naturmuseum-chur-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3707,7 +3821,7 @@
       "slug": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
-        "en": "personnel-advisor-kantonale-verwaltung-graubunden-chur",
+        "en": "hr-consultant-kantonale-verwaltung-graubunden-chur",
         "de": "personalberater-in-kanton-gr-ch",
         "fr": "conseiller-conseillere-en-personnel-kantonale-verwaltung-graubunden-chur"
       },
@@ -3759,7 +3873,7 @@
       "previousSlugs": [
         "personalberater-in-kanton-gr-ch",
         "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "hr-consultant-kantonale-verwaltung-graubunden-chur"
+        "personnel-advisor-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3768,7 +3882,7 @@
         ],
         "en": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur",
-          "hr-consultant-kantonale-verwaltung-graubunden-chur"
+          "personnel-advisor-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur"

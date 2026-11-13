@@ -9046,12 +9046,12 @@
     },
     {
       "id": "upd-962a322d403e",
-      "slug": "fachfrau-fachmann-betreuung-cfc-come-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "operatrice-operatore-socioassistenziale-afc-come-supplente-nel-settore-dell-infanzia-universitare-psychiatrische-dienste",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-upd-munsingen",
-        "it": "fachfrau-fachmann-betreuung-cfc-come-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd",
-        "fr": "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd"
+        "it": "operatrice-operatore-socioassistenziale-afc-come-supplente-nel-settore-dell-infanzia-universitare-psychiatrische-dienste",
+        "en": "specialist-professional-support-efz-as-deputy-in-the-children-s-sector-universitare-psychiatrische-dienste-bern-upd",
+        "fr": "specialiste-soutien-professionnel-efz-comme-adjoint-dans-le-secteur-de-l-enfance-universitare-psychiatrische-dienste"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9100,11 +9100,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-upd-munsingen"
+          "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-upd-munsingen",
+          "fachfrau-fachmann-betreuung-cfc-come-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-upd-munsingen"
+        "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-upd-munsingen",
+        "fachfrau-fachmann-betreuung-cfc-come-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fachfrau-fachmann-betreuung-efz-als-stellvertretung-im-kinderbereich-universitare-psychiatrische-dienste-bern-upd"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9126,12 +9135,12 @@
     },
     {
       "id": "upd-32c7fb86cce5",
-      "slug": "forschungspraktikum-elipse-upd-bern",
+      "slug": "interno-di-ricerca-elipse-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "forschungspraktikum-elipse-upd-bern",
-        "it": "forschungspraktikum-elipse-upd-bern",
-        "en": "forschungspraktikum-elipse-upd-bern",
-        "fr": "forschungspraktikum-elipse-upd-bern"
+        "it": "interno-di-ricerca-elipse-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "research-internship-elipse-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-de-recherche-elipse-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9193,7 +9202,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:38:01.931Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:38:01.931Z"
+      "firstSeenAt": "2026-11-12T21:38:01.931Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungspraktikum-elipse-upd-bern"
+        ],
+        "en": [
+          "forschungspraktikum-elipse-upd-bern"
+        ],
+        "fr": [
+          "forschungspraktikum-elipse-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "forschungspraktikum-elipse-upd-bern"
+      ]
     },
     {
       "id": "upd-f9dc5c11f2cb",

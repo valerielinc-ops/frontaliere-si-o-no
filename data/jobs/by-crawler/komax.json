@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "komax-ef83748bba90",
-      "slug": "specialista-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-dierikon",
+      "slug": "specialista-export-internal-sales-parts-m-f-d-a-tempo-determinato-fino-alla-fine-del-2027-komax-dierikon",
       "slugByLocale": {
         "de": "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch",
-        "it": "specialista-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-dierikon",
+        "it": "specialista-export-internal-sales-parts-m-f-d-a-tempo-determinato-fino-alla-fine-del-2027-komax-dierikon",
         "en": "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch",
-        "fr": "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch"
+        "fr": "specialiste-export-et-ventes-internes-de-pieces-h-f-d-contrat-a-duree-determinee-jusqu-a-fin-2027-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -60,11 +60,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch",
+          "specialista-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-dierikon"
+        ],
+        "fr": [
           "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch"
         ]
       },
       "previousSlugs": [
-        "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch"
+        "specialist-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-ch",
+        "specialista-export-internal-sales-parts-m-w-d-befristet-bis-ende-2027-komax-dierikon"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -253,7 +258,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -304,7 +309,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -322,7 +328,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",

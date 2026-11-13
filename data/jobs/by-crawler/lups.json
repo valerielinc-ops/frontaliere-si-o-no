@@ -6335,12 +6335,12 @@
     },
     {
       "id": "lups-c007815329f6",
-      "slug": "assistenzarztin-w-m-d-60-100-lups-st-urban",
+      "slug": "assistente-medico-m-f-d-60-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "assistenzarztin-w-m-d-60-100-lups-st-urban",
-        "it": "assistenzarztin-w-m-d-60-100-lups-st-urban",
-        "en": "assistenzarztin-w-m-d-60-100-lups-st-urban",
-        "fr": "assistenzarztin-w-m-d-60-100-lups-st-urban"
+        "it": "assistente-medico-m-f-d-60-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "assistant-doctor-m-f-d-60-100-luzerner-psychiatrie-lups-st-urban",
+        "fr": "assistant-medecin-h-f-d-60-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6402,16 +6402,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:16:03.292Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:16:03.292Z"
+      "firstSeenAt": "2026-11-12T21:16:03.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-w-m-d-60-100-lups-st-urban"
+        ],
+        "en": [
+          "assistenzarztin-w-m-d-60-100-lups-st-urban"
+        ],
+        "fr": [
+          "assistenzarztin-w-m-d-60-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-w-m-d-60-100-lups-st-urban"
+      ]
     },
     {
       "id": "lups-d88bc9162094",
-      "slug": "psychologin-m-w-d-80-100-lups-wolhusen",
+      "slug": "psicologo-m-f-d-80-100-luzerner-psychiatrie-lups-wolhusen",
       "slugByLocale": {
         "de": "psychologin-m-w-d-80-100-lups-wolhusen",
-        "it": "psychologin-m-w-d-80-100-lups-wolhusen",
-        "en": "psychologin-m-w-d-80-100-lups-wolhusen",
-        "fr": "psychologin-m-w-d-80-100-lups-wolhusen"
+        "it": "psicologo-m-f-d-80-100-luzerner-psychiatrie-lups-wolhusen",
+        "en": "psychologist-m-f-d-80-100-luzerner-psychiatrie-lups-wolhusen",
+        "fr": "psychologue-h-f-d-80-100-luzerner-psychiatrie-lups-wolhusen"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6473,16 +6487,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:16:02.816Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:16:02.816Z"
+      "firstSeenAt": "2026-11-12T21:16:02.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-m-w-d-80-100-lups-wolhusen"
+        ],
+        "en": [
+          "psychologin-m-w-d-80-100-lups-wolhusen"
+        ],
+        "fr": [
+          "psychologin-m-w-d-80-100-lups-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-m-w-d-80-100-lups-wolhusen"
+      ]
     },
     {
       "id": "lups-c2382974fcc9",
-      "slug": "assistenzpsychologin-m-w-d-80-100-lups-st-urban",
+      "slug": "assistente-psicologo-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "assistenzpsychologin-m-w-d-80-100-lups-st-urban",
-        "it": "assistenzpsychologin-m-w-d-80-100-lups-st-urban",
-        "en": "assistenzpsychologin-m-w-d-80-100-lups-st-urban",
-        "fr": "assistenzpsychologin-m-w-d-80-100-lups-st-urban"
+        "it": "assistente-psicologo-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "assistant-psychologist-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "fr": "assistant-psychologue-h-f-d-80-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6544,7 +6572,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:16:02.386Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:16:02.386Z"
+      "firstSeenAt": "2026-11-12T21:16:02.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-m-w-d-80-100-lups-st-urban"
+        ],
+        "en": [
+          "assistenzpsychologin-m-w-d-80-100-lups-st-urban"
+        ],
+        "fr": [
+          "assistenzpsychologin-m-w-d-80-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-m-w-d-80-100-lups-st-urban"
+      ]
     }
   ]
 }

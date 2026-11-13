@@ -2415,12 +2415,12 @@
     },
     {
       "id": "novartis-911f654d9b55",
-      "slug": "global-head-global-clinical-supply-m-f-d-novartis-ch",
+      "slug": "alimentazione-clinica-globale-testa-globale-m-f-d-novartis-basel-city",
       "slugByLocale": {
         "en": "global-head-global-clinical-supply-m-f-d-novartis-ch",
-        "it": "global-head-global-clinical-supply-m-f-d-novartis-ch",
+        "it": "alimentazione-clinica-globale-testa-globale-m-f-d-novartis-basel-city",
         "de": "global-head-global-clinical-supply-m-f-d-novartis-ch",
-        "fr": "global-head-global-clinical-supply-m-f-d-novartis-ch"
+        "fr": "global-head-approvisionnement-clinique-mondial-h-f-d-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2483,7 +2483,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:31:48.981Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:31:48.981Z"
+      "firstSeenAt": "2026-11-12T21:31:48.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-head-global-clinical-supply-m-f-d-novartis-ch"
+        ],
+        "fr": [
+          "global-head-global-clinical-supply-m-f-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-head-global-clinical-supply-m-f-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-6bf026fcb434",

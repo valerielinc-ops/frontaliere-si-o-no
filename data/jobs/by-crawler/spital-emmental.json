@@ -5008,12 +5008,12 @@
     },
     {
       "id": "spital-emmental-b18e70fa2b95",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau",
+      "slug": "dipl-infermiera-in-cerca-di-pazienti-affetti-da-psichiatria-hf-fh-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau"
+        "it": "dipl-infermiera-in-cerca-di-pazienti-affetti-da-psichiatria-hf-fh-a-spital-emmental-langnau",
+        "en": "dipl-nurse-seeking-hf-fh-psychiatry-outpatient-a-spital-emmental-langnau",
+        "fr": "c-est-quoi-infirmiere-a-la-recherche-de-patients-externes-en-psychiatrie-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5081,7 +5081,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:35:11.593Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:35:11.593Z"
+      "firstSeenAt": "2026-11-12T21:35:11.593Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-psychiatrie-ambulant-aufsuchend-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-a9363638244c",

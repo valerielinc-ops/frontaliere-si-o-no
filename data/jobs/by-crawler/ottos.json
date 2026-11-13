@@ -4146,9 +4146,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4199,17 +4199,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -8532,12 +8533,12 @@
     },
     {
       "id": "ottos-6c7638ff5cc8",
-      "slug": "nachwuchskraft-come-abteilungsleiter-in-logistik-otto-s-ag-sursee",
+      "slug": "risorsa-junior-come-responsabile-del-reparto-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "nachwuchskraft-als-abteilungsleiter-in-logistik-ottos-sursee",
-        "it": "nachwuchskraft-come-abteilungsleiter-in-logistik-otto-s-ag-sursee",
-        "en": "nachwuchskraft-als-abteilungsleiter-in-logistik-otto-s-ag-sursee",
-        "fr": "nachwuchskraft-als-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        "it": "risorsa-junior-come-responsabile-del-reparto-logistica-otto-s-ag-sursee",
+        "en": "junior-professional-as-head-of-logistics-otto-s-ag-sursee",
+        "fr": "cadre-de-la-releve-en-tant-que-responsable-du-departement-logistique-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8590,11 +8591,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchskraft-als-abteilungsleiter-in-logistik-ottos-sursee"
+          "nachwuchskraft-als-abteilungsleiter-in-logistik-ottos-sursee",
+          "nachwuchskraft-come-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        ],
+        "en": [
+          "nachwuchskraft-als-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "nachwuchskraft-als-abteilungsleiter-in-logistik-otto-s-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "nachwuchskraft-als-abteilungsleiter-in-logistik-ottos-sursee"
+        "nachwuchskraft-als-abteilungsleiter-in-logistik-ottos-sursee",
+        "nachwuchskraft-come-abteilungsleiter-in-logistik-otto-s-ag-sursee",
+        "nachwuchskraft-als-abteilungsleiter-in-logistik-otto-s-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -9917,12 +9927,12 @@
     },
     {
       "id": "ottos-ae9b53c19e23",
-      "slug": "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee",
+      "slug": "vice-responsabile-del-reparto-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "stv-abteilungsleiter-in-logistik-ottos-sursee",
-        "it": "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee",
-        "en": "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee",
-        "fr": "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        "it": "vice-responsabile-del-reparto-logistica-otto-s-ag-sursee",
+        "en": "deputy-head-of-logistics-otto-s-ag-sursee",
+        "fr": "responsable-adjoint-e-du-departement-logistique-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9975,11 +9985,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "stv-abteilungsleiter-in-logistik-ottos-sursee"
+          "stv-abteilungsleiter-in-logistik-ottos-sursee",
+          "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        ],
+        "en": [
+          "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "stv-abteilungsleiter-in-logistik-ottos-sursee"
+        "stv-abteilungsleiter-in-logistik-ottos-sursee",
+        "stv-abteilungsleiter-in-logistik-otto-s-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

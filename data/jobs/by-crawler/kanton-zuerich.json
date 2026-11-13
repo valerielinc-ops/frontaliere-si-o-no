@@ -2985,8 +2985,8 @@
       "slugByLocale": {
         "de": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich",
         "it": "recruitment-coordinatore-befristet-per-6-monate-kantonale-verwaltung-zurich",
-        "en": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich",
-        "fr": "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        "en": "recruitment-coordinator-temporary-for-6-months-kantonale-verwaltung-zurich-zurich",
+        "fr": "coordinateur-coordinatrice-du-recrutement-contrat-a-duree-determinee-de-6-mois-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3038,6 +3038,12 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "recruitment-coordinator-befristet-fur-6-monate-kanton-zuerich-zurich"
         ]
       },
@@ -9369,7 +9375,7 @@
       "slug": "responsabile-specializzato-a-dei-workplace-services-80-100-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "responsabile-specializzato-a-dei-workplace-services-80-100-kantonale-verwaltung-zurich-zurich",
-        "en": "fachleiter-in-workplace-services-80-100-kanton-zuerich-zurich",
+        "en": "workplace-services-lead-80-100-kantonale-verwaltung-zurich-zurich",
         "de": "fachleiter-in-workplace-services-80-100-kanton-zuerich-zurich",
         "fr": "responsable-de-secteur-workplace-services-80-100-kantonale-verwaltung-zurich-zurich"
       },
@@ -9429,6 +9435,9 @@
           "fachleiter-in-workplace-services-kanton-zuerich-zurich"
         ],
         "fr": [
+          "fachleiter-in-workplace-services-80-100-kanton-zuerich-zurich"
+        ],
+        "en": [
           "fachleiter-in-workplace-services-80-100-kanton-zuerich-zurich"
         ]
       },
@@ -12814,12 +12823,12 @@
     },
     {
       "id": "kanton-zuerich-4885c8aba8c8",
-      "slug": "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "elettricista-industriale-tecnico-a-di-sistema-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "betriebselektriker-in-systemtechniker-in-kanton-zuerich-zurich",
-        "it": "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich",
-        "en": "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich"
+        "it": "elettricista-industriale-tecnico-a-di-sistema-kantonale-verwaltung-zurich-zurich",
+        "en": "industrial-electrician-systems-technician-kantonale-verwaltung-zurich-zurich",
+        "fr": "electricien-electricienne-d-exploitation-technicien-technicienne-systemes-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12871,11 +12880,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-systemtechniker-in-kanton-zuerich-zurich"
+          "betriebselektriker-in-systemtechniker-in-kanton-zuerich-zurich",
+          "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-in-systemtechniker-in-kanton-zuerich-zurich"
+        "betriebselektriker-in-systemtechniker-in-kanton-zuerich-zurich",
+        "betriebselektriker-in-systemtechniker-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -13729,12 +13746,12 @@
     },
     {
       "id": "kanton-zuerich-c09c0b1c7df1",
-      "slug": "studentische-mitarbeit-architektur-kanton-zuerich-zurich",
+      "slug": "architettura-della-collaborazione-degli-studenti-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-mitarbeit-architektur-kanton-zuerich-zurich",
-        "it": "studentische-mitarbeit-architektur-kanton-zuerich-zurich",
-        "en": "studentische-mitarbeit-architektur-kanton-zuerich-zurich",
-        "fr": "studentische-mitarbeit-architektur-kanton-zuerich-zurich"
+        "it": "architettura-della-collaborazione-degli-studenti-kantonale-verwaltung-zurich-zurich",
+        "en": "student-collaboration-architecture-kantonale-verwaltung-zurich-zurich",
+        "fr": "architecture-de-collaboration-etudiante-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13800,7 +13817,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:39:50.708Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:39:50.708Z"
+      "firstSeenAt": "2026-11-12T21:39:50.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-mitarbeit-architektur-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "studentische-mitarbeit-architektur-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "studentische-mitarbeit-architektur-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-mitarbeit-architektur-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-9c64dc3381aa",
@@ -14343,12 +14374,12 @@
     },
     {
       "id": "kanton-zuerich-9b76058b7b84",
-      "slug": "praktikum-in-limnologie-con-schwerpunkt-makrophyten-e-makrozoobenthos-kantonale-verwaltung-zurich",
+      "slug": "tirocinio-in-limnologia-con-specializzazione-in-macrofite-e-macrozoobenthos-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kanton-zuerich",
-        "it": "praktikum-in-limnologie-con-schwerpunkt-makrophyten-e-makrozoobenthos-kantonale-verwaltung-zurich",
-        "en": "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kantonale-verwaltung-zurich-zurich",
-        "fr": "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kantonale-verwaltung-zurich-zurich"
+        "it": "tirocinio-in-limnologia-con-specializzazione-in-macrofite-e-macrozoobenthos-kantonale-verwaltung-zurich-zurich",
+        "en": "internship-in-limnology-with-focus-on-macrophytes-and-macrozoobenthos-kantonale-verwaltung-zurich-zurich",
+        "fr": "stage-en-limnologie-avec-accent-sur-les-macrophytes-et-macrozoobenthos-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14400,11 +14431,20 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kanton-zuerich"
+          "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kanton-zuerich",
+          "praktikum-in-limnologie-con-schwerpunkt-makrophyten-e-makrozoobenthos-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kanton-zuerich"
+        "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kanton-zuerich",
+        "praktikum-in-limnologie-con-schwerpunkt-makrophyten-e-makrozoobenthos-kantonale-verwaltung-zurich",
+        "praktikum-in-limnologie-mit-schwerpunkt-makrophyten-und-makrozoobenthos-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,

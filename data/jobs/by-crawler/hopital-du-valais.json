@@ -4044,12 +4044,12 @@
     },
     {
       "id": "hopital-du-valais-7bbed3a13b81",
-      "slug": "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig",
+      "slug": "principale-medico-medicina-intensiva-60-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig",
-        "it": "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig",
-        "en": "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig",
-        "fr": "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig"
+        "it": "principale-medico-medicina-intensiva-60-100-hopital-du-valais-brig",
+        "en": "principal-physician-intensive-care-medicine-60-100-hopital-du-valais-brig",
+        "fr": "medecin-principal-medecine-de-soins-intensifs-60-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4113,7 +4113,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:23:11.548Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:23:11.548Z"
+      "firstSeenAt": "2026-11-12T21:23:11.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-intensivmedizin-60-100-hopital-du-valais-brig"
+      ]
     }
   ]
 }

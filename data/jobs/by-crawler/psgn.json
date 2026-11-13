@@ -686,12 +686,12 @@
     },
     {
       "id": "psgn-05e6a68b7b13",
-      "slug": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-48c3164416",
+      "slug": "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
-        "it": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-48c3164416",
-        "en": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
-        "fr": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        "it": "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-pfafers",
+        "en": "dipl-nurse-hf-fh-night-service-psychiatrie-st-gallen-pfafers",
+        "fr": "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -739,12 +739,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-48c3164416"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-48c3164416"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -767,12 +775,12 @@
     },
     {
       "id": "psgn-2e48d2961614",
-      "slug": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-f8a98ed8fb",
+      "slug": "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-pfafers-10ddc1",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
-        "it": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-f8a98ed8fb",
-        "en": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
-        "fr": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        "it": "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-pfafers-10ddc1",
+        "en": "dipl-nurse-hf-fh-night-service-psychiatrie-st-gallen-pfafers-10ddc1",
+        "fr": "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-pfafers-10ddc1"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -820,12 +828,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers-2",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-f8a98ed8fb"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers-2",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers"
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers-f8a98ed8fb"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

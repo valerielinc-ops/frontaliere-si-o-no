@@ -19075,12 +19075,12 @@
     },
     {
       "id": "usz-2ff674bbbadd",
-      "slug": "kliniksekretar-in-per-la-klinik-per-gastroenterologie-e-hepatologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "segretaria-o-di-clinica-per-la-clinica-di-gastroenterologia-ed-epatologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch",
-        "it": "kliniksekretar-in-per-la-klinik-per-gastroenterologie-e-hepatologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch",
-        "fr": "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch"
+        "it": "segretaria-o-di-clinica-per-la-clinica-di-gastroenterologia-ed-epatologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "clinic-secretary-for-the-department-of-gastroenterology-and-hepatology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "secretaire-de-clinique-pour-la-clinique-de-gastroenterologie-et-d-hepatologie-80-100-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19128,11 +19128,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch",
+          "kliniksekretar-in-per-la-klinik-per-gastroenterologie-e-hepatologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch"
+        ],
+        "fr": [
           "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch"
+        "kliniksekretar-in-fur-die-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch",
+        "kliniksekretar-in-per-la-klinik-per-gastroenterologie-e-hepatologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19155,12 +19163,12 @@
     },
     {
       "id": "usz-6322dd0ff7f9",
-      "slug": "disponent-in-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "addetta-o-alla-programmazione-clinica-di-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch",
-        "it": "disponent-in-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch",
-        "fr": "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch"
+        "it": "addetta-o-alla-programmazione-clinica-di-neuroradiologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "coordinator-department-of-neuroradiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "planificateur-rice-pour-la-clinique-de-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19208,11 +19216,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch",
+          "disponent-in-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch"
+        ],
+        "fr": [
           "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch"
+        "disponent-in-klinik-fur-neuroradiologie-80-100-usz-ch",
+        "disponent-in-klinik-per-neuroradiologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

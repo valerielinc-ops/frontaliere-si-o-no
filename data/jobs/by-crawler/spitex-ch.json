@@ -1051,12 +1051,12 @@
     },
     {
       "id": "spitex-ch-bb5ba147f57f",
-      "slug": "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden",
+      "slug": "dipl-infermieri-hf-fh-80-a-100-posizione-rheinfelden-spitex-fricktal-ag-rheinfelden",
       "slugByLocale": {
         "de": "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "it": "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "en": "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "fr": "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        "it": "dipl-infermieri-hf-fh-80-a-100-posizione-rheinfelden-spitex-fricktal-ag-rheinfelden",
+        "en": "dipl-nurses-hf-fh-80-to-100-location-rheinfelden-spitex-fricktal-ag-rheinfelden",
+        "fr": "dipl-infirmieres-hf-fh-80-a-100-emplacement-rheinfelden-spitex-fricktal-ag-rheinfelden"
       },
       "company": "Spitex Fricktal AG",
       "companyKey": "spitex-ch",
@@ -1118,16 +1118,30 @@
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T21:54:29.484Z"
+      "firstSeenAt": "2026-11-12T21:54:29.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ],
+        "en": [
+          "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ],
+        "fr": [
+          "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachpersonen-hf-fh-80-bis-100-standort-rheinfelden-spitex-ch-rheinfelden"
+      ]
     },
     {
       "id": "spitex-ch-b676df903394",
-      "slug": "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden",
+      "slug": "operatore-sociosanitario-efz-100-sede-di-rheinfelden-spitex-fricktal-ag-rheinfelden",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "it": "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "en": "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden",
-        "fr": "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        "it": "operatore-sociosanitario-efz-100-sede-di-rheinfelden-spitex-fricktal-ag-rheinfelden",
+        "en": "health-specialist-efz-100-location-rheinfelden-spitex-fricktal-ag-rheinfelden",
+        "fr": "specialiste-de-la-sante-efz-100-emplacement-rheinfelden-spitex-fricktal-ag-rheinfelden"
       },
       "company": "Spitex Fricktal AG",
       "companyKey": "spitex-ch",
@@ -1190,16 +1204,30 @@
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T21:54:29.010Z"
+      "firstSeenAt": "2026-11-12T21:54:29.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-100-standort-rheinfelden-spitex-ch-rheinfelden"
+      ]
     },
     {
       "id": "spitex-ch-422a44cac1f1",
-      "slug": "gemischte-dienste-o-spatdienst-e-pikett-spitex-gau-oensingen",
+      "slug": "turni-misti-o-turno-serale-e-reperibilita-spitex-gau-oensingen",
       "slugByLocale": {
         "de": "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen",
-        "it": "gemischte-dienste-o-spatdienst-e-pikett-spitex-gau-oensingen",
-        "en": "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen",
-        "fr": "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen"
+        "it": "turni-misti-o-turno-serale-e-reperibilita-spitex-gau-oensingen",
+        "en": "mixed-or-late-service-and-pikett-spitex-gau-oensingen",
+        "fr": "service-mixte-ou-en-retard-et-pikett-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -1248,11 +1276,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen",
+          "gemischte-dienste-o-spatdienst-e-pikett-spitex-gau-oensingen"
+        ],
+        "en": [
+          "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen"
+        ],
+        "fr": [
           "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen"
         ]
       },
       "previousSlugs": [
-        "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen"
+        "gemischte-dienste-oder-spatdienst-und-pikett-spitex-ch-oensingen",
+        "gemischte-dienste-o-spatdienst-e-pikett-spitex-gau-oensingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1274,12 +1310,12 @@
     },
     {
       "id": "spitex-ch-06d3f5d12caa",
-      "slug": "demenz-palliative-o-tagesverantwortung-spitex-gau-oensingen",
+      "slug": "demenza-cure-palliative-o-responsabilita-diurna-spitex-gau-oensingen",
       "slugByLocale": {
         "de": "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen",
-        "it": "demenz-palliative-o-tagesverantwortung-spitex-gau-oensingen",
-        "en": "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen",
-        "fr": "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen"
+        "it": "demenza-cure-palliative-o-responsabilita-diurna-spitex-gau-oensingen",
+        "en": "dementia-palliative-or-daytime-responsibility-spitex-gau-oensingen",
+        "fr": "demence-responsabilite-palliative-ou-de-jour-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -1328,11 +1364,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen",
+          "demenz-palliative-o-tagesverantwortung-spitex-gau-oensingen"
+        ],
+        "en": [
+          "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen"
+        ],
+        "fr": [
           "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen"
         ]
       },
       "previousSlugs": [
-        "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen"
+        "demenz-palliative-oder-tagesverantwortung-spitex-ch-oensingen",
+        "demenz-palliative-o-tagesverantwortung-spitex-gau-oensingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1586,11 +1630,11 @@
     },
     {
       "id": "spitex-ch-d3599caa99fa",
-      "slug": "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf",
+      "slug": "infermiera-hf-psichiatria-50-60-spitex-regio-zo-fehraltorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf",
-        "it": "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf",
-        "en": "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf",
+        "it": "infermiera-hf-psichiatria-50-60-spitex-regio-zo-fehraltorf",
+        "en": "dipl-nurse-hf-psychiatry-50-60-spitex-regio-zo-fehraltorf",
         "fr": "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf"
       },
       "company": "Spitex Regio ZO",
@@ -1653,7 +1697,18 @@
       "streetAddress": "Fehraltorf",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T21:54:24.717Z"
+      "firstSeenAt": "2026-11-12T21:54:24.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-psychiatrie-50-60-spitex-ch-fehraltorf"
+      ]
     },
     {
       "id": "spitex-ch-718a48a2093e",

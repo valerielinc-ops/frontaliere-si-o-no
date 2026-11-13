@@ -518,12 +518,12 @@
     },
     {
       "id": "sro-7784c6ce0b8a",
-      "slug": "oberarztin-oberarzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "medica-medico-dirigente-in-ortopedia-e-chirurgia-traumatologica-con-specializzazione-in-chirurgia-del-piede-chirurgia",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie",
-        "it": "oberarztin-oberarzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie",
-        "fr": "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie"
+        "it": "medica-medico-dirigente-in-ortopedia-e-chirurgia-traumatologica-con-specializzazione-in-chirurgia-del-piede-chirurgia",
+        "en": "senior-physician-senior-physician-orthopaedics-and-trauma-surgery-with-focus-on-foot-surgery-spring-joint-surgery-80-100",
+        "fr": "medecin-superieur-orthopedie-de-medecin-superieur-et-chirurgie-de-traumatisme-avec-l-accent-sur-la-chirurgie-du-pied"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -576,11 +576,19 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie",
+          "oberarztin-oberarzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie"
+        ],
+        "fr": [
           "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie"
+        "oberarztin-oberarzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt-fusschirurgie",
+        "oberarztin-oberarzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3306,12 +3314,12 @@
     },
     {
       "id": "sro-836b286b29f1",
-      "slug": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
+      "slug": "assistente-medico-80-100-di-vecchiaia-psichiatria-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
-        "it": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
-        "en": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
-        "fr": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        "it": "assistente-medico-80-100-di-vecchiaia-psichiatria-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "assistant-physician-80-100-old-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "medecin-adjoint-80-100-psychiatrie-de-la-vieillesse-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3377,7 +3385,21 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-12T21:28:53.682Z"
+      "firstSeenAt": "2026-11-12T21:28:53.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+      ]
     },
     {
       "id": "sro-a2112ffe394d",

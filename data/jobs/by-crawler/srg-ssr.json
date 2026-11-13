@@ -4369,12 +4369,12 @@
     },
     {
       "id": "srg-ssr-001ccbb2c689",
-      "slug": "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich",
+      "slug": "responsabile-tecnico-fm-nord-est-srg-ssr-zurich",
       "slugByLocale": {
         "de": "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich",
-        "it": "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich",
-        "en": "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich",
-        "fr": "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich"
+        "it": "responsabile-tecnico-fm-nord-est-srg-ssr-zurich",
+        "en": "head-of-technical-fm-north-east-srg-ssr-zurich",
+        "fr": "chef-du-groupe-technique-fm-nord-est-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4457,16 +4457,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:21:29.227Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:21:29.227Z"
+      "firstSeenAt": "2026-11-12T21:21:29.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich"
+        ],
+        "en": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich"
+        ],
+        "fr": [
+          "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-technisches-fm-nord-amp-ost-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-40eac331ffdb",
-      "slug": "ai-solutions-consultant-srg-ssr-zurich",
+      "slug": "ai-solutions-consulente-srg-ssr-zurich",
       "slugByLocale": {
         "de": "ai-solutions-consultant-srg-ssr-zurich",
-        "it": "ai-solutions-consultant-srg-ssr-zurich",
+        "it": "ai-solutions-consulente-srg-ssr-zurich",
         "en": "ai-solutions-consultant-srg-ssr-zurich",
-        "fr": "ai-solutions-consultant-srg-ssr-zurich"
+        "fr": "conseiller-en-solutions-ai-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4546,7 +4560,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:21:28.622Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:21:28.622Z"
+      "firstSeenAt": "2026-11-12T21:21:28.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-solutions-consultant-srg-ssr-zurich"
+        ],
+        "fr": [
+          "ai-solutions-consultant-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ai-solutions-consultant-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-2229bb32e1e1",

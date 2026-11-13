@@ -167,8 +167,8 @@
       "slugByLocale": {
         "fr": "stage-environnement-durabilite-rolex-ch",
         "it": "stage-ambiente-sostenibilita-rolex-bienne",
-        "en": "stage-environnement-durabilite-rolex-bienne",
-        "de": "stage-environnement-durabilite-rolex-bienne"
+        "en": "internship-environment-sustainability-rolex-bienne",
+        "de": "praktikum-umwelt-nachhaltigkeit-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -217,16 +217,15 @@
           "stage-environnement-durabilite-rolex-ch"
         ],
         "en": [
-          "internship-environment-sustainability-rolex-bienne"
+          "stage-environnement-durabilite-rolex-bienne"
         ],
         "de": [
-          "praktikum-umwelt-nachhaltigkeit-rolex-bienne"
+          "stage-environnement-durabilite-rolex-bienne"
         ]
       },
       "previousSlugs": [
         "stage-environnement-durabilite-rolex-ch",
-        "internship-environment-sustainability-rolex-bienne",
-        "praktikum-umwelt-nachhaltigkeit-rolex-bienne"
+        "stage-environnement-durabilite-rolex-bienne"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -253,7 +252,7 @@
       "slug": "stage-gestion-d-entreprise-management-achats-rolex-bienne",
       "slugByLocale": {
         "fr": "stage-gestion-d-entreprise-management-achats-rolex-ch",
-        "it": "stage-gestion-d-entreprise-management-achats-rolex-bienne",
+        "it": "posizionamento-del-lavoro-gestione-aziendale-gestione-acquisti-rolex-bienne",
         "en": "work-placement-business-management-management-purchasing-rolex-bienne",
         "de": "praktikum-betriebswirtschaft-management-einkauf-rolex-bienne"
       },
@@ -301,13 +300,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stage-gestion-d-entreprise-management-achats-rolex-ch",
-          "posizionamento-del-lavoro-gestione-aziendale-gestione-acquisti-rolex-bienne"
+          "stage-gestion-d-entreprise-management-achats-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "stage-gestion-d-entreprise-management-achats-rolex-ch",
-        "posizionamento-del-lavoro-gestione-aziendale-gestione-acquisti-rolex-bienne"
+        "stage-gestion-d-entreprise-management-achats-rolex-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1684,7 +1681,7 @@
       "slugByLocale": {
         "it": "supporto-tecnico-per-la-produzione-h-f-rolex-geneve",
         "en": "manager-in-management-process-h-f-rolex-geneve",
-        "de": "manager-im-managementprozess-m-w-d-rolex-geneve",
+        "de": "produktionsunterstutzungstechniker-h-f-rolex-geneve",
         "fr": "technicien-support-production-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -1744,7 +1741,7 @@
         "de": [
           "technicien-support-production-h-f-rolex-ch",
           "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
-          "produktionsunterstutzungstechniker-h-f-rolex-geneve"
+          "manager-im-managementprozess-m-w-d-rolex-geneve"
         ]
       },
       "previousSlugs": [
@@ -1752,7 +1749,7 @@
         "animateur-en-processus-de-gestion-h-f-rolex-ch",
         "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
         "animateur-en-bonnes-pratiques-de-production-h-f-rolex-ch",
-        "produktionsunterstutzungstechniker-h-f-rolex-geneve"
+        "manager-im-managementprozess-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-23T12:27:53.338Z",
       "salaryMin": 83500,
@@ -2622,7 +2619,7 @@
       "slugByLocale": {
         "it": "tecnico-di-produzione-h-f-rolex-geneve",
         "en": "production-technician-m-f-rolex-geneve",
-        "de": "betriebstechniker-m-w-d-rolex-geneve",
+        "de": "produktionstechniker-m-w-rolex-geneve",
         "fr": "technicien-d-exploitation-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -2668,7 +2665,7 @@
       "previousSlugs": [
         "technicien-d-exploitation-h-f-rolex-ch",
         "technicien-d-exploitation-m-w-d-rolex-geneve",
-        "produktionstechniker-m-w-rolex-geneve"
+        "betriebstechniker-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2679,7 +2676,7 @@
         ],
         "de": [
           "technicien-d-exploitation-m-w-d-rolex-geneve",
-          "produktionstechniker-m-w-rolex-geneve"
+          "betriebstechniker-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:49.255Z",
@@ -2953,7 +2950,7 @@
       "slugByLocale": {
         "it": "tecnico-di-logistica-eventi-m-f-rolex-geneve",
         "en": "event-logistics-technician-m-f-rolex-geneve",
-        "de": "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve",
+        "de": "eventlogistiktechniker-m-w-rolex-geneve",
         "fr": "technicien-logistique-evenements-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -2998,14 +2995,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-logistique-evenements-h-f-rolex-ch",
-        "eventlogistiktechniker-m-w-rolex-geneve"
+        "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-logistique-evenements-h-f-rolex-ch"
         ],
         "de": [
-          "eventlogistiktechniker-m-w-rolex-geneve"
+          "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:08.230Z",
@@ -8214,8 +8211,8 @@
       "slug": "modellista-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "modellista-m-f-rolex-geneve",
-        "en": "modelist-m-w-d-rolex-geneve",
-        "de": "modelist-m-w-d-rolex-geneve",
+        "en": "pattern-maker-m-f-rolex-geneve",
+        "de": "schnittmacher-m-w-rolex-geneve",
         "fr": "modeliste-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -8260,18 +8257,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "modeliste-h-f-rolex-ch",
-        "pattern-maker-m-f-rolex-geneve",
-        "schnittmacher-m-w-rolex-geneve"
+        "modelist-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "modeliste-h-f-rolex-ch"
         ],
         "en": [
-          "pattern-maker-m-f-rolex-geneve"
+          "modelist-m-w-d-rolex-geneve"
         ],
         "de": [
-          "schnittmacher-m-w-rolex-geneve"
+          "modelist-m-w-d-rolex-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -8300,7 +8296,7 @@
       "slugByLocale": {
         "it": "responsabile-del-laboratorio-m-f-rolex-geneve",
         "en": "workshop-manager-h-f-rolex-geneve",
-        "de": "workshop-manager-m-w-d-rolex-geneve",
+        "de": "werkstattleiter-m-w-rolex-geneve",
         "fr": "gestionnaire-d-atelier-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -8346,7 +8342,7 @@
       "previousSlugs": [
         "gestionnaire-d-atelier-h-f-rolex-ch",
         "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-        "werkstattleiter-m-w-rolex-geneve"
+        "workshop-manager-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8357,7 +8353,7 @@
         ],
         "de": [
           "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-          "werkstattleiter-m-w-rolex-geneve"
+          "workshop-manager-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
@@ -10817,7 +10813,7 @@
       "slugByLocale": {
         "it": "elettroplasto-m-f-rolex-bienne",
         "en": "electroplast-h-f-rolex-bienne",
-        "de": "elektroplastik-m-w-d-rolex-bienne",
+        "de": "electroplaste-h-f-rolex-bienne",
         "fr": "electroplaste-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10862,7 +10858,7 @@
       "previousSlugs": [
         "electroplaste-h-f-rolex-ch",
         "electroplaste-m-w-d-rolex-bienne",
-        "electroplaste-h-f-rolex-bienne"
+        "elektroplastik-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10872,7 +10868,7 @@
           "electroplaste-m-w-d-rolex-bienne"
         ],
         "de": [
-          "electroplaste-h-f-rolex-bienne"
+          "elektroplastik-m-w-d-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.983Z",
@@ -10985,7 +10981,7 @@
       "slugByLocale": {
         "it": "tecnica-di-manutenzione-h-f-rolex-fribourg",
         "en": "maintenance-technician-h-f-rolex-fribourg",
-        "de": "wartungstechniker-m-w-d-rolex-fribourg",
+        "de": "instandhaltungstechniker-h-f-rolex-fribourg",
         "fr": "technicien-de-maintenance-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -11030,7 +11026,7 @@
       "previousSlugs": [
         "technicien-de-maintenance-h-f-rolex-ch",
         "technicien-de-maintenance-m-w-d-rolex-fribourg",
-        "instandhaltungstechniker-h-f-rolex-fribourg"
+        "wartungstechniker-m-w-d-rolex-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11038,7 +11034,7 @@
         ],
         "de": [
           "technicien-de-maintenance-m-w-d-rolex-fribourg",
-          "instandhaltungstechniker-h-f-rolex-fribourg"
+          "wartungstechniker-m-w-d-rolex-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-24T11:09:30.339Z",
@@ -11554,7 +11550,7 @@
       "slugByLocale": {
         "it": "responsabile-della-pianificazione-h-f-rolex-geneve",
         "en": "scheduling-manager-m-f-rolex-geneve",
-        "de": "m-w-d-scheduling-manager-rolex-geneve",
+        "de": "planungsmanager-m-w-rolex-geneve",
         "fr": "gestionnaire-d-ordonnancement-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -11600,7 +11596,7 @@
       "previousSlugs": [
         "gestionnaire-d-ordonnancement-h-f-rolex-ch",
         "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
-        "planungsmanager-m-w-rolex-geneve"
+        "m-w-d-scheduling-manager-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11611,7 +11607,7 @@
         ],
         "de": [
           "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
-          "planungsmanager-m-w-rolex-geneve"
+          "m-w-d-scheduling-manager-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:03.629Z",
@@ -12059,12 +12055,12 @@
     },
     {
       "id": "rolex-da7d6db12e54",
-      "slug": "responsable-de-groupe-h-f-rolex-ch",
+      "slug": "manager-di-gruppo-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "responsable-de-groupe-h-f-rolex-ch",
-        "it": "responsable-de-groupe-h-f-rolex-ch",
-        "en": "responsable-de-groupe-h-f-rolex-ch",
-        "de": "responsable-de-groupe-h-f-rolex-ch"
+        "it": "manager-di-gruppo-m-f-rolex-bienne",
+        "en": "group-manager-m-f-rolex-bienne",
+        "de": "gruppenmanager-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -12125,7 +12121,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:09.412Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-26T13:57:59.272Z"
+      "firstSeenAt": "2026-09-26T13:57:59.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-groupe-h-f-rolex-ch"
+        ],
+        "en": [
+          "responsable-de-groupe-h-f-rolex-ch"
+        ],
+        "de": [
+          "responsable-de-groupe-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-groupe-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-cf5c215ebe85",
@@ -12445,7 +12455,7 @@
       "slugByLocale": {
         "it": "terminator-m-f-rolex-geneve",
         "en": "termineur-h-f-rolex-ch",
-        "de": "terminator-m-w-d-rolex-geneve",
+        "de": "termineur-h-f-rolex-geneve",
         "fr": "termineur-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -12490,14 +12500,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "termineur-h-f-rolex-ch",
-        "termineur-h-f-rolex-geneve"
+        "terminator-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "termineur-h-f-rolex-ch"
         ],
         "de": [
-          "termineur-h-f-rolex-geneve"
+          "terminator-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:56.351Z",

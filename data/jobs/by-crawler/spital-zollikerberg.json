@@ -174,12 +174,12 @@
     },
     {
       "id": "spital-zollikerberg-c8288049f5ef",
-      "slug": "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg",
+      "slug": "expert-expert-care-stazione-interdisciplinare-privata-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg",
-        "it": "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg",
-        "en": "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg",
-        "fr": "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg"
+        "it": "expert-expert-care-stazione-interdisciplinare-privata-spital-zollikerberg-zollikerberg",
+        "en": "expert-expert-care-interdisciplinary-private-station-spital-zollikerberg-zollikerberg",
+        "fr": "expert-expert-care-station-privee-interdisciplinaire-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -241,16 +241,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:15:56.365Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:15:56.365Z"
+      "firstSeenAt": "2026-11-12T21:15:56.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-interdisziplinare-privatstation-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-2f24cdf665e5",
-      "slug": "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg",
+      "slug": "chirurgia-esperto-esperto-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg",
-        "it": "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg",
-        "en": "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg",
-        "fr": "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg"
+        "it": "chirurgia-esperto-esperto-spital-zollikerberg-zollikerberg",
+        "en": "expert-expert-care-surgery-spital-zollikerberg-zollikerberg",
+        "fr": "chirurgie-de-soins-d-experts-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -312,16 +326,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:15:56.364Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:15:56.364Z"
+      "firstSeenAt": "2026-11-12T21:15:56.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-chirurgie-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-4d919148d9a8",
-      "slug": "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg",
+      "slug": "expert-expert-care-geriatric-riabilitazione-acuta-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg",
-        "it": "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg",
-        "en": "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg",
-        "fr": "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg"
+        "it": "expert-expert-care-geriatric-riabilitazione-acuta-spital-zollikerberg-zollikerberg",
+        "en": "expert-expert-care-geriatric-acute-rehabilitation-spital-zollikerberg-zollikerberg",
+        "fr": "soins-d-expert-readaptation-aigue-geriatrique-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -383,16 +411,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:15:56.363Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:15:56.363Z"
+      "firstSeenAt": "2026-11-12T21:15:56.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-geriatrische-akutrehabilitation-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-138901ba3bca",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische",
+      "slug": "dipl-specialista-dipl-specialista-in-tecnologia-chirurgica-infermiera-chirurgica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische",
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische",
-        "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische",
-        "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische"
+        "it": "dipl-specialista-dipl-specialista-in-tecnologia-chirurgica-infermiera-chirurgica-spital-zollikerberg-zollikerberg",
+        "en": "dipl-specialist-dipl-specialist-in-surgical-technology-surgical-nurse-medical-engineering-areas-spital-zollikerberg",
+        "fr": "dipl-specialiste-dipl-specialiste-en-technologie-chirurgicale-infirmiere-en-chirurgie-domaines-de-genie-medical-spital"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -454,7 +496,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:15:56.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:15:56.360Z"
+      "firstSeenAt": "2026-11-12T21:15:56.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische"
+        ],
+        "en": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische"
+        ],
+        "fr": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-op-pflegefachperson-medizintechnische"
+      ]
     },
     {
       "id": "spital-zollikerberg-b72389855514",

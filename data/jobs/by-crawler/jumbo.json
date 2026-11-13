@@ -18843,12 +18843,12 @@
     },
     {
       "id": "jumbo-db8b1aee-6bd",
-      "slug": "verkaufsberater-in-do-it-jumbo-rumlang",
+      "slug": "consulente-di-vendita-do-it-jumbo-rumlang",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-rumlang",
-        "it": "verkaufsberater-in-do-it-jumbo-rumlang",
-        "en": "verkaufsberater-in-do-it-jumbo-rumlang",
-        "fr": "verkaufsberater-in-do-it-jumbo-rumlang"
+        "it": "consulente-di-vendita-do-it-jumbo-rumlang",
+        "en": "sales-advisor-do-it-jumbo-rumlang",
+        "fr": "conseiller-ere-de-vente-do-it-jumbo-rumlang"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18925,7 +18925,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:34:18.175Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:34:18.175Z"
+      "firstSeenAt": "2026-11-12T21:34:18.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-rumlang"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-rumlang"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-rumlang"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-rumlang"
+      ]
     },
     {
       "id": "jumbo-053a355a-71a",

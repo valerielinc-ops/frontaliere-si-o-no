@@ -1665,12 +1665,12 @@
     },
     {
       "id": "globus-a6d0c8e7e797",
-      "slug": "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch",
+      "slug": "supporto-di-vendita-sabato-assegna-20-nella-zona-fashion-m-f-d-globus-bern",
       "slugByLocale": {
         "de": "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch",
-        "it": "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch",
-        "en": "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch",
-        "fr": "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch"
+        "it": "supporto-di-vendita-sabato-assegna-20-nella-zona-fashion-m-f-d-globus-bern",
+        "en": "sales-support-saturday-assignments-20-in-the-fashion-m-f-d-area-globus-bern",
+        "fr": "soutien-aux-ventes-affectations-samedi-20-dans-la-region-de-la-mode-h-f-d-globus-bern"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1732,7 +1732,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:20:53.642Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:20:53.642Z"
+      "firstSeenAt": "2026-11-12T21:20:53.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch"
+        ],
+        "en": [
+          "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-samstagseinsatze-20-im-bereich-fashion-w-m-d-globus-ch"
+      ]
     }
   ]
 }

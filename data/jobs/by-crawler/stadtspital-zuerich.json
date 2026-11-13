@@ -4783,7 +4783,7 @@
       "id": "stadtspital-zuerich-53d18d59894f",
       "slug": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
       "slugByLocale": {
-        "it": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -4835,16 +4835,12 @@
       "referenceNumber": "51306",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
-        "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7",
-          "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-5df50510e7"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -8128,12 +8124,12 @@
     },
     {
       "id": "stadtspital-zuerich-63f441df8a8e",
-      "slug": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich",
+      "slug": "dipl-clinica-diurna-europaallee-temporanea-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270",
-        "it": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
+        "it": "dipl-clinica-diurna-europaallee-temporanea-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-day-clinic-europaallee-temporary-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-clinique-europaallee-temporaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8184,11 +8180,20 @@
       "referenceNumber": "52270",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270"
+          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270",
+          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270"
+        "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270",
+        "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich",
+        "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8298,7 +8303,7 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -8350,16 +8355,12 @@
       "referenceNumber": "50310",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-        "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-          "infermiere-a-diplomato-a-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-6ecbbab767",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -8465,12 +8466,12 @@
     },
     {
       "id": "stadtspital-zuerich-8cfd4aac3679",
-      "slug": "machine-learning-engineer-stadtspital-zuerich-52255",
+      "slug": "machine-learning-ingegnere-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "machine-learning-engineer-stadtspital-zuerich-52255",
-        "it": "machine-learning-engineer-stadtspital-zuerich-52255",
+        "it": "machine-learning-ingegnere-stadtspital-zurich-zurich",
         "en": "machine-learning-engineer-stadtspital-zuerich-52255",
-        "fr": "machine-learning-engineer-stadtspital-zuerich-52255"
+        "fr": "machine-learning-ingenieur-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8536,7 +8537,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:48:58.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:48:58.054Z"
+      "firstSeenAt": "2026-11-12T21:48:58.054Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machine-learning-engineer-stadtspital-zuerich-52255"
+        ],
+        "fr": [
+          "machine-learning-engineer-stadtspital-zuerich-52255"
+        ]
+      },
+      "previousSlugs": [
+        "machine-learning-engineer-stadtspital-zuerich-52255"
+      ]
     },
     {
       "id": "stadtspital-zuerich-46454e50df26",

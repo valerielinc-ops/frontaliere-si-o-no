@@ -1446,7 +1446,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1515,14 +1515,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5477,10 +5477,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5555,21 +5555,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -13782,12 +13781,12 @@
     },
     {
       "id": "helvetia-fab5419f6e73",
-      "slug": "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
+      "slug": "junior-real-estate-manager-zurigo-m-f-d-part-time-full-time-helvetia-versicherungen-dubendorf",
       "slugByLocale": {
         "de": "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "it": "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "en": "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf",
-        "fr": "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        "it": "junior-real-estate-manager-zurigo-m-f-d-part-time-full-time-helvetia-versicherungen-dubendorf",
+        "en": "junior-real-estate-manager-zurich-m-f-d-part-time-full-time-helvetia-versicherungen-dubendorf",
+        "fr": "junior-responsable-immobilier-zurich-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-dubendorf"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13849,16 +13848,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:21:51.436Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:21:51.436Z"
+      "firstSeenAt": "2026-11-12T21:21:51.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        ],
+        "en": [
+          "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        ],
+        "fr": [
+          "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "junior-immobilienbewirtschafter-zurich-w-m-d-teilzeit-vollzeit-helvetia-dubendorf"
+      ]
     },
     {
       "id": "helvetia-a031fe17c4a6",
-      "slug": "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-basel-teilzeit-helvetia-versicherungen-basel",
+      "slug": "collaboratore-m-f-d-per-il-supporto-alle-vendite-nel-servizio-interno-delle-assicurazioni-a-basilea-a-tempo-parziale",
       "slugByLocale": {
         "de": "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia",
-        "it": "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-basel-teilzeit-helvetia-versicherungen-basel",
-        "en": "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia",
-        "fr": "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia"
+        "it": "collaboratore-m-f-d-per-il-supporto-alle-vendite-nel-servizio-interno-delle-assicurazioni-a-basilea-a-tempo-parziale",
+        "en": "employee-m-f-d-sales-support-in-the-in-house-insurance-company-basel-part-time-helvetia-versicherungen-basel",
+        "fr": "salarie-h-f-d-soutien-commercial-dans-la-societe-d-assurance-interne-bale-a-temps-partiel-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -13907,11 +13920,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia",
+          "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-basel-teilzeit-helvetia-versicherungen-basel"
+        ],
+        "en": [
+          "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia"
+        ],
+        "fr": [
           "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia"
+        "mitarbeiter-w-m-d-verkaufssupport-im-innendienst-versicherungen-basel-teilzeit-helvetia",
+        "collaboratore-trice-m-w-d-verkaufssupport-im-servizio-interno-versicherungen-basel-teilzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

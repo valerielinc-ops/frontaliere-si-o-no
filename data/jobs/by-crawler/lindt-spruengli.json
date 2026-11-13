@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -67,7 +67,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89,7 +89,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -2066,12 +2066,12 @@
     },
     {
       "id": "lindt-spruengli-38c17db17b26",
-      "slug": "learning-development-specialist-lindt-spruengli-kilchberg",
+      "slug": "learning-development-specialista-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "learning-development-specialist-lindt-spruengli-kilchberg",
-        "it": "learning-development-specialist-lindt-spruengli-kilchberg",
+        "it": "learning-development-specialista-lindt-sprungli-kilchberg",
         "en": "learning-development-specialist-lindt-spruengli-kilchberg",
-        "fr": "learning-development-specialist-lindt-spruengli-kilchberg"
+        "fr": "learning-development-specialiste-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -2135,7 +2135,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:36:06.860Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:36:06.860Z"
+      "firstSeenAt": "2026-11-12T21:36:06.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-development-specialist-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "learning-development-specialist-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "learning-development-specialist-lindt-spruengli-kilchberg"
+      ]
     }
   ]
 }

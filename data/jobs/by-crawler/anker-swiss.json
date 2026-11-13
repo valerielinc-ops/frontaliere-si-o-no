@@ -10037,12 +10037,12 @@
     },
     {
       "id": "anker-swiss-e9787198873b",
-      "slug": "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198",
+      "slug": "pavimento-parquet-posa-100-anker-swiss-ticino-ag-nohl-e9787198",
       "slugByLocale": {
         "de": "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198",
-        "it": "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198",
-        "en": "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198",
-        "fr": "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198"
+        "it": "pavimento-parquet-posa-100-anker-swiss-ticino-ag-nohl-e9787198",
+        "en": "floor-parquet-laying-100-anker-swiss-ticino-ag-nohl-e9787198",
+        "fr": "parquet-au-sol-100-anker-swiss-ticino-ag-nohl-e9787198"
       },
       "slugDisambiguator": "e9787198",
       "company": "Anker Swiss Ticino AG",
@@ -10091,14 +10091,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-cca53d61"
+          "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-cca53d61",
+          "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198"
         ],
         "de": [
           "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-cca53d61"
+        ],
+        "en": [
+          "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198"
+        ],
+        "fr": [
+          "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198"
         ]
       },
       "previousSlugs": [
-        "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-cca53d61"
+        "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-cca53d61",
+        "boden-parkettleger-100-anker-swiss-ticino-ag-nohl-e9787198"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15505,12 +15513,12 @@
     },
     {
       "id": "anker-swiss-f758e44197bf",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+      "slug": "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
+        "it": "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+        "en": "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
+        "fr": "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
       },
       "slugDisambiguator": "f758e441",
       "company": "Anker Swiss Ticino AG",
@@ -15558,32 +15566,30 @@
         "de": []
       },
       "previousSlugs": [
-        "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
-        "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
         "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
         "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
         "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-        "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+        "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "copertura-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-          "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+          "copertura-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
         ],
         "en": [
-          "roofing-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-          "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+          "roofing-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
         ],
         "de": [
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
         ],
         "fr": [
-          "toiture-100-anker-swiss-ticino-ag-utzenstorf-f758e441",
           "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
-          "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e"
+          "toiture-100-anker-swiss-ticino-ag-utzenstorf-30a6c10e",
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-f758e441"
         ]
       },
       "salaryMin": 68500,
@@ -21998,12 +22004,12 @@
     },
     {
       "id": "anker-swiss-af0b9596bf60",
-      "slug": "gartner-100-anker-swiss-ticino-ag-malters-af0b9596",
+      "slug": "giardini-100-anker-swiss-ticino-ag-malters-af0b9596",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-malters-af0b9596",
-        "it": "gartner-100-anker-swiss-ticino-ag-malters-af0b9596",
-        "en": "gartner-100-anker-swiss-ticino-ag-malters-af0b9596",
-        "fr": "gartner-100-anker-swiss-ticino-ag-malters-af0b9596"
+        "it": "giardini-100-anker-swiss-ticino-ag-malters-af0b9596",
+        "en": "gardeners-100-anker-swiss-ticino-ag-malters-af0b9596",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-malters-af0b9596"
       },
       "slugDisambiguator": "af0b9596",
       "company": "Anker Swiss Ticino AG",
@@ -22066,16 +22072,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.855Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.855Z"
+      "firstSeenAt": "2026-11-12T21:52:24.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-malters-af0b9596"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-malters-af0b9596"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-malters-af0b9596"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-malters-af0b9596"
+      ]
     },
     {
       "id": "anker-swiss-a5f4008de521",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d",
+      "slug": "copertura-100-anker-swiss-ticino-ag-baar-a5f4008d",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d"
+        "it": "copertura-100-anker-swiss-ticino-ag-baar-a5f4008d",
+        "en": "roofing-100-anker-swiss-ticino-ag-baar-a5f4008d",
+        "fr": "toiture-100-anker-swiss-ticino-ag-baar-a5f4008d"
       },
       "slugDisambiguator": "a5f4008d",
       "company": "Anker Swiss Ticino AG",
@@ -22138,16 +22158,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.855Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.855Z"
+      "firstSeenAt": "2026-11-12T21:52:24.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-baar-a5f4008d"
+      ]
     },
     {
       "id": "anker-swiss-046622d8e274",
-      "slug": "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
+      "slug": "sheller-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
       "slugByLocale": {
         "de": "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
-        "it": "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
+        "it": "sheller-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
         "en": "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8",
-        "fr": "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8"
+        "fr": "coqueur-100-anker-swiss-ticino-ag-muhlehorn-046622d8"
       },
       "slugDisambiguator": "046622d8",
       "company": "Anker Swiss Ticino AG",
@@ -22210,16 +22244,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.855Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.855Z"
+      "firstSeenAt": "2026-11-12T21:52:24.855Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8"
+        ],
+        "fr": [
+          "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8"
+        ]
+      },
+      "previousSlugs": [
+        "schaler-100-anker-swiss-ticino-ag-muhlehorn-046622d8"
+      ]
     },
     {
       "id": "anker-swiss-a5cf1d8dca94",
-      "slug": "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
+      "slug": "sheller-operatore-di-macchine-da-costruzione-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
       "slugByLocale": {
         "de": "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
-        "it": "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
-        "en": "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
-        "fr": "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
+        "it": "sheller-operatore-di-macchine-da-costruzione-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
+        "en": "sheller-construction-machine-operator-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d",
+        "fr": "sheller-operateur-de-machines-de-construction-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
       },
       "slugDisambiguator": "a5cf1d8d",
       "company": "Anker Swiss Ticino AG",
@@ -22282,16 +22327,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.854Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.854Z"
+      "firstSeenAt": "2026-11-12T21:52:24.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
+        ],
+        "en": [
+          "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
+        ],
+        "fr": [
+          "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
+        ]
+      },
+      "previousSlugs": [
+        "schaler-baumaschinenfuhrer-100-anker-swiss-ticino-ag-wilen-sarnen-a5cf1d8d"
+      ]
     },
     {
       "id": "anker-swiss-c658d2932f9c",
-      "slug": "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293",
+      "slug": "operatore-di-gru-100-anker-swiss-ticino-ag-zug-c658d293",
       "slugByLocale": {
         "de": "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293",
-        "it": "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293",
-        "en": "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293",
-        "fr": "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293"
+        "it": "operatore-di-gru-100-anker-swiss-ticino-ag-zug-c658d293",
+        "en": "crane-operator-100-anker-swiss-ticino-ag-zug-c658d293",
+        "fr": "operateur-de-grue-100-anker-swiss-ticino-ag-zug-c658d293"
       },
       "slugDisambiguator": "c658d293",
       "company": "Anker Swiss Ticino AG",
@@ -22354,16 +22413,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.851Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.851Z"
+      "firstSeenAt": "2026-11-12T21:52:24.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293"
+        ],
+        "en": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293"
+        ],
+        "fr": [
+          "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-100-anker-swiss-ticino-ag-zug-c658d293"
+      ]
     },
     {
       "id": "anker-swiss-bac20514c0d1",
-      "slug": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald",
+      "slug": "carpenteria-project-manager-100-anker-swiss-ticino-ag-grindelwald-bac20514",
       "slugByLocale": {
         "de": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514",
-        "it": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald",
-        "en": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514",
-        "fr": "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514"
+        "it": "carpenteria-project-manager-100-anker-swiss-ticino-ag-grindelwald-bac20514",
+        "en": "project-manager-carpentry-100-anker-swiss-ticino-ag-grindelwald-bac20514",
+        "fr": "chef-de-projet-menuiserie-100-anker-swiss-ticino-ag-grindelwald-bac20514"
       },
       "slugDisambiguator": "bac20514",
       "company": "Anker Swiss Ticino AG",
@@ -22412,11 +22485,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514",
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald"
+        ],
+        "en": [
+          "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514"
+        ],
+        "fr": [
           "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514"
         ]
       },
       "previousSlugs": [
-        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514"
+        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald-bac20514",
+        "projektleiter-schreinerei-100-anker-swiss-ticino-ag-grindelwald"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -22438,12 +22519,12 @@
     },
     {
       "id": "anker-swiss-ebf40c001964",
-      "slug": "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
+      "slug": "carpentiere-falegname-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
       "slugByLocale": {
         "de": "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
-        "it": "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
-        "en": "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
-        "fr": "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
+        "it": "carpentiere-falegname-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
+        "en": "carpenter-joiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00",
+        "fr": "charpentier-menuisier-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
       },
       "slugDisambiguator": "ebf40c00",
       "company": "Anker Swiss Ticino AG",
@@ -22507,16 +22588,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.849Z"
+      "firstSeenAt": "2026-11-12T21:52:24.849Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
+        ],
+        "en": [
+          "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
+        ],
+        "fr": [
+          "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-schreiner-100-anker-swiss-ticino-ag-veltheim-ag-ebf40c00"
+      ]
     },
     {
       "id": "anker-swiss-32056806f1c2",
-      "slug": "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806",
+      "slug": "costruttore-tetto-piatto-copertura-del-tetto-100-anker-swiss-ticino-ag-lachen-sz-32056806",
       "slugByLocale": {
         "de": "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806",
-        "it": "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806",
-        "en": "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806",
-        "fr": "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806"
+        "it": "costruttore-tetto-piatto-copertura-del-tetto-100-anker-swiss-ticino-ag-lachen-sz-32056806",
+        "en": "flat-roof-builder-roof-cover-100-anker-swiss-ticino-ag-lachen-sz-32056806",
+        "fr": "constructeur-de-toit-plat-couverture-de-toit-100-anker-swiss-ticino-ag-lachen-sz-32056806"
       },
       "slugDisambiguator": "32056806",
       "company": "Anker Swiss Ticino AG",
@@ -22579,7 +22674,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:52:24.844Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:52:24.844Z"
+      "firstSeenAt": "2026-11-12T21:52:24.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806"
+        ],
+        "en": [
+          "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806"
+        ],
+        "fr": [
+          "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806"
+        ]
+      },
+      "previousSlugs": [
+        "flachdachbauer-dachdecker-100-anker-swiss-ticino-ag-lachen-sz-32056806"
+      ]
     },
     {
       "id": "anker-swiss-e5843b4992d8",
