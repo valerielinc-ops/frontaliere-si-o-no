@@ -647,7 +647,7 @@ describe('candidate review API', () => {
       expect(await upload('portal_photo', PNG)).toMatchObject({ status: 415, body: { error: 'file_type_not_allowed' } });
       expect(await upload('portal_photo', JPEG_2X2, { fileName: 'photo.jpg' }))
         .toMatchObject({ status: 413, body: { error: 'file_too_large', maxBytes: JPEG_2X2.length - 1 } });
-      expect(saved).toHaveSize(0);
+      expect(saved.size).toBe(0);
       expect(store.read(`${BASE}/automation/flow`).documents?.portal_photo?.files ?? []).toEqual([]);
     });
 
