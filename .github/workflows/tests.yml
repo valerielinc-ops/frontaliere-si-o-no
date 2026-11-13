@@ -4406,7 +4406,7 @@ jobs:
       # Persist the exact snapshot after all test steps. This runs after a test
       # failure too, so the next run on the same PR can reuse the assembly.
       - name: Save assemble-jobs cache
-        if: ${{ always() && !cancelled() && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
