@@ -12449,11 +12449,10 @@ ${staticAnalyticsHtml}
   }
  }
  // Keep the IT entries in the legacy sitemap, which is the cache-hit source
- // for active-job URLs. Canton-scoped sibling-locale entries belong in the
- // existing canton/locale shards: adding the restored manifest population to
- // sitemap-jobs.xml would exceed the 50k URL ceiling (and its 39k warning
- // target) before the shard writer sees them. This includes the Switzerland
- // aggregate section, which uses the same shard key as its existing root.
+ // for active-job URLs. Only non-IT canton city hubs move to the existing
+ // canton/locale shards: adding the restored city-hub population to
+ // sitemap-jobs.xml would exceed the 50k URL ceiling before the shard writer
+ // sees them. Other canton-scoped page families keep their existing owner.
  const sitemapJobs = sitemapJobsXml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
   const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
   if (!loc) return block;
@@ -12505,7 +12504,7 @@ ${staticAnalyticsHtml}
  // already listed here (measured live 2026-10-24). sitemap-jobs.xml keeps
  // them because relatedSearchClustersPlugin rebuilds the active-job allowlist
  // from this file on a cache-hit path; shards keep only URLs this file omits:
- // canton roots, non-IT canton-scoped landings, and qualifying job variants.
+ // canton roots, non-IT canton city hubs, and qualifying job variants.
  const legacyJobSitemapLocs = new Set<string>();
  for (const m of sitemapJobs.matchAll(/<loc>([^<]+)<\/loc>/g)) legacyJobSitemapLocs.add(m[1]);
 
@@ -12547,7 +12546,7 @@ ${staticAnalyticsHtml}
   *        │   EN/DE/FR variants, same hreflang group, same real <lastmod>
   *        ▼
   *   urls = [{ loc, lastmod, alternates, ... }] + canton roots
-  *        + non-IT canton-scoped landing entries moved out of sitemap-jobs.xml
+   *        + non-IT canton city-hub entries moved out of sitemap-jobs.xml
   *        │
   *        ├─► drop every <loc> sitemap-jobs.xml already lists (one sitemap per URL)
   *        ├─► splitToShards(shardKey = canton[-locale]) ──► sitemap-jobs-{slug}[-{locale}].xml

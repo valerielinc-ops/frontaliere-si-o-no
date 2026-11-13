@@ -283,29 +283,27 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
       ...Object.entries(todayRoutes).map(([locale, href]) => `${locale}=${href}`),
       `x-default=${todayRoutes.it}`,
     ].sort());
-    for (const block of todayGroup.filter(({ loc }) => !loc.endsWith(todayPath('it', 'AG')))) {
-      expect(block.file).toMatch(/^sitemap-jobs-argovia-(en|de|fr)\.xml$/);
-    }
+    for (const block of todayGroup) expect(block.file).toBe('sitemap-jobs.xml');
     for (const locale of ['en', 'de', 'fr'] as const) {
       expect(fs.existsSync(path.join(dist, todayPath(locale, 'AG').slice(1), 'index.html'))).toBe(false);
     }
 
-    const belowFloorPath = todayPath('it', 'BASILEA');
-    const belowFloorFile = path.join(dist, belowFloorPath.slice(1), 'index.html');
-    expect(fs.readFileSync(belowFloorFile, 'utf8')).toMatch(/name=["']?robots["']? content=["']?noindex,follow["']?/);
-    expect(blocks.some(({ loc }) => loc.endsWith(belowFloorPath))).toBe(false);
-    const deBelowFloorPath = todayPath('de', 'BASILEA');
-    const deBelowFloorFile = path.join(dist, deBelowFloorPath.slice(1), 'index.html');
-    if (buildLocale === undefined) {
-      expect(fs.readFileSync(deBelowFloorFile, 'utf8')).toMatch(/name=["']?robots["']? content=["']?noindex,follow["']?/);
-    } else {
-      expect(fs.existsSync(deBelowFloorFile)).toBe(false);
+    const belowFloorPaths = Object.fromEntries(locales.map((locale) => [locale, todayPath(locale, 'BASILEA')])) as Record<(typeof locales)[number], string>;
+    for (const locale of locales) {
+      const belowFloorPath = belowFloorPaths[locale];
+      const belowFloorFile = path.join(dist, belowFloorPath.slice(1), 'index.html');
+      expect(blocks.some(({ loc }) => loc.endsWith(belowFloorPath)), locale).toBe(false);
+      if (buildLocale === undefined || locale === 'it') {
+        expect(fs.readFileSync(belowFloorFile, 'utf8')).toMatch(/name=["']?robots["']? content=["']?noindex,follow["']?/);
+      } else {
+        expect(fs.existsSync(belowFloorFile), locale).toBe(false);
+      }
     }
 
     const expiredOwnerPaths = {
       it: '/cerca-lavoro-argovia/expired-owner-split-build-it/',
       en: '/en/jobs-in-aargau/expired-owner-split-build-en/',
-      de: deBelowFloorPath,
+      de: belowFloorPaths.de,
       fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
     };
     const allBlocks = sitemapFiles().flatMap(urlBlocks);
