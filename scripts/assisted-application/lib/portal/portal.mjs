@@ -59,6 +59,7 @@ import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
+import { installPortalReplayFence } from './replay-fence.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
@@ -1054,6 +1055,7 @@ export function portalContextOptions(ctx = {}) {
     timezoneId: 'Europe/Zurich',
     viewport: { width: 1366, height: 900 },
     acceptDownloads: false,
+    ...(ctx.portalReplay === true ? { serviceWorkers: 'block' } : {}),
   };
 }
 
@@ -9068,7 +9070,7 @@ export async function readPortalRequirements(ctx) {
     browser = await launch();
     const context = await browser.newContext(portalContextOptions(ctx));
     registerPortalChannelType(context, portalChannelType(ctx));
-    await registerCookieSessionRecovery(context, { log: ctx.log });
+    if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
       const publicHostCache = new Map();
       const requestIsPublic = async (requestUrl) => {
@@ -9087,6 +9089,7 @@ export async function readPortalRequirements(ctx) {
           // Let the narrower cookie-session recovery route run first when it
           // matches. `continue()` would bypass that already-registered route.
           if (typeof route.fallback === 'function') await route.fallback();
+          else if (ctx.portalReplay === true) await route.abort().catch(() => {});
           else await route.continue();
         }
         else await route.abort().catch(() => {});
@@ -9428,7 +9431,7 @@ export async function submitViaPortal(ctx) {
       finalClickAttempt,
     });
     if (page) {
-      evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+      if (ctx.portalReplay !== true) evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
       // is no code fix, nor is a regional gate on the runner's IP (#17112 and
       // #17132 tried to click through it): the retry ladder owns that one.
@@ -9577,7 +9580,7 @@ export async function submitViaPortal(ctx) {
     else evidence.steps.push({ url: page.url(), applicationStage: { kind: 'receipt' } });
     evidence.finalOutcomes = [...(evidence.finalOutcomes || []), 'confirmed'];
     evidence.finalUrl = page.url();
-    evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+    if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
     return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
@@ -9620,8 +9623,12 @@ export async function submitViaPortal(ctx) {
   } : null;
   try {
     context = await browser.newContext(portalContextOptions(ctx));
+    if (ctx.portalReplay === true && ctx.portalReplayFenceInstalled !== true) {
+      const metrics = await installPortalReplayFence(context);
+      if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') Object.assign(ctx.portalReplayMetrics, metrics);
+    }
     registerPortalChannelType(context, channelType);
-    await registerCookieSessionRecovery(context, { log: ctx.log });
+    if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     // Playwright contexts always expose addInitScript. Keep the adapter
     // boundary tolerant for the deterministic portal harness, whose minimal
     // context cannot execute page init scripts but still exercises the
@@ -9731,11 +9738,17 @@ export async function submitViaPortal(ctx) {
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
       });
+    // Some crawlers publish the advertisement itself as the apply URL. That
+    // selected page must be allowed to expose its own application entry before
+    // a form exists; the entry and the form are still checked below.
+    const selectedPostingIsApplicationUrl = Boolean(ctx.applyUrl && ctx.postingUrl
+      && samePostingAddress(ctx.applyUrl, ctx.postingUrl)
+      && samePostingAddress(postingUrl, ctx.postingUrl));
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
     if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl)
-      && !postingVacancyMatched && !initialPublicJobSearch) {
+      && !postingVacancyMatched && !initialPublicJobSearch && !selectedPostingIsApplicationUrl) {
       return await handoff('posting_mismatch');
     }
     if (postingVacancyMatched && isApplicationRegionUnsupported(initialPageText)
@@ -9752,18 +9765,20 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       workdayApplicationEntryProven,
-      allowSingleExternalApplicationEntry: postingVacancyMatched,
+      allowSingleExternalApplicationEntry: postingVacancyMatched || selectedPostingIsApplicationUrl,
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
     });
     ({ page, snapshot } = opened);
     workdayApplicationEntryProven = workdayApplicationEntryProven || opened.workdayApplicationEntryProven === true;
+    evidence.entryClicked = opened.enteredThroughApplicationEntry === true;
     if (opened.resolvedPostingUrl) {
       postingUrl = opened.resolvedPostingUrl;
       postingVacancyMatched = true;
     }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
+    if (selectedPostingIsApplicationUrl && enteredThroughApplicationEntry) postingVacancyMatched = true;
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;
@@ -9854,11 +9869,17 @@ export async function submitViaPortal(ctx) {
     // the selected vacancy: keep it as a posting mismatch until the owner can
     // inspect the page, rather than presenting a loading shell as a candidate
     // question.
-    if (!hasApplicationSurface(snapshot, {
+    const applicationSurface = hasApplicationSurface(snapshot, {
       pageUrl: page.url(),
       postingUrl,
       postingMatch: match,
-    }) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    });
+    evidence.formReady = applicationSurface === true;
+    if (!applicationSurface && !ctx.skipPostingCheck) {
+      const selectedPostingStillOpen = selectedPostingIsApplicationUrl
+        && !enteredThroughApplicationEntry && samePostingAddress(page.url(), postingUrl);
+      return await handoff(selectedPostingStillOpen ? 'application_stage_unknown' : 'posting_mismatch');
+    }
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
@@ -10215,6 +10236,7 @@ export async function submitViaPortal(ctx) {
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
+          evidence.entryClicked = evidence.entryClicked || reopened.enteredThroughApplicationEntry === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -10354,7 +10376,7 @@ export async function submitViaPortal(ctx) {
           }, evidence,
         };
         if (auth.dryRun) {
-          evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+          if (ctx.portalReplay !== true) evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
         }
         if (auth.accountRecovered || storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
@@ -10389,6 +10411,7 @@ export async function submitViaPortal(ctx) {
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
+          evidence.entryClicked = evidence.entryClicked || reopened.enteredThroughApplicationEntry === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -11010,11 +11033,11 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (ctx.dryRun) {
-        evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+        if (ctx.portalReplay !== true) evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
         evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };
       }
-      evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
+      if (ctx.portalReplay !== true) evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       evidence.submissionUrl = finalUrl;
@@ -11044,6 +11067,12 @@ export async function submitViaPortal(ctx) {
       // capture listener compares it again synchronously before portal click
       // handlers can act.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
+      if (ctx.portalReplay === true) {
+        if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') {
+          ctx.portalReplayMetrics.finalClickAttempts = (Number(ctx.portalReplayMetrics.finalClickAttempts) || 0) + 1;
+        }
+        return await handoff('portal_replay_final_click_blocked');
+      }
       finalClickAttempt = diagnostics?.currentAttempt?.() ?? null;
       diagnostics.finalClick();
       await final.click();
@@ -11068,7 +11097,7 @@ export async function submitViaPortal(ctx) {
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
-      evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+      if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       evidence.afterSubmitSnapshot = finalReviewEvidenceSnapshot(observed.snapshot);
       log(`portal outcome: ${outcome}`);

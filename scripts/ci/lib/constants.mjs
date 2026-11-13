@@ -15,6 +15,9 @@
  */
 export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
 
+/** Read-only real-portal replay required before runner changes can merge. */
+export const PORTAL_REPLAY_GATE_CHECK_NAME = 'portal replay gate';
+
 /** The required check is the execution job itself; no separate wrapper. */
 export const VITEST_EXECUTION_JOB_NAME = VITEST_CHECK_NAME;
 

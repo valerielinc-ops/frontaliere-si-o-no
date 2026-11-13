@@ -6,6 +6,7 @@ import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
 import { applyActions, findButton, locatorFor } from './fill.mjs';
 import { applicationReceipt, applicationStage, portalJobKey, routeDirectory } from './stages.mjs';
 import { avaturePortalDirectory } from './protocol.mjs';
+import { resolvesToPublicHost } from '../../../../functions/src/assistedApplicationAiJob.js';
 
 const portalDirectory = url => routeDirectory(url.pathname);
 // /job?jobId=42 does not attest a sibling /application/ namespace. Only
@@ -78,7 +79,8 @@ export function applicationHistoryLinksInPage() {
  * This result is evidence for human review. A review page being accessible does
  * not prove that the earlier application was unsent, and never releases a claim.
  */
-export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchChromium }) {
+export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchChromium,
+  allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost }) {
   if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl }, sourceProtocol }) !== targetUrl) throw new Error('unsafe_verification_target');
   const browser = await launch({ headless: !headedBrowser() });
   let context;
@@ -111,8 +113,17 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
       const request = route.request();
       const url = new URL(request.url());
       const method = request.method();
+      if (allowCrossOriginNavigation) {
+        let publicHost = false;
+        try { publicHost = await isPublicHost(url.href); } catch { /* Uncertain DNS blocks this replay request. */ }
+        if (!publicHost) {
+          proof.blockedRequests++;
+          return route.abort();
+        }
+      }
       if (['GET', 'HEAD', 'OPTIONS'].includes(method)) {
-        if (request.isNavigationRequest() && url.origin !== origin) { proof.blockedRequests++; return route.abort(); }
+        const crossOriginNavigation = request.isNavigationRequest() && url.origin !== origin;
+        if (crossOriginNavigation && !allowCrossOriginNavigation) { proof.blockedRequests++; return route.abort(); }
         let pathname;
         try { pathname = decodeURIComponent(url.pathname).replace(/\\/g, '/'); }
         catch { proof.blockedRequests++; return route.abort(); }
@@ -122,7 +133,7 @@ export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrl
           || /(?:submit|finali[sz]e|withdraw|delete|remove|cancelapplication|applicationapply)/i.test(pathname)
           || /(?:^|\/)(?:application)?save(?:\/|$)/i.test(pathname)
           || [...url.searchParams.keys()].some(key => /^(?:action|submit|send|withdraw|delete|cancel)$/i.test(key))) { proof.blockedRequests++; return route.abort(); }
-        if (request.isNavigationRequest() && !navigationTargets.has(url.href)
+        if (request.isNavigationRequest() && !crossOriginNavigation && !navigationTargets.has(url.href)
           && !safeSigninAction(url.href, applyUrl, sourceProtocol)
           && !(portalDirectory(url) === sourceDirectory(new URL(applyUrl), sourceProtocol) && /(?:^|\/)(?:home|index)\/?$/i.test(url.pathname) && !url.search)
           && !(!url.search && (url.pathname === '/' || url.pathname === sourceDirectory(new URL(applyUrl), sourceProtocol).replace(/\/$/, '')))) { proof.blockedRequests++; return route.abort(); }

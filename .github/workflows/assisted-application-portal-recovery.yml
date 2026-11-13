@@ -1,5 +1,9 @@
 name: Recover assisted applications after portal fixes
 
+# The push-to-main re-enqueue below is safe only while the main ruleset
+# requires `portal replay gate`: each runner change must first replay the same
+# public listings on base and head behind a GET-only browser fence. Keep this
+# recovery automatic; the required PR gate is the proof that makes it safe.
 on:
   push:
     branches: [main]

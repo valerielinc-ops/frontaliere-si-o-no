@@ -68,7 +68,13 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-    codex, launch: async () => browser, onBeforeSubmit: guard });
+    codex, launch: async () => browser, onBeforeSubmit: guard,
+    ...(options.portalReplay === true ? {
+      portalReplay: true,
+      portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
+      portalReplayMetrics: options.portalReplayMetrics,
+    } : {}),
+  });
   return { run, guard, click, openClick, page, codex };
 }
 
@@ -98,6 +104,26 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
     expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('blocks and records any final click reached in portal replay mode', async () => {
+    const portalReplayMetrics = { finalClickAttempts: 0 };
+    const finalReview = {
+      ...review,
+      buttons: [{ id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false }],
+    };
+    const f = fixture(profile, null, finalReview, null, {
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_replay_final_click_blocked' });
+    expect(portalReplayMetrics.finalClickAttempts).toBe(1);
+    expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).not.toHaveBeenCalled();
   });
 
