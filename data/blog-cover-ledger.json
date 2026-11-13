@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1159,
+      "5": 1160,
       "6": 5062
     },
-    "publishedCovers": 7902,
+    "publishedCovers": 7903,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218036,6 +218036,39 @@
         "provider": "openai-codex",
         "assetId": "article-tasso-ilo-terzo-trimestre",
         "imageUrl": "/images/blog/article-tasso-ilo-terzo-trimestre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-referendum-budget-2027-frauenfeld": {
+      "cover": "/images/blog/article-referendum-budget-2027-frauenfeld.webp",
+      "hash": "53d086040226d0e3ca70a9570bdbec3b18c7c2241f9831a883482e99a4875a7c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "referendum-budget-2027-frauenfeld",
+          "category": "fiscale",
+          "date": "2026-11-12T23:00:04.094Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-referendum-budget-2027-frauenfeld.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-12",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-referendum-budget-2027-frauenfeld",
+        "imageUrl": "/images/blog/article-referendum-budget-2027-frauenfeld.webp",
         "evidence": "generated-engine-record"
       }
     }
