@@ -269,7 +269,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), verifiedAccounts: new Set(), resetEmails: [], resetLinksClaimed: 0, resetLinkSent: false, recoveryUsed: false, recoveryHistoryChecked: false, historyUnavailable: false, activationResends: 0, activationLinksClaimed: 0, alreadyApplied: false, silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, nativeCvSelector: false, nativeCvSelectorClicks: 0, tenantMode: false, nativeCvMultipartUploads: 0, talentPoolRequests: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
+  const workday = { accounts: new Map(), verifiedAccounts: new Set(), resetEmails: [], resetLinksClaimed: 0, resetLinkSent: false, recoveryUsed: false, recoveryHistoryChecked: false, historyUnavailable: false, activationResends: 0, activationLinksClaimed: 0, alreadyApplied: false, silent: false, cover: false, resumed: false, uploadFails: false, coverLetterUploadFails: false, coverLetterUploads: 0, additionalCvField: false, cvUploads: 0, additionalCvUploads: 0, nativeCvSelector: false, nativeCvSelectorClicks: 0, routeChangesBeforeUpload: false, tenantMode: false, nativeCvMultipartUploads: 0, talentPoolRequests: 0, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, choiceClicks: { autofill: 0, lastApplication: 0 }, tenantRequests: [], forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${receiptQuery(action)}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
@@ -877,6 +877,7 @@ function fakePortal() {
             el('country').onclick = () => { el('countries').style.display = 'block'; };
             el('country').onkeydown = (event) => { if (event.key === 'Escape') el('countries').style.display = 'none'; };
           };
+          const routeChangesBeforeUpload = ${workday.routeChangesBeforeUpload ? 'true' : 'false'};
           draw('United States of America');
           if (el('select-files')) el('select-files').onclick = async () => { await fetch('/wd/select-file', { method: 'POST' }); el('cv-holder').hidden = false; el('cv').click(); };
           if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
@@ -942,7 +943,15 @@ function fakePortal() {
           el('add-experience').onclick = () => addProfileRow('experience');
           el('add-education').onclick = () => addProfileRow('education');
           for (const option of el('countries').children) {
-            option.onclick = () => { el('countries').style.display = 'none'; el('countryValue').value = option.textContent; setTimeout(() => draw(option.textContent), 400); };
+            option.onclick = () => {
+              el('countries').style.display = 'none';
+              el('countryValue').value = option.textContent;
+              if (routeChangesBeforeUpload) {
+                const otherPosting = location.pathname.replace('Consultant_R-12345-1', 'Consultant_R-99999-2');
+                history.pushState({}, '', otherPosting + location.search);
+              }
+              setTimeout(() => draw(option.textContent), 400);
+            };
           }
           el('pcode').onkeydown = (event) => {
             if (event.key !== 'Enter') return;
@@ -1810,6 +1819,29 @@ async function workdayAccountChecks({ base, tenantBase, state, workday, files, e
         cvUploadDiagnostics: step.cvUploadDiagnostics || null,
         failures: (step.failures || []).map((failure) => failure.error || 'unknown'),
       })),
+    });
+  workday.accounts.delete(ALIAS);
+  workday.verifiedAccounts.delete(ALIAS);
+  saved.delete(tenantHost);
+  state.sessions.clear();
+  const routeChangeUploadCount = workday.cvUploads;
+  const routeChangeApplicationCount = state.applications.length;
+  workday.routeChangesBeforeUpload = true;
+  let routeChangedBeforeUpload;
+  try {
+    routeChangedBeforeUpload = await runTenantWorkday();
+  } finally {
+    workday.routeChangesBeforeUpload = false;
+  }
+  check('Workday: a requisition change after stage classification stops before any upload request',
+    routeChangedBeforeUpload.event.type === 'submit_handoff'
+    && routeChangedBeforeUpload.event.reason === 'posting_mismatch'
+    && workday.cvUploads === routeChangeUploadCount
+    && state.applications.length === routeChangeApplicationCount,
+    {
+      event: { type: routeChangedBeforeUpload.event.type, reason: routeChangedBeforeUpload.event.reason || null },
+      uploadRequestDelta: workday.cvUploads - routeChangeUploadCount,
+      applicationDelta: state.applications.length - routeChangeApplicationCount,
     });
   if (smokeOnly) return;
 

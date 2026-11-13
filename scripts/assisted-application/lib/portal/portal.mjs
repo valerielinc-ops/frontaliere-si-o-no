@@ -10391,10 +10391,21 @@ export async function submitViaPortal(ctx) {
         const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox', 'combobox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        const applyBoundActions = async (pendingActions, options = {}) => {
+          const applied = [];
+          for (const action of pendingActions) {
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+            applied.push(...await applyActions(page, snapshot.fields, [action], ctx.files, options));
+            if (workdayPostingRouteMismatch(page.url(), ctx.applyUrl)) return { results: applied, handoff: 'posting_mismatch' };
+          }
+          return { results: applied, handoff: '' };
+        };
         const selectedUploads = new Map();
+        const appliedChoices = await applyBoundActions(choices);
+        if (appliedChoices.handoff) return await handoff(appliedChoices.handoff);
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
-          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+          ...appliedChoices.results,
         ];
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (up to four times for one page), and nothing is typed into what is no longer there.
@@ -10408,16 +10419,20 @@ export async function submitViaPortal(ctx) {
               && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
           }
         }
-        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
-          onUploadSelection: (fieldId, paths) => {
-            selectedUploads.set(fieldId, paths);
-            if (paths.length) {
-              rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
-              const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
-              if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
-            }
-          },
-        }));
+        if (!redrawn) {
+          const appliedRemaining = await applyBoundActions(actions.filter((action) => !isChoice(action)), {
+            onUploadSelection: (fieldId, paths) => {
+              selectedUploads.set(fieldId, paths);
+              if (paths.length) {
+                rememberUploadSelection(fieldId, snapshot.fields, page.url(), pageEpoch);
+                const selectedAction = actions.find((action) => action.fieldId === fieldId && action.action === 'upload');
+                if (selectedAction?.document) selectedDocumentsThisRun.add(selectedAction.document);
+              }
+            },
+          });
+          if (appliedRemaining.handoff) return await handoff(appliedRemaining.handoff);
+          results.push(...appliedRemaining.results);
+        }
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
             const result = results.find((item) => item.fieldId === action.fieldId);
