@@ -633,6 +633,24 @@ describe('candidate review API', () => {
       expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
     });
 
+    it('checks a required photo against the portal accept list and byte limit before storing it', async () => {
+      await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+        questions: [],
+        requiredDocuments: [{
+          id: 'portal_photo', label: 'Foto', kind: 'photo', required: true,
+          accept: 'image/jpeg', maxBytes: JPEG_2X2.length - 1,
+        }],
+      }));
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow')
+        .set({ state: 'candidate_review', heldBy: ['document:portal_photo'], heldSince: T0 }, { merge: true });
+
+      expect(await upload('portal_photo', PNG)).toMatchObject({ status: 415, body: { error: 'file_type_not_allowed' } });
+      expect(await upload('portal_photo', JPEG_2X2, { fileName: 'photo.jpg' }))
+        .toMatchObject({ status: 413, body: { error: 'file_too_large', maxBytes: JPEG_2X2.length - 1 } });
+      expect(saved).toHaveSize(0);
+      expect(store.read(`${BASE}/automation/flow`).documents?.portal_photo?.files ?? []).toEqual([]);
+    });
+
     // A cut JPG would print half grey inside the grouped PDF of the documents (lib/dossier.mjs).
     it('refuses a JPG cut on the way, as the photo is, and says so in the four languages', async () => {
       expect(await upload('reports', JPEG_2X2.subarray(0, JPEG_2X2.length - 2), { fileName: 'scan.jpg' })).toMatchObject({ status: 400, body: { error: 'file_unreadable' } });
