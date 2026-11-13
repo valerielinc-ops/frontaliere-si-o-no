@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
-import { isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
 const applyUrl = `${origin}/Careers/ApplicationMethods?jobId=42`;
@@ -140,12 +140,39 @@ describe('application stage ownership', () => {
     'Pas une candidature pour un poste spécifique',
     'Keine Bewerbung für eine bestimmte Stelle',
     'Non è una candidatura per una posizione specifica',
-  ])('rejects Workday talent-pool routes and non-job-specific application copy before form handling: %s', (copy) => {
+  ])('keeps the selected Workday posting entry when a neighboring talent-pool panel says: %s', (copy) => {
+    const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant-m-w-d-Mendrisio-Outlet_R-12345';
+    const workdayApplyUrl = `${postingUrl}/apply/applyManually`;
+    const selectedApply = { text: 'Postuler', dataAutomationId: 'adventureButton', frame: 0, disabled: false };
+    const snapshot = {
+      url: postingUrl,
+      title: 'Introduce yourself',
+      text: `Seasonal Sales Consultant — Introduce yourself — ${copy}`,
+      fields: [],
+      buttons: [
+        selectedApply,
+        { text: 'Démarrer', dataAutomationId: 'introduceYourselfButton', section: 'Présentez-vous', frame: 0, disabled: false },
+      ],
+    };
+    const context = {
+      applyUrl: workdayApplyUrl,
+      postingUrl,
+      job: { title: 'Seasonal Sales Consultant' },
+    };
+
+    expect(applicationStage(snapshot, { applyUrl: workdayApplyUrl, job: context.job }).kind).not.toBe('posting_mismatch');
+    expect(applicationEntryControls(snapshot, context)).toEqual([selectedApply]);
+  });
+
+  it.each([
+    'Not an application for a specific job',
+    'Pas une candidature pour un poste spécifique',
+    'Keine Bewerbung für eine bestimmte Stelle',
+    'Non è una candidatura per una posizione specifica',
+  ])('rejects the Workday talent-pool route before form handling: %s', (copy) => {
     const applyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345/apply/applyManually';
     const talentPoolUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/introduceYourself';
-    expect(applicationStage({ url: talentPoolUrl, text: 'Démarrer' }, { applyUrl }).kind).toBe('posting_mismatch');
-    expect(applicationStage({ url: applyUrl, text: copy }, { applyUrl }).kind)
-      .toBe('posting_mismatch');
+    expect(applicationStage({ url: talentPoolUrl, text: `Démarrer — ${copy}` }, { applyUrl }).kind).toBe('posting_mismatch');
   });
 
   it('confirms a Workday receipt only after a final click on the same requisition and an empty form', () => {
@@ -158,6 +185,7 @@ describe('application stage ownership', () => {
     };
     const finalSubmission = { clicked: true };
     expect(applicationReceipt(received, { applyUrl: submissionUrl, submissionUrl, finalSubmission })).toBe(true);
+    expect(applicationReceipt({ ...received, text: '' }, { applyUrl: submissionUrl, submissionUrl, finalSubmission })).toBe(false);
     expect(applicationReceipt(received, { applyUrl: submissionUrl, submissionUrl })).toBe(false);
     expect(applicationReceipt({ ...received, fields: [{ inputType: 'email', disabled: false }] }, {
       applyUrl: submissionUrl, submissionUrl, finalSubmission,

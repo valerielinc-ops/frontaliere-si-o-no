@@ -41,7 +41,6 @@ const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|sen
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
-const WORKDAY_TALENT_POOL_RE = /\bnot\s+an\s+application\s+for\s+a\s+specific\s+job\b|\bpas\s+une\s+candidature\s+pour\s+un\s+poste\s+spécifique\b|\bkeine\s+bewerbung\s+für\s+eine\s+bestimmte\s+stelle\b|\bnon\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica\b/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -174,7 +173,6 @@ function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUr
   if (!actual || !expected || actual.protocol !== 'https:' || actual.origin !== expected.origin
     || !isWorkdayTenantUrl(actual.href)
     || !sameWorkdayJobRoute(workdayJobRoute(actual.href), workdayJobRoute(expected.href))) return null;
-  if (WORKDAY_PROFILE_INTRO_RE.test(`${snapshot?.title || ''} ${snapshot?.text || ''}`)) return null;
   const buttons = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
   const controlText = button => String(button?.text || button?.label || button?.ariaLabel || '');
   const applyButtons = buttons.filter(button => GENERIC_APPLY_RE.test(controlText(button)));
@@ -221,7 +219,7 @@ function successFactorsReceipt(snapshot, { actual, source }) {
 
 /** Workday confirms a submitted application on its same requisition route. */
 function workdaySubmissionReceipt(snapshot, { actual, source, finalSubmission }) {
-  if (finalSubmission?.clicked !== true || !actual || !source
+  if (finalSubmission?.clicked !== true || !CONFIRM_RE.test(String(snapshot?.text || '')) || !actual || !source
     || !trustedPortalTransport(actual) || !trustedPortalTransport(source)
     || actual.origin !== source.origin) return false;
   const actualRoute = workdayJobRoute(actual.href);
@@ -440,8 +438,7 @@ export function applicationReceipt(snapshot, { url = snapshot?.url, applyUrl, su
 export function applicationStage(snapshot, { url = snapshot?.url, applyUrl, sourceProtocol = null, postingEntry = false, job = {} } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
   const text = String(snapshot?.text || '').replace(/\s+/g, ' ');
-  if (isWorkdayTenantUrl(applyUrl)
-    && (!isWorkdayJobRouteBound(url, applyUrl) || WORKDAY_TALENT_POOL_RE.test(text))) {
+  if (isWorkdayTenantUrl(applyUrl) && !isWorkdayJobRouteBound(url, applyUrl)) {
     return { kind: 'posting_mismatch' };
   }
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
