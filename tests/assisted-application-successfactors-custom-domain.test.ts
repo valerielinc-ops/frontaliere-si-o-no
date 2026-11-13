@@ -96,9 +96,13 @@ describe('SuccessFactors Career Site Builder employer-domain posting entries', (
     expect(applicationEntryControls(wrongTarget, context)).toEqual([]);
   });
 
-  it('accepts a matching SuccessFactors public apply id on its tenant host', () => {
+  it('accepts a matching SuccessFactors public apply id on its tenant host with route proof', () => {
     const publicApplyUrl = 'https://career55.sapsf.eu/talentcommunity/apply/990021/';
-    expect(isVerifiedPostingEntry({ applyUrl: publicApplyUrl, postingUrl })).toBe(true);
+    expect(isVerifiedPostingEntry({
+      applyUrl: publicApplyUrl,
+      postingUrl,
+      postingRouteProof: { via: 'successfactors', applyUrl: publicApplyUrl, postingUrl },
+    })).toBe(true);
   });
 
   it('requires route proof before binding a cross-origin public apply id', () => {
