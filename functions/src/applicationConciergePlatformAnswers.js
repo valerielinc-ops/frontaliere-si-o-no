@@ -230,10 +230,10 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
   }
   // A choice with no options cannot be decided directly, but the verified binary answer above may now establish
   // the shared passport fact that supplies its localized catalog fallback.
-  for (const item of required) {
+  const passportBackfill = required.filter((item) => platformQuestionTopic(item.shaped)?.startsWith('passport_'));
+  for (const item of passportBackfill) {
     if (String(candidateAnswers?.[item.shaped.id] ?? '').trim()
       || entries.some((entry) => entry.questionId === item.shaped.id)) continue;
-    if (!platformQuestionTopic(item.shaped)?.startsWith('passport_')) continue;
     const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
     if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
   }
