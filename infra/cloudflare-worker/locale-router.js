@@ -822,13 +822,14 @@ export function determineCachePolicy(request, url) {
 //
 // The slug→{locale: section-prefix} map is emitted by jobCanonRedirectMapPlugin
 // and pushed to cdn.frontaliereticino.ch/job-canon/<shard>.json (CDN-offloaded,
-// same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). Fetched
-// here as a plain cross-origin subrequest (Workers fetch() is not CORS-bound,
-// unlike public/404.html's browser-context fetch) and edge-cached
+// same as /data and /og — see deploy-it-pages-prep.sh step_push_cdn). During the
+// reshard migration this Worker checks the v2 hash shard first, then falls back
+// to that v1 path only when v2 is absent. The browser 404 consumer stays on v1
+// until S2. Fetched here as a plain cross-origin subrequest (Workers fetch() is
+// not CORS-bound, unlike public/404.html's browser-context fetch) and edge-cached
 // (cacheEverything + cacheTtlByStatus) so repeat 404s for the same shard don't
-// re-hit the CDN. Best-effort throughout: any miss/timeout/parse error returns
-// null and the normal 404 path
-// runs.
+// re-hit the CDN. Errors fail closed; a miss after both versions leaves the
+// normal 404 path in control.
 //
 // LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
 // locales — only the section prefix is localized. The map value is therefore a
@@ -839,12 +840,13 @@ export function determineCachePolicy(request, url) {
 // permanent 301 that crosses locales (which would de-index the localized canonical
 // and is far worse than the soft-404 it replaces).
 //
-// Baseline matching mirrors public/404.html (jobRe + shard key) and
-// jobCanonRedirectMapPlugin; numeric suffixes additionally require a verified
-// registry target in this server-side recovery path.
-// (shard key). It is duplicated, not imported: this Worker is a standalone runtime
-// deployed by wrangler, not part of the Vite bundle, so it cannot share the TS
-// build-plugin modules. Keep the three copies in lockstep when touching any one.
+// Baseline matching mirrors public/404.html (jobRe + v1 shard key) and
+// jobCanonRedirectMapPlugin; the v2 hash mirrors services/jobSlugShards.ts.
+// Numeric suffixes additionally require a verified registry target in this
+// server-side recovery path. These helpers are mirrored, not imported: this
+// Worker is a standalone runtime deployed by wrangler, not part of the Vite
+// bundle, so it cannot share the TS build-plugin modules. Keep the copies in
+// lockstep when touching any one.
 const JOB_DETAIL_RE =
   /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)(?:\/(\d+))?\/?$/;
 
@@ -1240,13 +1242,68 @@ async function recoverEmployerProfileAlias(url, origin) {
   return new Response(null, { status: 301, headers: { Location: target + url.search, 'Cache-Control': RETIRED_MOVED_CACHE_CONTROL } });
 }
 
-// Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
-// shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
-// padded to length 2.
+// Shard key for the legacy /job-canon/<sk>.json. MIRRORS public/404.html +
+// the plugin's v1 shardKey(): first 2 chars of the lowercased slug,
+// non-alphanumerics → '_', padded to length 2.
 function jobCanonShardKey(slug) {
   let sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
   if (sk.length < 2) sk = (sk + '__').slice(0, 2);
   return sk;
+}
+
+// The v1 live corpus was 238,512,449 bytes (2026-11-13): 256 buckets produced
+// a 970,410-byte maximum and 932,070-byte median. With 4096 buckets the live
+// maximum was 72,180 bytes and the median 58,221 bytes, inside both v2 limits.
+const JOB_CANON_V2_SHARD_COUNT = 4096;
+
+// djb2-xor mirror of services/jobSlugShards.ts. `slug` is already normalized
+// by lowerSegment() before it reaches this helper.
+export function jobCanonV2ShardKey(slug) {
+  let h = 5381;
+  for (let i = 0; i < slug.length; i++) {
+    h = ((h * 33) ^ slug.charCodeAt(i)) >>> 0;
+  }
+  return (h % JOB_CANON_V2_SHARD_COUNT).toString(16).padStart(3, '0');
+}
+
+// Read both Worker consumers from the same versioned registry path. Every v1
+// attempt is emitted as a structured event so the seven-day S3 zero-use window
+// includes recovery and expired-job lookups alike.
+async function fetchJobCanonMap(slug) {
+  const mapPaths = [
+    { version: 'v2', path: `/job-canon/v2/${jobCanonV2ShardKey(slug)}.json` },
+    { version: 'v1', path: `/job-canon/${jobCanonShardKey(slug)}.json` },
+  ];
+  for (const { version, path: mapPath } of mapPaths) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+    try {
+      const mapUrl = new URL(mapPath, CDN_BASE);
+      const resp = await fetch(mapUrl.toString(), {
+        signal: controller.signal,
+        cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
+      });
+      if (resp.status === 404 || resp.status === 410) {
+        if (version === 'v2') {
+          try {
+            console.log(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+          } catch {
+            // Logging must not block the v1 recovery path.
+          }
+          try { await resp.body?.cancel(); } catch { /* best-effort connection release */ }
+          continue;
+        }
+        return { kind: 'missing' };
+      }
+      if (!resp.ok) return { kind: 'unavailable' };
+      return { kind: 'map', map: await resp.json() };
+    } catch {
+      return { kind: 'unavailable' };
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  return { kind: 'unavailable' };
 }
 
 // Returns a 301 Response to the slug's current canonical page when the requested
@@ -1363,26 +1420,10 @@ async function recoverCantonDriftOrphan(url, locale, aliasCacheKey, ctx) {
   const m = url.pathname.match(JOB_DETAIL_RE);
   if (!m) return null;
   const slug = lowerSegment(m[1]);
-  const sk = jobCanonShardKey(slug);
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
-  let map;
-  try {
-    const mapUrl = new URL(`/job-canon/${sk}.json`, CDN_BASE);
-    const resp = await fetch(mapUrl.toString(), {
-      signal: controller.signal,
-      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
-    });
-    if (resp.status === 404 || resp.status === 410) return CANTON_DRIFT_CANONICAL_NULL;
-    if (!resp.ok) return aliasVerificationUnavailable(url);
-    map = await resp.json();
-  } catch {
-    return aliasVerificationUnavailable(url);
-  } finally {
-    clearTimeout(timer);
-  }
-
+  const mapResult = await fetchJobCanonMap(slug);
+  if (mapResult.kind === 'missing') return CANTON_DRIFT_CANONICAL_NULL;
+  if (mapResult.kind === 'unavailable') return aliasVerificationUnavailable(url);
+  const map = mapResult.map;
   if (!isPlainObject(map)) return aliasVerificationUnavailable(url);
   const entry = map[slug];
   // Per-locale object only: a legacy string value (IT-only map from a stale
@@ -3130,26 +3171,12 @@ async function recoverFuelStationAlias(url, origin) {
 // 'unknown' = the shard is absent or has no row for the slug; 'unavailable' =
 // the registry could not be read, which must not be mistaken for absence.
 async function jobCanonSlugState(slug) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
-  try {
-    const mapUrl = new URL(`/job-canon/${jobCanonShardKey(slug)}.json`, CDN_BASE);
-    const resp = await fetch(mapUrl.toString(), {
-      signal: controller.signal,
-      cf: publicOriginCacheOptions(JOB_CANON_CACHE_TTL),
-    });
-    if (resp.status === 404 || resp.status === 410) return 'unknown';
-    if (!resp.ok) return 'unavailable';
-    const map = await resp.json();
-    if (!isPlainObject(map)) return 'unavailable';
-    return Object.prototype.hasOwnProperty.call(map, slug) && isPlainObject(map[slug])
-      ? 'known'
-      : 'unknown';
-  } catch {
-    return 'unavailable';
-  } finally {
-    clearTimeout(timer);
-  }
+  const mapResult = await fetchJobCanonMap(slug);
+  if (mapResult.kind === 'missing') return 'unknown';
+  if (mapResult.kind === 'unavailable' || !isPlainObject(mapResult.map)) return 'unavailable';
+  return Object.prototype.hasOwnProperty.call(mapResult.map, slug) && isPlainObject(mapResult.map[slug])
+    ? 'known'
+    : 'unknown';
 }
 
 // Returns a 301 Response to the canton section root when the requested path is a
