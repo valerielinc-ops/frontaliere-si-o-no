@@ -344,7 +344,10 @@ export function bindPageManifest({
   const sitemapDigest = String(sitemapArtifactDigest ?? '').replace(/^sha256:/u, '').toLowerCase();
   if (sitemapArtifactName) {
     if (!/^[0-9a-f]{64}$/u.test(sitemapDigest)) throw new Error(`sitemap artifact digest is missing for ${manifest.locale}`);
-    refs.push({ runId: String(sourceRunId), name: sitemapArtifactName, digest: sitemapDigest, purpose: 'sitemaps' });
+    // The sitemaps bundle is uploaded by the run that binds this manifest
+    // (deploy-publish "Finalize IT …" uploads `sitemaps-<github.run_id>`),
+    // like every other ref here — not by the source build.
+    refs.push({ runId: String(artifactRunId), name: sitemapArtifactName, digest: sitemapDigest, purpose: 'sitemaps' });
   }
   const batchBySection = new Map();
   for (const section of required) {

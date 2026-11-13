@@ -5,8 +5,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  bindPageManifest,
   createSectionManifest,
   finalizeSectionManifestSet,
+  sectionBatch,
 } from '../../scripts/ci/shard-content-manifest.mjs';
 import { validatePublisherFastGate } from '../../scripts/ci/publisher-fast-gate.mjs';
 
@@ -278,6 +280,55 @@ describe('publisher fast provenance gate', () => {
 
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
+  });
+
+  it('accepts the IT page manifest as bound by the publisher (sitemaps ref on the publisher run)', () => {
+    // Publish 43314110480: the hand-written fixture above put the sitemaps ref
+    // on the publisher run, but bind-page wrote it on the source run, so the
+    // real receipt failed `sitemaps-<id>: artifact run <source> != <publisher>`.
+    const f = fixture();
+    const [handIt, ...others] = f.pageManifests;
+    const { artifactRefs: _refs, artifactRunId: _run, artifactName: _name, artifactDigest: _digest, ...unbound } = handIt;
+    const bound = bindPageManifest({
+      manifest: {
+        ...unbound,
+        version: 2,
+        entries: handIt.entries.map(({ artifactName: _a, artifactDigest: _d, ...entry }) => entry),
+      },
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      artifactRunId: PUBLISHER_RUN_ID,
+      baseArtifactName: 'github-pages',
+      baseArtifactDigest: `sha256:${'0'.repeat(64)}`,
+      sectionArtifactDigests: { [String(sectionBatch('ticino'))]: 'b'.repeat(64) },
+      requiredSections: ['ticino'],
+      manifestArtifactName: `sitemap-page-manifest-it-${PUBLISHER_RUN_ID}`,
+      sitemapArtifactName: `sitemaps-${PUBLISHER_RUN_ID}`,
+      sitemapArtifactDigest: '9'.repeat(64),
+    });
+    expect(bound.artifactRefs.filter((ref: { purpose: string }) => ref.purpose === 'sitemaps')).toEqual([
+      { runId: PUBLISHER_RUN_ID, name: `sitemaps-${PUBLISHER_RUN_ID}`, digest: '9'.repeat(64), purpose: 'sitemaps' },
+    ]);
+
+    const pageManifests = [bound, ...others];
+    const result = validatePublisherFastGate({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      publisherRunId: PUBLISHER_RUN_ID,
+      sitemapDir: f.sitemapDir,
+      previousSitemapSnapshot: f.previousSitemapSnapshot,
+      sitemapCoverageDeclarations: { version: 1, decreases: [] },
+      pageManifests,
+      sectionManifests: f.sectionManifests,
+      sourceArtifacts: { artifacts: f.sourceArtifacts },
+      publisherArtifacts: { artifacts: f.publisherArtifacts },
+      manifestArtifactNames: [
+        ...pageManifests.map((manifest) => manifest.manifestArtifactName),
+        ...f.sectionManifests.map((manifest) => manifest.manifestArtifactName),
+      ],
+    });
+    expect(result.errors).toEqual([]);
+    expect(result).toMatchObject({ passed: true, errorCount: 0 });
   });
 
   it('binds a non-sitemap expired archive canary to its final shard bytes', () => {
