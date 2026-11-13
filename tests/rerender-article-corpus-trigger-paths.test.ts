@@ -350,7 +350,7 @@ describe('rerender-article-hubs deployment ordering', () => {
     expect(shellAssets?.id).toBe('ensure_shell_assets');
     const deferExpression = String(shellAssets?.env?.DEFER_STALE_STABLE_ALIAS ?? '');
     expect(deferExpression).toContain("github.event_name == 'repository_dispatch'");
-    expect(deferExpression).toContain("github.event_name == 'workflow_run'");
+    expect(deferExpression).not.toContain("github.event_name == 'workflow_run'");
     expect(deferExpression).toContain("inputs.recovery_request_id != ''");
 
     for (const name of [

@@ -381,7 +381,6 @@ jobs:
           # manual and deploy-attested runs remain fail-closed.
           DEFER_STALE_STABLE_ALIAS: >-
             ${{ (github.event_name == 'repository_dispatch' ||
-                github.event_name == 'workflow_run' ||
                 (github.event_name == 'workflow_dispatch' && inputs.recovery_request_id != '')) &&
                 'true' || 'false' }}
         run: bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
