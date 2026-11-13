@@ -662,7 +662,13 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
   };
   const jobId = String(order?.jobId || '');
   const jobRoomOrder = Boolean(jobRoomAdvertisementId(order));
-  if (jobRoomOrder) Object.assign(empty, { jobRoomChannelResolved: false, jobRoomApplyUrl: '', jobRoomFormUrl: '', jobRoomExternalUrl: '' });
+  if (jobRoomOrder) Object.assign(empty, {
+    publishedPostingUrl: empty.postingUrl,
+    jobRoomChannelResolved: false,
+    jobRoomApplyUrl: '',
+    jobRoomFormUrl: '',
+    jobRoomExternalUrl: '',
+  });
   let jobRoomChannelPromise;
   const jobRoomChannel = () => {
     jobRoomChannelPromise ??= fetchJobRoomApplicationChannel(order, { fetchImpl, resolve }).then((channel) => {
@@ -681,7 +687,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
           return {
             ...empty,
             ...posting,
-            publishedPostingUrl: posting.postingUrl,
+            publishedPostingUrl: jobRoomOrder ? empty.publishedPostingUrl : posting.postingUrl,
             postingUrl: resolvedChannel.externalUrl || posting.postingUrl || empty.postingUrl,
             applyUrl: resolvedChannel.applyUrl || posting.applyUrl || empty.applyUrl,
             ...(jobRoomOrder ? {

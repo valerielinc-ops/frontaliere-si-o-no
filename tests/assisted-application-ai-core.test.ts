@@ -740,7 +740,7 @@ describe('job posting fetch', () => {
     });
 
     expect(calls).toEqual([`GET ${detailUrl}`, `GET ${jobUrl}`, `GET ${apiUrl}`]);
-    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
+    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, publishedPostingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
   });
 
   it('uses the Job-Room formUrl before its external advertisement URL', async () => {
@@ -799,6 +799,7 @@ describe('job posting fetch', () => {
 
     expect(posting).toMatchObject({
       postingUrl: externalUrl,
+      publishedPostingUrl: jobUrl,
       applyUrl: externalUrl,
       jobRoomApplyUrl: externalUrl,
       jobRoomFormUrl: '',

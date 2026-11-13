@@ -61,6 +61,10 @@ describe('Job-Room external advertisement link', () => {
     ['Zum externen Inserat', 'links'],
     ["Vers l'annonce externe", 'buttons'],
     ['Go to external ad', 'buttons'],
+    ['Go to the external job posting', 'links'],
+    ['Zum externen Stellenangebot', 'buttons'],
+    ["Aller à l’offre externe", 'links'],
+    ["Accéder à l’annonce externe", 'buttons'],
   ])('recognizes the public external ad action in %s', (label, collection) => {
     const snapshot = { [collection]: [{ text: label, href: externalUrl }] };
     expect(jobRoomExternalAdTarget(snapshot, currentUrl)).toBe(externalUrl);

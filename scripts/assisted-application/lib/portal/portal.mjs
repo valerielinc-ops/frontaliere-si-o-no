@@ -2556,25 +2556,13 @@ function linkNavigationTarget(href, base) {
   }
 }
 
-const JOB_ROOM_EXTERNAL_AD_LABELS = new Set([
-  "andare all'annuncio esterno", 'zum externen inserat', "vers l'annonce externe", 'go to external ad',
-].map(value => value.normalize('NFKD').replace(/\p{M}/gu, '').replace(/[’']/g, ' ')
-  .replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase()));
-
-function normalizeJobRoomExternalAdLabel(value) {
-  return String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').replace(/[’']/g, ' ')
-    .replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-}
-
 /** The sole explicit SECO link out of a Job-Room posting, or '' when it is absent or ambiguous. */
 export function jobRoomExternalAdTarget(snapshot = {}, currentUrl = snapshot?.url || '') {
   if (!isJobRoomPublicPostingRoute(currentUrl)) return '';
   const controls = [...(Array.isArray(snapshot.links) ? snapshot.links : []), ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : [])];
   const targets = new Set();
   for (const control of controls) {
-    const label = [control?.text, control?.label, control?.ariaLabel, control?.title]
-      .map(normalizeJobRoomExternalAdLabel).find(value => JOB_ROOM_EXTERNAL_AD_LABELS.has(value));
-    if (!label) continue;
+    if (!isJobRoomExternalApplicationLabel(control)) continue;
     const target = linkNavigationTarget(control?.href, currentUrl);
     if (!target || !isFetchablePublicUrl(target)) continue;
     try {
