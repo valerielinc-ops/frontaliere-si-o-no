@@ -81,6 +81,7 @@ shard_cdn_rewrite_wait_all "$RUNNER_TEMP" || true
 while IFS= read -r section; do
   [[ -n "$section" ]] || continue
   marker="$RUNNER_TEMP/shard-ok-$section-it"
+  layout_file="$RUNNER_TEMP/shard-tree-layout-$section-it"
   [[ -f "$marker" ]] || { echo "::error::no push ok-marker for required section $section-it"; fail=1; continue; }
   if ! shard_cdn_rewrite_ready "$RUNNER_TEMP" "$section" it; then
     echo "::error::CDN rewrite did not complete for required section $section-it"
@@ -112,9 +113,16 @@ while IFS= read -r section; do
     fail=1
     continue
   fi
+  if [[ ! -s "$layout_file" ]]; then
+    echo "::error::missing staged tree layout receipt for $section-it"
+    fail=1
+    continue
+  fi
+  source_path_layout="$(cat "$layout_file")"
   node scripts/ci/shard-content-manifest.mjs create-section \
     --root "$stage/$slug" --prefix "$slug" --locale it --section "$section" \
     --source-run-id "$source_run_id" --source-sha "$source_sha" --artifact-run-id "$GITHUB_RUN_ID" \
+    --source-path-layout "$source_path_layout" \
     --tar "$tar_path" --page-manifest "$RUNNER_TEMP/it-publish-plan/locale-sitemap-manifest-it.json" \
     --evidence-manifest "$RUNNER_TEMP/it-publish-plan/expired-archive-evidence-it.json" \
     --out "$RUNNER_TEMP/shard-content-manifests/it/$section.json"

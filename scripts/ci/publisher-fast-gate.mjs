@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
-import { sectionTreeLayout } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { sectionTreeLayout, sectionTreeLayoutAllowed } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import {
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
@@ -300,7 +300,10 @@ export function validatePublisherFastGate({
       const key = `${locale}:${shard.section}`;
       if (sectionByKey.has(key)) errors.push(`${label}: duplicate section ${shard.section}`);
       const expectedLayout = sectionTreeLayout(shard.section);
-      if (shard.sourcePathLayout !== expectedLayout) errors.push(`${label}: ${shard.section} sourcePathLayout must be ${expectedLayout}`);
+      if (!sectionTreeLayoutAllowed(shard.section, shard.sourcePathLayout)) {
+        const allowed = expectedLayout === 'canonical' ? `canonical or ${shard.section}-hash-v1` : expectedLayout;
+        errors.push(`${label}: ${shard.section} sourcePathLayout must be ${allowed}`);
+      }
       if (!Array.isArray(shard.pages)) errors.push(`${label}: ${shard.section} pages is not an array`);
       if (String(shard.artifactRunId) !== expectedArtifactRunId) errors.push(`${label}: ${shard.section} artifactRunId mismatch`);
       const artifactRef = (manifest.artifactRefs ?? []).find((ref) => ref.name === shard.artifactName);

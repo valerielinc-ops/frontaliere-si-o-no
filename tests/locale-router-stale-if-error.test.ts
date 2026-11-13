@@ -151,7 +151,11 @@ describe('locale-router stale-if-error', () => {
     const originRequests: Request[] = [];
     let calls = 0;
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
-      originRequests.push(input instanceof Request ? input : new Request(input));
+      const request = input instanceof Request ? input : new Request(input);
+      if (new URL(request.url).pathname === '/edge/section-tree-layout.json') {
+        return new Response(null, { status: 404 });
+      }
+      originRequests.push(request);
       calls += 1;
       return calls === 1 ? truncated : new Response('<html>recovered</html>', { status: 200 });
     });
