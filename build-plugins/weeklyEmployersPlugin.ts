@@ -134,6 +134,7 @@ import {
   slugifyEmployer,
 } from './shared/employerLinks';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import {
   renderEmployerCardListHtml,
@@ -4101,14 +4102,12 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   const mainPath = np.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
-      if (Array.isArray(raw)) {
-        for (const j of raw) {
-          const key = String(j?.slug || j?.id || '');
-          if (key && !seen.has(key)) {
-            seen.add(key);
-            out.push(j as WeeklyCountableJob);
-          }
+      for (const value of iterateJsonArrayFile(mainPath)) {
+        const j = value as WeeklyCountableJob;
+        const key = String(j?.slug || j?.id || '');
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          out.push(j);
         }
       }
     } catch (err) {

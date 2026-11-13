@@ -2636,6 +2636,11 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // this plugin contributes to the shared ~11 GB closeBundle plateau.
  // NODE_OPTIONS=--expose-gc is set in `build:ci` (see package.json); guarded
  // for local dev runs without the flag.
+ // The variable is captured by this closeBundle closure, so forcing GC alone
+ // is not enough while the plugin is still executing: release the parsed
+ // corpus before the next SEO plugin starts. Otherwise the next plugin parses
+ // its own jobs.json copy while this one remains strongly reachable.
+ jobsRawShared = [];
  forceGc();
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */

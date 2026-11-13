@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { parseLargeJsonArray, readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile, parseLargeJsonArray, readJsonFile } from '../scripts/lib/read-large-json.mjs';
 
 describe('large JSON reader', () => {
   it('parses nested records when chunks split strings and objects', () => {
@@ -26,6 +26,19 @@ describe('large JSON reader', () => {
     try {
       fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
       expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(rows);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('iterates a large top-level array without retaining the array container', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'iterate-large-json-'));
+    const target = path.join(dir, 'jobs.json');
+    const rows = [{ id: 1, title: 'café' }, { id: 2, nested: { ok: true } }];
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
+      expect([...iterateJsonArrayFile(target, { maxInlineBytes: 1 })]).toEqual(rows);
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
