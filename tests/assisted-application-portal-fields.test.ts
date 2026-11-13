@@ -2146,6 +2146,22 @@ describe('portal field extraction', () => {
     expect(applyButton).toMatchObject({ text: 'Apply' });
     expect(applyButton).not.toHaveProperty('chrome');
   });
+
+  it('marks a site newsletter field and submit control as chrome', () => {
+    const page = extract(`
+      <header>
+        <form id="newsletter-signup">
+          <label for="newsletter-email">Email</label>
+          <input id="newsletter-email" name="email" type="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </header>
+      <main><form><label for="first">First name*</label><input id="first" required></form></main>`);
+
+    expect(page.fields.find((field: any) => field.domId === 'newsletter-email')).toMatchObject({ chrome: true });
+    expect(page.buttons.find((button: any) => button.text === 'Subscribe')).toMatchObject({ chrome: true });
+    expect(page.fields.find((field: any) => field.domId === 'first')).not.toHaveProperty('chrome');
+  });
 });
 
 

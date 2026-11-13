@@ -45,6 +45,15 @@ describe('application stage ownership', () => {
     expect(applicationDiversionHint({ text: 'Candidature spontanée: présentez-vous à notre équipe.' })).toBe('talent_pool_or_job_alert');
   });
 
+  it('ignores application copy and site job-alert links on a bound application form', () => {
+    expect(applicationDiversionHint({
+      title: 'Application',
+      text: 'Seasonal Sales Consultant — Introduce yourself — Submit application',
+      buttons: [{ text: 'Submit application', formId: 'application' }],
+      links: [{ text: 'Create a job alert', chrome: true }],
+    })).toBe('');
+  });
+
   it.each([
     'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
     'Applications from your region are not currently supported.',

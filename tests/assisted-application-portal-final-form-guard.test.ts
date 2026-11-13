@@ -268,6 +268,31 @@ it('allows a cookie preference confirmation while the navigation agent is active
   releaseAgentFinalClickLockInPage('agent-lock', dom.window);
 });
 
+it('does not reserve preference confirmation, but still reserves application confirmation', () => {
+  const preference = fixture('<form id="cookie-preferences"><button data-aa-id="b1" type="submit">Confirm selection</button></form>');
+  const preferenceClicks = vi.fn();
+  preference.button.addEventListener('click', preferenceClicks);
+  installFinalFormGuardCaptureInPage(preference.dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', preference.dom.window);
+
+  const preferenceClick = new preference.dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  preference.button.dispatchEvent(preferenceClick);
+
+  expect(preferenceClick.defaultPrevented).toBe(false);
+  expect(preferenceClicks).toHaveBeenCalledTimes(1);
+  releaseAgentFinalClickLockInPage('agent-lock', preference.dom.window);
+
+  const application = fixture('<form id="application"><button data-aa-id="b1" type="submit">Confirm application</button></form>');
+  installFinalFormGuardCaptureInPage(application.dom.window.document);
+  installAgentFinalClickLockInPage('agent-lock', application.dom.window);
+
+  const applicationClick = new application.dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  application.button.dispatchEvent(applicationClick);
+
+  expect(applicationClick.defaultPrevented).toBe(true);
+  releaseAgentFinalClickLockInPage('agent-lock', application.dom.window);
+});
+
 it('allows only an explicitly authorized application entry outside a form', () => {
   const { dom } = fixture('<button id="entry" onclick="window.entries++">Apply for this job</button><form><button id="final" onclick="window.sent = true">Apply</button></form>');
   const entry = dom.window.document.querySelector('#entry') as HTMLButtonElement;

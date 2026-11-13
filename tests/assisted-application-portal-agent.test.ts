@@ -1034,6 +1034,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   });
 
   it('reserves final sends, passwords and unsafe keys while allowing navigation', () => {
+    const preferenceConfirmation = { name: 'Confirm selection', inForm: true, submits: true, nonApplicationForm: true };
+    const applicationConfirmation = { name: 'Confirm application', inForm: true, submits: true, applicationForm: true };
     const button = { button: true, name: '', submits: false, leaves: false, inList: false, editable: false, tag: 'button', inputType: '' };
     expect(refusal({ action: 'click' }, { ...button, name: 'Invia candidatura' })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Bewerbung abschließen' })).toBe('final_submit_reserved');
@@ -1043,6 +1045,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(refusal({ action: 'click' }, { ...button, name: 'Postuler manuellement', inForm: false }, { allowApplicationEntry: true })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Jetzt bewerben', inForm: false }, { allowApplicationEntry: true })).toBe('');
     expect(refusal({ action: 'click' }, { ...button, name: 'Apply', inForm: true, submits: true })).toBe('final_submit_reserved');
+    expect(refusal({ action: 'click' }, { ...button, ...preferenceConfirmation })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, ...applicationConfirmation })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Create account', submits: true })).toBe('account_action_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Sign in', submits: true })).toBe('account_action_reserved');
     // Talentsoft/RHB uses a form submit for the intermediate attachment action;

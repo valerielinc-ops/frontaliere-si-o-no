@@ -9636,6 +9636,7 @@ const CLOSURE_RECHECK_STOPS = new Set(['posting_mismatch', 'application_stage_un
 const PORTAL_AUTH_FIELD_RE = /(?:login|sign[\s-]?in|username|user\s*id|password|account|anmeldung|connexion|identifiant|accedi|accesso)/iu;
 
 function isApplicationOwnedPortalField(field) {
+  if (field?.chrome === true) return false;
   const fieldIdentityText = [
     field?.label,
     field?.name,
@@ -10390,19 +10391,17 @@ export async function submitViaPortal(ctx) {
           const targetStage = applicationStage({ ...targetSnapshot, text: targetText }, {
             applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: targetUrl,
           });
+          const targetHasApplicationFields = (targetSnapshot.fields || []).some(field => !field.disabled
+            && !['hidden', 'submit', 'button'].includes(String(field.inputType || '').toLowerCase())
+            && field.chrome !== true
+            && isApplicationOwnedPortalField(field));
           const targetEntryBound = samePostingAddress(targetUrl, postingUrl)
             && applicationEntryControls(targetSnapshot, {
               applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingRouteProof: ctx.postingRouteProof,
               job: ctx.job, allowSingleExternalApplicationEntry: postingVacancyMatched,
             }).length === 1;
-          // A posting page often carries a site search or newsletter field in
-          // its header/footer. Those are not evidence that the application
-          // entry opened an already-live form; only candidate-owned fields
-          // should block the selected posting's Apply control.
-          const hasCandidateField = (targetSnapshot.fields || []).some(field =>
-            !field.disabled && !field.chrome && !['hidden', 'submit', 'button'].includes(field.inputType));
           return (targetMatchesPosting || targetEntryBound)
-            && !hasCandidateField
+            && !targetHasApplicationFields
             && !targetStage.prefinal
             && (targetEntryBound || !['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(targetStage.kind));
         };
@@ -11582,10 +11581,6 @@ export async function submitViaPortal(ctx) {
       const duplicateBeforeFinal = await holdRecoveredDuplicateApplication(after);
       if (duplicateBeforeFinal) return duplicateBeforeFinal;
       const finalText = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
-      const finalDiversionHint = applicationDiversionHint({
-        title: await page.title().catch(() => ''),
-        text: finalText,
-      });
       const finalStage = applicationStage({ ...after, text: finalText }, {
         applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
       });
@@ -11600,6 +11595,10 @@ export async function submitViaPortal(ctx) {
         || Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey)
         || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl)))
         || successFactorsBound;
+      const finalDiversionHint = hasPostingBinding ? '' : applicationDiversionHint({
+        title: await page.title().catch(() => ''),
+        text: finalText,
+      });
       const finalBindingValid = workdayBound && !jobKeyConflict && finalStage.kind !== 'posting_mismatch'
         && !finalDiversionHint && hasPostingBinding;
       if (!finalBindingValid) {

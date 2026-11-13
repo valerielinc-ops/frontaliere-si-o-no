@@ -77,8 +77,15 @@ const SNAPSHOT_CHARS = 40_000;
 const ACTION_TIMEOUT_MS = 6000;
 const REF_RE = /^(f\d+)?e\d+$/;
 const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace']);
+const APPLICATION_CONTEXT_RE = /\b(?:application|bewerbung|bewerb(?:en)?|candidatur\w*|candidature\w*|candidatura\w*|postulation\w*|postul(?:er|ar)|cover\s+letter|resume|curriculum\s+vitae|lebenslauf|cv)\b/iu;
+const NON_APPLICATION_CONTEXT_RE = /\b(?:cookie|preference|privacy\s+setting|consent|newsletter|marketing|subscription|job\s*alert|job[- ]?abo|stellenalarm)\b/iu;
+const PREFERENCE_CONFIRMATION_RE = /\b(?:confirm\w*|conferm\w*|best[aä]tig\w*)\b.{0,24}\b(?:selection|auswahl|selezione|s[eé]lection)\b/iu;
 // A button with one of these words may send the application: only the runner presses it.
 export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|apply|bewerb|candida|postul)/i;
+const FINAL_CONFIRMATION_RE = /\b(?:best[aä]tig\w*|conferm\w*|confirm\w*)\b/iu;
+const PREFERENCE_SURFACE_RE = /\b(?:cookie|consent|privacy|preference|settings?|account|profile|konto|profil|impostazioni|preferenze|confidentialité|paramètres?)\b/iu;
+const isPreferenceConfirmation = (info = {}) => FINAL_CONFIRMATION_RE.test(String(info.name || ''))
+  && (info.chrome === true || PREFERENCE_SURFACE_RE.test(`${info.name || ''} ${info.labelName || ''} ${info.context || ''}`));
 // Some legacy portals use a form submit for an intermediate action, such as
 // adding an uploaded resume to the application before the real Next button
 // (Talentsoft/RHB: «Hinzufügen»). Keep those actions available to the agent,
@@ -595,6 +602,10 @@ async function describe(locator) {
         .filter(Boolean).join(' ').replace(/([a-z])([A-Z])/gu, '$1 $2').replace(/[_-]+/gu, ' ');
       return field.type === 'password' || /\b(?:otp|one[- ]time(?:\s+(?:password|passcode|code))?|verification code|confirmation code|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|bestätigungs(?:code|passwort)|verifizierungscode|einmal(?:passwort|kennwort|code))\b/iu.test(identity);
     }));
+    const formContext = form
+      ? [form.getAttribute('aria-label') || '', form.getAttribute('name') || '', form.id || '', form.innerText || form.textContent || '']
+        .join(' ').replace(/\s+/g, ' ').trim().slice(0, 1200)
+      : '';
     const href = control.tagName === 'A' ? control.getAttribute('href') || '' : '';
     const context = [...new Set([
       control.closest('form')?.innerText || control.closest('form')?.textContent,
@@ -611,6 +622,9 @@ async function describe(locator) {
       .map((id) => element.ownerDocument.getElementById(id)?.textContent || '');
     const labelName = [...(element.labels || []), ...labelledBy.map((text) => ({ textContent: text }))]
       .map((label) => label.textContent || '').join(' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+    const actionContext = `${name} ${labelName} ${formContext} ${context}`;
+    const nonApplicationForm = NON_APPLICATION_CONTEXT_RE.test(actionContext);
+    const applicationForm = !nonApplicationForm && APPLICATION_CONTEXT_RE.test(actionContext);
     return {
       name,
       labelName,
@@ -630,6 +644,9 @@ async function describe(locator) {
       inForm: Boolean(form || control.closest('[role="form"]')),
       context,
       chrome,
+      formContext,
+      applicationForm,
+      nonApplicationForm,
       href,
       submits,
       authForm,
@@ -640,11 +657,20 @@ async function describe(locator) {
 
 /** Why the action must not run on this element; final application clicks remain runner-owned. */
 const FINAL_SEND_VERB_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina)/i;
-const CONFIRMATION_RE = /\b(?:confirm|conferm|bestätig)\w*\b/iu;
-const PREFERENCE_SURFACE_RE = /\b(?:cookie|consent|privacy|preference|settings?|account|profile|konto|profil|impostazioni|preferenze|confidentialité|paramètres?)\b/iu;
-const isPreferenceConfirmation = (info = {}) => CONFIRMATION_RE.test(String(info.name || ''))
-  && (info.chrome === true || PREFERENCE_SURFACE_RE.test(`${info.name || ''} ${info.labelName || ''} ${info.context || ''}`));
 const NAVIGATIONAL_APPLICATION_RE = /^(?:apply(?:\s+(?:now|for this job|for this role|with (?:an )?account))?|postuler(?:\s+(?:maintenant|manuellement|à cette (?:offre|annonce)|à ce poste))?|(?:jetzt\s+)?bewerben(?:\s+(?:sie sich(?: jetzt)?|für diese stelle|auf diese stelle))?|candidati(?:\s+(?:ora|per questa posizione))?|applica(?:\s+(?:ora|per questa offerta))?|postul(?:ar|er)(?:\s+(?:ahora|a esta oferta))?|start(?:\s+(?:the\s+)?application))\W*$/iu;
+
+function isFinalActionName(name, info = {}) {
+  const text = String(name || '');
+  const context = `${text} ${info.formContext || ''}`;
+  if (info.nonApplicationForm === true
+    || NON_APPLICATION_CONTEXT_RE.test(text)
+    || NON_APPLICATION_CONTEXT_RE.test(info.formContext || '')) return false;
+  if (isPreferenceConfirmation({ ...info, name: text }) || PREFERENCE_CONFIRMATION_RE.test(text)) return false;
+  if (FINAL_SEND_VERB_RE.test(text)) return true;
+  if (!FINAL_CONFIRMATION_RE.test(text)) return false;
+  if (PREFERENCE_CONFIRMATION_RE.test(text)) return false;
+  return info.applicationForm === true || APPLICATION_CONTEXT_RE.test(context);
+}
 
 export function refusal(action, info, { reservedButtons = [], navigationEnabled = true, allowApplicationEntry = false } = {}) {
   if (['goto', 'back', 'switch_tab'].includes(action.action)) return navigationEnabled ? '' : 'navigation_reserved';
@@ -677,20 +703,24 @@ export function refusal(action, info, { reservedButtons = [], navigationEnabled 
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
   if (info.button && (action.action === 'click' || action.action === 'press')) {
     if (info.submits && (info.authForm || ACCOUNT_SUBMIT_RE.test(info.name))) return 'account_action_reserved';
-    const preferenceConfirmation = isPreferenceConfirmation(info);
+    const preferenceConfirmation = isPreferenceConfirmation(info)
+      || PREFERENCE_CONFIRMATION_RE.test(info.name)
+      || info.nonApplicationForm === true;
     const intermediateSubmit = info.submits
       && INTERMEDIATE_SUBMIT_RE.test(info.name)
       && !APPLICATION_ACTION_RE.test(info.name);
-    const advance = NEXT_RE.test(info.name) && !FINAL_SEND_VERB_RE.test(info.name);
+    const advance = NEXT_RE.test(info.name) && !isFinalActionName(info.name, info);
     const applicationVerb = /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(info.name);
     const applicationLink = navigationEnabled && allowApplicationEntry && Boolean(info.leaves)
-      && !info.inForm && applicationVerb && !FINAL_SEND_VERB_RE.test(info.name);
+      && !info.inForm && applicationVerb && !isFinalActionName(info.name, info);
     const navigationEntry = navigationEnabled && allowApplicationEntry && !info.inForm
-      && NAVIGATIONAL_APPLICATION_RE.test(info.name) && !FINAL_SEND_VERB_RE.test(info.name);
-    const finalAction = !preferenceConfirmation && (FINAL_SEND_VERB_RE.test(info.name)
+      && NAVIGATIONAL_APPLICATION_RE.test(info.name) && !isFinalActionName(info.name, info);
+    const finalAction = !preferenceConfirmation && (isFinalActionName(info.name, info)
       || (applicationVerb && !applicationLink && !navigationEntry)
       || ((FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) && !navigationEntry && (info.inForm || info.submits)));
-    if ((!advance && info.submits && !intermediateSubmit && !navigationEntry && !applicationLink && !preferenceConfirmation) || (!advance && finalAction)) return 'final_submit_reserved';
+    const formSubmitReserved = info.submits && info.nonApplicationForm !== true;
+    if ((!advance && formSubmitReserved && !intermediateSubmit && !navigationEntry && !applicationLink && !preferenceConfirmation)
+      || (!advance && finalAction)) return 'final_submit_reserved';
     if (!navigationEnabled && (advance || info.leaves)) return advance ? 'navigation_reserved' : 'link_reserved';
   }
   // The caller's own reserved controls (the account page: create account, sign in, privacy statement),
@@ -847,8 +877,8 @@ export async function runAction(page, action, files = {}, { reservedButtons = []
       }
       const link = snapshotLinkEntries(snapshot).find((entry) => safeAgentUrl(entry.href) === safeAgentUrl(target.href));
       const applicationEntry = Boolean(link && /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(link.label)
-        && !FINAL_SEND_VERB_RE.test(link.label));
-      if (link && FINAL_SEND_VERB_RE.test(link.label)) return { ok: false, error: 'final_submit_reserved' };
+        && !isFinalActionName(link.label));
+      if (link && isFinalActionName(link.label)) return { ok: false, error: 'final_submit_reserved' };
       if (applicationEntry && !allowApplicationEntry) return { ok: false, error: 'application_entry_unavailable' };
       await page.goto(visibleHref || target.href, { waitUntil: 'domcontentloaded', timeout: ACTION_TIMEOUT_MS * 10 });
       return { ok: true, navigation: true, ...(applicationEntry ? { applicationEntry: true } : {}) };
@@ -873,7 +903,7 @@ export async function runAction(page, action, files = {}, { reservedButtons = []
     const value = String(action.value || '');
     let uploaded = 0;
     const applicationEntryClick = action.action === 'click' && navigationEnabled && allowApplicationEntry && !info.inForm
-      && /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(info.name) && !FINAL_SEND_VERB_RE.test(info.name);
+      && /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(info.name) && !isFinalActionName(info.name, info);
     if (applicationEntryClick) {
       const allowed = await locator.evaluate(allowAgentApplicationEntryClickInPage).catch(() => false);
       if (!allowed) return { ok: false, error: 'application_entry_unavailable' };
@@ -925,7 +955,7 @@ export async function advanceLocator(page, ref) {
 /**
  * The final button the agent named on the last page (self-correction, level
  * 1: JOIN's «Conferma e applica» was no usual name): an enabled button whose
- * name says sending or confirming (FINAL_RE) and nothing of going back,
+ * name says sending or an application confirmation and nothing of going back,
  * leaving or signing in. The runner checks the page has nothing left to
  * answer and presses it behind the submission guard; a dry run stops before.
  * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string, dialogId: string}|null>}
@@ -935,7 +965,7 @@ export async function submitLocator(page, ref) {
   const locator = page.locator(`aria-ref=${ref}`);
   const info = await describe(locator).catch(() => null);
   if (!info?.button || !info.name || info.leaves || NOT_ADVANCE_RE.test(info.name)) return null;
-  if (!FINAL_RE.test(info.name) && !SUBMIT_RE.test(info.name)) return null;
+  if (!isFinalActionName(info.name, info) && !SUBMIT_RE.test(info.name)) return null;
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
   const binding = await locator.evaluate(element => {
     const form = element.form || element.closest?.('form');
@@ -1025,7 +1055,7 @@ export function isPreDispatchLocatorClickFailure(error) {
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
 export function advanceName(name) {
   const text = String(name || '');
-  return ADVANCE_RE.test(text) && !NOT_ADVANCE_RE.test(text) && !FINAL_RE.test(text) && !SUBMIT_RE.test(text);
+  return ADVANCE_RE.test(text) && !NOT_ADVANCE_RE.test(text) && !isFinalActionName(text) && !SUBMIT_RE.test(text);
 }
 
 /** Restore DOM provenance omitted by the fallback response schema. */
