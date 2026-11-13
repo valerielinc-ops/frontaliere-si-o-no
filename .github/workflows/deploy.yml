@@ -1140,7 +1140,9 @@ jobs:
 
           const numericMetric = (value) => {
             const text = String(value ?? '').trim();
-            return /^\d+(?:\.\d+)?$/.test(text) ? Number(text) : null;
+            if (!/^\d+(?:\.\d+)?$/.test(text)) return null;
+            const number = Number(text);
+            return Number.isFinite(number) ? number : null;
           };
 
           const markdownCell = (value) => String(value ?? 'unknown').replaceAll('|', '\\|');
