@@ -592,14 +592,24 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(250);
     expect(intervals).toHaveBeenCalledTimes(2);
   });
-  it('offers real instructions and reload, never silently grants consent', async () => {
+  it('offers the localized application service and can be dismissed without granting consent', async () => {
     recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
     const dialog = w.document.querySelector('dialog[open]'); expect(dialog).not.toBeNull();
-    const allow = Array.from(dialog.querySelectorAll('button')).find((el: any) => el.textContent === 'Come autorizzare il sito') as any;
-    allow.click(); expect(dialog.textContent).toContain('icona del leone');
+    expect(dialog.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
+    expect(dialog.textContent).toContain('30 giorni');
+    expect(dialog.textContent).toContain('Fino a 10 posizioni che accetti');
+    expect(dialog.textContent).toContain('39,99 €');
+    expect(dialog.textContent).toContain('Pagamento unico · senza rinnovo');
+    expect(dialog.textContent).toContain('Le risposte delle aziende e l’assunzione non sono garantite.');
+    const cta = dialog.querySelector('a.ft-recovery-offer-cta') as HTMLAnchorElement;
+    expect(cta?.href).toContain('/automatizza-ricerca-lavoro-svizzera/');
+    expect(cta?.href).toContain('utm_medium=native_ad');
+    const dismiss = Array.from(dialog.querySelectorAll('button')).find((el: any) => el.textContent === 'Continua a leggere') as HTMLButtonElement;
+    dismiss.click();
+    expect(w.document.querySelector('dialog[open]')).toBeNull();
+    expect(w.sessionStorage.getItem('ft_native_application_offer_dismissed_v1')).toBe('1');
     expect(w.localStorage.getItem('frontaliere_ads_consent')).toBeNull();
-    expect(w.document.querySelector('a[href="/automatizza-ricerca-lavoro-svizzera/"]')).not.toBeNull();
   });
   it('uses neutral error copy for a CMP failure without claiming an ad blocker', async () => {
     recovery('clear'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
@@ -704,12 +714,19 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog')).toBeNull();
     expect(w.document.querySelector('.ft-recovery-promo')).toBeNull();
   });
-  it('reopens the actual Google consent message without persisting a synthetic decision', async () => {
+  it('reopens Google consent from a neutral script recovery without changing the stored decision', async () => {
     const show = vi.fn(); w.googlefc = { showRevocationMessage: show };
     w.localStorage.setItem('frontaliere_ads_consent', 'denied');
-    recovery('blocked', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    const failedScript = w.document.createElement('script');
+    failedScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    failedScript.setAttribute('data-failed', '1');
+    failedScript.setAttribute('data-ft-script-state', 'failed');
+    w.document.head.append(failedScript);
+    recovery('clear', 'loaded'); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
-    const preferences = Array.from(w.document.querySelectorAll('dialog button')).find((el: any) => el.textContent === 'Apri le preferenze privacy') as any;
+    const dialog = w.document.querySelector('dialog[open]');
+    expect(dialog?.textContent).toContain('Gli annunci non si caricano');
+    const preferences = Array.from(w.document.querySelectorAll('dialog button')).find((el: any) => el.textContent === 'Apri le preferenze privacy') as HTMLButtonElement;
     expect(preferences).toBeTruthy(); preferences.click();
     expect(show).toHaveBeenCalledOnce();
     expect(w.localStorage.getItem('frontaliere_ads_consent')).toBe('denied');

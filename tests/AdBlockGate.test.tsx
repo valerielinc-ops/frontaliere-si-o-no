@@ -53,11 +53,13 @@ describe('AdBlockGate native application offer', () => {
     isLikelySearchCrawlerMock.mockReturnValue(false);
     detectAdBlockMock.mockResolvedValue(CLEAN);
     trackUIInteractionMock.mockClear();
+    delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
   });
 
   afterEach(() => {
+    delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
   });

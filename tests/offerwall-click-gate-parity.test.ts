@@ -420,9 +420,10 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
     expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
     expect(destinationOfferwall.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(first.calls).toEqual([[true]]);
     expect([offBoardOfferwall, destinationOfferwall]
       .flatMap((m) => m.calls)
-      .filter(([proceed]) => proceed === true)).toHaveLength(1);
+      .filter(([proceed]) => proceed === true)).toHaveLength(0);
   });
 });
 
