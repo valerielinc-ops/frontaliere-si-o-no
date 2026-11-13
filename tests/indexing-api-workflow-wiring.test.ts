@@ -132,3 +132,39 @@ describe('Indexing API ledger lives in Firestore', () => {
     expect(monitorWf).toContain('--max-first-run "$FIRST_RUN_SHARE"');
   });
 });
+
+describe('the indexing job reads the active-job dataset', () => {
+  // Job sitemaps only move with a full publish (frozen at 06-11 from
+  // 2026-11-06 while offers kept going live with the section shards), so the
+  // submitter also reads the dataset the build publishes on the data CDN. It
+  // is fetched over HTTP: the job's sparse checkout keeps out the crawler
+  // slices the assembled jobs file would need, and must keep in the canton
+  // tables that turn a dataset record into the URL the build emits.
+  const indexing = monitor.jobs.indexing;
+  const checkout = (indexing.steps as Array<Step & { with?: Record<string, string> }>).find((s) => (s.uses || '').startsWith('actions/checkout'));
+  const excluded = String(checkout?.with?.['sparse-checkout'] || '')
+    .split('\n').map((l) => l.trim()).filter((l) => l.startsWith('!/')).map((l) => l.slice(2));
+
+  it('keeps the canton tables and the modules the dataset source loads', () => {
+    const dataset = read('scripts/lib/indexing-jobs-dataset.mjs');
+    expect(dataset).toContain("read('canton-url-slugs.json')");
+    expect(dataset).toContain("read('canton-municipalities.json')");
+    for (const rel of [
+      'data/canton-url-slugs.json',
+      'data/canton-municipalities.json',
+      'scripts/lib/indexing-jobs-dataset.mjs',
+      'scripts/lib/job-sitemap-lastmod.mjs',
+      'build-plugins/shared/cantonResolvers.mjs',
+      'build-plugins/shared/cdnAssetOffloadRx.mjs',
+    ]) {
+      expect(existsSync(resolve(rel))).toBe(true);
+      expect(excluded.filter((prefix) => rel.startsWith(prefix))).toEqual([]);
+    }
+  });
+
+  it('does not check out the crawler slices: the dataset comes from the CDN', () => {
+    expect(excluded).toContain('data/jobs/');
+    expect(read('scripts/lib/indexing-jobs-dataset.mjs')).toMatch(/CDN_ASSET_ORIGIN\}\/data\/jobs-it-index\.json/);
+    expect(read('scripts/submit-google-indexing-jobs.js')).toContain('loadDatasetJobEntries');
+  });
+});

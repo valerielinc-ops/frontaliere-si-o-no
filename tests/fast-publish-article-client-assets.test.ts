@@ -332,7 +332,9 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain('const publishableSections = sections.filter');
     expect(hubDriver).toContain('clientArticleIdsBySection');
     expect(hubWorkflow).toContain("steps.render.outputs.deferred != 'true'");
-    expect(hubWorkflow).toContain("if: success() && steps.render.outputs.deferred != 'true'");
+    expect(hubWorkflow).toContain(
+      "if: success() && steps.ensure_shell_assets.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
+    );
   });
 
   it('rejects a live hub card absent from the local registry', async () => {

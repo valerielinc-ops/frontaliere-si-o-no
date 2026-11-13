@@ -997,6 +997,8 @@ jobs:
           # the build byte-identical and writes no manifest; set
           # INCREMENTAL_MANIFEST=1 in repository variables for a canary.
           INCREMENTAL_MANIFEST: ${{ vars.INCREMENTAL_MANIFEST == '1' && '1' || '' }}
+          # Lower the bounded collection cadence during the large expired-page sweep.
+          JOBS_SEO_HTML_GC_INTERVAL_MB: '512'
           # The jobs SEO plugin lists every active job detail it writes here;
           # "Assert active JobPosting coverage" re-checks them in the final dist.
           JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json

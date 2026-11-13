@@ -418,6 +418,8 @@ const ANTI_BOT_CHALLENGE_MARKERS = [
   'attention required!',
   'checking your browser before accessing',
   'enable javascript and cookies to continue',
+  // NCore's public ATS serves this exact 200-page to non-JS crawler clients.
+  "in order to continue, we need to verify that you're not a robot",
   'cf-browser-verification',
   'cf_chl_',
   '_incapsula_resource',

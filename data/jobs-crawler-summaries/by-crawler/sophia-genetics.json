@@ -1,7 +1,7 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-11-11T21:27:35.768Z",
+  "generatedAt": "2026-11-12T21:32:40.219Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5962,
-  "avgDurationMs": 5962,
+  "durationMs": 6304,
+  "avgDurationMs": 6304,
   "durationHistory": [
-    5962
+    6304
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sophia-genetics-09e77f4ecb94",
-      "slug": "systems-manager-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle",
+      "slug": "gestione-sistemi-salesforce-ai-driven-gtm-engineering-sophia-genetics-rolle",
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
       "companyDomain": "sophiagenetics.com",
@@ -34,7 +35,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/1B53D0A7AB/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:16.866Z",
+      "crawledAt": "2026-11-12T21:32:14.399Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -53,24 +54,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.workable.com/sophia-genetics/j/1B53D0A7AB/",
       "jobReqId": "1B53D0A7AB",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-11T21:27:16.866Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:27:16.866Z",
+      "validThrough": "2027-02-09T21:32:14.399Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-11T21:27:16.866Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:16.264Z",
+      "crawledAt": "2026-11-12T21:32:13.857Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -109,7 +108,7 @@
       "salaryMax": 165500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T21:27:16.264Z",
+      "validThrough": "2026-12-12T21:32:13.857Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:16.132Z",
+      "crawledAt": "2026-11-12T21:32:13.790Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -155,7 +154,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T21:27:16.132Z",
+      "validThrough": "2026-12-12T21:32:13.790Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -177,7 +176,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:15.952Z",
+      "crawledAt": "2026-11-12T21:32:13.632Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -201,7 +200,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-11T21:27:15.952Z",
+      "validThrough": "2026-12-12T21:32:13.632Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +222,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/5282592E1F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:15.355Z",
+      "crawledAt": "2026-11-12T21:32:13.072Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -247,7 +246,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:27:15.355Z",
+      "validThrough": "2027-01-26T21:32:13.072Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -269,7 +268,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-11T21:27:14.934Z",
+      "crawledAt": "2026-11-12T21:32:12.707Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -293,7 +292,7 @@
       "salaryMax": 126500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T21:27:14.934Z",
+      "validThrough": "2026-12-17T21:32:12.707Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -304,5 +303,5 @@
       }
     }
   ],
-  "codeCommit": "a48595aadd9617e58ff3a930cda972c1724e754a"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

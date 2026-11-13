@@ -6,6 +6,7 @@ import { conciergeServiceHref } from '@/services/applicationConciergeNavigation'
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { jobDisplayTitle, jobSearchTitleText, localizedJobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
+import { buildSwissCityMapHref as buildSwissCityMapRoute } from '@/services/jobMapRoutes';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -32,8 +33,8 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { CompanyDossierCard } from '@/components/community/CompanyDossierCard';
-import { JobPreApplyChecklist } from '@/components/community/JobPreApplyChecklist';
-import { SwissBubbleMap, type CantonJobsData } from '@/components/community/SwissBubbleMap';
+import { JobPreApplyChecklist, type ATSApplicationFormSnapshot } from '@/components/community/JobPreApplyChecklist';
+import type { CantonJobsData, CityJobsData, SwissBubbleMapCopy } from '@/components/community/SwissBubbleMap';
 import { JobDetailLinkedInPeopleButton } from '@/components/community/JobDetailPresentation';
 import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { JobCvFitMatcher } from '@/components/community/JobCvFitMatcher';
@@ -42,6 +43,7 @@ import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyP
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
+const SwissBubbleMap = lazyRetry(() => import('@/components/community/SwissBubbleMap').then((module) => ({ default: module.SwissBubbleMap })));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
@@ -92,7 +94,7 @@ import {
  shouldRearmCancelledFetchAttempt,
  type RankedCandidate,
 } from '@/services/jobBoardSearchPipeline';
-import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
+import { cantonSearchTokens, CANTON_CODES, expandCantonGroup, getCantonLabel } from '@/services/cantonList';
 import {
   loadSavedJobs,
   deriveSavedJobsAlertCriteria,
@@ -578,6 +580,8 @@ export interface JobListing {
  updatedAt?: JobInput['updatedAt'];
  url?: string;
  applyUrl?: string;
+ /** Public first-step fields observed on the employer's ATS page. */
+ atsApplicationForm?: ATSApplicationFormSnapshot;
  source?: string;
  companyDomain?: string;
  /** Publisher-provided logo URL (https-only, projected from the publish form). */
@@ -3703,38 +3707,68 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [modalGoogleButtonReady, setModalGoogleButtonReady] = useState(false);
  const [inlineGoogleButtonReady, setInlineGoogleButtonReady] = useState(false);
  const [emailInput, setEmailInput] = useState('');
- const [showSwissBubbleMap, setShowSwissBubbleMap] = useState(true);
+ const [showSwissBubbleMap, setShowSwissBubbleMap] = useState(false);
+ const mapMode = currentJobBoardCanton === JOB_BOARD_CANTON_AGGREGATE ? 'national' : 'canton';
+ const mapCantonCodes = useMemo(() => {
+  if (mapMode === 'national') return [...CANTON_CODES];
+  const scoped = expandCantonGroup(currentJobBoardCanton).filter((code) => CANTON_CODES.includes(code));
+  return scoped.length > 0 ? scoped : ['TI'];
+ }, [currentJobBoardCanton, mapMode]);
  const swissCantonMapData: CantonJobsData[] = useMemo(() => {
-  const counts: Record<string, number> = { TI: 0, GR: 0, ZH: 0, GE: 0, BS: 0, VS: 0 };
-  const names: Record<string, string> = {
-   TI: 'Ticino',
-   GR: 'Grigioni',
-   ZH: 'Zurigo',
-   GE: 'Ginevra',
-   BS: 'Basilea',
-   VS: 'Vallese',
-  };
-  for (const j of jobs) {
-   const c = String(j.canton || '').toUpperCase();
-   if (c in counts) {
-    counts[c]++;
-   }
+  const counts = new Map<string, number>(CANTON_CODES.map((code) => [code, 0]));
+  for (const job of jobs) {
+   const code = String(job.canton || '').toUpperCase();
+   if (counts.has(code)) counts.set(code, (counts.get(code) || 0) + 1);
   }
-  return (['TI', 'GR', 'ZH', 'GE', 'BS', 'VS'] as const).map((code) => ({
+  return CANTON_CODES.map((code) => ({
    cantonCode: code,
-   name: names[code],
-   count: counts[code] || 0,
+   name: getCantonLabel(code, locale),
+   count: counts.get(code) || 0,
+   href: buildPath({ activeTab: 'job-board', jobBoardCanton: code }, locale),
   }));
- }, [jobs]);
-
- const handleSelectSwissMapCanton = useCallback((code: string | null) => {
-  jobBoardSearchResumeInteractionRef.current = true;
-  if (onJobRouteChange) {
-   onJobRouteChange('', code || undefined);
-  } else {
-   setSelectedLocation(code ? code.toLowerCase() : 'all');
+ }, [jobs, locale]);
+ const swissCityMapData: CityJobsData[] = useMemo(() => {
+  if (!showSwissBubbleMap || mapMode !== 'canton') return [];
+  const scope = new Set(mapCantonCodes);
+  const groups = new Map<string, { cantonCode: string; name: string; count: number }>();
+  for (const job of jobs) {
+   const cantonCode = String(job.canton || '').toUpperCase();
+   const name = String(job.addressLocality || '').trim();
+   if (!scope.has(cantonCode) || !name) continue;
+   const key = `${cantonCode}|${normalizeLocalityKey(name)}`;
+   const group = groups.get(key);
+   if (group) group.count += 1;
+   else groups.set(key, { cantonCode, name, count: 1 });
   }
- }, [onJobRouteChange]);
+  return [...groups.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, locale));
+ }, [jobs, locale, mapCantonCodes, mapMode, showSwissBubbleMap]);
+ const totalJobsByCanton = useMemo(
+  () => Object.fromEntries(swissCantonMapData.map(({ cantonCode, count }) => [cantonCode, count])),
+  [swissCantonMapData],
+ );
+ const swissMapCopy: SwissBubbleMapCopy = useMemo(() => ({
+  allCantonsHeading: t('jobBoard.map.allCantons'),
+  cantonHeading: (canton) => t('jobBoard.map.cantonHeading', { canton }),
+  cantonsHeading: t('jobBoard.map.cantonsHeading'),
+  municipalitiesHeading: t('jobBoard.map.municipalitiesHeading'),
+  municipalityCount: (count) => t('jobBoard.map.municipalityCount', { count }),
+  municipalLogoNote: t('jobBoard.map.municipalLogoNote'),
+  offerCount: (count) => t(count === 1 ? 'jobBoard.map.oneOffer' : 'jobBoard.map.manyOffers', { count }),
+  viewJobs: t('jobBoard.map.viewJobs'),
+  noMunicipalities: t('jobBoard.map.noMunicipalities'),
+  unmappedOffers: (count) => t('jobBoard.map.unmappedOffers', { count }),
+  closeDetails: (name) => t('jobBoard.map.closeDetails', { name }),
+  mapAriaLabel: t('jobBoard.map.mapAriaLabel'),
+  cantonsListAriaLabel: t('jobBoard.map.cantonsListAriaLabel'),
+  municipalitiesListAriaLabel: t('jobBoard.map.municipalitiesListAriaLabel'),
+  swisstopoAttribution: t('jobBoard.map.swisstopoAttribution'),
+  commonsAttribution: t('jobBoard.map.commonsAttribution'),
+  symbolSource: t('jobBoard.map.symbolSource'),
+ }), [t]);
+ const buildSwissCityMapHref = useCallback((cantonCode: string, cityName: string) => (
+  buildSwissCityMapRoute(cantonCode, cityName, locale)
+ ), [locale]);
+ useEffect(() => setShowSwissBubbleMap(false), [currentJobBoardCanton]);
 
  const [emailAccessGranted, setEmailAccessGranted] = useState(
  () => !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY)
@@ -3849,6 +3883,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  applySearchQuery(next);
  if (!searchSlugFilter) syncQueryParamsToUrl({ q: next || null }, 'push');
  }, [applySearchQuery, searchSlugFilter]);
+ const viewSwissCityMapJobs = useCallback((_cantonCode: string, cityName: string) => {
+  setShowSwissBubbleMap(false);
+  jobBoardSearchResumeInteractionRef.current = true;
+  setSelectedLocation(normalizeLocalityKey(cityName));
+ }, []);
 
  /**
  * Initial-mount data load (D9 + D11 + E4).
@@ -11624,27 +11663,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {companyFollowCta(selectedJob, 'company_follow_button')}
  </JobDetailHeaderCard>
 
- <div className="space-y-2">
-  <JobCvFitMatcher
-   jobTitle={selectedJobTitle}
-   requirements={Array.isArray(requirements) ? requirements : []}
-   onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
-  />
-  {!isCrawlerVisitor && bilingualCvStatus !== 'ready' && (
-   <p role="status" className="text-xs text-muted">
-    {bilingualCvStatus === 'signed_out'
-     ? t('jobBoard.cvDownload.signIn')
-     : bilingualCvStatus === 'checking'
-      ? t('jobBoard.cvDownload.checking')
-      : bilingualCvStatus === 'downloading'
-       ? t('jobBoard.cvDownload.downloading')
-       : bilingualCvStatus === 'failed'
-        ? t('jobBoard.cvDownload.failed')
-        : t('jobBoard.cvDownload.unavailable')}
-   </p>
-  )}
- </div>
-
  {isCrawlerVisitor ? (
  <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
  ) : <>
@@ -11749,6 +11767,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  </>}
 
+ {!isCrawlerVisitor && (
+  <div className="space-y-2">
+   <JobCvFitMatcher
+    key={authUser?.uid || 'anonymous'}
+    requirements={Array.isArray(requirements) ? requirements : []}
+    userId={authUser?.uid}
+    locale={locale}
+    onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
+   />
+   {bilingualCvStatus !== 'ready' && (
+    <p role="status" className="text-xs text-muted">
+     {bilingualCvStatus === 'signed_out'
+      ? t('jobBoard.cvDownload.signIn')
+      : bilingualCvStatus === 'checking'
+       ? t('jobBoard.cvDownload.checking')
+       : bilingualCvStatus === 'downloading'
+        ? t('jobBoard.cvDownload.downloading')
+        : bilingualCvStatus === 'failed'
+         ? t('jobBoard.cvDownload.failed')
+         : t('jobBoard.cvDownload.unavailable')}
+    </p>
+   )}
+  </div>
+ )}
+
  {/* S6 — Mobile-only action block below the description. CTA + money-signal
   *   after the prose so meaty job description leads above the fold per CLAUDE.md #15.
   *   Desktop keeps the sticky right rail so this block is hidden on lg+. */}
@@ -11818,13 +11861,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
- {/* Pre-Apply ATS Checklist & Smart Defaults (FreeHire-inspired) */}
- <JobPreApplyChecklist
- companyName={selectedJob.company}
- canton={selectedJob.canton}
- salaryBenchmarkChf={salary || null}
- />
-
  <CompanyDossierCard
  data={{
  companyName: selectedJob.company,
@@ -11861,7 +11897,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('common.share')}
  </button>
  <JobDetailLinkedInPeopleButton companyName={selectedJob.company} />
- </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
+ </div>
+ {/* Show the source-observed ATS fields directly below the application actions. */}
+ <JobPreApplyChecklist
+ companyName={selectedJob.company}
+ atsApplicationForm={selectedJob.atsApplicationForm}
+ />
+ {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
  {detailAlertButtonJsx}
@@ -12270,31 +12312,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
 
- {/* Mappa Vettoriale Offerte Svizzera (FreeHire-inspired SVG Bubble Map) */}
- <div className="rounded-2xl border border-edge bg-surface/80 p-3 sm:p-4 mb-3" data-testid="jobboard-swiss-map-container">
- <div className="flex items-center justify-between mb-2">
- <span className="text-xs font-bold font-display uppercase tracking-wider text-heading flex items-center gap-1.5">
- <MapPin className="w-3.5 h-3.5 text-accent" />
- Mappa Offerte Svizzera
- </span>
- <button
- type="button"
- onClick={() => setShowSwissBubbleMap((prev) => !prev)}
- className="text-xs font-semibold text-accent hover:underline py-1"
- aria-expanded={showSwissBubbleMap}
- >
- {showSwissBubbleMap ? 'Nascondi mappa' : 'Mostra mappa'}
- </button>
- </div>
- {showSwissBubbleMap && (
- <SwissBubbleMap
- data={swissCantonMapData}
- selectedCanton={currentJobBoardCanton || null}
- onSelectCanton={handleSelectSwissMapCanton}
- className="pt-1"
- />
- )}
- </div>
+ <section className="mb-3 overflow-hidden rounded-2xl border border-edge bg-surface/80" data-testid="jobboard-swiss-map-container">
+  <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-5">
+   <h2 className="flex items-center gap-2 font-display text-sm font-bold text-heading sm:text-base">
+    <MapPin className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+    {t('jobBoard.map.title')}
+   </h2>
+   <button
+    type="button"
+    onClick={() => setShowSwissBubbleMap((previous) => !previous)}
+    className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-3 text-sm font-semibold text-accent hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+    aria-expanded={showSwissBubbleMap}
+    aria-controls="jobboard-swiss-map-content"
+   >
+    {t(showSwissBubbleMap ? 'jobBoard.map.close' : 'jobBoard.map.open')}
+   </button>
+  </div>
+  {showSwissBubbleMap && (
+   <div id="jobboard-swiss-map-content" className="border-t border-edge px-3 pb-4 pt-3 sm:px-5">
+    <Suspense fallback={<p className="py-4 text-sm text-subtle" role="status">{t('jobBoard.map.loading')}</p>}>
+     <SwissBubbleMap
+      mode={mapMode}
+      cantonCodes={mapCantonCodes}
+      cantons={swissCantonMapData}
+      cities={swissCityMapData}
+      totalJobsByCanton={totalJobsByCanton}
+      locale={locale}
+      copy={swissMapCopy}
+      buildCityHref={buildSwissCityMapHref}
+      onViewCityJobs={viewSwissCityMapJobs}
+     />
+    </Suspense>
+   </div>
+  )}
+ </section>
 
  {/* High-intent quick filters stay above results; role/category discovery
      moves after the first result block below. */}

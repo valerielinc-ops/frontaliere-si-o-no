@@ -26,6 +26,7 @@ import YAML from 'yaml';
 const ROOT = process.cwd();
 const WORKFLOW = '.github/workflows/rerender-article-corpus.yml';
 const HUB_WORKFLOW = '.github/workflows/rerender-article-hubs.yml';
+const PUBLISH_WORKFLOW = '.github/workflows/deploy-publish.yml';
 const DRIVER = 'scripts/rerender-article-corpus.mjs';
 const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
 const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
@@ -298,5 +299,74 @@ describe('rerender-article-hubs entrypoint budget', () => {
     expect(entrypointTimeoutSeconds).toBeLessThan(jobTimeoutSeconds);
     expect(jobTimeoutSeconds).toBeGreaterThanOrEqual(wrapperWorstCaseSeconds + setupAndCleanupReserveSeconds);
     expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+});
+
+describe('rerender-article-hubs deployment ordering', () => {
+  const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
+  const plan = workflow?.jobs?.plan;
+  const compute = plan?.steps?.find((step: { id?: string }) => step.id === 'compute');
+  const rerenderSteps = workflow?.jobs?.rerender?.steps ?? [];
+  const shellAssets = rerenderSteps.find(
+    (step: { id?: string; name?: string }) => step.name === 'Ensure the static shell scripts are on the CDN',
+  );
+  const summary = rerenderSteps.find((step: { name?: string }) => step.name === 'Summary');
+  const publisher = YAML.parse(fs.readFileSync(path.join(ROOT, PUBLISH_WORKFLOW), 'utf8'));
+  const watchdog = publisher?.jobs?.['runtime-watchdog'];
+  const dispatch = watchdog?.steps?.find(
+    (step: { name?: string }) => step.name === 'Dispatch article hub rerender after validated publish',
+  );
+
+  it('waits for a successful full deploy before a code-triggered fan-out', () => {
+    expect(workflow?.on?.workflow_run?.workflows).toEqual(['Hydrated article parity']);
+    expect(workflow?.on?.workflow_dispatch?.inputs?.published_deploy_head_sha?.type).toBe('string');
+
+    const condition = String(plan?.if ?? '');
+    expect(condition).toContain("github.event_name != 'push'");
+    expect(plan?.outputs?.deferred).toBe('${{ steps.compute.outputs.deferred }}');
+    expect(String(workflow?.jobs?.rerender?.if ?? '')).toContain("needs.plan.outputs.deferred != 'true'");
+    expect(condition).toContain("github.event.workflow_run.name == 'Hydrated article parity'");
+    expect(condition).toContain("github.event.workflow_run.conclusion == 'failure'");
+    expect(dispatch?.if).toContain("needs.publish.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-dist.result == 'success'");
+    expect(dispatch?.if).toContain("needs.validate-live.result == 'success'");
+    expect(String(dispatch?.run ?? '')).toContain('gh workflow run rerender-article-hubs.yml');
+    expect(String(dispatch?.run ?? '')).toContain('-f dry_run=false');
+    expect(dispatch?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.source_sha }}');
+    expect(String(dispatch?.run ?? '')).toContain('-f published_deploy_head_sha="$PUBLISHED_DEPLOY_HEAD_SHA"');
+  });
+
+  it('defers a deploy completion that no longer represents the current main tip', () => {
+    const run = String(compute?.run ?? '');
+    expect(compute?.env?.GH_TOKEN).toBe('${{ github.token }}');
+    expect(compute?.env?.PUBLISHED_DEPLOY_HEAD_SHA).toBe('${{ inputs.published_deploy_head_sha }}');
+    expect(run).toContain('gh api "repos/${GITHUB_REPOSITORY}/commits/main"');
+    expect(run).toContain('$PUBLISHED_DEPLOY_HEAD_SHA');
+    expect(run).toContain("echo 'deferred=true' >> \"$GITHUB_OUTPUT\"");
+    expect(run).toContain("echo 'sections=[\"frontaliere\",\"svizzera\"]' >> \"$GITHUB_OUTPUT\"");
+  });
+
+  it('defers only a confirmed stale shell race on automatic pre-deploy replays', () => {
+    expect(shellAssets?.id).toBe('ensure_shell_assets');
+    const deferExpression = String(shellAssets?.env?.DEFER_STALE_STABLE_ALIAS ?? '');
+    expect(deferExpression).toContain("github.event_name == 'repository_dispatch'");
+    expect(deferExpression).not.toContain("github.event_name == 'workflow_run'");
+    expect(deferExpression).toContain("inputs.recovery_request_id != ''");
+
+    for (const name of [
+      'Probe shard access (${{ matrix.section }})',
+      'Acquire article chunk section lock',
+      'Rerender ${{ matrix.section }} hubs',
+      'Publish + commit the topic-hub sitemap',
+      'Purge the edge for the hub landings',
+      'Resolve open issue on green',
+    ]) {
+      const step = rerenderSteps.find((candidate: { name?: string }) => candidate.name === name);
+      expect(String(step?.if ?? ''), `${name} must stop after a deferred shell preflight`).toContain(
+        "steps.ensure_shell_assets.outputs.deferred != 'true'",
+      );
+    }
+    expect(summary?.env?.SHELL_ASSET_DEFERRED).toContain('steps.ensure_shell_assets.outputs.deferred');
+    expect(String(summary?.run ?? '')).toContain('shell asset gate deferred');
   });
 });

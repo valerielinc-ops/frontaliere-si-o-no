@@ -19,7 +19,7 @@ import { writeJobsCrawlerSlice, writeJobsCrawlerSliceVerified, writeSummaryCrawl
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, buildSinteticaDescriptionFields, dropSinteticaFabricatedText } from './lib/sintetica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, parseNcoreApplicationForm, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, buildSinteticaDescriptionFields, dropSinteticaFabricatedText } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -137,6 +137,7 @@ export async function fetchJobs() {
     // Fetch detail page for full job description
     let detailBody = '';
     let detailClosed = false;
+    let atsApplicationForm = null;
     if (raw.url) {
       console.log(`    🔗 Fetching detail page: ${raw.url}`);
       const detailHtml = await fetchPage(raw.url);
@@ -149,7 +150,11 @@ export async function fetchJobs() {
           detailClosed = true;
         } else {
           detailBody = detail.body || '';
+          atsApplicationForm = parseNcoreApplicationForm(detailHtml, { sourceUrl: raw.url });
           console.log(`    ✅ Detail description: ${detailBody.length} chars`);
+          if (atsApplicationForm) {
+            console.log(`    ✅ ATS first-step fields: ${atsApplicationForm.fields.length}`);
+          }
         }
       } else {
         console.log(`    ⚠️ Could not fetch detail page, keeping the listing snippet`);
@@ -166,6 +171,7 @@ export async function fetchJobs() {
       postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
       descriptionByLocale,
+      ...(atsApplicationForm ? { atsApplicationForm } : {}),
       // Title and slug in the body's source slot, not a fixed `en`/`it`.
       ...sourceSlotTitleAndSlug(raw.title, slug, sourceLang),
       slug,

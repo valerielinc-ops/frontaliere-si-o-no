@@ -1,9 +1,10 @@
 ## Decisioni del proprietario già prese (NON ri-chiedere)
 
-| Data | Decisione | Fonte |
+|Data|Decisione|Fonte|
 |---|---|---|
 | 2026-11-12 | Candidature: passaporto CH/UE-AELS/altro da nazionalità; upload prevale, ignoto resta. Riuso solo per domanda/semantica compatibile. `match` esperienza non è requisito portale; Big Four da cronologia CV verificata; se no `unknown`, non blocca se non richiesto | owner, 12-11 |
 | 2026-11-11 | Candidature assistite (supera #18085): nazionalità dal CV (liceo, più segnali); casellario ed esecuzioni senza risposta all'upload: «no»; concierge accettato dopo 12 h, posto liberato se il datore ritira; nessun rimborso dopo l'avvio (Termini 6.5) | istruzione diretta, 11-11 |
+| 2026-11-12|email:app>Auth>customer>alias;∅|owner|
 | 2026-11-10 | Candidature assistite: ripristinata la decisione originale del 09-11 (le domande stabili le risponde la piattaforma, regole in `functions/src/assistedApplicationPlatformDefaults.js`; permesso, passaporto e nazionalità all'upload); supera la riga 09-11 riscritta da #17844 senza istruzione | istruzione diretta, sessione 10-11 |
 | 2026-11-10 | Candidature assistite, permesso e idoneità: nessun permesso dichiarato, città del CV in IT o paese confinante e impiego svizzero attuale o finito da ≤12 mesi → permesso G dedotto; il dichiarato vince. Idoneità/interesse per la funzione: sempre sì (mai sanitaria o legale) | istruzione diretta, 10-11 (LIS) |
 | 2026-11-10 | Candidature assistite, pagina di revisione: ogni risposta della piattaforma (regola, CV, motore di decisione) è mostrata al candidato già compilata e modificabile, con l'origine, anche quando nessuna domanda resta aperta; non conta come da rispondere. Supporto ad altre sedi o succursali, flessibilità di sede, piquet e servizio di guardia: sempre sì, come trasferimento, ibrido e picchetto | istruzione diretta, 10-11 |

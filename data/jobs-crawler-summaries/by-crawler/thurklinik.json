@@ -1,7 +1,7 @@
 {
   "key": "thurklinik",
   "label": "Thurklinik",
-  "generatedAt": "2026-11-12T09:17:41.208Z",
+  "generatedAt": "2026-11-12T21:25:31.560Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 10095,
-  "avgDurationMs": 10095,
+  "durationMs": 11400,
+  "avgDurationMs": 11400,
   "durationHistory": [
-    10095
+    11400
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:21.891Z",
+      "crawledAt": "2026-11-12T21:25:07.459Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -75,7 +75,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:21.891Z",
+      "validThrough": "2026-12-12T21:25:07.459Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -98,7 +98,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/09/Leitung-OP_Dipl.-Fachperson-Operationstechnik-HF-oder-TOA-60–100-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:20.320Z",
+      "crawledAt": "2026-11-12T21:25:05.951Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:20.320Z",
+      "validThrough": "2026-12-12T21:25:05.951Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -157,7 +157,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:19.604Z",
+      "crawledAt": "2026-11-12T21:25:05.171Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:19.604Z",
+      "validThrough": "2026-12-12T21:25:05.171Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:18.914Z",
+      "crawledAt": "2026-11-12T21:25:04.464Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:18.914Z",
+      "validThrough": "2026-12-12T21:25:04.464Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -277,7 +277,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:18.237Z",
+      "crawledAt": "2026-11-12T21:25:03.757Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:18.237Z",
+      "validThrough": "2026-12-12T21:25:03.757Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -337,7 +337,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/07/Dipl.-Pflegefachperson-HF-20–60-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:17.515Z",
+      "crawledAt": "2026-11-12T21:25:02.889Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -374,7 +374,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:17.515Z",
+      "validThrough": "2026-12-12T21:25:02.889Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -397,7 +397,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:16.805Z",
+      "crawledAt": "2026-11-12T21:25:01.857Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -434,7 +434,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:16.805Z",
+      "validThrough": "2026-12-12T21:25:01.857Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -457,7 +457,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:17:15.949Z",
+      "crawledAt": "2026-11-12T21:25:01.024Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -494,7 +494,7 @@
       },
       "streetAddress": "Bahnhofstrasse 123a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T09:17:15.949Z",
+      "validThrough": "2026-12-12T21:25:01.024Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -505,5 +505,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

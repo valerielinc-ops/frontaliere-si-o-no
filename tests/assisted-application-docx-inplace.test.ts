@@ -196,6 +196,17 @@ describe('in-place DOCX (phase 5)', () => {
     expect(result).toEqual({ status: 'fallback', reason: 'candidate_email_unknown' });
   });
 
+  it('checks printable Word headers for an unverified email too', () => {
+    const body = BODY.replace(p(`${profile.email} · Como`), p('Como'));
+    const header = `<w:hdr ${W}>${p(`${profile.email} · Como`)}</w:hdr>`;
+    const result = buildInPlaceDocx(makeDocx(documentXml(body), [['word/header1.xml', header]]), tailored(), {
+      profile: { ...profile, email: '' },
+      identity: { name: profile.fullName, email: '' },
+    });
+
+    expect(result).toEqual({ status: 'fallback', reason: 'candidate_email_unknown' });
+  });
+
   it('falls back when the candidate email appears only outside the source contact paragraph', () => {
     const candidateEmail = 'candidate@example.test';
     const body = BODY

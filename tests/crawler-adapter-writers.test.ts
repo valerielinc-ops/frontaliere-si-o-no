@@ -423,6 +423,28 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
 
 describe('SBB two-source discovery invariants', () => {
   const sbbUrl = 'https://jobs.sbb.ch/v2/offene-stellen/macchinista/11111111-1111-4111-8111-111111111111';
+  it('sends the AEM discovery as a same-origin browser XHR', async () => {
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL | Request, init: RequestInit = {}) => {
+      requests.push({ url: String(url), init });
+      return new Response('[]', { status: 200 });
+    }));
+    try {
+      await expect(fetchSbbJobDetailUrls({ timeoutMs: 1000 })).resolves.toMatchObject({ sourceZero: true });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].init.headers).toMatchObject({
+      Accept: 'application/json, text/javascript, */*; q=0.01',
+      'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+      Referer: 'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html',
+      'X-Requested-With': 'XMLHttpRequest',
+      'User-Agent': expect.stringContaining('Chrome/131.0.0.0'),
+    });
+  });
+
   it('uses the current Italian vacancies page for AEM discovery', async () => {
     const requestedUrls: string[] = [];
     const fetchAem = async (url: string) => {
@@ -453,11 +475,37 @@ describe('SBB two-source discovery invariants', () => {
     });
   });
 
+  it('rescues a blocked AEM feed through the Jina clean-IP proxy', async () => {
+    const aemJob = {
+      id: '1', title: 'Macchinista', links: { directlink: sbbUrl },
+      attributes: { '100': ['Bellinzona'], '110': ['Ticino (TI)'], '160': ['100%'] },
+    };
+    const fetchJina = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify([aemJob]),
+    }));
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).resolves.toMatchObject({ urls: [sbbUrl], targetJobs: 1, sourceZero: false });
+    expect(fetchJina).toHaveBeenCalledWith(
+      expect.stringContaining('jobfilter.results.json'),
+      expect.objectContaining({ format: 'text', timeoutMs: 1000 }),
+    );
+  });
+
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
     const unavailable = async () => null;
     // Primary source (AEM API): unavailable is still fatal — there is no
     // fallback for the core SBB job feed.
-    await expect(fetchSbbJobDetailUrls({ fetchPageImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/unavailable/);
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: unavailable,
+      fetchJinaImpl: async () => ({ ok: false, status: 502, text: async () => '' }),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
     // Secondary source (login.org apprenticeships, #6961): unavailable
     // degrades in place (zero NEW seeds, `sourceZero: false` so existing
     // apprenticeship jobs are never treated as verified-gone) instead of

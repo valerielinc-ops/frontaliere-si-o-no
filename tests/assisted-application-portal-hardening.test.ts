@@ -749,6 +749,53 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(applicationEntryControls({ ...manualSnapshot, buttons: [{ text: 'Use my last application', frame: 0 }] }, context)).toEqual([]);
   });
 
+  it('normalizes a Workday location in the popup while keeping the exact tenant, site, and requisition', () => {
+    const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
+    const applyUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio%2C-Outlet%2C-CHE/Seasonal-Sales-Consultant_R-12345/apply';
+    const manualUrl = `${applyUrl}/applyManually`;
+    const context = { applyUrl, postingUrl, job: { title: 'Seasonal Sales Consultant', company: 'Swarovski' } };
+    const popup = {
+      url: postingUrl,
+      fields: [],
+      buttons: [
+        { text: 'Postuler', href: applyUrl, behindDialog: true, frame: 0 },
+        { text: 'Démarrer', dataAutomationId: 'introduceYourselfButton', section: 'Présentez-vous', behindDialog: true, frame: 0 },
+      ],
+      links: [
+        { text: 'Postuler manuellement', href: manualUrl, dialog: true, behindDialog: false, frame: 0 },
+        { text: 'Postuler manuellement', href: manualUrl, ariaHidden: true, behindDialog: false, frame: 0 },
+        { text: 'Apply with Autofill', href: `${postingUrl}/apply`, dialog: true, behindDialog: false, frame: 0 },
+      ],
+    };
+
+    expect(isVerifiedPostingEntry({ applyUrl, postingUrl })).toBe(true);
+    expect(isVerifiedPostingEntry({ applyUrl: applyUrl.replace('_R-12345', '_R-99999'), postingUrl })).toBe(false);
+    expect(isVerifiedPostingEntry({ applyUrl: applyUrl.replace('/swarovski/', '/other-site/'), postingUrl })).toBe(false);
+    expect(isVerifiedPostingEntry({ applyUrl: applyUrl.replace('swarovski.wd3', 'other.wd3'), postingUrl })).toBe(false);
+    expect(applicationEntryControls(popup, context)).toEqual([
+      expect.objectContaining({ text: 'Postuler manuellement', href: manualUrl }),
+    ]);
+  });
+
+  it('accepts the sole Workday popup opener on the exact fieldless requisition route', () => {
+    const postingUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Mendrisio-Outlet-CHE/Consultant_R-12345-1';
+    const context = { applyUrl: postingUrl, postingUrl, job: { title: 'Verkaufsberater/in' } };
+    const snapshot = {
+      url: postingUrl,
+      fields: [],
+      buttons: [
+        { text: 'Postuler', dataAutomationId: 'adventureButton', frame: 0 },
+        { text: 'Démarrer', dataAutomationId: 'introduceYourselfButton', section: 'Présentez-vous', frame: 0 },
+      ],
+      links: [],
+    };
+
+    expect(isVerifiedPostingEntry({ applyUrl: postingUrl, postingUrl })).toBe(true);
+    expect(applicationEntryControls(snapshot, context)).toEqual([
+      expect.objectContaining({ text: 'Postuler', dataAutomationId: 'adventureButton' }),
+    ]);
+  });
+
   it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';

@@ -26,7 +26,15 @@
  *     has been made. Writes use bounded batches and a failed write rolls back
  *     its current batch. Earlier batches can be rewritten locally, but a
  *     failed workflow step cannot upload that partial `dist/`.
- *   - One summary line `[hreflang-index-manifest] {...}` with every counter.
+ *   - One summary line `[hreflang-index-manifest] {...}` with every counter,
+ *     `pagesDeferred` (heads read a second time), `phaseMs` (walk, pass1,
+ *     pass2, write, manifest) and `memoryMB` at the end of the run.
+ *
+ * Reads: each owned page head is read ONCE. Pass 1 also decides every block
+ * whose members are judged only by foreign manifests (the whole deferred
+ * non-IT publish leg); only a block that needs this run's own manifest is
+ * read again after the scan. Nothing extra is kept per page — see the pass-1
+ * comment and the heap guard in tests/hreflang-index-manifest.test.ts.
  *
  * Usage:
  *   node scripts/ci/hreflang-index-manifest.mjs [distDir]
@@ -39,6 +47,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { once } from 'node:events';
+import { performance } from 'node:perf_hooks';
 import { createInterface } from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { readHeadOrAll } from '../lib/readHead.mjs';
@@ -66,19 +75,57 @@ export function ownedLocalesFromEnv(raw = process.env.BUILD_LOCALE) {
   return wanted.length > 0 ? [...new Set(wanted)] : MANIFEST_LOCALES.slice();
 }
 
-function* walkHtml(dir) {
+/**
+ * Yield every HTML page under `dir` (serial walk, same order as before).
+ *
+ * Also answers, without a Map over every page, the one question that used to
+ * need one — which of `foo.html` and `foo/index.html` is the primary document
+ * of `/foo`: a flat `X.html` is shadowed exactly when the SAME directory holds
+ * a walked subdirectory `X` (not a skipped one, not a symlink) whose
+ * `index.html` is a regular file, i.e. when this walk also yields
+ * `X/index.html`. Those rare flat files are added to `shadowed`; the directory
+ * index wins, as before.
+ *
+ * Deliberately serial: a concurrent walk was measured (+170 B/page of live
+ * heap on a 24k-page dist) to hold the whole directory frontier at once, which
+ * on a 2.5M-page locale is the kind of heap growth this step cannot afford.
+ */
+function* walkHtml(dir, shadowed) {
   let entries;
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true });
   } catch (error) {
     throw new Error(`cannot read HTML directory ${dir}: ${error instanceof Error ? error.message : String(error)}`, { cause: error });
   }
+  // Stems of the flat pages of this directory that have a walked twin
+  // directory. Sized by the flat pages, not by the (possibly huge) listing.
+  let flatStems = null;
+  for (const entry of entries) {
+    if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html') {
+      (flatStems ??= new Set()).add(entry.name.slice(0, -'.html'.length));
+    }
+  }
+  let twinDirs = null;
+  if (flatStems !== null) {
+    for (const entry of entries) {
+      if (entry.isDirectory() && !SKIP_DIRS.has(entry.name) && flatStems.has(entry.name)) (twinDirs ??= new Set()).add(entry.name);
+    }
+  }
   for (const entry of entries) {
     const p = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       if (SKIP_DIRS.has(entry.name)) continue;
-      yield* walkHtml(p);
+      yield* walkHtml(p, shadowed);
     } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      if (entry.name !== 'index.html' && twinDirs?.has(entry.name.slice(0, -'.html'.length))) {
+        let index = null;
+        try {
+          index = fs.lstatSync(path.join(p.slice(0, -'.html'.length), 'index.html'));
+        } catch {
+          // No directory index: the flat file is the primary document.
+        }
+        if (index?.isFile()) shadowed.add(p);
+      }
       yield p;
     }
   }
@@ -299,7 +346,17 @@ export async function runHreflangIndexManifest({
   let withHreflang = [];
   let pagesScanned = 0;
   let prepassCache = 'unused';
+  let shadowed = new Set();
   const readFailures = [];
+  const startedAt = performance.now();
+  const phaseMs = {};
+  let phaseStart = startedAt;
+  const elapsed = () => {
+    const now = performance.now();
+    const ms = Math.round(now - phaseStart);
+    phaseStart = now;
+    return ms;
+  };
 
   if (reusePrepassCachePath) {
     try {
@@ -314,51 +371,13 @@ export async function runHreflangIndexManifest({
       prepassCache = 'fallback';
       log(`::warning title=hreflang prepass cache unavailable::${error instanceof Error ? error.message : String(error)}; scanning dist again`);
     }
-  }
-
-  if (prepassCache !== 'reused') {
-    files = [];
-    for (const file of walkHtml(distDir)) {
-      const urlPath = distFileToUrlPath(file, distDir);
-      if (urlPath === null) continue;
-      if (!owned.has(localeOfPath(urlPath))) continue;
-      files.push({ file, urlPath });
-    }
-
-    // `foo/index.html` and a flat `foo.html` serve the same normalised path;
-    // the directory index is the document the canonical URL (trailing slash)
-    // resolves to, so it is the one recorded in the manifest. Decided here,
-    // synchronously, so the result never depends on read completion order.
-    const isIndex = (file) => path.basename(file) === 'index.html';
-    const primaryByPath = new Map();
-    for (const item of files) {
-      const seen = primaryByPath.get(item.urlPath);
-      if (seen === undefined || (!isIndex(seen.file) && isIndex(item.file))) primaryByPath.set(item.urlPath, item);
-    }
-
-    // ── Pass 1: classify every owned page from its head ───────────────────
-    // Only what the decision needs survives the pass: the manifest entry of
-    // an eligible page and the PATH of a page carrying hreflang.
-    await mapPool(files, concurrency, async (item) => {
-      const head = await readHeadOrAll(item.file);
-      if (head === null) {
-        readFailures.push(item.file);
-        return;
-      }
-      const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
-      bump(pagesByReason, page.reason);
-      if (page.eligible && primaryByPath.get(item.urlPath) === item) {
-        current.get(localeOfPath(page.path)).set(item.urlPath, page.clusterKey);
-      }
-      if (page.hasHreflang) withHreflang.push(item);
-    });
-    if (readFailures.length > 0) {
-      throw new Error(`${readFailures.length} HTML file(s) unreadable, first: ${readFailures[0]}`);
-    }
-    pagesScanned = files.length;
+    phaseMs.prepassRead = elapsed();
   }
 
   // ── Manifests of the locales this leg does not own ───────────────────────
+  // Read BEFORE pass 1 so that pass 1 can already decide every block whose
+  // members it can judge without this run's own manifest (see below), and so
+  // a missing required manifest fails before the dist is scanned.
   const foreign = new Map();
   const manifestSources = {};
   const foreignManifestFailures = [];
@@ -393,29 +412,95 @@ export async function runHreflangIndexManifest({
     return key === undefined ? { status: 'absent' } : { status: 'eligible', key };
   };
 
-  // ── Pass 2: decide every block before touching any file ─────────────────
   const blocksByDecision = {};
   const unknownMembers = {};
   const changes = [];
-  if (!manifestOnly) {
-    await mapPool(withHreflang, concurrency, async (item) => {
+  const recordDecision = (item, decision) => {
+    bump(blocksByDecision, `${decision.action}:${decision.reason}`);
+    for (const reason of decision.unknown) bump(unknownMembers, reason);
+    if (decision.action === 'strip' || decision.xDefault !== null) {
+      changes.push({ file: item.file, decision: { action: decision.action, reason: decision.reason, xDefault: decision.xDefault } });
+    }
+  };
+
+  // Pages whose block cannot be decided in pass 1 and are read again in pass 2.
+  let deferred = [];
+  if (prepassCache !== 'reused') {
+    files = [];
+    for (const file of walkHtml(distDir, shadowed)) {
+      const urlPath = distFileToUrlPath(file, distDir);
+      if (urlPath === null) continue;
+      if (!owned.has(localeOfPath(urlPath))) continue;
+      files.push({ file, urlPath });
+    }
+    phaseMs.walk = elapsed();
+
+    // ── Pass 1: classify every owned page from its head ───────────────────
+    // Only what the decision needs survives the pass: the manifest entry of
+    // an eligible page, the PATH of a page carrying hreflang and, for a page
+    // whose block is already decidable, its (small) rewrite decision.
+    //
+    // A block is decidable here when deciding it never asks THIS run's
+    // manifest — still being built by this very pass — about a member:
+    // `decideHreflangBlock` is pure, and the foreign manifests are complete
+    // and immutable, so the decision equals the one pass 2 would take after
+    // the full scan. A non-IT publish leg owns one locale and its pages list
+    // themselves as their only owned member, so every block is decided here
+    // and the second read of ~1.2M heads disappears. A block that does ask
+    // the own manifest is deferred and re-read after the scan, exactly as
+    // before. Nothing is accumulated per page beyond what pass 2 kept.
+    await mapPool(files, concurrency, async (item) => {
       const head = await readHeadOrAll(item.file);
       if (head === null) {
         readFailures.push(item.file);
         return;
       }
       const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
-      const decision = decideHreflangBlock(page, lookup);
-      bump(blocksByDecision, `${decision.action}:${decision.reason}`);
-      for (const reason of decision.unknown) bump(unknownMembers, reason);
-      if (decision.action === 'strip' || decision.xDefault !== null) {
-        changes.push({ file: item.file, decision: { action: decision.action, reason: decision.reason, xDefault: decision.xDefault } });
+      bump(pagesByReason, page.reason);
+      if (page.eligible && !shadowed.has(item.file)) {
+        current.get(localeOfPath(page.path)).set(item.urlPath, page.clusterKey);
       }
+      if (!page.hasHreflang) return;
+      withHreflang.push(item);
+      if (manifestOnly) return;
+      let needsOwnManifest = false;
+      const decision = decideHreflangBlock(page, (locale, urlPath) => {
+        if (owned.has(locale)) {
+          needsOwnManifest = true;
+          return { status: 'unknown', reason: 'deferred' };
+        }
+        return lookup(locale, urlPath);
+      });
+      if (needsOwnManifest) deferred.push(item);
+      else recordDecision(item, decision);
+    });
+    if (readFailures.length > 0) {
+      throw new Error(`${readFailures.length} HTML file(s) unreadable, first: ${readFailures[0]}`);
+    }
+    pagesScanned = files.length;
+    phaseMs.pass1 = elapsed();
+  } else {
+    deferred = withHreflang;
+  }
+
+  // ── Pass 2: decide the remaining blocks before touching any file ────────
+  if (!manifestOnly) {
+    await mapPool(deferred, concurrency, async (item) => {
+      const head = await readHeadOrAll(item.file);
+      if (head === null) {
+        readFailures.push(item.file);
+        return;
+      }
+      const page = classifyHreflangPage(head, item.urlPath, { baseUrl });
+      recordDecision(item, decideHreflangBlock(page, lookup));
     });
     if (readFailures.length > 0) {
       throw new Error(`${readFailures.length} HTML file(s) unreadable in pass 2, first: ${readFailures[0]}`);
     }
   }
+  const pagesDeferred = manifestOnly ? 0 : deferred.length;
+  deferred = [];
+  phaseMs.pass2 = elapsed();
 
   // ── Pass 3: write ──────────────────────────────────────────────────────
   let filesRewritten = 0;
@@ -432,13 +517,15 @@ export async function runHreflangIndexManifest({
       const staged = [];
       try {
         await mapPool(batch, concurrency, async ({ file, decision }, index) => {
-          const html = await fs.promises.readFile(file, 'utf-8');
-          const next = applyHreflangDecision(html, decision);
+          // One read gives both the text and the on-disk size the staging
+          // benchmark needs (a regular file's size is its byte length), so
+          // the former per-file stat() is gone.
+          const original = await fs.promises.readFile(file);
+          const next = applyHreflangDecision(original.toString('utf-8'), decision);
           if (next === null) return;
           const stagedFile = path.join(transactionDir, String(index));
-          const originalBytes = (await fs.promises.stat(file)).size;
           await fs.promises.writeFile(stagedFile, next, 'utf-8');
-          staged.push({ file, stagedFile, index, originalBytes, stagedBytes: Buffer.byteLength(next, 'utf-8') });
+          staged.push({ file, stagedFile, index, originalBytes: original.length, stagedBytes: Buffer.byteLength(next, 'utf-8') });
         });
 
         // mapPool completes writes out of order; restore the production batch
@@ -448,6 +535,9 @@ export async function runHreflangIndexManifest({
         const transactionId = path.basename(transactionDir);
         const moved = [];
         try {
+          // Installed one at a time, as before: installing a batch
+          // concurrently was measured to retain ~2.8 MB more live heap after
+          // a 30k-page leg for no measurable time gain on the same dist.
           for (const item of staged) {
             const backup = `${item.file}.${transactionId}.bak`;
             await fs.promises.rename(item.file, backup);
@@ -467,7 +557,9 @@ export async function runHreflangIndexManifest({
           }
           throw error;
         }
-        for (const item of moved) await fs.promises.rm(item.backup, { force: true });
+        // Backups are dropped only after the whole batch is installed, so
+        // removing them concurrently cannot affect the rollback above.
+        await mapPool(moved, concurrency, (item) => fs.promises.rm(item.backup, { force: true }));
         stagingRecords.push(...staged);
         filesRewritten += moved.length;
       } finally {
@@ -475,6 +567,8 @@ export async function runHreflangIndexManifest({
       }
     }
   }
+
+  phaseMs.write = elapsed();
 
   fs.mkdirSync(manifestDir, { recursive: true });
   const manifestCounts = {};
@@ -505,6 +599,10 @@ export async function runHreflangIndexManifest({
     }
   }
 
+  phaseMs.manifest = elapsed();
+  phaseMs.total = Math.round(performance.now() - startedAt);
+  const memory = process.memoryUsage();
+
   const stagingBenchmark = dryRun ? null : benchmarkHreflangStaging(stagingRecords, batchSize);
   const summary = {
     owned: [...owned],
@@ -513,6 +611,7 @@ export async function runHreflangIndexManifest({
     pagesScanned,
     pagesByReason,
     pagesWithHreflang: withHreflang.length,
+    pagesDeferred,
     prepassCache,
     blocksByDecision,
     unknownMembers,
@@ -525,6 +624,8 @@ export async function runHreflangIndexManifest({
       allAtOnceEquivalent: stagingBenchmark.preBatchPeakBytes,
       boundedBatchPeak: stagingBenchmark.peakStagingBytes,
     },
+    phaseMs,
+    memoryMB: { heapUsed: Math.round(memory.heapUsed / 1048576), rss: Math.round(memory.rss / 1048576) },
   };
   log(`[hreflang-index-manifest] ${JSON.stringify(summary)}`);
   for (const [locale, source] of Object.entries(manifestSources)) {

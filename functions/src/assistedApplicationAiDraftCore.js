@@ -679,14 +679,17 @@ export function candidateIdentity(order, profile) {
 }
 
 /**
- * Contact identity printed on the CV and cover letter offered to the
- * candidate. Portal answers and employer replies keep using `candidateIdentity`
- * (and its routing alias); documents must use the e-mail the candidate entered
- * in the intake form. The checkout customer's address and the routing alias are
- * not evidence of the candidate's own address.
+ * Contact identity printed on the candidate's CV and cover letter. Portal
+ * answers and employer replies keep using `candidateIdentity` (and its routing
+ * alias). For documents, use the application email first, then the registered
+ * Firebase account email attached for this render, the checkout address, and
+ * finally the active routing alias. Missing email is allowed.
  */
 export function candidateDocumentIdentity(identity, order) {
-  const email = clean(order?.applicantEmail, 320);
+  const email = clean(order?.applicantEmail, 320)
+    || clean(order?.documentAccountEmail, 320)
+    || clean(order?.customerEmail, 320)
+    || (order?.candidateAlias?.active ? clean(order.candidateAlias.address, 320) : '');
   return { ...identity, email };
 }
 

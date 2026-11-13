@@ -1,7 +1,7 @@
 {
   "key": "skan-com",
   "label": "SKAN AG",
-  "generatedAt": "2026-11-12T09:38:22.859Z",
+  "generatedAt": "2026-11-12T22:04:50.499Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10500,
-  "avgDurationMs": 10500,
+  "durationMs": 9451,
+  "avgDurationMs": 9451,
   "durationHistory": [
-    10500
+    9451
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:37:40.632Z",
+      "crawledAt": "2026-11-12T22:04:19.812Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:37:40.632Z",
+      "validThrough": "2027-02-07T22:04:19.812Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -99,7 +99,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:37:40.630Z",
+      "crawledAt": "2026-11-12T22:04:19.811Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -136,7 +136,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:37:40.630Z",
+      "validThrough": "2027-02-07T22:04:19.811Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -158,7 +158,7 @@
       "url": "https://jobs.skan.com/job/allschwil-experienced-engineer-for-commissioning-and-qualification-%28inhouse-&-onsite%29/1369905757",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:37:40.629Z",
+      "crawledAt": "2026-11-12T22:04:19.810Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:37:40.629Z",
+      "validThrough": "2027-02-07T22:04:19.810Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://jobs.skan.com/job/allschwil-commissioning-&-qualification-engineer-%28inhouse-&-onsite%29/1369906157",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:37:40.628Z",
+      "crawledAt": "2026-11-12T22:04:19.807Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:37:40.628Z",
+      "validThrough": "2027-02-07T22:04:19.807Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -277,7 +277,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:37:40.626Z",
+      "crawledAt": "2026-11-12T22:04:19.806Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:37:40.626Z",
+      "validThrough": "2027-02-07T22:04:19.806Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -325,5 +325,5 @@
       }
     }
   ],
-  "codeCommit": "a44a2b9310e1c186d6600dd33232de9cfe3255f5"
+  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
 }

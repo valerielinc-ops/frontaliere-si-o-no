@@ -71,6 +71,8 @@ const DETAIL_FIELDS = new Set([
  'pensum', 'pensumMin', 'pensumMax',
  'workModel', 'remote',
  'applicationDeadline',
+ // Public ATS form fields verified by the employer crawler.
+ 'atsApplicationForm',
  // Publisher-ad fields (logo, markdown description, in-house apply wiring).
  'companyLogo', 'companyLogoKey', 'descriptionMd', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
 ]);

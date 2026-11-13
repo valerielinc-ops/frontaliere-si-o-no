@@ -123,7 +123,11 @@ describe('candidate proposal status with the shared progress helper', () => {
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
     const needsClarification: ApplicationConciergeProposal = {
       ...proposal, status: 'proposed', childApplicationId: null, eligibilityStatus: 'clarification_required',
-      clarificationQuestions: [{ id: 'experience', question: 'Hai esperienza nella gestione di applicazioni?', required: true }],
+      clarificationQuestions: [
+        { id: 'experience', question: 'Hai esperienza nella gestione di applicazioni?', required: true },
+        { id: 'enterprise-apps', question: 'Hai lavorato con applicazioni aziendali?', required: true },
+        { id: 'it-management', question: 'Hai coordinato applicazioni o servizi IT?', required: true },
+      ],
     };
     const check: ApplicationConciergePreProposalCheck = { ...needsClarification, status: 'preproposal_check' };
     render(<ApplicationConciergePortal serviceId={service.serviceId} previewService={{ ...service, proposals: [], preProposalChecks: [check] }} locationSearch="" />);
@@ -133,6 +137,7 @@ describe('candidate proposal status with the shared progress helper', () => {
     expect(card.getByText(translations['jobBoard.concierge.proposalStatus.needs_clarification'])).toBeInTheDocument();
     expect(card.getByText(translations['jobBoard.concierge.clarificationTitle'])).toBeInTheDocument();
     expect(card.getByText(translations['jobBoard.concierge.interestOnly'])).toBeInTheDocument();
+    expect(card.getAllByRole('textbox')).toHaveLength(3);
     expect(within(taskSection).getByText(translations['jobBoard.concierge.clarificationTasksIntro'])).toBeInTheDocument();
     expect(card.queryByRole('button', { name: translations['jobBoard.concierge.accept'] })).not.toBeInTheDocument();
     expect(card.queryByRole('button', { name: translations['jobBoard.concierge.decline'] })).not.toBeInTheDocument();

@@ -8726,6 +8726,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dibattito-salario-minimo-5000.title': 'Salario minimo di 5000 franchi: il dibattito si accende',
     'blog.article.dibattito-salario-minimo-5000.excerpt': 'Dibattito su salario minimo di 5000 franchi per chi ha finito apprendistato.',
     'blog.article.dibattito-salario-minimo-5000.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tasso-ilo-terzo-trimestre.title': 'Tasso ILO svizzero sale al 5,6% nel terzo trimestre',
+    'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'Nel terzo trimestre il tasso di disoccupazione calcolato secondo la definizione dell’Organizzazione internazionale del lavoro (ILO) è salito in Svizzera al 5,6%, dal 5,1% dei tre mesi precedenti.',
+    'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

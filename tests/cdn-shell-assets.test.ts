@@ -24,6 +24,7 @@ import {
   refreshShellAssetCacheControl,
   r2UploadDeadline,
   shellAssetsFromStaticScripts,
+  StaleStableAliasError,
   uploadShellAsset,
 } from '../scripts/lib/cdn-shell-assets.mjs';
 import { MAX_TARGETED_FILES } from '../scripts/lib/cf-purge-limits.mjs';
@@ -463,10 +464,17 @@ describe('ensureCdnShellAssets', () => {
       probeAnswer: (key, has) => key === stable ? 'stale' : has ? 'present' : 'absent',
     });
 
-    const message = await failureOf(() => ensureCdnShellAssets({ assets, ...cdn }));
+    let failure: unknown;
+    try {
+      await ensureCdnShellAssets({ assets, ...cdn });
+    } catch (error) {
+      failure = error;
+    }
 
-    expect(message).toContain(`${stable}: the CDN does not serve the current stable alias`);
-    expect(message).toContain(`only the full deploy may publish it from ${versioned}`);
+    expect(failure).toBeInstanceOf(StaleStableAliasError);
+    expect(failure).toMatchObject({ code: 'CDN_STABLE_ALIAS_STALE', key: stable, versionedKey: versioned });
+    expect(String(failure)).toContain(`${stable}: the CDN does not serve the current stable alias`);
+    expect(String(failure)).toContain(`only the full deploy may publish it from ${versioned}`);
     expect(cdn.calls.upload).toEqual([[versioned, GTAG_INIT_CONTENT]]);
     expect(cdn.calls.purge.flat()).not.toContain(stable);
   });
@@ -1092,6 +1100,46 @@ describe('ensure-cdn-shell-assets.mjs', () => {
     })).rejects.toThrow('CDN not ready');
 
     expect(timing).toEqual(['failure']);
+  });
+
+  it('defers a confirmed stale alias only when an automatic caller opts in', async () => {
+    const previous = process.env.DEFER_STALE_STABLE_ALIAS;
+    process.env.DEFER_STALE_STABLE_ALIAS = 'true';
+    const timing: string[] = [];
+    try {
+      await expect(ensureMain({
+        listFiles: () => [['adsense-loader.js', 'loader()']],
+        ensure: async () => {
+          throw new StaleStableAliasError(
+            'assets/adsense-loader.js',
+            'stale',
+            'assets/adsense-loader-012345abcdef.js',
+          );
+        },
+        startTiming: () => (outcome: string) => timing.push(outcome),
+      })).resolves.toMatchObject({ deferred: true, reason: 'CDN_STABLE_ALIAS_STALE' });
+      expect(timing).toEqual(['skipped']);
+    } finally {
+      if (previous === undefined) delete process.env.DEFER_STALE_STABLE_ALIAS;
+      else process.env.DEFER_STALE_STABLE_ALIAS = previous;
+    }
+  });
+
+  it('does not defer an untyped CDN failure even when stale deferral is enabled', async () => {
+    const previous = process.env.DEFER_STALE_STABLE_ALIAS;
+    process.env.DEFER_STALE_STABLE_ALIAS = 'true';
+    const timing: string[] = [];
+    try {
+      await expect(ensureMain({
+        listFiles: () => [['adsense-loader.js', 'loader()']],
+        ensure: async () => { throw new Error('CDN probe unknown'); },
+        startTiming: () => (outcome: string) => timing.push(outcome),
+      })).rejects.toThrow('CDN probe unknown');
+      expect(timing).toEqual(['failure']);
+    } finally {
+      if (previous === undefined) delete process.env.DEFER_STALE_STABLE_ALIAS;
+      else process.env.DEFER_STALE_STABLE_ALIAS = previous;
+    }
   });
 });
 

@@ -13,8 +13,16 @@
  * monitor-gsc-seo.yml with mode=post-publish; small `--max`, so new jobs reach
  * Google the same day).
  *
- * Source of URLs: the LIVE job sitemaps (what Google is told exists), so the
- * script needs neither a build nor jobs.json. What to send and in which order
+ * Source of URLs: the LIVE job sitemaps (what Google is told exists), merged
+ * with the active jobs of the published dataset (the data-CDN slim index +
+ * slug map, scripts/lib/indexing-jobs-dataset.mjs), so the script needs
+ * neither a build nor jobs.json. The second source exists because the job
+ * sitemaps only move with a full publish: from 2026-11-06 every publish
+ * failed, the sitemaps stayed at 06-11 and the offers that went live through
+ * the section shards were in no sitemap, hence never notified. A dataset-only
+ * URL is sent only after its live page proves to be the ACTIVE detail page of
+ * that job (judgeDatasetLive); if the dataset cannot be read the run warns
+ * and uses the sitemaps alone. What to send and in which order
  * is decided by scripts/lib/indexing-jobs-planner.mjs against a persistent
  * ledger (`--ledger`, pulled from / pushed to Firestore around this script by
  * scripts/lib/indexing-ledger-store.mjs) that also carries the per-day
@@ -66,6 +74,7 @@ import {
   judgeLive,
   spentOn,
 } from './lib/indexing-jobs-planner.mjs';
+import { loadDatasetJobEntries, mergeJobSources, judgeDatasetLive } from './lib/indexing-jobs-dataset.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const DEFAULT_MAX = 15;
@@ -153,10 +162,15 @@ async function loadLiveJobUrls() {
   return [...byUrl.values()];
 }
 
-async function liveCheck(type, url) {
+async function liveCheck(type, url, item = {}) {
   try {
     const res = await fetchWithTimeout(url, { redirect: 'manual', headers: { 'User-Agent': USER_AGENT } });
     const html = res.status === 200 ? await res.text() : '';
+    // A URL only the dataset knows must be the ACTIVE page of its job, not
+    // just any 200 carrying JobPosting (see judgeDatasetLive).
+    if (item.source === 'dataset' && type === 'URL_UPDATED') {
+      return judgeDatasetLive({ status: res.status, html }, { id: item.id });
+    }
     return judgeLive(type, { status: res.status, html });
   } catch {
     // Timeout or transport error: says nothing about the page, retry later.
@@ -178,7 +192,7 @@ export async function runLiveChecks(plan, { concurrency = LIVE_CHECK_CONCURRENCY
       const index = cursor++;
       if (index >= plan.length) return;
       const item = plan[index];
-      results[index] = { item, verdict: await check(item.type, item.url) };
+      results[index] = { item, verdict: await check(item.type, item.url, item) };
     }
   };
   await Promise.all(Array.from({ length: workerCount }, worker));
@@ -211,6 +225,28 @@ async function publish(token, url, type, attempt = 1, beforeRequest = () => true
   }
 }
 
+/**
+ * Tag every planned item with the source of its URL and pick the ones to
+ * live-check: at most `maxChecks` in plan order, of which at most
+ * `maxDatasetChecks` dataset-only. A dataset-only URL whose page is not
+ * published yet costs a GET and no request; the cap keeps a large unpublished
+ * set from consuming every check of the run and starving the sitemap URLs.
+ */
+export function selectLiveChecks(plan, datasetOnly, { maxChecks, maxDatasetChecks }) {
+  const out = [];
+  let datasetChecks = 0;
+  for (const item of plan) {
+    if (out.length >= maxChecks) break;
+    const fromDataset = datasetOnly.has(item.url);
+    if (fromDataset) {
+      if (datasetChecks >= maxDatasetChecks) continue;
+      datasetChecks += 1;
+    }
+    out.push({ ...item, source: fromDataset ? 'dataset' : 'sitemap', id: fromDataset ? datasetOnly.get(item.url) ?? null : null });
+  }
+  return out;
+}
+
 function readPriority(file) {
   if (!file || !existsSync(file)) return [];
   try {
@@ -220,23 +256,55 @@ function readPriority(file) {
   } catch { return []; }
 }
 
+/**
+ * Network/CDN text (status lines, exception messages) shown in the report:
+ * one line, no raw `|` that would split a summary table cell.
+ */
+export function cleanReportText(value) {
+  return String(value).replace(/[\r\n]+/g, ' ').replace(/\|/g, '\\|');
+}
+
+/**
+ * Message of a `::warning`/`::notice`/`::error` workflow command: the same
+ * cleaning, then the escaping GitHub's workflow commands require for data
+ * (`%`, `\r`, `\n`), so a message can neither be cut nor inject a command.
+ */
+export function annotationText(value) {
+  return cleanReportText(value).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+}
+
 function summary(lines) {
   if (!process.env.GITHUB_STEP_SUMMARY) return;
   try { appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${lines.join('\n')}\n`); } catch { /* ignore */ }
 }
 
 export const TIERS = ['new', 'delete', 'priority', 'updated', 'backlog'];
+export const SOURCES = ['sitemap', 'dataset'];
 
 /**
  * One line + one summary table per run, whatever the outcome: sent per class,
  * skipped for dedup, quota left. `outcome` is the run verdict shown first.
+ * `bySource` splits the sent requests of each class between URLs read from
+ * the sitemaps and URLs only the dataset knows; `sources` is the input side
+ * (URLs read from each source, `datasetError` when the dataset was skipped).
  */
-export function formatRunReport({ outcome, byTier = {}, dedupSkipped = 0, liveSkipped = 0, failed = 0, spent = 0, budget = DAILY_BUDGET, today }) {
+export function formatRunReport({
+  outcome, byTier = {}, bySource = {}, sources = null, dedupSkipped = 0, liveSkipped = 0, notLive = 0, failed = 0,
+  spent = 0, budget = DAILY_BUDGET, today,
+}) {
   const tiers = TIERS.map((t) => `${t}=${byTier[t] || 0}`).join(' ');
   const sent = TIERS.reduce((n, t) => n + (byTier[t] || 0), 0);
   const left = Math.max(0, budget - spent);
+  const perSource = SOURCES.map((src) => `${src}: ${TIERS.map((t) => `${t}=${bySource[src]?.[t] || 0}`).join(' ')}`).join('; ');
+  // Error/warning text comes from the network: cleanReportText keeps it on
+  // one line, without a raw table separator.
+  const input = sources
+    ? (sources.datasetError
+      ? `input: ${sources.sitemap} sitemap URLs, dataset unavailable (${cleanReportText(sources.datasetError)})`
+      : `input: ${sources.sitemap} sitemap URLs + ${sources.datasetOnly} dataset-only of ${sources.dataset} dataset URLs${sources.datasetWarning ? ` (${cleanReportText(sources.datasetWarning)})` : ''}`)
+    : null;
   return {
-    line: `${outcome}: sent ${sent} (${tiers}), skipped ${dedupSkipped} for dedup + ${liveSkipped} by live check, failed ${failed}; quota ${spent}/${budget} used, ${left} left (day ${today} PT)`,
+    line: `${outcome}: sent ${sent} (${tiers}) [${perSource}], skipped ${dedupSkipped} for dedup + ${liveSkipped} by live check (${notLive} dataset-only not published yet), failed ${failed}; quota ${spent}/${budget} used, ${left} left (day ${today} PT)${input ? `; ${input}` : ''}`,
     table: [
       '## Google Indexing API — job pages',
       '',
@@ -245,6 +313,11 @@ export function formatRunReport({ outcome, byTier = {}, dedupSkipped = 0, liveSk
       '| new | delete | priority | updated | backlog | skipped: dedup | skipped: live check | failed | quota used | quota left |',
       '|---|---|---|---|---|---|---|---|---|---|',
       `| ${TIERS.map((t) => byTier[t] || 0).join(' | ')} | ${dedupSkipped} | ${liveSkipped} | ${failed} | ${spent}/${budget} | ${left} |`,
+      '',
+      '| source | new | delete | priority | updated | backlog |',
+      '|---|---|---|---|---|---|',
+      ...SOURCES.map((src) => `| ${src} | ${TIERS.map((t) => bySource[src]?.[t] || 0).join(' | ')} |`),
+      ...(input ? ['', `${input}; ${notLive} dataset-only URL(s) not published yet (re-checked next quota day)`] : []),
     ],
   };
 }
@@ -256,17 +329,24 @@ async function main() {
   const today = quotaDayKey();
   log('📨', `Google Indexing API — JobPosting notifications (quota day ${today} PT, daily quota ${DAILY_BUDGET}${args.dryRun ? ', DRY RUN' : ''})`);
 
-  const counts = { liveSkipped: 0, failed: 0 };
+  const counts = { liveSkipped: 0, notLive: 0, failed: 0 };
   const byTier = {};
+  const bySource = { sitemap: {}, dataset: {} };
+  const countSent = (item) => {
+    byTier[item.tier] = (byTier[item.tier] || 0) + 1;
+    const src = bySource[item.source] || bySource.sitemap;
+    src[item.tier] = (src[item.tier] || 0) + 1;
+  };
   let ledger = null;
+  let sources = null;
   let dedupSkipped = 0;
   const report = (outcome, level = 'notice') => {
     const r = formatRunReport({
-      outcome, byTier, dedupSkipped, liveSkipped: counts.liveSkipped, failed: counts.failed,
+      outcome, byTier, bySource, sources, dedupSkipped, liveSkipped: counts.liveSkipped, notLive: counts.notLive, failed: counts.failed,
       spent: ledger ? spentOn(ledger, today) : 0, today,
     });
     log('📊', r.line);
-    console.log(`::${level} title=Indexing API (jobs)::${r.line}`);
+    console.log(`::${level} title=Indexing API (jobs)::${annotationText(r.line)}`);
     summary(r.table);
   };
   const fail = (outcome) => { report(outcome, 'error'); process.exitCode = 1; };
@@ -285,14 +365,27 @@ async function main() {
   log('📊', `Budget: ${spent}/${DAILY_BUDGET} used today, this run may send ${Math.max(0, runBudget)}`);
   const priority = readPriority(args.priorityFile);
 
-  let entries;
-  try { entries = await loadLiveJobUrls(); } catch (err) {
+  let sitemapEntries;
+  try { sitemapEntries = await loadLiveJobUrls(); } catch (err) {
     // The live site being unreachable says nothing about our configuration;
-    // the next run retries with the ledger untouched.
+    // the next run retries with the ledger untouched. The dataset alone is
+    // never enough: without the sitemaps every URL they list would look gone.
     report(`Live sitemaps unreadable (${err.message}) — nothing sent, ledger untouched`, 'warning');
     return;
   }
-  observeSitemap(ledger, entries, today);
+  const dataset = await loadDatasetJobEntries();
+  if (dataset.error) {
+    console.log(`::warning title=Indexing API (jobs)::${annotationText(`Dataset unavailable (${dataset.error}) — sitemap URLs only`)}`);
+  } else {
+    if (dataset.warning) console.log(`::warning title=Indexing API (jobs)::${annotationText(dataset.warning)}`);
+    log('📦', `${dataset.entries.length} job-detail URLs from ${dataset.jobs} active jobs in the published dataset`);
+  }
+  const merged = mergeJobSources(sitemapEntries, dataset.entries);
+  // Kept in `sources` so every report — early returns included — repeats the
+  // dataset error/warning, not only the annotation printed above.
+  sources = { ...merged.counts, datasetError: dataset.error, datasetWarning: dataset.warning || null };
+  log('🔀', `${merged.entries.length} URLs after merge: ${merged.counts.sitemap} from sitemaps, ${merged.counts.datasetOnly} only in the dataset (${merged.counts.both} in both)`);
+  observeSitemap(ledger, merged.entries, today, { datasetOnly: merged.datasetOnly });
   dedupSkipped = countDedupSkipped(ledger, { today, priority });
   const save = () => { if (!args.dryRun) writeLedgerFile(args.ledger, ledger); };
   const reserveRequest = () => {
@@ -324,12 +417,14 @@ async function main() {
   let fatal = false;
   // Bound the live fetches: landing pages share the job-detail URL shape, and
   // a backlog full of them must not turn one run into thousands of GETs.
+  // Dataset-only URLs may take at most half of them (selectLiveChecks).
   const maxChecks = runBudget * 4;
-  const checked = await runLiveChecks(plan.slice(0, maxChecks));
+  const checked = await runLiveChecks(selectLiveChecks(plan, merged.datasetOnly, { maxChecks, maxDatasetChecks: runBudget * 2 }));
   for (const { item, verdict: live } of checked) {
     if (sent >= runBudget) break;
     if (live !== 'ok') {
       counts.liveSkipped += 1;
+      if (live === 'not-live') counts.notLive += 1;
       if (!args.dryRun && live !== 'transient') {
         recordOutcome(ledger, item, live, today);
         save();
@@ -338,8 +433,8 @@ async function main() {
     }
     if (args.dryRun) {
       sent += 1;
-      byTier[item.tier] = (byTier[item.tier] || 0) + 1;
-      log('  ', `would ${item.type} [${item.tier}] ${item.url}`);
+      countSent(item);
+      log('  ', `would ${item.type} [${item.tier}/${item.source}] ${item.url}`);
       continue;
     }
     const res = await publish(token, item.url, item.type, 1, reserveRequest);
@@ -347,10 +442,10 @@ async function main() {
     if (res.ok) {
       sent += 1;
       consecutive429 = 0;
-      byTier[item.tier] = (byTier[item.tier] || 0) + 1;
+      countSent(item);
       recordOutcome(ledger, item, 'sent', today, { quotaReserved: true });
       save();
-      log('  ✅', `${item.type} [${item.tier}] ${item.url}`);
+      log('  ✅', `${item.type} [${item.tier}/${item.source}] ${item.url}`);
     } else {
       counts.failed += 1;
       log('  ⚠️', `${item.type} ${res.status} ${item.url} ${res.body || ''}`.trim());
@@ -374,7 +469,7 @@ async function main() {
 
 if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
-    console.log(`::error title=Indexing API (jobs)::Unhandled error: ${err.stack || err.message}`);
+    console.log(`::error title=Indexing API (jobs)::${annotationText(`Unhandled error: ${err.stack || err.message}`)}`);
     process.exit(1);
   });
 }

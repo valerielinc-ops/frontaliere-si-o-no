@@ -65,4 +65,19 @@ describe('buildGscDemandEvidence', () => {
     const ev = buildGscDemandEvidence({ windowDays: 90, gsc: { pages: pages(FULL, { '/zero/': 0 }) } });
     expect(ev.hasImpressions(['/zero/'])).toBe(false);
   });
+
+  it('drops the captured impression set after its final reader', () => {
+    const ev = buildGscDemandEvidence({
+      windowDays: 90,
+      gsc: { pages: pages(FULL, { '/kept/': 1 }) },
+    });
+    expect(ev.active).toBe(true);
+    expect(ev.hasImpressions(['/kept/'])).toBe(true);
+
+    ev.release();
+
+    expect(ev.active).toBe(false);
+    expect(ev.impressedPaths).toBe(0);
+    expect(ev.hasImpressions(['/kept/'])).toBe(false);
+  });
 });

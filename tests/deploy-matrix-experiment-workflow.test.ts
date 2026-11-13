@@ -89,6 +89,8 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(WORKFLOW.jobs['build-locale'].env.JOBS_SEO_FALLBACK_WORKERS)
       .toBe('${{ inputs.fallback_workers }}');
     expect(inputs.cpu_profile).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.heap_diagnostics).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.heap_profile).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_variants).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.prep_compare).toMatchObject({ type: 'boolean', default: false });
@@ -405,11 +407,15 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       BUILD_BENCH: '1',
       BUILD_STOP_AFTER: "${{ inputs.stop_after_jobs_seo == true && 'jobsSeoPages' || '' }}",
       CPU_PROFILE: "${{ inputs.cpu_profile == true && '1' || '' }}",
+      HEAP_PROFILE: "${{ inputs.heap_profile == true && '1' || '' }}",
+      V8_HEAP_DIAGNOSTICS: "${{ inputs.heap_diagnostics == true && '1' || '' }}",
+      V8_HEAP_DIAGNOSTICS_FILE: '/tmp/build-v8-heap.json',
     });
     const build = steps.find((step) => String(step.name).startsWith('Build ('));
     expect(build?.run).toContain('./node_modules/.bin/vite build --minify esbuild');
     expect(build?.run).toContain('--cpu-prof');
     expect(build?.run).toContain('--cpu-prof-dir=/tmp/cpuprof');
+    expect(build?.run).toContain('--heap-prof-dir=/tmp/heap-profile');
     expect(build?.run).toContain('NODE_OPTIONS');
     expect(build?.run).toContain('skip post-build SPA asset verification');
     expect(build?.run).toContain('build_exit="${PIPESTATUS[0]}"');
@@ -428,6 +434,22 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(cpuUpload?.with).toMatchObject({
       name: 'cpu-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
       path: '/tmp/cpuprof/*.cpuprofile',
+      'retention-days': 7,
+      'if-no-files-found': 'warn',
+    });
+    const v8Upload = steps.find((step) => step.name === 'Upload V8 heap-space diagnostics');
+    expect(v8Upload?.if).toContain('inputs.heap_diagnostics == true');
+    expect(v8Upload?.with).toMatchObject({
+      name: 'v8-heap-spaces-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
+      path: '/tmp/build-v8-heap.json',
+      'retention-days': 7,
+      'if-no-files-found': 'warn',
+    });
+    const heapUpload = steps.find((step) => step.name === 'Upload sampled heap profile');
+    expect(heapUpload?.if).toContain('inputs.heap_profile == true');
+    expect(heapUpload?.with).toMatchObject({
+      name: 'heap-profile-${{ matrix.locale }}-${{ matrix.variant }}-${{ github.run_id }}',
+      path: '/tmp/heap-profile/*.heapprofile',
       'retention-days': 7,
       'if-no-files-found': 'warn',
     });

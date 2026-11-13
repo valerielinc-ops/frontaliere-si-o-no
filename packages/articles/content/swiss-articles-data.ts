@@ -30345,6 +30345,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tasso-ilo-terzo-trimestre',
+    category: 'fiscale',
+    date: '2026-11-12T22:40:23.791Z',
+    image: '/images/blog/article-tasso-ilo-terzo-trimestre.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
