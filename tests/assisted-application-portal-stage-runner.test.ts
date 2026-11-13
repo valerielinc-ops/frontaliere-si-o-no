@@ -18,7 +18,7 @@ const applyUrl = 'https://careers.example/Careers/ApplicationMethods?jobId=42';
 const profileUrl = 'https://careers.example/Careers/ApplicationConfirmation?jobId=42';
 const reviewUrl = 'https://careers.example/Careers/ApplicationReview?jobId=42';
 const receiptUrl = 'https://careers.example/Careers/ApplicationComplete?jobId=42';
-const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
+const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, heading: title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
 const profile = snapshot(profileUrl, 'Since you have already submitted your personal information, the application process will be simpler.', [{ id: 'navigation', text: 'Apply', href: reviewUrl }]);
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
@@ -43,7 +43,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       const source = String(fn);
       if (source.includes('navigator.userAgent')) return 'Chrome';
       if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
-        return state.snapshot.title ? [state.snapshot.title] : [];
+        return state.snapshot.heading ? [state.snapshot.heading] : [];
       }
       return source.includes('document.body') ? state.snapshot.text : false;
     },
