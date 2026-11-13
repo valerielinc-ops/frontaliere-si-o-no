@@ -4366,6 +4366,7 @@ function normalizeFormRoleTitle(value) {
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
     .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
     .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
+    .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
     .replace(/\s+/g, ' ').trim();
 }
 function titleWordsOnly(line, title) {
@@ -4395,6 +4396,7 @@ const FORM_HEADING_VOCABULARY = new Set([
   'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
+  'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
 
 function formRoleHeadingStatus(formText, job = {}) {
@@ -4413,6 +4415,23 @@ function formRoleHeadingStatus(formText, job = {}) {
   ]);
   return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
     .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
+}
+
+function formUrlCarriesEmployerHost(formText, job = {}) {
+  const employerWords = nameWords(job.company)
+    .filter(word => word.length >= 3
+      && !EMPLOYER_KIND_WORDS.has(word)
+      && !FORM_VOCABULARY.has(word)
+      && !BRANCH_WORDS.has(word));
+  if (!employerWords.length) return false;
+  return (String(formText || '').match(/\bhttps?:\/\/[^\s"'<>]+/giu) || []).some((raw) => {
+    try {
+      const hostname = new URL(raw.replace(/[),.;]+$/u, '')).hostname.toLowerCase();
+      return employerWords.some(word => hostname.split(/[.-]+/u).includes(word) || hostname.includes(word));
+    } catch {
+      return false;
+    }
+  });
 }
 
 export function formPostingMatch(formText, job = {}, {
@@ -4478,10 +4497,12 @@ export function formPostingMatch(formText, job = {}, {
   // A verified SuccessFactors module is a bound application surface even when
   // its account page contains no requisition or role text of its own.
   if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
-  // A generic form reached through a posting's verified entry stays unknown:
-  // its provenance lets the runner continue, while its own text proves no
-  // company, role or requisition. Without that entry proof, preserve mismatch.
-  if (postingEntry || applicationEntry) return 'unknown';
+  // A generic form reached through a posting's provenance stays unknown when
+  // its own text proves no company, role or requisition. A same-employer URL
+  // without the verified entry is not enough provenance and preserves the
+  // conservative mismatch (for example ALTEN's generic form).
+  if (postingEntry || applicationEntry
+    || (postingMatched && !formUrlCarriesEmployerHost(formText, job))) return 'unknown';
   return direct;
 }
 
