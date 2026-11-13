@@ -196,7 +196,6 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
-          cache: npm
 
       - name: Require trusted Codex broker credentials
         env:

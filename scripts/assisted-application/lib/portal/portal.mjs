@@ -1940,8 +1940,9 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
     .trim();
   const job = context.job || {};
   if (!localContext || !jobTitleCandidates(job).length) return true;
+  if (!titleMatchesJob(localContext, job)) return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return postingMatch(localContext, job, context.postingUrl) === 'match';
+  return true;
 }
 
 // A few legacy employer pages render the only application opener as a native

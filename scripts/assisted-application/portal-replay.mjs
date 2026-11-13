@@ -17,7 +17,7 @@
  */
 import { createHash } from 'node:crypto';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, realpathSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -1009,7 +1009,7 @@ async function main(argv = process.argv.slice(2)) {
   throw Object.assign(new Error('portal_replay_invalid_mode'), { code: 'portal_replay_invalid_mode' });
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try { process.exitCode = await main(); }
   catch (error) {
     console.error(`portal_replay_error:${safeCode(error?.code || error?.name, 'unknown')}`);
