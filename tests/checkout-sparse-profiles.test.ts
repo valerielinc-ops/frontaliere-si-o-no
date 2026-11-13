@@ -37,7 +37,6 @@ import {
   CROSSOVER_MB,
   checkoutEntryPoints,
   analyzeAll,
-  analyzeWorkflow,
   bucketsReferencedBy,
   inlineModuleEntryPoints,
   transitiveClosure,
@@ -360,9 +359,8 @@ describe('profili di sparse-checkout', () => {
   });
 
   it('non combina token di bucket da moduli indipendenti', () => {
-    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
-    const job = analyzeWorkflow(path.join(WF_DIR, 'deploy-cloud-functions.yml'), pkg.scripts)
-      .jobs.find((item) => item.jobId === 'deploy-functions');
+    const workflow = analyzeAll().find((item) => item.file === 'deploy-cloud-functions.yml');
+    const job = workflow?.jobs.find((item) => item.jobId === 'deploy-functions');
     expect(job?.needs).not.toContain('docs/');
     expect(job?.needs).not.toContain('public/data/');
     expect(job?.needs).not.toContain('data/jobs/');
