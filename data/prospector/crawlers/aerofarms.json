@@ -1,0 +1,25 @@
+{
+  "companyKey": "aerofarms",
+  "companyName": "AeroFarms",
+  "companyHost": "aerofarms.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aerofarms.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "AeroFarms General Employment Application",
+    "Tower Technician (Nights)",
+    "Multi-Craft Maintenance Technician",
+    "Food Safety & Quality Assurance (FSQA) Technician",
+    "HACCP & Quality Assurance Coordinator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:17.120Z",
+  "candidateKey": "aerofarms@applytojob.com"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "netzwerkfamilie-ch",
+  "companyName": "Netzwerk Familie",
+  "companyHost": "sozialinfo.ch",
+  "verifiedEmployerDomain": "netzwerkfamilie.ch",
+  "platform": "sozialinfo.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.sozialinfo.ch/arbeitsmarkt/stellenportal/sozialpadagoge-sozialpadagogin-hf-fh-ZeTGrbCy/"
+  ],
+  "detailTemplate": "/arbeitsmarkt/stellenportal/sozialpadagoge-sozialpadagogin-hf-fh-ZeTGrbCy",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Sozialpädagoge/Sozialpädagogin HF/FH "
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:56:47.805Z",
+  "candidateKey": "netzwerk-familie"
+}

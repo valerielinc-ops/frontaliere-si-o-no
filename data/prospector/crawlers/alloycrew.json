@@ -1,0 +1,24 @@
+{
+  "companyKey": "alloycrew",
+  "companyName": "Alloy",
+  "companyHost": "alloycrew.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://alloycrew.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "I want to work with Alloy!",
+    "Paid Media Director",
+    "Senior Account Director, Client Partner",
+    "Senior PR Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:28.320Z",
+  "candidateKey": "alloycrew@applytojob.com"
+}
