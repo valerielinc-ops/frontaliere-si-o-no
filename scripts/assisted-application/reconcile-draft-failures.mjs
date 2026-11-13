@@ -17,6 +17,15 @@ import { recoverCandidateDocumentEmail } from '../../functions/src/assistedAppli
 
 export const DRAFT_RECOVERY_VERSION = 'draft-recovery-v1';
 
+export function isFirestoreIndexUnavailableError(error) {
+  const code = error?.code;
+  const message = typeof error?.message === 'string' ? error.message : String(error ?? '');
+  const failedPrecondition = code === 9 || String(code) === '9'
+    || ['FAILED_PRECONDITION', 'failed-precondition'].includes(String(code))
+    || /\bFAILED_PRECONDITION\b/i.test(message);
+  return failedPrecondition && /\bindex(?:es)?\b/i.test(message);
+}
+
 function hasUncertainSend(record) {
   return record?.state === 'sent' || record?.state === 'sending' || record?.state === 'claimed'
     || record?.sentAttempt || isUnconfirmedSubmission(record);
@@ -119,7 +128,9 @@ export async function reconcileCandidateDocumentEmails({
   nowMs = Date.now(),
   recover = recoverCandidateDocumentEmail,
 } = {}) {
-  const summary = { scanned: 0, eligible: 0, updated: 0, skipped: 0, retryScheduled: 0, apply };
+  const summary = {
+    scanned: 0, eligible: 0, updated: 0, skipped: 0, retryScheduled: 0, indexUnavailable: false, apply,
+  };
   if (!db || typeof db.collectionGroup !== 'function') return summary;
 
   let cursor;
@@ -128,7 +139,18 @@ export async function reconcileCandidateDocumentEmails({
       .where('draftCandidateEmailRecoveryVersion', '==', DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION)
       .orderBy('__name__').limit(100);
     if (cursor) query = query.startAfter(cursor);
-    const page = await query.get();
+    let page;
+    try {
+      page = await query.get();
+    } catch (error) {
+      if (!isFirestoreIndexUnavailableError(error)) throw error;
+      summary.indexUnavailable = true;
+      console.warn(
+        'Firestore index for automation.draftCandidateEmailRecoveryVersion is unavailable; '
+        + 'candidate document recovery is deferred until a later deploy.',
+      );
+      break;
+    }
     for (const flowDoc of page.docs) {
       const orderRef = flowDoc.ref.parent.parent;
       const orderId = orderRef?.id;

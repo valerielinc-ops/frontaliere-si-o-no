@@ -230,9 +230,9 @@ jobs:
     runs-on: ubuntu-latest
     # Letti dal job `post-review` (vedi `Decide post-review follow-up`).
     outputs:
-      automerge: ${{ steps.post_review.outputs.automerge }}
+      automerge: ${{ steps.post_review.outputs.automerge || steps.non_code_review.outputs.automerge }}
       autorebase: ${{ steps.post_review.outputs.autorebase }}
-      pr_number: ${{ steps.post_review.outputs.pr_number }}
+      pr_number: ${{ steps.post_review.outputs.pr_number || steps.non_code_review.outputs.pr_number }}
     # 360 min, il massimo di GitHub, dal 2026-08-26 (#6571): quando la review è
     # entrata in questo job il vecchio tetto di 60 min (≈2x la somma dei
     # massimi di allora, circa 33 min) non copriva più review e suite insieme.
@@ -1255,13 +1255,16 @@ jobs:
           set -euo pipefail
           source "$RUNNER_TEMP/trusted-policy-downloader.sh"
           policy_root="${RUNNER_TEMP}/review-policy"
-          mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib"
+          mkdir -p "$policy_root/scripts/ci/lib" "$policy_root/scripts/lib" "$policy_root/functions/src"
           download_main scripts/ci/review-gate.mjs "$policy_root/scripts/ci/review-gate.mjs"
           download_main scripts/ci/lib/review-carry-forward.mjs "$policy_root/scripts/ci/lib/review-carry-forward.mjs"
           download_main scripts/ci/pr-contribution-fingerprint.mjs "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs"
           download_main scripts/ci/auto-merge-eval.mjs "$policy_root/scripts/ci/auto-merge-eval.mjs"
           download_main scripts/ci/prefetch-review-diff.mjs "$policy_root/scripts/ci/prefetch-review-diff.mjs"
           download_main scripts/ci/review-test-policy.mjs "$policy_root/scripts/ci/review-test-policy.mjs"
+          download_main scripts/ci/mint-app-token.mjs "$policy_root/scripts/ci/mint-app-token.mjs"
+          download_main scripts/lib/githubApiHeaders.mjs "$policy_root/scripts/lib/githubApiHeaders.mjs"
+          download_main functions/src/githubApiHeaders.js "$policy_root/functions/src/githubApiHeaders.js"
           download_main scripts/ci/review-marker-recovery.mjs "$policy_root/scripts/ci/review-marker-recovery.mjs"
           download_main scripts/ci/fetch-pr-files.mjs "$policy_root/scripts/ci/fetch-pr-files.mjs"
           download_main scripts/ci/claude-codex-fallback.mjs "$policy_root/scripts/ci/claude-codex-fallback.mjs"
@@ -1333,23 +1336,25 @@ jobs:
           node "${RUNNER_TEMP}/trusted-module-graph.mjs" \
             "$policy_root/scripts/ci/review-gate.mjs" \
             "$policy_root/scripts/ci/lib/review-carry-forward.mjs" \
+            "$policy_root/scripts/ci/mint-app-token.mjs" \
             || { echo "::error::grafo di import incompleto nella copia trusted"; exit 1; }
           for trusted_file in \
             "$policy_root/scripts/ci/review-gate.mjs" \
             "$policy_root/scripts/ci/pr-contribution-fingerprint.mjs" \
             "$policy_root/scripts/ci/review-test-policy.mjs" \
+            "$policy_root/scripts/ci/mint-app-token.mjs" \
             "$policy_root/scripts/ci/review-marker-recovery.mjs" \
             "$policy_root/scripts/ci/fetch-pr-files.mjs"; do
             node --check "$trusted_file"
           done
           echo "REVIEW_POLICY_ROOT=$policy_root" >> "$GITHUB_ENV"
 
-      # The bounded ledger candidate is classified before checkout. Its policy
-      # and every dependency it needs are downloaded from `main`, never read
-      # from the untrusted PR tree. A trusted, exact ledger-only result posts
-      # the required check and skips the checkout/npm/test path below; mixed or
-      # known non-matches stay on the ordinary path, while unverifiable input
-      # fails closed.
+      # Fast-path candidates are classified before checkout. Their policy and
+      # every dependency they need are downloaded from `main`, never read from
+      # the untrusted PR tree. `ledger_only` is the historical output name used
+      # by the ordinary-path conditions; it now means "a verified pre-checkout
+      # fast path" and `ledger_status` identifies the concrete lane. A mixed or
+      # unknown non-code scope falls through to the ordinary path.
       - name: Bootstrap trusted bounded-ledger policy (no checkout)
         id: ledger_policy
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.user.type == 'Bot' && github.event.pull_request.user.login == 'frontaliere-automation[bot]' && github.event.pull_request.head.repo.full_name == github.repository && (github.head_ref == 'chore/loop-fleet-ledger' || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L0-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L1-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L2-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L3-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L4-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L5-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L6-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L7-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L8-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L9-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L10-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-L11-') || startsWith(github.head_ref, 'chore/loop-fleet-ledger-lifecycle-')) && steps.body_contract.outcome != 'failure' }}
@@ -1383,9 +1388,9 @@ jobs:
       # This step runs before checkout/npm ci. Exit 10 is a complete known
       # non-match and deliberately falls through to the ordinary path; every
       # other non-zero result is unverifiable and fails closed.
-      - name: Classify bounded loop-fleet ledger path
+      - name: Classify bounded ledger or non-runtime-code path
         id: ledger_scope
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_policy.outcome == 'success' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() && (steps.ledger_policy.outcome == 'success' || steps.review_policy.outcome == 'success') }}
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
@@ -1395,28 +1400,55 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set +e
-          result=$(LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-check 2>&1)
-          status=$?
+          ledger_status=10
+          if [ -n "${POLICY_ROOT:-}" ]; then
+            result=$(LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-check 2>&1)
+            ledger_status=$?
+            printf '%s\n' "$result"
+          else
+            echo 'Ledger policy non presente: candidato non ledger, provo il fast path non-runtime-code.'
+          fi
           set -e
-          printf '%s\n' "$result"
-          case "$status" in
+          case "$ledger_status" in
             0)
               echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
               echo 'ledger_status=eligible' >> "$GITHUB_OUTPUT"
               ;;
             10)
-              echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
-              echo 'ledger_status=not-ledger-only' >> "$GITHUB_OUTPUT"
-              echo 'Ledger fast path non applicabile: il percorso ordinario resta attivo.'
+              set +e
+              if grep -Fq 'non-code-check' "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs"; then
+                result=$(node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-check 2>&1)
+                status=$?
+              else
+                result='Trusted main policy precedente al non-runtime-code fast path: percorso ordinario.'
+                status=10
+              fi
+              set -e
+              printf '%s\n' "$result"
+              case "$status" in
+                0)
+                  echo 'ledger_only=true' >> "$GITHUB_OUTPUT"
+                  echo 'ledger_status=non-runtime-code' >> "$GITHUB_OUTPUT"
+                  ;;
+                10)
+                  echo 'ledger_only=false' >> "$GITHUB_OUTPUT"
+                  echo 'ledger_status=not-fast-path' >> "$GITHUB_OUTPUT"
+                  echo 'Fast path non applicabile: il percorso ordinario resta attivo.'
+                  ;;
+                *)
+                  echo "::error::non-runtime-code fast path non verificabile (exit $status): job fail-closed."
+                  exit "$status"
+                  ;;
+              esac
               ;;
             *)
-              echo "::error::ledger fast path non verificabile (exit $status): job fail-closed."
-              exit "$status"
+              echo "::error::ledger fast path non verificabile (exit $ledger_status): job fail-closed."
+              exit "$ledger_status"
               ;;
           esac
 
       - name: Mint GitHub App token for bounded ledger review
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'eligible' && !cancelled() }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -1424,12 +1456,21 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node "$POLICY_ROOT/scripts/ci/mint-app-token.mjs"
 
+      - name: Mint GitHub App token for non-runtime-code review
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && !cancelled() }}
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node "$REVIEW_POLICY_ROOT/scripts/ci/mint-app-token.mjs"
+
       # This is the required tests job itself, not a companion check. The
       # policy helper rechecks HEAD, metadata, complete file-list and JSONL
       # immediately before the review mutation.
       - name: Publish bounded ledger-only automatic LGTM
         id: ledger_review
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only == 'true' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'eligible' && !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -1443,6 +1484,27 @@ jobs:
           fi
           LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
             GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
+
+      - name: Publish non-runtime-code automatic LGTM
+        id: non_code_review
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo '::error::non-runtime-code review requires the allowlisted App token; no review was posted'
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-post
+          {
+            echo 'automerge=true'
+            echo "pr_number=$PR_NUMBER"
+          } >> "$GITHUB_OUTPUT"
 
       # ── Una run superata muore subito ────────────────────────────────────
       #
@@ -1578,8 +1640,8 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
-      # anche il ledger-only lo esegue per il guard di storia precedente, ma
-      # continua a saltare npm/test/review costosi. Il perché di questo profilo
+      # i fast path verificati saltano l'intero checkout insieme a npm/test/review
+      # costosi. Il perché di questo profilo
       # esatto — albero pieno + storia profonda + `tree:0` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
@@ -1609,7 +1671,7 @@ jobs:
       # quasi gratis: i commit ci sono già, manca solo il NOME.
       - uses: actions/checkout@v7
         id: event_tree_checkout
-        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() }}
         with:
           # Only the event ref is checked out. Body recovery re-runs an
           # already-created pull_request tests run; it never dispatches this
@@ -1627,7 +1689,7 @@ jobs:
       # Publish that checked-out tree as a check-run annotation so the later
       # main-push preflight can prove it is reusing the exact tree Vitest saw.
       - name: Record tested merge tree for main health signal
-        if: ${{ github.event_name == 'pull_request' && steps.event_tree_checkout.outcome == 'success' && !cancelled() }}
+        if: ${{ github.event_name == 'pull_request' && steps.ledger_scope.outputs.ledger_only != 'true' && steps.event_tree_checkout.outcome == 'success' && !cancelled() }}
         shell: bash
         run: |
           set -euo pipefail
@@ -1635,7 +1697,7 @@ jobs:
           echo "::notice title=CI tested merge tree::tested-tree=${tested_tree}"
 
       - name: Guard — storia precedente alla riscrittura
-        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' && !cancelled() }}
         env:
           guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
           RECOVERY_IS: ${{ steps.recovery_context.outputs.is_recovery }}
@@ -1660,8 +1722,8 @@ jobs:
             --head HEAD \
             --base "refs/remotes/origin/${guard_base_ref}"
 
-      # UNA sola invocazione (erano tre) nel percorso ordinario; il ledger-only
-      # verificato sopra salta anche questa installazione. Niente `--ignore-scripts`: lo usava il
+      # UNA sola invocazione (erano tre) nel percorso ordinario; i fast path
+      # verificati sopra saltano anche questa installazione. Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
       # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
       - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
@@ -2638,26 +2700,24 @@ jobs:
           args: --stats
 
       - name: Cache assemble-jobs output
+        id: assemble_cache
         if: ${{ (steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true')) && steps.assemble_cache_key.outputs.key != '' }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
-        # content-addressable cache under .cache/assemble-jobs (keyed on a
-        # sha256 of every slice file, of the assembler's import closure and aux
-        # data inputs, + an internal output-version) that restores
+        # content-addressable cache under .cache/assemble-jobs (keyed on the
+        # full sha256 of every slice file, of the assembler's import closure
+        # and aux data inputs, + the output-version) that restores
         # the assembled outputs in ~0.3s instead of re-running the assembly
         # (~52s when this was written; measured 2026-09-30: a miss costs the
         # "Assemble + migrate" step 235-276 s and hit 30 of 51 PR runs that
-        # needed the dataset). The script's internal version+fingerprint guarantees
-        # correctness, so the restore-keys cascade cannot replay a stale
-        # jobs.json across slice or assembler changes (cache-miss → full
-        # assembly → fresh snapshot).
-        uses: actions/cache@v6
+        # needed the dataset). Restore only an exact key: a prefix hit would
+        # download a snapshot that the assembler rejects after its hash check.
+        uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
 
       - name: Assemble + migrate
+        id: assemble_jobs
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
         # Condizionale, con esecuzione FOREGROUND quando serve. La misura
         # storica (~326s, run 32959864544) che giustificava la posizione
@@ -4405,6 +4465,16 @@ jobs:
           } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           echo "::notice::tests run classified as $classification; no failure report or remediation was attempted"
 
+      # Persist the exact snapshot after all test steps. This runs after a test
+      # failure too, so the next run on the same PR can reuse the assembly.
+      - name: Save assemble-jobs cache
+        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       # ULTIMO step del job, e deve restarlo: legge l'esito di tutti quelli
       # sopra. `always()` non è decorativo — un `if:` che nomina uno step senza
       # `always()` non parte MAI dopo un fallimento, ed è esattamente dopo un
@@ -4562,8 +4632,10 @@ jobs:
               'Resolve trusted policy ref (main tip, pinned)',
               'Bootstrap trusted review policy (no checkout)',
               'Bootstrap trusted bounded-ledger policy (no checkout)',
+              'Classify bounded ledger or non-runtime-code path',
               'Classify bounded loop-fleet ledger path',
               'Publish bounded ledger-only automatic LGTM',
+              'Publish non-runtime-code automatic LGTM',
               'Resolve PR from pull request',
               'Resolve review input revision (zero-agent)',
               'Re-review guard (skip Claude when no code changed since last LGTM)',

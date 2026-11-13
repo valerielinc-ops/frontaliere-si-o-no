@@ -1472,11 +1472,11 @@
     },
     {
       "id": "bucherer-92aa3304edc2",
-      "slug": "client-consulente-uhren-e-schmuck-100-m-w-d-bern-bucherer-bern",
+      "slug": "consulente-clienti-orologi-e-gioielli-100-m-f-d-berna-bucherer-bern",
       "slugByLocale": {
-        "it": "client-consulente-uhren-e-schmuck-100-m-w-d-bern-bucherer-bern",
-        "en": "client-advisor-watches-and-jewelry-100-m-f-d-bern-bucherer-bern",
         "de": "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern",
+        "it": "consulente-clienti-orologi-e-gioielli-100-m-f-d-berna-bucherer-bern",
+        "en": "client-advisor-watches-and-jewelry-100-m-f-d-bern-bucherer-bern",
         "fr": "conseiller-clientele-montres-et-bijoux-100-h-f-d-berne-bucherer-bern"
       },
       "company": "Bucherer",
@@ -1484,9 +1484,9 @@
       "companyDomain": "bucherer.com",
       "title": "Client Advisor Uhren und Schmuck 100% (m/w/d) - Bern",
       "titleByLocale": {
+        "de": "Client Advisor Uhren und Schmuck 100% (m/w/d) - Bern",
         "it": "Consulente clienti orologi e gioielli 100% (m/f/d) - Berna",
         "en": "Client Advisor Watches and Jewelry 100% (m/f/d) - Bern",
-        "de": "Client Advisor Uhren und Schmuck 100% (m/w/d) - Bern",
         "fr": "Conseiller clientèle montres et bijoux 100% (h/f/d) - Berne"
       },
       "description": "Ihre Rolle bei uns:\n\n• Sie betreuen unsere anspruchsvollen nationalen wie internationalen Kunden beim Kauf von hochwertigen Markenuhren und Schmuck.\n• Sie gestalten ein unvergessliches Kundenerlebnis und besitzen die Fähigkeit, eine bedeutende loyale Kundenbeziehung zu entwickeln.\n• Sie wirken mit Begeisterung als Brand Ambassador und positionieren unsere exklusiven Produkte mittels Ihrer versierten Fach- sowie Storytelling-Kompetenzen.\n• Sie betreiben aktive Netzwerkpflege zum Erhalt und der Erweiterung unseres Kundenkreises.\n• Zusammen mit ihren Arbeitskollegen stellen Sie tadellos präsentierende Verkaufsflächen und Vitrinen sicher.\n• Sie sind verantwortlich für einen reibungslosen Ablauf des Tagesgeschäftes.\n• Sie übernehmen administrative Arbeiten im Zusammenhang mit dem Verkauf sowie die Pflege des internen CRM-Systems.\n• Sie unterstützen bei spezifischen Projekten und tragen zur erfolgreichen Umsetzung von Kundenevents bei.\n\nIhr Profil :\n\n• Ausbildung als Detailhandelsfachmann/-frau EFZ Uhren und Schmuck\n• Fundierte Kenntnisse im Uhren- und/oder Schmuckbereich\n• Offene und kundenorientierte Persönlichkeit mit ausgeprägter Dienstleistungsorientierung\n• Hohes Mass an Einfühlungsvermögen für unsere Kundschaft und interkulturelle Kompetenzen im Umgang mit unseren lokalen und internationalen Kunden\n• Unternehmerisches Denken und Handeln\n• IT-Affinität\n• Stilsicherheit, professionelles Erscheinungsbild sowie zuvorkommende Umgangsformen\n• Proaktiver Teamplayer\n• Verhandlungssichere Deutsch- und Englischkenntnisse, idealerweise gute Französischkenntnisse",
@@ -1522,12 +1522,11 @@
       "jobReqId": 204,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern"
-      ],
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
-          "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern"
+          "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern",
+          "client-consulente-uhren-e-schmuck-100-m-w-d-bern-bucherer-bern"
         ],
         "en": [
           "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern"
@@ -1536,8 +1535,10 @@
           "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-11-04T09:29:58.446Z",
+      "previousSlugs": [
+        "client-advisor-uhren-und-schmuck-100-m-w-d-bern-bucherer-bern",
+        "client-consulente-uhren-e-schmuck-100-m-w-d-bern-bucherer-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1553,15 +1554,16 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:21:31.649Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T09:29:58.446Z"
     },
     {
       "id": "bucherer-cc014a306171",
       "slug": "consulente-clienti-boutique-rolex-e-negozio-multimarca-100-m-f-d-aeroporto-di-zurigo-bucherer-kloten",
       "slugByLocale": {
+        "de": "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten",
         "it": "consulente-clienti-boutique-rolex-e-negozio-multimarca-100-m-f-d-aeroporto-di-zurigo-bucherer-kloten",
         "en": "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten",
-        "de": "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten",
         "fr": "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten"
       },
       "company": "Bucherer",
@@ -1569,9 +1571,9 @@
       "companyDomain": "bucherer.com",
       "title": "Client Advisor Rolex Boutique & Multibrand Store 100% (m/w/d) - Flughafen Zürich",
       "titleByLocale": {
+        "de": "Client Advisor Rolex Boutique & Multibrand Store 100% (m/w/d) - Flughafen Zürich",
         "it": "Consulente clienti Boutique Rolex e negozio multimarca 100% (m/f/d) - Aeroporto di Zurigo",
         "en": "Client Advisor Rolex Boutique & Multibrand Store 100% (m/f/d) - Zurich Airport",
-        "de": "Client Advisor Rolex Boutique & Multibrand Store 100% (m/w/d) - Flughafen Zürich",
         "fr": "Client Conseiller Rolex Boutique & Multibrand Store 100% (m/w/d) - Flughafen Zürich"
       },
       "description": "Ihre Rolle bei uns\n\n• Sie betreuen unsere anspruchsvollen nationalen wie internationalen Kunden beim Erwerb hochwertiger Schmuckstücke und Markenuhren\n• Sie gestalten ein unvergessliches Kundenerlebnis und besitzen die Fähigkeit, eine bedeutende loyale Kundenbeziehung zu entwickeln\n• Sie wirken mit Begeisterung als Brand Ambassador und positionieren unsere exklusiven Produkte mittels Ihrer versierten Fach- und Storytelling-Kompetenzen\n• Umsetzung der CRM-Richtlinien und aktive Kundenpflege\n• Verantwortlich für einen reibungslosen Ablauf des Tagesgeschäftes\n• Sicherstellen von optimal präsentierten Verkaufsflächen, Schaufenster und Vitrinen\n\nDurchführung administrativer Tätigkeiten zur Unterstützung des Teams\n\nDas bringen Sie mit\n\n• Ausbildung im Detailhandel, Hotellerie/Gastronomie, Uhren - und Schmuckbranche\n• Mehrjährige Erfahrung im Luxussegment des Detailhandels\n• Fundierte Fachkenntnisse im Bereich Uhren und Schmuck\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n• IT-Affinität mit Kenntnissen in MS Office-Anwendungen\n• Ausgeprägtes Verkaufsflair und exzellente Dienstleistungsorientierung\n• Stilsicherheit, professionelles Auftreten und zuvorkommende Umgangsformen\n• Hohe Empathie und interkulturelle Kompetenz im Umgang mit lokaler und internationaler Kundschaft\n• Flexibilität und Bereitschaft zur Arbeit in Schichten zwischen 6:00 und 22:00 Uhr, auch an Wochenenden und Feiertagen",
@@ -1608,15 +1610,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-11-05T21:21:56.586Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten"
-        ]
-      },
-      "previousSlugs": [
-        "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1632,7 +1625,16 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:21:31.647Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:21:56.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-rolex-boutique-multibrand-store-100-m-w-d-flughafen-zurich-bucherer-kloten"
+      ]
     }
   ]
 }

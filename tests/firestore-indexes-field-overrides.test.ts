@@ -300,6 +300,7 @@ describe('firestore.indexes.json — query collection-group', () => {
       "return await base.where('frequency', '==', f).get();",
       "const dynamic = await db.collectionGroup(group).where(field, '>=', cutoff).get();",
       "const scan = await db.collectionGroup('savedJobs').get();",
+      "const orderedByDocumentId = db.collectionGroup('automation').orderBy('__name__');",
       "const other = db.collection('users').where('email', '==', email);",
     ].join('\n');
     expect(extractGroupQueryFields(sample, 'sample.js').map((q) => `${key(q.collectionGroup, q.fieldPath)}:${q.line}`)).toEqual([

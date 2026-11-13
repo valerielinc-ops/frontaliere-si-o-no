@@ -38,4 +38,16 @@ describe('assisted application recovery marker', () => {
     expect(deployWorkflow.jobs['deploy-functions'].steps.filter((step: any) => step.id === 'checkout_primary' || step.id === 'checkout_retry')
       .every((step: any) => step.with.ref === '${{ github.sha }}')).toBe(true);
   });
+
+  it('deploys Firestore indexes before recovery queries run', () => {
+    const steps = deployWorkflow.jobs['deploy-functions'].steps;
+    const indexesStep = steps.findIndex((step: any) => step.name === 'Deploy Firestore indexes');
+    const recoverySteps = steps
+      .map((step: any, index: number) => ({ step, index }))
+      .filter(({ step }) => String(step.run || '').includes('--apply'));
+
+    expect(indexesStep).toBeGreaterThanOrEqual(0);
+    expect(recoverySteps.length).toBeGreaterThan(0);
+    expect(recoverySteps.every(({ index }) => indexesStep < index)).toBe(true);
+  });
 });

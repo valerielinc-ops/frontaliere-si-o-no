@@ -132,6 +132,31 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(buildStep.env.JOBS_SEO_PROFILE_PHASES).not.toBe('1');
   });
 
+  it('supports pinned locale-leg memory comparisons without publishing', () => {
+    const inputs = POST_BUILD_MATRIX_WORKFLOW.on.workflow_dispatch.inputs;
+    expect(inputs.build_locale).toMatchObject({
+      type: 'choice',
+      default: 'monolithic',
+      options: ['monolithic', 'it', 'en', 'de', 'fr'],
+    });
+    expect(inputs.build_source_sha).toMatchObject({ type: 'string', default: '' });
+
+    const checkout = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.uses === 'actions/checkout@v7',
+    );
+    expect(checkout.with.ref).toContain('build_source_sha');
+
+    const buildStep = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.name === 'Build',
+    );
+    expect(String(buildStep.env.BUILD_LOCALE)).toContain('build_locale');
+
+    const uploadStep = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.name === 'Upload build output for shards',
+    );
+    expect(uploadStep.if).toContain("build_only != 'true'");
+  });
+
   it('keeps the blocking publisher gate short and limited to provenance evidence', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
     const job = workflow.jobs['fast-gate'];

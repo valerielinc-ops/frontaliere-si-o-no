@@ -2660,6 +2660,7 @@ function planAlertMatch(alert, {
   subscriberProfiles,
   jobAlertProfiles = new Map(),
   applicationIntentAccountProfiles = new Map(),
+  cvPersonalizationAccountProfiles = new Map(),
   recentJobs,
   now,
   featureCache = null,
@@ -2683,6 +2684,10 @@ function planAlertMatch(alert, {
     && accountProfile.optedOut !== true
     ? behavior.applicationIntent
     : null;
+  const cvProfile = cvPersonalizationAccountProfiles.get(alert.email.toLowerCase());
+  const cvSkills = cvProfile && cvProfile.uid === behavior.applicationIntentAuthUid
+    ? cvProfile.skills
+    : [];
   const extras = {
     behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
     behaviorTokens: behavior.behaviorTokens || [],
@@ -2697,6 +2702,7 @@ function planAlertMatch(alert, {
     ],
     cityToCanton,
     applicationIntent,
+    cvSkills,
     now,
   };
   const profile = buildAlertProfile(
@@ -3110,6 +3116,9 @@ async function main() {
   // purpose preference permits it. Missing/erroring profile reads leave this
   // map empty, which is the intentional fail-closed behavior.
   const applicationIntentAccountProfiles = new Map();
+  // CV skills are a separate, explicit opt-in and are read only after the
+  // private behavior projection confirms the same Auth UID as the subscriber.
+  const cvPersonalizationAccountProfiles = new Map();
   // Raw personalization subdoc + whether the parent doc exists, kept so the
   // post-send enrichment step (section 6 below) can consolidate every signal
   // back into the flat profile fields (no-clobber).
@@ -3406,8 +3415,9 @@ async function main() {
     console.log(`   🔁 ${reactivationsToPersist.length} decayed alert(s) reactivated — cadence_decayed_at kept as the record of what we did`);
   }
 
+  const verifiedAccountUids = new Map();
   try {
-    const uidByEmail = new Map();
+    const uidByEmail = verifiedAccountUids;
     for (const [email, behavior] of behaviorProfiles) {
       const newsletter = subscriberProfiles.get(email) || {};
       const alertSubscriber = jobAlertProfiles.get(email) || {};
@@ -3447,6 +3457,41 @@ async function main() {
   } catch (err) {
     applicationIntentAccountProfiles.clear();
     console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
+  }
+
+  // CV-derived ranking is strictly optional. A failed projection read disables
+  // only this signal; it never changes an alert's hard criteria or geo scope.
+  try {
+    const uids = [...new Set(verifiedAccountUids.values())];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched CV profile lookup unavailable');
+      const PROFILE_CHUNK_SIZE = 200;
+      const enabledProfiles = new Map();
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('user_cv_profiles').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          if (data.jobAlertPersonalizationEnabled !== true || data.status !== 'ready') return;
+          const profile = data.profile && typeof data.profile === 'object' ? data.profile : {};
+          const skills = [...(Array.isArray(profile.skills) ? profile.skills : []), ...(Array.isArray(profile.languages) ? profile.languages : [])]
+            .filter((skill) => typeof skill === 'string')
+            .map((skill) => skill.trim())
+            .filter(Boolean)
+            .slice(0, 40);
+          if (skills.length > 0) enabledProfiles.set(chunk[index], skills);
+        });
+      }
+      for (const [email, uid] of verifiedAccountUids) {
+        const skills = enabledProfiles.get(uid);
+        if (skills) cvPersonalizationAccountProfiles.set(email, { uid, skills });
+      }
+    }
+  } catch (err) {
+    cvPersonalizationAccountProfiles.clear();
+    console.warn(`   ⚠️  CV job-alert personalization lookup failed; CV ranking signal disabled: ${redactEmailAddresses(err?.message || err)}`);
   }
 
   // 2d. Resolve the real provider budget before matching, but do not slice the
@@ -3760,6 +3805,7 @@ async function main() {
         subscriberProfiles,
         jobAlertProfiles,
         applicationIntentAccountProfiles,
+        cvPersonalizationAccountProfiles,
         // `planAlertMatch` keeps its historical property name for the test
         // oracle, but the value is now the recipient-aware candidate pool.
         recentJobs: candidateWindow.jobs,
