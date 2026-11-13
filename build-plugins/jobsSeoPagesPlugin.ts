@@ -9116,6 +9116,7 @@ ${staticAnalyticsHtml}
  return getCantonDisplayLabel(canton, locale);
  };
  const cityHubSitemapEntries: string[] = [];
+ const cityHubSiblingSitemapLocs = new Set<string>();
  const cityHubIndexableLocales = indexableLocalePageSet(localeList, () => true);
  let cityHubCantonPagesCount = 0;
  const CITY_HUB_JOB_LIST_CAP = 30;
@@ -9342,6 +9343,7 @@ ${staticAnalyticsHtml}
  // shared sitemap and has no sibling-locale HTML in its dist.
  for (const group of cityHubGroups) {
  pagePathClaims.claim(group.locale, localePaths.get(group.locale)!);
+ if (group.locale !== 'it') cityHubSiblingSitemapLocs.add(group.href);
  const smAlternates = group.alternates.map(({ locale, href }) =>
  `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
  ).join('\n');
@@ -12461,6 +12463,11 @@ ${staticAnalyticsHtml}
   } catch {
    return block;
   }
+  // Only the restored city-hub population needs its own per-locale shard to
+  // keep sitemap-jobs.xml below the 50k URL ceiling. Other canton-scoped
+  // families, especially company hubs, retain their existing ownership in
+  // the legacy sitemap.
+  if (!cityHubSiblingSitemapLocs.has(loc)) return block;
   let owner: { canton: string; locale: Exclude<typeof localeList[number], 'it'> } | undefined;
   let matchedPrefix: string | undefined;
   for (const [prefix, candidate] of cantonLocaleSectionOwners) {

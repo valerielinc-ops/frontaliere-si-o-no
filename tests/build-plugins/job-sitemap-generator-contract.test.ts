@@ -292,12 +292,12 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
 
     const belowFloorPath = todayPath('it', 'BASILEA');
     const belowFloorFile = path.join(dist, belowFloorPath.slice(1), 'index.html');
-    expect(fs.readFileSync(belowFloorFile, 'utf8')).toMatch(/name="robots" content="noindex,follow"/);
+    expect(fs.readFileSync(belowFloorFile, 'utf8')).toMatch(/name=["']?robots["']? content=["']?noindex,follow["']?/);
     expect(blocks.some(({ loc }) => loc.endsWith(belowFloorPath))).toBe(false);
     const deBelowFloorPath = todayPath('de', 'BASILEA');
     const deBelowFloorFile = path.join(dist, deBelowFloorPath.slice(1), 'index.html');
     if (buildLocale === undefined) {
-      expect(fs.readFileSync(deBelowFloorFile, 'utf8')).toMatch(/name="robots" content="noindex,follow"/);
+      expect(fs.readFileSync(deBelowFloorFile, 'utf8')).toMatch(/name=["']?robots["']? content=["']?noindex,follow["']?/);
     } else {
       expect(fs.existsSync(deBelowFloorFile)).toBe(false);
     }
