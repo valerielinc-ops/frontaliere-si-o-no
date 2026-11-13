@@ -13721,6 +13721,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Permanent labor observatory between Italy and Switzerland is established',
     'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'On November 20, the first activities of Forum Insubria 2050 will be presented at the Ville Ponti in Varese.',
     'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Unemployed cross-border workers fear millions in extra costs',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Bern received a communication from the European Commission today concerning a change in responsibilities relating to unemployed cross-border workers.',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

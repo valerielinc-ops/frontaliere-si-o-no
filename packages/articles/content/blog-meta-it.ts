@@ -13722,6 +13722,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Nasce osservatorio permanente lavoro tra Italia e Svizzera',
     'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'Il 20 novembre, alle Ville Ponti di Varese, saranno presentate le prime attività di Forum Insubria 2050.',
     'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Frontalieri disoccupati: timore costi aggiuntivi per centinaia di milioni',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Berna ha ricevuto oggi dalla Commissione europea una comunicazione su una modifica delle competenze relative ai lavoratori frontalieri disoccupati.',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
