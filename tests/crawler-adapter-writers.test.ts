@@ -521,6 +521,20 @@ describe('SBB two-source discovery invariants', () => {
     );
   });
 
+  it('rejects an unverified Jina envelope without an AEM source URL', async () => {
+    const fetchJina = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify({ data: { content: '[]' } }),
+    }));
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
+  });
+
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
     const unavailable = async () => null;
     // Primary source (AEM API): unavailable is still fatal — there is no

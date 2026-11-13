@@ -283,16 +283,13 @@ function extractSbbAemJsonBody(body = '') {
   if (!data || typeof data !== 'object' || Array.isArray(data) || typeof data.content !== 'string') {
     return null;
   }
-  if (data.url) {
-    try {
-      const sourceUrl = new URL(data.url);
-      const expectedUrl = new URL(SBB_API_URL);
-      if (sourceUrl.hostname !== expectedUrl.hostname || sourceUrl.pathname !== expectedUrl.pathname) {
-        return null;
-      }
-    } catch {
-      return null;
-    }
+  if (typeof data.url !== 'string' || !data.url.trim()) return null;
+  try {
+    const sourceUrl = new URL(data.url);
+    const expectedUrl = new URL(SBB_API_URL);
+    if (sourceUrl.href !== expectedUrl.href) return null;
+  } catch {
+    return null;
   }
 
   const content = data.content.trim();
