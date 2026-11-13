@@ -28,7 +28,12 @@ const expiredOwnerPaths = {
   de: todayPath('de', 'BASILEA'),
   fr: '/fr/trouver-emploi-argovie/expired-owner-split-build-fr/',
 } as const;
-const FIXTURE_NOW = Date.parse('2026-11-13T12:00:00.000Z');
+// Separate baseline/PR runs on one UTC day get identical timestamps, without a stale calendar literal.
+const FIXTURE_NOW = (() => {
+  const now = new Date();
+  now.setUTCHours(12, 0, 0, 0);
+  return now.getTime();
+})();
 const daysAgo = (n: number) => new Date(FIXTURE_NOW - n * 86_400_000).toISOString();
 const description = 'La posizione prevede la collaborazione con il gruppo di lavoro e la gestione delle attività quotidiane. Cerchiamo una persona con esperienza professionale, precisione e capacità organizzative, interessata a crescere in un ambiente qualificato. Offriamo formazione continua, un contratto stabile e condizioni di lavoro trasparenti. Le candidature complete vengono esaminate dal responsabile delle risorse umane.';
 
