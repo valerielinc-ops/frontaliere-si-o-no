@@ -1,10 +1,10 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-11-13T09:36:22.719Z",
+  "generatedAt": "2026-11-13T21:44:01.071Z",
   "total": 7,
   "discovered": null,
-  "parsed": 7,
+  "parsed": 5,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 15569,
-  "avgDurationMs": 15569,
+  "durationMs": 13645,
+  "avgDurationMs": 13645,
   "durationHistory": [
-    15569
+    13645
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/349/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:36:05.742Z",
+      "crawledAt": "2026-11-13T21:43:40.620Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -64,7 +64,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:36:05.742Z",
+      "validThrough": "2027-02-03T21:43:40.620Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:36:04.294Z",
+      "crawledAt": "2026-11-13T21:43:38.979Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -113,7 +113,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:36:04.294Z",
+      "validThrough": "2027-01-20T21:43:38.979Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -135,7 +135,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/346/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:36:02.665Z",
+      "crawledAt": "2026-11-13T21:43:37.145Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -162,7 +162,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:36:02.665Z",
+      "validThrough": "2027-01-17T21:43:37.145Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:36:00.874Z",
+      "crawledAt": "2026-11-13T21:43:35.565Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -211,7 +211,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:36:00.874Z",
+      "validThrough": "2026-12-30T21:43:35.565Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -233,7 +233,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:35:59.428Z",
+      "crawledAt": "2026-11-13T21:43:33.696Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -260,7 +260,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T09:35:59.428Z",
+      "validThrough": "2026-12-27T21:43:33.696Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -311,6 +311,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:35:57.979Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -360,6 +361,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-13T09:35:56.235Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,5 +371,5 @@
       }
     }
   ],
-  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

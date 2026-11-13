@@ -1,7 +1,7 @@
 {
   "key": "a2nails-ch",
   "label": "A2 Nails Nyon",
-  "generatedAt": "2026-11-13T09:37:53.246Z",
+  "generatedAt": "2026-11-13T21:51:16.835Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -16,18 +16,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3615,
-  "avgDurationMs": 3615,
+  "unchangedCount": 0,
+  "durationMs": 22853,
+  "avgDurationMs": 22853,
   "durationHistory": [
-    3615
+    22853
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "a2nails-ch-1352b4d181e6",
       "slug": "specialista-in-manicure-e-pedicure-a2-nails-nyon-nyon-vaud",
@@ -40,7 +38,7 @@
       "url": "https://a2nails.ch/jobs/",
       "source": "A2 Nails Nyon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T09:37:14.034Z",
+      "crawledAt": "2026-11-13T21:50:18.894Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -63,7 +61,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T09:37:14.034Z",
+      "validThrough": "2026-12-13T21:50:18.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -74,5 +72,7 @@
       }
     }
   ],
-  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }
