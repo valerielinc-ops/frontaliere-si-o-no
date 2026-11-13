@@ -15183,7 +15183,10 @@ ${staticAnalyticsHtml}
  // normal previous-slug phase will replace this with the active job's full
  // content when it has a readable canonical page; this snapshot is the
  // lossless fallback for a historical URL whose active cache is unavailable.
- if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(relPath)) {
+ // The emit path may have been canonicalized above, but fallback identity stays
+ // keyed by the original tracking path for the later self-healing lookup.
+ const historicalArchivePath = trackedPaths[locale] || relPath;
+ if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(historicalArchivePath)) {
   const fallbackDescription = String(
    ejData?.descriptionByLocale?.[locale]
    || ejData?.descriptionByLocale?.it
@@ -15192,7 +15195,7 @@ ${staticAnalyticsHtml}
    || gscInfo?.descriptionByLocale?.it
    || '',
   );
-  historicalArchiveFallbacks.set(relPath, {
+  historicalArchiveFallbacks.set(historicalArchivePath, {
    recordedIdentity: hasRealTitle,
    title: String(recordedTitleForLocale(locale) || slugInfo?.title || ''),
    company: jobCompany,
@@ -17427,7 +17430,7 @@ ${staticAnalyticsHtml}
  continue;
  }
 
- const archive = historicalArchiveFallbacks.get(relPath);
+ const archive = historicalArchiveFallbacks.get(trackedPath);
  const hreflangLinks = buildTrackedHreflangLinks(slug, emissionPaths);
  const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
  const wroteHistorical = writeSoftLandingPage(relPath.replace(/^\//, ''), html);

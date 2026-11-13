@@ -88,7 +88,7 @@ describe('Historical tracking fallback preserves archived content', () => {
     expect(selfHealEnd).toBeGreaterThan(selfHealStart);
     const selfHeal = jobsSeoSrc.slice(selfHealStart, selfHealEnd);
 
-    expect(selfHeal).toContain('const archive = historicalArchiveFallbacks.get(relPath);');
+    expect(selfHeal).toContain('const archive = historicalArchiveFallbacks.get(trackedPath);');
     expect(selfHeal).toContain(
       'buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)',
     );
