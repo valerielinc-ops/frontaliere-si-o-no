@@ -140,6 +140,15 @@ describe('AdBlockGate native application offer', () => {
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
+  it('coordinates with the static recovery surface so the native offer appears only once per session', async () => {
+    sessionStorage.setItem('ft_native_application_offer_seen_v1', '1');
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(detectAdBlockMock).not.toHaveBeenCalled();
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
   it('closes on dismissal and stays dismissed for the rest of the session', async () => {
     detectAdBlockMock.mockResolvedValue(BLOCKED);
     const first = render(<AdBlockGate />);

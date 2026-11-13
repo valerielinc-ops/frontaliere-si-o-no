@@ -269,7 +269,7 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.__ftAdBlockProbe).toBe('blocked');
     expect(houseRefresh).toHaveBeenCalled();
   });
-  it('shows blocker guidance in inline mode for a missed slot without touching a filled Google slot', async () => {
+  it('shows the native €39.99 application offer for a blocker and keeps it dismissible', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
     const filledSlot = w.document.createElement('ins');
@@ -288,13 +288,49 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(5000);
 
     const dialog = w.document.querySelector('dialog[open]');
-    expect(dialog?.textContent).toContain('Abbiamo rilevato un blocco pubblicitario');
+    expect(dialog?.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
+    expect(dialog?.textContent).toContain('39,99 €');
+    expect(dialog?.textContent).toContain('Pagamento unico · senza rinnovo');
+    expect(dialog?.textContent).not.toContain('Ci aiuti a mantenere gratuito il sito?');
     expect(filledSlot.getAttribute('data-ad-status')).toBe('filled');
     expect(houseRefresh).toHaveBeenCalled();
-    const allow = Array.from(dialog!.querySelectorAll('button')).find((el: any) => el.textContent === 'Come autorizzare il sito') as any;
-    allow.click();
-    expect(dialog?.textContent).toContain('icona del leone');
+    const cta = dialog!.querySelector('a.ft-recovery-offer-cta') as HTMLAnchorElement;
+    expect(cta.href).toContain('/automatizza-ricerca-lavoro-svizzera/');
+    expect(cta.href).toContain('utm_campaign=application_concierge_adblock');
+    dialog!.querySelector<HTMLButtonElement>('.ft-recovery-offer-dismiss')!.click();
+    expect(w.document.querySelector('dialog[open]')).toBeNull();
+    expect(w.sessionStorage.getItem('ft_native_application_offer_seen_v1')).toBe('1');
+    expect(w.sessionStorage.getItem('ft_native_application_offer_dismissed_v1')).toBe('1');
     expect(w.localStorage.getItem('frontaliere_ads_consent')).toBeNull();
+  });
+  it.each(['escape', 'backdrop', 'close button'])('dismisses the native application offer with %s', async (method) => {
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(0);
+
+    const dialog = w.document.querySelector<HTMLDialogElement>('dialog[open]')!;
+    expect(dialog).not.toBeNull();
+    if (method === 'escape') dialog.dispatchEvent(new w.Event('cancel', { cancelable: true }));
+    else if (method === 'backdrop') dialog.dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
+    else dialog.querySelector<HTMLButtonElement>('.ft-recovery-close')!.click();
+
+    expect(w.document.querySelector('dialog[open]')).toBeNull();
+    expect(w.sessionStorage.getItem('ft_native_application_offer_dismissed_v1')).toBe('1');
+  });
+  it('does not reopen a native offer already shown in this session', async () => {
+    w.sessionStorage.setItem('ft_native_application_offer_seen_v1', '1');
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(w.document.querySelector('dialog[open]')).toBeNull();
   });
   it('records and defers to Google’s native recovery message instead of stacking a second popup', async () => {
     const houseSlot = w.document.createElement('div');
@@ -316,7 +352,7 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(5000);
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
   });
-  it('does not show blocker copy in inline mode for an inconclusive probe or a terminal loader error', async () => {
+  it('does not show the application offer in inline mode for an inconclusive probe or a terminal loader error', async () => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
