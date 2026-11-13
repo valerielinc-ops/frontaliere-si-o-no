@@ -30,6 +30,8 @@ export interface SwissBubbleMapCopy {
   unmappedOffers: (count: number) => string;
   closeDetails: (name: string) => string;
   mapAriaLabel: string;
+  cantonMapAriaLabel: (cantonName: string) => string;
+  mapInteractionHint: (mode: 'national' | 'canton') => string;
   cantonsListAriaLabel: string;
   municipalitiesListAriaLabel: string;
   swisstopoAttribution: string;
@@ -46,7 +48,6 @@ export interface SwissBubbleMapProps {
   locale: string;
   copy: SwissBubbleMapCopy;
   buildCityHref: (cantonCode: string, cityName: string) => string | null;
-  onViewCityJobs: (cantonCode: string, cityName: string) => void;
 }
 
 interface CantonBoundaryDocument {
@@ -82,7 +83,7 @@ interface GeographicMarker extends SymbolImage {
   cantonCode: string;
   name: string;
   count: number;
-  href: string | null;
+  href: string;
   lat: number;
   lng: number;
 }
@@ -95,10 +96,13 @@ interface PositionedMarker extends GeographicMarker {
 interface Projection {
   height: number;
   project: (point: { lat: number; lng: number }) => { x: number; y: number };
+  tiles: Array<{ key: string; src: string; left: number; top: number; width: number; height: number }>;
 }
 
 const MAP_WIDTH = 1000;
-const MAP_PADDING = 38;
+const MAP_PADDING = 70;
+const MAP_TILE_SIZE = 256;
+const SWISSTOPO_TILE_URL = 'https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg';
 const TICINO_CAPITAL_BFS_CODE = 5002;
 const CITY_SYMBOLS_CATEGORY = 'https://commons.wikimedia.org/wiki/Category:Coats_of_arms_of_municipalities_of_Switzerland';
 const CANTON_SYMBOLS_CATEGORY = 'https://commons.wikimedia.org/wiki/Category:Coats_of_arms_of_the_cantons_of_Switzerland';
@@ -121,12 +125,14 @@ function municipalityKey(value: string, cantonCode: string): string {
 }
 
 function imageForSymbol(symbol: SymbolImage): string | null {
+  if (symbol.kind === 'municipal-logo') return null;
   if (symbol.imageUrl) return symbol.imageUrl;
   if (!symbol.commonsFile) return null;
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(symbol.commonsFile)}?width=72`;
 }
 
 function sourceForSymbol(symbol: SymbolImage): string | null {
+  if (symbol.kind === 'municipal-logo') return null;
   if (symbol.sourceUrl) return symbol.sourceUrl;
   if (!symbol.commonsFile) return null;
   const title = encodeURIComponent(symbol.commonsFile.replace(/ /g, '_'));
@@ -145,6 +151,14 @@ function coordinatesOfBoundaryCode(code: string): Array<{ lat: number; lng: numb
   return points;
 }
 
+function worldPoint({ lat, lng }: { lat: number; lng: number }): { x: number; y: number } {
+  const latitude = Math.max(-85.05112878, Math.min(85.05112878, lat)) * Math.PI / 180;
+  return {
+    x: (lng + 180) / 360,
+    y: 0.5 - Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude))) / (4 * Math.PI),
+  };
+}
+
 function createProjection(
   mode: SwissBubbleMapProps['mode'],
   cantonCodes: string[],
@@ -154,38 +168,76 @@ function createProjection(
   const boundaryCodes = mode === 'national' ? Object.keys(cantonBoundaries.cantons) : cantonCodes;
   const allPoints = boundaryCodes.flatMap(coordinatesOfBoundaryCode);
   for (const marker of markers) allPoints.push({ lat: marker.lat, lng: marker.lng });
+  const projected = (allPoints.length ? allPoints : [{ lat: 46.8, lng: 8.2 }]).map(worldPoint);
+  let minX = Math.min(...projected.map((point) => point.x));
+  let maxX = Math.max(...projected.map((point) => point.x));
+  let minY = Math.min(...projected.map((point) => point.y));
+  let maxY = Math.max(...projected.map((point) => point.y));
+  const height = mapWidth > 0 && mapWidth < 520 ? 760 : 620;
+  const contentWidth = MAP_WIDTH - MAP_PADDING * 2;
+  const contentHeight = height - MAP_PADDING * 2;
+  const targetAspect = contentWidth / contentHeight;
+  let spanX = Math.max(0.0001, maxX - minX);
+  let spanY = Math.max(0.0001, maxY - minY);
 
-  const centerLatitude = allPoints.length
-    ? (Math.min(...allPoints.map((point) => point.lat)) + Math.max(...allPoints.map((point) => point.lat))) / 2
-    : 46.8;
-  const longitudeScale = Math.cos((centerLatitude * Math.PI) / 180);
-  const projectX = (lng: number) => lng * longitudeScale;
-  const xs = allPoints.map((point) => projectX(point.lng));
-  const ys = allPoints.map((point) => point.lat);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
-  const spanX = Math.max(0.1, maxX - minX);
-  const spanY = Math.max(0.1, maxY - minY);
-  const naturalHeight = Math.max(390, Math.min(700, Math.round(MAP_WIDTH * (spanY / spanX))));
-  // Give dense mobile marker groups enough vertical room to spread without
-  // obscuring the official symbols. The desktop projection keeps its current
-  // compact proportions.
-  const height = mapWidth > 0 && mapWidth < 520 ? Math.max(naturalHeight, 980) : naturalHeight;
-  const scale = Math.min(
-    (MAP_WIDTH - MAP_PADDING * 2) / spanX,
-    (height - MAP_PADDING * 2) / spanY,
-  );
-  const offsetX = (MAP_WIDTH - spanX * scale) / 2;
-  const offsetY = (height - spanY * scale) / 2;
+  // Expand the shorter side to give each viewport the same geographic
+  // breathing room. The raster tiles and canton outlines then share one
+  // Web Mercator projection, including at phone widths.
+  if (spanX / spanY > targetAspect) {
+    const centerY = (minY + maxY) / 2;
+    spanY = spanX / targetAspect;
+    minY = centerY - spanY / 2;
+    maxY = centerY + spanY / 2;
+  } else {
+    const centerX = (minX + maxX) / 2;
+    spanX = spanY * targetAspect;
+    minX = centerX - spanX / 2;
+    maxX = centerX + spanX / 2;
+  }
+
+  const visibleWidth = Math.max(320, mapWidth || 580);
+  const tileZoom = Math.max(7, Math.min(13, Math.round(Math.log2((visibleWidth * 1.25) / (spanX * MAP_TILE_SIZE)))));
+  const worldPixels = MAP_TILE_SIZE * (2 ** tileZoom);
+  const minPixelX = minX * worldPixels;
+  const maxPixelX = maxX * worldPixels;
+  const minPixelY = minY * worldPixels;
+  const maxPixelY = maxY * worldPixels;
+  const spanPixelX = maxPixelX - minPixelX;
+  const spanPixelY = maxPixelY - minPixelY;
+  const scale = Math.min(contentWidth / spanPixelX, contentHeight / spanPixelY);
+  const offsetX = (MAP_WIDTH - spanPixelX * scale) / 2;
+  const offsetY = (height - spanPixelY * scale) / 2;
+  const tiles: Projection['tiles'] = [];
+  const firstTileX = Math.floor(minPixelX / MAP_TILE_SIZE);
+  const lastTileX = Math.floor(maxPixelX / MAP_TILE_SIZE);
+  const firstTileY = Math.floor(minPixelY / MAP_TILE_SIZE);
+  const lastTileY = Math.floor(maxPixelY / MAP_TILE_SIZE);
+  for (let tileY = firstTileY; tileY <= lastTileY; tileY += 1) {
+    for (let tileX = firstTileX; tileX <= lastTileX; tileX += 1) {
+      const tileLeft = offsetX + (tileX * MAP_TILE_SIZE - minPixelX) * scale;
+      const tileTop = offsetY + (tileY * MAP_TILE_SIZE - minPixelY) * scale;
+      const tileSize = MAP_TILE_SIZE * scale;
+      tiles.push({
+        key: `${tileZoom}-${tileX}-${tileY}`,
+        src: SWISSTOPO_TILE_URL.replace('{z}', String(tileZoom)).replace('{x}', String(tileX)).replace('{y}', String(tileY)),
+        left: tileLeft / MAP_WIDTH * 100,
+        top: tileTop / height * 100,
+        width: tileSize / MAP_WIDTH * 100,
+        height: tileSize / height * 100,
+      });
+    }
+  }
 
   return {
     height,
-    project: ({ lat, lng }) => ({
-      x: offsetX + (projectX(lng) - minX) * scale,
-      y: offsetY + (maxY - lat) * scale,
-    }),
+    tiles,
+    project: (point) => {
+      const projectedPoint = worldPoint(point);
+      return {
+        x: offsetX + (projectedPoint.x * worldPixels - minPixelX) * scale,
+        y: offsetY + (projectedPoint.y * worldPixels - minPixelY) * scale,
+      };
+    },
   };
 }
 
@@ -202,7 +254,7 @@ function pathForBoundary(polygons: number[][][], project: Projection['project'])
 
 function offsetsForMarker(unitsPerPixel: number): Array<[number, number]> {
   const offsets: Array<[number, number]> = [[0, 0]];
-  const spacing = 56 * unitsPerPixel;
+  const spacing = 48 * unitsPerPixel;
   const directions: Array<[number, number]> = [[0, -1], [-1, 0], [-1, 1], [0, 1], [1, 0], [1, -1]];
   for (let ring = 1; ring <= 8; ring += 1) {
     let q = ring;
@@ -228,7 +280,7 @@ function spreadMarkers(
   mapWidth: number,
 ): PositionedMarker[] {
   const unitsPerPixel = MAP_WIDTH / Math.max(320, mapWidth);
-  const minDistance = 52 * unitsPerPixel;
+  const minDistance = 46 * unitsPerPixel;
   const padding = 30 * unitsPerPixel;
   const placed: PositionedMarker[] = [];
   const ordered = [...markers].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
@@ -280,7 +332,6 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
   locale,
   copy,
   buildCityHref,
-  onViewCityJobs,
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapWidth, setMapWidth] = useState(0);
@@ -329,12 +380,14 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
       const candidates = municipalitiesByName.get(key) || [];
       if (candidates.length !== 1) continue;
       const municipality = candidates[0];
+      const href = buildCityHref(municipality.cantonCode, municipality.name);
+      if (!href) continue;
       markers.push({
         id: `municipality-${municipality.bfsCode}`,
         cantonCode: municipality.cantonCode,
         name: municipality.name,
         count,
-        href: buildCityHref(municipality.cantonCode, municipality.name),
+        href,
         lat: municipality.lat,
         lng: municipality.lng,
         kind: municipality.kind,
@@ -396,6 +449,9 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
   const markerHeading = mode === 'national'
     ? copy.allCantonsHeading
     : copy.cantonHeading(cantonCodes.map((code) => cantonDataByCode.get(code)?.name || code).join(' · '));
+  const mapAccessibleName = mode === 'national'
+    ? copy.mapAriaLabel
+    : copy.cantonMapAriaLabel(cantonCodes.map((code) => cantonDataByCode.get(code)?.name || code).join(' · '));
   const activeSymbolSource = activeMarker ? sourceForSymbol(activeMarker) : null;
 
   return (
@@ -403,37 +459,71 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
       <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,1.7fr)_minmax(17rem,1fr)]">
         <div className="min-w-0">
           <h3 className="mb-2 text-base font-semibold font-display text-heading">{markerHeading}</h3>
+          <p className="mb-3 text-xs leading-5 text-subtle">{copy.mapInteractionHint(mode)}</p>
           <div
             ref={mapRef}
             className="relative w-full overflow-hidden rounded-2xl border border-edge bg-surface-alt/70"
             style={{ aspectRatio: `${MAP_WIDTH} / ${projection.height}` }}
             role="region"
-            aria-label={copy.mapAriaLabel}
+            aria-label={mapAccessibleName}
             data-testid="swiss-map-canvas"
           >
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+              {projection.tiles.map((tile) => (
+                <img
+                  key={tile.key}
+                  src={tile.src}
+                  alt=""
+                  aria-hidden="true"
+                  width={MAP_TILE_SIZE}
+                  height={MAP_TILE_SIZE}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute max-w-none select-none"
+                  style={{ left: `${tile.left}%`, top: `${tile.top}%`, width: `${tile.width}%`, height: `${tile.height}%` }}
+                  onError={(event) => { event.currentTarget.hidden = true; }}
+                />
+              ))}
+            </div>
             <svg
               viewBox={`0 0 ${MAP_WIDTH} ${projection.height}`}
-              className="absolute inset-0 h-full w-full"
-              aria-hidden="true"
-              focusable="false"
+              className="absolute inset-0 h-full w-full overflow-visible"
+              role="group"
+              aria-label={mapAccessibleName}
             >
-              {Object.entries(cantonBoundaries.cantons).map(([code, polygons]) => {
+              {(mode === 'national' ? Object.entries(cantonBoundaries.cantons) : cantonCodes
+                .filter((code) => cantonBoundaries.cantons[code])
+                .map((code) => [code, cantonBoundaries.cantons[code]] as [string, number[][][]]))
+                .map(([code, polygons]) => {
                 const scoped = cantonCodes.includes(code);
-                const active = mode === 'canton' && scoped;
+                const active = mode === 'canton' ? scoped : activeMarkerId === `canton-${code}`;
                 const hasOffers = (cantonDataByCode.get(code)?.count || 0) > 0;
                 const fillClass = active
-                  ? 'fill-accent-subtle'
+                  ? 'fill-accent'
                   : mode === 'national' && hasOffers
                     ? 'fill-accent-subtle'
                     : 'fill-surface';
+                const cantonName = cantonDataByCode.get(code)?.name || code;
                 return (
                   <path
                     key={code}
                     d={pathForBoundary(polygons, projection.project)}
                     fillRule="evenodd"
-                    className={`${fillClass} stroke-edge transition-colors`}
-                    strokeWidth={active ? 1.8 : 1.2}
+                    className={`${fillClass} ${mode === 'national' ? 'cursor-pointer hover:fill-accent-subtle focus-visible:fill-accent-subtle focus-visible:stroke-accent-strong focus-visible:stroke-[3px] focus-visible:outline-none' : ''} ${active ? 'stroke-accent-strong' : 'stroke-edge'} transition-colors`}
+                    fillOpacity={active ? 0.28 : hasOffers ? 0.16 : 0.06}
+                    strokeWidth={active ? 2.2 : 1.25}
                     vectorEffect="non-scaling-stroke"
+                    role={mode === 'national' ? 'button' : undefined}
+                    tabIndex={mode === 'national' ? 0 : undefined}
+                    aria-label={mode === 'national' ? `${cantonName}, ${copy.offerCount(cantonDataByCode.get(code)?.count || 0)}` : undefined}
+                    aria-pressed={mode === 'national' ? active : undefined}
+                    onClick={mode === 'national' ? () => setActiveMarkerId(`canton-${code}`) : undefined}
+                    onKeyDown={mode === 'national' ? (event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        setActiveMarkerId(`canton-${code}`);
+                      }
+                    } : undefined}
                   />
                 );
               })}
@@ -459,13 +549,16 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
                   key={marker.id}
                   type="button"
                   onClick={() => setActiveMarkerId(selected ? null : marker.id)}
-                  className={`absolute z-10 flex h-11 min-w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-surface shadow-md transition-[border-color,box-shadow,transform] hover:z-20 hover:scale-105 focus-visible:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${selected ? 'border-accent ring-2 ring-accent/30' : 'border-edge'}`}
+                  className={`absolute z-10 flex h-11 min-w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border bg-surface shadow-md transition-[border-color,box-shadow,transform] hover:z-20 hover:scale-105 focus-visible:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${mode === 'national' ? 'max-sm:border-0 max-sm:bg-transparent max-sm:shadow-none' : ''} ${selected ? 'border-accent ring-2 ring-accent/30' : 'border-edge'}`}
                   style={{ left: `${(marker.point.x / MAP_WIDTH) * 100}%`, top: `${(marker.point.y / projection.height) * 100}%` }}
                   aria-label={`${marker.name}, ${copy.offerCount(marker.count)}`}
                   aria-expanded={selected}
                   data-testid={`map-marker-${marker.id}`}
                 >
-                  <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center text-xs font-bold text-accent">{marker.cantonCode}</span>
+                  {mode === 'national' && (
+                    <span aria-hidden="true" className="absolute h-8 w-8 rounded-full border border-accent-border bg-surface/95 shadow-sm sm:hidden" />
+                  )}
+                  <span aria-hidden="true" className={`absolute inset-0 flex items-center justify-center text-xs font-bold text-accent ${mode === 'national' ? 'max-sm:hidden' : ''}`}>{mode === 'national' ? marker.cantonCode : marker.name.slice(0, 2).toUpperCase()}</span>
                   {image && (
                     <img
                       src={image}
@@ -475,7 +568,7 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
                       height={34}
                       loading="lazy"
                       decoding="async"
-                      className="relative z-[1] max-h-[30px] max-w-[24px] object-contain"
+                      className={`relative z-[1] max-h-[30px] max-w-[24px] object-contain ${mode === 'national' ? 'max-sm:max-h-5 max-sm:max-w-4' : ''}`}
                       onError={(event) => { event.currentTarget.hidden = true; }}
                     />
                   )}
@@ -521,15 +614,9 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
                     {copy.symbolSource}
                   </a>
                 )}
-                {activeMarker.href ? (
-                  <a href={activeMarker.href} className="ml-auto inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-accent-strong px-3 text-xs font-semibold text-on-accent hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
-                    {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </a>
-                ) : (
-                  <button type="button" onClick={() => onViewCityJobs(activeMarker.cantonCode, activeMarker.name)} className="ml-auto inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-accent-strong px-3 text-xs font-semibold text-on-accent hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
-                    {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </button>
-                )}
+                <a href={activeMarker.href} className="ml-auto inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-accent-strong px-3 text-xs font-semibold text-on-accent hover:bg-accent-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
+                  {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
               </div>
             </div>
           )}
@@ -548,7 +635,7 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
           {listEntries.length === 0 ? (
             <p className="rounded-xl bg-surface-alt px-4 py-3 text-sm leading-6 text-subtle">{copy.noMunicipalities}</p>
           ) : (
-            <ul className={`${mode === 'national' ? 'grid gap-x-4 sm:grid-cols-2 lg:grid-cols-1' : 'max-h-[28rem] overflow-y-auto pr-1'} divide-y divide-edge`}>
+            <ul className={`${mode === 'national' ? 'grid gap-x-4 sm:grid-cols-2 lg:grid-cols-1' : ''} divide-y divide-edge`}>
               {listEntries.map((entry) => {
                 const symbol = entry as SymbolImage;
                 const symbolSource = sourceForSymbol(symbol);
@@ -559,7 +646,7 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
                         <SymbolImageView symbol={symbol} name={entry.name} className="max-h-9 max-w-7 object-contain" width={28} height={36} />
                       </a>
                     ) : (
-                      <span className="flex h-10 w-8 shrink-0 items-center justify-center rounded-md bg-accent-subtle text-xs font-bold text-accent" aria-label={copy.noMunicipalities}>{entry.cantonCode}</span>
+                      <span className="flex h-10 w-8 shrink-0 items-center justify-center rounded-md bg-accent-subtle text-xs font-bold text-accent" aria-label={copy.municipalLogoNote}>{entry.name.slice(0, 2).toUpperCase()}</span>
                     )}
                     <div className="min-w-0 flex-1">
                       <div className="truncate text-sm font-semibold text-heading">{entry.name}</div>
@@ -568,24 +655,13 @@ export const SwissBubbleMap: FC<SwissBubbleMapProps> = ({
                       )}
                       <div className="mt-0.5 text-xs tabular-nums text-subtle">{copy.offerCount(entry.count)}</div>
                     </div>
-                    {entry.href ? (
-                      <a
-                        href={entry.href}
-                        className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-lg px-2 text-xs font-semibold text-accent underline underline-offset-2 hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                        aria-label={`${copy.viewJobs}: ${entry.name}`}
-                      >
-                        {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => onViewCityJobs(entry.cantonCode, entry.name)}
-                        className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-lg px-2 text-xs font-semibold text-accent underline underline-offset-2 hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                        aria-label={`${copy.viewJobs}: ${entry.name}`}
-                      >
-                        {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                      </button>
-                    )}
+                    <a
+                      href={entry.href}
+                      className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-lg px-2 text-xs font-semibold text-accent underline underline-offset-2 hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                      aria-label={`${copy.viewJobs}: ${entry.name}`}
+                    >
+                      {copy.viewJobs}<ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
                   </li>
                 );
               })}

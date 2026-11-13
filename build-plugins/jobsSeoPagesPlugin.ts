@@ -9026,17 +9026,19 @@ ${staticAnalyticsHtml}
  withSlash(`${localePrefix[locale]}/${sharedResolveCantonSection(locale, canton)}/${companyRoutePrefix[locale]}-${companySlug}-${citySlug}`.replace(/\/+/g, '/'));
 
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
-  * Additive: for every non-TI canton, emit /cerca-lavoro-{cantonSlug}/
-  * {citySlug}/ for EVERY canonical city in the canton
-  * (data/canton-municipalities.json), regardless of the current job count.
+  * Emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for EVERY canonical city in
+  * each canton (data/canton-municipalities.json), regardless of the current
+  * job count. Ticino's five established city URLs remain owned by the legacy
+  * emitter above; this loop fills in the rest of its municipalities.
   * Cities with 0 jobs render with the canton-wide latest jobs as a
   * "0 results → expand to canton" fallback,
   * so the URL is never a dead end. This closes the blank-page bug where
   * the router treats every canon city as a city hub
   * (isKnownCityHub → staticOverlay:true) and the 404 fallback served the
   * SPA shell with no static <main class="seo-static-content"> body.
-  * TI city hubs are emitted by the editorial location-landing loop above
-  * and are byte-identical with the legacy pre-cathedral output.
+  * The five established TI city hubs are emitted by the editorial
+  * location-landing loop above and remain byte-identical with the legacy
+  * pre-cathedral output.
   */
  {
  // Per-canton job index keyed by canonical city slug. The canton key is
@@ -9082,7 +9084,6 @@ ${staticAnalyticsHtml}
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const canton = sharedResolveJobCanton(job as { canton?: string; location?: string });
- if (canton === 'TI') continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
  if (!rawLocation) continue;
  const canonical = cantonCityCanonicalize(canton, rawLocation);
@@ -9120,8 +9121,8 @@ ${staticAnalyticsHtml}
  const cityHubIndexableLocales = indexableLocalePageSet(localeList, () => true);
  let cityHubCantonPagesCount = 0;
  const CITY_HUB_JOB_LIST_CAP = 30;
+ const legacyTiCityHubSlugs = new Set(CITY_HUB_KEYS.map((city) => normalizeCitySlug(city)));
  for (const canton of SHARED_ALL_CANTON_CODES) {
- if (canton === 'TI') continue;
  const byCity = jobsByCantonCity.get(canton) ?? new Map<string, typeof validJobs>();
  // Every canonical municipality gets the complete city template. The current
  // inventory changes the cards and the canton-wide fallback, never the
@@ -9141,6 +9142,7 @@ ${staticAnalyticsHtml}
  for (const cityName of getCantonCities(canton)) {
    const citySlug = normalizeCitySlug(cityName);
    if (!citySlug || seenCitySlugs.has(citySlug)) continue;
+   if (canton === 'TI' && legacyTiCityHubSlugs.has(citySlug)) continue;
    seenCitySlugs.add(citySlug);
    const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
    cantonCityList.push({ citySlug, cityDisplay });
