@@ -103,7 +103,7 @@ function sameWorkdaySite(first, second) {
     && first.site.every((part, index) => part === second.site[index]));
 }
 
-/** Workday wizard pages must remain on the selected requisition's job route. */
+/** Workday application pages stay on the selected requisition or its bound login route. */
 export function isWorkdayJobRouteBound(pageUrl, applyUrl) {
   if (!isWorkdayTenantUrl(applyUrl)) return true;
   const expected = workdayJobRoute(applyUrl);
