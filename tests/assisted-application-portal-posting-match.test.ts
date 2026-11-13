@@ -37,6 +37,67 @@ describe('application form posting identity', () => {
     }, { pageUrl: applicationUrl, postingUrl })).toBe('match');
   });
 
+  it('accepts the Kanton St. Gallen Application/New form with its full ATS title and Weiter control', () => {
+    const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
+    const form = [
+      'Sachbearbeiter:in Schuladministration (m/w/d) / mit ergänzenden Aufgaben im administrativen HR - Bewerbung | eRecruiting Kanton St.Gallen',
+      'Weiter',
+      'Foto',
+      'Vorname',
+      'Nachname',
+      'E-Mail-Adresse/Login',
+      'Passwort',
+      'PLZ',
+      'Ort',
+      'Land',
+      'Bewerbungsschreiben',
+      'Lebenslauf',
+      'Zeugnisse, Diplome und weitere Dokumente',
+      'form_data25',
+      'Wie sind Sie auf uns aufmerksam geworden?',
+      'Ich bin mit der Datenschutzerklärung einverstanden',
+      'Frau',
+      applicationUrl,
+    ].join('\n');
+    const options = { pageUrl: applicationUrl, postingUrl, postingMatched: true, postingEntry: true };
+    expect(formPostingMatch(form, {
+      title: 'Assistente amministrativa',
+      company: 'Kanton St. Gallen',
+    }, options)).toBe('match');
+    expect(formPostingMatch(form.replace('Sachbearbeiter:in Schuladministration', 'Other Hotel'), {
+      title: 'Assistente amministrativa',
+      company: 'Kanton St. Gallen',
+    }, options)).toBe('mismatch');
+  });
+
+  it('keeps an unpaired Umantis application route behind the heading employer guard', () => {
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
+    expect(formPostingMatch('Other Hotel - Bewerbung\nVorname\nNachname', {
+      title: 'Front Desk Agent',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://careers.example.test/jobs/unrelated',
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
+  });
+
+  it('does not discard a Recruiting-prefixed employer as Umantis chrome', () => {
+    const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
+    expect(formPostingMatch('Application | Recruiting Solutions\nVorname\nNachname', {
+      title: 'Front Desk Agent',
+      company: 'Grand Hotel',
+    }, {
+      pageUrl: applicationUrl,
+      postingUrl,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
+  });
+
   it('keeps a generic form reached from the selected posting unknown and continues', () => {
     const genericForm = 'Bewerbung\nVorname\nNachname\nE-Mail-Adresse\nWeiter';
     const job = { title: 'Pflegefachperson', company: 'Spital Esempio' };

@@ -2042,6 +2042,61 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('keeps an employer-shell languageDropdown and moon theme toggle out of the application surface', () => {
+    const page = extract(`
+      <main>
+        <select id="languageDropdown" name="languageDropdown">
+          <option value="it">Italiano</option><option value="de">Deutsch</option>
+        </select>
+        <button type="button">🌙</button>
+      </main>`, 'https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego');
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙', chrome: true })]);
+  });
+
+  it('keeps a languageDropdown inside an application form candidate-owned', () => {
+    const page = extract(`<main><form>
+      <label for="languageDropdown">Application language</label>
+      <select id="languageDropdown"><option value="">Choose</option><option>Italiano</option></select>
+    </form></main>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ domId: 'languageDropdown', label: 'Application language' })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a required marketing input in a site header candidate-owned', () => {
+    const page = extract('<header><form><input name="newsletter" required></form></header>');
+
+    expect(page.fields).toEqual([expect.objectContaining({ name: 'newsletter', required: true })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+  });
+
+  it.each(['notizie', 'jobbenachrichtigung'])('uses the shared marketing vocabulary for %s', (name) => {
+    const page = extract(`<header><input name="${name}"></header>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ name, chrome: true })]);
+  });
+
+  it('keeps language and theme controls inside a role-form candidate-owned', () => {
+    const page = extract(`<div role="form">
+      <select id="languageDropdown"><option value="en">English</option></select>
+      <button type="button">🌙</button>
+    </div>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ domId: 'languageDropdown' })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙' })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a theme-labelled application button candidate-owned', () => {
+    const page = extract('<main><form><button type="button" aria-label="Tema">🌙</button></form></main>');
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('marks an unwrapped Stadt Zürich language button as site chrome', () => {
     const page = extract(
       '<main><button type="button">Sprache</button></main>',

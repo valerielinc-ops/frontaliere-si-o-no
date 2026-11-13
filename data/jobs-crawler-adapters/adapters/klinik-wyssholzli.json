@@ -11,13 +11,12 @@
   "seedUrls": [
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Psychiater_in-Ambulatorium-Bern_2026_ab-10.pdf",
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_ambulant_2026_60-100.pdf",
-    "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_ca.-80-_02_2027.pdf",
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin-Pflege.pdf",
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koechin_Koch_60-100-_2026_temp.pdf"
   ],
   "notes": "Dedicated Klinik Wysshölzli crawler scrapes /jobs-karriere and extracts descriptions from the /uploads/Stelleninserate PDFs.",
-  "updatedAt": "2026-11-13T09:36:31.316Z",
+  "updatedAt": "2026-11-13T21:39:28.233Z",
   "seedMetaByUrl": {
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Psychiater_in-Ambulatorium-Bern_2026_ab-10.pdf": {
       "location": "Herzogenbuchsee",
@@ -28,14 +27,6 @@
       "postingDateSource": "unknown"
     },
     "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_ambulant_2026_60-100.pdf": {
-      "location": "Herzogenbuchsee",
-      "canton": "BE",
-      "company": "Klinik Wysshölzli",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf": {
       "location": "Herzogenbuchsee",
       "canton": "BE",
       "company": "Klinik Wysshölzli",

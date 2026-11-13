@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-13T09:15:42.427Z",
+  "generatedAt": "2026-11-13T21:20:30.367Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4895,
-  "avgDurationMs": 4895,
+  "durationMs": 31351,
+  "avgDurationMs": 31351,
   "durationHistory": [
-    4895
+    31351
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-chef-de-service-chef-de-rang-4041106?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:15:28.102Z",
+      "crawledAt": "2026-11-13T21:20:14.913Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "postalCode": "7050",
       "streetAddress": "Arosa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:15:28.102Z",
+      "validThrough": "2027-01-05T21:20:14.913Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -75,5 +75,5 @@
       }
     }
   ],
-  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

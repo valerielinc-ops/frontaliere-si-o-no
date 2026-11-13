@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-13T19:21:29.802Z",
+  "generatedAt": "2026-11-13T20:36:47.422Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -2371,6 +2371,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T14:20:12.776Z"
+    },
+    "ge-agenda:anna-webbes-simple-trio::bbcdd79ab164515cbcfc66cf6a7733073dba2d40e5125ff5e25a6ce4b7186126": {
+      "id": "ge-agenda:anna-webbes-simple-trio",
+      "sourceDescriptionHash": "bbcdd79ab164515cbcfc66cf6a7733073dba2d40e5125ff5e25a6ce4b7186126",
+      "description": "Il programma propone un concerto di Anna Webber’s Simple Trio all’AMR di Ginevra. L’evento fa parte della stagione concertistica dell’AMR e si tiene nel Canton Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il programma propone un concerto di Anna Webber’s Simple Trio all’AMR di Ginevra. L’evento fa parte della stagione concertistica dell’AMR e si tiene nel Canton Ginevra.",
+        "en": "The programme features a concert by Anna Webber’s Simple Trio at AMR in Geneva. The event forms part of AMR’s concert season in the canton of Geneva.",
+        "de": "Im Programm steht ein Konzert von Anna Webber’s Simple Trio im AMR in Genf. Die Veranstaltung gehört zur Konzertsaison des AMR im Kanton Genf.",
+        "fr": "L’AMR à Genève accueille un concert de Anna Webber’s Simple Trio. L’événement s’inscrit dans la saison de concerts de l’AMR, dans le canton de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T20:19:59.188Z"
     },
     "ge-agenda:anniversaire::10a653539f6cedc355cce61a0119781f7caf106fc60e3bffb6e7724bb78e54aa": {
       "id": "ge-agenda:anniversaire",
@@ -63509,6 +63523,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T08:17:39.636Z"
+    },
+    "lu-stadt-agenda:7694119::a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6": {
+      "id": "lu-stadt-agenda:7694119",
+      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Ebikon; cantone: LU; data: 2026-11-17; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Ebikon; cantone: LU; data: 2026-11-17; ora: 09:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Ebikon; canton: LU; date: 2026-11-17; time: 09:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Ebikon; kanton: LU; datum: 2026-11-17; uhrzeit: 09:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Ebikon; canton: LU; date: 2026-11-17; heure: 09:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T20:16:27.670Z"
     },
     "lu-stadt-agenda:7694293::efca251af211407c73e0e88da6d745f986c0a36f72f7b6b385566b692983b299": {
       "id": "lu-stadt-agenda:7694293",
@@ -187592,6 +187620,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-10T06:20:07.004Z"
     },
+    "tio-agenda:64861::c8c6c4173361116cda074a655194a899e92ce635112fc54d4c74ade27dfd470c": {
+      "id": "tio-agenda:64861",
+      "sourceDescriptionHash": "c8c6c4173361116cda074a655194a899e92ce635112fc54d4c74ade27dfd470c",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museo in erba; comune: Lugano; cantone: TI; categoria: altro; data: 2026-11-22. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Museo in erba; comune: Lugano; cantone: TI; categoria: altro; data: 2026-11-22. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Museo in erba; municipality: Lugano; canton: TI; category: altro; date: 2026-11-22. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Museo in erba; gemeinde: Lugano; kanton: TI; kategorie: altro; datum: 2026-11-22. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Museo in erba; commune: Lugano; canton: TI; catégorie: altro; date: 2026-11-22. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T20:16:27.700Z"
+    },
     "tio-agenda:64862::32aaf4c95e34701dc38b3f7a350af733a3c238fb474c07cbe0affa467d899715": {
       "id": "tio-agenda:64862",
       "sourceDescriptionHash": "32aaf4c95e34701dc38b3f7a350af733a3c238fb474c07cbe0affa467d899715",
@@ -188404,6 +188446,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-11T18:43:59.604Z"
     },
+    "tio-agenda:64937::e0077e9648125d1a0b476cce915d63a6141f4660763e54286f23bcda332293c1": {
+      "id": "tio-agenda:64937",
+      "sourceDescriptionHash": "e0077e9648125d1a0b476cce915d63a6141f4660763e54286f23bcda332293c1",
+      "description": "Lo Spazio Elle di Locarno ospita un doppio concerto dedicato alla musica contemporanea, sperimentale e improvvisata. Andrea Neumann si esibisce come solista con pianoforte interno e mixer, mentre Christian Kobi e Christian Müller esplorano le possibilità timbriche del sassofono soprano, del clarinetto basso e dell’elettronica.",
+      "descriptionByLocale": {
+        "it": "Lo Spazio Elle di Locarno ospita un doppio concerto dedicato alla musica contemporanea, sperimentale e improvvisata. Andrea Neumann si esibisce come solista con pianoforte interno e mixer, mentre Christian Kobi e Christian Müller esplorano le possibilità timbriche del sassofono soprano, del clarinetto basso e dell’elettronica.",
+        "en": "Spazio Elle in Locarno hosts a double concert focused on contemporary, experimental and improvised music. Andrea Neumann appears in a solo performance using an inside piano and mixer, while Christian Kobi and Christian Müller explore the timbral possibilities of soprano saxophone, bass clarinet and electronics.",
+        "de": "Im Spazio Elle in Locarno findet ein Doppelkonzert mit zeitgenössischer, experimenteller und improvisierter Musik statt. Andrea Neumann tritt solistisch mit Innenklavier und Mischpult auf, während Christian Kobi und Christian Müller die Klangmöglichkeiten von Sopransaxofon, Bassklarinette und Elektronik untersuchen.",
+        "fr": "Le Spazio Elle de Locarno accueille un double concert consacré à la musique contemporaine, expérimentale et improvisée. Andrea Neumann se produit en solo avec un piano intérieur et une table de mixage, tandis que Christian Kobi et Christian Müller explorent les possibilités sonores du saxophone soprano, de la clarinette basse et de l’électronique."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T20:30:27.710Z"
+    },
     "tio-agenda:64938::fd86ba56b3e5542b3af582ee7be2814a0e0090d2ecb396734c1589ff71e94c02": {
       "id": "tio-agenda:64938",
       "sourceDescriptionHash": "fd86ba56b3e5542b3af582ee7be2814a0e0090d2ecb396734c1589ff71e94c02",
@@ -188866,6 +188922,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-13T15:04:30.818Z"
     },
+    "tio-agenda:65013::118e4d465b3b40b49c67044937df023632c6102ec7b1455ff4943d3cde9b7d82": {
+      "id": "tio-agenda:65013",
+      "sourceDescriptionHash": "118e4d465b3b40b49c67044937df023632c6102ec7b1455ff4943d3cde9b7d82",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro pastorale San Giuseppe; comune: Lugano; cantone: TI; categoria: conferenze; data: 2026-11-19; ora: 17:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro pastorale San Giuseppe; comune: Lugano; cantone: TI; categoria: conferenze; data: 2026-11-19; ora: 17:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Centro pastorale San Giuseppe; municipality: Lugano; canton: TI; category: conferenze; date: 2026-11-19; time: 17:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Centro pastorale San Giuseppe; gemeinde: Lugano; kanton: TI; kategorie: conferenze; datum: 2026-11-19; uhrzeit: 17:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Centro pastorale San Giuseppe; commune: Lugano; canton: TI; catégorie: conferenze; date: 2026-11-19; heure: 17:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T20:16:27.686Z"
+    },
     "tio-agenda:65019::3ab1b7c19b0322f9bf2bb3f124c3c144dd68193aaeded5d280c428b896fb1f10": {
       "id": "tio-agenda:65019",
       "sourceDescriptionHash": "3ab1b7c19b0322f9bf2bb3f124c3c144dd68193aaeded5d280c428b896fb1f10",
@@ -189107,15 +189177,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-12T23:27:30.785Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:anna-webbes-simple-trio::bbcdd79ab164515cbcfc66cf6a7733073dba2d40e5125ff5e25a6ce4b7186126": {
-      "id": "ge-agenda:anna-webbes-simple-trio",
-      "sourceDescriptionHash": "bbcdd79ab164515cbcfc66cf6a7733073dba2d40e5125ff5e25a6ce4b7186126",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:27:31.667Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189519,8 +189580,8 @@
       "id": "ge-agenda:marche-noel-artisanal-associatif-paquis",
       "sourceDescriptionHash": "00e5f338ebcea48b551294747dfc8186ef66a7044af501f8f9d059edc4eb5be2",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:26:04.126Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:31:15.643Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -189644,9 +189705,9 @@
     "ge-agenda:projection-film-woman-anastasia-mikova-jann-arthus-bertrand-suivie-discussion::95c05ea772ec6eb0e28e8f2ee07347ef9228517de427268210672828a625ccdb": {
       "id": "ge-agenda:projection-film-woman-anastasia-mikova-jann-arthus-bertrand-suivie-discussion",
       "sourceDescriptionHash": "95c05ea772ec6eb0e28e8f2ee07347ef9228517de427268210672828a625ccdb",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:35:58.409Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:29:04.582Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -190050,8 +190111,8 @@
       "id": "guidle:A6QPPLt",
       "sourceDescriptionHash": "60d4a1abd69f711aa428b70037299bb5d3f3c004924fb4ff63ad60c5f3f10c63",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:30:16.854Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:21:20.377Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192260,15 +192321,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "lu-stadt-agenda:7694119::a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6": {
-      "id": "lu-stadt-agenda:7694119",
-      "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-13T18:22:29.450Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "lu-stadt-agenda:7723786::b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630": {
       "id": "lu-stadt-agenda:7723786",
       "sourceDescriptionHash": "b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630",
@@ -192453,8 +192505,8 @@
       "id": "myswitzerland:088ee611f80b4a6789202f46f1ff5d00",
       "sourceDescriptionHash": "e9ead98c7b4c84e53c68af3b983fe2ebe6cf48e39e515579114efd5f2b85909f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-13T17:01:40.199Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-13T20:18:46.186Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197304,8 +197356,8 @@
       "id": "tio-agenda:63942",
       "sourceDescriptionHash": "3bb85284a6fa6c1284b3faac352db74cea8cc998f54ca91acb973d2dbfe543de",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:33:16.732Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:32:22.953Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197840,15 +197892,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:64861::c8c6c4173361116cda074a655194a899e92ce635112fc54d4c74ade27dfd470c": {
-      "id": "tio-agenda:64861",
-      "sourceDescriptionHash": "c8c6c4173361116cda074a655194a899e92ce635112fc54d4c74ade27dfd470c",
-      "code": "new-number",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-13T18:20:03.653Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:64931::65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8": {
       "id": "tio-agenda:64931",
       "sourceDescriptionHash": "65ab2103633dafa042fc878efecbc857beb4ec21d33ea2e0c17ceb26e9b718f8",
@@ -197867,21 +197910,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:64937::e0077e9648125d1a0b476cce915d63a6141f4660763e54286f23bcda332293c1": {
-      "id": "tio-agenda:64937",
-      "sourceDescriptionHash": "e0077e9648125d1a0b476cce915d63a6141f4660763e54286f23bcda332293c1",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:38:23.388Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:64953::360e5ba343314e819e722f5d140f19100bcb4471defc48c02d25b209c5d49b1d": {
       "id": "tio-agenda:64953",
       "sourceDescriptionHash": "360e5ba343314e819e722f5d140f19100bcb4471defc48c02d25b209c5d49b1d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:34:35.849Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:27:59.174Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197889,8 +197923,8 @@
       "id": "tio-agenda:64954",
       "sourceDescriptionHash": "f60f9b635b743f8ade25a7cbd33d1a0b7af78a1469ccbfd07959ad4a9ca5ab8f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:21:58.204Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:24:14.398Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197924,9 +197958,9 @@
     "tio-agenda:64965::f5667964c5d0f59d4ec2dfc1970afe7abd5d870ec9a706620baf31fc1c0edc65": {
       "id": "tio-agenda:64965",
       "sourceDescriptionHash": "f5667964c5d0f59d4ec2dfc1970afe7abd5d870ec9a706620baf31fc1c0edc65",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-13T18:21:09.495Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-13T20:21:12.719Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -197996,18 +198030,18 @@
     "tio-agenda:64994::c38fed22a868bcb619b087818f40bc3d66857b4f077a8a5299452b7ca51245c4": {
       "id": "tio-agenda:64994",
       "sourceDescriptionHash": "c38fed22a868bcb619b087818f40bc3d66857b4f077a8a5299452b7ca51245c4",
-      "code": "new-date-or-price",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T17:03:25.548Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:20:25.599Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65001::e50ba59cfa0878d6bb0a8c609a86be17d971805230ec594f7a341c9e80a40381": {
       "id": "tio-agenda:65001",
       "sourceDescriptionHash": "e50ba59cfa0878d6bb0a8c609a86be17d971805230ec594f7a341c9e80a40381",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T16:18:07.931Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-13T20:22:41.602Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -198044,15 +198078,6 @@
       "code": "new-name",
       "rejectedRuns": 2,
       "lastAttemptAt": "2026-11-13T19:07:36.632Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65013::118e4d465b3b40b49c67044937df023632c6102ec7b1455ff4943d3cde9b7d82": {
-      "id": "tio-agenda:65013",
-      "sourceDescriptionHash": "118e4d465b3b40b49c67044937df023632c6102ec7b1455ff4943d3cde9b7d82",
-      "code": "source-ngram-8",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-13T18:21:23.764Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

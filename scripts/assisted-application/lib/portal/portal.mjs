@@ -59,6 +59,7 @@ import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
+import { installPortalReplayFence } from './replay-fence.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
@@ -1176,6 +1177,7 @@ export function portalContextOptions(ctx = {}) {
     timezoneId: 'Europe/Zurich',
     viewport: { width: 1366, height: 900 },
     acceptDownloads: false,
+    ...(ctx.portalReplay === true ? { serviceWorkers: 'block' } : {}),
   };
 }
 
@@ -2026,8 +2028,13 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
     .trim();
   const job = context.job || {};
   if (!localContext || !jobTitleCandidates(job).length) return true;
+  if (!titleMatchesJob(localContext, job)) return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return postingMatch(localContext, job, context.postingUrl) === 'match';
+  // The DOM extractor supplies vacancyContext for a real menu entry. Keep a
+  // synthetic/context-free menu unresolved so the navigation agent can inspect
+  // it instead of selecting a role-only item without local ownership proof.
+  if (control?.menuItem !== true) return context?.postingEntry !== false;
+  return Boolean(String(control?.vacancyContext || '').trim());
 }
 
 // A few legacy employer pages render the only application opener as a native
@@ -2226,6 +2233,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
   const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
     && !socialApplicationEntry(control));
+  const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
+    && context.allowSingleExternalApplicationEntry === true
+    && samePostingAddress(context.applyUrl, context.postingUrl)
+    && samePostingAddress(snapshot.url, context.postingUrl)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
   if (context.allowSingleExternalApplicationEntry === true
     && verifiedFieldlessJobRoute
     && apply && posting && current
@@ -2248,12 +2260,12 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
-    && isSuccessFactorsPostingEntry(context)
+    && (selectedPostingApplyPage || isSuccessFactorsPostingEntry(context))
     // Jobs2Web detail pages can expose the required alert-frequency input
     // beside their sole script Apply button. The route shape alone is shared
     // by arbitrary portals, so the verified Jobs2Web identity must also bind
     // the apply route to this posting before the alert-only exception applies.
-    && publicJobDetailFieldsAreOnlyAlert(snapshot)
+    && (selectedPostingApplyPage || publicJobDetailFieldsAreOnlyAlert(snapshot))
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   // SuccessFactors Career Site Builder repeats one Apply dropdown above and
   // below the vacancy. Identical disclosure toggles are one entry: open the
@@ -4199,8 +4211,13 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
       return expectedKind ? EMPLOYER_KIND_CLASS.get(seen) === expectedKind : seen === word;
     })));
   };
-  const titleLine = text.split(/\r?\n/).map((line) => line.trim())
-    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
+  const lines = text.split(/\r?\n/).map((line) => line.trim());
+  // `formText` starts with the document title when one was observed. A blank
+  // first line means the snapshot contains form body only; don't promote its
+  // first field label (for example «Numero candidatura») to an employer title.
+  const titleLine = lines[0]
+    ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
+    : '';
   // A title can put the selected employer and a different employer-like phrase
   // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
   // scan intentionally splits on dashes, so keep this explicit title-level
@@ -4688,6 +4705,39 @@ function formRoleHeadingStatus(formText, job = {}) {
     .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
 }
 
+// Umantis titles append the application surface to the portal's own role
+// title. On a verified vacancy route the route id is the posting identity;
+// only a second employer named after that application marker is still a
+// conflict. This keeps a localized/short order title from turning the ATS's
+// complete source-language heading into an employer mismatch.
+const UMANTIS_APPLICATION_HEADING_SEGMENT_RE = /^(?:application|bewerbung(?:sformular)?|candidatura|candidature|postulation)(?:\s+tracking\s+system)?$/i;
+const UMANTIS_OTHER_EMPLOYER_WORD_RE = /\b(?:other|another|andere(?:r|s|n)?|fremd(?:e|er|es)|altro|altra|altri|altre|autre|autres)\b/i;
+const UMANTIS_APPLICATION_CHROME_RE = /^(?:e-?recruiting|recruiting|application tracking system)$/i;
+const UMANTIS_APPLICATION_ATS_TITLE_RE = /^e-?recruiting\s+(.+)$/i;
+
+function isUmantisApplicationChrome(segment, job = {}) {
+  if (UMANTIS_APPLICATION_CHROME_RE.test(segment)) return true;
+  const atsTitle = UMANTIS_APPLICATION_ATS_TITLE_RE.exec(segment);
+  return Boolean(atsTitle && nameWords(job.company).length && !namesAnotherEmployer(atsTitle[1], job));
+}
+
+function umantisApplicationHeadingConflict(heading, job = {}) {
+  const text = String(heading || '').replace(/\s+/g, ' ').trim();
+  if (!text || isStandaloneNextLabel(text)) return false;
+  const segments = text.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean);
+  const applicationIndex = segments.findIndex((segment) => UMANTIS_APPLICATION_HEADING_SEGMENT_RE.test(segment));
+  if (applicationIndex < 0) return namesAnotherEmployer(text, job);
+  // «Other Hotel - Bewerbung» is still an explicit mismatch even though the
+  // rest of the title is an application label.
+  if (UMANTIS_OTHER_EMPLOYER_WORD_RE.test(text)) return namesAnotherEmployer(text, job);
+  // A phrase after the application marker can name a different employer
+  // («Application | Esempio Resort»). Ignore only Umantis' own title chrome;
+  // an unrecognised phrase remains fail-closed.
+  return segments.slice(applicationIndex + 1)
+    .filter((segment) => !isUmantisApplicationChrome(segment, job))
+    .some((segment) => namesAnotherEmployer(segment, job));
+}
+
 function formUrlCarriesEmployerHost(formText, job = {}) {
   const employerWords = nameWords(job.company)
     .filter(word => word.length >= 3
@@ -4722,8 +4772,24 @@ export function formPostingMatch(formText, job = {}, {
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  const heading = String(formText || '').split(/\r?\n/, 1)[0];
+  const umantisPostingPair = isUmantisPostingEntry({
+    applyUrl: formApplicationUrl,
+    postingUrl,
+    postingRouteProof,
+  });
+  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
+    && umantisPostingPair;
+  const boundUmantisApplicationInText = postingMatched && postingEntry
+    && isUmantisApplicationRoute(formApplicationUrl) && umantisPostingPair;
+  const trustedUmantisApplication = boundUmantisApplication || boundUmantisApplicationInText;
+  const umantisHeadingConflict = trustedUmantisApplication
+    ? umantisApplicationHeadingConflict(heading, job)
+    : null;
   if (direct === 'match' && !talentSoftAlias
-    && namesAnotherEmployer(formText, job, { allowPostingLocation: bound })) return 'mismatch';
+    && (trustedUmantisApplication
+      ? umantisHeadingConflict
+      : namesAnotherEmployer(formText, job, { allowPostingLocation: bound }))) return 'mismatch';
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
@@ -4734,18 +4800,16 @@ export function formPostingMatch(formText, job = {}, {
   // The verified same-origin vacancy id binds the form even when the heading is
   // generic; keep the other-employer guard on that heading, not on native field
   // labels that describe the application itself.
-  const heading = String(formText || '').split(/\r?\n/, 1)[0];
-  const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && isUmantisPostingEntry({ applyUrl: pageUrl, postingUrl: formPostingUrl });
   if (boundUmantisApplication) {
-    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    if (umantisHeadingConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
   // form text. A verified posting entry still binds that route even when the
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
-    if (namesAnotherEmployer(heading, job)) return 'mismatch';
+    const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
+    if (unpairedHeadingConflict) return 'mismatch';
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
@@ -9504,7 +9568,7 @@ export async function readPortalRequirements(ctx) {
     browser = await launch();
     const context = await browser.newContext(portalContextOptions(ctx));
     registerPortalChannelType(context, portalChannelType(ctx));
-    await registerCookieSessionRecovery(context, { log: ctx.log });
+    if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
       const publicHostCache = new Map();
       const requestIsPublic = async (requestUrl) => {
@@ -9523,6 +9587,7 @@ export async function readPortalRequirements(ctx) {
           // Let the narrower cookie-session recovery route run first when it
           // matches. `continue()` would bypass that already-registered route.
           if (typeof route.fallback === 'function') await route.fallback();
+          else if (ctx.portalReplay === true) await route.abort().catch(() => {});
           else await route.continue();
         }
         else await route.abort().catch(() => {});
@@ -9883,7 +9948,7 @@ export async function submitViaPortal(ctx) {
       finalClickAttempt,
     });
     if (page) {
-      evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+      if (ctx.portalReplay !== true) evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA
       // is no code fix, nor is a regional gate on the runner's IP (#17112 and
       // #17132 tried to click through it): the retry ladder owns that one.
@@ -10032,7 +10097,7 @@ export async function submitViaPortal(ctx) {
     else evidence.steps.push({ url: page.url(), applicationStage: { kind: 'receipt' } });
     evidence.finalOutcomes = [...(evidence.finalOutcomes || []), 'confirmed'];
     evidence.finalUrl = page.url();
-    evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+    if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
     return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
   };
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
@@ -10076,8 +10141,12 @@ export async function submitViaPortal(ctx) {
   } : null;
   try {
     context = await browser.newContext(portalContextOptions(ctx));
+    if (ctx.portalReplay === true && ctx.portalReplayFenceInstalled !== true) {
+      const metrics = await installPortalReplayFence(context);
+      if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') Object.assign(ctx.portalReplayMetrics, metrics);
+    }
     registerPortalChannelType(context, channelType);
-    await registerCookieSessionRecovery(context, { log: ctx.log });
+    if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     // Playwright contexts always expose addInitScript. Keep the adapter
     // boundary tolerant for the deterministic portal harness, whose minimal
     // context cannot execute page init scripts but still exercises the
@@ -10206,11 +10275,19 @@ export async function submitViaPortal(ctx) {
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
       });
+    // Some crawlers publish the advertisement itself as the apply URL. That
+    // selected page must be allowed to expose its own application entry before
+    // a form exists; the entry and the form are still checked below.
+    const selectedPostingIsApplicationUrl = Boolean(ctx.applyUrl && ctx.postingUrl
+      && samePostingAddress(ctx.applyUrl, ctx.postingUrl)
+      && samePostingAddress(postingUrl, ctx.postingUrl));
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
     if (ctx.postingUrl && samePostingAddress(postingUrl, ctx.postingUrl)
-      && !postingVacancyMatched && !initialPublicJobSearch) startupNavigationHint = 'posting_mismatch';
+      && !postingVacancyMatched && !initialPublicJobSearch && !selectedPostingIsApplicationUrl) {
+      return await handoff('posting_mismatch');
+    }
     // The selected apply address is already provenance for a regional gate.
     // Do not make this IP-level stop depend on the rendered title or on a
     // possibly unrelated Apply card: a blocked page can have neither, while
@@ -10232,7 +10309,8 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       workdayApplicationEntryProven,
-      allowSingleExternalApplicationEntry: postingVacancyMatched,
+      allowSingleExternalApplicationEntry: postingVacancyMatched || selectedPostingIsApplicationUrl,
+      selectedPostingIsApplicationUrl,
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
@@ -10240,6 +10318,7 @@ export async function submitViaPortal(ctx) {
     ({ page, snapshot } = opened);
     if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
     workdayApplicationEntryProven = workdayApplicationEntryProven || opened.workdayApplicationEntryProven === true;
+    evidence.entryClicked = opened.enteredThroughApplicationEntry === true;
     if (opened.resolvedPostingUrl) {
       postingUrl = opened.resolvedPostingUrl;
       postingVacancyMatched = true;
@@ -10341,6 +10420,7 @@ export async function submitViaPortal(ctx) {
       postingUrl,
       postingMatch: match,
     });
+    evidence.formReady = !noApplicationSurface;
     const accountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(initialOtpAccount);
     const sameSelectedPostingShell = Boolean(ctx.postingUrl)
       && samePostingAddress(page.url(), ctx.postingUrl)
@@ -10843,6 +10923,7 @@ export async function submitViaPortal(ctx) {
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
+          evidence.entryClicked = evidence.entryClicked || reopened.enteredThroughApplicationEntry === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -11011,7 +11092,7 @@ export async function submitViaPortal(ctx) {
           }, evidence,
         };
         if (auth.dryRun) {
-          evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+          if (ctx.portalReplay !== true) evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
         }
         if (auth.accountRecovered || storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
@@ -11046,6 +11127,7 @@ export async function submitViaPortal(ctx) {
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
+          evidence.entryClicked = evidence.entryClicked || reopened.enteredThroughApplicationEntry === true;
           if (reopened.resolvedPostingUrl) {
             postingUrl = reopened.resolvedPostingUrl;
             postingVacancyMatched = true;
@@ -11826,11 +11908,11 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (ctx.dryRun) {
-        evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+        if (ctx.portalReplay !== true) evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
         evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };
       }
-      evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
+      if (ctx.portalReplay !== true) evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       evidence.submissionUrl = finalUrl;
@@ -11860,6 +11942,12 @@ export async function submitViaPortal(ctx) {
       // capture listener compares it again synchronously before portal click
       // handlers can act.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads, formBinding });
+      if (ctx.portalReplay === true) {
+        if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') {
+          ctx.portalReplayMetrics.finalClickAttempts = (Number(ctx.portalReplayMetrics.finalClickAttempts) || 0) + 1;
+        }
+        return await handoff('portal_replay_final_click_blocked');
+      }
       finalClickAttempt = diagnostics?.currentAttempt?.() ?? null;
       diagnostics.finalClick();
       await final.click();
@@ -11884,7 +11972,7 @@ export async function submitViaPortal(ctx) {
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
       await diagnostics.afterSubmit(page, outcome);
-      evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+      if (ctx.portalReplay !== true) evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       evidence.afterSubmitSnapshot = finalReviewEvidenceSnapshot(observed.snapshot);
       log(`portal outcome: ${outcome}`);
