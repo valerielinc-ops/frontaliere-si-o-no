@@ -91,13 +91,54 @@ ptar_create() {
   return "$rc"
 }
 
+# ptar_first_member <archive>
+#   Prints the first member name of a *.tar or *.tar.zst, read literally, or
+#   nothing for an empty archive or a name that cannot be read literally.
+ptar_first_member() {
+  local a="$1" qs=() out
+  # GNU tar escapes non-printable bytes in listings by default; a literal name
+  # is required because the caller creates the directory it names.
+  if tar --version 2>/dev/null | head -n 1 | grep -q 'GNU tar'; then
+    qs=(--quoting-style=literal)
+  fi
+  case "$a" in
+    *.tar.zst) out="$(zstd -q -dc -- "$a" 2>/dev/null | tar ${qs[@]+"${qs[@]}"} -tf - 2>/dev/null | head -n 1)" ;;
+    *) out="$(tar ${qs[@]+"${qs[@]}"} -tf "$a" 2>/dev/null | head -n 1)" ;;
+  esac
+  if [ "${#qs[@]}" -eq 0 ] && printf '%s' "$out" | LC_ALL=C grep -q '[^ -~]\|\\'; then
+    out=''
+  fi
+  printf '%s' "$out"
+}
+
 # ptar_extract <dest> <archive>...
 #   Extracts every archive into <dest> concurrently (*.tar or *.tar.zst).
+#
+# Parts are contiguous slices of one preorder list, so every directory a part
+# does not carry itself is an ancestor of that part's FIRST member. Concurrent
+# `tar -x` processes that create such a shared ancestor implicitly race each
+# other: GNU tar then fails the directory entry with "Unexpected inconsistency
+# when making directory" (publish 43350569818, IT group small-1, on
+# dist/cerca-lavoro-ticino). Creating those ancestors once, before the
+# parallel phase, leaves no implicit directory creation to race on; the
+# directory entries in earlier parts still set their own mode and mtime.
 ptar_extract() {
-  local dest="$1" a pids=() rc=0
+  local dest="$1" a pids=() rc=0 first parent
   shift
   [ "$#" -gt 0 ] || { echo "ptar_extract: no archives" >&2; return 1; }
   mkdir -p "$dest" || return 1
+  if [ "$#" -gt 1 ]; then
+    for a in "$@"; do
+      first="$(ptar_first_member "$a")"
+      parent="${first%/}"
+      case "$parent" in
+        /*|*/../*|../*) continue ;;
+        */*) parent="${parent%/*}" ;;
+        *) continue ;;
+      esac
+      ( cd "$dest" && mkdir -p -- "$parent" ) || return 1
+    done
+  fi
   for a in "$@"; do
     case "$a" in
       *.tar.zst) ( set -o pipefail; zstd -q -dc -- "$a" | tar -C "$dest" -xf - ) & ;;

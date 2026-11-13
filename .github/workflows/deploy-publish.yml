@@ -1228,24 +1228,19 @@ jobs:
           fail() { echo "::error title=Non-IT source artifact::$1"; exit 1; }
           # One archive (historical) or the N parts of deploy.yml's
           # LOCALE_SOURCE_TAR_PARTS (scripts/lib/parallel-tar.sh), plain or
-          # zstd: every part is extracted, concurrently. Inline rather than
-          # sourced: this workflow can run against a source SHA that predates
-          # the helper.
+          # zstd: every part is extracted, concurrently. The helper comes from
+          # the current publisher checkout, not the source SHA: an older source
+          # may predate it, and its ptar_extract pre-creates the ancestors the
+          # parts share so concurrent `tar -x` never race on a directory
+          # (publish 43350569818: "Unexpected inconsistency when making
+          # directory").
           mapfile -t source_parts < <(find "$RUNNER_TEMP/locale-shard-source" -type f \( -name '*.tar' -o -name '*.tar.zst' \) 2>/dev/null | sort)
           [ "${#source_parts[@]}" -gt 0 ] || fail "no .tar in the downloaded locale-shard-source artifact"
           rm -rf dist
-          mkdir -p dist
-          extract_pids=()
-          for part in "${source_parts[@]}"; do
-            case "$part" in
-              *.tar.zst) ( set -o pipefail; zstd -q -dc -- "$part" | tar -C dist -xf - ) & ;;
-              *) tar -C dist -xf "$part" & ;;
-            esac
-            extract_pids+=("$!")
-          done
-          extract_rc=0
-          for pid in "${extract_pids[@]}"; do wait "$pid" || extract_rc=1; done
-          [ "$extract_rc" -eq 0 ] || fail "extracting ${#source_parts[@]} source archive part(s) failed"
+          # shellcheck source=/dev/null
+          source "$PUBLISHER_ROOT/scripts/lib/parallel-tar.sh"
+          ptar_extract dist "${source_parts[@]}" \
+            || fail "extracting ${#source_parts[@]} source archive part(s) failed"
           rm -f "${source_parts[@]}"
           [ -s dist/build-id.txt ] || fail "dist/build-id.txt missing or empty"
           [ "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID" ] || fail "build id $(cat dist/build-id.txt) != $DEPLOY_BUILD_ID"
