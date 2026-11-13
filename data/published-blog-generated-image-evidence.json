@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "82e8244f3be972edde2511cff9ce6e7b5b36559e",
+  "commit": "707b0e1601aebc84f280143f413b3950a6380a38",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -51417,6 +51417,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic editorial scene of an anonymous lakeside meeting in Ticino; no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-decisioni-grand-conseil-10-novembre.webp": {
+      "schema": 1,
+      "assetId": "article-decisioni-grand-conseil-10-novembre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "d445e4fc8ed6cb2df19090251f75df2152f1ffc4965f3b9a217bf64cdd3ff639",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "433a937577ca82b200d19b772dd48892700101df885de4f5d0e226d6a64bfb6d",
+      "bytes": 175562,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-13T05:02:05.128Z",
+      "verifiedAt": "2026-11-13T05:02:37.748Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-decisioni-grand-conseil-10-novembre.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Synthetic photorealistic illustration of a Swiss cantonal government building; no readable text, logos, watermarks, recognizable faces, or foreground people."
       }
     },
     "/images/places/lugano-view.webp": {

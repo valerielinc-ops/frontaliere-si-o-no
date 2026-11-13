@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+  'whatsNew.v31020.title': 'Guarda le domande ATS prima di candidarti',
+  'whatsNew.v31020.sinteticaAts.title': 'Campi verificati nel modulo di Sintetica',
+  'whatsNew.v31020.sinteticaAts.desc': 'Nelle offerte Sintetica puoi vedere i campi del primo passaggio pubblico del modulo, quali sono obbligatori e quando sono stati controllati. Apri il modulo originale per verificare; i passaggi successivi possono chiedere altri dati.',
   'whatsNew.v31013.title': 'Affinità più chiare con i requisiti',
   'whatsNew.v31013.job-affinity.title': 'Competenze confrontate con l’annuncio',
   'whatsNew.v31013.job-affinity.desc': 'Le offerte mostrano quali competenze inserite compaiono nei requisiti. La percentuale resta nascosta quando mancano dati e non valuta titoli di studio o anni di esperienza.',
