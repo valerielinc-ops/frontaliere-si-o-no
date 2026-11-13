@@ -8,6 +8,7 @@ import { describe, expect, it } from 'vitest';
 import {
   formatPhaseTimingSummary,
   hasStablePhaseTimingRecovery,
+  jobOgCacheChurnObserved,
   PHASE_TIMING_BASELINE_WINDOW,
   PHASE_TIMING_RECOVERY_RUNS,
   PHASE_TIMING_SPREAD_CAP,
@@ -125,6 +126,69 @@ describe('phase-timing-observer', () => {
     const second = '[job-og-images] rendered=12 cached=1 skipped=3 errors=0 pruned-stale=1 (~0MB) in 4.2s';
     expect(parseJobOgImageStats(`${first}\n${second}`)).toBeNull();
     expect(isExpectedColdJobOgCache('[job-og-images] rendered=12 cached=0 skipped=3 errors=1 pruned-stale=1 (~0MB) in 4.2s', '')).toBe(false);
+  });
+
+  it('reports the OG phase median and cache miss-rate for the observed population', () => {
+    const history = [
+      timingRow(1, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(2, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(3, { [JOB_OG_IMAGES_PHASE]: 20 }),
+      timingRow(4, { [JOB_OG_IMAGES_PHASE]: 40 }),
+    ].join('\n');
+    const observation = observePhaseTimings({
+      locale: 'de',
+      history,
+      log: [
+        timingLog({ [JOB_OG_IMAGES_PHASE]: 45 }),
+        '[job-og-images] rendered=25 cached=100 skipped=3 errors=0 pruned-stale=1 (~0MB) in 45.0s',
+      ].join('\n'),
+      jobOgCacheMatchedKey: 'og-jobs-Linux-v5-2026-11-12-previous',
+    });
+
+    expect(observation.jobOgCacheChurn).toMatchObject({
+      marker: JOB_OG_IMAGES_PHASE,
+      medianSeconds: 20,
+      seconds: 45,
+      cacheRestore: 'hit',
+      hits: 100,
+      misses: 25,
+      population: 125,
+      missRate: 0.2,
+      observed: true,
+      status: 'osservata',
+    });
+    expect(formatPhaseTimingSummary(observation)).toContain(
+      '| `job-og-images:closeBundle` | 20.00s | hit | 100 | 25 | 125 | 20.0% | osservata |',
+    );
+  });
+
+  it('keeps missing or ambiguous cache accounting explicitly unknown', () => {
+    const observation = observePhaseTimings({
+      locale: 'de',
+      history: '',
+      log: [
+        timingLog({ [JOB_OG_IMAGES_PHASE]: 45 }),
+        '[job-og-images] rendered=25 cached=100 skipped=3 errors=0 pruned-stale=1 (~0MB) in 45.0s',
+        '[job-og-images] rendered=25 cached=99 skipped=3 errors=0 pruned-stale=1 (~0MB) in 45.0s',
+      ].join('\n'),
+    });
+
+    expect(jobOgCacheChurnObserved({
+      phaseRows: observation.rows,
+      stats: null,
+    })).toMatchObject({
+      cacheRestore: 'unknown',
+      hits: null,
+      misses: null,
+      population: null,
+      missRate: null,
+      observed: false,
+      status: 'contatori cache non osservabili',
+    });
+    expect(formatPhaseTimingSummary(observation)).toContain(
+      '| `job-og-images:closeBundle` | — | unknown | — | — | — | — | contatori cache non osservabili |',
+    );
+    expect(formatPhaseTimingSummary(observation)).not.toContain('| unknown | 0 |');
   });
 
   it('confirms only a material increase repeated in the previous run', () => {
