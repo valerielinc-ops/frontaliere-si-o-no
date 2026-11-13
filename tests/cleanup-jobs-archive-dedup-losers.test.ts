@@ -699,6 +699,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     // import cannot gracefully degrade on a missing file the way readFileSync could.
     for (const file of [
       'canton-municipalities.json',
+      'profession-landing-routes.json',
       'swiss-locality-postal-codes.json',
       'swiss-postal-code-index.json',
     ]) {
