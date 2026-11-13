@@ -39,7 +39,7 @@ describe('prefetch-history-blobs', () => {
   });
 
   it('uses Git transport support for the HTTPS prefetch instead of fetch-pack plumbing', () => {
-    const remote = 'https://x-access-token:test-token@github.com/owner/repo.git';
+    const remote = 'https://github.com/owner/repo.git';
     const oids = ['a'.repeat(40), 'b'.repeat(40)];
 
     expect(historyBlobPrefetchArgs(oids, remote)).toEqual([
