@@ -99,6 +99,8 @@ section_tree_require_worker_layout() {
   for ((attempt = 1; attempt <= max_attempts; attempt += 1)); do
     if headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
       if printf '%s\n' "$headers" | tr -d '\r' \
+          | grep -Eiq '^HTTP/[0-9.]+[[:space:]]+204([[:space:]]|$)' \
+          && printf '%s\n' "$headers" | tr -d '\r' \
           | grep -Eiq '^x-frontaliere-section-tree-layout:[[:space:]]*hash-v1[[:space:]]*$' \
           && printf '%s\n' "$headers" | tr -d '\r' \
             | grep -Eiq "^x-frontaliere-section:[[:space:]]*${section_name}[[:space:]]*$"; then
@@ -108,6 +110,8 @@ section_tree_require_worker_layout() {
       # Accept the section-specific response during the generic-probe rollout;
       # the next Worker deployment advertises both headers.
       if printf '%s\n' "$headers" | tr -d '\r' \
+          | grep -Eiq '^HTTP/[0-9.]+[[:space:]]+204([[:space:]]|$)' \
+          && printf '%s\n' "$headers" | tr -d '\r' \
           | grep -Eiq "^x-frontaliere-${section_name}-tree-layout:[[:space:]]*hash-v1[[:space:]]*$"; then
         section_tree_confirm_worker_layout "$section_name" "$section_sub"
         return 0
@@ -220,16 +224,23 @@ section_tree_measure_unfanned_pct() {
 # The cross-locale preflight owns add-only registry writes and confirms the
 # Worker before any publisher starts. The per-locale stage reads that durable
 # decision, fails closed if a new threshold crossing missed preflight, then
-# consumes the exact route confirmation made before the expensive measurement
-# and fans the temporary tree/index. Direct Node callers still probe by
-# default. Its JSON result is kept separate from the GitHub annotation log
-# lines.
+# revalidates the Worker after the expensive measurement before it fans the
+# temporary tree/index. Direct Node callers still probe by default. Its JSON
+# result is kept separate from the GitHub annotation log lines.
 section_tree_evaluate_and_apply() {
   local section_name="$1" locale="$2" stage="$3" sub="$4" mode="$5" label="$6"
-  local pct result stage_stderr
+  local pct result stage_stderr fanout_rc
   local -a stage_args
   if ! pct="$(section_tree_measure_unfanned_pct "$stage" "$section_name" "$sub" "$mode" "$label")"; then
     return 1
+  fi
+  if section_tree_uses_hash_fanout "$section_name"; then
+    if ! section_tree_require_worker_layout "$section_name" "$sub"; then
+      return 1
+    fi
+  else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -ne 1 ]; then return "$fanout_rc"; fi
   fi
   stage_stderr="$(mktemp "${RUNNER_TEMP:-/tmp}/section-tree-layout-stage.XXXXXX")" || return 1
   stage_args=(
