@@ -1833,7 +1833,7 @@ function applicationEntryBelongsToPosting(control, {
   const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
   return Boolean(expectedIdentity && controlPostingIdentity(control) === expectedIdentity
     && localContext && jobTitleCandidates(job).length
-    && postingMatch(localContext, { title: jobTitleCandidates(job) }, postingUrl) === 'match');
+    && postingMatch(localContext, job, postingUrl) === 'match');
 }
 
 const MAX_APPLICATION_ENTRY_CONTEXT_LENGTH = 700;
@@ -1905,7 +1905,7 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
   const job = context.job || {};
   if (!localContext || !jobTitleCandidates(job).length) return true;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return postingMatch(localContext, { title: jobTitleCandidates(job) }, context.postingUrl) === 'match';
+  return postingMatch(localContext, job, context.postingUrl) === 'match';
 }
 
 // A few legacy employer pages render the only application opener as a native
