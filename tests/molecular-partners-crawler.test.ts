@@ -1,17 +1,86 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  fetchAllMolecularPartnersJobs,
+  isMolecularPartnersEmptyListingPage,
   MOLECULAR_PARTNERS_KEY,
   MOLECULAR_PARTNERS_COMPANY_NAME,
   isMolecularPartnersJob,
   isTrustedDomain,
+  LISTING_URL,
 } from '../scripts/lib/molecular-partners-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Molecular Partners crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MOLECULAR_PARTNERS_KEY).toBe('molecular-partners');
     expect(MOLECULAR_PARTNERS_COMPANY_NAME).toBe('Molecular Partners');
+    expect(LISTING_URL).toBe('https://molecularpartners-career.talent-soft.com/Pages/Offre/ListeOffre.aspx?lcid=2057');
+  });
+
+  describe('empty source proof', () => {
+    const emptyListing = `
+      <main>
+        <h2>No results</h2>
+        <p>No vacancies match your search criteria.</p>
+      </main>
+    `;
+
+    it('accepts the explicit visible Talentsoft empty state', () => {
+      expect(isMolecularPartnersEmptyListingPage(emptyListing)).toBe(true);
+    });
+
+    it('rejects a near-match empty message', () => {
+      expect(isMolecularPartnersEmptyListingPage(
+        '<main><h2>No results</h2><p>No vacancies are listed.</p></main>',
+      )).toBe(false);
+    });
+
+    it('ignores empty markers that are hidden', () => {
+      expect(isMolecularPartnersEmptyListingPage(
+        '<main><div hidden><h2>No results</h2><p>No vacancies match your search criteria.</p></div></main>',
+      )).toBe(false);
+    });
+
+    it('does not call a page with an actual offer empty', () => {
+      const listingWithOffer = `
+        <main>
+          <h2>No results</h2>
+          <p>No vacancies match your search criteria.</p>
+          <li class="ts-offer-list-item" onclick="location.href='/job/job-test_1.aspx';">
+            <h3><a class="ts-offer-list-item__title-link" href="/job/job-test_1.aspx">Test role</a></h3>
+            <ul class="ts-offer-list-item__description"><li>Ref. : 2026-001</li></ul>
+          </li>
+        </main>
+      `;
+      expect(isMolecularPartnersEmptyListingPage(listingWithOffer)).toBe(false);
+    });
+
+    it('publishes an authoritative zero only for the explicit source state', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => new Response(emptyListing, { status: 200 })));
+
+      const jobs = await fetchAllMolecularPartnersJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
+      expect(jobs.discoveredCount).toBe(0);
+    });
+
+    it('keeps an unrecognised zero fail-closed', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => new Response(
+        '<main><h2>No results</h2><p>Try a different filter.</p></main>',
+        { status: 200 },
+      )));
+
+      const jobs = await fetchAllMolecularPartnersJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptyState).toBeUndefined();
+    });
   });
 
   // ── isCompanyJob ──

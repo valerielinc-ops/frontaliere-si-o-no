@@ -4,7 +4,7 @@
  *
  * Public career page: https://www.molecularpartners.com/careers/ (embeds a
  * Talentsoft iframe: `talentsoft-frame` → molecularpartners-career.talent-soft.com).
- * All-jobs listing:   /job/list-of-all-jobs.aspx?all=1&mode=list
+ * All-jobs listing:   /Pages/Offre/ListeOffre.aspx?lcid=2057
  *
  * Same ATS family as aarReha Schinznach (scripts/lib/aarreha-schinznach-job-parser.mjs).
  * The list page renders each offer as a server-rendered
@@ -22,11 +22,13 @@
 import { sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { extractJobPostingsLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractTalentsoftOfferHtml } from './talentsoft-offer-detail.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -35,8 +37,10 @@ export const MOLECULAR_PARTNERS_COMPANY_NAME = 'Molecular Partners';
 export const MOLECULAR_PARTNERS_COMPANY_DOMAIN = 'molecularpartners.com';
 
 const PORTAL_BASE = 'https://molecularpartners-career.talent-soft.com';
-const LISTING_URL = `${PORTAL_BASE}/job/list-of-all-jobs.aspx?all=1&mode=list`;
+const LISTING_URL = `${PORTAL_BASE}/Pages/Offre/ListeOffre.aspx?lcid=2057`;
 const DETAIL_DELAY_MS = 300;
+const EMPTY_RESULT_HEADING_RE = /^no results$/i;
+const EMPTY_RESULT_MESSAGE_RE = /^no vacancies match your search criteria\.?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -202,6 +206,38 @@ export function parseMolecularPartnersListing(html) {
 }
 
 /**
+ * Confirm Talentsoft's explicit empty-board state without treating a parser
+ * miss as proof that the source is empty. The markers must be visible and
+ * appear together; hidden/template/script copies are ignored.
+ */
+export function isMolecularPartnersEmptyListingPage(
+  html = '',
+  listings = parseMolecularPartnersListing(html),
+) {
+  if (!Array.isArray(listings) || listings.length > 0) return false;
+
+  const document = new JSDOM(String(html || '')).window.document;
+  const isHidden = (element) => {
+    if (!element || element.closest('script, style, noscript, template')) return true;
+    for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
+      if (ancestor.classList.contains('hidden')) return true;
+      const inlineStyle = ancestor.getAttribute('style') || '';
+      if (/\bdisplay\s*:\s*none\b|\bvisibility\s*:\s*hidden\b/i.test(inlineStyle)) return true;
+    }
+    return false;
+  };
+  const visibleElements = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, div, span, li')]
+    .filter((element) => !isHidden(element));
+  const hasVisibleMarker = (pattern) => visibleElements.some((element) => (
+    pattern.test(normalizeSpace(element.textContent || ''))
+  ));
+
+  return hasVisibleMarker(EMPTY_RESULT_HEADING_RE)
+    && hasVisibleMarker(EMPTY_RESULT_MESSAGE_RE);
+}
+
+/**
  * Vacancy text of a Talentsoft detail page: the whole `#contenu-ficheoffre`
  * container (these pages have no `<footer>`/`</main>` marker after it).
  */
@@ -254,6 +290,11 @@ export async function fetchAllMolecularPartnersJobs() {
     const url = page === 1 ? LISTING_URL : `${LISTING_URL}&page=${page}`;
     const html = await fetchHtml(url);
     const pageRows = parseMolecularPartnersListing(html);
+    if (page === 1 && !pageRows.length && isMolecularPartnersEmptyListingPage(html, pageRows)) {
+      const evidence = `Molecular Partners Talentsoft listing ${LISTING_URL} rendered the visible "No results" empty state`;
+      console.log(`  🧩 ${evidence}; publishing a verified empty snapshot.`);
+      return markAuthoritativeEmptySnapshot([], evidence);
+    }
     if (!pageRows.length) {
       console.warn(`  ⚠️ page ${page}: parsed 0 rows — treating as end of pagination.`);
       break;
