@@ -24,6 +24,7 @@ concurrency:
 permissions:
   contents: read
   actions: read
+  statuses: write
 
 jobs:
   publish:
@@ -85,6 +86,7 @@ jobs:
       - name: Render and publish active-job delta
         id: fast-publish
         if: steps.gate.outputs.run == 'true'
+        continue-on-error: true
         env:
           SHARD_APPENZELLO_IT_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_IT_DEPLOY_KEY }}
           SHARD_APPENZELLO_EN_DEPLOY_KEY: ${{ secrets.SHARD_APPENZELLO_EN_DEPLOY_KEY }}
@@ -197,6 +199,28 @@ jobs:
           else
             npx --no-install tsx scripts/publish-jobs-fast.mjs --publish
           fi
+
+      - name: Queue full deploy for section tree layout preflight
+        if: always() && steps.fast-publish.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          marker="$RUNNER_TEMP/section-tree-layout-preflight-required"
+          if [ ! -f "$marker" ]; then
+            echo '[jobs-fast] publish failed without a section layout preflight request.'
+            exit 0
+          fi
+          node scripts/ci/deploy-rearm-request.mjs \
+            --reason section-tree-layout-preflight-required \
+            --source-run-id "$GITHUB_RUN_ID" \
+            --source-sha "$GITHUB_SHA"
+
+      - name: Preserve fast publish failure
+        if: always() && steps.fast-publish.outcome == 'failure'
+        run: |
+          echo '::error::The fast publisher failed. Any section tree preflight request was queued for the full cross-locale deploy.'
+          exit 1
 
       - name: Upload Indexing API priority URLs
         if: steps.fast-publish.outputs.outcome == 'published'

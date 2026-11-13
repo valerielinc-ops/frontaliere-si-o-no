@@ -3,12 +3,18 @@
 const utf8Encoder = new TextEncoder();
 export const SECTION_TREE_FANOUT_SECTIONS = Object.freeze(['ticino', 'zurigo', 'berna']);
 
-export function sectionUsesHashFanout(section) {
-  return SECTION_TREE_FANOUT_SECTIONS.includes(section);
+export function sectionUsesHashFanout(section, fannedSections = null) {
+  return SECTION_TREE_FANOUT_SECTIONS.includes(section) || Boolean(fannedSections?.has(section));
 }
 
 export function sectionTreeLayout(section) {
   return sectionUsesHashFanout(section) ? `${section}-hash-v1` : 'canonical';
+}
+
+export function sectionTreeLayoutAllowed(section, layout) {
+  const staticLayout = sectionTreeLayout(section);
+  if (staticLayout !== 'canonical') return layout === staticLayout;
+  return layout === 'canonical' || layout === `${section}-hash-v1`;
 }
 
 export function sectionTreeBucket(entry) {

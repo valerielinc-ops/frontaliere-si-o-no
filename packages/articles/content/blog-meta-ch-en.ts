@@ -8729,6 +8729,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasso-ilo-terzo-trimestre.title': 'Swiss ILO rate rises to 5,6% in the third quarter',
     'blog.article.tasso-ilo-terzo-trimestre.excerpt': 'In the third quarter, the unemployment rate calculated according to the definition of the International Labour Organization (ILO) rose in Switzerland to 5,6%, from 5,1% in the previous three months.',
     'blog.article.tasso-ilo-terzo-trimestre.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.fiscalita-svizzera-tre-livelli.title': 'Swiss tax structure: levels, authorities and social contributions',
+    'blog.article.fiscalita-svizzera-tre-livelli.excerpt': 'Swiss taxation operates at three levels. The AFC/ESTV administers direct federal tax and VAT.',
+    'blog.article.fiscalita-svizzera-tre-livelli.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

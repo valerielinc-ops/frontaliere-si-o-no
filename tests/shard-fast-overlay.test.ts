@@ -109,4 +109,36 @@ describe("append-only fast shard overlay", () => {
     expect(git(root, "show", `:${sub}/${physical}`)).toBe("offer html");
     expect(git(root, "show", `:${sub}/retained/index.html`)).toBe("retained");
   });
+
+  it("maps fast overlay additions through a registry-fanned section layout", () => {
+    const previous = process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON;
+    process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON = '["lucerna"]';
+    try {
+      const sub = "de/jobs-in-lucerne";
+      const retained = sectionTreePhysicalPath("lucerna", "retained/index.html");
+      const added = sectionTreePhysicalPath("lucerna", "added/index.html");
+      const { root, source } = makeRemote("lucerna", sub, {
+        [retained]: "retained page",
+      });
+      writeSource(source, "added/index.html", "new job");
+
+      applyFastShardOverlay({
+        stage: root,
+        source,
+        section: "lucerna",
+        sub,
+        "previous-count": "1",
+        "source-count": "1",
+        "next-deploy-count": "2",
+        "source-sha": "abcdef0123456789",
+        out: path.join(root, "receipt.json"),
+      });
+
+      expect(git(root, "show", `:${sub}/${retained}`)).toBe("retained page");
+      expect(git(root, "show", `:${sub}/${added}`)).toBe("new job");
+    } finally {
+      if (previous === undefined) delete process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON;
+      else process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON = previous;
+    }
+  });
 });

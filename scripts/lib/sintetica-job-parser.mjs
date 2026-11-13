@@ -332,7 +332,9 @@ export function parseDetailPage(html = '') {
  */
 export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt = new Date().toISOString() } = {}) {
   const verifiedSourceUrl = canonicalNcoreDetailUrl(sourceUrl);
-  if (!html || !verifiedSourceUrl || !Number.isFinite(Date.parse(checkedAt))) return null;
+  const checkedAtMs = Date.parse(checkedAt);
+  if (!html || !verifiedSourceUrl || !Number.isFinite(checkedAtMs)) return null;
+  const normalizedCheckedAt = new Date(checkedAtMs).toISOString();
 
   const { document } = new JSDOM(html).window;
   const source = new URL(verifiedSourceUrl);
@@ -342,6 +344,13 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
   // application form from page order: job pages may also contain login,
   // newsletter, or other unrelated forms.
   const form = [...document.querySelectorAll('#hiddenForm form[name="form"]')].find((candidate) => {
+    // Current NCore application forms name these identity controls under
+    // form[basic_personal_data]. This extra signature keeps a duplicated
+    // #hiddenForm marker or unrelated form[name="form"] from winning by order.
+    const hasApplicationIdentityField = [...candidate.querySelectorAll('input, select, textarea')]
+      .some((control) => /^form\[basic_personal_data\]\[(?:name|surname|email)\]$/.test(control.getAttribute('name') || ''));
+    if (!hasApplicationIdentityField) return false;
+
     const rawAction = candidate.getAttribute('action')?.trim();
     // The live NCore application form omits `action`, which means the browser
     // posts back to this same jobposition route. If an action is declared,
@@ -355,7 +364,12 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
     }
     return action.protocol === 'https:'
       && action.hostname.toLowerCase() === NCORE_HOST
-      && action.pathname.replace(/\/+$/, '') === sourcePath;
+      && !action.port
+      && !action.username
+      && !action.password
+      && action.pathname.replace(/\/+$/, '') === sourcePath
+      && !action.search
+      && !action.hash;
   });
   if (!form) return null;
 
@@ -407,7 +421,7 @@ export function parseNcoreApplicationForm(html = '', { sourceUrl = '', checkedAt
   return {
     provider: 'ncoreplat',
     sourceUrl: verifiedSourceUrl,
-    checkedAt,
+    checkedAt: normalizedCheckedAt,
     stage: stage.slice(0, 120),
     fields,
   };

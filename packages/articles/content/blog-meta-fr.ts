@@ -13720,6 +13720,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-11-12.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.bollettino-frontaliere-2026-11-12.seoDescription': 'Bulletin frontalier 12 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
     'blog.article.bollettino-frontaliere-2026-11-12.ogDescription': 'Les chiffres du 12 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
+    'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Naît un observatoire permanent du travail entre l’Italie et la Suisse',
+    'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'Le 20 novembre, à Ville Ponti de Varese, seront présentées les premières activités de Forum Insubria 2050.',
+    'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

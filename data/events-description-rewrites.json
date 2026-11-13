@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-13T03:20:34.980Z",
+  "generatedAt": "2026-11-13T04:21:33.953Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -154594,6 +154594,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T22:24:46.165Z"
     },
+    "myswitzerland:ce83a737f4f0497aa7c6c4d7da214ff2::702e89f2d059d2696a16b91dcd18155b037dc24c69cf7369703e6c0b829516f8": {
+      "id": "myswitzerland:ce83a737f4f0497aa7c6c4d7da214ff2",
+      "sourceDescriptionHash": "702e89f2d059d2696a16b91dcd18155b037dc24c69cf7369703e6c0b829516f8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kreuzlingen; cantone: TG; categoria: Event; organizzatore: MySwitzerland; partecipante: Teleskopen, die Signale aus dem Zentrum; data: 2027-02-09; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kreuzlingen; cantone: TG; categoria: Event; organizzatore: MySwitzerland; partecipante: Teleskopen, die Signale aus dem Zentrum; data: 2027-02-09; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kreuzlingen; canton: TG; category: Event; organiser: MySwitzerland; participant: Teleskopen, die Signale aus dem Zentrum; date: 2027-02-09; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kreuzlingen; kanton: TG; kategorie: Event; veranstalter: MySwitzerland; mitwirkender: Teleskopen, die Signale aus dem Zentrum; datum: 2027-02-09; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kreuzlingen; canton: TG; catégorie: Event; organisateur: MySwitzerland; participant: Teleskopen, die Signale aus dem Zentrum; date: 2027-02-09; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-13T04:17:14.987Z"
+    },
     "myswitzerland:ce88c51b25c34d45a96368636da6567d::89b4e18ebc1519e25bf2aed66540f807b8584dd825aea475e922024b671d741c": {
       "id": "myswitzerland:ce88c51b25c34d45a96368636da6567d",
       "sourceDescriptionHash": "89b4e18ebc1519e25bf2aed66540f807b8584dd825aea475e922024b671d741c",
@@ -194179,15 +194193,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T04:40:44.531Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:ce83a737f4f0497aa7c6c4d7da214ff2::702e89f2d059d2696a16b91dcd18155b037dc24c69cf7369703e6c0b829516f8": {
-      "id": "myswitzerland:ce83a737f4f0497aa7c6c4d7da214ff2",
-      "sourceDescriptionHash": "702e89f2d059d2696a16b91dcd18155b037dc24c69cf7369703e6c0b829516f8",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:20:45.803Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

@@ -11898,6 +11898,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <JobPreApplyChecklist
  companyName={selectedJob.company}
  atsApplicationForm={selectedJob.atsApplicationForm}
+ locale={locale}
+ t={t}
  />
  {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
