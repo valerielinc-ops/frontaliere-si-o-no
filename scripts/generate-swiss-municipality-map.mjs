@@ -392,7 +392,16 @@ async function main() {
   console.log(`[swiss-municipality-map] SHA-256 ${createHash('sha256').update(json).digest('hex')}`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
+function isDirectExecution() {
+  if (!process.argv[1]) return false;
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+}
+
+if (isDirectExecution()) {
   main().catch((error) => {
     console.error(`[swiss-municipality-map] ${error?.message || error}`);
     process.exitCode = 1;
