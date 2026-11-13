@@ -52,6 +52,8 @@ describe('Ticino shard tree fan-out', () => {
       script.indexOf('# ── Stage subtree + offload'),
     );
     expect(helper).toContain('section_tree_measure_unfanned_pct');
+    expect(helper).toContain('SECTION_TREE_WORKER_LAYOUT_CONFIRMATION');
+    expect(helper).toContain('--worker-layout-confirmed');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" filesystem');
     expect(helper).not.toContain('--allow-local-transition');
@@ -303,6 +305,8 @@ describe('Ticino shard tree fan-out', () => {
         'https://frontaliereticino.ch/de/jobs-im-tessin/?__frontaliere_section_tree_layout=hash-v1&section=ticino',
       );
       expect(invoke('HTTP/2 204\nx-frontaliere-ticino-tree-layout: hash-v1')).toBe('probe-ok\n');
+      expect(invoke('HTTP/2 200\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe(1);
+      expect(invoke('HTTP/2 302 Found\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe(1);
       expect(invoke('HTTP/2 200\n')).toBe(1);
     } finally {
       rmSync(temp, { recursive: true, force: true });
@@ -345,6 +349,69 @@ describe('Ticino shard tree fan-out', () => {
 
       expect(output).toContain('probe-ok');
       expect(readFileSync(attemptsFile, 'utf8')).toBe('2');
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('revalidates the Worker after measurement before applying the layout change', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-post-measurement-'));
+    const bin = join(temp, 'bin');
+    const fakeCurl = join(bin, 'curl');
+    const fakeSleep = join(bin, 'sleep');
+    const fakeStageTool = join(temp, 'stage-tool.mjs');
+    const attemptsFile = join(temp, 'attempts.txt');
+    const stage = join(temp, 'stage');
+    const mutation = join(temp, 'stage-mutated');
+    try {
+      mkdirSync(bin);
+      mkdirSync(stage);
+      writeFileSync(join(stage, 'index.html'), 'before');
+      writeFileSync(
+        fakeCurl,
+        '#!/bin/sh\n'
+          + 'attempts="$(cat "$TICINO_PROBE_ATTEMPTS" 2>/dev/null || printf 0)"\n'
+          + 'attempts=$((attempts + 1))\n'
+          + 'printf "%s" "$attempts" > "$TICINO_PROBE_ATTEMPTS"\n'
+          + 'if [ "$attempts" -eq 1 ]; then\n'
+          + '  printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: hash-v1\\nx-frontaliere-section: ticino\\n"\n'
+          + 'else\n'
+          + '  printf "HTTP/2 200\\n"\n'
+          + 'fi\n',
+      );
+      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
+      writeFileSync(
+        fakeStageTool,
+        "import { writeFileSync } from 'node:fs';\n"
+          + "writeFileSync(process.env.STAGE_MUTATION, 'mutated');\n"
+          + "process.stdout.write(JSON.stringify({ decision: 'already', moved: 0, sections: ['ticino'] }) + '\\n');\n",
+      );
+      chmodSync(fakeCurl, 0o755);
+      chmodSync(fakeSleep, 0o755);
+
+      const script = [
+        'source "$1"',
+        'section_tree_uses_hash_fanout() { return 0; }',
+        'section_tree_measure_unfanned_pct() { printf "50"; }',
+        'if ! section_tree_require_worker_layout ticino de/jobs-im-tessin; then exit 10; fi',
+        'if section_tree_evaluate_and_apply ticino de "$3" de/jobs-im-tessin filesystem test-label; then exit 11; fi',
+        '[ "$(cat "$3/index.html")" = before ]',
+        '[ ! -e "$4" ]',
+      ].join('\n');
+      execFileSync(
+        'bash',
+        ['-c', script, 'post-measurement-probe-test', HELPER, fakeStageTool, stage, mutation],
+        {
+          stdio: 'pipe',
+          env: {
+            ...process.env,
+            PATH: `${bin}:${process.env.PATH}`,
+            TICINO_PROBE_ATTEMPTS: attemptsFile,
+            SECTION_TREE_LAYOUT_STAGE_TOOL: fakeStageTool,
+            STAGE_MUTATION: mutation,
+          },
+        },
+      );
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }
