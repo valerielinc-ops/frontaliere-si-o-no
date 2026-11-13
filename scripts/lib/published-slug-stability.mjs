@@ -46,6 +46,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJsonFile } from './read-large-json.mjs';
+import { JOB_BOARD_SECTION_PATHNAME_RX } from './jobBoardSections.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
@@ -75,37 +76,64 @@ function pathLocale(urlPath) {
   return 'it';
 }
 
+/**
+ * `locale|slug` of a canonical job DETAIL route (`/[en|de|fr/]<job-board
+ * section>/<slug>/`), null for anything else. The ledger records every
+ * sitemap URL — articles, hubs, tools — so a non-job route such as
+ * `/it/article/foo/` must never mark a job slug `foo` as served. The section
+ * test is the shared job-board recogniser (scripts/lib/jobBoardSections.mjs,
+ * every canton section including the legacy Ticino ones).
+ *
+ * @param {string} urlPath
+ * @returns {string | null}
+ */
+export function servedJobDetailKey(urlPath) {
+  const clean = String(urlPath || '').trim().toLowerCase();
+  if (!JOB_BOARD_SECTION_PATHNAME_RX.test(clean)) return null;
+  const segments = clean.split('/').filter(Boolean);
+  const rest = /^(?:it|en|de|fr)$/.test(segments[0] || '') ? segments.slice(1) : segments;
+  if (rest.length !== 2) return null;
+  return `${pathLocale(clean)}|${rest[1]}`;
+}
+
 let ledgerCache = { path: null, index: undefined };
 
 /**
- * The served-URL ledger as `locale|slug` → first date a canonical URL ending in
- * that slug reached a sitemap. `data/url-first-seen.json` is written by every
- * deploy (`refresh-url-first-seen.mjs`) and is monotonic. Returns null when the
- * file is not in this checkout or unreadable. `URL_FIRST_SEEN_PATH_OVERRIDE`
- * points tests at a fixture.
+ * The served-URL ledger as `locale|slug` → first date a canonical job detail
+ * URL ending in that slug reached a sitemap. `data/url-first-seen.json` is
+ * written by every deploy (`refresh-url-first-seen.mjs`) and is monotonic.
+ * `URL_FIRST_SEEN_PATH_OVERRIDE` points tests at a fixture.
+ *
+ * A checkout without the file returns null and the callers fall back to the
+ * conservative slice reading. A file that IS there but cannot be read as an
+ * object throws: silently falling back there would flip thousands of served
+ * slugs back to never-served slice values in one deploy (measured 2026-11-13:
+ * 3,286 locale slots), which is worse than a failed step.
  *
  * @returns {Map<string, string> | null}
  */
 export function loadServedSlugLedger() {
   const ledgerPath = process.env.URL_FIRST_SEEN_PATH_OVERRIDE || DEFAULT_LEDGER_PATH;
   if (ledgerCache.path === ledgerPath && ledgerCache.index !== undefined) return ledgerCache.index;
-  let index = null;
+  if (!fs.existsSync(ledgerPath)) {
+    ledgerCache = { path: ledgerPath, index: null };
+    return null;
+  }
+  let raw;
   try {
-    if (fs.existsSync(ledgerPath)) {
-      const raw = readJsonFile(ledgerPath);
-      if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
-        index = new Map();
-        for (const [urlPath, date] of Object.entries(raw)) {
-          const segments = urlPath.split('/').filter(Boolean);
-          if (segments.length < 2) continue;
-          const key = `${pathLocale(urlPath)}|${segments[segments.length - 1]}`;
-          const prev = index.get(key);
-          if (!prev || String(date) < prev) index.set(key, String(date));
-        }
-      }
-    }
-  } catch {
-    index = null;
+    raw = readJsonFile(ledgerPath);
+  } catch (error) {
+    throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but unreadable: ${error?.message || error}`);
+  }
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+    throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but not a path → date object`);
+  }
+  const index = new Map();
+  for (const [urlPath, date] of Object.entries(raw)) {
+    const key = servedJobDetailKey(urlPath);
+    if (!key) continue;
+    const prev = index.get(key);
+    if (!prev || String(date) < prev) index.set(key, String(date));
   }
   ledgerCache = { path: ledgerPath, index };
   return index;

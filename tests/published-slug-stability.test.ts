@@ -21,6 +21,7 @@ import {
   jobSlugsUnpublished,
   mayReplacePublishedSlug,
   publishedSlugKeepsIdentity,
+  slugWasServed,
 } from '../scripts/lib/published-slug-stability.mjs';
 
 const INDEXED_IT = 'servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso';
@@ -149,6 +150,33 @@ describe('publishedSlugKeepsIdentity', () => {
       'assistenzarztin-assistenzarzt-zentrum-fur-soziale-psychiatrie-puk-zuerich-dietikon',
       { company: 'Psychiatrische Universitätsklinik Zürich', location: 'Dietikon' },
     )).toBe(true);
+  });
+});
+
+describe('served-URL ledger', () => {
+  it('a non-job route never marks a job slug as served', () => {
+    useLedger({ '/it/article/foo/': '2026-11-01', '/blog/foo/': '2026-11-01', '/cerca-lavoro-ticino/': '2026-01-01' });
+    expect(slugWasServed('it', 'foo')).toBe(false);
+  });
+
+  it('a canonical job detail route marks its slug as served, per locale', () => {
+    useLedger({
+      [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
+      '/de/jobs-in-bern/kundendienst-transport-spezialist-cippa-trasporti-sa-bern/': '2026-10-01',
+    });
+    expect(slugWasServed('it', INDEXED_IT)).toBe(true);
+    expect(slugWasServed('de', 'kundendienst-transport-spezialist-cippa-trasporti-sa-bern')).toBe(true);
+    expect(slugWasServed('en', INDEXED_IT)).toBe(false);
+  });
+
+  it('an absent ledger is unknown, a present but unreadable one fails closed', () => {
+    useLedger(null);
+    expect(slugWasServed('it', INDEXED_IT)).toBeNull();
+    const broken = path.join(os.tmpdir(), `published-slug-ledger-broken-${process.pid}-${seq++}.json`);
+    fs.writeFileSync(broken, '{"/cerca-lavoro-ticino/x": ', 'utf-8');
+    tmpFiles.push(broken);
+    process.env.URL_FIRST_SEEN_PATH_OVERRIDE = broken;
+    expect(() => slugWasServed('it', INDEXED_IT)).toThrow(/present but unreadable/);
   });
 });
 
