@@ -190,6 +190,15 @@ jobs:
           node-version: '22'
           cache: npm
 
+      - name: Require trusted Codex broker credentials
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+        run: |
+          if [[ -z "$CODEX_AUTH_JSON" ]]; then
+            echo '::error::blocked: fork pull requests cannot receive CODEX_AUTH_JSON; mirror this branch to an internal branch so the required real-Codex replay can run.'
+            exit 1
+          fi
+
       - name: Install root dependencies
         run: npm ci --no-audit --no-fund
 
@@ -285,8 +294,6 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: read
-      issues: write
-      pull-requests: write
     steps:
       - name: Succeed without setup when no replay path changed
         if: needs.detect.result == 'success' && needs.detect.outputs.run != 'true'
@@ -366,13 +373,40 @@ jobs:
             --output "$RUNNER_TEMP/portal-replay-gate.json" \
             --summary "$SUMMARY_FILE"
 
-      - name: Comment the report on the pull request
-        if: always() && needs.detect.outputs.run == 'true'
+      - name: Upload sanitized gate summary
+        if: always() && (needs.detect.outputs.run == 'true' || needs.detect.result != 'success')
+        uses: actions/upload-artifact@v7
+        with:
+          name: assisted-application-portal-replay-summary-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-summary.md
+          if-no-files-found: ignore
+          retention-days: 7
+
+  portal-replay-report-comment:
+    name: portal replay report comment
+    if: always() && needs.detect.outputs.run == 'true'
+    needs: [detect, portal-replay-gate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Download sanitized gate summary
+        uses: actions/download-artifact@v8
+        continue-on-error: true
+        with:
+          name: assisted-application-portal-replay-summary-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-summary
+
+      - name: Comment the sanitized report on the pull request
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary.md
+          SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary/portal-replay-summary.md
         run: |
           if [ -s "$SUMMARY_FILE" ]; then
             gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY_FILE"

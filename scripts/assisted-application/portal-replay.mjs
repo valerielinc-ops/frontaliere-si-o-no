@@ -10,18 +10,28 @@
  *   node scripts/assisted-application/portal-replay.mjs aggregate --prepare-run <true|false> --prepare-result <result> --matrix-result <result> --families <json> --report-dir <dir> --output <json> --summary <md>
  *
  * The corpus is sampled once from public crawler data, then the same JSON is
- * replayed sequentially against base and head. Each browser's first navigation
+ * replayed against both base and head in paired browser contexts. Each browser's first navigation
  * is pinned to the corpus posting URL so the runner follows the listing's own
  * application entry. Only sanitized measurements leave this process; page
  * evidence and screenshots stay in memory and are discarded.
  */
 import { createHash } from 'node:crypto';
-import { appendFileSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { AsyncLocalStorage } from 'node:async_hooks';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 import { classifyApplicationChannel } from '../../functions/src/assistedApplicationAiJob.js';
-import { installPortalReplayFence, isMutatingGetUrl, sealPortalReplayContext } from './lib/portal/replay-fence.mjs';
+
+const nodeRequire = createRequire(import.meta.url);
+const trustedNet = nodeRequire('node:net');
+const trustedSocketConnect = trustedNet.Socket.prototype.connect;
+const trustedNetConnect = (options) => trustedSocketConnect.call(new trustedNet.Socket(), options);
+const trustedDnsLookup = nodeRequire('node:dns/promises').lookup;
+let sharedReplayBrowser = null;
+let sharedHeadReplayBrowser = null;
+const replayMetricsContext = new AsyncLocalStorage();
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
 const PORTAL_REPLAY_FAMILIES = new Set([
@@ -84,7 +94,7 @@ const SAFE_REPORT_CODES = new Set([
   'runner_error', 'unknown', 'unknown_handoff', 'unknown_runner_error',
 ]);
 const SAFE_FINDING_CODES = new Set([
-  'sample_missing', 'final_click_attempt', 'non_get_passed', 'wrong_posting_or_talent_pool', 'submission_attempted',
+  'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted',
   'sample_count_out_of_range', 'replay_unmeasured', 'stage_regression', 'family_ready_rate_decreased',
 ]);
 const SAFE_LINK_STATES = new Set(['yes', 'no', 'unknown']);
@@ -346,7 +356,7 @@ function portalReplayCandidate() {
   };
 }
 
-async function publicPreflight(trustedRoot, record) {
+async function publicPreflight(trustedRoot, record, isMutatingGetUrl) {
   // The bounded DNS-pinned helper is trusted base code. Do not let a PR edit
   // execute a raw Node request before the browser fence is installed, and do
   // not probe an URL that the GET mutation classifier would block in-browser.
@@ -373,6 +383,7 @@ function violationsFor({ event, evidence, metrics }) {
   const codes = [];
   if ((Number(metrics?.finalClickAttempts) || 0) > 0) codes.push('final_click_attempt');
   if ((Number(metrics?.unexpectedNonGetPassed) || 0) > 0) codes.push('non_get_passed');
+  if ((Number(metrics?.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
   if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') codes.push('wrong_posting_or_talent_pool');
   if (event?.type === 'submit_succeeded') codes.push('submission_attempted');
   return [...new Set(codes)];
@@ -396,6 +407,7 @@ function sanitizeOutcomeRecord(record) {
     blockedNonGet: Math.max(0, Math.min(100000, Number(record.blockedNonGet) || 0)),
     blockedWebSockets: Math.max(0, Math.min(100000, Number(record.blockedWebSockets) || 0)),
     unexpectedNonGetPassed: Math.max(0, Math.min(100000, Number(record.unexpectedNonGetPassed) || 0)),
+    nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
     formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
@@ -417,7 +429,7 @@ export function sanitizePortalReplayReport(report) {
   const headRecords = [];
   const findingCodes = new Set((Array.isArray(report?.findingCodes) ? report.findingCodes : [])
     .filter((code) => SAFE_FINDING_CODES.has(code)));
-  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'wrong_posting_or_talent_pool', 'submission_attempted']);
+  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
   cases.forEach((item, index) => {
     if (!item.base || !item.head) item.findingCodes.push('sample_missing');
     const violations = item.findingCodes.filter((code) => securityCodes.has(code));
@@ -425,6 +437,7 @@ export function sanitizePortalReplayReport(report) {
       if (!record) continue;
       if (record.finalClickAttempts > 0) violations.push('final_click_attempt');
       if (record.unexpectedNonGetPassed > 0) violations.push('non_get_passed');
+      if (record.nodeEgressBlocked > 0) violations.push('node_egress_attempt');
       if (record.formLinkedToPosting === 'no') violations.push('wrong_posting_or_talent_pool');
     }
     const securityViolations = [...new Set(violations)];
@@ -452,8 +465,7 @@ export function sanitizePortalReplayReport(report) {
   };
 }
 
-async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }) {
-  const portalApi = await importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs');
+async function runOnePortalReplay(options) {
   const metrics = {
     blockedRequests: 0,
     blockedNonGet: 0,
@@ -461,37 +473,57 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
     blockedUnsafeHosts: 0,
     blockedWebSockets: 0,
     unexpectedNonGetPassed: 0,
+    nodeEgressBlocked: 0,
     finalClickAttempts: 0,
     navigation5xx: 0,
   };
+  return replayMetricsContext.run(metrics, () => runOnePortalReplayMeasured({ ...options, metrics }));
+}
+
+async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, trustedNetwork, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
   let agentCalls = 0;
-  let activeBrowser = null;
+  let activeContext = null;
+  let activeProxy = null;
   let timedOut = false;
   let eventResult;
   let failure = null;
 
   try {
-    const preflight = await publicPreflight(trustedRoot, record);
     if (preflight.some((response) => response.status >= 500 && response.status < 600)) {
       return {
-        caseId: record.key, ...locationFrom(record, null, portalApi), stage: 'http_5xx', stopCode: 'http_5xx',
-        status: 'neutral', retryClass: 'http_5xx', retryCount: 0, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
+        caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
+        status: 'neutral', retryClass: '', retryCount: preflightRetryCount, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
         securityViolations: [],
       };
     }
-
+    const portalApi = await importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs');
     const requestCodex = portalBrokerCodex(trustedRoot);
     const codex = async (request) => {
       agentCalls += 1;
       return requestCodex(request);
     };
+    activeProxy = await fenceApi.createPinnedPublicHttpsProxy({
+      resolve: trustedDnsLookup,
+      connect: trustedNetConnect,
+      isPublicUrl: trustedNetwork.isFetchablePublicUrl,
+      isPrivate: trustedNetwork.isPrivateAddress,
+      onBlocked: ({ reason } = {}) => { if (reason === 'unsafe_host') metrics.blockedUnsafeHosts += 1; },
+    });
     const launch = async () => {
-      const browser = await portalApi.launchPortalBrowser();
-      activeBrowser = browser;
-      return {
+      if (!runtimeBrowser) throw new Error('portal_replay_browser_unavailable');
+      const browser = runtimeBrowser;
+      const runnerBrowser = {
         newContext: async (options = {}) => {
-          const context = await browser.newContext({ ...options, serviceWorkers: 'block' });
-          const fenceMetrics = await installPortalReplayFence(context);
+          const context = await browser.newContext({
+            ...options,
+            serviceWorkers: 'block',
+            proxy: { server: activeProxy.server },
+          });
+          activeContext = context;
+          const fenceMetrics = await fenceApi.installPortalReplayFence(context, {
+            isPublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
+            onBlocked: ({ reason } = {}) => { if (reason === 'unsafe_host') metrics.blockedUnsafeHosts += 1; },
+          });
           const responseListener = (response) => {
             try {
               if (response.request().isNavigationRequest() && response.status() >= 500 && response.status() < 600) metrics.navigation5xx += 1;
@@ -502,10 +534,14 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
           for (const key of Object.keys(fenceMetrics)) {
             Object.defineProperty(metrics, key, { configurable: true, get: () => fenceMetrics[key], set: (value) => { fenceMetrics[key] = value; } });
           }
-          return sealPortalReplayContext(context, { firstNavigationUrl: record.postingUrl });
+          return fenceApi.sealPortalReplayContext(context, { firstNavigationUrl: record.postingUrl });
         },
-        close: () => browser.close(),
+        // submitViaPortal closes the browser at the end of each case. Contexts
+        // are isolated and closed there; the trusted shared browser stays up
+        // until both base and head finish this family.
+        close: async () => {},
       };
+      return runnerBrowser;
     };
 
     const runnerPromise = portalApi.submitViaPortal({
@@ -527,6 +563,7 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
       accounts: null,
       knowledge: null,
       codex,
+      resolvePublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
       dryRun: true,
       portalReplay: true,
       portalReplayFenceInstalled: true,
@@ -542,7 +579,7 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
     clearTimeout(timer);
     if (settled?.timeout) {
       timedOut = true;
-      await activeBrowser?.close().catch(() => {});
+      await activeContext?.close().catch(() => {});
       await Promise.race([runnerPromise, new Promise((resolve) => setTimeout(resolve, 1500))]);
       failure = { code: 'portal_replay_timeout' };
     } else if (settled?.error) {
@@ -552,10 +589,13 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
     }
   } catch (error) {
     failure = error;
+  } finally {
+    await activeProxy?.close().catch(() => {});
   }
 
   const event = eventResult?.event || null;
   const evidence = eventResult?.evidence || null;
+  const portalApi = await importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs').catch(() => null);
   const inferredStage = timedOut ? 'stopped' : runStage({ event, evidence });
   const stage = metrics.navigation5xx > 0 ? 'http_5xx' : inferredStage;
   const stopCode = timedOut ? 'portal_replay_timeout' : safeOutcomeCode(event, failure);
@@ -571,9 +611,9 @@ async function runOnePortalReplay({ sourceRoot, trustedRoot, record, timeoutMs }
     stopCode,
     status,
     retryClass: retryClass(stage, metrics.navigation5xx),
-    retryCount: 0,
+    retryCount: preflightRetryCount,
     agentCalls,
-    ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'finalClickAttempts', 'navigation5xx']
+    ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
     formLinkedToPosting: postingLinkStatus(event, evidence),
     securityViolations: violations,
@@ -595,21 +635,21 @@ async function replayWithOneNeutralRetry(options) {
   let result;
   for (let attempt = 0; attempt <= REPLAY_LIMITS.retries; attempt += 1) {
     const current = await runOnePortalReplay(options);
-    current.retryCount = attempt;
+    current.retryCount = (Number(current.retryCount) || 0) + attempt;
     if (!totalMetrics) totalMetrics = current;
     else {
-      for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'finalClickAttempts', 'navigation5xx']) {
+      for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
         totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current[key]) || 0);
       }
       totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
-      totalMetrics.retryCount = attempt;
+      totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
     }
     result = current;
     if (!current.retryClass || current.securityViolations?.length || attempt >= REPLAY_LIMITS.retries) break;
     await new Promise((resolve) => setTimeout(resolve, REPLAY_LIMITS.delayMs));
   }
   if (totalMetrics) {
-    for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'finalClickAttempts', 'navigation5xx']) {
+    for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
       result[key] = Number(totalMetrics[key]) || 0;
     }
     result.retryCount = Number(totalMetrics.retryCount) || 0;
@@ -642,6 +682,7 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     if (!base || !head) codes.push('sample_missing');
     for (const record of [base, head].filter(Boolean)) {
       if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
+      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
       if (record.status === 'error') codes.push('replay_unmeasured');
     }
     if (base && head && !isNeutral(base) && !isNeutral(head)) {
@@ -657,12 +698,14 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
       base: base ? {
         stage: base.stage, stopCode: base.stopCode, status: base.status, agentCalls: base.agentCalls,
         blockedNonGet: base.blockedNonGet, blockedWebSockets: base.blockedWebSockets,
+        nodeEgressBlocked: base.nodeEgressBlocked,
         unexpectedNonGetPassed: base.unexpectedNonGetPassed,
         finalClickAttempts: base.finalClickAttempts, formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
       } : null,
       head: head ? {
         stage: head.stage, stopCode: head.stopCode, status: head.status, agentCalls: head.agentCalls,
         blockedNonGet: head.blockedNonGet, blockedWebSockets: head.blockedWebSockets,
+        nodeEgressBlocked: head.nodeEgressBlocked,
         unexpectedNonGetPassed: head.unexpectedNonGetPassed,
         finalClickAttempts: head.finalClickAttempts, formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
       } : null,
@@ -714,11 +757,11 @@ function markdownForAggregate(verdict, reports, prepareRun) {
     const rates = report.familyRates || {};
     lines.push(`- ${safeCode(report.family)}: READY base ${Number(rates.baseReady) || 0}/${Number(rates.comparable) || 0}, PR ${Number(rates.headReady) || 0}/${Number(rates.comparable) || 0}.`);
   }
-  lines.push('', '| Famiglia | Host | Percorso | Base | PR | Stop PR | Codici rilievo | Agenti | Non-GET bloccati | Click finali | Collegamento annuncio |', '|---|---|---|---|---|---|---|---:|---:|---:|---|');
+  lines.push('', '| Famiglia | Host | Percorso | Base | PR | Stop PR | Codici rilievo | Agenti | Non-GET bloccati | Egress Node bloccato | Click finali | Collegamento annuncio |', '|---|---|---|---|---|---|---|---:|---:|---:|---:|---|');
   for (const report of reports) {
     for (const item of report.cases || []) {
       const head = item.head || {};
-      lines.push(`| ${safeCode(report.family)} | ${safeReportHost(item.host)} | ${safeReportPath(item.path)} | ${safeCode(item.base?.stage)} | ${safeCode(head.stage)} | ${safeCode(head.stopCode)} | ${(item.findingCodes || []).map((code) => safeCode(code)).join(', ') || '—'} | ${Number(head.agentCalls) || 0} | ${Number(head.blockedNonGet) || 0} | ${Number(head.finalClickAttempts) || 0} | ${safeCode(head.formLinkedToPosting)} |`);
+      lines.push(`| ${safeCode(report.family)} | ${safeReportHost(item.host)} | ${safeReportPath(item.path)} | ${safeCode(item.base?.stage)} | ${safeCode(head.stage)} | ${safeCode(head.stopCode)} | ${(item.findingCodes || []).map((code) => safeCode(code)).join(', ') || '—'} | ${Number(head.agentCalls) || 0} | ${Number(head.blockedNonGet) || 0} | ${Number(head.nodeEgressBlocked) || 0} | ${Number(head.finalClickAttempts) || 0} | ${safeCode(head.formLinkedToPosting)} |`);
     }
   }
   lines.push('', 'Il rapporto non contiene URL completi, contenuto delle pagine, risposte del candidato o screenshot.');
@@ -807,20 +850,67 @@ async function compareMode(values) {
   const baseRecords = [];
   const headRecords = [];
   const trustedRoot = path.resolve(values['base-root']);
+  const headRoot = path.resolve(values['head-root']);
+  const trustedFenceRoot = existsSync(path.join(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'))
+    ? trustedRoot : headRoot;
+  const [fenceApi, trustedNetwork, trustedBrowser] = await Promise.all([
+    importFrom(trustedFenceRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'),
+    importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
+    importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
+  ]);
+  const preflightByKey = new Map();
   for (const record of records) {
-    const [base, head] = await Promise.all([
-      replayWithOneNeutralRetry({ sourceRoot: trustedRoot, trustedRoot, record, timeoutMs }),
-      replayWithOneNeutralRetry({ sourceRoot: path.resolve(values['head-root']), trustedRoot, record, timeoutMs }),
-    ]);
-    baseRecords.push(base);
-    headRecords.push(head);
+    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    let retryCount = 0;
+    if (responses.some((response) => response.status >= 500 && response.status < 600)) {
+      retryCount = 1;
+      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    }
+    preflightByKey.set(record.key, { responses, retryCount });
   }
-  const comparison = sanitizePortalReplayReport(comparePortalReplayFamily({ family, baseRecords, headRecords }));
-  const output = path.resolve(values.output);
-  mkdirSync(path.dirname(output), { recursive: true });
-  writeFileSync(output, `${JSON.stringify(comparison, null, 2)}\n`, { mode: 0o600 });
-  console.log(`portal replay ${family}: ${comparison.status.toUpperCase()} (${comparison.cases.length} listings)`);
-  return comparison.status === 'pass' ? 0 : 1;
+  if (records.some((record) => !preflightByKey.get(record.key)?.responses.some((response) => response.status >= 500 && response.status < 600))) {
+    sharedReplayBrowser = await trustedBrowser.launchChromium({
+      headless: process.env.ASSISTED_APPLICATION_HEADED !== '1',
+      args: ['--window-size=1366,900'],
+    });
+    sharedHeadReplayBrowser = await trustedBrowser.launchChromium({
+      headless: process.env.ASSISTED_APPLICATION_HEADED !== '1',
+      args: ['--window-size=1366,900'],
+    });
+    fenceApi.installPortalReplayNodeEgressFence({
+      allowedUnixSocket: process.env.CODEX_AUTH_BROKER_SOCKET || '',
+      onBlocked: () => {
+        const metrics = replayMetricsContext.getStore();
+        if (metrics) metrics.nodeEgressBlocked += 1;
+      },
+    });
+  }
+  try {
+    for (const record of records) {
+      const shared = {
+        trustedRoot, record, timeoutMs, fenceApi, trustedNetwork,
+        preflight: preflightByKey.get(record.key)?.responses || [],
+        preflightRetryCount: preflightByKey.get(record.key)?.retryCount || 0,
+      };
+      const [base, head] = await Promise.all([
+        replayWithOneNeutralRetry({ ...shared, sourceRoot: trustedRoot, runtimeBrowser: sharedReplayBrowser }),
+        replayWithOneNeutralRetry({ ...shared, sourceRoot: headRoot, runtimeBrowser: sharedHeadReplayBrowser }),
+      ]);
+      baseRecords.push(base);
+      headRecords.push(head);
+    }
+    const comparison = sanitizePortalReplayReport(comparePortalReplayFamily({ family, baseRecords, headRecords }));
+    const output = path.resolve(values.output);
+    mkdirSync(path.dirname(output), { recursive: true });
+    writeFileSync(output, `${JSON.stringify(comparison, null, 2)}\n`, { mode: 0o600 });
+    console.log(`portal replay ${family}: ${comparison.status.toUpperCase()} (${comparison.cases.length} listings)`);
+    return comparison.status === 'pass' ? 0 : 1;
+  } finally {
+    await sharedReplayBrowser?.close().catch(() => {});
+    await sharedHeadReplayBrowser?.close().catch(() => {});
+    sharedReplayBrowser = null;
+    sharedHeadReplayBrowser = null;
+  }
 }
 
 async function aggregateMode(values) {

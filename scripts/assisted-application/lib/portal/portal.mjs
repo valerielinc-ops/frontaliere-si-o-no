@@ -2013,6 +2013,11 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
   const allEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
+  const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
+    && context.allowSingleExternalApplicationEntry === true
+    && samePostingAddress(context.applyUrl, context.postingUrl)
+    && samePostingAddress(snapshot.url, context.postingUrl)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
   // The official Stadt Zürich detail page is selected by its unique role link
   // before this loop reaches it. On that exact, fieldless detail route a sole
   // explicit Apply control is the only remaining handoff proof; a duplicate
@@ -2028,12 +2033,12 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
-    && isSuccessFactorsPostingEntry(context)
+    && (selectedPostingApplyPage || isSuccessFactorsPostingEntry(context))
     // Jobs2Web detail pages can expose the required alert-frequency input
     // beside their sole script Apply button. The route shape alone is shared
     // by arbitrary portals, so the verified Jobs2Web identity must also bind
     // the apply route to this posting before the alert-only exception applies.
-    && publicJobDetailFieldsAreOnlyAlert(snapshot)
+    && (selectedPostingApplyPage || publicJobDetailFieldsAreOnlyAlert(snapshot))
     && scriptEntries.length === 1 && allEntries.length === 1) return scriptEntries;
   // SuccessFactors Career Site Builder repeats one Apply dropdown above and
   // below the vacancy. Identical disclosure toggles are one entry: open the
@@ -3871,8 +3876,13 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
-  const titleLine = text.split(/\r?\n/).map((line) => line.trim())
-    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
+  const lines = text.split(/\r?\n/).map((line) => line.trim());
+  // `formText` starts with the document title when one was observed. A blank
+  // first line means the snapshot contains form body only; don't promote its
+  // first field label (for example «Numero candidatura») to an employer title.
+  const titleLine = lines[0]
+    ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
+    : '';
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
@@ -9766,6 +9776,7 @@ export async function submitViaPortal(ctx) {
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
       workdayApplicationEntryProven,
       allowSingleExternalApplicationEntry: postingVacancyMatched || selectedPostingIsApplicationUrl,
+      selectedPostingIsApplicationUrl,
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
@@ -9778,7 +9789,11 @@ export async function submitViaPortal(ctx) {
       postingVacancyMatched = true;
     }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
-    if (selectedPostingIsApplicationUrl && enteredThroughApplicationEntry) postingVacancyMatched = true;
+    // The selected URL permits its own entry control, but clicking it alone
+    // does not prove that the destination form belongs to this posting. Keep
+    // `postingVacancyMatched` tied to the title/company/route evidence above;
+    // a generic destination is checked separately instead of inheriting
+    // provenance from an unverified handoff.
     if (opened.handoff) return await handoff(opened.handoff);
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;

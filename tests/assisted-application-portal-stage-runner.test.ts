@@ -513,6 +513,40 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('does not inherit posting identity from a selected posting Apply click into a talent pool', async () => {
+    const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
+    const entry = { id: 'posting-apply', text: 'Apply now', frame: 0 };
+    const selectedPosting = {
+      ...snapshot(postingUrl, 'Career opportunities', [entry]),
+      title: 'Careers',
+      text: 'Career opportunities',
+    };
+    const talentPool = {
+      ...snapshot('https://jobs.example.test/talent-community/', 'Join our talent pool for future opportunities.', []),
+      title: 'Talent Pool',
+      text: 'Join our talent pool for future opportunities.',
+      fields: [{ id: 'email', kind: 'text', inputType: 'email', label: 'Email', required: true, formId: 'application', frame: 0 }],
+    };
+    const metrics = { finalClickAttempts: 0 };
+    const f = fixture(talentPool, selectedPosting, review, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Example Employer', title: 'Synthetic Role' },
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics: metrics,
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(metrics.finalClickAttempts).toBe(0);
+  });
+
   it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
     const unrelatedCta = snapshot(applyUrl,
       'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',

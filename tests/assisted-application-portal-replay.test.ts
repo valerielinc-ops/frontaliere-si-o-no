@@ -1,9 +1,12 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { request as httpRequest } from 'node:http';
+import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { runInNewContext } from 'node:vm';
-import { installPortalReplayFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
+import { JSDOM } from 'jsdom';
+import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
 import {
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
@@ -28,8 +31,11 @@ function fakeContext() {
   const context: any = {
     route: async (_pattern: string, handler: (route: any) => Promise<unknown>) => { context.routeHandler = handler; },
     routeWebSocket: async (_pattern: string, handler: (socket: any) => void) => { context.webSocketHandler = handler; },
-    addInitScript: async (script: () => void) => { context.initScript = script; },
+    addInitScript: async (script: () => void) => { (context.initScripts ||= []).push(script); context.initScript = script; },
+    exposeBinding: async (name: string, handler: (...args: any[]) => unknown) => { context.bindings[name] = handler; },
     on: (event: string, handler: (value: any) => void) => { context.listeners[event] = handler; },
+    bindings: {} as Record<string, (...args: any[]) => unknown>,
+    initScripts: [] as (() => void)[],
     listeners: {} as Record<string, (value: any) => void>,
   };
   return context;
@@ -61,6 +67,11 @@ describe('portal replay read-only fence', () => {
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/route?action=submit' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/%252fapplication%252fsave' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply-now' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/candidate/update?email=synthetic%40example.invalid' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/autosave?candidate=synthetic' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/application?data=%7B%22email%22%3A%22synthetic%40example.invalid%22%7D' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/application?%2565mail=synthetic%40example.invalid' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/application?q=synthetic%40example.invalid' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123', navigation: true })).toBe('continue');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?apply=guest' })).toBe('continue');
     expect(await runRequest(replayContext, { method: 'HEAD', url: 'https://ats.example.test/apply' })).toBe('continue');
@@ -71,16 +82,129 @@ describe('portal replay read-only fence', () => {
     expect(websocketClosed).toBe(true);
     expect(typeof context.initScript).toBe('function');
     const pageGlobal: Record<string, unknown> = {};
-    runInNewContext(`(${context.initScript.toString()})()`, pageGlobal);
+    for (const script of context.initScripts) runInNewContext(`(${script.toString()})()`, pageGlobal);
     expect(pageGlobal.Worker).toBeUndefined();
     expect(pageGlobal.SharedWorker).toBeUndefined();
     expect(pageGlobal.WebTransport).toBeUndefined();
     expect(pageGlobal.RTCPeerConnection).toBeUndefined();
     expect(Object.getOwnPropertyDescriptor(pageGlobal, 'Worker')?.writable).toBe(false);
     expect(metrics.blockedNonGet).toBe(4);
-    expect(metrics.blockedMutationGets).toBe(4);
+    expect(metrics.blockedMutationGets).toBe(9);
     expect(metrics.blockedWebSockets).toBe(1);
+    expect(typeof context.bindings.__frontalierePortalReplayFinalClickAttempt).toBe('function');
     expect(metrics.finalClickAttempts).toBe(0);
+  });
+
+  it('blocks final application clicks in trusted page instrumentation and counts them outside the runner', async () => {
+    const dom = new JSDOM('<form><label>E-mail<input name="email"></label><button type="submit">Submit application</button></form><button>Continue</button><button id="guarded-final">Apply for a niche vacancy</button>', { url: 'https://ats.example.test/apply' });
+    let attempts = 0;
+    const page = dom.window as any;
+    page.__frontalierePortalReplayFinalClickAttempt = () => { attempts += 1; };
+    runInNewContext(`(${capturePortalReplayFinalClicksInPage.toString()})()`, {
+      window: page,
+      document: page.document,
+      HTMLFormElement: page.HTMLFormElement,
+      __frontalierePortalReplayFinalClickAttempt: page.__frontalierePortalReplayFinalClickAttempt,
+    });
+    let submitted = false;
+    page.document.querySelector('form').addEventListener('submit', (event: Event) => {
+      submitted = true;
+      event.preventDefault();
+    });
+
+    page.document.querySelector('button[type="submit"]').click();
+    expect(attempts).toBe(1);
+    expect(submitted).toBe(false);
+    page.document.querySelector('button:not([type])').click();
+    expect(attempts).toBe(1);
+    const guardedFinal = page.document.querySelector('#guarded-final');
+    let guardedHandlerRan = false;
+    guardedFinal.addEventListener('click', () => { guardedHandlerRan = true; });
+    page.__frontaliereFinalFormGuards = { trustedRunnerContract: { status: 'armed', button: guardedFinal } };
+    guardedFinal.click();
+    expect(attempts).toBe(2);
+    expect(guardedHandlerRan).toBe(false);
+    dom.window.close();
+  });
+
+  it('blocks Node egress before portal modules import while preserving the exact Codex broker socket', async () => {
+    const directory = tempDir();
+    const brokerPath = join(directory, 'broker.sock');
+    const broker = createNetServer((socket) => socket.end('broker-ok'));
+    await new Promise<void>((resolve) => broker.listen(brokerPath, resolve));
+    let blocked = 0;
+    const fence = installPortalReplayNodeEgressFence({ allowedUnixSocket: brokerPath, onBlocked: () => { blocked += 1; } });
+    try {
+      await expect(fetch('https://public.example.test/')).rejects.toMatchObject({ code: 'portal_replay_node_egress_blocked' });
+      expect(() => httpRequest({ hostname: 'public.example.test', method: 'POST' })).toThrow('portal_replay_node_egress_blocked');
+      expect(() => connectSocket({ host: '8.8.8.8', port: 443 })).toThrow('portal_replay_node_egress_blocked');
+      const rawSocket = new Socket();
+      expect(() => rawSocket.connect({ host: '93.184.216.34', port: 80 })).toThrow('portal_replay_node_egress_blocked');
+      rawSocket.destroy();
+      const response = await new Promise<string>((resolve, reject) => {
+        const socket = connectSocket(brokerPath);
+        socket.once('data', (value) => { resolve(String(value)); socket.destroy(); });
+        socket.once('error', reject);
+      });
+      expect(response).toBe('broker-ok');
+      expect(blocked).toBe(4);
+      expect(fence.metrics.blockedAttempts).toBe(4);
+    } finally {
+      fence.restore();
+      await new Promise<void>((resolve) => broker.close(() => resolve()));
+    }
+  });
+
+  it('connects through the DNS address that passed the public-address check', async () => {
+    const upstream = createNetServer((socket) => socket.on('data', (value) => socket.write(value)));
+    await new Promise<void>((resolve) => upstream.listen(0, '127.0.0.1', resolve));
+    const upstreamPort = (upstream.address() as any).port;
+    let connectedTo: any = null;
+    const proxy = await createPinnedPublicHttpsProxy({
+      resolve: async () => [{ address: '8.8.8.8', family: 4 }],
+      isPublicUrl: async () => true,
+      connect: (options: any) => {
+        connectedTo = options;
+        return connectSocket({ host: '127.0.0.1', port: upstreamPort });
+      },
+    });
+    let tunnel: any = null;
+    try {
+      const response = await new Promise<any>((resolve, reject) => {
+        const request = httpRequest({ host: '127.0.0.1', port: new URL(proxy.server).port, method: 'CONNECT', path: 'safe.example.test:443' });
+        request.once('connect', (result, socket) => resolve({ result, socket }));
+        request.once('response', (result) => resolve({ result, socket: null }));
+        request.once('error', reject);
+        request.end();
+      });
+      tunnel = response.socket;
+      expect(response.result.statusCode).toBe(200);
+      expect(connectedTo).toMatchObject({ host: '8.8.8.8', family: 4, port: 443 });
+    } finally {
+      tunnel?.destroy();
+      await proxy.close();
+      await new Promise<void>((resolve) => upstream.close(() => resolve()));
+    }
+  });
+
+  it('rejects a DNS answer set that contains a private address', async () => {
+    const proxy = await createPinnedPublicHttpsProxy({
+      resolve: async () => [{ address: '8.8.8.8', family: 4 }, { address: '127.0.0.1', family: 4 }],
+      isPublicUrl: async () => true,
+      connect: () => { throw new Error('must not connect'); },
+    });
+    try {
+      const response = await new Promise<any>((resolve, reject) => {
+        const request = httpRequest({ host: '127.0.0.1', port: new URL(proxy.server).port, method: 'CONNECT', path: 'rebinding.example.test:443' });
+        request.once('connect', (result, socket) => { socket.destroy(); resolve(result); });
+        request.once('response', resolve);
+        request.once('error', reject);
+        request.end();
+      });
+      expect(response.statusCode).toBe(403);
+    } finally {
+      await proxy.close();
+    }
   });
 
   it('fails closed for a private or unresolvable host', async () => {
@@ -91,9 +215,13 @@ describe('portal replay read-only fence', () => {
   });
 
   it('starts both runners at the selected listing and prevents later route.fetch handlers', async () => {
+    const browser = { childContext: true };
     const context: any = {
       route: async () => { context.registeredRoutes += 1; },
+      request: { post: async () => ({ ok: true }) },
+      browser: () => browser,
       newPage: async () => ({
+        context: () => context,
         goto: async (url: string) => { context.navigations.push(url); return url; },
       }),
       registeredRoutes: 0,
@@ -103,13 +231,23 @@ describe('portal replay read-only fence', () => {
     const page = await replayContext.newPage();
     await page.goto('https://ats.example.test/apply');
     await page.goto('https://ats.example.test/login');
+    const popup = await replayContext.newPage();
+    await popup.goto('https://ats.example.test/popup');
+    await page.route('**/*', async () => { throw new Error('page route must not register'); });
     await replayContext.route('**/*', async () => {});
+    replayContext.removeAllListeners();
 
     expect(context.navigations).toEqual([
       'https://listing.example.test/job/fake',
       'https://ats.example.test/login',
+      'https://ats.example.test/popup',
     ]);
     expect(context.registeredRoutes).toBe(0);
+    expect(replayContext.request).toBeUndefined();
+    expect(replayContext.browser).toBeUndefined();
+    expect(replayContext.newCDPSession).toBeUndefined();
+    expect(page.context().request).toBeUndefined();
+    expect(page.context().browser).toBeUndefined();
   });
 });
 
@@ -232,6 +370,16 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toEqual(['final_click_attempt', 'non_get_passed', 'submission_attempted', 'wrong_posting_or_talent_pool']);
+  });
+
+  it('fails a blocked attempt to use Node network APIs outside the browser fence', () => {
+    const result = comparePortalReplayFamily({
+      family: 'workday',
+      baseRecords: [measured('one', 'dry_run_ready')],
+      headRecords: [measured('one', 'dry_run_ready', { nodeEgressBlocked: 1 })],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toContain('node_egress_attempt');
   });
 
   it('preserves unknown posting linkage without inventing a mismatch', () => {
