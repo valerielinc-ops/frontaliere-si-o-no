@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-13T14:43:16.593Z",
+  "updatedAt": "2026-11-13T14:43:52.912Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -666379,12 +666379,12 @@
     },
     "heini-conditorei@luzern": {
       "key": "heini-conditorei@luzern",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-01T17:42:57.929Z",
-      "updatedAt": "2026-11-13T14:03:45.192Z",
+      "updatedAt": "2026-11-13T14:43:52.830Z",
       "name": "Heini Conditorei AG",
       "city": "Luzern",
       "zip": "6004",
@@ -666666,7 +666666,9 @@
           "logoSourceUrl": "https://cdn.webshopapp.com/shops/292421/themes/169587/v/2584380/assets/favicon.ico?20250307123549",
           "employerSiteName": "HEINI Luzern"
         }
-      ]
+      ],
+      "promotionPr": "18527",
+      "promotionBranch": "prospector/promote-2026-11-13"
     },
     "heini.ch": {
       "key": "heini.ch",
@@ -2023955,12 +2023957,12 @@
     },
     "stiftung-ilgenhalde@ottikon-b-kemptthal": {
       "key": "stiftung-ilgenhalde@ottikon-b-kemptthal",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-06T11:05:29.657Z",
-      "updatedAt": "2026-11-13T14:03:51.369Z",
+      "updatedAt": "2026-11-13T14:43:52.830Z",
       "name": "STIFTUNG ILGENHALDE",
       "secoEmployerName": "STIFTUNG ILGENHALDE",
       "secoEmployerClassification": "direct",
@@ -2024201,7 +2024203,9 @@
           "logoSourceUrl": "https://stiftungilgenhalde.ch/wp-content/themes/indy-ilgenhalde/assets/favicons/apple-touch-icon.png",
           "employerSiteName": "Stiftung Ilgenhalde"
         }
-      ]
+      ],
+      "promotionPr": "18527",
+      "promotionBranch": "prospector/promote-2026-11-13"
     },
     "virbac@zurich": {
       "key": "virbac@zurich",
@@ -2074559,12 +2074563,12 @@
     },
     "fixit@untervaz": {
       "key": "fixit@untervaz",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-12T11:26:53.903Z",
-      "updatedAt": "2026-11-13T14:03:18.407Z",
+      "updatedAt": "2026-11-13T14:43:52.830Z",
       "name": "Fixit AG",
       "secoEmployerName": "Fixit AG",
       "secoEmployerClassification": "direct",
@@ -2074801,7 +2074805,9 @@
           "logoSourceUrl": "https://www.fixit.ch/_assets/bd57d1d19f854a7c5ab0e8585adcd1fe/Favicons/fixit/ch/apple-touch-icon.1794349594.png",
           "employerSiteName": "Fixit Gruppe"
         }
-      ]
+      ],
+      "promotionPr": "18527",
+      "promotionBranch": "prospector/promote-2026-11-13"
     },
     "albert-spiess-zweigniederlassung-der-orior-food@schiers": {
       "key": "albert-spiess-zweigniederlassung-der-orior-food@schiers",
