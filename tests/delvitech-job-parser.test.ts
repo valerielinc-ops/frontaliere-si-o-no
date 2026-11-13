@@ -20,6 +20,27 @@ describe('Delvitech job parser', () => {
     expect(jobs[0].href).toContain('/application-engineer-2/');
   });
 
+  it('accepts relative and same-company detail links after the source changes URL form', () => {
+    const html = `
+      <div class="post-content">
+        <a class="fusion-column-anchor" href="/application-engineer-2/"></a>
+        <div class="fusion-layout-column"><h5>Application Engineer</h5></div>
+        <a class="fusion-column-anchor" href="https://delvi.tech/customer-support-manager/"></a>
+        <div class="fusion-layout-column"><h5>Customer Support Manager</h5></div>
+        <a class="fusion-column-anchor" href="https://jobs.example.invalid/unrelated/"></a>
+        <div class="fusion-layout-column"><h5>Unrelated role</h5></div>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://legacy.delvi.tech/application-engineer-2/',
+      'https://delvi.tech/customer-support-manager/',
+    ]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
+    expect(jobs.delvitechListingRecordCount).toBe(3);
+  });
+
   it('parses detail sections and apply email', () => {
     const html = `
       <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', url: 'https://legacy.delvi.tech/application-engineer-2/', datePublished: '2025-04-17T06:46:33+00:00' }] })}</script>
