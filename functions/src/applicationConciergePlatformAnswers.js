@@ -223,10 +223,6 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
     }
     const decision = decisionAnswerFor(item.shaped, decidedFacts);
     if (decision) entries.push(entryFor(item.shaped, decision));
-    else {
-      const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
-      if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
-    }
   }
   // A choice with no options cannot be decided directly, but the verified binary answer above may now establish
   // the shared passport fact that supplies its localized catalog fallback.
