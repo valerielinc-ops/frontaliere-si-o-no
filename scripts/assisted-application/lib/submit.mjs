@@ -25,7 +25,8 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate, requiredPortalConsentAffirmed } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits,
+  questionsForCandidate, requiredPortalConsentAffirmed, validatedCandidateAnswerForQuestion } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -150,10 +151,19 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
 }
 
 /** Open required questions block the submission, whatever the channel. */
-export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, order = {} } = {}) {
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: { answers, questionAnswers } });
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, candidateAnswerHistory = [], order = {} } = {}) {
+  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft,
+    flow: { answers, questionAnswers, candidateAnswerHistory } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
   const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const unsupportedDirectAnswers = candidateAnswersForQuestions(questions, answers, questionAnswers, candidateAnswerHistory);
+  for (const question of questions) {
+    if (Object.hasOwn(answers || {}, question.id)
+      && (!Object.hasOwn(unsupportedDirectAnswers, question.id)
+        || validatedCandidateAnswerForQuestion(unsupportedDirectAnswers[question.id], question) === undefined)) {
+      delete projected[question.id];
+    }
+  }
   return questions.filter((question) => {
     const answer = projected?.[question.id];
     const unresolvedConsent = !requiredPortalConsentAffirmed(question, answer);
@@ -380,7 +390,8 @@ export async function submitApplication(ctx) {
   // stopped before the live field context was available. Let the runner read
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
-  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers, order });
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers,
+    candidateAnswerHistory: submitFlow?.candidateAnswerHistory, order });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {}, submitFlow);
   if (open.length || missingDocuments.length) {
     // Keep the legacy id list for the flow and add the bounded descriptor so
