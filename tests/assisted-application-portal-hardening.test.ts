@@ -796,6 +796,73 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     ]);
   });
 
+  it.each([
+    ['fr', 'Créer une alerte', 'Sélectionnez la fréquence (en jours) de réception d’une alerte :'],
+    ['en', 'Create an alert', 'Select how often (in days) to receive an alert:'],
+    ['en-job', 'Create a job alert', 'Select how often (in days) to receive an alert:'],
+    ['en-job-no-article', 'Create job alert', 'Select how often (in days) to receive an alert:'],
+    ['de', 'Benachrichtigung erstellen', 'Wählen Sie aus, wie oft (in Tagen) Sie eine Benachrichtigung erhalten möchten:'],
+    ['it', 'Crea un avviso', 'Seleziona la frequenza (in giorni) di ricezione di un avviso:'],
+  ])('accepts a Jobs2Web script Apply beside the public alert widget (%s)', (_locale, alertAction, alertField) => {
+    const postingUrl = 'https://job.groupe-e.ch/job/cheffe-chef-equipe-infrastructures/123456/';
+    const applyUrl = 'https://job.groupe-e.ch/talentcommunity/apply/123456/?locale=fr_FR';
+    const apply = { text: 'Postuler »', frame: 0, disabled: false };
+    const snapshot = {
+      url: postingUrl,
+      fields: [{ id: 'alert-frequency', kind: 'text', inputType: 'text', label: alertField, required: true, value: '7', formId: 'job-alert' }],
+      buttons: [
+        { text: 'Langue', chrome: true },
+        { text: 'Afficher plus d’options', chrome: true },
+        { text: 'Rechercher les offres', chrome: true },
+        { text: 'Réinitialiser', chrome: true },
+        { text: alertAction, chrome: true },
+        apply,
+        { text: 'Gestionnaire de consentements pour les cookies', chrome: true },
+      ],
+      links: [],
+    };
+    const context = {
+      applyUrl,
+      postingUrl,
+      job: { company: 'Groupe E', title: 'Cheffe ou Chef d’équipe infrastructures' },
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
+    expect(applicationEntryControls({
+      ...snapshot,
+      fields: [{ ...snapshot.fields[0], label: 'Quel est votre niveau de motivation pour ce poste ?' }],
+    }, context)).toEqual([]);
+  });
+
+  it('rejects an alert-only script Apply on a non-Jobs2Web job route', () => {
+    const postingUrl = 'https://careers.example.test/job/cheffe-chef-equipe-infrastructures/123456/';
+    const snapshot = {
+      url: postingUrl,
+      fields: [{
+        id: 'alert-frequency',
+        kind: 'text',
+        inputType: 'text',
+        label: 'Select how often (in days) to receive an alert:',
+        required: true,
+        value: '7',
+        formId: 'job-alert',
+      }],
+      buttons: [
+        { text: 'Create a job alert', chrome: true },
+        { text: 'Postuler »', frame: 0, disabled: false },
+      ],
+      links: [],
+    };
+
+    expect(applicationEntryControls(snapshot, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Example', title: 'Cheffe ou Chef d’équipe infrastructures' },
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
   it('retains the Umantis posting route only when it binds the current application to the same vacancy', () => {
     const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
     const applyUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
