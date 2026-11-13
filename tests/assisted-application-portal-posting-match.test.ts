@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { formPostingMatch, jobRoomExternalAdTarget } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import {
+  applicationEntryControls,
+  formPostingMatch,
+  jobRoomExternalAdTarget,
+} from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('application form posting identity', () => {
   it('matches the source language title when the draft title is localized', () => {
@@ -79,5 +83,42 @@ describe('Job-Room external advertisement link', () => {
       { text: 'Go to external ad', href: externalUrl },
       { text: 'Andare all’annuncio esterno', href: 'https://agency.jobs/posting/123' },
     ] }, currentUrl)).toBe('');
+  });
+});
+
+describe('team.jobs application entry', () => {
+  const postingUrl = 'https://team.jobs/fr/offres-demplois/allrounder/macellaio-%28m-f-d%29/GXe0mf596t8Lf4knvKjEkY';
+  const applicationEntry = {
+    text: 'Postuler maintenant',
+    href: 'https://team.jobs/fr/jobs/apply/GXe0mf596t8Lf4knvKjEkY',
+  };
+  const context = {
+    applyUrl: postingUrl,
+    postingUrl,
+    allowSingleExternalApplicationEntry: true,
+    job: { title: 'Macellaio (M/F/D)', sourceTitle: 'Macellaio (M/F/D)' },
+  };
+
+  it('binds the opaque team.jobs apply route to the fieldless posting', () => {
+    const snapshot = {
+      url: postingUrl,
+      fields: [],
+      buttons: [
+        'Suchen', 'Deutsch', 'Für Bewerbende', 'Für Unternehmen',
+        'Über uns', 'Karriere bei dasteam', 'Cookie-Einstellungen',
+      ].map(text => ({ text, chrome: true })),
+      links: [applicationEntry],
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([applicationEntry]);
+  });
+
+  it.each([
+    ['a different opaque id', applicationEntry.href.replace('GXe0mf596t8Lf4knvKjEkY', 'OtherPostingId')],
+    ['a different route namespace', applicationEntry.href.replace('/jobs/apply/', '/jobs/preview/')],
+    ['a different host', applicationEntry.href.replace('team.jobs', 'other.example')],
+  ])('does not bind %s as the selected posting', (_description, href) => {
+    const snapshot = { url: postingUrl, fields: [], buttons: [], links: [{ ...applicationEntry, href }] };
+    expect(applicationEntryControls(snapshot, context)).toEqual([]);
   });
 });
