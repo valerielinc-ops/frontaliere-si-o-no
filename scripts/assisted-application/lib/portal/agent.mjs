@@ -76,7 +76,6 @@ const MAX_ACTIONS = 12;
 const SNAPSHOT_CHARS = 40_000;
 const ACTION_TIMEOUT_MS = 6000;
 const REF_RE = /^(f\d+)?e\d+$/;
-const OTP_FIELD_RE = /\b(?:otp|one[- ]time(?:\s+(?:password|passcode|code))?|verification code|confirmation code|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|bestätigungs(?:code|passwort)|verifizierungscode|einmal(?:passwort|kennwort|code))\b/iu;
 const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace']);
 // A button with one of these words may send the application: only the runner presses it.
 export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)/i;
@@ -584,6 +583,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set(), { na
 /** What the element is, read in the page: what may be done to it depends on it. */
 async function describe(locator) {
   return locator.evaluate((element) => {
+    const otpFieldRe = /\b(?:otp|one[- ]time(?:\s+(?:password|passcode|code))?|verification code|confirmation code|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|bestätigungs(?:code|passwort)|verifizierungscode|einmal(?:passwort|kennwort|code))\b/iu;
     const button = element.closest('button, a, [role="button"], [role="link"], input[type="submit"], input[type="button"], [onclick]');
     const control = button || element;
     const name = (control.getAttribute('aria-label') || control.innerText || control.value || control.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 120);
@@ -605,7 +605,7 @@ async function describe(locator) {
     return {
       name,
       labelName,
-      otp: OTP_FIELD_RE.test([
+      otp: otpFieldRe.test([
         control.getAttribute('aria-label') || '',
         control.getAttribute('name') || '',
         control.id || '',

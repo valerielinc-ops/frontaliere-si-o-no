@@ -2073,7 +2073,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       customResult.status === 'ACCOUNT_STEP'
       && new URL(customResult.page.url()).hostname === 'career2.successfactors.localhost'
       && new URL(customResult.page.url()).pathname === '/sf/career'
-      && customResult.evidence.rounds.length === 2);
+      && customResult.evidence.rounds.length === 3);
     await context.close();
 
     const accountContext = await browser.newContext();
@@ -2172,6 +2172,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
 
     let unboundDurableClicks = 0;
     const unboundCodex = async ({ prompt }) => {
+      if (!prompt.includes('{"agentPage"')) return fakeCodex({ prompt });
       const { snapshot } = parsePrompt(prompt);
       return result('READY_TO_SUBMIT', [], { submitRef: refFor(snapshot, 'Send application') });
     };
