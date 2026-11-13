@@ -3,8 +3,13 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from '../build-plugins/shared/expiredSliceOverflow';
+import { inlineScriptJson } from '../build-plugins/shared/inlineJsonScript';
 
 describe('expired slice overflow', () => {
+  it('keeps per-crawler expired rows disk-backed by default', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    expect(source).toMatch(/intFromEnv\('EXPIRED_SLICE_AUGMENT_CAP', 0\)/);
+  });
   it('wires overflow into both native consumers and closes it on build failure', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain('augmentExpiredSliceIndex(');
@@ -43,6 +48,17 @@ describe('expired slice overflow', () => {
     expect(edgeSkipRelease).toBeGreaterThan(lastReaderRelease);
     expect(normalRelease).toBeGreaterThan(edgeSkipRelease);
     expect(normalRelease).toBeLessThan(crossLocalePass);
+  });
+  it('keeps disk-backed rows open through expired-page emission and closes them before cross-locale work', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const emittedPagesCheckpoint = source.indexOf("logJobsSeoMem('after-expired-softlandings'");
+    const spillClose = source.indexOf('expiredSliceOverflow.close();', emittedPagesCheckpoint);
+    const crossLocalePass = source.indexOf('/* ── Cross-locale reconciliation for expired jobs', emittedPagesCheckpoint);
+
+    expect(emittedPagesCheckpoint).toBeGreaterThan(-1);
+    expect(spillClose).toBeGreaterThan(emittedPagesCheckpoint);
+    expect(crossLocalePass).toBeGreaterThan(spillClose);
+    expect(source.slice(spillClose, crossLocalePass)).not.toContain('expiredSliceOverflow.get(');
   });
   it('accepts a lazy emitted-slug membership lookup with the same result as a Set', () => {
     const jobs = [{ slug: 'master', previousSlugs: ['wanted', 'not-emitted'] }];
@@ -91,6 +107,31 @@ describe('expired slice overflow', () => {
       expect(index.get('missing')).toBeUndefined();
       expect(index.recency('late-en')).toBe(17);
     } finally { index.close(); }
+  });
+  it('preserves expired-page payload bytes when the per-crawler row is disk-backed', () => {
+    const job = {
+      slug: 'late-job',
+      title: 'Leitende Ärztin — Onkologie',
+      descriptionByLocale: { de: 'Für Patient:innen und Angehörige.' },
+      expiredAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+    };
+    const primary = new Map<string, typeof job>();
+    const overflow = new ExpiredSliceOverflow<typeof job>();
+    const pageBytes = (row: typeof job) => `<!doctype html><html><body><script>window.__EXPIRED_JOB_DATA__=${inlineScriptJson({
+      slug: row.slug,
+      title: row.title,
+      descriptionByLocale: row.descriptionByLocale,
+      expiredAt: row.expiredAt,
+    })};</script></body></html>`;
+
+    try {
+      expect(augmentExpiredSliceIndex([job], new Set([job.slug]), primary, overflow, 0, () => 0)).toBe(0);
+      expect(primary.has(job.slug)).toBe(false);
+      const recovered = primary.get(job.slug) ?? overflow.get(job.slug);
+
+      expect(recovered).toEqual(job);
+      expect(pageBytes(recovered!)).toBe(pageBytes(job));
+    } finally { overflow.close(); }
   });
   it('enumerates spilled aliases without reading their records', () => {
     const index = new ExpiredSliceOverflow();
