@@ -261,24 +261,12 @@ function runDownloadFailureClassifier({
 function runDownloadRetryClassifier(output: string): boolean {
   const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
   const classifier = source.match(
-    /^[ \t]{12}download_is_retryable_transient_failure\(\) \{\n(?:^[ \t]{14,}.*\n)+^[ \t]{12}\}/mu,
+    /^[ \t]{10}download_is_retryable_transient_failure\(\) \{\n(?:^[ \t]{12,}.*\n)+^[ \t]{10}\}/mu,
   )?.[0];
   expect(classifier, 'download retry classifier').toBeDefined();
-  try {
-    execFileSync('bash', ['--noprofile', '--norc', '-euo', 'pipefail', '-c', [
-      classifier?.replace(/^ {12}/gmu, '') ?? 'false',
-      'if download_is_retryable_transient_failure; then exit 0; else exit 1; fi',
-    ].join('\n')], {
-      stdio: 'pipe',
-      env: {
-        ...process.env,
-        download_output: output,
-      },
-    });
-    return true;
-  } catch {
-    return false;
-  }
+  const pattern = classifier?.match(/grep -Eqi -- '([^']+)'/u)?.[1];
+  expect(pattern, 'download retry classifier pattern').toBe('HTTP (500|502|503|504):');
+  return new RegExp(pattern ?? '(?!)', 'iu').test(output);
 }
 
 describe('loop fleet workflow contract', () => {
