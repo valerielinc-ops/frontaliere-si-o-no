@@ -396,6 +396,38 @@ describe('application channel', () => {
     expect(draft.channel.type).toBe('employer_site');
   });
 
+  it('refreshes Job-Room URL provenance and source titles when only the API has the channel', async () => {
+    const id = 'dddddddd-eeee-4fff-8000-111111111111';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const externalUrl = 'https://team.jobs/de/jobs/789';
+    const draft = {
+      job: { title: 'Operatrice sociosanitaria', postingUrl: jobUrl, applyUrl: jobUrl },
+      channel: { type: 'employer_site', applyUrl: jobUrl },
+      applicationEmail: { to: '' },
+    };
+    const refreshed = await refreshApplicationChannel(draft, { jobId, jobUrl }, {
+      fetchPosting: async () => ({
+        source: 'none', postingUrl: externalUrl, applyUrl: externalUrl,
+        jobRoomChannelResolved: true, jobRoomApplyUrl: externalUrl, jobRoomExternalUrl: externalUrl,
+        sourceTitle: 'Pflegefachfrau Gesundheit', sourceLang: 'de',
+        titles: { de: 'Pflegefachfrau Gesundheit', it: 'Operatrice sociosanitaria' },
+      }),
+    });
+
+    expect(refreshed.job).toMatchObject({
+      sourceTitle: 'Pflegefachfrau Gesundheit',
+      postingTitle: 'Pflegefachfrau Gesundheit',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Pflegefachfrau Gesundheit', it: 'Operatrice sociosanitaria' },
+      jobRoomChannelResolved: true,
+      jobRoomApplyUrl: externalUrl,
+      jobRoomExternalUrl: externalUrl,
+      postingUrl: externalUrl,
+      applyUrl: externalUrl,
+    });
+  });
+
   it('does not downgrade a saved channel when the live channel lookup keeps the posting URL', async () => {
     const id = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
     const jobUrl = `https://www.job-room.ch/job-search/${id}`;
@@ -628,14 +660,16 @@ describe('job posting fetch', () => {
           requirements: ['Diploma SUP'],
           url: 'https://acme.ch/jobs/1',
           applyUrl: 'https://acme.wd3.myworkdayjobs.com/x/apply',
-          titleByLocale: { it: 'Infermiere' },
+          title: 'Infermiere',
+          sourceLang: 'de-CH',
+          titleByLocale: { it: 'Infermiere', de: 'Pflegefachperson' },
           addressLocality: 'Lugano',
           baseSalary: { currency: 'CHF', value: { minValue: 70000, maxValue: 90000, unitText: 'YEAR' } },
         }), { status: 200 });
       },
     });
     expect(calls).toEqual(['https://cdn.frontaliereticino.ch/data/job-detail/acme-123.json']);
-    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1', text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
+    expect(posting).toMatchObject({ source: 'job_detail', postingUrl: 'https://acme.ch/jobs/1', sourceTitle: 'Pflegefachperson', sourceLang: 'de-ch', titles: { it: 'Infermiere', de: 'Pflegefachperson' }, text: 'Cerchiamo un infermiere.\n\n- Diploma SUP', location: 'Lugano', salary: 'CHF 70000–90000 / YEAR' });
   });
 
   it('reads the Job-Room application channel without publishing contact data', async () => {
@@ -706,7 +740,97 @@ describe('job posting fetch', () => {
     });
 
     expect(calls).toEqual([`GET ${detailUrl}`, `GET ${jobUrl}`, `GET ${apiUrl}`]);
-    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
+    expect(posting).toMatchObject({ source: 'job_page', postingUrl: jobUrl, publishedPostingUrl: jobUrl, applyUrl: 'https://apply.acme.example/form', jobRoomChannelResolved: true });
+  });
+
+  it('uses the Job-Room formUrl before its external advertisement URL', async () => {
+    const id = 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const formUrl = 'https://apply.acme.example/form/123';
+    const externalUrl = 'https://team.jobs/de/jobs/123';
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve,
+      fetchImpl: async (url: string) => {
+        if (url.endsWith(`${jobId}.json`)) return new Response(JSON.stringify({
+          description: 'Descrizione del ruolo.', url: jobUrl, applyUrl: jobUrl,
+        }), { status: 200 });
+        if (url.endsWith(`/jobAdvertisements/${id}`)) return new Response(JSON.stringify({
+          jobContent: {
+            externalUrl,
+            applyChannel: { formUrl, emailAddress: 'recruiting@acme.example' },
+          },
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(posting).toMatchObject({
+      postingUrl: externalUrl,
+      publishedPostingUrl: jobUrl,
+      applyUrl: formUrl,
+      jobRoomApplyUrl: formUrl,
+      jobRoomFormUrl: formUrl,
+      jobRoomExternalUrl: externalUrl,
+      jobRoomChannelResolved: true,
+    });
+  });
+
+  it('uses Job-Room externalUrl when the API has no form or email channel, including a Swiss alias host', async () => {
+    const id = 'bbbbbbbb-cccc-4ddd-8eee-ffffffffffff';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.lavoro.swiss/job-search/${id}`;
+    const externalUrl = 'https://team.jobs/de/jobs/456';
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve,
+      fetchImpl: async (url: string) => {
+        if (url.endsWith(`${jobId}.json`)) return new Response(JSON.stringify({ url: jobUrl, applyUrl: jobUrl }), { status: 200 });
+        if (url === jobUrl) return new Response('<html><body><h1>Offerta</h1><p>Testo breve.</p></body></html>', {
+          status: 200, headers: { 'content-type': 'text/html' },
+        });
+        if (url.endsWith(`/jobAdvertisements/${id}`)) return new Response(JSON.stringify({
+          jobContent: { externalUrl, applyChannel: {} },
+        }), { status: 200, headers: { 'content-type': 'application/json' } });
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(posting).toMatchObject({
+      postingUrl: externalUrl,
+      publishedPostingUrl: jobUrl,
+      applyUrl: externalUrl,
+      jobRoomApplyUrl: externalUrl,
+      jobRoomFormUrl: '',
+      jobRoomExternalUrl: externalUrl,
+      jobRoomChannelResolved: true,
+    });
+  });
+
+  it('retains an unresolved Job-Room channel when its public API is down', async () => {
+    const id = 'cccccccc-dddd-4eee-8fff-000000000000';
+    const jobId = `seco-jobroom-${id}`;
+    const jobUrl = `https://www.job-room.ch/job-search/${id}`;
+    const posting = await fetchJobPosting({ jobId, jobUrl }, {
+      resolve: async () => [{ address: '93.184.216.34', family: 4 }],
+      fetchImpl: async (url: string) => {
+        if (url.endsWith(`${jobId}.json`)) return new Response('', { status: 503 });
+        if (url === jobUrl) return new Response('<html><body><h1>Posto</h1><p>Descrizione breve.</p></body></html>', {
+          status: 200, headers: { 'content-type': 'text/html' },
+        });
+        if (url.endsWith(`/jobAdvertisements/${id}`)) return new Response('', { status: 503 });
+        return new Response('', { status: 404 });
+      },
+    });
+
+    expect(posting).toMatchObject({
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      jobRoomChannelResolved: false,
+      jobRoomApplyUrl: '',
+      jobRoomExternalUrl: '',
+    });
   });
 
   it('falls back to the order URL when a retained legacy detail has no posting URL', async () => {
