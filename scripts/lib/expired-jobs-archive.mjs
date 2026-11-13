@@ -837,11 +837,48 @@ function compareArchiveEntries(a, b) {
  * ambiguity, a lost route is a 404 on an indexed URL, and this runs inside the
  * crawler cron where a throw would abort the whole archival step. The residual
  * duplicates stay visible to `assertNoDuplicateRoutesWithin`.
+ *
+ * A component never mixes an entry that NAMES its source posting (url,
+ * `sourceIdentity` or the `sourceIdentityHistory` an earlier merge left) with
+ * one that names none. The survivor is chosen by expiredAt and then by slug,
+ * never by evidence, so an identity-less member can become the payload every
+ * real posting of the component collapses onto. Measured on the Rittmeyer
+ * archive at 1c37bfda6c2d (2026-11-09): an identity-less record carrying the
+ * Vitrea slugs of another company's old archive won the slug tie-break, the
+ * "Sales Project Engineer (a) Ticino" posting collapsed onto it, and the
+ * re-listed active row then inherited the Vitrea slug from the archive — its
+ * indexed Rittmeyer URL became an unverified stub. Such an entry keeps its
+ * routes (a lost route is a 404) and still counts as "somebody else's" holder
+ * in the anti-theft check below, so no survivor can gain one of its routes.
+ * Two legacy entries that BOTH lack an identity still collapse as before: there
+ * is no posting for either of them to contaminate, and the retired-alias
+ * repairs this function exists for are almost all of that shape.
  */
 function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-dedup' } = {}) {
+  // Every route an entry holds, namespaced by company. Used to decide whether
+  // a route a survivor would GAIN is already somebody else's.
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
+  // The routes an entry may MERGE through. The companyKey namespace is what
+  // keeps two companies apart (a component never spans two companyKeys); the
+  // identity class is what keeps an unattributable record from dictating the
+  // survivor payload of a real posting (see the docblock above).
+  const identityClasses = new Map();
+  const identityClass = (entry) => {
+    let cls = identityClasses.get(entry);
+    if (!cls) {
+      cls = archiveRecordSourceIdentities(entry).size > 0 ? 'named' : 'unnamed';
+      identityClasses.set(entry, cls);
+    }
+    return cls;
+  };
+  const mergeRoutesOfClass = (entry, cls) => (entry?.companyKey
+    ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${cls}::${route}`)
+    : []);
+  const mergeRoutes = (entry) => mergeRoutesOfClass(entry, identityClass(entry));
+  const otherClass = (entry) => (identityClass(entry) === 'named' ? 'unnamed' : 'named');
+  let identityRefused = 0;
   // Entries are visited in a CANONICAL order, not the caller's. The collapse is
   // greedy — each entry is merged onto the component it already conflicts with —
   // so the order the conflicts arrive in decides which merges are attempted and
@@ -891,11 +928,16 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
   const keep = (entry, { claimsRoutes = true, represents = [entry] } = {}) => {
     out.push(entry);
     origins.set(entry, new Set(represents));
-    if (claimsRoutes) for (const route of namespaced(entry)) owners.set(route, entry);
+    if (claimsRoutes) for (const route of mergeRoutes(entry)) owners.set(route, entry);
   };
 
   for (const entry of input) {
-    const claimed = new Set(namespaced(entry).map((route) => owners.get(route)).filter(Boolean));
+    // A shared route with an entry of the other identity class is left as it
+    // is: counted here so the refusal is visible in the archive reports.
+    if (mergeRoutesOfClass(entry, otherClass(entry)).some((route) => owners.has(route))) {
+      identityRefused += 1;
+    }
+    const claimed = new Set(mergeRoutes(entry).map((route) => owners.get(route)).filter(Boolean));
     if (claimed.size === 0) {
       keep(entry);
       continue;
@@ -958,7 +1000,7 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
     }
     for (let index = out.length - 1; index >= 0; index -= 1) {
       if (!claimed.has(out[index])) continue;
-      for (const route of namespaced(out[index])) owners.delete(route);
+      for (const route of mergeRoutes(out[index])) owners.delete(route);
       origins.delete(out[index]);
       out.splice(index, 1);
     }
@@ -983,6 +1025,7 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
     slugsTransferred,
     unmergeable,
     capRefused,
+    identityRefused,
   };
 }
 
