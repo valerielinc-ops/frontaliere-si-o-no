@@ -555,6 +555,23 @@ function nativeQuestionText(value, counter = null) {
     element.getAttribute('placeholder'),
     labelFor(element),
   ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
+  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/iu;
+  const applicationFormFor = (element) => element.form || element.closest('form, [role="form"]');
+  const siteMarketingIdentity = (element) => [
+    element.getAttribute('name'),
+    element.id,
+    element.getAttribute('aria-label'),
+    element.getAttribute('placeholder'),
+    labelFor(element),
+    element.form?.getAttribute('aria-label'),
+    element.form?.getAttribute('name'),
+    element.form?.id,
+    element.innerText || element.textContent,
+    element.form?.innerText || element.form?.textContent,
+  ].filter(Boolean).join(' ');
+  const isSiteMarketingControl = (element) => inSiteChrome(element)
+    && !hasRequiredControlSignal(element)
+    && SITE_MARKETING_TEXT_RE.test(siteMarketingIdentity(element));
   const isSiteSearchForm = (form) => {
     if (!form) return false;
     if (form.getAttribute('role') === 'search' || form.closest('[role="search"]')) return true;
@@ -567,34 +584,78 @@ function nativeQuestionText(value, counter = null) {
     });
   };
   const isApplicationOwnedControl = (element) => {
+    if (isSiteMarketingControl(element)) return false;
     if (hasRequiredControlSignal(element)) return true;
-    const form = element.form || element.closest('form');
+    const form = applicationFormFor(element);
     if (form && !isSiteSearchForm(form)) return true;
     return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
   };
   const SITE_LANGUAGE_LABEL_RE = /^(?:language|lingua|langue|sprache|idioma|sprachauswahl)(?:\s+(?:selector|menu|select))?\s*[:*]?$/i;
+  const SITE_LANGUAGE_MACHINE_RE = /^language(?:[-_:]?(?:dropdown|selector|menu))$/i;
+  const siteLanguageMachineIdentity = (element) => [
+    element.id,
+    element.getAttribute('name'),
+    element.getAttribute('data-automation-id'),
+    element.getAttribute('data-testid'),
+  ].some((value) => SITE_LANGUAGE_MACHINE_RE.test(clean(value)));
   const isSiteLanguageControl = (element) => {
     const tag = element.tagName.toLowerCase();
     const buttonLike = tag === 'button' || element.getAttribute('role') === 'button';
     const label = clean(labelFor(element) || (buttonLike
       ? element.innerText || element.textContent || element.getAttribute('aria-label') || element.getAttribute('title')
       : '')).normalize('NFKC');
-    const nativeLanguageSelect = tag === 'select' && inSiteChrome(element);
+    const machineLanguageControl = siteLanguageMachineIdentity(element);
+    const nativeLanguageSelect = tag === 'select' && (inSiteChrome(element)
+      || (machineLanguageControl && !applicationFormFor(element)));
     // Some employer shells render the language menu in the page content
     // rather than inside a header/nav landmark. An unowned button with an
     // exact language label is still site chrome; a button in an application
     // form remains candidate-owned through the form guard below.
-    const ownerlessLanguageButton = buttonLike && !element.form && !element.closest('form');
+    const ownerlessLanguageButton = buttonLike && !applicationFormFor(element);
     // Native language selectors are sometimes wrapped in a header form. That
     // form makes isApplicationOwnedControl true, although the select remains
     // site chrome rather than an application question. Required controls keep
     // the application-owned precedence even when placed in a header/footer.
     if ((!nativeLanguageSelect && !ownerlessLanguageButton)
-      || !SITE_LANGUAGE_LABEL_RE.test(label)
+      || (!SITE_LANGUAGE_LABEL_RE.test(label) && !machineLanguageControl)
       || hasRequiredControlSignal(element, label)) return false;
     return true;
   };
-  const isSiteChromeControl = (element) => isSiteLanguageControl(element)
+  const SITE_THEME_CONTROL_RE = /\b(?:dark|light|theme|contrast|tema|modalit[aà]|modus|mode\s+(?:sombre|clair|dunkel|hell))\b/iu;
+  const SITE_THEME_ICON_RE = /^(?:🌙|☾|☽|🌛|🌜|☀️?|🌞)$/u;
+  const isSiteThemeControl = (element) => {
+    const tag = element.tagName.toLowerCase();
+    const buttonLike = tag === 'button' || element.getAttribute('role') === 'button';
+    if (!buttonLike || applicationFormFor(element) || hasRequiredControlSignal(element)) return false;
+    const identity = [
+      element.id,
+      element.getAttribute('name'),
+      element.getAttribute('aria-label'),
+      element.getAttribute('title'),
+      element.getAttribute('data-automation-id'),
+      element.getAttribute('data-testid'),
+      element.getAttribute('class'),
+    ].filter(Boolean).join(' ');
+    const visibleName = clean(element.innerText || element.textContent || '');
+    return SITE_THEME_CONTROL_RE.test(identity) || SITE_THEME_ICON_RE.test(visibleName);
+  };
+  const isSiteMarketingField = (element) => {
+    if (!inSiteChrome(element) || hasRequiredControlSignal(element)) return false;
+    const form = applicationFormFor(element);
+    const surface = [
+      form?.id,
+      form?.className,
+      form?.getAttribute('aria-label'),
+      form?.innerText || form?.textContent,
+      element.getAttribute('name'),
+      element.id,
+      element.getAttribute('placeholder'),
+      labelFor(element),
+    ].filter(Boolean).join(' ');
+    return SITE_MARKETING_TEXT_RE.test(surface);
+  };
+  const isSiteChromeControl = (element) => isSiteLanguageControl(element) || isSiteThemeControl(element)
+    || isSiteMarketingField(element)
     || (inSiteChrome(element) && !isApplicationOwnedControl(element));
   const isSiteGlobalSearchField = (element) => {
     if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
@@ -1039,6 +1100,7 @@ function nativeQuestionText(value, counter = null) {
       accept: '',
       autocomplete: clean(picker.getAttribute('autocomplete') || ''),
       invalid: picker.getAttribute('aria-invalid') === 'true',
+      ...(isSiteChromeControl(picker) ? { chrome: true } : {}),
     });
   }
   // Which <form> a control is sent with (-1: none). A password in the form
@@ -1110,6 +1172,7 @@ function nativeQuestionText(value, counter = null) {
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',
+      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     };
     if (tag === 'select') {
       field.options = [...element.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, element));
