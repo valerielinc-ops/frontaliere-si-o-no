@@ -52,6 +52,26 @@ export function workdayJobRoute(value) {
   }
 }
 
+/** Parse the tenant-scoped login route Workday uses after opening a posting. */
+export function workdayLoginRoute(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password || url.hash
+      || !WORKDAY_HOST_RE.test(url.hostname)) return null;
+    const rawSegments = url.pathname.split('/');
+    if (rawSegments[0] !== '') return null;
+    let segments = rawSegments.slice(1);
+    if (segments.at(-1) === '') segments.pop();
+    if (segments.some((segment) => segment === '') || segments.at(-1)?.toLowerCase() !== 'login') return null;
+    segments = segments.slice(0, -1);
+    if (WORKDAY_LOCALE_SEGMENT_RE.test(segments[0] || '')) segments.shift();
+    if (!segments.length) return null;
+    return { origin: url.origin, site: segments };
+  } catch {
+    return null;
+  }
+}
+
 function normalizedLocation(parts) {
   const normalized = [];
   for (const part of parts) {
@@ -77,8 +97,17 @@ export function sameWorkdayJobRoute(first, second) {
     && firstLocation && secondLocation && sameParts(firstLocation, secondLocation));
 }
 
+function sameWorkdaySite(first, second) {
+  return Boolean(first && second && first.origin === second.origin
+    && first.site.length === second.site.length
+    && first.site.every((part, index) => part === second.site[index]));
+}
+
 /** Workday wizard pages must remain on the selected requisition's job route. */
 export function isWorkdayJobRouteBound(pageUrl, applyUrl) {
   if (!isWorkdayTenantUrl(applyUrl)) return true;
-  return sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(applyUrl));
+  const expected = workdayJobRoute(applyUrl);
+  if (!expected) return false;
+  return sameWorkdayJobRoute(workdayJobRoute(pageUrl), expected)
+    || sameWorkdaySite(workdayLoginRoute(pageUrl), expected);
 }
