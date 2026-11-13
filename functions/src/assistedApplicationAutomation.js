@@ -26,9 +26,18 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT } from './assistedApplicationConstants.js';
+import {
+  ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION,
+  ASSISTED_APPLICATION_ORDER_ID_RE,
+  ASSISTED_APPLICATION_RUNNER_EVENT_ARRAY_LIMIT,
+  CV_PORTRAIT_RECOVERY_BACKOFF_MS,
+  CV_PORTRAIT_RECOVERY_MAX_ATTEMPTS,
+  CV_PORTRAIT_RECOVERY_VERSION,
+} from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
+import { photoFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { postalPacketReadiness } from './assistedApplicationPostalPacket.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, candidateRequestTelemetryOf, employerWithdrawalPending, needsFactRepair, transition } from './assistedApplicationFlow.js';
 import {
@@ -120,6 +129,97 @@ export function draftRefFor(db, orderId) {
   return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
 }
 
+async function prepareHeldPhotoRecovery({ db, orderId, event, photoBucket, nowMs }) {
+  if (event.type !== 'tick' || event.postingExpired) return null;
+  let attemptContext = null;
+  try {
+    const flowSnapshot = await flowRefFor(db, orderId).get();
+    const flow = flowSnapshot.data() || {};
+    if (!['candidate_review', 'needs_candidate_action'].includes(flow.state)
+      || flow.postingExpiredAt || !(flow.heldBy || []).some(hold => String(hold).startsWith('document:'))) return null;
+    const [orderSnapshot, draftSnapshot] = await Promise.all([
+      orderRefFor(db, orderId).get(),
+      draftRefFor(db, orderId).get(),
+    ]);
+    if (!orderSnapshot.exists || !draftSnapshot.exists) return null;
+    const draft = draftSnapshot.data() || {};
+    const heldPhoto = requiredDocumentsFor(draft, flow).find(document => document.kind === 'photo'
+      && document.required && (flow.heldBy || []).includes(`document:${document.id}`));
+    if (!heldPhoto) return null;
+    const sourceCvKey = String(orderSnapshot.data()?.cvStorageKey || '');
+    const previous = flow.photoRecovery;
+    const sameRecovery = previous?.version === CV_PORTRAIT_RECOVERY_VERSION
+      && previous.documentId === heldPhoto.id && previous.sourceCvKey === sourceCvKey;
+    const previousAttempts = sameRecovery && Number.isSafeInteger(Number(previous.attempts)) && Number(previous.attempts) > 0
+      ? Number(previous.attempts) : 0;
+    if (sameRecovery && (previous.result !== 'retryable_error'
+      || previousAttempts >= CV_PORTRAIT_RECOVERY_MAX_ATTEMPTS
+      || (Number(previous.retryAt) || 0) > nowMs)) return null;
+    if (previousAttempts >= CV_PORTRAIT_RECOVERY_MAX_ATTEMPTS) return null;
+    attemptContext = {
+      version: CV_PORTRAIT_RECOVERY_VERSION,
+      documentId: heldPhoto.id,
+      sourceCvKey,
+      previousAttempts,
+      attempt: previousAttempts + 1,
+      expectedRound: Number(flow.round) || 1,
+      expectedState: flow.state,
+    };
+    const { recoverCvPortraitForWait } = await import('./assistedApplicationPhoto.js');
+
+    let bucket = photoBucket;
+    if (!bucket) {
+      const [{ getStorage }, { ASSISTED_APPLICATION_STORAGE_BUCKET }] = await Promise.all([
+        import('firebase-admin/storage'),
+        import('./assistedApplicationCvCheck.js'),
+      ]);
+      bucket = getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+    }
+    const recovered = await recoverCvPortraitForWait({
+      bucket,
+      orderId,
+      order: orderSnapshot.data() || {},
+      draft,
+      flow,
+      nowMs,
+    });
+    const marker = recovered?.marker || {
+      version: CV_PORTRAIT_RECOVERY_VERSION,
+      documentId: heldPhoto.id,
+      sourceCvKey,
+      result: 'no_portrait',
+      attemptedAt: nowMs,
+    };
+    return {
+      ...(recovered || {}),
+      documentId: heldPhoto.id,
+      file: recovered?.file || null,
+      marker: { ...marker, attempts: attemptContext.attempt, retryAt: null },
+      ...attemptContext,
+    };
+  } catch {
+    // A portrait is a best-effort document source; an unreadable or unavailable
+    // CV keeps the candidate hold and never blocks the rest of the queue tick.
+    if (!attemptContext) return null;
+    const canRetry = attemptContext.attempt < CV_PORTRAIT_RECOVERY_MAX_ATTEMPTS;
+    const backoffMs = CV_PORTRAIT_RECOVERY_BACKOFF_MS[attemptContext.attempt - 1]
+      || CV_PORTRAIT_RECOVERY_BACKOFF_MS.at(-1);
+    return {
+      ...attemptContext,
+      file: null,
+      marker: {
+        version: attemptContext.version,
+        documentId: attemptContext.documentId,
+        sourceCvKey: attemptContext.sourceCvKey,
+        result: canRetry ? 'retryable_error' : 'unavailable',
+        attempts: attemptContext.attempt,
+        attemptedAt: nowMs,
+        retryAt: canRetry ? nowMs + backoffMs : null,
+      },
+    };
+  }
+}
+
 function candidateQuestionAnswersRefFor(db, userId) {
   const id = String(userId || '').trim();
   return id ? db.collection('user_cv_profiles').doc(id) : null;
@@ -205,7 +305,10 @@ export function computeDueAt(flow) {
     const requestedAt = Number(flow.dispatch?.requestedAt) || 0;
     return requestedAt ? requestedAt + RUN_WATCHDOG_MS : null;
   }
-  const candidates = [flow.deadlineAt, flow.reminderAt].map(Number).filter((value) => Number.isFinite(value) && value > 0);
+  const photoRetryAt = ['candidate_review', 'needs_candidate_action'].includes(flow.state)
+    && flow.photoRecovery?.result === 'retryable_error' ? Number(flow.photoRecovery.retryAt) : 0;
+  const candidates = [flow.deadlineAt, flow.reminderAt, photoRetryAt]
+    .map(Number).filter((value) => Number.isFinite(value) && value > 0);
   return candidates.length ? Math.min(...candidates) : null;
 }
 
@@ -359,10 +462,11 @@ export async function dispatchAgentWorkflow({ orderId, mode, round, fetchImpl = 
  *   `appliedAt` in the SAME transaction as the transition, so an error in between can never leave
  *   an event marked applied with the flow unchanged (a redelivery then applies it)
  */
-export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, transitionFlowPatch = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null }) {
+export async function applyAutomationEvent({ db, orderId, event, actor = 'system', runEffect, nowMs = Date.now(), expectedRound = null, transitionFlowPatch = null, patchFlow = null, writeSubmissionReceipt = null, claimRef = null, photoBucket = null }) {
   const orderRef = orderRefFor(db, orderId);
   const flowRef = flowRefFor(db, orderId);
   const draftRef = draftRefFor(db, orderId);
+  const preparedPhotoRecovery = await prepareHeldPhotoRecovery({ db, orderId, event, photoBucket, nowMs });
   // An event that may close the application for the employer's withdrawal reads the send record in the same
   // transaction: an application that may have reached the employer is never withdrawn.
   const closureEvent = event.type === 'posting_closed' || event.type === 'posting_closure_recorded'
@@ -401,6 +505,42 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const flow = transitionFlowPatch
       ? { ...storedFlow, ...(transitionFlowPatch({ order, flow: storedFlow, draft, orderId }) || {}) }
       : storedFlow;
+    const photoRecoveryDocument = preparedPhotoRecovery?.documentId
+      ? requiredDocumentsFor(draft, flow).find(document => document.id === preparedPhotoRecovery.documentId
+        && document.required && document.kind === 'photo')
+      : null;
+    const candidatePhotoFiles = photoRecoveryDocument ? photoFilesOf(flow, orderId, photoRecoveryDocument) : [];
+    const photoRecoveryIsCurrent = Boolean(preparedPhotoRecovery?.marker
+      && event.type === 'tick'
+      && flow.state === preparedPhotoRecovery.expectedState
+      && (Number(flow.round) || 1) === preparedPhotoRecovery.expectedRound
+      && (flow.heldBy || []).includes(`document:${preparedPhotoRecovery.documentId}`)
+      && String(order.cvStorageKey || '') === preparedPhotoRecovery.sourceCvKey
+      && photoRecoveryDocument
+      && (flow.photoRecovery?.version === preparedPhotoRecovery.marker.version
+        && flow.photoRecovery?.documentId === preparedPhotoRecovery.documentId
+        && flow.photoRecovery?.sourceCvKey === preparedPhotoRecovery.marker.sourceCvKey
+        ? (Number(flow.photoRecovery.attempts) || 0) === preparedPhotoRecovery.previousAttempts
+        : preparedPhotoRecovery.previousAttempts === 0));
+    const transitionDocuments = { ...(flow.documents || {}) };
+    if (photoRecoveryIsCurrent && preparedPhotoRecovery.file && !candidatePhotoFiles.length) {
+      const currentFiles = Array.isArray(transitionDocuments[preparedPhotoRecovery.documentId]?.files)
+        ? transitionDocuments[preparedPhotoRecovery.documentId].files : [];
+      if (!currentFiles.some(file => file?.key === preparedPhotoRecovery.file.key)) {
+        transitionDocuments[preparedPhotoRecovery.documentId] = {
+          ...(transitionDocuments[preparedPhotoRecovery.documentId] || {}),
+          files: [...currentFiles, preparedPhotoRecovery.file],
+        };
+      }
+    }
+    const photoRecoveryFields = photoRecoveryIsCurrent
+      ? {
+        documents: transitionDocuments,
+        photoRecovery: candidatePhotoFiles.length
+          ? { ...preparedPhotoRecovery.marker, result: 'candidate_photo', retryAt: null }
+          : preparedPhotoRecovery.marker,
+      }
+      : {};
     const postalPacketReady = flow.postalSubmission?.enabled === true
       ? postalPacketReadiness({ order, orderId, flow, draft }).ready
       : true;
@@ -419,6 +559,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     const transitionAnswers = { ...candidateAnswerContext.answers };
     const flowForTransition = {
       ...flow,
+      ...photoRecoveryFields,
+      documents: transitionDocuments,
       answers: transitionAnswers,
       questionAnswers: candidateAnswerContext.questionAnswers,
       questionAnswerSnapshots: candidateAnswerContext.orderAnswerSnapshots,
@@ -435,7 +577,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       return;
     }
     const result = transition(flowForTransition, event, {
-      order, draft, answers: transitionAnswers, documents: flow.documents || {}, postalPacketReady, nowMs,
+      order, draft, answers: transitionAnswers, documents: transitionDocuments, postalPacketReady, nowMs,
       sendMayHaveLeft: closureEvent ? sendMayHaveLeft({ draft, submission: submissionSnapshot?.data() || {} }) : false,
     });
     // Recovery can be scheduled before a refund or a manual closure. The
@@ -453,12 +595,17 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
+      if (Object.keys(photoRecoveryFields).length) {
+        transaction.set(flowRef, photoRecoveryFields, { merge: true });
+        transaction.set(orderRef, mirrorFields({ ...flow, ...photoRecoveryFields }), { merge: true });
+      }
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
       return;
     }
     const nextFlow = {
       ...flow,
       ...result.flow,
+      ...photoRecoveryFields,
       ...(patchFlow ? patchFlow(flow) : {}),
       updatedAt: nowMs,
     };
