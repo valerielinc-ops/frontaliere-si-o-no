@@ -274,6 +274,15 @@ function answerForCurrentQuestion(value, question, nowMs = Date.now()) {
   return Array.isArray(currentValue) ? validatedValues : validatedValues[0];
 }
 
+function isLegacyPermitAnswer(question, value) {
+  if (typeof value !== 'string' || value.length > CANDIDATE_ANSWER_HISTORY_VALUE_LIMIT) return false;
+  const wording = [question?.applicationQuestion, question?.portalQuestion, question?.question, question?.label]
+    .filter(Boolean).join(' ');
+  const words = normalizeQuestionValue(value).split(' ').filter(Boolean);
+  return words.length >= 3 && isPermitField(wording) && asksHeldStatus(wording)
+    && !DRIVING_LICENCE_QUESTION_RE.test(wording) && !permitStatusOf(value);
+}
+
 function candidateAnswerHistoryIdentity(question) {
   const identityQuestion = questionForAnswerIdentity(question);
   const rawText = String(identityQuestion?.question || '').trim();
@@ -497,11 +506,14 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id || !hasQuestionAnswer(result[question.id])) continue;
     const saved = candidateAnswerHistoryRecordForQuestionId(question, history);
-    // A same-id value without candidate-history provenance is already attached
-    // to this field. Keep it literal for candidate review and existing
-    // projections; only a recorded candidate answer can be invalidated as a
-    // stale answer after the field's contract changes.
-    if (saved === undefined) continue;
+    if (saved === undefined) {
+      const current = answerForCurrentQuestion(result[question.id], question, nowMs);
+      if (current !== undefined) result[question.id] = current;
+      else if (question?.requiresAffirmativeConsent === true
+        && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
+      else if (!isLegacyPermitAnswer(question, result[question.id])) delete result[question.id];
+      continue;
+    }
     if (saved === null || (saved && (saved.status !== 'answered'
       || !compatibleAnswerQuestionTypes(saved.questionType, question.type)
       || !compatibleAnswerQuestionIdentity(saved, question)))) {
@@ -511,8 +523,8 @@ export function candidateAnswersForQuestions(questions, answers = {}, memory = {
     const current = answerForCurrentQuestion(result[question.id], question, nowMs);
     if (current === undefined && question?.requiresAffirmativeConsent === true
       && hasQuestionAnswer(result[question.id]) && !requiredPortalConsentAffirmed(question, result[question.id])) continue;
-    if (current === undefined) delete result[question.id];
-    else result[question.id] = current;
+    if (current !== undefined) result[question.id] = current;
+    else if (!isLegacyPermitAnswer(question, result[question.id])) delete result[question.id];
   }
   const currentValues = new Map();
   const conflicts = new Set();
