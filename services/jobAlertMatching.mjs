@@ -506,6 +506,9 @@ function preferenceCities(preferences) {
  *   sibling subcollection, not the flat subscriber doc).
  * @property {string[]} [behaviorTokens]   Free-text intent from browsing —
  *   `searches[].query` + `viewedJobs[].category`. Folded into SOFT tokens.
+ * @property {string[]} [cvSkills] Skill and language terms from the owner's
+ *   private CV profile, included only after the owner enables CV-based job-alert
+ *   ranking. They are ranking signals and never become hard filters.
  * @property {string[]} [sourceJobLocations] Location + canton of the job the
  *   user one-tap-subscribed from. A one-tap alert carries no explicit
  *   location/canton, so a "nurse in Ticino" subscription used to match nurse
@@ -610,6 +613,9 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // Browsing-derived intent (searches + viewed-job categories) from the
   // personalization subdoc.
   for (const t of ex.behaviorTokens || []) addTokens(t);
+  for (const skill of (Array.isArray(ex.cvSkills) ? ex.cvSkills : []).slice(0, 40)) {
+    if (typeof skill === 'string') addTokens(skill);
+  }
   const softSearchQueries = uniq([sub.job_search_query, ...(ex.behaviorTokens || [])]
     .filter((query) => typeof query === 'string' && query.trim())
     .map((query) => query.trim()))
