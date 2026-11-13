@@ -1,69 +1,20 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-11-12T21:45:01.725Z",
+  "generatedAt": "2026-11-13T09:48:17.487Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 48968,
-  "avgDurationMs": 48968,
+  "durationMs": 33116,
+  "avgDurationMs": 33116,
   "durationHistory": [
-    48968
+    33116
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Mendrisio/Temporary-Seasonal-Sales-Associate---FoxTown_R_787732",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Mendrisio/Temporary-Seasonal-Sales-Associate---FoxTown_R_787732",
-      "title": "Temporary Seasonal Sales Associate - FoxTown",
-      "company": "Michael Kors",
-      "companyKey": "capri-holdings",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Luigi Benteler 1",
-      "slug": "vendite-stagionali-temporanee-associate-foxtown-michael-kors-mendrisio",
-      "category": "retail",
-      "datePosted": "2026-11-08",
-      "postedDate": "2026-11-08",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-11-10T21:30:17.947Z",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "capri-holdings-773e0b5caf77",
-      "firstSeenAt": "2026-11-08T21:37:02.856Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-06T21:30:17.947Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-temp_R_787525",
@@ -84,7 +35,7 @@
       "datePosted": "2026-10-31",
       "postedDate": "2026-10-31",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-12T21:44:48.200Z",
+      "crawledAt": "2026-11-13T09:47:59.132Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -102,7 +53,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:44:48.200Z",
+      "validThrough": "2027-01-29T09:47:59.132Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -131,7 +82,7 @@
       "datePosted": "2026-10-30",
       "postedDate": "2026-10-30",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-12T21:44:48.200Z",
+      "crawledAt": "2026-11-13T09:47:59.132Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -149,7 +100,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:44:48.200Z",
+      "validThrough": "2027-01-28T09:47:59.132Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -178,7 +129,7 @@
       "datePosted": "2026-09-11",
       "postedDate": "2026-09-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-12T21:44:48.200Z",
+      "crawledAt": "2026-11-13T09:47:59.132Z",
       "source": "capri-holdings-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -196,7 +147,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:44:48.200Z",
+      "validThrough": "2026-12-13T09:47:59.132Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -207,5 +158,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }

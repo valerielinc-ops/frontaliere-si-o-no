@@ -1,14 +1,70 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-12T12:48:51.958Z",
+  "lastRunAt": "2026-11-13T12:18:45.545Z",
   "findings": {
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch:8443/enterprise/control/agent.php": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-neuchatel/azienda-c-a-schweiz/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch:8443/enterprise/control/agent.php",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-neuchatel/azienda-c-a-schweiz/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-12T12:48:51.958Z",
-      "lastSeenAt": "2026-11-12T12:48:51.958Z",
-      "detail": "edge=503 count=1 live=503 surface=other"
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-basel/medizin-und-medizin-roche-basel/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-basel/medizin-und-medizin-roche-basel/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-berna/amministratore-delegato-coop-matten-coop-genossenschaft-matten-bei-interlaken/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/amministratore-delegato-coop-matten-coop-genossenschaft-matten-bei-interlaken/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-basilea/vice-r-direttore-della-stazione-in-centro-di-assistenza-spital-limmattal-schlieren/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-basilea/vice-r-direttore-della-stazione-in-centro-di-assistenza-spital-limmattal-schlieren/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-uri/commandeurs-coop-genossenschaft-bern-c1bdf2/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-uri/commandeurs-coop-genossenschaft-bern-c1bdf2/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-valais/entreprise-swag-swiss-work-ag/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-valais/entreprise-swag-swiss-work-ag/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-obvaldo/polymechanic-produzione-cnc-con-competenze-cam-sta-personal-ag-wil-sg-st-gallen/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-obvaldo/polymechanic-produzione-cnc-con-competenze-cam-sta-personal-ag-wil-sg-st-gallen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
+      "code": "cloudflare-5xx-unverified",
+      "url": "source:cloudflare-5xx-unverified",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-13T12:18:45.545Z",
+      "lastSeenAt": "2026-11-13T12:18:45.545Z",
+      "detail": "count=3293 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,

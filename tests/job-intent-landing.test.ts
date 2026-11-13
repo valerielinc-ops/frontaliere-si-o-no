@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildJobIntentLandingModel,
+  countJobIntentLandingMatches,
   getJobIntentLandingSlug,
   JOB_INTENT_KEYS,
   resolveJobIntentKeyBySlug,
@@ -71,6 +72,7 @@ describe('job intent landings', () => {
       localePrefix: '',
     });
     expect(german.totalJobs).toBe(5);
+    expect(countJobIntentLandingMatches(jobs, 'german-speaking')).toBe(german.totalJobs);
     expect(german.feed.jobs.map((item) => item.href)).toEqual(
       expect.arrayContaining([
         'https://frontaliereticino.ch/cerca-lavoro-ticino/de-1/',
@@ -91,6 +93,7 @@ describe('job intent landings', () => {
       localePrefix: '',
     });
     expect(entry.totalJobs).toBe(5);
+    expect(countJobIntentLandingMatches(jobs, 'without-experience')).toBe(entry.totalJobs);
     expect(entry.relatedLinks).toEqual([
       expect.objectContaining({ count: 5 }),
     ]);

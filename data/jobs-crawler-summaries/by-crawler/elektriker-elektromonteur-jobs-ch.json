@@ -1,7 +1,7 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-12T21:43:36.904Z",
+  "generatedAt": "2026-11-13T09:54:04.242Z",
   "total": 2,
   "discovered": 3,
   "parsed": 3,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7506,
-  "avgDurationMs": 7506,
+  "durationMs": 7310,
+  "avgDurationMs": 7310,
   "durationHistory": [
-    7506
+    7310
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "elektriker-elektromonteur-jobs-ch-05600696c811",
-      "slug": "risorse-umane-assistent-in-50-60-befristet-per-4-monate-grosse-bauwerke-entstehen-im-detail-gutes-risorse-umane-auch-elektriker-elektromonteur-jobs-binningen",
+      "slug": "assistente-hr-50-60-a-tempo-determinato-per-4-mesi-le-grandi-opere-nascono-nei-dettagli-anche-un-buon-hr-elektriker",
       "company": "elektriker-elektromonteur-jobs",
       "companyKey": "elektriker-elektromonteur-jobs-ch",
       "companyDomain": "pks-personal.ch",
@@ -37,7 +38,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:20.234Z",
+      "crawledAt": "2026-11-13T09:53:45.676Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -56,23 +57,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T21:43:20.234Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:20.234Z",
+      "validThrough": "2027-02-11T09:53:45.676Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:43:20.234Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -87,7 +87,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:20.237Z",
+      "crawledAt": "2026-11-13T09:53:45.678Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:20.237Z",
+      "validThrough": "2027-02-03T09:53:45.678Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -121,5 +121,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
 }

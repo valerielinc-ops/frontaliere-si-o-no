@@ -6,9 +6,13 @@ import YAML from 'yaml';
 import {
   isReviewTestPath,
   isTestOnlySnapshot,
+  isNonRuntimeCodePath,
+  isNonRuntimeCodeSnapshot,
   postTestOnlyReview,
+  postNonRuntimeCodeReview,
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
+  NON_RUNTIME_CODE_REVIEW_MARKER,
   LOOP_FLEET_LEDGER_FILES,
   LOOP_FLEET_LEDGER_BRANCH_RE,
   LOOP_FLEET_LEDGER_REVIEW_MARKER,
@@ -28,7 +32,23 @@ import {
 const head = 'a'.repeat(40);
 const reviewRevision = `body:${'c'.repeat(64)}`;
 const reviewRevisionMarker = `<!-- REVIEW_INPUT_REVISION: ${reviewRevision} -->`;
-function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = false, previous = '', reviews = [] as any[], postAuthorType = 'Bot', postAuthorLogin = 'frontaliere-automation[bot]' } = {}) {
+function fixture({
+  files = ['tests/a.test.ts'],
+  complete = true,
+  changedHead = false,
+  previous = '',
+  reviews = [] as any[],
+  postAuthorType = 'Bot',
+  postAuthorLogin = 'frontaliere-automation[bot]',
+  state = 'open',
+  draft = false,
+  title = 'test-only change',
+  body = '## Implementato\n- test change\n\n## Non implementato (ancora)\n- Nessuno\n',
+  baseRef = 'main',
+  baseSha = 'b'.repeat(40),
+  headRepoFullName = 'owner/repo',
+  labels = [] as any[],
+} = {}) {
   const posts: any[] = [];
   let reads = 0;
   const ghFn = (args: string[], options: any = {}) => {
@@ -39,7 +59,18 @@ function fixture({ files = ['tests/a.test.ts'], complete = true, changedHead = f
     if (args[0] === 'pr') return { changedFiles: complete ? files.length : files.length + 1, files };
     if (args[1].endsWith('/files')) return args.includes('--slurp') ? [files.map(filename => ({ filename, previous_filename: previous }))] : files.join('\n');
     if (args[1].endsWith('/reviews')) return reviews;
-    return { state: 'open', head: { sha: ++reads > 1 && changedHead ? 'b'.repeat(40) : head } };
+    return {
+      state,
+      draft,
+      title,
+      body,
+      head: {
+        sha: ++reads > 1 && changedHead ? 'b'.repeat(40) : head,
+        repo: { full_name: headRepoFullName },
+      },
+      base: { ref: baseRef, sha: baseSha },
+      labels,
+    };
   };
   return { ghFn, posts };
 }
@@ -226,6 +257,59 @@ describe('owner policy excluding test files from review', () => {
   it('requires a nonempty complete exclusively-test snapshot', () => {
     expect(isTestOnlySnapshot({ complete: true, files: ['tests/a.ts'] })).toBe(true);
     for (const value of [{ complete: false, files: ['tests/a.ts'] }, { complete: true, files: [] }, { complete: true, files: ['tests/a.ts', 'src/a.ts'] }]) expect(isTestOnlySnapshot(value)).toBe(false);
+  });
+  it('classifies only the explicit non-runtime-code allowlist', () => {
+    for (const path of [
+      '.github/corpus-workflows/contract.json',
+      'firestore.indexes.json',
+      'tests/firestore-indexes-field-overrides.test.ts',
+      'data/jobs-crawler-summaries/latest.json',
+      'public/images/logo.svg',
+      'docs/review.md',
+      'reports/ci-summary.json',
+      '_newsletter_variants/home.html',
+    ]) expect(isNonRuntimeCodePath(path), path).toBe(true);
+    for (const path of [
+      'src/production.ts',
+      'package.json',
+      'package-lock.json',
+      '.github/workflows/tests.yml',
+      '.github/corpus-workflows/crawler-group-01.yml',
+      'firestore.rules',
+      '../tests/a.test.ts',
+      'tests/../src/production.ts',
+    ]) expect(isNonRuntimeCodePath(path), path).toBe(false);
+  });
+  it('requires a complete, nonempty and unique non-runtime-code snapshot', () => {
+    expect(isNonRuntimeCodeSnapshot({
+      complete: true,
+      files: ['firestore.indexes.json', 'tests/firestore-indexes-field-overrides.test.ts'],
+    })).toBe(true);
+    for (const value of [
+      { complete: false, files: ['firestore.indexes.json'] },
+      { complete: true, files: [] },
+      { complete: true, files: ['firestore.indexes.json', 'src/production.ts'] },
+      { complete: true, files: ['firestore.indexes.json', 'firestore.indexes.json'] },
+    ]) expect(isNonRuntimeCodeSnapshot(value)).toBe(false);
+  });
+  it('posts the generic automatic LGTM for an allowlisted mixed non-runtime-code PR', () => {
+    const f = fixture({ files: ['firestore.indexes.json', 'tests/firestore-indexes-field-overrides.test.ts'] });
+    postNonRuntimeCodeReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn });
+    expect(f.posts).toHaveLength(1);
+    expect(f.posts[0]).toMatchObject({ commit_id: head, event: 'COMMENT' });
+    expect(f.posts[0].body).toContain(NON_RUNTIME_CODE_REVIEW_MARKER);
+    expect(f.posts[0].body).toContain('non runtime-code allowlistati');
+    expect(f.posts[0].body).toContain('## LGTM');
+  });
+  it.each([
+    { labels: ['needs-human'], label: 'needs-human' },
+    { draft: true, label: 'draft' },
+    { baseRef: 'develop', label: 'base non-main' },
+    { headRepoFullName: 'fork/repo', label: 'fork' },
+  ])('does not publish the generic review for a $label PR', ({ label: _label, ...options }) => {
+    const f = fixture(options);
+    expect(() => postNonRuntimeCodeReview({ repo: 'owner/repo', pr: 1, head, reviewRevision, ghFn: f.ghFn })).toThrow();
+    expect(f.posts).toEqual([]);
   });
   it('posts one structured LGTM on the pinned tests-only head', () => {
     const f = fixture();
@@ -575,7 +659,7 @@ describe('owner policy excluding test files from review', () => {
     expect(review.run).toContain('Token App assente');
     expect(review.run).toContain('exit 1');
   });
-  it('mantiene un solo tests.yml/check e porta il ledger-only prima del checkout', () => {
+  it('mantiene un solo tests.yml/check e porta i fast path non-runtime prima del checkout', () => {
     const workflow = YAML.parse(readFileSync('.github/workflows/tests.yml', 'utf8')) as any;
     const pullRequest = workflow.on?.pull_request ?? workflow.true?.pull_request;
     const source = readFileSync('.github/workflows/tests.yml', 'utf8');
@@ -593,6 +677,9 @@ describe('owner policy excluding test files from review', () => {
     expect(source).not.toContain("set_tier ledger-only bounded 0");
     expect(source).toContain('Bootstrap trusted bounded-ledger policy (no checkout)');
     expect(source).toContain('download_main package.json');
+    expect(source).toContain('download_main scripts/ci/mint-app-token.mjs');
+    expect(source).toContain('download_main scripts/lib/githubApiHeaders.mjs');
+    expect(source).toContain('download_main functions/src/githubApiHeaders.js');
     expect(source).toContain('download_main scripts/ci/lib/review-input-revision.mjs');
     expect(source).toContain('download_main scripts/ci/lib/constants.mjs');
     expect(source).toContain('download_main scripts/ci/lib/pr-review-admission.mjs');
@@ -609,6 +696,10 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('scripts/lib/loop-fleet-contract.mjs');
     expect(source).toContain('data/loop-fleet/loop-registry.json');
     expect(source).toContain('LOOP_FLEET_REGISTRY_PATH=');
+    expect(source).toContain('non-code-check');
+    expect(source).toContain("grep -Fq 'non-code-check'");
+    expect(source).toContain('non-code-post');
+    expect(source).toContain('ledger_status=non-runtime-code');
     const ledgerScope = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_scope');
     const ledgerPolicy = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_policy');
     const checkoutIndex = workflow.jobs.vitest.steps.findIndex((step: any) => step.uses === 'actions/checkout@v7');
@@ -639,7 +730,11 @@ describe('owner policy excluding test files from review', () => {
     expect(source).toContain('group: tests-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ github.event.pull_request.head.sha || github.sha }}');
     expect(source).toContain('cancel-in-progress: false');
     expect(source).toContain('trusted loop-fleet bridge');
-    expect(source).toContain('Classify bounded loop-fleet ledger path');
+    expect(source).toContain('Classify bounded ledger or non-runtime-code path');
+    expect(source).toContain('Mint GitHub App token for non-runtime-code review');
+    const nonCodeReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'non_code_review');
+    expect(nonCodeReview.if).toContain("steps.ledger_scope.outputs.ledger_status == 'non-runtime-code'");
+    expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'non_code_review')).toBeLessThan(checkoutIndex);
     const ledgerReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_review');
     expect(ledgerReview['continue-on-error']).toBeUndefined();
     expect(ledgerReview.run).toContain('APP_TOKEN');

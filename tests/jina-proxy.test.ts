@@ -152,6 +152,33 @@ describe('fetchViaJinaWithRetry', () => {
     expect(calls).toBe(1);
     expect(res.ok).toBe(true);
   });
+
+  it('forwards a JSON response preference and retries with a structured body validator', async () => {
+    let calls = 0;
+    const fetchImpl = vi.fn(async () => {
+      calls += 1;
+      const body = calls === 1
+        ? 'not an AEM response'
+        : JSON.stringify({ data: { content: '[]' } });
+      return new Response(body, { status: 200 });
+    });
+
+    const res = await fetchViaJinaWithRetry('https://company.sbb.ch/jobs.json', {
+      attempts: 2,
+      retryDelayMs: 0,
+      format: 'text',
+      accept: 'application/json',
+      fetchImpl,
+      validateBody: (body) => body.includes('"content":"[]"') ? null : 'not an AEM envelope',
+    });
+
+    expect(calls).toBe(2);
+    expect(await res.text()).toContain('"content":"[]"');
+    expect(fetchImpl.mock.calls[0]?.[1]?.headers).toMatchObject({
+      Accept: 'application/json',
+      'X-Return-Format': 'text',
+    });
+  });
 });
 
 describe('looksLikeAntiBotChallenge', () => {

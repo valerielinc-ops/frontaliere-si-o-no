@@ -69,6 +69,8 @@ export const CORPUS_OBSERVER_FILES = [
 
 const CANONICAL_TRANSPORT_MANIFEST_KEYS = 'baseline,mode,path,sitePath';
 const IDENTICAL_CONTRACT_WITH_REASON_KEYS = 'baseline,mode,path,reason,sitePath';
+const IDENTICAL_CONTRACT_WITH_REMOTE_DIGEST_KEYS =
+  'baseline,mode,path,reason,remoteDigestRequired,sitePath';
 const HISTORICAL_ADAPTATION_METADATA_KEYS =
   'adaptationIssue,baseline,mode,path,reason,sitePath';
 const ADAPTATION_ISSUE_ONLY_KEYS = 'adaptationIssue,baseline,mode,path,sitePath';
@@ -101,6 +103,14 @@ function hasValidTransportManifestKeys(entry) {
       && entry.mode === 'identical'
       && keys === IDENTICAL_CONTRACT_WITH_REASON_KEYS
       && typeof entry.reason === 'string') return true;
+  // The corpus can additionally require a remote digest check for this
+  // contract mapping. Preserve that corpus-side guard while keeping the
+  // compatibility scoped to the contract and to the exact boolean metadata.
+  if (entry.sitePath === '.github/corpus-workflows/contract.json'
+      && entry.mode === 'identical'
+      && keys === IDENTICAL_CONTRACT_WITH_REMOTE_DIGEST_KEYS
+      && typeof entry.reason === 'string'
+      && entry.remoteDigestRequired === true) return true;
   // The corpus records the issue that justified a temporary adaptation. The
   // two convergent crawler entries may retain that history when already
   // `identical`; keep the exception scoped to the corpus repository and the

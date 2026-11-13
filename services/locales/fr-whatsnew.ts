@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const frWhatsnew: Record<string, string> = {
+  'whatsNew.v31021.title': 'Réutiliser les compétences de votre CV',
+  'whatsNew.v31021.cv-affinity.title': 'Téléverser un CV et comparer ses compétences',
+  'whatsNew.v31021.cv-affinity.desc': 'Votre CV reste dans votre profil privé. Vous pouvez vérifier et modifier les compétences extraites, les réutiliser pour d’autres offres et autoriser leur utilisation pour mieux classer les JobAlerts.',
   'whatsNew.v31020.title': 'Voir les questions ATS avant de postuler',
   'whatsNew.v31020.sinteticaAts.title': 'Champs vérifiés du formulaire de Sintetica',
   'whatsNew.v31020.sinteticaAts.desc': 'Les offres Sintetica affichent les champs visibles sur la première étape publique du formulaire, indiquent lesquels sont obligatoires et leur date de vérification. Ouvrez le formulaire original pour contrôler ; les étapes suivantes peuvent demander d’autres informations.',
