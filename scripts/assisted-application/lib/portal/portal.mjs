@@ -4575,6 +4575,13 @@ function formRoleHeadingStatus(formText, job = {}) {
 const UMANTIS_APPLICATION_HEADING_SEGMENT_RE = /^(?:application|bewerbung(?:sformular)?|candidatura|candidature|postulation)(?:\s+tracking\s+system)?$/i;
 const UMANTIS_OTHER_EMPLOYER_WORD_RE = /\b(?:other|another|andere(?:r|s|n)?|fremd(?:e|er|es)|altro|altra|altri|altre|autre|autres)\b/i;
 const UMANTIS_APPLICATION_CHROME_RE = /^(?:e-?recruiting|recruiting|application tracking system)$/i;
+const UMANTIS_APPLICATION_ATS_TITLE_RE = /^e-?recruiting\s+(.+)$/i;
+
+function isUmantisApplicationChrome(segment, job = {}) {
+  if (UMANTIS_APPLICATION_CHROME_RE.test(segment)) return true;
+  const atsTitle = UMANTIS_APPLICATION_ATS_TITLE_RE.exec(segment);
+  return Boolean(atsTitle && nameWords(job.company).length && !namesAnotherEmployer(atsTitle[1], job));
+}
 
 function umantisApplicationHeadingConflict(heading, job = {}) {
   const text = String(heading || '').replace(/\s+/g, ' ').trim();
@@ -4589,7 +4596,7 @@ function umantisApplicationHeadingConflict(heading, job = {}) {
   // («Application | Esempio Resort»). Ignore only Umantis' own title chrome;
   // an unrecognised phrase remains fail-closed.
   return segments.slice(applicationIndex + 1)
-    .filter((segment) => !UMANTIS_APPLICATION_CHROME_RE.test(segment))
+    .filter((segment) => !isUmantisApplicationChrome(segment, job))
     .some((segment) => namesAnotherEmployer(segment, job));
 }
 
