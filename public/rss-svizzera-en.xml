@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Nov 2026 22:40:24 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 01:58:45 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Swiss tax structure: levels, authorities and social contributions</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/swiss-tax-three-levels/</link>
+      <description><![CDATA[Swiss taxation operates at three levels. The AFC/ESTV administers direct federal tax and VAT.]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- Swiss taxation operates at three levels.
+- The AFC/ESTV administers direct federal tax and VAT.
+- Cantons and municipalities have their own tax rules.
+- AVS/AI/IPG: 5.3% paid by the employee.
+
+## Key facts
+- Tax levels → federal, cantonal and municipal
+- Federal authority → FTA/ESTV
+- Cantonal and municipal taxes → Cantonal authorities
+- AVS/AI/IPG → 5.3% employee; 10.6% total
+
+Switzerland operates a three-tier tax structure: direct federal tax, cantonal taxes and municipal taxes. This is the first point to establish when dealing with income earned abroad and the risk of double taxation. A foreign item cannot be correctly interpreted without knowing to which level the Swiss tax refers and which authority has jurisdiction.
+
+At the federal level, the FTA/ESTV is the designated authority for direct federal tax and VAT. The cantonal authorities, on the other hand, administer cantonal and municipal taxation. Each canton has its own law and its own multiplier; for municipalities, the multiplier applies to the cantonal tax. To interpret the case, the key piece of information to be distinguished is therefore the competent authority, as opposed to simply the place where the payment is received.
+
+The available material does not identify the type of foreign income, the period, the country or the procedure to be applied: it therefore does not allow us to state how any elimination of double taxation is calculated on a case-by-case basis.
+
+### The verifiable scope
+
+In the available material, the reference to audits is not accompanied by an authority that has announced an audit, a date, a procedure or a penalty. It is not correct to attribute an operation to the FTA/ESTV, the cantons or the Federal Council without these elements. The verifiable part is the map of responsibilities, which is useful to avoid directing a federal matter to the wrong office or confusing a municipal tax with a social security contribution.
+
+Even acronyms have a clearly defined scope. The UFAS/BSV deals with social security, including AVS/AHV, AI/IV and LPP/BVG, but does not set taxes. The FSO/BFS produces statistics and does not set rates. AVS/AHV, AI and IPG are therefore treated as social security contributions when analysing a salary; VAT, on the other hand, remains a federal competence of the AFC/ESTV. This separation helps to interpret the tax return without turning every deduction or payment into a foreign income tax.
+## Separating tax from deductions
+
+The risk of confusing double taxation with the total amount of salary deductions arises from the fact that items of a different nature may appear on the same payslip. Social security and insurance percentages are not rates of direct federal tax, nor do they replace the distinction between cantonal and municipal tax.
+
+### Items affecting salary
+
+| Item | Stated figure | Correct interpretation |
+|---|---|---|
+| AVS/AHV, AI and IPG | 5.3% for the employee; 10.6% total including the employer | Social contribution |
+| AD/AC | 1.1% up to the annual ceiling | Salary-related contribution |
+| LAINF/LAA | 0.7–1.5% depending on the sector | Accident insurance |
+| LPP/BVG | 7% between ages 25 and 34; 10% between ages 35 and 44; 15% between ages 45 and 54; 18% from age 55 until the reference age | Percentages based on coordinated salary |
+| LAMal/KVG | Compulsory insurance for residents, with per-capita premiums | It is neither a tax nor a salary contribution |
+
+The AVS/AI/IPG figure is therefore distinct from the tax levy: the share indicated for the employee is 5.3%, while the total including the employer reaches 10.6%. AD/AC is 1.1% up to an annual ceiling. For LAINF/LAA, the indicated percentage ranges from 0.7% to 1.5% depending on the sector. LPP/BVG, on the other hand, uses the coordinated salary and provides for different percentages by age bracket. The material does not provide an absolute amount to apply to these items.
+
+The LAMal/KVG follows a different logic altogether. Health insurance is compulsory for residents and must be taken out within three months of arrival. It is private, with per-capita premiums, and is neither a tax nor a salary contribution. Premiums vary according to canton and region, while the reduction in premiums is a cantonal subsidy. For adults, the deductibles indicated are CHF 300, 500, 1000, 1500, 2000 and 2500.
+
+This separation is decisive for the issue of foreign income. A LAMal premium or an AVS contribution cannot be treated as evidence of tax already paid on income; it belongs to a different category. Likewise, an LPP/BVG deduction alone does not make it possible to reconstruct the tax due in Switzerland. The correct comparison must therefore start from the nature of the item, not merely from the amount appearing on Swiss payslip.
+
+The source does not indicate a general mechanism for allocating a foreign tax to Swiss items. It is therefore not possible to turn these percentages into an automatic formula to avoid double taxation, nor to add social contributions and insurance premiums to obtain a single tax rate.
+## Figures, update and limits
+
+The figures of the Swiss system do not all have the same stability. The material indicates that some amounts are indexed every year: the third pillar 3a ceiling, the BVG coordination threshold and deduction, the AD/AC ceiling, the average KVG premiums and the median salary. When the reference year is not certain, it is not correct to enter a precise amount or automatically transfer a value from one year to another.
+
+### Sources to check
+
+For the social security framework, the reference to [UFAS] is also available (https://www.bsv.admin.ch/it/telelavoro). The tax framework remains distinct: the UFAS/BSV deals with social security, but does not establish taxes.
+
+For direct federal tax and VAT, the indicated jurisdiction remains that of the FTA/ESTV. For cantonal and municipal taxes, the institutional reference is instead represented by the cantonal administrations, because each canton has its own law and its own multiplier and the municipality applies the multiplier on the cantonal level. The FSO/BFS can provide statistics, but does not establish tax rates. A statistic, therefore, does not replace the rule applicable to an income.
+
+### What is not documented
+
+The title refers to controls and double taxation, but the material does not contain an official notice, a start date, a form, a penalty or a procedure relating to income produced abroad. It does not even identify the type of income or the specific tax situation. For this reason, it is not possible to present an automatic deduction, exemption or credit for tax paid outside Switzerland.
+
+The verifiable data is more limited: before assigning a payment to a single category, it is necessary to distinguish federal, cantonal and municipal taxes from social security, accident insurance and KVG/KVG. Payroll percentages, deductibles and premiums should not be confused with income tax; indexed amounts require the correct year; cantonal rules require reference to the competent administration.
+
+To order information relating to your tax position, the relevant editorial path is tax return.]]></content:encoded>
+      <pubDate>Fri, 13 Nov 2026 01:58:45 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/fiscalita-svizzera-tre-livelli</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fiscalita-svizzera-tre-livelli.webp" medium="image"/>
+    </item>
     <item>
       <title>Swiss ILO rate rises to 5,6% in the third quarter</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ilo-rate-third-quarter/</link>
@@ -3306,85 +3377,6 @@ For the overview of benefits AVS/LPP/pension.
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/adeguamento-rendite-superstiti-invalidita-2027</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-adeguamento-rendite-superstiti-invalidita-2027.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Buying used goods in Switzerland: warranty and rules</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/second-hand-market-rules-switzerland/</link>
-      <description><![CDATA[In principle, a one-year warranty, unless explicitly excluded, applies to the purchase of a used item at a flea market in Switzerland.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- One-year warranty, unless explicitly excluded
-- Public land: free items are often prohibited
-- Counterfeits across the border: possible seizure and a fee of about 100 francs
-- Receipt: it is better to include the seller's details
-
-## Key facts
-- Guarantee at a flea market: one year in principle
-- Exclusion: “sold as seen” wording
-- Receipt: seller’s details
-- Public land: practice often prohibited
-- Border: possible fee of around 100 francs
-- Reference: Gabriela Baumgartner, Radio SRF 1, October 5, 2026
-
-In principle, a one-year warranty, unless explicitly excluded, applies to the purchase of a used item at a flea market in Switzerland. The rule falls within the framework of the Code of Obligations and concerns a market that also includes secondhand shops, online platforms and items left free of charge in front of a home.
-
-The seller may exclude the warranty. Wording such as “sold as seen” is not presented as a mere phrase of convenience: it constitutes an explicit exclusion. Anyone who accepts this condition waives the related rights. For this reason, the source recommends asking for a receipt that includes at least the seller’s details. If a dispute arises, it is necessary to be able to identify who sold the goods.
-
-The report refers to explanations by Gabriela Baumgartner, broadcast by Radio SRF 1 on October 5, 2026. The guidance concerns both the relationship between seller and buyer and the way in which unwanted items are left.
-
-### When a giveaway takes up the street
-
-Leaving boxes of books, furniture or other goods marked “free” on the sidewalk or by the roadside may seem harmless. Legally, however, in numerous municipalities the act may constitute illegal dumping; when public land is occupied, it is also often prohibited.
-
-Leaving goods to be given away in public space is not generally recognized as a right. Regulations vary from city to city: some municipalities impose strict restrictions, while others tolerate the practice only if the items do not obstruct passage and are removed quickly.
-
-On private land, by contrast, items intended to be given away can normally be left. The person making them available no longer retains ownership, which passes to whoever collects them. The sole exception concerns items contained in bags from official used-clothing collections: they remain the property of the sponsoring organization.
-## Warranty, receipt and wrong purchase
-
-The distinction between warranty and the right of withdrawal is the point most likely to create confusion in second-hand purchases. The warranty concerns the rights connected to the purchased item and may be excluded by the seller. Withdrawal, on the other hand, concerns the possibility of changing one’s mind after the purchase has been concluded: according to the source, Swiss law does not provide for a general right of this kind.
-
-The framework reported for the different sales channels can be summarized as follows:
-
-| Situation | Rule indicated by the source |
-|---|---|
-| Flea market | In principle, a one-year warranty; the seller may exclude it |
-| “Sold as seen” formula | Explicit exclusion of the warranty; the buyer waives the related rights |
-| Second-hand shop | For second-hand goods, a one-year warranty instead of two |
-| Exclusion in a second-hand shop | Permitted if customers are informed clearly |
-| Return or exchange | Granted only voluntarily by the seller |
-
-Second-hand shops are shops in every respect. Their activity therefore does not eliminate the rules governing warranties, but the source notes that many retailers exclude them completely. The condition indicated is that the information be clear to customers. In the case of flea markets, the same attention must be paid to the wording used by the seller before concluding the transaction.
-
-### The receipt as an identifying element
-
-Asking for a receipt does not automatically change the warranty or turn an exclusion into a right. Its function as described in the report is more practical: retaining at least the seller’s details makes it possible to know whom to contact in the event of subsequent disputes. Without identification, pursuing a claim can become problematic precisely because it would not be possible to determine who sold the goods.
-
-The source also distinguishes the warranty from simply changing one’s mind. Someone who makes a wrong purchase cannot assume that the seller must take the goods back. There is no general obligation to accept returns, and an exchange likewise depends on the retailer’s willingness. The fact that an item is used, that it was purchased in a shop, or that the buyer has changed their mind does not, by itself, create a general right to return it.
-
-The practical consequence described in the text is a distinction between what the seller may be required to guarantee and what they may choose to do. The warranty may be excluded when the exclusion is communicated explicitly or clearly; returns and exchanges, on the other hand, remain voluntary initiatives. For this reason, the purchase conditions and the seller’s identity carry different weight: the former define the rights connected to the warranty, while the latter makes it possible to identify the other party if a dispute arises.
-## Low prices, counterfeit goods and the border
-
-Price is one of the main reasons why second-hand markets attract buyers. However, the source urges particular caution when the price appears exceptionally advantageous. The stated criterion is not to automatically regard every bargain as suspicious, but to carefully check the condition of the item, ask the seller questions, and assess whether the price is truly plausible. If in doubt, the suggestion is to be wary; if one decides to purchase anyway, it is advisable to ask for a receipt.
-
-### The designer handbag case
-
-One might consider an authentic designer handbag sold for a price much lower than its market value. The person who buys it is not obliged to disclose its actual value to the seller. However, the seller could later challenge the contract if they proved that they had entered into it without knowing the item's value.
-
-This passage shows that the source does not present a very low price as automatic proof of illegal activity or counterfeiting. Instead, it is a factor that calls for more careful checks of the item and the plausibility of the deal. The source does not indicate a numerical threshold above which the price must be considered suspicious and does not establish that every highly advantageous purchase should be refused.
-
-### The risk for those who buy across the border
-
-Anyone who sells stolen or counterfeit goods commits a crime; on the other hand, according to the report, anyone who in good faith buys such an item at a Swiss second-hand market does not commit a criminal offense. The most significant difficulties arise with cross-border purchases, when people visit second-hand markets in neighboring countries and then return to Switzerland.
-
-Customs checks focus above all on counterfeit branded products. If found during an inspection, they may be seized; anyone bringing them into Switzerland may also have to pay a fee of about 100 francs. The source presents this figure as approximate, not as an amount that applies indiscriminately to every inspection, and does not indicate any additional amounts.
-
-The border therefore marks a difference compared with a good-faith purchase made at a Swiss second-hand market. In the first case described, the buyer does not commit a criminal offense; in the second, bringing counterfeit branded products into the country may lead to seizure and a fee. Checking the item, asking the seller questions, and obtaining a receipt therefore remain central; these are measures that the source links both to protecting the buyer and to the possibility of reconstructing the purchase.
-
-*Source: [rsi.ch](https://www.rsi.ch/info/dialogo/Mercatini-e-usato-cinque-cose-da-sapere--4155286.html)*]]></content:encoded>
-      <pubDate>Thu, 22 Oct 2026 03:59:33 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/regole-usato-mercatini-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-regole-usato-mercatini-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>
