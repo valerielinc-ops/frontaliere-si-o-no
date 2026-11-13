@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, startsApplication } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -355,6 +355,10 @@ describe('fill extension: patterns', () => {
     expect(F.APPLY_RE.test('mailto:apply+foo@example.ch')).toBe(false);
     expect(F.APPLY_RE.test('Apply now')).toBe(true);
     expect(F.pageState(document).start?.textContent).toBe('Apply now');
+  });
+
+  it.each(['Postuler »»', 'Bewerben »»', 'Candidati »»', 'Apply »»', 'Postuler ›'])('recognizes a decorated SuccessFactors Apply control: %s', label => {
+    expect(startsApplication(label)).toBe(true);
   });
 
   it('uses the runner’s own patterns', () => {

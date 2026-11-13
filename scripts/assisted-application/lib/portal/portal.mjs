@@ -586,6 +586,27 @@ function sameSuccessFactorsModuleAddress(firstUrl, secondUrl) {
   }
 }
 
+function sameSuccessFactorsTenantContinuation(sourceUrl, targetUrl) {
+  try {
+    const source = successFactorsModuleIdentity(new URL(String(sourceUrl || '')));
+    const target = new URL(String(targetUrl || ''));
+    if (!source || !isSuccessFactorsCareerPath(target.href) || target.origin !== source.origin) return false;
+    const valuesFor = (key) => [...target.searchParams.entries()]
+      .filter(([name]) => name.toLowerCase() === key)
+      .map(([, value]) => value);
+    const company = valuesFor('company');
+    const requisition = valuesFor('career_job_req_id');
+    const namespace = valuesFor('career_ns');
+    if (company.length > 1 || requisition.length > 1 || namespace.length > 1) return false;
+    if (company.length && company[0].toLowerCase() !== source.company) return false;
+    if (requisition.length && requisition[0] !== source.requisition) return false;
+    if (namespace.length && namespace[0].toLowerCase() !== source.namespace) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postingRouteProof } = {}) {
   try {
     const current = new URL(String(applyUrl || ''));
@@ -628,7 +649,8 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
     // `/<tenant>/job/...`). Keep the same single-segment boundary here so the
     // verified posting provenance survives on those tenants too.
     const postingId = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
-    if (apply.origin === posting.origin && Boolean(applyId) && postingId === applyId) return true;
+    if (Boolean(applyId) && postingId === applyId
+      && (apply.origin === posting.origin || SUCCESS_FACTORS_HOST_RE.test(apply.hostname))) return true;
     // Career Site Builder may expose the actual SuccessFactors module on a
     // different origin. Its requisition id is not the public job id, so the
     // URL alone cannot bind it to this posting. Trust it only when the
@@ -1947,7 +1969,78 @@ function genericUmantisApplicationEntryBelongsToPosting(control, snapshot, conte
     && titleMatches(`${snapshot?.text || ''}\n${snapshot?.title || ''}\n${context.pageTitle || ''}`, context.job.title));
 }
 
+const SUCCESS_FACTORS_EMPLOYER_JOB_ROUTE_RE = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/\d+\/?$/i;
+
+function isSuccessFactorsCustomPostingRoute(snapshot = {}, context = {}) {
+  try {
+    const apply = new URL(String(context.applyUrl || ''));
+    const current = new URL(String(snapshot.url || ''));
+    const posting = new URL(String(context.postingUrl || ''));
+    if (!isSuccessFactorsModuleRoute(apply) || current.origin === apply.origin
+      || !SUCCESS_FACTORS_EMPLOYER_JOB_ROUTE_RE.test(current.pathname)
+      || !samePostingAddress(current.href, posting.href)) return false;
+
+    const routeProofMatches = isSuccessFactorsPostingEntry({
+      applyUrl: apply.href,
+      postingUrl: current.href,
+      postingRouteProof: context.postingRouteProof,
+    });
+    const textMatches = postingMatch(
+      `${snapshot.title || ''}\n${context.pageTitle || ''}\n${snapshot.text || ''}`,
+      context.job || {},
+    ) === 'match';
+    return context.postingMatch === 'match' || routeProofMatches || textMatches;
+  } catch {
+    return false;
+  }
+}
+
+function successFactorsCustomPostingControlBelongs(control, snapshot, context = {}) {
+  const href = String(control?.href || '').trim();
+  if (!href) return true;
+  if (samePortalRoute(href, snapshot.url, snapshot.url)
+    || samePortalRoute(href, context.postingUrl, context.postingUrl)) return true;
+  if (isVerifiedPostingEntry({
+    applyUrl: href,
+    postingUrl: context.postingUrl,
+    postingRouteProof: context.postingRouteProof,
+  })) return true;
+  return sameSuccessFactorsModuleAddress(context.applyUrl, href)
+    || sameSuccessFactorsTenantContinuation(context.applyUrl, href);
+}
+
+function successFactorsCustomPostingEntries(snapshot, context) {
+  if (!isSuccessFactorsCustomPostingRoute(snapshot, context)) return null;
+  const controls = [
+    ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
+    ...(Array.isArray(snapshot.links) ? snapshot.links : []),
+  ].filter((control) => control?.ariaHidden !== true && control?.behindDialog !== true);
+  const candidates = controls.filter((control) => !control?.disabled
+    && startsApplication(control?.text || control?.label)
+    && !socialApplicationEntry(control));
+  // Career Site Builder also uses a button named "Bewerben" as a menu toggle.
+  // Leave that existing disclosure flow to its stricter menu-owner checks.
+  if (candidates.some((control) => control.popup === true || control.menuItem === true)) return null;
+  if (!candidates.length) return [];
+  if (candidates.some((control) => !successFactorsCustomPostingControlBelongs(control, snapshot, context))) return [];
+  if (new Set(candidates.map(applicationEntryLabel)).size !== 1) return [];
+  // The same posting can repeat one direct CTA at the top and bottom. They
+  // name one action, so use the first visible occurrence and never click both.
+  return candidates.slice(0, 1);
+}
+
+function successFactorsCustomPostingDestinationMatches(destinationUrl, sourceUrl, context = {}) {
+  if (samePortalRoute(destinationUrl, sourceUrl, sourceUrl)) return true;
+  return isVerifiedPostingEntry({
+    applyUrl: destinationUrl,
+    postingUrl: context.postingUrl,
+    postingRouteProof: context.postingRouteProof,
+  }) || sameSuccessFactorsTenantContinuation(context.applyUrl, destinationUrl);
+}
+
 export function applicationEntryControls(snapshot = {}, context = {}) {
+  const successFactorsCustomEntries = successFactorsCustomPostingEntries(snapshot, context);
+  if (successFactorsCustomEntries !== null) return successFactorsCustomEntries;
   const controls = [
     ...(Array.isArray(snapshot.buttons) ? snapshot.buttons : []),
     ...(Array.isArray(snapshot.links) ? snapshot.links : []),
@@ -2492,29 +2585,36 @@ export async function clickPortalLink(page, link, { context = null } = {}) {
   const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
   const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
   const before = page.url();
+  let clickError = null;
   try {
     await link.click({ timeout: 6_000 });
   } catch (error) {
-    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
-    let target;
-    try {
-      target = new URL(href, page.url()).href;
-    } catch {
-      throw error;
-    }
-    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    clickError = error;
   }
-  if (!popup) return null;
-  // A link without a popup should continue promptly after a short grace
-  // window; clear the timer as soon as the popup arrives.
-  const opened = await new Promise((resolve) => {
+  // If a target="_blank" click dispatches but its original locator times out
+  // while the new page loads, consume that popup before considering a same-tab
+  // href fallback. This avoids opening the same application entry twice.
+  const opened = popup ? await new Promise((resolve) => {
     const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
     popup.then((opened) => {
       clearTimeout(timer);
       resolve(opened);
     });
-  });
+  }) : null;
   if (opened) return opened;
+  if (page.url() !== before) return null;
+  if (clickError) {
+    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw clickError;
+    let target;
+    try {
+      target = new URL(href, page.url()).href;
+    } catch {
+      throw clickError;
+    }
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    return null;
+  }
+  if (!popup) return null;
   // The browser announces a new window only once its address has answered. A
   // link that opens another window (target="_blank") and left none, with this
   // page where it was, has no answer from its address yet: ECAM's DocuWare
@@ -3367,6 +3467,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let resolvedPostingUrl = '';
   let publicSearchTarget = false;
   let publicSearchSearched = false;
+  let customSuccessFactorsEntryClicked = false;
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3480,6 +3581,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(stage.kind) || stage.prefinal
         || (REVIEW_URL_RE.test(new URL(page.url()).pathname) && findButton(snapshot.buttons, SUBMIT_RE))) return result();
     }
+    // A custom-domain Apply entry gets one click. If it leaves the browser on
+    // the same posting shell, return that snapshot for ordinary auth/stage
+    // handling instead of clicking the duplicate CTA again.
+    if (customSuccessFactorsEntryClicked && isSuccessFactorsCustomPostingRoute(snapshot, stageContext)) return result();
     // A verified same-requisition SuccessFactors module route binds the
     // vacancy more strongly than a Career Site Builder Apply dropdown, whose
     // menu leads to the tenant's generic sign-in. Keep that route first.
@@ -3502,6 +3607,11 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
       : false;
     const selectedControlKind = manual ? 'manual_button' : apply ? 'button' : linkVisible ? 'link' : 'none';
+    const customSuccessFactorsEntry = isSuccessFactorsCustomPostingRoute(snapshot, stageContext)
+      && Boolean(manual || apply || (linkVisible && linkEntry))
+      && (manual || apply || linkEntry)?.popup !== true
+      && (manual || apply || linkEntry)?.menuItem !== true;
+    const sourceUrl = page.url();
     reportNavigation({
       hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
       entryResolution,
@@ -3548,11 +3658,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
+      customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       const workdayManualTarget = manual
         ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl, manual)
         : '';
       if (workdayManualTarget) {
         await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      } else if (customSuccessFactorsEntry && (manual || apply)?.href) {
+        page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
       } else {
         const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
         await clickButton(page, manual || apply);
@@ -3560,11 +3673,16 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     } else {
       enteredThroughApplicationEntry = true;
+      customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
+    if (customSuccessFactorsEntry
+      && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {
+      return result({ handoff: 'posting_mismatch' });
+    }
     reportNavigation({
       hop: hop + 1, phase: 'after_click', cookieStatus, controls: applicationControls, ownedEntries,
       selectedControlKind, linkVisible,
@@ -10345,12 +10463,27 @@ export async function submitViaPortal(ctx) {
       const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
         || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
       if (!workable(snapshot)) snapshot = await awaitFields(page, snapshot);
+      const recognizedPostingEntry = hasApplicationEntryControl(snapshot, {
+        applyUrl: ctx.applyUrl,
+        postingUrl: ctx.postingUrl || postingUrl,
+        postingRouteProof: ctx.postingRouteProof,
+        job: ctx.job,
+        allowSingleExternalApplicationEntry: postingVacancyMatched,
+      });
+      const unclickedRecognizedPostingEntry = recognizedPostingEntry
+        && !(enteredThroughApplicationEntry && isSuccessFactorsCustomPostingRoute(snapshot, {
+          applyUrl: ctx.applyUrl,
+          postingUrl: ctx.postingUrl || postingUrl,
+          postingRouteProof: ctx.postingRouteProof,
+          job: ctx.job,
+        }));
       // Site navigation alone is not an unreadable candidate question. Keep
       // custom application widgets eligible for recovery, but do not ask the
       // agent to fill a shell after its bounded field wait has expired.
       if (!snapshot.fields.length && snapshot.buttons.length > 0
         && snapshot.buttons.every((button) => button.chrome === true)
-        && !(snapshot.links || []).some((link) => !link.chrome)) {
+        && !(snapshot.links || []).some((link) => !link.chrome)
+        && !unclickedRecognizedPostingEntry) {
         return await handoff('application_stage_unknown');
       }
       // Nothing the filler can read (a page of custom widgets): straight to the agent.

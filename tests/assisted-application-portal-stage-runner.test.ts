@@ -161,6 +161,81 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).not.toHaveBeenCalled();
   });
 
+  it('clicks one duplicated custom-domain Postuler entry and continues to the bound SuccessFactors sign-in', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager · Rechercher les offres', [
+      { id: 'apply-top', text: 'Postuler »»', chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const signInUrl = applyUrl;
+    const signIn = {
+      ...snapshot(signInUrl, 'Sign in to continue your application', [{ id: 'sign-in', text: 'Sign in' }]),
+      fields: [
+        { id: 'email', label: 'Email address', kind: 'text', inputType: 'email', required: true },
+        { id: 'password', label: 'Password', kind: 'text', inputType: 'password', required: true },
+      ],
+      passwordVisible: true,
+    };
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); state.snapshot = signIn; },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); state.snapshot = signIn; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(result.event.reason).not.toBe('application_stage_unknown');
+    expect(state.snapshot.url).toBe(signInUrl);
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not click the duplicate custom-domain CTA when the first click leaves the posting unchanged', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager', [
+      { id: 'apply-top', text: 'Postuler »»', chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+  });
+
   it('opens a Career Site Builder Apply dropdown and its own menu entry instead of stopping as an unknown stage', async () => {
     // Synthetic shape of order s2Tbwwjd's posting: two identical «Jetzt
     // bewerben» disclosure toggles, a menu with the manual entry and LinkedIn.
