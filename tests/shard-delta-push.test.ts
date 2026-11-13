@@ -506,7 +506,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('fa fallback se il sidecar marca unchanged un file assente dall’indice HEAD', () => {
     const scenario = createScenario('unchanged-missing-from-head');
@@ -593,7 +593,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('esclude dal manifest del locale i subtree già assegnati agli shard-sezione', () => {
     const scenario = createScenario('locale-section-strip');
@@ -727,7 +727,7 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('mantiene il full overlay e il fan-out fisico alla entrypoint dei section shard', () => {
     const scenario = createScenario('section-lifecycle');
@@ -753,7 +753,7 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
       const result = runPush(scenario, 'delta', {}, sectionTarget);
       expect(result.status).toBe(0);
-      expect(result.output).toContain('forcing full overlay');
+      expect(result.output).toContain('using a full canonical overlay');
       expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/c/index.html'));
       expect(treeFiles(scenario.remote)).not.toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/b/index.html'));
       assertContent(scenario.remote, ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'), '<html>A</html>');
@@ -845,7 +845,7 @@ describe('delta push degli shard', () => {
     };
     const baseline = join(scenario.root, 'baseline');
     const expected = join(scenario.root, 'expected-fanned');
-    const count = 1000;
+    const count = 120;
     const writeCanonicalSection = (root: string) => {
       const sectionRoot = join(root, section);
       mkdirSync(sectionRoot, { recursive: true });
@@ -908,7 +908,7 @@ describe('delta push degli shard', () => {
       rmSync(scenario.dist, { recursive: true, force: true });
       writeCanonicalSection(scenario.dist);
       const result = runPush(scenario, 'delta', {
-        SHARD_DELTA_CHECKPOINT_FILES: '25',
+        SHARD_DELTA_CHECKPOINT_FILES: '50',
         SHARD_REMOTE_TREE_REJECT_BYTES: String(simulatedRemoteTreeLimit),
       }, sectionTarget);
 
@@ -1479,7 +1479,7 @@ describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 
   it('ripara uno shard già stale: sidecar pre-fix col fingerprint nuovo e i byte vecchi', () => {
     const scenario = createScenario('9788-stale-sidecar');

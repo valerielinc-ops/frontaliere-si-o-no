@@ -25,6 +25,12 @@ import { requireWorkerSectionTreeLayout, stageSectionTreeLayout } from '../scrip
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
 import { rewriteSectionTreeIndex, unfanoutSectionTree } from '../scripts/lib/ticino-tree-fanout.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — executable CI helpers have no separate declarations.
+import { measureLargestSectionGitTreeBytes, measureSectionTreeLayoutMetrics } from '../scripts/ci/measure-section-tree-layout-metrics.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — executable CI helpers have no separate declarations.
+import { loadSectionTreeLayoutMetricsFromArtifacts, runSectionTreeLayoutPreflight } from '../scripts/ci/section-tree-layout-preflight.mjs';
 
 const tempDirs: string[] = [];
 
@@ -116,57 +122,180 @@ describe('automatic section tree fan-out policy', () => {
     expect(store.puts).toBe(staticFloorWriteCount);
   });
 
-  it('writes, probes, and fans a synthetic section that crosses the threshold in that order', async () => {
-    const stage = tempDir('section-tree-layout-stage-');
-    const sub = 'de/jobs-in-lucerne';
-    const root = join(stage, sub);
-    mkdirSync(root, { recursive: true });
-    writeFileSync(join(root, 'index.html'), '<html>index</html>');
-    for (let index = 0; index < 220; index += 1) {
-      writeFileSync(join(root, `sample-job-${String(index).padStart(4, '0')}.html`), `<p>job ${index}</p>`);
+  it('combines the newest locale metrics across targeted source-run attempts', async () => {
+    const metricsDir = tempDir('section-tree-layout-attempts-');
+    const sourceRunId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const writeArtifact = (locale: string, attempt: number, pct: number) => {
+      const artifactName = `section-tree-layout-metrics-${locale}-${sourceRunId}-${attempt}`;
+      const artifactDir = join(metricsDir, artifactName);
+      mkdirSync(artifactDir, { recursive: true });
+      writeFileSync(join(artifactDir, `${locale}.json`), JSON.stringify({
+        version: 1,
+        locale,
+        sourceRunId,
+        sourceRunAttempt: attempt,
+        sourceSha,
+        treeLimitBytes: 1000,
+        sections: { lucerna: { bytes: pct * 10, pct } },
+      }));
+    };
+    for (const locale of ['it', 'en', 'de', 'fr']) writeArtifact(locale, 1, 20);
+    writeArtifact('de', 2, 45);
+
+    const metrics = await loadSectionTreeLayoutMetricsFromArtifacts({
+      metricsDir,
+      sourceRunId,
+      sourceRunAttempt: 2,
+      sourceSha,
+    });
+    expect(metrics.it.sourceRunAttempt).toBe(1);
+    expect(metrics.fr.sourceRunAttempt).toBe(1);
+    expect(metrics.de.sourceRunAttempt).toBe(2);
+    expect(metrics.de.sections.lucerna.pct).toBe(45);
+    await expect(loadSectionTreeLayoutMetricsFromArtifacts({
+      metricsDir,
+      sourceRunId,
+      sourceRunAttempt: 1,
+      sourceSha,
+    })).rejects.toThrow(/artifact identity mismatch/u);
+  });
+
+  it('measures exact Git tree bytes and coordinates a threshold crossing across every locale before staging', async () => {
+    const workspace = tempDir('section-tree-layout-e2e-');
+    const dist = join(workspace, 'dist');
+    const slugs = {
+      grigioni: {
+        it: 'jobs-in-grisons',
+        en: 'jobs-in-grisons',
+        de: 'jobs-in-graubuenden',
+        fr: 'emplois-grisons',
+      },
+      lucerna: {
+        it: 'jobs-in-lucerne',
+        en: 'find-jobs-lucerne',
+        de: 'jobs-in-lucerne',
+        fr: 'trouver-emploi-lucerne',
+      },
+    };
+    const runId = '4321';
+    const sourceSha = 'a'.repeat(40);
+    const subBySectionLocale: Record<string, string> = {};
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      for (const section of Object.keys(slugs)) {
+        const sectionSlug = slugs[section as keyof typeof slugs][locale as keyof typeof slugs.lucerna];
+        const sub = locale === 'it' ? sectionSlug : `${locale}/${sectionSlug}`;
+        subBySectionLocale[`${section}:${locale}`] = sub;
+        const root = join(dist, sub);
+        mkdirSync(root, { recursive: true });
+        writeFileSync(join(root, 'index.html'), '<html>index</html>');
+        const count = section === 'lucerna'
+          ? (locale === 'de' ? 220 : 40)
+          : (locale === 'fr' ? 190 : 20);
+        for (let index = 0; index < count; index += 1) {
+          writeFileSync(join(root, `sample-job-${String(index).padStart(4, '0')}.html`), `<p>job ${index}</p>`);
+        }
+      }
     }
-    execFileSync('git', ['-C', stage, 'init', '-q']);
-    git(stage, 'add', '--', sub);
-    const canonicalTree = git(stage, 'write-tree');
-    const canonicalSectionTree = git(stage, 'rev-parse', `${canonicalTree}:${sub}`);
-    const canonicalBytes = Number(git(stage, 'cat-file', '-s', canonicalSectionTree));
-    const remoteLimit = Math.ceil(canonicalBytes * 2);
-    const pct = canonicalBytes * 100 / remoteLimit;
+    execFileSync('git', ['-C', workspace, 'init', '-q']);
+    git(workspace, 'add', '--', 'dist');
+    const canonicalTree = git(workspace, 'write-tree');
+    const canonicalSectionTree = git(workspace, 'rev-parse', `${canonicalTree}:dist/${subBySectionLocale['lucerna:de']}`);
+    const exactCanonicalBytes = Number(git(workspace, 'cat-file', '-s', canonicalSectionTree));
+    expect(await measureLargestSectionGitTreeBytes(join(dist, subBySectionLocale['lucerna:de']))).toBe(exactCanonicalBytes);
+
+    const remoteLimit = Math.ceil(exactCanonicalBytes * 2);
+    const metricsByLocale: Record<string, { sections: Record<string, { pct: number }> }> = {};
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      metricsByLocale[locale] = await measureSectionTreeLayoutMetrics({
+        dist,
+        locale,
+        sourceRunId: runId,
+        sourceSha,
+        treeLimitBytes: remoteLimit,
+        slugs,
+      });
+    }
+
     const order: string[] = [];
     const stderr: string[] = [];
-    const result = await stageSectionTreeLayout({
-      section: 'lucerna',
-      locale: 'de',
-      percent: pct,
+    let writes = 0;
+    let registry = { version: 1, sections: {} as Record<string, unknown> };
+    const preflight = await runSectionTreeLayoutPreflight({
+      metricsByLocale,
+      sourceRunId: runId,
+      sourceSha,
       threshold: 40,
-      stage,
-      sub,
-      mode: 'filesystem',
-      readRegistry: async () => ({ version: 1, sections: {} }),
+      treeLimitBytes: remoteLimit,
+      slugs,
+      readRegistry: async () => registry,
       register: async (section: string, reason: { locale: string; pct: number }) => {
-        order.push(`registry:${section}:${reason.locale}`);
-        return {
-          added: true,
-          registry: { version: 1, sections: { [section]: { layout: 'hash-v1', since: '2026-11-12T12:00:00.000Z', reason } } },
+        writes += 1;
+        registry = {
+          version: 1,
+          sections: {
+            ...registry.sections,
+            [section]: { layout: 'hash-v1', since: '2026-11-12T12:00:00.000Z', reason },
+          },
         };
+        order.push(`registry:${section}:${reason.locale}`);
+        return { added: true, registry };
       },
-      probeWorker: async (section: string) => { order.push(`probe:${section}`); },
+      probeWorker: async (section: string, sub: string) => {
+        order.push(`probe:${section}:${sub}`);
+      },
       stderr: (message: string) => stderr.push(message),
     });
-    expect(result.decision).toBe('fan');
-    expect(order).toEqual(['registry:lucerna:de', 'probe:lucerna']);
-    expect(stderr.some((message) => message.includes('[tree-fanout] section=lucerna locale=de pct='))).toBe(true);
+    expect(preflight.ready).toBe(true);
+    expect(preflight.decisions.lucerna.decision).toBe('fan');
+    expect(preflight.decisions.grigioni.decision).toBe('fan');
+    expect(writes).toBe(2);
+    const registryWriteIndexes = order.flatMap((entry, index) => entry.startsWith('registry:') ? [index] : []);
+    const workerProbeIndexes = order.flatMap((entry, index) => entry.startsWith('probe:') ? [index] : []);
+    expect(Math.max(...registryWriteIndexes)).toBeLessThan(Math.min(...workerProbeIndexes));
+    expect(preflight.decisions.lucerna.maxLocale).toBe('de');
+    expect(preflight.decisions.grigioni.maxLocale).toBe('fr');
+    for (const section of Object.keys(slugs)) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const root = join(dist, subBySectionLocale[`${section}:${locale}`]);
+        expect(stderr.some((message) => message.includes(`[tree-fanout] section=${section} locale=${locale} pct=`) && message.endsWith('decision=fan'))).toBe(true);
+        expect(readdirSync(root)).not.toContain('_tree');
+      }
+    }
     expect(stderr.some((message) => message.includes('warning=unfanned-tree-at-least-30'))).toBe(true);
-    expect(readdirSync(root)).toContain('_tree');
-    expect(readdirSync(root)).not.toContain('sample-job-0001.html');
 
-    git(stage, 'add', '--all', '--', sub);
-    const fannedTree = git(stage, 'write-tree');
-    expect(Math.max(...treeSizes(stage, fannedTree))).toBeLessThan(remoteLimit);
-    unfanoutSectionTree(root);
-    expect(existsSync(join(root, 'sample-job-0001.html'))).toBe(true);
-    expect(existsSync(join(root, '_tree'))).toBe(false);
-  });
+    for (const section of Object.keys(slugs)) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const result = await stageSectionTreeLayout({
+          section,
+          locale,
+          percent: metricsByLocale[locale].sections[section].pct,
+          threshold: 40,
+          stage: dist,
+          sub: subBySectionLocale[`${section}:${locale}`],
+          mode: 'filesystem',
+          readRegistry: async () => registry,
+          probeWorker: async (sectionName: string) => { order.push(`stage-probe:${sectionName}:${locale}`); },
+          stderr: () => {},
+        });
+        expect(result.decision).toBe('already');
+        expect(readdirSync(join(dist, subBySectionLocale[`${section}:${locale}`]))).toContain('_tree');
+      }
+    }
+
+    git(workspace, 'add', '--all', '--', 'dist');
+    const fannedTree = git(workspace, 'write-tree');
+    for (const section of Object.keys(slugs)) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const sub = subBySectionLocale[`${section}:${locale}`];
+        const fannedSectionTree = git(workspace, 'rev-parse', `${fannedTree}:dist/${sub}`);
+        expect(Math.max(...treeSizes(workspace, fannedSectionTree))).toBeLessThan(remoteLimit);
+        unfanoutSectionTree(join(dist, sub));
+        expect(existsSync(join(dist, sub, 'sample-job-0001.html'))).toBe(true);
+        expect(existsSync(join(dist, sub, '_tree'))).toBe(false);
+      }
+    }
+  }, 60_000);
 
   it('applies a sticky registry section to another locale even when its local tree is below threshold', async () => {
     const order: string[] = [];
@@ -191,7 +320,7 @@ describe('automatic section tree fan-out policy', () => {
     expect(order).toEqual(['probe:lucerna:en/jobs-in-lucerne', 'index-fanout']);
   });
 
-  it('does not fan or publish when the live Worker probe is missing', async () => {
+  it('fails closed if a local stage crosses the threshold before cross-locale preflight registration', async () => {
     const order: string[] = [];
     await expect(stageSectionTreeLayout({
       section: 'grigioni',
@@ -202,18 +331,32 @@ describe('automatic section tree fan-out policy', () => {
       sub: 'fr/emplois-grisons',
       mode: 'index',
       readRegistry: async () => ({ version: 1, sections: {} }),
-      register: async (section: string, reason: { locale: string; pct: number }) => {
-        order.push(`registry:${section}`);
-        return {
-          added: true,
-          registry: { version: 1, sections: { [section]: { layout: 'hash-v1', since: '2026-11-12T12:00:00.000Z', reason } } },
-        };
-      },
+      probeWorker: async () => { order.push('probe'); },
+      applyIndexFanout: () => { order.push('apply'); return 1; },
+      stderr: () => {},
+    })).rejects.toThrow(/cross-locale preflight must register and probe/u);
+    expect(order).toEqual([]);
+  });
+
+  it('does not fan or publish when a registered section lacks the live Worker probe', async () => {
+    const order: string[] = [];
+    await expect(stageSectionTreeLayout({
+      section: 'grigioni',
+      locale: 'fr',
+      percent: 82,
+      threshold: 40,
+      stage: '/unused',
+      sub: 'fr/emplois-grisons',
+      mode: 'index',
+      readRegistry: async () => ({
+        version: 1,
+        sections: { grigioni: { layout: 'hash-v1', since: '2026-11-12T12:00:00.000Z', reason: { locale: 'fr', pct: 82 } } },
+      }),
       probeWorker: async () => { order.push('probe'); throw new Error('probe missing'); },
       applyIndexFanout: () => { order.push('apply'); return 1; },
       stderr: () => {},
     })).rejects.toThrow('probe missing');
-    expect(order).toEqual(['registry:grigioni', 'probe']);
+    expect(order).toEqual(['probe']);
   });
 
   it('maps every path on the first index fan-out so the delta can enter its resumable path', () => {
@@ -260,6 +403,31 @@ describe('automatic section tree fan-out policy', () => {
       attempts: 2,
       retryMs: 0,
     })).rejects.toThrow(/refusing to publish hashed paths/u);
+  });
+
+  it('requires build metrics and the cross-locale preflight before both shard push jobs', () => {
+    const buildWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy.yml'), 'utf8');
+    const publishWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy-publish.yml'), 'utf8');
+    expect(buildWorkflow).toContain('section-tree-layout-metrics-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}');
+    expect(buildWorkflow).toContain('measure-section-tree-layout-metrics.mjs');
+    expect(buildWorkflow).toContain('--source-run-attempt "$SECTION_TREE_METRICS_SOURCE_RUN_ATTEMPT"');
+    expect(publishWorkflow).toContain('preflight-section-tree-layouts:');
+    expect(publishWorkflow).toContain('pattern: section-tree-layout-metrics-*-${{ inputs.source_run_id }}-*');
+    expect(publishWorkflow).toContain('merge-multiple: false');
+    expect(publishWorkflow).toContain('--source-run-attempt "$SOURCE_RUN_ATTEMPT"');
+    expect(publishWorkflow).toMatch(/push-it-shard-groups:[\s\S]*?needs: \[[^\]]*preflight-section-tree-layouts/u);
+    expect(publishWorkflow).toMatch(/publish-nonit-shards:[\s\S]*?needs: \[[^\]]*preflight-section-tree-layouts/u);
+  });
+
+  it('queues the durable full-deploy preflight when a fast publish hits a threshold before registration', () => {
+    const fastWorkflow = readFileSync(join(process.cwd(), '.github/workflows/jobs-fast-publish.yml'), 'utf8');
+    expect(fastWorkflow).toContain('statuses: write');
+    expect(fastWorkflow).toContain('continue-on-error: true');
+    expect(fastWorkflow).toContain('section-tree-layout-preflight-required');
+    expect(fastWorkflow).toContain('deploy-rearm-request.mjs');
+    expect(fastWorkflow).toContain('--reason section-tree-layout-preflight-required');
+    expect(fastWorkflow).toContain("if: always() && steps.fast-publish.outcome == 'failure'");
+    expect(fastWorkflow).not.toContain('gh workflow run');
   });
 
   it('Worker layout cache holds for five minutes, keeps the last good value on failure, then falls back to the static floor', async () => {

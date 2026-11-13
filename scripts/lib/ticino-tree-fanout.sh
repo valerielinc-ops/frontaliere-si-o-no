@@ -208,21 +208,31 @@ section_tree_measure_unfanned_pct() {
 }
 
 # section_tree_evaluate_and_apply <section> <locale> <stage> <sub> <filesystem|index> <label>
-# The Node stage tool reads the latest registry, decides, persists add-only
-# state, waits for the live Worker, and then fans the temporary tree/index.
-# Its JSON result is kept separate from the GitHub annotation log lines.
+# The cross-locale preflight owns add-only registry writes and confirms the
+# Worker before any publisher starts. The per-locale stage reads that durable
+# decision, fails closed if a new threshold crossing missed preflight, confirms
+# the Worker for this route, then fans the temporary tree/index. Its JSON
+# result is kept separate from the GitHub annotation log lines.
 section_tree_evaluate_and_apply() {
   local section_name="$1" locale="$2" stage="$3" sub="$4" mode="$5" label="$6"
-  local pct result
+  local pct result stage_stderr
   if ! pct="$(section_tree_measure_unfanned_pct "$stage" "$section_name" "$sub" "$mode" "$label")"; then
     return 1
   fi
+  stage_stderr="$(mktemp "${RUNNER_TEMP:-/tmp}/section-tree-layout-stage.XXXXXX")" || return 1
   if ! result="$(node "$SECTION_TREE_LAYOUT_STAGE_TOOL" stage \
       --section "$section_name" --locale "$locale" --pct "$pct" \
       --stage "$stage" --sub "$sub" --mode "$mode" \
-      --threshold "${FANOUT_AUTO_THRESHOLD_PCT:-40}")"; then
+      --threshold "${FANOUT_AUTO_THRESHOLD_PCT:-40}" 2>"$stage_stderr")"; then
+    cat "$stage_stderr" >&2 || true
+    if grep -Fq '[section-tree-layout:preflight-required]' "$stage_stderr"; then
+      : > "${RUNNER_TEMP:-/tmp}/section-tree-layout-preflight-required"
+    fi
+    rm -f "$stage_stderr"
     return 1
   fi
+  cat "$stage_stderr" >&2 || true
+  rm -f "$stage_stderr"
   SECTION_TREE_LAYOUT_MOVE_COUNT="$(jq -er '.moved | numbers' <<< "$result")" || return 1
   SECTION_TREE_LAYOUT_SECTIONS_JSON="$(jq -cer '.sections | arrays' <<< "$result")" || return 1
   SECTION_TREE_LAYOUT_DECISION="$(jq -er '.decision | strings' <<< "$result")" || return 1

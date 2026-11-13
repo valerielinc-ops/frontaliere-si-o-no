@@ -43,6 +43,7 @@ describe('Ticino shard tree fan-out', () => {
 
   it('measures the canonical tree, persists/probes before layout change, and gates the fanned tree', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
+    const helper = readFileSync(HELPER, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
     expect(script).toContain('if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]');
     expect(script).toContain('skipping advisory delta verifier');
@@ -50,9 +51,10 @@ describe('Ticino shard tree fan-out', () => {
     expect(script.indexOf('section_tree_require_worker_layout "$section" "$sub"')).toBeLessThan(
       script.indexOf('# ── Stage subtree + offload'),
     );
-    expect(script).toContain('section_tree_measure_unfanned_pct');
+    expect(helper).toContain('section_tree_measure_unfanned_pct');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index');
     expect(script).toContain('section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" filesystem');
+    expect(helper).not.toContain('--allow-local-transition');
     expect(script).toContain('SHARD_DELTA_LAYOUT_MOVED_PATHS * 2');
   });
 
@@ -68,7 +70,7 @@ describe('Ticino shard tree fan-out', () => {
         ['-c', 'source "$1" && section_tree_layout lucerna', 'dynamic-layout-marker-test', HELPER],
         { encoding: 'utf8', env: { ...process.env, SECTION_TREE_LAYOUT_SECTIONS_JSON: '["lucerna"]' } },
       );
-      expect(marker).toBe('ticino-hash-v1\n');
+      expect(marker).toBe('ticino-hash-v1');
     } finally {
       if (previous === undefined) delete process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON;
       else process.env.SECTION_TREE_LAYOUT_SECTIONS_JSON = previous;

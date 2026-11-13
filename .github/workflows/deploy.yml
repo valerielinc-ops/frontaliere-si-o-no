@@ -1482,6 +1482,37 @@ jobs:
           JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
         run: node scripts/ci/assert-active-jobposting-coverage.mjs dist
 
+      # The publisher has parallel locale jobs. Persist one compact exact Git
+      # tree-entry measurement per source locale so a single preflight can
+      # choose one sticky layout for the section before any locale pushes.
+      - name: Measure section tree layouts for cross-locale preflight
+        env:
+          SECTION_TREE_METRICS_LOCALE: ${{ matrix.locale }}
+          SECTION_TREE_METRICS_SOURCE_RUN_ID: ${{ github.run_id }}
+          SECTION_TREE_METRICS_SOURCE_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SECTION_TREE_METRICS_SOURCE_SHA: ${{ github.sha }}
+          SHARD_REMOTE_TREE_LIMIT_BYTES: '52428800'
+          SECTION_TREE_METRICS_OUT: ${{ runner.temp }}/section-tree-layout-metrics/${{ matrix.locale }}.json
+        run: |
+          set -euo pipefail
+          node scripts/ci/measure-section-tree-layout-metrics.mjs \
+            --dist dist \
+            --locale "$SECTION_TREE_METRICS_LOCALE" \
+            --source-run-id "$SECTION_TREE_METRICS_SOURCE_RUN_ID" \
+            --source-run-attempt "$SECTION_TREE_METRICS_SOURCE_RUN_ATTEMPT" \
+            --source-sha "$SECTION_TREE_METRICS_SOURCE_SHA" \
+            --tree-limit "$SHARD_REMOTE_TREE_LIMIT_BYTES" \
+            --out "$SECTION_TREE_METRICS_OUT"
+
+      - name: Upload section tree layout metrics
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-tree-layout-metrics-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/section-tree-layout-metrics/${{ matrix.locale }}.json
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+
       # The build runner hands the non-IT tail to deploy-publish.yml as one
       # compact, immutable source artifact. It contains the already validated
       # locale subtree, before section stripping/offload/push work begins;

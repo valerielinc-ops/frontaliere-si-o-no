@@ -2,10 +2,7 @@
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 import { fanoutSectionTree, rewriteSectionTreeIndex } from './ticino-tree-fanout.mjs';
 import { parseFanoutAutoThreshold, decideSectionTreeFanout } from './section-tree-fanout-policy.mjs';
-import {
-  readSectionTreeLayoutRegistry,
-  registerSectionTreeFanout,
-} from './section-tree-layout-registry.mjs';
+import { readSectionTreeLayoutRegistry } from './section-tree-layout-registry.mjs';
 import { sectionTreeLayoutSections } from '../../infra/cloudflare-worker/section-tree-layout-schema.js';
 
 export const WORKER_LAYOUT_PROBE_ATTEMPTS = 18;
@@ -61,7 +58,6 @@ export async function stageSectionTreeLayout({
   sub,
   mode = 'filesystem',
   readRegistry = readSectionTreeLayoutRegistry,
-  register = registerSectionTreeFanout,
   probeWorker = requireWorkerSectionTreeLayout,
   applyFilesystemFanout = fanoutSectionTree,
   applyIndexFanout = rewriteSectionTreeIndex,
@@ -84,13 +80,10 @@ export async function stageSectionTreeLayout({
   if (decision === 'keep') {
     return { decision, moved: 0, sections: initialSections };
   }
-
-  let currentRegistry = registry;
   if (decision === 'fan') {
-    const registered = await register(section, { locale, pct: Number(percent) });
-    currentRegistry = registered.registry;
+    throw new Error(`[section-tree-layout:preflight-required] ${section} crosses the automatic fan-out threshold in ${locale}, but is not in the durable registry; the cross-locale preflight must register and probe it before any section push`);
   }
-  const sections = sectionTreeLayoutSections(currentRegistry);
+  const sections = initialSections;
   await probeWorker(section, sub);
 
   let moved = 0;

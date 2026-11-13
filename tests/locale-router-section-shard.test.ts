@@ -64,6 +64,12 @@ const SECTION_ORIGIN = {
     de: 'origin-berna-de.frontaliereticino.ch',
     fr: 'origin-berna-fr.frontaliereticino.ch',
   },
+  lucerna: {
+    it: 'origin-lucerna-it.frontaliereticino.ch',
+    en: 'origin-lucerna-en.frontaliereticino.ch',
+    de: 'origin-lucerna-de.frontaliereticino.ch',
+    fr: 'origin-lucerna-fr.frontaliereticino.ch',
+  },
 };
 
 /** Capture the upstream request the Worker fetches for a given public path. */
