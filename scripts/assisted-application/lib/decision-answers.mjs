@@ -21,6 +21,7 @@ import {
   verifyDecision,
 } from '../../../functions/src/assistedApplicationDecisionAnswers.js';
 import { operationalDefaultAnswer } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
+import { platformQuestionTopic, withVerifiedPassportAnswers } from '../../../functions/src/assistedApplicationPlatformDefaults.js';
 import { questionTopic, SENSITIVE } from './portal/plan.mjs';
 
 export const DECISIONS_TIMEOUT_MS = 120_000;
@@ -33,12 +34,22 @@ const hasValue = (value) => (Array.isArray(value) ? value.some((item) => String(
  */
 export function decisionAnswerable(question, { answers = {}, facts = null, allowText = true } = {}) {
   if (!decisionQuestionEligible(question, { allowText }) || hasValue(answers?.[question.id])) return false;
+  // Passport type is a personal fact. The model may answer a verified binary passport question; the type is
+  // supplied only by the shared candidate fact (candidate declaration, known nationality, or binary + permit).
+  if (platformQuestionTopic(question) === 'passport_type') return false;
   if (candidateOnlyCategory(question)) return false;
   const text = [question.question, question.applicationQuestion, question.label].filter(Boolean).join(' ');
   if (SENSITIVE.test(text)) return false;
   const topic = questionTopic(question.applicationQuestion || question.question || question.label, question.context || '', question);
   if (topic && !String(topic).startsWith('language:')) return false;
   return !(facts && operationalDefaultAnswer(question, { facts }));
+}
+
+/** Merge live verified decisions and derive the passport fact before the planner reads the next page. */
+export function platformFactsAfterLiveDecisions(facts = {}, questions = [], decisions = {}) {
+  const current = facts && typeof facts === 'object' ? facts : {};
+  const decisionAnswers = { ...(current.decisionAnswers || {}), ...(decisions || {}) };
+  return withVerifiedPassportAnswers({ ...current, decisionAnswers }, { questions, decisionAnswers });
 }
 
 async function decide({ questions, codex, cvText = '', profile = null, employer = '', jobTitle = '', postingRequirements = [], allowText, log }) {
