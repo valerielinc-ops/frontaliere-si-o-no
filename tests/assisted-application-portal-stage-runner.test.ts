@@ -539,7 +539,7 @@ describe('runner final guard across three application stages', () => {
     cookieDialog.dialogs = [{ dialogId: 'yellowshark' }];
     cookieDialog.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'yellowshark'; });
     const visiblePosting = snapshot(postingUrl, 'Yellowshark AG · Infrastructure Strategy Manager', [
-      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager', disabled: false },
+      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager · Job ID: 42', disabled: false },
     ]);
     visiblePosting.title = 'Yellowshark AG — Infrastructure Strategy Manager';
     // The fixture halts at a CAPTCHA after the owned Apply control; it must
