@@ -24,6 +24,9 @@ import { decideSectionTreeFanout, parseFanoutAutoThreshold } from '../scripts/li
 import { requireWorkerSectionTreeLayout, stageSectionTreeLayout } from '../scripts/lib/section-tree-layout-stage.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — script helpers are executable ESM modules without declarations.
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — script helpers are executable ESM modules without declarations.
 import { rewriteSectionTreeIndex, unfanoutSectionTree } from '../scripts/lib/ticino-tree-fanout.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — executable CI helpers have no separate declarations.
@@ -530,8 +533,10 @@ describe('automatic section tree fan-out policy', () => {
 
   it('retries the live Worker probe for the registry TTL and fails closed without its section header', async () => {
     const urls: string[] = [];
-    const fetchImpl = vi.fn(async (url: string) => {
+    const requestOptions: RequestInit[] = [];
+    const fetchImpl = vi.fn(async (url: string, init?: RequestInit) => {
       urls.push(url);
+      requestOptions.push(init ?? {});
       return urls.length === 1
         ? new Response(null, { status: 204 })
         : new Response(null, { status: 204, headers: { 'x-frontaliere-section-tree-layout': 'hash-v1', 'x-frontaliere-section': 'lucerna' } });
@@ -545,6 +550,8 @@ describe('automatic section tree fan-out policy', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(urls[0]).toContain('__frontaliere_section_tree_layout=hash-v1');
     expect(urls[0]).toContain('section=lucerna');
+    expect(requestOptions).toHaveLength(2);
+    expect(requestOptions.every((init) => (init.headers as Record<string, string>)['User-Agent'] === DEFAULT_LIVE_CHECK_USER_AGENT)).toBe(true);
 
     await expect(requireWorkerSectionTreeLayout('lucerna', 'de/jobs-in-lucerne', {
       fetchImpl: async () => new Response(null, { status: 204 }),
