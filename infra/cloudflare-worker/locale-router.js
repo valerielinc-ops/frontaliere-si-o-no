@@ -1008,6 +1008,7 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 const JOB_ALIAS_REDIRECT_CACHE_TTL = 86400; // 24 h — verified slug mappings are stable
 const JOB_ALIAS_NEGATIVE_CACHE_TTL = 600; // 10 min — unknown slugs can appear in a later deploy
 const JOB_ALIAS_CACHE_KEY_PREFIX = '/__worker-cache/job-alias/';
+const JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER = 'x-frontaliere-canon-cache';
 const CANTON_DRIFT_CANONICAL_NULL = Symbol('canton-drift-canonical-null');
 // CDN-offloaded (see comment above recoverCantonDriftOrphan). MIRRORS the
 // literal in public/404.html — duplicated, not imported, same reason as
@@ -1394,6 +1395,7 @@ async function readJobAliasCacheResult(request, url, locale, sectionRoute, key) 
         headers: {
           Location: `${target}${url.search}${url.hash}`,
           'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+          [JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER]: 'hit',
         },
       });
     }
@@ -1466,7 +1468,11 @@ async function recoverCantonDriftOrphan(url, locale, aliasCacheKey, ctx) {
   const location = canonical + url.search + url.hash;
   return new Response(null, {
     status: 301,
-    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+    headers: {
+      Location: location,
+      'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+      [JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER]: 'miss',
+    },
   });
 }
 
