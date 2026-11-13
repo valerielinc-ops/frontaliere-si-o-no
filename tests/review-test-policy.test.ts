@@ -725,6 +725,8 @@ describe('owner policy excluding test files from review', () => {
       'packages/articles/content/blog-articles-data.ts',
       'packages/articles/content/image-credits/blog/article.json',
       'packages/articles/content/seo/seo-blog-5.ts',
+      '.github/corpus-workflows/contract.json',
+      'firestore.indexes.json',
       'assets/cover.webp',
       'feeds/sitemap.xml',
     ]) expect(nonCodeRe.test(path), path).toBe(true);
