@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AlertCircle, CheckCircle2, Edit3, FileDown, FileText, Loader2, Target, Trash2, Upload } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
@@ -82,6 +82,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
 }) => {
   const { t } = useTranslation();
   const [candidateSkillsText, setCandidateSkillsText] = useState(() => loadCandidateSkills(userId));
+  const manuallyEditedSkillsRef = useRef(false);
   const [skillsLoadedFor, setSkillsLoadedFor] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [cvProfile, setCvProfile] = useState<UserCvProfileRecord | null>(null);
@@ -105,6 +106,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
     setCvProfile(null);
     setSkillsLoadedFor(null);
     setIsEditing(false);
+    manuallyEditedSkillsRef.current = false;
     setCvError('');
     setCvStatus('');
     if (!userId) {
@@ -119,7 +121,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
         if (cancelled) return;
         const initialSkills = savedSkills ?? (profile ? cvSkillsFromProfile(profile) : skillEntries(loadCandidateSkills(userId)));
         setCvProfile(profile?.userId === userId ? profile : null);
-        setCandidateSkillsText(initialSkills.join(', '));
+        if (!manuallyEditedSkillsRef.current) setCandidateSkillsText(initialSkills.join(', '));
         setSkillsLoadedFor(userId);
       })
       .catch(() => {
@@ -292,10 +294,9 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
           <button
             type="button"
             onClick={() => setIsEditing((previous) => !previous)}
-            disabled={isLoadingProfileSkills}
             aria-expanded={isEditing}
             aria-controls="job-affinity-skills-editor"
-            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-sm font-semibold text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-wait disabled:opacity-60"
+            className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-sm font-semibold text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <Edit3 className="h-4 w-4" aria-hidden="true" />
             {isEditing
@@ -336,7 +337,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
         )}
       </div>
 
-      {matchResult.jobSkills.length > 0 ? (
+      {matchResult.jobSkills.length > 0 && skillGroups.length === 0 ? (
         <div className="space-y-2">
           <h3 className="text-sm font-semibold text-heading">{t('jobBoard.affinity.requestedSkills')}</h3>
           <ul className="flex flex-wrap gap-2" aria-label={t('jobBoard.affinity.requestedSkills')}>
@@ -392,10 +393,12 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
         <textarea
           id="job-affinity-skills"
           value={candidateSkillsText}
-          onChange={(event) => setCandidateSkillsText(event.target.value.slice(0, MAX_SKILLS_LENGTH))}
+          onChange={(event) => {
+            manuallyEditedSkillsRef.current = true;
+            setCandidateSkillsText(event.target.value.slice(0, MAX_SKILLS_LENGTH));
+          }}
           placeholder={t('jobBoard.affinity.skillsPlaceholder')}
           maxLength={MAX_SKILLS_LENGTH}
-          disabled={isLoadingProfileSkills}
           className="min-h-24 w-full rounded-md border border-edge bg-surface px-3 py-2 text-sm text-body caret-accent selection:bg-accent-subtle selection:text-heading placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           rows={3}
         />

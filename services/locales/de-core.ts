@@ -790,7 +790,7 @@ const deCore: Record<string, string> = {
  'jobBoard.affinity.title': 'Passung zur Stellenanzeige',
  'jobBoard.affinity.ariaLabel': 'Abgleich deiner Kompetenzliste mit den Anforderungen der Stellenanzeige',
  'jobBoard.affinity.methodology': 'Teilweise Einschätzung: Vergleicht eingegebene oder aus deinem Lebenslauf extrahierte Kompetenzen und Sprachen mit erkannten Begriffen und exakten Treffern in den Anforderungen. Berufsjahre und Abschlüsse werden nicht bewertet; manche Formulierungen lassen sich nicht erkennen.',
- 'jobBoard.affinity.empty': 'Füge deine Kompetenzen hinzu oder lade deinen Lebenslauf hoch, um sie mit der Stelle zu vergleichen.',
+ 'jobBoard.affinity.empty': 'Füge die Kompetenzen hinzu, die du mit der Stellenanzeige vergleichen möchtest, oder lade deinen Lebenslauf hoch.',
  'jobBoard.affinity.noJobSkills': 'In den Anforderungen wurden keine Kompetenzen erkannt, die dieser Vergleich auswerten kann. Deshalb wird kein Prozentwert angezeigt.',
  'jobBoard.affinity.unrecognized': 'Diese Einträge lassen sich nicht automatisch vergleichen. Verwende genauere Bezeichnungen für Kompetenzen, Verfahren oder Sprachen.',
  'jobBoard.affinity.add': 'Kompetenzen hinzufügen',

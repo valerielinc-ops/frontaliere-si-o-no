@@ -826,7 +826,7 @@ const translations: Record<string, string> = {
  'jobBoard.affinity.title': 'Affinità con l’annuncio',
  'jobBoard.affinity.ariaLabel': 'Confronto tra il tuo elenco di competenze e i requisiti dell’annuncio',
  'jobBoard.affinity.methodology': 'Stima parziale: confronta le competenze e le lingue inserite o estratte dal CV con i termini riconosciuti e le corrispondenze esatte nei requisiti. Non valuta anni di esperienza o titoli di studio e può non interpretare tutte le formulazioni.',
- 'jobBoard.affinity.empty': 'Aggiungi le tue competenze oppure carica il CV per confrontarle con l’annuncio.',
+ 'jobBoard.affinity.empty': 'Aggiungi le competenze che vuoi confrontare oppure carica il CV per confrontarle con l’annuncio.',
  'jobBoard.affinity.noJobSkills': 'Nei requisiti dell’annuncio non sono presenti competenze specifiche che il confronto riconosce; per questo non mostro una percentuale.',
  'jobBoard.affinity.unrecognized': 'Le competenze inserite non sono riconosciute dal confronto. Prova a indicare nomi più specifici di competenze, procedure o lingue.',
  'jobBoard.affinity.add': 'Aggiungi competenze',

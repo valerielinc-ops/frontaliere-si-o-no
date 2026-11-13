@@ -787,7 +787,7 @@ const enCore: Record<string, string> = {
  'jobBoard.affinity.title': 'Match with this job',
  'jobBoard.affinity.ariaLabel': 'Comparison of your skill list with the job requirements',
  'jobBoard.affinity.methodology': 'Partial estimate: compares skills and languages you enter or that are extracted from your CV with recognized terms and exact matches in the requirements. It does not assess years of experience or qualifications, and some wording may not be interpreted.',
- 'jobBoard.affinity.empty': 'Add your skills or upload your CV to compare them with this job.',
+ 'jobBoard.affinity.empty': 'Add the skills you want to compare or upload your CV to compare them with this job.',
  'jobBoard.affinity.noJobSkills': 'The listing requirements contain no specific skills recognized by this comparison, so no percentage is shown.',
  'jobBoard.affinity.unrecognized': 'These entries are not recognized by the comparison. Try specific skill, procedure, or language names.',
  'jobBoard.affinity.add': 'Add skills',

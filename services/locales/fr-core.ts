@@ -790,7 +790,7 @@ const frCore: Record<string, string> = {
  'jobBoard.affinity.title': 'Correspondance avec l’offre',
  'jobBoard.affinity.ariaLabel': 'Comparaison entre votre liste de compétences et les exigences de l’offre',
  'jobBoard.affinity.methodology': 'Estimation partielle : compare les compétences et les langues saisies ou extraites de votre CV aux termes reconnus et aux correspondances exactes dans les exigences. Elle n’évalue ni l’expérience ni les diplômes, et certaines formulations peuvent ne pas être interprétées.',
- 'jobBoard.affinity.empty': 'Ajoutez vos compétences ou téléversez votre CV pour les comparer à cette offre.',
+ 'jobBoard.affinity.empty': 'Ajoutez les compétences à comparer ou téléversez votre CV pour les comparer à cette offre.',
  'jobBoard.affinity.noJobSkills': 'Aucune compétence précise reconnue par cette comparaison n’a été trouvée dans les exigences. Aucun pourcentage n’est donc affiché.',
  'jobBoard.affinity.unrecognized': 'Ces éléments ne peuvent pas être comparés automatiquement. Essayez des noms plus précis de compétences, de procédures ou de langues.',
  'jobBoard.affinity.add': 'Ajouter des compétences',
