@@ -223,7 +223,7 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
     }
     const decision = decisionAnswerFor(item.shaped, decidedFacts);
     if (decision) entries.push(entryFor(item.shaped, decision));
-    else {
+    else if (item.shaped.languageLevel || !experienceQuestionKind(item.shaped)) {
       const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
       if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
     }
@@ -232,7 +232,8 @@ export async function answerConciergeClarifications({ questions, facts, cvText =
   // the shared passport fact that supplies its localized catalog fallback.
   for (const item of required) {
     if (String(candidateAnswers?.[item.shaped.id] ?? '').trim()
-      || entries.some((entry) => entry.questionId === item.shaped.id)) continue;
+      || entries.some((entry) => entry.questionId === item.shaped.id)
+      || !platformQuestionTopic(item.shaped)?.startsWith('passport_')) continue;
     const rule = operationalDefaultAnswer(item.shaped, { locale, facts: decidedFacts });
     if (rule) entries.push(entryFor(item.shaped, rule, { principle: rule.principle || 'platform_rule' }));
   }

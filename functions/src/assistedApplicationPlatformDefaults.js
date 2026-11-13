@@ -927,6 +927,7 @@ function passportClassFromText(value) {
   if (CANDIDATE_PASSPORTS.includes(raw)) return raw;
   const text = fold(raw);
   if (/\b(?:other|altro|andere\w*|autre|non eu|non ue|extra eu|extra ue|drittstaat\w*|third country)\b/.test(text)) return 'other';
+  if (/\b(?:not|no|non|nicht|kein\w*|pas|aucun\w*|nessun\w*|ningun\w*)\s+(?:the\s+)?(?:eu|ue|efta|aels|aele|aeel|european|europ\w*)\b/.test(text)) return 'other';
   const swiss = /\b(?:swiss|switzerland|svizzer\w*|schweiz\w*|suisse|ch)\b/.test(text);
   const euEfta = /\b(?:eu|efta|aels|aele|aeel|ue|europe\w*|europa\w*)\b/.test(text);
   if (swiss && euEfta) return '';
@@ -980,6 +981,57 @@ function passportFromCandidateAnswer(question, value, permitStatus) {
   return passportFromBinary(topic, passportBinaryAnswer(value), permitStatus);
 }
 
+function candidatePassportAnswersFact(candidatePassportAnswers, {
+  permitStatus, nationality = '', nationalityCode = '', fallbackPassport = '', fallbackSource = '',
+} = {}) {
+  if (!Array.isArray(candidatePassportAnswers) || !candidatePassportAnswers.length) return null;
+  const answers = candidatePassportAnswers.map(({ question, value }) => ({ question, value,
+    text: String(Array.isArray(value) ? value.join(' ') : value ?? '').trim(),
+    topic: platformQuestionTopic(question),
+  }));
+  if (answers.some(({ text }) => !text)) return { passport: '', passportSource: 'candidate' };
+
+  const excluded = new Set();
+  const classes = [];
+  let onlyNarrowNegatives = true;
+  for (const { question, value, topic } of answers) {
+    const binary = passportBinaryAnswer(value);
+    if (binary === 'no' && topic === 'passport_swiss') {
+      excluded.add('swiss');
+      continue;
+    }
+    if (binary === 'no' && topic === 'passport_eu_efta') {
+      excluded.add('eu_efta');
+      continue;
+    }
+    onlyNarrowNegatives = false;
+    const passport = passportFromCandidateAnswer(question, value, permitStatus);
+    if (!passport) return { passport: '', passportSource: 'candidate' };
+    classes.push(passport);
+  }
+
+  if (classes.length) {
+    const unique = [...new Set(classes)];
+    return unique.length === 1 && !excluded.has(unique[0])
+      ? { passport: unique[0], passportSource: 'candidate' }
+      : { passport: '', passportSource: 'candidate' };
+  }
+  if (!onlyNarrowNegatives) return { passport: '', passportSource: 'candidate' };
+
+  // A narrow «no» rules out one class, but does not declare the whole passport class. Keep a compatible
+  // candidate declaration first, then use nationality only when it does not conflict with that answer.
+  if (fallbackSource === 'candidate') {
+    return CANDIDATE_PASSPORTS.includes(fallbackPassport) && !excluded.has(fallbackPassport)
+      ? { passport: fallbackPassport, passportSource: 'candidate' }
+      : { passport: '', passportSource: 'candidate' };
+  }
+  const fromNationality = passportOf({ nationality: nationalityCode || nationality })
+    || (fallbackSource === 'nationality' && CANDIDATE_PASSPORTS.includes(fallbackPassport) ? fallbackPassport : '');
+  return fromNationality && !excluded.has(fromNationality)
+    ? { passport: fromNationality, passportSource: 'nationality' }
+    : { passport: '', passportSource: 'candidate' };
+}
+
 function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
   const answers = [];
   for (const question of Array.isArray(questions) ? questions : []) {
@@ -1002,9 +1054,11 @@ function decisionPassportAnswers(questions, decisionAnswers, permitStatus) {
 export function withVerifiedPassportAnswers(facts = {}, { questions = [], decisionAnswers = {}, candidatePassportAnswers = [] } = {}) {
   const current = facts && typeof facts === 'object' ? facts : {};
   if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
-    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, current.permitStatus));
-    const unique = [...new Set(values.filter(Boolean))];
-    return { ...current, passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+    const passportFact = candidatePassportAnswersFact(candidatePassportAnswers, {
+      permitStatus: current.permitStatus, nationality: current.nationality, nationalityCode: current.nationalityCode,
+      fallbackPassport: current.passport, fallbackSource: current.passportSource,
+    });
+    return passportFact ? { ...current, ...passportFact } : current;
   }
   if (current.passportSource === 'candidate' || current.passportSource === 'nationality'
     || CANDIDATE_PASSPORTS.includes(current.passport)) return current;
@@ -1017,9 +1071,13 @@ function passportFactOf({ uploaded, nationality, nationalityCode, permitStatus, 
     return { passport: passportClassFromText(passportOverride.value), passportSource: 'candidate' };
   }
   if (Array.isArray(candidatePassportAnswers) && candidatePassportAnswers.length) {
-    const values = candidatePassportAnswers.map(({ question, value }) => passportFromCandidateAnswer(question, value, permitStatus));
-    const unique = [...new Set(values.filter(Boolean))];
-    return { passport: values.every(Boolean) && unique.length === 1 ? unique[0] : '', passportSource: 'candidate' };
+    const uploadedPassport = Object.hasOwn(uploaded, 'passport') && typeof uploaded.passport === 'string';
+    const passportFact = candidatePassportAnswersFact(candidatePassportAnswers, {
+      permitStatus, nationality, nationalityCode,
+      fallbackPassport: CANDIDATE_PASSPORTS.includes(uploaded.passport) ? uploaded.passport : '',
+      fallbackSource: uploadedPassport ? 'candidate' : '',
+    });
+    return passportFact || { passport: '', passportSource: 'candidate' };
   }
   // A present but empty upload answer is the candidate's word. Older orders have no passport key and can use
   // the lower-priority nationality or verified-question sources below.

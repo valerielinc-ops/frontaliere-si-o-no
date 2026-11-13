@@ -206,6 +206,15 @@ describe('questions the platform answers (labels from the census)', () => {
     expect(platformDefaultAnswer(binary, uploadWins, { locale: 'en' })?.value).toBe('Yes');
     expect(platformDefaultAnswer(type, uploadWins, { locale: 'en' })?.value).toBe('Swiss');
 
+    const swissPassport = { id: 'passport_swiss_answer', source: 'portal', type: 'yes_no', required: true,
+      options: ['Yes', 'No'], question: 'Do you hold a Swiss passport?' };
+    const italianWhoSaysNoSwiss = platformCandidateFacts({
+      order: { candidateFacts: { nationality: 'Italiana' } },
+      candidatePassportAnswers: [{ question: swissPassport, value: 'No' }], locale: 'en', nowMs: NOW,
+    });
+    expect(italianWhoSaysNoSwiss).toMatchObject({ passport: 'eu_efta', passportSource: 'nationality' });
+    expect(platformDefaultAnswer(type, italianWhoSaysNoSwiss, { locale: 'en' })?.value).toBe('EU/EFTA');
+
     const typeWithOptions = { ...type, options: ['Swiss', 'EU/EFTA', 'Other'] };
     const candidateOther = factsFor({ candidateFacts: { workPermit: 'permit_g', passport: 'other' } });
     const coherent = withOperationalQuestionAnswers([binary, typeWithOptions], {}, { facts: candidateOther, locale: 'en' });
@@ -322,6 +331,11 @@ describe('questions the platform answers (labels from the census)', () => {
     const facts = platformCandidateFacts({ profile: { nationality: 'Italian' }, nowMs: NOW, locale: 'en' });
     const result = platformDefaultAnswer(question, facts, { locale: 'en' });
     expect(result).toMatchObject({ value: 'No, but I have EU/EFTA citizenship', basis: 'deduced' });
+  });
+
+  it('classifies an explicit negative EU passport class as other before matching EU', () => {
+    const notEu = platformCandidateFacts({ passportOverride: { provided: true, value: 'not EU' }, nowMs: NOW, locale: 'en' });
+    expect(notEu).toMatchObject({ passport: 'other', passportSource: 'candidate' });
   });
 
   it('languages from the CV, the CV language as native', () => {
