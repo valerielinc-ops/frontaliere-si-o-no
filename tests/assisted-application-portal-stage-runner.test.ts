@@ -47,24 +47,40 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       }
       return source.includes('document.body') ? state.snapshot.text : false;
     },
+    ...(options.agentSnapshot ? { ariaSnapshot: async () => options.agentSnapshot(state.snapshot) } : {}),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
     getByRole: () => ({
       count: async () => 0,
       filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
     }),
-    locator: (selector: string) => ({
-      count: async () => 0,
-      first: () => ({
-        click: (_options?: unknown) => {
-          const transition = buttonTransitions[selector];
-          if (transition) return transition();
-          return finalClickError && state.snapshot.url === reviewUrl
-            ? Promise.reject(finalClickError)
-            : state.snapshot === source ? openClick() : click();
-        },
-        evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
-      }),
-    }),
+    locator: (selector: string) => {
+      const ref = /^aria-ref=(e\d+)$/.exec(selector)?.[1] || '';
+      const agentControl = ref ? options.agentControl?.(state.snapshot, ref) : null;
+      if (agentControl) {
+        return {
+          evaluate: async (fn: Function) => fn.name === 'allowAgentApplicationEntryClickInPage' ? true : agentControl.info,
+          isEnabled: async () => !agentControl.info.disabled,
+          click: async () => {
+            const transition = buttonTransitions[agentControl.selector];
+            if (transition) return transition();
+            return state.snapshot === source ? openClick() : click();
+          },
+        };
+      }
+      return {
+        count: async () => 0,
+        first: () => ({
+          click: (_options?: unknown) => {
+            const transition = buttonTransitions[selector];
+            if (transition) return transition();
+            return finalClickError && state.snapshot.url === reviewUrl
+              ? Promise.reject(finalClickError)
+              : state.snapshot === source ? openClick() : click();
+          },
+          evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
+        }),
+      };
+    },
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const codex = vi.fn();
@@ -268,11 +284,36 @@ describe('runner final guard across three application stages', () => {
       passwordVisible: true,
     };
     const pressed: string[] = [];
+    const agentPages = new Map([
+      [postingUrl, [toggles[0]]],
+      [postingUrl + '#menu', menu.buttons],
+      [signInUrl, signIn.buttons],
+    ]);
+    const action = (ref: string) => ({
+      ref, action: 'click', value: '', document: 'none', question: '', context: '', answer: '', source: 'widget', evidence: '',
+    });
     const f = fixture(posting, null, review, null, {
       applyUrl: postingUrl,
       postingUrl,
       channelType: 'employer_site',
       job: { company: 'Helsana', title },
+      agentSnapshot: (current: any) => {
+        if (current === posting) return '- button "Jetzt bewerben" [ref=e0]';
+        if (current === menu) return menu.buttons.map((button, index) => `- button "${button.text}" [ref=e${index}]`).join('\n');
+        return '- textbox "E-Mail-Adresse" [ref=e0]\n- textbox "Kennwort" [ref=e1]';
+      },
+      agentControl: (current: any, ref: string) => {
+        const index = Number(ref.slice(1));
+        const controls = current === posting ? agentPages.get(postingUrl)! : current === menu ? agentPages.get(postingUrl + '#menu')! : [];
+        const control = controls[index];
+        if (!control) return null;
+        return {
+          selector: `[data-aa-id="${control.id}"]`,
+          info: { name: control.text, labelName: '', otp: false, button: true, tag: 'button', inputType: 'button',
+            editable: false, inList: false, inForm: false, href: control.href || '', submits: false,
+            authForm: false, leaves: Boolean(control.href && !control.href.startsWith('#')), disabled: false },
+        };
+      },
       buttonTransitions: {
         '[data-aa-id="toggle-top"]': async () => { pressed.push('toggle-top'); state.snapshot = menu; },
         '[data-aa-id="manual"]': async () => { pressed.push('manual'); state.snapshot = signIn; },
@@ -280,12 +321,17 @@ describe('runner final guard across three application stages', () => {
         '[data-aa-id="toggle-bottom"]': async () => { pressed.push('toggle-bottom'); },
       },
     });
+    f.codex
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [action('e0')], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [action('e1')], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'ACCOUNT_STEP', reason: '', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
     expect(pressed.slice(0, 2)).toEqual(['toggle-top', 'manual']);
     expect(pressed).not.toContain('linkedin');
-    expect(result.event.reason).not.toBe('application_stage_unknown');
+    expect(f.codex).toHaveBeenCalledTimes(3);
+    expect(result.event.type).toBe('submit_handoff');
     expect(state.snapshot.url).toBe(signInUrl);
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
@@ -373,10 +419,12 @@ describe('runner final guard across three application stages', () => {
       job: { title },
     });
 
+    f.page.ariaSnapshot = async () => '- button "Sprache" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: no_job_entry', actions: [], advanceRef: '', submitRef: '', questions: [] });
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
-    expect(f.codex).not.toHaveBeenCalled();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
     expect(f.page.goto.mock.calls.every(([url]: [string]) => url === postingUrl)).toBe(true);
@@ -552,11 +600,25 @@ describe('runner final guard across three application stages', () => {
       applyUrl: postingUrl,
       postingUrl,
       job: { company: 'Yellowshark AG', title },
+      agentSnapshot: (current: any) => current.buttons.map((button: any, index: number) => `- button "${button.text}" [ref=e${index}]`).join('\n'),
+      agentControl: (current: any, ref: string) => {
+        const control = current.buttons[Number(ref.slice(1))];
+        if (!control) return null;
+        return {
+          selector: `[data-aa-id="${control.id}"]`,
+          info: { name: control.text, labelName: '', otp: false, button: true, tag: 'button', inputType: 'button',
+            editable: false, inList: false, inForm: false, href: control.href || '', submits: false,
+            authForm: false, leaves: false, disabled: Boolean(control.disabled) },
+        };
+      },
       buttonTransitions: {
         '[data-aa-id="reject"]': async () => { state.snapshot = visiblePosting; },
         '[data-aa-id="apply"]': applyClicked,
       },
     });
+    f.codex
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [{ ref: 'e0', action: 'click', value: '', document: 'none', question: '', context: '', answer: '', source: 'widget', evidence: '' }], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'PARKED', reason: 'PARKED: challenge', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
@@ -662,25 +724,31 @@ describe('runner final guard across three application stages', () => {
     });
   });
 
-  it('classifies a non-form loading page outside the selected posting as a mismatch', async () => {
+  it('routes a non-form loading page outside the selected posting through navigation recovery', async () => {
     const unrecognized = { ...snapshot(applyUrl, 'Please wait while the portal loads.', []), text: 'Please wait while the portal loads.', title: 'Careers' };
     const f = fixture(unrecognized);
+    f.page.ariaSnapshot = async () => '- text "Please wait while the portal loads" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: loading_shell', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
 
-  it('classifies a control-free page outside the selected route as a posting mismatch', async () => {
+  it('routes a control-free page outside the selected route through navigation recovery', async () => {
     const otherTitle = { ...snapshot(applyUrl, 'Application portal is loading.', []),
       title: 'Different role', text: 'Application portal is loading.', fields: [] };
     const f = fixture(otherTitle);
+    f.page.ariaSnapshot = async () => '- text "Application portal is loading" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: loading_shell', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
@@ -790,7 +858,7 @@ describe('runner final guard across three application stages', () => {
     };
     const context: any = { route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} };
     const browser = { newContext: async () => context, close: async () => {}, version: () => '151' };
-    const codex = vi.fn(async () => ({ status: 'done', reason: 'test', actions: [], advanceRef: 'e0', submitRef: '', questions: [] }));
+    const codex = vi.fn(async () => ({ status: 'REACHED_FORM', reason: 'test', actions: [], advanceRef: 'e0', submitRef: '', questions: [] }));
 
     const result = await submitViaPortal({
       applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
@@ -867,6 +935,7 @@ describe('runner final guard across three application stages', () => {
       frames: () => [page], mainFrame: () => page,
       url: () => state.snapshot.url,
       title: async () => title,
+      ariaSnapshot: async () => state.snapshot.buttons.map((button: any, index: number) => `- button "${button.text}" [ref=e${index}]`).join('\n'),
       evaluate: async (fn: Function) => {
         const source = String(fn);
         if (source.includes('navigator.userAgent')) return 'Chrome';
@@ -892,6 +961,6 @@ describe('runner final guard across three application stages', () => {
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(advance).toHaveBeenCalledOnce();
-    expect(codex).not.toHaveBeenCalled();
+    expect(codex).toHaveBeenCalledOnce();
   });
 });

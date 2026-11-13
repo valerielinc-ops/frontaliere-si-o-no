@@ -1,6 +1,7 @@
 /**
  * Pure deterministic engine for applying structured edits from the Reviewer subagent,
  * ported from the ai-job-search Part A structured edit workflow (MIT).
+ * Copyright (c) 2026 Mads Lorentzen.
  *
  * Each edit is an atomic patch:
  *   { file: 'letter' | 'cv', old_string: string, new_string: string, reason: string }
