@@ -2844,7 +2844,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-13T21:25:21.251Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "needsRetranslation": true
     },
     {
       "title": "Automatiker als Teamleader 100%",
