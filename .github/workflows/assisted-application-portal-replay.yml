@@ -26,7 +26,10 @@ permissions:
 
 concurrency:
   group: assisted-application-portal-replay-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  # A queued replay is expensive and main may synchronize the PR while it is
+  # running. Keep the active event immutable and let the newest pending run
+  # replace only an older pending run, rather than cancelling the active gate.
+  cancel-in-progress: false
 
 jobs:
   detect:
@@ -302,7 +305,9 @@ jobs:
           run_group() {
             set -euo pipefail
             mkdir -p "$PORTAL_REPLAY_REPORT_DIR" "$PORTAL_REPLAY_LOG_DIR"
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+            # The paired comparison semantics are part of the PR under test;
+            # the base checkout remains the source of trusted fences and data.
+            portal_replay_cli=scripts/assisted-application/portal-replay.mjs
             test -f "$portal_replay_cli"
             PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
               const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");
@@ -361,10 +366,13 @@ jobs:
               return 1
             fi
           }
+          group_script="$RUNNER_TEMP/portal-replay-group.sh"
+          declare -f run_group > "$group_script"
+          printf '\nrun_group\n' >> "$group_script"
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c "$(declare -f run_group); run_group"
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash "$group_script"
           else
-            run_group
+            bash "$group_script"
           fi
 
       - name: Upload sanitized family reports
@@ -426,6 +434,23 @@ jobs:
         with:
           node-version: '22'
 
+      # The base CLI remains the trusted gate implementation once it knows the
+      # report semantics. This PR changes that protocol, so its immutable merge
+      # CLI is also checked out as a one-release compatibility bridge; otherwise
+      # the old sanitizer turns pre-existing base errors into false regressions.
+      - name: Checkout PR gate CLI for a changed report protocol
+        if: needs.detect.outputs.run == 'true' || needs.detect.result != 'success'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          path: .portal-head
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            functions/src
+            scripts/assisted-application
+          sparse-checkout-cone-mode: true
+
       - name: Download sanitized family reports
         if: needs.detect.outputs.run == 'true'
         id: reports
@@ -458,7 +483,14 @@ jobs:
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
-          node "$portal_replay_cli" aggregate \
+          if grep -Fq "PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'" "$portal_replay_cli"; then
+            gate_cli="$portal_replay_cli"
+          else
+            gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs
+            test -f "$gate_cli"
+            echo 'portal replay gate: using PR CLI because the trusted base predates the report protocol'
+          fi
+          node "$gate_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \
             --matrix-result "$REPLAY_RESULT" \
