@@ -555,7 +555,7 @@ function nativeQuestionText(value, counter = null) {
     element.getAttribute('placeholder'),
     labelFor(element),
   ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
-  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?alert|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/iu;
+  const SITE_MARKETING_TEXT_RE = /\b(?:newsletter|subscribe|subscription|mailing\s+list|marketing|job[- ]?(?:alert|abo)|stellenalarm|jobbenachrichtigung|abonn(?:e|é)|notizie|avviso\s+(?:di\s+)?lavoro|alerte\s+(?:emploi|offre))\b/iu;
   const applicationFormFor = (element) => element.form || element.closest('form, [role="form"]');
   const siteMarketingIdentity = (element) => [
     element.getAttribute('name'),
