@@ -9836,8 +9836,8 @@
       "slugByLocale": {
         "en": "doctoral-postdoctoral-positions-in-analog-design-automation-eth-zurich-ch",
         "it": "doctoral-postdoctoral-positions-in-analog-design-automation-eth-zurich-ch",
-        "de": "doctoral-postdoctoral-positions-in-analog-design-automation-eth-zurich-ch",
-        "fr": "doctoral-postdoctoral-positions-in-analog-design-automation-eth-zurich-ch"
+        "de": "doktoranden-postdoktorandenstellen-in-analog-design-automation-eth-zurich-zurich",
+        "fr": "postes-de-doctorat-postdoctorat-dans-l-automatisation-de-la-conception-analogique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9974,12 +9974,12 @@
     },
     {
       "id": "eth-zurich-64d62cc7ed6a",
-      "slug": "wissenschaftliche-r-collaboratore-trice-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich",
+      "slug": "collaboratore-trice-scientifico-a-in-geodesia-ingegneristica-rilevamento-3d-lidar-eth-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch",
-        "it": "wissenschaftliche-r-collaboratore-trice-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch"
+        "it": "collaboratore-trice-scientifico-a-in-geodesia-ingegneristica-rilevamento-3d-lidar-eth-zurich-zurich",
+        "en": "research-associate-in-engineering-geodesy-3d-data-capture-lidar-eth-zurich-zurich",
+        "fr": "collaborateur-rice-scientifique-en-geodesie-d-ingenierie-acquisition-3d-lidar-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10025,11 +10025,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch",
+          "wissenschaftliche-r-collaboratore-trice-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch"
+        "wissenschaftliche-r-mitarbeiter-in-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich-ch",
+        "wissenschaftliche-r-collaboratore-trice-ingenieurgeodasie-3d-erfassung-lidar-eth-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10054,12 +10062,12 @@
     },
     {
       "id": "eth-zurich-401d94e5562f",
-      "slug": "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch",
+      "slug": "posizione-postdoc-in-biologia-molecolare-biofisica-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch",
-        "it": "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch",
-        "de": "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch",
-        "fr": "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch"
+        "it": "posizione-postdoc-in-biologia-molecolare-biofisica-eth-zurich-zurich",
+        "de": "postdoc-position-in-molekularbiologie-biophysik-eth-zurich-zurich",
+        "fr": "position-postdoc-en-biologie-moleculaire-et-biophysique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10121,16 +10129,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:52:45.438Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:52:45.438Z"
+      "firstSeenAt": "2026-11-13T21:52:45.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-in-molecular-biology-biophysics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-d372fb396d17",
-      "slug": "knowledge-transfer-officer-eth-zurich-ch",
+      "slug": "responsabile-del-trasferimento-di-conoscenza-eth-zurich-zurich",
       "slugByLocale": {
         "en": "knowledge-transfer-officer-eth-zurich-ch",
-        "it": "knowledge-transfer-officer-eth-zurich-ch",
-        "de": "knowledge-transfer-officer-eth-zurich-ch",
-        "fr": "knowledge-transfer-officer-eth-zurich-ch"
+        "it": "responsabile-del-trasferimento-di-conoscenza-eth-zurich-zurich",
+        "de": "wissenstransferbeauftragter-eth-zurich-zurich",
+        "fr": "specialiste-du-transfert-des-connaissances-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10192,7 +10214,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:52:44.914Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:52:44.914Z"
+      "firstSeenAt": "2026-11-13T21:52:44.914Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "knowledge-transfer-officer-eth-zurich-ch"
+        ],
+        "de": [
+          "knowledge-transfer-officer-eth-zurich-ch"
+        ],
+        "fr": [
+          "knowledge-transfer-officer-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "knowledge-transfer-officer-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-54be78847261",

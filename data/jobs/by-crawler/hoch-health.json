@@ -6564,7 +6564,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -6616,7 +6616,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6624,7 +6624,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -18138,12 +18138,12 @@
     },
     {
       "id": "hoch-health-f5cd1d775a34",
-      "slug": "fachfrau-mann-gesundheit-50-100-hoch-health-ostschweiz-wil",
+      "slug": "operatore-trice-sociosanitario-a-50-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-50-100-hoch-health-wil",
-        "it": "fachfrau-mann-gesundheit-50-100-hoch-health-ostschweiz-wil",
-        "en": "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2",
-        "fr": "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2"
+        "it": "operatore-trice-sociosanitario-a-50-100-hoch-health-ostschweiz-wil",
+        "en": "healthcare-professional-50-100-hoch-health-ostschweiz-wil-b7233c",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-50-100-hoch-health-ostschweiz-wil-b7233c"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18191,11 +18191,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2",
+          "fachfrau-mann-gesundheit-50-100-hoch-health-ostschweiz-wil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2"
+        "fachfrau-mann-gesundheit-50-100-hoch-health-wil-2",
+        "fachfrau-mann-gesundheit-50-100-hoch-health-ostschweiz-wil"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,

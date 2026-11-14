@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-4b6e2dc3fb9c",
-      "slug": "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
+      "slug": "si-project-manager-m-f-orientamento-applicazioni-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
       "slugByLocale": {
         "fr": "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
-        "it": "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
-        "en": "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
-        "de": "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
+        "it": "si-project-manager-m-f-orientamento-applicazioni-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
+        "en": "si-project-manager-m-f-applications-orientation-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3",
+        "de": "si-projektmanager-m-w-applikationsorientierung-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
       },
       "slugDisambiguator": "4b6e2dc3",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:43:09.896Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:43:09.896Z"
+      "firstSeenAt": "2026-11-13T21:43:09.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
+        ],
+        "en": [
+          "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
+        ],
+        "de": [
+          "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-projets-si-orientation-applications-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-4b6e2dc3"
+      ]
     },
     {
       "id": "okjob-90b281fb37f9",
-      "slug": "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
+      "slug": "draughtsman-in-costruzione-microtecnica-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
       "slugByLocale": {
         "fr": "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
-        "it": "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
-        "en": "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
-        "de": "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
+        "it": "draughtsman-in-costruzione-microtecnica-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
+        "en": "draughtsman-in-microtechnical-construction-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb",
+        "de": "zeichner-im-mikrotechnischen-bau-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
       },
       "slugDisambiguator": "90b281fb",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,7 +159,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:43:09.894Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:43:09.894Z"
+      "firstSeenAt": "2026-11-13T21:43:09.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
+        ],
+        "en": [
+          "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
+        ],
+        "de": [
+          "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
+        ]
+      },
+      "previousSlugs": [
+        "dessinateur-en-construction-microtechnique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-90b281fb"
+      ]
     },
     {
       "id": "okjob-c803b7727ce5",

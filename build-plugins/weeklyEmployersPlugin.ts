@@ -38,6 +38,7 @@ import {
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,

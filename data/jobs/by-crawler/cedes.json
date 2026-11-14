@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "cedes-5263e50a0062",
-      "slug": "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart",
+      "slug": "addetto-a-alle-spedizioni-logistica-di-magazzino-100-cedes-ag-landquart",
       "slugByLocale": {
         "de": "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart",
-        "it": "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart",
-        "en": "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart",
-        "fr": "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart"
+        "it": "addetto-a-alle-spedizioni-logistica-di-magazzino-100-cedes-ag-landquart",
+        "en": "shipping-employee-warehouse-logistics-100-cedes-ag-landquart",
+        "fr": "collaborateur-rice-a-l-expedition-logistique-d-entrepot-100-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes-ag",
@@ -54,11 +54,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart",
+          "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart"
+        ],
+        "en": [
+          "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart"
+        ],
+        "fr": [
           "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart"
+        "mitarbeiter-in-shipping-lagerlogistik-100-cedes-landquart",
+        "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,

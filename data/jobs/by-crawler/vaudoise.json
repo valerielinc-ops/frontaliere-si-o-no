@@ -3334,12 +3334,12 @@
     },
     {
       "id": "vaudoise-e876b15eb3f3",
-      "slug": "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch",
+      "slug": "azienda-di-supporto-clienti-specializzata-m-f-x-90-vaudoise-assurances-morges",
       "slugByLocale": {
         "fr": "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch",
-        "it": "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch",
-        "en": "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch",
-        "de": "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch"
+        "it": "azienda-di-supporto-clienti-specializzata-m-f-x-90-vaudoise-assurances-morges",
+        "en": "specialized-customer-support-company-m-f-x-90-vaudoise-assurances-morges",
+        "de": "spezialisiertes-kundendienstunternehmen-m-w-x-90-vaudoise-assurances-morges"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3402,7 +3402,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:20:35.280Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:35.280Z"
+      "firstSeenAt": "2026-11-13T21:20:35.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch"
+        ],
+        "en": [
+          "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch"
+        ],
+        "de": [
+          "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "soutien-clientele-specialise-entreprise-h-f-x-90-vaudoise-ch"
+      ]
     }
   ]
 }

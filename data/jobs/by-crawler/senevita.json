@@ -3111,12 +3111,12 @@
     },
     {
       "id": "senevita-2f9a34b6f0fe",
-      "slug": "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen",
+      "slug": "infermiere-a-diplomato-a-e-formatrice-formatore-professionale-80-100-senevita-ag-seengen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen",
-        "it": "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen",
-        "en": "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen",
-        "fr": "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen"
+        "it": "infermiere-a-diplomato-a-e-formatrice-formatore-professionale-80-100-senevita-ag-seengen",
+        "en": "qualified-nursing-professional-and-vocational-trainer-80-100-senevita-ag-seengen",
+        "fr": "infirmier-ere-diplome-e-ainsi-que-formateur-trice-en-entreprise-80-100-senevita-ag-seengen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3179,7 +3179,21 @@
       "streetAddress": "AG Seengen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:33:18.428Z"
+      "firstSeenAt": "2026-11-13T21:33:18.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-sowie-berufsbildner-in-80-100-senevita-ag-seengen"
+      ]
     },
     {
       "id": "senevita-1323186b7632",
@@ -3586,12 +3600,12 @@
     },
     {
       "id": "senevita-02588ff03e49",
-      "slug": "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau",
+      "slug": "operatrice-operatore-sociosanitario-efz-fage-con-funzione-di-formatrice-formatore-professionale-80-100-senevita-ag-aarau",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau",
-        "it": "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau"
+        "it": "operatrice-operatore-sociosanitario-efz-fage-con-funzione-di-formatrice-formatore-professionale-80-100-senevita-ag-aarau",
+        "en": "health-professional-efz-fage-with-job-training-function-80-100-senevita-ag-aarau",
+        "fr": "efz-fage-professionnel-de-la-sante-avec-fonction-de-formation-professionnelle-80-100-senevita-ag-aarau"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3654,7 +3668,21 @@
       "streetAddress": "AG Aarau",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:33:15.058Z"
+      "firstSeenAt": "2026-11-13T21:33:15.058Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-fage-mit-berufsbildnerfunktion-80-100-senevita-ag-aarau"
+      ]
     },
     {
       "id": "senevita-a2d4436abc46",
@@ -6432,12 +6460,12 @@
     },
     {
       "id": "senevita-c4bb1194cecf",
-      "slug": "fachperson-gesundheit-40-100-senevita-zh-buchs",
+      "slug": "salute-professionale-40-100-senevita-zh-buchs",
       "slugByLocale": {
         "de": "fachperson-gesundheit-40-100-senevita-zh-buchs",
-        "it": "fachperson-gesundheit-40-100-senevita-zh-buchs",
-        "en": "fachperson-gesundheit-40-100-senevita-zh-buchs",
-        "fr": "fachperson-gesundheit-40-100-senevita-zh-buchs"
+        "it": "salute-professionale-40-100-senevita-zh-buchs",
+        "en": "health-professional-40-100-senevita-zh-buchs",
+        "fr": "professionnels-de-la-sante-40-100-senevita-zh-buchs"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -6499,7 +6527,21 @@
       "streetAddress": "ZH Buchs",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:32:57.202Z"
+      "firstSeenAt": "2026-11-13T21:32:57.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-40-100-senevita-zh-buchs"
+        ],
+        "en": [
+          "fachperson-gesundheit-40-100-senevita-zh-buchs"
+        ],
+        "fr": [
+          "fachperson-gesundheit-40-100-senevita-zh-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-40-100-senevita-zh-buchs"
+      ]
     },
     {
       "id": "senevita-143d025ac8d5",
@@ -9135,7 +9177,7 @@
         "it": "apprendistato-assistent-in-gesundheit-e-soziales-afp-senevita-ittigen-be",
         "en": "assistant-in-health-and-social-affairs-eba-senevita-ittigen-be",
         "de": "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-ittigen-be",
-        "fr": "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
+        "fr": "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -9181,7 +9223,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen",
-        "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+        "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9191,7 +9233,7 @@
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-senevita-be-ittigen"
         ],
         "fr": [
-          "assistant-en-sante-et-affaires-sociales-eba-senevita-ittigen-be"
+          "place-d-apprentissage-d-aide-en-soins-et-accompagnement-afp-senevita-be-ittigen"
         ]
       },
       "salaryMin": 66000,
@@ -10502,12 +10544,12 @@
     },
     {
       "id": "senevita-ee18d9374efe",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-unterhaltspraktiker-in-afp-senevita-zh-erlenbach",
+      "slug": "posto-di-apprendistato-come-specialista-della-manutenzione-aziendale-efz-praticante-addetto-a-alla-manutenzione-eba",
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh",
-        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-unterhaltspraktiker-in-afp-senevita-zh-erlenbach",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh"
+        "it": "posto-di-apprendistato-come-specialista-della-manutenzione-aziendale-efz-praticante-addetto-a-alla-manutenzione-eba",
+        "en": "maintenance-specialist-efz-maintenance-practitioner-eba-apprenticeship-senevita-zh-erlenbach",
+        "fr": "place-d-apprentissage-d-agent-e-d-exploitation-cfc-praticien-ne-en-entretien-afp-senevita-zh-erlenbach"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -10556,11 +10598,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-unterhaltspraktiker-in-afp-senevita-zh-erlenbach"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-unterhaltspraktiker-in-eba-senevita-zh",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-unterhaltspraktiker-in-afp-senevita-zh-erlenbach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11533,12 +11583,12 @@
     },
     {
       "id": "senevita-affddaf2f099",
-      "slug": "apprendistato-praktiker-in-hotellerie-hauswirtschaft-afp-senevita-zh-erlenbach",
+      "slug": "posto-di-apprendistato-come-praticante-nel-settore-alberghiero-economia-domestica-eba-senevita-zh-erlenbach",
       "slugByLocale": {
         "de": "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach",
-        "it": "apprendistato-praktiker-in-hotellerie-hauswirtschaft-afp-senevita-zh-erlenbach",
-        "en": "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach",
-        "fr": "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach"
+        "it": "posto-di-apprendistato-come-praticante-nel-settore-alberghiero-economia-domestica-eba-senevita-zh-erlenbach",
+        "en": "hospitality-and-housekeeping-practitioner-eba-apprenticeship-senevita-zh-erlenbach",
+        "fr": "place-d-apprentissage-de-praticien-ne-en-hotellerie-intendance-afp-senevita-zh-erlenbach"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11587,11 +11637,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach",
+          "apprendistato-praktiker-in-hotellerie-hauswirtschaft-afp-senevita-zh-erlenbach"
+        ],
+        "en": [
+          "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach"
+        ],
+        "fr": [
           "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach"
+        "lehrstelle-praktiker-in-hotellerie-hauswirtschaft-eba-senevita-zh-erlenbach",
+        "apprendistato-praktiker-in-hotellerie-hauswirtschaft-afp-senevita-zh-erlenbach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -13590,12 +13648,12 @@
     },
     {
       "id": "senevita-7131b5197669",
-      "slug": "nachtwache-dipl-hf-40-80-senevita-bs-basel",
+      "slug": "guardia-notturna-dipl-hf-40-80-senevita-bs-basel",
       "slugByLocale": {
         "de": "nachtwache-dipl-hf-40-80-senevita-bs-basel",
-        "it": "nachtwache-dipl-hf-40-80-senevita-bs-basel",
-        "en": "nachtwache-dipl-hf-40-80-senevita-bs-basel",
-        "fr": "nachtwache-dipl-hf-40-80-senevita-bs-basel"
+        "it": "guardia-notturna-dipl-hf-40-80-senevita-bs-basel",
+        "en": "night-watch-dipl-hf-40-80-senevita-bs-basel",
+        "fr": "veille-de-nuit-dipl-hf-40-80-senevita-bs-basel"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -13657,7 +13715,21 @@
       "streetAddress": "BS Basel",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:32:05.470Z"
+      "firstSeenAt": "2026-11-13T21:32:05.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtwache-dipl-hf-40-80-senevita-bs-basel"
+        ],
+        "en": [
+          "nachtwache-dipl-hf-40-80-senevita-bs-basel"
+        ],
+        "fr": [
+          "nachtwache-dipl-hf-40-80-senevita-bs-basel"
+        ]
+      },
+      "previousSlugs": [
+        "nachtwache-dipl-hf-40-80-senevita-bs-basel"
+      ]
     },
     {
       "id": "senevita-8f9a0f61cf0a",
@@ -15052,12 +15124,12 @@
     },
     {
       "id": "senevita-8b4f8c463599",
-      "slug": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs",
+      "slug": "ausiliario-a-di-cura-crs-con-retribuzione-oraria-regione-zurigo-unterland-senevita-zh-buchs",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs",
-        "it": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs",
-        "en": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs",
-        "fr": "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs"
+        "it": "ausiliario-a-di-cura-crs-con-retribuzione-oraria-regione-zurigo-unterland-senevita-zh-buchs",
+        "en": "nursing-assistant-srk-on-an-hourly-basis-zurich-unterland-region-senevita-zh-buchs",
+        "fr": "aide-soignant-e-srk-remunere-e-a-l-heure-region-zurich-unterland-senevita-zh-buchs"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -15120,7 +15192,21 @@
       "streetAddress": "ZH Buchs",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:31:55.677Z"
+      "firstSeenAt": "2026-11-13T21:31:55.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-im-stundenlohn-region-zurich-unterland-senevita-zh-buchs"
+      ]
     },
     {
       "id": "senevita-becff29b67e4",
