@@ -41,6 +41,12 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
 // The OG prewarm consumes the same assembled active-job dataset as deploy and
 // hashes employer-logo bytes into card cache names. These runtime inputs are
 // read through fs, so the static workflow analyzer cannot infer them reliably.
+// The job-alert sender builds its brand-logo lookup from the files of
+// `public/images/brands/` (BRAND_LOGOS_DIR in scripts/send-job-alerts.mjs). The
+// analyzer narrows the 4,4 GB `public/images/` bucket for this job only when that
+// is the SOLE image path the job's code names (checkout-profile-analyzer.mjs).
+export const SEND_JOB_ALERTS_REQUIRED_SPARSE_PATHS = Object.freeze(['/public/images/brands/']);
+
 const JOB_OG_PREWARM_REQUIRED_SPARSE_PATHS = Object.freeze({
   prepare: ['/data/jobs/', '/public/images/brands/'],
   render: ['/public/images/brands/'],
@@ -331,7 +337,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
           ? SOCIAL_COPY_REQUIRED_SPARSE_PATHS
           : path.basename(workflowPath) === 'og-jobs-cache-prewarm.yml' && job.exclude.length
             ? JOB_OG_PREWARM_REQUIRED_SPARSE_PATHS[job.jobId] ?? []
-            : [];
+            : path.basename(workflowPath) === 'send-job-alerts.yml' && job.jobId === 'send-alerts' && job.exclude.includes('public/images/')
+              ? SEND_JOB_ALERTS_REQUIRED_SPARSE_PATHS
+              : [];
     const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude, include) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }

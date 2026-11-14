@@ -183,8 +183,14 @@ export function formatJobAlertMetricsMarkdown(snapshot) {
   out.push('');
   const c = snapshot.counters || {};
   out.push('| Contatore | Valore |', '| --- | ---: |');
+  const sendMs = snapshot.phases?.send?.ms || 0;
+  const perSecond = sendMs > 0 && c.emailsSent > 0 ? (c.emailsSent / (sendMs / 1000)).toFixed(2) : '—';
   const rows = [
     ['modalità indice candidati', snapshot.indexMode || '—'],
+    ['alert eleggibili', fmt(c.alertsEligible)],
+    ['email pianificate / inviate', `${fmt(c.emailsPlanned)} / ${fmt(c.emailsSent)}`],
+    ['email al secondo nella fase send', perSecond],
+    ['live-link: sorgente', c.liveLinkSource || '—'],
     ['righe in finestra (cursorCandidateCount)', fmt(c.windowRows)],
     ['righe passate allo scorer', fmt(c.scoredRows)],
     ['alert pianificati con indice', fmt(c.indexedAlerts)],

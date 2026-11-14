@@ -182,7 +182,9 @@ import { translationHoldReleasedMs } from './lib/translation-publication-hold.mj
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
+// JOB_ALERTS_JOBS_PATH (solo ambiente, per i test e il bench) sposta il dataset
+// letto; in produzione resta data/jobs.json, scritto dallo step di assemble.
+const JOBS_PATH = process.env.JOB_ALERTS_JOBS_PATH || path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
 // Brand logos were offloaded to the CDN (#1705) — the origin `/images/brands`
 // path now 404s, and email clients strip JS so there is no onerror fallback,
@@ -4645,6 +4647,10 @@ async function main() {
     }
   }
 
+  jobAlertMetrics.set('alertsEligible', funnelIn.eligible);
+  jobAlertMetrics.set('emailsPlanned', runStats.planned);
+  jobAlertMetrics.set('emailsSent', runStats.sent);
+  jobAlertMetrics.set('emailsFailed', runStats.failed);
   // Il funnel esce prima di ogni ritorno anticipato: è il numero che si legge ogni
   // giorno, anche quando non c'è nulla da inviare.
   await printJobAlertFunnel({
@@ -4763,6 +4769,7 @@ if (isEntryPoint) {
 }
 
 export {
+  main as runJobAlertsMain,
   buildAlertEmail,
   persistJobAlertProviderAttempt,
   persistJobAlertProviderAttemptTx,
