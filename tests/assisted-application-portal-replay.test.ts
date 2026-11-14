@@ -15,6 +15,8 @@ import {
   aggregatePortalReplayGate,
   bestEffortPortalReplayPreflight,
   comparePortalReplayFamily,
+  completeUnmeasuredReplaySide,
+  createPortalReplayDeadline,
   extractPortalStopHosts,
   markdownForAggregate,
   PORTAL_REPLAY_ALLOWED_PATHS,
@@ -526,7 +528,15 @@ describe('portal replay workflow wiring', () => {
     const listingMs = Number(/--timeout-ms (\d+)/u.exec(workflow)?.[1]);
     expect(listingMs).toBe(75_000);
     const preflightS = 60;
-    const listingS = ((retries + 1) * listingMs) / 1000;
+    // a side gets (retries + 1) attempts, each bounded by the wall cap of an
+    // attempt; the broker limit of one call must fit inside that cap
+    const wallCapMs = Number(/REPLAY_WALL_CAP_MS = ([\d_]+)/u.exec(cli)?.[1]?.replaceAll('_', ''));
+    const callMs = Number(/REPLAY_CODEX_CALL_TIMEOUT_MS = ([\d_]+)/u.exec(cli)?.[1]?.replaceAll('_', ''));
+    expect(wallCapMs).toBeGreaterThanOrEqual(listingMs + callMs);
+    expect(Number(/broker_max_timeout_ms: '(\d+)'/u.exec(workflow.slice(workflow.indexOf('  replay:')))?.[1])).toBe(callMs);
+    expect(workflow).toContain(`REPLAY_CODEX_CALL_TIMEOUT_MS (${callMs / 1000} s`);
+    expect(workflow).toContain(`REPLAY_WALL_CAP_MS (${wallCapMs / 1000} s)`);
+    const listingS = ((retries + 1) * wallCapMs) / 1000;
     const largestS = maxPerFamily * listingS + preflightS;
     const smallS = minPerFamily * listingS + preflightS;
     const familyCount = 12; // PORTAL_REPLAY_FAMILIES
@@ -588,12 +598,6 @@ describe('portal replay base/head gate', () => {
     expect(result.familyRates.comparable).toBe(0);
   });
 
-  it('retries a read-only replay timeout once', () => {
-    expect(PORTAL_REPLAY_MAX_RETRIES).toBe(1);
-    expect(retryClass('stopped', 0, 'portal_replay_timeout')).toBe('portal_replay_timeout');
-    expect(retryClass('stopped')).toBe('');
-  });
-
   it('does not block on a posting mismatch already present on the base', () => {
     const base = (caseId: string) => measured(caseId, 'form', {
       status: 'fail',
@@ -643,6 +647,127 @@ describe('portal replay base/head gate', () => {
     expect(result.findingCodes).toEqual([]);
     expect(result.familyRates.comparable).toBe(0);
     expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('retries a read-only replay timeout once', () => {
+    expect(PORTAL_REPLAY_MAX_RETRIES).toBe(1);
+    expect(retryClass('stopped', 0, 'portal_replay_timeout')).toBe('portal_replay_timeout');
+    expect(retryClass('stopped')).toBe('');
+  });
+
+  it('measures the active budget without the time spent waiting for the Codex broker', () => {
+    let clock = 1_000;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, wallCapMs: 180_000, now: () => clock });
+    clock += 20_000; // navigation and clicks
+    expect(deadline.expired()).toBe('');
+    deadline.agentStarted();
+    clock += 100_000; // one slow Codex call: 100 s that are not the runner's
+    expect(deadline.expired()).toBe('');
+    expect(deadline.snapshot()).toMatchObject({ wallMs: 120_000, agentMs: 100_000, activeMs: 20_000, calls: 1 });
+    deadline.agentSettled();
+    clock += 54_000;
+    expect(deadline.expired()).toBe('');
+    clock += 1_000; // 20 s + 55 s of runner time: the same 75 s every listing gets
+    expect(deadline.expired()).toBe('active');
+  });
+
+  it('counts overlapping Codex calls once and still ends at the wall cap', () => {
+    let clock = 0;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, wallCapMs: 180_000, now: () => clock });
+    deadline.agentStarted();
+    clock += 10_000;
+    deadline.agentStarted();
+    clock += 10_000;
+    deadline.agentSettled();
+    clock += 10_000;
+    deadline.agentSettled();
+    expect(deadline.snapshot()).toMatchObject({ wallMs: 30_000, agentMs: 30_000, activeMs: 0, calls: 2 });
+    deadline.agentStarted(); // a call that never answers
+    clock += 149_999;
+    expect(deadline.expired()).toBe('');
+    clock += 1;
+    expect(deadline.expired()).toBe('wall');
+  });
+
+  describe('completing an unmeasured side', () => {
+    const attempt = (stage: string, overrides: Record<string, unknown> = {}) => ({
+      stage, status: 'measured', stopCode: 'posting_mismatch', agentCalls: 1, retryCount: 0,
+      blockedNonGet: 0, securityViolations: [], timing: { wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' },
+      timings: [{ wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' }], ...overrides,
+    });
+    const timedOut = (overrides: Record<string, unknown> = {}) => attempt('stopped', { status: 'error', stopCode: 'portal_replay_timeout', ...overrides });
+
+    it('replays the head once, alone, when only the head lost its measurement', async () => {
+      const calls: string[] = [];
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: timedOut(),
+        rerun: async (side: string) => { calls.push(side); return attempt('form'); },
+      });
+      expect(calls).toEqual(['head']);
+      expect(result.completed).toBe('head');
+      expect(result.head.status).toBe('measured');
+      expect(result.head.retryCount).toBe(1);
+      expect(result.head.agentCalls).toBe(2);
+      expect(result.head.timings).toHaveLength(2);
+      expect(result.base.stage).toBe('form');
+    });
+
+    it('applies the same rule when the base is the side that lost its measurement', async () => {
+      const calls: string[] = [];
+      const result = await completeUnmeasuredReplaySide({
+        base: timedOut(), head: attempt('form'),
+        rerun: async (side: string) => { calls.push(side); return attempt('form'); },
+      });
+      expect(calls).toEqual(['base']);
+      expect(result.completed).toBe('base');
+      expect(result.base.status).toBe('measured');
+    });
+
+    it('never takes a side past its attempts: a side that already used its neutral retry is not replayed again', async () => {
+      const twice = timedOut({ timings: [{ wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' }, { wallMs: 1, activeMs: 1, agentMs: 0, timeout: 'active' }] });
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: twice,
+        rerun: async () => { throw new Error('must not rerun'); },
+      });
+      expect(result.completed).toBe('');
+      expect(result.head).toBe(twice);
+    });
+
+    it('does not replay when both sides measured, both are unmeasured, or the miss is a neutral portal fact', async () => {
+      const rerun = async () => { throw new Error('must not rerun'); };
+      for (const [base, head] of [
+        [attempt('form'), attempt('form')],
+        [timedOut(), timedOut()],
+        [attempt('form'), attempt('captcha', { status: 'neutral', stopCode: 'captcha' })],
+        [attempt('form'), undefined],
+      ]) {
+        const result = await completeUnmeasuredReplaySide({ base, head, rerun });
+        expect(result.completed).toBe('');
+        expect(result.head).toBe(head);
+      }
+    });
+
+    it('keeps the criterion: a side that stays unmeasured is still replay_unmeasured', async () => {
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: timedOut(), rerun: async () => timedOut(),
+      });
+      expect(result.completed).toBe('head');
+      const gate = comparePortalReplayFamily({
+        family: 'greenhouse', baseRecords: [{ caseId: 'one', ...result.base }], headRecords: [{ caseId: 'one', ...result.head }],
+      });
+      expect(gate.status).toBe('fail');
+      expect(gate.findingCodes).toContain('replay_unmeasured');
+    });
+
+    it('retains a violation observed by the first attempt when the retry is the record we keep', async () => {
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'),
+        head: timedOut({ finalClickAttempts: 1, securityViolations: ['final_click_attempt'] }),
+        rerun: async () => attempt('form'),
+      });
+      expect(result.head.securityViolations).toContain('final_click_attempt');
+      expect(result.head.status).toBe('fail');
+    });
   });
 
   it('does not infer a security regression from an unmeasured base', () => {

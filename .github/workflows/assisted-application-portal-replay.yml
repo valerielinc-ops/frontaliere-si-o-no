@@ -193,18 +193,26 @@ jobs:
     if: needs.prepare.result == 'success'
     runs-on: ubuntu-latest
     # Budget bound, derived from the largest family and not from an average
-    # (a family holds one of the parallel slots for its whole workload):
-    #   listing   <= (retries 1 + 1) attempts * 75 s            = 150 s
-    #                (base and head run concurrently, not summed)
-    #   family    <= 5 listings (maxPerFamily) * 150 s + 60 s of
-    #                preflight and browser launch               = 810 s
-    #   corpus    <= 9 families of 3 + 3 families of 5          = 7020 s of work
-    #   makespan  <= work / 3 slots + (2/3) * largest family    = 2880 s (48 min)
+    # (a family holds one of the parallel slots for its whole workload).
+    # `--timeout-ms 75000` is the ACTIVE budget of a listing attempt: the time
+    # the runner under test spends on the page. The time it waits for the Codex
+    # broker (queue + model at effort max) is measured apart: each call is
+    # bounded by REPLAY_CODEX_CALL_TIMEOUT_MS (150 s, the broker limit below),
+    # the whole attempt by REPLAY_WALL_CAP_MS (300 s). Base and head are judged
+    # by the same two clocks.
+    #   attempt   <= 300 s wall
+    #   listing   <= (retries 1 + 1) attempts * 300 s            = 600 s
+    #                (a neutral retry or the one completion of an unmeasured
+    #                side; base and head run concurrently, not summed)
+    #   family    <= 5 listings (maxPerFamily) * 600 s + 60 s of
+    #                preflight and browser launch               = 3060 s
+    #   corpus    <= 9 families of 3 + 3 families of 5          = 25920 s of work
+    #   makespan  <= work / 3 slots + (2/3) * largest family    = 10680 s (178 min)
     #   setup     ~ 4.4 min measured (checkouts, two npm ci, Chromium, broker),
-    #               6 min allowed                                -> 54 min
-    # timeout-minutes covers that bound. Measured on run 43597436525: replay
-    # 10.7 min, largest family 287 s (employer_site, 5 listings), job 15.3 min.
-    timeout-minutes: 55
+    #               6 min allowed                                -> 184 min
+    # timeout-minutes covers that bound. Measured on run 43606105427 (12 families,
+    # 40 listings): replay 29 min wall in the worst family (personio, 498 s).
+    timeout-minutes: 184
     env:
       # Broker lanes (the action accepts 1..6). Each family runs base and head
       # concurrently, so the number of families in flight is lanes / 2.
@@ -306,7 +314,7 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '1200000'
           broker_max_concurrency: ${{ env.PORTAL_REPLAY_BROKER_LANES }}
-          broker_max_timeout_ms: '60000'
+          broker_max_timeout_ms: '150000'
 
       - name: Require trusted Codex broker
         env:
