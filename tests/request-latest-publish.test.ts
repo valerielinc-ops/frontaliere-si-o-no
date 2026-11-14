@@ -386,7 +386,7 @@ describe('Pages publish queue wiring', () => {
     expect(publisher?.if).toBe("(github.event_name == 'workflow_dispatch' || github.event_name == 'push') && needs.build-locale.result == 'success'");
   });
 
-  it('runs path-sensitive shard publishers from current main for historical tails', () => {
+  it('runs path-sensitive shard publishers from the dispatch SHA (current main) for historical tails', () => {
     const workflow = YAML.parse(publish) as any;
     const job = workflow.jobs?.['publish-nonit-shards'];
     const steps = job?.steps ?? [];
@@ -399,7 +399,9 @@ describe('Pages publish queue wiring', () => {
     const localePush = steps.find((step: any) => step.name === 'Push locale shard');
     const offload = steps.find((step: any) => step.name === 'Offload shard refs to CDN');
 
-    expect(checkout?.with?.ref).toBe('refs/heads/main');
+    // Pinned to github.sha: the dispatch SHA every job of the run shares, not a
+    // moving refs/heads/main (tests/deploy-publish-pinned-toolchain.test.ts).
+    expect(checkout?.with?.ref).toBe('${{ github.sha }}');
     expect(checkout?.with?.path).toBe('publisher-resolver');
     expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
     expect(sparse).toEqual([

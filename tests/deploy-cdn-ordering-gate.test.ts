@@ -30,6 +30,8 @@ import { resolve, join } from 'node:path';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
+import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
+import { evaluateExpression } from './helpers/workflowNeedsSimulator';
 
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
 const DEPLOY_REQUEST_YML = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
@@ -40,6 +42,32 @@ const GATE_SH = resolve('scripts/lib/wait-cdn-build-id.sh');
 const EARLY_CDN_STEP = 'Push generated assets to CDN (early — ahead of the shard pushes)';
 
 /** Slice one `- name: <title>` step out of the build-locale step list. */
+// The CDN-gate names are expressions of the durable IT CDN receipt: the exact
+// job/step names while the CDN job runs (`it_cdn_published != 'true'`), empty
+// (marker poll only, no job of this run to observe) when a receipt skipped it.
+const CDN_JOB = 'Publish IT CDN assets first';
+const CDN_READY_STEP = 'Require IT CDN build id before shard pushes';
+const receiptContext = (published: 'true' | 'false') => ({
+  result: () => 'success',
+  output: (_job: string, key: string) => (key === 'it_cdn_published' ? published : ''),
+  input: () => '',
+});
+function gateNames(env: Record<string, unknown>) {
+  const run = (value: unknown, published: 'true' | 'false') => evaluateExpression(String(value), receiptContext(published));
+  return {
+    whenCdnRuns: { job: run(env.CDN_IT_JOB_NAME, 'false'), step: run(env.CDN_IT_READY_STEP_NAME, 'false') },
+    whenReceipt: { job: run(env.CDN_IT_JOB_NAME, 'true'), step: run(env.CDN_IT_READY_STEP_NAME, 'true') },
+  };
+}
+function expectGateNames(env: Record<string, unknown>) {
+  const names = gateNames(env);
+  expect(names.whenCdnRuns, 'the gate watches the exact CDN job and early-CDN step while the CDN runs').toEqual({
+    job: CDN_JOB,
+    step: CDN_READY_STEP,
+  });
+  expect(names.whenReceipt, 'only a durable receipt disarms the jobs-API wait').toEqual({ job: '', step: '' });
+}
+
 function step(title: string): string {
   const idx = DEPLOY_ALL_YML.indexOf(`      - name: ${title}`);
   expect(idx, `step "${title}" not found in deploy workflows`).toBeGreaterThan(-1);
@@ -60,7 +88,13 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     expect(groupJob['timeout-minutes']).toBe(360);
     expect([].concat(groupJob.needs)).toContain('publish-it-cdn');
     expect([].concat(workflow.jobs['publish-nonit-shards'].needs)).toContain('publish-it-cdn');
-    expect(groupJob.strategy.matrix.group).toEqual(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
+    // Fan-out over the groups the durable receipts leave pending; the allowed
+    // group list is the contract allowlist (publish-receipts.mjs refuses any
+    // other name).
+    expect(groupJob.strategy.matrix.group)
+      .toBe('${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_it_groups) }}');
+    expect([...IT_SHARD_GROUP_IDS]).toEqual(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
+    expect([].concat(groupJob.needs)).toContain('resolve-publish-receipts');
     expect(groupJob.environment).toBe('shard-secrets-overflow');
   });
 
@@ -90,7 +124,7 @@ describe('deploy-publish.yml — il CDN IT precede entrambi i fan-out (#5251)', 
     expect(gate.run).toContain('wait-cdn-build-id.sh');
     expect(gate['continue-on-error']).toBe(true);
     expect(gate.env.CDN_WAIT_TIMEOUT_S).toBe(2700);
-    expect(gate.env.CDN_IT_READY_STEP_NAME).toBe('Require IT CDN build id before shard pushes');
+    expectGateNames(gate.env);
     expect(push.run).toContain('scripts/ci/push-it-shard-group.sh');
     expect(push.env.SHARD_PUSH_MODE).toBe("${{ vars.SHARD_PUSH_MODE == 'delta' && 'delta' || 'full' }}");
     expect(push.env.SHARD_PUSH_VERIFY).toBe("${{ vars.SHARD_PUSH_VERIFY == '1' && '1' || '' }}");
@@ -1126,7 +1160,9 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
 describe('deploy-publish.yml — il #5331 abort e il budget del gate sono collegati', () => {
   it('the gate step gets the IT job name, a token, and the job gets actions: read', () => {
     const gate = step('Wait for current IT CDN build id before non-IT shard pushes');
-    expect(gate, 'gate must know which publisher job to watch').toMatch(/CDN_IT_JOB_NAME: Publish IT CDN assets first/);
+    const gateEnv = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps
+      .find((candidate: any) => candidate.name === 'Wait for current IT CDN build id before non-IT shard pushes').env;
+    expect(gateNames(gateEnv).whenCdnRuns.job, 'gate must know which publisher job to watch').toBe(CDN_JOB);
     expect(gate, 'the jobs API call needs a token').toMatch(/GH_TOKEN: \$\{\{ secrets\.GITHUB_TOKEN \}\}/);
     const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
     expect(workflow.jobs['publish-nonit-shards'].permissions.actions)
@@ -1141,8 +1177,9 @@ describe('deploy-publish.yml — il #5331 abort e il budget del gate sono colleg
 
   it('#7049 wires the exact early-CDN step to a separate bounded phase without shrinking the marker budget', () => {
     const gate = step('Wait for current IT CDN build id before non-IT shard pushes');
-    expect(gate).toContain('CDN_IT_JOB_NAME: Publish IT CDN assets first');
-    expect(gate).toContain('CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes');
+    const gateEnv = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps
+      .find((candidate: any) => candidate.name === 'Wait for current IT CDN build id before non-IT shard pushes').env;
+    expectGateNames(gateEnv);
     expect(gate, 'the readiness phase has its own explicit three-hour ceiling').toMatch(
       /CDN_IT_READY_TIMEOUT_S: 10800/,
     );
