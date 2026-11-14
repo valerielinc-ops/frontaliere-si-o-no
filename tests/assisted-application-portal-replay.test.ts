@@ -439,6 +439,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(workflow).not.toContain('gh pr diff');
+    expect(workflow).toContain('git -C .portal-base diff --name-only --no-renames "$BASE_SHA" "$HEAD_SHA"');
+    expect(workflow).toContain("printf 'diff --git a/%s b/%s\\n'");
   });
 
   it('does shared setup once and runs the family group inside one worker', () => {
