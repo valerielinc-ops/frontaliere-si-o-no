@@ -80,8 +80,33 @@
         var m = pathname.match(jobRe);
         if (!m) { spaRedirect(); return; }
         var slug = decodeURIComponent(m[1]).toLowerCase();
-        var sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
-        if (sk.length < 2) sk = (sk + '__').slice(0, 2);
+        function jobCanonV1ShardKey(value) {
+          var key = value.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+          return key.length === 2 ? key : (key + '__').slice(0, 2);
+        }
+        // Keep this djb2-xor copy byte-for-byte aligned with
+        // services/jobSlugShards.ts and the Worker v2 lookup.
+        function jobCanonV2ShardKey(value) {
+          var hash = 5381;
+          for (var i = 0; i < value.length; i++) {
+            hash = ((hash * 33) ^ value.charCodeAt(i)) >>> 0;
+          }
+          return (hash % 4096).toString(16).padStart(3, '0');
+        }
+        function fetchJobCanonMap(value, fetcher) {
+          var request = fetcher || fetch;
+          var options = { cache: 'force-cache' };
+          var v2Url = JOB_CANON_CDN + '/job-canon/v2/' + jobCanonV2ShardKey(value) + '.json';
+          var v1Url = JOB_CANON_CDN + '/job-canon/' + jobCanonV1ShardKey(value) + '.json';
+          return request(v2Url, options).then(function(r) {
+            if (r.status === 404 || r.status === 410) {
+              return request(v1Url, options).then(function(fallback) {
+                return fallback.ok ? fallback.json() : null;
+              });
+            }
+            return r.ok ? r.json() : null;
+          });
+        }
         // Request locale (en|de|fr, else it). The map value is per-locale because
         // the slug segment is identical across locales — only the prefix differs.
         var localeMatch = pathname.match(/^\/(en|de|fr)(?:\/|$)/);
@@ -141,8 +166,7 @@
         // last-resort sectionRoot fallback only; both run in .then/.catch below,
         // after the fetch has confirmed the slug is not in the canonical map.
         var timer = setTimeout(function() { go(sectionRoot); }, 1500);
-        fetch(JOB_CANON_CDN + '/job-canon/' + sk + '.json', { cache: 'force-cache' })
-          .then(function(r) { return r.ok ? r.json() : null; })
+        fetchJobCanonMap(slug, fetch)
           .then(function(map) {
             var entry = map && map[slug];
             // Per-locale object → pick this request's locale; legacy string value
@@ -157,10 +181,17 @@
             // inside the request's own locale prefix — never cross-locale.
             var alias = !canon && entry && typeof entry === 'object' && entry.alias && typeof entry.alias === 'object'
               ? entry.alias[locale] : null;
-            if (typeof alias === 'string' && locale !== 'it' && alias.indexOf('/' + locale + '/') === 0
-                && alias.indexOf('//') === -1 && alias.indexOf('?') === -1 && alias.indexOf('#') === -1) {
-              canon = alias.replace(/\/+$/, '') + '/';
+            function jobCanonAliasTarget(aliasPath, requestedLocale) {
+              if (typeof aliasPath !== 'string') return null;
+              var inLocale = requestedLocale === 'it'
+                ? aliasPath.indexOf('/') === 0 && !/^\/(?:en|de|fr)\//.test(aliasPath)
+                : aliasPath.indexOf('/' + requestedLocale + '/') === 0;
+              if (!inLocale || aliasPath.indexOf('//') !== -1
+                  || aliasPath.indexOf('?') !== -1 || aliasPath.indexOf('#') !== -1) return null;
+              return aliasPath.replace(/\/+$/, '') + '/';
             }
+            var aliasTarget = jobCanonAliasTarget(alias, locale);
+            if (aliasTarget) canon = aliasTarget;
             // Exact canonical page when the slug is known AND it differs from the
             // requested (orphaned) path; else the cross-locale company hub when the
             // slug is a wrong-prefix hub; else the national board for a legacy

@@ -43,6 +43,7 @@
     "https://team.lidl.ch/de/jobs/ch_verkaeufer-verkaeuferin-m-w-d-60-zuerich-767770",
     "https://team.lidl.ch/de/jobs/direkteinstieg-nach-der-lehre-verkaeufer-in-mit-schichtverantwortung-m-w-d-80-100-luzern-760473",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-berner-oberland-m-w-d-80-100-spiez-766531",
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-bieler-seeland-m-w-d-80-100-biel-770565",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-kt.schwyz-march-oberer-zuerichsee-m-w-d-80-100-einsiedeln-697843",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-1-solothurn-738030",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-chur-704426",
@@ -221,6 +222,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-biel-bienne-749293",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-schluein-769265",
     "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-bulle-768299",
+    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-759283",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-collombey-muraz-726009",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-conthey-725866",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2027-fribourg-726046",
@@ -257,7 +259,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-13T09:54:14.994Z",
+  "updatedAt": "2026-11-13T21:49:26.054Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -754,6 +756,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-bieler-seeland-m-w-d-80-100-biel-770565": {
+      "location": "Biel",
+      "addressLocality": "Biel",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-biel-bienne-752740": {
       "location": "Biel/Bienne",
       "addressLocality": "Biel/Bienne",
@@ -961,15 +972,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/assistant-team-manager-operations-m-w-d-80-100-derendingen-770559": {
-      "location": "Derendingen",
-      "addressLocality": "Derendingen",
-      "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-non-food-m-w-d-40-80-derendingen-690593": {
       "location": "Derendingen",
       "addressLocality": "Derendingen",
@@ -978,6 +980,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/assistant-team-manager-operations-m-w-d-80-100-derendingen-770559": {
+      "location": "Derendingen",
+      "addressLocality": "Derendingen",
+      "canton": "SO",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-perlen-763040": {
       "location": "Perlen",
@@ -2230,7 +2241,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303": {
+    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-759283": {
       "location": "Morges",
       "addressLocality": "Morges",
       "canton": "VD",
@@ -2240,6 +2251,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-759293": {
+      "location": "Morges",
+      "addressLocality": "Morges",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303": {
       "location": "Morges",
       "addressLocality": "Morges",
       "canton": "VD",

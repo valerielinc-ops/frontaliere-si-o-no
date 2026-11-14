@@ -90,6 +90,90 @@ export interface CandidateInput {
   readonly canonicalSlug: string;
 }
 
+/**
+ * Compact winner-selection state for callers that cannot retain every claim.
+ * It carries the same inputs used by `chooseWinner` while keeping only the
+ * current best candidate and the persisted-winner membership bit.
+ */
+export interface WinnerCandidateAccumulator {
+  candidateCount: number;
+  bestJobIdentifier: string;
+  bestCanonicalSlug: string;
+  /** -1 until scoring is needed for a second candidate or final winner entry. */
+  bestScore: number;
+  existingWinnerIdentifier?: string;
+  existingWinnerCandidate: boolean;
+}
+
+export function createWinnerCandidateAccumulator(
+  existingWinnerIdentifier?: string,
+): WinnerCandidateAccumulator {
+  return {
+    candidateCount: 0,
+    bestJobIdentifier: '',
+    bestCanonicalSlug: '',
+    bestScore: -1,
+    existingWinnerIdentifier,
+    existingWinnerCandidate: false,
+  };
+}
+
+function isWinnerCandidateAccumulator(
+  value: readonly CandidateInput[] | WinnerCandidateAccumulator,
+): value is WinnerCandidateAccumulator {
+  return !Array.isArray(value);
+}
+
+export function addWinnerCandidate(
+  oldSlug: string,
+  accumulator: WinnerCandidateAccumulator,
+  candidate: CandidateInput,
+): void {
+  const isFirstCandidate = accumulator.candidateCount === 0;
+  accumulator.candidateCount += 1;
+  if (candidate.jobIdentifier === accumulator.existingWinnerIdentifier) {
+    accumulator.existingWinnerCandidate = true;
+  }
+
+  if (isFirstCandidate) {
+    accumulator.bestJobIdentifier = candidate.jobIdentifier;
+    accumulator.bestCanonicalSlug = candidate.canonicalSlug;
+    return;
+  }
+
+  const score = jaccardSimilarity(oldSlug, candidate.canonicalSlug);
+  if (accumulator.bestScore < 0) {
+    accumulator.bestScore = jaccardSimilarity(oldSlug, accumulator.bestCanonicalSlug);
+  }
+  if (
+    score > accumulator.bestScore
+    || (score === accumulator.bestScore && candidate.jobIdentifier < accumulator.bestJobIdentifier)
+  ) {
+    accumulator.bestScore = score;
+    accumulator.bestJobIdentifier = candidate.jobIdentifier;
+    accumulator.bestCanonicalSlug = candidate.canonicalSlug;
+  }
+}
+
+function winnerEntryFromAccumulator(
+  oldSlug: string,
+  accumulator: WinnerCandidateAccumulator,
+  now: string,
+): WinnerEntry | null {
+  if (accumulator.candidateCount === 0) return null;
+  const score = accumulator.bestScore < 0
+    ? jaccardSimilarity(oldSlug, accumulator.bestCanonicalSlug)
+    : accumulator.bestScore;
+  return {
+    winnerJobIdentifier: accumulator.bestJobIdentifier,
+    winnerCanonical: accumulator.bestCanonicalSlug,
+    decidedAt: now,
+    lastSeenAt: now,
+    score: Math.round(score * 10000) / 10000,
+    candidatesCount: accumulator.candidateCount,
+  };
+}
+
 /** The full on-disk format. Keys are `${canton}::${locale}::${oldSlug}` (see {@link makeKey}). */
 export type WinnersFile = Record<string, WinnerEntry>;
 
@@ -159,34 +243,9 @@ export function chooseWinner(
   candidates: readonly CandidateInput[],
   now: string,
 ): WinnerEntry | null {
-  if (candidates.length === 0) return null;
-
-  let bestScore = -1;
-  let bestIdentifier = '';
-  let bestCanonical = '';
-
-  for (const c of candidates) {
-    const score = jaccardSimilarity(oldSlug, c.canonicalSlug);
-    if (score > bestScore) {
-      bestScore = score;
-      bestIdentifier = c.jobIdentifier;
-      bestCanonical = c.canonicalSlug;
-      continue;
-    }
-    if (score === bestScore && c.jobIdentifier < bestIdentifier) {
-      bestIdentifier = c.jobIdentifier;
-      bestCanonical = c.canonicalSlug;
-    }
-  }
-
-  return {
-    winnerJobIdentifier: bestIdentifier,
-    winnerCanonical: bestCanonical,
-    decidedAt: now,
-    lastSeenAt: now,
-    score: Math.round(bestScore * 10000) / 10000,
-    candidatesCount: candidates.length,
-  };
+  const accumulator = createWinnerCandidateAccumulator();
+  for (const candidate of candidates) addWinnerCandidate(oldSlug, accumulator, candidate);
+  return winnerEntryFromAccumulator(oldSlug, accumulator, now);
 }
 
 /**
@@ -264,49 +323,69 @@ export function resolveWinner(
   canton: string,
   locale: string,
   oldSlug: string,
-  candidates: readonly CandidateInput[],
+  candidates: readonly CandidateInput[] | WinnerCandidateAccumulator,
   now: string,
+  options: { persist?: boolean } = {},
 ): WinnerEntry | null {
-  if (candidates.length === 0) return null;
+  const persist = options.persist !== false;
+  const compactCandidates = isWinnerCandidateAccumulator(candidates) ? candidates : null;
+  const listCandidates = compactCandidates ? null : candidates as readonly CandidateInput[];
+  const candidateCount = compactCandidates ? compactCandidates.candidateCount : listCandidates!.length;
+  if (candidateCount === 0) return null;
 
   const key = makeKey(canton, locale, oldSlug);
   const existing = winners[key];
+  const existingWinnerIsCandidate = compactCandidates
+    ? compactCandidates.existingWinnerCandidate
+    : listCandidates!.some((candidate) => candidate.jobIdentifier === existing?.winnerJobIdentifier);
 
   // Branch 2: prior decision still valid — touch lastSeenAt and reuse.
-  if (
-    existing &&
-    candidates.some((c) => c.jobIdentifier === existing.winnerJobIdentifier)
-  ) {
+  if (existing && existingWinnerIsCandidate) {
     const needsTouch = existing.lastSeenAt !== now;
     const needsCantonStamp = !existing.canton && canton;
-    if (needsTouch || needsCantonStamp) {
+    if (persist && (needsTouch || needsCantonStamp)) {
       winners[key] = {
         ...existing,
         ...(needsTouch ? { lastSeenAt: now } : {}),
         ...(needsCantonStamp ? { canton } : {}),
       };
     }
-    return winners[key];
+    return persist ? winners[key] : existing;
   }
 
   // Branch 3 + 4: existing-but-stale OR first-time multi-candidate. Re-elect.
   // Branch 3 fires regardless of candidates.length so the file always reflects
   // the current canonical when the prior winner is gone.
-  if (existing || candidates.length > 1) {
-    const fresh = chooseWinner(oldSlug, candidates, now);
+  if (existing || candidateCount > 1) {
+    const fresh = compactCandidates
+      ? winnerEntryFromAccumulator(oldSlug, compactCandidates, now)
+      : chooseWinner(oldSlug, listCandidates!, now);
     if (!fresh) return null;
     const stamped: WinnerEntry = canton ? { ...fresh, canton } : fresh;
-    winners[key] = stamped;
+    if (persist) winners[key] = stamped;
     return stamped;
   }
 
   // Branch 5: no existing entry, single candidate — trivial, ephemeral.
+  if (compactCandidates) {
+    const trivial: WinnerEntry = {
+      winnerJobIdentifier: compactCandidates.bestJobIdentifier,
+      winnerCanonical: compactCandidates.bestCanonicalSlug,
+      decidedAt: now,
+      lastSeenAt: now,
+      score: compactCandidates.bestScore < 0
+        ? jaccardSimilarity(oldSlug, compactCandidates.bestCanonicalSlug)
+        : compactCandidates.bestScore,
+      candidatesCount: 1,
+    };
+    return canton ? { ...trivial, canton } : trivial;
+  }
   const trivial: WinnerEntry = {
-    winnerJobIdentifier: candidates[0].jobIdentifier,
-    winnerCanonical: candidates[0].canonicalSlug,
+    winnerJobIdentifier: listCandidates![0].jobIdentifier,
+    winnerCanonical: listCandidates![0].canonicalSlug,
     decidedAt: now,
     lastSeenAt: now,
-    score: jaccardSimilarity(oldSlug, candidates[0].canonicalSlug),
+    score: jaccardSimilarity(oldSlug, listCandidates![0].canonicalSlug),
     candidatesCount: 1,
   };
   return canton ? { ...trivial, canton } : trivial;

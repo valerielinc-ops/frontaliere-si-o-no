@@ -2400,12 +2400,12 @@
     },
     {
       "id": "kanton-gr-21a7531a3e7a",
-      "slug": "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
+      "slug": "addetto-a-al-piazzale-del-legname-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
+        "it": "addetto-a-al-piazzale-del-legname-kantonale-verwaltung-graubunden-cazis",
         "en": "wooden-yard-employee-kantonale-verwaltung-graubunden-cazis",
         "de": "mitarbeiter-in-holzplatz-kanton-gr-ch",
-        "fr": "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
+        "fr": "employe-e-du-parc-a-bois-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -2454,13 +2454,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "mitarbeiter-in-holzplatz-kanton-gr-ch",
-        "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
+        "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis",
+        "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-holzplatz-kanton-gr-ch"
+          "mitarbeiter-in-holzplatz-kanton-gr-ch",
+          "collaboratore-trice-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
         ],
         "en": [
+          "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "fr": [
           "mitarbeiter-in-holzplatz-kantonale-verwaltung-graubunden-cazis"
         ]
       },
@@ -3793,7 +3798,7 @@
       "slug": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "it": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
-        "en": "personnel-advisor-kantonale-verwaltung-graubunden-chur",
+        "en": "hr-consultant-kantonale-verwaltung-graubunden-chur",
         "de": "personalberater-in-kanton-gr-ch",
         "fr": "conseiller-conseillere-en-personnel-kantonale-verwaltung-graubunden-chur"
       },
@@ -3845,7 +3850,7 @@
       "previousSlugs": [
         "personalberater-in-kanton-gr-ch",
         "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "hr-consultant-kantonale-verwaltung-graubunden-chur"
+        "personnel-advisor-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3854,7 +3859,7 @@
         ],
         "en": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur",
-          "hr-consultant-kantonale-verwaltung-graubunden-chur"
+          "personnel-advisor-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "personalberater-in-kantonale-verwaltung-graubunden-chur"

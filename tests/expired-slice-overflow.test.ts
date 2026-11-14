@@ -10,6 +10,12 @@ describe('expired slice overflow', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toMatch(/intFromEnv\('EXPIRED_SLICE_AUGMENT_CAP', 0\)/);
   });
+  it('streams each crawler slice instead of materializing its JSON array', () => {
+    const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
+    const sliceReader = source.slice(source.indexOf('function* expiredSliceJobs()'), source.indexOf('const sliceAugmented'));
+    expect(sliceReader).toContain('yield* iterateJsonArrayFile(');
+    expect(sliceReader).not.toContain('JSON.parse(fs.readFileSync(');
+  });
   it('wires overflow into both native consumers and closes it on build failure', () => {
     const source = fs.readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
     expect(source).toContain('augmentExpiredSliceIndex(');

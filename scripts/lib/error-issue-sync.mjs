@@ -133,6 +133,10 @@ export const ISSUE_DENY_PATTERNS = [
   // abandoned during navigation (#16806). Keep contextualized variants
   // issue-able by anchoring the same pattern as the client deny-list.
   /^(?:TypeError: )?cancelled$/i,
+  // Browser-extension tab bridge no-listener failure (#18593). The client
+  // filter drops it at source; deny residual events so the feeder cannot
+  // reopen the same non-actionable issue from its trailing query window.
+  /No Listener:\s*tabs:outgoing\.message\.ready\b/i,
   // Firebase Auth network-request-failed — transient client connectivity (#4174).
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").

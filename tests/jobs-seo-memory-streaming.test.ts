@@ -316,6 +316,9 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
       'utf8',
     );
     expect(source).toContain("logJobsSeoMem('after-active-pages'");
+    expect(source).toContain("import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';");
+    expect(source).toContain('for (const rawJob of iterateJsonArrayFile(jobsPath))');
+    expect(source).not.toContain('readJsonFile(jobsPath)');
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
