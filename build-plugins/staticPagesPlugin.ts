@@ -35,7 +35,7 @@ import {
  ROBOTS_INDEX_ENHANCED_CONTENT,
  FAVICON_LINKS,
 } from './constants';
-import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT } from './htmlTemplate';
+import { asyncCssLink, rootShell, ASYNC_CSS_FALLBACK_SCRIPT, HEAD_PREFIX, asyncCssHeadBlock } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -138,6 +138,8 @@ import { buildFaqHubPath, FAQ_HUB_SLUG, FAQ_HUB_ROUTES } from '../data/faq-hub/r
 import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../services/communicationChannels';
 import { SITE_MAP_PAGE_DIR } from './shared/siteMapPageDir';
+import { READER_SUBSCRIPTION_LOCALES, READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
+import { renderReaderSubscriptionStaticPage } from './shared/readerSubscriptionStaticPage';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 // Same story, same rail, the other eleven pills: the guide/fisco hrefs below
 // were hand-copied literals that had drifted from `services/routeSlugs.data.ts`
@@ -6834,6 +6836,28 @@ ${hrefTags}
  } catch (err) {
    console.warn('[static-pages] locale-root shell emit failed (non-fatal):', err);
  }
+
+ // The paid reader-subscription route is deliberately noindex and absent
+ // from the sitemap, but it is a direct destination for house-ad creatives
+ // and Stripe's return URL. Emit the SPA shell for each canonical locale so
+ // those full-page navigations never land on the site's 404 page.
+ for (const locale of READER_SUBSCRIPTION_LOCALES) {
+   const routePath = READER_SUBSCRIPTION_PATHS[locale];
+   const relativePath = routePath.replace(/^\/+|\/+$/g, '');
+   const pagePath = np.join(distDir, relativePath, 'index.html');
+   const canonicalUrl = `${BASE_URL}${routePath}`;
+   const pageHtml = renderReaderSubscriptionStaticPage({
+     locale,
+     canonicalUrl,
+     headPrefix: `${HEAD_PREFIX}\n ${DARK_MODE_SCRIPT}`,
+     adsenseBootstrap: ADSENSE_SNIPPET,
+     cssHead: asyncCssHeadBlock(entryCss),
+     rootShell: rootShell(hasSpaBundle),
+     entryJs,
+   });
+   _qw(pagePath, pageHtml);
+ }
+ console.log(`[static-pages] Emitted ${READER_SUBSCRIPTION_LOCALES.length} noindex reader-subscription SPA routes`);
 
  const t0 = Date.now();
  const written = await collector.flush();

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-14T16:46:14.928Z",
-  "runId": "43614957127",
+  "assembledAt": "2026-11-14T21:37:10.834Z",
+  "runId": "43642566027",
   "jobs": [
     {
       "id": "hrc-9feb303a2e31",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.620Z",
+      "crawledAt": "2026-11-14T21:37:03.605Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T16:46:06.620Z",
+      "validThrough": "2027-01-17T21:37:03.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-aux-permanences-medicales-a-60-100-666",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.617Z",
+      "crawledAt": "2026-11-14T21:37:03.602Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T16:46:06.617Z",
+      "validThrough": "2027-01-21T21:37:03.602Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/phel-assistant-en-pharmacie-hf-a-60-100-677",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.614Z",
+      "crawledAt": "2026-11-14T21:37:03.600Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T16:46:06.614Z",
+      "validThrough": "2027-02-04T21:37:03.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.611Z",
+      "crawledAt": "2026-11-14T21:37:03.597Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T16:46:06.611Z",
+      "validThrough": "2027-01-27T21:37:03.597Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.607Z",
+      "crawledAt": "2026-11-14T21:37:03.593Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T16:46:06.607Z",
+      "validThrough": "2027-02-02T21:37:03.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +456,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-en-urologie-a-80-100-679",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:06.589Z",
+      "crawledAt": "2026-11-14T21:37:03.574Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -507,93 +507,8 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T16:46:06.589Z",
+      "validThrough": "2027-02-10T21:37:03.574Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hrc-206aba495c80",
-      "slug": "3-apprentice-logisticista-m-f-cfc-storage-option-hopital-riviera-chablais-hrc-rennaz",
-      "slugByLocale": {
-        "it": "3-apprentice-logisticista-m-f-cfc-storage-option-hopital-riviera-chablais-hrc-rennaz",
-        "en": "3-apprentice-logistician-m-f-cfc-storage-option-hopital-riviera-chablais-hrc-rennaz",
-        "de": "3-auszubildender-logistiker-m-w-cfc-speicheroption-hopital-riviera-chablais-hrc-rennaz",
-        "fr": "3-apprenti-logisticien-h-f-cfc-option-stockage-hrc-rennaz"
-      },
-      "company": "Hôpital Riviera-Chablais (HRC)",
-      "companyKey": "hrc",
-      "companyDomain": "hopitalrivierachablais.ch",
-      "title": "3 Apprenti Logisticien H/F CFC (Option stockage)",
-      "titleByLocale": {
-        "it": "3 Apprentice Logisticista M/F CFC (Storage Option)",
-        "en": "3 Apprentice Logistician M/F CFC (Storage Option)",
-        "de": "3 Auszubildender Logistiker M/W CFC (Speicheroption)",
-        "fr": "3 Apprenti Logisticien H/F CFC (Option stockage)"
-      },
-      "description": "L’Hôpital Riviera-Chablais, Vaud-Valais (HRC), est un hôpital intercantonal de référence, qui réunit plus de 2’000 collaboratrices et collaborateurs. Le Centre hospitalier de Rennaz, inauguré fin 2019, compte plus de 300 lits de soins aigus. Il est complété par deux Cliniques de gériatrie et réadaptation ainsi que deux permanences médicales, à Vevey et à Monthey.\n\nL’ensemble des collaboratrices et collaborateurs s’investissent au quotidien pour fournir une prise en charge de qualité aux patient·e·s, en incarnant les valeurs de l’institution : l’authenticité, l’exemplarité et l’innovation.\n\nPour intégrer notre équipe de l’unité approvisionnement basée à Aigle et à Rennaz, nous recherchons :\n\n3 Apprenti Logisticien H/F CFC (Option stockage)\n\nLes missions principales de ce poste sont\n\nSe former en tant qu'apprenti·e logisticien·ne\n\nNous demandons\n\n• Un certificat ou un diplôme de fin de scolarité obligatoire\n\n• Une bonne maîtrise du français\n\n• Un intérêt marqué pour le domaine hospitalier\n\n• Un esprit méthodique et le sens de l'organisation\n\n• Une bonne condition physique\n\n• Une aisance à communiquer et à travailler en équipe\n\n• Une grande motivation et le désir d'apprendre\n\nNous offrons\n\nEn tant qu’entreprise formatrice nous offrons :\n\n§ Un encadrement pédagogique soutenu et assuré par des professionnels motivés\n\n§ Un cursus d’apprentissage varié\n\n§ D’excellentes conditions de travail\n\nEntrée en fonction\n\n1 er août 2027 ou date à convenir\n\nRenseignements\n\nAuprès de Mme Maud Briand\nResponsable de la formation initiale maud.briand@hopitalrivierachablais.ch\n\nCandidature\n\nCe poste vous intéresse? Nous vous remercions d’adresser votre dossier de candidature complet :\n\n- lettre de motivation\n\n- CV avec photo\n\n- copie des bulletins de note des 2 dernières années\n\n- copie du bulletin de note de l’année en cours\n\n- copie de diplômes, rapports de stage et/ou certificats de travail\n\nAvant le vendredi 13 novembre 2026, uniquement via le site internet de l’HRC",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Riviera-Chablais, Vaud-Valais (HRC), è un ospedale intercantone di riferimento con oltre 2.000 collaboratori. L'Ospedale Rennaz, inaugurato a fine 2019, ha oltre 300 letti acuti. È completato da due Cliniche Geriatriche e Riabilitative e da due cliniche mediche a Vevey e Monthey.\n\nTutti i dipendenti investono quotidianamente per fornire cure di qualità per i pazienti, incarnando i valori dell'istituzione di autenticità, esemplarità e innovazione.\n\nPer unire il nostro team di unità di fornitura con sede a Eagle e Rennaz, stiamo cercando:\n\n3 Apprentice Logisticista M/F CFC (Storage Option)\n\nI compiti principali di questo post sono:\n\nFormazione come apprendista Logisticista\n\nChiediamo\n\n• Certificato o diploma di perfezionamento obbligatorio\n\n• Una buona padronanza del francese\n\n• Un forte interesse per il settore ospedaliero\n\n• Una mente metodica e un senso organizzativo\n\n• Buone condizioni fisiche\n\n• Una facilità di comunicazione e lavoro di squadra\n\n• Grande motivazione e desiderio di imparare\n\nOffriamo\n\nCome azienda di formazione offriamo:\n\n§ Guida educativa sostenuta e fornita da professionisti motivati\n\n§ Un curriculum di apprendimento vario\n\n§ Condizioni di lavoro eccellenti\n\nEntrata in servizio\n\n1 agosto 2027 o data d'accordo\n\nInformazioni\n\nA Mrs Maud Briand\nCapo della formazione iniziale Maud.briand@hopitalrivierachablais.ch\n\nApplicazione\n\nTi interessa questo lavoro? Grazie per l'invio della vostra domanda completa:\n\n- lettera di presentazione\n\n- CV con foto\n\n- copia degli ultimi 2 anni\n\n- copia del memorandum dell'anno in corso\n\n- copie di diplomi, rapporti di tirocinio e/o certificati di lavoro\n\nPrima di venerdì 13 novembre 2026, solo tramite il sito dellaHRC",
-        "en": "The Riviera-Chablais Hospital, Vaud-Valais (HRC), is a reference intercantonal hospital with more than 2,000 collaborators. The Rennaz Hospital, inaugurated in late 2019, has over 300 acute care beds. It is complemented by two Geriatric and Rehabilitation Clinics as well as two medical clinics in Vevey and Monthey.\n\nAll employees invest on a daily basis to provide quality care for patients, embodying the institution's values of authenticity, exemplaryness and innovation.\n\nTo join our supply unit team based in Eagle and Rennaz, we are looking for:\n\n3 Apprentice Logistician M/F CFC (Storage Option)\n\nThe main tasks of this post are:\n\nTraining as a Logistician apprentice\n\nWe ask\n\n• A certificate or diploma of compulsory completion\n\n• A good mastery of French\n\n• A strong interest in the hospital sector\n\n• A methodical mind and organizational sense\n\n• Good physical condition\n\n• An ease of communication and teamwork\n\n• Great motivation and desire to learn\n\nWe offer\n\nAs a training company we offer:\n\n§ Educational guidance supported and provided by motivated professionals\n\n§ A varied learning curriculum\n\n§ Excellent working conditions\n\nEntry on duty\n\n1 August 2027 or date to be agreed\n\nInformation\n\nTo Mrs Maud Briand\nHead of initial training Maud.briand@hopitalrivierachablais.ch\n\nApplication\n\nInterested in this job? Thank you for sending your full application:\n\n- cover letter\n\n- CV with photo\n\n- copy of the last 2 years' bulletins\n\n- copy of the current year's memorandum\n\n- copies of diplomas, internship reports and/or work certificates\n\nBefore Friday 13 November 2026, only via the website of theHRC",
-        "de": "Das Riviera-Chablais Hospital, Waadt-Valais (HRC), ist ein interkantonales Referenzkrankenhaus mit mehr als 2.000 Mitarbeitern. Das Ende 2019 eingeweihte Krankenhaus Rennaz verfügt über mehr als 300 Akutbetten. Ergänzt wird es durch zwei Geriatrie- und Rehabilitationskliniken sowie zwei medizinische Kliniken in Vevey und Monthey.\n\nAlle Mitarbeiter investieren täglich in eine qualitativ hochwertige Versorgung der Patienten und verkörpern die Werte der Institution: Authentizität, Vorbildlichkeit und Innovation.\n\nUm unserem Supply Unit Team mit Sitz in Eagle und Rennaz beizutreten, suchen wir:\n\n3 Auszubildender Logistiker M/W CFC (Speicheroption)\n\nDie Hauptaufgaben dieses Postens sind:\n\nAusbildung zum Logistikerlehrling\n\nWir fragen\n\n• Bescheinigung oder Diplom über die Pflichtausführung\n\n• Gute Beherrschung des Französischen\n\n• Starkes Interesse am Krankenhaussektor\n\n• Ein methodischer Geist und organisatorischer Sinn\n\n• Gute körperliche Verfassung\n\n• Leichtigkeit der Kommunikation und Teamarbeit\n\n• Große Motivation und Wunsch zu lernen\n\nWir bieten\n\nAls Ausbildungsbetrieb bieten wir an:\n\n§ Bildungsberatung unterstützt und bereitgestellt von motivierten Fachleuten\n\n§ Ein abwechslungsreicher Lehrplan\n\n§ Ausgezeichnete Arbeitsbedingungen\n\nEingangszollstelle\n\n1. August 2027 oder Datum zu vereinbaren\n\nInformation\n\nAn Frau Maud Briand\nLeiter der Erstausbildung Maud.briand@hopitalrivierachablais.ch\n\nAntragstellung\n\nInteressiert an diesem Job? Vielen Dank für die Zusendung Ihrer vollständigen Bewerbung:\n\n- Begleitschreiben\n\n- CV mit Foto\n\n- Kopie der Bulletins der letzten zwei Jahre\n\n- Kopie des Memorandums des laufenden Jahres\n\n- Kopien von Diplomen, Praktikumsberichten und/oder Arbeitszeugnissen\n\nVor Freitag, dem 13. November 2026, nur über die Website des HRC",
-        "fr": "L’Hôpital Riviera-Chablais, Vaud-Valais (HRC), est un hôpital intercantonal de référence, qui réunit plus de 2’000 collaboratrices et collaborateurs. Le Centre hospitalier de Rennaz, inauguré fin 2019, compte plus de 300 lits de soins aigus. Il est complété par deux Cliniques de gériatrie et réadaptation ainsi que deux permanences médicales, à Vevey et à Monthey.\n\nL’ensemble des collaboratrices et collaborateurs s’investissent au quotidien pour fournir une prise en charge de qualité aux patient·e·s, en incarnant les valeurs de l’institution : l’authenticité, l’exemplarité et l’innovation.\n\nPour intégrer notre équipe de l’unité approvisionnement basée à Aigle et à Rennaz, nous recherchons :\n\n3 Apprenti Logisticien H/F CFC (Option stockage)\n\nLes missions principales de ce poste sont\n\nSe former en tant qu'apprenti·e logisticien·ne\n\nNous demandons\n\n• Un certificat ou un diplôme de fin de scolarité obligatoire\n\n• Une bonne maîtrise du français\n\n• Un intérêt marqué pour le domaine hospitalier\n\n• Un esprit méthodique et le sens de l'organisation\n\n• Une bonne condition physique\n\n• Une aisance à communiquer et à travailler en équipe\n\n• Une grande motivation et le désir d'apprendre\n\nNous offrons\n\nEn tant qu’entreprise formatrice nous offrons :\n\n§ Un encadrement pédagogique soutenu et assuré par des professionnels motivés\n\n§ Un cursus d’apprentissage varié\n\n§ D’excellentes conditions de travail\n\nEntrée en fonction\n\n1 er août 2027 ou date à convenir\n\nRenseignements\n\nAuprès de Mme Maud Briand\nResponsable de la formation initiale maud.briand@hopitalrivierachablais.ch\n\nCandidature\n\nCe poste vous intéresse? Nous vous remercions d’adresser votre dossier de candidature complet :\n\n- lettre de motivation\n\n- CV avec photo\n\n- copie des bulletins de note des 2 dernières années\n\n- copie du bulletin de note de l’année en cours\n\n- copie de diplômes, rapports de stage et/ou certificats de travail\n\nAvant le vendredi 13 novembre 2026, uniquement via le site internet de l’HRC"
-      },
-      "needsRetranslation": false,
-      "location": "Rennaz",
-      "canton": "VD",
-      "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
-      "source": "HRC Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:35:11.449Z",
-      "addressLocality": "Rennaz",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1847",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/3-apprenti-logisticien-hf-cfc-option-stockage-660",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "3-apprenti-logisticien-h-f-cfc-option-stockage-hrc-rennaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "3-apprenti-logisticien-h-f-cfc-option-stockage-hrc-rennaz"
-        ],
-        "en": [
-          "3-apprenti-logisticien-h-f-cfc-option-stockage-hrc-rennaz"
-        ],
-        "de": [
-          "3-apprenti-logisticien-h-f-cfc-option-stockage-hrc-rennaz"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T09:34:50.015Z",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rennaz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:35:11.449Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

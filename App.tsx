@@ -115,8 +115,9 @@ const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const AutorePage = lazyRetry(() => import('@/components/pages/AutorePage').then(m => ({ default: m.AutorePage })));
 const Correzioni = lazyRetry(() => import('@/components/pages/Correzioni').then(m => ({ default: m.Correzioni })));
-// Subscription placeholder — hidden route, CTA target for the AdBlock gate (#3654).
-// No nav/sitemap entry until #3655 builds the real Stripe checkout flow.
+// Reader subscription page. Direct noindex shells are emitted for its
+// localized routes so house-ad clicks and Stripe returns survive full loads;
+// it remains absent from navigation and sitemaps.
 const SubscribePage = lazyRetry(() => import('@/components/pages/SubscribePage'));
 const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').then(m => ({ default: m.Metodologia })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));

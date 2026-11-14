@@ -1,17 +1,17 @@
 {
   "key": "eta-sa-swatch-group",
   "label": "eta-sa-swatch-group",
-  "generatedAt": "2026-11-14T09:30:10.214Z",
+  "generatedAt": "2026-11-14T21:22:41.234Z",
   "total": 23,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 22,
-  "durationMs": 450749,
-  "avgDurationMs": 450749,
+  "durationMs": 381232,
+  "avgDurationMs": 381232,
   "durationHistory": [
-    450749
+    381232
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -531,7 +531,6 @@
       "companyDomain": "eta.ch",
       "crawledAt": "2026-11-12T21:31:11.953Z",
       "firstSeenAt": "2026-11-10T09:23:33.701Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -573,7 +572,6 @@
       "companyDomain": "eta.ch",
       "crawledAt": "2026-11-12T21:31:11.953Z",
       "firstSeenAt": "2026-11-10T09:23:33.701Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -779,7 +777,6 @@
       "companyDomain": "eta.ch",
       "crawledAt": "2026-11-12T21:31:11.953Z",
       "firstSeenAt": "2026-11-09T21:27:58.547Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -863,7 +860,6 @@
       "companyDomain": "eta.ch",
       "crawledAt": "2026-11-12T21:31:11.953Z",
       "firstSeenAt": "2026-11-09T21:27:58.547Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -968,5 +964,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

@@ -20,6 +20,18 @@ describe('house creative readout', () => {
       row('house_ad_click', 'house_creatives_v2.control_v1.test.it', 5),
     ] })).toEqual([expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'control', enrolled: true, impressions: 100, clicks: 5, ctr: .05 })]);
   });
+  it('segments traffic by bounded page context without exposing job text or location', () => {
+    const row = (event: string, count: number) => ({
+      dimensionValues: [event, 'house_creatives_v2.profile_match_v1.test.it.job_detail.logistics', 'rectangle.job-detail', 'desktop'].map(value => ({ value })),
+      metricValues: [{ value: String(count) }, { value: String(count) }],
+    });
+    expect(summarizeHouseTraffic({ rowCount: 2, rows: [row('house_ad_impression', 20), row('house_ad_click', 3)] })).toEqual([
+      expect.objectContaining({
+        experimentId: 'house_creatives_v2', variant: 'profile_match', contextSource: 'job_detail', contextSector: 'logistics',
+        impressions: 20, clicks: 3, ctr: .15,
+      }),
+    ]);
+  });
   it('reports distinct GA4 users separately from event counts', () => {
     const row = (event: string, count: number, users: number) => ({
       dimensionValues: [event, 'house_creatives_v2.time_saved_v1.test.it', 'rectangle.article-inline', 'mobile'].map(value => ({ value })),
@@ -66,11 +78,11 @@ describe('house creative readout', () => {
       houseAdAttribution: {
         campaign: 'job_search_automation', experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config',
         variant: 'profile_match', creativeId: 'profile_match_v1', format: 'rectangle', locale: 'it',
-        placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: now - 2000,
+        placement: 'article-inline', device: 'mobile', enrolled: true, contextSource: 'job_detail', contextSector: 'logistics', clickedAt: now - 2000,
       },
     };
     expect(summarizeHouseOrders([service], now - 86400000, now + 1)).toEqual([
-      expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'profile_match', enrolled: true, confirmedPurchases: 1, confirmedRevenueEurCents: 3999 }),
+      expect.objectContaining({ experimentId: 'house_creatives_v2', variant: 'profile_match', enrolled: true, contextSource: 'job_detail', contextSector: 'logistics', confirmedPurchases: 1, confirmedRevenueEurCents: 3999 }),
     ]);
   });
   it('compares viewable impression CTR by assigned arm and reports subscription-card CTR separately', () => {

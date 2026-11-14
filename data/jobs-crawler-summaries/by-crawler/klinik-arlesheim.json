@@ -1,11 +1,12 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-11-14T09:32:11.707Z",
+  "generatedAt": "2026-11-14T21:44:58.388Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6780,
-  "avgDurationMs": 6780,
+  "durationMs": 5857,
+  "avgDurationMs": 5857,
   "durationHistory": [
-    6780
+    5857
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +39,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:46.131Z",
+      "crawledAt": "2026-11-14T21:44:41.957Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -72,7 +73,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T09:31:46.131Z",
+      "validThrough": "2027-01-03T21:44:41.957Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -95,7 +96,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:45.666Z",
+      "crawledAt": "2026-11-14T21:44:41.493Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -129,7 +130,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:31:45.666Z",
+      "validThrough": "2026-12-29T21:44:41.493Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -146,13 +147,12 @@
       "companyKey": "klinik-arlesheim",
       "companyDomain": "klinik-arlesheim.ch",
       "title": "MPA",
-      "needsRetranslation": true,
       "location": "Arlesheim",
       "canton": "BL",
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:45.191Z",
+      "crawledAt": "2026-11-14T21:44:40.968Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:31:45.191Z",
+      "validThrough": "2026-12-29T21:44:40.968Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -209,7 +209,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/52e615fd-01b0-4394-b020-078596bb3e0a/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:44.733Z",
+      "crawledAt": "2026-11-14T21:44:40.491Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:31:44.733Z",
+      "validThrough": "2027-01-31T21:44:40.491Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:44.258Z",
+      "crawledAt": "2026-11-14T21:44:40.017Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -299,7 +299,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:31:44.258Z",
+      "validThrough": "2026-12-29T21:44:40.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -310,5 +310,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

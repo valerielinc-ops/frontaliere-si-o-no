@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ehc-vd",
-  "assembledAt": "2026-11-14T17:09:14.417Z",
-  "runId": "43616256613",
+  "assembledAt": "2026-11-14T21:18:21.334Z",
+  "runId": "43641410992",
   "jobs": [
     {
       "id": "ehc-vd-442b64f7073a",
@@ -35,7 +35,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-centre-medicauxpermanences-3128",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.722Z",
+      "crawledAt": "2026-11-14T21:18:13.632Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -102,7 +102,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.722Z",
+      "validThrough": "2026-12-14T21:18:13.632Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -137,7 +137,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-bloc-operatoire-anesthesieambulances-3126",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.721Z",
+      "crawledAt": "2026-11-14T21:18:13.631Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.721Z",
+      "validThrough": "2026-12-14T21:18:13.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -234,7 +234,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-hospitaliers-3125",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.720Z",
+      "crawledAt": "2026-11-14T21:18:13.630Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.720Z",
+      "validThrough": "2026-12-14T21:18:13.630Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -329,7 +329,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-intendancehotellerie-3121",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.719Z",
+      "crawledAt": "2026-11-14T21:18:13.628Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.719Z",
+      "validThrough": "2026-12-14T21:18:13.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -424,7 +424,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-techniqueinfrastructureachat-et-approit-3123",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.719Z",
+      "crawledAt": "2026-11-14T21:18:13.629Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -494,7 +494,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.719Z",
+      "validThrough": "2026-12-14T21:18:13.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -529,7 +529,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-medecinmedecin-en-formation-3119",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.718Z",
+      "crawledAt": "2026-11-14T21:18:13.626Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.718Z",
+      "validThrough": "2026-12-14T21:18:13.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -580,7 +580,7 @@
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
       },
@@ -607,7 +607,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-physiotherapieergotherapie-3120",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.718Z",
+      "crawledAt": "2026-11-14T21:18:13.627Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -648,7 +648,7 @@
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
-        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -657,7 +657,7 @@
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.978Z",
@@ -676,7 +676,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.718Z",
+      "validThrough": "2026-12-14T21:18:13.627Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -693,25 +693,24 @@
       "companyDomain": "ehc-vd.ch",
       "title": "Offre spontanée - Pharmacie",
       "titleByLocale": {
-        "it": "Offerta Spontanea - Farmacia",
-        "en": "Spontaneous Application - Pharmacy",
-        "de": "Spontane Bewerbung - Apotheke",
+        "it": "Candidatura spontanea - Farmacia",
+        "en": "Spontaneous application - Pharmacy",
+        "de": "Initiativbewerbung - Apotheke",
         "fr": "Offre spontanée - Pharmacie"
       },
       "description": "Offre spontanée - Pharmacie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
       "descriptionByLocale": {
-        "it": "Offerta non richiesta - 10-100% farmacia\n\nVi invitiamo a presentare la vostra applicazione nel seguente formato:\n\nPrima di tutto, vorremmo ringraziarvi per il vostro interesse per la nostra istituzione.\n\nQui potete inviarci il vostro file come offerta spontanea. Così, quando una necessità è identificata all'interno della nostra istituzione, il nostro reparto di reclutamento può dover posizionare la vostra domanda su una posizione aperta corrispondente al vostro profilo.\n\nNel caso in cui non venga rilasciato alcun post e non ricevi alcuna risposta da noi entro 3 a 6 mesi, si prega di considerare che purtroppo la tua domanda non è stata accettata.\n\nSi consiglia di controllare regolarmente il nostro sito web Career, al fine di vedere le nostre offerte di lavoro che è possibile richiedere. Infatti, i candidati sui posti da riempire sono quelli che trattiamo come una prioritÃ, al fine di riempire posti vacanti all'interno della nostra istituzione.\n\nIl reparto di reclutamento è naturalmente a vostra disposizione per qualsiasi ulteriore informazione.\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2000 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile favorevole alla realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nFare clic su Applica aggiungendo i seguenti documenti:\nCV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\nSe la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
-        "en": "Unsolicited offer - 10-100% pharmacy\n\nWe invite you to submit your application in the following format:\n\nFirst of all, we would like to thank you for your interest in our institution.\n\nHere you can send us your file as a spontaneous offer. Thus, when a need is identified within our institution, our recruitment department may have to position your application on an open position corresponding to your profile.\n\nIn the event that no post is released and you do not receive any reply from us within 3 to 6 months, please consider that unfortunately your application has not been accepted.\n\nWe recommend that you check our Career website regularly, in order to see our job offers that you can apply for. Indeed, the candidates on the posts to be filled are those we treat as a priority, in order to fill vacancies within our institution.\n\nThe recruitment department is naturally at your disposal for any further information.\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2000 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment conducive to the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nClick Apply by adding the following documents:\nCV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\nIf your application is selected, you will be asked for the extract from your criminal record.",
-        "de": "Unerbetenes Angebot - 10-100% Apotheke\n\nWir laden Sie ein, Ihre Bewerbung in folgendem Format einzureichen:\n\nZunächst möchten wir Ihnen für Ihr Interesse an unserer Institution danken.\n\nHier können Sie uns Ihre Datei als spontanes Angebot zusenden. Wenn also ein Bedarf innerhalb unserer Institution identifiziert wird, muss unsere Rekrutierungsabteilung Ihre Bewerbung möglicherweise auf einer offenen Stelle positionieren, die Ihrem Profil entspricht.\n\nFür den Fall, dass kein Beitrag veröffentlicht wird und Sie innerhalb von 3 bis 6 Monaten keine Antwort von uns erhalten, beachten Sie bitte, dass Ihre Bewerbung leider nicht angenommen wurde.\n\nWir empfehlen Ihnen, unsere Karriere-Website regelmäßig zu besuchen, um unsere Stellenangebote zu sehen, für die Sie sich bewerben können. In der Tat sind die Kandidaten für die zu besetzenden Stellen diejenigen, die wir vorrangig behandeln, um offene Stellen innerhalb unserer Institution zu besetzen.\n\nDie Rekrutierungsabteilung steht Ihnen natürlich für weitere Informationen zur Verfügung.\n\nWIR SIND\n\n• Eine Institution, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2000 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das der Realisierung von Projekten förderlich ist.\n\n• Ein Ausbildungsbetrieb, der sich mit der Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\nLebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\nWenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt.",
-        "fr": "Offre spontanée - Pharmacie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
+        "it": "Candidatura spontanea - Farmacia al 10-100%\n\nLa invitiamo a presentare la sua candidatura nel seguente formato:\n\nInnanzitutto desideriamo ringraziarLa per l'interesse che dimostra nei confronti della nostra istituzione.\n\nQui può inviarci il suo dossier come candidatura spontanea. In questo modo, quando verrà individuata una necessità all'interno della nostra istituzione, il nostro servizio di reclutamento potrebbe valutare la sua candidatura per una posizione aperta corrispondente al suo profilo.\n\nQualora non si rendesse disponibile alcuna posizione e non ricevesse alcuna risposta da parte nostra entro un periodo da 3 a 6 mesi, La preghiamo di considerare che, purtroppo, la sua candidatura non è stata selezionata.\n\nLe raccomandiamo di consultare regolarmente il nostro sito Carrière, al fine di prendere visione delle nostre offerte di lavoro alle quali può anche candidarsi. Infatti, le candidature presentate per le posizioni da ricoprire sono quelle che trattiamo in via prioritaria, al fine di coprire i posti vacanti all'interno della nostra istituzione.\n\nIl servizio di reclutamento rimane naturalmente a sua disposizione per qualsiasi ulteriore informazione.\n\nSIAMO\n\n- Un'istituzione che comprende strutture di cure acute e di riabilitazione, una clinica privata, istituti medico-sociali, centri medici e ambulatori distribuiti nella regione di La Côte, nonché la 1ª scuola di ipnosi clinica dedicata al settore sanitario nella Svizzera romanda.\n- Una rete sanitaria che offre numerose opportunità di trasferimento interno in base alle aspirazioni e ai progetti di sviluppo dei collaboratori.\n- Più di 2000 collaboratori che si prendono cura dei pazienti e dei residenti della regione, condividendo i valori di Responsabilità, Prossimità, Umanità, Competenza, in un ambiente agile che favorisce la realizzazione dei progetti.\n- Un'azienda formatrice impegnata nella formazione delle nuove leve, che conta circa 80 apprendisti in 16 professioni diverse, 200 stagisti HES-ES e quasi 300 medici in formazione.\n\nINSIEME FIANCO A FIANCO, SIATE IL PROSSIMO TALENTO DELLA NOSTRA RETE SANITARIA.\n\nClicchi su Candidati allegando i seguenti documenti:\n\n- CV, lettera di motivazione, certificati di lavoro (necessari per il calcolo dello stipendio) e diplomi.\n\nSe la sua candidatura sarà selezionata, le sarà richiesto l'estratto del casellario giudiziale.",
+        "en": "Unsolicited application - Pharmacy at 10-100%\n\nWe invite you to submit your application in the following format:\n\nFirst of all, we would like to thank you for your interest in our institution.\n\nHere, you can send us your application as an unsolicited application. Thus, when a need is identified within our institution, our recruitment department may consider your application for an open position matching your profile.\n\nIf no position becomes available and you do not receive any response from us within 3 to 6 months, please consider that, unfortunately, your application has not been selected.\n\nWe recommend that you regularly consult our Careers website to learn about our job openings, which you can also apply for. Indeed, applications submitted for positions to be filled are the ones we process as a priority, in order to fill vacant positions within our institution.\n\nThe recruitment department is of course available to provide you with any further information.\n\nWE ARE\n\n- An institution comprising acute care and rehabilitation facilities, a private clinic, nursing homes, medical centers and walk-in clinics located throughout the La Côte region, as well as the 1st clinical hypnosis school dedicated to the healthcare sector in French-speaking Switzerland.\n- A healthcare network offering numerous opportunities for internal transfers according to employees' aspirations and development projects.\n- More than 2000 employees caring for patients and residents in the region, while sharing the values of Responsibility, Proximity, Humanity and Competence, in an agile environment that promotes the realization of projects.\n- A training company committed to training the next generation, with approximately 80 apprentices in 16 different professions, 200 HES-ES interns and nearly 300 doctors in training.\n\nTOGETHER SIDE BY SIDE, BE THE NEXT TALENT IN OUR CARE NETWORK.\n\nClick on Apply and add the following documents:\n\n- CV, cover letter, employment certificates (required for preparing the salary calculation) and diplomas.\n\nIf your application is selected, you will be asked to provide an extract from your criminal record.",
+        "de": "Spontanbewerbung – Pharmazie 10-100%\n\nWir laden Sie ein, Ihre Bewerbung im folgenden Format einzureichen:\n\nZunächst möchten wir Ihnen für das Interesse danken, das Sie unserer Institution entgegenbringen.\n\nHier können Sie uns Ihre Unterlagen als Spontanbewerbung übermitteln. Sobald innerhalb unserer Institution ein Bedarf festgestellt wird, kann unsere Rekrutierungsabteilung Ihre Bewerbung einer offenen Stelle zuordnen, die Ihrem Profil entspricht.\n\nSollte keine Stelle frei werden und Sie innerhalb von 3 bis 6 Monaten keine Antwort von uns erhalten, gehen Sie bitte davon aus, dass Ihre Bewerbung leider nicht berücksichtigt wurde.\n\nWir empfehlen Ihnen, unsere Karriereseite regelmäßig zu konsultieren, um sich über unsere Stellenangebote zu informieren, auf die Sie sich ebenfalls bewerben können. Bewerbungen, die für zu besetzende Stellen eingereicht werden, bearbeiten wir vorrangig, um die vakanten Stellen innerhalb unserer Institution zu besetzen.\n\nDas Rekrutierungsteam steht Ihnen selbstverständlich für weitere Informationen zur Verfügung.\n\nWIR SIND\n\n- Eine Institution mit Einrichtungen für Akutversorgung und Rehabilitation, einer Privatklinik, EMS, medizinischen Zentren und Notfallpraxen, die in der Region La Côte verteilt sind, sowie der 1ère Schule für klinische Hypnose, die dem Gesundheitswesen in der französischsprachigen Schweiz gewidmet ist.\n- Ein Versorgungsnetzwerk, das entsprechend den Wünschen und Entwicklungsprojekten der Mitarbeitenden zahlreiche Möglichkeiten für interne Wechsel bietet.\n- Mehr als 2000 Mitarbeitende kümmern sich um die Patientinnen und Patienten sowie Bewohnerinnen und Bewohner der Region und teilen dabei die Werte Verantwortung, Nähe, Menschlichkeit und Kompetenz in einem agilen Umfeld, das die Umsetzung von Projekten fördert.\n- Ein Ausbildungsunternehmen, das sich für die Ausbildung des Nachwuchses engagiert und rund 80 Lernende in 16 verschiedenen Berufen, 200 HES-ES-Praktikantinnen und -Praktikanten sowie fast 300 Ärztinnen und Ärzte in Ausbildung zählt.\n\nGEMEINSAM, SEITE AN SEITE, WERDEN SIE DAS NÄCHSTE TALENT UNSERES PFLEGENETZWERKS.\n\nKlicken Sie auf „Bewerben“ und fügen Sie folgende Dokumente hinzu:\n\n- Lebenslauf, Anschreiben, Arbeitszeugnisse (erforderlich für die Erstellung der Gehaltsberechnung) und Diplome.\n\nWenn Ihre Bewerbung ausgewählt wird, werden Sie um einen Auszug aus dem Strafregister gebeten.",
+        "fr": "Offre spontanée - Pharmacie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n- Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n- Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n- Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n- Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\n\n- CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
       },
-      "needsRetranslation": true,
       "location": "Morges",
       "canton": "VD",
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-pharmacie-3118",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.717Z",
+      "crawledAt": "2026-11-14T21:18:13.625Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -754,7 +753,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.717Z",
+      "validThrough": "2026-12-14T21:18:13.625Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -771,25 +770,24 @@
       "companyDomain": "ehc-vd.ch",
       "title": "Offre spontanée - Administration/Secrétariat médical",
       "titleByLocale": {
-        "it": "Offerta spontanea - Amministrazione/Segreteria medica",
-        "en": "Spontaneous Application - Medical Administration/Secretariat",
-        "de": "Initiativbewerbung - Medizinische Verwaltung/Sekretariat",
+        "it": "Candidatura spontanea - Amministrazione/Segreteria medica",
+        "en": "Spontaneous application - Medical Administration/Secretarial Services",
+        "de": "Initiativbewerbung - Medizinische Administration/Medizinisches Sekretariat",
         "fr": "Offre spontanée - Administration/Secrétariat médical"
       },
       "description": "Offre spontanée - Administration/Secrétariat médical à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
       "descriptionByLocale": {
-        "it": "Offerta non richiesta - Amministrazione/Segretariato Medico al 10-100%\n\nVi invitiamo a presentare la vostra applicazione nel seguente formato:\n\nPrima di tutto, vorremmo ringraziarvi per il vostro interesse per la nostra istituzione.\n\nQui potete inviarci il vostro file come offerta spontanea. Così, quando una necessità è identificata all'interno della nostra istituzione, il nostro reparto di reclutamento può dover posizionare la vostra domanda su una posizione aperta corrispondente al vostro profilo.\n\nNel caso in cui non venga rilasciato alcun post e non ricevi alcuna risposta da noi entro 3 a 6 mesi, si prega di considerare che purtroppo la tua domanda non è stata accettata.\n\nSi consiglia di controllare regolarmente il nostro sito web Career, al fine di vedere le nostre offerte di lavoro che è possibile richiedere. Infatti, i candidati sui posti da riempire sono quelli che trattiamo come una questione di prioritÃ, al fine di riempire posti vacanti all'interno della nostra istituzione.\n\nIl reparto di reclutamento è naturalmente a vostra disposizione per qualsiasi ulteriore informazione.\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2.000 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile favorevole alla realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nFare clic su Applica aggiungendo i seguenti documenti:\nCV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\nSe la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
-        "en": "Unsolicited offer - Administration/Medical Secretariat at 10-100%\n\nWe invite you to submit your application in the following format:\n\nFirst of all, we would like to thank you for your interest in our institution.\n\nHere you can send us your file as a spontaneous offer. Thus, when a need is identified within our institution, our recruitment department may have to position your application on an open position corresponding to your profile.\n\nIn the event that no post is released and you do not receive any reply from us within 3 to 6 months, please consider that unfortunately your application has not been accepted.\n\nWe recommend that you check our Career website regularly, in order to see our job offers that you can apply for. Indeed, the candidates on the posts to be filled are those we treat as a matter of priority, in order to fill vacancies within our institution.\n\nThe recruitment department is naturally at your disposal for any further information.\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2,000 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment conducive to the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nClick Apply by adding the following documents:\nCV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\nIf your application is selected, you will be asked for the extract from your criminal record.",
-        "de": "Unerbetenes Angebot - Verwaltung / Medizinisches Sekretariat bei 10-100%\n\nWir laden Sie ein, Ihre Bewerbung in folgendem Format einzureichen:\n\nZunächst möchten wir Ihnen für Ihr Interesse an unserer Institution danken.\n\nHier können Sie uns Ihre Datei als spontanes Angebot zusenden. Wenn also ein Bedarf innerhalb unserer Institution identifiziert wird, muss unsere Rekrutierungsabteilung Ihre Bewerbung möglicherweise auf einer offenen Stelle positionieren, die Ihrem Profil entspricht.\n\nFür den Fall, dass kein Beitrag veröffentlicht wird und Sie innerhalb von 3 bis 6 Monaten keine Antwort von uns erhalten, beachten Sie bitte, dass Ihre Bewerbung leider nicht angenommen wurde.\n\nWir empfehlen Ihnen, unsere Karriere-Website regelmäßig zu besuchen, um unsere Stellenangebote zu sehen, für die Sie sich bewerben können. In der Tat sind die Kandidaten für die zu besetzenden Stellen diejenigen, die wir vorrangig behandeln, um freie Stellen innerhalb unserer Institution zu besetzen.\n\nDie Rekrutierungsabteilung steht Ihnen selbstverständlich für weitere Informationen zur Verfügung.\n\nWIR SIND\n\n• Eine Einrichtung, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2.000 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das der Realisierung von Projekten förderlich ist.\n\n• Eine Ausbildungsfirma, die sich mit Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\nLebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\nWenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt.",
-        "fr": "Offre spontanée - Administration/Secrétariat médical à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
+        "it": "Candidatura spontanea - Amministrazione/Segreteria medica al 10-100%\n\nDescrizione\n\nVi invitiamo a presentare la vostra candidatura nel seguente formato:\n\nInnanzitutto desideriamo ringraziarvi per l'interesse che dimostrate nei confronti della nostra istituzione.\n\nQui potete inviarci la vostra documentazione come candidatura spontanea. In questo modo, quando verrà individuata un'esigenza all'interno della nostra istituzione, il nostro servizio di reclutamento potrebbe proporre la vostra candidatura per una posizione aperta corrispondente al vostro profilo.\n\nNel caso in cui non si rendesse disponibile alcuna posizione e non doveste ricevere alcuna risposta da parte nostra entro un periodo da 3 a 6 mesi, vi preghiamo di considerare che, purtroppo, la vostra candidatura non è stata selezionata.\n\nVi consigliamo di consultare regolarmente il nostro sito Carrière, per prendere visione delle nostre offerte di lavoro alle quali potete anche candidarvi. Infatti, le candidature presentate per le posizioni da ricoprire sono quelle che trattiamo in via prioritaria, al fine di coprire i posti vacanti all'interno della nostra istituzione.\n\nIl servizio di reclutamento resta naturalmente a vostra disposizione per qualsiasi ulteriore informazione.\n\nSIAMO\n\n- Un'istituzione che comprende strutture di cure acute e riabilitazione, una clinica privata, EMS, centri medici e servizi di guardia distribuiti nella regione di La Côte, nonché la 1ª scuola di ipnosi clinica dedicata al settore sanitario nella Svizzera romanda.\n- Una rete di assistenza che offre numerose opportunità di trasferimento interno in base alle aspirazioni e ai progetti di sviluppo dei collaboratori.\n- Più di 2000 collaboratori che si prendono cura dei pazienti e dei residenti della regione, condividendo i valori di Responsabilità, Prossimità, Umanità, Competenza, in un ambiente agile che favorisce la realizzazione dei progetti.\n- Un'azienda formatrice impegnata nella formazione delle nuove leve, con circa 80 apprendisti in 16 professioni diverse, 200 stagisti HES-ES e quasi 300 medici in formazione.\n\nINSIEME FIANCO A FIANCO, SIATE IL PROSSIMO TALENTO DELLA NOSTRA RETE SANITARIA.\n\nCandidatura\n\nFate clic su Candidati aggiungendo i seguenti documenti:\n\n- CV, lettera di motivazione, certificati di lavoro (necessari per il calcolo dello stipendio) e diplomi.\n\nSe la vostra candidatura sarà selezionata, vi verrà richiesto l'estratto del casellario giudiziale.",
+        "en": "Spontaneous application - Administration/Medical secretarial work at 10-100%\n\nDescription\n\nWe invite you to submit your application in the following format:\n\nFirst of all, we would like to thank you for your interest in our institution.\n\nHere, you can submit your application to us as a spontaneous application. Thus, when a need is identified within our institution, our recruitment department may consider your application for an open position matching your profile.\n\nIf no position becomes available and you do not receive a response from us within 3 to 6 months, please consider that, unfortunately, your application was not selected.\n\nWe recommend that you regularly visit our Carrière website to learn about our job openings, which you can also apply for. Indeed, applications submitted for available positions are those we process as a priority in order to fill vacant positions within our institution.\n\nThe recruitment department is of course available for any further information.\n\nWE ARE\n\n- An institution comprising acute care and rehabilitation facilities, a private clinic, EMS, medical centers and walk-in clinics located throughout the La Côte region, as well as the 1st clinical hypnosis school dedicated to the healthcare sector in French-speaking Switzerland.\n- A healthcare network offering numerous opportunities for internal transfers according to employees' aspirations and development plans.\n- More than 2000 employees caring for patients and residents in the region, sharing the values of Responsibility, Proximity, Humanity and Competence in an agile environment that supports project delivery.\n- A training company committed to educating the next generation, with approximately 80 apprentices in 16 different professions, 200 HES-ES interns and nearly 300 doctors in training.\n\nTOGETHER, SIDE BY SIDE, BE THE NEXT TALENT IN OUR HEALTHCARE NETWORK.\n\nApplication\n\nClick on Apply and add the following documents:\n\n- CV, cover letter, employment certificates (required to calculate your salary) and diplomas.\n\nIf your application is selected, you will be asked to provide an extract from your criminal record.",
+        "de": "Spontanbewerbung - Administration/Medizinisches Sekretariat 10-100%\n\nBeschreibung\n\nWir laden Sie ein, Ihre Bewerbung im folgenden Format einzureichen:\n\nZunächst möchten wir Ihnen dafür danken, dass Sie unserer Institution Ihr Interesse entgegenbringen.\n\nHier können Sie uns Ihre Bewerbungsunterlagen als Spontanbewerbung übermitteln. Wenn innerhalb unserer Institution ein Bedarf festgestellt wird, könnte unsere Rekrutierungsabteilung Ihre Bewerbung einer offenen Stelle zuordnen, die Ihrem Profil entspricht.\n\nSollte keine Stelle frei werden und Sie innerhalb von 3 bis 6 Monaten keine Antwort von uns erhalten, gehen Sie bitte davon aus, dass Ihre Bewerbung leider nicht berücksichtigt wurde.\n\nWir empfehlen Ihnen, regelmäßig unsere Karriereseite zu konsultieren, um sich über unsere Stellenangebote zu informieren, auf die Sie sich ebenfalls bewerben können. In der Tat bearbeiten wir die für die zu besetzenden Stellen eingereichten Bewerbungen vorrangig, um die offenen Stellen in unserer Institution zu besetzen.\n\nDie Rekrutierungsabteilung steht Ihnen selbstverständlich für weitere Informationen zur Verfügung.\n\nWIR SIND\n\n- Eine Institution mit Einrichtungen der Akutversorgung und Rehabilitation, einer Privatklinik, Alters- und Pflegeheimen, medizinischen Zentren und Notfallpraxen, die in der Region La Côte verteilt sind, sowie der 1ère Schule für klinische Hypnose, die dem Gesundheitswesen in der Westschweiz gewidmet ist.\n- Ein Versorgungsnetzwerk, das entsprechend den Wünschen und Entwicklungsvorhaben der Mitarbeitenden zahlreiche Möglichkeiten für interne Wechsel bietet.\n- Über 2000 Mitarbeitende kümmern sich um die Patientinnen und Patienten sowie Bewohnerinnen und Bewohner der Region und teilen die Werte Verantwortung, Nähe, Menschlichkeit und Kompetenz – in einem agilen Umfeld, das die Umsetzung von Projekten fördert.\n- Ein ausbildendes Unternehmen, das sich für die Ausbildung des Nachwuchses engagiert und rund 80 Lernende in 16 verschiedenen Berufen, 200 HES-ES-Praktikantinnen und -Praktikanten sowie fast 300 Ärztinnen und Ärzte in Weiterbildung zählt.\n\nGEMEINSAM SEITE AN SEITE, SEIEN SIE DAS NÄCHSTE TALENT UNSERES PFLEGENETZWERKS.\n\nBewerbung\n\nKlicken Sie auf Bewerben und fügen Sie folgende Dokumente hinzu:\n\n- Lebenslauf, Anschreiben, Arbeitszeugnisse (erforderlich für die Erstellung der Gehaltsberechnung) und Diplome.\n\nWenn Ihre Bewerbung ausgewählt wird, werden Sie gebeten, einen Auszug aus Ihrem Strafregister vorzulegen.",
+        "fr": "Offre spontanée - Administration/Secrétariat médical à 10-100%\n\nDescription\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n- Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n- Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n- Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n- Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCandidature\n\nCliquez sur Postulez en ajoutant les documents suivants :\n\n- CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
       },
-      "needsRetranslation": true,
       "location": "Morges",
       "canton": "VD",
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-administrationsecretariat-medical-3116",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.716Z",
+      "crawledAt": "2026-11-14T21:18:13.623Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -832,7 +830,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.716Z",
+      "validThrough": "2026-12-14T21:18:13.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -867,7 +865,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-et-hebergement-ems-catanimation-3117",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.716Z",
+      "crawledAt": "2026-11-14T21:18:13.624Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -910,7 +908,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.716Z",
+      "validThrough": "2026-12-14T21:18:13.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -944,7 +942,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-assistant-medecine-interne-fh-mai-2028-3603",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.715Z",
+      "crawledAt": "2026-11-14T21:18:13.621Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -987,7 +985,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.715Z",
+      "validThrough": "2026-12-14T21:18:13.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1021,7 +1019,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/pedopsychiatre-3473",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.715Z",
+      "crawledAt": "2026-11-14T21:18:13.622Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1090,7 +1088,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.715Z",
+      "validThrough": "2026-12-14T21:18:13.622Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1124,7 +1122,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/atsso-assistant-technique-specialise-en-salle-doperation-fh-3643",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.714Z",
+      "crawledAt": "2026-11-14T21:18:13.620Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1167,7 +1165,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.714Z",
+      "validThrough": "2026-12-14T21:18:13.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1202,7 +1200,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-obesite-3646",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.713Z",
+      "crawledAt": "2026-11-14T21:18:13.619Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1270,7 +1268,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.713Z",
+      "validThrough": "2026-12-14T21:18:13.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1279,7 +1277,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1305,7 +1303,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-generaliste-3663",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.712Z",
+      "crawledAt": "2026-11-14T21:18:13.616Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1350,7 +1348,7 @@
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
         "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-generaliste-ehc-vd-morges",
-        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1359,7 +1357,7 @@
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
           "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.972Z",
@@ -1378,7 +1376,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.712Z",
+      "validThrough": "2026-12-14T21:18:13.616Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1412,7 +1410,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-de-premier-recours-3647",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.712Z",
+      "crawledAt": "2026-11-14T21:18:13.618Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1477,7 +1475,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.712Z",
+      "validThrough": "2026-12-14T21:18:13.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1512,7 +1510,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-chef-de-clinique-adjoint-en-medecine-interne-fh-3679",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.711Z",
+      "crawledAt": "2026-11-14T21:18:13.615Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1574,7 +1572,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.711Z",
+      "validThrough": "2026-12-14T21:18:13.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1609,7 +1607,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-mpc-fh-3784",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.710Z",
+      "crawledAt": "2026-11-14T21:18:13.614Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1662,7 +1660,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.710Z",
+      "validThrough": "2026-12-30T21:18:13.614Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1697,7 +1695,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-cuisinier-afp-ou-cfc-fh-3783",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.709Z",
+      "crawledAt": "2026-11-14T21:18:13.613Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1740,7 +1738,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T17:09:07.709Z",
+      "validThrough": "2027-01-03T21:18:13.613Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1775,7 +1773,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-employe-de-commerce-fh-3782",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.708Z",
+      "crawledAt": "2026-11-14T21:18:13.610Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1820,7 +1818,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T17:09:07.708Z",
+      "validThrough": "2027-01-03T21:18:13.610Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1854,7 +1852,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-de-chavannes-pres-renens-3720",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.707Z",
+      "crawledAt": "2026-11-14T21:18:13.608Z",
       "addressLocality": "Chavannes-près-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1897,7 +1895,7 @@
       },
       "streetAddress": "Chavannes-près-Renens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.707Z",
+      "validThrough": "2026-12-14T21:18:13.608Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1932,7 +1930,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-centre-medical-nedol-3719",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.706Z",
+      "crawledAt": "2026-11-14T21:18:13.607Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1975,7 +1973,7 @@
       },
       "streetAddress": "Renens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.706Z",
+      "validThrough": "2026-12-14T21:18:13.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2009,7 +2007,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-technique-en-sterilisation-fh-3727",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.705Z",
+      "crawledAt": "2026-11-14T21:18:13.606Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2060,7 +2058,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T17:09:07.705Z",
+      "validThrough": "2026-12-28T21:18:13.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2094,7 +2092,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/neuropsychologue-fsp-3673",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.704Z",
+      "crawledAt": "2026-11-14T21:18:13.603Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2156,7 +2154,7 @@
       },
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.704Z",
+      "validThrough": "2026-12-14T21:18:13.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2190,7 +2188,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-socio-educatif-fh-3728",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.704Z",
+      "crawledAt": "2026-11-14T21:18:13.605Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2258,7 +2256,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-socio-educatif-f-h-ehc-vd-morges-8d616922",
           "assistant-socio-educatif-f-h-ehc-vd-morges-3153e171",
           "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistant-socio-educatif-f-h-ehc-vd-morges",
@@ -2277,7 +2274,8 @@
           "assistant-socio-educatif-f-h-ehc-vd-morges-df8e5f36",
           "assistant-socio-educatif-f-h-ehc-vd-morges-6746de26",
           "assistant-socio-educatif-f-h-ehc-vd-morges-c6dcbe87",
-          "assistant-socio-educatif-f-h-ehc-vd-morges-d69182ba"
+          "assistant-socio-educatif-f-h-ehc-vd-morges-d69182ba",
+          "assistant-socio-educatif-f-h-ehc-vd-morges-8d616922"
         ],
         "en": [
           "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -2302,7 +2300,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T17:09:07.704Z",
+      "validThrough": "2026-12-28T21:18:13.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2336,7 +2334,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-en-psychiatrie-de-lage-avance-paa2-fh-3732",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.701Z",
+      "crawledAt": "2026-11-14T21:18:13.599Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2381,7 +2379,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T17:09:07.701Z",
+      "validThrough": "2026-12-19T21:18:13.599Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2415,7 +2413,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/psychiatre-3745",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.700Z",
+      "crawledAt": "2026-11-14T21:18:13.598Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2460,7 +2458,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.700Z",
+      "validThrough": "2026-12-14T21:18:13.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2495,7 +2493,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/technicien-biomedical-fh-3753",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.699Z",
+      "crawledAt": "2026-11-14T21:18:13.596Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2538,7 +2536,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T17:09:07.699Z",
+      "validThrough": "2026-12-19T21:18:13.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2573,7 +2571,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/dermatologue-3744",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.699Z",
+      "crawledAt": "2026-11-14T21:18:13.597Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2636,7 +2634,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.699Z",
+      "validThrough": "2026-12-14T21:18:13.597Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2671,7 +2669,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/aide-soignant-en-medecine-fh-3751",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.696Z",
+      "crawledAt": "2026-11-14T21:18:13.593Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2756,7 +2754,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T17:09:07.696Z",
+      "validThrough": "2026-12-19T21:18:13.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2791,7 +2789,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/electricien-fh-3756",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.695Z",
+      "crawledAt": "2026-11-14T21:18:13.591Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2834,7 +2832,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T17:09:07.695Z",
+      "validThrough": "2026-12-19T21:18:13.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2868,7 +2866,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-fh-3758",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.694Z",
+      "crawledAt": "2026-11-14T21:18:13.589Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2917,7 +2915,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T17:09:07.694Z",
+      "validThrough": "2026-12-19T21:18:13.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2952,7 +2950,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-en-angiologie-fh-3762",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.693Z",
+      "crawledAt": "2026-11-14T21:18:13.586Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2995,7 +2993,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T17:09:07.693Z",
+      "validThrough": "2026-12-22T21:18:13.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3029,7 +3027,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-fh-3764",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.692Z",
+      "crawledAt": "2026-11-14T21:18:13.584Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3109,7 +3107,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.692Z",
+      "validThrough": "2026-12-14T21:18:13.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3143,7 +3141,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-cadre-en-angiologie-fh-3761",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.692Z",
+      "crawledAt": "2026-11-14T21:18:13.585Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3190,7 +3188,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T17:09:07.692Z",
+      "validThrough": "2026-12-22T21:18:13.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3225,7 +3223,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmierere-referente-du-cat-fh-3776",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.690Z",
+      "crawledAt": "2026-11-14T21:18:13.582Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3272,7 +3270,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.690Z",
+      "validThrough": "2026-12-29T21:18:13.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3306,7 +3304,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-chirurgie-fh-3774",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.689Z",
+      "crawledAt": "2026-11-14T21:18:13.580Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3349,7 +3347,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.689Z",
+      "validThrough": "2026-12-14T21:18:13.580Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3383,7 +3381,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-assistant-medical-fh-3754",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.688Z",
+      "crawledAt": "2026-11-14T21:18:13.578Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3430,7 +3428,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.688Z",
+      "validThrough": "2026-12-30T21:18:13.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3464,7 +3462,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assistant-medical-fh-3755",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.688Z",
+      "crawledAt": "2026-11-14T21:18:13.579Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3514,7 +3512,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.688Z",
+      "validThrough": "2026-12-30T21:18:13.579Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3548,7 +3546,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ghi-gestionnaire-en-hotellerie-intendance-fh-3747",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.687Z",
+      "crawledAt": "2026-11-14T21:18:13.577Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3603,7 +3601,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.687Z",
+      "validThrough": "2026-12-14T21:18:13.577Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3638,7 +3636,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-informaticien-fh-3746",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.686Z",
+      "crawledAt": "2026-11-14T21:18:13.575Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3681,7 +3679,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.686Z",
+      "validThrough": "2026-12-30T21:18:13.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3715,7 +3713,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3699",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.685Z",
+      "crawledAt": "2026-11-14T21:18:13.574Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3762,7 +3760,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.685Z",
+      "validThrough": "2026-12-14T21:18:13.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3796,7 +3794,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ase-assistant-socio-educatif-fh-3771",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.684Z",
+      "crawledAt": "2026-11-14T21:18:13.572Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3843,7 +3841,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.684Z",
+      "validThrough": "2026-12-30T21:18:13.572Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3878,7 +3876,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/sage-femme-fh-3777",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.684Z",
+      "crawledAt": "2026-11-14T21:18:13.573Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3921,7 +3919,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T17:09:07.684Z",
+      "validThrough": "2027-01-01T21:18:13.573Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3956,7 +3954,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-asa-aide-en-soins-et-accompagnement-fh-3770",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.682Z",
+      "crawledAt": "2026-11-14T21:18:13.569Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3999,7 +3997,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.682Z",
+      "validThrough": "2026-12-30T21:18:13.569Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4033,7 +4031,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3769",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.680Z",
+      "crawledAt": "2026-11-14T21:18:13.567Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4080,7 +4078,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T17:09:07.680Z",
+      "validThrough": "2026-12-30T21:18:13.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4114,7 +4112,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-medecine-fh-3778",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.678Z",
+      "crawledAt": "2026-11-14T21:18:13.563Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4157,7 +4155,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.678Z",
+      "validThrough": "2026-12-14T21:18:13.563Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4192,7 +4190,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/neuropsychologue-sous-supervision-fh-3788",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.677Z",
+      "crawledAt": "2026-11-14T21:18:13.562Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4241,7 +4239,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.677Z",
+      "validThrough": "2026-12-14T21:18:13.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4276,7 +4274,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-en-cardiologie-3787",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.675Z",
+      "crawledAt": "2026-11-14T21:18:13.559Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4325,7 +4323,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T17:09:07.675Z",
+      "validThrough": "2027-01-07T21:18:13.559Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4359,7 +4357,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-policlinique-nord-sud-3790",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.674Z",
+      "crawledAt": "2026-11-14T21:18:13.558Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4405,7 +4403,7 @@
       },
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T17:09:07.674Z",
+      "validThrough": "2027-01-14T21:18:13.558Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4439,7 +4437,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-daubonne-3789",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.672Z",
+      "crawledAt": "2026-11-14T21:18:13.555Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4482,7 +4480,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T17:09:07.672Z",
+      "validThrough": "2027-01-14T21:18:13.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4517,7 +4515,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-cpo-hopital-de-morges-3817",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.668Z",
+      "crawledAt": "2026-11-14T21:18:13.551Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4566,7 +4564,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T17:09:07.668Z",
+      "validThrough": "2027-01-26T21:18:13.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4601,7 +4599,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-policlinique-hopital-de-morges-3816",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.666Z",
+      "crawledAt": "2026-11-14T21:18:13.549Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4650,7 +4648,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T17:09:07.666Z",
+      "validThrough": "2027-01-26T21:18:13.549Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4685,7 +4683,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-centre-pietro-sarto-3791",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.665Z",
+      "crawledAt": "2026-11-14T21:18:13.546Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4734,7 +4732,7 @@
       },
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T17:09:07.665Z",
+      "validThrough": "2027-01-14T21:18:13.546Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4769,7 +4767,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-cadre-specialiste-en-medecine-durgence-fh-3793",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.662Z",
+      "crawledAt": "2026-11-14T21:18:13.540Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4818,7 +4816,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T17:09:07.662Z",
+      "validThrough": "2027-01-14T21:18:13.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4853,7 +4851,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/benevoles-pour-le-refuge-3794",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.660Z",
+      "crawledAt": "2026-11-14T21:18:13.539Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4902,7 +4900,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T17:09:07.660Z",
+      "validThrough": "2027-01-17T21:18:13.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4937,7 +4935,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-diplome-en-formation-de-sage-femme-pooliste-a-lheure-fh-3795",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.657Z",
+      "crawledAt": "2026-11-14T21:18:13.536Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4986,7 +4984,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T17:09:07.657Z",
+      "validThrough": "2027-01-18T21:18:13.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5020,7 +5018,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-medecine-fh-3813",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.656Z",
+      "crawledAt": "2026-11-14T21:18:13.534Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5073,7 +5071,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T17:09:07.656Z",
+      "validThrough": "2027-01-05T21:18:13.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5107,7 +5105,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-rhumatologie-fh-3810",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.654Z",
+      "crawledAt": "2026-11-14T21:18:13.532Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5156,7 +5154,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T17:09:07.654Z",
+      "validThrough": "2027-01-25T21:18:13.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5190,7 +5188,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-assistant-medecine-interne-fh-novembre-2028-3815",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.652Z",
+      "crawledAt": "2026-11-14T21:18:13.531Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5239,7 +5237,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T17:09:07.652Z",
+      "validThrough": "2027-01-29T21:18:13.531Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5274,7 +5272,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-administrative-fm-ems-parc-de-beausobre-3818",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.651Z",
+      "crawledAt": "2026-11-14T21:18:13.529Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5323,7 +5321,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T17:09:07.651Z",
+      "validThrough": "2027-01-29T21:18:13.529Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5358,7 +5356,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/aide-ou-assc-ctr-3820",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.649Z",
+      "crawledAt": "2026-11-14T21:18:13.527Z",
       "addressLocality": "Gilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5404,7 +5402,7 @@
       },
       "streetAddress": "Gilly",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T17:09:07.649Z",
+      "validThrough": "2027-02-01T21:18:13.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5439,7 +5437,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-specialise-en-soins-palliatifs-fh-3819",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.644Z",
+      "crawledAt": "2026-11-14T21:18:13.524Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5488,7 +5486,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T17:09:07.644Z",
+      "validThrough": "2027-02-01T21:18:13.524Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5523,7 +5521,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/assc-ctr-3823",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.640Z",
+      "crawledAt": "2026-11-14T21:18:13.521Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5558,7 +5556,7 @@
       },
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T17:09:07.640Z",
+      "validThrough": "2027-02-04T21:18:13.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5593,7 +5591,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-de-famille-a-domicile-fh-3822",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.625Z",
+      "crawledAt": "2026-11-14T21:18:13.508Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5642,7 +5640,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T17:09:07.625Z",
+      "validThrough": "2027-02-01T21:18:13.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5677,7 +5675,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-endocrinologie-fh-3827",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.623Z",
+      "crawledAt": "2026-11-14T21:18:13.506Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5748,7 +5746,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.623Z",
+      "validThrough": "2026-12-14T21:18:13.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5783,7 +5781,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-pediatre-avec-interet-pour-le-neurodeveloppement-fh-3826",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.621Z",
+      "crawledAt": "2026-11-14T21:18:13.505Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5832,7 +5830,7 @@
       },
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T17:09:07.621Z",
+      "validThrough": "2026-12-14T21:18:13.505Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5867,7 +5865,7 @@
       "url": "https://emploi.ehc-vd.ch/fr/nos-offres/facturiste-repondant-e-facturation-ambulatoire-hf-3825",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T17:09:07.603Z",
+      "crawledAt": "2026-11-14T21:18:13.487Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5916,7 +5914,7 @@
       },
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T17:09:07.603Z",
+      "validThrough": "2027-02-12T21:18:13.487Z",
       "validThroughSource": "last-observed-window"
     }
   ]

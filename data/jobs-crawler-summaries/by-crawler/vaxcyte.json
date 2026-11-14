@@ -1,11 +1,12 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-11-14T09:14:29.518Z",
+  "generatedAt": "2026-11-14T21:14:43.375Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4069,
-  "avgDurationMs": 4069,
+  "durationMs": 3892,
+  "avgDurationMs": 3892,
   "durationHistory": [
-    4069
+    3892
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:13:56.276Z",
+      "crawledAt": "2026-11-14T21:14:12.314Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -65,7 +66,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:13:56.276Z",
+      "validThrough": "2027-01-03T21:14:12.314Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -87,7 +88,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:13:56.147Z",
+      "crawledAt": "2026-11-14T21:14:12.233Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -115,7 +116,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:13:56.147Z",
+      "validThrough": "2027-01-26T21:14:12.233Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -126,5 +127,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

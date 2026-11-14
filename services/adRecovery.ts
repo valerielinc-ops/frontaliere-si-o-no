@@ -7,7 +7,7 @@ export function installAdRecovery(
   createLoader: (kind: 'cmp', src: string, allowed: () => boolean, emit: (event: string, props: Record<string, string | number>) => void) => { load: () => void; state: () => string; subscribe: (listener: (state: string) => void) => () => void },
   emit: (event: string, props: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean },
+  config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean; readerSubscriptionPaths?: readonly string[] },
 ) {
   type RecoveryWindow = Window & { __ftAdRecovery?: { refresh: () => void }; __ftHouseAds?: { refresh: () => void }; __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean }; __ftNativeApplicationOfferShown?: boolean; googlefc?: { showRevocationMessage?: () => void; callbackQueue?: unknown[]; __ftRevocationQueued?: boolean }; __ftAdBlockProbe?: string };
   const w = window as RecoveryWindow;
@@ -18,11 +18,9 @@ export function installAdRecovery(
     it: {
       problemTitle: 'Gli annunci non si caricano',
       problemBody: 'Un problema di rete o un blocco del browser può impedire il caricamento. Puoi verificare le impostazioni per questo sito e riprovare.',
-      offerTitle: 'Candidature su misura per il tuo prossimo lavoro in Svizzera',
-      offerBody: 'Per 30 giorni cerchiamo posizioni compatibili con il tuo profilo e prepariamo CV, lettere e risposte personalizzate.',
-      duration: '30 giorni', limit: 'Fino a 10 posizioni che accetti', price: '39,99 €',
-      priceNote: 'Pagamento unico · senza rinnovo', disclaimer: 'Le risposte delle aziende e l’assunzione non sono garantite.',
-      offerCta: 'Scopri il servizio', offerDismiss: 'Continua a leggere', offerClose: 'Chiudi promozione',
+      blockerTitle: 'Vuoi consentire gli annunci su Frontaliereticino?',
+      blockerBody: 'Apri il menu del blocco pubblicità e consenti gli annunci per frontaliereticino.ch. Se il filtro viene dalla rete o dal DNS, aggiungi il dominio alle eccezioni. Dal sito non possiamo modificare queste impostazioni.',
+      blockerReload: 'Ricarica dopo la modifica', blockerDismiss: 'Continua a leggere', blockerClose: 'Chiudi l’avviso',
       reload: 'Ricarica e verifica', close: 'Continua a leggere', preferences: 'Apri le preferenze privacy',
       unavailable: 'Le preferenze di Google non sono disponibili. Controlla il blocco del browser e riprova.',
       jobTitle: 'Lavoro in Svizzera? Lo cerchiamo noi per te.', jobBody: 'Troviamo le offerte adatte al tuo mestiere e prepariamo le candidature per te.',
@@ -31,11 +29,9 @@ export function installAdRecovery(
     en: {
       problemTitle: 'Ads are not loading',
       problemBody: 'A network problem or browser blocking may prevent loading. You can check this site’s settings and try again.',
-      offerTitle: 'Tailored applications for your next job in Switzerland',
-      offerBody: 'For 30 days, we look for roles that fit your profile and prepare tailored CVs, cover letters, and answers.',
-      duration: '30 days', limit: 'Up to 10 positions you accept', price: '€39.99',
-      priceNote: 'One-off payment · no renewal', disclaimer: 'Employer replies and hiring are not guaranteed.',
-      offerCta: 'See how it works', offerDismiss: 'Continue reading', offerClose: 'Close promotion',
+      blockerTitle: 'Allow ads on Frontaliereticino?',
+      blockerBody: 'Open your ad blocker and allow ads on frontaliereticino.ch. If filtering comes from your network or DNS, add the domain to its exceptions. This site cannot change those settings for you.',
+      blockerReload: 'Reload after changing settings', blockerDismiss: 'Keep reading', blockerClose: 'Close this notice',
       reload: 'Reload and check', close: 'Continue reading', preferences: 'Open privacy preferences',
       unavailable: 'Google privacy preferences are unavailable. Check your browser’s blocking settings and try again.',
       jobTitle: 'Want to work in Switzerland? We’ll look for you.', jobBody: 'We find suitable openings for your trade and prepare applications for you.',
@@ -44,11 +40,9 @@ export function installAdRecovery(
     de: {
       problemTitle: 'Anzeigen werden nicht geladen',
       problemBody: 'Ein Netzwerkproblem oder der Browser-Schutz kann das Laden verhindern. Prüfen Sie die Einstellungen für diese Website und versuchen Sie es erneut.',
-      offerTitle: 'Passende Bewerbungen für deinen nächsten Job in der Schweiz',
-      offerBody: '30 Tage lang suchen wir Stellen, die zu deinem Profil passen, und erstellen passende Lebensläufe, Anschreiben und Antworten.',
-      duration: '30 Tage', limit: 'Bis zu 10 Stellen, die du annimmst', price: '39,99 €',
-      priceNote: 'Einmalige Zahlung · keine Verlängerung', disclaimer: 'Antworten der Unternehmen und eine Anstellung sind nicht garantiert.',
-      offerCta: 'Service ansehen', offerDismiss: 'Weiterlesen', offerClose: 'Anzeige schließen',
+      blockerTitle: 'Werbung auf Frontaliereticino erlauben?',
+      blockerBody: 'Öffnen Sie Ihren Werbeblocker und erlauben Sie Anzeigen für frontaliereticino.ch. Falls der Filter über Netzwerk oder DNS erfolgt, fügen Sie die Domain dort zu den Ausnahmen hinzu. Die Website kann diese Einstellungen nicht selbst ändern.',
+      blockerReload: 'Nach Änderung neu laden', blockerDismiss: 'Weiterlesen', blockerClose: 'Hinweis schließen',
       reload: 'Neu laden und prüfen', close: 'Weiterlesen', preferences: 'Datenschutzeinstellungen öffnen',
       unavailable: 'Googles Datenschutzeinstellungen sind nicht verfügbar. Prüfen Sie den Browser-Schutz und versuchen Sie es erneut.',
       jobTitle: 'Arbeit in der Schweiz? Wir suchen für Sie.', jobBody: 'Wir finden passende Stellen für Ihren Beruf und bereiten die Bewerbungen für Sie vor.',
@@ -57,11 +51,9 @@ export function installAdRecovery(
     fr: {
       problemTitle: 'Les annonces ne se chargent pas',
       problemBody: 'Un problème réseau ou un blocage du navigateur peut empêcher le chargement. Vous pouvez vérifier les réglages de ce site et réessayer.',
-      offerTitle: 'Des candidatures sur mesure pour votre prochain emploi en Suisse',
-      offerBody: 'Pendant 30 jours, nous recherchons des postes compatibles avec votre profil et préparons CV, lettres de motivation et réponses personnalisés.',
-      duration: '30 jours', limit: 'Jusqu’à 10 postes que vous acceptez', price: '39,99 €',
-      priceNote: 'Paiement unique · sans renouvellement', disclaimer: 'Les réponses des entreprises et l’embauche ne sont pas garanties.',
-      offerCta: 'Découvrir le service', offerDismiss: 'Continuer la lecture', offerClose: 'Fermer la promotion',
+      blockerTitle: 'Autoriser les annonces sur Frontaliereticino ?',
+      blockerBody: 'Ouvrez votre bloqueur de publicités et autorisez les annonces pour frontaliereticino.ch. Si le filtrage vient du réseau ou du DNS, ajoutez le domaine à ses exceptions. Le site ne peut pas modifier ces réglages à votre place.',
+      blockerReload: 'Recharger après modification', blockerDismiss: 'Continuer la lecture', blockerClose: 'Fermer le message',
       reload: 'Recharger et vérifier', close: 'Continuer la lecture', preferences: 'Ouvrir les préférences de confidentialité',
       unavailable: 'Les préférences Google sont indisponibles. Vérifiez le blocage du navigateur et réessayez.',
       jobTitle: 'Un emploi en Suisse ? Nous le cherchons pour vous.', jobBody: 'Nous trouvons des offres adaptées à votre métier et préparons vos candidatures.',
@@ -74,9 +66,12 @@ export function installAdRecovery(
     de: '/de/arbeitssuche-schweiz-automatisieren/',
     fr: '/fr/automatiser-recherche-emploi-suisse/',
   } as const;
+  const readerSubscriptionPaths = config.readerSubscriptionPaths || [];
   const jobPath = applicationPaths[language as keyof typeof applicationPaths];
-  const offerShownKey = 'ft_native_application_offer_seen_v1';
-  const offerDismissedKey = 'ft_native_application_offer_dismissed_v1';
+  // Keep the existing session keys so a same-session deployment does not
+  // reopen a recovery prompt the visitor has already dismissed.
+  const recoveryPromptSeenKey = 'ft_native_application_offer_seen_v1';
+  const recoveryPromptDismissedKey = 'ft_native_application_offer_dismissed_v1';
   let path = location.pathname;
   let started = Date.now();
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -85,6 +80,7 @@ export function installAdRecovery(
   let reportedState = '';
   let cmpReopenAt = 0;
   let nativeRecoveryReported = false;
+  let adsAllowedOutcomeReported = false;
   let popup: HTMLDialogElement | null = null;
   let promo: HTMLElement | null = null;
   let probeResult = 'unknown';
@@ -95,9 +91,9 @@ export function installAdRecovery(
   let lastOutcome = '';
   const storageRead = (key: string) => { try { return sessionStorage.getItem(key); } catch { return null; } };
   const store = (key: string, value: string) => { try { sessionStorage.setItem(key, value); } catch { /* visit-local fallback */ } };
-  const offerWasShown = () => w.__ftNativeApplicationOfferShown === true || storageRead(offerShownKey) === '1';
-  const rememberOfferShown = () => { w.__ftNativeApplicationOfferShown = true; store(offerShownKey, '1'); };
-  const offerWasDismissed = () => storageRead(offerDismissedKey) === '1';
+  const promptWasShown = () => w.__ftNativeApplicationOfferShown === true || storageRead(recoveryPromptSeenKey) === '1';
+  const rememberPromptShown = () => { w.__ftNativeApplicationOfferShown = true; store(recoveryPromptSeenKey, '1'); };
+  const promptWasDismissed = () => storageRead(recoveryPromptDismissedKey) === '1';
   const nativeRecoveryWasShown = () => nativeRecoveryReported || storageRead('ft_ad_recovery_google_prompted') === '1';
   const hasDecision = () => { try { return /^(granted|denied)$/.test((w as RecoveryWindow & { __ftAdsConsentDecision?: string }).__ftAdsConsentDecision || localStorage.getItem(config.consentKey) || ''); } catch { return false; } };
   const onScreen = (el: Element) => {
@@ -122,7 +118,9 @@ export function installAdRecovery(
     return !occupied(frame);
   });
   const permitted = () => {
-    try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !Object.values(applicationPaths).some((servicePath) => location.pathname.startsWith(servicePath)); }
+    try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden'
+      && !Object.values(applicationPaths).some((servicePath) => location.pathname.startsWith(servicePath))
+      && !readerSubscriptionPaths.some((servicePath) => location.pathname.replace(/\/+$/, '') === servicePath.replace(/\/+$/, '')); }
     catch { return false; }
   };
   const cmp = createLoader('cmp', `https://fundingchoicesmessages.google.com/i/${config.publisherId}?ers=1`, () => { try { return allowed() && navigator.onLine !== false; } catch { return false; } }, emit);
@@ -147,16 +145,6 @@ export function installAdRecovery(
   const jobLink = () => {
     const link = document.createElement('a'); link.href = jobPath; link.className = 'ft-recovery-link'; link.textContent = copy.job;
     link.addEventListener('click', () => emit('ad_fallback_click', { campaign: 'job_search_automation', surface: popup ? 'popup' : 'banner', reason: reason() })); return link;
-  };
-  const offerLink = () => {
-    const query = new URLSearchParams({
-      utm_source: 'frontaliere', utm_medium: 'native_ad',
-      utm_campaign: 'application_concierge_adblock', utm_content: 'popup_creative_v1',
-    });
-    const link = document.createElement('a'); link.href = `${jobPath}?${query.toString()}`;
-    link.className = 'ft-recovery-primary ft-recovery-offer-cta'; link.textContent = copy.offerCta;
-    link.addEventListener('click', () => emit('ad_fallback_click', { campaign: 'application_concierge_adblock', surface: 'popup', reason: reason() }));
-    return link;
   };
   const reason = () => !w.__ftAdBlock?.adsAllowed && (w.__ftAdBlock?.blocked || probeResult === 'blocked') ? 'adblock_detected'
     : !hasDecision() && cmp.state() === 'failed' ? 'cmp_unavailable'
@@ -193,34 +181,32 @@ export function installAdRecovery(
   };
   const showPopup = () => {
     if (popup || prompted || storageRead('ft_ad_recovery_prompted') || nativeRecoveryWasShown() || googleMessage() || visibleDialog()) return;
-    // A confirmed blocker gets the first-party application offer; terminal
-    // script/CMP failures keep their neutral recovery guidance.
+    // A confirmed blocker gets honest allow-ads instructions when Google's
+    // native recovery message is absent; terminal loader errors keep neutral
+    // recovery guidance.
     if (w.__ftAdBlock?.adsAllowed) return;
     const positive = probeResult === 'blocked' || w.__ftAdBlock?.blocked === true;
     if (!positive && reason() !== 'script_failed' && reason() !== 'cmp_unavailable') return;
-    if (positive && (offerWasShown() || offerWasDismissed())) return;
+    if (positive && (promptWasShown() || promptWasDismissed())) return;
     if (typeof HTMLDialogElement === 'undefined' || typeof HTMLDialogElement.prototype.showModal !== 'function') return;
     prompted = true; store('ft_ad_recovery_prompted', '1'); removePromo();
-    const dialog = document.createElement('dialog'); popup = dialog; dialog.className = `ft-recovery-dialog${positive ? ' ft-recovery-offer' : ''}`;
+    const dialog = document.createElement('dialog'); popup = dialog; dialog.className = 'ft-recovery-dialog';
     dialog.setAttribute('aria-labelledby', 'ft-recovery-title');
-    const title = document.createElement('h2'); title.id = 'ft-recovery-title'; title.textContent = positive ? copy.offerTitle : copy.problemTitle;
-    const body = document.createElement('p'); body.textContent = positive ? copy.offerBody : copy.problemBody;
+    dialog.setAttribute('aria-describedby', 'ft-recovery-body');
+    const title = document.createElement('h2'); title.id = 'ft-recovery-title'; title.textContent = positive ? copy.blockerTitle : copy.problemTitle;
+    const body = document.createElement('p'); body.id = 'ft-recovery-body'; body.textContent = positive ? copy.blockerBody : copy.problemBody;
     const close = () => {
-      if (positive) store(offerDismissedKey, '1');
+      if (positive) store(recoveryPromptDismissedKey, '1');
       emit('ad_recovery_action', { action: positive ? 'dismiss' : 'close', reason: reason() });
       closePopup(); refresh();
     };
-    dialog.appendChild(closeIconButton(positive ? copy.offerClose : copy.dismiss, close));
+    dialog.appendChild(closeIconButton(positive ? copy.blockerClose : copy.dismiss, close));
     dialog.append(title, body);
     if (positive) {
-      const details = document.createElement('p'); details.className = 'ft-recovery-offer-details';
-      details.textContent = `${copy.duration} · ${copy.limit}`;
-      const price = document.createElement('p'); price.className = 'ft-recovery-offer-price';
-      const amount = document.createElement('strong'); amount.textContent = copy.price; price.appendChild(amount);
-      const priceNote = document.createElement('p'); priceNote.className = 'ft-recovery-offer-note'; priceNote.textContent = copy.priceNote;
-      const disclaimer = document.createElement('p'); disclaimer.className = 'ft-recovery-offer-disclaimer'; disclaimer.textContent = copy.disclaimer;
-      const dismiss = button(copy.offerDismiss, close); dismiss.classList.add('ft-recovery-offer-dismiss');
-      dialog.append(details, price, priceNote, disclaimer, offerLink(), dismiss);
+      const actions = document.createElement('div'); actions.className = 'ft-recovery-actions';
+      actions.append(button(copy.blockerReload, reload, true));
+      actions.append(button(copy.blockerDismiss, close));
+      dialog.append(actions);
     } else {
       const actions = document.createElement('div'); actions.className = 'ft-recovery-actions';
       actions.append(button(copy.reload, reload, true));
@@ -232,8 +218,8 @@ export function installAdRecovery(
     dialog.addEventListener('click', (event) => { if (event.target === dialog) close(); });
     document.body.appendChild(dialog);
     try { dialog.showModal(); } catch { dialog.remove(); popup = null; return; }
-    if (positive) rememberOfferShown();
-    emit('ad_recovery_prompt', { source: w.__ftAdBlock?.blocked ? 'funding_choices' : positive ? 'iab_quick_bait' : 'script_error', reason: reason(), campaign: positive ? 'application_concierge_adblock' : 'ad_recovery' });
+    if (positive) rememberPromptShown();
+    emit('ad_recovery_prompt', { source: w.__ftAdBlock?.blocked ? 'funding_choices' : positive ? 'iab_quick_bait' : 'script_error', reason: reason(), campaign: positive ? 'adblock_allow_ads' : 'ad_recovery' });
   };
   const showPromo = () => {
     if (promo || popup || promoDismissed || googleMessage() || visibleDialog()) return;
@@ -266,6 +252,12 @@ export function installAdRecovery(
       path = location.pathname; started = Date.now(); reportedState = ''; removePromo(); closePopup();
     }
     if (!permitted()) { removePromo(); closePopup(); return; }
+    if (!adsAllowedOutcomeReported && w.__ftAdBlock?.adsAllowed === true
+        && storageRead('ft_ad_recovery_ads_allowed_reported') !== '1') {
+      adsAllowedOutcomeReported = true;
+      store('ft_ad_recovery_ads_allowed_reported', '1');
+      emit('ad_recovery_outcome', { outcome: 'ads_allowed', evidence: 'funding_choices_status' });
+    }
     if (cmp.state() === 'idle') cmp.load();
     const ready = typeof w.googlefc?.showRevocationMessage === 'function';
     const state = ready ? 'ready' : cmp.state() === 'failed' ? 'unavailable' : hasDecision() ? 'stored_decision' : 'waiting';
@@ -347,7 +339,7 @@ export function installAdRecovery(
   const start = () => {
     if (!document.getElementById('ft-recovery-style')) {
       const style = document.createElement('style'); style.id = 'ft-recovery-style';
-      style.textContent = ".ft-recovery-dialog,.ft-recovery-promo{box-sizing:border-box;background:var(--_surface,Canvas);color:var(--_body,CanvasText);font:400 16px/1.5 Inter,system-ui,sans-serif;padding:24px;border:1px solid var(--_edge,ButtonBorder);border-radius:12px}.ft-recovery-dialog{position:relative;margin:auto;width:min(480px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto}.ft-recovery-dialog::backdrop{background:color-mix(in srgb,var(--_heading,CanvasText) 45%,transparent)}.ft-recovery-dialog h2{font:600 24px/1.25 \"Space Grotesk\",system-ui,sans-serif;color:var(--_heading,CanvasText);margin:0 0 16px;padding-inline-end:40px}.ft-recovery-dialog p,.ft-recovery-promo p{margin:0 0 16px}.ft-recovery-actions{display:flex;flex-direction:column;gap:8px;margin:24px 0 16px}.ft-recovery-primary,.ft-recovery-secondary{font:inherit;cursor:pointer;min-height:44px;padding:10px 14px;border-radius:8px;border:1px solid var(--_edge,ButtonBorder);background:var(--_surface-alt,Canvas);color:var(--_body,CanvasText)}.ft-recovery-primary{background:var(--_accent,Highlight);color:var(--_on-accent,HighlightText);border-color:transparent}.ft-recovery-primary:hover{background:var(--_accent-hover,Highlight)}.ft-recovery-secondary:hover,.ft-recovery-close:hover{background:var(--_surface-raised,Canvas)}.ft-recovery-link{display:inline-block;color:var(--_link,LinkText);text-underline-offset:3px;font-weight:600;padding:10px 0;min-height:44px}.ft-recovery-primary:focus-visible,.ft-recovery-secondary:focus-visible,.ft-recovery-link:focus-visible,.ft-recovery-close:focus-visible{outline:2px solid var(--_accent,Highlight);outline-offset:3px}.ft-recovery-close{position:absolute;inset:8px 8px auto auto;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--_edge,ButtonBorder);border-radius:8px;background:var(--_surface,Canvas);color:var(--_body,CanvasText);cursor:pointer}.ft-recovery-close svg{width:20px;height:20px}.ft-recovery-offer-details{font-weight:600}.ft-recovery-offer-price{font-size:1.5rem;line-height:1.2;color:var(--_heading,CanvasText);margin-bottom:4px!important}.ft-recovery-offer-note{color:var(--_body,CanvasText);font-size:.875rem}.ft-recovery-offer-disclaimer{color:var(--_body,CanvasText);font-size:.8125rem}.ft-recovery-offer-cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;margin:16px 0 8px;text-align:center;text-decoration:none}.ft-recovery-offer-dismiss{width:100%}.ft-recovery-promo{position:fixed;z-index:90;inset:auto 16px calc(80px + env(safe-area-inset-bottom)) auto;width:min(360px,calc(100vw - 32px));padding:16px;box-shadow:var(--shadow-stripe-lg,none)}.ft-recovery-promo-title{font-weight:600;color:var(--_heading,CanvasText)}.ft-recovery-promo button{display:block;width:100%;margin-top:8px}";
+      style.textContent = ".ft-recovery-dialog,.ft-recovery-promo{box-sizing:border-box;background:var(--_surface,Canvas);color:var(--_body,CanvasText);font:400 16px/1.5 Inter,system-ui,sans-serif;padding:24px;border:1px solid var(--_edge,ButtonBorder);border-radius:12px}.ft-recovery-dialog{position:relative;margin:auto;width:min(480px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto}.ft-recovery-dialog::backdrop{background:color-mix(in srgb,var(--_heading,CanvasText) 45%,transparent)}.ft-recovery-dialog h2{font:600 24px/1.25 \"Space Grotesk\",system-ui,sans-serif;color:var(--_heading,CanvasText);margin:0 0 16px;padding-inline-end:40px}.ft-recovery-dialog p,.ft-recovery-promo p{margin:0 0 16px}.ft-recovery-actions{display:flex;flex-direction:column;gap:8px;margin:24px 0 16px}.ft-recovery-primary,.ft-recovery-secondary{font:inherit;cursor:pointer;min-height:44px;padding:10px 14px;border-radius:8px;border:1px solid var(--_edge,ButtonBorder);background:var(--_surface-alt,Canvas);color:var(--_body,CanvasText)}.ft-recovery-primary{background:var(--_accent,Highlight);color:var(--_on-accent,HighlightText);border-color:transparent}.ft-recovery-primary:hover{background:var(--_accent-hover,Highlight)}.ft-recovery-secondary:hover,.ft-recovery-close:hover{background:var(--_surface-raised,Canvas)}.ft-recovery-link{display:inline-block;color:var(--_link,LinkText);text-underline-offset:3px;font-weight:600;padding:10px 0;min-height:44px}.ft-recovery-primary:focus-visible,.ft-recovery-secondary:focus-visible,.ft-recovery-link:focus-visible,.ft-recovery-close:focus-visible{outline:2px solid var(--_accent,Highlight);outline-offset:3px}.ft-recovery-close{position:absolute;inset:8px 8px auto auto;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--_edge,ButtonBorder);border-radius:8px;background:var(--_surface,Canvas);color:var(--_body,CanvasText);cursor:pointer}.ft-recovery-close svg{width:20px;height:20px}.ft-recovery-promo{position:fixed;z-index:90;inset:auto 16px calc(80px + env(safe-area-inset-bottom)) auto;width:min(360px,calc(100vw - 32px));padding:16px;box-shadow:var(--shadow-stripe-lg,none)}.ft-recovery-promo-title{font-weight:600;color:var(--_heading,CanvasText)}.ft-recovery-promo button{display:block;width:100%;margin-top:8px}";
       document.head.appendChild(style);
     }
     cmp.load();

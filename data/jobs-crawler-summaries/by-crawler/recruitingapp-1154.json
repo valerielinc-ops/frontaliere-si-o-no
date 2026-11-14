@@ -4,11 +4,108 @@
   "detailRejected": 4,
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-11-14T09:33:21.591Z",
+  "generatedAt": "2026-11-14T21:40:37.063Z",
   "total": 0,
   "discovered": 20,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
+  "fetchReceipt": {
+    "specKey": "recruitingapp-1154",
+    "seedUrls": [
+      "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+    ],
+    "phase": "detail",
+    "pages": 21,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3839/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3838/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3825/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3837/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3835/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3834/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3816/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3832/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3831/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3828/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3830/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3829/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3827/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3826/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3820/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3821/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3822/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3819/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3813/Description/1/Default?"
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3811/Description/1/Default?"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 4/20 detail page(s) dropped (20% > 15%); refusing partial publication"
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "source-extraction-failed",
@@ -23,5 +120,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

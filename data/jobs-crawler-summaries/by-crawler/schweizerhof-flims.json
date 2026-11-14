@@ -1,11 +1,140 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-14T09:16:18.256Z",
+  "generatedAt": "2026-11-14T21:20:07.903Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "schweizerhof-flims",
+    "seedUrls": [
+      "https://romantikhotels.hcm4all.de/list/?l=de"
+    ],
+    "phase": "detail",
+    "pages": 29,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/6316"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/18987"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/4177"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/1467"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2566"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19369"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/1463"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/18877"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/17153"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19217"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/7296"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/5653"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/6592"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/16252"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/4468"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/16248"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/20040"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/1635"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/7223"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/5642"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/8087"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/6589"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/20008"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2083"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/4543"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2087"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2050"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2086"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
@@ -19,10 +148,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 33552,
-  "avgDurationMs": 33552,
+  "durationMs": 34093,
+  "avgDurationMs": 34093,
   "durationHistory": [
-    33552
+    34093
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:16:08.450Z",
+      "crawledAt": "2026-11-14T21:19:48.261Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -63,7 +192,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:16:08.450Z",
+      "validThrough": "2026-12-14T21:19:48.261Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -74,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

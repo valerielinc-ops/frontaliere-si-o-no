@@ -3170,8 +3170,11 @@ jobs:
 
       - name: Report Vitest failures on PR
         # The Vitest step can fail before the review chain; this reporter must
-        # still run and must never mask the original gate.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request' && steps.vitest_related.outcome == 'failure') }}
+        # still run and must never mask the original gate. On a green Vitest
+        # step it marks a previous failure report as resolved: left as it was,
+        # the sticky comment read as a current red on a green PR. A skipped
+        # Vitest step (an earlier gate failed) proves nothing and is left out.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request' && (steps.vitest_related.outcome == 'failure' || steps.vitest_related.outcome == 'success')) }}
         continue-on-error: true
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -3181,6 +3184,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          VITEST_OUTCOME: ${{ steps.vitest_related.outcome }}
           VITEST_REPORT_FILES: shard-timing-related.json
         run: node scripts/ci/report-vitest-failure.mjs
 
