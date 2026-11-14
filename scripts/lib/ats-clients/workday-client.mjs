@@ -23,7 +23,12 @@
 
 import { sourcePostingDateFields } from '../source-posting-date.mjs';
 import { isSwissLocationText } from '../target-swiss-locations.mjs';
-import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
+import {
+  fetchWithRetry,
+  RETRYABLE_STATUS,
+  isConnectionLevelFetchError,
+  isTransientFetchError,
+} from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { normalizeDescriptionBullets } from '../crawler-template.mjs';
 import { chromeUserAgent, isStealthBrowser, launchStealthOrChromium } from '../stealth-browser.mjs';
@@ -351,8 +356,8 @@ async function fetchJsonWithRetry(url, options = {}) {
     );
   } catch (err) {
     const connectionLevelFailure = err instanceof WorkdayApiError
-      ? err.statusCode === 0
-      : !Number.isFinite(err?.status) && isTransientFetchError(err);
+      ? err.statusCode === 0 && isTransientFetchError(err)
+      : isConnectionLevelFetchError(err);
     if (browserFallback && connectionLevelFailure) {
       try {
         return await browserFallback({ url, method, body, userAgent, timeoutMs });
