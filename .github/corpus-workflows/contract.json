@@ -14,17 +14,17 @@
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 706,
+  "crawlerCount": 705,
   "crawlerRosterCardinality": {
     "sourceCommit": "22be2b268bdec55e5a1093cea16b5f2ab1d63752",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 706
+    "crawlerCount": 705
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:265443322379927560ec34b809f2f2c0ec916b9cdeb5b44c51adab3e15b950bc",
+    "rosterDigest": "sha256:caf601493f0eccfd7b8d0e1f9a47e10c020927da9948419704dddebe8fd2a656",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -395,7 +395,6 @@
     "scripts/update-lindenhofgruppe-jobs.mjs",
     "scripts/update-lindt-spruengli-jobs.mjs",
     "scripts/update-lipsuisse-ch-jobs.mjs",
-    "scripts/update-lipsuisse-ch-lipsuisse-ch-jobs.mjs",
     "scripts/update-livit-jobs.mjs",
     "scripts/update-localsearch-jobs.mjs",
     "scripts/update-locarno-film-festival-jobs.mjs",
@@ -1459,8 +1458,8 @@
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "b5425ca86343f92c38829280d745af8d3dcf367405ad6277254351e51a9e2240",
-      "artifactSha256": "036ad3d8fe380eaa26dc31406542f39e823928aea5d9b90931719c90d7fc23e4",
+      "sourceSha256": "679bd3a85eac9cf9e4003a572607aa76a403ffe637ea053a31e5ae32b70e36aa",
+      "artifactSha256": "00b9100ffc0f545a7cf1fc63bc99903d0af1eb2794d7b4a50eb99b48e741f7f4",
       "generatorSha256": "213a6b6f8204c2c0186c7275d8ec53d20df3f6c4a907f0f73f710683ec96ffb2",
       "members": [
         "ottos",
@@ -1492,8 +1491,7 @@
         "adus-klinik",
         "ist",
         "proman-fleurier",
-        "csem",
-        "lipsuisse-ch-lipsuisse-ch"
+        "csem"
       ]
     },
     {
