@@ -304,9 +304,8 @@ jobs:
               return 1
             fi
           }
-          export -f run_group
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c 'run_group'
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c "$(declare -f run_group); run_group"
           else
             run_group
           fi

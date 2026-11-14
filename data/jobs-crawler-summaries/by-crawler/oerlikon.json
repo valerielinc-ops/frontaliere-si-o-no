@@ -1,7 +1,7 @@
 {
   "key": "oerlikon",
   "label": "Oerlikon",
-  "generatedAt": "2026-11-13T21:48:58.327Z",
+  "generatedAt": "2026-11-14T09:39:23.404Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 25275,
-  "avgDurationMs": 25275,
+  "durationMs": 24371,
+  "avgDurationMs": 24371,
   "durationHistory": [
-    25275
+    24371
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.oerlikon.com/job/Marketing-Specialist/105306-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-13T21:48:18.141Z",
+      "crawledAt": "2026-11-14T09:38:46.493Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio, TI",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:48:18.141Z",
+      "validThrough": "2027-02-08T09:38:46.493Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:17.313Z",
+      "crawledAt": "2026-11-14T09:38:45.840Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:48:17.313Z",
+      "validThrough": "2026-12-27T09:38:45.840Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:16.634Z",
+      "crawledAt": "2026-11-14T09:38:45.162Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:48:16.634Z",
+      "validThrough": "2026-12-28T09:38:45.162Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering-%28gn%29/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:15.955Z",
+      "crawledAt": "2026-11-14T09:38:44.502Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:48:15.955Z",
+      "validThrough": "2027-01-29T09:38:44.502Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -218,7 +218,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:15.257Z",
+      "crawledAt": "2026-11-14T09:38:43.855Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -241,7 +241,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:48:15.257Z",
+      "validThrough": "2027-02-09T09:38:43.855Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -263,7 +263,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:14.581Z",
+      "crawledAt": "2026-11-14T09:38:43.181Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:48:14.581Z",
+      "validThrough": "2026-12-14T09:38:43.181Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -308,7 +308,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104466-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:13.916Z",
+      "crawledAt": "2026-11-14T09:38:42.519Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:48:13.916Z",
+      "validThrough": "2027-02-12T09:38:42.519Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -352,7 +352,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:13.092Z",
+      "crawledAt": "2026-11-14T09:38:41.670Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -375,7 +375,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:48:13.092Z",
+      "validThrough": "2026-12-30T09:38:41.670Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -386,5 +386,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }

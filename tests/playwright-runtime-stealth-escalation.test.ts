@@ -83,12 +83,19 @@ describe('fetchWithRateLimit stealth escalation', () => {
     const first = stealthPage([{ title: 'Just a moment...', cfInterstitial: true }, { title: 'Jobs at Acme' }]);
     const second = stealthPage([{ title: 'Job 42 at Acme' }], 200);
     const t = setup({ vanillaPages: [blockedPage()], stealthPages: [first, second] });
-    const options = { minDelayMs: 0, env: ON, stealthDeps: t.stealthDeps, challengeTimeoutMs: 2_000 };
+    const options = {
+      minDelayMs: 0,
+      env: ON,
+      stealthDeps: t.stealthDeps,
+      challengeTimeoutMs: 2_000,
+      navigationTimeoutMs: 1_000,
+    };
 
     expect(await fetchWithRateLimit(t.context as never, 'https://acme.test/jobs', options)).toBe(first);
     expect(t.cloak.launch).toHaveBeenCalledWith(expect.objectContaining({ licenseKey: KEY, headless: true, locale: 'it-CH' }));
     // No CDP overrides on the stealth context: CloakBrowser's own fingerprint.
     expect(t.cloakBrowser.newContext).toHaveBeenCalledWith();
+    expect(t.stealthContext.setDefaultNavigationTimeout).toHaveBeenCalledWith(1_000);
 
     expect(await fetchWithRateLimit(t.context as never, 'https://acme.test/jobs/42', options)).toBe(second);
     expect(t.context.newPage).toHaveBeenCalledTimes(1); // the second fetch skipped the vanilla browser
