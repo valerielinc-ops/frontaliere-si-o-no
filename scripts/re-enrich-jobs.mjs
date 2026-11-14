@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { callLLM, isAnyModelAvailable, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
@@ -26,7 +27,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 function readJson(p) {
-  return JSON.parse(fs.readFileSync(p, 'utf8'));
+  return readJsonFile(p);
 }
 function roundTo500(n) {
   return Math.round(n / 500) * 500;
