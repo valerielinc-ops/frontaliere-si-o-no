@@ -279,10 +279,48 @@ jobs:
               --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"
           fi
 
+  fence-contract:
+    name: PR replay fence contract
+    needs: detect
+    if: needs.detect.result == 'success' && needs.detect.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR replay fence and synthetic tests
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            functions/src
+            packages
+            scripts/assisted-application
+            scripts/lib
+            tests
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install root dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Verify the PR replay fence contract without portal egress
+        run: >-
+          npx vitest run tests/assisted-application-portal-replay.test.ts
+          --testNamePattern='portal replay read-only fence'
+          --reporter=dot --silent
+
   portal-replay-gate:
     name: portal replay gate
     if: always()
-    needs: [detect, prepare, replay]
+    needs: [detect, prepare, replay, fence-contract]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -328,6 +366,7 @@ jobs:
           DETECT_RESULT: ${{ needs.detect.result }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
           MATRIX_RESULT: ${{ needs.replay.result }}
+          FENCE_RESULT: ${{ needs.fence-contract.result }}
           FAMILIES: ${{ needs.prepare.outputs.families || '[]' }}
           REPORT_DIR: ${{ runner.temp }}/portal-replay-reports
           SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary.md
@@ -340,13 +379,18 @@ jobs:
           else
             effective_prepare_result=success
           fi
+          if [[ "$PREPARE_RUN" == 'true' && "$FENCE_RESULT" != 'success' ]]; then
+            effective_matrix_result=failure
+          else
+            effective_matrix_result="$MATRIX_RESULT"
+          fi
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \
-            --matrix-result "$MATRIX_RESULT" \
+            --matrix-result "$effective_matrix_result" \
             --families "$FAMILIES" \
             --report-dir "$REPORT_DIR" \
             --output "$RUNNER_TEMP/portal-replay-gate.json" \

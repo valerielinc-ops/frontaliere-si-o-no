@@ -11,8 +11,16 @@ const isReplayAllowedMethod = (method) => REPLAY_ALLOWED_METHODS.includes(String
 
 const MUTATING_PATH_RE = /(?:submit|finali[sz]e|withdraw|delete|remove|update|autosave|auto[_-]?save|mutate|persist|insert|upsert|cancelapplication|applicationapply|apply(?:now|application|candidate|[_-]now|[_-]application|[_-]candidate)|(?:^|[\/_-])cancel(?:$|[\/_-]))/i;
 const MUTATING_ROUTE_RE = /(?:^|\/)(?:application)?save(?:\/|$)/i;
-const MUTATING_QUERY_KEY_RE = /^(?:action|cmd|command|do|intent|operation|task|submit|send|save|withdraw|delete|remove|update|cancel|email|e-?mail|phone|mobile|first_?name|last_?name|candidate|applicant|resume|cv|profile|data|payload|content|fields?|form|values?|variables?|params?|body|json|formdata|answers?|birthdate|date_?of_?birth|dob|nationality|permit|work_?permit|salary|address|city|postal_?code)$/i;
-const CANDIDATE_DATA_ROUTE_RE = /(?:^|\/)(?:application|applications|candidate|candidates|applicant|applicants|profile|resume|cv)(?:\/|$)/i;
+const MUTATING_QUERY_KEY_RE = /^(?:action|cmd|command|do|intent|operation|task|submit|send|save|withdraw|delete|remove|update|cancel|email|e-?mail|mail|phone|telephone|tel|mobile|name|full_?name|given_?name|middle_?name|family_?name|sur_?name|first_?name|last_?name|candidate(?:_?id)?|applicant(?:_?id)?|resume|cv|profile(?:_?id)?|application(?:_?id)?|user(?:_?id)?|person(?:_?id)?|contact(?:_?id)?|data|payload|content|fields?|form|values?|variables?|params?|body|json|formdata|answers?|birthdate|date_?of_?birth|dob|nationality|permit|work_?permit|salary|address|city|postal_?code)$/i;
+const MUTATING_QUERY_KEY_PREFIX_RE = /^(?:candidate|applicant|profile|application|user|person|contact|resume|cv|email|e-?mail|mail|phone|telephone|tel(?:phone|_?number|_?no|_?nr)|mobile|address|birth|nationality|permit|salary)/i;
+const CANDIDATE_DATA_ROUTE_RE = /(?:^|\/)(?:apply|application|applications|candidate|candidates|applicant|applicants|profile|resume|cv)(?:\/|$)/i;
+const SAFE_NAVIGATION_QUERY_KEY_RE = /^(?:id|lang(?:uage)?|locale|design|theme|view|tab|step|job(?:_?id)?|requisition(?:_?id)?|req_?id|vacancy_?id|posting_?id|position_?id)$/i;
+const SAFE_LANGUAGE_CODES = new Set(['ar', 'bg', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'he', 'hr', 'hu', 'id', 'it', 'ja', 'ko', 'lt', 'lv', 'nb', 'nl', 'no', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sr', 'sv', 'th', 'tr', 'uk', 'vi', 'zh']);
+const SAFE_THEME_VALUES = new Set(['belize', 'default', 'fiori', 'fiori_3', 'horizon', 'quartz', 'sap_fiori_3', 'sap_horizon', 'standard']);
+const SAFE_VIEW_VALUES = new Set(['application', 'card', 'detail', 'grid', 'job', 'jobs', 'list', 'map', 'overview', 'posting', 'search', 'table']);
+const SAFE_TAB_VALUES = new Set(['application', 'details', 'documents', 'job', 'jobs', 'search']);
+const SAFE_STEP_VALUES = new Set(['account', 'application', 'details', 'documents', 'review', 'start']);
+const SAFE_JOB_ID_VALUE_RE = /^(?:\d{1,20}|[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}|(?=[a-z0-9_-]{2,64}$)(?=.*\d)[a-z0-9]+(?:[-_][a-z0-9]+)*)$/i;
 
 function decodedQueryKey(value) {
   let key = String(value || '');
@@ -29,8 +37,57 @@ function decodedQueryKey(value) {
   return key;
 }
 
+function hasMutatingQueryKeySegment(value) {
+  const decoded = decodedQueryKey(value);
+  if (!decoded) return true;
+  return decoded.split(/[.[\]]+/u).filter(Boolean).some((segment) =>
+    MUTATING_QUERY_KEY_RE.test(segment) || MUTATING_QUERY_KEY_PREFIX_RE.test(segment));
+}
+
+const POSTING_QUERY_KEYS = new Set(['id', 'job', 'jobid', 'requisition', 'requisitionid', 'reqid', 'vacancyid', 'postingid', 'positionid']);
+const normalizeNavigationQueryKey = (value) => String(value || '').toLowerCase().replace(/[-_]/g, '');
+const postingQueryPair = (origin, key, value) => JSON.stringify([String(origin || '').toLowerCase(), normalizeNavigationQueryKey(key), String(value || '')]);
+
+/** Capture only job identifiers already present in the sampled public listing/apply URLs. */
+export function portalReplayQueryAllowlist(values = []) {
+  const allowed = new Set();
+  for (const value of values) {
+    let url;
+    try { url = value instanceof URL ? value : new URL(String(value || '')); }
+    catch { continue; }
+    if (url.protocol !== 'https:' || url.username || url.password) continue;
+    for (const [rawKey, queryValue] of url.searchParams.entries()) {
+      const key = decodedQueryKey(rawKey);
+      const normalizedKey = normalizeNavigationQueryKey(key);
+      if (POSTING_QUERY_KEYS.has(normalizedKey) && SAFE_JOB_ID_VALUE_RE.test(queryValue)) {
+        allowed.add(postingQueryPair(url.origin, key, queryValue));
+      }
+    }
+  }
+  return allowed;
+}
+
+function safeNavigationQueryValue(url, key, value, allowedPostingQueryParams) {
+  const normalizedKey = String(key || '').toLowerCase().replace(/[-_]/g, '');
+  const normalizedValue = String(value || '').trim();
+  if (['lang', 'language', 'locale'].includes(normalizedKey)) {
+    const parts = normalizedValue.toLowerCase().replace(/_/g, '-').split('-');
+    return SAFE_LANGUAGE_CODES.has(parts[0]) && parts.slice(1).every((part) => /^[a-z0-9]{2,8}$/i.test(part));
+  }
+  if (['id', 'job', 'jobid', 'requisition', 'requisitionid', 'reqid', 'vacancyid', 'postingid', 'positionid'].includes(normalizedKey)) {
+    return SAFE_JOB_ID_VALUE_RE.test(normalizedValue)
+      && allowedPostingQueryParams?.has(postingQueryPair(url.origin, key, value)) === true;
+  }
+  if (normalizedKey === 'design') return /^\d{1,6}$/.test(normalizedValue) || SAFE_THEME_VALUES.has(normalizedValue.toLowerCase());
+  if (normalizedKey === 'theme') return SAFE_THEME_VALUES.has(normalizedValue.toLowerCase());
+  if (normalizedKey === 'view') return SAFE_VIEW_VALUES.has(normalizedValue.toLowerCase());
+  if (normalizedKey === 'tab') return /^\d{1,2}$/.test(normalizedValue) || SAFE_TAB_VALUES.has(normalizedValue.toLowerCase());
+  if (normalizedKey === 'step') return /^\d{1,3}$/.test(normalizedValue) || SAFE_STEP_VALUES.has(normalizedValue.toLowerCase());
+  return false;
+}
+
 /** A GET whose URL describes an application mutation is never a passive read. */
-export function isMutatingGetUrl(value) {
+export function isMutatingGetUrl(value, { allowedPostingQueryParams = new Set() } = {}) {
   let url;
   try { url = value instanceof URL ? value : new URL(String(value || '')); }
   catch { return true; }
@@ -47,14 +104,23 @@ export function isMutatingGetUrl(value) {
   }
   if (/%[0-9a-f]{2}/i.test(pathname)) return true;
 
-  const queryKeys = [...url.searchParams.keys()];
+  const queryEntries = [...url.searchParams.entries()].map(([key, queryValue]) => ({
+    key: decodedQueryKey(key),
+    mutating: hasMutatingQueryKeySegment(key),
+    rawKey: key,
+    value: String(queryValue || ''),
+  }));
+  const unsafePostingIdentityQuery = queryEntries.some(({ key, value }) =>
+    POSTING_QUERY_KEYS.has(normalizeNavigationQueryKey(key))
+      && !safeNavigationQueryValue(url, key, value, allowedPostingQueryParams));
+  const candidateDataRouteHasUnsafeQuery = url.search !== '' && CANDIDATE_DATA_ROUTE_RE.test(pathname)
+    && queryEntries.some(({ key, rawKey, value }) => !key || !SAFE_NAVIGATION_QUERY_KEY_RE.test(key)
+      || !safeNavigationQueryValue(url, key, value, allowedPostingQueryParams));
   return MUTATING_PATH_RE.test(pathname)
     || MUTATING_ROUTE_RE.test(pathname)
-    || (url.search !== '' && CANDIDATE_DATA_ROUTE_RE.test(pathname))
-    || queryKeys.some((key) => {
-      const decoded = decodedQueryKey(key);
-      return !decoded || MUTATING_QUERY_KEY_RE.test(decoded);
-    });
+    || unsafePostingIdentityQuery
+    || candidateDataRouteHasUnsafeQuery
+    || queryEntries.some(({ key, mutating }) => !key || mutating);
 }
 
 /**
@@ -309,6 +375,7 @@ export function capturePortalReplayFinalClicksInPage() {
 export async function installPortalReplayFence(context, {
   isPublicHost = resolvesToPublicHost,
   onBlocked = () => {},
+  allowedPostingQueryParams = new Set(),
 } = {}) {
   if (!context || typeof context.route !== 'function' || typeof context.routeWebSocket !== 'function'
     || typeof context.addInitScript !== 'function' || typeof context.exposeBinding !== 'function' || typeof context.on !== 'function') {
@@ -367,7 +434,7 @@ export async function installPortalReplayFence(context, {
       onBlocked({ method, reason: 'non_get' });
       return route.abort();
     }
-    if (method === 'GET' && isMutatingGetUrl(url)) {
+    if (method === 'GET' && isMutatingGetUrl(url, { allowedPostingQueryParams })) {
       metrics.blockedRequests += 1;
       metrics.blockedMutationGets += 1;
       onBlocked({ method, reason: 'mutating_get' });

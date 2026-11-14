@@ -7,7 +7,8 @@ import { join } from 'node:path';
 import { runInNewContext } from 'node:vm';
 import { JSDOM } from 'jsdom';
 import { startPortalDiagnostics, warmPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
-import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
+import { portalEntryUrl } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, isMutatingGetUrl, portalReplayQueryAllowlist, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
 import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
@@ -26,6 +27,16 @@ const tempDir = () => {
   tempDirs.push(directory);
   return directory;
 };
+
+describe('portal replay starts at the public listing', () => {
+  it('uses the posting URL as replay entry while keeping the apply URL for the runner', () => {
+    const postingUrl = 'https://employer.example.test/jobs/synthetic-role';
+    const applyUrl = 'https://ats.example.test/application/synthetic-role';
+
+    expect(portalEntryUrl({ postingUrl, applyUrl, portalReplay: true })).toBe(postingUrl);
+    expect(portalEntryUrl({ postingUrl, applyUrl })).toBe(applyUrl);
+  });
+});
 
 afterEach(() => {
   for (const directory of tempDirs.splice(0)) rmSync(directory, { recursive: true, force: true });
@@ -59,7 +70,11 @@ async function runRequest(context: any, { method, url, navigation = false }: { m
 describe('portal replay read-only fence', () => {
   it('blocks POST/PUT/DELETE, beacon POST, WebSocket and mutation GETs while allowing cross-origin GET navigation', async () => {
     const context = fakeContext();
-    const metrics = await installPortalReplayFence(context, { isPublicHost: async () => true });
+    const allowedPostingQueryParams = portalReplayQueryAllowlist([
+      'https://careers.example.test/job?jobId=12345678',
+      'https://ats.example.test/application?jobId=12345678',
+    ]);
+    const metrics = await installPortalReplayFence(context, { isPublicHost: async () => true, allowedPostingQueryParams });
     const replayContext = sealPortalReplayContext(context);
     await replayContext.route('**/*', async () => { throw new Error('extra route must not register'); });
 
@@ -71,13 +86,29 @@ describe('portal replay read-only fence', () => {
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/route?action=submit' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/%252fapplication%252fsave' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply-now' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?candidateId=synthetic-123' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?candidate%5BfirstName%5D=Replay' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?name=Replay' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123?candidateName=Replay' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123?candidateEmail=synthetic%40example.invalid' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123?applicantName=Replay' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123?mail=synthetic%40example.invalid' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123?telephone=synthetic-phone' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/candidate/update?email=synthetic%40example.invalid' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/autosave?candidate=synthetic' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/application?data=%7B%22email%22%3A%22synthetic%40example.invalid%22%7D' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/application?%2565mail=synthetic%40example.invalid' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/api/application?q=synthetic%40example.invalid' })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/application?locale=de_CH&design=1000', navigation: true })).toBe('continue');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/application?jobId=12345678', navigation: true })).toBe('continue');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?locale=de_CH', navigation: true })).toBe('continue');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?view=Replay', navigation: true })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?jobId=Replay', navigation: true })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/application?jobId=87654321', navigation: true })).toBe('abort');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job?jobId=12345678', navigation: true })).toBe('continue');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job?id=12345678', navigation: true })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'GET', url: 'https://careers.example.test/job/123', navigation: true })).toBe('continue');
-    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?apply=guest' })).toBe('continue');
+    expect(await runRequest(replayContext, { method: 'GET', url: 'https://ats.example.test/apply?apply=guest' })).toBe('abort');
     expect(await runRequest(replayContext, { method: 'HEAD', url: 'https://ats.example.test/apply' })).toBe('continue');
     expect(await runRequest(replayContext, { method: 'OPTIONS', url: 'https://ats.example.test/apply' })).toBe('continue');
 
@@ -93,10 +124,28 @@ describe('portal replay read-only fence', () => {
     expect(pageGlobal.RTCPeerConnection).toBeUndefined();
     expect(Object.getOwnPropertyDescriptor(pageGlobal, 'Worker')?.writable).toBe(false);
     expect(metrics.blockedNonGet).toBe(4);
-    expect(metrics.blockedMutationGets).toBe(9);
+    expect(metrics.blockedMutationGets).toBe(22);
     expect(metrics.blockedWebSockets).toBe(1);
     expect(typeof context.bindings.__frontalierePortalReplayFinalClickAttempt).toBe('function');
     expect(metrics.finalClickAttempts).toBe(0);
+  });
+
+  it('allows only posting identifiers copied from the selected public listing or apply URL', () => {
+    const allowlist = portalReplayQueryAllowlist([
+      'https://careers.example.test/job?jobId=12345678&locale=en',
+      'https://careers.example.test/job?id=ROLE-2026-42',
+      'https://ats.example.test/application?requisitionId=ROLE-2026-42',
+      'http://careers.example.test/job?jobId=99999999',
+      'https://careers.example.test/job?candidateId=Replay',
+    ]);
+
+    expect(allowlist.size).toBe(3);
+    expect(allowlist.has(JSON.stringify(['https://careers.example.test', 'jobid', '12345678']))).toBe(true);
+    expect(allowlist.has(JSON.stringify(['https://careers.example.test', 'id', 'ROLE-2026-42']))).toBe(true);
+    expect(allowlist.has(JSON.stringify(['https://ats.example.test', 'requisitionid', 'ROLE-2026-42']))).toBe(true);
+    expect(isMutatingGetUrl('https://careers.example.test/job?id=12345678', { allowedPostingQueryParams: allowlist })).toBe(true);
+    expect(isMutatingGetUrl('https://careers.example.test/job?id=ROLE-2026-42', { allowedPostingQueryParams: allowlist })).toBe(false);
+    expect(isMutatingGetUrl('https://mirror.example.test/job?jobId=12345678', { allowedPostingQueryParams: allowlist })).toBe(true);
   });
 
   it('blocks final application clicks in trusted page instrumentation and counts them outside the runner', async () => {
@@ -440,6 +489,11 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 20');
+    expect(workflow).toContain("--testNamePattern='portal replay read-only fence'");
+    expect(workflow).toContain('            tests');
+    expect(workflow).toContain('  fence-contract:');
+    expect(workflow).toContain('needs: [detect, prepare, replay, fence-contract]');
+    expect(workflow).toContain('FENCE_RESULT: ${{ needs.fence-contract.result }}');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');

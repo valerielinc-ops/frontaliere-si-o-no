@@ -1053,7 +1053,10 @@ export function isPostingRouteBound({ pageUrl, postingUrl, postingRouteProof } =
     || isVerifiedPostingEntry({ applyUrl: pageUrl, postingUrl, postingRouteProof });
 }
 
-export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof } = {}) {
+export function portalEntryUrl({ applyUrl, postingUrl, postingRouteProof, portalReplay = false } = {}) {
+  // The live replay must observe the real announcement-to-form path. Its
+  // browser fence validates the public posting URL before any cross-origin GET.
+  if (portalReplay && String(postingUrl || '').trim()) return String(postingUrl).trim();
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);

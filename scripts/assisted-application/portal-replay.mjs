@@ -417,11 +417,11 @@ function portalReplayCandidate() {
   };
 }
 
-async function publicPreflight(trustedRoot, record, isMutatingGetUrl) {
+async function publicPreflight(trustedRoot, record, isMutatingGetUrl, allowedPostingQueryParams) {
   // The bounded DNS-pinned helper is trusted base code. Do not let a PR edit
   // execute a raw Node request before the browser fence is installed, and do
   // not probe an URL that the GET mutation classifier would block in-browser.
-  if (isMutatingGetUrl(record.postingUrl)) return [{ status: 0, blockedMutationGet: true }];
+  if (isMutatingGetUrl(record.postingUrl, { allowedPostingQueryParams })) return [{ status: 0, blockedMutationGet: true }];
   const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
   try {
     const response = await publicContractGet(record.postingUrl, { maxBytes: 1_500_000, followRedirects: false });
@@ -541,7 +541,7 @@ async function runOnePortalReplay(options) {
   return replayMetricsContext.run(metrics, () => runOnePortalReplayMeasured({ ...options, metrics }));
 }
 
-async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, trustedNetwork, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
+async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, trustedNetwork, allowedPostingQueryParams, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
   let agentCalls = 0;
   let activeContext = null;
   let activeProxy = null;
@@ -584,6 +584,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
           const fenceMetrics = await fenceApi.installPortalReplayFence(context, {
             isPublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
             onBlocked: ({ reason } = {}) => { if (reason === 'unsafe_host') metrics.blockedUnsafeHosts += 1; },
+            allowedPostingQueryParams,
           });
           const responseListener = (response) => {
             try {
@@ -927,13 +928,14 @@ async function compareMode(values) {
   await warmPortalDiagnosticsModule(trustedDiagnostics);
   const preflightByKey = new Map();
   for (const record of records) {
-    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    const allowedPostingQueryParams = fenceApi.portalReplayQueryAllowlist([record.postingUrl, record.applyUrl]);
+    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl, allowedPostingQueryParams);
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
       retryCount = 1;
-      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl, allowedPostingQueryParams);
     }
-    preflightByKey.set(record.key, { responses, retryCount });
+    preflightByKey.set(record.key, { responses, retryCount, allowedPostingQueryParams });
   }
   if (records.some((record) => !preflightByKey.get(record.key)?.responses.some((response) => response.status >= 500 && response.status < 600))) {
     sharedReplayBrowser = await trustedBrowser.launchChromium({
@@ -959,6 +961,7 @@ async function compareMode(values) {
     for (const record of records) {
       const shared = {
         trustedRoot, record, timeoutMs, fenceApi, trustedNetwork,
+        allowedPostingQueryParams: preflightByKey.get(record.key)?.allowedPostingQueryParams || new Set(),
         preflight: preflightByKey.get(record.key)?.responses || [],
         preflightRetryCount: preflightByKey.get(record.key)?.retryCount || 0,
       };
