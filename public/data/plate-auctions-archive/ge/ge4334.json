@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ge-20261126-4334",
+      "sourceKey": "GE",
+      "sourceRecordId": "20261126-4334",
+      "canton": "Ginevra",
+      "platePrefix": "GE",
+      "plateNumber": "4334",
+      "normalizedPlate": "GE4334",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startsAt": "2026-11-15T23:00:00.000Z",
+      "endsAt": "2026-11-26T10:00:00.000Z",
+      "closedAt": "2026-11-10T07:21:51.782Z",
+      "officialAuctionUrl": "https://www.ricardo.ch/fr/shop/ENCHERES-PLAQUES-GE/offers/",
+      "officialDetailUrl": "https://www.ge.ch/document/22794/telecharger",
+      "sourceFetchedAt": "2026-11-10T07:21:51.782Z",
+      "lastVerifiedAt": "2026-11-10T07:21:51.782Z",
+      "firstSeenAt": "2026-11-07T13:12:18.009Z",
+      "lastSeenAt": "2026-11-10T07:21:51.782Z",
+      "sourceCategory": "official-auction-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "cb505707ff4d"
+    }
+  ]
+}
