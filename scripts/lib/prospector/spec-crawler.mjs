@@ -1551,7 +1551,18 @@ export function normalizeSpecPagination(spec) {
  */
 export function readDeclaredListingTotal(html, pagination, spec) {
   if (!pagination.declaredTotalRx) return null;
-  const match = pagination.declaredTotalRx.exec(String(html || ''));
+  const rawHtml = String(html || '');
+  // Providers commonly encode punctuation in the visible counter (for
+  // example `d&#039;emploi`). Keep the raw pass first so existing specs that
+  // deliberately match source markup retain their exact contract, then retry
+  // against decoded text so an entity-only markup change cannot turn a
+  // complete listing into a fail-closed source-extraction failure.
+  const match = [rawHtml, decodeEntities(rawHtml)]
+    .map((candidate) => {
+      pagination.declaredTotalRx.lastIndex = 0;
+      return pagination.declaredTotalRx.exec(candidate);
+    })
+    .find(Boolean);
   const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
   if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
     throw markSpecListingFailure(new Error(
