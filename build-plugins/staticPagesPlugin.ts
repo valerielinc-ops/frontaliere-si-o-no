@@ -1,5 +1,5 @@
 import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
 import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from './shared/legalEditorial';
 /**
@@ -2287,48 +2287,54 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  // when canton has ≥ 2 × JOBS_PER_LISTING_PAGE jobs (20) and cap at 25 pages.
  const TI_JOBS_PER_LISTING = 20;
  const TI_MAX_LISTING_PAGES = 25;
- // Single shared parse of data/jobs.json, reused by the TI pagination/company
- // navigators below AND the non-TI canton nav-entry computation further down.
- // Previously each of those 3 blocks independently re-read + JSON.parse'd the
- // same ~22k-entry file back-to-back with no GC pressure relief between them
- // — three near-identical large parses alive in memory in quick succession
- // right at the start of static-pages' closeBundle, compounding the shared
- // RSS plateau implicated in the build-locale(it) OOM incident (runs
- // 29867257038 / 29881848735, exit 143 "runner received a shutdown signal").
- // One parse, reused everywhere below, is byte-identical output for a
- // fraction of the transient allocation.
- let jobsRawShared: Array<Record<string, unknown>> = [];
+ // Compute all navigator inputs item-wise. The previous implementation kept
+ // the complete parsed jobs.json array alive while deriving three small link
+ // sets; that transient copy overlapped the SEO memory peak as the corpus grew.
+ // Only the compact company/city fields used by the non-TI pass are retained.
+ const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
+ const tiCompanyCounts = new Map<string, { name: string; count: number }>();
+ const cantonJobs = new Map<string, Array<Record<string, unknown>>>();
+ let tiCount = 0;
  try {
-   const parsedJobsRawShared = readJsonFile(np.resolve(rootDir, 'data/jobs.json'));
-   if (Array.isArray(parsedJobsRawShared)) jobsRawShared = parsedJobsRawShared as Array<Record<string, unknown>>;
- } catch (e) {
-   console.warn('[static-pages] Could not read/parse data/jobs.json for TI/non-TI nav computations:', e);
- }
- let tiPaginationPages = 0;
- try {
-   const jobsRaw = jobsRawShared;
-   if (Array.isArray(jobsRaw)) {
-     // Count TI canton jobs the same way jobsSeoPagesPlugin counts them
-     // (canton field OR location heuristic). For the navigator we don't need
-     // the exact-match resolver — TI explicit + a `ticino`/`lugano`/...
-     // location fingerprint covers the vast majority and a few near-misses
-     // here cost nothing (we cap at 25 pages anyway).
-     const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
-     let tiCount = 0;
-     for (const j of jobsRaw) {
-       const canton = String((j as { canton?: string }).canton || '').toUpperCase().trim();
-       if (canton === 'TI') { tiCount++; continue; }
-       if (!canton) {
-         const loc = String((j as { location?: string }).location || '').trim();
-         if (tiCities.test(loc)) tiCount++;
+   const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+   if (fs.existsSync(jobsPath)) {
+     for (const value of iterateJsonArrayFile(jobsPath)) {
+       const j = value as Record<string, unknown>;
+       const canton = String(j.canton || '').toUpperCase().trim();
+       const location = String(j.location || '').trim();
+       const isTi = canton === 'TI' || (!canton && tiCities.test(location));
+       if (isTi) {
+         tiCount++;
+         const company = String(j.company || '').trim();
+         const companyKey = String(j.companyKey || '').trim();
+         const slug = companyKey
+           || company.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+         if (slug && slug.length >= 2) {
+           const current = tiCompanyCounts.get(slug);
+           if (current) current.count++;
+           else tiCompanyCounts.set(slug, { name: company || slug, count: 1 });
+         }
+         continue;
        }
-     }
-     if (tiCount >= 2 * TI_JOBS_PER_LISTING) {
-       tiPaginationPages = Math.min(TI_MAX_LISTING_PAGES, Math.ceil(tiCount / TI_JOBS_PER_LISTING));
+       // Preserve the historical conservative scope: non-TI navigation only
+       // buckets rows with an explicit canton. Keep only fields used below.
+       if (!canton) continue;
+       let bucket = cantonJobs.get(canton);
+       if (!bucket) {
+         bucket = [];
+         cantonJobs.set(canton, bucket);
+       }
+       bucket.push({ company: j.company, companyKey: j.companyKey, location: j.location });
      }
    }
  } catch (e) {
-   console.warn('[static-pages] Could not compute tiPaginationPages from jobs.json:', e);
+   console.warn('[static-pages] Could not stream data/jobs.json for TI/non-TI nav computations:', e);
+ }
+ let tiPaginationPages = 0;
+ if (tiCount >= 2 * TI_JOBS_PER_LISTING) {
+   tiPaginationPages = Math.min(TI_MAX_LISTING_PAGES, Math.ceil(tiCount / TI_JOBS_PER_LISTING));
  }
 
  // 2. Top TI company-hub slugs (`azienda-{slug}` / `company-{slug}` / etc.).
@@ -2337,39 +2343,11 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const TI_COMPANY_PREFIX: Record<TiNavLocale, string> = {
    it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise',
  };
- const tiTopCompanies: Array<{ slug: string; label: string }> = [];
- try {
-   const jobsRaw = jobsRawShared;
-   if (Array.isArray(jobsRaw)) {
-     const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
-     const companyCounts = new Map<string, { name: string; count: number }>();
-     for (const j of jobsRaw) {
-       const canton = String((j as { canton?: string }).canton || '').toUpperCase().trim();
-       const loc = String((j as { location?: string }).location || '').trim();
-       if (canton !== 'TI' && !(canton === '' && tiCities.test(loc))) continue;
-       const co = String((j as { company?: string }).company || '').trim();
-       const coKey = String((j as { companyKey?: string }).companyKey || '').trim();
-       // Reproduce canonicalCompanySlugBuild's behaviour with a local-only
-       // fallback so we never link a hub slug that doesn't exist. Prefer
-       // companyKey (frozen slug); fall back to lower-kebab of company name.
-       const slug = coKey
-         || co.toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/^-+|-+$/g, '');
-       if (!slug || slug.length < 2) continue;
-       const cur = companyCounts.get(slug);
-       if (cur) cur.count++;
-       else companyCounts.set(slug, { name: co || slug, count: 1 });
-     }
-     const sorted = [...companyCounts.entries()]
-       .filter(([, v]) => v.count >= 3)
-       .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
-       .slice(0, 20);
-     for (const [slug, v] of sorted) tiTopCompanies.push({ slug, label: v.name });
-   }
- } catch (e) {
-   console.warn('[static-pages] Could not compute tiTopCompanies from jobs.json:', e);
- }
+ const tiTopCompanies: Array<{ slug: string; label: string }> = [...tiCompanyCounts.entries()]
+   .filter(([, v]) => v.count >= 3)
+   .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
+   .slice(0, 20)
+   .map(([slug, v]) => ({ slug, label: v.name }));
 
  // 3. Top TI search-cluster bridge slugs. Sourced from
  //    data/related-search-enriched.json (the same file
@@ -2468,28 +2446,6 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  };
  const nonTiCantonNavEntries: NonTiCantonNavEntry[] = [];
  try {
-   const jobsRaw = jobsRawShared;
-   if (Array.isArray(jobsRaw)) {
-     // Aggregate per-canton job sets ONCE. The resolveJobCanton heuristic
-     // in shared/cantonSection.ts mirrors what jobsSeoPagesPlugin uses to
-     // bucket jobs (canton explicit + location fallback).
-     const cantonJobs = new Map<string, Array<Record<string, unknown>>>();
-     for (const j of jobsRaw) {
-       const c = String((j as { canton?: string }).canton || '').toUpperCase().trim();
-       if (c) {
-         if (!cantonJobs.has(c)) cantonJobs.set(c, []);
-         cantonJobs.get(c)!.push(j);
-         continue;
-       }
-       // Best-effort city → canton fallback (mirrors getCityCanton's bare
-       // lookup; near-misses are fine because the navigator only links
-       // pages that pass an emitter-mirroring gate downstream).
-       const loc = String((j as { location?: string }).location || '').trim();
-       if (!loc) continue;
-       // Skip — the explicit-canton bucket above covers the vast majority.
-       // Edge cases without canton + with a Swiss-city location would need
-       // the full getCityCanton resolver and are < 1 % of the corpus.
-     }
      const CANTON_DISPLAY_NAV: Record<NonTiNavLocale, Record<string, string>> = {
        it: { AG: 'Argovia', AI: 'Appenzello Interno', AR: 'Appenzello Esterno', BE: 'Berna', BL: 'Basilea Campagna', BS: 'Basilea Città', FR: 'Friburgo', GE: 'Ginevra', GL: 'Glarona', GR: 'Grigioni', JU: 'Giura', LU: 'Lucerna', NE: 'Neuchâtel', NW: 'Nidvaldo', OW: 'Obvaldo', SG: 'San Gallo', SH: 'Sciaffusa', SO: 'Soletta', SZ: 'Svitto', TG: 'Turgovia', UR: 'Uri', VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo' },
        en: { AG: 'Aargau', AI: 'Appenzell Innerrhoden', AR: 'Appenzell Ausserrhoden', BE: 'Bern', BL: 'Basel-Country', BS: 'Basel-City', FR: 'Fribourg', GE: 'Geneva', GL: 'Glarus', GR: 'Graubünden', JU: 'Jura', LU: 'Lucerne', NE: 'Neuchâtel', NW: 'Nidwalden', OW: 'Obwalden', SG: 'St. Gallen', SH: 'Schaffhausen', SO: 'Solothurn', SZ: 'Schwyz', TG: 'Thurgau', UR: 'Uri', VD: 'Vaud', VS: 'Valais', ZG: 'Zug', ZH: 'Zurich' },
@@ -2617,7 +2573,6 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
          cityHubs,
        });
      }
-   }
  } catch (e) {
    console.warn('[static-pages] Could not compute nonTiCantonNavEntries from jobs.json:', e);
  }
@@ -2626,21 +2581,11 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
 
  // Explicit major GC checkpoint (established pattern — see
  // jobsSeoPagesPlugin.ts's `expiredSoftLandingCache.clear()` + gc() before
- // its own heavier write/flush phases). `jobsRawShared` (the ~22k-entry
- // parsed jobs.json) plus the per-canton Maps built above are dead state
- // past this point — nothing below reads them again. The OOM evidence for
- // build-locale(it) (runs 29867257038 / 29881848735) shows the runner dying
- // within ~7.5s of this exact log line, mid-plugin, before static-pages'
- // own [profile-mem] checkpoint ever fires — freeing this dead state here,
- // before the ~2500-line per-URL emit loop below starts, trims the peak RSS
- // this plugin contributes to the shared ~11 GB closeBundle plateau.
+ // its own heavier write/flush phases). The item-wise corpus iterator has
+ // already released each raw record; only the bounded navigator projections
+ // remain and they are dead past this point.
  // NODE_OPTIONS=--expose-gc is set in `build:ci` (see package.json); guarded
  // for local dev runs without the flag.
- // The variable is captured by this closeBundle closure, so forcing GC alone
- // is not enough while the plugin is still executing: release the parsed
- // corpus before the next SEO plugin starts. Otherwise the next plugin parses
- // its own jobs.json copy while this one remains strongly reachable.
- jobsRawShared = [];
  forceGc();
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */

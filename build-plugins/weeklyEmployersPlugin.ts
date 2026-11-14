@@ -4119,10 +4119,11 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   if (fs.existsSync(sliceDir)) {
     for (const file of listSliceFileNames(sliceDir)) {
       try {
-        const raw = JSON.parse(fs.readFileSync(np.join(sliceDir, file), 'utf-8'));
-        const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
-        if (!Array.isArray(jobs)) continue;
-        for (const j of jobs as WeeklyCountableJob[]) {
+        // Slices grow independently of the assembled corpus. Keep this
+        // reader item-wise too so one large employer slice cannot create a
+        // second full string + array copy during the SEO build.
+        for (const value of iterateJsonArrayFile(np.join(sliceDir, file))) {
+          const j = value as WeeklyCountableJob;
           // Held out of publication for translation (agency admission
           // threshold): not on the site, so not in its counts either.
           if (isHeldFromPublication(j)) continue;

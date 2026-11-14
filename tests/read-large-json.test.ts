@@ -94,6 +94,9 @@ describe('data/jobs.json readers', () => {
     'build-plugins/jobBoardSeo.ts',
     'build-plugins/localeJobsSplitPlugin.ts',
     'build-plugins/shared/autoSectorHubPublicationData.ts',
+    'build-plugins/staticPagesPlugin.ts',
+    'build-plugins/weeklyEmployersPlugin.ts',
+    'build-plugins/orphanQueryLandingPlugin.ts',
   ];
   const readers = [
     'build-plugins/careerJobsAggregate.ts',
@@ -107,7 +110,6 @@ describe('data/jobs.json readers', () => {
     'build-plugins/relatedSearchClustersPlugin.ts',
     'build-plugins/shared/loadDataJson.ts',
     'build-plugins/shared/reportJobPanel.ts',
-    'build-plugins/staticPagesPlugin.ts',
     'scripts/build-employer-profiles.mjs',
     'scripts/audit-related-search-candidates.mjs',
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',

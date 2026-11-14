@@ -197,10 +197,11 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
   if (fs.existsSync(sliceDir)) {
     for (const file of listSliceFileNames(sliceDir)) {
       try {
-        const raw = JSON.parse(fs.readFileSync(path.join(sliceDir, file), 'utf-8'));
-        const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
-        if (!Array.isArray(jobs)) continue;
-        for (const j of jobs as OrphanCountableJob[]) {
+        // Keep crawler slices on the same bounded reader as jobs.json. A
+        // single growing slice must not reintroduce the V8 string/heap spike
+        // that the corpus reader migration removed.
+        for (const value of iterateJsonArrayFile(path.join(sliceDir, file))) {
+          const j = value as OrphanCountableJob;
           // Held out of publication for translation (agency admission
           // threshold): not on the site, so not in its counts either.
           if (isHeldFromPublication(j)) continue;
