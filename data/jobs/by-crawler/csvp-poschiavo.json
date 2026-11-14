@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-11-13T21:20:12.906Z",
-  "runId": "43508923552",
+  "assembledAt": "2026-11-14T09:23:57.146Z",
+  "runId": "43579754250",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-13T21:20:05.617Z",
+      "crawledAt": "2026-11-14T09:23:49.462Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,7 +70,75 @@
       },
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:20:05.617Z",
+      "validThrough": "2027-01-06T09:23:49.462Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "csvp-poschiavo-0843f26cd0d8",
+      "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+      "slugByLocale": {
+        "it": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
+        "en": "associate-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "mitarbeiter-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "prepose-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
+      },
+      "company": "Centro Sanitario Valposchiavo (CSVP)",
+      "companyKey": "csvp-poschiavo",
+      "companyDomain": "csvp.ch",
+      "title": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
+      "titleByLocale": {
+        "it": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "en": "Associate alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "de": "Mitarbeiter alle cure sociosanitarie o Collaboratore sanitario CRS",
+        "fr": "Préposé alle cure sociosanitarie o Collaboratore sanitario CRS"
+      },
+      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+      "descriptionByLocale": {
+        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
+        "en": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Attachment to social care or health care assistant CRS 60 - 80% (m/f) Main tasks Assistance in basic nursing care in close collaboration with the nurse\n• Requirements Minimum training: CRS or equivalent health and psychophysical balance Discretion, flexibility, accuracy and sensitivity Relative and communicative skills Work availability in interdisciplinary teams and collaboration in CSVP structures Shiftwork, weekends and public holidays\n• We offer Good introduction Family environment Motivated, dynamic and open Team Regular updates Minimum 5 weeks of holiday Start of activities Date from convent Application The job request accompanied by the respective documentation is to be sent by 29 November 2026 per e-mail in PDF format to: resources.umane@csvp.ch\n\nInformation may be requested to:\n\nHuman resources, Tel. 081 839 11 05",
+        "de": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Anbindung an Sozialhilfe oder Gesundheitsassistent CRS 60 - 80% (m/w) Hauptaufgaben Unterstützung in der Pflegegrundversorgung in enger Zusammenarbeit mit der Krankenschwester\n• Mindestschulung: CRS oder gleichwertiges Gesundheits- und psychophysisches Gleichgewicht Diskretion, Flexibilität, Genauigkeit und Empfindlichkeit Relative und kommunikative Fähigkeiten Arbeitsverfügbarkeit in interdisziplinären Teams und Zusammenarbeit in CSVP-Strukturen Schichtarbeit, Wochenenden und Feiertage\n• Wir bieten gute Einführung Familienumgebung Motiviert, dynamisch und offen Team Regelmäßige Updates Mindestens 5 Wochen Urlaub Beginn der Aktivitäten Datum ab Konvent Anwendung Die Stellenanfrage zusammen mit der jeweiligen Dokumentation ist bis zum 29. November 2026 per E-Mail im PDF-Format zu senden an: resources.umane@csvp.ch\n\nInformationen können angefordert werden, um\n\nPersonal, Tel. 081 839 11 05",
+        "fr": "7742 Poschiavo Via S. Sisto 6i Tél. +41 81 839 11 info@csvp.ch Annexe aux soins sociaux ou aux soins de santé CRS 60 - 80% (h/f) Principales tâches Assistance en soins infirmiers de base en étroite collaboration avec l'infirmière\n• Exigences Formation minimale: CRS ou équilibre physique et santé équivalent Discrétion, flexibilité, précision et sensibilité Compétences relatives et communicatives Disponibilité du travail dans les équipes interdisciplinaires et collaboration dans les structures du CSVP Travail posté, week-ends et jours fériés\n• Nous offrons une bonne introduction Milieu familial Motivé, dynamique et ouvert Équipe Mises à jour régulières Minimum 5 semaines de vacances Début des activités Date du couvent Application La demande d'emploi accompagnée de la documentation correspondante doit être envoyée au plus tard le 29 novembre 2026 par courriel en format PDF à: resources.umane@csvp.ch\n\nDes informations peuvent être demandées pour:\n\nRessources humaines, tél. 081 839 11 05"
+      },
+      "location": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
+      "source": "CSVP Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-14T09:23:49.133Z",
+      "addressLocality": "Poschiavo",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7742",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Poschiavo",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-12T09:23:49.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,9 +160,9 @@
         "de": "Techniker di radiologia medica SSS",
         "fr": "Technicien di radiologia medica SSS"
       },
-      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria \n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico \n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
+      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria\n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico\n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
       "descriptionByLocale": {
-        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria \n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico \n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
+        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria\n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico\n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
         "en": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Medical radiology technician SSS at hours, approx. 10-20% (m/f) Main tasks Allow patients Prepare and perform conventional radiological examinations in collaboration with the doctor radiologist Assist the doctor radiologist in the execution of ultrasound Manage digital images\n• Requirements Good health, psychophysical balance Discretion, flexibility, accuracy, sensitivity Work experience in relational and communicative skills Availability at the 24 h picket, work on weekends and holidays Knowledge of German desirable knowledge and skills in the field of computer science\n• We offer Good introduction Motivated, dynamic and open Team Regular updates Minimum 5 weeks of holiday Start of activities Date agreed Candidate Request of work accompanied by the respective do- cumentation is to be sent by 13 November 2026 per e-mail in PDF format to: resources.umane@csvp.ch\n\nInformation may be requested to:\n\nHuman resources, Tel. 081 839 11",
         "de": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Medizinische Radiologie Techniker SSS bei Stunden, ca. 10-20% (m/w) Hauptaufgaben Ermöglichen Patienten Vorbereitung und Durchführung konventioneller radiologischer Untersuchungen in Zusammenarbeit mit dem Arzt Radiologe Assist den Arzt Radiologe bei der Ausführung von Ultraschall Digitale Bilder verwalten\n• Anforderungen Gute Gesundheit, psychophysische Balance Diskretion, Flexibilität, Genauigkeit, Sensibilität Berufserfahrung in relationalen und kommunikativen Fähigkeiten Verfügbarkeit am 24h Streikposten, Arbeit an Wochenenden und Feiertagen Kenntnisse in Deutsch wünschenswerte Kenntnisse und Fertigkeiten im Bereich Informatik\n• Wir bieten gute Einführung Motivierte, dynamische und offene Team regelmäßige Updates Mindestens 5 Wochen Urlaub Beginn der Aktivitäten Das vereinbarte Kandidatenanfrage der Arbeit, begleitet von der jeweiligen Do-cumentation, ist bis zum 13. November 2026 per E-Mail im PDF-Format zu senden an: resources.umane@csvp.ch\n\nInformationen können angefordert werden, um\n\nPersonal, Tel. 081 839 11",
         "fr": "7742 Poschiavo Via S. Sisto 6i Tél. +41 81 839 11 info@csvp.ch Technicien en radiologie médicale SSS à heures, approx. 10-20% (h/f) Principales tâches Permettre aux patients de préparer et d'effectuer des examens radiologiques conventionnels en collaboration avec le médecin radiologue Aider le médecin radiologue à exécuter des ultrasons Gérer les images numériques\n• Besoins Bonne santé, équilibre psychophysique Discrétion, flexibilité, précision, sensibilité Expérience de travail dans les compétences relationnelles et communicatives Disponibilité au piquet de 24 h, travail le week-end et les vacances Connaissance des connaissances et compétences souhaitables de l'allemand dans le domaine de l'informatique\n• Nous offrons une bonne introduction Motivée, dynamique et ouverte Équipe Mises à jour régulières Minimum 5 semaines de vacances Début des activités Date convenue Candidate La demande de travail accompagnée de la proposition respective doit être envoyée au plus tard le 13 novembre 2026 par e-mail en format PDF à: resources.umane@csvp.ch\n\nDes informations peuvent être demandées pour:\n\nRessources humaines, tél. 081 839 11"
@@ -140,75 +208,8 @@
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:20:05.404Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "csvp-poschiavo-0843f26cd0d8",
-      "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
-      "slugByLocale": {
-        "it": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
-        "en": "associate-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "de": "mitarbeiter-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "fr": "prepose-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-centro-sanitario-valposchiavo-csvp-poschiavo"
-      },
-      "company": "Centro Sanitario Valposchiavo (CSVP)",
-      "companyKey": "csvp-poschiavo",
-      "companyDomain": "csvp.ch",
-      "title": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
-      "titleByLocale": {
-        "it": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
-        "en": "Associate alle cure sociosanitarie o Collaboratore sanitario CRS",
-        "de": "Mitarbeiter alle cure sociosanitarie o Collaboratore sanitario CRS",
-        "fr": "Préposé alle cure sociosanitarie o Collaboratore sanitario CRS"
-      },
-      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
-      "descriptionByLocale": {
-        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Addetto alle cure sociosanitarie o Collaboratore sanitario CRS 60 - 80% (m/f) Compiti principali Assistenza nelle cure infermieristiche di base in stretta collaborazione con l’infermiera Lavori di economia domestica \n• Requisiti Formazione minima: corso collaboratore sanitario CRS o equivalente Buona salute ed equilibrio psicofisico Discrezione, flessibilità, accuratezza e sensibilità Competenze relazionali e comunicative Disponibilità al lavoro in team interdisciplinari e alla collaborazione nelle strutture del CSVP Disponibilità al lavoro a turni, nei fine settimana e nei giorni festivi \n• Offriamo Buona introduzione Ambiente familiare Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di ferie Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva documentazione è da inviare entro il 29 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 05",
-        "en": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Attachment to social care or health care assistant CRS 60 - 80% (m/f) Main tasks Assistance in basic nursing care in close collaboration with the nurse\n• Requirements Minimum training: CRS or equivalent health and psychophysical balance Discretion, flexibility, accuracy and sensitivity Relative and communicative skills Work availability in interdisciplinary teams and collaboration in CSVP structures Shiftwork, weekends and public holidays\n• We offer Good introduction Family environment Motivated, dynamic and open Team Regular updates Minimum 5 weeks of holiday Start of activities Date from convent Application The job request accompanied by the respective documentation is to be sent by 29 November 2026 per e-mail in PDF format to: resources.umane@csvp.ch\n\nInformation may be requested to:\n\nHuman resources, Tel. 081 839 11 05",
-        "de": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Anbindung an Sozialhilfe oder Gesundheitsassistent CRS 60 - 80% (m/w) Hauptaufgaben Unterstützung in der Pflegegrundversorgung in enger Zusammenarbeit mit der Krankenschwester\n• Mindestschulung: CRS oder gleichwertiges Gesundheits- und psychophysisches Gleichgewicht Diskretion, Flexibilität, Genauigkeit und Empfindlichkeit Relative und kommunikative Fähigkeiten Arbeitsverfügbarkeit in interdisziplinären Teams und Zusammenarbeit in CSVP-Strukturen Schichtarbeit, Wochenenden und Feiertage\n• Wir bieten gute Einführung Familienumgebung Motiviert, dynamisch und offen Team Regelmäßige Updates Mindestens 5 Wochen Urlaub Beginn der Aktivitäten Datum ab Konvent Anwendung Die Stellenanfrage zusammen mit der jeweiligen Dokumentation ist bis zum 29. November 2026 per E-Mail im PDF-Format zu senden an: resources.umane@csvp.ch\n\nInformationen können angefordert werden, um\n\nPersonal, Tel. 081 839 11 05",
-        "fr": "7742 Poschiavo Via S. Sisto 6i Tél. +41 81 839 11 info@csvp.ch Annexe aux soins sociaux ou aux soins de santé CRS 60 - 80% (h/f) Principales tâches Assistance en soins infirmiers de base en étroite collaboration avec l'infirmière\n• Exigences Formation minimale: CRS ou équilibre physique et santé équivalent Discrétion, flexibilité, précision et sensibilité Compétences relatives et communicatives Disponibilité du travail dans les équipes interdisciplinaires et collaboration dans les structures du CSVP Travail posté, week-ends et jours fériés\n• Nous offrons une bonne introduction Milieu familial Motivé, dynamique et ouvert Équipe Mises à jour régulières Minimum 5 semaines de vacances Début des activités Date du couvent Application La demande d'emploi accompagnée de la documentation correspondante doit être envoyée au plus tard le 29 novembre 2026 par courriel en format PDF à: resources.umane@csvp.ch\n\nDes informations peuvent être demandées pour:\n\nRessources humaines, tél. 081 839 11 05"
-      },
-      "location": "Poschiavo",
-      "canton": "GR",
-      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
-      "source": "CSVP Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-11-13T21:20:05.047Z",
-      "addressLocality": "Poschiavo",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7742",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Poschiavo",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:20:05.047Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
