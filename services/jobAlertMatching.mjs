@@ -940,6 +940,54 @@ function createSubstringMemo() {
 
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
 const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
+const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 64;
+const DESCRIPTION_TRIGRAM_BLOOM_MASK = DESCRIPTION_TRIGRAM_BLOOM_WORDS * 32 - 1;
+
+/** Build a 2,048-bit negative filter for substrings of one normalized description. */
+function buildDescriptionTrigramBloom(text) {
+  const bloom = new Uint32Array(DESCRIPTION_TRIGRAM_BLOOM_WORDS);
+  for (let index = 0; index + 2 < text.length; index++) {
+    const first = text.charCodeAt(index) + 1;
+    const second = text.charCodeAt(index + 1) + 1;
+    const third = text.charCodeAt(index + 2) + 1;
+    const hashA = (
+      Math.imul(first, 0x9e3779b1)
+      ^ Math.imul(second, 0x85ebca6b)
+      ^ Math.imul(third, 0xc2b2ae35)
+    ) >>> 0;
+    const hashB = Math.imul(hashA ^ 0x27d4eb2d, 0x165667b1) >>> 0;
+    let bit = hashA & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    bloom[bit >>> 5] |= 1 << (bit & 31);
+    bit = hashB & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    bloom[bit >>> 5] |= 1 << (bit & 31);
+    bit = (hashA + hashB) & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    bloom[bit >>> 5] |= 1 << (bit & 31);
+  }
+  return bloom;
+}
+
+/** A false result is conclusive; a true result still needs the exact includes check. */
+function descriptionTrigramBloomMayContain(bloom, keyword) {
+  if (keyword.length < 3) return true;
+  for (let index = 0; index + 2 < keyword.length; index++) {
+    const first = keyword.charCodeAt(index) + 1;
+    const second = keyword.charCodeAt(index + 1) + 1;
+    const third = keyword.charCodeAt(index + 2) + 1;
+    const hashA = (
+      Math.imul(first, 0x9e3779b1)
+      ^ Math.imul(second, 0x85ebca6b)
+      ^ Math.imul(third, 0xc2b2ae35)
+    ) >>> 0;
+    const hashB = Math.imul(hashA ^ 0x27d4eb2d, 0x165667b1) >>> 0;
+    let bit = hashA & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
+    bit = hashB & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
+    bit = (hashA + hashB) & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
+  }
+  return true;
+}
 
 /** @returns {-1|0|1} unknown, miss, hit */
 function memoRead(memo, index) {
@@ -977,7 +1025,7 @@ function memoWrite(memo, index, found) {
  * inside the description, or across the joining space; the three checks below
  * cover exactly those cases, so the answer is the plain `includes` answer.
  *
- * @param {{features: {titleText: string, descriptionText: string}, index: number, jobIndex: number}} entry
+ * @param {{features: {titleText: string, descriptionText: string}, sharedFeatures: object, index: number, jobIndex: number}} entry
  * @param {ReturnType<typeof createSubstringMemo>} localeMemo (locale, keyword) memo over entry indexes
  * @param {ReturnType<typeof createJobFeatureStore>} featureStore
  * @param {string} keyword
@@ -989,7 +1037,12 @@ function memoKeywordInFullText(entry, localeMemo, featureStore, keyword) {
   const { titleText, descriptionText } = entry.features;
   let found = titleText.includes(keyword);
   if (!found) {
-    found = featureStore.descriptionContains(keyword, entry.jobIndex, descriptionText);
+    found = featureStore.descriptionContains(
+      keyword,
+      entry.jobIndex,
+      descriptionText,
+      entry.sharedFeatures,
+    );
   }
   if (!found) found = keywordAcrossTextJoin(titleText, descriptionText, keyword);
   memoWrite(localeMemo, entry.index, found);
@@ -1011,6 +1064,9 @@ export function createJobFeatureStore() {
   const jobIndexByJob = new WeakMap();
   let jobCount = 0;
   const descriptionMemos = new Map();
+  // Only built below the existing 65,536-job ceiling: at 256 bytes each,
+  // description Bloom payload is capped at 16 MiB per run-scoped store.
+  const descriptionBloomsByFeatures = new WeakMap();
   const base = (job) => {
     let found = byJob.get(job);
     if (!found) {
@@ -1041,13 +1097,24 @@ export function createJobFeatureStore() {
     }
     return memo;
   };
-  const descriptionContains = (keyword, index, text) => {
+  const descriptionContains = (keyword, index, text, sharedFeatures = null) => {
     // Bound bitmap growth as well as memo count: 2,048 memos × two bitmaps ×
     // 65,536 bits stays at 32 MiB. Later jobs are scanned without memoizing.
     if (index >= MAX_SHARED_DESCRIPTION_MEMO_JOBS) return text.includes(keyword);
     const memo = descriptionMemo(keyword);
     const known = memoRead(memo, index);
     if (known !== -1) return known === 1;
+    if (sharedFeatures && keyword.length >= 3 && keyword.length <= text.length) {
+      let bloom = descriptionBloomsByFeatures.get(sharedFeatures);
+      if (!bloom) {
+        bloom = buildDescriptionTrigramBloom(text);
+        descriptionBloomsByFeatures.set(sharedFeatures, bloom);
+      }
+      if (!descriptionTrigramBloomMayContain(bloom, keyword)) {
+        memoWrite(memo, index, false);
+        return false;
+      }
+    }
     const found = text.includes(keyword);
     memoWrite(memo, index, found);
     return found;
@@ -1098,8 +1165,10 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
     let found = byLocale.get(key);
     if (!found) {
       const space = spaceFor(key);
+      const sharedFeatures = featureStore.base(job);
       found = {
-        features: jobMatchFeaturesWithBase(job, locale, featureStore.base(job)),
+        features: jobMatchFeaturesWithBase(job, locale, sharedFeatures),
+        sharedFeatures,
         index: space.size++,
         jobIndex: featureStore.jobIndex(job),
         locHaystack: null,

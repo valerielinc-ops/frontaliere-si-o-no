@@ -444,7 +444,7 @@ describe('matching cost per alert (#9314)', () => {
     expect(entries.second.map((entry) => entry.index)).toEqual([0, 1]);
   });
 
-  it('reuses description keyword scans across fresh per-batch caches', () => {
+  it('shares conclusive negative results across fresh per-batch caches', () => {
     const job = fixtureJobs()[6];
     const store = createJobFeatureStore();
     const { counts } = countDuring(() => {
@@ -454,7 +454,57 @@ describe('matching cost per alert (#9314)', () => {
         expect(cache.keywordTest(locale, 'unlikely-keyword-not-in-fixture')(entry)).toBe(false);
       }
     });
-    expect(counts.descriptionScans).toBe(1);
+    expect(counts.descriptionScans).toBe(0);
+  });
+
+  it('keeps trigram-prefiltered keyword results equal to exact full-text includes', () => {
+    const job = {
+      id: 'trigram-prefilter',
+      title: 'Senior exper',
+      titleByLocale: { en: 'Senior exper' },
+      description: 't autonome: café, Zürich, ingénieur système 🌟.',
+    };
+    const cache = createJobFeatureCache();
+    const entry = cache.entry(job, 'en');
+    const fullText = `${entry.features.titleText} ${entry.features.descriptionText}`;
+    const queries = new Set<string>(['exper t', 'it', 'xyz', 'café', '🌟']);
+    const text = entry.features.descriptionText;
+    for (let start = 0; start < text.length; start++) {
+      for (const length of [3, 4, 7, 12]) {
+        if (start + length <= text.length) queries.add(text.slice(start, start + length));
+      }
+    }
+
+    for (const keyword of queries) {
+      expect(cache.keywordTest('en', keyword)(entry)).toBe(fullText.includes(keyword));
+    }
+  });
+
+  it('skips exact description scans when the shared trigram filter rules out a keyword', () => {
+    const job = {
+      id: 'trigram-prefilter-misses',
+      title: 'Baker',
+      titleByLocale: { en: 'Baker' },
+      description: 'a'.repeat(1000),
+    };
+    const cache = createJobFeatureCache();
+    const entry = cache.entry(job, 'en');
+    const descriptionText = entry.features.descriptionText;
+    const originalIncludes = String.prototype.includes;
+    let descriptionScans = 0;
+    const queries = ['xyz', 'qzx', 'vjq', 'rty', 'mno', 'uvw', 'kpd', 'bfg'];
+    try {
+      String.prototype.includes = function (this: string, search: string, position?: number) {
+        if (this === descriptionText) descriptionScans++;
+        return originalIncludes.call(this, search, position);
+      };
+      for (const keyword of queries) {
+        expect(cache.keywordTest('en', keyword)(entry)).toBe(false);
+      }
+    } finally {
+      String.prototype.includes = originalIncludes;
+    }
+    expect(descriptionScans).toBe(0);
   });
 
   it('does not grow shared description bitmaps beyond the fixed job-index ceiling', () => {
