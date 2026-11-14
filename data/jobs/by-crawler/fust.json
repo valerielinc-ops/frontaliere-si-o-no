@@ -46,9 +46,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "direttore-trice-lavori-fust-rapperswil-jona",
-        "en": "bauleiter-in-fust-rapperswil-jona",
+        "en": "construction-site-manager-fust-rapperswil-jona",
         "de": "bauleiter-in-fust-rapperswil-jona",
-        "fr": "bauleiter-in-fust-rapperswil-jona"
+        "fr": "conducteur-rice-de-travaux-fust-rapperswil-jona"
       },
       "requirementsByLocale": {},
       "addressLocality": "Rapperswil-Jona",
@@ -77,7 +77,7 @@
     },
     {
       "id": "company-veti2q",
-      "slug": "schreinermonteur-in-kuchen-bader-fust-burgdorf",
+      "slug": "montatore-trice-di-cucine-e-bagni-fust-burgdorf",
       "company": "Fust",
       "title": "Schreinermonteur:in Küchen & Bäder",
       "location": "Burgdorf",
@@ -117,10 +117,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "schreinermonteur-in-kuchen-bader-fust-burgdorf",
-        "en": "schreinermonteur-in-kuchen-bader-fust-burgdorf",
+        "it": "montatore-trice-di-cucine-e-bagni-fust-burgdorf",
+        "en": "carpenter-installer-for-kitchens-bathrooms-fust-burgdorf",
         "de": "schreinermonteur-in-kuchen-bader-fust-burgdorf",
-        "fr": "schreinermonteur-in-kuchen-bader-fust-burgdorf"
+        "fr": "monteur-euse-en-menuiserie-pour-cuisines-et-salles-de-bains-fust-burgdorf"
       },
       "requirementsByLocale": {},
       "addressLocality": "Burgdorf",
@@ -145,7 +145,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf"
+        ],
+        "en": [
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf"
+        ],
+        "fr": [
+          "schreinermonteur-in-kuchen-bader-fust-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "schreinermonteur-in-kuchen-bader-fust-burgdorf"
+      ]
     },
     {
       "id": "company-38gigm",
@@ -190,9 +204,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-visp",
-        "en": "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp",
+        "en": "sales-consultant-for-home-electronics-multimedia-80-100-fust-visp",
         "de": "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp",
-        "fr": "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-visp"
+        "fr": "conseiller-ere-de-vente-pour-l-electromenager-et-le-multimedia-80-100-fust-visp"
       },
       "requirementsByLocale": {},
       "addressLocality": "Visp",
@@ -262,9 +276,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "monteur-per-den-austausch-von-kucheneinbaugeraten-fust-burgdorf",
-        "en": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf",
+        "en": "installers-for-the-replacement-of-built-in-kitchen-appliances-fust-burgdorf",
         "de": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf",
-        "fr": "monteur-fur-den-austausch-von-kucheneinbaugeraten-fust-burgdorf"
+        "fr": "installateurs-pour-le-remplacement-des-appareils-de-cuisine-integres-fust-burgdorf"
       },
       "requirementsByLocale": {},
       "addressLocality": "Burgdorf",

@@ -8999,12 +8999,12 @@
     },
     {
       "id": "kanton-zuerich-57236fb2f925",
-      "slug": "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich",
+      "slug": "impiegato-a-di-segreteria-e-coordinamento-it-50-60-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-sekretariat-it-koordination-50-60-kanton-zuerich-zurich",
-        "it": "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich",
-        "en": "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich",
-        "fr": "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich"
+        "it": "impiegato-a-di-segreteria-e-coordinamento-it-50-60-kantonale-verwaltung-zurich-zurich",
+        "en": "administrative-assistant-secretariat-it-coordination-50-60-kantonale-verwaltung-zurich-zurich",
+        "fr": "collaborateur-trice-administratif-ve-secretariat-coordination-informatique-50-60-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9056,11 +9056,19 @@
       "pensum": "50 - 60%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-sekretariat-it-koordination-50-60-kanton-zuerich-zurich"
+          "sachbearbeiter-in-sekretariat-it-koordination-50-60-kanton-zuerich-zurich",
+          "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-sekretariat-it-koordination-50-60-kanton-zuerich-zurich"
+        "sachbearbeiter-in-sekretariat-it-koordination-50-60-kanton-zuerich-zurich",
+        "sachbearbeiter-in-sekretariat-it-koordination-50-60-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 47400,
       "salaryMax": 80700,
@@ -9452,7 +9460,7 @@
         "de": "controller-in-kanton-zuerich-zurich",
         "it": "controller-in-kanton-zuerich-zurich",
         "en": "controller-in-kanton-zuerich-zurich",
-        "fr": "controller-in-kanton-zuerich-zurich"
+        "fr": "controleur-euse-de-gestion-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10505,12 +10513,12 @@
     },
     {
       "id": "kanton-zuerich-4824d0c0cc06",
-      "slug": "technology-architect-kanton-zuerich-zurich",
+      "slug": "technology-architetto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "technology-architect-kanton-zuerich-zurich",
-        "it": "technology-architect-kanton-zuerich-zurich",
+        "it": "technology-architetto-kantonale-verwaltung-zurich-zurich",
         "en": "technology-architect-kanton-zuerich-zurich",
-        "fr": "technology-architect-kanton-zuerich-zurich"
+        "fr": "technology-architecte-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10577,7 +10585,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:50:33.984Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:50:33.984Z"
+      "firstSeenAt": "2026-11-13T21:50:33.984Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-architect-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "technology-architect-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technology-architect-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-2ced5a930811",

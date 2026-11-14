@@ -3178,12 +3178,12 @@
     },
     {
       "id": "lindenhofgruppe-0903050e83d1",
-      "slug": "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital",
+      "slug": "fisioterapista-diplomato-a-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-lindenhofgruppe-ch",
-        "it": "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital",
-        "en": "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital",
-        "fr": "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital"
+        "it": "fisioterapista-diplomato-a-lindenhofgruppe-sonnenhofspital",
+        "en": "qualified-physiotherapist-lindenhofgruppe-sonnenhofspital",
+        "fr": "physiotherapeute-diplome-e-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3231,11 +3231,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-lindenhofgruppe-ch"
+          "dipl-physiotherapeut-in-lindenhofgruppe-ch",
+          "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-lindenhofgruppe-ch"
+        "dipl-physiotherapeut-in-lindenhofgruppe-ch",
+        "dipl-physiotherapeut-in-lindenhofgruppe-sonnenhofspital"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -5,7 +5,7 @@
   "jobs": [
     {
       "title": "Data Engineer (m/w)",
-      "slug": "data-engineer-m-w-confederazione-zurich",
+      "slug": "data-ingegnere-m-w-confederazione-svizzera-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/data-engineer-m-w/56fab532-eb45-40d6-9577-3ab0138f4460",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21073",
       "company": "Confederazione Svizzera",
@@ -42,9 +42,9 @@
       },
       "slugByLocale": {
         "de": "data-engineer-m-w-confederazione-zurich",
-        "it": "data-engineer-m-w-confederazione-zurich",
+        "it": "data-ingegnere-m-w-confederazione-svizzera-zurich",
         "en": "data-engineer-m-w-confederazione-zurich",
-        "fr": "data-engineer-m-w-confederazione-zurich"
+        "fr": "data-ingenieur-m-w-confederazione-svizzera-zurich"
       },
       "id": "confederazione-ticino-e4cf38580669",
       "salaryMin": 83000,
@@ -67,11 +67,22 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-m-w-confederazione-zurich"
+        ],
+        "fr": [
+          "data-engineer-m-w-confederazione-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-engineer-m-w-confederazione-zurich"
+      ]
     },
     {
       "title": "Juristische/-r Praktikant/-in (Wirtschaftskriminalität)",
-      "slug": "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern",
+      "slug": "tirocinante-in-ambito-giuridico-criminalita-economica-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in-wirtschaftskriminalitaet/4c810daf-a9a3-4b34-8ae1-696044609808",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21010",
       "company": "Confederazione Svizzera",
@@ -108,9 +119,9 @@
       },
       "slugByLocale": {
         "de": "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern",
-        "it": "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern",
-        "en": "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern",
-        "fr": "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern"
+        "it": "tirocinante-in-ambito-giuridico-criminalita-economica-confederazione-svizzera-bern",
+        "en": "legal-intern-white-collar-crime-confederazione-svizzera-bern",
+        "fr": "stagiaire-juridique-criminalite-economique-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-5bf56d29b5c1",
       "needsRetranslation": true,
@@ -134,11 +145,25 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-31T17:40:05.792Z"
+      "firstSeenAt": "2026-08-31T17:40:05.792Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern"
+        ],
+        "en": [
+          "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern"
+        ],
+        "fr": [
+          "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-r-praktikant-in-wirtschaftskriminalitat-confederazione-bern"
+      ]
     },
     {
       "title": "Sachbearbeiter/-in Familienzulagen",
-      "slug": "sachbearbeiter-in-familienzulagen-confederazione-bern",
+      "slug": "impiegato-a-amministrativo-a-per-gli-assegni-familiari-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-familienzulagen/8a1c0d27-7065-4769-96e2-259f5d4409e8",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20988",
       "company": "Confederazione Svizzera",
@@ -175,9 +200,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-familienzulagen-confederazione-bern",
-        "it": "sachbearbeiter-in-familienzulagen-confederazione-bern",
-        "en": "sachbearbeiter-in-familienzulagen-confederazione-bern",
-        "fr": "sachbearbeiter-in-familienzulagen-confederazione-bern"
+        "it": "impiegato-a-amministrativo-a-per-gli-assegni-familiari-confederazione-svizzera-bern",
+        "en": "clerk-for-family-allowances-confederazione-svizzera-bern",
+        "fr": "collaborateur-trice-administratif-ve-en-allocations-familiales-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-7a51146bb8d6",
       "needsRetranslation": true,
@@ -201,7 +226,21 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-07-17T10:53:38.982Z"
+      "firstSeenAt": "2026-07-17T10:53:38.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-familienzulagen-confederazione-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-familienzulagen-confederazione-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-familienzulagen-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-familienzulagen-confederazione-bern"
+      ]
     },
     {
       "title": "Business Owner Identity and Access Services (1154)",
@@ -284,7 +323,7 @@
     },
     {
       "title": "Lernende/r Koch/Köchin EFZ",
-      "slug": "lernende-r-koch-kochin-efz-confederazione-tenero",
+      "slug": "apprendista-cuoco-a-efz-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-koch-koechin-efz/01e55960-750e-46a8-adba-11d7a0709d2f",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20901",
       "company": "Confederazione Svizzera",
@@ -321,9 +360,9 @@
       },
       "slugByLocale": {
         "de": "lernende-r-koch-kochin-efz-confederazione-tenero",
-        "it": "lernende-r-koch-kochin-efz-confederazione-tenero",
-        "en": "lernende-r-koch-kochin-efz-confederazione-tenero",
-        "fr": "lernende-r-koch-kochin-efz-confederazione-tenero"
+        "it": "apprendista-cuoco-a-efz-confederazione-svizzera-tenero",
+        "en": "cook-apprentice-efz-confederazione-svizzera-tenero",
+        "fr": "apprenti-e-cuisinier-ere-cfc-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-b5941287742e",
       "needsRetranslation": true,
@@ -347,11 +386,25 @@
       "streetAddress": "Tenero",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-koch-kochin-efz-confederazione-tenero"
+        ],
+        "en": [
+          "lernende-r-koch-kochin-efz-confederazione-tenero"
+        ],
+        "fr": [
+          "lernende-r-koch-kochin-efz-confederazione-tenero"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-koch-kochin-efz-confederazione-tenero"
+      ]
     },
     {
       "title": "Lernende/-r Mechanikpraktiker/-in EBA",
-      "slug": "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero",
+      "slug": "apprendista-meccanico-a-pratico-a-eba-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-mechanikpraktiker-in-eba/e17468cd-f81d-407c-a9f4-1a41f287e07e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21067",
       "company": "Confederazione Svizzera",
@@ -388,9 +441,9 @@
       },
       "slugByLocale": {
         "de": "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero",
-        "it": "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero",
-        "en": "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero",
-        "fr": "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero"
+        "it": "apprendista-meccanico-a-pratico-a-eba-confederazione-svizzera-tenero",
+        "en": "mechanical-practitioner-apprentice-eba-confederazione-svizzera-tenero",
+        "fr": "apprenti-e-praticien-ne-en-mecanique-afp-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-f33bfb638b2f",
       "needsRetranslation": true,
@@ -414,11 +467,25 @@
       "streetAddress": "Tenero",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero"
+        ],
+        "en": [
+          "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero"
+        ],
+        "fr": [
+          "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-mechanikpraktiker-in-eba-confederazione-tenero"
+      ]
     },
     {
       "title": "Spezialist/-in Testflugbetrieb Jet/Helikopter",
-      "slug": "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen",
+      "slug": "specialista-delle-operazioni-di-volo-di-prova-per-jet-elicotteri-confederazione-svizzera-emmen",
       "url": "https://jobs.admin.ch/posti-vacanti/spezialist-in-testflugbetrieb-jet-helikopter/780b6f95-690a-4bda-8cb0-9ab04d5b3dbc",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21063",
       "company": "Confederazione Svizzera",
@@ -455,9 +522,9 @@
       },
       "slugByLocale": {
         "de": "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen",
-        "it": "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen",
-        "en": "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen",
-        "fr": "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen"
+        "it": "specialista-delle-operazioni-di-volo-di-prova-per-jet-elicotteri-confederazione-svizzera-emmen",
+        "en": "test-flight-operations-specialist-jet-helicopter-confederazione-svizzera-emmen",
+        "fr": "specialiste-des-operations-de-vols-d-essai-en-jet-helicoptere-confederazione-svizzera-emmen"
       },
       "id": "confederazione-ticino-8c55a2284985",
       "needsRetranslation": true,
@@ -481,11 +548,25 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen"
+        ],
+        "en": [
+          "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen"
+        ],
+        "fr": [
+          "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-testflugbetrieb-jet-helikopter-confederazione-emmen"
+      ]
     },
     {
       "title": "Praktikant/in HMS 3/1",
-      "slug": "praktikant-in-hms-3-1-confederazione-tenero",
+      "slug": "stagista-hms-3-1-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/praktikant-in-hms-3-1/d28faefd-4a8d-4db3-bd2d-5738b8456eb2",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20900",
       "company": "Confederazione Svizzera",
@@ -522,9 +603,9 @@
       },
       "slugByLocale": {
         "de": "praktikant-in-hms-3-1-confederazione-tenero",
-        "it": "praktikant-in-hms-3-1-confederazione-tenero",
-        "en": "praktikant-in-hms-3-1-confederazione-tenero",
-        "fr": "praktikant-in-hms-3-1-confederazione-tenero"
+        "it": "stagista-hms-3-1-confederazione-svizzera-tenero",
+        "en": "intern-hms-3-1-confederazione-svizzera-tenero",
+        "fr": "stagiaire-hms-3-1-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-9b5b6187e920",
       "needsRetranslation": true,
@@ -548,11 +629,25 @@
       "streetAddress": "Tenero",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-hms-3-1-confederazione-tenero"
+        ],
+        "en": [
+          "praktikant-in-hms-3-1-confederazione-tenero"
+        ],
+        "fr": [
+          "praktikant-in-hms-3-1-confederazione-tenero"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-hms-3-1-confederazione-tenero"
+      ]
     },
     {
       "title": "Lernende/-r Fachmann/-frau Betriebsunterhalt EFZ",
-      "slug": "apprendista-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-tenero",
+      "slug": "apprendista-operatore-trice-di-manutenzione-efz-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz/06e692ef-5b0d-4bc0-9f3a-4382ab26903b",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21070",
       "company": "Confederazione Svizzera",
@@ -589,19 +684,27 @@
       },
       "slugByLocale": {
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero",
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-tenero",
-        "en": "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero",
-        "fr": "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero"
+        "it": "apprendista-operatore-trice-di-manutenzione-efz-confederazione-svizzera-tenero",
+        "en": "apprentice-facility-maintenance-specialist-efz-confederazione-svizzera-tenero",
+        "fr": "apprenti-e-agent-e-d-exploitation-cfc-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-68c8fa7a7685",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero",
+          "apprendista-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-tenero"
+        ],
+        "en": [
+          "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero"
+        ],
+        "fr": [
           "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero"
         ]
       },
       "previousSlugs": [
-        "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero"
+        "lernende-r-fachmann-frau-betriebsunterhalt-efz-confederazione-tenero",
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-tenero"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -627,7 +730,7 @@
     },
     {
       "title": "Lernende/r Fachmann/-frau Hotellerie-Hauswirtschaft EFZ",
-      "slug": "apprendista-fachmann-frau-hotellerie-hauswirtschaft-cfc-confederazione-svizzera-tenero",
+      "slug": "apprendista-specialista-in-albergheria-economia-domestica-afc-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz/e00a34d8-f3f6-4466-9bb4-d53b2184f1eb",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21066",
       "company": "Confederazione Svizzera",
@@ -664,19 +767,27 @@
       },
       "slugByLocale": {
         "de": "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero",
-        "it": "apprendista-fachmann-frau-hotellerie-hauswirtschaft-cfc-confederazione-svizzera-tenero",
-        "en": "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero",
-        "fr": "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero"
+        "it": "apprendista-specialista-in-albergheria-economia-domestica-afc-confederazione-svizzera-tenero",
+        "en": "apprentice-hospitality-and-housekeeping-specialist-efz-confederazione-svizzera-tenero",
+        "fr": "apprenti-e-specialiste-en-hotellerie-intendance-cfc-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-b20f372c13bf",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero",
+          "apprendista-fachmann-frau-hotellerie-hauswirtschaft-cfc-confederazione-svizzera-tenero"
+        ],
+        "en": [
+          "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero"
+        ],
+        "fr": [
           "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero"
         ]
       },
       "previousSlugs": [
-        "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero"
+        "lernende-r-fachmann-frau-hotellerie-hauswirtschaft-efz-confederazione-tenero",
+        "apprendista-fachmann-frau-hotellerie-hauswirtschaft-cfc-confederazione-svizzera-tenero"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -769,7 +880,7 @@
     },
     {
       "title": "Lernende/r Restaurantfachmann/-frau EFZ",
-      "slug": "apprendista-restaurantfachmann-frau-cfc-confederazione-svizzera-tenero",
+      "slug": "apprendista-specialista-della-ristorazione-afc-confederazione-svizzera-tenero",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-restaurantfachmann-frau-efz/0eda0f37-92c8-41fe-bbca-1a3d474ddec2",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21068",
       "company": "Confederazione Svizzera",
@@ -806,19 +917,27 @@
       },
       "slugByLocale": {
         "de": "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero",
-        "it": "apprendista-restaurantfachmann-frau-cfc-confederazione-svizzera-tenero",
-        "en": "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero",
-        "fr": "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero"
+        "it": "apprendista-specialista-della-ristorazione-afc-confederazione-svizzera-tenero",
+        "en": "apprentice-restaurant-specialist-efz-confederazione-svizzera-tenero",
+        "fr": "apprenti-e-specialiste-en-restauration-cfc-confederazione-svizzera-tenero"
       },
       "id": "confederazione-ticino-3ae3e10c7942",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero",
+          "apprendista-restaurantfachmann-frau-cfc-confederazione-svizzera-tenero"
+        ],
+        "en": [
+          "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero"
+        ],
+        "fr": [
           "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero"
         ]
       },
       "previousSlugs": [
-        "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero"
+        "lernende-r-restaurantfachmann-frau-efz-confederazione-tenero",
+        "apprendista-restaurantfachmann-frau-cfc-confederazione-svizzera-tenero"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -844,7 +963,7 @@
     },
     {
       "title": "Hochschulpraktikant/-in (1393)",
-      "slug": "hochschulpraktikant-in-1393-confederazione-zollikofen",
+      "slug": "stagista-universitario-a-1393-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-1393/671e352a-8bc8-4842-93c6-0413575560d3",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20983",
       "company": "Confederazione Svizzera",
@@ -881,9 +1000,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-1393-confederazione-zollikofen",
-        "it": "hochschulpraktikant-in-1393-confederazione-zollikofen",
-        "en": "hochschulpraktikant-in-1393-confederazione-zollikofen",
-        "fr": "hochschulpraktikant-in-1393-confederazione-zollikofen"
+        "it": "stagista-universitario-a-1393-confederazione-svizzera-zollikofen",
+        "en": "university-intern-1393-confederazione-svizzera-zollikofen",
+        "fr": "stagiaire-universitaire-1393-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-2e864e822774",
       "needsRetranslation": true,
@@ -907,11 +1026,25 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:54:10.886Z"
+      "firstSeenAt": "2026-11-13T21:54:10.886Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-1393-confederazione-zollikofen"
+        ],
+        "en": [
+          "hochschulpraktikant-in-1393-confederazione-zollikofen"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-1393-confederazione-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-1393-confederazione-zollikofen"
+      ]
     },
     {
       "title": "Mitarbeiter/in Facility Management / Registrator/in/Dokumentalist/in",
-      "slug": "collaboratore-trice-facility-management-registrator-in-dokumentalist-in-confederazione-svizzera-bern",
+      "slug": "addetto-a-alla-gestione-delle-strutture-registratore-trice-documentalista-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-facility-management-registrator-in-dokumentalist-in/67c6e322-2ce4-4a20-a0c7-b2636cacefd8",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=21065",
       "company": "Confederazione Svizzera",
@@ -948,19 +1081,27 @@
       },
       "slugByLocale": {
         "de": "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern",
-        "it": "collaboratore-trice-facility-management-registrator-in-dokumentalist-in-confederazione-svizzera-bern",
-        "en": "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern",
-        "fr": "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern"
+        "it": "addetto-a-alla-gestione-delle-strutture-registratore-trice-documentalista-confederazione-svizzera-bern",
+        "en": "facility-management-employee-registrar-documentalist-confederazione-svizzera-bern",
+        "fr": "collaborateur-trice-facility-management-registrateur-trice-documentaliste-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8c256e9a28aa",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern",
+          "collaboratore-trice-facility-management-registrator-in-dokumentalist-in-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern"
+        ],
+        "fr": [
           "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern"
+        "mitarbeiter-in-facility-management-registrator-in-dokumentalist-in-confederazione-bern",
+        "collaboratore-trice-facility-management-registrator-in-dokumentalist-in-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8300,12 +8441,13 @@
         "en": "real-estate-project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-immobilien-confederazione-bern",
         "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern",
-        "it": "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
+        "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-576bb222693c",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-immobilien-confederazione-bern"
+          "projektleiter-in-immobilien-confederazione-bern",
+          "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-immobilien-confederazione-bern"
@@ -8315,7 +8457,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-immobilien-confederazione-bern"
+        "projektleiter-in-immobilien-confederazione-bern",
+        "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8734,7 +8877,8 @@
       },
       "previousSlugs": [
         "juristische-r-praktikant-in-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Juristischer Dienst",
@@ -14925,12 +15069,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -14940,7 +15085,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -16134,7 +16280,7 @@
         "fr": "## Mettre au point\n\nVoulez-vous trouver indépendamment des solutions difficiles? En collaboration avec vos collègues, assurez la sécurité des installations techniques dans les bâtiments complexes, 365 jours par an.\n\n- Date d'entrée: 01.11.2026\n- Type d'emploi: perpétuel\n- Numéro de référence: 620-17485\n\n## Vous pouvez faire cette contribution\n\n- Co-responsable de la mesure, du contrôle, du contrôle et de la technologie de contrôle des installations techniques\n- Entretien, entretien et exploitation du matériel complexe de construction et de construction\n- Effectuer l'entretien et la planification des commandes\n- Effectuer des travaux de dépannage et d'optimisation\n- Mettre en œuvre de petites réparations et des mesures pour prévenir les défaillances opérationnelles, les perturbations et les dommages de toutes sortes\n\n## Cela les rend uniques.\n\n- Formation complète dans un domaine de la technologie du bâtiment avec un permis de raccordement NIV 15\n- Expertise en technologie du bâtiment avec expérience dans l'application des systèmes de contrôle du bâtiment\n- des manières indépendantes, socialement compétentes, discrètes et agréables\n- Connaissances des utilisateurs en administration et en informatique (p. ex. MS-Office, système de gestion des bâtiments); Ticket Cat B; prêt à fournir un service de picettage\n- Connaissance orale d'une deuxième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Questions relatives aux demandes\n\nManuel Meyer\nConsultant en ressources humaines\n+41 58 46 08320\n\n## Travailler chez BBL\n\nConstruire, acquérir, déplacer, consulter – c'est l'ADN de la BBL. Chaque jour, nous sommes heureux de faire de notre mieux pour la Suisse, la politique et l'administration fédérale. Ensemble, nous veillons à ce que les 43 000 employés fédéraux puissent faire leur travail et non seulement façonner leur coopération, mais aussi établir de nouvelles normes pour la durabilité.\n\n## Informations complémentaires\n\nVeuillez vous inscrire à notre système de gestion des applications. Cliquez sur \"Appliquer maintenant\"."
       },
       "slugByLocale": {
-        "it": "tecnici-edili-confederazione-svizzera-bern",
+        "it": "tecnico-in-confederazione-svizzera-bern",
         "en": "building-technician-in-confederazione-svizzera-bern",
         "de": "gebaudetechniker-in-confederazione-svizzera-bern",
         "fr": "technicien-des-batiments-confederazione-svizzera-bern"
@@ -16144,8 +16290,7 @@
         "it": [
           "gebaudetechniker-in-confederazione-svizzera-bern",
           "gebaudetechniker-in-confederazione-bern",
-          "servicetechniker-in-gebaudetechnik-confederazione-bern",
-          "tecnico-in-confederazione-svizzera-bern"
+          "servicetechniker-in-gebaudetechnik-confederazione-bern"
         ],
         "de": [
           "gebaudetechniker-in-confederazione-bern"
@@ -16158,8 +16303,7 @@
         "gebaudetechniker-in-confederazione-svizzera-bern",
         "gebaudetechniker-in-confederazione-bern",
         "servicetechniker-in-gebaudetechnik-confederazione-svizzera-bern",
-        "servicetechniker-in-gebaudetechnik-confederazione-bern",
-        "tecnico-in-confederazione-svizzera-bern"
+        "servicetechniker-in-gebaudetechnik-confederazione-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -17118,19 +17262,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "fr": "gestionnaire-bim-et-chef-de-projet-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
-        "it": "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
       },
       "id": "confederazione-ticino-47ced81b7cdc",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+          "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+        "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -17674,7 +17820,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -17682,7 +17828,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -17695,7 +17842,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -18617,16 +18765,18 @@
         "en": "apprentice-kauffrau-mann-eba-confederazione-svizzera-bern",
         "de": "lernende-r-kauffrau-mann-eba-confederazione-bern",
         "fr": "apprenti-e-kauffrau-mann-eba-confederazione-svizzera-bern",
-        "it": "apprentice-businessman-eba-confederazione-svizzera-bern"
+        "it": "apprendista-kauffrau-mann-afp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-e6cde7c07b76",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-confederazione-bern"
+          "lernende-r-kauffrau-mann-eba-confederazione-bern",
+          "apprentice-businessman-eba-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-confederazione-bern"
+        "lernende-r-kauffrau-mann-eba-confederazione-bern",
+        "apprentice-businessman-eba-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -19001,16 +19151,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -19227,7 +19379,7 @@
         "it": "pki-security-officer-operator-confederazione-bern",
         "en": "pki-securit-officer-confederazione-svizzera-bern",
         "de": "pki-sicherheitsbeauftragter-confederazione-svizzera-bern",
-        "fr": "pki-security-officer-operateur-confederazione-svizzera-bern"
+        "fr": "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-8a925debd86b",
       "needsRetranslation": true,
@@ -19252,11 +19404,11 @@
       "firstSeenAt": "2026-11-08T21:39:44.557Z",
       "previousSlugsByLocale": {
         "fr": [
-          "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+          "pki-security-officer-operateur-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+        "pki-security-officer-operateur-confederazione-svizzera-bern"
       ],
       "crawledAt": "2026-11-13T21:54:10.886Z",
       "crawledAtSource": "slice-writer"

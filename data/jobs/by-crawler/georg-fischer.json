@@ -992,12 +992,12 @@
     },
     {
       "id": "georg-fischer-bbfeb8024070",
-      "slug": "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch",
+      "slug": "leader-del-team-nella-pianificazione-della-produzione-m-f-d-georg-fischer-schaffhausen",
       "slugByLocale": {
         "de": "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch",
-        "it": "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch",
-        "en": "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch",
-        "fr": "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch"
+        "it": "leader-del-team-nella-pianificazione-della-produzione-m-f-d-georg-fischer-schaffhausen",
+        "en": "team-leader-in-production-planning-m-f-d-georg-fischer-schaffhausen",
+        "fr": "chef-d-equipe-en-planification-de-production-h-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1071,7 +1071,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:38:55.431Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:38:55.431Z"
+      "firstSeenAt": "2026-11-13T21:38:55.431Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-produktionsplanung-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-01304701ca5d",
@@ -1079,8 +1093,8 @@
       "slugByLocale": {
         "de": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
         "it": "praktikum-im-bereich-forschung-e-entwicklung-m-w-d-6-monate-o-nach-absprache-georg-fischer-schaffhausen",
-        "en": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg",
-        "fr": "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        "en": "internship-in-research-and-development-m-f-d-6-months-or-by-agreement-georg-fischer-schaffhausen",
+        "fr": "stage-en-recherche-et-developpement-h-f-d-6-mois-ou-par-accord-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1128,6 +1142,12 @@
       "jobReqId": "JR11806",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        ],
+        "en": [
+          "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
+        ],
+        "fr": [
           "praktikum-im-bereich-forschung-und-entwicklung-m-w-d-6-monate-oder-nach-absprache-georg"
         ]
       },

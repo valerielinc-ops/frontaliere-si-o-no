@@ -6439,10 +6439,10 @@
     },
     {
       "id": "aldi-suisse-e10df77b1cac",
-      "slug": "collaborateur-de-vente-m-w-d-aldi-suisse-monthey",
+      "slug": "collaboratore-de-vente-m-f-d-aldi-suisse-monthey",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-w-d-aldi-suisse-monthey",
-        "en": "collaborateur-de-vente-m-w-d-aldi-suisse-monthey",
+        "it": "collaboratore-de-vente-m-f-d-aldi-suisse-monthey",
+        "en": "collaborator-de-vente-m-f-d-aldi-suisse-monthey",
         "de": "collaborateur-de-vente-m-f-d-aldi-suisse",
         "fr": "collaborateur-de-vente-m-w-d-aldi-suisse-monthey"
       },
@@ -6526,11 +6526,13 @@
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-6",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-7",
           "collaborateur-de-vente-m-f-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-monthey"
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-monthey",
+          "collaborateur-de-vente-m-w-d-aldi-suisse-monthey"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "sales-associate-m-w-d-aldi-suisse-monthey"
+          "sales-associate-m-w-d-aldi-suisse-monthey",
+          "collaborateur-de-vente-m-w-d-aldi-suisse-monthey"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
@@ -6547,7 +6549,8 @@
         "collaborateur-de-vente-m-f-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-monthey",
         "sales-associate-m-w-d-aldi-suisse-monthey",
-        "vendeur-se-m-w-d-aldi-suisse-monthey"
+        "vendeur-se-m-w-d-aldi-suisse-monthey",
+        "collaborateur-de-vente-m-w-d-aldi-suisse-monthey"
       ],
       "firstSeenAt": "2026-07-31T12:10:55.197Z",
       "salaryMin": 72000,
@@ -8090,9 +8093,9 @@
       "slug": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
       "slugByLocale": {
         "it": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
-        "en": "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "en": "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
         "de": "lernende-im-einzelhandel-m-w-x-aldi-suisse-mendrisio",
-        "fr": "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+        "fr": "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -8160,15 +8163,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-11-13T21:53:57.920Z",
       "previousSlugs": [
-        "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
-        "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+        "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio"
+          "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ],
         "fr": [
-          "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+          "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ]
       },
       "firstSeenAt": "2026-08-18T10:19:27.720Z",

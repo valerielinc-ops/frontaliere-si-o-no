@@ -2310,7 +2310,7 @@
         "it": "rimediazione-dell-inquinamento-w-m-d-implenia-glattpark-opfikon",
         "en": "pollution-remediation-w-m-d-implenia-glattpark-opfikon",
         "de": "polier-schadstoffsanierung-w-m-d-implenia-ch",
-        "fr": "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
+        "fr": "depollution-m-j-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2357,7 +2357,7 @@
       "previousSlugs": [
         "polier-schadstoffsanierung-w-m-d-implenia-ch",
         "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-        "depollution-m-j-implenia-glattpark-opfikon"
+        "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2368,7 +2368,7 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-m-w-d-implenia-glattpark-opfikon",
-          "depollution-m-j-implenia-glattpark-opfikon"
+          "reduction-de-la-pollution-m-w-d-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-05T23:08:18.837Z",
@@ -4753,9 +4753,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4807,15 +4807,16 @@
           "initiativbewerbung-implenia-ch"
         ],
         "en": [
-          "initiativbewerbung-implenia-opfikon"
+          "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch"
+          "demande-d-initiative-implenia-opfikon"
         ]
       },
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
-        "initiativbewerbung-implenia-opfikon"
+        "own-initiative-application-implenia-opfikon",
+        "demande-d-initiative-implenia-opfikon"
       ],
       "firstSeenAt": "2026-08-11T10:27:35.418Z",
       "salaryMin": 73500,
@@ -5664,12 +5665,12 @@
     },
     {
       "id": "implenia-7c216af37dd1",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia",
+      "slug": "impiegato-a-nella-gestione-immobiliare-con-compiti-di-locazione-m-f-d-baden-50-implenia-baden",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia"
+        "it": "impiegato-a-nella-gestione-immobiliare-con-compiti-di-locazione-m-f-d-baden-50-implenia-baden",
+        "en": "property-management-with-rental-tasks-m-f-d-baden-50-implenia-baden",
+        "fr": "gestion-immobiliere-avec-taches-de-location-h-f-d-baden-50-implenia-baden"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5732,16 +5733,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:52:20.883Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:52:20.883Z"
+      "firstSeenAt": "2026-11-13T21:52:20.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-mit-vermietungsaufgaben-m-w-d-baden-50-implenia"
+      ]
     },
     {
       "id": "implenia-9ec0e52984b2",
-      "slug": "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch",
+      "slug": "direttore-immobiliare-m-f-d-baden-80-100-implenia-baden",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch",
-        "it": "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch",
-        "en": "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch",
-        "fr": "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch"
+        "it": "direttore-immobiliare-m-f-d-baden-80-100-implenia-baden",
+        "en": "real-estate-manager-m-f-d-baden-80-100-implenia-baden",
+        "fr": "directeur-immobilier-h-f-d-baden-80-100-implenia-baden"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -5803,7 +5818,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:52:20.225Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:52:20.225Z"
+      "firstSeenAt": "2026-11-13T21:52:20.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-baden-80-100-implenia-ch"
+      ]
     }
   ]
 }

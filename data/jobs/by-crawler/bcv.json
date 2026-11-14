@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "bcv-f0eeb0646fa8",
-      "slug": "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne",
+      "slug": "assistente-o-assistente-di-gestione-private-banking-international-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne",
-        "it": "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne",
+        "it": "assistente-o-assistente-di-gestione-private-banking-international-banque-cantonale-vaudoise-lausanne",
         "en": "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne",
         "de": "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne"
       },
@@ -73,14 +73,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:23:10.773Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:10.773Z"
+      "firstSeenAt": "2026-11-13T21:23:10.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-ou-assistant-de-gestion-private-banking-international-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-b8e3ada134c5",
-      "slug": "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne",
+      "slug": "advisor-private-banking-international-conti-chiave-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne",
-        "it": "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne",
+        "it": "advisor-private-banking-international-conti-chiave-banque-cantonale-vaudoise-lausanne",
         "en": "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne",
         "de": "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne"
       },
@@ -145,16 +153,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:23:09.839Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:09.839Z"
+      "firstSeenAt": "2026-11-13T21:23:09.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-ou-conseiller-private-banking-international-key-accounts-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-dfef90295c84",
-      "slug": "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne",
+      "slug": "advisor-o-advisor-private-banking-international-conti-globali-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne",
-        "it": "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne",
+        "it": "advisor-o-advisor-private-banking-international-conti-globali-banque-cantonale-vaudoise-lausanne",
         "en": "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne",
-        "de": "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne"
+        "de": "advisor-oder-advisor-private-banking-international-globale-konten-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -218,7 +234,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:23:09.041Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:09.041Z"
+      "firstSeenAt": "2026-11-13T21:23:09.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne"
+        ],
+        "de": [
+          "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-ou-conseiller-private-banking-international-global-accounts-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-b6033672a7dd",
@@ -820,12 +847,12 @@
     },
     {
       "id": "bcv-2c177cdd2a7c",
-      "slug": "conseillere-ou-conseiller-private-region-broye-bcv-payerne",
+      "slug": "consigliere-privato-regione-di-broye-banque-cantonale-vaudoise-payerne",
       "slugByLocale": {
         "fr": "conseillere-ou-conseiller-private-region-broye-bcv-payerne",
-        "it": "conseillere-ou-conseiller-private-region-broye-bcv-payerne",
-        "en": "conseillere-ou-conseiller-private-region-broye-bcv-payerne",
-        "de": "conseillere-ou-conseiller-private-region-broye-bcv-payerne"
+        "it": "consigliere-privato-regione-di-broye-banque-cantonale-vaudoise-payerne",
+        "en": "private-counsellor-broye-region-banque-cantonale-vaudoise-payerne",
+        "de": "privater-berater-region-broye-banque-cantonale-vaudoise-payerne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -888,7 +915,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:23:02.616Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:02.616Z"
+      "firstSeenAt": "2026-11-13T21:23:02.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-ou-conseiller-private-region-broye-bcv-payerne"
+        ],
+        "en": [
+          "conseillere-ou-conseiller-private-region-broye-bcv-payerne"
+        ],
+        "de": [
+          "conseillere-ou-conseiller-private-region-broye-bcv-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-ou-conseiller-private-region-broye-bcv-payerne"
+      ]
     },
     {
       "id": "bcv-d0f07647c4ee",
@@ -2181,7 +2222,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2242,7 +2283,7 @@
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -2251,7 +2292,7 @@
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
         "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,

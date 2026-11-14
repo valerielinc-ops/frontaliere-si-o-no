@@ -336,12 +336,12 @@
     },
     {
       "id": "hopital-de-lavaux-488a1a041dcb",
-      "slug": "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg",
+      "slug": "infermiera-di-riabilitazione-cdd-90-sostituzione-del-congedo-di-maternita-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "fr": "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg",
-        "it": "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg",
-        "en": "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg",
-        "de": "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg"
+        "it": "infermiera-di-riabilitazione-cdd-90-sostituzione-del-congedo-di-maternita-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "rehabilitation-nurse-cdd-90-replacement-of-maternity-leave-hopital-de-lavaux-bourg-en-lavaux",
+        "de": "rehabilitation-nurse-cdd-90-ersatz-des-mutterschaftsurlaubs-hopital-de-lavaux-bourg-en-lavaux"
       },
       "company": "Hôpital de Lavaux",
       "companyKey": "hopital-de-lavaux",
@@ -404,7 +404,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T21:16:32.075Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:32.075Z"
+      "firstSeenAt": "2026-11-13T21:16:32.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg"
+        ],
+        "en": [
+          "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg"
+        ],
+        "de": [
+          "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-readaptation-cdd-90-remplacement-conge-maternite-hopital-de-lavaux-bourg"
+      ]
     }
   ]
 }

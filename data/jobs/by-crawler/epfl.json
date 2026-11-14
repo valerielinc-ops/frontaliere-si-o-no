@@ -6728,12 +6728,12 @@
     },
     {
       "id": "epfl-0aad2230331a",
-      "slug": "head-of-infrastructures-epfl-lausanne",
+      "slug": "responsabile-infrastructures-epfl-lausanne",
       "slugByLocale": {
         "en": "head-of-infrastructures-epfl-lausanne",
-        "it": "head-of-infrastructures-epfl-lausanne",
-        "de": "head-of-infrastructures-epfl-lausanne",
-        "fr": "head-of-infrastructures-epfl-lausanne"
+        "it": "responsabile-infrastructures-epfl-lausanne",
+        "de": "leiter-infrastructures-epfl-lausanne",
+        "fr": "responsable-infrastructures-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6798,7 +6798,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:22:15.679Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:22:15.679Z"
+      "firstSeenAt": "2026-11-13T21:22:15.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-infrastructures-epfl-lausanne"
+        ],
+        "de": [
+          "head-of-infrastructures-epfl-lausanne"
+        ],
+        "fr": [
+          "head-of-infrastructures-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-infrastructures-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-5468bd64de4c",

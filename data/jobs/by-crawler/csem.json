@@ -2151,12 +2151,12 @@
     },
     {
       "id": "csem-fac8abe10b18",
-      "slug": "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch",
+      "slug": "gruppo-leader-silicon-fotovoltaico-m-f-d-100-csem-landquart-neuchatel",
       "slugByLocale": {
         "en": "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch",
-        "it": "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch",
-        "de": "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch",
-        "fr": "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch"
+        "it": "gruppo-leader-silicon-fotovoltaico-m-f-d-100-csem-landquart-neuchatel",
+        "de": "gruppenleiter-silizium-photovoltaik-m-w-d-100-csem-landquart-neuchatel",
+        "fr": "chef-de-groupe-silicon-photovoltaics-h-f-d-100-csem-landquart-neuchatel"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -2218,7 +2218,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:37:59.375Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:37:59.375Z"
+      "firstSeenAt": "2026-11-13T21:37:59.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch"
+        ],
+        "de": [
+          "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch"
+        ],
+        "fr": [
+          "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-silicon-photovoltaics-f-m-d-100-neuchatel-csem-ch"
+      ]
     }
   ]
 }

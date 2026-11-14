@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1377489057",
-      "slug": "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-zurich",
+      "slug": "operazione-dei-clienti-privati-m-f-d-temporanea-fino-alla-fine-del-2027-zurich-insurance-zurich-1377489057",
       "slugByLocale": {
         "de": "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede",
-        "it": "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-zurich",
-        "en": "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede",
-        "fr": "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede"
+        "it": "operazione-dei-clienti-privati-m-f-d-temporanea-fino-alla-fine-del-2027-zurich-insurance-zurich-1377489057",
+        "en": "working-student-operation-private-clients-m-f-d-temporary-until-the-end-of-2027-zurich-insurance-zurich-1377489057",
+        "fr": "working-etudiant-operation-clients-prives-h-f-d-temporaire-jusqu-a-la-fin-de-2027-zurich-insurance-zurich-1377489057"
       },
       "slugDisambiguator": "1377489057",
       "company": "Zurich Insurance",
@@ -59,11 +59,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede",
+          "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-zurich"
+        ],
+        "en": [
+          "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede"
+        ],
+        "fr": [
           "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede"
         ]
       },
       "previousSlugs": [
-        "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede"
+        "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-sede",
+        "werkstudent-operation-private-clients-m-w-d-befristet-bis-ende-2027-zurich-insurance-zurich"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
