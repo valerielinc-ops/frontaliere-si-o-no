@@ -222,6 +222,46 @@ function extractPathsFromDiff(diff) {
   return [...paths];
 }
 
+function changedLinesByPath(diff) {
+  const byPath = new Map();
+  let currentPaths = [];
+  for (const line of String(diff || '').split(/\r?\n/u)) {
+    const fileHeader = /^diff --git a\/(.+) b\/(.+)$/u.exec(line);
+    if (fileHeader) {
+      currentPaths = [fileHeader[1], fileHeader[2]];
+      for (const file of currentPaths) byPath.set(file, []);
+      continue;
+    }
+    // Keep only added/removed hunk content. File headers (`+++`/`---`) are
+    // paths, not evidence about which ATS family the changed code serves.
+    if (currentPaths.length && /^[+-](?![+-])/u.test(line)) {
+      for (const file of currentPaths) byPath.get(file).push(line.slice(1));
+    }
+  }
+  return byPath;
+}
+
+function familyEvidenceForChangedLines(lines) {
+  if (!Array.isArray(lines) || lines.length === 0) return new Set();
+  // Family names occur in both snake-case paths and camel-case identifiers
+  // (`isWorkdayTenantUrl`). Removing separators lets the same marker cover
+  // both forms without making a broad directory path family-specific.
+  const code = lines.filter((line) => !/^\s*\/\//u.test(line)).join('\n')
+    .toLowerCase().replace(/[^a-z0-9]+/gu, '');
+  const matches = new Map();
+  for (const [family, hints] of Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)) {
+    const markers = [...new Set(hints.map((hint) => hint.toLowerCase().replace(/[^a-z0-9]+/gu, '')))];
+    const count = markers.reduce((total, marker) => {
+      if (!marker) return total;
+      return total + (code.match(new RegExp(marker, 'gu')) || []).length;
+    }, 0);
+    if (count >= 2) matches.set(family, count);
+  }
+  return new Set(matches.keys());
+}
+
+const PORTAL_REPLAY_CONTROL_PATH = 'scripts/assisted-application/portal-replay.mjs';
+
 export function isPortalReplayAffectedPath(value) {
   const file = String(value || '').replace(/^\//u, '');
   if (PORTAL_REPLAY_ALLOWED_PATHS.some((entry) => entry.endsWith('/') ? file.startsWith(entry) : file === entry)) return true;
@@ -233,6 +273,8 @@ export function affectedPortalReplayPaths(diff) {
 }
 
 export function affectedPortalReplayFamilies(pathsOrDiff) {
+  const isDiff = !Array.isArray(pathsOrDiff) && String(pathsOrDiff || '').includes('diff --git ');
+  const diffLines = isDiff ? changedLinesByPath(pathsOrDiff) : null;
   const paths = Array.isArray(pathsOrDiff) ? pathsOrDiff : affectedPortalReplayPaths(pathsOrDiff);
   const families = new Set();
   let sharedRunnerPathChanged = false;
@@ -245,6 +287,17 @@ export function affectedPortalReplayFamilies(pathsOrDiff) {
     if (matchedFamilies.length) {
       for (const family of matchedFamilies) families.add(family);
     } else if (isPortalReplayAffectedPath(originalFile)) {
+      // The classifier/reporting CLI is covered by its Vitest contract tests;
+      // editing that control plane does not change an ATS runner and must not
+      // fan out into a live replay matrix by itself.
+      if (originalFile === PORTAL_REPLAY_CONTROL_PATH) continue;
+      const scopedFamilies = diffLines
+        ? familyEvidenceForChangedLines(diffLines.get(originalFile) || [])
+        : new Set();
+      if (scopedFamilies.size === 1) {
+        for (const family of scopedFamilies) families.add(family);
+        continue;
+      }
       sharedRunnerPathChanged = true;
     }
   }
@@ -513,6 +566,7 @@ function sanitizeOutcomeRecord(record) {
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
     formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
+    submissionAttempted: record.submissionAttempted === true,
   };
 }
 
@@ -524,44 +578,49 @@ export function sanitizePortalReplayReport(report) {
     path: safeReportPath(item?.path),
     base: sanitizeOutcomeRecord(item?.base),
     head: sanitizeOutcomeRecord(item?.head),
-    findingCodes: [...new Set((Array.isArray(item?.findingCodes) ? item.findingCodes : [])
-      .filter((code) => SAFE_FINDING_CODES.has(code)))].sort(),
+    // `findingCodes` is recomputed below. An artifact must not be able to
+    // preserve a stale baseline finding after the paired base/head run has
+    // shown that it did not regress.
+    findingCodes: [],
+    legacySubmissionAttempted: Array.isArray(item?.findingCodes)
+      && item.findingCodes.includes('submission_attempted'),
   }));
   const baseRecords = [];
   const headRecords = [];
-  const findingCodes = new Set((Array.isArray(report?.findingCodes) ? report.findingCodes : [])
-    .filter((code) => SAFE_FINDING_CODES.has(code)));
-  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
   cases.forEach((item, index) => {
-    if (!item.base || !item.head) item.findingCodes.push('sample_missing');
-    const violations = item.findingCodes.filter((code) => securityCodes.has(code));
-    for (const record of [item.base, item.head]) {
-      if (!record) continue;
-      if (record.finalClickAttempts > 0) violations.push('final_click_attempt');
-      if (record.unexpectedNonGetPassed > 0) violations.push('non_get_passed');
-      if (record.nodeEgressBlocked > 0) violations.push('node_egress_attempt');
-      if (record.formLinkedToPosting === 'no') violations.push('wrong_posting_or_talent_pool');
-    }
-    const securityViolations = [...new Set(violations)];
-    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations });
-    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations });
+    const legacySecurity = item.legacySubmissionAttempted ? ['submission_attempted'] : [];
+    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations: legacySecurity });
+    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations: legacySecurity });
   });
   const checked = comparePortalReplayFamily({ family, baseRecords, headRecords, includeCaseIds: true });
   const checkedById = new Map(checked.cases.map((item) => [item.caseId, item]));
+  const findingCodes = new Set(checked.findingCodes.filter((code) => SAFE_FINDING_CODES.has(code)));
   const sanitizedCases = cases.map((item, index) => {
-    const caseFindings = [...new Set([...item.findingCodes, ...(checkedById.get(String(index))?.findingCodes || [])])].sort();
+    const checkedCase = checkedById.get(String(index));
+    const caseFindings = [...new Set([
+      ...(checkedCase?.findingCodes || []),
+      ...(!item.base || !item.head ? ['sample_missing'] : []),
+    ])]
+      .filter((code) => SAFE_FINDING_CODES.has(code)).sort();
     for (const code of caseFindings) findingCodes.add(code);
-    return { ...item, findingCodes: caseFindings };
+    const { legacySubmissionAttempted, ...publicItem } = item;
+    return {
+      ...publicItem,
+      findingCodes: caseFindings,
+      ...(checkedCase?.baselineFindingCodes?.length
+        ? { baselineFindingCodes: checkedCase.baselineFindingCodes }
+        : {}),
+    };
   });
-  for (const code of checked.findingCodes) findingCodes.add(code);
   if (cases.length === 0) findingCodes.add('sample_missing');
   if (cases.length < REPLAY_LIMITS.minPerFamily || cases.length > REPLAY_LIMITS.maxPerFamily) findingCodes.add('sample_count_out_of_range');
   const sanitizedFindingCodes = [...findingCodes].sort();
   return {
     schemaVersion: 1,
     family,
-    status: report?.status === 'pass' && checked.status === 'pass' && sanitizedFindingCodes.length === 0 ? 'pass' : 'fail',
+    status: checked.status === 'pass' && sanitizedFindingCodes.length === 0 ? 'pass' : 'fail',
     findingCodes: sanitizedFindingCodes,
+    ...(checked.baselineFindingCodes.length ? { baselineFindingCodes: checked.baselineFindingCodes } : {}),
     familyRates: checked.familyRates,
     cases: sanitizedCases,
   };
@@ -719,6 +778,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
     formLinkedToPosting: postingLinkStatus(event, evidence),
+    submissionAttempted: event?.type === 'submit_succeeded',
     securityViolations: violations,
   };
 }
@@ -770,29 +830,66 @@ function isSuccessfulStage(stage) {
   return SUCCESS_STAGES.has(stage);
 }
 
+const SECURITY_COUNT_FIELDS = Object.freeze([
+  ['final_click_attempt', 'finalClickAttempts'],
+  ['non_get_passed', 'unexpectedNonGetPassed'],
+  ['node_egress_attempt', 'nodeEgressBlocked'],
+]);
+
+function securityCodesForRecord(record) {
+  const codes = new Set(Array.isArray(record?.securityViolations) ? record.securityViolations : []);
+  for (const [code, field] of SECURITY_COUNT_FIELDS) {
+    if ((Number(record?.[field]) || 0) > 0) codes.add(code);
+  }
+  if (record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
+  if (record?.submissionAttempted === true) codes.add('submission_attempted');
+  return codes;
+}
+
+function securityRegressions(base, head) {
+  if (!head) return [];
+  const baseCodes = securityCodesForRecord(base);
+  const headCodes = securityCodesForRecord(head);
+  const regressions = new Set([...headCodes].filter((code) => !baseCodes.has(code)));
+  for (const [code, field] of SECURITY_COUNT_FIELDS) {
+    if ((Number(head[field]) || 0) > (Number(base?.[field]) || 0)) regressions.add(code);
+  }
+  return [...regressions];
+}
+
+function stableBaselineSecurityCodes(base, head) {
+  if (!base || !head) return [];
+  const baseCodes = securityCodesForRecord(base);
+  const headCodes = securityCodesForRecord(head);
+  return [...baseCodes].filter((code) => headCodes.has(code));
+}
+
 export function comparePortalReplayFamily({ family, baseRecords = [], headRecords = [], includeCaseIds = false } = {}) {
   const baseById = new Map(baseRecords.map((record) => [record.caseId, record]));
   const headById = new Map(headRecords.map((record) => [record.caseId, record]));
   const caseIds = [...new Set([...baseById.keys(), ...headById.keys()])].sort();
   const cases = [];
   const comparisonCodes = [];
+  const baselineCodes = new Set();
   const comparable = [];
 
   for (const caseId of caseIds) {
     const base = baseById.get(caseId);
     const head = headById.get(caseId);
     const codes = [];
+    const caseBaselineCodes = new Set(stableBaselineSecurityCodes(base, head));
     if (!base || !head) codes.push('sample_missing');
-    for (const record of [base, head].filter(Boolean)) {
-      if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
-      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-      if (record.status === 'error') codes.push('replay_unmeasured');
-    }
+    codes.push(...securityRegressions(base, head));
+    // An unmeasured case is still a blocking failure even when both runs
+    // failed: equal lack of evidence is not evidence of compatibility.
+    if (base?.status === 'error') codes.push('replay_unmeasured');
+    if (head?.status === 'error') codes.push('replay_unmeasured');
     if (base && head && !isNeutral(base) && !isNeutral(head)) {
       comparable.push({ base, head });
       if ((STAGE_RANK[head.stage] ?? 0) < (STAGE_RANK[base.stage] ?? 0)) codes.push('stage_regression');
     }
     for (const code of codes) comparisonCodes.push(code);
+    for (const code of caseBaselineCodes) baselineCodes.add(code);
     const chosen = head || base;
     cases.push({
       ...(includeCaseIds ? { caseId } : {}),
@@ -803,16 +900,19 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
         blockedNonGet: base.blockedNonGet, blockedWebSockets: base.blockedWebSockets,
         nodeEgressBlocked: base.nodeEgressBlocked,
         unexpectedNonGetPassed: base.unexpectedNonGetPassed,
-        finalClickAttempts: base.finalClickAttempts, formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
+        finalClickAttempts: base.finalClickAttempts, formLinkedToPosting: base.formLinkedToPosting,
+        retryCount: base.retryCount, submissionAttempted: base.submissionAttempted === true,
       } : null,
       head: head ? {
         stage: head.stage, stopCode: head.stopCode, status: head.status, agentCalls: head.agentCalls,
         blockedNonGet: head.blockedNonGet, blockedWebSockets: head.blockedWebSockets,
         nodeEgressBlocked: head.nodeEgressBlocked,
         unexpectedNonGetPassed: head.unexpectedNonGetPassed,
-        finalClickAttempts: head.finalClickAttempts, formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
+        finalClickAttempts: head.finalClickAttempts, formLinkedToPosting: head.formLinkedToPosting,
+        retryCount: head.retryCount, submissionAttempted: head.submissionAttempted === true,
       } : null,
       findingCodes: [...new Set(codes)].sort(),
+      baselineFindingCodes: [...caseBaselineCodes].sort(),
     });
   }
 
@@ -832,6 +932,7 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     family,
     status: uniqueCodes.length ? 'fail' : 'pass',
     findingCodes: uniqueCodes,
+    baselineFindingCodes: [...baselineCodes].sort(),
     familyRates,
     cases,
   };
@@ -859,6 +960,9 @@ function markdownForAggregate(verdict, reports, prepareRun) {
   for (const report of reports) {
     const rates = report.familyRates || {};
     lines.push(`- ${safeCode(report.family)}: READY base ${Number(rates.baseReady) || 0}/${Number(rates.comparable) || 0}, PR ${Number(rates.headReady) || 0}/${Number(rates.comparable) || 0}.`);
+    if (report.baselineFindingCodes?.length) {
+      lines.push(`- ${safeCode(report.family)}: baseline invariants already present on base and PR (non-regressive): ${report.baselineFindingCodes.map((code) => safeCode(code)).join(', ')}.`);
+    }
   }
   lines.push('', '| Famiglia | Host | Percorso | Base | PR | Stop PR | Codici rilievo | Agenti | Non-GET bloccati | Egress Node bloccato | Click finali | Collegamento annuncio |', '|---|---|---|---|---|---|---|---:|---:|---:|---:|---|');
   for (const report of reports) {
@@ -892,7 +996,7 @@ function argsForCli(argv) {
 async function prepareMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  const affectedFamilies = affectedPortalReplayFamilies(affected);
+  const affectedFamilies = affectedPortalReplayFamilies(diff);
   if (!affectedFamilies.length) {
     if (values['github-output']) appendFileSync(values['github-output'], 'run=false\nfamilies=[]\n');
     console.log(affected.length ? 'portal replay: no family-specific runner paths changed' : 'portal replay: no runner paths changed');
@@ -940,7 +1044,7 @@ async function corpusMode(values) {
 async function detectMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  const affectedFamilies = affectedPortalReplayFamilies(affected);
+  const affectedFamilies = affectedPortalReplayFamilies(diff);
   const run = affectedFamilies.length > 0;
   if (values['github-output']) appendFileSync(values['github-output'], `run=${run ? 'true' : 'false'}\n`);
   if (run) console.log(`portal replay: ${affectedFamilies.length} family-specific runner path(s) changed`);

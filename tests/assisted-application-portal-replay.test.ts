@@ -411,7 +411,26 @@ describe('portal replay corpus', () => {
       'functions/src/lib/permitStatus.js',
       'functions/src/assistedApplicationAnswerEvidence.js',
     ])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([]);
+  });
+
+  it('narrows a shared portal module to one family only when changed code carries repeated family evidence', () => {
+    const workdayPatch = [
+      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
+      '@@ -1,2 +1,8 @@',
+      '+function workdayPostingRouteMatchesCurrent(currentUrl, applyUrl) {',
+      '+  const apply = workdayJobRoute(applyUrl);',
+      '+  return sameWorkdayJobRoute(apply, workdayJobRoute(currentUrl));',
+    ].join('\n');
+    expect(affectedPortalReplayFamilies(workdayPatch)).toEqual(['workday']);
+
+    const genericPortalPatch = [
+      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
+      '@@ -1,2 +1,4 @@',
+      '+function chooseApplicationEntry(snapshot) {',
+      '+  return snapshot.buttons.filter(isApplicationEntry);',
+    ].join('\n');
+    expect(affectedPortalReplayFamilies(genericPortalPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 
   it('does not fall back to a PR-controlled replay fence when the trusted base lacks it', () => {
@@ -480,6 +499,33 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toEqual(['final_click_attempt', 'non_get_passed', 'submission_attempted', 'wrong_posting_or_talent_pool']);
+  });
+
+  it('does not fail a security finding that is identical on base and head', () => {
+    const result = comparePortalReplayFamily({
+      family: 'workday',
+      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', { formLinkedToPosting: 'no' })),
+      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', { formLinkedToPosting: 'no' })),
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+    expect(result.baselineFindingCodes).toEqual(['wrong_posting_or_talent_pool']);
+
+    const sanitized = sanitizePortalReplayReport(result);
+    expect(sanitized.status).toBe('pass');
+    expect(sanitized.findingCodes).toEqual([]);
+    expect(sanitized.baselineFindingCodes).toEqual(['wrong_posting_or_talent_pool']);
+  });
+
+  it('keeps an unmeasured replay blocking even when base and head both fail', () => {
+    const result = comparePortalReplayFamily({
+      family: 'workday',
+      baseRecords: [measured('one', 'stopped', { status: 'error' })],
+      headRecords: [measured('one', 'stopped', { status: 'error' })],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toEqual(['replay_unmeasured']);
+    expect(result.baselineFindingCodes).toEqual([]);
   });
 
   it('fails a blocked attempt to use Node network APIs outside the browser fence', () => {
