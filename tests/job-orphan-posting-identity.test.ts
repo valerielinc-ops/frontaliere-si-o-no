@@ -10,6 +10,15 @@ import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcil
 
 describe('inferred orphan aliases require positive posting identity', () => {
   const url = 'https://jobs.example.invalid/vacancies/orthopedics/';
+  const addPreviousSlugForLocale = (
+    job: { previousSlugsByLocale?: Record<string, string[]> },
+    locale: string,
+    slug: string,
+  ) => {
+    if (!job.previousSlugsByLocale) job.previousSlugsByLocale = {};
+    if (!Array.isArray(job.previousSlugsByLocale[locale])) job.previousSlugsByLocale[locale] = [];
+    if (!job.previousSlugsByLocale[locale].includes(slug)) job.previousSlugsByLocale[locale].push(slug);
+  };
   it.each([{}, { sourceUrl: '' }, { sourceUrl: '/vacancies/orthopedics/' },
     { sourceUrl: 'https://jobs.example.invalid/vacancies/oncology/' },
     { sourceUrl: 'mailto:jobs@example.invalid' }])('rejects unknown or different identity: %j', (record) => {
@@ -71,6 +80,7 @@ describe('inferred orphan aliases require positive posting identity', () => {
       orphanGscData: new Map([[orphan, { sourceUrl }]]),
       localeList: ['en'],
       hasSameJobSourcePosting,
+      addPreviousSlugForLocale,
     });
     // Even the legacy >=60% overlap must not create an alias without source proof.
     if (sourceUrl === url) {

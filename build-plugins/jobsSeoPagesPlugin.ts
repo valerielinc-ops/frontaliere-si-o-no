@@ -45,6 +45,28 @@ import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/article
 function isMissingPathError(error: unknown): boolean {
  return (error as NodeJS.ErrnoException)?.code === 'ENOENT';
 }
+
+// This is an in-memory render mutation. The crawler's journaled helper cannot
+// be imported here: it is an operational module whose dependency graph pulls
+// executable crawlers into Vite's config bundle. Keep both history shapes in
+// sync for bridge emission without making the render graph depend on crawler
+// I/O, telemetry, or CLI modules.
+function addRenderPreviousSlugForLocale(job: any, locale: string, slug: string): void {
+ if (!slug || !locale) return;
+ const normalized = String(slug).replace(/\s+/g, ' ').trim();
+ if (!normalized) return;
+ if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
+  job.previousSlugsByLocale = {};
+ }
+ if (!Array.isArray(job.previousSlugsByLocale[locale])) {
+  job.previousSlugsByLocale[locale] = [];
+ }
+ if (!job.previousSlugsByLocale[locale].includes(normalized)) {
+  job.previousSlugsByLocale[locale].push(normalized);
+ }
+ if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+ if (!job.previousSlugs.includes(normalized)) job.previousSlugs.push(normalized);
+}
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -13954,10 +13976,11 @@ ${staticAnalyticsHtml}
  const fuzzyMatchResult = inferOrphanSlugAliases({
   validJobs,
   tracking,
-  orphanGscData,
-  localeList,
-  hasSameJobSourcePosting,
-  retainIndexes: extraGcFreedProbeCandidate !== null,
+ orphanGscData,
+ localeList,
+ hasSameJobSourcePosting,
+ addPreviousSlugForLocale: addRenderPreviousSlugForLocale,
+ retainIndexes: extraGcFreedProbeCandidate !== null,
  });
  if (fuzzyMatchResult.fuzzyMatched > 0 || fuzzyMatchResult.cityLockRejections > 0) {
   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatchResult.fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${fuzzyMatchResult.cityLockRejections} cross-city candidates)`);

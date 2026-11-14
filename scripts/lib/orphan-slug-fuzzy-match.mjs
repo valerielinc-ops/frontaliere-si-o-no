@@ -1,5 +1,4 @@
 import { hasSameJobSourcePosting as defaultHasSameJobSourcePosting } from './job-identity.mjs';
-import { addPreviousSlugForLocale as defaultAddPreviousSlugForLocale } from './dedicated-crawler-common.mjs';
 
 const HASH_TRAILER_RE = /-[a-z0-9]{4,8}$/;
 const SKIP_PREFIX_FUZZY = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
@@ -52,9 +51,13 @@ export function inferOrphanSlugAliases({
   orphanGscData,
   localeList,
   hasSameJobSourcePosting = defaultHasSameJobSourcePosting,
-  addPreviousSlugForLocale = defaultAddPreviousSlugForLocale,
+  addPreviousSlugForLocale,
   retainIndexes = false,
 }) {
+  if (typeof addPreviousSlugForLocale !== 'function') {
+    throw new TypeError('inferOrphanSlugAliases requires an explicit alias mutation callback');
+  }
+
   const knownSlugs = new Set();
   for (const job of validJobs) {
     if (job.slug) knownSlugs.add(job.slug);
