@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -487,7 +488,7 @@ export async function main() {
     deriveSlug: deriveLocalizedSlug,
   });
 
-  const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const finalJobs = readJsonFile(DATA_JOBS);
   const dennerJobs = Array.isArray(finalJobs) ? finalJobs.filter(isDennerJob) : [];
 
   console.log(`\n\ud83d\udcca === Denner Job Stats ===`);

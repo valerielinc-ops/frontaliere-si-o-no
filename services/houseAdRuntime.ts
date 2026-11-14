@@ -236,6 +236,20 @@ export function installHouseAds(
     if (path !== location.pathname) { for (const frame of eligibleFrames) remove(frame); path = location.pathname; readerSubscriptionTarget = null; }
     for (const frame of eligibleFrames) if (!frame.isConnected || !permitted()) remove(frame);
     if (!permitted()) return;
+    const candidates: Array<{
+      frame: HTMLElement;
+      host: HTMLElement;
+      google: HTMLElement | null;
+      state: string;
+      blocked: boolean;
+      stalled: boolean;
+      failed: boolean;
+      googleUnfilled: boolean;
+      cmpFailed: boolean;
+      decision: string | null | undefined;
+      width: number;
+      height: number;
+    }> = [];
     for (const frame of document.querySelectorAll<HTMLElement>('[data-house]')) {
       if (!observedFrames.has(frame)) {
         observedFrames.add(frame);
@@ -290,18 +304,41 @@ export function installHouseAds(
         continue;
       }
       if (!ready) { requestAssignment(); continue; }
-      const { format, height } = chooseSize(width, Number(frame.dataset.ftHouseHeight) || (google ? parseFloat(google.style.minHeight) || google.getBoundingClientRect().height : 0));
+      candidates.push({
+        frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, decision, width,
+        height: Number(frame.dataset.ftHouseHeight) || (google ? parseFloat(google.style.minHeight) || google.getBoundingClientRect().height : 0),
+      });
+    }
+
+    const readerExperimentEligible = authState === 'anonymous' && assignment.readerSubscriptionEnrolled;
+    if (readerSubscriptionTarget && !candidates.some((candidate) => candidate.frame === readerSubscriptionTarget)) readerSubscriptionTarget = null;
+    if (!readerExperimentEligible) readerSubscriptionTarget = null;
+    const noReaderExperimentExposure = !readerSubscriptionExperimentExposed
+      && !read('ft_reader_subscription_attribution_v1') && read('ft_reader_subscription_seen_v1') !== '1';
+    if (readerExperimentEligible && !readerSubscriptionTarget && noReaderExperimentExposure) {
+      const blocks = new Map<HTMLElement, typeof candidates>();
+      for (const candidate of candidates) {
+        // Mix campaigns only inside an explicitly contiguous publisher-owned
+        // ad stack. Sharing an article/page ancestor does not make slots a block.
+        const block = candidate.frame.closest<HTMLElement>('[data-ft-house-block]');
+        if (!block) continue;
+        const members = blocks.get(block) || [];
+        members.push(candidate);
+        blocks.set(block, members);
+      }
+      for (const members of blocks.values()) {
+        if (members.length < 2) continue;
+        const nextUnseen = members.find(({ frame }) => !entries.get(frame)?.seen);
+        if (nextUnseen) { readerSubscriptionTarget = nextUnseen.frame; break; }
+      }
+    }
+
+    for (const candidate of candidates) {
+      const { frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, decision, width } = candidate;
+      const { format, height } = chooseSize(width, candidate.height);
       const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
       const existing = entries.get(frame);
-      const readerExperimentEligible = authState === 'anonymous' && assignment.readerSubscriptionEnrolled;
-      if (readerSubscriptionTarget && !readerSubscriptionTarget.isConnected) readerSubscriptionTarget = null;
-      if (!readerExperimentEligible && readerSubscriptionTarget === frame) readerSubscriptionTarget = null;
-      const noReaderExperimentExposure = !readerSubscriptionExperimentExposed
-        && !read('ft_reader_subscription_attribution_v1') && read('ft_reader_subscription_seen_v1') !== '1';
-      if (readerExperimentEligible && !readerSubscriptionTarget && noReaderExperimentExposure && !existing?.seen) {
-        readerSubscriptionTarget = frame;
-      }
       const subscriptionTreatment = readerExperimentEligible && readerSubscriptionTarget === frame
         && assignment.readerSubscriptionVariant === 'subscription';
       let campaign: 'job_search_automation' | 'reader_subscription' = 'job_search_automation';

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -666,7 +667,7 @@ async function extractLisSalaryWithLlm(text) {
 async function cleanLisJobs() {
   if (!fs.existsSync(DATA_JOBS)) return 0;
 
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(allJobs)) return 0;
 
   let cleaned = 0;
@@ -879,7 +880,7 @@ function purgeLisJobsForRecrawl() {
   if (!force) return 0;
   if (!fs.existsSync(DATA_JOBS)) return 0;
 
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(allJobs)) return 0;
 
   const before = allJobs.length;
@@ -1156,7 +1157,7 @@ function logLisJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const lisJobs = allJobs.filter(isLisJob);
   const ticinoJobs = lisJobs.filter((job) => normalize(job?.canton) === 'ti');
@@ -1258,7 +1259,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isLisJob) : [];
   writeJobsCrawlerSlice(LIS_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
