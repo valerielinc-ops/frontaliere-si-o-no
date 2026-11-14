@@ -230,7 +230,7 @@ jobs:
     runs-on: ubuntu-latest
     # Letti dal job `post-review` (vedi `Decide post-review follow-up`).
     outputs:
-      automerge: ${{ steps.post_review.outputs.automerge || steps.non_code_review.outputs.automerge }}
+      automerge: ${{ steps.post_review.outputs.automerge || (steps.non_code_review.outputs.automerge == 'true' && steps.immediate_non_code_merge.outputs.merged != 'true') }}
       autorebase: ${{ steps.post_review.outputs.autorebase }}
       pr_number: ${{ steps.post_review.outputs.pr_number || steps.non_code_review.outputs.pr_number }}
     # 360 min, il massimo di GitHub, dal 2026-08-26 (#6571): quando la review è
@@ -1486,9 +1486,41 @@ jobs:
           LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
             GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
 
+      # Trusted producer PRs in the non-runtime-code lane do not need to wait
+      # for required checks or an automatic review. If a producer did emit the
+      # PR with an App/PAT and therefore started this fallback run, merge it as
+      # soon as the exact HEAD gate passes. A failed/uncapable direct lane
+      # falls through to the existing automatic-review/native-auto-merge path;
+      # human-authored safe PRs always stay on that path.
+      - name: Merge trusted non-runtime-code PR immediately
+        id: immediate_non_code_merge
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && github.event_name == 'pull_request' && github.event.pull_request.user.type == 'Bot' && (github.event.pull_request.user.login == 'frontaliere-automation[bot]' || github.event.pull_request.user.login == 'github-actions[bot]') && github.event.pull_request.head.repo.full_name == github.repository && !cancelled() }}
+        continue-on-error: true
+        env:
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo '::error::non-runtime-code immediate merge unavailable: trusted App token missing; falling back to the normal review lane.'
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" \
+            REPO="$REPO" \
+            PR_NUMBER="$PR_NUMBER" \
+            HEAD_SHA="$HEAD_SHA" \
+            TRUSTED_GH_BIN="$TRUSTED_GH_BIN" \
+            node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-merge-check
+          GH_TOKEN="$APP_TOKEN" "$TRUSTED_GH_BIN" pr merge "$PR_NUMBER" --repo "$REPO" \
+            --admin --squash --delete-branch --match-head-commit "$HEAD_SHA"
+          echo 'merged=true' >> "$GITHUB_OUTPUT"
+
       - name: Publish non-runtime-code automatic LGTM
         id: non_code_review
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && steps.immediate_non_code_merge.outcome != 'success' && !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -2690,9 +2722,88 @@ jobs:
             echo 'required=true' >> "$GITHUB_OUTPUT"
           fi
 
+      # PRs can share the latest successful hourly main snapshot. Its key is
+      # exact and includes the snapshot run id; the manifest independently
+      # checks compatibility and a strict 60-minute age before restoring data.
+      - name: Compute hourly assemble snapshot compatibility
+        id: hourly_snapshot_fingerprint
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
+
+      - name: Check PR changes against assemble inputs
+        id: hourly_snapshot_eligibility
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        env:
+          CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
+          CHANGED_PATHS_FILE: changed-paths.txt
+        run: node scripts/ci/assemble-test-snapshot.mjs can-use
+
+      - name: Find latest successful hourly assemble snapshot
+        id: latest_hourly_snapshot
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_eligibility.outputs.eligible == 'true' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const writeRunIdentity = (run) => {
+              if (!process.env.GITHUB_OUTPUT) return;
+              const runId = run ? String(run.id) : '';
+              const runAttempt = run ? String(run.run_attempt) : '';
+              fs.appendFileSync(process.env.GITHUB_OUTPUT, `run_id=${runId}\nrun_attempt=${runAttempt}\n`);
+            };
+            try {
+              const { data } = await github.request('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs', {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'hourly-test-assemble-snapshot.yml',
+                branch: 'main',
+                status: 'success',
+                per_page: 20,
+              });
+              const now = Date.now();
+              const maxAgeMs = 60 * 60 * 1000;
+              const run = data.workflow_runs.find((candidate) => {
+                // Workflow-run list objects expose updated_at (not completed_at).
+                // The manifest performs the authoritative snapshot-age check.
+                const updatedAt = Date.parse(candidate.updated_at || '');
+                return candidate.head_branch === 'main'
+                  && candidate.conclusion === 'success'
+                  && Number.isFinite(updatedAt)
+                  && now >= updatedAt
+                  && now - updatedAt <= maxAgeMs;
+              });
+              writeRunIdentity(run);
+              if (run) core.info(`Using hourly snapshot workflow run ${run.id}`);
+              else core.warning('No successful hourly assemble snapshot completed within the last 60 minutes');
+            } catch (error) {
+              writeRunIdentity(null);
+              core.warning(`Could not discover hourly assemble snapshot: ${error.message}`);
+            }
+
+      - name: Restore exact hourly assemble snapshot
+        id: hourly_snapshot_cache
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs-test-snapshot
+          key: assemble-jobs-test-snapshot-${{ runner.os }}-${{ steps.hourly_snapshot_fingerprint.outputs.fingerprint }}-${{ steps.latest_hourly_snapshot.outputs.run_id }}-${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+
+      - name: Validate and restore hourly assemble snapshot
+        id: hourly_snapshot_restore
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_cache.outputs.cache-hit == 'true' }}
+        continue-on-error: true
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+        run: node scripts/ci/assemble-test-snapshot.mjs restore
+
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' }}
         # The assembler prints the key it checks itself: a hashFiles() over a
         # subset of its inputs gave exact hits on stale directories, whose save
         # actions/cache then skipped. See the action for the full reason.
@@ -2702,7 +2813,7 @@ jobs:
 
       - name: Cache assemble-jobs output
         id: assemble_cache
-        if: ${{ (steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true')) && steps.assemble_cache_key.outputs.key != '' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on the
         # full sha256 of every slice file, of the assembler's import closure
@@ -2780,15 +2891,20 @@ jobs:
         # 32939112340, verde) per lo span «indipendenti start → dataset end».
         env:
           NODE_OPTIONS: --max-old-space-size=8192
+          ASSEMBLE_TEST_SNAPSHOT_RESTORED: ${{ steps.hourly_snapshot_restore.outputs.restored || 'false' }}
         run: |
-          node scripts/assemble-jobs-dataset.mjs --stats
+          if [ "$ASSEMBLE_TEST_SNAPSHOT_RESTORED" != "true" ]; then
+            node scripts/assemble-jobs-dataset.mjs --stats
+          else
+            echo "✅ Restored the validated hourly assemble snapshot; skipping full assembly"
+          fi
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       # Publish the exact snapshot as soon as assembly and migration succeed.
       # Saving here lets main seed the cache before the longer test and review
       # steps, and still runs before any later test failure.
       - name: Save assemble-jobs cache
-        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -3183,6 +3299,21 @@ jobs:
             exit 1
           fi
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+          # F7: una HEAD che e' un checkpoint WIP di issue-fix
+          # (`wip(issue-N): checkpoint pre-test` / `checkpoint automatico`) e'
+          # codice non finito, salvato per non perderlo col container (#4337):
+          # una review piena (tier high, 60 turni) su di essa e' sprecata
+          # (#18635: 3 checkpoint, #18615: 3 in 4 minuti). Si chiude il review
+          # gate fail-closed SENZA modello: `skip=true` (l'ultimo valore scritto
+          # vince) spegne tier, carry-forward e Codex, mentre `review-gate.mjs`
+          # non trova nessun LGTM sulla HEAD e lascia rosso il check required.
+          # La HEAD successiva (il fix vero) riceve la sua review. Lettura
+          # fail-open: se il subject non e' leggibile si procede come prima.
+          head_subject=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD_SHA" --jq '.commit.message | split("\n") | .[0]' 2>/dev/null || true)
+          if [[ "$head_subject" =~ ^wip\(issue-[0-9]+\):[[:space:]]checkpoint ]]; then
+            echo "::error::HEAD ${HEAD_SHA:0:12} e' un checkpoint WIP ($head_subject): codice non finito, review gate chiuso fail-closed senza modello."
+            { echo "wip_checkpoint=true"; echo "skip=true"; } >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Determine review tier
         id: tier
@@ -3193,6 +3324,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           BODY_REREVIEW: ${{ steps.guard.outputs.body_rereview }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
@@ -3367,9 +3499,13 @@ jobs:
             # LGTM → carry-forward senza modello, verdetto non approvante →
             # minimal che riporta i 🔴 aperti. Fingerprint diverso o non
             # calcolabile (UNKNOWN, errore) → si prosegue come prima: nel dubbio
-            # si fa la review.
-            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo UNKNOWN)
-            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo UNKNOWN)
+            # si fa la review. Lo stderr del CLI NON si scarta: la riga
+            # `fingerprint-contributo ... kind=truncated|error|unverifiable`
+            # dice perché è UNKNOWN (il calcolo usa git locale e cade sulla
+            # compare API solo se il checkout non basta; un 403 a token esaurito
+            # non deve più costare una review piena su una HEAD di solo merge).
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" || echo UNKNOWN)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" || echo UNKNOWN)
             carry=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
               | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
@@ -4638,6 +4774,7 @@ jobs:
               'Classify bounded loop-fleet ledger path',
               'Publish bounded ledger-only automatic LGTM',
               'Publish non-runtime-code automatic LGTM',
+              'Merge trusted non-runtime-code PR immediately',
               'Resolve PR from pull request',
               'Resolve review input revision (zero-agent)',
               'Re-review guard (skip Claude when no code changed since last LGTM)',

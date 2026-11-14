@@ -1375,6 +1375,16 @@ function fakePortal() {
       state.agentFinalClicks += 1;
       res.writeHead(204); return res.end();
     }
+    if (route === 'GET /agent-nav/bound-job') {
+      return send(page('Payroll Specialist | Example Employer', `<h1>Payroll Specialist</h1><p>Example Employer</p><a href="${receiptQuery('/agent-nav/bound-summary')}">Apply</a>`));
+    }
+    if (route === 'GET /agent-nav/bound-summary') {
+      return send(page('Application | Example Employer', `<h1>Example Employer</h1><h2>Payroll Specialist</h2>${form('/agent-nav/bound-summary', '<button type="submit">Send application</button>')}`));
+    }
+    if (route === 'POST /agent-nav/bound-summary') {
+      state.summarySubmissions += 1;
+      return send(page('Application received', '<h1>Thank you for your application</h1>'));
+    }
     if (route === 'GET /agent-unbound') return send(page('Application', `<h1>Application</h1>${form('/agent-unbound', '<button type="submit">Send application</button>')}`));
     if (route === 'POST /agent-unbound') {
       state.agentUnboundSubmissions += 1;
@@ -2290,7 +2300,7 @@ async function hiddenFutureStepFileCheck({ executablePath, check }) {
   }
 }
 
-async function agentNavigationChecks({ base, state, executablePath, run, check }) {
+async function agentNavigationChecks({ base, state, executablePath, run, check, bindReceiptJobId }) {
   const browser = await launchChromium({ headless: true, executablePath });
   const parsePrompt = (prompt) => {
     const jsonStart = prompt.indexOf('{"agentPage"');
@@ -2306,6 +2316,13 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
   };
   const result = (status, actions = [], more = {}) => ({
     status, reason: '', actions, advanceRef: '', submitRef: '', questions: [], ...more,
+  });
+  const agentResultDetails = (agentResult) => ({
+    status: agentResult.status,
+    url: agentResult.page?.url?.() || '',
+    applicationEntryUrl: agentResult.enteredApplicationEntryUrl || '',
+    reason: agentResult.reason || '',
+    rounds: agentResult.evidence?.rounds || [],
   });
   const clickNamed = (snapshot, name) => {
     const ref = refFor(snapshot, name);
@@ -2332,7 +2349,8 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       customResult.status === 'ACCOUNT_STEP'
       && new URL(customResult.page.url()).hostname === 'career2.successfactors.localhost'
       && new URL(customResult.page.url()).pathname === '/sf/career'
-      && customResult.evidence.rounds.length === 3);
+      && customResult.enteredApplicationEntryUrl === customResult.page.url()
+      && customResult.evidence.rounds.length === 3, agentResultDetails(customResult), { reportDiagnostic: true });
     await context.close();
 
     const accountContext = await browser.newContext();
@@ -2346,6 +2364,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       },
     });
     const popupReachedAccount = accountStart.status === 'ACCOUNT_STEP'
+      && accountStart.enteredApplicationEntryUrl === accountStart.page.url()
       && new URL(accountStart.page.url()).pathname === '/agent-nav/workday-login';
     // The runner's existing account flow handles credentials/OTP, then resumes at the job form.
     await accountStart.page.goto(`${base}/agent-nav/workday-form`);
@@ -2355,7 +2374,9 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
     });
     check('Workday popup reaches the account flow and resumes on the application form',
       popupReachedAccount && resumed.status === 'REACHED_FORM'
-      && new URL(resumed.page.url()).pathname === '/agent-nav/workday-form');
+      && new URL(resumed.page.url()).pathname === '/agent-nav/workday-form', {
+        popup: agentResultDetails(accountStart), resumed: agentResultDetails(resumed),
+      }, { reportDiagnostic: true });
     await accountContext.close();
 
     const talentContext = await browser.newContext();
@@ -2375,7 +2396,8 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
     check('agent backs out of a talent pool and opens the selected job application',
       talentResult.status === 'REACHED_FORM'
       && new URL(talentResult.page.url()).pathname === '/agent-nav/specific-form'
-      && talentResult.evidence.rounds[0].actions[0].action === 'back');
+      && talentResult.enteredApplicationEntryUrl === talentResult.page.url()
+      && talentResult.evidence.rounds[0].actions[0].action === 'back', agentResultDetails(talentResult), { reportDiagnostic: true });
     await talentContext.close();
 
     const unknownContext = await browser.newContext();
@@ -2387,7 +2409,8 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       },
     });
     check('agent follows a localized application link from an unrecognized page',
-      unknownResult.status === 'REACHED_FORM' && new URL(unknownResult.page.url()).pathname === '/agent-nav/continue');
+      unknownResult.status === 'REACHED_FORM' && new URL(unknownResult.page.url()).pathname === '/agent-nav/continue',
+      agentResultDetails(unknownResult), { reportDiagnostic: true });
     await unknownContext.close();
 
     const newTabContext = await browser.newContext();
@@ -2399,7 +2422,8 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       },
     });
     check('agent follows and inspects a new application tab',
-      newTabResult.status === 'REACHED_FORM' && new URL(newTabResult.page.url()).pathname === '/agent-nav/new-tab-form');
+      newTabResult.status === 'REACHED_FORM' && new URL(newTabResult.page.url()).pathname === '/agent-nav/new-tab-form',
+      agentResultDetails(newTabResult), { reportDiagnostic: true });
     await newTabContext.close();
 
     const injectionContext = await browser.newContext();
@@ -2426,7 +2450,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
     });
     check('agent final-send click is refused before a page handler can send it',
       finalResult.status === 'PARKED' && finalResult.evidence.rounds[0].actions[0].error === 'final_submit_reserved'
-      && state.agentFinalClicks === 0);
+      && state.agentFinalClicks === 0, { ...agentResultDetails(finalResult), clickCount: state.agentFinalClicks }, { reportDiagnostic: true });
     await finalContext.close();
 
     let unboundDurableClicks = 0;
@@ -2446,8 +2470,13 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
 
     const beforeBound = state.summarySubmissions;
     const boundProof = { clickedAt: [], receipts: [] };
+    const boundApplyUrl = bindReceiptJobId(`${base}/agent-nav/bound-summary`);
+    const boundPostingUrl = new URL(`${base}/agent-nav/bound-job`);
+    boundPostingUrl.searchParams.set('jobid', new URL(boundApplyUrl).searchParams.get('jobid'));
     const bound = await run({
-      applyUrl: `${base}/summary`,
+      applyUrl: boundApplyUrl,
+      postingUrl: boundPostingUrl.href,
+      job: { title: 'Payroll Specialist', company: 'Example Employer' },
       onBeforeSubmit: async ({ formBinding }) => { boundProof.clickedAt.push(formBinding); },
       onReceipt: async ({ finalUrl }) => { boundProof.receipts.push(finalUrl); },
     });
@@ -2455,7 +2484,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check }
       bound.event.type === 'submit_succeeded' && state.summarySubmissions === beforeBound + 1
       && boundProof.clickedAt.length === 1 && boundProof.receipts.length === 1
       && (bound.evidence.finalOutcomes || []).filter(outcome => outcome === 'confirmed').length === 1,
-      stopContext(bound));
+      stopContext(bound), { reportDiagnostic: true });
   } finally {
     await browser.close();
   }
@@ -2752,7 +2781,7 @@ async function main() {
     if (!focusModalApplication && !focusWorkdayTenant && !focusWorkdayTenantSmoke
       && !focusSuccessFactorsCustomDomain && !focusAgentNavigation) await hiddenFutureStepFileCheck({ executablePath, check });
     if (focusAgentNavigation || (!focusWorkday && !focusCoop && !focusAgentBirthDate && !focusDiagnostics && !focusUmantis && !focusModalApplication && !focusSuccessFactorsCustomDomain)) {
-      await agentNavigationChecks({ base, state, executablePath, run, check });
+      await agentNavigationChecks({ base, state, executablePath, run, check, bindReceiptJobId });
     }
     if (focusAgentNavigation) {
       // The navigation-focused checks above exercise the independent agent and guarded runner.

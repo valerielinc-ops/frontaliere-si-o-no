@@ -4,11 +4,36 @@
   "detailRejected": 2,
   "key": "eqe-ch",
   "label": "eqe AG",
-  "generatedAt": "2026-11-14T09:47:51.154Z",
+  "generatedAt": "2026-11-14T19:10:46.333Z",
   "total": 0,
   "discovered": 2,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "eqe-ch",
+    "seedUrls": [
+      "https://eqe.ch/unternehmen-2/karriere"
+    ],
+    "phase": "detail",
+    "pages": 3,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://eqe.ch/unternehmen-2/karriere"
+      },
+      {
+        "status": 200,
+        "url": "https://eqe.ch/unternehmen-2/offene-stellen/ingenieurtechniker-im-maschinenbau-anlagenbau-w-m-d-pensum-80-100"
+      },
+      {
+        "status": 200,
+        "url": "https://eqe.ch/unternehmen-2/offene-stellen/anlagen-und-apparatebauer-schweisser-w-m-d-pensum-100"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "no-jobs-parsed",
@@ -23,5 +48,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

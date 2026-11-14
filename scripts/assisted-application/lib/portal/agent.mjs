@@ -28,6 +28,7 @@ import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocu
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 import { allowAgentApplicationEntryClickInPage, installAgentFinalClickLockInPage, installFinalFormGuardCaptureInPage, releaseAgentFinalClickLockInPage } from './form-contract.mjs';
 import { recognizeAts } from './ats-recognize.mjs';
+import { applicationDestinationDiversionHint } from './stages.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -255,6 +256,24 @@ export async function aiSnapshot(page) {
     text = typeof result === 'string' ? result : result?.full;
   }
   return /\[ref=/.test(text || '') ? compactSnapshot(text) : null;
+}
+
+async function settledApplicationEntryUrl(page) {
+  if (!page || page.isClosed?.()) return '';
+  if (page.url() === 'about:blank' && typeof page.waitForURL === 'function') {
+    await page.waitForURL(url => url.href !== 'about:blank', {
+      waitUntil: 'domcontentloaded', timeout: ACTION_TIMEOUT_MS * 3,
+    }).catch(() => {});
+  } else if (typeof page.waitForLoadState === 'function') {
+    await page.waitForLoadState('domcontentloaded', { timeout: ACTION_TIMEOUT_MS * 3 }).catch(() => {});
+  }
+  const current = page.url();
+  if (!current || current === 'about:blank') return '';
+  const [title, snapshot] = await Promise.all([
+    page.title?.().catch(() => '') || '',
+    aiSnapshot(page).catch(() => ''),
+  ]);
+  return applicationDestinationDiversionHint({ title, url: current, text: snapshot }) ? '' : current;
 }
 
 /** Preserve link targets and useful refs, omit bare images, and cut to SNAPSHOT_CHARS. */
@@ -589,7 +608,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set(), { na
 
 /** What the element is, read in the page: what may be done to it depends on it. */
 async function describe(locator) {
-  return locator.evaluate((element) => {
+  const info = await locator.evaluate((element) => {
     const otpFieldRe = /\b(?:otp|one[- ]time(?:\s+(?:password|passcode|code))?|verification code|confirmation code|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|bestätigungs(?:code|passwort)|verifizierungscode|einmal(?:passwort|kennwort|code))\b/iu;
     const button = element.closest('button, a, [role="button"], [role="link"], input[type="submit"], input[type="button"], [onclick]');
     const control = button || element;
@@ -623,8 +642,6 @@ async function describe(locator) {
     const labelName = [...(element.labels || []), ...labelledBy.map((text) => ({ textContent: text }))]
       .map((label) => label.textContent || '').join(' ').replace(/\s+/g, ' ').trim().slice(0, 200);
     const actionContext = `${name} ${labelName} ${formContext} ${context}`;
-    const nonApplicationForm = NON_APPLICATION_CONTEXT_RE.test(actionContext);
-    const applicationForm = !nonApplicationForm && APPLICATION_CONTEXT_RE.test(actionContext);
     return {
       name,
       labelName,
@@ -645,14 +662,17 @@ async function describe(locator) {
       context,
       chrome,
       formContext,
-      applicationForm,
-      nonApplicationForm,
+      actionContext,
       href,
       submits,
       authForm,
       leaves: Boolean(href) && !href.startsWith('#') && !href.startsWith('javascript:'),
     };
   }, null, { timeout: ACTION_TIMEOUT_MS });
+  const { actionContext, ...description } = info;
+  const nonApplicationForm = NON_APPLICATION_CONTEXT_RE.test(actionContext || '');
+  const applicationForm = !nonApplicationForm && APPLICATION_CONTEXT_RE.test(actionContext || '');
+  return { ...description, applicationForm, nonApplicationForm };
 }
 
 /** Why the action must not run on this element; final application clicks remain runner-owned. */
@@ -860,7 +880,7 @@ function snapshotLinkEntries(snapshot = '') {
       if (url) { href = url[1]; break; }
     }
     const label = header[2].replace(/^"|"$/gu, '').replace(/\\"/gu, '"').trim();
-    if (href) entries.push({ label, href });
+    if (href) entries.push({ label, href, ref: header[0].match(/\[ref=([^\]]+)\]/u)?.[1] || '' });
   }
   return entries;
 }
@@ -1088,7 +1108,7 @@ export function withAgentFieldProvenance(raw, fields = []) {
 
 /**
  * Completes the current page with Codex on the accessibility snapshot.
- * @returns {Promise<{status:'ACT'|'REACHED_FORM'|'READY_TO_SUBMIT'|'ACCOUNT_STEP'|'NEEDS_CANDIDATE'|'PARKED', questions?:Array, advanceRef?:string, submitRef?:string, reason?:string, calls:number, evidence:object}>}
+ * @returns {Promise<{status:'ACT'|'REACHED_FORM'|'READY_TO_SUBMIT'|'ACCOUNT_STEP'|'NEEDS_CANDIDATE'|'PARKED', questions?:Array, advanceRef?:string, submitRef?:string, enteredApplicationEntryUrl?:string, reason?:string, calls:number, evidence:object}>}
  */
 export async function completeWithAgent({
   page, context = null, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [],
@@ -1103,6 +1123,7 @@ export async function completeWithAgent({
   const grounded = new Set();
   const answers = [];
   let enteredApplicationEntry = false;
+  let enteredApplicationEntryUrl = '';
   const signatures = new Map();
   const lockToken = `agent-${randomUUID()}`;
   const lockedPages = new Set();
@@ -1149,7 +1170,9 @@ export async function completeWithAgent({
       lockedPage.off?.('framenavigated', listeners.onFrameNavigated);
     }
     context?.off?.('page', pageListener);
-    return { ...result, calls, page: activePage, evidence, answers, enteredApplicationEntry };
+    return {
+      ...result, calls, page: activePage, evidence, answers, enteredApplicationEntry, enteredApplicationEntryUrl,
+    };
   };
   const livePages = () => (context?.pages?.() || [activePage]).filter(target => !target.isClosed?.());
   const adoptPage = async preferred => {
@@ -1214,8 +1237,15 @@ export async function completeWithAgent({
     for (const action of step.actions) {
       const pageBefore = activePage;
       const urlBefore = activePage.url();
+      let actionInfo = null;
+      if (action.action === 'click') {
+        actionInfo = await describe(activePage.locator(`aria-ref=${action.ref}`)).catch(() => null);
+      } else if (action.action === 'goto') {
+        actionInfo = snapshotLinkEntries(snapshot).find((entry) => safeAgentUrl(entry.href) === safeAgentUrl(action.value)) || null;
+        if (actionInfo) actionInfo.name = actionInfo.label;
+      }
       const entryAllowed = typeof allowApplicationEntry === 'function'
-        ? await Promise.resolve(allowApplicationEntry(activePage, action)).catch(() => false)
+        ? await Promise.resolve(allowApplicationEntry(activePage, action, actionInfo)).catch(() => false)
         : allowApplicationEntry;
       const result = await runAction(activePage, action, files, {
         reservedButtons, navigationEnabled, allowApplicationEntry: entryAllowed, snapshot,
@@ -1225,12 +1255,23 @@ export async function completeWithAgent({
       if (result.nextPage) activePage = result.nextPage;
       await activePage.waitForTimeout(250).catch(() => {});
       await adoptPage(activePage);
+      const clickedName = String(result.clickedName || '');
+      const continuesApplication = Boolean(enteredApplicationEntryUrl)
+        && urlBefore === enteredApplicationEntryUrl
+        && action.action === 'click'
+        && ADVANCE_RE.test(clickedName)
+        && !NOT_ADVANCE_RE.test(clickedName);
       record.actions.push({
         ref: action.ref, action: action.action, question: action.question, source: action.source,
         ok: result.ok, ...(result.error ? { error: result.error } : {}),
         ...(action.action === 'upload' && result.ok ? { document: action.document, files: result.files || 1 } : {}),
       });
-      if (result.ok && result.applicationEntry) enteredApplicationEntry = true;
+      if (result.ok && result.applicationEntry) {
+        enteredApplicationEntry = true;
+        enteredApplicationEntryUrl = await settledApplicationEntryUrl(activePage) || enteredApplicationEntryUrl;
+      } else if (result.ok && continuesApplication) {
+        enteredApplicationEntryUrl = await settledApplicationEntryUrl(activePage) || enteredApplicationEntryUrl;
+      }
       if (result.error === 'language_answer_requires_candidate') {
         const contextText = boundedPortalContext(action.context);
         return await finish({
@@ -1248,7 +1289,6 @@ export async function completeWithAgent({
         record.reason = 'ACCOUNT_STEP: account_action_handled_by_runner';
         return await finish({ status: 'ACCOUNT_STEP', reason: record.reason });
       }
-      if (result.ok && result.applicationEntry) enteredApplicationEntry = true;
       results.push({ ref: action.ref, action: action.action, question: action.question, ok: result.ok, ...(result.error ? { error: result.error } : {}) });
       if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       const pageChanged = activePage !== pageBefore || activePage.url() !== urlBefore || result.navigation || Boolean(result.clickedHref);

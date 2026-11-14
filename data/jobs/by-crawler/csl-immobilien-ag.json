@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-immobilien-ag",
-  "assembledAt": "2026-11-14T09:45:36.364Z",
-  "runId": "43580673891",
+  "assembledAt": "2026-11-14T19:09:25.917Z",
+  "runId": "43629732600",
   "jobs": [
     {
       "id": "csl-immobilien-ag-9e5ee263ca24",
@@ -34,7 +34,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:45:23.054Z",
+      "crawledAt": "2026-11-14T19:09:16.376Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
           "leiter-in-marketing-kommunikation-zurich-zh-csl-immobilien-ag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T21:43:29.321Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
@@ -86,7 +85,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:45:23.054Z",
+      "validThrough": "2027-02-07T19:09:16.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +119,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:45:23.051Z",
+      "crawledAt": "2026-11-14T19:09:16.372Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +174,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:45:23.051Z",
+      "validThrough": "2027-01-26T19:09:16.372Z",
       "validThroughSource": "last-observed-window"
     }
   ]

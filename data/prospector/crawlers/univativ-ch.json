@@ -1,0 +1,24 @@
+{
+  "companyKey": "univativ-ch",
+  "companyName": "univativ Schweiz AG",
+  "companyHost": "univativ-group.jobs.personio.de",
+  "verifiedEmployerDomain": "univativ.ch",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://univativ-group.jobs.personio.de/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "(Senior) Consultant (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249 5.82",
+    "Talent Scout / Recruiter (m/w/d) <path d=\"M10.0005 3.5752C12.7755 3.57541 15.0249"
+  ],
+  "canton": "BE",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:17:37.139Z",
+  "candidateKey": "univativ@bern"
+}

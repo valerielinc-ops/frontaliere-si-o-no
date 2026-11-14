@@ -45,7 +45,7 @@ import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawl
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
-import { launchChromium } from '../ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from '../stealth-browser.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -58,6 +58,11 @@ import {
   selectPublishableTitle,
   vacancyTitleFromDocumentTitle,
 } from './production-title.mjs';
+import {
+  createCrawlerFetchReceipt,
+  finalizeCrawlerFetchReceipt,
+  recordCrawlerFetchReceiptPage,
+} from '../crawler-fetch-receipt.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -282,19 +287,27 @@ export async function fetchHtmlViaBrowser(
   try {
     if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
     browser = await raceBrowserOperation(
-      launchChromium({
+      launchStealthOrChromium({
+        purpose: 'crawler',
         headless: true,
+        locale: 'de-CH',
         args: ['--disable-blink-features=AutomationControlled'],
+        fallbackOptions: {
+          headless: true,
+          args: ['--disable-blink-features=AutomationControlled'],
+        },
       }),
       signal,
       `browser rescue launch aborted for ${url}`,
       (lateBrowser) => lateBrowser?.close?.(),
     );
-    const context = await raceBrowserOperation(browser.newContext({
-      userAgent: BROWSER_RESCUE_USER_AGENT,
-      locale: 'de-CH',
-      viewport: { width: 1280, height: 720 },
-    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const context = await raceBrowserOperation(browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: BROWSER_RESCUE_USER_AGENT,
+          locale: 'de-CH',
+          viewport: { width: 1280, height: 720 },
+        }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
     const page = await raceBrowserOperation(
       context.newPage(),
       signal,
@@ -383,6 +396,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'fetchOutcome',
   'discoveredCount',
   'fetchDetail',
+  'fetchReceipt',
   'detailDrop',
   'expectedFilterCount',
   'expectedFilters',
@@ -421,6 +435,21 @@ export function copySpecFetchMetadata(target, source) {
     });
   }
   return target;
+}
+
+/**
+ * Attach the fetch receipt to the same error that already carries the
+ * fail-closed listing/detail classification. The shared crawler template can
+ * then write a summary even when no vacancy array reaches it.
+ *
+ * @param {unknown} error
+ * @param {Record<string, any>} receipt
+ * @returns {Error & { specFetchReceipt?: Record<string, any> }}
+ */
+function attachSpecFetchReceipt(error, receipt) {
+  const failure = error instanceof Error ? error : new Error(String(error));
+  Object.assign(failure, { specFetchReceipt: receipt });
+  return failure;
 }
 
 /**
@@ -470,10 +499,95 @@ function configuredEmptyListingOutcome(spec) {
  * @returns {boolean}
  */
 function matchesConfiguredAuthoritativeEmptyText(spec, html) {
-  const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
-  if (!marker) return false;
-  const sourceText = textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
-  return sourceText.includes(marker);
+  const markers = [
+    spec?.authoritativeEmptyText,
+    ...(Array.isArray(spec?.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
+  ]
+    .filter((value) => typeof value === 'string')
+    .map((value) => value.replace(/\s+/g, ' ').trim().toLowerCase())
+    .filter(Boolean);
+  if (!markers.length) return false;
+  const contract = spec?.authoritativeEmptyData;
+  if (contract === undefined || contract === null) {
+    const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
+    return markers.some((marker) => sourceText.includes(marker));
+  }
+
+  // Some SSR career pages keep the empty-state sentence in an application
+  // payload rather than rendering it into the HTML body. `textOf()` correctly
+  // excludes scripts from rendered evidence, so a spec must opt into this
+  // second proof and name every source-owned field that makes the zero safe:
+  // the script, tenant identity, empty item array, zero counters and marker
+  // container. A marker alone is never enough to retire a live slice.
+  const requiredPaths = [
+    'scriptId',
+    'companyPath',
+    'companyValue',
+    'itemsPath',
+    'totalPath',
+    'pageCountPath',
+    'markerPath',
+  ];
+  if (requiredPaths.some((key) => typeof contract[key] !== 'string' || !contract[key].trim())
+    || typeof contract.companyValue !== 'string'
+    || !contract.companyValue.trim()) {
+    return false;
+  }
+
+  const readPath = (root, rawPath) => {
+    const parts = String(rawPath).split('.').map((part) => part.trim());
+    if (!parts.length || parts.some((part) => !/^[A-Za-z_$][A-Za-z0-9_$-]*$/.test(part)
+      || part === '__proto__' || part === 'constructor' || part === 'prototype')) {
+      return undefined;
+    }
+    return parts.reduce((value, part) => {
+      if (!value || typeof value !== 'object' || !Object.prototype.hasOwnProperty.call(value, part)) {
+        return undefined;
+      }
+      return value[part];
+    }, root);
+  };
+  const scriptId = String(contract.scriptId).trim();
+  const scriptTags = scanStartTags(html, 'script');
+  for (const scriptTag of scriptTags) {
+    if (readAttr(scriptTag.raw, 'id') !== scriptId) continue;
+    const closeTag = /<\/script\s*>/giu;
+    closeTag.lastIndex = scriptTag.end;
+    const close = closeTag.exec(String(html));
+    if (!close) continue;
+    const payload = String(html).slice(scriptTag.end, close.index).trim();
+    let data;
+    for (const candidate of [payload, decodeEntities(payload)]) {
+      try {
+        data = JSON.parse(candidate);
+        break;
+      } catch {
+        // Try the entity-decoded representation before rejecting the proof.
+      }
+    }
+    if (!data) continue;
+
+    const company = readPath(data, contract.companyPath);
+    const items = readPath(data, contract.itemsPath);
+    const total = readPath(data, contract.totalPath);
+    const pageCount = readPath(data, contract.pageCountPath);
+    if (String(company).trim().toLowerCase() !== String(contract.companyValue).trim().toLowerCase()
+      || !Array.isArray(items)
+      || items.length !== 0
+      || total !== 0
+      || pageCount !== 0) {
+      continue;
+    }
+    const markerSource = readPath(data, contract.markerPath);
+    const markerText = typeof markerSource === 'string'
+      ? markerSource
+      : JSON.stringify(markerSource ?? '');
+    const normalizedMarkerText = decodeEntities(markerText).replace(/\s+/g, ' ').trim().toLowerCase();
+    if (markers.some((marker) => normalizedMarkerText.includes(marker))) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /** @param {any[]} rows */
@@ -712,7 +826,8 @@ async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
  * @param {Record<string, any>} runtime
  * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
  *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean, readPdf?: boolean,
- *   detailLocationLabel?: string, detailTitleLeadIn?: string, detailTitleEndLabel?: string,
+ *   detailLocationLabel?: string, detailLocationCantonOverrides?: Record<string, string>,
+ *   detailTitleLeadIn?: string, detailTitleEndLabel?: string,
  *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string, detailApplyUrl?: string }} [request]
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
@@ -723,44 +838,67 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
     if (typeof runtime.onPageFetched === 'function') void runtime.onPageFetched(page, url);
     return page;
   };
-  const result = await politeFetch(url, {
-    urlPolicy,
-    dispatcher: urlPolicy.dispatcher,
-    fetchImpl: request.readPdf === true
-      ? createPdfSafeFetch(runtime.fetchImpl)
-      : runtime.fetchImpl,
-    sleepImpl: runtime.sleepImpl,
-    retries: runtime.retries,
-    retryBaseMs: runtime.retryBaseMs,
-    timeoutMs: runtime.timeoutMs,
-    hostDelayMs: runtime.hostDelayMs,
-    method: request.method,
-    body: request.body,
-    contentType: request.contentType,
-    accept: request.accept,
-    headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
-  });
+  const notifyPageFetchFailed = (page = {}) => {
+    // Failure observations carry only bounded response metadata. In
+    // particular, never forward the response body into a crawler receipt.
+    if (typeof runtime.onPageFetchFailed === 'function') {
+      void runtime.onPageFetchFailed({
+        status: page.status,
+        url: page.url || url,
+        ...(page.proxiedBy ? { proxiedBy: page.proxiedBy } : {}),
+      }, url);
+    }
+  };
+  let result;
+  try {
+    result = await politeFetch(url, {
+      urlPolicy,
+      dispatcher: urlPolicy.dispatcher,
+      fetchImpl: request.readPdf === true
+        ? createPdfSafeFetch(runtime.fetchImpl)
+        : runtime.fetchImpl,
+      sleepImpl: runtime.sleepImpl,
+      retries: runtime.retries,
+      retryBaseMs: runtime.retryBaseMs,
+      timeoutMs: runtime.timeoutMs,
+      hostDelayMs: runtime.hostDelayMs,
+      method: request.method,
+      body: request.body,
+      contentType: request.contentType,
+      accept: request.accept,
+      headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
+    });
+  } catch (error) {
+    notifyPageFetchFailed({ status: error?.status, url });
+    throw error;
+  }
   const isPdfBody = request.readPdf === true
     && typeof result.body === 'string'
     && result.body.startsWith(PDF_BODY_PREFIX);
   if (result.ok && isPdfBody) {
-    return notifyPageFetched(await parsePdfResponseBody(
-      result.url || url,
-      result.body,
-      result,
-      runtime,
-      request.detailLocationLabel,
-      request.detailTitleLeadIn,
-      request.detailTitleEndLabel,
-      request.detailApplyUrlHost,
-      request.detailApplyUrlPathPrefix,
-      request.detailApplyUrl,
-    ));
+    try {
+      return notifyPageFetched(await parsePdfResponseBody(
+        result.url || url,
+        result.body,
+        result,
+        runtime,
+        request.detailLocationLabel,
+        request.detailTitleLeadIn,
+        request.detailTitleEndLabel,
+        request.detailApplyUrlHost,
+        request.detailApplyUrlPathPrefix,
+        request.detailApplyUrl,
+      ));
+    } catch (error) {
+      notifyPageFetchFailed(result);
+      throw error;
+    }
   }
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   const connectionLevelFailure = isConnectionLevelFetchResult(result);
   const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
+  if (!result.ok || directChallenge) notifyPageFetchFailed(result);
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
   // Treat that response like the existing 403/406/415/451 rescue path: a
@@ -770,6 +908,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
   if (result.ok && !directChallenge) {
     if (request.readPdf === true) {
+      notifyPageFetchFailed(result);
       throw Object.assign(new Error(`Expected a PDF detail response from ${result.url || url}`), {
         status: result.status,
         retryable: Number(result.status) >= 500,
@@ -939,7 +1078,33 @@ function logRuntimeObservation(spec, observation) {
  * @param {string[]} [allowedDetailOrigins]
  * @returns {{ title: string, url: string, via: 'known-template' }[]}
  */
-function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) {
+function vacancyTitleFromUrl(rawUrl) {
+  let segment = '';
+  try {
+    const pathname = new URL(rawUrl).pathname;
+    segment = pathname.split('/').filter(Boolean).at(-1) || '';
+  } catch {
+    return '';
+  }
+  try {
+    segment = decodeURIComponent(segment);
+  } catch {
+    // Keep the raw path segment if the source contains malformed escaping.
+  }
+  return segment
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 180);
+}
+
+function matchKnownTemplate(
+  links,
+  templateRx,
+  host,
+  allowedDetailOrigins = [],
+  { listingTitleFromUrl = false } = {},
+) {
   const allowedOrigins = new Set();
   for (const rawOrigin of allowedDetailOrigins) {
     try {
@@ -959,7 +1124,8 @@ function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) 
     if (!templateRx.test(u.pathname)) continue;
     if (seen.has(l.url)) continue;
     seen.add(l.url);
-    const title = (l.text || '').replace(/\s+/g, ' ').trim();
+    const title = (l.text || '').replace(/\s+/g, ' ').trim()
+      || (listingTitleFromUrl ? vacancyTitleFromUrl(u.href) : '');
     if (title.length <= 3) continue;
     out.push({ title: title.slice(0, 180), url: l.url, via: /** @type {const} */ ('known-template') });
   }
@@ -1167,7 +1333,9 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host
-      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
+      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins, {
+        listingTitleFromUrl: spec?.listingTitleFromUrl === true,
+      })
       : [];
     if (direct.length) {
       const hasStructuredCandidates = vacancies.some((vacancy) => (
@@ -1551,7 +1719,19 @@ export function normalizeSpecPagination(spec) {
  */
 export function readDeclaredListingTotal(html, pagination, spec) {
   if (!pagination.declaredTotalRx) return null;
-  const match = pagination.declaredTotalRx.exec(String(html || ''));
+  const rawHtml = String(html || '');
+  // Providers commonly encode punctuation in the visible counter (for
+  // example `d&#039;emploi`). Keep the raw pass first so existing specs that
+  // deliberately match source markup retain their exact contract, then retry
+  // against decoded text so an entity-only markup change cannot turn a
+  // complete listing into a fail-closed source-extraction failure.
+  const decodedHtml = decodeEntities(rawHtml).replace(/[’‘]/g, "'");
+  const match = [rawHtml, decodedHtml]
+    .map((candidate) => {
+      pagination.declaredTotalRx.lastIndex = 0;
+      return pagination.declaredTotalRx.exec(candidate);
+    })
+    .find(Boolean);
   const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
   if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
     throw markSpecListingFailure(new Error(
@@ -2627,11 +2807,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     && observedListingPageCount === seedCount
     && authoritativeEmptySources.length === seedCount
     && safeExistingOutcome) {
+    const configuredEmptyMarkers = [
+      spec.authoritativeEmptyText,
+      ...(Array.isArray(spec.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
+    ].map((value) => String(value || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
     copySpecFetchMetadata(rows, {
       fetchOutcome: 'ok',
       discoveredCount: 0,
       authoritativeEmptyState: 'authoritative-source-zero',
-      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) rendered the configured source-empty marker "${spec.authoritativeEmptyText}" at ${authoritativeEmptySources.join(', ')}`,
+      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) matched one of the configured source-empty marker(s) "${configuredEmptyMarkers.join(' | ')}" at ${authoritativeEmptySources.join(', ')}`,
     });
   }
   return rows;
@@ -2681,9 +2865,26 @@ export async function runSpecInProduction(spec, runtime = {}) {
   if (spec.browserRescue === true && typeof runtime.browserFetchImpl !== 'function') {
     runtime = { ...runtime, browserFetchImpl: fetchHtmlViaBrowser };
   }
+  const fetchReceipt = createCrawlerFetchReceipt(spec);
+  const previousPageFetched = runtime.onPageFetched;
+  const previousPageFetchFailed = runtime.onPageFetchFailed;
+  runtime = {
+    ...runtime,
+    onPageFetched(page, requestedUrl) {
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      if (typeof previousPageFetched === 'function') return previousPageFetched(page, requestedUrl);
+      return undefined;
+    },
+    onPageFetchFailed(page, requestedUrl) {
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      if (typeof previousPageFetchFailed === 'function') return previousPageFetchFailed(page, requestedUrl);
+      return undefined;
+    },
+  };
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
+  let rows = null;
   try {
-    const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    rows = await collectSpecListingRows(spec, runtime, validateUrl);
     const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
       ? (runtime.officialEmployerSiteLocation
         || await fetchOfficialEmployerSiteLocation(spec, runtime))
@@ -2707,7 +2908,12 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const titleEvidenceByUrl = runtime.returnObservation === true || runtime.retainDetailPages === true
       ? new Map()
       : null;
-    if (!needsDetailEnrichment(spec, rows)) {
+    const needsDetails = needsDetailEnrichment(spec, rows);
+    // An empty template listing never enters a detail fetch. Keep its receipt
+    // in the listing phase so a zero is not reported as if detail pages had
+    // been observed and filtered out.
+    fetchReceipt.phase = 'listing';
+    if (!needsDetails) {
       const dropCounts = {
         source_backed_geography_missing: 0,
         generic_or_missing_title: 0,
@@ -2794,9 +3000,17 @@ export async function runSpecInProduction(spec, runtime = {}) {
           dropped: qualityDrops,
         },
       };
+      const completedReceipt = finalizeCrawlerFetchReceipt(
+        fetchReceipt,
+        rows,
+        null,
+        'listing',
+      );
+      observation.fetchReceipt = completedReceipt;
       logRuntimeObservation(spec, observation);
       const output = copySpecFetchMetadata(safeRows, rows);
       copySpecFetchMetadata(output, {
+        fetchReceipt: completedReceipt,
         detailDrop: observation.detailDrop,
         discoveredCount: rows.length,
         expectedFilterCount: observation.expectedFilterCount,
@@ -2831,6 +3045,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         : stampedOutput;
     }
 
+    fetchReceipt.phase = rows.length > 0 ? 'detail' : 'listing';
     // Template extraction has no per-row semantics. Visit the detail pages with
     // a bounded pool so location and full descriptions are source-backed.
     // Workers complete out of order; index-addressed writes keep the listing
@@ -2861,6 +3076,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(detailUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
@@ -2874,6 +3090,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
@@ -3109,6 +3326,13 @@ export async function runSpecInProduction(spec, runtime = {}) {
       complete,
       detailDrop,
     };
+    const completedReceipt = finalizeCrawlerFetchReceipt(
+      fetchReceipt,
+      rows,
+      null,
+      fetchReceipt.phase,
+    );
+    observation.fetchReceipt = completedReceipt;
     logRuntimeObservation(spec, observation);
     const shouldThrow = (listingOutcome.failed && !preserveEmptyListingResult)
       || (listingOutcome.unverifiedEmpty && !preserveEmptyListingResult)
@@ -3150,6 +3374,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     }
     const output = copySpecFetchMetadata(publishedRows, rows);
     copySpecFetchMetadata(output, {
+      fetchReceipt: completedReceipt,
       detailDrop,
       discoveredCount: rows.length,
       expectedFilterCount: observation.expectedFilterCount,
@@ -3166,6 +3391,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
     return runtime.returnObservation === true
       ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
       : stampedOutput;
+  } catch (error) {
+    const receipt = finalizeCrawlerFetchReceipt(
+      fetchReceipt,
+      rows || {},
+      error,
+      fetchReceipt.phase,
+    );
+    throw attachSpecFetchReceipt(error, receipt);
   } finally {
     try {
       await validateUrl.dispatcher.close();

@@ -1,11 +1,64 @@
 {
   "key": "invias-swiss",
   "label": "Invias AG",
-  "generatedAt": "2026-11-14T09:48:44.597Z",
+  "generatedAt": "2026-11-14T19:10:37.162Z",
   "total": 7,
   "discovered": 7,
   "parsed": 7,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "invias-swiss",
+    "seedUrls": [
+      "https://invias.swiss/jobs/"
+    ],
+    "phase": "detail",
+    "pages": 10,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/impressum/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/projektleiterin-80-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/bauleiterin-80-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://invias.swiss/jobs/holzbauplanerin-80-100/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 7,
@@ -19,74 +72,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 18178,
-  "avgDurationMs": 18178,
+  "durationMs": 15132,
+  "avgDurationMs": 15132,
   "durationHistory": [
-    18178
+    15132
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "invias-swiss-19e45ae0f00c",
-      "slug": "progettista-di-costruzioni-in-legno-80-100-invias-ag-7304-maienfeld",
-      "company": "Invias AG",
-      "companyKey": "invias-swiss",
-      "companyDomain": "invias.swiss",
-      "title": "HOLZBAUPLANER:IN 80 – 100%",
-      "location": "7304 Maienfeld",
-      "canton": "GR",
-      "url": "https://invias.swiss/jobs/holzbauplanerin-80-100",
-      "source": "Invias AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.217Z",
-      "addressLocality": "Maienfeld",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7304",
-      "streetAddress": "Industriestrasse 19",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://invias.swiss/jobs/holzbauplanerin-80-100",
-      "firstSeenAt": "2026-11-04T21:50:35.697Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Invias AG",
-        "streetAddress": "Industriestrasse 19",
-        "postalCode": "7304",
-        "registeredName": "Invias AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "7304",
-        "addressLocality": "Maienfeld",
-        "addressRegion": "GR",
-        "checkedAt": "2026-11-09T15:44:06.699Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.217Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
     {
       "id": "invias-swiss-886f5d17e45c",
       "slug": "ingegnere-a-delle-costruzioni-in-legno-ingegnere-a-civile-80-100-invias-ag-7304-maienfeld",
@@ -99,7 +93,7 @@
       "url": "https://invias.swiss/jobs/holzbauingenieurin-bauingenieurin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.215Z",
+      "crawledAt": "2026-11-14T19:10:00.325Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -136,7 +130,66 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.215Z",
+      "validThrough": "2027-02-03T19:10:00.325Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "invias-swiss-19e45ae0f00c",
+      "slug": "progettista-di-costruzioni-in-legno-80-100-invias-ag-7304-maienfeld",
+      "company": "Invias AG",
+      "companyKey": "invias-swiss",
+      "companyDomain": "invias.swiss",
+      "title": "HOLZBAUPLANER:IN 80 – 100%",
+      "location": "7304 Maienfeld",
+      "canton": "GR",
+      "url": "https://invias.swiss/jobs/holzbauplanerin-80-100",
+      "source": "Invias AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-14T19:10:00.325Z",
+      "addressLocality": "Maienfeld",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7304",
+      "streetAddress": "Industriestrasse 19",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://invias.swiss/jobs/holzbauplanerin-80-100",
+      "firstSeenAt": "2026-11-04T21:50:35.697Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Invias AG",
+        "streetAddress": "Industriestrasse 19",
+        "postalCode": "7304",
+        "registeredName": "Invias AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "7304",
+        "addressLocality": "Maienfeld",
+        "addressRegion": "GR",
+        "checkedAt": "2026-11-09T15:44:06.699Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-03T19:10:00.325Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -158,7 +211,7 @@
       "url": "https://invias.swiss/jobs/bauleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.214Z",
+      "crawledAt": "2026-11-14T19:10:00.324Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -195,7 +248,7 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.214Z",
+      "validThrough": "2027-02-03T19:10:00.324Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -217,7 +270,7 @@
       "url": "https://invias.swiss/jobs/technischer-projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.212Z",
+      "crawledAt": "2026-11-14T19:10:00.323Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -254,7 +307,7 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.212Z",
+      "validThrough": "2027-02-03T19:10:00.323Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -276,7 +329,7 @@
       "url": "https://invias.swiss/jobs/projektleiterin-80-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.209Z",
+      "crawledAt": "2026-11-14T19:10:00.322Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -313,7 +366,7 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.209Z",
+      "validThrough": "2027-02-03T19:10:00.322Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -335,7 +388,7 @@
       "url": "https://invias.swiss/jobs/zeichnerin-fachrichtung-architektur-60-100",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.207Z",
+      "crawledAt": "2026-11-14T19:10:00.321Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -372,7 +425,7 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.207Z",
+      "validThrough": "2027-02-03T19:10:00.321Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -394,7 +447,7 @@
       "url": "https://invias.swiss/jobs/architektin-b-a-oder-in-ausbildung-50-80",
       "source": "Invias AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:47.204Z",
+      "crawledAt": "2026-11-14T19:10:00.319Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -431,7 +484,7 @@
         "checkedAt": "2026-11-09T15:44:06.699Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:47:47.204Z",
+      "validThrough": "2027-02-03T19:10:00.319Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -442,5 +495,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

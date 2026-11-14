@@ -176,13 +176,19 @@ jobs:
         with:
           ref: ${{ inputs.deploy_ref }}
 
-      - name: Checkout current publisher index validator
+      # The replay code stays pinned to deploy_ref, but this shared resolver is
+      # a workflow control-plane dependency. Loading it from the historical
+      # build would resurrect an older source-identity contract (for example,
+      # one that compares the dynamic publisher run-name with a static title)
+      # and can fail before the selected artifact is inspected.
+      - name: Checkout current publisher index validator and artifact resolver
         uses: actions/checkout@v7
         with:
           ref: refs/heads/main
           path: current-index-validator
           sparse-checkout: |
             /scripts/ci/page-audit-index.mjs
+            /.github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
 
       # The weekly full corpus only audits the rehydrated dist plus the
@@ -239,7 +245,7 @@ jobs:
 
       - name: Fetch the deployed dist (github-pages artifact)
         id: pages
-        uses: ./.github/actions/fetch-pages-artifact
+        uses: ./current-index-validator/.github/actions/fetch-pages-artifact
         with:
           # A supplied publisher ID is exact. Otherwise pin the source build
           # and let the shared resolver walk matching publishers whose deploy

@@ -2,10 +2,30 @@ name: Assisted application portal replay
 
 # Always publish the required `portal replay gate` job. The prepare step skips
 # the public replay when a PR changes no runner path. Shared runner changes
-# expand to the complete family group. The shared setup runs once on one
-# worker; the trusted base compare CLI starts up to thirteen family processes
-# in parallel inside that worker, like the crawler-group workflows, instead of
-# creating a runner job for every family.
+# expand to the complete family group. The shared setup runs once per bounded
+# group worker; the trusted base compare CLI runs the families inside each
+# worker, like the crawler-group workflows, instead of creating a runner job for
+# every family.
+#
+# Broker capacity (root cause of the all-red `portal_replay_timeout` reports,
+# run 43593542762): every family replays base and head at the same time, so a
+# family is two concurrent Codex callers, and the 75 s per-listing budget of the
+# CLI also runs while a request waits in the broker queue. Starting all twelve
+# families together put 22 callers behind a broker whose first request runs
+# alone and which has two lanes: nothing but the first call finished in 75 s,
+# every other listing was reported as unmeasured. The worker now (1) opens all
+# six broker lanes, (2) warms the broker up with one tiny request, which opens
+# the lanes and fails fast and by name if the Codex backend is not usable, and
+# (3) never starts more families than lanes/2, so no request waits in a queue.
+#
+# Determinism: the changed-path list comes from git, not from the REST API. The
+# detect job checks out the PR merge commit (github.sha, depth 2, blob-less,
+# sparse) and lists `git diff --name-only --no-renames HEAD^1 HEAD`: parent 1
+# is the base tip the merge was built on, so the list is exactly what the PR
+# contributes even when main has moved on. The PR diff API hit HTTP 422 ("diff
+# taking too long") on large PRs and HTTP 403 when the installation token ran
+# dry. A run cancelled by a newer push is transient: the required gate and the
+# comment skip on cancellation instead of reporting a failure.
 on:
   pull_request:
     branches: [main]
@@ -17,7 +37,10 @@ permissions:
 
 concurrency:
   group: assisted-application-portal-replay-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  # A queued replay is expensive and main may synchronize the PR while it is
+  # running. Keep the active event immutable and let the newest pending run
+  # replace only an older pending run, rather than cancelling the active gate.
+  cancel-in-progress: false
 
 jobs:
   detect:
@@ -44,21 +67,62 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch PR diff
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+      # Only the git objects of the merge commit are needed (tree names, never
+      # blob content), so the checkout is blob-less, two commits deep and sparse
+      # on a single tiny path. Nothing from the PR is executed.
+      - name: Checkout PR merge commit (path list only)
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: .portal-merge
+          fetch-depth: 2
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            .github/CODEOWNERS
+          sparse-checkout-cone-mode: false
+
+      # `HEAD^1` is the base tip the merge commit was built on; a two-dot diff
+      # against the current base SHA would also list files that only main
+      # changed after the PR branched.
+      - name: List changed paths from the merge commit
+        run: |
+          set -euo pipefail
+          cd .portal-merge
+          parents="$(git rev-list --parents -n 1 HEAD | wc -w | tr -d ' ')"
+          if [ "$parents" != "3" ]; then
+            echo "::error::expected a two-parent merge commit at $(git rev-parse HEAD), got $((parents - 1)) parent(s); refusing to guess the changed paths."
+            exit 1
+          fi
+          git diff --name-only --no-renames HEAD^1 HEAD > "$RUNNER_TEMP/portal-replay-paths.txt"
+          echo "changed paths: $(wc -l < "$RUNNER_TEMP/portal-replay-paths.txt" | tr -d ' ')"
+
+      - name: Upload changed path list for prepare
+        uses: actions/upload-artifact@v7
+        with:
+          name: portal-replay-paths-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-paths.txt
+          retention-days: 1
+          overwrite: true
 
       - name: Detect whether the runner needs replay
         id: detect
         run: |
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          output_file="$RUNNER_TEMP/portal-replay-detect-output.txt"
+          rm -f "$output_file"
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" detect \
-            --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
-            --github-output "$GITHUB_OUTPUT"
+            --diff-file "$RUNNER_TEMP/portal-replay-paths.txt" \
+            --github-output "$output_file"
+          run_count="$(awk -F= '$1 == "run" { count++ } END { print count + 0 }' "$output_file")"
+          run_value="$(awk -F= '$1 == "run" { print substr($0, index($0, "=") + 1) }' "$output_file")"
+          if [[ "$run_count" != '1' || ! "$run_value" =~ ^(true|false)$ ]]; then
+            echo '::error::portal replay detect did not produce exactly one boolean run output'
+            exit 1
+          fi
+          printf 'run=%s\n' "$run_value" >> "$GITHUB_OUTPUT"
 
   prepare:
     name: prepare portal replay corpus
@@ -89,16 +153,32 @@ jobs:
         with:
           node-version: '22'
 
+      # The open portal-stop issues are the one input git cannot supply, so this
+      # stays an API call: bounded retries with a growing backoff instead of a
+      # single attempt that a transient 403/5xx turns into a red required check.
       - name: List open portal-stop hosts
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3 4; do
+            if gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 4 ]; then
+              delay=$((attempt * attempt * 15))
+              echo "::warning::portal-stop listing failed (attempt $attempt/4); retrying in ${delay}s"
+              sleep "$delay"
+            fi
+          done
+          echo '::error::could not list the open portal-stop issues after 4 attempts'
+          exit 1
 
-      - name: Fetch PR diff
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+      - name: Download changed path list from detect
+        uses: actions/download-artifact@v8
+        with:
+          name: portal-replay-paths-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-paths
 
       - name: Select a deterministic corpus
         id: prepare
@@ -106,24 +186,81 @@ jobs:
           replay_now_ms="$(node -p 'Date.now()')"
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          output_file="$RUNNER_TEMP/portal-replay-prepare-output.txt"
+          rm -f "$output_file"
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" prepare \
-            --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
+            --diff-file "$RUNNER_TEMP/portal-replay-paths/portal-replay-paths.txt" \
             --data-dir .portal-base/data/jobs/by-crawler \
             --classifier-root .portal-base \
             --stop-titles "$RUNNER_TEMP/portal-stop-titles.json" \
             --now-ms "$replay_now_ms" \
             --corpus-out "$RUNNER_TEMP/portal-replay-corpus.json" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$output_file"
+          output_value() {
+            local key="$1"
+            awk -F= -v key="$key" '$1 == key { print substr($0, index($0, "=") + 1) }' "$output_file"
+          }
+          output_count() {
+            local key="$1"
+            awk -F= -v key="$key" '$1 == key { count++ } END { print count + 0 }' "$output_file"
+          }
+          families="$(output_value families)"
+          now_ms="$(output_value now_ms)"
+          stop_hosts="$(output_value stop_hosts)"
+          for key in families now_ms stop_hosts; do
+            if [[ "$(output_count "$key")" != '1' ]]; then
+              echo "::error::portal replay prepare did not produce exactly one $key output"
+              exit 1
+            fi
+          done
+          [[ "$now_ms" =~ ^[0-9]+$ ]] || { echo '::error::portal replay prepare produced an invalid now_ms output'; exit 1; }
+          node -e '
+            const [families, stopHosts] = process.argv.slice(1).map(JSON.parse);
+            const strings = (value) => Array.isArray(value) && value.every((item) => typeof item === "string");
+            if (!strings(families) || families.length === 0 || !strings(stopHosts)) process.exit(1);
+          ' "$families" "$stop_hosts"
+          printf 'families=%s\n' "$families" >> "$GITHUB_OUTPUT"
+          printf 'now_ms=%s\n' "$now_ms" >> "$GITHUB_OUTPUT"
+          printf 'stop_hosts=%s\n' "$stop_hosts" >> "$GITHUB_OUTPUT"
 
   replay:
-    name: replay portal families (group)
+    name: replay portal families (group ${{ matrix.group }})
     needs: prepare
     if: needs.prepare.result == 'success'
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2]
     runs-on: ubuntu-latest
-    # The budget includes two trusted sparse checkouts, two npm ci runs,
-    # Chromium and up to five base/head listing pairs, not only the replay.
-    timeout-minutes: 30
+    # Budget bound, derived from the largest group and not from an average
+    # (a family holds one of the parallel slots for its whole workload). The
+    # sorted modulo partition puts at most four families in each of the three
+    # workers; the bound below treats all four as five-listing families.
+    # `--timeout-ms 75000` is the ACTIVE budget of a listing attempt: the time
+    # the runner under test spends on the page. The time it waits for the Codex
+    # broker (queue + model at effort max) is measured apart: each call is
+    # bounded by REPLAY_CODEX_CALL_TIMEOUT_MS (150 s, the broker limit below),
+    # the whole attempt by REPLAY_WALL_CAP_MS (300 s). Base and head are judged
+    # by the same two clocks.
+    #   attempt   <= 300 s wall
+    #   listing   <= (retries 1 + 1) attempts * 300 s            = 600 s
+    #                (a neutral retry or the one completion of an unmeasured
+    #                side; base and head run concurrently, not summed)
+    #   family    <= 5 listings (maxPerFamily) * 600 s + 60 s of
+    #                preflight and browser launch               = 3060 s
+    #   group     <= 4 families of 5                              = 12240 s of work
+    #   makespan  <= work / 3 slots + (2/3) * largest family    = 6120 s (102 min)
+    #   setup     ~ 4.4 min measured (checkouts, two npm ci, Chromium, broker),
+    #               6 min allowed                                -> 108 min
+    # timeout-minutes covers that bound and stays under the 120-minute PR ceiling.
+    timeout-minutes: 120
+    env:
+      # Broker lanes (the action accepts 1..6). Each family runs base and head
+      # concurrently, so the number of families in flight is lanes / 2.
+      PORTAL_REPLAY_BROKER_LANES: '6'
+      PORTAL_REPLAY_GROUP: ${{ matrix.group }}
+      PORTAL_REPLAY_GROUP_COUNT: '3'
     steps:
       - name: Checkout PR runner
         uses: actions/checkout@v7
@@ -220,8 +357,8 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '1200000'
-          broker_max_concurrency: '2'
-          broker_max_timeout_ms: '60000'
+          broker_max_concurrency: ${{ env.PORTAL_REPLAY_BROKER_LANES }}
+          broker_max_timeout_ms: '150000'
 
       - name: Require trusted Codex broker
         env:
@@ -232,6 +369,57 @@ jobs:
             echo '::error::trusted Codex broker did not produce a Unix socket; refusing to start portal replay.'
             exit 1
           fi
+
+      # The broker runs its first request alone and only then opens its other
+      # lanes, and a broker whose Codex login is rejected would otherwise show
+      # up as twelve `portal_replay_timeout` families. One tiny trusted request
+      # (the base `ai-models.mjs`, never PR code) opens the lanes and either
+      # proves the backend usable or fails here with the cause. Two more
+      # concurrent requests measure whether the lanes really run in parallel.
+      - name: Warm up the Codex broker and measure its lanes
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+          CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+        run: |
+          set -euo pipefail
+          node --input-type=module -e '
+            import path from "node:path";
+            import { pathToFileURL } from "node:url";
+            const { requestCodexBrokerJson } = await import(pathToFileURL(path.resolve(".portal-base/scripts/lib/ai-models.mjs")).href);
+            const schema = { type: "object", properties: { ok: { type: "boolean" } }, required: ["ok"], additionalProperties: false };
+            const ask = async () => {
+              const started = Date.now();
+              try {
+                const answer = await requestCodexBrokerJson({ prompt: "Return the JSON object {\"ok\": true} and nothing else.", schema, timeoutMs: 60000 });
+                return { ms: Date.now() - started, ok: answer?.ok === true, error: "" };
+              } catch (error) {
+                return { ms: Date.now() - started, ok: false, error: String(error?.message || error).split("\n")[0].slice(0, 200) };
+              }
+            };
+            let first = await ask();
+            if (!first.ok) {
+              console.log(`Codex broker warm-up attempt 1 failed after ${first.ms} ms: ${first.error || "unexpected answer"}`);
+              await new Promise((resolve) => setTimeout(resolve, 15000));
+              first = await ask();
+            }
+            if (!first.ok) {
+              console.log(`::error::blocked: the Codex backend did not answer a minimal request (${first.error || "unexpected answer"}, ${first.ms} ms); the portal replay cannot be measured until the CODEX_AUTH_JSON login or the Codex quota is restored.`);
+              process.exit(1);
+            }
+            console.log(`Codex broker warm-up: first request answered in ${first.ms} ms`);
+            const pair = Date.now();
+            const results = await Promise.all([ask(), ask()]);
+            const pairMs = Date.now() - pair;
+            const slowest = Math.max(...results.map((item) => item.ms));
+            console.log(`Codex broker lanes probe: 2 concurrent requests in ${pairMs} ms (single request ${first.ms} ms, errors: ${results.filter((item) => !item.ok).length})`);
+            const failedProbes = results.filter((item) => !item.ok);
+            if (failedProbes.length) {
+              console.log(`::warning::Codex broker probe failed on ${failedProbes.length}/2 concurrent requests (${failedProbes[0].error || "unexpected answer"}); the broker is unhealthy under concurrency and replay results may be unmeasured.`);
+            }
+            if (pairMs > first.ms * 1.7 && slowest > 5000) {
+              console.log(`::warning::Codex broker lanes look serialized (2 requests took ${pairMs} ms against ${first.ms} ms for one); replay listings may wait in the broker queue.`);
+            }
+          '
 
       - name: Replay portal families in parallel inside this worker
         env:
@@ -245,46 +433,65 @@ jobs:
           run_group() {
             set -euo pipefail
             mkdir -p "$PORTAL_REPLAY_REPORT_DIR" "$PORTAL_REPLAY_LOG_DIR"
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+            # The paired comparison semantics are part of the PR under test;
+            # the base checkout remains the source of trusted fences and data.
+            portal_replay_cli=scripts/assisted-application/portal-replay.mjs
             test -f "$portal_replay_cli"
-            PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
+            PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" PORTAL_REPLAY_GROUP="$PORTAL_REPLAY_GROUP" PORTAL_REPLAY_GROUP_COUNT="$PORTAL_REPLAY_GROUP_COUNT" node --input-type=module -e '
               const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");
+              const group = Number(process.env.PORTAL_REPLAY_GROUP);
+              const groupCount = Number(process.env.PORTAL_REPLAY_GROUP_COUNT);
               if (!Array.isArray(families) || !families.length || families.some((family) => typeof family !== "string" || !/^[a-z0-9_]+$/.test(family))) process.exit(1);
-              for (const family of [...new Set(families)].sort()) console.log(family);
+              if (!Number.isInteger(group) || !Number.isInteger(groupCount) || group < 0 || group >= groupCount || groupCount < 1) process.exit(1);
+              for (const [index, family] of [...new Set(families)].sort().entries()) {
+                if (index % groupCount === group) console.log(family);
+              }
             ' > "$RUNNER_TEMP/portal-replay-families.txt"
             mapfile -t families < "$RUNNER_TEMP/portal-replay-families.txt"
-            test "${#families[@]}" -gt 0
-            max_parallel=13
-            running=()
-            failed_count=0
+            if (( ${#families[@]} == 0 )); then
+              echo "portal replay group $PORTAL_REPLAY_GROUP has no affected families"
+              return 0
+            fi
+            # Base and head replay at the same time: one family is two broker
+            # callers. Keep the callers within the broker lanes so a request
+            # never waits in the broker queue while the 75 s listing timer runs.
+            lanes="${PORTAL_REPLAY_BROKER_LANES:-2}"
+            max_parallel=$(( lanes / 2 ))
+            if (( max_parallel < 1 )); then max_parallel=1; fi
+            echo "portal replay group: ${#families[@]} families, at most $max_parallel in parallel ($lanes broker lanes)"
+            rm -f "$PORTAL_REPLAY_LOG_DIR"/*.exit
 
             run_family() {
               local family="$1"
               local report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
               local log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
+              local started=$SECONDS
+              local status=0
               PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" node "$portal_replay_cli" compare \
                 --base-root .portal-base \
                 --head-root . \
                 --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \
                 --family "$family" \
                 --timeout-ms 75000 \
-                --output "$report" > "$log" 2>&1
+                --output "$report" > "$log" 2>&1 || status=$?
+              # The exit status goes through a file: a sliding window cannot
+              # wait for each pid, and a lost status would hide a failed family.
+              echo "$status" > "$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.exit"
+              echo "portal replay family $family finished with exit $status after $((SECONDS - started))s"
             }
 
-            wait_for_wave() {
-              local pid
-              for pid in "${running[@]}"; do
-                if ! wait "$pid"; then failed_count=$((failed_count + 1)); fi
-              done
-              running=()
-            }
-
+            # Sliding window: start the next family as soon as one finishes.
             for family in "${families[@]}"; do
+              while (( $(jobs -pr | wc -l) >= max_parallel )); do sleep 1; done
               run_family "$family" &
-              running+=("$!")
-              if (( ${#running[@]} >= max_parallel )); then wait_for_wave; fi
             done
-            wait_for_wave
+            wait
+
+            failed_count=0
+            for family in "${families[@]}"; do
+              exit_file="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.exit"
+              if [[ ! -s "$exit_file" || "$(cat "$exit_file")" != "0" ]]; then failed_count=$((failed_count + 1)); fi
+            done
 
             for family in "${families[@]}"; do
               report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
@@ -304,17 +511,20 @@ jobs:
               return 1
             fi
           }
+          group_script="$RUNNER_TEMP/portal-replay-group.sh"
+          declare -f run_group > "$group_script"
+          printf '\nrun_group\n' >> "$group_script"
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c "$(declare -f run_group); run_group"
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash "$group_script"
           else
-            run_group
+            bash "$group_script"
           fi
 
       - name: Upload sanitized family reports
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: assisted-application-portal-replay-reports-${{ github.run_id }}
+          name: assisted-application-portal-replay-reports-${{ github.run_id }}-${{ matrix.group }}
           path: ${{ runner.temp }}/portal-replay-reports/*.json
           if-no-files-found: ignore
           retention-days: 7
@@ -332,6 +542,13 @@ jobs:
 
   portal-replay-gate:
     name: portal replay gate
+    # Stays `always()`: this is a REQUIRED check, and a job skipped by its `if`
+    # reports as success to branch protection. With `!cancelled()` a run
+    # cancelled on the current head with no successor (manual cancel) would
+    # leave a green gate without any replay. A run superseded by a newer push
+    # still fails here, but only on the old head SHA, which no longer decides
+    # the merge; the comment job below skips cancelled runs (no FAIL spam) and
+    # the fixers re-check the head before acting.
     if: always()
     needs: [detect, prepare, replay]
     runs-on: ubuntu-latest
@@ -362,13 +579,30 @@ jobs:
         with:
           node-version: '22'
 
+      # The base CLI remains the trusted gate implementation once it knows the
+      # report semantics. This PR changes that protocol, so its immutable merge
+      # CLI is also checked out as a one-release compatibility bridge; otherwise
+      # the old sanitizer turns pre-existing base errors into false regressions.
+      - name: Checkout PR gate CLI for a changed report protocol
+        if: needs.detect.outputs.run == 'true' || needs.detect.result != 'success'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          path: .portal-head
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            functions/src
+            scripts/assisted-application
+          sparse-checkout-cone-mode: true
+
       - name: Download sanitized family reports
         if: needs.detect.outputs.run == 'true'
         id: reports
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
-          name: assisted-application-portal-replay-reports-${{ github.run_id }}
+          pattern: assisted-application-portal-replay-reports-${{ github.run_id }}-*
           path: ${{ runner.temp }}/portal-replay-reports
           merge-multiple: true
 
@@ -394,7 +628,14 @@ jobs:
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
-          node "$portal_replay_cli" aggregate \
+          if grep -Fq "PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'" "$portal_replay_cli"; then
+            gate_cli="$portal_replay_cli"
+          else
+            gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs
+            test -f "$gate_cli"
+            echo 'portal replay gate: using PR CLI because the trusted base predates the report protocol'
+          fi
+          node "$gate_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \
             --matrix-result "$REPLAY_RESULT" \
@@ -414,7 +655,7 @@ jobs:
 
   portal-replay-report-comment:
     name: portal replay report comment
-    if: always() && needs.detect.outputs.run == 'true'
+    if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}
     needs: [detect, portal-replay-gate]
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -430,14 +671,48 @@ jobs:
           name: assisted-application-portal-replay-summary-${{ github.run_id }}
           path: ${{ runner.temp }}/portal-replay-summary
 
-      - name: Comment the sanitized report on the pull request
-        if: always()
+      - name: Checkout trusted base sticky-comment helper
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .portal-base
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            scripts/ci/lib
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # One comment per pull request, updated in place: the marker finds it and
+      # the head SHA line says which commit the verdict belongs to.
+      - name: Comment the sanitized report on the pull request (sticky)
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary/portal-replay-summary.md
         run: |
-          if [ -s "$SUMMARY_FILE" ]; then
-            gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY_FILE"
-          fi
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { readFileSync, existsSync, statSync } from 'node:fs';
+          import { upsertStickyComment } from './.portal-base/scripts/ci/lib/prComments.mjs';
+          const file = process.env.SUMMARY_FILE;
+          if (!existsSync(file) || statSync(file).size === 0) process.exit(0);
+          const marker = '<!-- portal-replay-gate -->';
+          const body = `${marker}\n<!-- portal-replay-gate-head:${process.env.HEAD_SHA} -->\n${readFileSync(file, 'utf8')}`;
+          const gh = (args, { json = true, allowFail = false } = {}) => {
+            try {
+              const out = execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+              return json ? JSON.parse(out) : out;
+            } catch (error) {
+              if (allowFail) return null;
+              throw error;
+            }
+          };
+          upsertStickyComment(gh, process.env.GITHUB_REPOSITORY, process.env.PR_NUMBER, marker, body);
+          NODE

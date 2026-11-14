@@ -18,7 +18,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { fetchViaJinaWithRetry, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   snapshotJobSlugs,
@@ -241,9 +241,14 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
 // A real headless Chromium passes the JS/TLS fingerprint checks that block
 // node's fetch. Lazy-imported so the dependency is only loaded on fallback.
 async function fetchListingPageViaBrowser(url, timeoutMs) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const page = await browser.newPage({ userAgent: BROWSER_USER_AGENTS[0] });
+    const page = isStealthBrowser(browser)
+      ? await browser.newPage({ viewport: null })
+      : await browser.newPage({ userAgent: BROWSER_USER_AGENTS[0] });
     // domcontentloaded (not networkidle): the listing is static HTML; networkidle
     // can hang past the timeout on pages with ads/polling/keep-alive, silently
     // skipping a parsable run. The job links are in the initial document.
