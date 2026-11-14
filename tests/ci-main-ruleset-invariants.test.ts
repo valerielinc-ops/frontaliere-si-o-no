@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
+import { PORTAL_REPLAY_GATE_CHECK_NAME, VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
 import {
   evaluateRulesets,
   rulesetGuardsMain,
@@ -10,8 +10,8 @@ import {
 
 /**
  * L'invariante sorvegliata sta in una impostazione GitHub, non nel repo: il
- * Ruleset di `main` che rende obbligatorio il check vitest (#6590, follow-up di
- * #6584). Questi test non parlano con l'API — coprono la LOGICA del verdetto,
+ * Ruleset di `main` che rende obbligatori vitest e portal replay (#6590,
+ * follow-up di #6584). Questi test non parlano con l'API — coprono la LOGICA del verdetto,
  * cioè l'unica parte che può sbagliare in silenzio: dire «protetto» su una
  * configurazione che non protegge niente.
  */
@@ -29,7 +29,7 @@ function guardingRuleset(overrides: Record<string, unknown> = {}) {
     rules: [
       {
         type: 'required_status_checks',
-        parameters: { required_status_checks: [{ context: VITEST_CHECK_NAME }] },
+        parameters: { required_status_checks: [{ context: VITEST_CHECK_NAME }, { context: PORTAL_REPLAY_GATE_CHECK_NAME }] },
       },
     ],
     ...overrides,
@@ -94,6 +94,7 @@ describe('evaluateRulesets', () => {
     const verdict = evaluateRulesets([guardingRuleset()]);
     expect(verdict.ok).toBe(true);
     expect(verdict.contexts).toContain(VITEST_CHECK_NAME);
+    expect(verdict.contexts).toContain(PORTAL_REPLAY_GATE_CHECK_NAME);
   });
 
   it('violazione quando nessun ruleset attivo protegge main', () => {
@@ -133,6 +134,18 @@ describe('evaluateRulesets', () => {
     expect(evaluateRulesets([rs]).ok).toBe(false);
   });
 
+  it('fallisce quando manca il required check del replay sui portali', () => {
+    const rs = guardingRuleset({
+      rules: [
+        { type: 'required_status_checks', parameters: { required_status_checks: [{ context: VITEST_CHECK_NAME }] } },
+      ],
+    });
+    const verdict = evaluateRulesets([rs]);
+    expect(verdict.ok).toBe(false);
+    expect(verdict.reason).toBe('missing-required-check');
+    expect(verdict.message).toContain(PORTAL_REPLAY_GATE_CHECK_NAME);
+  });
+
   it('somma i context di più ruleset che proteggono main', () => {
     const other = guardingRuleset({
       id: 2,
@@ -142,7 +155,7 @@ describe('evaluateRulesets', () => {
     });
     const verdict = evaluateRulesets([other, guardingRuleset()]);
     expect(verdict.ok).toBe(true);
-    expect(verdict.contexts).toEqual(['lint', VITEST_CHECK_NAME]);
+    expect(verdict.contexts).toEqual(['lint', VITEST_CHECK_NAME, PORTAL_REPLAY_GATE_CHECK_NAME]);
   });
 });
 

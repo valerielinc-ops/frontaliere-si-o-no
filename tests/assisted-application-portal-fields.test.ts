@@ -2042,6 +2042,61 @@ describe('portal field extraction', () => {
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (select)']);
   });
 
+  it('keeps an employer-shell languageDropdown and moon theme toggle out of the application surface', () => {
+    const page = extract(`
+      <main>
+        <select id="languageDropdown" name="languageDropdown">
+          <option value="it">Italiano</option><option value="de">Deutsch</option>
+        </select>
+        <button type="button">🌙</button>
+      </main>`, 'https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego');
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙', chrome: true })]);
+  });
+
+  it('keeps a languageDropdown inside an application form candidate-owned', () => {
+    const page = extract(`<main><form>
+      <label for="languageDropdown">Application language</label>
+      <select id="languageDropdown"><option value="">Choose</option><option>Italiano</option></select>
+    </form></main>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ domId: 'languageDropdown', label: 'Application language' })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a required marketing input in a site header candidate-owned', () => {
+    const page = extract('<header><form><input name="newsletter" required></form></header>');
+
+    expect(page.fields).toEqual([expect.objectContaining({ name: 'newsletter', required: true })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+  });
+
+  it.each(['notizie', 'jobbenachrichtigung'])('uses the shared marketing vocabulary for %s', (name) => {
+    const page = extract(`<header><input name="${name}"></header>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ name, chrome: true })]);
+  });
+
+  it('keeps language and theme controls inside a role-form candidate-owned', () => {
+    const page = extract(`<div role="form">
+      <select id="languageDropdown"><option value="en">English</option></select>
+      <button type="button">🌙</button>
+    </div>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ domId: 'languageDropdown' })]);
+    expect(page.fields[0]).not.toHaveProperty('chrome');
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙' })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
+  it('keeps a theme-labelled application button candidate-owned', () => {
+    const page = extract('<main><form><button type="button" aria-label="Tema">🌙</button></form></main>');
+
+    expect(page.buttons).toEqual([expect.objectContaining({ text: '🌙', formId: expect.any(String) })]);
+    expect(page.buttons[0]).not.toHaveProperty('chrome');
+  });
+
   it('marks an unwrapped Stadt Zürich language button as site chrome', () => {
     const page = extract(
       '<main><button type="button">Sprache</button></main>',
@@ -2117,6 +2172,15 @@ describe('portal field extraction', () => {
     expect(page.fields.some((field: any) => ['Finden', 'Suche'].includes(field.label))).toBe(false);
   });
 
+  it('marks an optional newsletter field in site chrome as non-application', () => {
+    const page = extract(`
+      <footer><form id="newsletter-signup" aria-label="Newsletter">
+        <label for="newsletter-email">Email</label><input id="newsletter-email" type="email" name="email">
+      </form></footer>`);
+
+    expect(page.fields).toEqual([expect.objectContaining({ label: 'Email', inputType: 'email', chrome: true })]);
+  });
+
   it('keeps required application fields and submit controls nested in site chrome', () => {
     const page = extract(`
       <header>
@@ -2136,6 +2200,22 @@ describe('portal field extraction', () => {
     const applyButton = page.buttons.find((button: any) => button.text === 'Apply');
     expect(applyButton).toMatchObject({ text: 'Apply' });
     expect(applyButton).not.toHaveProperty('chrome');
+  });
+
+  it('marks a site newsletter field and submit control as chrome', () => {
+    const page = extract(`
+      <header>
+        <form id="newsletter-signup">
+          <label for="newsletter-email">Email</label>
+          <input id="newsletter-email" name="email" type="email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </header>
+      <main><form><label for="first">First name*</label><input id="first" required></form></main>`);
+
+    expect(page.fields.find((field: any) => field.domId === 'newsletter-email')).toMatchObject({ chrome: true });
+    expect(page.buttons.find((button: any) => button.text === 'Subscribe')).toMatchObject({ chrome: true });
+    expect(page.fields.find((field: any) => field.domId === 'first')).not.toHaveProperty('chrome');
   });
 });
 

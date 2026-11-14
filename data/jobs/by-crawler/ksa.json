@@ -168,7 +168,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -214,7 +214,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch"
+        "transportsanitater-in-fa-ksa-ch",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -225,7 +226,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -337,7 +338,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -384,7 +385,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -392,7 +393,7 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -2165,7 +2166,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -2218,14 +2219,12 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-ksa-ch"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -3597,7 +3596,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -3647,14 +3646,12 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -4143,7 +4140,7 @@
       "id": "ksa-55d25c285595",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -4192,13 +4189,11 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -6557,7 +6552,7 @@
         "it": "medizinische-r-disponent-in-kantonsspital-aarau-ksa-aarau",
         "en": "medical-r-dispatch-kantonsspital-aarau-ksa-aarau",
         "de": "medizinische-r-disponent-in-ksa-ch",
-        "fr": "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
+        "fr": "expedition-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6603,14 +6598,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "medizinische-r-disponent-in-ksa-ch",
-        "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+        "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-disponent-in-ksa-ch"
         ],
         "fr": [
-          "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+          "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.467Z",
@@ -7987,7 +7982,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8034,7 +8029,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8042,7 +8037,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -8544,7 +8539,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -8594,14 +8589,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -8631,12 +8624,12 @@
     },
     {
       "id": "ksa-e545ce0b5241",
-      "slug": "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
+      "slug": "addetto-a-al-servizio-di-sicurezza-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "mitarbeiter-in-sicherheitsdienst-ksa-ch",
-        "it": "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
-        "en": "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
-        "fr": "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau"
+        "it": "addetto-a-al-servizio-di-sicurezza-kantonsspital-aarau-ksa-aarau",
+        "en": "security-officer-kantonsspital-aarau-ksa-aarau",
+        "fr": "agent-e-de-securite-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8644,16 +8637,16 @@
       "title": "Mitarbeiter/in Sicherheitsdienst",
       "titleByLocale": {
         "de": "Mitarbeiter/in Sicherheitsdienst",
-        "it": "Collaboratore/trice Sicherheitsdienst",
-        "en": "Mitarbeiter/in Sicherheitsdienst",
-        "fr": "Mitarbeiter/in Sicherheitsdienst"
+        "it": "Addetto/a al servizio di sicurezza",
+        "en": "Security Officer",
+        "fr": "Agent/e de sécurité"
       },
       "description": "Stellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Durchführung von Sicherheitskontrollen an Personen und in den Bereichen Areal, Gebäude, Anlagen und Zufahrten\n\n• Intervention bei Vorfällen sowie Mitwirkung im vorbeugenden und abwehrenden Brandschutz (Betriebsfeuerwehr)\n\n• Behebung von Störungen an technischen Anlagen\n\n• First-Level-Support in technischen, logistischen und weiteren Bereichen\n\n• Unterstützung der Supportbetriebe bei Bedarf\n\nAnforderungen:\n• Handwerkliche Grundausbildung sowie Erfahrung im Sicherheitsdienst (vorzugsweise Ordnungsdienst) und einwandfreier Leumund\n\n• Mindestens 25 Jahre alt und gute Deutschkenntnisse mind. Niveau C1\n\n• Idealerweise feuerwehrtaktisch ausgebildet oder Bereitschaft dazu (atemschutztauglich gem. FKS)\n\n• Hohe psychische und physische Belastbarkeit, Verantwortungsbewusstsein sowie ausgeprägte Team-, Selbst- und Sozialkompetenz\n\n• Flexible Einsatzbereitschaft (24-Stundenschichtdienst) sowie Wohnort max. 30 Minuten vom KSA entfernt\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Stellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Durchführung von Sicherheitskontrollen an Personen und in den Bereichen Areal, Gebäude, Anlagen und Zufahrten\n\n• Intervention bei Vorfällen sowie Mitwirkung im vorbeugenden und abwehrenden Brandschutz (Betriebsfeuerwehr)\n\n• Behebung von Störungen an technischen Anlagen\n\n• First-Level-Support in technischen, logistischen und weiteren Bereichen\n\n• Unterstützung der Supportbetriebe bei Bedarf\n\nAnforderungen:\n• Handwerkliche Grundausbildung sowie Erfahrung im Sicherheitsdienst (vorzugsweise Ordnungsdienst) und einwandfreier Leumund\n\n• Mindestens 25 Jahre alt und gute Deutschkenntnisse mind. Niveau C1\n\n• Idealerweise feuerwehrtaktisch ausgebildet oder Bereitschaft dazu (atemschutztauglich gem. FKS)\n\n• Hohe psychische und physische Belastbarkeit, Verantwortungsbewusstsein sowie ausgeprägte Team-, Selbst- und Sozialkompetenz\n\n• Flexible Einsatzbereitschaft (24-Stundenschichtdienst) sowie Wohnort max. 30 Minuten vom KSA entfernt\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Stellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Durchführung von Sicherheitskontrollen an Personen und in den Bereichen Areal, Gebäude, Anlagen und Zufahrten\n\n• Intervention bei Vorfällen sowie Mitwirkung im vorbeugenden und abwehrenden Brandschutz (Betriebsfeuerwehr)\n\n• Behebung von Störungen an technischen Anlagen\n\n• First-Level-Support in technischen, logistischen und weiteren Bereichen\n\n• Unterstützung der Supportbetriebe bei Bedarf\n\nAnforderungen:\n• Handwerkliche Grundausbildung sowie Erfahrung im Sicherheitsdienst (vorzugsweise Ordnungsdienst) und einwandfreier Leumund\n\n• Mindestens 25 Jahre alt und gute Deutschkenntnisse mind. Niveau C1\n\n• Idealerweise feuerwehrtaktisch ausgebildet oder Bereitschaft dazu (atemschutztauglich gem. FKS)\n\n• Hohe psychische und physische Belastbarkeit, Verantwortungsbewusstsein sowie ausgeprägte Team-, Selbst- und Sozialkompetenz\n\n• Flexible Einsatzbereitschaft (24-Stundenschichtdienst) sowie Wohnort max. 30 Minuten vom KSA entfernt\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Stellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Durchführung von Sicherheitskontrollen an Personen und in den Bereichen Areal, Gebäude, Anlagen und Zufahrten\n\n• Intervention bei Vorfällen sowie Mitwirkung im vorbeugenden und abwehrenden Brandschutz (Betriebsfeuerwehr)\n\n• Behebung von Störungen an technischen Anlagen\n\n• First-Level-Support in technischen, logistischen und weiteren Bereichen\n\n• Unterstützung der Supportbetriebe bei Bedarf\n\nAnforderungen:\n• Handwerkliche Grundausbildung sowie Erfahrung im Sicherheitsdienst (vorzugsweise Ordnungsdienst) und einwandfreier Leumund\n\n• Mindestens 25 Jahre alt und gute Deutschkenntnisse mind. Niveau C1\n\n• Idealerweise feuerwehrtaktisch ausgebildet oder Bereitschaft dazu (atemschutztauglich gem. FKS)\n\n• Hohe psychische und physische Belastbarkeit, Verantwortungsbewusstsein sowie ausgeprägte Team-, Selbst- und Sozialkompetenz\n\n• Flexible Einsatzbereitschaft (24-Stundenschichtdienst) sowie Wohnort max. 30 Minuten vom KSA entfernt\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Stellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Durchführung von Sicherheitskontrollen an Personen und in den Bereichen Areal, Gebäude, Anlagen und Zufahrten\n\n• Intervention bei Vorfällen sowie Mitwirkung im vorbeugenden und abwehrenden Brandschutz (Betriebsfeuerwehr)\n\n• Behebung von Störungen an technischen Anlagen\n\n• First-Level-Support in technischen, logistischen und weiteren Bereichen\n\n• Unterstützung der Supportbetriebe bei Bedarf\n\nAnforderungen:\n• Handwerkliche Grundausbildung sowie Erfahrung im Sicherheitsdienst (vorzugsweise Ordnungsdienst) und einwandfreier Leumund\n\n• Mindestens 25 Jahre alt und gute Deutschkenntnisse mind. Niveau C1\n\n• Idealerweise feuerwehrtaktisch ausgebildet oder Bereitschaft dazu (atemschutztauglich gem. FKS)\n\n• Hohe psychische und physische Belastbarkeit, Verantwortungsbewusstsein sowie ausgeprägte Team-, Selbst- und Sozialkompetenz\n\n• Flexible Einsatzbereitschaft (24-Stundenschichtdienst) sowie Wohnort max. 30 Minuten vom KSA entfernt\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Lavoro: A partire dal 01. Dicembre 2026 o per accordo, indefinitamente\n\nCompiti:\n• Attuazione dei controlli di sicurezza sulle persone e in aree, edifici, strutture e punti di accesso\n\n• Intervento in caso di incidenti e partecipazione alla protezione antincendio preventiva e difensiva (dipartimento antincendio aziendale)\n\n• Risolvere gli incidenti in impianti tecnici\n\n• Sostegno di primo livello in settori tecnici, logistici e altri\n\n• Sostegno alle organizzazioni quando necessario\n\nRequisiti\n• Artigianato di base e esperienza nel servizio di sicurezza (preferibilmente il servizio di sicurezza) e buona reputazione\n\n• Almeno 25 anni e buona conoscenza del tedesco almeno. Livello C1\n\n• Idealmente, un design tattico di lotta antincendio o la disponibilità per esso (protezione respiratoria secondo FIG. TCS\n\n• Alta resilienza psicologica e fisica, senso di responsabilità e forte squadra, auto e competenze sociali\n\n• Prontezza operativa flessibile (24 ore di servizio di turno) e luogo di residenza max. 30 minuti da KSA\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Job: As of 01. December 2026 or by arrangement, indefinitely\n\nTasks:\n• Implementation of security controls on persons and in areas, buildings, facilities and access points\n\n• Intervention in the event of incidents and participation in preventive and defensive fire protection (company fire department)\n\n• Resolving incidents at technical installations\n\n• First-level support in technical, logistical and other areas\n\n• Support to support organisations when needed\n\nRequirements\n• Basic craftsmanship and experience in the security service (preferably the security service) and good repute\n\n• At least 25 years old and good knowledge of German at least. Level C1\n\n• Ideally, a firefighting tactical design or readiness for it (respiratory protection according to FIG. TCS\n\n• High psychological and physical resilience, sense of responsibility and strong team, self and social skills\n\n• Flexible operational readiness (24-hour shift service) and place of residence max. 30 minutes from KSA\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Emploi: À partir de 01. Décembre 2026 ou par arrangement, indéfiniment\n\nTâches :\n• Mise en place de contrôles de sécurité sur les personnes et dans les zones, les bâtiments, les installations et les points d'accès\n\n• Intervention en cas d'incidents et participation à la protection préventive et défensive contre les incendies (service d'incendie de la compagnie)\n\n• Résolution des incidents dans les installations techniques\n\n• Appui de premier niveau dans les domaines technique, logistique et autres\n\n• Soutien aux organisations en cas de besoin\n\nExigences\n• Artisanat de base et expérience dans le service de sécurité (de préférence le service de sécurité) et bonne réputation\n\n• Au moins 25 ans et une bonne connaissance de l'allemand. Catégorie C1\n\n• Idéalement, une conception tactique de lutte contre l'incendie ou la préparation pour elle (protection respiratoire selon FIG. TCS\n\n• Haute résilience psychologique et physique, sens des responsabilités et forte équipe, auto-aptitudes et aptitudes sociales\n\n• Préparation opérationnelle flexible (service de 24 heures) et lieu de résidence max. 30 minutes de KSA\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8685,11 +8678,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sicherheitsdienst-ksa-ch"
+          "mitarbeiter-in-sicherheitsdienst-ksa-ch",
+          "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
+          "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-sicherheitsdienst-ksa-ch"
+        "mitarbeiter-in-sicherheitsdienst-ksa-ch",
+        "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
+        "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

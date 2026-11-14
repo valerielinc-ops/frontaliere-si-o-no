@@ -73,6 +73,27 @@ const ASSEMBLE_OUTPUTS = [
   'orphan-enriched-data',
 ];
 
+/**
+ * True only for JSON files produced by the assemble/migrate path.
+ *
+ * A JSON import is not, by itself, a read of the generated jobs dataset:
+ * contract tests also import small static registries and fixtures. Treating
+ * every JSON module as unknown made those tests dataset-dependent because the
+ * TypeScript parser cannot parse JSON source.
+ */
+function isAssembleOutputJson(file) {
+  const normalized = String(file).replaceAll('\\', '/');
+  return ASSEMBLE_OUTPUTS.some((output) => {
+    const base = output.replace(/\.json$/i, '');
+    return normalized === output
+      || normalized.endsWith(`/${output}`)
+      || normalized.endsWith(`/${base}.json`)
+      || normalized.includes(`/${output}/`);
+  });
+}
+
+const JSON_FILE_RE = /\.json$/i;
+
 const OUTPUT_RE = new RegExp(
   `(^|['"\`/\\\\])(${ASSEMBLE_OUTPUTS.map((f) => f.replace(/[.]/g, '\\.')).join('|')})`,
 );
@@ -554,6 +575,7 @@ function rememberDatasetEffect(key, result, state) {
 }
 
 function moduleHasTopLevelDatasetRead(file) {
+  if (JSON_FILE_RE.test(file)) return isAssembleOutputJson(file);
   const analysis = analyzeFile(file);
   return analysis.unknown || analysis.topDirect;
 }
@@ -561,6 +583,7 @@ function moduleHasTopLevelDatasetRead(file) {
 function exportReadsDataset(file, name, stack = new Set(), state = { cyclic: false }) {
   const key = 'export:' + file + ':' + name;
   if (datasetEffectCache.has(key)) return datasetEffectCache.get(key);
+  if (JSON_FILE_RE.test(file)) return isAssembleOutputJson(file);
   if (stack.has(key)) {
     state.cyclic = true;
     return false;

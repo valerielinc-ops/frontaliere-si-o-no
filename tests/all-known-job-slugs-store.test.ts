@@ -7,6 +7,8 @@ import path from 'node:path';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 import {
   readAllKnownJobSlugs,
+  iterateAllKnownJobSlugParts,
+  iterateAllKnownJobSlugPartEntries,
   writeAllKnownJobSlugs,
   knownSlugsStoreExists,
   knownSlugsShardIndex,
@@ -225,6 +227,95 @@ describe('all-known-job-slugs store — read/write round trip', () => {
     expect(Object.keys(read).length).toBeGreaterThan(0);
     expect(Object.keys(read).length).toBe(Object.keys(registry).length);
     expect(read).toEqual(registry);
+  });
+
+  it('iterates sharded registry parts without merging the complete registry', () => {
+    const root = mkTmp();
+    const registry = sampleRegistry(500);
+    writeAllKnownJobSlugs(registry, root);
+
+    const parts = [...iterateAllKnownJobSlugParts(root)];
+    expect(parts.length).toBe(KNOWN_SLUGS_SHARD_COUNT);
+    expect(parts.every((part) => typeof part === 'object')).toBe(true);
+    expect(Object.assign({}, ...parts)).toEqual(registry);
+  });
+
+  it('iterates legacy and shard parts in merge order when their keys overlap', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeAllKnownJobSlugs({ shared: { it: '/from-shard' }, 'only-in-shard': { it: '/s' } }, root);
+    fs.writeFileSync(
+      knownSlugsLegacyFile(root),
+      JSON.stringify({ shared: { it: '/from-monolith' }, 'only-in-monolith': { it: '/m' } }),
+    );
+
+    const parts = [...iterateAllKnownJobSlugParts(root)];
+    expect(parts).toHaveLength(KNOWN_SLUGS_SHARD_COUNT + 1);
+    expect(Object.assign({}, ...parts)).toEqual({
+      shared: { it: '/from-shard' },
+      'only-in-shard': { it: '/s' },
+      'only-in-monolith': { it: '/m' },
+    });
+  });
+
+  it('streams individual entries with part indexes and supports key-only indexing', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    writeAllKnownJobSlugs({ 'shared-slug': { it: '/from-shard' }, 'shard-only': { en: '/en/jobs/shard-only' } }, root);
+    fs.writeFileSync(knownSlugsLegacyFile(root), JSON.stringify({ 'shared-slug': { it: '/from-monolith' }, 'legacy-only': { fr: '/fr/jobs/legacy-only' } }));
+
+    const entries = [...iterateAllKnownJobSlugPartEntries(root)];
+    const shardEntries: Array<[string, Record<string, string>]> = [
+      ['shared-slug', { it: '/from-shard' }],
+      ['shard-only', { en: '/en/jobs/shard-only' }],
+    ];
+    shardEntries.sort((a, b) => knownSlugsShardIndex(a[0]) - knownSlugsShardIndex(b[0]) || a[0].localeCompare(b[0]));
+    expect(entries).toEqual([
+      ['shared-slug', { it: '/from-monolith' }, 0],
+      ['legacy-only', { fr: '/fr/jobs/legacy-only' }, 0],
+      ...shardEntries.map(([slug, value]) => [slug, value, 1 + knownSlugsShardIndex(slug)]),
+    ]);
+
+    const keys = [...iterateAllKnownJobSlugPartEntries(root, { keysOnly: true })];
+    expect(keys).toEqual(entries.map(([slug, , partIndex]) => [slug, undefined, partIndex]));
+  });
+
+  it('skips a malformed shard atomically in the streaming and merged readers', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.join(root, KNOWN_SLUGS_SHARD_DIR), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsShardFile(0, root),
+      '{"slugs":{"partial-entry":{"en":"/en/jobs/partial-entry"}},"unfinished":',
+    );
+    fs.writeFileSync(
+      knownSlugsShardFile(1, root),
+      JSON.stringify({ slugs: { 'valid-entry': { en: '/en/jobs/valid-entry' } } }),
+    );
+
+    const streamedEntries = [...iterateAllKnownJobSlugPartEntries(root)];
+    expect(streamedEntries.map(([slug]) => slug)).toEqual(['valid-entry']);
+    expect(readAllKnownJobSlugs(root)).toEqual({
+      'valid-entry': { en: '/en/jobs/valid-entry' },
+    });
+  });
+
+  it('skips a truncated legacy part atomically before streaming a valid shard', () => {
+    const root = mkTmp();
+    fs.mkdirSync(path.dirname(knownSlugsLegacyFile(root)), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsLegacyFile(root),
+      '{"partial-entry":{"en":"/en/jobs/partial-entry"},"unfinished":',
+    );
+    fs.mkdirSync(path.dirname(knownSlugsShardFile(0, root)), { recursive: true });
+    fs.writeFileSync(
+      knownSlugsShardFile(0, root),
+      JSON.stringify({ slugs: { 'valid-entry': { en: '/en/jobs/valid-entry' } } }),
+    );
+
+    const streamedEntries = [...iterateAllKnownJobSlugPartEntries(root)];
+    expect(streamedEntries).toEqual([
+      ['valid-entry', { en: '/en/jobs/valid-entry' }, 0],
+    ]);
   });
 
   it('preserves non-locale metadata on an entry', () => {

@@ -17,6 +17,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { getJobTodayLandingSlug } from '../../build-plugins/jobEditorialLanding';
 import { resolveCantonSection } from '../../build-plugins/shared/cantonSection';
+import { knownSlugsLegacyFile } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 const locales = ['it', 'en', 'de', 'fr'] as const;
 const todayPath = (locale: (typeof locales)[number], canton: string) =>
@@ -241,7 +242,7 @@ async function runGenerator(buildLocale: string | undefined): Promise<void> {
     fs.writeFileSync(path.join(dist, 'index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
     fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
     fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, olderDuplicate]));
-    fs.writeFileSync(path.join(root, 'data/all-known-job-slugs.json'), JSON.stringify({
+    fs.writeFileSync(knownSlugsLegacyFile(root), JSON.stringify({
       [expiredOwnerSlug]: expiredOwnerPaths,
     }));
     fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify([{
@@ -466,7 +467,7 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
   });
 
   it('keeps the nested shard index coherent with the files on disk', () => {
-    const shards = sitemapFiles().filter((f) => /^sitemap-jobs-[a-z0-9-]+\.xml$/.test(f) && f !== 'sitemap-jobs-expired.xml');
+    const shards = sitemapFiles().filter((f) => /^sitemap-jobs-[a-z0-9-]+\.xml$/.test(f) && !/^sitemap-jobs-expired(?:-\d+)?\.xml$/.test(f));
     const indexXml = fs.readFileSync(path.join(dist, 'sitemap-index.xml'), 'utf8');
     const referenced = [...indexXml.matchAll(/<loc>[^<]*\/(sitemap-[^<]+\.xml)<\/loc>/g)].map((m) => m[1]).sort();
     expect(referenced).toEqual([...shards].sort());

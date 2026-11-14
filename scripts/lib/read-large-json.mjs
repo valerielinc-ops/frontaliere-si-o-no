@@ -157,12 +157,11 @@ function consumeValue(reader, firstChar, maxItemBytes) {
   return text.finish();
 }
 
-function parseArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
-  const items = [];
+function* iterateArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
   skipWhitespace(reader);
   if (reader.peek() === ']') {
     reader.next();
-    return items;
+    return;
   }
 
   while (true) {
@@ -172,11 +171,11 @@ function parseArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT 
       throw new SyntaxError('large JSON array items must be objects or arrays');
     }
     const raw = consumeContainer(reader, firstChar, maxItemBytes);
-    items.push(JSON.parse(raw));
+    yield JSON.parse(raw);
 
     skipWhitespace(reader);
     const separator = nextChar(reader, 'unterminated large JSON array');
-    if (separator === ']') return items;
+    if (separator === ']') return;
     if (separator !== ',') {
       throw new SyntaxError('expected a comma or closing JSON array bracket');
     }
@@ -185,6 +184,53 @@ function parseArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT 
       throw new SyntaxError('expected a JSON array item after comma');
     }
   }
+}
+
+function* iterateJobsObjectAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
+  let sawJobs = false;
+  skipWhitespace(reader);
+  if (reader.peek() === '}') {
+    reader.next();
+    throw new SyntaxError('large JSON object must contain a jobs array');
+  }
+
+  while (true) {
+    skipWhitespace(reader);
+    if (nextChar(reader, 'large JSON object key must be a string') !== '"') {
+      throw new SyntaxError('large JSON object key must be a string');
+    }
+    const key = JSON.parse(consumeString(reader, maxItemBytes));
+    skipWhitespace(reader);
+    if (nextChar(reader, 'expected a colon after large JSON object key') !== ':') {
+      throw new SyntaxError('expected a colon after large JSON object key');
+    }
+    skipWhitespace(reader);
+    const firstChar = nextChar(reader, 'missing large JSON object value');
+    if (key === 'jobs') {
+      if (firstChar !== '[') {
+        throw new SyntaxError('large JSON object jobs value must be an array');
+      }
+      if (sawJobs) throw new SyntaxError('duplicate jobs key in large JSON object');
+      sawJobs = true;
+      yield* iterateArrayAfterOpen(reader, { maxItemBytes });
+    } else {
+      // Validate and discard metadata without retaining the wrapper object.
+      JSON.parse(consumeValue(reader, firstChar, maxItemBytes));
+    }
+
+    skipWhitespace(reader);
+    const separator = nextChar(reader, 'unterminated large JSON object');
+    if (separator === '}') break;
+    if (separator !== ',') throw new SyntaxError('expected a comma or closing JSON object bracket');
+    skipWhitespace(reader);
+    if (reader.peek() === '}') throw new SyntaxError('trailing comma in large JSON object');
+  }
+
+  if (!sawJobs) throw new SyntaxError('large JSON object must contain a jobs array');
+}
+
+function parseArrayAfterOpen(reader, options = {}) {
+  return [...iterateArrayAfterOpen(reader, options)];
 }
 
 function parseLargeJsonObject(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
@@ -250,6 +296,49 @@ export function parseLargeJsonArray(chunks) {
   skipWhitespace(reader);
   if (reader.peek() !== null) throw new SyntaxError('unexpected data after JSON array');
   return items;
+}
+
+/**
+ * Iterate a top-level JSON array without retaining the complete parsed array.
+ * This is the safe reader for auxiliary build plugins that only need to
+ * aggregate a few fields from the jobs corpus.
+ */
+export function* iterateJsonArrayFile(
+  filePath,
+  // This API promises item-wise retention. Keep the inline fast path opt-in:
+  // data/jobs.json can be below V8's string limit while its parsed object graph
+  // is still large enough to overlap the SEO build peak.
+  { maxInlineBytes = 0, maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {},
+) {
+  const { size } = fs.statSync(filePath);
+  if (size <= maxInlineBytes) {
+    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (!Array.isArray(parsed)) {
+      throw new SyntaxError('JSON input must be a top-level array');
+    }
+    yield* parsed;
+    return;
+  }
+
+  const chunks = readTextChunks(filePath);
+  try {
+    const reader = createCharReader(chunks);
+    skipWhitespace(reader);
+    const firstChar = nextChar(reader, 'large JSON input must be an array or a jobs wrapper object');
+    if (firstChar === '[') {
+      yield* iterateArrayAfterOpen(reader, { maxItemBytes });
+    } else if (firstChar === '{') {
+      yield* iterateJobsObjectAfterOpen(reader, { maxItemBytes });
+    } else {
+      throw new SyntaxError('large JSON input must be an array or a jobs wrapper object');
+    }
+    skipWhitespace(reader);
+    if (reader.peek() !== null) throw new SyntaxError('unexpected data after JSON array');
+  } finally {
+    // Stop the file generator even when a consumer exits early or parsing
+    // rejects a malformed item, so the descriptor is closed immediately.
+    chunks.return?.();
+  }
 }
 
 function parseLargeJsonDocument(chunks, options = {}) {

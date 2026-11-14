@@ -1,7 +1,7 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-11-13T09:53:42.669Z",
-  "runId": "43400866049",
+  "assembledAt": "2026-11-13T21:40:09.179Z",
+  "runId": "43510220772",
   "jobs": [
     {
       "id": "six-group-37bc86b93aaf",
@@ -34,7 +34,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Business-&-Application-Support-%28100%29/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:34.095Z",
+      "crawledAt": "2026-11-13T21:40:00.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:53:34.095Z",
+      "validThrough": "2026-12-17T21:40:00.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Data-Acquisition-Manager-%2880-100%29/1450317433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:29.033Z",
+      "crawledAt": "2026-11-13T21:39:57.410Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:53:29.033Z",
+      "validThrough": "2027-01-20T21:39:57.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:28.366Z",
+      "crawledAt": "2026-11-13T21:39:56.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -237,76 +237,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:53:28.366Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "six-group-1160a9aa14d8",
-      "slug": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-      "slugByLocale": {
-        "it": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "en": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "de": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "fr": "messaging-platform-engineer-cloud-containers-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Messaging Platform Engineer, Cloud & Containers",
-      "titleByLocale": {
-        "it": "Messaging Platform Ingegnere, Cloud & Containers",
-        "en": "Messaging Platform Engineer, Cloud & Containers",
-        "de": "Messaging Platform Ingenieur, Cloud & Containers",
-        "fr": "Messaging Platform Ingénieur, Cloud & Containers"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich |  Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa  at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di piattaforma di messaggistica, cloud & container\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8165\n\nStiamo cercando un Ingegnere della Piattaforma di Messaging per unirsi al nostro team a Zurigo. Una responsabilità fondamentale di questo ruolo è il funzionamento in corso, la manutenzione e lo sviluppo del nostro business-critical on-premises IBM MQ Appliance ambiente. Accanto a questa piattaforma consolidata, il nostro prossimo passo è quello di espandere il nostro portafoglio di messaggistica in OpenShift e Microsoft Azure. Oltre a IBM MQ, stiamo anche valutando le tecnologie complementari di messaggistica cloud-native per il futuro portafoglio di messaggi ibridi. Questo ruolo combina l'ingegneria della piattaforma con lo sviluppo del software. La tua esperienza non deve essere limitata a IBM MQ.\n\nCosa farai\n\n• Operare e migliorare la piattaforma IBM MQ Appliance\n\n• Costruire automazione, capacità self-service e servizi di piattaforma\n\n• Progettazione e realizzazione dei servizi IBM MQ in OpenShift e Azure\n\n• Valutare le tecnologie di messaggistica complementari\n\n• Sviluppare l'automazione utilizzando API, CI/CD e infrastrutture come codice\n\n• Risoluzione dei problemi di produzione e partecipazione alla rotazione delle chiamate\n\nChe cosa porta\n\n• Enterprise messaging piattaforma di amministrazione o esperienza di ingegneria\n\n• Esperienza di produzione in ambienti OpenShift o cloud pubblici\n\n• Capacità di automazione o software in Java e Spring Boot\n\n• Forte Linux, container, networking e fondamentali di sicurezza\n\n• Esperienza con CI/CD, osservabilità e gestione degli incidenti\n\n• Conoscenza di Azure, Kubernetes, Terraform o messaggi cloud-native\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Mateusz Kozielec al numero +41583998611 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich | Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nMessaging Platform Engineer, Cloud & Container\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8165\n\nWir suchen einen praxisorientierten Messaging Platform Engineer für unser Team in Zürich. Eine zentrale Verantwortung dieser Rolle ist der laufende Betrieb, die Wartung und die Entwicklung unserer geschäftskritischen lokalen IBM MQ Appliance-Umgebung. Neben dieser etablierten Plattform besteht unser nächster Schritt darin, unser Messaging-Portfolio auf OpenShift und Microsoft Azure zu erweitern. Neben dem IBM MQ evaluieren wir auch ergänzende Cloud-native Messaging-Technologien für das zukünftige Hybrid-Messaging-Portfolio. Diese Rolle verbindet Platform Engineering mit Softwareentwicklung. Ihre Erfahrung muss nicht auf IBM MQ beschränkt sein.\n\nWas Sie tun werden\n\n• Betrieb und Verbesserung der IBM MQ Appliance Plattform\n\n• Build-Automatisierung, Self-Service-Funktionen und Plattformdienste\n\n• Entwerfen und Implementieren von IBM MQ Services in OpenShift und Azure\n\n• Bewerten Sie komplementäre Messaging-Technologien\n\n• Automatisierung mit APIs, CI/CD und Infrastruktur als Code entwickeln\n\n• Fehlerbehebung bei Produktionsproblemen und Beteiligung an der On-Call-Rotation\n\nWas du mitbringst\n\n• Enterprise Messaging Platform Administration oder Engineering Erfahrung\n\n• Produktionserfahrung in OpenShift- oder Public Cloud-Umgebungen\n\n• Automatisierungs- oder Software-Engineering-Fähigkeiten in Java und Spring Boot\n\n• Starkes Linux, Container, Netzwerk und Sicherheitsgrundlagen\n\n• Erfahrung mit CI/CD, Observability und Incident Management\n\n• Kenntnisse in Azure, Kubernetes, Terraform oder Cloud-nativem Messaging\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Mateusz Kozielec unter +41583998611 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur de plateforme de messagerie, Cloud & Containers\n\nZurich: travail à domicile jusqu'à 40% possible\n\nNous cherchons un ingénieur de plate-forme de messagerie pratique pour rejoindre notre équipe à Zürich. L'une des principales responsabilités de ce rôle est l'exploitation, la maintenance et le développement continus de notre environnement d'appareils IBM MQ sur site. Parallèlement à cette plateforme établie, notre prochaine étape est d'élargir notre portefeuille de messagerie à OpenShift et Microsoft Azure. Au-delà de IBM MQ, nous évaluons également les technologies de messagerie cloud-native complémentaires pour le futur portefeuille de messagerie hybride. Ce rôle combine l'ingénierie de la plate-forme avec le développement de logiciels. Votre expérience ne doit pas être limitée à IBM MQ.\n\nCe que vous ferez\n\n• Fonctionnement et amélioration de la plateforme IBM MQ Appliance\n\n• Construction d'automatisation, de capacités en libre-service et de services de plate-forme\n\n• Conception et mise en œuvre de services IBM MQ en OpenShift et Azure\n\n• Évaluer les technologies de messagerie complémentaires\n\n• Développer l'automatisation en utilisant les API, IC/CD et l'infrastructure comme code\n\n• Résoudre les problèmes de production et participer à la rotation sur appel\n\nCe que vous apportez\n\n• Expérience d'administration ou d'ingénierie de la plateforme de messagerie d'entreprise\n\n• Expérience de production dans les environnements OpenShift ou cloud public\n\n• Automatisation ou compétences en génie logiciel en Java et Spring Boot\n\n• Fort Linux, conteneur, réseau et fondamentaux de sécurité\n\n• Expérience de l'IC/DC, de l'observabilité et de la gestion des incidents\n\n• Connaissance de la messagerie azur, Kubernetes, Terraform ou cloud-native\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Mateusz Kozielec au +4158399861 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:27.705Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T02:00:00Z",
-      "postedDate": "2026-09-23T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1419165533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-10T10:28:20.413Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:53:27.705Z",
+      "validThrough": "2027-01-20T21:39:56.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -340,7 +271,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:27.074Z",
+      "crawledAt": "2026-11-13T21:39:56.380Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -375,7 +306,76 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:53:27.074Z",
+      "validThrough": "2026-12-22T21:39:56.380Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-1160a9aa14d8",
+      "slug": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+      "slugByLocale": {
+        "it": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "en": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "de": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "fr": "messaging-platform-engineer-cloud-containers-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Messaging Platform Engineer, Cloud & Containers",
+      "titleByLocale": {
+        "it": "Messaging Platform Ingegnere, Cloud & Containers",
+        "en": "Messaging Platform Engineer, Cloud & Containers",
+        "de": "Messaging Platform Ingenieur, Cloud & Containers",
+        "fr": "Messaging Platform Ingénieur, Cloud & Containers"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich |  Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa  at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di piattaforma di messaggistica, cloud & container\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8165\n\nStiamo cercando un Ingegnere della Piattaforma di Messaging per unirsi al nostro team a Zurigo. Una responsabilità fondamentale di questo ruolo è il funzionamento in corso, la manutenzione e lo sviluppo del nostro business-critical on-premises IBM MQ Appliance ambiente. Accanto a questa piattaforma consolidata, il nostro prossimo passo è quello di espandere il nostro portafoglio di messaggistica in OpenShift e Microsoft Azure. Oltre a IBM MQ, stiamo anche valutando le tecnologie complementari di messaggistica cloud-native per il futuro portafoglio di messaggi ibridi. Questo ruolo combina l'ingegneria della piattaforma con lo sviluppo del software. La tua esperienza non deve essere limitata a IBM MQ.\n\nCosa farai\n\n• Operare e migliorare la piattaforma IBM MQ Appliance\n\n• Costruire automazione, capacità self-service e servizi di piattaforma\n\n• Progettazione e realizzazione dei servizi IBM MQ in OpenShift e Azure\n\n• Valutare le tecnologie di messaggistica complementari\n\n• Sviluppare l'automazione utilizzando API, CI/CD e infrastrutture come codice\n\n• Risoluzione dei problemi di produzione e partecipazione alla rotazione delle chiamate\n\nChe cosa porta\n\n• Enterprise messaging piattaforma di amministrazione o esperienza di ingegneria\n\n• Esperienza di produzione in ambienti OpenShift o cloud pubblici\n\n• Capacità di automazione o software in Java e Spring Boot\n\n• Forte Linux, container, networking e fondamentali di sicurezza\n\n• Esperienza con CI/CD, osservabilità e gestione degli incidenti\n\n• Conoscenza di Azure, Kubernetes, Terraform o messaggi cloud-native\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Mateusz Kozielec al numero +41583998611 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich | Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nMessaging Platform Engineer, Cloud & Container\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8165\n\nWir suchen einen praxisorientierten Messaging Platform Engineer für unser Team in Zürich. Eine zentrale Verantwortung dieser Rolle ist der laufende Betrieb, die Wartung und die Entwicklung unserer geschäftskritischen lokalen IBM MQ Appliance-Umgebung. Neben dieser etablierten Plattform besteht unser nächster Schritt darin, unser Messaging-Portfolio auf OpenShift und Microsoft Azure zu erweitern. Neben dem IBM MQ evaluieren wir auch ergänzende Cloud-native Messaging-Technologien für das zukünftige Hybrid-Messaging-Portfolio. Diese Rolle verbindet Platform Engineering mit Softwareentwicklung. Ihre Erfahrung muss nicht auf IBM MQ beschränkt sein.\n\nWas Sie tun werden\n\n• Betrieb und Verbesserung der IBM MQ Appliance Plattform\n\n• Build-Automatisierung, Self-Service-Funktionen und Plattformdienste\n\n• Entwerfen und Implementieren von IBM MQ Services in OpenShift und Azure\n\n• Bewerten Sie komplementäre Messaging-Technologien\n\n• Automatisierung mit APIs, CI/CD und Infrastruktur als Code entwickeln\n\n• Fehlerbehebung bei Produktionsproblemen und Beteiligung an der On-Call-Rotation\n\nWas du mitbringst\n\n• Enterprise Messaging Platform Administration oder Engineering Erfahrung\n\n• Produktionserfahrung in OpenShift- oder Public Cloud-Umgebungen\n\n• Automatisierungs- oder Software-Engineering-Fähigkeiten in Java und Spring Boot\n\n• Starkes Linux, Container, Netzwerk und Sicherheitsgrundlagen\n\n• Erfahrung mit CI/CD, Observability und Incident Management\n\n• Kenntnisse in Azure, Kubernetes, Terraform oder Cloud-nativem Messaging\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Mateusz Kozielec unter +41583998611 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur de plateforme de messagerie, Cloud & Containers\n\nZurich: travail à domicile jusqu'à 40% possible\n\nNous cherchons un ingénieur de plate-forme de messagerie pratique pour rejoindre notre équipe à Zürich. L'une des principales responsabilités de ce rôle est l'exploitation, la maintenance et le développement continus de notre environnement d'appareils IBM MQ sur site. Parallèlement à cette plateforme établie, notre prochaine étape est d'élargir notre portefeuille de messagerie à OpenShift et Microsoft Azure. Au-delà de IBM MQ, nous évaluons également les technologies de messagerie cloud-native complémentaires pour le futur portefeuille de messagerie hybride. Ce rôle combine l'ingénierie de la plate-forme avec le développement de logiciels. Votre expérience ne doit pas être limitée à IBM MQ.\n\nCe que vous ferez\n\n• Fonctionnement et amélioration de la plateforme IBM MQ Appliance\n\n• Construction d'automatisation, de capacités en libre-service et de services de plate-forme\n\n• Conception et mise en œuvre de services IBM MQ en OpenShift et Azure\n\n• Évaluer les technologies de messagerie complémentaires\n\n• Développer l'automatisation en utilisant les API, IC/CD et l'infrastructure comme code\n\n• Résoudre les problèmes de production et participer à la rotation sur appel\n\nCe que vous apportez\n\n• Expérience d'administration ou d'ingénierie de la plateforme de messagerie d'entreprise\n\n• Expérience de production dans les environnements OpenShift ou cloud public\n\n• Automatisation ou compétences en génie logiciel en Java et Spring Boot\n\n• Fort Linux, conteneur, réseau et fondamentaux de sécurité\n\n• Expérience de l'IC/DC, de l'observabilité et de la gestion des incidents\n\n• Connaissance de la messagerie azur, Kubernetes, Terraform ou cloud-native\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Mateusz Kozielec au +4158399861 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-13T21:39:55.872Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23T02:00:00Z",
+      "postedDate": "2026-09-23T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1419165533/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-10T10:28:20.413Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T21:39:55.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -409,7 +409,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:25.702Z",
+      "crawledAt": "2026-11-13T21:39:55.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -458,7 +458,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:53:25.702Z",
+      "validThrough": "2026-12-22T21:39:55.067Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -493,7 +493,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:24.225Z",
+      "crawledAt": "2026-11-13T21:39:54.264Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,7 +539,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:53:24.225Z",
+      "validThrough": "2026-12-23T21:39:54.264Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -574,7 +574,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:23.159Z",
+      "crawledAt": "2026-11-13T21:39:53.130Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -620,7 +620,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:53:23.159Z",
+      "validThrough": "2026-12-24T21:39:53.130Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -655,7 +655,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-DevOps-Engineer/1451213733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:22.084Z",
+      "crawledAt": "2026-11-13T21:39:52.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -704,7 +704,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:53:22.084Z",
+      "validThrough": "2027-01-24T21:39:52.334Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -739,7 +739,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Working-Student-Asset-Servicing-40-60/1451727833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:21.434Z",
+      "crawledAt": "2026-11-13T21:39:51.783Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -787,88 +787,7 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:53:21.434Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "six-group-2a4d148e8d5b",
-      "slug": "teamleiter-in-software-entwicklung-cards-atm-e-twint-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "teamleiter-in-software-entwicklung-cards-atm-e-twint-80-100-six-group-zurich",
-        "en": "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich",
-        "de": "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich",
-        "fr": "responsable-d-equipe-developpement-logiciel-cards-atm-et-twint-80-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Teamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)",
-      "titleByLocale": {
-        "it": "Responsabile del team Sviluppo software Cards, ATM e TWINT (80-100%)",
-        "en": "Team Leader Software Development Cards, ATM and TWINT (80-100%)",
-        "de": "Teamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)",
-        "fr": "Responsable d'équipe développement logiciel Cards, ATM et TWINT (80-100%)"
-      },
-      "description": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nTeamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)\n\nZurich |  Homeoffice bis zu 40 % möglich | Referenz 8280\n\nGemeinsam gestalten wir die Zukunft des Bezahlens in der Schweiz. Unsere Plattformen verarbeiten unterschiedlichste Zahlungsmittel und schaffen die Basis für innovative Services, sichere Transaktionen und digitale Bezahlerlebnisse.\n\nDie IT übernimmt die Verantwortung über den gesamten Entwicklungszyklus. Du führst ein agil arbeitendes Team aus Java-Softwareentwicklern, Testexperten und Requirements Engineers zum Erfolg. Als Product Owner bist du verantwortlich für das Anforderungsmanagement und deren Lieferung in Form von Software Releases. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services.\n\nOffenheit, Zusammenarbeit und eine positive Fehlerkultur sind uns besonders wichtig. Möchtest du im PO- und Leadership-Team Verantwortung übernehmen?\n\nDas sind deine Aufgaben\n\n• Fachliche und personelle Verantwortung für ein Scrum-Team in der Rolle des Product Owners\n\n• Proaktive Mitgestaltung der Roadmap und Zusammenarbeit in einem interdisziplinären agilen Setup\n\n• Sicherstellen, dass die Umsetzungsziele hinsichtlich Zeitplan, Kosten und Qualität eingehalten werden\n\n• Auf- und Ausbau der Methodenkompetenz in unterschiedlichen Bereichen wie Softwareentwicklung, Architektur und Qualitätssicherung\n\nDas bringst du mit\n\n• Abgeschlossene Informatik-Ausbildung (Universität, Hochschule oder Höhere Fachausbildung)\n\n• Ausgeprägte DevOps-Kompetenzen und gute Kommunikationsfähigkeiten\n\n• Aufgrund deiner früheren Tätigkeiten bist du bestens vertraut mit der Rolle des Product Owners. Führungserfahrung ist ein Vorteil.\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Gute Deutsch- und Englishkenntnisse\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska  unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
-      "descriptionByLocale": {
-        "it": "SIX sta guidando la trasformazione dei mercati finanziari.\n\nCiò che ci rende diversi ci spinge avanti: tra radici locali e rilevanza globale, siamo una miscela unica di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti intelligenti e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro dei mercati finanziari con noi.\n\nLeader di squadra nelle schede di sviluppo software, ATM e TWINT (80-100%)\n\nZurigo | Sede fino al 40% possibile | Riferimento 8280\n\nInsieme formiamo il futuro del pagamento in Svizzera. Le nostre piattaforme elaborano una vasta gamma di metodi di pagamento e creano la base per servizi innovativi, transazioni sicure e esperienze di pagamento digitale.\n\nL'IT si assume la responsabilità dell'intero ciclo di sviluppo. Si guida un team agile di sviluppatori software Java, esperti di test e requisiti ingegneri per il successo. In qualità di proprietario del prodotto, sei responsabile della gestione e della consegna dei requisiti sotto forma di release software. Attraverso l'approccio DevOps, garantiamo l'elevata stabilità dei nostri servizi.\n\nPer noi è particolarmente importante l'apertura, la cooperazione e una cultura positiva dell'errore. Vuoi assumerti la responsabilità nel team PO e Leadership?\n\nQuesti sono i tuoi compiti\n\n• Responsabilità professionale e personale per un team Scrum nel ruolo del proprietario del prodotto\n\n• Co-creazione attiva della roadmap e della cooperazione in una configurazione agile interdisciplinare\n\n• Assicurarsi che gli obiettivi di attuazione siano soddisfatti in termini di calendario, costo e qualità\n\n• Stabilimento e espansione delle competenze metodologiche in vari settori quali lo sviluppo del software, l'architettura e la garanzia della qualità\n\nLo porti con te.\n\n• Formazione informatica completata (università, istruzione superiore o istruzione superiore)\n\n• Forte competenze DevOps e buone capacità di comunicazione\n\n• A causa delle vostre attività precedenti, siete molto familiarità con il ruolo del proprietario del prodotto. L'esperienza di leadership è un vantaggio.\n\n• Giocatore di squadra che contribuisce idee e piace presentare risultati di lavoro\n\n• Buona conoscenza della lingua tedesca e inglese\n\nSe hai domande, visita la nostra pagina FAQ o contatta Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPer questa vacanza, consideriamo solo applicazioni dirette.\n\nLa diversità è importante per noi, quindi accogliamo le applicazioni indipendentemente dal background personale.",
-        "en": "SIX is driving the transformation of financial markets.\n\nWhat makes us different drives us forward: between local roots and global relevance, we are a unique mixture of tradition and future, of foundation and growth. We value smart minds and inspire them to grow with their ideas. Come and shape the future of financial markets with us.\n\nTeam Leader in Software Development Cards, ATM and TWINT (80-100%)\n\nZurich | Home office up to 40% possible | Reference 8280\n\nTogether we shape the future of payment in Switzerland. Our platforms process a wide variety of payment methods and create the basis for innovative services, secure transactions and digital payment experiences.\n\nIT takes responsibility for the entire development cycle. You lead an agile team of Java software developers, test experts and requirements engineers to success. As a product owner, you are responsible for requirements management and delivery in the form of software releases. Through the DevOps approach, we ensure the high stability of our services.\n\nOpenness, cooperation and a positive culture of error are particularly important to us. Do you want to take responsibility in the PO and Leadership team?\n\nThese are your tasks\n\n• Professional and personnel responsibility for a Scrum team in the role of product owner\n\n• Proactive co-creation of the roadmap and cooperation in an interdisciplinary agile setup\n\n• Ensure that implementation targets are met in terms of timetable, cost and quality\n\n• Establishment and expansion of methodological competence in various areas such as software development, architecture and quality assurance\n\nYou bring that with you\n\n• Completed computer science training (university, higher education or higher education)\n\n• Strong DevOps competencies and good communication skills\n\n• Due to your previous activities, you are very familiar with the role of the product owner. Leadership experience is an advantage.\n\n• Team player who contributes ideas and likes to present work results\n\n• Good knowledge of German and English\n\nIf you have any questions, visit our FAQ page or contact Beata Czyzewska on +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFor this vacancy, we only consider direct applications.\n\nDiversity is important to us, so we welcome applications regardless of personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nTeamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)\n\nZurich | Homeoffice bis zu 40 % möglich | Referenz 8280\n\nGemeinsam gestalten wir die Zukunft des Bezahlens in der Schweiz. Unsere Plattformen verarbeiten unterschiedlichste Zahlungsmittel und schaffen die Basis für innovative Services, sichere Transaktionen und digitale Bezahlerlebnisse.\n\nDie IT übernimmt die Verantwortung über den gesamten Entwicklungszyklus. Du führst ein agil arbeitendes Team aus Java-Softwareentwicklern, Testexperten und Requirements Engineers zum Erfolg. Als Product Owner bist du verantwortlich für das Anforderungsmanagement und deren Lieferung in Form von Software Releases. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services.\n\nOffenheit, Zusammenarbeit und eine positive Fehlerkultur sind uns besonders wichtig. Möchtest du im PO- und Leadership-Team Verantwortung übernehmen?\n\nDas sind deine Aufgaben\n\n• Fachliche und personelle Verantwortung für ein Scrum-Team in der Rolle des Product Owners\n\n• Proaktive Mitgestaltung der Roadmap und Zusammenarbeit in einem interdisziplinären agilen Setup\n\n• Sicherstellen, dass die Umsetzungsziele hinsichtlich Zeitplan, Kosten und Qualität eingehalten werden\n\n• Auf- und Ausbau der Methodenkompetenz in unterschiedlichen Bereichen wie Softwareentwicklung, Architektur und Qualitätssicherung\n\nDas bringst du mit\n\n• Abgeschlossene Informatik-Ausbildung (Universität, Hochschule oder Höhere Fachausbildung)\n\n• Ausgeprägte DevOps-Kompetenzen und gute Kommunikationsfähigkeiten\n\n• Aufgrund deiner früheren Tätigkeiten bist du bestens vertraut mit der Rolle des Product Owners. Führungserfahrung ist ein Vorteil.\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Gute Deutsch- und Englishkenntnisse\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX dirige la transformation des marchés financiers.\n\nCe qui nous rend différents nous fait avancer : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits intelligents et les inspirons à grandir avec leurs idées. Venez façonner l'avenir des marchés financiers avec nous.\n\nChef d'équipe en cartes de développement logiciel, guichet automatique et TWINT (80-100%)\n\nZurich Bureau à domicile jusqu'à 40% possible\n\nEnsemble, nous façonnons l'avenir du paiement en Suisse. Nos plateformes traitent une grande variété de méthodes de paiement et créent la base pour des services innovants, des transactions sécurisées et des expériences de paiement numérique.\n\nLes TI assument la responsabilité de tout le cycle de développement. Vous dirigez une équipe agile de développeurs de logiciels Java, d'experts de test et d'ingénieurs des exigences pour réussir. En tant que propriétaire de produit, vous êtes responsable de la gestion des exigences et de la livraison sous forme de versions logicielles. Grâce à l'approche DevOps, nous assurons la haute stabilité de nos services.\n\nL'ouverture, la coopération et une culture d'erreur positive sont particulièrement importantes pour nous. Voulez-vous prendre des responsabilités au sein de l'équipe du PO et du leadership?\n\nCe sont vos tâches\n\n• Responsabilité professionnelle et du personnel d'une équipe Scrum dans le rôle de propriétaire de produit\n\n• Co-création proactive de la feuille de route et coopération dans une organisation interdisciplinaire agile\n\n• Veiller à ce que les objectifs de mise en œuvre soient atteints en termes de calendrier, de coût et de qualité\n\n• Établissement et élargissement des compétences méthodologiques dans divers domaines tels que le développement de logiciels, l'architecture et l'assurance de la qualité\n\nApporte ça avec toi.\n\n• Formation informatique achevée (université, enseignement supérieur ou enseignement supérieur)\n\n• Fortes compétences DevOps et bonnes compétences en communication\n\n• En raison de vos activités antérieures, vous connaissez très bien le rôle du propriétaire du produit. L'expérience en leadership est un avantage.\n\n• Joueur d'équipe qui apporte des idées et aime présenter des résultats de travail\n\n• Bonne connaissance de l'allemand et de l'anglais\n\nSi vous avez des questions, visitez notre page FAQ ou contactez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPour cette vacance, nous ne considérons que les candidatures directes.\n\nLa diversité est importante pour nous, et nous accueillons donc favorablement les applications sans égard à leurs antécédents personnels."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Teamleiterin-Software-Entwicklung-Cards%2C-ATM-und-TWINT-%2880-100%29/1452001233/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:19.910Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28T00:00:00Z",
-      "postedDate": "2026-10-28T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1452001233/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
-        ],
-        "fr": [
-          "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T09:47:40.912Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:53:19.910Z",
+      "validThrough": "2027-01-25T21:39:51.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -902,7 +821,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Manager-Plattformmigrationen-%2880-100%29/1452093233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:19.245Z",
+      "crawledAt": "2026-11-13T21:39:50.743Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -948,7 +867,88 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:53:19.245Z",
+      "validThrough": "2027-01-26T21:39:50.743Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-2a4d148e8d5b",
+      "slug": "teamleiter-in-software-entwicklung-cards-atm-e-twint-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "teamleiter-in-software-entwicklung-cards-atm-e-twint-80-100-six-group-zurich",
+        "en": "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich",
+        "de": "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich",
+        "fr": "responsable-d-equipe-developpement-logiciel-cards-atm-et-twint-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Teamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)",
+      "titleByLocale": {
+        "it": "Responsabile del team Sviluppo software Cards, ATM e TWINT (80-100%)",
+        "en": "Team Leader Software Development Cards, ATM and TWINT (80-100%)",
+        "de": "Teamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)",
+        "fr": "Responsable d'équipe développement logiciel Cards, ATM et TWINT (80-100%)"
+      },
+      "description": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nTeamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)\n\nZurich |  Homeoffice bis zu 40 % möglich | Referenz 8280\n\nGemeinsam gestalten wir die Zukunft des Bezahlens in der Schweiz. Unsere Plattformen verarbeiten unterschiedlichste Zahlungsmittel und schaffen die Basis für innovative Services, sichere Transaktionen und digitale Bezahlerlebnisse.\n\nDie IT übernimmt die Verantwortung über den gesamten Entwicklungszyklus. Du führst ein agil arbeitendes Team aus Java-Softwareentwicklern, Testexperten und Requirements Engineers zum Erfolg. Als Product Owner bist du verantwortlich für das Anforderungsmanagement und deren Lieferung in Form von Software Releases. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services.\n\nOffenheit, Zusammenarbeit und eine positive Fehlerkultur sind uns besonders wichtig. Möchtest du im PO- und Leadership-Team Verantwortung übernehmen?\n\nDas sind deine Aufgaben\n\n• Fachliche und personelle Verantwortung für ein Scrum-Team in der Rolle des Product Owners\n\n• Proaktive Mitgestaltung der Roadmap und Zusammenarbeit in einem interdisziplinären agilen Setup\n\n• Sicherstellen, dass die Umsetzungsziele hinsichtlich Zeitplan, Kosten und Qualität eingehalten werden\n\n• Auf- und Ausbau der Methodenkompetenz in unterschiedlichen Bereichen wie Softwareentwicklung, Architektur und Qualitätssicherung\n\nDas bringst du mit\n\n• Abgeschlossene Informatik-Ausbildung (Universität, Hochschule oder Höhere Fachausbildung)\n\n• Ausgeprägte DevOps-Kompetenzen und gute Kommunikationsfähigkeiten\n\n• Aufgrund deiner früheren Tätigkeiten bist du bestens vertraut mit der Rolle des Product Owners. Führungserfahrung ist ein Vorteil.\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Gute Deutsch- und Englishkenntnisse\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska  unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+      "descriptionByLocale": {
+        "it": "SIX sta guidando la trasformazione dei mercati finanziari.\n\nCiò che ci rende diversi ci spinge avanti: tra radici locali e rilevanza globale, siamo una miscela unica di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti intelligenti e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro dei mercati finanziari con noi.\n\nLeader di squadra nelle schede di sviluppo software, ATM e TWINT (80-100%)\n\nZurigo | Sede fino al 40% possibile | Riferimento 8280\n\nInsieme formiamo il futuro del pagamento in Svizzera. Le nostre piattaforme elaborano una vasta gamma di metodi di pagamento e creano la base per servizi innovativi, transazioni sicure e esperienze di pagamento digitale.\n\nL'IT si assume la responsabilità dell'intero ciclo di sviluppo. Si guida un team agile di sviluppatori software Java, esperti di test e requisiti ingegneri per il successo. In qualità di proprietario del prodotto, sei responsabile della gestione e della consegna dei requisiti sotto forma di release software. Attraverso l'approccio DevOps, garantiamo l'elevata stabilità dei nostri servizi.\n\nPer noi è particolarmente importante l'apertura, la cooperazione e una cultura positiva dell'errore. Vuoi assumerti la responsabilità nel team PO e Leadership?\n\nQuesti sono i tuoi compiti\n\n• Responsabilità professionale e personale per un team Scrum nel ruolo del proprietario del prodotto\n\n• Co-creazione attiva della roadmap e della cooperazione in una configurazione agile interdisciplinare\n\n• Assicurarsi che gli obiettivi di attuazione siano soddisfatti in termini di calendario, costo e qualità\n\n• Stabilimento e espansione delle competenze metodologiche in vari settori quali lo sviluppo del software, l'architettura e la garanzia della qualità\n\nLo porti con te.\n\n• Formazione informatica completata (università, istruzione superiore o istruzione superiore)\n\n• Forte competenze DevOps e buone capacità di comunicazione\n\n• A causa delle vostre attività precedenti, siete molto familiarità con il ruolo del proprietario del prodotto. L'esperienza di leadership è un vantaggio.\n\n• Giocatore di squadra che contribuisce idee e piace presentare risultati di lavoro\n\n• Buona conoscenza della lingua tedesca e inglese\n\nSe hai domande, visita la nostra pagina FAQ o contatta Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPer questa vacanza, consideriamo solo applicazioni dirette.\n\nLa diversità è importante per noi, quindi accogliamo le applicazioni indipendentemente dal background personale.",
+        "en": "SIX is driving the transformation of financial markets.\n\nWhat makes us different drives us forward: between local roots and global relevance, we are a unique mixture of tradition and future, of foundation and growth. We value smart minds and inspire them to grow with their ideas. Come and shape the future of financial markets with us.\n\nTeam Leader in Software Development Cards, ATM and TWINT (80-100%)\n\nZurich | Home office up to 40% possible | Reference 8280\n\nTogether we shape the future of payment in Switzerland. Our platforms process a wide variety of payment methods and create the basis for innovative services, secure transactions and digital payment experiences.\n\nIT takes responsibility for the entire development cycle. You lead an agile team of Java software developers, test experts and requirements engineers to success. As a product owner, you are responsible for requirements management and delivery in the form of software releases. Through the DevOps approach, we ensure the high stability of our services.\n\nOpenness, cooperation and a positive culture of error are particularly important to us. Do you want to take responsibility in the PO and Leadership team?\n\nThese are your tasks\n\n• Professional and personnel responsibility for a Scrum team in the role of product owner\n\n• Proactive co-creation of the roadmap and cooperation in an interdisciplinary agile setup\n\n• Ensure that implementation targets are met in terms of timetable, cost and quality\n\n• Establishment and expansion of methodological competence in various areas such as software development, architecture and quality assurance\n\nYou bring that with you\n\n• Completed computer science training (university, higher education or higher education)\n\n• Strong DevOps competencies and good communication skills\n\n• Due to your previous activities, you are very familiar with the role of the product owner. Leadership experience is an advantage.\n\n• Team player who contributes ideas and likes to present work results\n\n• Good knowledge of German and English\n\nIf you have any questions, visit our FAQ page or contact Beata Czyzewska on +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFor this vacancy, we only consider direct applications.\n\nDiversity is important to us, so we welcome applications regardless of personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nTeamleiter/in Software Entwicklung Cards, ATM und TWINT (80-100%)\n\nZurich | Homeoffice bis zu 40 % möglich | Referenz 8280\n\nGemeinsam gestalten wir die Zukunft des Bezahlens in der Schweiz. Unsere Plattformen verarbeiten unterschiedlichste Zahlungsmittel und schaffen die Basis für innovative Services, sichere Transaktionen und digitale Bezahlerlebnisse.\n\nDie IT übernimmt die Verantwortung über den gesamten Entwicklungszyklus. Du führst ein agil arbeitendes Team aus Java-Softwareentwicklern, Testexperten und Requirements Engineers zum Erfolg. Als Product Owner bist du verantwortlich für das Anforderungsmanagement und deren Lieferung in Form von Software Releases. Durch den DevOps-Ansatz gewährleisten wir die hohe Stabilität unserer Services.\n\nOffenheit, Zusammenarbeit und eine positive Fehlerkultur sind uns besonders wichtig. Möchtest du im PO- und Leadership-Team Verantwortung übernehmen?\n\nDas sind deine Aufgaben\n\n• Fachliche und personelle Verantwortung für ein Scrum-Team in der Rolle des Product Owners\n\n• Proaktive Mitgestaltung der Roadmap und Zusammenarbeit in einem interdisziplinären agilen Setup\n\n• Sicherstellen, dass die Umsetzungsziele hinsichtlich Zeitplan, Kosten und Qualität eingehalten werden\n\n• Auf- und Ausbau der Methodenkompetenz in unterschiedlichen Bereichen wie Softwareentwicklung, Architektur und Qualitätssicherung\n\nDas bringst du mit\n\n• Abgeschlossene Informatik-Ausbildung (Universität, Hochschule oder Höhere Fachausbildung)\n\n• Ausgeprägte DevOps-Kompetenzen und gute Kommunikationsfähigkeiten\n\n• Aufgrund deiner früheren Tätigkeiten bist du bestens vertraut mit der Rolle des Product Owners. Führungserfahrung ist ein Vorteil.\n\n• Teamplayer, der Ideen einbringt und Arbeitsergebnisse gerne präsentiert\n\n• Gute Deutsch- und Englishkenntnisse\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Beata Czyzewska unter der Nummer +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX dirige la transformation des marchés financiers.\n\nCe qui nous rend différents nous fait avancer : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits intelligents et les inspirons à grandir avec leurs idées. Venez façonner l'avenir des marchés financiers avec nous.\n\nChef d'équipe en cartes de développement logiciel, guichet automatique et TWINT (80-100%)\n\nZurich Bureau à domicile jusqu'à 40% possible\n\nEnsemble, nous façonnons l'avenir du paiement en Suisse. Nos plateformes traitent une grande variété de méthodes de paiement et créent la base pour des services innovants, des transactions sécurisées et des expériences de paiement numérique.\n\nLes TI assument la responsabilité de tout le cycle de développement. Vous dirigez une équipe agile de développeurs de logiciels Java, d'experts de test et d'ingénieurs des exigences pour réussir. En tant que propriétaire de produit, vous êtes responsable de la gestion des exigences et de la livraison sous forme de versions logicielles. Grâce à l'approche DevOps, nous assurons la haute stabilité de nos services.\n\nL'ouverture, la coopération et une culture d'erreur positive sont particulièrement importantes pour nous. Voulez-vous prendre des responsabilités au sein de l'équipe du PO et du leadership?\n\nCe sont vos tâches\n\n• Responsabilité professionnelle et du personnel d'une équipe Scrum dans le rôle de propriétaire de produit\n\n• Co-création proactive de la feuille de route et coopération dans une organisation interdisciplinaire agile\n\n• Veiller à ce que les objectifs de mise en œuvre soient atteints en termes de calendrier, de coût et de qualité\n\n• Établissement et élargissement des compétences méthodologiques dans divers domaines tels que le développement de logiciels, l'architecture et l'assurance de la qualité\n\nApporte ça avec toi.\n\n• Formation informatique achevée (université, enseignement supérieur ou enseignement supérieur)\n\n• Fortes compétences DevOps et bonnes compétences en communication\n\n• En raison de vos activités antérieures, vous connaissez très bien le rôle du propriétaire du produit. L'expérience en leadership est un avantage.\n\n• Joueur d'équipe qui apporte des idées et aime présenter des résultats de travail\n\n• Bonne connaissance de l'allemand et de l'anglais\n\nSi vous avez des questions, visitez notre page FAQ ou contactez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49.\n\nPour cette vacance, nous ne considérons que les candidatures directes.\n\nLa diversité est importante pour nous, et nous accueillons donc favorablement les applications sans égard à leurs antécédents personnels."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Teamleiterin-Software-Entwicklung-Cards%2C-ATM-und-TWINT-%2880-100%29/1452001233/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:39:50.189Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1452001233/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-software-entwicklung-cards-atm-und-twint-80-100-six-group-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-28T09:47:40.912Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T21:39:50.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -983,7 +983,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:16.826Z",
+      "crawledAt": "2026-11-13T21:39:48.507Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1041,7 +1041,7 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:53:16.826Z",
+      "validThrough": "2026-12-30T21:39:48.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1075,7 +1075,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Index-Customer-Administration-Specialist/1432224333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:15.314Z",
+      "crawledAt": "2026-11-13T21:39:47.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1110,7 +1110,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:53:15.314Z",
+      "validThrough": "2026-12-29T21:39:47.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,7 +1144,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:14.679Z",
+      "crawledAt": "2026-11-13T21:39:46.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1187,7 +1187,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:53:14.679Z",
+      "validThrough": "2026-12-31T21:39:46.924Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1222,7 +1222,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:13.487Z",
+      "crawledAt": "2026-11-13T21:39:46.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1268,7 +1268,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:53:13.487Z",
+      "validThrough": "2026-12-30T21:39:46.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1302,7 +1302,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Technical-Integration-Manager-%2880-100%29/1444014133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:12.122Z",
+      "crawledAt": "2026-11-13T21:39:45.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1348,7 +1348,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:53:12.122Z",
+      "validThrough": "2026-12-31T21:39:45.551Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1382,7 +1382,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:53:11.088Z",
+      "crawledAt": "2026-11-13T21:39:44.764Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1433,7 +1433,7 @@
       },
       "streetAddress": "Genf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:53:11.088Z",
+      "validThrough": "2027-01-01T21:39:44.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1468,7 +1468,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Working-Student-Primary-Market-Origination-40-60/1454040333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:09.047Z",
+      "crawledAt": "2026-11-13T21:39:41.953Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1517,7 +1517,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:53:09.047Z",
+      "validThrough": "2027-02-01T21:39:41.953Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1552,7 +1552,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Trade-Repository/1454930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:06.172Z",
+      "crawledAt": "2026-11-13T21:39:39.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1598,7 +1598,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:53:06.172Z",
+      "validThrough": "2027-02-03T21:39:39.798Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1633,7 +1633,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-of-AI-Portfolio-and-Governance-%28100%29/1454786533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:04.663Z",
+      "crawledAt": "2026-11-13T21:39:39.246Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1668,7 +1668,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:53:04.663Z",
+      "validThrough": "2027-02-03T21:39:39.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1703,7 +1703,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-PAM-&-Secrets-Management-Engineer/1445127533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:03.641Z",
+      "crawledAt": "2026-11-13T21:39:37.810Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1738,7 +1738,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:53:03.641Z",
+      "validThrough": "2027-01-05T21:39:37.810Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1772,7 +1772,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Product-Manager-International-Custody-%2880-100%29/1455165933/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:53:02.168Z",
+      "crawledAt": "2026-11-13T21:39:37.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1821,7 +1821,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:53:02.168Z",
+      "validThrough": "2027-02-04T21:39:37.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1855,7 +1855,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:59.976Z",
+      "crawledAt": "2026-11-13T21:39:35.365Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1904,7 +1904,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:52:59.976Z",
+      "validThrough": "2026-12-13T21:39:35.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1939,7 +1939,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:58.903Z",
+      "crawledAt": "2026-11-13T21:39:34.550Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1992,7 +1992,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:52:58.903Z",
+      "validThrough": "2026-12-13T21:39:34.550Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2027,7 +2027,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Sachbearbeiterin-Registerschuldbriefe-%28100%29/1455594133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:52:58.221Z",
+      "crawledAt": "2026-11-13T21:39:34.013Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2076,7 +2076,7 @@
       },
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:52:58.221Z",
+      "validThrough": "2027-02-07T21:39:34.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2111,7 +2111,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Regulatory-Data-Analyst-%2880-100%29/1446600433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:53.830Z",
+      "crawledAt": "2026-11-13T21:39:31.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2146,42 +2146,42 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:52:53.830Z",
+      "validThrough": "2027-01-11T21:39:31.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-9d0d6d03be50",
-      "slug": "head-cyber-controls-six-group-zurich",
+      "slug": "controlli-informatici-di-testa-six-group-zurich",
       "slugByLocale": {
+        "it": "controlli-informatici-di-testa-six-group-zurich",
         "en": "head-cyber-controls-six-group-zurich",
-        "it": "head-cyber-controls-six-group-zurich",
         "de": "head-cyber-controls-six-group-zurich",
-        "fr": "head-cyber-controls-six-group-zurich"
+        "fr": "cybercontroles-de-tete-six-group-zurich"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
       "companyDomain": "six-group.com",
       "title": "Head Cyber Controls",
       "titleByLocale": {
+        "it": "Controlli informatici di testa",
         "en": "Head Cyber Controls",
-        "it": "Head Cyber Controls",
-        "de": "Head Cyber Controls",
-        "fr": "Head Cyber Controls"
+        "de": "Leiter Cyber Controls",
+        "fr": "Cybercontrôles de tête"
       },
       "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid |  Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz  at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
       "descriptionByLocale": {
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid |  Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz  at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid |  Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz  at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid |  Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz  at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid |  Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz  at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nControlli informatici di testa\n\nZurigo, Madrid | Lavorare da casa fino al 40% | Riferimento 8419\n\nVuoi modellare come SIX identifica in modo proattivo e affronta il rischio informatico attraverso la sua infrastruttura di mercato finanziario critico? Come Head Cyber Controls, guiderai un team internazionale di specialisti di sicurezza offensiva e di sicurezza informatica, guidando test tecnici indipendenti, simulazione avversaria e supervisione di Second Line. Combinando competenze di sicurezza informatica profonda con la leadership strategica e le persone, tradurre i rischi tecnici complessi in chiare priorità e decisioni aziendali. Lavorando a stretto contatto con team di tecnologia, business e sicurezza, senior management e specialisti esterni, rafforzerete continuamente la postura di sicurezza e la resilienza informatica di SIX.\n\nCosa farai\n\n• Guidare e sviluppare il team internazionale Cyber Controls, stabilire strategia, priorità e metodologie.\n\n• Possedere sicurezza offensiva e garanzia tecnica, tra cui test di penetrazione, teaming rosso / viola, simulazione avversaria e ricerca di vulnerabilità.\n\n• Guida test di sicurezza normativi e specialistici, tra cui il programma Bug Bounty, esercizi TIBER\\-EU e FINMA\\-driven.\n\n• Fornire una sfida indipendente di Second Line, traducendo i risultati tecnici in chiari rischi, priorità di bonifica e decisioni di gestione.\n\n• Rafforzare la resilienza informatica di SIX identificando le minacce emergenti e collaborando con la gestione senior, la tecnologia, la sicurezza, i revisori e i regolatori.\n\nChe cosa porterà\n\n• Ampia esperienza di sicurezza informatica, in particolare nella sicurezza offensiva, test di penetrazione e sicurezza tecnica, con comprovata esperienza di leadership.\n\n• Forte competenza tecnica in applicazioni, infrastrutture, cloud, tecniche avversarie e gestione delle vulnerabilità.\n\n• Conoscenza pratica e forte interesse per la sicurezza dell'AI e la sua applicazione nella sicurezza offensiva.\n\n• Forte capacità di leadership, giudizio e comunicazione, con la capacità di tradurre questioni tecniche complesse in rischi aziendali e decisioni.\n\n• Grado rilevante o esperienza equivalente; le certificazioni come OSCP, OSEP o OSED sono un vantaggio.\n\n• L'inglese fluente è richiesto; il tedesco o lo spagnolo è un plus.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Tedesco Lopez Arranz al +34 91 709 5771 .\n\nPer questa vacanza accettiamo solo applicazioni dirette in inglese.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nHead Cyber Controls\n\nZurich, Madrid | Working from home up to 40% | Reference 8419\n\nDo you want to shape how SIX proactively identifies and addresses cyber risk across its critical financial market infrastructure? As Head Cyber Controls, you will lead an international team of offensive security and cyber assurance specialists, driving independent technical testing, adversary simulation and Second Line oversight. Combining deep cybersecurity expertise with strategic and people leadership, you will translate complex technical risks into clear business priorities and decisions. Working closely with technology, business and security teams, senior management and external specialists, you will continuously strengthen the security posture and cyber resilience of SIX.\n\nWhat you will do\n\n• Lead and develop the international Cyber Controls team, setting strategy, priorities and methodologies.\n\n• Own offensive security and technical assurance, including penetration testing, red/purple teaming, adversary simulation and vulnerability research.\n\n• Lead regulatory and specialist security testing, including the Bug Bounty Program, TIBER\\-EU and FINMA\\-driven exercises.\n\n• Provide independent Second Line challenge, translating technical findings into clear risks, remediation priorities and management decisions.\n\n• Strengthen SIX’s cyber resilience by identifying emerging threats and partnering with senior management, technology, security, auditors and regulators.\n\nWhat you will bring\n\n• Extensive cybersecurity experience, particularly in offensive security, penetration testing and technical security assurance, with proven leadership experience.\n\n• Strong technical expertise across applications, infrastructure, cloud, adversary techniques and vulnerability management.\n\n• Hands-on knowledge and strong interest in AI Security and its application within offensive security.\n\n• Strong leadership, judgement and communication skills, with the ability to translate complex technical issues into business risks and decisions.\n\n• Relevant degree or equivalent experience; certifications such as OSCP, OSEP or OSED are an advantage.\n\n• Fluent English is required; German or Spanish is a plus.\n\nIf you have any questions, check out our FAQ page or call German Lopez Arranz at +34 91 709 5771 .\n\nFor this vacancy we only accept direct applications in English.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nLeiter Cyber Controls\n\nZürich, Madrid | Arbeiten von zu Hause bis zu 40% | Referenz 8419\n\nMöchten Sie gestalten, wie SIX proaktiv Cyberrisiken in seiner kritischen Finanzmarktinfrastruktur identifiziert und adressiert? Als Head Cyber Controls leiten Sie ein internationales Team von Spezialisten für offensive Sicherheit und Cyber Assurance, das unabhängige technische Tests, die Simulation von Gegnern und die Aufsicht über Second Line leitet. Durch die Kombination von fundierter Cybersicherheitsexpertise mit strategischer und personeller Führung werden komplexe technische Risiken in klare Geschäftsprioritäten und Entscheidungen umgesetzt. In enger Zusammenarbeit mit Technologie-, Geschäfts- und Sicherheitsteams, der Geschäftsleitung und externen Spezialisten stärken Sie die Sicherheitslage und die Cyber-Resilienz von SIX kontinuierlich.\n\nWas du tun wirst\n\n• Führen und entwickeln Sie das internationale Cyber Controls-Team, indem Sie Strategie, Prioritäten und Methoden festlegen.\n\n• Eigene offensive Sicherheit und technische Sicherheit, einschließlich Penetrationstests, Rot-/Lila-Teaming, Gegnersimulation und Vulnerabilitätsforschung.\n\n• Führen Sie regulatorische und spezialisierte Sicherheitstests, einschließlich des Bug Bounty-Programms, TIBER\\-EU und FINMA\\-getriebene Übungen.\n\n• Bieten Sie eine unabhängige Second Line-Herausforderung und übersetzen Sie technische Erkenntnisse in klare Risiken, Sanierungsprioritäten und Managemententscheidungen.\n\n• Stärken Sie die Cyber-Resilienz von SIX, indem Sie neue Bedrohungen identifizieren und Partnerschaften mit Führungskräften, Technologie, Sicherheit, Auditoren und Aufsichtsbehörden eingehen.\n\nWas du mitbringen wirst\n\n• Umfangreiche Cybersicherheitserfahrung, insbesondere in den Bereichen offensive Sicherheit, Penetrationstests und technische Sicherheitsgarantie, mit nachgewiesener Führungserfahrung.\n\n• Starkes technisches Know-how für Anwendungen, Infrastruktur, Cloud, Gegnertechniken und Schwachstellenmanagement.\n\n• Hands-on-Wissen und starkes Interesse an AI Security und ihrer Anwendung in der offensiven Sicherheit.\n\n• Starke Führungs-, Urteils- und Kommunikationsfähigkeiten mit der Fähigkeit, komplexe technische Probleme in Geschäftsrisiken und Entscheidungen zu übersetzen.\n\n• Relevanter Abschluss oder gleichwertige Erfahrung; Zertifizierungen wie OSCP, OSEP oder OSED sind von Vorteil.\n\n• Fließendes Englisch ist erforderlich; Deutsch oder Spanisch ist ein Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie German Lopez Arranz unter +34 91 709 5771 an.\n\nFür diese Stelle akzeptieren wir nur Direktbewerbungen in englischer Sprache.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nCybercontrôles de tête\n\nZurich, Madrid\n\nVoulez-vous façonner la façon dont SIX identifie et traite de façon proactive les risques cybernétiques dans son infrastructure critique des marchés financiers? En tant que responsable des cybercontrôles, vous dirigerez une équipe internationale de spécialistes de la sécurité et de la cyberassurance offensives, conduisant des tests techniques indépendants, des simulations adverses et la surveillance de la deuxième ligne. Combinant une grande expertise en cybersécurité et un leadership stratégique et humain, vous transformerez les risques techniques complexes en priorités et décisions opérationnelles claires. En travaillant en étroite collaboration avec les équipes de technologie, d'affaires et de sécurité, la haute direction et des spécialistes externes, vous renforcerez continuellement la posture de sécurité et la cyberrésilience de SIX.\n\nCe que vous ferez\n\n• Diriger et développer l'équipe internationale de cybercontrôles, établir une stratégie, des priorités et des méthodologies.\n\n• Sa propre sécurité offensive et assurance technique, y compris les tests de pénétration, l'équipe rouge/violet, la simulation adverse et la recherche sur la vulnérabilité.\n\n• Diriger les essais de sécurité réglementaires et spécialisés, y compris le programme Bug Bounty, les exercices TIBER\\-EU et FINMA\\-drivés.\n\n• Fournir un défi indépendant de la deuxième ligne, en traduisant les constatations techniques en risques clairs, en priorités d'assainissement et en décisions de gestion.\n\n• Renforcer la cyberrésilience en identifiant les menaces émergentes et en établissant des partenariats avec la haute direction, la technologie, la sécurité, les vérificateurs et les organismes de réglementation.\n\nCe que vous apporterez\n\n• Une vaste expérience de la cybersécurité, notamment en matière de sécurité offensive, de tests de pénétration et d'assurance de sécurité technique, avec une expérience de leadership avérée.\n\n• Forte expertise technique dans les applications, l'infrastructure, le cloud, les techniques adverses et la gestion de la vulnérabilité.\n\n• Connaissance pratique et fort intérêt pour la sécurité d'IA et son application dans le cadre de la sécurité offensive.\n\n• Forte capacité de leadership, de jugement et de communication, avec la capacité de traduire des questions techniques complexes en risques et décisions opérationnels.\n\n• Diplôme pertinent ou expérience équivalente; les certifications telles que OSCP, OSEP ou OSED sont un avantage.\n\n• L'anglais est requis; l'allemand ou l'espagnol est un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez l'Allemand Lopez Arranz au +34 91 709 5771 .\n\nPour cette vacance, nous acceptons uniquement les candidatures directes en anglais.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-Head-Cyber-Controls/1456951433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:52.753Z",
+      "crawledAt": "2026-11-13T21:39:30.690Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2199,9 +2199,19 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1456951433/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-cyber-controls-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-cyber-controls-six-group-zurich"
+        ],
+        "fr": [
+          "head-cyber-controls-six-group-zurich"
+        ]
       },
+      "firstSeenAt": "2026-11-13T09:52:52.753Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2217,9 +2227,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:52:52.753Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T09:52:52.753Z"
+      "validThrough": "2027-02-10T21:39:30.690Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "six-group-f3f4e5eac767",
@@ -2253,7 +2262,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Cyber-Security/1456953033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:52.115Z",
+      "crawledAt": "2026-11-13T21:39:30.197Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2299,7 +2308,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:52:52.115Z",
+      "validThrough": "2027-02-10T21:39:30.197Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2334,7 +2343,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-CMC-Measurement-&-Insights-Lead/1447481733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:50.203Z",
+      "crawledAt": "2026-11-13T21:39:29.391Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2383,7 +2392,77 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:52:50.203Z",
+      "validThrough": "2027-01-12T21:39:29.391Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "six-group-957fb3f4021a",
+      "slug": "data-licensing-specialist-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "data-licensing-specialist-100-six-group-zurich",
+        "en": "data-licensing-specialist-100-six-group-zurich",
+        "de": "data-licensing-specialist-100-six-group-zurich",
+        "fr": "data-licensing-specialist-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Data Licensing Specialist (100%)",
+      "titleByLocale": {
+        "it": "Data Licensing Specialista (100%)",
+        "en": "Data Licensing Specialist (100%)",
+        "de": "Data Licensing Spezialist (100%)",
+        "fr": "Data Licensing Spécialiste (100%)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Licensing Specialist (100%)\n\nZurich |  Up to 40% working from home possible | Reference 8319\n\nAre you looking to grow your career in a dynamic and collaborative environment? We are seeking an experienced Data Licensing Management Specialist to join the Data Licensing Management team. This role is responsible for managing third-party data supplier licensing, commercial governance, entitlement controls, supplier reporting, and operational implementation of data products across the organisation.\n\nAs a recognised subject matter expert, you will ensure supplier contractual requirements are translated into effective operational processes, product configurations, customer communications, compliance controls, and reporting obligations. You will also play a key role in driving automation, operational excellence, and data-driven decision making.\n\nWhat You Will Do\n\n• Own and govern the lifecycle of third-party data and licensing services, ensuring compliance with supplier agreements, regulatory requirements, and internal policies.\n\n• Lead the implementation and oversight of supplier licensing frameworks, entitlement models, and commercial controls across products and services.\n\n• Drive operational excellence through process optimization, automation initiatives, and the establishment of sustainable governance and control frameworks.\n\n• Manage complex stakeholder relationships with data suppliers and internal partners, acting as the primary point of contact for licensing, compliance, and operational matters.\n\n• Oversee product and entitlement administration activities, ensuring accurate implementation and maintenance of data access structures and business requirements.\n\n• Identify, assess, and mitigate licensing, compliance, and operational risks while supporting audit, reporting, and governance activities.\n\n• Provide expert guidance and leadership on market data licensing, supplier policies, and strategic initiatives impacting the organization.\n\nWhat You Bring\n\n• Extensive experience in market data, reference data, financial information services, licensing, entitlements, or a related financial services environment.\n\n• Strong understanding of data licensing, commercial agreements, governance frameworks, and compliance requirements.\n\n• Advanced technical proficiency in Excel, Power BI, SQL, Python, AI-enabled tools, and data analytics, with the ability to drive automation and operational efficiency.\n\n• Proven ability to manage complex stakeholder relationships and lead cross-functional initiatives across business, technology, operations, and supplier organizations.\n\n• Fluency in English and German, combined with strong analytical, problem-solving, and risk management capabilities within regulated and controlled environments.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nSpecialista di Licensing dati (100%)\n\nZurigo | Fino al 40% di lavoro da casa possibile | Riferimento 8319\n\nStai cercando di crescere la tua carriera in un ambiente dinamico e collaborativo? Stiamo cercando un esperto Data Licensing Management Specialist per aderire al team Data Licensing Management. Questo ruolo è responsabile della gestione delle licenze dei fornitori di dati di terze parti, della governance commerciale, dei controlli di diritto, della segnalazione dei fornitori e dell'implementazione operativa dei prodotti di dati in tutta l'organizzazione.\n\nIn qualità di esperto soggetto riconosciuto, vi assicurerete che i requisiti contrattuali dei fornitori siano tradotti in processi operativi efficaci, configurazioni dei prodotti, comunicazioni dei clienti, controlli di conformità e obblighi di segnalazione. Potrai anche svolgere un ruolo chiave nel guidare l'automazione, l'eccellenza operativa e il processo decisionale basato sui dati.\n\nCosa farai\n\n• Possedere e governare il ciclo di vita dei servizi di dati e licenze di terze parti, garantendo il rispetto degli accordi di fornitori, requisiti normativi e politiche interne.\n\n• Condurre l'implementazione e la supervisione dei quadri di licenza dei fornitori, dei modelli di diritto e dei controlli commerciali su prodotti e servizi.\n\n• Guidare l'eccellenza operativa attraverso l'ottimizzazione dei processi, le iniziative di automazione e la creazione di quadri di governance e controllo sostenibili.\n\n• Gestisci complesse relazioni con i fornitori di dati e con i partner interni, agendo come punto di contatto principale per le licenze, la conformità e le questioni operative.\n\n• Superare le attività di gestione del prodotto e del diritto, assicurando un'accurata implementazione e manutenzione delle strutture di accesso ai dati e dei requisiti aziendali.\n\n• Identificare, valutare e mitigare i rischi di licenza, conformità e operativi, supportando le attività di audit, reporting e governance.\n\n• Fornisci una guida esperta e una leadership sulle licenze di dati di mercato, le politiche dei fornitori e le iniziative strategiche che influenzano l'organizzazione.\n\nChe cosa porta\n\n• Ampia esperienza in dati di mercato, dati di riferimento, servizi di informazione finanziaria, licenze, diritti o un ambiente di servizi finanziari correlati.\n\n• Forte comprensione delle licenze di dati, degli accordi commerciali, dei quadri di governance e dei requisiti di conformità.\n\n• La competenza tecnica avanzata in Excel, Power BI, SQL, Python, strumenti abilitati all'intelligenza artificiale e analisi dei dati, con la capacità di guidare l'automazione e l'efficienza operativa.\n\n• Capacità comprovata di gestire complesse relazioni con le parti interessate e di condurre iniziative interfunzionali tra imprese, tecnologia, operazioni e organizzazioni dei fornitori.\n\n• Fluency in inglese e tedesco, combinato con forti capacità di analisi, problem solving e gestione dei rischi all'interno di ambienti regolamentati e controllati.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Licensing Specialist (100%)\n\nZurich | Up to 40% working from home possible | Reference 8319\n\nAre you looking to grow your career in a dynamic and collaborative environment? We are seeking an experienced Data Licensing Management Specialist to join the Data Licensing Management team. This role is responsible for managing third-party data supplier licensing, commercial governance, entitlement controls, supplier reporting, and operational implementation of data products across the organisation.\n\nAs a recognised subject matter expert, you will ensure supplier contractual requirements are translated into effective operational processes, product configurations, customer communications, compliance controls, and reporting obligations. You will also play a key role in driving automation, operational excellence, and data-driven decision making.\n\nWhat You Will Do\n\n• Own and govern the lifecycle of third-party data and licensing services, ensuring compliance with supplier agreements, regulatory requirements, and internal policies.\n\n• Lead the implementation and oversight of supplier licensing frameworks, entitlement models, and commercial controls across products and services.\n\n• Drive operational excellence through process optimization, automation initiatives, and the establishment of sustainable governance and control frameworks.\n\n• Manage complex stakeholder relationships with data suppliers and internal partners, acting as the primary point of contact for licensing, compliance, and operational matters.\n\n• Oversee product and entitlement administration activities, ensuring accurate implementation and maintenance of data access structures and business requirements.\n\n• Identify, assess, and mitigate licensing, compliance, and operational risks while supporting audit, reporting, and governance activities.\n\n• Provide expert guidance and leadership on market data licensing, supplier policies, and strategic initiatives impacting the organization.\n\nWhat You Bring\n\n• Extensive experience in market data, reference data, financial information services, licensing, entitlements, or a related financial services environment.\n\n• Strong understanding of data licensing, commercial agreements, governance frameworks, and compliance requirements.\n\n• Advanced technical proficiency in Excel, Power BI, SQL, Python, AI-enabled tools, and data analytics, with the ability to drive automation and operational efficiency.\n\n• Proven ability to manage complex stakeholder relationships and lead cross-functional initiatives across business, technology, operations, and supplier organizations.\n\n• Fluency in English and German, combined with strong analytical, problem-solving, and risk management capabilities within regulated and controlled environments.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSpezialist für Datenlizenzen (100%)\n\nZürich | Bis zu 40% von zu Hause aus arbeiten möglich | Referenz 8319\n\nMöchten Sie Ihre Karriere in einem dynamischen und kollaborativen Umfeld ausbauen? Wir suchen einen erfahrenen Data Licensing Management Specialist, der dem Data Licensing Management Team beitritt. Diese Rolle ist für die Verwaltung der Lizenzierung von Datenlieferanten von Drittanbietern, die kommerzielle Governance, Berechtigungskontrollen, die Lieferantenberichterstattung und die operative Implementierung von Datenprodukten im gesamten Unternehmen verantwortlich.\n\nAls anerkannter Fachexperte stellen Sie sicher, dass die vertraglichen Anforderungen der Lieferanten in effektive Betriebsprozesse, Produktkonfigurationen, Kundenkommunikation, Compliance-Kontrollen und Berichtspflichten umgesetzt werden. Sie werden auch eine Schlüsselrolle bei der Automatisierung, operativer Exzellenz und datengesteuerter Entscheidungsfindung spielen.\n\nWas Sie tun werden\n\n• Besitzen und verwalten Sie den Lebenszyklus von Daten und Lizenzierungsdiensten von Drittanbietern und gewährleisten Sie die Einhaltung von Lieferantenvereinbarungen, regulatorischen Anforderungen und internen Richtlinien.\n\n• Führen Sie die Implementierung und Überwachung von Lieferantenlizenzrahmen, Berechtigungsmodellen und kommerziellen Kontrollen für Produkte und Dienstleistungen.\n\n• Förderung operativer Exzellenz durch Prozessoptimierung, Automatisierungsinitiativen und die Einrichtung nachhaltiger Governance- und Kontrollrahmen.\n\n• Verwalten Sie komplexe Stakeholder-Beziehungen mit Datenlieferanten und internen Partnern und fungieren Sie als primärer Ansprechpartner für Lizenzierung, Compliance und operative Angelegenheiten.\n\n• Beaufsichtigen Sie die Produkt- und Berechtigungsverwaltung und gewährleisten Sie die genaue Implementierung und Wartung von Datenzugriffsstrukturen und Geschäftsanforderungen.\n\n• Identifizieren, bewerten und mindern Sie Lizenzierungs-, Compliance- und Betriebsrisiken und unterstützen Sie Audit-, Berichts- und Governance-Aktivitäten.\n\n• Bereitstellung fachkundiger Anleitung und Führung bei Marktdatenlizenzierung, Lieferantenrichtlinien und strategischen Initiativen, die sich auf das Unternehmen auswirken.\n\nWas du mitbringst\n\n• Umfangreiche Erfahrung in Marktdaten, Referenzdaten, Finanzinformationsdiensten, Lizenzen, Ansprüchen oder einem damit verbundenen Finanzdienstleistungsumfeld.\n\n• Starkes Verständnis von Datenlizenzierung, kommerziellen Vereinbarungen, Governance-Frameworks und Compliance-Anforderungen.\n\n• Erweiterte technische Kenntnisse in Excel, Power BI, SQL, Python, KI-fähigen Tools und Datenanalysen mit der Fähigkeit, Automatisierung und Betriebseffizienz zu fördern.\n\n• Bewährte Fähigkeit, komplexe Stakeholder-Beziehungen zu verwalten und funktionsübergreifende Initiativen in Unternehmen, Technologie, Betrieb und Lieferantenorganisationen zu leiten.\n\n• Sprachkenntnisse in Englisch und Deutsch, kombiniert mit starken Analyse-, Problemlösungs- und Risikomanagementfähigkeiten in regulierten und kontrollierten Umgebungen.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nSpécialiste des licences de données (100%)\n\nZurich: jusqu'à 40 % de travail à domicile possible\n\nVous cherchez à développer votre carrière dans un environnement dynamique et collaboratif? Nous cherchons un spécialiste de la gestion des licences de données expérimenté pour rejoindre l'équipe de gestion des licences de données. Ce rôle est chargé de gérer l'octroi de licences aux fournisseurs de données tiers, la gouvernance commerciale, le contrôle des droits, la déclaration des fournisseurs et la mise en œuvre opérationnelle des produits de données dans l'ensemble de l'organisation.\n\nEn tant qu'expert reconnu, vous veillerez à ce que les exigences contractuelles du fournisseur se traduisent par des processus opérationnels efficaces, des configurations de produits, des communications avec les clients, des contrôles de conformité et des obligations de déclaration. Vous jouerez également un rôle clé dans l'automatisation de la conduite, l'excellence opérationnelle et la prise de décision axée sur les données.\n\nCe que vous ferez\n\n• Autoriser et régir le cycle de vie des services de données et de licences de tiers, en veillant au respect des accords avec les fournisseurs, des exigences réglementaires et des politiques internes.\n\n• Diriger la mise en oeuvre et la surveillance des cadres d'octroi de licences aux fournisseurs, des modèles de droits et des contrôles commerciaux pour tous les produits et services.\n\n• Favoriser l'excellence opérationnelle grâce à l'optimisation des processus, à des initiatives d'automatisation et à l'établissement de cadres de gouvernance et de contrôle durables.\n\n• Gérer les relations complexes entre les intervenants et les fournisseurs de données et les partenaires internes, en tant que principal point de contact pour les questions de licence, de conformité et d'exploitation.\n\n• Superviser les activités d'administration des produits et des droits, en veillant à la mise en oeuvre et au maintien exacts des structures d'accès aux données et des exigences opérationnelles.\n\n• Déterminer, évaluer et atténuer les risques liés à la délivrance de permis, à la conformité et aux opérations tout en appuyant les activités de vérification, de rapport et de gouvernance.\n\n• Fournir des conseils spécialisés et un leadership en ce qui a trait à l'octroi de licences de données sur le marché, aux politiques des fournisseurs et aux initiatives stratégiques ayant une incidence sur l'organisation.\n\nCe que vous apportez\n\n• Expérience approfondie en matière de données sur le marché, de données de référence, de services d'information financière, de licences, de droits ou d'environnement de services financiers connexes.\n\n• Bonne compréhension des exigences en matière de licence de données, d'accords commerciaux, de cadres de gouvernance et de conformité.\n\n• Compétence technique avancée en Excel, Power BI, SQL, Python, outils compatibles avec l'IA et analyse de données, avec la capacité de conduire l'automatisation et l'efficacité opérationnelle.\n\n• Capacité éprouvée de gérer des relations complexes avec les intervenants et de diriger des initiatives interfonctionnelles à l'échelle des entreprises, de la technologie, des opérations et des organisations fournisseurs.\n\n• Connaissance de l'anglais et de l'allemand, combinée à de solides capacités d'analyse, de résolution de problèmes et de gestion des risques dans des environnements réglementés et contrôlés.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Data-Licensing-Specialist-%28100%29/1448061833/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-13T21:39:27.744Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T00:00:00Z",
+      "postedDate": "2026-10-15T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1448061833/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-23T21:30:07.590Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-13T21:39:27.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2418,7 +2497,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:52:49.114Z",
+      "crawledAt": "2026-11-13T21:39:27.197Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2473,77 +2552,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:52:49.114Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "six-group-957fb3f4021a",
-      "slug": "data-licensing-specialist-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "data-licensing-specialist-100-six-group-zurich",
-        "en": "data-licensing-specialist-100-six-group-zurich",
-        "de": "data-licensing-specialist-100-six-group-zurich",
-        "fr": "data-licensing-specialist-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Data Licensing Specialist (100%)",
-      "titleByLocale": {
-        "it": "Data Licensing Specialista (100%)",
-        "en": "Data Licensing Specialist (100%)",
-        "de": "Data Licensing Spezialist (100%)",
-        "fr": "Data Licensing Spécialiste (100%)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Licensing Specialist (100%)\n\nZurich |  Up to 40% working from home possible | Reference 8319\n\nAre you looking to grow your career in a dynamic and collaborative environment? We are seeking an experienced Data Licensing Management Specialist to join the Data Licensing Management team. This role is responsible for managing third-party data supplier licensing, commercial governance, entitlement controls, supplier reporting, and operational implementation of data products across the organisation.\n\nAs a recognised subject matter expert, you will ensure supplier contractual requirements are translated into effective operational processes, product configurations, customer communications, compliance controls, and reporting obligations. You will also play a key role in driving automation, operational excellence, and data-driven decision making.\n\nWhat You Will Do\n\n• Own and govern the lifecycle of third-party data and licensing services, ensuring compliance with supplier agreements, regulatory requirements, and internal policies.\n\n• Lead the implementation and oversight of supplier licensing frameworks, entitlement models, and commercial controls across products and services.\n\n• Drive operational excellence through process optimization, automation initiatives, and the establishment of sustainable governance and control frameworks.\n\n• Manage complex stakeholder relationships with data suppliers and internal partners, acting as the primary point of contact for licensing, compliance, and operational matters.\n\n• Oversee product and entitlement administration activities, ensuring accurate implementation and maintenance of data access structures and business requirements.\n\n• Identify, assess, and mitigate licensing, compliance, and operational risks while supporting audit, reporting, and governance activities.\n\n• Provide expert guidance and leadership on market data licensing, supplier policies, and strategic initiatives impacting the organization.\n\nWhat You Bring\n\n• Extensive experience in market data, reference data, financial information services, licensing, entitlements, or a related financial services environment.\n\n• Strong understanding of data licensing, commercial agreements, governance frameworks, and compliance requirements.\n\n• Advanced technical proficiency in Excel, Power BI, SQL, Python, AI-enabled tools, and data analytics, with the ability to drive automation and operational efficiency.\n\n• Proven ability to manage complex stakeholder relationships and lead cross-functional initiatives across business, technology, operations, and supplier organizations.\n\n• Fluency in English and German, combined with strong analytical, problem-solving, and risk management capabilities within regulated and controlled environments.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt  at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nSpecialista di Licensing dati (100%)\n\nZurigo | Fino al 40% di lavoro da casa possibile | Riferimento 8319\n\nStai cercando di crescere la tua carriera in un ambiente dinamico e collaborativo? Stiamo cercando un esperto Data Licensing Management Specialist per aderire al team Data Licensing Management. Questo ruolo è responsabile della gestione delle licenze dei fornitori di dati di terze parti, della governance commerciale, dei controlli di diritto, della segnalazione dei fornitori e dell'implementazione operativa dei prodotti di dati in tutta l'organizzazione.\n\nIn qualità di esperto soggetto riconosciuto, vi assicurerete che i requisiti contrattuali dei fornitori siano tradotti in processi operativi efficaci, configurazioni dei prodotti, comunicazioni dei clienti, controlli di conformità e obblighi di segnalazione. Potrai anche svolgere un ruolo chiave nel guidare l'automazione, l'eccellenza operativa e il processo decisionale basato sui dati.\n\nCosa farai\n\n• Possedere e governare il ciclo di vita dei servizi di dati e licenze di terze parti, garantendo il rispetto degli accordi di fornitori, requisiti normativi e politiche interne.\n\n• Condurre l'implementazione e la supervisione dei quadri di licenza dei fornitori, dei modelli di diritto e dei controlli commerciali su prodotti e servizi.\n\n• Guidare l'eccellenza operativa attraverso l'ottimizzazione dei processi, le iniziative di automazione e la creazione di quadri di governance e controllo sostenibili.\n\n• Gestisci complesse relazioni con i fornitori di dati e con i partner interni, agendo come punto di contatto principale per le licenze, la conformità e le questioni operative.\n\n• Superare le attività di gestione del prodotto e del diritto, assicurando un'accurata implementazione e manutenzione delle strutture di accesso ai dati e dei requisiti aziendali.\n\n• Identificare, valutare e mitigare i rischi di licenza, conformità e operativi, supportando le attività di audit, reporting e governance.\n\n• Fornisci una guida esperta e una leadership sulle licenze di dati di mercato, le politiche dei fornitori e le iniziative strategiche che influenzano l'organizzazione.\n\nChe cosa porta\n\n• Ampia esperienza in dati di mercato, dati di riferimento, servizi di informazione finanziaria, licenze, diritti o un ambiente di servizi finanziari correlati.\n\n• Forte comprensione delle licenze di dati, degli accordi commerciali, dei quadri di governance e dei requisiti di conformità.\n\n• La competenza tecnica avanzata in Excel, Power BI, SQL, Python, strumenti abilitati all'intelligenza artificiale e analisi dei dati, con la capacità di guidare l'automazione e l'efficienza operativa.\n\n• Capacità comprovata di gestire complesse relazioni con le parti interessate e di condurre iniziative interfunzionali tra imprese, tecnologia, operazioni e organizzazioni dei fornitori.\n\n• Fluency in inglese e tedesco, combinato con forti capacità di analisi, problem solving e gestione dei rischi all'interno di ambienti regolamentati e controllati.\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Julia Schmidt al numero +41583998670 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nData Licensing Specialist (100%)\n\nZurich | Up to 40% working from home possible | Reference 8319\n\nAre you looking to grow your career in a dynamic and collaborative environment? We are seeking an experienced Data Licensing Management Specialist to join the Data Licensing Management team. This role is responsible for managing third-party data supplier licensing, commercial governance, entitlement controls, supplier reporting, and operational implementation of data products across the organisation.\n\nAs a recognised subject matter expert, you will ensure supplier contractual requirements are translated into effective operational processes, product configurations, customer communications, compliance controls, and reporting obligations. You will also play a key role in driving automation, operational excellence, and data-driven decision making.\n\nWhat You Will Do\n\n• Own and govern the lifecycle of third-party data and licensing services, ensuring compliance with supplier agreements, regulatory requirements, and internal policies.\n\n• Lead the implementation and oversight of supplier licensing frameworks, entitlement models, and commercial controls across products and services.\n\n• Drive operational excellence through process optimization, automation initiatives, and the establishment of sustainable governance and control frameworks.\n\n• Manage complex stakeholder relationships with data suppliers and internal partners, acting as the primary point of contact for licensing, compliance, and operational matters.\n\n• Oversee product and entitlement administration activities, ensuring accurate implementation and maintenance of data access structures and business requirements.\n\n• Identify, assess, and mitigate licensing, compliance, and operational risks while supporting audit, reporting, and governance activities.\n\n• Provide expert guidance and leadership on market data licensing, supplier policies, and strategic initiatives impacting the organization.\n\nWhat You Bring\n\n• Extensive experience in market data, reference data, financial information services, licensing, entitlements, or a related financial services environment.\n\n• Strong understanding of data licensing, commercial agreements, governance frameworks, and compliance requirements.\n\n• Advanced technical proficiency in Excel, Power BI, SQL, Python, AI-enabled tools, and data analytics, with the ability to drive automation and operational efficiency.\n\n• Proven ability to manage complex stakeholder relationships and lead cross-functional initiatives across business, technology, operations, and supplier organizations.\n\n• Fluency in English and German, combined with strong analytical, problem-solving, and risk management capabilities within regulated and controlled environments.\n\nIf you have any questions, check out our FAQ page or call Julia Schmidt at +41583998670 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSpezialist für Datenlizenzen (100%)\n\nZürich | Bis zu 40% von zu Hause aus arbeiten möglich | Referenz 8319\n\nMöchten Sie Ihre Karriere in einem dynamischen und kollaborativen Umfeld ausbauen? Wir suchen einen erfahrenen Data Licensing Management Specialist, der dem Data Licensing Management Team beitritt. Diese Rolle ist für die Verwaltung der Lizenzierung von Datenlieferanten von Drittanbietern, die kommerzielle Governance, Berechtigungskontrollen, die Lieferantenberichterstattung und die operative Implementierung von Datenprodukten im gesamten Unternehmen verantwortlich.\n\nAls anerkannter Fachexperte stellen Sie sicher, dass die vertraglichen Anforderungen der Lieferanten in effektive Betriebsprozesse, Produktkonfigurationen, Kundenkommunikation, Compliance-Kontrollen und Berichtspflichten umgesetzt werden. Sie werden auch eine Schlüsselrolle bei der Automatisierung, operativer Exzellenz und datengesteuerter Entscheidungsfindung spielen.\n\nWas Sie tun werden\n\n• Besitzen und verwalten Sie den Lebenszyklus von Daten und Lizenzierungsdiensten von Drittanbietern und gewährleisten Sie die Einhaltung von Lieferantenvereinbarungen, regulatorischen Anforderungen und internen Richtlinien.\n\n• Führen Sie die Implementierung und Überwachung von Lieferantenlizenzrahmen, Berechtigungsmodellen und kommerziellen Kontrollen für Produkte und Dienstleistungen.\n\n• Förderung operativer Exzellenz durch Prozessoptimierung, Automatisierungsinitiativen und die Einrichtung nachhaltiger Governance- und Kontrollrahmen.\n\n• Verwalten Sie komplexe Stakeholder-Beziehungen mit Datenlieferanten und internen Partnern und fungieren Sie als primärer Ansprechpartner für Lizenzierung, Compliance und operative Angelegenheiten.\n\n• Beaufsichtigen Sie die Produkt- und Berechtigungsverwaltung und gewährleisten Sie die genaue Implementierung und Wartung von Datenzugriffsstrukturen und Geschäftsanforderungen.\n\n• Identifizieren, bewerten und mindern Sie Lizenzierungs-, Compliance- und Betriebsrisiken und unterstützen Sie Audit-, Berichts- und Governance-Aktivitäten.\n\n• Bereitstellung fachkundiger Anleitung und Führung bei Marktdatenlizenzierung, Lieferantenrichtlinien und strategischen Initiativen, die sich auf das Unternehmen auswirken.\n\nWas du mitbringst\n\n• Umfangreiche Erfahrung in Marktdaten, Referenzdaten, Finanzinformationsdiensten, Lizenzen, Ansprüchen oder einem damit verbundenen Finanzdienstleistungsumfeld.\n\n• Starkes Verständnis von Datenlizenzierung, kommerziellen Vereinbarungen, Governance-Frameworks und Compliance-Anforderungen.\n\n• Erweiterte technische Kenntnisse in Excel, Power BI, SQL, Python, KI-fähigen Tools und Datenanalysen mit der Fähigkeit, Automatisierung und Betriebseffizienz zu fördern.\n\n• Bewährte Fähigkeit, komplexe Stakeholder-Beziehungen zu verwalten und funktionsübergreifende Initiativen in Unternehmen, Technologie, Betrieb und Lieferantenorganisationen zu leiten.\n\n• Sprachkenntnisse in Englisch und Deutsch, kombiniert mit starken Analyse-, Problemlösungs- und Risikomanagementfähigkeiten in regulierten und kontrollierten Umgebungen.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Julia Schmidt unter +41583998670 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nSpécialiste des licences de données (100%)\n\nZurich: jusqu'à 40 % de travail à domicile possible\n\nVous cherchez à développer votre carrière dans un environnement dynamique et collaboratif? Nous cherchons un spécialiste de la gestion des licences de données expérimenté pour rejoindre l'équipe de gestion des licences de données. Ce rôle est chargé de gérer l'octroi de licences aux fournisseurs de données tiers, la gouvernance commerciale, le contrôle des droits, la déclaration des fournisseurs et la mise en œuvre opérationnelle des produits de données dans l'ensemble de l'organisation.\n\nEn tant qu'expert reconnu, vous veillerez à ce que les exigences contractuelles du fournisseur se traduisent par des processus opérationnels efficaces, des configurations de produits, des communications avec les clients, des contrôles de conformité et des obligations de déclaration. Vous jouerez également un rôle clé dans l'automatisation de la conduite, l'excellence opérationnelle et la prise de décision axée sur les données.\n\nCe que vous ferez\n\n• Autoriser et régir le cycle de vie des services de données et de licences de tiers, en veillant au respect des accords avec les fournisseurs, des exigences réglementaires et des politiques internes.\n\n• Diriger la mise en oeuvre et la surveillance des cadres d'octroi de licences aux fournisseurs, des modèles de droits et des contrôles commerciaux pour tous les produits et services.\n\n• Favoriser l'excellence opérationnelle grâce à l'optimisation des processus, à des initiatives d'automatisation et à l'établissement de cadres de gouvernance et de contrôle durables.\n\n• Gérer les relations complexes entre les intervenants et les fournisseurs de données et les partenaires internes, en tant que principal point de contact pour les questions de licence, de conformité et d'exploitation.\n\n• Superviser les activités d'administration des produits et des droits, en veillant à la mise en oeuvre et au maintien exacts des structures d'accès aux données et des exigences opérationnelles.\n\n• Déterminer, évaluer et atténuer les risques liés à la délivrance de permis, à la conformité et aux opérations tout en appuyant les activités de vérification, de rapport et de gouvernance.\n\n• Fournir des conseils spécialisés et un leadership en ce qui a trait à l'octroi de licences de données sur le marché, aux politiques des fournisseurs et aux initiatives stratégiques ayant une incidence sur l'organisation.\n\nCe que vous apportez\n\n• Expérience approfondie en matière de données sur le marché, de données de référence, de services d'information financière, de licences, de droits ou d'environnement de services financiers connexes.\n\n• Bonne compréhension des exigences en matière de licence de données, d'accords commerciaux, de cadres de gouvernance et de conformité.\n\n• Compétence technique avancée en Excel, Power BI, SQL, Python, outils compatibles avec l'IA et analyse de données, avec la capacité de conduire l'automatisation et l'efficacité opérationnelle.\n\n• Capacité éprouvée de gérer des relations complexes avec les intervenants et de diriger des initiatives interfonctionnelles à l'échelle des entreprises, de la technologie, des opérations et des organisations fournisseurs.\n\n• Connaissance de l'anglais et de l'allemand, combinée à de solides capacités d'analyse, de résolution de problèmes et de gestion des risques dans des environnements réglementés et contrôlés.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Julia Schmidt au +41583998670 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Data-Licensing-Specialist-%28100%29/1448061833/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:52:47.866Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T00:00:00Z",
-      "postedDate": "2026-10-15T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1448061833/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-23T21:30:07.590Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:52:47.866Z",
+      "validThrough": "2026-12-15T21:39:27.197Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -20,6 +20,55 @@ describe('Delvitech job parser', () => {
     expect(jobs[0].href).toContain('/application-engineer-2/');
   });
 
+  it('accepts relative and same-company detail links after the source changes URL form', () => {
+    const html = `
+      <div class="post-content">
+        <a class="fusion-column-anchor" href="/application-engineer-2/"></a>
+        <div class="fusion-layout-column"><h5>Application Engineer</h5></div>
+        <a class="fusion-column-anchor" href="https://delvi.tech/customer-support-manager/"></a>
+        <div class="fusion-layout-column"><h5>Customer Support Manager</h5></div>
+        <a class="fusion-column-anchor" href="https://jobs.example.invalid/unrelated/"></a>
+        <div class="fusion-layout-column"><h5>Unrelated role</h5></div>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://legacy.delvi.tech/application-engineer-2/',
+      'https://delvi.tech/customer-support-manager/',
+    ]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
+    expect(jobs.delvitechListingRecordCount).toBe(2);
+  });
+
+  it('accepts a path-relative detail link under the career listing path', () => {
+    const html = `
+      <div class="post-content">
+        <div class="fusion-layout-column">
+          <a class="fusion-column-anchor" href="job-123"></a>
+          <h5>Engineer</h5>
+        </div>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      href: 'https://legacy.delvi.tech/career/job-123',
+      title: 'Engineer',
+    });
+  });
+
+  it('does not count external-only anchors as Delvitech listing records', () => {
+    const html = `
+      <div class="post-content">
+        <a class="fusion-column-anchor" href="https://external.example/jobs/1"></a>
+      </div>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(0);
+    expect(jobs.delvitechListingRecordCount).toBe(0);
+  });
+
   it('parses detail sections and apply email', () => {
     const html = `
       <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', url: 'https://legacy.delvi.tech/application-engineer-2/', datePublished: '2025-04-17T06:46:33+00:00' }] })}</script>

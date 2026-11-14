@@ -53,11 +53,13 @@ describe('AdBlockGate native application offer', () => {
     isLikelySearchCrawlerMock.mockReturnValue(false);
     detectAdBlockMock.mockResolvedValue(CLEAN);
     trackUIInteractionMock.mockClear();
+    delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
   });
 
   afterEach(() => {
+    delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
   });
@@ -134,6 +136,15 @@ describe('AdBlockGate native application offer', () => {
 
     localStorage.clear();
     localStorage.setItem('job_alert_subscribed', 'true');
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(detectAdBlockMock).not.toHaveBeenCalled();
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('coordinates with the static recovery surface so the native offer appears only once per session', async () => {
+    sessionStorage.setItem('ft_native_application_offer_seen_v1', '1');
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await act(async () => {});
     expect(detectAdBlockMock).not.toHaveBeenCalled();

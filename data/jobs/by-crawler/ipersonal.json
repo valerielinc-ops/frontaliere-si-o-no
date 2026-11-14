@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-11-13T09:17:56.666Z",
-  "runId": "43398490487",
+  "assembledAt": "2026-11-13T21:19:40.625Z",
+  "runId": "43507614378",
   "jobs": [
     {
       "id": "ipersonal-b14d0297131a",
@@ -34,7 +34,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:30.455Z",
+      "crawledAt": "2026-11-13T21:19:14.516Z",
       "addressLocality": "Littenheid",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       },
       "streetAddress": "Littenheid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:30.455Z",
+      "validThrough": "2027-01-24T21:19:14.516Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:30.154Z",
+      "crawledAt": "2026-11-13T21:19:14.214Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -169,14 +169,14 @@
       },
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:30.154Z",
+      "validThrough": "2027-01-24T21:19:14.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-73624a3fc984",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -203,7 +203,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:29.852Z",
+      "crawledAt": "2026-11-13T21:19:13.913Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -231,7 +231,7 @@
           "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
         ],
         "en": [
           "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
@@ -251,7 +251,7 @@
         "emplois-vacants-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861"
       ],
       "firstSeenAt": "2026-11-04T09:17:17.925Z",
       "salaryMin": 68500,
@@ -270,7 +270,7 @@
       "postalCode": "3270",
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:29.852Z",
+      "validThrough": "2027-01-24T21:19:13.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -304,7 +304,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:29.550Z",
+      "crawledAt": "2026-11-13T21:19:13.610Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -382,7 +382,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:29.550Z",
+      "validThrough": "2027-01-24T21:19:13.610Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -416,7 +416,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:29.249Z",
+      "crawledAt": "2026-11-13T21:19:13.309Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:17:29.249Z",
+      "validThrough": "2027-01-24T21:19:13.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -516,7 +516,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:28.947Z",
+      "crawledAt": "2026-11-13T21:19:13.005Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -574,14 +574,14 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:28.947Z",
+      "validThrough": "2027-01-24T21:19:13.005Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipersonal-b6bfedc76300",
-      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+      "slug": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
       "slugByLocale": {
-        "it": "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+        "it": "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
         "en": "care-vacancies-medipersonal-berna",
         "de": "fachfrau-mann-betreuung-medipersonal-berna",
         "fr": "emplois-vacants-medipersonal-berna"
@@ -608,7 +608,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:28.645Z",
+      "crawledAt": "2026-11-13T21:19:12.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -635,7 +635,7 @@
           "offene-stellen-per-betreuung-medipersonal-bern-bern",
           "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
           "posizioni-aperte-per-l-assistenza-medipersonal-berna"
         ],
         "en": [
@@ -655,7 +655,7 @@
         "care-vacancies-medipersonal-bern-bern",
         "emplois-vacants-medipersonal-bern-bern",
         "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-        "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+        "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
       "firstSeenAt": "2026-11-04T09:17:16.716Z",
@@ -675,7 +675,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:28.645Z",
+      "validThrough": "2027-01-24T21:19:12.702Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -709,7 +709,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:28.343Z",
+      "crawledAt": "2026-11-13T21:19:12.400Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -785,7 +785,7 @@
       },
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:17:28.343Z",
+      "validThrough": "2027-01-24T21:19:12.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -819,7 +819,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:28.042Z",
+      "crawledAt": "2026-11-13T21:19:12.098Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -880,7 +880,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:17:28.042Z",
+      "validThrough": "2027-01-27T21:19:12.098Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -914,7 +914,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:27.740Z",
+      "crawledAt": "2026-11-13T21:19:11.797Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -976,7 +976,7 @@
       },
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:17:27.740Z",
+      "validThrough": "2027-02-01T21:19:11.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1010,7 +1010,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:27.439Z",
+      "crawledAt": "2026-11-13T21:19:11.496Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1077,7 +1077,7 @@
       },
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:17:27.439Z",
+      "validThrough": "2027-02-04T21:19:11.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1111,7 +1111,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:27.137Z",
+      "crawledAt": "2026-11-13T21:19:11.193Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1173,7 +1173,7 @@
       },
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:17:27.137Z",
+      "validThrough": "2027-02-04T21:19:11.193Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1207,7 +1207,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:26.834Z",
+      "crawledAt": "2026-11-13T21:19:10.892Z",
       "addressLocality": "Rain",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1256,7 +1256,7 @@
       },
       "streetAddress": "Rain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:17:26.834Z",
+      "validThrough": "2027-02-09T21:19:10.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1290,7 +1290,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:26.533Z",
+      "crawledAt": "2026-11-13T21:19:10.590Z",
       "addressLocality": "Koppigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1339,7 +1339,7 @@
       },
       "streetAddress": "Koppigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:17:26.533Z",
+      "validThrough": "2027-02-09T21:19:10.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1373,7 +1373,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:26.231Z",
+      "crawledAt": "2026-11-13T21:19:10.287Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1425,7 +1425,7 @@
       },
       "streetAddress": "Langnau im Emmental",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:17:26.231Z",
+      "validThrough": "2027-02-09T21:19:10.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1459,7 +1459,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:25.930Z",
+      "crawledAt": "2026-11-13T21:19:09.984Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1506,7 +1506,7 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:17:25.930Z",
+      "validThrough": "2027-02-10T21:19:09.984Z",
       "validThroughSource": "last-observed-window"
     }
   ]

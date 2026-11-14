@@ -9,11 +9,26 @@ const FULL = `${DAY}T23:40:12.123+02:00`;
 const fixtures = new URL('./fixtures/cippatrasporti/', import.meta.url);
 const rawListing = readFileSync(new URL('listing.html', fixtures), 'utf8');
 const rawCustomer = readFileSync(new URL('customer-detail.html', fixtures), 'utf8');
+const rawOperativo = readFileSync(new URL('operativo-detail.html', fixtures), 'utf8');
+const rawOceanListing = readFileSync(new URL('ocean-listing.html', fixtures), 'utf8');
 const rawOcean = readFileSync(new URL('ocean-detail.html', fixtures), 'utf8');
 afterEach(() => vi.unstubAllGlobals());
 async function fetchCippa(raw: unknown, listingDate = '15/06/2020') {
-  const listing = rawListing.replace('{{CUSTOMER_POSTED_DATE}}', listingDate).replace('{{OCEAN_POSTED_DATE}}', '15/06/2020');
+  const listing = rawListing.replace('{{CUSTOMER_POSTED_DATE}}', listingDate).replace('{{OPERATIVO_POSTED_DATE}}', '15/06/2020');
   const customer = rawCustomer.replace('"{{CUSTOMER_POSTED_DATE}}"', JSON.stringify(raw));
+  const operativo = rawOperativo.replace('{{OPERATIVO_POSTED_DATE}}', DAY);
+  return fetchAllCippatrasportiJobs({
+    fetchPage: vi.fn(async (url: string, options: { validateRedirectUrl?: (url: string) => unknown }) => {
+      options.validateRedirectUrl?.(url);
+      if (url === CIPPATRASPORTI_CAREER_URL) return listing;
+      return url.includes('Customer-Service') ? customer : operativo;
+    }),
+    sleep: async () => {},
+  });
+}
+async function fetchHistoricalOceanCippa() {
+  const listing = rawOceanListing.replace('{{CUSTOMER_POSTED_DATE}}', '15/06/2020').replace('{{OCEAN_POSTED_DATE}}', '15/06/2020');
+  const customer = rawCustomer.replace('"{{CUSTOMER_POSTED_DATE}}"', JSON.stringify(DAY));
   const ocean = rawOcean.replace('{{OCEAN_POSTED_DATE}}', DAY);
   return fetchAllCippatrasportiJobs({
     fetchPage: vi.fn(async (url: string, options: { validateRedirectUrl?: (url: string) => unknown }) => {
@@ -29,6 +44,16 @@ it.each([DAY, FULL])('Cippa preserves explicit source publication %s through fet
   expect(jobs).toHaveLength(2);
   expect(jobs[0]).toMatchObject({ ...reported(raw), title: 'Customer Service Transport Specialist', location: 'Chiasso', canton: 'TI' });
   expect(jobs[0].description).toContain('Monitora le spedizioni');
+});
+it('keeps the restored historical Ocean detail fixture covered', async () => {
+  const jobs = await fetchHistoricalOceanCippa();
+  expect(jobs).toHaveLength(2);
+  expect(jobs[1]).toMatchObject({
+    ...reported(DAY),
+    title: 'Ocean Freight Operations Specialist – FCL & Project Cargo',
+    location: 'Chiasso',
+    canton: 'TI',
+  });
 });
 it.each(['', null])('Cippa falls back to explicitly labelled listing when detail date is %s', async (raw) => {
   const jobs = await fetchCippa(raw);

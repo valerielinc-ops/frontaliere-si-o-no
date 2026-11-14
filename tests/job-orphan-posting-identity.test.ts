@@ -8,6 +8,15 @@ import {
 } from '../scripts/lib/job-identity.mjs';
 import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 
+function readFuzzyOrphanBlock(): string {
+  const source = fs.readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
+  const start = source.indexOf('/* ── Fuzzy match orphan slugs');
+  const end = source.indexOf('// Collect all previous slugs before filtering the expired URL list below');
+  expect(start).toBeGreaterThanOrEqual(0);
+  expect(end).toBeGreaterThan(start);
+  return source.slice(start, end);
+}
+
 describe('inferred orphan aliases require positive posting identity', () => {
   const url = 'https://jobs.example.invalid/vacancies/orthopedics/';
   it.each([{}, { sourceUrl: '' }, { sourceUrl: '/vacancies/orthopedics/' },
@@ -63,15 +72,13 @@ describe('inferred orphan aliases require positive posting identity', () => {
     expect(result.mergedCount).toBe(1);
   });
   it('gates the independent SSG fuzzy candidate loop before scoring', () => {
-    const source = fs.readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
-    const block = source.slice(source.indexOf('/* ── Fuzzy match orphan slugs'), source.indexOf('// Collect IT paths of all previous slugs'));
+    const block = readFuzzyOrphanBlock();
     expect(block).toContain('if (!orphanProof?.sourceUrl) continue;');
     expect(block.indexOf('if (!hasSameJobSourcePosting(orphanProof, cand)) continue;')).toBeLessThan(block.indexOf('const score = inter /'));
     expect(block.indexOf('if (!hasSameJobSourcePosting(orphanProof, cand)) continue;')).toBeGreaterThan(0);
   });
   it.each([undefined, 'https://jobs.example.invalid/vacancies/oncology/', url])('executes the real SSG loop without guessing oncology ownership (%s)', (sourceUrl) => {
-    const source = fs.readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
-    const block = source.slice(source.indexOf('/* ── Fuzzy match orphan slugs'), source.indexOf('// Collect IT paths of all previous slugs'));
+    const block = readFuzzyOrphanBlock();
     const orphan = 'head-physician-oncology-60-100-spital-uster-uster';
     const job = { url, location: 'Uster', slug: 'assistant-physician-100-orthopedics-spital-uster-uster', slugByLocale: { en: 'assistant-physician-100-orthopedics-spital-uster-uster' } };
     const execute = new Function(

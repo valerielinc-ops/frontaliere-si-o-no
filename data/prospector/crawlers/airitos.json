@@ -1,0 +1,23 @@
+{
+  "companyKey": "airitos",
+  "companyName": "Airitos",
+  "companyHost": "airitos.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://airitos.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "[Contract] Saviynt Implementation Engineer",
+    "PAM Implementation Engineer (1099 Hourly Contract)",
+    "Part-Time Consulting IGA Engineer (Entra ID Governance)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:24.500Z",
+  "candidateKey": "airitos@applytojob.com"
+}

@@ -28,6 +28,7 @@ describe('collectJobDetailDays', () => {
     const days = collectJobDetailDays([
       { file: 'sitemap-jobs.xml', xml: JOBS },
       { file: 'sitemap-jobs-expired.xml', xml: urlset(url('/cerca-lavoro-ticino/scaduto/', '2026-10-30')) },
+      { file: 'sitemap-jobs-expired-001.xml', xml: urlset(url('/cerca-lavoro-ticino/scaduto-2/', '2026-10-31')) },
       { file: 'sitemap-blog.xml', xml: urlset(url('/articoli/x/', '2026-10-30')) },
     ]);
     expect([...days.keys()].sort()).toEqual([

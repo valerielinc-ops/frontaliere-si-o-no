@@ -48228,6 +48228,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-disoccupati-costi-aggiuntivi',
+ category: 'novita',
+ date: '2026-11-13T11:43:28.521Z',
+ image: '/images/blog/article-frontalieri-disoccupati-costi-aggiuntivi.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

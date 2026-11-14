@@ -1,7 +1,7 @@
 {
   "crawlerKey": "edmond-de-rothschild",
-  "assembledAt": "2026-11-13T09:29:05.222Z",
-  "runId": "43399669725",
+  "assembledAt": "2026-11-13T21:22:02.609Z",
+  "runId": "43508923552",
   "jobs": [
     {
       "id": "edmond-de-rothschild-4838c42e2ab0",
@@ -35,7 +35,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3080",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T09:28:56.841Z",
+      "crawledAt": "2026-11-13T21:21:56.094Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T09:28:56.841Z",
+      "validThrough": "2026-12-13T21:21:56.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3088",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T09:28:56.285Z",
+      "crawledAt": "2026-11-13T21:21:55.544Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -171,7 +171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:28:56.285Z",
+      "validThrough": "2027-01-20T21:21:55.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3081",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T09:28:55.610Z",
+      "crawledAt": "2026-11-13T21:21:54.994Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:28:55.610Z",
+      "validThrough": "2027-02-01T21:21:54.994Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3038",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T09:28:55.097Z",
+      "crawledAt": "2026-11-13T21:21:54.439Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -325,7 +325,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:28:55.097Z",
+      "validThrough": "2027-02-02T21:21:54.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +360,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3095",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:28:54.419Z",
+      "crawledAt": "2026-11-13T21:21:53.889Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -381,7 +381,9 @@
       "jobReqId": "3095",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-12T21:30:45.242Z",
+      "previousSlugs": [
+        "talent-learning-specialist-h-f-edmond-de-rothschild-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "talent-learning-specialist-h-f-edmond-de-rothschild-ch"
@@ -393,9 +395,7 @@
           "talent-learning-specialist-h-f-edmond-de-rothschild-ch"
         ]
       },
-      "previousSlugs": [
-        "talent-learning-specialist-h-f-edmond-de-rothschild-ch"
-      ],
+      "firstSeenAt": "2026-11-12T21:30:45.242Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -410,7 +410,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:28:54.419Z",
+      "validThrough": "2027-02-10T21:21:53.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -491,7 +491,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-12T21:30:47.769Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

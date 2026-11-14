@@ -26,7 +26,7 @@
 
 import { safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { DOCUMENT_KINDS } from './assistedApplicationConstants.js';
-import { isDegreeCertificateRequirement } from './lib/assistedApplicationDocumentKind.js';
+import { isDegreeCertificateRequirement, isPhotoRequirement } from './lib/assistedApplicationDocumentKind.js';
 import { detectCvFileType, isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 
 export { DOCUMENT_KINDS };
@@ -36,8 +36,8 @@ export { DOCUMENT_KINDS };
 export const MAX_REQUIRED_DOCUMENTS = 16;
 export const MAX_FILES_PER_DOCUMENT = 5;
 // The form planner names a document by slot (a fixed enum for the model's
-// schema): extra_1 is the first requested document, and so on.
-export const EXTRA_DOCUMENT_SLOTS = Object.freeze(Array.from({ length: MAX_REQUIRED_DOCUMENTS }, (_, index) => `extra_${index + 1}`));
+// schema): photo is reserved for portraits; extra_1..N keep the document order.
+export const EXTRA_DOCUMENT_SLOTS = Object.freeze(['photo', ...Array.from({ length: MAX_REQUIRED_DOCUMENTS }, (_, index) => `extra_${index + 1}`)]);
 export const DOCUMENT_TYPES = Object.freeze(['pdf', 'docx', 'doc', 'jpg', 'png']);
 export const DOCUMENT_CONTENT_TYPES = Object.freeze({
   pdf: 'application/pdf',
@@ -48,6 +48,8 @@ export const DOCUMENT_CONTENT_TYPES = Object.freeze({
 });
 // Per file: a scan of three school reports fits; the request stays far under the 32 MB limit in base64.
 export const MAX_DOCUMENT_BYTES = 10 * 1024 * 1024;
+// Portal photo inputs commonly enforce a much smaller image limit.
+export const MAX_PORTAL_PHOTO_BYTES = 2 * 1024 * 1024;
 // What the candidate's browser concluded about the file (owner decision
 // 2026-10-02: a warning, never a block; recorded, never checked again).
 export const CLIENT_CHECK_VERDICTS = Object.freeze(['match', 'mismatch', 'looks_like_cv', 'unreadable', 'unknown']);
@@ -139,12 +141,16 @@ export function requiredDocumentsOf(draft) {
     out.push({
       id,
       label,
-      kind: isDegreeCertificateRequirement(label)
-        ? 'diploma'
-        : DOCUMENT_KINDS.includes(item.kind) ? item.kind : 'other',
+      kind: isPhotoRequirement(label, item.kind) ? 'photo'
+        : isDegreeCertificateRequirement(label) ? 'diploma'
+          : DOCUMENT_KINDS.includes(item.kind) && item.kind !== 'photo' ? item.kind : 'other',
       keywords: (Array.isArray(item.keywords) ? item.keywords : []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
       required: item.required !== false,
       quote: text(item.quote, 300),
+      ...(isPhotoRequirement(label, item.kind) && typeof item.accept === 'string' && item.accept.length <= 240
+        ? { accept: text(item.accept, 240) } : {}),
+      ...(isPhotoRequirement(label, item.kind) && Number.isSafeInteger(item.maxBytes) && item.maxBytes > 0
+        ? { maxBytes: Math.min(item.maxBytes, MAX_DOCUMENT_BYTES) } : {}),
       // Files for these requirements stay in browser memory and are appended
       // to the postal PDF locally; their contents never reach Storage or the
       // document-text checker (health and criminal-record documents).
@@ -167,6 +173,27 @@ export function requiredDocumentsFor(draft, flow) {
   return requiredDocumentsOf({ ...(draft || {}), requiredDocuments: flow.requestedDocuments });
 }
 
+/** Whether a stored candidate image satisfies the live photo field constraints. */
+export function photoFileAccepted(document, file) {
+  if (!['jpg', 'png'].includes(file?.detectedType)) return false;
+
+  const tokens = String(document?.accept || '').toLowerCase().split(/[\s,]+/).filter(Boolean);
+  const acceptedTypes = new Set();
+  if (!tokens.length || tokens.includes('image/*')) {
+    acceptedTypes.add('jpg');
+    acceptedTypes.add('png');
+  }
+  for (const token of tokens) {
+    if (['.jpg', '.jpeg', '.jpe', 'jpg', 'jpeg', 'jpe', 'image/jpeg', 'image/jpg'].includes(token)) acceptedTypes.add('jpg');
+    if (['.png', 'png', 'image/png'].includes(token)) acceptedTypes.add('png');
+  }
+  if (!acceptedTypes.has(file.detectedType)) return false;
+
+  const maxBytes = Math.min(MAX_PORTAL_PHOTO_BYTES,
+    Number.isSafeInteger(document?.maxBytes) && document.maxBytes > 0 ? document.maxBytes : MAX_PORTAL_PHOTO_BYTES);
+  return Number.isSafeInteger(file.size) && file.size > 0 && file.size <= maxBytes;
+}
+
 const GENERIC_DOCUMENT_LABEL_WORDS = new Set([
   'add', 'allegare', 'allegato', 'allegati', 'attach', 'attachment', 'attachments', 'carica', 'caricare',
   'document', 'documents', 'dokument', 'dokumente', 'fichier', 'fichiers', 'hochladen', 'hochzuladen',
@@ -175,6 +202,7 @@ const GENERIC_DOCUMENT_LABEL_WORDS = new Set([
 
 /** A document label without upload instructions, accents or word order. */
 export function requiredDocumentLabelKey(label) {
+  if (isPhotoRequirement(label)) return 'photo';
   const tokens = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').split(' ').filter((token) => token && !GENERIC_DOCUMENT_LABEL_WORDS.has(token));
   return [...new Set(tokens)].sort().join(' ');
@@ -204,6 +232,10 @@ export function mergeRequiredDocuments(...sources) {
       }
       existing.document.required = existing.document.required || document.required;
       if (!existing.document.quote && document.quote) existing.document.quote = document.quote;
+      if (document.kind === 'photo') {
+        if (!existing.document.accept && document.accept) existing.document.accept = document.accept;
+        if (document.maxBytes) existing.document.maxBytes = Math.min(existing.document.maxBytes || document.maxBytes, document.maxBytes);
+      }
       existing.document.keywords = [...new Set([...existing.document.keywords, ...document.keywords])].slice(0, 12);
     }
   }
@@ -220,7 +252,7 @@ export function openRequiredDocuments(draft, documents = {}, flow = null) {
   return requiredDocumentsFor(draft, flow)
     .filter((document) => document.required)
     .filter((document) => {
-      const given = documents?.[document.id];
+      const given = documents?.[document.id] || (document.kind === 'photo' ? documents?.photo : null);
       if (given?.exemption && (document.exemptions || []).includes(given.exemption)) return false;
       if (flow?.postalSubmission?.enabled === true && document.localOnly) return false;
       if (flow?.postalSubmission?.enabled === true && document.delivery === 'offline') {
@@ -228,7 +260,17 @@ export function openRequiredDocuments(draft, documents = {}, flow = null) {
       }
       if (document.delivery === 'offline') return !Number(given?.preparedAt);
       if (document.delivery === 'service') return false;
-      return !(Array.isArray(given?.files) && given.files.length);
+      const files = Array.isArray(given?.files) ? given.files : [];
+      if (document.kind !== 'photo') return files.length === 0;
+      const sharedPhotoFiles = Array.isArray(documents?.photo?.files) ? documents.photo.files : [];
+      const profilePhoto = flow?.photo && typeof flow.photo === 'object' ? [{
+        key: flow.photo.key,
+        name: `photo.${flow.photo.detectedType || ''}`,
+        size: flow.photo.size,
+        detectedType: flow.photo.detectedType,
+        uploadedAt: flow.photo.uploadedAt,
+      }] : [];
+      return ![...files, ...sharedPhotoFiles, ...profilePhoto].some((file) => photoFileAccepted(document, file));
     })
     .map((document) => document.id);
 }
@@ -255,14 +297,46 @@ export function documentFilesOf(flow, orderId, id) {
     .slice(0, MAX_FILES_PER_DOCUMENT);
 }
 
+/** Only candidate images that satisfy a photo field's live constraints. */
+export function photoFilesOf(flow, orderId, document) {
+  const files = documentFilesOf(flow, orderId, document?.id).filter((file) => photoFileAccepted(document, file));
+  if (files.length) return files;
+  const sharedSlotFiles = document?.id === 'photo' ? [] : documentFilesOf(flow, orderId, 'photo');
+  const sharedPhotoFiles = sharedSlotFiles.filter((file) => photoFileAccepted(document, file));
+  if (sharedPhotoFiles.length) return sharedPhotoFiles;
+  const profilePhoto = flow?.photo && typeof flow.photo === 'object' ? {
+    key: flow.photo.key,
+    name: `photo.${flow.photo.detectedType || ''}`,
+    size: flow.photo.size,
+    detectedType: flow.photo.detectedType,
+    uploadedAt: flow.photo.uploadedAt,
+  } : null;
+  return profilePhoto?.key && isAssistedApplicationCvKey(orderId, profilePhoto.key)
+    && photoFileAccepted(document, profilePhoto) ? [profilePhoto] : [];
+}
+
 /**
  * What leaves with the application besides the CV and the letter: every
  * requested document the candidate gave files for, with its form slot.
  * @returns {Array<{id:string, slot:string, label:string, kind:string, keywords:string[], files:Array<{key:string, name:string, detectedType:string}>}>}
  */
 export function extraDocumentsToSend(draft, flow, orderId) {
+  let nextExtraSlot = 0;
+  let photoSlotAssigned = false;
   return requiredDocumentsFor(draft, flow)
-    .map((document, index) => ({ ...document, slot: EXTRA_DOCUMENT_SLOTS[index], files: documentFilesOf(flow, orderId, document.id) }))
+    .map((document) => {
+      let slot;
+      if (document.kind === 'photo' && !photoSlotAssigned) {
+        photoSlotAssigned = true;
+        slot = 'photo';
+      } else {
+        nextExtraSlot += 1;
+        slot = `extra_${nextExtraSlot}`;
+      }
+      let files = documentFilesOf(flow, orderId, document.id);
+      if (document.kind === 'photo') files = photoFilesOf(flow, orderId, document);
+      return { ...document, slot, files };
+    })
     .filter((document) => document.files.length > 0)
     .map(({ quote, required, ...document }) => document);
 }

@@ -1,0 +1,23 @@
+{
+  "companyKey": "freestarinformatik-ch",
+  "companyName": "Freestar-Informatik AG",
+  "companyHost": "freestarinformatik.hr4you.org",
+  "verifiedEmployerDomain": "freestarinformatik.ch",
+  "platform": "hr4you.org",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://freestarinformatik.hr4you.org/job/view/428/trainee-it-recruiting-a-80-100-ref-2244?page_lang=de"
+  ],
+  "detailTemplate": "/job/view/428/trainee-it-recruiting-a-80-100-ref-2244",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Trainee IT Recruiting (a) 80-100% [Ref:2244]"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:41.010Z",
+  "candidateKey": "freestar-informatik@pratteln"
+}

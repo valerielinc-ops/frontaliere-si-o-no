@@ -691,6 +691,13 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     fs.symlinkSync(path.resolve(process.cwd(), 'node_modules'), path.join(sandbox, 'node_modules'));
     // Keep shared engine helpers reachable from the symlinked crawler modules.
     fs.symlinkSync(path.resolve(process.cwd(), 'packages'), path.join(sandbox, 'packages'));
+    // job-board-detail-path.mjs imports the pure canton resolver through a
+    // sandbox-relative path; mirror that shared helper alongside packages.
+    fs.mkdirSync(path.join(sandbox, 'build-plugins'), { recursive: true });
+    fs.symlinkSync(
+      path.resolve(process.cwd(), 'build-plugins', 'shared'),
+      path.join(sandbox, 'build-plugins', 'shared'),
+    );
     fs.mkdirSync(path.join(sandbox, 'data'), { recursive: true });
     fs.mkdirSync(path.join(sandbox, 'public', 'data'), { recursive: true });
     // Several crawler helpers statically import these git-tracked data files
@@ -699,6 +706,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     // import cannot gracefully degrade on a missing file the way readFileSync could.
     for (const file of [
       'canton-municipalities.json',
+      'profession-landing-routes.json',
       'swiss-locality-postal-codes.json',
       'swiss-postal-code-index.json',
     ]) {

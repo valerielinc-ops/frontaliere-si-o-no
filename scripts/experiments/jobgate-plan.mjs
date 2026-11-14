@@ -7,8 +7,8 @@
  * sovrascrivibile dalla CLI del monitor; cambiarlo QUI è una decisione di
  * piano, non un'ottimizzazione a risultati visti.
  *
- * Round 5 — `jobgate-v5`, varianti di contrasto/accento sullo Spotlight
- * promosso; ipotesi in docs/AUTHGATE-HEADLINE-EXPERIMENT.md.
+ * Round 6 — `jobgate-v6`, control tinted e tre stili selezionati: V6-13 Navy
+ * Companion, V6-02 Tinted Frame e V6-07 Dossier.
  *
  * Baseline attesa: Spotlight in `jobgate-v4`, finestra 2026-10-07..2026-10-16
  * (stesso readout, robot esclusi): 165 nuovi iscritti su 986 persone gate_view
@@ -30,11 +30,11 @@
  */
 
 export const JOBGATE_PLAN = Object.freeze({
-  experimentId: 'jobgate-v5',
-  control: 'spotlight',
+  experimentId: 'jobgate-v6',
+  control: 'control',
   /** Remote Config supplies the exact launch date; this is a pre-launch fallback. */
   launchedAt: null,
-  analysisStart: '2026-10-20',
+  analysisStart: '2026-11-14',
   /** CR primaria del control attesa (iscritti job gate / persone gate_view, senza robot). */
   baselineRate: 0.1673,
   baselineWindow: 'jobgate-v4 spotlight 2026-10-07..2026-10-16 (owner early-stop readout)',
@@ -62,7 +62,7 @@ export const JOBGATE_PLAN = Object.freeze({
   }),
   /**
    * Copertura minima dell'attribuzione: quota degli iscritti partiti dal job
-   * gate che portano il tag `jobgate-v5:<braccio>`. Sotto soglia il
+   * gate che portano il tag `jobgate-v6:<braccio>`. Sotto soglia il
    * numeratore della CR primaria è parziale (e non in modo uguale fra i
    * bracci), quindi niente promozione automatica.
    */

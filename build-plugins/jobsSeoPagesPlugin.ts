@@ -1,5 +1,8 @@
 import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
+import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
+import { createStreamingSitemapWriter } from '../scripts/lib/streaming-sitemap-writer.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -16,6 +19,7 @@ import {
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
 import { releaseExpiredArchiveRowAfterRender } from './shared/expiredArchiveRetention';
 import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneSelfHealTracking';
+import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -80,7 +84,11 @@ import {
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { hasClusterStopwordLead } from './shared/searchSlugStopwords';
 import { isExpiredJobDemandIndexable } from './shared/expiredJobIndexPolicy';
-import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
+import {
+ isPaginationNoindex,
+ isPaginationSitemapEligible,
+ pushPaginationSitemapEntry,
+} from './shared/paginationIndexPolicy';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
@@ -2897,9 +2905,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  resolveJobsSeoPagesFlushed();
  return;
  }
- let jobsRaw: any = readJsonFile(jobsPath);
- let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
- jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const localeList = JOB_SEO_LOCALES;
  const allIndexablePageLocales = indexableLocalePageSet(localeList, () => true);
  const localizedSlug = localizedActiveJobSlug;
@@ -2928,7 +2933,17 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  return false;
  };
  const isFixtureSlug = (s: string): boolean => !!s && FIXTURE_SLUG_RE.test(s);
- const fixtureCount = jobs.filter(isFixtureJob).length;
+ let fixtureCount = 0;
+ let validJobs: any[] = [];
+ for (const rawJob of iterateJsonArrayFile(jobsPath)) {
+  if (isFixtureJob(rawJob)) {
+   fixtureCount++;
+   continue;
+  }
+  if (!isListingInventoryJob(rawJob)) continue;
+  const normalized = normalizeListingIdentity(rawJob);
+  if (normalized.slug) validJobs.push(normalized);
+ }
  if (fixtureCount > 0) {
  console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Filtered ${fixtureCount} fixture job(s) from input (test/dev seed records)`);
  }
@@ -2959,18 +2974,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   return recency;
  };
 
- let validJobs = jobs
- .filter((j: any) => !isFixtureJob(j))
- .filter((j: any): boolean => isListingInventoryJob(j))
- .map((j: any) => normalizeListingIdentity(j))
- .filter((j: any) => !!j.slug)
  // DESC by durable active-job order, tiebreak by id for determinism. The
  // active detail's related-job pool must not move when only the crawler
  // heartbeat changes; see compareActiveJobsByStableOrder above.
  // This makes duplicate active routes choose the same durable winner across
  // crawls; older duplicates record a collision (visible in
  // dist/.write-collisions.json) but don't overwrite on disk.
- .sort(compareActiveJobsByStableOrder);
+ validJobs.sort(compareActiveJobsByStableOrder);
  if (jobsSeoSample !== null) {
   const totalValidJobs = validJobs.length;
   validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
@@ -3027,10 +3037,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  // Keep the sample at this boundary: every active job detail, hub, bridge and
  // related/search derivation below reads this same `validJobs` array.
- // Release the raw dataset: validJobs is an independent spread-copy (new objects
- // per job), and `jobs` is never read past this point — free ~150-250 MB before
- // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
- jobs = [];
+ // The source corpus was consumed item-by-item, so there is no second full
+ // `jobs` array to release before the heavy per-page emit + expired/bridge
+ // pre-scans. (Build OOM fix, #1290.)
  jobsSeoMemContext.validJobs = validJobs;
  logJobsSeoMem('after-valid-jobs');
 
@@ -3945,6 +3954,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   return wordCount >= 50;
  };
  const sitemapEligibleJobs = validJobs.filter(isSitemapEligibleJob);
+ const sitemapEligibleJobCount = sitemapEligibleJobs.length;
  const activeJobSitemapLocs = new Set<string>();
  // URL → the single job that owns it (first claim of its (canton, locale,
  // slug) tuple, the active emitter's own rule), for every locale regardless
@@ -3952,6 +3962,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // URLs this job owns, so a same-id or duplicate record can never push a
  // second copy of a locale <loc> (review #15110).
  const jobSitemapLocOwner = new Map<string, unknown>();
+ const activeJobSitemapLocOwnerIds = new Map<string, string>();
  const claimedActiveJobPaths = new Set<string>();
  for (const job of validJobs) {
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
@@ -3969,7 +3980,10 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    // The sitemap lists every locale (the IT build writes it for all four;
    // the EN/DE/FR pages live on their own locale shard). Internal links stay
    // limited to the locales this build renders (#14380).
-   if (!jobSitemapLocOwner.has(localeUrl)) jobSitemapLocOwner.set(localeUrl, job);
+   if (!jobSitemapLocOwner.has(localeUrl)) {
+    jobSitemapLocOwner.set(localeUrl, job);
+    activeJobSitemapLocOwnerIds.set(localeUrl, stableJobId(job));
+   }
    if (!shouldEmitLocale(locale)) continue;
    activeJobSitemapLocs.add(localeUrl);
   }
@@ -3986,7 +4000,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
   const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
   return activeJobSitemapLocs.has(href)
-   || (includeSiblingLocale && jobSitemapLocOwner.get(href) === job)
+   || (includeSiblingLocale && activeJobSitemapLocOwnerIds.get(href) === stableJobId(job))
    ? href
    : null;
  };
@@ -9263,7 +9277,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
@@ -9409,7 +9427,11 @@ ${staticAnalyticsHtml}
  const xDefault = paginationSitemapLocales.has('it')
   ? `\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />`
   : '';
- paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ pushPaginationSitemapEntry(
+  paginationSitemapEntries,
+  pageNum,
+  ` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}${xDefault}\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`,
+ );
  }
  }
  }
@@ -12157,6 +12179,10 @@ ${staticAnalyticsHtml}
  for (const ps of legacyOnly) addEntry(ps, 'it');
  }
  const prevSlugSitemap = prevSlugEntries.length > 0 ? '\n' + prevSlugEntries.join('\n') : '';
+ // The sitemap has consumed the filtered view; keeping it alive would retain
+ // another reference to every full active-job object through the archive
+ // phases below. The count is preserved for diagnostics after the release.
+ sitemapEligibleJobs.length = 0;
 
  // Company sitemap entries — skip known brand aliases so the primary
  // canonical is the only company-hub URL advertised for dedup (P5).
@@ -12299,9 +12325,9 @@ ${staticAnalyticsHtml}
  }
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
- jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
+ jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobCount;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
- jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length;
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobCount + prevSlugEntries.length;
  // Backpressure: drain pending WriteCollector flushes before the next
  // emit phase queues more. Run 26488854594 OOM'd Node at the 12 GB
  // heap cap because the 6 sequential emit phases stacked 60+ in-flight
@@ -13351,6 +13377,8 @@ ${staticAnalyticsHtml}
  };
  const isCurrentSlug = (slug: string): boolean =>
   ((currentSlugs.get(slug) ?? 0) & CURRENT_JOB_SLUG) !== 0;
+ const isCurrentSlugForLocale = (slug: string, locale: JobSeoLocale): boolean =>
+  ((currentSlugs.get(slug) ?? 0) & localeOwnerBit(locale)) !== 0;
  // Collect slug values that differ from slugByLocale.it — these are legacy
  // identifier slugs that no longer have an active page at that path. They
  // should be treated as previous slugs (bridge pages), not as current.
@@ -13785,6 +13813,13 @@ ${staticAnalyticsHtml}
  }
  } catch { /* file missing — skip */ }
 
+ // Active-page ownership maps have finished their last raw-job lookup before
+ // the archive phase. Keep only stable owner IDs for the late bridge checks; the
+ // old Map values pointed back to the complete corpus and defeated the
+ // intended post-active memory release.
+ activeJobPathOwners.clear();
+ jobSitemapLocOwner.clear();
+
  // 2. Load expired job data for rich content (previousSlugs, title, company, etc.)
  const expiredJobsPath = np.resolve(rootDir, 'data/expired-jobs.json');
  let expiredJobsData: any[] = [];
@@ -13843,12 +13878,9 @@ ${staticAnalyticsHtml}
  // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
  function* expiredSliceJobs(): Generator<any> {
  for (const sliceFile of listJobsSeoExpiredSliceFiles(expiredSlicesDir)) {
- let sliceArr: any[];
  try {
- sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
+ yield* iterateJsonArrayFile(np.resolve(expiredSlicesDir, sliceFile));
  } catch { continue; }
- if (!Array.isArray(sliceArr)) continue;
- yield* sliceArr;
  }
  }
  const sliceAugmented = augmentExpiredSliceIndex(
@@ -14036,27 +14068,24 @@ ${staticAnalyticsHtml}
  // do not overlap the archive indexes and page buffers. The opt-in gcFreed
  // probe deliberately retains them until its final checkpoint for attribution.
  if (extraGcFreedProbeCandidate === null) {
+  const fuzzyKnownSlugEntries = knownSlugs.size;
   const fuzzyJobTokenEntries = jobsByToken.size;
   const fuzzyJobCityRows = jobCityTokens.length;
+  knownSlugs.clear();
   jobsByToken.clear();
   jobCityTokens.length = 0;
   logJobsSeoMem('after-orphan-fuzzy-index-release', {
+   fuzzyKnownSlugEntries,
    fuzzyJobTokenEntries,
    fuzzyJobCityRows,
   });
  }
 
- // Collect IT paths of all previous slugs so we can also exclude their
- // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
- // The tracking file stores one key per locale slug, all pointing to the
- // same IT path, so we must group by IT path to catch them all.
- const bridgeItPaths = new Set<string>();
+ // Collect all previous slugs before filtering the expired URL list below.
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const s of _allPrevSlugs(job)) {
  bridgeSlugSet.add(s);
- const itPath = (tracking[s] as any)?.it;
- if (itPath) bridgeItPaths.add(itPath);
  }
  }
  // Add implicit previous slugs (job.slug ≠ slugByLocale.it) to bridge set
@@ -14124,6 +14153,8 @@ ${staticAnalyticsHtml}
   if (bridgeSlugSet.has(slug) || RESERVED_HUB_SLUGS.has(slug)) continue;
   expiredSlugs.push(slug);
  }
+ const bridgeSlugEntriesReleased = bridgeSlugSet.size;
+ bridgeSlugSet.clear();
  // en/de/fr legacy-TI detail paths are deliberately left to the locale-router
  // Worker when the immutable registry still has a native canton path for the
  // same locale+slug. The registry entry may already have been compat-merged,
@@ -14448,32 +14479,58 @@ ${staticAnalyticsHtml}
  };
 
  let expiredCount = 0;
- const EXPIRED_SITEMAP_CHUNK_ENTRIES = 10_000;
- const expiredSitemapBuffer: string[] = [];
- const expiredSitemapPath = np.join(distDir, 'sitemap-jobs-expired.xml');
+ let expiredSkippedActiveSlug = 0;
+ let expiredLegacySectionCanonicalized = 0;
+ const expiredSitemapLegacyFile = 'sitemap-jobs-expired.xml';
  const expiredSitemapHeader = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
- let expiredSitemapEntryCount = 0;
- let expiredSitemapInitialized = false;
- const flushExpiredSitemapBuffer = (): void => {
-  if (expiredSitemapBuffer.length === 0) return;
-  const chunk = `${expiredSitemapBuffer.join('\n')}\n`;
-  if (expiredSitemapInitialized) fs.appendFileSync(expiredSitemapPath, chunk, 'utf-8');
-  else {
-   fs.writeFileSync(expiredSitemapPath, `${expiredSitemapHeader}${chunk}`, 'utf-8');
-   expiredSitemapInitialized = true;
+ const expiredSitemapFilePattern = /^sitemap-jobs-expired(?:-\d+)?\.xml$/u;
+ // The old implementation appended every expired URL to one XML document.
+ // That stayed cheap during emission but made the final sitemap reconciler
+ // materialise a multi-gigabyte string and eventually hit V8's hard string
+ // limit. Keep the stream bounded at the same shared protocol cap used by all
+ // other sitemap families; the writer retains only a small pending chunk.
+ for (const file of fs.readdirSync(distDir)) {
+  if (file !== expiredSitemapLegacyFile && !expiredSitemapFilePattern.test(file)) continue;
+  try { fs.unlinkSync(np.join(distDir, file)); } catch (error: any) {
+   if (error?.code !== 'ENOENT') throw error;
   }
-  expiredSitemapBuffer.length = 0;
- };
+ }
+ const expiredSitemapWriter = createStreamingSitemapWriter({
+  distDir,
+  filePrefix: 'sitemap-jobs-expired',
+  cap: SITEMAP_SHARD_CAP,
+  padIndex: padShardIndex,
+  header: expiredSitemapHeader,
+ });
+ let expiredSitemapEntryCount = 0;
  const expiredSitemapEntries = {
-  // Preserve the append call shape and update the entry counter.
   push(entry: string): void {
-   expiredSitemapBuffer.push(entry);
+   expiredSitemapWriter.push(entry);
    expiredSitemapEntryCount++;
-   if (expiredSitemapBuffer.length >= EXPIRED_SITEMAP_CHUNK_ENTRIES) flushExpiredSitemapBuffer();
   },
  };
  const appendExpiredSitemapEntries = (entries: string[]): void => {
   for (const entry of entries) expiredSitemapEntries.push(entry);
+ };
+ const patchExpiredSitemapIndex = (lastmod: string): void => {
+  const { files } = expiredSitemapWriter.finish();
+  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(sitemapIndexPath)) return;
+  let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
+  // Replace the legacy monolith and any shards from an earlier build before
+  // adding the current set. `emptyOutDir:false` makes this cleanup mandatory
+  // on incremental/cached builds too.
+  idx = idx.replace(
+   /\s*<sitemap>\s*<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs-expired(?:-\d+)?\.xml<\/loc>[\s\S]*?<\/sitemap>\s*/gu,
+   '\n',
+  );
+  if (files.length > 0) {
+   const entries = files.map((file) =>
+    ` <sitemap>\n <loc>${BASE_URL}/${file}</loc>\n <lastmod>${lastmod}</lastmod>\n </sitemap>`,
+   ).join('\n');
+   idx = idx.replace('</sitemapindex>', `${entries}\n</sitemapindex>`);
+  }
+  fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
  };
 
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
@@ -14722,13 +14779,118 @@ ${staticAnalyticsHtml}
  _qwFlat(safeTargets.flatPath!, html);
  return true;
  };
+ const resolveExpiredPathForEmission = (
+  locale: JobSeoLocale,
+  trackedPath: string,
+  slug: string,
+ ) => resolveExpiredEmitPath({
+  locale,
+  trackedPath,
+  slug,
+  isActiveSlug: (candidateSlug, candidateLocale) =>
+   isCurrentSlugForLocale(candidateSlug, candidateLocale),
+  isTargetOccupied: (candidatePath, candidateLocale) => {
+   const canonicalPath = candidatePath.endsWith('/') ? candidatePath : candidatePath + '/';
+   const relPathKey = canonicalPath.replace(/^\/+|\/+$/g, '');
+   const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
+   if (!safeTargets) return true;
+   return claimedJobPaths.has(localePathClaimKey(canonicalPath))
+    || pagePathClaims.has(candidateLocale, canonicalPath)
+    || bridgeClaimedPaths.has(canonicalPath)
+    || bridgeClaimedPaths.has('/' + relPathKey)
+    || activeJobDirs.has(relPathKey)
+    || pathWasClaimed(safeTargets.indexPath)
+    || fs.existsSync(safeTargets.indexPath)
+    || Boolean(safeTargets.flatPath && fs.existsSync(safeTargets.flatPath));
+  },
+ });
+
+ // The archive phase only needs a small active-job projection for related
+ // cards, canonical URLs and previous/cross-locale aliases. Retaining the
+ // complete source records here (descriptions, locale payloads and crawler
+ // metadata included) made the subsequent 1M-row expired sweep compete with
+ // the active corpus for the same heap. Clone only fields read by the late
+ // bridge/recommendation loops, then release the full records before the
+ // first expired page is rendered.
+ type ActiveBridgeJob = {
+  id?: string | number;
+  slug?: string;
+  slugByLocale?: Record<string, string>;
+  title?: string;
+  titleByLocale?: Record<string, string>;
+  originalTitle?: string;
+  sourceLang?: string;
+  canton?: string;
+  location?: string;
+  company?: string;
+  companyKey?: string;
+  category?: string;
+  previousSlugs?: string[];
+  previousSlugsByLocale?: Record<string, string[]>;
+  expired?: boolean;
+ };
+ const copyStringArray = (value: unknown): string[] | undefined => {
+  if (!Array.isArray(value)) return undefined;
+  const out = value.filter((item): item is string => typeof item === 'string' && item.length > 0);
+  return out.length > 0 ? out : undefined;
+ };
+ const copyStringRecord = (value: unknown): Record<string, string> | undefined => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const out = Object.fromEntries(
+   Object.entries(value).filter(([, item]) => typeof item === 'string' && item.length > 0),
+  ) as Record<string, string>;
+  return Object.keys(out).length > 0 ? out : undefined;
+ };
+ const copyLocaleStringArrays = (value: unknown): Record<string, string[]> | undefined => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const out: Record<string, string[]> = {};
+  for (const [locale, entries] of Object.entries(value)) {
+   const copied = copyStringArray(entries);
+   if (copied) out[locale] = copied;
+  }
+  return Object.keys(out).length > 0 ? out : undefined;
+ };
+ const compactActiveBridgeJob = (job: any): ActiveBridgeJob => {
+  const slugByLocale = copyStringRecord(job.slugByLocale);
+  const titleByLocale = copyStringRecord(job.titleByLocale);
+  const previousSlugs = copyStringArray(job.previousSlugs);
+  const previousSlugsByLocale = copyLocaleStringArrays(job.previousSlugsByLocale);
+  return {
+   ...(typeof job.id === 'string' || typeof job.id === 'number' ? { id: job.id } : {}),
+   ...(typeof job.slug === 'string' ? { slug: job.slug } : {}),
+   ...(slugByLocale ? { slugByLocale } : {}),
+   ...(typeof job.title === 'string' ? { title: job.title } : {}),
+   ...(titleByLocale ? { titleByLocale } : {}),
+   ...(typeof job.originalTitle === 'string' ? { originalTitle: job.originalTitle } : {}),
+   ...(typeof job.sourceLang === 'string' ? { sourceLang: job.sourceLang } : {}),
+   ...(typeof job.canton === 'string' ? { canton: job.canton } : {}),
+   ...(typeof job.location === 'string' ? { location: job.location } : {}),
+   ...(typeof job.company === 'string' ? { company: job.company } : {}),
+   ...(typeof job.companyKey === 'string' ? { companyKey: job.companyKey } : {}),
+   ...(typeof job.category === 'string' ? { category: job.category } : {}),
+   ...(previousSlugs ? { previousSlugs } : {}),
+   ...(previousSlugsByLocale ? { previousSlugsByLocale } : {}),
+   ...(typeof job.expired === 'boolean' ? { expired: job.expired } : {}),
+  };
+ };
+ const activeBridgeJobs: ActiveBridgeJob[] = validJobs.map(compactActiveBridgeJob);
 
  // Keep both employer and recent recommendations in the archived job's canton.
- const archiveRecommendations = buildArchiveJobRecommendations(validJobs);
+ const archiveRecommendations = buildArchiveJobRecommendations(activeBridgeJobs);
  const companyActiveJobsMap = archiveRecommendations.companyJobs;
  const recentJobPools = archiveRecommendations.cantonJobs;
  const selectRecentJobs = (seed: string, exclude: string, canton: string) =>
   archiveRecommendations.recent(hashCode(seed), exclude, canton);
+ // No late archive reader needs the full active records after this projection.
+ // Clearing the shared array also severs the reference held by the memory
+ // context; the compact bridge records remain bounded to route/title fields.
+ validJobs.length = 0;
+ jobsSeoMemContext.validJobs = activeBridgeJobs;
+ forceGc();
+ logJobsSeoMem('after-active-corpus-release-before-expired', {
+  activeBridgeJobs: activeBridgeJobs.length,
+  sitemapEligibleJobs: sitemapEligibleJobCount,
+ });
  // Cache soft-landing HTML per (locale, canonical path) so the cross-locale
  // reconciliation pass below can reuse it instead of re-rendering.
  // Only cache slugs that actually need it — jobs from expired-jobs.json
@@ -14977,7 +15139,31 @@ ${staticAnalyticsHtml}
  // the same winner, even though only one shard writes each locale's HTML.
  for (let expiredSlugIndex = 0; expiredSlugIndex < expiredSlugs.length; expiredSlugIndex++) {
  const slug = expiredSlugs[expiredSlugIndex];
- const paths = tracking[slug];
+ const trackedPaths = tracking[slug];
+ let paths = trackedPaths;
+ let resolvedPaths: Record<string, string> | undefined;
+ for (const locale of localeList) {
+  const trackedPath = trackedPaths[locale];
+  if (!trackedPath) continue;
+  const pathResolution = resolveExpiredPathForEmission(locale, trackedPath, slug);
+  if (pathResolution.kind === 'skip') {
+   if (pathResolution.reason === 'active-slug') expiredSkippedActiveSlug++;
+   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   delete resolvedPaths[locale];
+   continue;
+  }
+  if (pathResolution.canonicalizedLegacySection) {
+   expiredLegacySectionCanonicalized++;
+   if (!resolvedPaths) resolvedPaths = { ...trackedPaths };
+   resolvedPaths[locale] = pathResolution.path;
+  }
+ }
+ if (resolvedPaths) paths = resolvedPaths;
+ if (!localeList.some((locale) => paths[locale])) {
+  releaseExpiredSweepSlug(slug, expiredSlugIndex);
+  await drainExpiredSweepSlot(expiredSlugIndex);
+  continue;
+ }
  const expiredArchiveOverflowOwned = !expiredBySlug.has(slug) && expiredSliceOverflow.has(slug);
  const ejData = expiredBySlug.get(slug) ?? expiredSliceOverflow.get(slug);
 
@@ -15117,7 +15303,10 @@ ${staticAnalyticsHtml}
  // normal previous-slug phase will replace this with the active job's full
  // content when it has a readable canonical page; this snapshot is the
  // lossless fallback for a historical URL whose active cache is unavailable.
- if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(relPath)) {
+ // The emit path may have been canonicalized above, but fallback identity stays
+ // keyed by the original tracking path for the later self-healing lookup.
+ const historicalArchivePath = trackedPaths[locale] || relPath;
+ if (bridgeClaimedPaths.has(relPath) && !historicalArchiveFallbacks.has(historicalArchivePath)) {
   const fallbackDescription = String(
    ejData?.descriptionByLocale?.[locale]
    || ejData?.descriptionByLocale?.it
@@ -15126,7 +15315,7 @@ ${staticAnalyticsHtml}
    || gscInfo?.descriptionByLocale?.it
    || '',
   );
-  historicalArchiveFallbacks.set(relPath, {
+  historicalArchiveFallbacks.set(historicalArchivePath, {
    recordedIdentity: hasRealTitle,
    title: String(recordedTitleForLocale(locale) || slugInfo?.title || ''),
    company: jobCompany,
@@ -16018,24 +16207,10 @@ ${staticAnalyticsHtml}
   sitemapEntries: expiredSitemapEntryCount,
  });
 
- // Write expired jobs sitemap
- if (expiredSitemapEntryCount > 0) {
- flushExpiredSitemapBuffer();
- fs.appendFileSync(expiredSitemapPath, '</urlset>\n', 'utf-8');
-
- // Register in sitemap index
- const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
- if (fs.existsSync(sitemapIndexPath)) {
- let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
- if (!idx.includes('sitemap-jobs-expired.xml')) {
- idx = idx.replace(
- '</sitemapindex>',
- ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs-expired.xml</loc>\n <lastmod>${dateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
- );
- fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
- }
- }
- }
+ // Write/reconcile the expired jobs sitemap family even when this build has no
+ // eligible entries: the cleanup above may have removed stale shards, so the
+ // index must drop their references on an empty incremental build as well.
+ patchExpiredSitemapIndex(dateStamp);
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs`);
@@ -16049,6 +16224,8 @@ ${staticAnalyticsHtml}
  jobsSeoMemContext.sitemap.entries = expiredSitemapEntryCount;
  logJobsSeoMem('after-expired-softlandings', {
   expiredCount,
+  expiredSkippedActiveSlug,
+  expiredLegacySectionCanonicalized,
   expiredSitemapEntries: expiredSitemapEntryCount,
   sitemapEntries: expiredSitemapEntryCount,
   progressiveExpiredArchiveRowsReleased,
@@ -16155,7 +16332,11 @@ ${staticAnalyticsHtml}
  // not let a job bridge occupy `/azienda-*` and produce a page without the
  // company-hub canonical contract (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
- const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const trackedPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const pathResolution = resolveExpiredPathForEmission(baseLocale, trackedPath, foreignSlug);
+ if (pathResolution.kind === 'skip') continue;
+ const relPath = pathResolution.path;
+ if (pathResolution.canonicalizedLegacySection) expiredLegacySectionCanonicalized++;
  const edgeCanonicalPath = normalizeExpiredJobEdgePath(relPath);
  if (edgeCanonicalPath && expiredJobEdgeStaticSkipPaths.has(edgeCanonicalPath)) continue;
  if (isDistPathOverFilesystemLimits(relPath)) {
@@ -16271,6 +16452,7 @@ ${staticAnalyticsHtml}
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
+  bridgeSlugEntriesReleased,
   expiredSitemapEntries: expiredSitemapEntryCount,
   sitemapEntries: expiredSitemapEntryCount,
  }));
@@ -16327,7 +16509,7 @@ ${staticAnalyticsHtml}
  // ownership is per (canton, locale, oldSlug), not per (locale, oldSlug).
  const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
  jobsSeoMemContext.previousSlugClaimants = previousSlugClaimants;
- for (const job of validJobs) {
+ for (const job of activeBridgeJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -16437,7 +16619,7 @@ ${staticAnalyticsHtml}
   maybeForceJobsSeoHtmlGc();
   previousSlugPeriodicYieldCount++;
  };
- for (const job of validJobs) {
+ for (const job of activeBridgeJobs) {
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -16787,7 +16969,7 @@ ${staticAnalyticsHtml}
  // memoria non liberata, mai una lettura mancata.
  const crossLocaleCacheReads = new Map<string, number>();
  jobsSeoMemContext.crossLocaleCacheReads = crossLocaleCacheReads;
- for (const job of validJobs) {
+ for (const job of activeBridgeJobs) {
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue;
  const s = localizedSlug(job, locale);
@@ -16800,7 +16982,7 @@ ${staticAnalyticsHtml}
  }
  }
  let crossLocaleCount = 0;
- for (const job of validJobs) {
+ for (const job of activeBridgeJobs) {
   await collector.awaitDrainSlot(2); // bound flush backlog (#1290; 2 e non 6: qui l'heap e' gia' al picco, vedi il commento del refcount sopra)
  // Sibling guard to the active-job/previousSlug legacy-TI bridges above
  // (PR #3052, isCompanyHubNamespaceSlug): a non-TI job whose foreign slug
@@ -16991,13 +17173,13 @@ ${staticAnalyticsHtml}
  // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
  // che dicesse dove. Pre-cleanup di proposito, come la coppia di checkpoint
  // del blocco cross-locale-expired (#6139 item 6).
- jobsSeoMemContext.sitemap.entries = sitemapEligibleJobs.length + prevSlugEntries.length + expiredSitemapEntryCount;
- jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobs.length;
+ jobsSeoMemContext.sitemap.entries = sitemapEligibleJobCount + prevSlugEntries.length + expiredSitemapEntryCount;
+ jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobCount;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
  jobsSeoMemContext.sitemap.expiredEntries = expiredSitemapEntryCount;
  logBuildMem('jobsSeoPages: before-active-corpus-release', collector, jobsSeoMemDetails({
   crossLocaleActiveCount: crossLocaleCount,
-  sitemapEligibleJobs: sitemapEligibleJobs.length,
+  sitemapEligibleJobs: sitemapEligibleJobCount,
   previousSlugEntries: prevSlugEntries.length,
   expiredSitemapEntries: expiredSitemapEntryCount,
  }));
@@ -17008,6 +17190,7 @@ ${staticAnalyticsHtml}
  // Keep pathHistory untouched.
  crossLocaleCacheReads.clear();
  emittedActiveJobPaths.clear();
+ activeJobSitemapLocOwnerIds.clear();
  prevSlugEntries.length = 0;
 
  // `jobHtmlCache` (populated during the ~85k active-job-page render
@@ -17022,15 +17205,10 @@ ${staticAnalyticsHtml}
  // no-op — restano solo le entry che il predicato del pre-pass non ha
  // contato. Resta come rete di sicurezza, non come meccanismo.)
  jobHtmlCache.clear();
- // #6134 (strutturale): anche il CORPUS e' morto qui. `validJobs` (la
- // spread-copy dei ~22k job di data/jobs.json) ha il suo ultimo lettore nel
- // loop cross-locale-active qui sopra; gli indici related e la companyMap
- // sono gia' stati rilasciati ai rispettivi ultimi lettori. Il self-heal
- // legge `tracking` e il registry dei path, mai i job. Svuotare l'array NON basta
- // da solo — ogni container ancora vivo che punta agli stessi oggetti va
- // svuotato nello stesso punto, o il rilascio e' un no-op silenzioso. Il
- // checkpoint subito sotto dice al prossimo deploy se questo blocco libera
- // davvero (pattern DUAL PURPOSE di buildMemLog.ts).
+ // #6134 (strutturale): il corpus completo e' gia' stato rilasciato prima
+ // dello sweep expired; qui resta solo la proiezione compatta usata dai due
+ // loop di bridge. Svuotare anche i riferimenti residui mantiene il checkpoint
+ // di memoria coerente e impedisce che una coda secondaria trattenga i record.
  validJobs.length = 0;
  sitemapEligibleJobs.length = 0;
  // Review di #6154 (finding 3): anche questi puntano agli stessi oggetti
@@ -17047,6 +17225,7 @@ ${staticAnalyticsHtml}
  implicitPreviousSlugs.length = 0;
  companyActiveJobsMap.clear();
  recentJobPools.clear();
+ activeBridgeJobs.length = 0;
  // Opt-in extra retainer: default keeps the full 9-container release above
  // and does not clear these leftover closeBundle bindings. A probe deploy
  // names exactly one so gcFreed at the checkpoint is attributable.
@@ -17270,8 +17449,17 @@ ${staticAnalyticsHtml}
  if (!Object.prototype.hasOwnProperty.call(tracking, slug)) continue;
  const paths = tracking[slug];
  for (const locale of localeList) {
- const relPath = paths?.[locale];
- if (!relPath) continue;
+ const trackedPath = paths?.[locale];
+ if (!trackedPath) continue;
+ const pathResolution = resolveExpiredPathForEmission(locale, trackedPath, slug);
+ if (pathResolution.kind === 'skip') continue;
+ const relPath = pathResolution.path;
+ if (pathResolution.canonicalizedLegacySection && shouldEmitLocale(locale)) {
+  expiredLegacySectionCanonicalized++;
+ }
+ const emissionPaths = pathResolution.canonicalizedLegacySection
+  ? { ...paths, [locale]: relPath }
+  : paths;
  // Keep the self-healing safety net aligned with the expired renderer: a
  // native non-Ticino detail page owns this locale+slug and the Worker handles
  // the legacy-TI URL with a redirect. Recreating a 200 tombstone here would
@@ -17346,8 +17534,8 @@ ${staticAnalyticsHtml}
  continue;
  }
 
- const archive = historicalArchiveFallbacks.get(relPath);
- const hreflangLinks = buildTrackedHreflangLinks(slug, paths);
+ const archive = historicalArchiveFallbacks.get(trackedPath);
+ const hreflangLinks = buildTrackedHreflangLinks(slug, emissionPaths);
  const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
  const wroteHistorical = writeSoftLandingPage(relPath.replace(/^\//, ''), html);
  if (!wroteHistorical) continue;
@@ -17363,6 +17551,11 @@ ${staticAnalyticsHtml}
  if (healedCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Preserved ${historicalFallbackCount} historical tracking paths with full archive pages (${historicalArchiveCount} reused archived payloads)`);
  }
+ console.log(
+  `\x1b[36m[jobs-seo-pages]\x1b[0m expired emit policy: ` +
+  `expiredSkippedActiveSlug=${expiredSkippedActiveSlug} ` +
+  `expiredLegacySectionCanonicalized=${expiredLegacySectionCanonicalized}`,
+ );
  if (skippedFilesystemLimitPaths > 0) {
   console.warn(`[jobs-seo-pages] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
  }
@@ -17465,21 +17658,10 @@ ${staticAnalyticsHtml}
  );
  }
  }
- const sitemapExpiredExists = fs.existsSync(np.join(distDir, 'sitemap-jobs-expired.xml'));
- if (sitemapExpiredExists) {
- if (!idx.includes('sitemap-jobs-expired.xml')) {
- idx = idx.replace(
- '</sitemapindex>',
- ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs-expired.xml</loc>\n <lastmod>${cacheDateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
- );
- } else {
- idx = idx.replace(
- /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs-expired\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
- `$1${cacheDateStamp}$2`
- );
- }
- }
  fs.writeFileSync(sitemapIndexFile, idx, 'utf-8');
+ // Reconcile the sharded expired family after any cache-hit patching. The
+ // helper is idempotent and also removes a stale monolith reference.
+ patchExpiredSitemapIndex(cacheDateStamp);
  }
 
  // Tiered emission summary (artifact-shrink Fase 1). 'full' = today's

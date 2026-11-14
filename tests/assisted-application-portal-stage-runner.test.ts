@@ -10,7 +10,7 @@ vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async impo
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
     beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
 }));
-import { advancedToFinalReview, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { advancedToFinalReview, embeddedEngelvoelkersApplyUrlFromHtml, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
 
 const title = 'Infrastructure Strategy Manager';
@@ -18,7 +18,7 @@ const applyUrl = 'https://careers.example/Careers/ApplicationMethods?jobId=42';
 const profileUrl = 'https://careers.example/Careers/ApplicationConfirmation?jobId=42';
 const reviewUrl = 'https://careers.example/Careers/ApplicationReview?jobId=42';
 const receiptUrl = 'https://careers.example/Careers/ApplicationComplete?jobId=42';
-const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
+const snapshot = (url: string, text: string, buttons: any[]) => ({ url, title, heading: title, text: `${title}. ${text}`, fields: [], buttons, errors: [], captcha: false, passwordVisible: false });
 const profile = snapshot(profileUrl, 'Since you have already submitted your personal information, the application process will be simpler.', [{ id: 'navigation', text: 'Apply', href: reviewUrl }]);
 const review = snapshot(reviewUrl, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [{ id: 'commit', text: 'Apply' }]);
 const receipt = snapshot(receiptUrl, 'Thank you for your application.', [{ text: 'My profile' }]);
@@ -27,48 +27,75 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   state.snapshot = source || initial;
   const buttonTransitions = options.buttonTransitions || {};
   const guard = vi.fn(async () => {
-    expect(state.snapshot.url).toBe(reviewUrl);
+    expect(state.snapshot.url).toBe(options.guardUrl || reviewUrl);
     expect(click).not.toHaveBeenCalled();
   });
-  const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = receipt; });
+  const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = options.receiptSnapshot || receipt; });
   const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; });
   const page: any = {
     url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
+      if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
     evaluate: async (fn: Function) => {
       const source = String(fn);
       if (source.includes('navigator.userAgent')) return 'Chrome';
+      if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
+        return state.snapshot.heading ? [state.snapshot.heading] : [];
+      }
+      if (source.includes("script#__NEXT_DATA__")) return options.embeddedHtml || '';
       return source.includes('document.body') ? state.snapshot.text : false;
     },
+    ...(options.agentSnapshot ? { ariaSnapshot: async () => options.agentSnapshot(state.snapshot) } : {}),
     waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
     getByRole: () => ({
       count: async () => 0,
       filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
     }),
-    locator: (selector: string) => ({
-      count: async () => 0,
-      first: () => ({
-        click: (_options?: unknown) => {
-          const transition = buttonTransitions[selector];
-          if (transition) return transition();
-          return finalClickError && state.snapshot.url === reviewUrl
-            ? Promise.reject(finalClickError)
-            : state.snapshot === source ? openClick() : click();
-        },
-        evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
-      }),
-    }),
+    locator: (selector: string) => {
+      const ref = /^aria-ref=(e\d+)$/.exec(selector)?.[1] || '';
+      const agentControl = ref ? options.agentControl?.(state.snapshot, ref) : null;
+      if (agentControl) {
+        return {
+          evaluate: async (fn: Function) => fn.name === 'allowAgentApplicationEntryClickInPage' ? true : agentControl.info,
+          isEnabled: async () => !agentControl.info.disabled,
+          click: async () => {
+            const transition = buttonTransitions[agentControl.selector];
+            if (transition) return transition();
+            return state.snapshot === source ? openClick() : click();
+          },
+        };
+      }
+      return {
+        count: async () => 0,
+        first: () => ({
+          click: (_options?: unknown) => {
+            const transition = buttonTransitions[selector];
+            if (transition) return transition();
+            return finalClickError && state.snapshot.url === reviewUrl
+              ? Promise.reject(finalClickError)
+              : state.snapshot === source ? openClick() : click();
+          },
+          evaluate: async (_fn: Function, argument: any) => ({ ok: true, contractJson: JSON.stringify(argument) }),
+        }),
+      };
+    },
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const codex = vi.fn();
   const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
-    codex, launch: async () => browser, onBeforeSubmit: guard });
+    codex, launch: async () => browser, onBeforeSubmit: guard,
+    ...(options.portalReplay === true ? {
+      portalReplay: true,
+      portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
+      portalReplayMetrics: options.portalReplayMetrics,
+    } : {}),
+  });
   return { run, guard, click, openClick, page, codex };
 }
 
@@ -98,6 +125,26 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
     expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('blocks and records any final click reached in portal replay mode', async () => {
+    const portalReplayMetrics = { finalClickAttempts: 0 };
+    const finalReview = {
+      ...review,
+      buttons: [{ id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false }],
+    };
+    const f = fixture(profile, null, finalReview, null, {
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_replay_final_click_blocked' });
+    expect(portalReplayMetrics.finalClickAttempts).toBe(1);
+    expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).not.toHaveBeenCalled();
   });
 
@@ -161,6 +208,83 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).not.toHaveBeenCalled();
   });
 
+  it('clicks one duplicated custom-domain Postuler entry and continues to the bound SuccessFactors sign-in', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager · Rechercher les offres', [
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const signInUrl = applyUrl;
+    const signIn = {
+      ...snapshot(signInUrl, 'Sign in to continue your application', [{ id: 'sign-in', text: 'Sign in' }]),
+      fields: [
+        { id: 'email', label: 'Email address', kind: 'text', inputType: 'email', required: true },
+        { id: 'password', label: 'Password', kind: 'text', inputType: 'password', required: true },
+      ],
+      passwordVisible: true,
+    };
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); state.snapshot = signIn; },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); state.snapshot = signIn; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(result.event.reason).not.toBe('application_stage_unknown');
+    expect(state.snapshot.url).toBe(signInUrl);
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not click the duplicate custom-domain CTA when the first click leaves the posting unchanged', async () => {
+    const applyUrl = 'https://career55.sapsf.eu/career?company=Fixture&career_job_req_id=77123&career_ns=job_application';
+    const postingUrl = 'https://jobs.fictional-employer.test/job/customer-success-manager/990021/';
+    const postingRouteProof = { via: 'successfactors', applyUrl, postingUrl };
+    const vacancyContext = 'Fictional Employer GmbH\nCustomer Success Manager';
+    const posting = snapshot(postingUrl, 'Fictional Employer GmbH · Customer Success Manager', [
+      { id: 'apply-top', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'apply-bottom', text: 'Postuler »»', vacancyContext, chrome: true },
+      { id: 'alert', text: 'Créer une alerte', chrome: true },
+      { id: 'profile', text: 'Mon profil de candidature', chrome: true },
+    ]);
+    const pressed: string[] = [];
+    const f = fixture(posting, null, review, null, {
+      applyUrl,
+      postingUrl,
+      postingRouteProof,
+      channelType: 'successfactors',
+      job: { company: 'Fictional Employer GmbH', title: 'Customer Success Manager' },
+      applySnapshot: posting,
+      buttonTransitions: {
+        '[data-aa-id="apply-top"]': async () => { pressed.push('apply-top'); },
+        '[data-aa-id="apply-bottom"]': async () => { pressed.push('apply-bottom'); },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(pressed).toEqual(['apply-top']);
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+  });
+
   it('opens a Career Site Builder Apply dropdown and its own menu entry instead of stopping as an unknown stage', async () => {
     // Synthetic shape of order s2Tbwwjd's posting: two identical «Jetzt
     // bewerben» disclosure toggles, a menu with the manual entry and LinkedIn.
@@ -188,11 +312,36 @@ describe('runner final guard across three application stages', () => {
       passwordVisible: true,
     };
     const pressed: string[] = [];
+    const agentPages = new Map([
+      [postingUrl, [toggles[0]]],
+      [postingUrl + '#menu', menu.buttons],
+      [signInUrl, signIn.buttons],
+    ]);
+    const action = (ref: string) => ({
+      ref, action: 'click', value: '', document: 'none', question: '', context: '', answer: '', source: 'widget', evidence: '',
+    });
     const f = fixture(posting, null, review, null, {
       applyUrl: postingUrl,
       postingUrl,
       channelType: 'employer_site',
       job: { company: 'Helsana', title },
+      agentSnapshot: (current: any) => {
+        if (current === posting) return '- button "Jetzt bewerben" [ref=e0]';
+        if (current === menu) return menu.buttons.map((button, index) => `- button "${button.text}" [ref=e${index}]`).join('\n');
+        return '- textbox "E-Mail-Adresse" [ref=e0]\n- textbox "Kennwort" [ref=e1]';
+      },
+      agentControl: (current: any, ref: string) => {
+        const index = Number(ref.slice(1));
+        const controls = current === posting ? agentPages.get(postingUrl)! : current === menu ? agentPages.get(postingUrl + '#menu')! : [];
+        const control = controls[index];
+        if (!control) return null;
+        return {
+          selector: `[data-aa-id="${control.id}"]`,
+          info: { name: control.text, labelName: '', otp: false, button: true, tag: 'button', inputType: 'button',
+            editable: false, inList: false, inForm: false, href: control.href || '', submits: false,
+            authForm: false, leaves: Boolean(control.href && !control.href.startsWith('#')), disabled: false },
+        };
+      },
       buttonTransitions: {
         '[data-aa-id="toggle-top"]': async () => { pressed.push('toggle-top'); state.snapshot = menu; },
         '[data-aa-id="manual"]': async () => { pressed.push('manual'); state.snapshot = signIn; },
@@ -200,12 +349,17 @@ describe('runner final guard across three application stages', () => {
         '[data-aa-id="toggle-bottom"]': async () => { pressed.push('toggle-bottom'); },
       },
     });
+    f.codex
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [action('e0')], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [action('e1')], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'ACCOUNT_STEP', reason: '', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
     expect(pressed.slice(0, 2)).toEqual(['toggle-top', 'manual']);
     expect(pressed).not.toContain('linkedin');
-    expect(result.event.reason).not.toBe('application_stage_unknown');
+    expect(f.codex).toHaveBeenCalledTimes(3);
+    expect(result.event.type).toBe('submit_handoff');
     expect(state.snapshot.url).toBe(signInUrl);
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
@@ -293,10 +447,12 @@ describe('runner final guard across three application stages', () => {
       job: { title },
     });
 
+    f.page.ariaSnapshot = async () => '- button "Sprache" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: no_job_entry', actions: [], advanceRef: '', submitRef: '', questions: [] });
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
-    expect(f.codex).not.toHaveBeenCalled();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
     expect(f.page.goto.mock.calls.every(([url]: [string]) => url === postingUrl)).toBe(true);
@@ -447,7 +603,7 @@ describe('runner final guard across three application stages', () => {
   });
 
   it('resolves the explicit cookie choice before checking the Yellowshark posting identity', async () => {
-    const postingUrl = 'https://jobs.yellowshark.com/job/example/';
+    const postingUrl = 'https://jobs.yellowshark.com/job/example/?jobId=42';
     const cookieDialog = snapshot(postingUrl,
       'Dialog schliessen Alle akzeptieren Ablehnen Einstellungen anzeigen JETZT BEWERBEN',
       [
@@ -461,7 +617,7 @@ describe('runner final guard across three application stages', () => {
     cookieDialog.dialogs = [{ dialogId: 'yellowshark' }];
     cookieDialog.buttons.slice(0, 4).forEach((button: any) => { button.dialog = true; button.dialogId = 'yellowshark'; });
     const visiblePosting = snapshot(postingUrl, 'Yellowshark AG · Infrastructure Strategy Manager', [
-      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager', disabled: false },
+      { id: 'apply', text: 'JETZT BEWERBEN', section: title, context: 'Yellowshark AG — Infrastructure Strategy Manager · Job ID: 42', disabled: false },
     ]);
     visiblePosting.title = 'Yellowshark AG — Infrastructure Strategy Manager';
     // The fixture halts at a CAPTCHA after the owned Apply control; it must
@@ -472,11 +628,25 @@ describe('runner final guard across three application stages', () => {
       applyUrl: postingUrl,
       postingUrl,
       job: { company: 'Yellowshark AG', title },
+      agentSnapshot: (current: any) => current.buttons.map((button: any, index: number) => `- button "${button.text}" [ref=e${index}]`).join('\n'),
+      agentControl: (current: any, ref: string) => {
+        const control = current.buttons[Number(ref.slice(1))];
+        if (!control) return null;
+        return {
+          selector: `[data-aa-id="${control.id}"]`,
+          info: { name: control.text, labelName: '', otp: false, button: true, tag: 'button', inputType: 'button',
+            editable: false, inList: false, inForm: false, href: control.href || '', submits: false,
+            authForm: false, leaves: false, disabled: Boolean(control.disabled) },
+        };
+      },
       buttonTransitions: {
         '[data-aa-id="reject"]': async () => { state.snapshot = visiblePosting; },
         '[data-aa-id="apply"]': applyClicked,
       },
     });
+    f.codex
+      .mockResolvedValueOnce({ status: 'ACT', reason: '', actions: [{ ref: 'e0', action: 'click', value: '', document: 'none', question: '', context: '', answer: '', source: 'widget', evidence: '' }], advanceRef: '', submitRef: '', questions: [] })
+      .mockResolvedValueOnce({ status: 'PARKED', reason: 'PARKED: challenge', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
@@ -485,6 +655,40 @@ describe('runner final guard across three application stages', () => {
     expect(applyClicked).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not inherit posting identity from a selected posting Apply click into a talent pool', async () => {
+    const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
+    const entry = { id: 'posting-apply', text: 'Apply now', frame: 0 };
+    const selectedPosting = {
+      ...snapshot(postingUrl, 'Career opportunities', [entry]),
+      title: 'Careers',
+      text: 'Career opportunities',
+    };
+    const talentPool = {
+      ...snapshot('https://jobs.example.test/talent-community/', 'Join our talent pool for future opportunities.', []),
+      title: 'Talent Pool',
+      text: 'Join our talent pool for future opportunities.',
+      fields: [{ id: 'email', kind: 'text', inputType: 'email', label: 'Email', required: true, formId: 'application', frame: 0 }],
+    };
+    const metrics = { finalClickAttempts: 0 };
+    const f = fixture(talentPool, selectedPosting, review, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      job: { company: 'Example Employer', title: 'Synthetic Role' },
+      portalReplay: true,
+      portalReplayFenceInstalled: true,
+      portalReplayMetrics: metrics,
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+    expect(metrics.finalClickAttempts).toBe(0);
   });
 
   it('keeps a regional notice terminal for an unrelated job-card application CTA', async () => {
@@ -582,28 +786,111 @@ describe('runner final guard across three application stages', () => {
     });
   });
 
-  it('classifies a non-form loading page outside the selected posting as a mismatch', async () => {
+  it('routes a non-form loading page outside the selected posting through navigation recovery', async () => {
     const unrecognized = { ...snapshot(applyUrl, 'Please wait while the portal loads.', []), text: 'Please wait while the portal loads.', title: 'Careers' };
     const f = fixture(unrecognized);
+    f.page.ariaSnapshot = async () => '- text "Please wait while the portal loads" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: loading_shell', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });
 
-  it('classifies a control-free page outside the selected route as a posting mismatch', async () => {
+  it('routes a control-free page outside the selected route through navigation recovery', async () => {
     const otherTitle = { ...snapshot(applyUrl, 'Application portal is loading.', []),
       title: 'Different role', text: 'Application portal is loading.', fields: [] };
     const f = fixture(otherTitle);
+    f.page.ariaSnapshot = async () => '- text "Application portal is loading" [ref=e0]';
+    f.codex.mockResolvedValue({ status: 'PARKED', reason: 'PARKED: loading_shell', actions: [], advanceRef: '', submitRef: '', questions: [] });
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).toHaveBeenCalledOnce();
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('follows the selected Engel & Völkers Lever entry from a chrome-only detail shell', async () => {
+    const uuid = 'a6b47bf4-6819-48a4-bdab-f6160bd496ec';
+    const postingUrl = `https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/${uuid}`;
+    const leverApply = `https://jobs.eu.lever.co/engelvoelkers/${uuid}/apply`;
+    const leverReview = `${leverApply}/review`;
+    const leverReceipt = `${leverApply}/confirmation`;
+    const shell = {
+      url: postingUrl,
+      title: 'Careers',
+      heading: '',
+      text: '',
+      fields: [],
+      buttons: [
+        { text: 'open navigation', chrome: true },
+        { text: 'Comprare e affittare', chrome: true },
+        { text: 'Vendere un immobile', chrome: true },
+        { text: 'Agenti immobiliari', chrome: true },
+        { text: 'Commercial', chrome: true },
+        { text: 'Azienda', chrome: true },
+        { text: 'IT', chrome: true },
+        { text: 'Contattaci ora', chrome: true },
+        { text: 'vai all\'inizio', chrome: true },
+        { text: 'Gestisci le impostazioni [dato del candidato] cookie', chrome: true },
+      ],
+      errors: [], captcha: false, passwordVisible: false,
+    };
+    const embeddedHtml = `<script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+      props: { pageProps: { data: { details: { posting: {
+        id: uuid,
+        urls: { apply: leverApply },
+      } } } } },
+    })}</script>`;
+    const leverForm = {
+      ...shell,
+      url: leverApply,
+      title,
+      text: `Engel & Völkers — ${title}. Application form.`,
+      fields: [{ id: 'cv', kind: 'file', inputType: 'file', label: 'CV', required: false, formId: 'application', frame: 0 }],
+      buttons: [{ id: 'next', text: 'Next', formId: 'application', frame: 0, disabled: false }],
+    };
+    const leverReviewSnapshot = {
+      ...leverForm,
+      url: leverReview,
+      text: `Engel & Völkers — ${title}. Review your application. Select Submit to send it.`,
+      buttons: [{ id: 'commit', text: 'Submit', formId: 'application', frame: 0, disabled: false }],
+    };
+    const leverReceiptSnapshot = {
+      ...leverReviewSnapshot,
+      url: leverReceipt,
+      text: `Thank you for your application to ${title}.`,
+      fields: [],
+      buttons: [],
+    };
+    let finalClickCount = 0;
+    const f = fixture(shell, shell, review, null, {
+      postingUrl,
+      embeddedApplyUrl: leverApply,
+      embeddedHtml,
+      applySnapshot: leverForm,
+      guardUrl: leverReview,
+      receiptSnapshot: leverReceiptSnapshot,
+      buttonTransitions: {
+        '[data-aa-id="next"]': () => { state.snapshot = leverReviewSnapshot; },
+        '[data-aa-id="commit"]': () => { finalClickCount += 1; state.snapshot = leverReceiptSnapshot; },
+      },
+      job: { title, company: 'Engel & Völkers' },
+    });
+    expect(embeddedEngelvoelkersApplyUrlFromHtml(embeddedHtml, postingUrl)).toBe(leverApply);
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.page.goto).toHaveBeenCalledWith(leverApply, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(finalClickCount).toBe(1);
   });
 
   it('opens the posting-owned CTA when an unrelated Apply control comes first', async () => {
@@ -710,7 +997,7 @@ describe('runner final guard across three application stages', () => {
     };
     const context: any = { route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} };
     const browser = { newContext: async () => context, close: async () => {}, version: () => '151' };
-    const codex = vi.fn(async () => ({ status: 'done', reason: 'test', actions: [], advanceRef: 'e0', submitRef: '', questions: [] }));
+    const codex = vi.fn(async () => ({ status: 'REACHED_FORM', reason: 'test', actions: [], advanceRef: 'e0', submitRef: '', questions: [] }));
 
     const result = await submitViaPortal({
       applyUrl, job: { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
@@ -787,6 +1074,7 @@ describe('runner final guard across three application stages', () => {
       frames: () => [page], mainFrame: () => page,
       url: () => state.snapshot.url,
       title: async () => title,
+      ariaSnapshot: async () => state.snapshot.buttons.map((button: any, index: number) => `- button "${button.text}" [ref=e${index}]`).join('\n'),
       evaluate: async (fn: Function) => {
         const source = String(fn);
         if (source.includes('navigator.userAgent')) return 'Chrome';
@@ -812,6 +1100,6 @@ describe('runner final guard across three application stages', () => {
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(advance).toHaveBeenCalledOnce();
-    expect(codex).not.toHaveBeenCalled();
+    expect(codex).toHaveBeenCalledOnce();
   });
 });

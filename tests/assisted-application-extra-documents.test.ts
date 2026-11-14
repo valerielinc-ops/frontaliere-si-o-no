@@ -4,6 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   EXTRA_DOCUMENT_SLOTS,
+  MAX_REQUIRED_DOCUMENTS,
   MAX_FILES_PER_DOCUMENT,
   documentFilesOf,
   extraDocumentFileName,
@@ -38,7 +39,7 @@ describe('requested documents', () => {
       { id: 'eva', label: 'Test EVA', kind: 'other', keywords: [], required: false, quote: '' },
     ]);
     expect(requiredDocumentsOf({})).toEqual([]);
-    expect(requiredDocumentsOf({ requiredDocuments: Array.from({ length: 20 }, (_, i) => ({ id: `d${i}`, label: `D${i}` })) })).toHaveLength(EXTRA_DOCUMENT_SLOTS.length);
+    expect(requiredDocumentsOf({ requiredDocuments: Array.from({ length: 20 }, (_, i) => ({ id: `d${i}`, label: `D${i}` })) })).toHaveLength(MAX_REQUIRED_DOCUMENTS);
   });
 
   it('keeps only files in the order\'s folder, of a known type, at most five', () => {
@@ -146,6 +147,83 @@ describe('requested documents', () => {
     )).toEqual([
       { id: 'references', label: 'Arbeitszeugnisse', kind: 'reference', keywords: ['Arbeitszeugnis', 'reference'], required: true, quote: 'Arbeitszeugnisse' },
       { id: 'portal_document_passport', label: 'Passport copy', kind: 'other', keywords: ['passport'], required: true, quote: 'Passport copy *' },
+    ]);
+  });
+
+  it.each([
+    'Foto',
+    'Photo (optional)',
+    'Photos',
+    'Bewerbungsfoto',
+    'Passfoto',
+    'Profilbild',
+    'photo d’identité',
+    'photographie d’identité',
+    'fotografia',
+  ])('recognises a required portrait slot across portal languages: %s', label => {
+    const [photo] = requiredDocumentsOf({ requiredDocuments: [{ id: 'portal_photo', label, kind: 'other', required: true }] });
+    expect(photo).toMatchObject({ id: 'portal_photo', kind: 'photo', required: true });
+  });
+
+  it('does not treat a photo ID as a candidate portrait', () => {
+    const documents = requiredDocumentsOf({ requiredDocuments: [
+      { id: 'photo_id', label: 'Photo ID', kind: 'photo', required: true },
+      { id: 'identity_photo', label: 'ID photo', kind: 'other', required: true },
+    ] });
+    expect(documents.map(document => document.kind)).toEqual(['other', 'other']);
+  });
+
+  it('uses the dedicated photo slot and requires an image rather than an arbitrary attachment', () => {
+    const draft = { requiredDocuments: [{ id: 'portal_photo', label: 'Foto*', required: true }] };
+    const pdf = { key: key('doc-portal_photo-0-1234abcd.pdf'), detectedType: 'pdf' };
+    const jpg = { key: key('doc-portal_photo-0-1234abcd.jpg'), detectedType: 'jpg', size: 1234 };
+    expect(openRequiredDocuments(draft, { portal_photo: { files: [pdf] } })).toEqual(['portal_photo']);
+    expect(openRequiredDocuments(draft, { portal_photo: { files: [jpg] } })).toEqual([]);
+    expect(extraDocumentsToSend(draft, { documents: { portal_photo: { files: [jpg] } } }, ORDER)).toEqual([
+      expect.objectContaining({ id: 'portal_photo', slot: 'photo', kind: 'photo', files: [jpg] }),
+    ]);
+    expect(EXTRA_DOCUMENT_SLOTS).toContain('photo');
+  });
+
+  it('requires an uploaded portrait to satisfy the field accept and byte limit', () => {
+    const draft = { requiredDocuments: [{
+      id: 'portal_photo', label: 'Foto*', required: true, accept: 'image/jpeg', maxBytes: 2048,
+    }] };
+    const png = { key: key('doc-portal_photo-0-1234abcd.png'), detectedType: 'png', size: 1000 };
+    const unknownSizeJpg = { key: key('doc-portal_photo-1-1234abcd.jpg'), detectedType: 'jpg' };
+    const acceptedJpg = { key: key('doc-portal_photo-2-1234abcd.jpg'), detectedType: 'jpg', size: 2048 };
+    const oversizedJpg = { key: key('doc-portal_photo-3-1234abcd.jpg'), detectedType: 'jpg', size: 2049 };
+    const sharedSlotJpg = { key: key('doc-photo-0-1234abcd.jpg'), detectedType: 'jpg', size: 1024 };
+
+    expect(openRequiredDocuments(draft, { portal_photo: { files: [png, unknownSizeJpg, oversizedJpg] } })).toEqual(['portal_photo']);
+    expect(openRequiredDocuments(draft, { portal_photo: { files: [png, acceptedJpg, oversizedJpg] } })).toEqual([]);
+    expect(extraDocumentsToSend(draft, {
+      documents: { portal_photo: { files: [png, unknownSizeJpg, acceptedJpg, oversizedJpg] } },
+    }, ORDER)).toEqual([
+      expect.objectContaining({ id: 'portal_photo', slot: 'photo', files: [acceptedJpg] }),
+    ]);
+    const sharedSlotFlow = { documents: {
+      portal_photo: { files: [png] },
+      photo: { files: [sharedSlotJpg] },
+    } };
+    expect(openRequiredDocuments(draft, sharedSlotFlow.documents)).toEqual([]);
+    expect(extraDocumentsToSend(draft, sharedSlotFlow, ORDER)).toEqual([
+      expect.objectContaining({ id: 'portal_photo', slot: 'photo', files: [sharedSlotJpg] }),
+    ]);
+  });
+
+  it('uses the candidate photo already stored for the tailored CV before looking in the CV', () => {
+    const draft = { requiredDocuments: [{ id: 'portal_photo', label: 'Foto', required: true, accept: 'image/jpeg' }] };
+    const candidatePhoto = {
+      key: key('photo-1234-abcd.jpg'), detectedType: 'jpg', size: 1200, uploadedAt: 1234,
+    };
+    const flow = { photo: candidatePhoto };
+
+    expect(openRequiredDocuments(draft, {}, flow)).toEqual([]);
+    expect(extraDocumentsToSend(draft, flow, ORDER)).toEqual([
+      expect.objectContaining({ id: 'portal_photo', slot: 'photo', files: [expect.objectContaining({
+        key: candidatePhoto.key, detectedType: 'jpg', size: candidatePhoto.size,
+      })] }),
     ]);
   });
 
