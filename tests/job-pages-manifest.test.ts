@@ -27,6 +27,8 @@ import {
 } from '../scripts/lib/job-pages-manifest-client.mjs';
 import {
   createLiveLinkChecker,
+  inspectLiveJobs,
+  jobAlertMetrics,
   jobPageUrl,
   planAlertMatch,
   rankLiveJobsForEmail,
@@ -374,5 +376,100 @@ describe('emissione nel build delle pagine annuncio', () => {
     expect(block).toContain('JOB_PAGES_MANIFEST_FILE');
     expect(block).toMatch(/try \{[\s\S]*catch \(error\)/);
     expect(JOB_PAGES_MANIFEST_FILE).toBe('job-pages-manifest.json');
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Review automatica 5907068125: «il `check` del manifest restituisce un booleano ma
+// `inspectLiveJobs` consuma `{ known, live }`». Non e' cosi': `inspectLiveJobs` scrive il
+// valore di ritorno nella cache condivisa (`cache.set(url, await check(url))`) e ricava
+// `known = cache.has(url)` e `live = cache.get(url) !== false`. Il booleano e' la forma del
+// percorso HTTP (`checkPageBodyLive`); cambiarla in `{ known, live }` romperebbe la cache.
+// Qui il criterio di accettazione, con un checker vero alimentato da un manifest usabile.
+describe('manifest + inspectLiveJobs: il booleano del check e la cache danno known/live', () => {
+  const config = { mode: 'auto', url: 'https://example.test/m.json', maxAgeHours: 36, minCoverage: 0 } as any;
+  const manifestOf = (published: any[]) => (async () => ({
+    ok: true,
+    status: 200,
+    text: async () => JSON.stringify(buildJobPagesManifest({ paths: livePathsOf(published), generatedAt: new Date(NOW - HOUR).toISOString() })),
+  })) as any;
+  const checkerFor = (published: any[]) => createLiveLinkChecker({
+    config, inventory: JOBS, datasetAtMs: NOW, fetchImpl: manifestOf(published), metrics: metricsOf(), log: () => {}, warn: () => {},
+  });
+  const failOpenCount = () => jobAlertMetrics.snapshot().counters.liveLinkFailOpen || 0;
+  const idsOf = (jobs: any[]) => jobs.map((j) => j.id).sort();
+
+  it('(a) un URL pubblicato nel manifest resta in knownLiveJobs e nei job restituiti', async () => {
+    const published = JOBS.slice(0, 3);
+    const checker = await checkerFor(published);
+    expect(checker.source).toBe('manifest');
+    expect(await checker.check(jobPageUrl(published[0], 'it') as string)).toBe(true);
+    const cache = new Map<string, boolean>();
+    const result = await inspectLiveJobs(published, 'it', cache, { check: checker.check, failOpen: checker.failOpen });
+    expect(idsOf(result.knownLiveJobs)).toEqual(idsOf(published));
+    expect(idsOf(result.jobs)).toEqual(idsOf(published));
+    expect(result.unknownJobs).toEqual([]);
+    expect(result.failOpen).toBe(false);
+    // La cache contiene il BOOLEANO del check: e' da li' che nascono known e live.
+    for (const j of published) expect(cache.get(jobPageUrl(j, 'it') as string)).toBe(true);
+  });
+
+  it('(b) un URL assente e\' filtrato SENZA fail-open, anche se la quota di pagine vive e\' bassa (liveLinkFailOpen non incrementato)', async () => {
+    const published = JOBS.slice(0, 3);
+    const checker = await checkerFor(published);
+    const before = failOpenCount();
+    const cache = new Map<string, boolean>();
+    // 3 pubblicati su 12: con il ramo HTTP questo rapporto (25%) farebbe scattare il fail-open.
+    const result = await inspectLiveJobs(JOBS, 'it', cache, { check: checker.check, failOpen: checker.failOpen });
+    expect(idsOf(result.knownLiveJobs)).toEqual(idsOf(published));
+    expect(idsOf(result.jobs)).toEqual(idsOf(published));
+    for (const absent of JOBS.slice(3)) {
+      expect(result.jobs.some((j: any) => j.id === absent.id)).toBe(false);
+      expect(cache.get(jobPageUrl(absent, 'it') as string)).toBe(false);
+    }
+    expect(result.failOpen).toBe(false);
+    expect(failOpenCount()).toBe(before);
+    // Contro-prova: lo stesso rapporto con failOpen attivo (percorso HTTP) scatterebbe il fail-open.
+    const httpLike = await inspectLiveJobs(JOBS, 'it', new Map(), { check: checker.check, failOpen: true });
+    expect(httpLike.failOpen).toBe(true);
+    expect(failOpenCount()).toBe(before + 1);
+  });
+
+  it('(c) un alert con almeno un annuncio pubblicato resta inviabile; con tutti non pubblicati la lista e\' vuota (= «link pagina non più vivi»)', async () => {
+    const alert = { id: 'accept-1', email: 'accept@example.test', locale: 'it', keywords: ['infermiere'] };
+    const store = createJobFeatureStore();
+    const context: any = {
+      behaviorProfiles: new Map(), lastClickedUrlByEmail: new Map(), locationIndex: new Map(), cityToCanton: new Map(),
+      subscriberProfiles: new Map(), now: NOW, featureCache: createJobFeatureCache(store), compactMatches: true, allowDiscovery: false,
+    };
+    const plan = planAlertMatch(alert, { ...context, recentJobs: JOBS });
+    expect(plan.matched.length).toBe(JOBS.length);
+    const rankingOptions: any = { variant: 'control', config: { enabled: false }, rankingMetadata: plan.rankingMetadata };
+
+    const one = await checkerFor(JOBS.slice(5, 6));
+    const sendable = await rankLiveJobsForEmail(plan.matched, 'it', new Map(), rankingOptions, { check: one.check, failOpen: one.failOpen } as any);
+    expect(sendable.map((j: any) => j.id)).toEqual([JOBS[5].id]);
+    expect(sendable.length).toBeGreaterThan(0);
+
+    const none = await checkerFor([]).catch(() => null);
+    // Un manifest senza nessuna pagina e' malformato (`total === 0`): ripiega sul HTTP, non e' il caso.
+    expect(none?.source).toBe('http');
+    const other = await createLiveLinkChecker({
+      config, inventory: JOBS, datasetAtMs: NOW,
+      fetchImpl: (async () => ({ ok: true, status: 200, text: async () => JSON.stringify(buildJobPagesManifest({ paths: ['/it/altra-sezione/altro-1'], generatedAt: new Date(NOW - HOUR).toISOString() })) })) as any,
+      metrics: metricsOf(), log: () => {}, warn: () => {},
+    });
+    expect(other.source).toBe('manifest');
+    const before = failOpenCount();
+    const dead = await rankLiveJobsForEmail(plan.matched, 'it', new Map(), rankingOptions, { check: other.check, failOpen: other.failOpen } as any);
+    expect(dead).toEqual([]);
+    expect(failOpenCount()).toBe(before);
+  });
+
+  it('nel sender una lista vuota diventa la voce di funnel «link pagina non più vivi» (deadLinks), mai un invio', () => {
+    const sender = fs.readFileSync(path.resolve(__dirname, '../scripts/send-job-alerts.mjs'), 'utf8');
+    expect(sender).toMatch(/if \(rankedForEmail\.length === 0\) \{\s*funnelIn\.deadLinks \+= 1;/);
+    const funnel = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/job-alert-funnel.mjs'), 'utf8');
+    expect(funnel).toContain("key: 'deadLinks', label: 'link pagina non più vivi'");
   });
 });

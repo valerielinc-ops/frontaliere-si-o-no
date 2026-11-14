@@ -242,6 +242,18 @@ describe('sender in dry-run, end to end', () => {
     expect(text()).toContain('Live-link via job-pages manifest');
   });
 
+  // Review automatica 5907068125: con un manifest usabile il `check` restituisce un booleano e
+  // `inspectLiveJobs` ricava known/live dalla cache; le email devono comunque essere pianificate.
+  it('PR 5 (review): con un manifest usabile e annunci pubblicati le email sono pianificate (> 0), non scartate come link non vivi', () => {
+    const line = (label: RegExp) => Number((text().match(label) || [])[1]?.replace(/\./g, '') ?? NaN);
+    expect(metrics.counters.liveLinkSource).toBe('manifest');
+    expect(metrics.counters.emailsPlanned).toBeGreaterThan(0);
+    expect(line(/Email pianificate\s+(\d[\d.]*)/)).toBeGreaterThan(0);
+    // Ogni alert ha almeno un annuncio fra i 20 pubblicati: nessuno e' scartato dal live-link.
+    expect(line(/link pagina non più vivi\s+(\d[\d.]*)/)).toBe(0);
+    expect(metrics.counters.liveLinkFailOpen ?? 0).toBe(0);
+  });
+
   it('PR 8: la query non cambia e la violazione dello shadow e contata una volta', () => {
     expect(metrics.counters.cadenceIndexViolations).toBe(1);
     expect(metrics.counters.cadenceIndexSkippable).toBeGreaterThanOrEqual(1);

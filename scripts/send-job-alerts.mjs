@@ -435,7 +435,7 @@ export const checkJobPageLive = checkPageBodyLive;
  * aren't re-checked). Jobs with no resolvable slug fall back to the site root
  * in the email (always live) and are never filtered. Exported for tests.
  */
-async function inspectLiveJobs(
+export async function inspectLiveJobs(
   jobs,
   locale,
   cache,
@@ -538,6 +538,15 @@ export async function createLiveLinkChecker({
     source: 'manifest',
     reason: 'ok',
     // Risposta locale: nessuna rete, nessun fail-open.
+    //
+    // CONTRATTO: `check` restituisce un BOOLEANO, come `checkPageBodyLive` (la forma del
+    // percorso HTTP). `inspectLiveJobs` non legge il valore di ritorno come `{ known, live }`:
+    // lo scrive nella cache condivisa (`cache.set(url, await check(url))`) e ricava
+    // `known = cache.has(url)` e `live = cache.get(url) !== false`; prefetcher e
+    // `rankLiveJobsForEmail` leggono la stessa cache. Quindi `true` = annuncio nel
+    // manifest = `known` e `live`; `false` = assente = `known` e non `live`.
+    // Dimostrato da tests/job-pages-manifest.test.ts, describe
+    // «manifest + inspectLiveJobs: il booleano del check e la cache danno known/live».
     check: async (url) => {
       metrics.count('liveLinkManifestResolved');
       return loaded.lookup.has(url);
