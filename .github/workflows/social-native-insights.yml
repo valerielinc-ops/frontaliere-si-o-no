@@ -57,8 +57,11 @@ jobs:
           node-version: 22
           cache: npm
 
+      # The social collector uses Firebase and HTTP APIs only. The root lockfile
+      # also includes onnxruntime-node for unrelated local inference; running
+      # its install hook downloads a native binary that this workflow never uses.
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Prepare Firebase credentials
         env:

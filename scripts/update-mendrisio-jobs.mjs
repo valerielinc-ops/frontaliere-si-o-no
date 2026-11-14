@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Città di Mendrisio crawler runner.
  *
@@ -1065,7 +1066,7 @@ function runBaseCrawler() {
 /* ── Post-processing ───────────────────────────────────────── */
 async function postProcessMendrisioJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1124,7 +1125,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const mendrisioJobs = allJobs.filter(isMendrisioJob);
 
@@ -1276,7 +1277,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMendrisioJob) : [];
   writeJobsCrawlerSlice(MENDRISIO_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
