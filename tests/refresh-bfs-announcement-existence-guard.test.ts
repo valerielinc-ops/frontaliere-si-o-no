@@ -197,6 +197,34 @@ describe('la prova API distingue un annuncio BFS pubblicato da una semplice menz
     expect(articleIdFromPublishedIndex(index, '2026-Q2', 1)).toBe('frontaliere-ticino-statistica-2026-q2');
   });
 
+  it('accetta la forma editoriale italiana "terzo trimestre" solo nell anno pubblicato', () => {
+    const index = completeIndex([{
+      id: 'frontalieri-svizzera-calo-ticino',
+      date: '2026-11-10T13:55:04.383Z',
+      title: 'Frontalieri: aumento in Svizzera, calo annuo in Ticino',
+      excerpt: 'Nel terzo trimestre, la statistica dei frontalieri evidenzia un contrasto tra Svizzera e Ticino.',
+    }]);
+    expect(articleIdFromPublishedIndex(index, '2026-Q3', 1)).toBe('frontalieri-svizzera-calo-ticino');
+  });
+
+  it('non usa la forma italiana senza anno pubblicato concordante o senza il perimetro BFS', () => {
+    const index = completeIndex([
+      {
+        id: 'old-article',
+        date: '2025-11-10T13:55:04.383Z',
+        title: 'Frontalieri in Ticino',
+        excerpt: 'Nel terzo trimestre, la statistica dei frontalieri resta stabile.',
+      },
+      {
+        id: 'generic-article',
+        date: '2026-11-10T13:55:04.383Z',
+        title: 'Frontalieri in Italia',
+        excerpt: 'Nel terzo trimestre, la statistica dei frontalieri resta stabile.',
+      },
+    ]);
+    expect(articleIdFromPublishedIndex(index, '2026-Q3', 2)).toBeUndefined();
+  });
+
   it('accetta il candidato esatto del ledger solo se l articolo e nell indice pubblicato', () => {
     const index = completeIndex([{ id: 'bfs-q2-article', title: 'Titolo', excerpt: 'Testo' }]);
     expect(articleIdFromPublishedIndex(index, '2026-Q2', 1, 'bfs-q2-article')).toBe('bfs-q2-article');
