@@ -1,6 +1,6 @@
-name: Publish to GitHub Pages (deploy + validate)
+name: "Publish to GitHub Pages (deploy + validate)"
 
-run-name: Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}
+run-name: "Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}"
 
 # Second half of the build→publish split (see deploy.yml's concurrency comment).
 # deploy.yml only BUILDS (matrix-setup → prep → build-locale ×4) under a
@@ -3546,6 +3546,25 @@ jobs:
           gh workflow run runtime-reliability-watch.yml \
             --repo "$GITHUB_REPOSITORY" \
             --ref main
+      # The publisher is itself started with GITHUB_TOKEN, so GitHub suppresses
+      # the downstream workflow_run event. Dispatch the published-dist audit
+      # explicitly with the immutable source build and publisher identities.
+      - name: Dispatch published dist audit
+        if: ${{ needs.publish.result == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISHER_RUN_ID: ${{ github.run_id }}
+          PUBLISHER_SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}
+          PUBLISHER_RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          gh workflow run audit-published-dist.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f deploy_run_id="$PUBLISHER_SOURCE_RUN_ID" \
+            -f shard_artifact_run_id="$PUBLISHER_RUN_ID" \
+            -f deploy_ref="$PUBLISHER_SOURCE_SHA" \
+            -f audit_sample_salt="$PUBLISHER_RUN_NUMBER"
       - name: Dispatch exact published dist to Cathedral SEO gates
         if: >-
           ${{ needs.publish.result == 'success' &&
