@@ -1374,14 +1374,17 @@ function changedExportSymbols(file) {
     changed = false;
     for (const declaration of declarations) {
       if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
-      if ([...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) {
-        for (const local of declaration.localNames) impactedLocals.add(local);
-        changed = true;
-      }
+      if (![...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) continue;
+      const newLocals = declaration.localNames.filter((name) => !impactedLocals.has(name));
+      for (const local of newLocals) impactedLocals.add(local);
+      if (newLocals.length > 0) changed = true;
     }
   }
   result = new Set(declarations
-    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name)))
+    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name))
+      || declaration.exportNames.some((name) => impactedLocals.has(name))
+      || (declaration.exportNames.length > 0
+        && [...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))))
     .flatMap(({ exportNames }) => exportNames));
   if (result.size === 0) result = null;
   sourceImpactCache.set(file, result);
@@ -1430,14 +1433,17 @@ function impactedExportsThroughSource(file, bindings, incomingSymbols) {
     changed = false;
     for (const declaration of declarations) {
       if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
-      if ([...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) {
-        for (const local of declaration.localNames) impactedLocals.add(local);
-        changed = true;
-      }
+      if (![...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) continue;
+      const newLocals = declaration.localNames.filter((name) => !impactedLocals.has(name));
+      for (const local of newLocals) impactedLocals.add(local);
+      if (newLocals.length > 0) changed = true;
     }
   }
   const result = new Set(declarations
-    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name)))
+    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name))
+      || declaration.exportNames.some((name) => impactedLocals.has(name))
+      || (declaration.exportNames.length > 0
+        && [...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))))
     .flatMap(({ exportNames: names }) => names));
   if (result.size === 0 && wildcard) {
     sourcePropagationCache.set(cacheKey, null);

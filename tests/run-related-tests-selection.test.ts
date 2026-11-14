@@ -76,6 +76,7 @@ function select(
     cwd: root,
     encoding: 'utf8',
     maxBuffer: 8 * 1024 * 1024,
+    timeout: 10_000,
     env: {
       ...process.env,
       CHANGED_PATHS_FILE: changedPath,
@@ -251,6 +252,52 @@ describe('run-related-tests selection contract', () => {
     const result = select(root, [source]);
     expect(result.status, result.stderr || result.stdout).toBe(0);
     expect(result.stdout).toContain('tests/impacted.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('includes an anonymous default export when its private helper changes', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'const changedHelper = () => 1;',
+        'export default () => changedHelper();',
+        'export const untouched = true;',
+        '',
+      ].join('\n'),
+      'tests/default.test.ts': "import changed from '../services/changed.mjs'; export const observed = changed;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'const changedHelper = () => 2;',
+      'export default () => changedHelper();',
+      'export const untouched = true;',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/default.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('propagates a changed import through an anonymous default export', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: 'export const value = 1;\n',
+      'services/intermediate.mjs': [
+        "import { value } from './changed.mjs';",
+        'export default () => value;',
+        'export const untouched = true;',
+        '',
+      ].join('\n'),
+      'tests/default.test.ts': "import changed from '../services/intermediate.mjs'; export const observed = changed;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/intermediate.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), 'export const value = 2;\n');
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/default.test.ts');
     expect(result.stdout).not.toContain('tests/untouched.test.ts');
   });
 
