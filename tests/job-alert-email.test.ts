@@ -5,26 +5,9 @@ import {
   buildAlertEmail,
   isActuallyNewJob,
   jobRealFreshnessMs,
-  mailerooMetaOnSent,
-  __setFirestoreAdminForTest,
 } from '../scripts/send-job-alerts.mjs';
 import { NEWSLETTER_SPONSORS } from '../services/newsletter/recommendedBlock.mjs';
 import { diversifyJobEmployers } from '../scripts/lib/job-alert-discovery.mjs';
-
-// Minimal Firestore fake capturing .collection().doc().collection().doc().set() chains,
-// recording the final docId + payload so the maileroo-meta writer can be asserted.
-function createMetaFakeDb() {
-  const sets: Array<{ docId: string; data: any; merge: boolean }> = [];
-  const docNode = (id: string): any => ({
-    collection: () => collectionNode(),
-    set: (data: any, opts: any) => {
-      sets.push({ docId: id, data, merge: !!opts?.merge });
-      return Promise.resolve();
-    },
-  });
-  const collectionNode = (): any => ({ doc: (id: string) => docNode(id) });
-  return { db: { collection: () => collectionNode() }, sets };
-}
 
 const fixtureAlert = (locale: 'it' | 'en' | 'de' | 'fr') => ({
   id: 'alert-test-1',
@@ -937,42 +920,25 @@ describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
   });
 });
 
-describe('job alert maileroo meta — open/click attribution writer (#1140)', () => {
-  it('normalizes the email before keying the lookup record (mixed-case → orphan-free)', async () => {
-    const { db, sets } = createMetaFakeDb();
-    __setFirestoreAdminForTest(db);
-    await mailerooMetaOnSent(
-      { recipient: { email: '  Seeker@Example.COM ' } },
-      { provider: 'maileroo', messageId: 'ref_mixed' },
-    );
-    __setFirestoreAdminForTest(null);
+describe('job alert maileroo meta — open/click attribution writer (#1140, single write since perf-plan PR 4a)', () => {
+  const sender = () => fs.readFileSync(path.resolve(__dirname, '../scripts/send-job-alerts.mjs'), 'utf8');
 
-    expect(sets).toHaveLength(1);
-    expect(sets[0]).toMatchObject({
-      docId: 'ref_mixed',
-      merge: true,
-      data: { email: 'seeker@example.com', is_job_alert: true },
-    });
-    // The webhook uses meta.email directly as job_alert_subscribers/{email} doc id,
-    // so it must be lowercased/trimmed to hit the real subscriber, not an orphan.
-    expect(sets[0].data.email).toBe('seeker@example.com');
+  it('the sender no longer writes the Maileroo ref itself: the cascade wrapper writes it once', () => {
+    const src = sender();
+    expect(src).not.toMatch(/recordMailerooRef\s*\(/);
+    expect(src).not.toMatch(/mailerooMetaOnSent/);
+    expect(src).not.toMatch(/import[^;]*mailerooRef\.js/);
   });
 
-  it('writes nothing for non-maileroo providers or missing messageId', async () => {
-    const { db, sets } = createMetaFakeDb();
-    __setFirestoreAdminForTest(db);
-    await mailerooMetaOnSent({ recipient: { email: 'a@b.com' } }, { provider: 'resend', messageId: 'x' });
-    await mailerooMetaOnSent({ recipient: { email: 'a@b.com' } }, { provider: 'maileroo' });
-    await mailerooMetaOnSent({ recipient: {} }, { provider: 'maileroo', messageId: 'y' });
-    __setFirestoreAdminForTest(null);
-    expect(sets).toHaveLength(0);
+  it('both cascade calls (first send and retry queue) name the job-alert ref channel', () => {
+    const src = sender();
+    expect(src).toMatch(/sendEmailCascade\(cascadeEmails,\s*\{[^}]*mailerooRefChannel:\s*JOB_ALERT_MAILEROO_REF_CHANNEL/s);
+    expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*mailerooRefChannel:\s*JOB_ALERT_MAILEROO_REF_CHANNEL/s);
+    expect(src).toMatch(/const JOB_ALERT_MAILEROO_REF_CHANNEL = 'job-alert'/);
   });
 
   it('the retry path (processRetryQueue) passes the same onSent so retried sends are attributed', () => {
-    const src = fs.readFileSync(
-      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
-      'utf8',
-    );
+    const src = sender();
     // Both the first-send and retry sendEmailCascade calls must wire the same
     // composed callback (sendEmailCascade only accepts one onSent).
     const onSentWirings = src.match(/onSent:\s*onSentComposed/g) || [];
@@ -981,14 +947,11 @@ describe('job alert maileroo meta — open/click attribution writer (#1140)', ()
     expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*onSent:\s*onSentComposed/s);
   });
 
-  it('onSentComposed wires both maileroo meta persist and #3798 delivery persist', () => {
-    const src = fs.readFileSync(
-      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
-      'utf8',
-    );
+  it('onSentComposed wires the #3798 delivery persist and no longer the maileroo meta persist', () => {
+    const src = sender();
     const fnMatch = src.match(/async function onSentComposed\(item, sendResult\) \{([\s\S]*?)\n\}/);
     expect(fnMatch).not.toBeNull();
-    expect(fnMatch[1]).toMatch(/mailerooMetaOnSent\(item, sendResult\)/);
+    expect(fnMatch[1]).not.toMatch(/mailerooMetaOnSent/);
     expect(fnMatch[1]).toMatch(/persistJobAlertDelivery\(item, sendResult\)/);
   });
 });

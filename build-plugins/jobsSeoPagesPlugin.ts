@@ -129,6 +129,10 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
+  JOB_PAGES_MANIFEST_FILE,
+  buildJobPagesManifest,
+} from './shared/jobPagesManifest.mjs';
+import {
  createLocalePagePathClaims,
  indexableLocalePageSet,
  isIndexableLocalePage,
@@ -3944,6 +3948,11 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ // Percorsi canonici di OGNI pagina annuncio attiva registrata come emessa, per
+ // tutti i locali (anche quelli che uno shard BUILD_LOCALE non renderizza):
+ // alimenta `dist/job-pages-manifest.json`, con cui il sender dei job alert
+ // risponde «la pagina e' viva?» senza scaricarla (perf-plan PR 5).
+ const activeJobPagePathsForManifest = new Set<string>();
  const renderedActiveJobPaths = new Set<string>();
  const activeJobPathOwners = buildActiveJobPathOwners(
   validJobs,
@@ -4497,6 +4506,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  renderedActiveJobPaths.add(__activeJobKey);
  emittedActiveJobPaths.add(__activeJobKey);
+ activeJobPagePathsForManifest.add(relPath);
  claimedJobPaths.claim(localePathClaimKey(relPath));
  // Per-locale shard build (BUILD_LOCALE): the dedup Set above is fully
  // populated for EVERY locale BEFORE this skip — the sitemap shard pass
@@ -17117,6 +17127,26 @@ ${staticAnalyticsHtml}
  // loop above is the final reader of both sets. Expired sitemap rows are
  // streamed to disk during the archive sweep, so no row array remains here.
  // Keep pathHistory untouched.
+ // Manifest delle pagine annuncio attive (perf-plan PR 5). Va scritto PRIMA
+ // di svuotare i Set: e' l'ultimo punto in cui sono completi. Solo la build che
+ // possiede il locale `it` (la principale, o l'intero build senza BUILD_LOCALE)
+ // lo scrive: il Set contiene tutti i locali, e gli shard degli altri locali non
+ // devono produrne una copia parziale.
+ if (shouldEmitLocale('it') && activeJobPagePathsForManifest.size > 0) {
+  try {
+   const manifest = buildJobPagesManifest({
+    paths: activeJobPagePathsForManifest,
+    buildCommit: process.env.GITHUB_SHA || '',
+   });
+   fs.writeFileSync(np.join(distDir, JOB_PAGES_MANIFEST_FILE), `${JSON.stringify(manifest)}\n`, 'utf-8');
+   console.log(`[jobsSeoPages] job-pages manifest: ${manifest.counts.pages} active pages in ${manifest.counts.sections} sections (${manifest.contentSha256.slice(0, 12)})`);
+  } catch (error) {
+   // Il manifest e' un'ottimizzazione del sender (che ripiega sul controllo HTTP):
+   // un errore qui non deve mai fermare il build delle pagine.
+   console.warn(`[jobsSeoPages] job-pages manifest not written: ${(error as Error)?.message || error}`);
+  }
+ }
+ activeJobPagePathsForManifest.clear();
  crossLocaleCacheReads.clear();
  emittedActiveJobPaths.clear();
  activeJobSitemapLocOwnerIds.clear();
