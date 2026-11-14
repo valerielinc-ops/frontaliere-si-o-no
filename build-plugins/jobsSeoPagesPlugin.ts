@@ -7,6 +7,7 @@ import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
+import { inferOrphanSlugAliases } from '../scripts/lib/orphan-slug-fuzzy-match.mjs';
 import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
 import { validateMandatoryJobPostingFields } from '../scripts/lib/jobposting-mandatory-fields.mjs';
@@ -43,6 +44,28 @@ import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/article
 
 function isMissingPathError(error: unknown): boolean {
  return (error as NodeJS.ErrnoException)?.code === 'ENOENT';
+}
+
+// This is an in-memory render mutation. The crawler's journaled helper cannot
+// be imported here: it is an operational module whose dependency graph pulls
+// executable crawlers into Vite's config bundle. Keep both history shapes in
+// sync for bridge emission without making the render graph depend on crawler
+// I/O, telemetry, or CLI modules.
+function addRenderPreviousSlugForLocale(job: any, locale: string, slug: string): void {
+ if (!slug || !locale) return;
+ const normalized = String(slug).replace(/\s+/g, ' ').trim();
+ if (!normalized) return;
+ if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
+  job.previousSlugsByLocale = {};
+ }
+ if (!Array.isArray(job.previousSlugsByLocale[locale])) {
+  job.previousSlugsByLocale[locale] = [];
+ }
+ if (!job.previousSlugsByLocale[locale].includes(normalized)) {
+  job.previousSlugsByLocale[locale].push(normalized);
+ }
+ if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+ if (!job.previousSlugs.includes(normalized)) job.previousSlugs.push(normalized);
 }
 import np from 'node:path';
 import path from 'path';
@@ -13956,139 +13979,29 @@ ${staticAnalyticsHtml}
  return [...all];
  };
 
- /* ── Fuzzy match orphan slugs to active jobs ─────────────────── */
  // When a company rebrand or title rewrite causes a slug to change, only the
  // locale that triggered regeneration records the old slug in previousSlugsByLocale.
- // The sibling locales' old slugs (which Google may still have indexed) become
- // orphans that fall through to the self-healing "offerta aggiornata" page.
- // Scan `tracking` (merged active + orphan + compat paths) and for each slug
- // not already attached to any active job, score it against every active job's
- // slugByLocale via token overlap. If the best match is confident enough
- // (>=60% token overlap AND ≥3 shared tokens), AND the historical enrichment
- // names the same source posting, inject it into that job's
- // previousSlugsByLocale so the downstream bridge + cross-locale blocks
- // generate a full-content reconciliation page.
- const knownSlugs = new Set<string>();
- for (const j of validJobs) {
- if (j.slug) knownSlugs.add(j.slug);
- if (j.slugByLocale) for (const s of Object.values(j.slugByLocale)) if (typeof s === 'string' && s) knownSlugs.add(s);
- for (const s of _allPrevSlugs(j)) knownSlugs.add(s);
- }
- // Hash trailers like "-w5vlie", "-l7apjs" (4-8 lowercase alnum, often
- // appended by upstream ATSes to dedupe variants of the same posting) are
- // per-posting noise — strip before tokenizing so they don't drown out the
- // discriminant tokens (department, city). Pre-audit (2026-05-28): without
- // strip, 32% of orphans had a hash trailer that became their "last token".
- const HASH_TRAILER_RE = /-[a-z0-9]{4,8}$/;
- const tokenize = (s: string): string[] =>
-   s.replace(HASH_TRAILER_RE, '').split('-').filter(t => t.length >= 3);
- // Canonical city of a job = tokenised `location` field. Used as a HARD lock
- // (below) to prevent cross-city mis-attribution. "Domat/Ems" → ["domat","ems"];
- // "Castel San Pietro" → ["castel","san","pietro"]. Pre-audit: WITHOUT this
- // lock, 74% of fuzzy matches attributed the orphan to a job in a different
- // city — the matcher rewarded shared title prose (e.g. "capo della stazione")
- // over shared location/department tokens, so a Walenstadt orphan would point
- // its canonical at a Chur job because both shared the generic role words.
- const cityTokens = (loc: unknown): string[] => {
-   if (typeof loc !== 'string' || !loc) return [];
-   return loc
-     .toLowerCase()
-     .normalize('NFD').replace(/[̀-ͯ]/g, '')
-     .split(/[^a-z0-9]+/)
-     .filter(t => t.length >= 3);
- };
- const jobCityTokens: string[][] = validJobs.map(j => cityTokens((j as any).location));
- // Index active jobs by every token that appears in any of their slugs so we
- // can quickly find candidates for a given orphan slug (avoids O(orphan × jobs)).
- const jobsByToken = new Map<string, Set<number>>();
- validJobs.forEach((j, idx) => {
- const sbl = (j as any).slugByLocale || {};
- const allJobSlugs = [
- ...Object.values(sbl).filter((s): s is string => typeof s === 'string' && s.length > 0),
- j.slug,
- ].filter(Boolean) as string[];
- const tokens = new Set<string>();
- for (const s of allJobSlugs) for (const t of tokenize(s)) tokens.add(t);
- for (const t of tokens) {
- if (!jobsByToken.has(t)) jobsByToken.set(t, new Set());
- jobsByToken.get(t)!.add(idx);
- }
+ // Keep the matcher in a standalone module so it can be tested without
+ // extracting and evaluating this large closeBundle function as source text.
+ const fuzzyMatchResult = inferOrphanSlugAliases({
+  validJobs,
+  tracking,
+ orphanGscData,
+ localeList,
+ hasSameJobSourcePosting,
+ addPreviousSlugForLocale: addRenderPreviousSlugForLocale,
+ retainIndexes: extraGcFreedProbeCandidate !== null,
  });
- const SKIP_PREFIX_FUZZY = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
- let fuzzyMatched = 0;
- let cityLockRejections = 0;
- for (const orphanSlug of Object.keys(tracking)) {
- if (knownSlugs.has(orphanSlug)) continue;
- if (SKIP_PREFIX_FUZZY.test(orphanSlug)) continue;
- const orphanProof = orphanGscData.get(orphanSlug);
- if (!orphanProof?.sourceUrl) continue;
- const orphanTokens = tokenize(orphanSlug);
- if (orphanTokens.length < 4) continue;
- const orphanTokenSet = new Set(orphanTokens);
- // Candidate jobs share at least one token with the orphan slug
- const candidateIdx = new Map<number, number>();
- for (const t of orphanTokens) {
- const idxSet = jobsByToken.get(t);
- if (!idxSet) continue;
- for (const i of idxSet) candidateIdx.set(i, (candidateIdx.get(i) || 0) + 1);
- }
- if (candidateIdx.size === 0) continue;
- // Score only candidates that share ≥3 tokens with the orphan (coarse filter)
- let best: { job: any; locale: string; score: number; shared: number } | null = null;
- for (const [idx, shared] of candidateIdx) {
- if (shared < 3) continue;
- // HARD CITY LOCK: candidate's canonical location (from job.location, not
- // slug — slugs may end with a cantone token or a hash trailer) must be
- // fully represented in the orphan's tokens. Jobs without a location
- // signal cannot be confidently matched and are skipped.
- const cCity = jobCityTokens[idx];
- if (cCity.length === 0) { cityLockRejections++; continue; }
- if (!cCity.every(ct => orphanTokenSet.has(ct))) { cityLockRejections++; continue; }
- const cand = validJobs[idx];
- // Company/city words can dominate overlap across different specialties.
- // Never turn an oncology URL into a live orthopedics vacancy without identity.
- if (!hasSameJobSourcePosting(orphanProof, cand)) continue;
- const sbl = (cand as any).slugByLocale || {};
- for (const locale of localeList) {
- const candSlug = sbl[locale] || cand.slug || '';
- if (!candSlug) continue;
- const candTokens = new Set(tokenize(candSlug));
- if (candTokens.size === 0) continue;
- const inter = orphanTokens.filter(t => candTokens.has(t)).length;
- const score = inter / Math.max(orphanTokens.length, candTokens.size);
- if (!best || score > best.score) best = { job: cand, locale, score, shared: inter };
- }
- }
- if (!best || best.score < 0.6 || best.shared < 3) continue;
- const target = best.job as { previousSlugsByLocale?: Record<string, string[]> };
- if (!target.previousSlugsByLocale) target.previousSlugsByLocale = {};
- const arr = target.previousSlugsByLocale[best.locale] || (target.previousSlugsByLocale[best.locale] = []);
- if (!arr.includes(orphanSlug)) {
- arr.push(orphanSlug);
- knownSlugs.add(orphanSlug);
- fuzzyMatched++;
- }
- }
- if (fuzzyMatched > 0 || cityLockRejections > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${cityLockRejections} cross-city candidates)`);
+ if (fuzzyMatchResult.fuzzyMatched > 0 || fuzzyMatchResult.cityLockRejections > 0) {
+  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatchResult.fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${fuzzyMatchResult.cityLockRejections} cross-city candidates)`);
  }
 
  // These indexes are only read by the fuzzy-match pass above. In production,
  // release them before the much larger expired-route sweep so their token sets
  // do not overlap the archive indexes and page buffers. The opt-in gcFreed
  // probe deliberately retains them until its final checkpoint for attribution.
- if (extraGcFreedProbeCandidate === null) {
-  const fuzzyKnownSlugEntries = knownSlugs.size;
-  const fuzzyJobTokenEntries = jobsByToken.size;
-  const fuzzyJobCityRows = jobCityTokens.length;
-  knownSlugs.clear();
-  jobsByToken.clear();
-  jobCityTokens.length = 0;
-  logJobsSeoMem('after-orphan-fuzzy-index-release', {
-   fuzzyKnownSlugEntries,
-   fuzzyJobTokenEntries,
-   fuzzyJobCityRows,
-  });
+ if (fuzzyMatchResult.releasedIndexes) {
+  logJobsSeoMem('after-orphan-fuzzy-index-release', fuzzyMatchResult.releasedIndexes);
  }
 
  // Collect all previous slugs before filtering the expired URL list below.
@@ -17260,8 +17173,8 @@ ${staticAnalyticsHtml}
  // and does not clear these leftover closeBundle bindings. A probe deploy
  // names exactly one so gcFreed at the checkpoint is attributable.
  for (const extra of extraGcFreedProbeReleases(extraGcFreedProbeCandidate)) {
-  if (extra === 'jobsByToken') jobsByToken.clear();
-  else if (extra === 'jobCityTokens') jobCityTokens.length = 0;
+  if (extra === 'jobsByToken') fuzzyMatchResult.retainedIndexes?.jobsByToken.clear();
+  else if (extra === 'jobCityTokens') fuzzyMatchResult.retainedIndexes?.jobCityTokens.splice(0);
   else if (extra === 'emittedEmployerProfilesBySlug') emittedEmployerProfilesBySlug.clear();
   else if (extra === 'emittedEmployerHubs') emittedEmployerHubs.clear();
   else if (extra === 'companySlugMap') companySlugMap.length = 0;
