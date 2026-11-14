@@ -115,6 +115,29 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
   });
 });
 
+describe('JYSK runner: named zero outcomes', () => {
+  const source = read('scripts/update-jysk-jobs.mjs');
+
+  it('records both discovery and parser zero paths before returning', () => {
+    expect(source).toContain("registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK', summaryCounts);");
+    expect(source.match(/summaryCounts\.abortKind = 'no-jobs-parsed';/g) ?? []).toHaveLength(2);
+    expect(source).toContain('summaryCounts.discovered = detailUrls.length;');
+    expect(source).toMatch(/summaryCounts\.parsed = Array\.isArray\(crawlResult\?\.observedJobs\)/);
+
+    const discoveryExit = source.indexOf('if (discovery.sourceZero)');
+    const parserExit = source.indexOf('if (stats.total === 0)');
+    expect(discoveryExit).toBeGreaterThan(-1);
+    expect(parserExit).toBeGreaterThan(discoveryExit);
+
+    const discoveryReturn = source.indexOf('return;', discoveryExit);
+    const parserReturn = source.indexOf('return;', parserExit);
+    expect(source.indexOf("summaryCounts.abortKind = 'no-jobs-parsed';", discoveryExit))
+      .toBeLessThan(discoveryReturn);
+    expect(source.indexOf("summaryCounts.abortKind = 'no-jobs-parsed';", parserExit))
+      .toBeLessThan(parserReturn);
+  });
+});
+
 describe('standard template: no unnamed exit', () => {
   const template = read('scripts/lib/crawler-template.mjs');
   const pipelineStart = template.indexOf('export async function runStandardCrawlerPipeline(');
