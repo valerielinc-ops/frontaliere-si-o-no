@@ -456,6 +456,19 @@ describe('portal replay workflow wiring', () => {
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
+    const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
+    const mergeCommit = workflow.indexOf('          ref: ${{ github.event.pull_request.merge_commit_sha }}\n');
+    expect(prCheckout).toBeGreaterThan(-1);
+    expect(mergeCommit).toBeGreaterThan(prCheckout);
+    expect(workflow).not.toContain('github.event.pull_request.head.sha');
+    expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
+    expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
+    expect(workflow).not.toContain('refs/pull/$PR_NUMBER/merge');
+    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
+    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
+    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
+    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
+    expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
@@ -463,11 +476,12 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
-    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     const replayGate = workflow.indexOf('\n  portal-replay-gate:');
     const replayBlock = workflow.slice(replay, replayGate);
     expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     const gateBlock = workflow.slice(replayGate);
+    expect(gateBlock).toContain('ref: ${{ github.event.pull_request.merge_commit_sha }}');
     expect(gateBlock).toContain('path: .portal-head');
     expect(gateBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
     expect(gateBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
@@ -481,8 +495,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('wait_for_wave');
-    expect(workflow).toContain('declare -f run_group');
-    expect(workflow).toContain('bash -c "$(declare -f run_group); run_group"');
+    expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
+    expect(workflow).toContain('declare -f run_group > "$group_script"');
+    expect(workflow).not.toContain("bash -c 'run_group'");
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
     expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
     expect(workflow).not.toContain('max-parallel: 6');
@@ -697,6 +712,24 @@ describe('portal replay base/head gate', () => {
   });
 });
 
+describe('portal replay live preflight', () => {
+  it('keeps a transient public endpoint failure local to the case', async () => {
+    const result = await bestEffortPortalReplayPreflight(async () => {
+      throw Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
+    });
+    expect(result).toEqual([{ status: 0 }]);
+  });
+
+  it('preserves successful preflight responses for the retry classifier', async () => {
+    const responses = [{ status: 503 }];
+    await expect(bestEffortPortalReplayPreflight(async () => responses)).resolves.toBe(responses);
+  });
+
+  it('normalizes a malformed preflight result without aborting the family', async () => {
+    await expect(bestEffortPortalReplayPreflight(async () => null)).resolves.toEqual([{ status: 0 }]);
+  });
+});
+
 describe('portal replay gate determinism (F2)', () => {
   const workflow = () => readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
 
@@ -715,12 +748,10 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('uses: actions/download-artifact@v8');
   });
 
-  it('keeps trusted base setup while running comparison semantics from the PR CLI', () => {
+  it('keeps the compare on the trusted base CLI', () => {
     const text = workflow();
     expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
-    const gateStart = text.indexOf('\n  portal-replay-gate:');
-    expect(text.slice(replayStart, gateStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(text).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
   });
 
@@ -769,23 +800,5 @@ describe('portal replay gate determinism (F2)', () => {
     } finally {
       rmSync(repo, { recursive: true, force: true });
     }
-  });
-});
-
-describe('portal replay live preflight', () => {
-  it('keeps a transient public endpoint failure local to the case', async () => {
-    const result = await bestEffortPortalReplayPreflight(async () => {
-      throw Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
-    });
-    expect(result).toEqual([{ status: 0 }]);
-  });
-
-  it('preserves successful preflight responses for the retry classifier', async () => {
-    const responses = [{ status: 503 }];
-    await expect(bestEffortPortalReplayPreflight(async () => responses)).resolves.toBe(responses);
-  });
-
-  it('normalizes a malformed preflight result without aborting the family', async () => {
-    await expect(bestEffortPortalReplayPreflight(async () => null)).resolves.toEqual([{ status: 0 }]);
   });
 });
