@@ -49,7 +49,7 @@ describe('paginationIndexPolicy', () => {
 
   it('reads the page number of every pagination segment the site emits', () => {
     expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/')).toBe(1);
-    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-6/')).toBe(6);
+    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-7/')).toBe(7);
     expect(paginationPageFromPath('/cerca-lavoro-zurigo/pagina-25/')).toBe(25);
     expect(paginationPageFromPath('/de/jobs-zuerich/seite-11')).toBe(11);
     // A slug that merely contains the word is not a page.
