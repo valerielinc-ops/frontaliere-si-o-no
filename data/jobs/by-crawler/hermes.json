@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-11-13T21:19:32.292Z",
-  "runId": "43507444252",
+  "assembledAt": "2026-11-14T09:23:40.423Z",
+  "runId": "43578975285",
   "jobs": [
     {
       "id": "hermes-da512457b984",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:24.946Z",
+      "crawledAt": "2026-11-14T09:23:32.927Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:19:24.946Z",
+      "validThrough": "2027-01-18T09:23:32.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:24.278Z",
+      "crawledAt": "2026-11-14T09:23:32.303Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:24.278Z",
+      "validThrough": "2027-02-01T09:23:32.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24702",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:23.590Z",
+      "crawledAt": "2026-11-14T09:23:31.641Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:19:23.590Z",
+      "validThrough": "2027-02-01T09:23:31.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:22.649Z",
+      "crawledAt": "2026-11-14T09:23:30.903Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:22.649Z",
+      "validThrough": "2027-02-10T09:23:30.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -420,7 +420,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:18:25.305Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

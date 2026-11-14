@@ -1,7 +1,7 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-11-13T21:16:45.382Z",
+  "generatedAt": "2026-11-14T09:14:43.593Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 4757,
-  "avgDurationMs": 4757,
+  "durationMs": 5232,
+  "avgDurationMs": 5232,
   "durationHistory": [
-    4757
+    5232
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.459Z",
+      "crawledAt": "2026-11-14T09:14:17.471Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:16:25.459Z",
+      "validThrough": "2026-12-19T09:14:17.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.460Z",
+      "crawledAt": "2026-11-14T09:14:17.472Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:16:25.460Z",
+      "validThrough": "2026-12-14T09:14:17.472Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://app.beehire.com/invite/GhP4UCz1f",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.455Z",
+      "crawledAt": "2026-11-14T09:14:17.470Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:16:25.455Z",
+      "validThrough": "2027-01-07T09:14:17.470Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -179,7 +179,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.454Z",
+      "crawledAt": "2026-11-14T09:14:17.469Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:16:25.454Z",
+      "validThrough": "2027-01-10T09:14:17.469Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -225,7 +225,7 @@
       "url": "https://app.beehire.com/invite/PzPmrtqqv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.453Z",
+      "crawledAt": "2026-11-14T09:14:17.468Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:16:25.453Z",
+      "validThrough": "2027-01-26T09:14:17.468Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "url": "https://app.beehire.com/invite/gp2L_WeE7",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.449Z",
+      "crawledAt": "2026-11-14T09:14:17.465Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:16:25.449Z",
+      "validThrough": "2027-02-03T09:14:17.465Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -318,7 +318,7 @@
       "url": "https://app.beehire.com/invite/urcNBVdZA",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.445Z",
+      "crawledAt": "2026-11-14T09:14:17.460Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:16:25.445Z",
+      "validThrough": "2027-02-03T09:14:17.460Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -365,7 +365,7 @@
       "url": "https://app.beehire.com/invite/rGlkHrJhT",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.444Z",
+      "crawledAt": "2026-11-14T09:14:17.459Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -389,7 +389,7 @@
       "salarySource": "estimated",
       "streetAddress": "Corsier-sur-Vevey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:16:25.444Z",
+      "validThrough": "2027-02-03T09:14:17.459Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -411,7 +411,7 @@
       "url": "https://app.beehire.com/invite/agNZ2aiLS",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:16:25.439Z",
+      "crawledAt": "2026-11-14T09:14:17.457Z",
       "addressLocality": "La Tour-de-Peilz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       "salarySource": "estimated",
       "streetAddress": "La Tour-de-Peilz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:25.439Z",
+      "validThrough": "2027-02-04T09:14:17.457Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -446,5 +446,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
