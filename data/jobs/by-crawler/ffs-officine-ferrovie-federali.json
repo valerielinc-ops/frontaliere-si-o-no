@@ -5506,9 +5506,9 @@
     },
     {
       "id": "sbb-f294257a6f6a",
-      "slug": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
+      "slug": "tecnico-a-per-i-controlli-a-ultrasuoni-ffs-officine-ferrovie-federali-zurich-luzern",
       "slugByLocale": {
-        "it": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
+        "it": "tecnico-a-per-i-controlli-a-ultrasuoni-ffs-officine-ferrovie-federali-zurich-luzern",
         "en": "ultrasonic-examiner-ffs-officine-ferrovie-federali-zurich-luzern",
         "de": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
         "fr": "controleura-ultrasons-ffs-officine-ferrovie-federali-zurich-luzern"
@@ -5592,7 +5592,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:40:22.125Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern"
+      ]
     },
     {
       "id": "sbb-42eee1464076",

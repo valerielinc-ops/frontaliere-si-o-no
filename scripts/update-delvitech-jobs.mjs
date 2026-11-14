@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile as execFileCb } from 'node:child_process';
 import { promisify } from 'node:util';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -123,11 +123,14 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
 }
 
 async function fetchWithBrowser(url) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const page = await browser.newPage({
-      userAgent: BROWSER_UA,
-    });
+    const page = isStealthBrowser(browser)
+      ? await browser.newPage({ viewport: null })
+      : await browser.newPage({ userAgent: BROWSER_UA });
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(1000);
     const html = await page.content();

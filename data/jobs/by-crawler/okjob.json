@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-07380951b005",
-      "slug": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
+      "slug": "ingegnere-di-costruzione-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
       "slugByLocale": {
         "fr": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
-        "it": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
-        "en": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
-        "de": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        "it": "ingegnere-di-costruzione-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
+        "en": "construction-engineer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
+        "de": "bauingenieur-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
       },
       "slugDisambiguator": "07380951",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:34:43.476Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.476Z"
+      "firstSeenAt": "2026-11-14T09:34:43.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ],
+        "en": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ],
+        "de": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ]
+      },
+      "previousSlugs": [
+        "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+      ]
     },
     {
       "id": "okjob-1c757e357207",
-      "slug": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
+      "slug": "paesaggio-m-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
       "slugByLocale": {
         "fr": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
-        "it": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
-        "en": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
-        "de": "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
+        "it": "paesaggio-m-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
+        "en": "landscaper-m-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35",
+        "de": "landschaftsbildner-m-w-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
       },
       "slugDisambiguator": "1c757e35",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,16 +159,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:34:43.473Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.473Z"
+      "firstSeenAt": "2026-11-14T09:34:43.473Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
+        ],
+        "en": [
+          "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
+        ],
+        "de": [
+          "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
+        ]
+      },
+      "previousSlugs": [
+        "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
+      ]
     },
     {
       "id": "okjob-ca306ade268d",
-      "slug": "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
+      "slug": "team-leader-costruzione-grande-lavoro-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
       "slugByLocale": {
         "fr": "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
-        "it": "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
-        "en": "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
-        "de": "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
+        "it": "team-leader-costruzione-grande-lavoro-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
+        "en": "team-leader-building-big-job-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade",
+        "de": "teamleiter-baut-gro-en-job-auf-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
       },
       "slugDisambiguator": "ca306ade",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -217,16 +245,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:34:43.472Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.472Z"
+      "firstSeenAt": "2026-11-14T09:34:43.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
+        ],
+        "en": [
+          "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
+        ],
+        "de": [
+          "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
+      ]
     },
     {
       "id": "okjob-dc6772009bb6",
-      "slug": "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
+      "slug": "consigliere-del-personale-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
       "slugByLocale": {
         "fr": "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
-        "it": "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
-        "en": "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
-        "de": "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
+        "it": "consigliere-del-personale-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
+        "en": "personnel-advisor-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200",
+        "de": "personalberater-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
       },
       "slugDisambiguator": "dc677200",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -289,7 +331,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:34:43.470Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.470Z"
+      "firstSeenAt": "2026-11-14T09:34:43.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
+        ],
+        "en": [
+          "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
+        ],
+        "de": [
+          "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-personnel-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-dc677200"
+      ]
     },
     {
       "id": "okjob-c803b7727ce5",
@@ -377,12 +433,12 @@
     },
     {
       "id": "okjob-936c22cd484d",
-      "slug": "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
+      "slug": "logisticista-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
       "slugByLocale": {
         "fr": "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
-        "it": "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
-        "en": "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
-        "de": "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
+        "it": "logisticista-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
+        "en": "logistician-m-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd",
+        "de": "logistiker-m-w-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
       },
       "slugDisambiguator": "936c22cd",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -445,7 +501,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:34:43.467Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.467Z"
+      "firstSeenAt": "2026-11-14T09:34:43.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
+        ],
+        "en": [
+          "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
+        ],
+        "de": [
+          "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
+        ]
+      },
+      "previousSlugs": [
+        "logisticien-h-f-ok-job-sa-succursale-di-mendrisio-1347-le-sentier-936c22cd"
+      ]
     },
     {
       "id": "okjob-6c1aeca374bb",

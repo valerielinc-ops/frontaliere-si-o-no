@@ -45,7 +45,7 @@ import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawl
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
-import { launchChromium } from '../ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from '../stealth-browser.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -287,19 +287,27 @@ export async function fetchHtmlViaBrowser(
   try {
     if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
     browser = await raceBrowserOperation(
-      launchChromium({
+      launchStealthOrChromium({
+        purpose: 'crawler',
         headless: true,
+        locale: 'de-CH',
         args: ['--disable-blink-features=AutomationControlled'],
+        fallbackOptions: {
+          headless: true,
+          args: ['--disable-blink-features=AutomationControlled'],
+        },
       }),
       signal,
       `browser rescue launch aborted for ${url}`,
       (lateBrowser) => lateBrowser?.close?.(),
     );
-    const context = await raceBrowserOperation(browser.newContext({
-      userAgent: BROWSER_RESCUE_USER_AGENT,
-      locale: 'de-CH',
-      viewport: { width: 1280, height: 720 },
-    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const context = await raceBrowserOperation(browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: BROWSER_RESCUE_USER_AGENT,
+          locale: 'de-CH',
+          viewport: { width: 1280, height: 720 },
+        }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
     const page = await raceBrowserOperation(
       context.newPage(),
       signal,

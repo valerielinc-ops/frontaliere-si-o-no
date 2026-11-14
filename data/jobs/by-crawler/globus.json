@@ -1169,12 +1169,12 @@
     },
     {
       "id": "globus-ef8ae3061af7",
-      "slug": "collaboratore-trice-hausdienst-allrounder-60-80-m-w-d-globus-luzern",
+      "slug": "addetto-a-ai-servizi-di-custodia-tuttofare-60-80-m-f-d-globus-luzern",
       "slugByLocale": {
         "de": "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch",
-        "it": "collaboratore-trice-hausdienst-allrounder-60-80-m-w-d-globus-luzern",
-        "en": "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch",
-        "fr": "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch"
+        "it": "addetto-a-ai-servizi-di-custodia-tuttofare-60-80-m-f-d-globus-luzern",
+        "en": "facilities-services-assistant-all-rounder-60-80-m-f-d-globus-luzern",
+        "fr": "collaborateur-rice-au-service-de-maison-polyvalent-e-60-80-h-f-d-globus-luzern"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -1222,11 +1222,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch",
+          "collaboratore-trice-hausdienst-allrounder-60-80-m-w-d-globus-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch"
+        "mitarbeiter-in-hausdienst-allrounder-60-80-w-m-d-globus-ch",
+        "collaboratore-trice-hausdienst-allrounder-60-80-m-w-d-globus-luzern"
       ],
       "salaryMin": 55600,
       "salaryMax": 84800,
