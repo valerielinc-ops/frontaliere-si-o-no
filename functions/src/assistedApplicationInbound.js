@@ -1634,6 +1634,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // What the order records: a reminder is no answer of the employer, whatever the model read.
     const recorded = passwordReset
       ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
+      : portalVerificationHost && classification.category !== 'verification'
+      ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
       : applicationReminder
       ? { ...classification, category: 'other', summaryCandidate: '', needsReply: false }
       : portalAccountNoticeHost
