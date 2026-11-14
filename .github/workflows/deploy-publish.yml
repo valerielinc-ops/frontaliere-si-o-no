@@ -371,6 +371,7 @@ jobs:
       # takes the earlier groups' results from `receipt_it_groups`
       # ([{group, runId}], the publisher run that holds each result artifact).
       it_cdn_published: ${{ steps.receipts.outputs.it_cdn_published }}
+      it_cdn_publisher_run_id: ${{ steps.receipts.outputs.it_cdn_publisher_run_id }}
       pending_it_groups: ${{ steps.receipts.outputs.pending_it_groups }}
       receipt_it_groups: ${{ steps.receipts.outputs.receipt_it_groups }}
     steps:
@@ -1213,12 +1214,27 @@ jobs:
             --source-sha "$SOURCE_SHA" \
             --artifact-run-id "$ARTIFACT_RUN_ID"
       - name: Restore R2 OG manifest from the early CDN job
-        if: ${{ vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both' }}
+        if: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' }}
         uses: actions/cache/restore@v6
         with:
           path: .cache/r2-og-published-manifest.json
           key: r2-og-published-${{ github.run_id }}
           restore-keys: r2-og-published-${{ github.run_id }}-
+      - name: Restore R2 OG manifest from receipt-backed CDN run
+        if: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' }}
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/r2-og-published-manifest.json
+          key: r2-og-published-${{ needs.resolve-publish-receipts.outputs.it_cdn_publisher_run_id }}
+          restore-keys: r2-og-published-${{ needs.resolve-publish-receipts.outputs.it_cdn_publisher_run_id }}-
+      - name: Require R2 OG manifest for receipt-backed CDN resume
+        if: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' }}
+        run: |
+          set -euo pipefail
+          test -s .cache/r2-og-published-manifest.json || {
+            echo "::error::receipt-backed CDN resume has no durable R2 OG manifest"
+            exit 1
+          }
       - name: Package IT post-push validation batches
         run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"
       - name: Upload shard batch 1 dist for post-deploy validation

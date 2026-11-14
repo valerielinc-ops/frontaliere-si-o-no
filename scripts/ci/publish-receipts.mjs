@@ -193,6 +193,8 @@ function publisherRunIdOf(status) {
  *
  * - `itCdnPublished`: the CDN payload receipt exists (and, when the build id is
  *   known, was written for that build).
+ * - `itCdnPublisherRunId`: the publisher run that wrote the CDN receipt, when
+ *   the receipt is valid and can safely supply its durable R2 manifest.
  * - `pendingItGroups`: every group that has no valid receipt, in canonical
  *   order. A receipt is valid only when its newest status is a success, its
  *   digest equals the digest the source plan expects, the publisher run that
@@ -212,9 +214,11 @@ export function resolveItPublishReceipts({
   const cdnContext = itCdnReceiptContext(sourceRunId);
   const cdnStatus = cdnContext ? newestStatusFor(entries, cdnContext) : null;
   const expectedBuild = text(buildId);
+  const cdnPublisherRunId = publisherRunIdOf(cdnStatus);
   const itCdnPublished = Boolean(cdnStatus
     && text(cdnStatus.state).toLowerCase() === STATUS_SUCCESS
-    && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild));
+    && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild)
+    && cdnPublisherRunId);
 
   const publishedItGroups = [];
   const pendingItGroups = [];
@@ -243,6 +247,7 @@ export function resolveItPublishReceipts({
   }
   return {
     itCdnPublished,
+    itCdnPublisherRunId: itCdnPublished ? cdnPublisherRunId : '',
     pendingItGroups,
     publishedItGroups,
     rejectedItGroups,
@@ -368,6 +373,7 @@ function writeGithubOutputs(file, state, itState = null) {
   const itLines = itState
     ? [
       `it_cdn_published=${itState.itCdnPublished}`,
+      `it_cdn_publisher_run_id=${itState.itCdnPublisherRunId}`,
       `pending_it_groups=${JSON.stringify(itState.pendingItGroups)}`,
       `receipt_it_groups=${JSON.stringify(itState.publishedItGroups.map((entry) => ({ group: entry.group, runId: entry.publisherRunId })))}`,
     ]

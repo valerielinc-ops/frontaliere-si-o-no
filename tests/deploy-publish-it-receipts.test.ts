@@ -208,8 +208,13 @@ describe('IT receipts: what a retry still has to do (F0.9)', () => {
 
   it('accepts the CDN receipt only for the build id it was written for', () => {
     expect(resolve([cdnReceipt()]).itCdnPublished).toBe(true);
+    expect(resolve([cdnReceipt()]).itCdnPublisherRunId).toBe(PUBLISHER_RUN_ID);
     expect(resolve([cdnReceipt('1770000000009')]).itCdnPublished).toBe(false);
+    expect(resolve([cdnReceipt('1770000000009')]).itCdnPublisherRunId).toBe('');
     expect(resolve([{ ...cdnReceipt(), state: 'failure' }]).itCdnPublished).toBe(false);
+    const noPublisherRun = { ...cdnReceipt(), target_url: 'https://example.invalid/x' };
+    expect(resolve([noPublisherRun]).itCdnPublished).toBe(false);
+    expect(resolve([noPublisherRun]).itCdnPublisherRunId).toBe('');
     expect(resolve([cdnReceipt()], { buildId: undefined }).itCdnPublished).toBe(true);
   });
 
@@ -275,6 +280,7 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     });
     return {
       it_cdn_published: String(state.itCdnPublished),
+      it_cdn_publisher_run_id: state.itCdnPublisherRunId,
       pending_it_groups: JSON.stringify(state.pendingItGroups),
       receipt_it_groups: JSON.stringify(state.publishedItGroups.map((entry: any) => ({ group: entry.group, runId: entry.publisherRunId }))),
     };
@@ -446,11 +452,20 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     expect(publish.jobs['finalize-it-publish'].permissions.actions).toBe('read');
   });
 
-  it('resolves the receipts with the source plan and exposes the three IT outputs', () => {
+  it('resolves the receipts with the source plan and exposes the four IT outputs', () => {
     const outputs = publish.jobs['resolve-publish-receipts'].outputs;
     expect(outputs.it_cdn_published).toBe('${{ steps.receipts.outputs.it_cdn_published }}');
+    expect(outputs.it_cdn_publisher_run_id).toBe('${{ steps.receipts.outputs.it_cdn_publisher_run_id }}');
     expect(outputs.pending_it_groups).toBe('${{ steps.receipts.outputs.pending_it_groups }}');
     expect(outputs.receipt_it_groups).toBe('${{ steps.receipts.outputs.receipt_it_groups }}');
+    const earlyRestore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from the early CDN job');
+    expect(String(earlyRestore.if)).toContain("it_cdn_published != 'true'");
+    const receiptRestore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from receipt-backed CDN run');
+    expect(String(receiptRestore.if)).toContain("it_cdn_published == 'true'");
+    expect(String(receiptRestore.with.key)).toContain('it_cdn_publisher_run_id');
+    const requireManifest = namedStep('finalize-it-publish', 'Require R2 OG manifest for receipt-backed CDN resume');
+    expect(String(requireManifest.if)).toContain("it_cdn_published == 'true'");
+    expect(String(requireManifest.run)).toContain('no durable R2 OG manifest');
     const resolver = namedStep('resolve-publish-receipts', 'Resolve source-run receipts');
     expect(resolver.run).toContain('--it-plan');
     expect(publish.jobs['resolve-publish-receipts'].permissions.actions).toBe('read');
@@ -576,6 +591,7 @@ process.exit(1);
     const { result, outputs } = run(baseArgs(planFile()), gh);
     expect(result.status, result.stderr).toBe(0);
     expect(outputs.it_cdn_published).toBe('true');
+    expect(outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
     expect(JSON.parse(outputs.pending_it_groups)).toEqual(['zurigo', 'small-1']);
     expect(JSON.parse(outputs.receipt_it_groups)).toEqual([
       { group: 'svizzera', runId: PUBLISHER_RUN_ID },
@@ -606,6 +622,7 @@ process.exit(1);
     expect(missing.result.status, missing.result.stderr).toBe(0);
     expect(JSON.parse(missing.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
     expect(missing.outputs.it_cdn_published).toBe('true');
+    expect(missing.outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
     expect(missing.result.stdout + missing.result.stderr).toContain('unreadable');
     const wrongSource = run(['--resolve', '--source-run-id', '1', '--source-sha', SOURCE_SHA, '--it-plan', planFile()], gh);
     expect(JSON.parse(wrongSource.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
