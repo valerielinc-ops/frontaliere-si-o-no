@@ -204,6 +204,21 @@ const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, ma
 // the listing budget; production runs the same runner with a 10 min call limit.
 const REPLAY_WALL_CAP_MS = 300_000;
 export const REPLAY_CODEX_CALL_TIMEOUT_MS = 150_000;
+// Cleanup after an attempt is over must stay inside the attempt's budget: a
+// context or browser close that never resolves, or a runner that keeps going,
+// would otherwise hold the family (and its CI group) until the job timeout.
+const REPLAY_CLOSE_TIMEOUT_MS = 15_000;
+const REPLAY_SETTLE_GRACE_MS = 10_000;
+
+/** Resolves with the promise's value, or with `undefined` after `ms`. */
+export function settleWithin(promise, ms) {
+  let timer;
+  const bound = new Promise((resolve) => {
+    timer = setTimeout(resolve, ms);
+    timer.unref?.();
+  });
+  return Promise.race([Promise.resolve(promise), bound]).finally(() => clearTimeout(timer));
+}
 
 const stableHash = (value) => createHash('sha256').update(String(value)).digest('hex');
 const safeCode = (value, fallback = 'unknown') => SAFE_REPORT_CODES.has(String(value || '')) ? String(value) : fallback;
@@ -796,7 +811,16 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     const deadline = createPortalReplayDeadline({ activeBudgetMs: timeoutMs, wallCapMs: Math.max(timeoutMs, wallCapMs) });
     deadlineState = deadline;
     const requestCodex = portalBrokerCodex(trustedRoot);
+    let attemptOver = false;
     const codex = async (request) => {
+      // An attempt that is over must not start another broker call: after the
+      // context closes, the runner's agent loop can otherwise keep asking
+      // Codex for each remaining step (up to 150 s per call) for hours, far
+      // past the per-attempt cap the workflow timeout is derived from.
+      if (attemptOver || deadline.expired()) {
+        attemptOver = true;
+        throw Object.assign(new Error('portal_replay_deadline_exceeded'), { code: 'portal_replay_deadline_exceeded' });
+      }
       agentCalls += 1;
       const startedCallAt = deadline.agentStarted();
       let ok = false;
@@ -848,11 +872,14 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     if (settled?.timeout) {
       timedOut = true;
       timeoutKind = settled.timeout;
-      await activeContext?.close().catch(() => {});
+      attemptOver = true;
+      await settleWithin(activeContext?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
       // The browser context may stop immediately while a Codex request is
       // still in flight. Wait for the runner promise, and therefore its broker
-      // call, before a completion retry can start and contend for the lane.
-      await runnerPromise;
+      // call, before a completion retry can start and contend for the lane:
+      // that call ends within the broker limit and no new one can start, so
+      // the wait is bounded by that limit instead of by the runner.
+      await settleWithin(runnerPromise, REPLAY_CODEX_CALL_TIMEOUT_MS + REPLAY_SETTLE_GRACE_MS);
       failure = { code: 'portal_replay_timeout' };
     } else if (settled?.error) {
       failure = settled.error;
@@ -1287,8 +1314,8 @@ async function compareMode(values) {
     return comparison.status === 'pass' ? 0 : 1;
   } finally {
     nodeEgressFence?.restore();
-    await sharedReplayBrowser?.close().catch(() => {});
-    await sharedHeadReplayBrowser?.close().catch(() => {});
+    await settleWithin(sharedReplayBrowser?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
+    await settleWithin(sharedHeadReplayBrowser?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
     sharedReplayBrowser = null;
     sharedHeadReplayBrowser = null;
   }

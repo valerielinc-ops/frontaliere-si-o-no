@@ -110,10 +110,19 @@ jobs:
         run: |
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          output_file="$RUNNER_TEMP/portal-replay-detect-output.txt"
+          rm -f "$output_file"
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" detect \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.txt" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$output_file"
+          run_count="$(awk -F= '$1 == "run" { count++ } END { print count + 0 }' "$output_file")"
+          run_value="$(awk -F= '$1 == "run" { print substr($0, index($0, "=") + 1) }' "$output_file")"
+          if [[ "$run_count" != '1' || ! "$run_value" =~ ^(true|false)$ ]]; then
+            echo '::error::portal replay detect did not produce exactly one boolean run output'
+            exit 1
+          fi
+          printf 'run=%s\n' "$run_value" >> "$GITHUB_OUTPUT"
 
   prepare:
     name: prepare portal replay corpus
@@ -177,6 +186,8 @@ jobs:
           replay_now_ms="$(node -p 'Date.now()')"
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          output_file="$RUNNER_TEMP/portal-replay-prepare-output.txt"
+          rm -f "$output_file"
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" prepare \
             --diff-file "$RUNNER_TEMP/portal-replay-paths/portal-replay-paths.txt" \
@@ -185,7 +196,33 @@ jobs:
             --stop-titles "$RUNNER_TEMP/portal-stop-titles.json" \
             --now-ms "$replay_now_ms" \
             --corpus-out "$RUNNER_TEMP/portal-replay-corpus.json" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$output_file"
+          output_value() {
+            local key="$1"
+            awk -F= -v key="$key" '$1 == key { print substr($0, index($0, "=") + 1) }' "$output_file"
+          }
+          output_count() {
+            local key="$1"
+            awk -F= -v key="$key" '$1 == key { count++ } END { print count + 0 }' "$output_file"
+          }
+          families="$(output_value families)"
+          now_ms="$(output_value now_ms)"
+          stop_hosts="$(output_value stop_hosts)"
+          for key in families now_ms stop_hosts; do
+            if [[ "$(output_count "$key")" != '1' ]]; then
+              echo "::error::portal replay prepare did not produce exactly one $key output"
+              exit 1
+            fi
+          done
+          [[ "$now_ms" =~ ^[0-9]+$ ]] || { echo '::error::portal replay prepare produced an invalid now_ms output'; exit 1; }
+          node -e '
+            const [families, stopHosts] = process.argv.slice(1).map(JSON.parse);
+            const strings = (value) => Array.isArray(value) && value.every((item) => typeof item === "string");
+            if (!strings(families) || families.length === 0 || !strings(stopHosts)) process.exit(1);
+          ' "$families" "$stop_hosts"
+          printf 'families=%s\n' "$families" >> "$GITHUB_OUTPUT"
+          printf 'now_ms=%s\n' "$now_ms" >> "$GITHUB_OUTPUT"
+          printf 'stop_hosts=%s\n' "$stop_hosts" >> "$GITHUB_OUTPUT"
 
   replay:
     name: replay portal families (group ${{ matrix.group }})
@@ -430,7 +467,11 @@ jobs:
               local log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
               local started=$SECONDS
               local status=0
-              PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" node "$portal_replay_cli" compare \
+              # The 3060 s family bound derived above is enforced, not only
+              # declared: a family that outlives it exits 124, its log is still
+              # printed below and the gate counts it as failed. Without it one
+              # stuck family held its whole group to the 120-minute timeout.
+              PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" timeout --kill-after=30s 3060s node "$portal_replay_cli" compare \
                 --base-root .portal-base \
                 --head-root . \
                 --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \
