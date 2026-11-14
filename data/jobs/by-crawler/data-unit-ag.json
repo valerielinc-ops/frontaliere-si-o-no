@@ -1,7 +1,7 @@
 {
   "crawlerKey": "data-unit-ag",
-  "assembledAt": "2026-11-13T21:51:34.456Z",
-  "runId": "43510690742",
+  "assembledAt": "2026-11-14T09:46:49.152Z",
+  "runId": "43580673891",
   "jobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
@@ -34,7 +34,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:23.332Z",
+      "crawledAt": "2026-11-14T09:46:33.855Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -71,7 +71,6 @@
           "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-11-10T22:04:48.256Z",
       "salaryMin": 54000,
       "salaryMax": 82000,
@@ -87,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:51:23.332Z",
+      "validThrough": "2027-02-09T09:46:33.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +120,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:23.331Z",
+      "crawledAt": "2026-11-14T09:46:33.854Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -170,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:51:23.331Z",
+      "validThrough": "2027-02-09T09:46:33.854Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +203,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:23.327Z",
+      "crawledAt": "2026-11-14T09:46:33.852Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -247,7 +246,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:51:23.327Z",
+      "validThrough": "2027-02-09T09:46:33.852Z",
       "validThroughSource": "last-observed-window"
     }
   ]
