@@ -435,6 +435,27 @@ export const checkJobPageLive = checkPageBodyLive;
  * aren't re-checked). Jobs with no resolvable slug fall back to the site root
  * in the email (always live) and are never filtered. Exported for tests.
  */
+/**
+ * Live-link checks share a small result contract so the manifest checker can
+ * distinguish a known published/dead URL from an unavailable answer. HTTP
+ * checks still return booleans; they are normalized here at the cache boundary.
+ */
+function normalizeLiveLinkResult(value) {
+  if (typeof value === 'boolean') return { known: true, live: value };
+  if (!value || typeof value !== 'object') return { known: false, live: false };
+  return { known: value.known === true, live: value.live === true };
+}
+
+function cachedLiveLinkResult(cache, url) {
+  if (!url || !cache.has(url)) return null;
+  const result = normalizeLiveLinkResult(cache.get(url));
+  return result.known ? result : null;
+}
+
+function isCachedDeadLiveLink(cache, url) {
+  return cachedLiveLinkResult(cache, url)?.live === false;
+}
+
 export async function inspectLiveJobs(
   jobs,
   locale,
@@ -446,19 +467,21 @@ export async function inspectLiveJobs(
   // single call (two jobs — e.g. two locale variants — can resolve to the
   // same page); otherwise a duplicate URL in the same batch would be
   // checked once per occurrence before either result lands in `cache`.
-  const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
+  const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cachedLiveLinkResult(cache, url)))];
   const checkBudget = Number.isFinite(maxNewChecks)
     ? Math.max(0, Math.trunc(maxNewChecks))
     : uniqueToCheck.length;
   const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
   if (urlsToCheck.length > 0) {
     await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      cache.set(url, await check(url));
+      const result = normalizeLiveLinkResult(await check(url));
+      if (result.known) cache.set(url, result);
     });
   }
   const results = withUrls.map(({ job, url }) => {
-    const known = !url || cache.has(url);
-    return { job, url, known, live: known && (!url || cache.get(url) !== false) };
+    const cached = cachedLiveLinkResult(cache, url);
+    const known = !url || cached !== null;
+    return { job, url, known, live: known && (!url || cached.live) };
   });
   const knownResults = results.filter((result) => result.known);
   const knownLiveJobs = knownResults.filter((result) => result.live).map((result) => result.job);
@@ -539,17 +562,12 @@ export async function createLiveLinkChecker({
     reason: 'ok',
     // Risposta locale: nessuna rete, nessun fail-open.
     //
-    // CONTRATTO: `check` restituisce un BOOLEANO, come `checkPageBodyLive` (la forma del
-    // percorso HTTP). `inspectLiveJobs` non legge il valore di ritorno come `{ known, live }`:
-    // lo scrive nella cache condivisa (`cache.set(url, await check(url))`) e ricava
-    // `known = cache.has(url)` e `live = cache.get(url) !== false`; prefetcher e
-    // `rankLiveJobsForEmail` leggono la stessa cache. Quindi `true` = annuncio nel
-    // manifest = `known` e `live`; `false` = assente = `known` e non `live`.
-    // Dimostrato da tests/job-pages-manifest.test.ts, describe
-    // «manifest + inspectLiveJobs: il booleano del check e la cache danno known/live».
+    // Risposta locale: la forma condivisa { known, live } permette a
+    // inspectLiveJobs, al ranking e al prefetch di distinguere liveness nota
+    // da un risultato non disponibile, senza riaprire la rete.
     check: async (url) => {
       metrics.count('liveLinkManifestResolved');
-      return loaded.lookup.has(url);
+      return { known: true, live: loaded.lookup.has(url) };
     },
     failOpen: false,
   };
@@ -587,9 +605,9 @@ async function rankLiveJobsForEmail(
   const inspectWithinBudget = async (jobs) => {
     const uniqueUrls = [...new Set(jobs.map((job) => jobPageUrl(job, locale)).filter(Boolean))];
     for (const url of uniqueUrls) {
-      if (cache.has(url)) checkedUrls.add(url);
+      if (cachedLiveLinkResult(cache, url)) checkedUrls.add(url);
     }
-    const uncachedUrls = uniqueUrls.filter((url) => !cache.has(url));
+    const uncachedUrls = uniqueUrls.filter((url) => !cachedLiveLinkResult(cache, url));
     const remaining = Math.max(0, limit - checkedUrls.size);
     for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
     return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining, failOpen });
@@ -623,7 +641,7 @@ async function rankLiveJobsForEmail(
         const knownDeadUrls = new Set(
           matched
             .map((job) => jobPageUrl(job, locale))
-            .filter((url) => url && cache.get(url) === false),
+            .filter((url) => isCachedDeadLiveLink(cache, url)),
         );
         const fallbackCandidates = [...fullResult.knownLiveJobs, ...fullResult.unknownJobs].filter((job) => {
           const url = jobPageUrl(job, locale);
@@ -641,7 +659,7 @@ async function rankLiveJobsForEmail(
     const deadUrls = new Set(
       ranked
         .map((job) => jobPageUrl(job, locale))
-        .filter((url) => url && cache.get(url) === false),
+        .filter((url) => isCachedDeadLiveLink(cache, url)),
     );
     if (deadUrls.size === 0 || checkedUrls.size >= limit) return result.jobs;
 
@@ -696,7 +714,8 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         const url = queue[head];
         head += 1;
         try {
-          cache.set(url, await check(url));
+          const result = normalizeLiveLinkResult(await check(url));
+          if (result.known) cache.set(url, result);
         } catch {
           // Left uncached on purpose — filterLiveJobs checks it again.
         } finally {
@@ -715,7 +734,7 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
     enqueue(jobs, locale) {
       for (const job of jobs) {
         const url = jobPageUrl(job, locale);
-        if (!url || cache.has(url) || queued.has(url)) continue;
+        if (!url || cachedLiveLinkResult(cache, url) || queued.has(url)) continue;
         queued.add(url);
         queue.push(url);
         totalQueued += 1;

@@ -210,8 +210,8 @@ describe('createLiveLinkChecker', () => {
     const checker = await createLiveLinkChecker({ config: baseConfig as any, inventory: JOBS, datasetAtMs: NOW, fetchImpl: manifestResponse(liveJobs), metrics, ...quiet });
     expect(checker.source).toBe('manifest');
     expect(checker.failOpen).toBe(false);
-    expect(await checker.check(jobPageUrl(JOBS[0], 'de') as string)).toBe(true);
-    expect(await checker.check(jobPageUrl(JOBS[10], 'de') as string)).toBe(false);
+    expect(await checker.check(jobPageUrl(JOBS[0], 'de') as string)).toEqual({ known: true, live: true });
+    expect(await checker.check(jobPageUrl(JOBS[10], 'de') as string)).toEqual({ known: true, live: false });
     const counters = metrics.snapshot().counters;
     expect(counters.liveLinkHttpRequests).toBe(1);
     expect(counters.liveLinkManifestResolved).toBe(2);
