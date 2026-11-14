@@ -1,14 +1,11 @@
 {
-  "detailCandidates": 0,
-  "detailGone": 0,
-  "detailRejected": 0,
   "key": "sintio-ch",
   "label": "Sintio",
-  "generatedAt": "2026-11-14T16:43:12.791Z",
+  "generatedAt": "2026-11-14T21:38:11.371Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
-  "lastFetchOutcome": null,
+  "lastFetchOutcome": "ok",
   "fetchReceipt": {
     "specKey": "sintio-ch",
     "seedUrls": [
@@ -23,22 +20,30 @@
       }
     ],
     "proxiedBy": [],
-    "fetchOutcome": null,
+    "fetchOutcome": "ok",
     "fetchDetail": null
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
   "written": 0,
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 2305,
+  "avgDurationMs": 2305,
+  "durationHistory": [
+    2305
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

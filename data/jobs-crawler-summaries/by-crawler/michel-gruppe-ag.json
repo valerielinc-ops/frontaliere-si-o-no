@@ -1,11 +1,12 @@
 {
   "key": "michel-gruppe-ag",
   "label": "Michel Gruppe AG",
-  "generatedAt": "2026-11-14T09:21:59.355Z",
+  "generatedAt": "2026-11-14T21:23:06.249Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 6,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 5700,
-  "avgDurationMs": 5700,
+  "durationMs": 6008,
+  "avgDurationMs": 6008,
   "durationHistory": [
-    5700
+    6008
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +39,7 @@
       "url": "https://my.jobalino.ch/job/8533e277f138525befd8580c9b046915/standortleiter-in-kueche-hasliberg-mit-diaetkochausbildung",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:47.030Z",
+      "crawledAt": "2026-11-14T21:22:48.934Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +65,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:21:47.030Z",
+      "validThrough": "2026-12-30T21:22:48.934Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +87,7 @@
       "url": "https://my.jobalino.ch/job/1af8bea8f78facaf3dc9f46b4b3caf47/koechin-koch-efz_1202",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:46.506Z",
+      "crawledAt": "2026-11-14T21:22:48.353Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +113,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:21:46.506Z",
+      "validThrough": "2026-12-30T21:22:48.353Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -134,7 +135,7 @@
       "url": "https://my.jobalino.ch/job/4da43dc0116f1c31265b4d1d07b4d31e/sommer-2027-lehrstelle-koechin-efz-koch-efz",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:46.099Z",
+      "crawledAt": "2026-11-14T21:22:47.909Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -159,7 +160,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:46.099Z",
+      "validThrough": "2026-12-14T21:22:47.909Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -182,7 +183,7 @@
       "url": "https://my.jobalino.ch/job/aff82dad9268305578669c43be1c4d24/mitarbeiter-in-innenbegruenung_5324",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:45.691Z",
+      "crawledAt": "2026-11-14T21:22:47.457Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -208,7 +209,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:21:45.691Z",
+      "validThrough": "2027-01-05T21:22:47.457Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -230,7 +231,7 @@
       "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:45.269Z",
+      "crawledAt": "2026-11-14T21:22:46.872Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,7 +257,7 @@
       "salarySource": "estimated",
       "streetAddress": "Meiringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:45.269Z",
+      "validThrough": "2026-12-14T21:22:46.872Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -279,7 +280,7 @@
       "url": "https://my.jobalino.ch/job/06b6a6c9a032ee6ce01a4d6d428c62d1/mitarbeiter-in-hotellerie-schwerpunkt-reinigung_488",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:21:44.854Z",
+      "crawledAt": "2026-11-14T21:22:46.408Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -305,7 +306,7 @@
       "salarySource": "estimated",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:21:44.854Z",
+      "validThrough": "2027-01-28T21:22:46.408Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -316,5 +317,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

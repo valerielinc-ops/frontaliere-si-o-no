@@ -1,11 +1,12 @@
 {
   "key": "cippatrasporti",
   "label": "Cippà Trasporti SA",
-  "generatedAt": "2026-11-14T09:21:07.199Z",
+  "generatedAt": "2026-11-14T21:22:08.390Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6666,
-  "avgDurationMs": 6666,
+  "durationMs": 4675,
+  "avgDurationMs": 4675,
   "durationHistory": [
-    6666
+    4675
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:20:46.805Z",
+      "crawledAt": "2026-11-14T21:21:54.009Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -71,7 +72,7 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:20:46.805Z",
+      "validThrough": "2026-12-14T21:21:54.009Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -93,7 +94,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:20:46.005Z",
+      "crawledAt": "2026-11-14T21:21:53.947Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -127,7 +128,7 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-31T09:20:46.005Z",
+      "validThrough": "2026-12-31T21:21:53.947Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,5 +139,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

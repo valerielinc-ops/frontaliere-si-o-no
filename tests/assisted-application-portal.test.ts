@@ -4,6 +4,7 @@ import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
@@ -32,6 +33,52 @@ describe('application-surface detection', () => {
       fields: [{ id: 'f1', kind: 'text' }],
       buttons: [{ text: 'Menu', chrome: true }],
     })).toBe(true);
+  });
+
+  it('keeps endeso embedded German job forms usable and fills Mobile Nummer from identity', () => {
+    const formUrl = 'https://endeso.ch/jobs/job-28143-projektleiter-in-elektroinstallation/';
+    const formId = 'endeso-application';
+    const fields = [
+      { id: 'first', kind: 'text', inputType: 'text', label: 'Vorname', formId, required: true, frame: 0 },
+      { id: 'last', kind: 'text', inputType: 'text', label: 'Nachname', formId, required: true, frame: 0 },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail', formId, required: true, frame: 0 },
+      { id: 'mobile', kind: 'text', inputType: 'text', label: 'Mobile Nummer', formId, required: true, frame: 0 },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'Datei hochladen', formId, required: true, frame: 0 },
+      { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: 'Ich stimme den Datenschutzbestimmungen zu.', formId, required: true, frame: 0 },
+    ];
+    const snapshot = {
+      url: formUrl,
+      text: 'Projektleiter/in Elektroinstallation endeso GmbH',
+      buttons: [
+        { id: 'back', text: 'ZURÜCK', formId: '', frame: 0, disabled: false },
+        { id: 'apply', text: 'Jetzt Bewerben', formId, frame: 0, disabled: false },
+      ],
+      fields,
+    };
+    expect(applicationStage(snapshot, {
+      url: formUrl,
+      applyUrl: formUrl,
+      job: { title: 'Projektleiter/in Elektroinstallation' },
+    })).toMatchObject({ kind: 'form' });
+    expect(questionTopic('Mobile Nummer')).toBe('phone');
+    expect(candidateAnswerForField({ identity: { phone: '+41 00 000 00 00' } }, fields[3]))
+      .toEqual({ value: '+41 00 000 00 00', source: 'identity' });
+  });
+
+  it('keeps English handy questions out of phone identity mapping', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    const skills = { kind: 'text', inputType: 'text', label: 'How handy are you with tools?' };
+    expect(questionTopic(skills.label)).not.toBe('phone');
+    expect(candidateAnswerForField(candidate, skills)).toBeNull();
+    expect(questionTopic('Handy', 'Telefonnummer')).toBe('phone');
+  });
+
+  it('does not map mobility questions to phone identity', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    for (const label of ['Are you mobile, willing to travel?', 'Sind Sie mobil, bereit zu reisen?']) {
+      expect(questionTopic(label)).not.toBe('phone');
+      expect(candidateAnswerForField(candidate, { kind: 'text', inputType: 'text', label })).toBeNull();
+    }
   });
 });
 

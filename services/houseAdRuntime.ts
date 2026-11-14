@@ -1,4 +1,5 @@
 import type { createHouseAdCreative, HouseAdFormat, HouseAdLocale, HouseAdVariant } from './houseAdCreative';
+import type { HouseAdCreativeContext } from './houseAdContext';
 
 /** Dependency-injected so the static shell and React use exactly one controller.
  * Only publisher-owned display frames participate; Google nodes stay in place.
@@ -8,9 +9,15 @@ export function installHouseAds(
   css: string,
   emit: (event: string, properties: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { assignmentUrl: string; consentKey: string; consentEvent: string; variants: readonly HouseAdVariant[] },
+  config: {
+    assignmentUrl: string;
+    consentKey: string;
+    consentEvent: string;
+    variants: readonly HouseAdVariant[];
+    readerSubscriptionPaths?: Partial<Record<HouseAdLocale, string>>;
+  },
 ) {
-  type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number> };
+  type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number>; contextSignature: string };
   type HouseWindow = Window & {
     __ftHouseAds?: { refresh: () => void };
     __ftAdsAuthState?: 'unknown' | 'anonymous' | 'authenticated';
@@ -51,6 +58,25 @@ export function installHouseAds(
   let readerSubscriptionExperimentExposed = false;
   const readerSubscriptionExperimentImpressions = new WeakSet<HTMLElement>();
   const readerSubscriptionCardImpressions = new WeakSet<HTMLElement>();
+  const contextSources = ['job_detail', 'job_filter'] as const;
+  const contextSectors = ['commute', 'construction', 'electrician', 'hospitality', 'logistics', 'maintenance', 'production'] as const;
+  const readHouseContext = (frame: HTMLElement) => {
+    const root = frame.closest<HTMLElement>('[data-ft-house-context]');
+    const sourceValue = root?.dataset.ftHouseContext;
+    if (!root || !contextSources.includes(sourceValue as typeof contextSources[number])) {
+      return { source: 'generic', sector: 'generic', role: '', place: '' };
+    }
+    const sectorValue = root.dataset.ftHouseSector;
+    const sector = contextSectors.includes(sectorValue as typeof contextSectors[number]) ? sectorValue as typeof contextSectors[number] : 'commute';
+    const clean = (value: string | undefined, limit: number) => {
+      const text = String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
+      return Array.from(text).slice(0, limit).join('');
+    };
+    return {
+      source: sourceValue as typeof contextSources[number], sector,
+      role: clean(root.dataset.ftHouseRole, 52), place: clean(root.dataset.ftHousePlace, 36),
+    };
+  };
   let ready = false;
   let assignmentRequested = false;
   let scheduled: ReturnType<typeof setTimeout> | undefined;
@@ -77,7 +103,13 @@ export function installHouseAds(
   };
   const modalVisible = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(visible);
   const permitted = () => {
-    try { return allowed() && !/\/(automatizza-ricerca-lavoro-svizzera|automate-job-search-switzerland|arbeitssuche-schweiz-automatisieren|automatiser-recherche-emploi-suisse)(\/|$)/.test(location.pathname); }
+    try {
+      const subscriptionRoute = Object.values(config.readerSubscriptionPaths || {}).some((route) =>
+        location.pathname.replace(/\/+$/, '') === route.replace(/\/+$/, ''),
+      );
+      return allowed() && !subscriptionRoute
+        && !/\/(automatizza-ricerca-lavoro-svizzera|automate-job-search-switzerland|arbeitssuche-schweiz-automatisieren|automatiser-recherche-emploi-suisse)(\/|$)/.test(location.pathname);
+    }
     catch { return false; }
   };
   const blockerConfirmed = () => (w.__ftAdBlock?.blocked === true || w.__ftAdBlockProbe === 'blocked') && w.__ftAdBlock?.adsAllowed !== true;
@@ -202,7 +234,7 @@ export function installHouseAds(
         const frame = entry.creative.closest<HTMLElement>('[data-house]');
         if (frame) {
           const keys = counted.get(frame) || new Set<string>();
-          keys.add(`${path}:${entry.data.creative_id}:${entry.data.format}`); counted.set(frame, keys);
+          keys.add(`${path}:${entry.data.creative_id}:${entry.data.format}:${entry.data.context_source || 'generic'}:${entry.data.context_sector || 'generic'}`); counted.set(frame, keys);
         }
         report('house_ad_impression', { ...entry.data, action: 'viewable_1s' });
         if (entry.data.campaign === 'reader_subscription') {
@@ -343,9 +375,17 @@ export function installHouseAds(
         && assignment.readerSubscriptionVariant === 'subscription';
       let campaign: 'job_search_automation' | 'reader_subscription' = 'job_search_automation';
       if (subscriptionTreatment) campaign = 'reader_subscription';
+      const frameContext = readHouseContext(frame);
+      const context = campaign === 'job_search_automation' && frameContext.source !== 'generic'
+        ? { ...frameContext, sector: frameContext.sector === 'generic' ? 'commute' : frameContext.sector } as HouseAdCreativeContext
+        : undefined;
+      const contextSignature = context
+        ? `${context.source}:${context.sector}:${context.role}:${context.place}`
+        : campaign;
       if (existing?.creative.dataset.houseCampaign === campaign
           && existing.creative.dataset.houseFormat === format
           && existing.creative.lang === locale
+          && existing.contextSignature === contextSignature
           && (campaign === 'reader_subscription' || format !== 'billboard' || existing.creative.dataset.houseArtwork === (portraitArtwork ? 'portrait' : 'wide'))) {
         if (frame.style.getPropertyValue('--ft-house-height') !== `${height}px`) frame.style.setProperty('--ft-house-height', `${height}px`);
         continue;
@@ -361,8 +401,10 @@ export function installHouseAds(
         : 'ad_unavailable';
       const data = campaign === 'reader_subscription'
         ? { campaign, experiment_id: assignment.readerSubscriptionExperimentId, experiment_variant: assignment.readerSubscriptionVariant, enrolled: Number(assignment.readerSubscriptionEnrolled), assignment_source: assignment.readerSubscriptionAssignmentSource, creative_id: 'subscription_v1', component: `${assignment.readerSubscriptionExperimentId}.${assignment.readerSubscriptionVariant}.test.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' }
-        : { campaign, experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' };
-      const creative = render({ campaign, variant: assignment.variant, format, locale, placement, portraitArtwork, onClick: () => {
+        : { campaign, experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}.${frameContext.source}.${frameContext.sector}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop', context_source: frameContext.source, context_sector: frameContext.sector };
+      const creative = render({ campaign, variant: assignment.variant, format, locale, placement, portraitArtwork, context,
+        ...(campaign === 'reader_subscription' ? { destinationPath: config.readerSubscriptionPaths?.[locale] || '/abbonamento/' } : {}),
+        onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
         if (readerSubscriptionTarget === frame && authState === 'anonymous' && assignment.readerSubscriptionEnrolled) {
@@ -380,13 +422,14 @@ export function installHouseAds(
             format, locale, placement, device: data.device, enrolled: true,
             touchpoint: 'click', attributedAt: Date.now(),
           })); } catch { /* navigation still works */ }
-        } else if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, clickedAt: Date.now() })); } catch { /* navigation still works */ }
+        } else if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, contextSource: frameContext.source, contextSector: frameContext.sector, clickedAt: Date.now() })); } catch { /* navigation still works */ }
       } });
       creative.lang = locale;
       host.replaceChildren(creative);
       frame.style.setProperty('--ft-house-height', `${height}px`);
       frame.setAttribute('data-ft-house-active', '');
-      entries.set(frame, { creative, seen: counted.get(frame)?.has(`${path}:${data.creative_id}:${format}`) || false, data });
+      const impressionKey = `${path}:${data.creative_id}:${format}:${data.context_source || 'generic'}:${data.context_sector || 'generic'}`;
+      entries.set(frame, { creative, seen: counted.get(frame)?.has(impressionKey) || false, data, contextSignature });
       report('house_ad_rendered', { ...data, action: 'render' });
     }
     measure();
@@ -402,7 +445,7 @@ export function installHouseAds(
     if (records.every(r => (r.target as Element).closest?.('[data-ft-house-host]'))) return;
     schedule();
   });
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-anchor-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','lang','class','style','open','hidden','aria-modal'] });
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ad-status','data-anchor-status','data-ft-ad-state','data-ad-state','data-ft-static-ad-state','data-ft-ad-request-pending','data-ft-ad-stalled','data-ft-script-state','data-failed','data-ft-house-height','data-ft-house-context','data-ft-house-sector','data-ft-house-role','data-ft-house-place','lang','class','style','open','hidden','aria-modal'] });
   for (const name of [config.consentEvent, 'frontaliere:adblock-data', 'storage', 'popstate', 'seo-tracking:pushstate', 'seo-tracking:replacestate', 'resize']) window.addEventListener(name, schedule);
   window.addEventListener('frontaliere:auth-state', (event) => {
     const state = (event as CustomEvent).detail;

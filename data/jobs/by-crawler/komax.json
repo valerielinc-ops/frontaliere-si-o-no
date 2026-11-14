@@ -55,7 +55,6 @@
       "jobReqId": "1165799355",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "team-leader-crm-applications-100-m-w-d-komax-ch",
@@ -577,7 +576,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -628,7 +627,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -646,7 +646,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",
@@ -922,7 +922,7 @@
       "id": "komax-5d268a81a155",
       "slug": "capo-squadra-crm-applications-100-m-w-d-komax-dierikon-7f5b2f2db8",
       "slugByLocale": {
-        "it": "capo-squadra-crm-applications-100-m-w-d-komax-dierikon-7f5b2f2db8",
+        "it": "capo-squadra-crm-applications-100-m-w-d-komax-dierikon",
         "en": "team-leader-crm-applications-100-m-w-d-komax-ch",
         "de": "teamleiter-crm-anwendungen-100-m-w-d-komax-dierikon",
         "fr": "chef-d-equipe-applications-crm-100-h-f-d-komax-dierikon"
@@ -971,13 +971,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-leader-crm-applications-100-m-w-d-komax-ch",
-        "capo-squadra-crm-applications-100-m-w-d-komax-dierikon"
+        "team-leader-crm-applications-100-m-w-d-komax-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-crm-applications-100-m-w-d-komax-ch",
-          "capo-squadra-crm-applications-100-m-w-d-komax-dierikon"
+          "team-leader-crm-applications-100-m-w-d-komax-ch"
         ],
         "de": [
           "team-leader-crm-applications-100-m-w-d-komax-ch"

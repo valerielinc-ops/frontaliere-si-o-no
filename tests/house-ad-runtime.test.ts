@@ -3,13 +3,15 @@ import { JSDOM } from 'jsdom';
 import { installHouseAds } from '../services/houseAdRuntime';
 import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from '../services/houseAdCreative';
 import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../functions/src/houseAdAttribution.js';
+import { resolveHouseAdImageSector, sanitizeHouseAdContextLabel } from '../services/houseAdContext';
 import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
+import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
 let dom: JSDOM;
 let w: any;
 let testHouseBlock: HTMLElement;
 const emit = vi.fn();
-const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS };
+const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS, readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS };
 function frame(state: string, placement = 'article-inline', block: HTMLElement = testHouseBlock) {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
@@ -444,18 +446,103 @@ describe('per-slot first-party creative delivery', () => {
   it('renders the localized subscription offer for a compact banner', () => {
     const render = w.eval(`(${createHouseAdCreative.toString()})`);
     const creative = render({ campaign: 'reader_subscription', variant: 'control', format: 'mobile_banner', locale: 'it', placement: 'article-inline' });
-    expect(creative.href).toContain('/abbonamento/?');
+    expect(creative.href).toContain(`${READER_SUBSCRIPTION_PATHS.it}?`);
     expect(creative.textContent).toContain('Naviga senza pubblicità');
     expect(creative.textContent).toContain('CHF 2.99 al mese');
     expect(creative.textContent).toContain('Scopri');
     expect(creative.dataset.houseCreative).toBe('subscription_v1');
   });
+  it.each(['en', 'de', 'fr'] as const)('routes the %s anonymous treatment to its localized subscription page', async (locale) => {
+    w.document.documentElement.lang = locale;
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); frame('unfilled', 'article-end'); await start();
+    expect(first.host.querySelector('a')?.href).toContain(`${READER_SUBSCRIPTION_PATHS[locale]}?utm_source=house_ads`);
+  });
+  it('uses the job role, place, and matching artwork in desktop and mobile creatives', () => {
+    const render = w.eval(`(${createHouseAdCreative.toString()})`);
+    const context = { source: 'job_detail', sector: 'logistics', role: 'Logistiker in Kommissionierung', place: 'Rotkreuz' } as const;
+    const desktop = render({ variant: 'profile_match', format: 'billboard', locale: 'it', placement: 'job-detail', context });
+    expect(desktop.querySelector('img').src).toContain('logistics-wide-v1.webp');
+    expect(desktop.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(desktop.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
+    expect(desktop.querySelector('.ft-house-body').textContent).toContain('Rotkreuz');
+    expect(desktop.getAttribute('aria-label')).toContain('Lo cerchiamo noi per te.');
+
+    const alternate = render({ variant: 'time_saved', format: 'mobile_banner', locale: 'it', placement: 'job-detail', context });
+    expect(alternate.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Ci pensiamo noi.');
+    const alternateBillboard = render({ variant: 'time_saved', format: 'billboard', locale: 'it', placement: 'job-detail', context });
+    expect(alternateBillboard.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Alla ricerca pensiamo noi.');
+    expect(alternateBillboard.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
+
+    const longRole = render({
+      variant: 'profile_match', format: 'billboard', locale: 'it', placement: 'job-detail',
+      context: { ...context, role: 'Berufskraftfahrer im Fernverkehr' },
+    });
+    expect(longRole.querySelector('.ft-house-title').textContent).toBe('Lavoro in Svizzera?');
+    expect(longRole.querySelector('.ft-house-body').textContent).toContain('Berufskraftfahrer im Fernverkehr');
+
+    const french = render({ variant: 'time_saved', format: 'billboard', locale: 'fr', placement: 'job-detail', context: { ...context, role: 'Agent logistique en entrepôt' } });
+    expect(french.querySelector('.ft-house-title').textContent).toBe('Agent en Suisse ?');
+    expect(french.querySelector('.ft-house-body').textContent).toContain('Offres d’agent logistique en entrepôt à Rotkreuz.');
+
+    const mobile = render({ variant: 'profile_match', format: 'mobile_large', locale: 'it', placement: 'job-detail', context });
+    expect(mobile.querySelector('img').src).toContain('logistics-portrait-v1.webp');
+    expect(mobile.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(mobile.querySelector('.ft-house-promise').textContent).toContain('Cerchiamo Logistiker.');
+  });
+  it('maps job context to an existing visual sector without guessing unsupported trades', () => {
+    expect(resolveHouseAdImageSector('other', 'Logistica', 'Logistiker in Kommissionierung')).toBe('logistics');
+    expect(resolveHouseAdImageSector('hospitality', '', 'Cuoco')).toBe('hospitality');
+    expect(resolveHouseAdImageSector('health', '', 'Infermiere')).toBe('commute');
+    expect(sanitizeHouseAdContextLabel('  Tecnico\n manutentore  ')).toBe('Tecnico manutentore');
+  });
+  it('adds only low-cardinality context codes to tracking and stores no role or place', async () => {
+    testHouseBlock.dataset.ftHouseContext = 'job_detail';
+    testHouseBlock.dataset.ftHouseSector = 'logistics';
+    testHouseBlock.dataset.ftHouseRole = 'Logistiker in Kommissionierung';
+    testHouseBlock.dataset.ftHousePlace = 'Rotkreuz';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'profile_match', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
+    const empty = frame('unfilled');
+    await start();
+    const creative = empty.host.querySelector('a');
+    expect(creative.querySelector('img').src).toContain('logistics-portrait-v1.webp');
+    const rendered = emit.mock.calls.find(([name]) => name === 'house_ad_rendered')?.[1];
+    expect(rendered).toMatchObject({ component: 'house_creatives_v2.profile_match_v1.test.it.job_detail.logistics', context_source: 'job_detail', context_sector: 'logistics' });
+    expect(JSON.stringify(rendered)).not.toContain('Logistiker');
+    creative.click();
+    const attribution = JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1'));
+    expect(attribution).toMatchObject({ contextSource: 'job_detail', contextSector: 'logistics' });
+    expect(attribution).not.toHaveProperty('role');
+    expect(attribution).not.toHaveProperty('place');
+  });
+  it('updates the creative when the job board publishes its selected-job context after startup', async () => {
+    const empty = frame('unfilled');
+    await start();
+    expect(empty.host.querySelector('.ft-house-title')?.textContent).toBe('Lavoro in Svizzera?');
+
+    testHouseBlock.dataset.ftHouseContext = 'job_detail';
+    testHouseBlock.dataset.ftHouseSector = 'logistics';
+    testHouseBlock.dataset.ftHouseRole = 'Logistiker in Kommissionierung';
+    testHouseBlock.dataset.ftHousePlace = 'Rotkreuz';
+    await vi.advanceTimersByTimeAsync(150);
+
+    expect(empty.host.querySelector('img')?.getAttribute('src')).toContain('logistics-portrait-v1.webp');
+    expect(empty.host.querySelector('.ft-house-title')?.textContent).toBe('Logistiker in Svizzera?');
+    expect(empty.host.querySelector('.ft-house-body')?.textContent).toContain('Rotkreuz');
+  });
 });
 
 describe('bounded purchase attribution', () => {
-  const click = () => ({ campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: Date.now() - 1000 });
+  const click = () => ({ campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, contextSource: 'generic', contextSector: 'generic', clickedAt: Date.now() - 1000 });
   it('keeps public campaign fields and strips arbitrary user data', () => {
-    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/' })).toEqual({ ...click(), experimentId: 'house_creatives_v1', assignmentSource: 'legacy_client_hash' });
+    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/', role: 'private role', place: 'private place' })).toEqual({ ...click(), experimentId: 'house_creatives_v1', assignmentSource: 'legacy_client_hash' });
   });
   it('preserves Firebase assignment through click attribution and purchase enrollment', () => {
     const current = { ...click(), experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' };
@@ -464,8 +551,15 @@ describe('bounded purchase attribution', () => {
   });
   it.each([
     { variant: 'unknown' }, { experimentId: 'unreleased_experiment' }, { creativeId: 'mismatch_v1' }, { placement: 'https://example.test/private/' },
+    { contextSource: 'job_detail', contextSector: 'generic' }, { contextSector: 'unknown' },
     { clickedAt: Infinity }, { clickedAt: Date.now() + 86400000 }, { clickedAt: Date.now() - 8 * 86400000 },
   ])('rejects invalid or expired metadata %j', bad => { expect(sanitizeHouseAdAttribution({ ...click(), ...bad })).toBeNull(); });
+  it('preserves bounded job context codes and discards the display text', () => {
+    expect(sanitizeHouseAdAttribution({ ...click(), contextSource: 'job_detail', contextSector: 'logistics', role: 'Logistiker', place: 'Rotkreuz' }))
+      .toMatchObject({ contextSource: 'job_detail', contextSector: 'logistics' });
+    expect(sanitizeHouseAdAttribution({ ...click(), contextSource: 'job_detail', contextSector: 'logistics', role: 'Logistiker', place: 'Rotkreuz' }))
+      .not.toHaveProperty('role');
+  });
   it('accepts only bounded Firebase subscription experiment attribution', () => {
     const value = {
       campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
