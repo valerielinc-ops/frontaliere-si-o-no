@@ -26,7 +26,12 @@ import {
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
-import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+  clearJobCanonOrderingFields,
+  consumeJobCanonOrderingHandoff,
+  getJobCanonOrderingFields,
+  jobCanonOrderingHandoffPath,
+} from './shared/jobCanonInputs';
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
@@ -392,14 +397,23 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
+      const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
+      const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
+      const buildStage = process.env.BUILD_STAGE || 'single';
+      const stagedOrderingFieldsById = ownsWorkerMap && buildStage === 'ssg'
+        ? consumeJobCanonOrderingHandoff(
+          jobCanonOrderingHandoffPath(rootDir),
+          path.resolve(rootDir, 'data', 'jobs.json'),
+          rootDir,
+        )
+        : null;
+
       if (shouldAwaitJobsSeoPagesFlushed()) {
         console.log('[job-canon-redirect-map] waiting for jobs SEO to flush the reconciled Worker slug map');
         await jobsSeoPagesFlushed;
       }
 
       const distDir = path.resolve(rootDir, 'dist');
-      const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
-      const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
       if (!fs.existsSync(distDir)) {
         if (ownsWorkerMap) {
           const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
@@ -629,9 +643,9 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             buildReservedHubSlugs,
             compareActiveJobsByStableOrder,
           } = await import('./jobsSeoPagesPlugin');
-          let orderingFieldsById = getJobCanonOrderingFields();
+          let orderingFieldsById = stagedOrderingFieldsById ?? getJobCanonOrderingFields();
           if (!orderingFieldsById) {
-            throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
+            throw new Error('[job-canon-redirect-map] no job ordering fields are available for this build stage');
           }
           let writeIndex = 0;
           for (const row of jobs) {
@@ -639,7 +653,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             const stableId = String(row.id || row.slug || '').trim();
             const orderingFields = stableId ? orderingFieldsById.get(stableId) : undefined;
             if (!orderingFields) {
-              throw new Error('[job-canon-redirect-map] slug map and in-memory ordering fields do not match');
+              const sourceName = buildStage === 'ssg' ? 'build handoff' : 'in-memory ordering fields';
+              throw new Error(`[job-canon-redirect-map] slug map and ${sourceName} do not match`);
             }
             Object.assign(row, orderingFields);
             jobs[writeIndex++] = row;

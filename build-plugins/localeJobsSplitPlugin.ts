@@ -14,7 +14,12 @@ import {
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
-import { setJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+ jobCanonOrderingHandoffPath,
+ setJobCanonOrderingFields,
+ sha256FileSync,
+ writeJobCanonOrderingHandoff,
+} from './shared/jobCanonInputs';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -93,6 +98,7 @@ const DETAIL_FIELDS = new Set([
  */
 export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const dataJobsPath = path.resolve(rootDir, 'data', 'jobs.json');
+ const orderingHandoffPath = jobCanonOrderingHandoffPath(rootDir);
 
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
@@ -287,9 +293,23 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  return {
  name: 'locale-jobs-split',
  apply: 'build',
+  buildStart() {
+   // A previous interrupted staged build must never feed a later build. The
+   // bundle stage recreates this only after filtering the current jobs.json;
+   // single-process builds use the in-memory fields and do not read it.
+   try {
+    fs.unlinkSync(orderingHandoffPath);
+   } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+   }
+  },
  closeBundle() {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
+  const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
+  if (process.env.BUILD_STAGE === 'bundle' && (buildLocale === '' || buildLocale === 'it') && fs.existsSync(dataJobsPath)) {
+   writeJobCanonOrderingHandoff(orderingHandoffPath, sha256FileSync(dataJobsPath));
+  }
  if (count > 0) {
  console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }
