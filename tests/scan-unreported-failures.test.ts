@@ -71,7 +71,15 @@ describe('letture GitHub API transitorie', () => {
     expect(isTransientGithubApiError({ message: 'Command failed: gh api …', stderr: 'gh: Server Error (HTTP 502)' })).toBe(true);
   });
 
-  it.each([400, 401, 403, 404, 422])('non ritenta HTTP %i', (status) => {
+  it.each([
+    'gh: API rate limit exceeded for user ID 123 (HTTP 403)',
+    'gh: You have exceeded a secondary rate limit. Please retry later.',
+    'gh: Too Many Requests',
+  ])('classifica il messaggio di rate limit come transitorio anche senza HTTP 429: %s', (message) => {
+    expect(isTransientGithubApiError(new Error(message))).toBe(true);
+  });
+
+  it.each([400, 401, 403, 404, 422])('non ritenta HTTP %i senza un messaggio di rate limit', (status) => {
     expect(isTransientGithubApiError(new Error(`gh: HTTP ${status}`))).toBe(false);
   });
 

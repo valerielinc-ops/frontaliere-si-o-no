@@ -32,6 +32,7 @@ import {
   isApplicationIntentAccountDeleted,
 } from '../functions/src/applicationIntentPrivacy.js';
 import {
+  createApplicationIntentReminderFeatureCache,
   applicationIntentUid,
   buildApplicationIntentEntry,
   isApplicationIntentReminderEligible,
@@ -401,6 +402,7 @@ export async function main() {
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
   const allJobs = [...jobsById.values()];
+  const recommendationFeatureCache = createApplicationIntentReminderFeatureCache();
   const now = new Date();
   const nowMs = now.getTime();
   const campaignId = `application-intent-reminder-${now.toISOString().slice(0, 10)}`;
@@ -543,6 +545,7 @@ export async function main() {
     const recommendedJobs = rankSimilarApplicationJobs(sourceJobs, allJobs, {
       max: MAX_APPLICATION_INTENT_RECOMMENDATIONS,
       excludedJobIds,
+      featureCache: recommendationFeatureCache,
     });
     const recommendations = recommendedJobs.map((job) => recommendationEntry(job, locale));
 
