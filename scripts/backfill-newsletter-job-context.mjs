@@ -16,6 +16,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
@@ -63,7 +64,7 @@ function readJsonSafe(relativePath, fallback) {
   const p = path.resolve(ROOT, relativePath);
   if (!fs.existsSync(p)) return fallback;
   try {
-    return JSON.parse(fs.readFileSync(p, 'utf8'));
+    return readJsonFile(p);
   } catch {
     return fallback;
   }

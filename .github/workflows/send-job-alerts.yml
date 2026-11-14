@@ -210,6 +210,10 @@ jobs:
         if: inputs.dry_run == true || inputs.dry_run == 'true'
         env:
           ENABLE_JOB_ALERTS: 'true'
+          # Node's default old-space ceiling is ~4 GiB on the runner. The
+          # sender's bounded batches keep live data finite, but the production
+          # inventory can still need more headroom before V8 collects it.
+          NODE_OPTIONS: '--max-old-space-size=8192'
           TARGET_EMAIL: ${{ inputs.target_email }}
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
         run: |
@@ -221,6 +225,9 @@ jobs:
         id: send-alerts
         env:
           ENABLE_JOB_ALERTS: 'true'
+          # Keep the sender below the runner's available memory while lifting
+          # V8's default ~4 GiB heap ceiling that aborts otherwise bounded runs.
+          NODE_OPTIONS: '--max-old-space-size=8192'
           # send-job-alerts.mjs emits an aggregate zero-match issue before
           # sending; expose the Actions token to its github-issue-creator
           # import as well as to the explicit failure-report step below.
