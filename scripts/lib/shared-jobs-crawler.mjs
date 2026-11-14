@@ -3363,7 +3363,10 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
     browser = await createBrowser({ userAgent: CRAWLER_USER_AGENT });
     const context = await createPoliteContext(browser, { userAgent: CRAWLER_USER_AGENT });
     context.setDefaultNavigationTimeout(BROWSER_FALLBACK_TIMEOUT_MS);
-    const page = await fetchWithRateLimit(context, companyWebsite, { minDelayMs: 0 });
+    const page = await fetchWithRateLimit(context, companyWebsite, {
+      minDelayMs: 0,
+      navigationTimeoutMs: BROWSER_FALLBACK_TIMEOUT_MS,
+    });
     if (BROWSER_FALLBACK_WAIT_MS > 0) {
       await page.waitForTimeout(BROWSER_FALLBACK_WAIT_MS);
     }

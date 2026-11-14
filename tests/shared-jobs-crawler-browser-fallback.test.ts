@@ -69,7 +69,7 @@ describe('shared crawler browser fallback', () => {
     expect(runtimeState.fetchWithRateLimit).toHaveBeenCalledWith(
       runtimeState.context,
       website,
-      { minDelayMs: 0 },
+      { minDelayMs: 0, navigationTimeoutMs: 25_000 },
     );
     expect(runtimeState.closeAll).toHaveBeenCalledWith(runtimeState.browser);
   });
