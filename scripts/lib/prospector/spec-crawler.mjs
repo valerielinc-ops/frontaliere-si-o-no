@@ -1557,7 +1557,8 @@ export function readDeclaredListingTotal(html, pagination, spec) {
   // deliberately match source markup retain their exact contract, then retry
   // against decoded text so an entity-only markup change cannot turn a
   // complete listing into a fail-closed source-extraction failure.
-  const match = [rawHtml, decodeEntities(rawHtml)]
+  const decodedHtml = decodeEntities(rawHtml).replace(/[’‘]/g, "'");
+  const match = [rawHtml, decodedHtml]
     .map((candidate) => {
       pagination.declaredTotalRx.lastIndex = 0;
       return pagination.declaredTotalRx.exec(candidate);
