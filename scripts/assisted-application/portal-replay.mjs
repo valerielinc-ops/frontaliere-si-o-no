@@ -488,6 +488,25 @@ async function warmPortalDiagnosticsModule(module) {
   await diagnostics.installFetchObserver();
 }
 
+const REPLAY_DIAGNOSTICS_PATH = 'scripts/assisted-application/lib/portal/diagnostics.mjs';
+const REPLAY_DIAGNOSTICS_TRUST_FILES = Object.freeze([
+  REPLAY_DIAGNOSTICS_PATH,
+  'package.json',
+  'package-lock.json',
+]);
+
+/** Only run PR-side diagnostics before the fence when code and dependencies match trusted base. */
+export function canWarmHeadPortalDiagnostics(trustedRoot, headRoot) {
+  try {
+    return REPLAY_DIAGNOSTICS_TRUST_FILES.every((relativePath) =>
+      readFileSync(path.resolve(trustedRoot, relativePath)).equals(
+        readFileSync(path.resolve(headRoot, relativePath)),
+      ));
+  } catch {
+    return false;
+  }
+}
+
 function portalReplayCandidate() {
   return {
     identity: {
@@ -1210,6 +1229,10 @@ async function compareMode(values) {
   compareFailurePhase = 'diagnostics_setup';
   const trustedDiagnostics = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs');
   await warmPortalDiagnosticsModule(trustedDiagnostics);
+  if (canWarmHeadPortalDiagnostics(trustedRoot, headRoot)) {
+    const headDiagnostics = await importFrom(headRoot, REPLAY_DIAGNOSTICS_PATH);
+    await warmPortalDiagnosticsModule(headDiagnostics);
+  }
   compareFailurePhase = 'public_preflight_import';
   // Import the bounded public GET helper once from the trusted base checkout.
   // Separating this phase from the per-record check makes setup failures

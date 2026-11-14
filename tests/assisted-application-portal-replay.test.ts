@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { request as httpRequest } from 'node:http';
 import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
 import { tmpdir } from 'node:os';
@@ -13,6 +13,7 @@ import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
+  canWarmHeadPortalDiagnostics,
   captureTrustedPortalReplayProxyConnector,
   classifyPortalReplayPostingEvidence,
   comparePortalReplayFamily,
@@ -753,6 +754,30 @@ describe('portal replay base/head gate', () => {
     caseId, host: 'careers.example.test', path: '/jobs/*', stage, status: 'measured', stopCode: 'ok',
     agentCalls: 0, blockedNonGet: 0, blockedWebSockets: 0, finalClickAttempts: 0,
     formLinkedToPosting: 'yes', securityViolations: [], ...overrides,
+  });
+
+  it('warms PR diagnostics before the Node fence only when code and dependencies match the trusted base', () => {
+    const trustedRoot = tempDir();
+    const headRoot = tempDir();
+    mkdirSync(join(trustedRoot, 'scripts/assisted-application/lib/portal'), { recursive: true });
+    mkdirSync(join(headRoot, 'scripts/assisted-application/lib/portal'), { recursive: true });
+    for (const relativePath of [
+      'scripts/assisted-application/lib/portal/diagnostics.mjs',
+      'package.json',
+      'package-lock.json',
+    ]) {
+      const trustedPath = join(trustedRoot, relativePath);
+      const headPath = join(headRoot, relativePath);
+      writeFileSync(trustedPath, 'trusted replay diagnostics fixture');
+      writeFileSync(headPath, 'trusted replay diagnostics fixture');
+    }
+
+    expect(canWarmHeadPortalDiagnostics(trustedRoot, headRoot)).toBe(true);
+    writeFileSync(join(headRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs'), 'PR-owned diagnostics');
+    expect(canWarmHeadPortalDiagnostics(trustedRoot, headRoot)).toBe(false);
+    writeFileSync(join(headRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs'), 'trusted replay diagnostics fixture');
+    writeFileSync(join(headRoot, 'package-lock.json'), 'PR-owned dependency graph');
+    expect(canWarmHeadPortalDiagnostics(trustedRoot, headRoot)).toBe(false);
   });
 
   it('fails a per-listing stage regression and a lower family ready rate', () => {
