@@ -27,7 +27,10 @@ permissions:
 
 concurrency:
   group: assisted-application-portal-replay-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  # A queued replay is expensive and main may synchronize the PR while it is
+  # running. Keep the active event immutable and let the newest pending run
+  # replace only an older pending run, rather than cancelling the active gate.
+  cancel-in-progress: false
 
 jobs:
   detect:

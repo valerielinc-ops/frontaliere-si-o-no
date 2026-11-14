@@ -734,7 +734,7 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('<!-- portal-replay-gate -->');
     expect(text).toContain('portal-replay-gate-head:');
     expect(text).not.toMatch(/gh pr comment "\$PR_NUMBER"/u);
-    expect(text).toContain('cancel-in-progress: true');
+    expect(text).toContain('cancel-in-progress: false');
   });
 
   it('treats a cancelled run as transient for the red-check fixer and the auto-merge evaluator', () => {
