@@ -18,15 +18,28 @@ sul controllo locale e non mostra l'esperimento subscription.
 | Parametro | Default | Valori condizionali |
 | --- | --- | --- |
 | `HOUSE_AD_CREATIVE_EXPERIMENT_ENABLED` | `false` | `true` per `percent('ft_house_creative_v2') <= 100` |
-| `HOUSE_AD_CREATIVE_VARIANT` | `control` | `time_saved` 0–10%; `profile_match` >10–20%; `in_control` >20–30%; `swiss_work` >30–40%; `next_chapter` >40–50%; `control` >50% |
+| `HOUSE_AD_CREATIVE_VARIANT` | `control` | Valori per le sei condizioni di assegnazione sotto |
 | `HOUSE_AD_READER_SUBSCRIPTION_EXPERIMENT_ENABLED` | `false` | `true` per `percent('ft_reader_subscription_v1') <= 100` |
 | `HOUSE_AD_READER_SUBSCRIPTION_VARIANT` | `control` | `control` fino al 50%; `subscription` sopra il 50% |
 
-Per i valori a intervallo, usare le espressioni Firebase con lo stesso seed,
-per esempio `percent('ft_house_creative_v2') > 10 && percent('ft_house_creative_v2') <= 20`.
-Gli intervalli non si sovrappongono. L'assegnazione creatività lascia il 50%
-al controllo e distribuisce il restante 50% in cinque varianti. Il test
-subscription è un 50/50 distinto.
+## Condizioni da creare
+
+| Condizione | Espressione | Valore del parametro variante |
+| --- | --- | --- |
+| `house_ad_creative_all` | `percent('ft_house_creative_v2') <= 100` | Attiva `HOUSE_AD_CREATIVE_EXPERIMENT_ENABLED` |
+| `house_ad_creative_time_saved` | `percent('ft_house_creative_v2') <= 10` | `time_saved` |
+| `house_ad_creative_profile_match` | `percent('ft_house_creative_v2') > 10 && percent('ft_house_creative_v2') <= 20` | `profile_match` |
+| `house_ad_creative_in_control` | `percent('ft_house_creative_v2') > 20 && percent('ft_house_creative_v2') <= 30` | `in_control` |
+| `house_ad_creative_swiss_work` | `percent('ft_house_creative_v2') > 30 && percent('ft_house_creative_v2') <= 40` | `swiss_work` |
+| `house_ad_creative_next_chapter` | `percent('ft_house_creative_v2') > 40 && percent('ft_house_creative_v2') <= 50` | `next_chapter` |
+| `house_ad_creative_control` | `percent('ft_house_creative_v2') > 50` | `control` |
+| `house_ad_subscription_all` | `percent('ft_reader_subscription_v1') <= 100` | Attiva `HOUSE_AD_READER_SUBSCRIPTION_EXPERIMENT_ENABLED` |
+| `house_ad_subscription_control` | `percent('ft_reader_subscription_v1') <= 50` | `control` |
+| `house_ad_subscription_treatment` | `percent('ft_reader_subscription_v1') > 50` | `subscription` |
+
+Le condizioni di ciascun seed coprono il 100% senza sovrapposizioni: il test
+creatività assegna il 50% al controllo e il restante 50% in cinque varianti;
+il test subscription è un 50/50 indipendente.
 
 ## Regole di esposizione
 
