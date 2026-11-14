@@ -1320,6 +1320,73 @@ const identifierPattern = (name) => new RegExp(
   `\\b${name.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}\\b`,
   'u',
 );
+const WORD_ONLY_RE = /^\w+$/u;
+
+// Each source file is parsed and indexed once. The index maps every maximal
+// \w+ run of a declaration body to the declarations that contain it: for a
+// word-only name, `\bname\b` matches exactly when the name is one of those
+// runs, so the lookup keeps the regex semantics without rescanning bodies.
+// Before this cache the fixed point below recompiled and re-ran that regex
+// for every (declaration, impacted name) pair on every round, and re-parsed
+// the importer for every distinct incoming symbol set: on a large importer
+// the CI selection never finished (runs held for the 6-hour job timeout).
+const sourceAnalysisCache = new Map();
+function sourceAnalysis(file, source) {
+  if (sourceAnalysisCache.has(file)) return sourceAnalysisCache.get(file);
+  const declarations = sourceDeclarations(file, source);
+  const exportedNames = new Set(declarations.flatMap(({ exportNames }) => exportNames));
+  const referencedBy = new Map();
+  declarations.forEach((declaration, index) => {
+    for (const token of new Set(declaration.body.match(/\w+/gu) || [])) {
+      const list = referencedBy.get(token);
+      if (list) list.push(index);
+      else referencedBy.set(token, [index]);
+    }
+  });
+  const analysis = { declarations, exportedNames, referencedBy };
+  sourceAnalysisCache.set(file, analysis);
+  return analysis;
+}
+
+function declarationsReferencing(analysis, name) {
+  if (WORD_ONLY_RE.test(name)) return analysis.referencedBy.get(name) || [];
+  const pattern = identifierPattern(name);
+  return analysis.declarations
+    .map((declaration, index) => (pattern.test(declaration.body) ? index : -1))
+    .filter((index) => index >= 0);
+}
+
+// A private helper can carry the changed behavior into an exported function.
+// Propagate only through declarations in this file, as a worklist over the
+// index: every impacted name is looked up once, so the cost is linear in the
+// file's references. A declaration that references an impacted name makes all
+// of its locals impacted (an order-independent closure, never narrower than
+// the old round-based fixed point, which also looped forever on a matching
+// declaration without locals). Returns the impacted exports.
+function impactedExportsFromLocals(analysis, seeds) {
+  const impacted = new Set(seeds);
+  const referencing = new Set();
+  const worklist = [...impacted];
+  for (let next = 0; next < worklist.length; next += 1) {
+    for (const index of declarationsReferencing(analysis, worklist[next])) {
+      referencing.add(index);
+      for (const local of analysis.declarations[index].localNames) {
+        if (impacted.has(local)) continue;
+        impacted.add(local);
+        worklist.push(local);
+      }
+    }
+  }
+  // An anonymous default export (`export default defineConfig(...)`) has no
+  // local name to carry the impact: it is exported when its body references
+  // an impacted name, i.e. when the worklist reached it (#18787).
+  return new Set(analysis.declarations
+    .filter((declaration, index) => declaration.localNames.some((name) => impacted.has(name))
+      || declaration.exportNames.some((name) => impacted.has(name))
+      || (declaration.exportNames.length > 0 && referencing.has(index)))
+    .flatMap(({ exportNames }) => exportNames));
+}
+
 function changedExportSymbols(file) {
   if (sourceImpactCache.has(file)) return sourceImpactCache.get(file);
   let result = null;
@@ -1342,9 +1409,9 @@ function changedExportSymbols(file) {
     sourceImpactCache.set(file, null);
     return null;
   }
-  const declarations = sourceDeclarations(file, source);
+  const analysis = sourceAnalysis(file, source);
+  const { declarations, exportedNames } = analysis;
   const executableLines = stripSourceComments(source).split(/\r?\n/u);
-  const exportedNames = new Set(declarations.flatMap(({ exportNames }) => exportNames));
   if (exportedNames.size === 0) {
     sourceImpactCache.set(file, null);
     return null;
@@ -1366,26 +1433,8 @@ function changedExportSymbols(file) {
     return null;
   }
 
-  // A private helper can carry the changed behavior into an exported
-  // function. Propagate only through declarations in this file; this is the
-  // bounded replacement for traversing the entire reverse application graph.
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const declaration of declarations) {
-      if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
-      if (![...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) continue;
-      const newLocals = declaration.localNames.filter((name) => !impactedLocals.has(name));
-      for (const local of newLocals) impactedLocals.add(local);
-      if (newLocals.length > 0) changed = true;
-    }
-  }
-  result = new Set(declarations
-    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name))
-      || declaration.exportNames.some((name) => impactedLocals.has(name))
-      || (declaration.exportNames.length > 0
-        && [...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))))
-    .flatMap(({ exportNames }) => exportNames));
+  // Bounded replacement for traversing the entire reverse application graph.
+  result = impactedExportsFromLocals(analysis, impactedLocals);
   if (result.size === 0) result = null;
   sourceImpactCache.set(file, result);
   return result;
@@ -1407,8 +1456,8 @@ function impactedExportsThroughSource(file, bindings, incomingSymbols) {
     sourcePropagationCache.set(cacheKey, null);
     return null;
   }
-  const declarations = sourceDeclarations(file, source);
-  const exportedNames = new Set(declarations.flatMap(({ exportNames }) => exportNames));
+  const analysis = sourceAnalysis(file, source);
+  const { exportedNames } = analysis;
   const wildcard = bindings.some(({ imported }) => imported === '*');
   if (wildcard && exportedNames.size === 0) {
     sourcePropagationCache.set(cacheKey, null);
@@ -1428,23 +1477,7 @@ function impactedExportsThroughSource(file, bindings, incomingSymbols) {
     sourcePropagationCache.set(cacheKey, empty);
     return empty;
   }
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const declaration of declarations) {
-      if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
-      if (![...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) continue;
-      const newLocals = declaration.localNames.filter((name) => !impactedLocals.has(name));
-      for (const local of newLocals) impactedLocals.add(local);
-      if (newLocals.length > 0) changed = true;
-    }
-  }
-  const result = new Set(declarations
-    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name))
-      || declaration.exportNames.some((name) => impactedLocals.has(name))
-      || (declaration.exportNames.length > 0
-        && [...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))))
-    .flatMap(({ exportNames: names }) => names));
+  const result = impactedExportsFromLocals(analysis, impactedLocals);
   if (result.size === 0 && wildcard) {
     sourcePropagationCache.set(cacheKey, null);
     return null;
@@ -1617,13 +1650,25 @@ if (!fullSuiteRequired) {
     }
     sourceQueue.push({ file, symbols: changedExportSymbols(file) });
   }
-  const sourceVisited = new Set();
-  while (sourceQueue.length) {
-    const current = sourceQueue.shift();
-    const symbolKey = current.symbols ? [...current.symbols].sort().join(',') : '*';
-    const visitKey = `${current.file}\0${symbolKey}`;
-    if (sourceVisited.has(visitKey)) continue;
-    sourceVisited.add(visitKey);
+  // Propagation distributes over the incoming symbol set (the closure of a
+  // union is the union of the closures), so a file forwards only the exports
+  // it has not forwarded yet; `null` means every export. Each file is expanded
+  // at most once per export plus once for `null`, instead of once per distinct
+  // symbol combination reaching it.
+  const forwarded = new Map();
+  for (let next = 0; next < sourceQueue.length; next += 1) {
+    const current = { ...sourceQueue[next] };
+    const seen = forwarded.get(current.file);
+    if (seen === null) continue;
+    if (current.symbols) {
+      current.symbols = new Set([...current.symbols].filter((symbol) => !seen?.has(symbol)));
+      if (current.symbols.size === 0) continue;
+      const union = seen || new Set();
+      for (const symbol of current.symbols) union.add(symbol);
+      forwarded.set(current.file, union);
+    } else {
+      forwarded.set(current.file, null);
+    }
     for (const edge of reverse.get(current.file) || []) {
       if (!sourceEdgeIsImpacted(edge.bindings, current.symbols)) continue;
       if (isRunnableTest(edge.file)) {
@@ -1648,9 +1693,8 @@ const queue = candidates.filter(assetCandidate).map((file) => ({
 }));
 const queued = new Set(queue.map(({ file, rootAsset }) => `${rootAsset}\0${file}`));
 const visited = new Set();
-while (queue.length) {
-  const current = queue.shift();
-  const { file, rootAsset } = current;
+for (let next = 0; next < queue.length; next += 1) {
+  const { file, rootAsset } = queue[next];
   const visitKey = `${rootAsset}\0${file}`;
   if (visited.has(visitKey)) continue;
   visited.add(visitKey);
