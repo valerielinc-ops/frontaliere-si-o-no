@@ -1548,6 +1548,18 @@ describe('fill extension: other portals', () => {
     expect(F.parseDate('12/09/1986')).toEqual({ year: 1986, month: 9, day: 12 });
   });
 
+  it('keeps English handy questions out of phone identity mapping', () => {
+    const { F, document, window } = page(`<form>
+      <label for="handy">Handy</label><input id="handy">
+      <label for="skills">How handy are you with tools?</label><input id="skills">
+    </form>`, 'https://jobs.example.ch/apply');
+    const fields = F.collect(document);
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'handy'), kit))
+      .toEqual({ value: '+39 333 1234567', family: 'phone' });
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'skills'), kit)).toBeNull();
+    window.close();
+  });
+
   it('keeps phone country and residence country separate from stale portal answers', async () => {
     const { F, document, window } = page(`<form><h2>Personal information</h2>
       <div role="group" aria-label="Telephone">

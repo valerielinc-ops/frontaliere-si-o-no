@@ -64,6 +64,14 @@ describe('application-surface detection', () => {
     expect(candidateAnswerForField({ identity: { phone: '+41 00 000 00 00' } }, fields[3]))
       .toEqual({ value: '+41 00 000 00 00', source: 'identity' });
   });
+
+  it('keeps English handy questions out of phone identity mapping', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    const skills = { kind: 'text', inputType: 'text', label: 'How handy are you with tools?' };
+    expect(questionTopic(skills.label)).not.toBe('phone');
+    expect(candidateAnswerForField(candidate, skills)).toBeNull();
+    expect(questionTopic('Handy', 'Telefonnummer')).toBe('phone');
+  });
 });
 
 describe('account verification recovery', () => {

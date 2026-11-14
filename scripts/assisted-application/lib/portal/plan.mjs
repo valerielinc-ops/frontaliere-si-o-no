@@ -762,7 +762,11 @@ const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|u
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
 const PHONE_CODE_FIELD_RE = new RegExp([
-  String.raw`\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono|cellulare|handy|natel)\b`,
+  // «Handy» is a German phone caption only when it is the field's own word
+  // or has a German phone qualifier; it must not match English prose such as
+  // «How handy are you with tools?». Unspaced compounds stay outside this fix.
+  String.raw`\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono|cellulare|natel)\b`,
+  String.raw`^\s*handy(?:\s+(?:nummer|telefon|nr\.?))?\s*[:*]?\s*$`,
   String.raw`\bmobile\s+(?:number|phone|nummer)\b`,
   String.raw`\bmobil(?:nummer|telefon)\b`,
   String.raw`\b(?:mobile|mobil)(?=\s*[*:()/,;?]|$)`,
