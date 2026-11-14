@@ -27,6 +27,15 @@ describe('Sintio crawler parser', () => {
     expect(spec.authoritativeEmptyText).toBe(
       "We don't have any open positions at the moment",
     );
+    expect(spec.authoritativeEmptyData).toEqual({
+      scriptId: '__NEXT_DATA__',
+      companyPath: 'props.pageProps.pageData.company.domain',
+      companyValue: 'sintio',
+      itemsPath: 'props.pageProps.pageData.jobs.items',
+      totalPath: 'props.pageProps.pageData.jobs.pagination.total',
+      pageCountPath: 'props.pageProps.pageData.jobs.pagination.pageCount',
+      markerPath: 'props.pageProps.messages',
+    });
     expect(templateToRegex(spec.detailTemplate).test(
       '/companies/sintio/another-current-vacancy',
     )).toBe(true);

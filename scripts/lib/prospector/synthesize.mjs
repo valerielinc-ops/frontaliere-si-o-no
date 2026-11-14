@@ -122,6 +122,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
  * @property {boolean} [rescueOnPartialListing] Retry a source-specific listing through the browser rescue when direct transport may expose only a partial population
  * @property {string} [authoritativeEmptyText] Exact source-native text that proves the fetched listing is intentionally empty when no candidates are accepted
+ * @property {{ scriptId: string, companyPath: string, companyValue: string, itemsPath: string, totalPath: string, pageCountPath: string, markerPath: string }} [authoritativeEmptyData] Source-owned JSON empty proof: the named script must identify the tenant, expose empty listing items and zero counters, and contain authoritativeEmptyText under markerPath
  * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches

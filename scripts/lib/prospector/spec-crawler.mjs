@@ -502,7 +502,82 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
   const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
   if (!marker) return false;
   const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
-  return sourceText.includes(marker);
+  if (sourceText.includes(marker)) return true;
+
+  // Some SSR career pages keep the empty-state sentence in an application
+  // payload rather than rendering it into the HTML body. `textOf()` correctly
+  // excludes scripts from rendered evidence, so a spec must opt into this
+  // second proof and name every source-owned field that makes the zero safe:
+  // the script, tenant identity, empty item array, zero counters and marker
+  // container. A marker alone is never enough to retire a live slice.
+  const contract = spec?.authoritativeEmptyData;
+  if (!contract || typeof contract !== 'object') return false;
+  const requiredPaths = [
+    'scriptId',
+    'companyPath',
+    'companyValue',
+    'itemsPath',
+    'totalPath',
+    'pageCountPath',
+    'markerPath',
+  ];
+  if (requiredPaths.some((key) => typeof contract[key] !== 'string' || !contract[key].trim())) {
+    return false;
+  }
+
+  const readPath = (root, rawPath) => {
+    const parts = String(rawPath).split('.').map((part) => part.trim());
+    if (!parts.length || parts.some((part) => !/^[A-Za-z_$][A-Za-z0-9_$-]*$/.test(part)
+      || part === '__proto__' || part === 'constructor' || part === 'prototype')) {
+      return undefined;
+    }
+    return parts.reduce((value, part) => {
+      if (!value || typeof value !== 'object' || !Object.prototype.hasOwnProperty.call(value, part)) {
+        return undefined;
+      }
+      return value[part];
+    }, root);
+  };
+  const scriptId = String(contract.scriptId).trim();
+  const scriptTags = scanStartTags(html, 'script');
+  for (const scriptTag of scriptTags) {
+    if (readAttr(scriptTag.raw, 'id') !== scriptId) continue;
+    const closeTag = /<\/script\s*>/giu;
+    closeTag.lastIndex = scriptTag.end;
+    const close = closeTag.exec(String(html));
+    if (!close) continue;
+    const payload = String(html).slice(scriptTag.end, close.index).trim();
+    let data;
+    for (const candidate of [payload, decodeEntities(payload)]) {
+      try {
+        data = JSON.parse(candidate);
+        break;
+      } catch {
+        // Try the entity-decoded representation before rejecting the proof.
+      }
+    }
+    if (!data) continue;
+
+    const company = readPath(data, contract.companyPath);
+    const items = readPath(data, contract.itemsPath);
+    const total = readPath(data, contract.totalPath);
+    const pageCount = readPath(data, contract.pageCountPath);
+    if (String(company).trim().toLowerCase() !== String(contract.companyValue).trim().toLowerCase()
+      || !Array.isArray(items)
+      || items.length !== 0
+      || total !== 0
+      || pageCount !== 0) {
+      continue;
+    }
+    const markerSource = readPath(data, contract.markerPath);
+    const markerText = typeof markerSource === 'string'
+      ? markerSource
+      : JSON.stringify(markerSource ?? '');
+    if (decodeEntities(markerText).replace(/\s+/g, ' ').trim().toLowerCase().includes(marker)) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /** @param {any[]} rows */
