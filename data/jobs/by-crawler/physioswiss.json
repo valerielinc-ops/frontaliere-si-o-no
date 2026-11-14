@@ -21839,12 +21839,12 @@
     },
     {
       "id": "physioswiss-d65ab1265a36",
-      "slug": "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld",
+      "slug": "fisioterapista-a-frauenfeld-40-80-physio-swiss-8500-frauenfeld",
       "slugByLocale": {
         "de": "physiotherapeut-in-in-frauenfeld-40-80-8500-frauenfeld-physioswiss-ch",
-        "it": "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld",
-        "en": "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld",
-        "fr": "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld"
+        "it": "fisioterapista-a-frauenfeld-40-80-physio-swiss-8500-frauenfeld",
+        "en": "physiotherapist-in-frauenfeld-40-80-physio-swiss-8500-frauenfeld",
+        "fr": "physiotherapeute-a-frauenfeld-40-80-physio-swiss-8500-frauenfeld"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21891,11 +21891,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-in-frauenfeld-40-80-8500-frauenfeld-physioswiss-ch"
+          "physiotherapeut-in-in-frauenfeld-40-80-8500-frauenfeld-physioswiss-ch",
+          "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld"
+        ],
+        "en": [
+          "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld"
+        ],
+        "fr": [
+          "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-in-frauenfeld-40-80-8500-frauenfeld-physioswiss-ch"
+        "physiotherapeut-in-in-frauenfeld-40-80-8500-frauenfeld-physioswiss-ch",
+        "physiotherapeut-in-in-frauenfeld-40-80-physio-swiss-frauenfeld"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -21918,12 +21926,12 @@
     },
     {
       "id": "physioswiss-35ea79b9260c",
-      "slug": "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch",
+      "slug": "la-nostra-squadra-sta-cercando-rinforzi-physio-swiss-8002-zurich",
       "slugByLocale": {
         "de": "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch",
-        "it": "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch",
-        "en": "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch",
-        "fr": "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch"
+        "it": "la-nostra-squadra-sta-cercando-rinforzi-physio-swiss-8002-zurich",
+        "en": "our-team-is-looking-for-reinforcement-physio-swiss-8002-zurich",
+        "fr": "notre-equipe-cherche-des-renforts-physio-swiss-8002-zurich"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21985,7 +21993,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T22:01:32.712Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T22:01:32.712Z"
+      "firstSeenAt": "2026-11-13T22:01:32.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch"
+        ],
+        "en": [
+          "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch"
+        ],
+        "fr": [
+          "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unser-team-sucht-verstarkung-8002-zurich-physioswiss-ch"
+      ]
     }
   ]
 }

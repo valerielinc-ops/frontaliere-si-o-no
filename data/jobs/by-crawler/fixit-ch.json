@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "fixit-ch-40a937f69a04",
-      "slug": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch",
+      "slug": "servizi-di-consulenza-commerciale-m-f-fixit-ag-untervaz",
       "slugByLocale": {
         "de": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch",
-        "it": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch",
-        "en": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch",
-        "fr": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch"
+        "it": "servizi-di-consulenza-commerciale-m-f-fixit-ag-untervaz",
+        "en": "sales-consultancy-services-m-f-fixit-ag-untervaz",
+        "fr": "services-de-conseil-en-ventes-h-f-fixit-ag-untervaz"
       },
       "company": "Fixit AG",
       "companyKey": "fixit-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:21:41.912Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:41.912Z"
+      "firstSeenAt": "2026-11-13T21:21:41.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch"
+        ],
+        "en": [
+          "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch"
+        ],
+        "fr": [
+          "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch"
+      ]
     }
   ]
 }

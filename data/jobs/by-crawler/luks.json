@@ -17053,7 +17053,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17101,7 +17101,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17109,7 +17109,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -18033,12 +18033,12 @@
     },
     {
       "id": "luks-c14ab6f036e8",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-zentrum-per-intensivmedizin-80-luzerner-kantonsspital-luks-luzern",
+      "slug": "assistente-sanitario-a-e-sociale-oppure-assistente-di-cura-centro-di-medicina-intensiva-80-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent",
-        "it": "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-zentrum-per-intensivmedizin-80-luzerner-kantonsspital-luks-luzern",
-        "en": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2",
-        "fr": "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2"
+        "it": "assistente-sanitario-a-e-sociale-oppure-assistente-di-cura-centro-di-medicina-intensiva-80-luzerner-kantonsspital-luks",
+        "en": "assistant-assistant-health-and-social-affairs-or-nursing-assistant-nursing-assistant-center-for-intensive-care-medicine",
+        "fr": "assistante-assistante-en-sante-et-en-affaires-sociales-ou-assistante-en-soins-infirmiers-assistante-en-soins-infirmiers"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18087,11 +18087,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2",
+          "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-zentrum-per-intensivmedizin-80-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2"
+        ],
+        "fr": [
           "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2"
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2"
+        "assistentin-assistent-gesundheit-und-soziales-oder-pflegeassistentin-pflegeassistent-2",
+        "assistentin-assistent-gesundheit-e-soziales-o-pflegeassistentin-pflegeassistent-zentrum-per-intensivmedizin-80-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,

@@ -4010,12 +4010,12 @@
     },
     {
       "id": "eraneos-2497e4725876",
-      "slug": "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-switzerland-ag-zurich",
+      "slug": "impiegato-a-per-la-fatturazione-e-il-supporto-ai-progetti-100-a-tempo-determinato-eraneos-switzerland-ag-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch",
-        "it": "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-switzerland-ag-zurich",
-        "en": "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch",
-        "fr": "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch"
+        "it": "impiegato-a-per-la-fatturazione-e-il-supporto-ai-progetti-100-a-tempo-determinato-eraneos-switzerland-ag-zurich",
+        "en": "billing-project-support-clerk-100-fixed-term-eraneos-switzerland-ag-zurich",
+        "fr": "gestionnaire-de-la-facturation-et-du-support-de-projet-100-a-duree-determinee-eraneos-switzerland-ag-zurich"
       },
       "company": "Eraneos Switzerland AG",
       "companyKey": "eraneos",
@@ -4063,11 +4063,19 @@
       "jobReqId": "JR100318",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch",
+          "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-switzerland-ag-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch"
+        "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-ch",
+        "sachbearbeiter-in-fakturierung-projektsupport-100-befristet-eraneos-switzerland-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

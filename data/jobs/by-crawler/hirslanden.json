@@ -6,12 +6,12 @@
     {
       "id": "hirslanden-24c744811e01",
       "externalId": "1274026601",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-e-wochenenddienste-im-std-lohn-hirslanden-klinik-hirslanden-andreasklinik-cham",
+      "slug": "infermiere-a-diplomato-a-nel-pool-infermieristico-turni-serali-notturni-e-nei-fine-settimana-con-paga-oraria-hirslanden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std",
-        "it": "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-e-wochenenddienste-im-std-lohn-hirslanden-klinik-hirslanden-andreasklinik-cham",
-        "en": "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std"
+        "it": "infermiere-a-diplomato-a-nel-pool-infermieristico-turni-serali-notturni-e-nei-fine-settimana-con-paga-oraria-hirslanden",
+        "en": "dipl-nursing-professional-in-the-nursing-pool-late-night-and-weekend-services-hourly-wage-hirslanden-klinik-hirslanden",
+        "fr": "dipl-specialiste-des-soins-infirmiers-dans-la-piscine-services-de-fin-de-semaine-de-nuit-et-de-fin-de-semaine-salaire"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std",
+          "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-e-wochenenddienste-im-std-lohn-hirslanden-klinik-hirslanden-andreasklinik-cham"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std"
+        "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-und-wochenenddienste-im-std",
+        "dipl-pflegefachfrau-pflegefachmann-im-pflegepool-spat-nacht-e-wochenenddienste-im-std-lohn-hirslanden-klinik-hirslanden-andreasklinik-cham"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15830,12 +15838,12 @@
     {
       "id": "hirslanden-41acf7f885b6",
       "externalId": "1434393533",
-      "slug": "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office",
+      "slug": "software-engineer-net-applicazioni-mediche-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "fr": "net-physico-maricales-hirslanden-klinik-hirslanden-corporate-office",
         "en": "ingenieur-logiciel-net-physico-edicales-hirslanden-klinik-hirslanden-corporate-office",
-        "it": "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office",
-        "de": "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office"
+        "it": "software-engineer-net-applicazioni-mediche-hirslanden-klinik-hirslanden-corporate-office",
+        "de": "software-engineer-net-medizinische-anwendungen-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -15897,7 +15905,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:29:43.712Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:09:13.177Z"
+      "firstSeenAt": "2026-09-07T15:09:13.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office"
+        ],
+        "de": [
+          "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-logiciel-net-applications-medicales-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-38f5e81f8c65",
@@ -28638,12 +28657,12 @@
     {
       "id": "hirslanden-bde829836e57",
       "externalId": "1457161333",
-      "slug": "leiterin-leiter-notfallpflege-a-80-100-hirslanden-klinik-st-anna",
+      "slug": "capo-di-pronto-soccorso-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "it": "leiterin-leiter-notfallpflege-a-80-100-hirslanden-klinik-st-anna",
-        "en": "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "fr": "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        "it": "capo-di-pronto-soccorso-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "head-of-emergency-care-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "chef-des-soins-d-urgence-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28690,11 +28709,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna",
+          "leiterin-leiter-notfallpflege-a-80-100-hirslanden-klinik-st-anna"
+        ],
+        "en": [
+          "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "fr": [
           "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        "leiterin-leiter-notfallpflege-a-80-100-hirslanden-hirslanden-klinik-st-anna",
+        "leiterin-leiter-notfallpflege-a-80-100-hirslanden-klinik-st-anna"
       ],
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -28802,12 +28829,12 @@
     {
       "id": "hirslanden-c7f39ec6c95e",
       "externalId": "1457293233",
-      "slug": "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-klinik-hirslanden-salem-spital",
+      "slug": "capo-capo-a-op-salem-hospital-80-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital",
-        "it": "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital",
-        "fr": "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital"
+        "it": "capo-capo-a-op-salem-hospital-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "head-head-a-op-salem-hospital-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "chef-chef-a-hopital-op-salem-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28854,11 +28881,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital",
+          "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-klinik-hirslanden-salem-spital"
+        ],
+        "en": [
+          "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
           "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital"
+        "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-hirslanden-salem-spital",
+        "leiterin-leiter-a-op-salem-spital-80-100-hirslanden-klinik-hirslanden-salem-spital"
       ],
       "salaryMin": 115000,
       "salaryMax": 160000,

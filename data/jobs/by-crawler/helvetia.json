@@ -1538,7 +1538,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1607,14 +1607,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5483,10 +5483,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5561,21 +5561,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -14057,12 +14056,12 @@
     },
     {
       "id": "helvetia-512b344d88c8",
-      "slug": "hochschulpraktikum-m-w-d-technical-accounting-passive-ruckversicherung-befristet-per-12-monate-helvetia-versicherungen-basel",
+      "slug": "tirocinio-universitario-m-f-d-contabilita-tecnica-riassicurazione-passiva-a-tempo-determinato-per-12-mesi-helvetia",
       "slugByLocale": {
         "de": "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12",
-        "it": "hochschulpraktikum-m-w-d-technical-accounting-passive-ruckversicherung-befristet-per-12-monate-helvetia-versicherungen-basel",
-        "en": "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12",
-        "fr": "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12"
+        "it": "tirocinio-universitario-m-f-d-contabilita-tecnica-riassicurazione-passiva-a-tempo-determinato-per-12-mesi-helvetia",
+        "en": "university-internship-m-f-d-technical-accounting-passive-reinsurance-temporary-for-12-months-helvetia-versicherungen",
+        "fr": "stage-universitaire-h-f-d-comptabilite-technique-reassurance-passive-temporaire-pendant-12-mois-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14111,11 +14110,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12",
+          "hochschulpraktikum-m-w-d-technical-accounting-passive-ruckversicherung-befristet-per-12-monate-helvetia-versicherungen-basel"
+        ],
+        "en": [
+          "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12"
+        ],
+        "fr": [
           "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12"
+        "hochschulpraktikum-w-m-d-technical-accounting-passive-ruckversicherung-befristet-fur-12",
+        "hochschulpraktikum-m-w-d-technical-accounting-passive-ruckversicherung-befristet-per-12-monate-helvetia-versicherungen-basel"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -14137,12 +14144,12 @@
     },
     {
       "id": "helvetia-31d78bcd4831",
-      "slug": "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel",
+      "slug": "senior-underwriting-expert-tutti-i-sessi-centro-di-eccellenza-helvetia-versicherungen-basel",
       "slugByLocale": {
         "en": "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel",
-        "it": "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel",
-        "de": "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel",
-        "fr": "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel"
+        "it": "senior-underwriting-expert-tutti-i-sessi-centro-di-eccellenza-helvetia-versicherungen-basel",
+        "de": "senior-underwriting-expert-alle-geschlechter-center-of-excellence-haftung-helvetia-versicherungen-basel",
+        "fr": "expert-principal-en-souscription-tous-genres-centre-d-excellence-responsabilite-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14204,7 +14211,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:20:27.563Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:27.563Z"
+      "firstSeenAt": "2026-11-13T21:20:27.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel"
+        ],
+        "de": [
+          "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel"
+        ],
+        "fr": [
+          "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-underwriting-expert-all-genders-center-of-excellence-liability-helvetia-basel"
+      ]
     },
     {
       "id": "helvetia-b66817b515e0",

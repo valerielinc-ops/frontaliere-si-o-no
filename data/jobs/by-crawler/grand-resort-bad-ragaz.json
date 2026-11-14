@@ -1523,10 +1523,10 @@
     },
     {
       "id": "grand-resort-bad-ragaz-c51cd53ae232",
-      "slug": "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "interno-anteriore-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "interno-anteriore-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
       },
@@ -1590,7 +1590,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-13T21:22:03.938Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-02T13:34:39.829Z"
+      "firstSeenAt": "2026-09-02T13:34:39.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-praktikant-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-8471d30ae48e",
@@ -1824,10 +1832,10 @@
     },
     {
       "id": "grand-resort-bad-ragaz-3ca9f361a1ce",
-      "slug": "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "agente-di-prenotazione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "agente-di-prenotazione-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
       },
@@ -1891,7 +1899,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:22:03.926Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:22:03.926Z"
+      "firstSeenAt": "2026-11-13T21:22:03.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "reservation-agent-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-8a5b9869da89",

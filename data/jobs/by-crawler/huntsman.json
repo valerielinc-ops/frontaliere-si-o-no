@@ -250,12 +250,12 @@
     },
     {
       "id": "huntsman-4b04115c564f",
-      "slug": "agent-technique-huntsman-ch",
+      "slug": "responsabile-tecnico-huntsman-corporation-monthey",
       "slugByLocale": {
         "fr": "agent-technique-huntsman-ch",
-        "it": "agent-technique-huntsman-ch",
-        "en": "agent-technique-huntsman-ch",
-        "de": "agent-technique-huntsman-ch"
+        "it": "responsabile-tecnico-huntsman-corporation-monthey",
+        "en": "technical-officer-huntsman-corporation-monthey",
+        "de": "technischer-offizier-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -318,7 +318,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:51:10.600Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:51:10.600Z"
+      "firstSeenAt": "2026-11-13T21:51:10.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-technique-huntsman-ch"
+        ],
+        "en": [
+          "agent-technique-huntsman-ch"
+        ],
+        "de": [
+          "agent-technique-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agent-technique-huntsman-ch"
+      ]
     },
     {
       "id": "huntsman-48b3c1f86a17",

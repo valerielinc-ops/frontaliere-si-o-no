@@ -4510,12 +4510,12 @@
     },
     {
       "id": "cern-a0093fd7f2a3",
-      "slug": "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva",
+      "slug": "gestione-patrimoniale-dei-sistemi-elettrici-junior-en-el-mo-2026-253-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva",
-        "it": "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva",
+        "it": "gestione-patrimoniale-dei-sistemi-elettrici-junior-en-el-mo-2026-253-grae-cern-geneva-geneva-switzerland",
         "de": "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva",
-        "fr": "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva"
+        "fr": "gestionnaire-d-actifs-de-systemes-electriques-juniors-en-el-mo-2026-253-grae-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -4579,7 +4579,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:20:09.340Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:09.340Z"
+      "firstSeenAt": "2026-11-13T21:20:09.340Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva"
+        ],
+        "fr": [
+          "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-electrical-systems-asset-manager-en-el-mo-2026-253-grae-cern-geneva-geneva"
+      ]
     },
     {
       "id": "cern-41bcdbf43f6e",

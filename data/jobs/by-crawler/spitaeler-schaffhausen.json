@@ -4499,12 +4499,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-443d50728bb4",
-      "slug": "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen",
+      "slug": "impiegato-a-amministrativo-a-nel-settore-della-formazione-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-bildungsadministration-spitaeler-schaffhausen-schaffhausen",
-        "it": "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen",
-        "en": "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen"
+        "it": "impiegato-a-amministrativo-a-nel-settore-della-formazione-spitaler-schaffhausen-schaffhausen",
+        "en": "education-administration-officer-spitaler-schaffhausen-schaffhausen",
+        "fr": "collaborateur-trice-administratif-ve-en-administration-de-la-formation-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4553,11 +4553,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-bildungsadministration-spitaeler-schaffhausen-schaffhausen"
+          "sachbearbeiter-in-bildungsadministration-spitaeler-schaffhausen-schaffhausen",
+          "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-bildungsadministration-spitaeler-schaffhausen-schaffhausen"
+        "sachbearbeiter-in-bildungsadministration-spitaeler-schaffhausen-schaffhausen",
+        "sachbearbeiter-in-bildungsadministration-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

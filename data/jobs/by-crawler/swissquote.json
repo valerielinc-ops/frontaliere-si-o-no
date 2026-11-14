@@ -623,7 +623,7 @@
         "it": "fx-trader-di-esecuzione-swissquote-gland",
         "en": "fx-execution-trader-swissquote-gland",
         "de": "fx-ausfuhrungshandler-swissquote-gland",
-        "fr": "fx-executeur-swissquote-gland"
+        "fr": "operateur-de-change-d-execution-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -672,7 +672,7 @@
       "previousSlugs": [
         "fx-execution-trader-swissquote-gland",
         "commerce-fx-execution-swissquote-gland",
-        "operateur-de-change-d-execution-swissquote-gland"
+        "fx-executeur-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -684,7 +684,7 @@
         "fr": [
           "commerce-fx-execution-swissquote-gland",
           "fx-execution-trader-swissquote-gland",
-          "operateur-de-change-d-execution-swissquote-gland"
+          "fx-executeur-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-18T14:21:38.632Z",
@@ -2224,12 +2224,12 @@
     },
     {
       "id": "swissquote-cf6a9daebf6a",
-      "slug": "mlops-engineer-intern-swissquote-gland",
+      "slug": "mlops-ingegnere-tirocinante-swissquote-gland",
       "slugByLocale": {
         "en": "mlops-engineer-intern-swissquote-gland",
-        "it": "mlops-engineer-intern-swissquote-gland",
-        "de": "mlops-engineer-intern-swissquote-gland",
-        "fr": "mlops-engineer-intern-swissquote-gland"
+        "it": "mlops-ingegnere-tirocinante-swissquote-gland",
+        "de": "mlops-ingenieur-praktikant-swissquote-gland",
+        "fr": "mlops-ingenieur-stagiaire-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2292,7 +2292,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:44:10.556Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:44:10.556Z"
+      "firstSeenAt": "2026-11-13T21:44:10.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mlops-engineer-intern-swissquote-gland"
+        ],
+        "de": [
+          "mlops-engineer-intern-swissquote-gland"
+        ],
+        "fr": [
+          "mlops-engineer-intern-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "mlops-engineer-intern-swissquote-gland"
+      ]
     }
   ]
 }

@@ -1780,12 +1780,12 @@
     },
     {
       "id": "hopital-la-tour-9758abbdcf10",
-      "slug": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin",
+      "slug": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin",
-        "it": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin",
-        "en": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin",
-        "de": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        "it": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
+        "en": "caregiver-in-intensive-care-cdmax-9-months-hopital-de-la-tour-meyrin",
+        "de": "pflegekrafte-in-der-intensivpflege-cdmax-9-monate-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -1858,7 +1858,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:34:40.631Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:34:40.631Z"
+      "firstSeenAt": "2026-11-13T21:34:40.631Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-3ed8eade02ba",
@@ -2050,12 +2064,12 @@
     },
     {
       "id": "hopital-la-tour-fd429834f139",
-      "slug": "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin",
+      "slug": "cdmax-3-mesi-al-50-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin",
-        "it": "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin",
-        "en": "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin",
-        "de": "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin"
+        "it": "cdmax-3-mesi-al-50-hopital-de-la-tour-meyrin",
+        "en": "cdmax-3-months-at-50-hopital-de-la-tour-meyrin",
+        "de": "cdmax-3-monate-bei-50-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -2128,16 +2142,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:34:40.627Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:34:40.627Z"
+      "firstSeenAt": "2026-11-13T21:34:40.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "lingere-cdmax-3-mois-a-50-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-8f1a2381a572",
-      "slug": "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la",
+      "slug": "infermiera-notturna-cardiopolmonare-e-cura-intermedia-cdi-90-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la",
-        "it": "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la",
-        "en": "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la",
-        "de": "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la"
+        "it": "infermiera-notturna-cardiopolmonare-e-cura-intermedia-cdi-90-hopital-de-la-tour-meyrin",
+        "en": "night-nurse-cardiopulmonary-and-intermediate-care-cdi-90-hopital-de-la-tour-meyrin",
+        "de": "nachtkrankenschwester-herz-und-mittelpflege-cdi-90-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -2210,7 +2238,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:34:40.625Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:34:40.625Z"
+      "firstSeenAt": "2026-11-13T21:34:40.625Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la"
+        ],
+        "en": [
+          "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la"
+        ],
+        "de": [
+          "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-hopital-la"
+      ]
     },
     {
       "id": "hopital-la-tour-27d334811186",

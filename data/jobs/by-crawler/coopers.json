@@ -3621,12 +3621,12 @@
     },
     {
       "id": "coopers-9a88394a1e3c",
-      "slug": "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern",
+      "slug": "esperto-di-reporting-regolamentare-trading-energetico-conformita-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern",
-        "it": "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern",
+        "it": "esperto-di-reporting-regolamentare-trading-energetico-conformita-m-f-d-coopers-group-ag-bern",
         "en": "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern",
-        "fr": "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern"
+        "fr": "expert-en-matiere-de-declaration-reglementaire-echange-d-energie-et-conformite-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3706,7 +3706,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:21:29.595Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:29.595Z"
+      "firstSeenAt": "2026-11-13T21:21:29.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-reporting-expert-energy-trading-compliance-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-30fc8dacc85f",
@@ -3882,12 +3893,12 @@
     },
     {
       "id": "coopers-bfd06706a734",
-      "slug": "nextlab-spezialist-m-w-d-coopers-basel-stadt",
+      "slug": "specialista-di-nextlab-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "de": "nextlab-spezialist-m-w-d-coopers-basel-stadt",
-        "it": "nextlab-spezialist-m-w-d-coopers-basel-stadt",
-        "en": "nextlab-spezialist-m-w-d-coopers-basel-stadt",
-        "fr": "nextlab-spezialist-m-w-d-coopers-basel-stadt"
+        "it": "specialista-di-nextlab-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "nextlab-specialist-m-f-d-coopers-group-ag-basel-stadt",
+        "fr": "nextlab-specialiste-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3963,7 +3974,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:21:26.569Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:26.569Z"
+      "firstSeenAt": "2026-11-13T21:21:26.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nextlab-spezialist-m-w-d-coopers-basel-stadt"
+        ],
+        "en": [
+          "nextlab-spezialist-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "nextlab-spezialist-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "nextlab-spezialist-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-36926839ebb0",
@@ -4070,7 +4095,7 @@
         "de": "senior-software-engineer-go-developer-m-w-d-coopers-bern",
         "it": "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern",
         "en": "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern",
-        "fr": "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
+        "fr": "senior-software-ingenieur-go-developpeur-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",

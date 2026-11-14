@@ -3187,7 +3187,7 @@
       "slugByLocale": {
         "de": "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch",
         "it": "risorse-umane-specialista-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-spreitenbach",
-        "en": "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch",
+        "en": "hr-specialist-personal-administration-m-f-d-100-temporary-until-august-2027-decathlon-spreitenbach",
         "fr": "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3235,6 +3235,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
+        ],
+        "en": [
           "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
         ]
       },
@@ -3371,12 +3374,12 @@
     },
     {
       "id": "decathlon-9681b4a7f732",
-      "slug": "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil",
+      "slug": "meccanico-a-di-biciclette-e-d-officina-m-f-d-60-a-tempo-indeterminato-hinwil-decathlon-hinwil",
       "slugByLocale": {
         "de": "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
-        "it": "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil",
-        "en": "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
-        "fr": "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch"
+        "it": "meccanico-a-di-biciclette-e-d-officina-m-f-d-60-a-tempo-indeterminato-hinwil-decathlon-hinwil",
+        "en": "bicycle-and-workshop-mechanic-m-f-d-60-permanent-hinwil-decathlon-hinwil",
+        "fr": "mecanicien-ne-de-velos-et-d-atelier-h-f-d-60-a-duree-indeterminee-hinwil-decathlon-hinwil"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3423,11 +3426,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
+          "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil"
+        ],
+        "en": [
+          "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch"
+        ],
+        "fr": [
           "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch"
+        "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
+        "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -3455,7 +3466,7 @@
         "de": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch",
         "it": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch",
         "en": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-60-80-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",

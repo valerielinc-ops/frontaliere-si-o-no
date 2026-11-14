@@ -1455,7 +1455,7 @@
     },
     {
       "id": "company-nqvltk",
-      "slug": "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk",
+      "slug": "modello-e-scienziato-sperimentale-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Modelling and Experimental scientist 80 - 100% (f/m/d)",
       "location": "Baden-Daettwil, Aargau",
@@ -1495,21 +1495,29 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk",
+        "it": "modello-e-scienziato-sperimentale-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk",
-        "de": "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk",
-        "fr": "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk"
+        "de": "modellierung-und-experimentalwissenschaftler-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "modelisation-et-chercheur-experimental-80-100-h-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+          "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk"
+        ],
+        "de": [
+          "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk"
+        ],
+        "fr": [
+          "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk"
         ]
       },
       "previousSlugs": [
-        "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+        "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "modelling-and-experimental-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-nqvltk"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,

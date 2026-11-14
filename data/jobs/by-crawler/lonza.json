@@ -5519,7 +5519,7 @@
       "slugByLocale": {
         "it": "linea-meccanica-m-f-d-lonza-visp",
         "en": "line-mechanic-f-m-d-lonza-ch",
-        "de": "streckenmechaniker-m-w-d-lonza-visp",
+        "de": "line-mechanic-m-w-d-lonza-visp",
         "fr": "mecanicien-de-ligne-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -5566,7 +5566,7 @@
         "line-mechanic-f-m-d-lonza-ch",
         "line-mechanic-f-m-d-lonza-visp",
         "leitungsmechaniker-m-w-d-lonza-visp",
-        "line-mechanic-m-w-d-lonza-visp"
+        "streckenmechaniker-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5575,7 +5575,7 @@
         "de": [
           "line-mechanic-f-m-d-lonza-visp",
           "leitungsmechaniker-m-w-d-lonza-visp",
-          "line-mechanic-m-w-d-lonza-visp"
+          "streckenmechaniker-m-w-d-lonza-visp"
         ],
         "fr": [
           "line-mechanic-f-m-d-lonza-ch"
@@ -17902,12 +17902,12 @@
     },
     {
       "id": "lonza-3fbbf1216ccd",
-      "slug": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-di-bioprocesso-automazione-nella-produzione-farmaceutica-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch",
-        "it": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch",
-        "en": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch",
-        "fr": "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch"
+        "it": "ingegnere-di-bioprocesso-automazione-nella-produzione-farmaceutica-80-100-m-f-d-lonza-visp",
+        "en": "bioprocess-engineer-automation-in-pharmaceutical-production-80-100-m-f-d-lonza-visp",
+        "fr": "ingenieur-e-en-bioprocedes-automatisation-dans-la-production-pharmaceutique-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -17982,15 +17982,29 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:20:22.661Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:22.661Z"
+      "firstSeenAt": "2026-11-13T21:20:22.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-engineer-automatisierung-in-der-pharmazeutischen-produktion-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a00c3f346297",
-      "slug": "cleaning-validation-expert-lonza-ch",
+      "slug": "esperto-di-convalida-delle-pulizie-lonza-visp",
       "slugByLocale": {
         "en": "cleaning-validation-expert-lonza-ch",
-        "it": "cleaning-validation-expert-lonza-ch",
-        "de": "cleaning-validation-expert-lonza-ch",
+        "it": "esperto-di-convalida-delle-pulizie-lonza-visp",
+        "de": "reinigungsvalidierungsexperte-lonza-visp",
         "fr": "cleaning-validation-expert-lonza-ch"
       },
       "company": "Lonza",
@@ -18064,7 +18078,18 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:20:21.900Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "cleaning-validation-expert-lonza-ch"
+        ],
+        "de": [
+          "cleaning-validation-expert-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cleaning-validation-expert-lonza-ch"
+      ]
     },
     {
       "id": "lonza-f9ca51f3bd02",
@@ -18151,12 +18176,12 @@
     },
     {
       "id": "lonza-eb530e8e356c",
-      "slug": "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch",
+      "slug": "coordinatore-trice-di-laboratorio-hapi-e38-m-f-d-80-100-lonza-visp",
       "slugByLocale": {
         "de": "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch",
-        "it": "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch",
-        "en": "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch",
-        "fr": "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch"
+        "it": "coordinatore-trice-di-laboratorio-hapi-e38-m-f-d-80-100-lonza-visp",
+        "en": "laboratory-coordinator-hapi-laboratory-e38-m-f-d-80-100-lonza-visp",
+        "fr": "coordinateur-rice-de-laboratoire-hapi-e38-h-f-d-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -18231,16 +18256,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:20:20.300Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:20.300Z"
+      "firstSeenAt": "2026-11-13T21:20:20.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch"
+        ],
+        "en": [
+          "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch"
+        ],
+        "fr": [
+          "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborkoordinator-in-hapi-labor-e38-m-w-d-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b0bcf482840a",
-      "slug": "manufacturing-lead-80-100-lonza-ch",
+      "slug": "piombo-di-produzione-80-100-lonza-stein",
       "slugByLocale": {
         "en": "manufacturing-lead-80-100-lonza-ch",
-        "it": "manufacturing-lead-80-100-lonza-ch",
-        "de": "manufacturing-lead-80-100-lonza-ch",
-        "fr": "manufacturing-lead-80-100-lonza-ch"
+        "it": "piombo-di-produzione-80-100-lonza-stein",
+        "de": "produktionsleiter-80-100-lonza-stein",
+        "fr": "fabrication-de-plomb-80-100-lonza-stein"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -18303,7 +18342,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:20:19.565Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:19.565Z"
+      "firstSeenAt": "2026-11-13T21:20:19.565Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-lead-80-100-lonza-ch"
+        ],
+        "de": [
+          "manufacturing-lead-80-100-lonza-ch"
+        ],
+        "fr": [
+          "manufacturing-lead-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-lead-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-fe15e68a52c1",

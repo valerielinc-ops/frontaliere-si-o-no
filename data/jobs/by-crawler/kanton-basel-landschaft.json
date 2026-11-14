@@ -2645,7 +2645,7 @@
       "slug": "corso-di-biologia-insegnante-2a-kantonale-verwaltung-basel-landschaft-therwil",
       "slugByLocale": {
         "it": "corso-di-biologia-insegnante-2a-kantonale-verwaltung-basel-landschaft-therwil",
-        "en": "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil",
+        "en": "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil",
         "de": "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil",
         "fr": "cours-de-biologie-des-enseignants-2a-kantonale-verwaltung-basel-landschaft-therwil"
       },
@@ -2694,14 +2694,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil",
-        "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil"
+        "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil"
         ],
         "en": [
-          "lehrperson-biologie-kurs-2a-kantonale-verwaltung-basel-landschaft-therwil"
+          "teacher-biology-course-2a-kantonale-verwaltung-basel-landschaft-therwil"
         ],
         "fr": [
           "lehrperson-biologie-kurs-2a-kanton-basel-landschaft-therwil"
@@ -2730,7 +2730,7 @@
       "slug": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "it": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "en": "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
         "fr": "enseignant-6e-classe-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -2779,14 +2779,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ],
         "en": [
-          "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "fr": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
@@ -6085,12 +6085,12 @@
     },
     {
       "id": "kanton-basel-landschaft-087bf01bc809",
-      "slug": "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach",
+      "slug": "manipolatore-caso-court-chancellery-kantonale-verwaltung-basel-landschaft-sissach",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kanton-basel-landschaft-sissach",
-        "it": "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach",
-        "en": "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach",
-        "fr": "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach"
+        "it": "manipolatore-caso-court-chancellery-kantonale-verwaltung-basel-landschaft-sissach",
+        "en": "case-handler-case-handler-court-chancellery-kantonale-verwaltung-basel-landschaft-sissach",
+        "fr": "gestionnaire-de-cas-gestionnaire-de-cas-chancellerie-kantonale-verwaltung-basel-landschaft-sissach"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6138,11 +6138,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kanton-basel-landschaft-sissach"
+          "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kanton-basel-landschaft-sissach",
+          "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kanton-basel-landschaft-sissach"
+        "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kanton-basel-landschaft-sissach",
+        "sachbearbeiterin-sachbearbeiter-gerichtskanzlei-kantonale-verwaltung-basel-landschaft-sissach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6164,12 +6172,12 @@
     },
     {
       "id": "kanton-basel-landschaft-726eee37d400",
-      "slug": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch",
+      "slug": "maestro-5a-classe-primaria-kantonale-verwaltung-basel-landschaft-aesch",
       "slugByLocale": {
         "de": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch",
-        "it": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch",
-        "en": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch",
-        "fr": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch"
+        "it": "maestro-5a-classe-primaria-kantonale-verwaltung-basel-landschaft-aesch",
+        "en": "teacher-5th-primary-class-kantonale-verwaltung-basel-landschaft-aesch",
+        "fr": "enseignant-5e-classe-primaire-kantonale-verwaltung-basel-landschaft-aesch"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6231,16 +6239,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:17:11.633Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:11.633Z"
+      "firstSeenAt": "2026-11-13T21:17:11.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch"
+        ],
+        "en": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch"
+        ],
+        "fr": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-52c083a0df21",
-      "slug": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2",
+      "slug": "maestro-5a-classe-primaria-kantonale-verwaltung-basel-landschaft-aesch-17d7c9",
       "slugByLocale": {
         "de": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch",
-        "it": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2",
-        "en": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2",
-        "fr": "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2"
+        "it": "maestro-5a-classe-primaria-kantonale-verwaltung-basel-landschaft-aesch-17d7c9",
+        "en": "teacher-5th-primary-class-kantonale-verwaltung-basel-landschaft-aesch-17d7c9",
+        "fr": "enseignant-5e-classe-primaire-kantonale-verwaltung-basel-landschaft-aesch-17d7c9"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6302,16 +6324,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:17:11.622Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:11.622Z"
+      "firstSeenAt": "2026-11-13T21:17:11.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2"
+        ],
+        "en": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2"
+        ],
+        "fr": [
+          "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-5-primarklasse-kanton-basel-landschaft-aesch-2"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-d059af6cd48b",
-      "slug": "spezialistin-spezialist-ki-governance-e-services-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "specialista-in-governance-e-servizi-di-ia-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal",
-        "it": "spezialistin-spezialist-ki-governance-e-services-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal",
-        "fr": "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal"
+        "it": "specialista-in-governance-e-servizi-di-ia-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "specialist-ai-governance-and-services-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "gouvernance-et-services-specialises-en-matiere-d-ia-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6360,11 +6396,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal",
+          "spezialistin-spezialist-ki-governance-e-services-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal"
+        "spezialistin-spezialist-ki-governance-und-services-kanton-basel-landschaft-liestal",
+        "spezialistin-spezialist-ki-governance-e-services-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6386,12 +6430,12 @@
     },
     {
       "id": "kanton-basel-landschaft-12d7aff1b2f2",
-      "slug": "spezialistin-spezialist-ki-services-e-integration-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "specialista-in-servizi-di-ia-e-integrazione-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal",
-        "it": "spezialistin-spezialist-ki-services-e-integration-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal",
-        "fr": "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal"
+        "it": "specialista-in-servizi-di-ia-e-integrazione-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "specialist-ai-services-and-integration-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "services-d-ia-specialises-et-integration-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6440,11 +6484,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal",
+          "spezialistin-spezialist-ki-services-e-integration-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal"
+        "spezialistin-spezialist-ki-services-und-integration-kanton-basel-landschaft-liestal",
+        "spezialistin-spezialist-ki-services-e-integration-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6466,12 +6518,12 @@
     },
     {
       "id": "kanton-basel-landschaft-59c0a12c152d",
-      "slug": "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf",
+      "slug": "responsabile-del-servizio-tecnico-operativo-kantonale-verwaltung-basel-landschaft-niederdorf",
       "slugByLocale": {
         "de": "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf",
-        "it": "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf",
-        "en": "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf",
-        "fr": "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf"
+        "it": "responsabile-del-servizio-tecnico-operativo-kantonale-verwaltung-basel-landschaft-niederdorf",
+        "en": "manager-of-operations-technical-service-kantonale-verwaltung-basel-landschaft-niederdorf",
+        "fr": "directeur-du-service-technique-des-operations-kantonale-verwaltung-basel-landschaft-niederdorf"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -6533,7 +6585,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:17:11.544Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:11.544Z"
+      "firstSeenAt": "2026-11-13T21:17:11.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf"
+        ],
+        "en": [
+          "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf"
+        ],
+        "fr": [
+          "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsleiterin-betriebsleiter-technischer-dienst-kanton-basel-landschaft-niederdorf"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-fe908fc54868",
