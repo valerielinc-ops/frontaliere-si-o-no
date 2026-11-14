@@ -2232,7 +2232,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
   const apply = comparablePortalRoute(context.applyUrl);
-  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '');
+  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '')
+    // BrassRing/Taleo keeps the selected vacancy and its sole script CTA on
+    // the query-bound HomeWithPreLoad route (jobs.ubs.com). The explicit
+    // jobid plus the exact same-route checks below bind this exception to the
+    // selected vacancy; an arbitrary search shell remains unresolved.
+    || (posting?.origin === 'https://jobs.ubs.com'
+      && /^\/tgnewui\/search\/home\/homewithpreload\/?$/i.test(posting.pathname || '')
+      && Boolean(portalJobKey(posting.href)));
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
