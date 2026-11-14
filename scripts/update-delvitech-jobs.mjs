@@ -473,9 +473,9 @@ function updateAdapterConfig(jobs) {
     companyHost: COMPANY_HOST,
     enabled: true,
     priority: 20,
-    crawlerModes: ['html'],
+    crawlerModes: ['html', 'api'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Delvitech crawler parses the canonical careers page and detail pages, excluding Germany roles and publishing TI + GR vacancies.',
+    notes: 'Dedicated Delvitech crawler reads the canonical Zoho Recruit public feed exposed by the careers page, excludes foreign roles, and publishes Swiss TI + GR vacancies.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
