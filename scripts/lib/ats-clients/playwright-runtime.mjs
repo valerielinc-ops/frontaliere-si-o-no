@@ -182,6 +182,8 @@ export async function createPoliteContext(browser, options = {}) {
  * @param {string} url
  * @param {object} [options]
  * @param {number} [options.minDelayMs=5000] - Minimum gap between requests.
+ * @param {number} [options.navigationTimeoutMs=60000] - Default timeout for
+ *   navigations in an escalated stealth context.
  * @returns {Promise<import('playwright').Page>}
  * @throws {NavigationTimeout} If page.goto times out or aborts.
  * @throws {AntiBotBlockError} If the response looks like a bot challenge.
@@ -313,7 +315,11 @@ function stealthContextFor(context, options) {
         await closeAll(browser);
         throw err;
       }
-      stealthContext.setDefaultNavigationTimeout(DEFAULT_NAV_TIMEOUT_MS);
+      stealthContext.setDefaultNavigationTimeout(
+        typeof options.navigationTimeoutMs === 'number'
+          ? options.navigationTimeoutMs
+          : DEFAULT_NAV_TIMEOUT_MS,
+      );
       return { browser, context: stealthContext };
     })().catch((err) => {
       process.stderr.write(`[playwright-runtime] CloakBrowser escalation unavailable: ${err && err.message ? err.message : err}\n`);
