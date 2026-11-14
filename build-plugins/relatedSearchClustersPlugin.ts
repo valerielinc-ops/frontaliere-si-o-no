@@ -6187,6 +6187,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
 
       if (contexts.length === 0) {
         await writeIncrementalManifests();
+        releaseMatchingInputs('empty');
         printRelatedSearchProfile();
         return;
       }
