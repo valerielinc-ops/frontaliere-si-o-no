@@ -1206,6 +1206,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');
   });
 
+  it('keeps birth-date fields neutral and stops role evidence at the form surface', () => {
+    const job = { company: 'Acme', title: 'Nurse' };
+    for (const label of ['Date de naissance', 'Date of birth', 'Data di nascita', 'Geburtsdatum']) {
+      expect(namesAnotherEmployer(label, job)).toBe(false);
+    }
+    expect(formPostingMatch('Application Tracking System\nFirst name:\nNurse', job, { postingMatched: true })).toBe('unknown');
+  });
+
   it('takes an ATS careers section in the page title for no employer', () => {
     // SuccessFactors titles every page with its section («Opportunités de carrière : Créer un compte», read on a
     // real tenant on 2026-10-03; «Karrierechancen: Anmelden» on another): the section names nobody, and its
