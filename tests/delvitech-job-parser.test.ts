@@ -142,6 +142,27 @@ describe('Delvitech job parser', () => {
     expect(parseDelvitechJobDetail(html, 'https://legacy.delvi.tech/application-engineer-2/').datePublished).toBe('');
   });
 
+  it('falls back to canonical JobPosting metadata on a redesigned detail page', () => {
+    const html = `
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'E2E Test Engineer',
+        description: '<p>Build and maintain automated tests.</p>',
+        datePosted: '2026-11-01',
+        jobLocation: { address: { addressLocality: 'Mendrisio', addressRegion: 'TI', addressCountry: 'CH' } },
+      })}</script>
+      <main><p>The role is part of the engineering team.</p></main>
+    `;
+    const detail = parseDelvitechJobDetail(html, 'https://delvi.tech/e2e-test-engineer/');
+    expect(detail).toMatchObject({
+      title: 'E2E Test Engineer',
+      location: 'Mendrisio',
+      datePublished: '2026-11-01',
+    });
+    expect(detail.description).toContain('Build and maintain automated tests.');
+  });
+
   it('filters out the explicit Germany role', () => {
     expect(isDelvitechTicinoJob({
       title: 'Office Manager Germany',

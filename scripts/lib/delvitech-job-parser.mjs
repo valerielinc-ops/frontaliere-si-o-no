@@ -209,8 +209,10 @@ export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_C
 export function parseDelvitechJobDetail(html = '', url = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const root = document.querySelector('.post-content') || document.body;
-  const title = normalizeSpace(root.querySelector('h1')?.textContent || '');
+  const root = document.querySelector('.post-content, main, [role="main"]') || document.body;
+  const structuredPosting = extractJobPostingNodes(html)[0] || {};
+  const structuredTitle = normalizeSpace(structuredPosting.title || '');
+  const title = normalizeSpace(root.querySelector('h1')?.textContent || structuredTitle);
   const email = String(root.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '')
     .replace(/^mailto:/i, '')
     .trim();
@@ -236,6 +238,7 @@ export function parseDelvitechJobDetail(html = '', url = '') {
       // Ignore unrelated malformed JSON-LD blocks; page identity remains required.
     }
   }
+  if (!datePublished) datePublished = String(structuredPosting.datePosted || '').trim();
 
   const mainContainer = root.querySelector('.fusion-fullwidth') || root;
   const textBlocks = [...mainContainer.querySelectorAll('.fusion-text')];
@@ -277,8 +280,25 @@ export function parseDelvitechJobDetail(html = '', url = '') {
   }
   flush();
 
-  const description = sections.join('\n\n').trim();
-  const location = inferLocation(`${title}\n${description}\n${url}`);
+  const description = sections.join('\n\n').trim()
+    || htmlToText(structuredPosting.description || '');
+  const structuredLocations = Array.isArray(structuredPosting.jobLocation)
+    ? structuredPosting.jobLocation
+    : [structuredPosting.jobLocation].filter(Boolean);
+  const structuredLocation = structuredLocations.flatMap((locationEntry) => {
+    const address = locationEntry?.address || {};
+    const country = typeof address.addressCountry === 'object'
+      ? address.addressCountry.name || address.addressCountry['@id']
+      : address.addressCountry;
+    return [
+      locationEntry?.name,
+      address.addressLocality,
+      address.postalCode,
+      address.streetAddress,
+      country,
+    ].filter((value) => typeof value === 'string' && value.trim());
+  }).join(', ');
+  const location = inferLocation(`${structuredLocation}\n${title}\n${description}\n${url}`);
   return {
     title,
     location,
