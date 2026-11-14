@@ -279,16 +279,25 @@ jobs:
             scripts/lib
           sparse-checkout-cone-mode: true
 
-      - name: Materialize trusted Codex sandbox action
+      - name: Materialize trusted replay actions
         shell: bash
         run: |
           set -euo pipefail
-          source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"
-          target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"
-          test -f "$source_action"
-          test ! -e "$target_action" && test ! -L "$target_action"
-          mkdir -p "$(dirname "$target_action")"
-          install -m 0644 "$source_action" "$target_action"
+          source_sandbox_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"
+          target_sandbox_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"
+          test -f "$source_sandbox_action"
+          test ! -e "$target_sandbox_action" && test ! -L "$target_sandbox_action"
+          mkdir -p "$(dirname "$target_sandbox_action")"
+          install -m 0644 "$source_sandbox_action" "$target_sandbox_action"
+
+          source_broker_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-claude-haiku-fallback"
+          target_broker_action="$GITHUB_WORKSPACE/.github/actions/setup-claude-haiku-fallback"
+          test -f "$source_broker_action/action.yml"
+          test -f "$source_broker_action/codex-auth-broker.mjs"
+          test -f "$source_broker_action/trusted-path.sh"
+          test ! -e "$target_broker_action" && test ! -L "$target_broker_action"
+          mkdir -p "$target_broker_action"
+          cp -a "$source_broker_action/." "$target_broker_action/"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -338,7 +347,7 @@ jobs:
           (cd .portal-base && npx playwright install chromium) || (cd .portal-base && npx playwright install --with-deps chromium)
 
       - id: codex
-        uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '1200000'
@@ -513,7 +522,7 @@ jobs:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
         run: |
           if [ -n "$CODEX_AUTH_BROKER_SOCKET" ] && [ -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
-            node .portal-base/.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
               --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"
           fi
 

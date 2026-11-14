@@ -51,10 +51,33 @@ jobs:
       # dependencies directly instead of checking out the complete data tree.
       - name: Materialize observer file dependencies
         run: |
+          set -euo pipefail
           mkdir -p build-plugins/shared data
           git show "HEAD:build-plugins/shared/cantonResolvers.mjs" > build-plugins/shared/cantonResolvers.mjs
           git show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json
           git show "HEAD:data/canton-municipalities.json" > data/canton-municipalities.json
+          for file in data/canton-url-slugs.json data/canton-municipalities.json; do
+            test -s "$file"
+          done
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
+          const slugs = readJson('data/canton-url-slugs.json');
+          if (!slugs || typeof slugs !== 'object' || !slugs.cantons
+            || typeof slugs.cantons !== 'object' || Object.keys(slugs.cantons).length < 20) {
+            throw new Error('invalid canton URL slug registry');
+          }
+          const municipalities = readJson('data/canton-municipalities.json');
+          if (!municipalities || typeof municipalities !== 'object'
+            || !Number.isInteger(municipalities.totalMunicipalities)
+            || municipalities.totalMunicipalities <= 0
+            || !municipalities.cantons
+            || typeof municipalities.cantons !== 'object'
+            || Object.keys(municipalities.cantons).length < 20) {
+            throw new Error('invalid canton municipalities registry');
+          }
+          NODE
 
       - name: Setup Node
         uses: actions/setup-node@v7
