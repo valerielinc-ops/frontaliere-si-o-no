@@ -88,6 +88,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection } from './shared/cantonSection';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { buildOrphanQueryAliases } from '../scripts/lib/orphan-query-aliases.mjs';
@@ -180,14 +181,12 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
   const mainPath = path.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = readJsonFile(mainPath);
-      if (Array.isArray(raw)) {
-        for (const j of raw) {
-          const key = String(j?.slug || j?.id || '');
-          if (key && !seen.has(key)) {
-            seen.add(key);
-            out.push(j as OrphanCountableJob);
-          }
+      for (const value of iterateJsonArrayFile(mainPath)) {
+        const j = value as OrphanCountableJob;
+        const key = String(j?.slug || (j as { id?: string })?.id || '');
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          out.push(j);
         }
       }
     } catch (err) {
@@ -199,10 +198,11 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
   if (fs.existsSync(sliceDir)) {
     for (const file of listSliceFileNames(sliceDir)) {
       try {
-        const raw = JSON.parse(fs.readFileSync(path.join(sliceDir, file), 'utf-8'));
-        const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
-        if (!Array.isArray(jobs)) continue;
-        for (const j of jobs as OrphanCountableJob[]) {
+        // Keep crawler slices on the same bounded reader as jobs.json. A
+        // single growing slice must not reintroduce the V8 string/heap spike
+        // that the corpus reader migration removed.
+        for (const value of iterateJsonArrayFile(path.join(sliceDir, file))) {
+          const j = value as OrphanCountableJob;
           // Held out of publication for translation (agency admission
           // threshold): not on the site, so not in its counts either.
           if (isHeldFromPublication(j)) continue;
