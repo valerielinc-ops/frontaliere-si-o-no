@@ -150,7 +150,7 @@ describe('portal replay read-only fence', () => {
   });
 
   it('blocks final application clicks in trusted page instrumentation and counts them outside the runner', async () => {
-    const dom = new JSDOM('<form><label>E-mail<input name="email"></label><button type="submit">Submit application</button></form><div><input name="firstName"><input name="lastName"><button id="apply-entry">Apply now</button></div><button>Continue</button><button id="guarded-final">Apply for a niche vacancy</button>', { url: 'https://ats.example.test/apply' });
+    const dom = new JSDOM('<form><label>E-mail<input name="email"></label><button type="submit">Submit application</button></form><div><input name="firstName"><input name="lastName"><button id="apply-entry">Apply now</button></div><form id="job-search"><input type="search" name="jobSearch"><button type="submit" id="search-apply">Apply now</button></form><form id="application-form"><input name="firstName"><input name="lastName"><button type="submit" id="application-apply">Apply now</button></form><button id="continue">Continue</button><button id="guarded-final">Apply for a niche vacancy</button>', { url: 'https://ats.example.test/apply' });
     let attempts = 0;
     const page = dom.window as any;
     page.__frontalierePortalReplayFinalClickAttempt = () => { attempts += 1; };
@@ -171,17 +171,27 @@ describe('portal replay read-only fence', () => {
     page.document.querySelector('#apply-entry').click();
     expect(attempts).toBe(0);
     expect(applicationEntryRan).toBe(true);
+    let searchFormSubmitted = false;
+    page.document.querySelector('#job-search').addEventListener('submit', (event: Event) => {
+      searchFormSubmitted = true;
+      event.preventDefault();
+    });
+    page.document.querySelector('#search-apply').click();
+    expect(attempts).toBe(0);
+    expect(searchFormSubmitted).toBe(true);
+    page.document.querySelector('#application-apply').click();
+    expect(attempts).toBe(1);
     page.document.querySelector('button[type="submit"]').click();
-    expect(attempts).toBe(1);
+    expect(attempts).toBe(2);
     expect(submitted).toBe(false);
-    page.document.querySelector('button:not([type])').click();
-    expect(attempts).toBe(1);
+    page.document.querySelector('#continue').click();
+    expect(attempts).toBe(2);
     const guardedFinal = page.document.querySelector('#guarded-final');
     let guardedHandlerRan = false;
     guardedFinal.addEventListener('click', () => { guardedHandlerRan = true; });
     page.__frontaliereFinalFormGuards = { trustedRunnerContract: { status: 'armed', button: guardedFinal } };
     guardedFinal.click();
-    expect(attempts).toBe(2);
+    expect(attempts).toBe(3);
     expect(guardedHandlerRan).toBe(false);
     dom.window.close();
   });
@@ -495,12 +505,13 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 20');
-    expect(workflow).toContain("--testNamePattern='portal replay read-only fence'");
+    expect(workflow).toContain("--testNamePattern='portal replay read-only fence|blocks final application clicks'");
     expect(workflow).toContain('            tests');
     expect(workflow).toContain('  fence-contract:');
     expect(workflow).toContain('needs: [detect, prepare, replay, fence-contract]');
     expect(workflow).toContain('FENCE_RESULT: ${{ needs.fence-contract.result }}');
     expect(workflow).toContain('            scripts/ci');
+    expect(workflow).toContain('            services/seo');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');

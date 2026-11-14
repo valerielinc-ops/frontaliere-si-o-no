@@ -301,6 +301,7 @@ jobs:
             scripts/ci
             scripts/assisted-application
             scripts/lib
+            services/seo
             tests
           sparse-checkout-cone-mode: true
 
@@ -315,7 +316,7 @@ jobs:
       - name: Verify the PR replay fence contract without portal egress
         run: >-
           npx vitest run tests/assisted-application-portal-replay.test.ts
-          --testNamePattern='portal replay read-only fence'
+          --testNamePattern='portal replay read-only fence|blocks final application clicks'
           --reporter=dot --silent
 
   portal-replay-gate:

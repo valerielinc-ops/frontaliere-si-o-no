@@ -318,14 +318,26 @@ export function capturePortalReplayFinalClicksInPage() {
   const labelOf = (node) => compact(node?.getAttribute?.('aria-label') || node?.getAttribute?.('title')
     || node?.value || node?.innerText || node?.textContent || '');
   const ownerOf = (node) => node?.form || node?.closest?.('form, [role="form"]') || null;
+  const applicationFormOwnsFinalAction = (owner) => {
+    if (!owner) return false;
+    const fields = [...(owner.querySelectorAll?.('input, textarea, select') || [])];
+    const identity = [owner.name, owner.id, owner.getAttribute?.('aria-label'), owner.getAttribute?.('data-testid')]
+      .filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+    if (/(?:job[\s_-]+)?search|filter|job[\s_-]+alert|newsletter|sign\s*in|log\s*in|login|register|create\s+account/i.test(identity)) return false;
+    const candidateFields = fields.filter((field) => /(?:e-?mail|first.?name|last.?name|phone|mobile|resume|curriculum|cover.?letter|candidate|applicant|work.?permit|salary|address)/i
+      .test([field.name, field.id, field.getAttribute?.('autocomplete'), field.getAttribute?.('aria-label'), field.getAttribute?.('placeholder')].filter(Boolean).join(' ')));
+    const formMarker = /(?:application|candidate|applicant|resume|curriculum|bewerbung|candidature|candidatura)/i
+      .test([owner.name, owner.id, owner.getAttribute?.('aria-label'), owner.getAttribute?.('data-testid')].filter(Boolean).join(' '));
+    return candidateFields.length > 0 || (formMarker && fields.length >= 2);
+  };
   const isFinalControl = (node, owner) => {
     if (!node || owner?.querySelector?.('input[type="password"], input[autocomplete="current-password"], input[autocomplete="new-password"]')) return false;
     const label = labelOf(node);
     // Public posting CTAs use the same verbs as final application actions.
-    // Without a form owner they are navigation entries; the request fence
-    // still constrains their destination and method before any network call.
+    // They are navigation entries unless an applicant form owns the control;
+    // the request fence still constrains their destination and method.
     const applicationEntry = /^(?:apply(?:\s+(?:now|for this job|for this role|with (?:an )?account))?|postuler(?:\s+(?:maintenant|manuellement|à cette (?:offre|annonce)|à ce poste))?|(?:jetzt\s+)?bewerben(?:\s+(?:sie sich(?: jetzt)?|für diese stelle|auf diese stelle))?|candidati(?:\s+(?:ora|per questa posizione))?|applica(?:\s+(?:ora|per questa offerta))?|postul(?:ar|er)(?:\s+(?:ahora|a esta oferta))?|start(?:\s+(?:the\s+)?application))\W*$/iu;
-    if (!owner && applicationEntry.test(label)) return false;
+    if (applicationEntry.test(label) && !applicationFormOwnsFinalAction(owner)) return false;
     if (!label || notFinalLabel.test(label) || !finalLabel.test(label)) return false;
     const fields = [...(owner?.querySelectorAll?.('input, textarea, select') || document.querySelectorAll('input, textarea, select'))];
     if (fields.some((field) => String(field.type || '').toLowerCase() === 'search'
