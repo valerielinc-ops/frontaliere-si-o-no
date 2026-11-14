@@ -2482,12 +2482,12 @@
     },
     {
       "id": "volksschule-luzern-affeba60df38",
-      "slug": "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule",
+      "slug": "vice-maternita-avanzamento-insegnante-3a-classe-scuola-casa-st-karli-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule",
-        "it": "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule",
-        "en": "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule",
-        "fr": "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule"
+        "it": "vice-maternita-avanzamento-insegnante-3a-classe-scuola-casa-st-karli-volksschule-stadt-luzern-luzern",
+        "en": "deputy-maternity-advancement-teacher-3rd-class-school-house-st-karli-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-adjoint-de-promotion-de-la-maternite-3e-classe-school-house-st-karli-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2548,7 +2548,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:16:26.809Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule"
+        ],
+        "en": [
+          "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule"
+        ],
+        "fr": [
+          "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-mutterschaft-forderlehrperson-3-klasse-schulhaus-st-karli-volksschule"
+      ]
     }
   ]
 }

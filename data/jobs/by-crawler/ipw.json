@@ -610,12 +610,12 @@
     },
     {
       "id": "ipw-c3295b61c177",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -665,21 +665,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13",
-        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13"
+          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13",
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
         ],
         "en": [
-          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
         ],
         "fr": [
-          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
         ]
       },
       "salaryMin": 91500,

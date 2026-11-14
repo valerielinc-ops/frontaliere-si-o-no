@@ -901,12 +901,12 @@
     },
     {
       "id": "kispi-sg-14d365b56133",
-      "slug": "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen",
+      "slug": "freelance-computer-cellulare-co-cohaco-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen",
-        "it": "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen",
-        "en": "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen",
-        "fr": "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen"
+        "it": "freelance-computer-cellulare-co-cohaco-ostschweizer-kinderspital-st-gallen",
+        "en": "freelancer-computer-mobile-phone-co-cohaco-ostschweizer-kinderspital-st-gallen",
+        "fr": "freelance-ordinateur-telephone-portable-cie-cohaco-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -969,7 +969,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:32:28.685Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:32:28.685Z"
+      "firstSeenAt": "2026-11-13T21:32:28.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen"
+        ],
+        "en": [
+          "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen"
+        ],
+        "fr": [
+          "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "freelancer-in-computer-handy-co-cohaco-kispi-sg-st-gallen"
+      ]
     },
     {
       "id": "kispi-sg-e9c46e32eaac",

@@ -890,12 +890,12 @@
     },
     {
       "id": "csl-behring-476cff5d77a4",
-      "slug": "principal-scientist-toxicology-csl-behring-ch",
+      "slug": "tossicita-principale-degli-scienziati-csl-behring-glattbrugg",
       "slugByLocale": {
         "en": "principal-scientist-toxicology-csl-behring-ch",
-        "it": "principal-scientist-toxicology-csl-behring-ch",
-        "de": "principal-scientist-toxicology-csl-behring-ch",
-        "fr": "principal-scientist-toxicology-csl-behring-ch"
+        "it": "tossicita-principale-degli-scienziati-csl-behring-glattbrugg",
+        "de": "hauptwissenschaftler-toxikologie-csl-behring-glattbrugg",
+        "fr": "chercheur-principal-toxicologie-csl-behring-glattbrugg"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -958,7 +958,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:41:34.119Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:41:34.119Z"
+      "firstSeenAt": "2026-11-13T21:41:34.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-toxicology-csl-behring-ch"
+        ],
+        "de": [
+          "principal-scientist-toxicology-csl-behring-ch"
+        ],
+        "fr": [
+          "principal-scientist-toxicology-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-scientist-toxicology-csl-behring-ch"
+      ]
     }
   ]
 }

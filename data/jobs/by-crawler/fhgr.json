@@ -322,12 +322,12 @@
     },
     {
       "id": "fhgr-6c6f15b0341b",
-      "slug": "hr-assistent-in-50-fhgr-ch",
+      "slug": "assistente-hr-50-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "hr-assistent-in-50-fhgr-ch",
-        "it": "hr-assistent-in-50-fhgr-ch",
-        "en": "hr-assistent-in-50-fhgr-ch",
-        "fr": "hr-assistent-in-50-fhgr-ch"
+        "it": "assistente-hr-50-fachhochschule-graubunden-chur",
+        "en": "hr-assistant-50-fachhochschule-graubunden-chur",
+        "fr": "assistant-e-rh-50-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -406,7 +406,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:34:40.018Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:34:40.018Z"
+      "firstSeenAt": "2026-11-13T21:34:40.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-50-fhgr-ch"
+        ],
+        "en": [
+          "hr-assistent-in-50-fhgr-ch"
+        ],
+        "fr": [
+          "hr-assistent-in-50-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-50-fhgr-ch"
+      ]
     }
   ]
 }

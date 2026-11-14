@@ -202,7 +202,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -263,7 +263,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -271,7 +271,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -8841,12 +8841,12 @@
     },
     {
       "id": "emmi-7cea5f829a0e",
-      "slug": "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen",
+      "slug": "operatore-operatrice-d-impianto-per-la-lavorazione-delle-materie-prime-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "anlagefuhrer-in-rohstoffverarbeitung-emmi-ch",
-        "it": "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen",
-        "en": "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen",
-        "fr": "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen"
+        "it": "operatore-operatrice-d-impianto-per-la-lavorazione-delle-materie-prime-emmi-emmen-luzern",
+        "en": "plant-operator-raw-materials-processing-emmi-emmen-luzern",
+        "fr": "operateur-rice-d-installation-dans-le-traitement-des-matieres-premieres-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8908,11 +8908,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-rohstoffverarbeitung-emmi-ch"
+          "anlagefuhrer-in-rohstoffverarbeitung-emmi-ch",
+          "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen"
+        ],
+        "en": [
+          "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen"
+        ],
+        "fr": [
+          "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen"
         ]
       },
       "previousSlugs": [
-        "anlagefuhrer-in-rohstoffverarbeitung-emmi-ch"
+        "anlagefuhrer-in-rohstoffverarbeitung-emmi-ch",
+        "anlagefuhrer-in-rohstoffverarbeitung-emmi-emmen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

@@ -852,7 +852,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -903,7 +903,7 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +916,7 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"
@@ -2496,12 +2496,12 @@
     },
     {
       "id": "cnp-cec7792493df",
-      "slug": "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier",
+      "slug": "infermiere-di-campo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier",
-        "it": "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier",
-        "en": "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier",
-        "de": "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier"
+        "it": "infermiere-di-campo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "field-nurse-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "feldschwester-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2563,7 +2563,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:24:47.889Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:24:47.889Z"
+      "firstSeenAt": "2026-11-13T21:24:47.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier"
+        ],
+        "en": [
+          "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier"
+        ],
+        "de": [
+          "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-chef-fe-de-secteur-cnp-marin-epagnier"
+      ]
     }
   ]
 }

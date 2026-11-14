@@ -88,12 +88,12 @@
     },
     {
       "id": "medimeo-40b7584bc5d2",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich-medimeo-ag-zurich",
+      "slug": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-40-100-orari-di-lavoro-flessibili-a-zurigo-medimeo-ag",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich-medimeo-ag-zurich",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich"
+        "it": "medica-specialista-medico-specialista-in-ginecologia-e-ostetricia-40-100-orari-di-lavoro-flessibili-a-zurigo-medimeo-ag",
+        "en": "specialist-gynecology-and-obstetrics-40-100-flexible-working-hours-in-zurich-medimeo-ag-region-zurich",
+        "fr": "specialiste-en-gynecologie-et-en-obstetrique-40-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -140,11 +140,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-flexible-arbeitszeiten-in-zurich-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -168,12 +176,12 @@
     },
     {
       "id": "medimeo-5b8b213174e1",
-      "slug": "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental",
+      "slug": "ginecologia-specialistica-ostetricia-40-100-medimeo-ag-region-bern-berner-oberland-emmental",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental",
-        "it": "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental",
-        "en": "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental",
-        "fr": "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental"
+        "it": "ginecologia-specialistica-ostetricia-40-100-medimeo-ag-region-bern-berner-oberland-emmental",
+        "en": "specialist-gynecology-obstetrics-40-100-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "gynecologie-et-obstetrique-specialisees-40-a-100-medimeo-ag-region-bern-berner-oberland-emmental"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -235,16 +243,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:21:16.533Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:16.533Z"
+      "firstSeenAt": "2026-11-13T21:21:16.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental"
+        ],
+        "fr": [
+          "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-gynakologie-geburtshilfe-40-100-region-bern-berner-oberland-emmental"
+      ]
     },
     {
       "id": "medimeo-f7e75845b222",
-      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich",
+      "slug": "medica-specialista-medico-specialista-in-pediatria-e-medicina-dell-adolescenza-50-80-lavoro-di-squadra-invece-di",
       "slugByLocale": {
         "de": "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-region",
-        "it": "facharztin-facharzt-kinder-e-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich",
-        "en": "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich",
-        "fr": "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich"
+        "it": "medica-specialista-medico-specialista-in-pediatria-e-medicina-dell-adolescenza-50-80-lavoro-di-squadra-invece-di",
+        "en": "specialist-pediatrician-and-adolescent-medicine-50-80-team-play-instead-of-lone-fighting-medimeo-ag-region-zurich",
+        "fr": "specialiste-en-pediatrie-et-en-medecine-adolescente-50-80-jeu-d-equipe-au-lieu-de-combat-solitaire-medimeo-ag-region"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -291,11 +313,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-region"
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-region",
+          "facharztin-facharzt-kinder-e-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich"
+        ],
+        "fr": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-region"
+        "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-region",
+        "facharztin-facharzt-kinder-e-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich",
+        "facharztin-facharzt-kinder-und-jugendmedizin-50-80-teamplay-statt-einzelkampfertum-medimeo-ag-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -319,12 +350,12 @@
     },
     {
       "id": "medimeo-7d326ec0ff8e",
-      "slug": "kinderarztin-kinderarzt-50-80-mehr-zeit-per-kinder-weniger-per-administration-medimeo-ag-zurich",
+      "slug": "pediatra-50-80-piu-tempo-per-i-bambini-meno-per-l-amministrazione-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region",
-        "it": "kinderarztin-kinderarzt-50-80-mehr-zeit-per-kinder-weniger-per-administration-medimeo-ag-zurich",
-        "en": "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region",
-        "fr": "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region"
+        "it": "pediatra-50-80-piu-tempo-per-i-bambini-meno-per-l-amministrazione-medimeo-ag-region-zurich",
+        "en": "pediatrician-50-80-more-time-for-children-less-for-administration-medimeo-ag-region-zurich",
+        "fr": "pediatrie-50-80-plus-de-temps-pour-les-enfants-moins-pour-l-administration-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -371,11 +402,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region",
+          "kinderarztin-kinderarzt-50-80-mehr-zeit-per-kinder-weniger-per-administration-medimeo-ag-zurich"
+        ],
+        "en": [
+          "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region"
+        ],
+        "fr": [
           "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region"
         ]
       },
       "previousSlugs": [
-        "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region"
+        "kinderarztin-kinderarzt-50-80-mehr-zeit-fur-kinder-weniger-fur-administration-region",
+        "kinderarztin-kinderarzt-50-80-mehr-zeit-per-kinder-weniger-per-administration-medimeo-ag-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -399,12 +438,12 @@
     },
     {
       "id": "medimeo-287fa2a828cb",
-      "slug": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
+      "slug": "dottore-senior-dottorato-senior-ginecologia-ostetricia-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "it": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "en": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch",
-        "fr": "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        "it": "dottore-senior-dottorato-senior-ginecologia-ostetricia-medimeo-ag-olten-aargau",
+        "en": "senior-doctor-senior-doctor-gynecology-obstetrics-medimeo-ag-olten-aargau",
+        "fr": "medecin-senior-medecin-senior-gynecologie-et-obstetrique-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -466,16 +505,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:21:16.529Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-19T21:18:00.259Z"
+      "firstSeenAt": "2026-10-19T21:18:00.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-gynakologie-geburtshilfe-olten-aargau-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-0d0ab3903148",
-      "slug": "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur",
+      "slug": "anestesia-specialistica-80-100-arrivare-crescere-decollare-medimeo-ag-winterthur-schaffhausen",
       "slugByLocale": {
         "de": "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur",
-        "it": "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur",
-        "en": "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur",
-        "fr": "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur"
+        "it": "anestesia-specialistica-80-100-arrivare-crescere-decollare-medimeo-ag-winterthur-schaffhausen",
+        "en": "specialist-anesthesia-80-100-arrive-grow-take-off-medimeo-ag-winterthur-schaffhausen",
+        "fr": "anesthesie-specialisee-80-100-arriver-grandir-decoller-medimeo-ag-winterthur-schaffhausen"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -537,16 +590,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:21:16.528Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:16.528Z"
+      "firstSeenAt": "2026-11-13T21:21:16.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur"
+        ],
+        "en": [
+          "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur"
+        ],
+        "fr": [
+          "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-anasthesie-80-100-ankommen-wachsen-durchstarten-winterthur"
+      ]
     },
     {
       "id": "medimeo-3bed5c64b23b",
-      "slug": "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich",
+      "slug": "medica-dirigente-medico-dirigente-in-psichiatria-con-responsabilita-della-sede-a-zurigo-80-100-senza-turni-notturni-e",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
-        "it": "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich",
-        "en": "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
-        "fr": "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
+        "it": "medica-dirigente-medico-dirigente-in-psichiatria-con-responsabilita-della-sede-a-zurigo-80-100-senza-turni-notturni-e",
+        "en": "senior-physician-senior-physician-psychiatry-with-location-management-in-zurich-80-100-without-night-and-weekend",
+        "fr": "medecin-senior-medecin-senior-psychiatrie-avec-gestion-de-localisation-a-zurich-80-100-sans-services-de-nuit-et-de-fin"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -593,11 +660,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
+          "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
+        ],
+        "fr": [
           "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und"
+        "oberarztin-oberarzt-psychiatrie-mit-standortleitung-in-zurich-80-100-ohne-nacht-und",
+        "oberarztin-oberarzt-psychiatrie-con-standortleitung-in-zurich-80-100-ohne-nacht-e-wochenenddienste-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

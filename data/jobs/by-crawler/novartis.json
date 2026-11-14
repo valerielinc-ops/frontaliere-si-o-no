@@ -2511,12 +2511,12 @@
     },
     {
       "id": "novartis-ba9f57478675",
-      "slug": "senior-principal-workflow-automation-expert-novartis-ch",
+      "slug": "esperto-senior-principale-di-automazione-dei-flussi-di-lavoro-novartis-basel-city",
       "slugByLocale": {
         "en": "senior-principal-workflow-automation-expert-novartis-ch",
-        "it": "senior-principal-workflow-automation-expert-novartis-ch",
+        "it": "esperto-senior-principale-di-automazione-dei-flussi-di-lavoro-novartis-basel-city",
         "de": "senior-principal-workflow-automation-expert-novartis-ch",
-        "fr": "senior-principal-workflow-automation-expert-novartis-ch"
+        "fr": "expert-principal-principal-principal-en-automatisation-des-flux-de-travail-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2579,7 +2579,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:23:19.128Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:19.128Z"
+      "firstSeenAt": "2026-11-13T21:23:19.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-principal-workflow-automation-expert-novartis-ch"
+        ],
+        "fr": [
+          "senior-principal-workflow-automation-expert-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-principal-workflow-automation-expert-novartis-ch"
+      ]
     },
     {
       "id": "novartis-71c21093229a",
@@ -2662,12 +2673,12 @@
     },
     {
       "id": "novartis-da6c71d0a3fb",
-      "slug": "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands",
+      "slug": "sviluppo-della-testa-di-strategia-di-forza-lavoro-cardio-renal-metabolic-immunology-and-in-market-brands-global-health",
       "slugByLocale": {
         "en": "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands",
-        "it": "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands",
-        "de": "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands",
-        "fr": "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands"
+        "it": "sviluppo-della-testa-di-strategia-di-forza-lavoro-cardio-renal-metabolic-immunology-and-in-market-brands-global-health",
+        "de": "leitung-der-workforce-strategieentwicklung-kardio-renal-metabolisch-immunologie-und-im-markt-befindliche-marken-globale",
+        "fr": "developpement-du-chef-de-la-strategie-de-la-main-d-oeuvre-cardio-renal-metabolic-immunologie-et-marques-sur-le-marche-et"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2730,14 +2741,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:23:16.889Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:16.889Z"
+      "firstSeenAt": "2026-11-13T21:23:16.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands"
+        ],
+        "de": [
+          "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands"
+        ],
+        "fr": [
+          "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands"
+        ]
+      },
+      "previousSlugs": [
+        "workforce-strategy-head-development-cardio-renal-metabolic-immunology-and-in-market-brands"
+      ]
     },
     {
       "id": "novartis-ab268eeeb364",
-      "slug": "vivarium-operations-associate-i-novartis-ch",
+      "slug": "addetto-alle-operazioni-del-vivario-i-novartis-basel-city",
       "slugByLocale": {
         "en": "vivarium-operations-associate-i-novartis-ch",
-        "it": "vivarium-operations-associate-i-novartis-ch",
+        "it": "addetto-alle-operazioni-del-vivario-i-novartis-basel-city",
         "de": "vivarium-operations-associate-i-novartis-ch",
         "fr": "vivarium-operations-associate-i-novartis-ch"
       },
@@ -2802,7 +2827,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:23:15.927Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:15.927Z"
+      "firstSeenAt": "2026-11-13T21:23:15.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vivarium-operations-associate-i-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vivarium-operations-associate-i-novartis-ch"
+      ]
     }
   ]
 }
