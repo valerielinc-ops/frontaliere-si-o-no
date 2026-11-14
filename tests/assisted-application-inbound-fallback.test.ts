@@ -140,8 +140,8 @@ describe('safe forwarding of MIME links and reply destinations', () => {
     const { store, alias } = await setup('en');
     const raw = alternativeMail({
       subject: 'Your application',
-      text: 'We have received your application.',
-      html: '<p>We have received your application.</p><a href="https://employer.example/documents?case=42&amp;lang=en">Open requested documents</a><a href="javascript:alert(1)">Unsafe</a>',
+      text: 'We would like to invite you to an interview.',
+      html: '<p>We would like to invite you to an interview.</p><a href="https://employer.example/documents?case=42&amp;lang=en">Open requested documents</a><a href="javascript:alert(1)">Unsafe</a>',
       headers: [
         'Reply-To: Applications <apply@employer.example>',
         'Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example',
@@ -149,7 +149,7 @@ describe('safe forwarding of MIME links and reply destinations', () => {
     });
 
     const { processed, sendCascade } = await deliverWithoutModel({ store, alias, raw });
-    expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(processed).toMatchObject({ category: 'interview_invite', forwarded: 'sent' });
     const { payload } = (sendCascade.mock.calls as any)[0][0][0];
     expect(payload.text).toContain('Open requested documents: https://employer.example/documents?case=42&lang=en');
     expect(payload.replyTo).toBe('apply@employer.example');
@@ -169,7 +169,7 @@ describe('safe forwarding of MIME links and reply destinations', () => {
     const { sendCascade } = await deliverWithoutModel({
       store,
       alias,
-      raw: plainMail({ subject: 'Your application', text: 'We have received your application.', headers }),
+      raw: plainMail({ subject: 'Your application', text: 'We would like to invite you to an interview.', headers }),
     });
     const { payload } = (sendCascade.mock.calls as any)[0][0][0];
     expect(payload.replyTo).toBe(expected);
@@ -299,9 +299,9 @@ describe('fallback with the model unavailable, through the real handler', () => 
     const { store, alias } = await setup();
     const { processed, inbox, classify, sendCascade } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Hiermit bestätigen wir den Eingang Ihrer Bewerbung.' }) });
     expect(classify).toHaveBeenCalledTimes(1);
-    expect(processed).toMatchObject({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(processed).toMatchObject({ ok: true, category: 'auto_acknowledgement', forwarded: 'skipped' });
     expect(inbox).toMatchObject({ classifiedBy: 'rules', verificationCode: '', verificationUrl: '' });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('does not tell the candidate a refusal is an interview', async () => {
@@ -366,21 +366,23 @@ describe('fallback with the model unavailable, through the real handler', () => 
       expect(pendingAccountForCode(account(500), 'employer.example', { receivedAt: 1000 })?.host).toBe('portal.example');
     });
 
-    it('stays with the candidate when two unrelated accounts wait, or the account came after the message', async () => {
+    it('keeps the code in the concierge when two unrelated accounts wait, or the account came after the message', async () => {
       const { store, alias } = await setup('de');
       await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
         a: { host: 'career74.sapsf.eu', passwordEnc: { v: 1 }, verifiedAt: null },
         b: { host: 'jobs.other.example', passwordEnc: { v: 1 }, verifiedAt: null },
       });
       const two = await deliverWithoutModel({ store, alias, raw: federal(text) });
-      expect(two.inbox).toMatchObject({ verificationCode: '793151', portalVerificationHost: '', forwarded: { status: 'sent' } });
+      expect(two.inbox).toMatchObject({ verificationCode: '793151', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+      expect(two.sendCascade).not.toHaveBeenCalled();
 
       const late = await setup('de');
       await late.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts').set({
         a: { host: 'career74.sapsf.eu', passwordEnc: { v: 1 }, verifiedAt: null, createdAt: 5000 },
       });
       const after = await deliverWithoutModel({ store: late.store, alias: late.alias, raw: federal(text), at: 1000 });
-      expect(after.inbox).toMatchObject({ portalVerificationHost: '', forwarded: { status: 'sent' } });
+      expect(after.inbox).toMatchObject({ portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+      expect(after.sendCascade).not.toHaveBeenCalled();
     });
   });
 
@@ -412,22 +414,24 @@ describe('fallback with the model unavailable, through the real handler', () => 
     ];
 
     for (const [label, accountHost, text] of refused) {
-      it(`stays with the candidate with ${label}`, async () => {
+      it(`keeps verification in the concierge with ${label}`, async () => {
         const { store, alias } = await setup('de', accountHost);
         const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: ask, text }) });
-        expect(inbox).toMatchObject({ category: 'verification', verificationUrl: '', forwarded: { status: 'sent' } });
-        expect((sendCascade.mock.calls as any)[0][0][0].payload.text).toContain(text);
+        expect(inbox).toMatchObject({ category: 'verification', verificationUrl: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+        expect(sendCascade).not.toHaveBeenCalled();
       });
     }
 
     it('is not picked from a quote, nor from a message that asks for nothing', async () => {
       const quoted = await setup('de', 'careers.employer.example');
       const first = await deliverWithoutModel({ ...quoted, raw: plainMail({ subject: ask, text: 'See the portal.\n\n> https://careers.employer.example/activate?t=old' }) });
-      expect(first.inbox).toMatchObject({ verificationUrl: '', forwarded: { status: 'sent' } });
+      expect(first.inbox).toMatchObject({ verificationUrl: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+      expect(first.sendCascade).not.toHaveBeenCalled();
 
       const receipt = await setup('de', 'careers.employer.example');
       const second = await deliverWithoutModel({ ...receipt, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten: https://careers.employer.example/status' }) });
-      expect(second.inbox).toMatchObject({ category: 'auto_acknowledgement', verificationUrl: '', forwarded: { status: 'sent' } });
+      expect(second.inbox).toMatchObject({ category: 'auto_acknowledgement', verificationUrl: '', forwarded: { status: 'skipped', reason: 'not_candidate_action' } });
+      expect(second.sendCascade).not.toHaveBeenCalled();
     });
   });
 
@@ -435,11 +439,11 @@ describe('fallback with the model unavailable, through the real handler', () => 
     it('schedules a bounded retry after a definite provider rejection and keeps the classification', async () => {
       const { store, alias } = await setup();
       const sendCascade = vi.fn(async () => ({ failed: [{ error: 'provider_rejected' }], sent: [] }));
-      const { processed, inbox } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
-      expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'retry_scheduled' });
+      const { processed, inbox } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }), sendCascade });
+      expect(processed).toMatchObject({ category: 'interview_invite', forwarded: 'retry_scheduled' });
       expect(inbox).toMatchObject({
         status: 'processed',
-        category: 'auto_acknowledgement',
+        category: 'interview_invite',
         forwarded: { status: 'retry_scheduled', error: 'provider_rejected' },
         forwardDelivery: { status: 'retry_scheduled', attempts: 1, retryAt: 61_000 },
       });
@@ -448,18 +452,18 @@ describe('fallback with the model unavailable, through the real handler', () => 
     it('keeps the employer reply recorded and schedules recovery when the cascade throws before a provider attempt', async () => {
       const { store, alias } = await setup();
       const sendCascade = vi.fn(async () => { throw new Error('provider_down'); });
-      const { processed } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
+      const { processed } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }), sendCascade });
       const [path] = store.list(`${ORDER_PATH}/inbox/`);
-      expect(processed).toMatchObject({ category: 'auto_acknowledgement', forwarded: 'retry_scheduled' });
+      expect(processed).toMatchObject({ category: 'interview_invite', forwarded: 'retry_scheduled' });
       expect(store.read(path)).toMatchObject({ status: 'processed', forwarded: { status: 'retry_scheduled', error: 'forward_preparation_or_provider_error' } });
       expect(store.read(ORDER_PATH)?.employerReplies).toBe(1);
-      expect(store.read(ORDER_PATH)?.employerResponse).toMatchObject({ category: 'auto_acknowledgement' });
+      expect(store.read(ORDER_PATH)?.employerResponse).toMatchObject({ category: 'interview_invite' });
     });
 
     it('retries only when due and stops after three definite failures', async () => {
       const { store, alias } = await setup();
       const failed = vi.fn(async () => ({ failed: [{ error: 'provider_rejected' }], sent: [] }));
-      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade: failed });
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }), sendCascade: failed });
       expect(failed).toHaveBeenCalledTimes(1);
 
       const db = withInboxCollectionGroup(store);
@@ -482,7 +486,7 @@ describe('fallback with the model unavailable, through the real handler', () => 
         await options.onAmbiguous(emails[0], new Error('response_timeout'));
         return { sent: [], accepted: [], ambiguous: [emails[0]], failed: [] };
       });
-      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }), sendCascade });
       expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)?.forwarded).toMatchObject({ status: 'ambiguous' });
       await runAssistedApplicationInboundForwardSweep({ db: withInboxCollectionGroup(store), bucket, runKey: RUN_KEY, sendCascade, nowMs: 2_000_000 });
       expect(sendCascade).toHaveBeenCalledTimes(1);
@@ -491,7 +495,7 @@ describe('fallback with the model unavailable, through the real handler', () => 
     it('marks a worker interrupted after the provider intent as ambiguous without calling a provider again', async () => {
       const { store, alias } = await setup();
       const { messageId, bucket } = await deliverWithoutModel({
-        store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }),
+        store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }),
       });
       await store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc(messageId).set({
         forwardDelivery: { status: 'sending', attempts: 1, claimId: 'interrupted', leaseUntil: 100, providerAttemptStartedAt: 50 },
@@ -512,11 +516,26 @@ describe('fallback with the model unavailable, through the real handler', () => 
         await options.onSent(emails[0], { provider: 'maileroo' });
         return { sent: [emails[0]], accepted: [emails[0]], ambiguous: [], failed: [] };
       });
-      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.' }), sendCascade });
+      const { messageId, bucket } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }), sendCascade });
       const classify = vi.fn(async () => { throw new Error('must not classify twice'); });
       const duplicate = await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs: 2_000 });
       expect(duplicate.skipped).toBe(true);
       expect(sendCascade).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not touch a message already marked forwarded, even if its retry state is stale', async () => {
+      const { store, alias } = await setup();
+      const { messageId, bucket, sendCascade } = await deliverWithoutModel({
+        store, alias, raw: plainMail({ subject: 'Interview', text: 'Wir laden Sie zu einem Vorstellungsgespräch ein.' }),
+      });
+      const ref = store.db.collection('assisted_applications').doc(ORDER).collection('inbox').doc(messageId);
+      await ref.set({ forwardDelivery: { status: 'queued', attempts: 1, retryAt: 0 } }, { merge: true });
+      const before = store.read(`${ORDER_PATH}/inbox/${messageId}`);
+
+      await runAssistedApplicationInboundForwardSweep({ db: withInboxCollectionGroup(store), bucket, runKey: RUN_KEY, sendCascade, nowMs: 2_000 });
+
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+      expect(store.read(`${ORDER_PATH}/inbox/${messageId}`)).toEqual(before);
     });
   });
 
@@ -565,8 +584,8 @@ describe('fallback with the model unavailable, through the real handler', () => 
 });
 
 describe('attachments left out of the forward', () => {
-  const classification = { category: 'other', summaryCandidate: '' };
-  const message = { subject: 'Hello', text: 'See attached.' };
+  const classification = { category: 'interview_invite', summaryCandidate: '' };
+  const message = { subject: 'Hello', text: 'We would like to invite you to an interview. See attached.' };
   const COPY: Record<string, [string, string, string, string, string]> = {
     it: ['1 allegato non è stato inoltrato', '2 allegati non sono stati inoltrati', 'Non inoltrati:', 'limite complessivo di 10 MB', 'allegato'],
     de: ['1 Anhang wurde nicht weitergeleitet', '2 Anhänge wurden nicht weitergeleitet', 'Nicht weitergeleitet:', 'Gesamtgrenze von 10 MB', 'Anhang'],
@@ -659,7 +678,7 @@ describe('attachments left out of the forward', () => {
       'Content-Type: text/plain; charset=utf-8',
       'Content-Transfer-Encoding: base64',
       '',
-      Buffer.from('Grüße aus Zürich: anbei die Unterlagen.', 'utf8').toString('base64'),
+      Buffer.from('Wir laden Sie zu einem Vorstellungsgespräch ein. Grüße aus Zürich: anbei die Unterlagen.', 'utf8').toString('base64'),
       ...part('filename="kept.bin"', 'K'.repeat(6 * MIB)),
       ...part("filename*=utf-8''https%3A%2F%2Fevil.example%2Fpay.pdf", `OMITTEDBYTES${'O'.repeat(5 * MIB)}`),
       ...part('filename="small.txt"', 'tiny'),
@@ -700,7 +719,7 @@ describe('attachments left out of the forward', () => {
       'Content-Type: text/plain; charset=utf-8',
       'Content-Transfer-Encoding: base64',
       '',
-      Buffer.from('The original message body is preserved.', 'utf8').toString('base64'),
+      Buffer.from('We would like to invite you to an interview. The original message body is preserved.', 'utf8').toString('base64'),
       ...part('filename="kept.bin"', keptContent),
       ...part('filename="../private/offer.pdf"', 'x'),
       ...part("filename*=utf-8''https%3A%2F%2Fevil.example%2Fpay.pdf", 'y'),
@@ -801,26 +820,38 @@ describe('mail purpose regressions', () => {
   });
 });
 
-const swallow: Array<[string, string, string, string]> = [
+const heldSystemMessages: Array<[string, string, string, string]> = [
   ['swallow-receipt-warning', 'careers.employer.example', 'Application', 'We have received your application. Never share your verification code with anyone. Status: https://careers.employer.example/status'],
-  ['swallow-it-interview', 'careers.employer.example', 'Candidatura', 'Verifica i dettagli del colloquio qui: https://careers.employer.example/slot/7'],
-  ['swallow-en-meeting', 'careers.employer.example', 'Application', 'Please verify the time of the meeting here: https://careers.employer.example/slot/7'],
   ['swallow-suffix-sibling', 'careers.foo.co.uk', 'Verify your email', 'Please verify your email address: https://evil.co.uk/phish'],
   ['swallow-tenant-sibling', 'victim.wd3.myworkdayjobs.com', 'Verify your email', 'Please verify your email address: https://attacker.wd1.myworkdayjobs.com/x'],
   ['swallow-family-sibling', 'victim.wd3.myworkdayjobs.com', 'Verify your email', 'Please verify your email address: https://attacker.myworkday.com/x'],
   ['swallow-truncated-link', 'careers.employer.example', 'Verify your email', `Please verify your email address: https://careers.employer.example/a?t=${'x'.repeat(2100)}`],
 ];
 
-describe('verification is not a reason to hide unrelated employer mail', () => {
-  for (const [id, host, subject, text] of swallow) for (const authenticated of [false, true]) {
+describe('account verification and receipts stay in the concierge', () => {
+  for (const [id, host, subject, text] of heldSystemMessages) for (const authenticated of [false, true]) {
     it(`${id}, authenticated=${authenticated}`, async () => {
       const { store, alias } = await setup('it', host);
       const headers = authenticated ? ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'] : [];
       const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw: plainMail({ subject, text, headers }) });
-      expect(sendCascade).toHaveBeenCalledTimes(1);
+      expect(sendCascade).not.toHaveBeenCalled();
+      expect(inbox.forwarded.status).toBe('skipped');
+    });
+  }
+
+  for (const [id, subject, text] of [
+    ['swallow-it-interview', 'Candidatura', 'Verifica i dettagli del colloquio qui: https://careers.employer.example/slot/7'],
+    ['swallow-en-meeting', 'Application', 'Please verify the time of the meeting here: https://careers.employer.example/slot/7'],
+  ]) {
+    it(`forwards the interview action instead of treating it as account verification (${id})`, async () => {
+      const { store, alias } = await setup('it', 'careers.employer.example');
+      const { inbox, sendCascade } = await deliverWithoutModel({
+        store, alias,
+        raw: plainMail({ subject, text, headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'] }),
+      });
       expect(inbox.portalVerificationHost).toBe('');
-      expect(inbox.forwarded.status).toBe('sent');
-      expect((sendCascade.mock.calls as any)[0][0][0].payload.text).toContain(text);
+      expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
     });
   }
 
@@ -831,7 +862,7 @@ describe('verification is not a reason to hide unrelated employer mail', () => {
     ['german', 'de', 'Bitte verifizieren Sie Ihr Konto nicht vor Montag: https://portal.example/verify/123'],
     ['french', 'fr', 'Ne vérifiez pas votre compte avant lundi: https://portal.example/verify/123'],
   ] as const) {
-    it(`forwards a directly negated verification instruction (${label}) even when it says before`, async () => {
+    it(`does not forward a non-actionable negated verification instruction (${label})`, async () => {
       expect(classifyByRules({ subject: '', text })).toBe('other');
       const { store, alias } = await setup(locale, 'portal.example');
       const { inbox, sendCascade } = await deliverWithoutModel({
@@ -843,8 +874,8 @@ describe('verification is not a reason to hide unrelated employer mail', () => {
           headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
         }),
       });
-      expect(inbox).toMatchObject({ category: 'other', verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-      expect(sendCascade).toHaveBeenCalledTimes(1);
+      expect(inbox).toMatchObject({ category: 'other', verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'not_candidate_action' } });
+      expect(sendCascade).not.toHaveBeenCalled();
     });
   }
 
@@ -855,7 +886,8 @@ describe('verification is not a reason to hide unrelated employer mail', () => {
     const accepted = await handleAssistedApplicationInbound(request(plainMail({ subject: 'Verify your email', text, headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'] }), alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'stub' }] }));
     await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY, nowMs: 1000, sendCascade, classify: async () => ({ category: 'verification', verificationUrl: text.slice(text.indexOf('https:')) }) });
-    expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
+    expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 });
 
@@ -874,7 +906,7 @@ describe('inbound-to-runner account binding', () => {
     expect(await wait(store, host)).toMatchObject({ url: link });
     expect(await wait(store, 'other.employer.example')).toBeNull();
   });
-  it('forwards an exact-host verification when canonical and legacy records make the account ambiguous', async () => {
+  it('does not forward an exact-host verification when canonical and legacy records make the account ambiguous', async () => {
     const host = 'careers.employer.example';
     const { store, alias } = await setup('it', host);
     await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
@@ -889,8 +921,8 @@ describe('inbound-to-runner account binding', () => {
         headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'],
       }),
     });
-    expect(inbox).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendCascade).not.toHaveBeenCalled();
     expect(await wait(store, host)).toBeNull();
   });
   it('does not consume a legacy unverified link or unrelated code', async () => {
@@ -920,8 +952,8 @@ describe('verification code provenance', () => {
     const accepted = await handleAssistedApplicationInbound(request(plainMail({ subject: 'Verify your email', text, headers: ['Authentication-Results: mx.cloudflare.net; dkim=pass header.d=employer.example'] }), alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'stub' }] }));
     await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY, nowMs: 1000, sendCascade, classify: async () => ({ category: 'verification', verificationCode: '111111' }) });
-    expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ portalVerificationHost: '', forwarded: { status: 'sent' } });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 });
 
@@ -935,15 +967,15 @@ describe('verification tokens stay in the native sender text', () => {
       const raw = plainMail({ subject: 'Verify your email', text: `Please verify your email: ${url}`, headers: auth });
       if (!model) {
         const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw });
-        expect(inbox).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-        expect(sendCascade).toHaveBeenCalledTimes(1);
+        expect(inbox).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+        expect(sendCascade).not.toHaveBeenCalled();
       } else {
         const bucket = fakeBucket();
         const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
         const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'stub' }] }));
         await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY, nowMs: 1000, sendCascade, classify: async () => ({ category: 'verification', verificationUrl: url.replace(mark, '') }) });
-        expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-        expect(sendCascade).toHaveBeenCalledTimes(1);
+        expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationUrl: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+        expect(sendCascade).not.toHaveBeenCalled();
       }
     });
   }
@@ -953,15 +985,15 @@ describe('verification tokens stay in the native sender text', () => {
       const raw = plainMail({ subject: 'Verify your email', text: `Your verification code is 1234${mark}5678`, headers: auth });
       if (!model) {
         const { inbox, sendCascade } = await deliverWithoutModel({ store, alias, raw });
-        expect(inbox).toMatchObject({ verificationCode: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-        expect(sendCascade).toHaveBeenCalledTimes(1);
+        expect(inbox).toMatchObject({ verificationCode: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+        expect(sendCascade).not.toHaveBeenCalled();
       } else {
         const bucket = fakeBucket();
         const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs: 1000 });
         const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'stub' }] }));
         await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: accepted.body.accepted, runKey: RUN_KEY, nowMs: 1000, sendCascade, classify: async () => ({ category: 'verification', verificationCode: '1234' }) });
-        expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationCode: '', portalVerificationHost: '', forwarded: { status: 'sent' } });
-        expect(sendCascade).toHaveBeenCalledTimes(1);
+        expect(store.read(`${ORDER_PATH}/inbox/${accepted.body.accepted}`)).toMatchObject({ verificationCode: '', portalVerificationHost: '', forwarded: { status: 'skipped', reason: 'account_verification' } });
+        expect(sendCascade).not.toHaveBeenCalled();
       }
     });
   }

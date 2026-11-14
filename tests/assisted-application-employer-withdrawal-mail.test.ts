@@ -77,14 +77,13 @@ async function deliver(flow: any, raw: Buffer) {
 const waiting = { state: 'candidate_review', round: 1, shownRounds: [1], heldBy: ['question:q1'], heldSince: T0 - 48 * 3600_000, heldNudges: 1, reminderAt: T0 - 48 * 3600_000 + HELD_REMINDERS_AFTER_MS[1], deadlineAt: null };
 
 describe('the employer\'s e-mail that withdraws the posting', () => {
-  it('withdraws a waiting application with the mail as proof, forwards the mail, tells the candidate once', async () => {
+  it('withdraws a waiting application with the mail as proof without forwarding a non-actionable notice', async () => {
     const { store, processed, effects, sendCascade } = await deliver(waiting, mail());
     expect(processed).toMatchObject({ ok: true, postingWithdrawn: true });
     expect(store.read(FLOW_PATH)).toMatchObject({ state: 'withdrawn', withdrawnReason: 'posting_withdrawn_by_employer', withdrawalEvidence: { kind: 'employer_mail', source: 'employer_mail', at: T0 } });
     expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'withdrawn', withdrawalReason: 'posting_withdrawn_by_employer' });
     expect(effects).toEqual([{ type: 'email', kind: 'candidate_posting_withdrawn' }]);
-    // The employer's own words still reach the candidate.
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('changes nothing from an unauthenticated sender', async () => {
