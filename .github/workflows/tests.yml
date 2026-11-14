@@ -3299,6 +3299,21 @@ jobs:
             exit 1
           fi
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+          # F7: una HEAD che e' un checkpoint WIP di issue-fix
+          # (`wip(issue-N): checkpoint pre-test` / `checkpoint automatico`) e'
+          # codice non finito, salvato per non perderlo col container (#4337):
+          # una review piena (tier high, 60 turni) su di essa e' sprecata
+          # (#18635: 3 checkpoint, #18615: 3 in 4 minuti). Si chiude il review
+          # gate fail-closed SENZA modello: `skip=true` (l'ultimo valore scritto
+          # vince) spegne tier, carry-forward e Codex, mentre `review-gate.mjs`
+          # non trova nessun LGTM sulla HEAD e lascia rosso il check required.
+          # La HEAD successiva (il fix vero) riceve la sua review. Lettura
+          # fail-open: se il subject non e' leggibile si procede come prima.
+          head_subject=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD_SHA" --jq '.commit.message | split("\n") | .[0]' 2>/dev/null || true)
+          if [[ "$head_subject" =~ ^wip\(issue-[0-9]+\):[[:space:]]checkpoint ]]; then
+            echo "::error::HEAD ${HEAD_SHA:0:12} e' un checkpoint WIP ($head_subject): codice non finito, review gate chiuso fail-closed senza modello."
+            { echo "wip_checkpoint=true"; echo "skip=true"; } >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Determine review tier
         id: tier
@@ -3309,6 +3324,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           BODY_REREVIEW: ${{ steps.guard.outputs.body_rereview }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
@@ -3483,9 +3499,13 @@ jobs:
             # LGTM → carry-forward senza modello, verdetto non approvante →
             # minimal che riporta i 🔴 aperti. Fingerprint diverso o non
             # calcolabile (UNKNOWN, errore) → si prosegue come prima: nel dubbio
-            # si fa la review.
-            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo UNKNOWN)
-            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo UNKNOWN)
+            # si fa la review. Lo stderr del CLI NON si scarta: la riga
+            # `fingerprint-contributo ... kind=truncated|error|unverifiable`
+            # dice perché è UNKNOWN (il calcolo usa git locale e cade sulla
+            # compare API solo se il checkout non basta; un 403 a token esaurito
+            # non deve più costare una review piena su una HEAD di solo merge).
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" || echo UNKNOWN)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" || echo UNKNOWN)
             carry=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
               | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
                   --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
