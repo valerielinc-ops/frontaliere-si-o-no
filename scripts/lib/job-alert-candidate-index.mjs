@@ -263,27 +263,19 @@ export function buildSearchVocabulary(rows, locale, haystackOf = searchHaystack)
   for (let i = 0; i < rows.length; i++) {
     const job = rows[i];
     const haystack = haystackOf(job, jobMatchFeatures(job, locale), locale);
-    let start = 0;
-    const length = haystack.length;
-    while (start < length) {
-      let end = haystack.indexOf(' ', start);
-      if (end === -1) end = length;
-      if (end > start) {
-        const word = haystack.slice(start, end);
-        let id = ids.get(word);
-        if (id === undefined) { id = ids.size; ids.set(word, id); lastRowOfWord.push(-1); }
-        if (lastRowOfWord[id] !== i) {
-          lastRowOfWord[id] = i;
-          if (pairs === pairWord.length) {
-            const grownWord = new Int32Array(pairs * 2); grownWord.set(pairWord); pairWord = grownWord;
-            const grownRow = new Int32Array(pairs * 2); grownRow.set(pairRow); pairRow = grownRow;
-          }
-          pairWord[pairs] = id;
-          pairRow[pairs] = i;
-          pairs += 1;
-        }
+    for (const word of haystack.split(' ')) {
+      if (word === '') continue;
+      let id = ids.get(word);
+      if (id === undefined) { id = ids.size; ids.set(word, id); lastRowOfWord.push(-1); }
+      if (lastRowOfWord[id] === i) continue;
+      lastRowOfWord[id] = i;
+      if (pairs === pairWord.length) {
+        const grownWord = new Int32Array(pairs * 2); grownWord.set(pairWord); pairWord = grownWord;
+        const grownRow = new Int32Array(pairs * 2); grownRow.set(pairRow); pairRow = grownRow;
       }
-      start = end + 1;
+      pairWord[pairs] = id;
+      pairRow[pairs] = i;
+      pairs += 1;
     }
   }
   lastRowOfWord = null;
