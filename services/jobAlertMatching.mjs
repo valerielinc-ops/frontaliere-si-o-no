@@ -895,7 +895,7 @@ export function includesAny(haystack, needles) {
 }
 
 /** The only possible hit not fully inside one text segment. */
-function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
+export function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
   const edgeLength = Math.max(0, keyword.length - 1);
   const titleTail = titleText.slice(Math.max(0, titleText.length - edgeLength));
   const descriptionHead = descriptionText.slice(0, edgeLength);
@@ -945,11 +945,11 @@ function createSubstringMemo() {
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
 const MAX_SHARED_SEARCH_MEMOS = 256;
 const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
-const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
+export const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
 const DESCRIPTION_TRIGRAM_BLOOM_MASK = DESCRIPTION_TRIGRAM_BLOOM_WORDS * 32 - 1;
 
 /** Build a 4,096-bit negative filter for substrings of one normalized description. */
-function buildDescriptionTrigramBloom(text) {
+export function buildDescriptionTrigramBloom(text) {
   const bloom = new Uint32Array(DESCRIPTION_TRIGRAM_BLOOM_WORDS);
   for (let index = 0; index + 2 < text.length; index++) {
     const first = text.charCodeAt(index) + 1;
@@ -972,7 +972,7 @@ function buildDescriptionTrigramBloom(text) {
 }
 
 /** Compile up to five distributed query trigrams once per keyword. */
-function descriptionTrigramBloomQueryBits(keyword) {
+export function descriptionTrigramBloomQueryBits(keyword) {
   const gramCount = keyword.length - 2;
   if (gramCount <= 0) return [];
   const sampleCount = Math.min(5, gramCount);
@@ -1005,7 +1005,7 @@ function descriptionTrigramBloomQueryBits(keyword) {
 }
 
 /** A false result is conclusive; a true result still needs the exact includes check. */
-function descriptionTrigramBloomMayContain(bloom, queryBits) {
+export function descriptionTrigramBloomMayContain(bloom, queryBits) {
   for (const bit of queryBits) {
     if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
   }

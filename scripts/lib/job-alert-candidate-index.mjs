@@ -37,9 +37,11 @@
 // si ottiene da un array ordinato per ricerca binaria, senza toccare le righe.
 
 import {
-  includesAny,
+  DESCRIPTION_TRIGRAM_BLOOM_WORDS,
+  buildDescriptionTrigramBloom,
+  descriptionTrigramBloomQueryBits,
   jobMatchFeatures,
-  keywordInTextParts,
+  keywordAcrossTextJoin,
   matchesSearchQuery,
   compileSearchQuery,
   paddedLocHaystack,
@@ -373,16 +375,70 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
     return bitset;
   });
 
-  /** `keywordInTextParts(titleText, descriptionText, keyword)`: la stessa funzione dello scorer. */
-  const keywordMask = (locale, keyword) => cache.getOrBuild(`kw:${locale || ''}:${keyword}`, () => {
-    const bitset = newBitset(words);
+  /**
+   * Predicato PIGRO a tre stati (noto / risultato) su un sottoinsieme di righe.
+   * Si valutano solo le righe di `need` non ancora note e il risultato è
+   * valido solo su `need`: il chiamante lo interseca. Serve ai predicati che
+   * leggono testo lungo (keyword nella descrizione, ricerca): valutarli su
+   * tutte le righe pagherebbe anche quelle che un altro predicato dell'alert
+   * ha già deciso. La risposta per riga è la stessa di una valutazione completa.
+   */
+  const lazyMask = (key, need, evaluate) => {
+    const memo = cache.getOrBuild(key, () => ({ known: newBitset(words), hit: newBitset(words) }));
+    forEachSetBit(bitsetAndNot(need, memo.known), (i) => {
+      setBit(memo.known, i);
+      if (evaluate(i)) setBit(memo.hit, i);
+    });
+    return memo.hit;
+  };
+
+  /**
+   * Filtro di Bloom sui trigrammi della descrizione, uno per riga (512 byte,
+   * 18 MB per 35k righe), costruito alla prima keyword. Stessa struttura che lo
+   * scorer usa per rifiutare in O(1) una keyword assente: un falso si legge
+   * come «la descrizione NON contiene la keyword» con certezza, un vero va
+   * confermato con `includes`. Non ha falsi negativi.
+   */
+  const descriptionBlooms = () => once('descriptionBlooms', () => {
+    const descriptions = baseData().descriptions;
+    const blooms = new Uint32Array(n * DESCRIPTION_TRIGRAM_BLOOM_WORDS);
+    for (let i = 0; i < n; i++) {
+      // Stessa condizione dello scorer: sotto 3 caratteri nessun trigramma.
+      if (descriptions[i].length >= 3) blooms.set(buildDescriptionTrigramBloom(descriptions[i]), i * DESCRIPTION_TRIGRAM_BLOOM_WORDS);
+    }
+    return blooms;
+  });
+
+  /**
+   * `keywordInTextParts(titleText, descriptionText, keyword)` — la risposta
+   * dello scorer — con tre scorciatoie ESATTE:
+   *   1. il titolo (breve) per primo;
+   *   2. la descrizione solo se il Bloom dei trigrammi non la esclude;
+   *   3. la giunzione titolo/descrizione solo per una keyword con uno spazio:
+   *      il testo unito è `${titolo} ${descrizione}`, una keyword senza spazio
+   *      che lo attraversa non può includere il separatore, quindi sta tutta
+   *      nel titolo o tutta nella descrizione e il passo 1/2 l'ha già trovata.
+   */
+  const keywordMask = (locale, keyword, need) => {
     const { titleTexts } = localeData(locale);
     const descriptions = baseData().descriptions;
-    for (let i = 0; i < n; i++) {
-      if (keywordInTextParts(titleTexts[i], descriptions[i], keyword)) setBit(bitset, i);
-    }
-    return bitset;
-  });
+    const blooms = descriptionBlooms();
+    const queryBits = keyword.length >= 3 ? descriptionTrigramBloomQueryBits(keyword) : [];
+    const spansJoin = keyword.includes(' ');
+    return lazyMask(`kw:${locale || ''}:${keyword}`, need, (i) => {
+      if (titleTexts[i].includes(keyword)) return true;
+      const text = descriptions[i];
+      let mayContain = true;
+      if (queryBits.length > 0 && keyword.length <= text.length) {
+        const offset = i * DESCRIPTION_TRIGRAM_BLOOM_WORDS;
+        for (const bit of queryBits) {
+          if ((blooms[offset + (bit >>> 5)] & (1 << (bit & 31))) === 0) { mayContain = false; break; }
+        }
+      }
+      if (mayContain && text.includes(keyword)) return true;
+      return spansJoin && keywordAcrossTextJoin(titleTexts[i], text, keyword);
+    });
+  };
 
   const categoryMask = (key) => cache.getOrBuild(`cat:${key}`, () => fromIndices(baseData().categoryPostings.get(key) || []));
   const taxonomyMask = (value) => cache.getOrBuild(`tax:${value}`, () => fromIndices(baseData().taxonomyPostings.get(value) || []));
@@ -417,17 +473,12 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
    */
   const compiledQueries = new Map();
   const searchMask = (locale, query, need) => {
-    const key = `search:${locale || ''}:${query}`;
-    const memo = cache.getOrBuild(key, () => ({ known: newBitset(words), hit: newBitset(words) }));
     let compiled = compiledQueries.get(query);
     if (!compiled) { compiled = compileSearchQuery(query); compiledQueries.set(query, compiled); }
-    const unknown = bitsetAndNot(need, memo.known);
-    forEachSetBit(unknown, (i) => {
+    return lazyMask(`search:${locale || ''}:${query}`, need, (i) => {
       const job = rows[i];
-      setBit(memo.known, i);
-      if (matchesSearchQuery(compiled, job, jobMatchFeatures(job, locale), locale)) setBit(memo.hit, i);
+      return matchesSearchQuery(compiled, job, jobMatchFeatures(job, locale), locale);
     });
-    return memo.hit;
   };
 
   // ── composizione per alert ──
@@ -535,10 +586,19 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
         }
         return { mask: narrowed, strategy: 'hard-search' };
       }
+      // Prima i predicati a indice (categoria, tassonomia): restringono le righe
+      // che le keyword, più costose, devono ancora valutare. L'OR è commutativo,
+      // quindi l'insieme finale non dipende dall'ordine.
       const hit = newBitset(words);
-      for (const keyword of hardList) bitsetOrInto(hit, keywordMask(locale, keyword));
       for (const category of profile.hardCategoryKeys || []) bitsetOrInto(hit, categoryMask(category));
       for (const value of profile.hardTaxonomyValues || []) bitsetOrInto(hit, taxonomyMask(value));
+      let remaining = bitsetAndNot(base, hit);
+      for (const keyword of hardList) {
+        if (bitsetIsEmpty(remaining)) break;
+        const found = bitsetAnd(remaining, keywordMask(locale, keyword, remaining));
+        bitsetOrInto(hit, found);
+        remaining = bitsetAndNot(remaining, found);
+      }
       return { mask: bitsetAnd(base, hit), strategy: 'hard-keyword' };
     }
 
