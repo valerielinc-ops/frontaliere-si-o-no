@@ -27,6 +27,11 @@ const nodeRequire = createRequire(import.meta.url);
 let sharedReplayBrowser = null;
 let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
+let compareFailurePhase = 'cli';
+const SAFE_COMPARE_FAILURE_PHASES = new Set([
+  'compare_inputs', 'trusted_imports', 'resolver_setup', 'diagnostics_setup', 'public_preflight',
+  'browser_launch', 'node_egress_fence', 'head_click_detector_import', 'family_replay',
+]);
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
 export const PORTAL_REPLAY_FAMILIES = new Set([
@@ -1063,6 +1068,7 @@ async function detectMode(values) {
 }
 
 async function compareMode(values) {
+  compareFailurePhase = 'compare_inputs';
   const corpus = JSON.parse(readFileSync(values.corpus, 'utf8'));
   const family = PORTAL_REPLAY_FAMILIES.has(values.family) ? values.family : 'unknown';
   const records = corpus.families?.[family];
@@ -1074,11 +1080,13 @@ async function compareMode(values) {
   let captureFenceApi;
   const trustedRoot = trustedPortalReplayFenceRoot(values['base-root']);
   const headRoot = path.resolve(values['head-root']);
+  compareFailurePhase = 'trusted_imports';
   const [fenceApi, trustedNetwork, trustedBrowser] = await Promise.all([
     importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs'),
     importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
     importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
   ]);
+  compareFailurePhase = 'resolver_setup';
   const replayDnsLookup = nodeRequire('node:dns/promises').lookup;
   const replayProxyConnect = captureTrustedPortalReplayProxyConnector();
   const createPublicHostResolver = createPortalReplayPublicHostResolverFactory({
@@ -1088,9 +1096,11 @@ async function compareMode(values) {
     lookup: replayDnsLookup,
   });
   captureFenceApi = fenceApi;
+  compareFailurePhase = 'diagnostics_setup';
   const trustedDiagnostics = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs');
   await warmPortalDiagnosticsModule(trustedDiagnostics);
   const preflightByKey = new Map();
+  compareFailurePhase = 'public_preflight';
   for (const record of records) {
     const allowedPostingQueryParams = fenceApi.portalReplayQueryAllowlist([record.postingUrl, record.applyUrl]);
     let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl, allowedPostingQueryParams);
@@ -1102,6 +1112,7 @@ async function compareMode(values) {
     preflightByKey.set(record.key, { responses, retryCount, allowedPostingQueryParams });
   }
   if (records.some((record) => !preflightByKey.get(record.key)?.responses.some((response) => response.status >= 500 && response.status < 600))) {
+    compareFailurePhase = 'browser_launch';
     sharedReplayBrowser = await trustedBrowser.launchChromium({
       headless: process.env.ASSISTED_APPLICATION_HEADED !== '1',
       args: ['--window-size=1366,900'],
@@ -1110,6 +1121,7 @@ async function compareMode(values) {
       headless: process.env.ASSISTED_APPLICATION_HEADED !== '1',
       args: ['--window-size=1366,900'],
     });
+    compareFailurePhase = 'node_egress_fence';
     nodeEgressFence = fenceApi.installPortalReplayNodeEgressFence({
       allowedUnixSocket: process.env.CODEX_AUTH_BROKER_SOCKET || '',
       onBlocked: () => {
@@ -1119,12 +1131,14 @@ async function compareMode(values) {
     });
     // Load only the PR-owned click classifier after the trusted Node egress
     // fence is active; all request routing continues to use the base fence.
+    compareFailurePhase = 'head_click_detector_import';
     captureFenceApi = await importFrom(headRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs');
   }
   // The PR's portal module (and its diagnostics dependency) is imported only
   // by runOnePortalReplayMeasured, after the Node fence is active. The trusted
   // diagnostics warm-up above starts esbuild's shared service before fencing.
   try {
+    compareFailurePhase = 'family_replay';
     for (const record of records) {
       const shared = {
         trustedRoot, record, timeoutMs, fenceApi, captureFenceApi, trustedNetwork, replayDnsLookup, replayProxyConnect, createPublicHostResolver,
@@ -1194,7 +1208,8 @@ async function main(argv = process.argv.slice(2)) {
 if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try { process.exitCode = await main(); }
   catch (error) {
-    console.error(`portal_replay_error:${safeCode(error?.code || error?.name, 'unknown')}`);
+    const phase = SAFE_COMPARE_FAILURE_PHASES.has(compareFailurePhase) ? compareFailurePhase : 'unknown';
+    console.error(`portal_replay_error:${phase}:${safeCode(error?.code, 'unknown')}`);
     process.exitCode = 1;
   }
 }
