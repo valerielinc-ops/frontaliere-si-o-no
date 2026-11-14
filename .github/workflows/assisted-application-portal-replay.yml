@@ -50,14 +50,11 @@ jobs:
       - name: Fetch immutable PR merge diff
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          PR_MERGE_SHA: ${{ github.sha }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
         run: |
           set -euo pipefail
           merge_ref=FETCH_HEAD
-          if ! git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"; then
-            git -C .portal-base fetch --no-tags --depth=1 origin "refs/pull/$PR_NUMBER/merge"
-          fi
+          git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"
           git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Detect whether the runner needs replay
@@ -107,14 +104,11 @@ jobs:
       - name: Fetch immutable PR merge diff
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          PR_MERGE_SHA: ${{ github.sha }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
         run: |
           set -euo pipefail
           merge_ref=FETCH_HEAD
-          if ! git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"; then
-            git -C .portal-base fetch --no-tags --depth=1 origin "refs/pull/$PR_NUMBER/merge"
-          fi
+          git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"
           git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Select a deterministic corpus
@@ -145,11 +139,11 @@ jobs:
       - name: Checkout PR runner
         uses: actions/checkout@v7
         with:
-          # github.sha is the immutable synthetic merge commit captured by
-          # this pull_request event, not the raw head SHA and not the moving
-          # refs/pull/<number>/merge ref. A queued run must keep testing the
-          # exact tree represented by its event even if main advances again.
-          ref: ${{ github.sha }}
+          # The event's merge_commit_sha is immutable for this queued run, not
+          # the moving refs/pull/<number>/merge ref. A queued run must keep
+          # testing the exact tree represented by its event even if main
+          # advances again.
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |

@@ -775,6 +775,13 @@ function isNeutral(record) {
   return record?.status === 'neutral' || NEUTRAL_STAGES.has(record?.stage);
 }
 
+function isMeasuredOutcome(record) {
+  // A security violation makes runOnePortalReplay report `fail`, but the
+  // browser run is still measured and its metrics are a valid baseline for
+  // detecting a newly introduced violation on the head side.
+  return record?.status === 'measured' || record?.status === 'fail';
+}
+
 function isSuccessfulStage(stage) {
   return SUCCESS_STAGES.has(stage);
 }
@@ -797,12 +804,15 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     // A live portal can be stale or unavailable on the base side. Without a
     // measured base there is no safe reference from which to infer a PR
     // regression; only a new violation against a measured base can block.
-    if (base?.status === 'measured') {
+    // `fail` is also a measured outcome here: runOnePortalReplay uses it when
+    // the browser completed but recorded a security violation.
+    const baseMeasured = isMeasuredOutcome(base);
+    if (baseMeasured) {
       for (const code of headSecurity) {
         if (!baseSecurity.has(code)) codes.push(code);
       }
     }
-    if (base?.status === 'measured' && head?.status === 'error') codes.push('replay_unmeasured');
+    if (baseMeasured && head?.status === 'error') codes.push('replay_unmeasured');
     if (base && head && base.status === 'measured' && head.status === 'measured' && !isNeutral(base) && !isNeutral(head)) {
       comparable.push({ base, head });
       if ((STAGE_RANK[head.stage] ?? 0) < (STAGE_RANK[base.stage] ?? 0)) codes.push('stage_regression');

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-11-13T21:18:08.278Z",
-  "runId": "43507614378",
+  "assembledAt": "2026-11-14T09:19:43.345Z",
+  "runId": "43579063769",
   "jobs": [
     {
       "id": "valora-8f50a504dbf4",
@@ -34,7 +34,7 @@
       "url": "https://career.valora.com/en/job/12939/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.048Z",
+      "crawledAt": "2026-11-14T09:19:25.659Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:00.048Z",
+      "validThrough": "2026-12-14T09:19:25.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career.valora.com/en/job/20001/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.047Z",
+      "crawledAt": "2026-11-14T09:19:25.658Z",
       "addressLocality": "Graubünden",
       "addressRegion": "Graubünden",
       "streetAddress": "Graubünden",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:00.047Z",
+      "validThrough": "2026-12-14T09:19:25.658Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://career.valora.com/en/job/21041/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.045Z",
+      "crawledAt": "2026-11-14T09:19:25.656Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -253,7 +253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:18:00.045Z",
+      "validThrough": "2026-12-14T09:19:25.656Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://career.valora.com/en/job/21161/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.044Z",
+      "crawledAt": "2026-11-14T09:19:25.654Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -331,7 +331,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:18:00.044Z",
+      "validThrough": "2026-12-14T09:19:25.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -365,7 +365,7 @@
       "url": "https://career.valora.com/en/job/21590/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.040Z",
+      "crawledAt": "2026-11-14T09:19:25.648Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -415,7 +415,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:18:00.040Z",
+      "validThrough": "2026-12-14T09:19:25.648Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -449,7 +449,7 @@
       "url": "https://career.valora.com/en/job/12937/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.039Z",
+      "crawledAt": "2026-11-14T09:19:25.647Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhof",
@@ -499,7 +499,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:00.039Z",
+      "validThrough": "2026-12-14T09:19:25.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -533,7 +533,7 @@
       "url": "https://career.valora.com/en/job/12938/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.038Z",
+      "crawledAt": "2026-11-14T09:19:25.646Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Bahnhof",
@@ -585,91 +585,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:00.038Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "valora-838498389dab",
-      "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
-      "slugByLocale": {
-        "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
-        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
-        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
-        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
-      "titleByLocale": {
-        "it": "Venditore / Venditore k chiosco 8.6 ore.",
-        "en": "Seller / Seller k kiosk 8.6 hours.",
-        "de": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
-        "fr": "Vendeur / Vendeur k kiosque 8,6 heures."
-      },
-      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-      "descriptionByLocale": {
-        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Berna stiamo ora cercando rinforzi per 8,6 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo dei prodotti alimentari e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione di norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
-        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Bern we are now looking for reinforcements for 8.6 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
-        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
-        "fr": "Vous vendez votre passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Berne, nous cherchons maintenant des renforts pour 8,6 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des biens et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.037Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Bern",
-      "streetAddress": "Murtenstrasse 1",
-      "postalCode": "3004",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-10",
-      "postedDate": "2026-09-10",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21148/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "21148",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ],
-        "en": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T14:33:01.446Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:18:00.037Z",
+      "validThrough": "2026-12-14T09:19:25.646Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -703,7 +619,7 @@
       "url": "https://career.valora.com/en/job/21864/lead-expansion-lease-switzerland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.037Z",
+      "crawledAt": "2026-11-14T09:19:25.645Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -751,7 +667,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:18:00.037Z",
+      "validThrough": "2026-12-14T09:19:25.645Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -785,7 +701,7 @@
       "url": "https://career.valora.com/en/job/17836/agenturpartnerin-agenturpartner-region-berner-oberland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.036Z",
+      "crawledAt": "2026-11-14T09:19:25.644Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bern",
@@ -835,91 +751,91 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.036Z",
+      "validThrough": "2026-12-22T09:19:25.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "valora-63d0961b39a4",
-      "slug": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
+      "id": "valora-838498389dab",
+      "slug": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
       "slugByLocale": {
-        "it": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
-        "en": "agency-partner-agency-partner-imboden-valora-group-graubunden",
-        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
-        "fr": "partenaire-de-l-agence-partenaire-de-l-agence-imboden-valora-group-graubunden"
+        "it": "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern",
+        "en": "seller-seller-k-kiosk-8-6-hours-valora-group-bern",
+        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+        "fr": "vendeur-vendeur-k-kiosque-8-6-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
       "companyDomain": "valora.com",
-      "title": "Agenturpartnerin / Agenturpartner Imboden",
+      "title": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
       "titleByLocale": {
-        "it": "Agenzia Partner / Agenzia Partner Imboden",
-        "en": "Agency Partner / Agency Partner Imboden",
-        "de": "Agenturpartnerin / Agenturpartner Imboden",
-        "fr": "Partenaire de l'Agence / Partenaire de l'Agence Imboden"
+        "it": "Venditore / Venditore k chiosco 8.6 ore.",
+        "en": "Seller / Seller k kiosk 8.6 hours.",
+        "de": "Verkäuferin / Verkäufer k kiosk 8,6 Std.",
+        "fr": "Vendeur / Vendeur k kiosque 8,6 heures."
       },
-      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
       "descriptionByLocale": {
-        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre l'acquisizione del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi I nostri dati di contatto Applicare oggi, facilmente online e diventare un imprenditore indipendente! Se avete domande, vi preghiamo di contattarci: bewerbung.agp@valora.com",
-        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the takeover of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores Our contact data Apply today, easily online and become an independent entrepreneur! If you have any questions, please contact us: bewerbung.agp@valora.com",
-        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
-        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous soutenons au-delà de la prise en charge de votre magasin, de sorte que non seulement vous maîtrisez avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins Nos coordonnées Postulez dès aujourd'hui, en ligne et devenez un entrepreneur indépendant ! Si vous avez des questions, veuillez nous contacter: bewerbung.agp@valora.com"
+        "it": "Vende la tua passione? Allora abbiamo l'opportunita' perfetta per te. Per il nostro chiosco k a Berna stiamo ora cercando rinforzi per 8,6 ore / settimana nel salario orario. Sei responsabile di questo\n• Consulenza e vendita amichevoli e professionali nel campo dei prodotti alimentari e non alimentari\n• Gestione e attuazione delle misure di promozione\n• Contanti e insediamento degli ordini\n• Presentazione attraente delle merci e garantire un posto di lavoro pulito e ordinato\n• Compliance e implementazione di norme legali nelle vendite Questo ti distingue\n• Affidabile, flessibile, motivato e resistente\n• Esperienza professionale nel commercio al dettaglio o nel settore simile (hotel o catering)\n• Enthusiastic e service-oriented\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Giocatore di squadra con comprensione rapida Questo è ciò che vi offriamo\n• Facendo parte del fornitore di cibo leader e il fascino fortunato per i nostri clienti\n• Ulteriori opportunità di sviluppo e formazione online emozionante presso la nostra Valora Academy\n• Un ambiente dinamico\n• Modelli a strati flessibili\n• Supplemento serale attraente (20:00 – 23:00) oltre a notte, domenica e spese di vacanza pubbliche\n• Uno sconto sui dipendenti con cui puoi acquistare nei nostri negozi al contenuto del tuo cuore",
+        "en": "Is selling your passion? Then we have the perfect opportunity for you. For our k kiosk in Bern we are now looking for reinforcements for 8.6 hours / week in the hourly wage. You are responsible for this\n• Friendly and professional advice and sales in the field of food and non-food\n• Goods management and implementation of promotion measures\n• Cash and settlement of orders\n• Attractive presentation of goods and ensuring a clean and orderly workplace\n• Compliance and implementation of legal standards in sales This distinguishes you\n• Reliable, flexible, motivated and resilient\n• Professional experience in the retail trade or similar sector (hotel or catering)\n• Enthusiastic and service-oriented\n• Very good knowledge of German in word and writing\n• Team player with fast comprehension This is what we offer you\n• Being part of the leading foodvenience provider and lucky charm for our customers\n• Further development opportunities and exciting online training at our Valora Academy\n• A dynamic environment\n• Flexible layer models\n• Attractive evening surcharge (20:00 – 23:00) in addition to night, Sunday and public holiday surcharges\n• An employee discount with which you can shop in our stores to your heart's content",
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Bern suchen wir ab sofort Verstärkung für 8,6 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Vous vendez votre passion ? Alors nous avons la possibilité parfaite pour vous. Pour notre kiosque k à Berne, nous cherchons maintenant des renforts pour 8,6 heures / semaine dans le salaire horaire. Vous en êtes responsable.\n• Conseils et ventes amical et professionnel dans le domaine de l'alimentation et non alimentaire\n• Gestion des biens et mise en œuvre des mesures de promotion\n• Encaisse et règlement des commandes\n• Une présentation attrayante des biens et un lieu de travail propre et ordonné\n• Respect et application des normes juridiques en matière de vente Cela vous distingue\n• Fiabilité, flexibilité, motivation et résilience\n• Expérience professionnelle dans le commerce de détail ou le secteur similaire (hôtel ou restauration)\n• Enthousiastique et axé sur le service\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Joueur d'équipe avec une compréhension rapide C'est ce que nous vous offrons\n• Faire partie du premier fournisseur de foodvenience et le charme chanceux pour nos clients\n• Possibilités de développement et formation en ligne à notre Valora Academy\n• Un environnement dynamique\n• Modèles de couches flexibles\n• Suppléments de soirée attrayants (20:00 – 23:00) en plus des suppléments de nuit, de dimanche et de jours fériés\n• Une réduction pour les employés avec laquelle vous pouvez magasiner dans nos magasins au contenu de votre cœur"
       },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/21148/verkauferin-verkaufer-k-kiosk-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.035Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "Graubünden",
-      "streetAddress": "Graubünden",
-      "postalCode": "7000",
+      "crawledAt": "2026-11-14T09:19:25.644Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Bern",
+      "streetAddress": "Murtenstrasse 1",
+      "postalCode": "3004",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Vendita",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "junior",
       "sector": "Retail / Foodvenience",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-23",
-      "postedDate": "2026-09-23",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
       "postingDateSource": "reported",
-      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/20004/Application/CheckLogin/1?lang=ger&DesignID=10004",
-      "jobReqId": "20004",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/21148/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "21148",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
         ],
         "en": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
         ],
         "fr": [
-          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
         ]
       },
-      "firstSeenAt": "2026-10-29T14:33:01.444Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
+      "firstSeenAt": "2026-10-29T14:33:01.446Z",
+      "salaryMin": 77500,
+      "salaryMax": 118500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
+          "minValue": 77500,
+          "maxValue": 118500,
           "unitText": "YEAR"
         }
       },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.035Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-14T09:19:25.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -953,7 +869,7 @@
       "url": "https://career.valora.com/en/job/18331/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.035Z",
+      "crawledAt": "2026-11-14T09:19:25.643Z",
       "addressLocality": "Wallis",
       "addressRegion": "Wallis",
       "streetAddress": "Wallis",
@@ -1003,7 +919,91 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.035Z",
+      "validThrough": "2026-12-22T09:19:25.643Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "valora-63d0961b39a4",
+      "slug": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
+      "slugByLocale": {
+        "it": "agenzia-partner-agenzia-partner-imboden-valora-group-graubunden",
+        "en": "agency-partner-agency-partner-imboden-valora-group-graubunden",
+        "de": "agenturpartnerin-agenturpartner-imboden-valora-graubunden",
+        "fr": "partenaire-de-l-agence-partenaire-de-l-agence-imboden-valora-group-graubunden"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Agenturpartnerin / Agenturpartner Imboden",
+      "titleByLocale": {
+        "it": "Agenzia Partner / Agenzia Partner Imboden",
+        "en": "Agency Partner / Agency Partner Imboden",
+        "de": "Agenturpartnerin / Agenturpartner Imboden",
+        "fr": "Partenaire de l'Agence / Partenaire de l'Agence Imboden"
+      },
+      "description": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
+      "descriptionByLocale": {
+        "it": "Stai cercando un ingresso nel lavoro autonomo? Valora come fornitore di servizi e servizi alimentari consolidato Un chiavi in mano e nel corso degli anni collaudato e modello di business di successo. Vi sosteniamo oltre l'acquisizione del vostro negozio, in modo che non solo si padroneggia con successo l'inizio, ma anche sentirsi a proprio agio come partner agenzia al nostro fianco a lungo termine. È possibile scegliere quale dei nostri formati di prima classe: avec, Press & Books o k kiosk (in luoghi ad alta frequenza come stazioni ferroviarie, aeroporti o stazioni di servizio) si adatta meglio. Compiti che ti piacerà\n• Gestire uno o più negozi Valora ben frequentati come imprenditore indipendente sotto la vostra responsabilità\n• Gestione del personale incl. Pianificazione delle assegnazioni, reclutamento, formazione e formazione dei dipendenti\n• Gestione delle merci (inventario, stock, ordini)\n• Consulenza e sviluppo/manutenzione proattivi dei rapporti con i clienti\n• Una stretta collaborazione con i fornitori e la gestione responsabile delle vendite\n• Ottimizzazione continua dei processi e della qualità dei servizi nel negozio\n• Assicurare un aspetto professionale del negozio e l'attuazione delle misure di promozione delle vendite\n• Un apprendistato come specialista al dettaglio EFZ e/o esperienza rilevante nel settore del retail, dell'hotel o della ristorazione\n• Interessato al lavoro autonomo e alla gestione di uno o più negozi\n• Volontà – soprattutto nei primi giorni – per investire molto tempo, lavoro e perseveranza\n• pensiero e recitazione imprenditoriali, spirito di squadra e talento organizzativo\n• Gioia nel trattare con le persone e un forte orientamento al cliente e al servizio\n• Almeno 30.000 CHF (a seconda del formato) equità per la creazione di una GmbH e per l'ingresso come partner di agenzia\n• Shopfitting chiavi in mano in un design aziendale di marca uniforme più pubblicità e strumenti di comunicazione\n• Luoghi di alta frequenza ben consolidati\n• Misure di marketing regionale\n• Consulenza per la pianificazione delle vendite e dei costi\n• Una conoscenza dettagliata e preparazione dei compiti futuri\n• Programmi di formazione e formazione completi, seminari e conferenze\n• Acquisto centrale\n• Sistema di gestione delle materie prime e gestione delle categorie (struttura dei gruppi di prodotti)\n• Prospettive di sviluppo attraenti e possibilità di assumere diversi negozi I nostri dati di contatto Applicare oggi, facilmente online e diventare un imprenditore indipendente! Se avete domande, vi preghiamo di contattarci: bewerbung.agp@valora.com",
+        "en": "Are you looking for an entry into self-employment? Valora as an established convenience and food service provider A turnkey and over years proven and successful business model. We support you beyond the takeover of your store, so that you not only successfully master the start, but also feel comfortable as an agency partner at our side in the long term. You can choose which of our first-class formats: avec, Press & Books or k kiosk (at high-frequency locations such as train stations, airports or petrol stations) suits you best. Tasks you will like\n• Managing one or more well-frequented Valora stores as an independent entrepreneur under your own responsibility\n• Staff management incl. Assignment planning, recruitment, training and training of employees\n• Goods management (inventory, stock, orders)\n• Proactive customer advice and development / maintenance of customer relationships\n• Close cooperation with the suppliers and the responsible sales management\n• Ongoing optimization of processes and service quality in the store\n• Ensuring a professional appearance of the store and the implementation of sales promotion measures\n• An apprenticeship as a retail specialist EFZ and/or relevant experience in the retail, hotel or catering industry\n• Interested in self-employment and the management of one or more stores\n• Willingness – especially in the early days – to invest a lot of time, work and perseverance\n• Entrepreneurial thinking and acting, team spirit and organizational talent\n• Joy in dealing with people as well as a strong customer and service orientation\n• At least 30,000 CHF (depending on the format) equity for the establishment of a GmbH and for entering as an agency partner\n• Turnkey shopfitting in uniform brand corporate design plus advertising and communication tools\n• Well-established high-frequency locations\n• Regional marketing measures\n• Advice on sales and cost planning\n• A detailed familiarization and preparation for future tasks\n• Comprehensive training and training programmes, seminars and lectures\n• Central purchasing\n• Commodity management system and category management (structure of product groups)\n• Attractive development prospects and the possibility to take over several stores Our contact data Apply today, easily online and become an independent entrepreneur! If you have any questions, please contact us: bewerbung.agp@valora.com",
+        "de": "Suchst Du den Einstieg in die Selbständigkeit? Valora als etablierte Convenience- und Food-Service-Anbieterin bietet Dir dazu ein schlüsselfertiges und über Jahre erprobtes sowie erfolgreiches Geschäftsmodell. Wir begleiten Dich unterstützend über die Übernahme Deines Stores hinaus, damit Du nicht nur den Start erfolgreich meisterst, sondern Dich langfristig als Agenturpartner/in an unserer Seite wohlfühlst. Dabei kannst Du wählen, welches unserer erstklassigen Formate: avec, Press & Books oder k kiosk (an hochfrequenten Standorten wie Bahnhöfen, Flughäfen oder Tankstellen) am besten zu Dir passt. Aufgaben, die Dir gefallen werden\n• Führen eines oder mehrerer, gut frequentierter Valora Stores als selbständige/r Unternehmer/in in eigener Verantwortung\n• Personalführung inkl. Einsatzplanung, Rekrutierung, Aus- und Weiterbildung der Mitarbeitenden\n• Warenbewirtschaftung (Inventur, Lagerbestand, Bestellungen)\n• Proaktive Beratung der Kunden und Aufbau / Pflege der Kundenbeziehungen\n• Enge Zusammenarbeit mit den Zulieferern und der zuständigen Verkaufsleitung\n• Laufende Optimierung der Prozesse und Servicequalität im Store\n• Sicherstellen eines professionellen Auftritts des Stores und der Umsetzung von verkaufsfördernden Massnahmen Voraussetzungen, die Du mitbringst\n• Eine Ausbildung als Detailhandelsfachmann/-frau EFZ und/oder relevante Erfahrung im Detailhandel, der Hotellerie oder Gastronomie\n• Interesse an der Selbständigkeit und der Führung eines oder mehrerer Stores\n• Bereitschaft – vor allem in der Anfangszeit – viel Zeit, Arbeit und Durchhaltevermögen zu investieren\n• Unternehmerisches Denken sowie Handeln, Teamgeist und organisatorisches Talent\n• Freude am Umgang mit Menschen sowie ausgeprägte Kunden- und Serviceorientierung\n• Mindestens 30'000 CHF (je nach Format) Eigenkapital für die Gründung einer GmbH sowie für den Eintritt als Agenturpartner/in Vorteile, die wir Dir bieten\n• Schlüsselfertiger Ladenbau im einheitlichen Marken-Corporate Design plus Werbe- und Kommunikationsmittel\n• Gut eingeführte Standorte an hochfrequenter Lage\n• Überregionale Marketingmassnahmen\n• Beratung bei der Umsatz- & Kostenplanung\n• Eine ausführliche Einarbeitung sowie Vorbereitung auf die zukünftigen Aufgaben\n• Umfassende Programme zu Schulung und Training, Aus- und Weiterbildung sowie Seminare und Fachvorträge\n• Zentraler Einkauf\n• Warenwirtschaftssystem und Category Management (Strukturierung der Warengruppen)\n• Attraktive Entwicklungsperspektiven und die Möglichkeit mehrere Stores zu übernehmen Unsere Kontaktdaten Bewirb Dich noch heute, ganz einfach online und werde selbständiger Unternehmer! Solltest Du noch Fragen haben, nimm sehr gerne Kontakt mit uns auf: bewerbung.agp@valora.com",
+        "fr": "Vous cherchez un travail indépendant? Valora en tant que fournisseur établi de services de commodité et d'alimentation Un modèle d'affaires clé en main et éprouvé et réussi au fil des ans. Nous vous soutenons au-delà de la prise en charge de votre magasin, de sorte que non seulement vous maîtrisez avec succès le départ, mais vous vous sentez également à l'aise en tant que partenaire d'agence à nos côtés à long terme. Vous pouvez choisir parmi nos formats de première classe: avec, Press & Books ou k borne (à des endroits à haute fréquence tels que gares, aéroports ou stations-service) vous convient le mieux. Tâches que vous aimerez\n• Gérer un ou plusieurs magasins Valora bien fréquentés en tant qu'entrepreneur indépendant sous votre propre responsabilité\n• Gestion du personnel, y compris Planification des affectations, recrutement, formation et formation des employés\n• Gestion des biens (inventaire, stocks, commandes)\n• Conseils proactifs et développement / entretien des relations client\n• Coopération étroite avec les fournisseurs et gestion responsable des ventes\n• Optimisation continue des processus et de la qualité du service dans le magasin\n• Assurer une apparence professionnelle du magasin et la mise en œuvre de mesures de promotion des ventes\n• Un apprentissage en tant que spécialiste du commerce de détail EFZ et/ou une expérience pertinente dans l'industrie du commerce de détail, de l'hôtellerie ou de la restauration\n• Intéressé par le travail indépendant et la gestion d'un ou de plusieurs magasins\n• La volonté – surtout dans les premiers jours – d'investir beaucoup de temps, de travail et de persévérance\n• Pensée entrepreneuriale et agir, esprit d'équipe et talent organisationnel\n• La joie de traiter avec les gens ainsi qu'une forte orientation client et service\n• Au moins 30 000 CHF (selon le format) capitaux propres pour la création d'une GmbH et pour entrer en tant que partenaire d'agence\n• Boutique clé en main dans un design d'entreprise de marque uniforme plus des outils de publicité et de communication\n• Emplacements à haute fréquence bien établis\n• Mesures de commercialisation régionales\n• Conseils sur les ventes et la planification des coûts\n• Une familiarisation et une préparation détaillées pour les tâches futures\n• Programmes complets de formation, séminaires et conférences\n• Achats centraux\n• Système de gestion des produits et gestion des catégories (structure des groupes de produits)\n• Perspectives de développement attractives et possibilité de reprendre plusieurs magasins Nos coordonnées Postulez dès aujourd'hui, en ligne et devenez un entrepreneur indépendant ! Si vous avez des questions, veuillez nous contacter: bewerbung.agp@valora.com"
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://career.valora.com/en/job/20004/agenturpartnerin-agenturpartner-imboden",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-14T09:19:25.642Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "Graubünden",
+      "streetAddress": "Graubünden",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23",
+      "postedDate": "2026-09-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/20004/Application/CheckLogin/1?lang=ger&DesignID=10004",
+      "jobReqId": "20004",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ],
+        "en": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ],
+        "fr": [
+          "agenturpartnerin-agenturpartner-imboden-valora-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:33:01.444Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:19:25.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1037,7 +1037,7 @@
       "url": "https://career.valora.com/en/job/20005/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.034Z",
+      "crawledAt": "2026-11-14T09:19:25.641Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1087,7 +1087,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.034Z",
+      "validThrough": "2026-12-22T09:19:25.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1121,7 +1121,7 @@
       "url": "https://career.valora.com/en/job/20569/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.033Z",
+      "crawledAt": "2026-11-14T09:19:25.640Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "St.Gallen",
       "streetAddress": "St.Gallen",
@@ -1171,7 +1171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.033Z",
+      "validThrough": "2026-12-22T09:19:25.640Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1205,7 +1205,7 @@
       "url": "https://career.valora.com/en/job/21083/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.032Z",
+      "crawledAt": "2026-11-14T09:19:25.639Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Bahnhof",
@@ -1257,7 +1257,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:00.032Z",
+      "validThrough": "2026-12-22T09:19:25.639Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1291,7 +1291,7 @@
       "url": "https://career.valora.com/en/job/20945/it-program-manager-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.031Z",
+      "crawledAt": "2026-11-14T09:19:25.638Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1327,7 +1327,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:18:00.031Z",
+      "validThrough": "2026-12-27T09:19:25.638Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://career.valora.com/en/job/21039/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.029Z",
+      "crawledAt": "2026-11-14T09:19:25.637Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1411,7 +1411,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:18:00.029Z",
+      "validThrough": "2026-12-30T09:19:25.637Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1445,7 +1445,7 @@
       "url": "https://career.valora.com/en/job/22063/geschaftsfuhrerin-geschaftsfuhrer-k-kiosk-100",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.028Z",
+      "crawledAt": "2026-11-14T09:19:25.635Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1495,7 +1495,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:18:00.028Z",
+      "validThrough": "2027-01-17T09:19:25.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1529,7 +1529,7 @@
       "url": "https://career.valora.com/en/job/21758/strategischer-einkaufer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.026Z",
+      "crawledAt": "2026-11-14T09:19:25.633Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1579,7 +1579,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T21:18:00.026Z",
+      "validThrough": "2027-01-18T09:19:25.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1613,7 +1613,7 @@
       "url": "https://career.valora.com/en/job/22043/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.025Z",
+      "crawledAt": "2026-11-14T09:19:25.632Z",
       "addressLocality": "Thun",
       "addressRegion": "Bern",
       "streetAddress": "Bälliz 15",
@@ -1663,7 +1663,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:18:00.025Z",
+      "validThrough": "2027-01-19T09:19:25.632Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1697,7 +1697,7 @@
       "url": "https://career.valora.com/en/job/22105/service-delivery-pos-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.024Z",
+      "crawledAt": "2026-11-14T09:19:25.631Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1744,7 +1744,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:18:00.024Z",
+      "validThrough": "2027-01-21T09:19:25.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1778,7 +1778,7 @@
       "url": "https://career.valora.com/en/job/21040/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.022Z",
+      "crawledAt": "2026-11-14T09:19:25.629Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 21",
@@ -1828,7 +1828,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.022Z",
+      "validThrough": "2027-01-24T09:19:25.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1862,7 +1862,7 @@
       "url": "https://career.valora.com/en/job/21042/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.020Z",
+      "crawledAt": "2026-11-14T09:19:25.628Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -1912,7 +1912,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.020Z",
+      "validThrough": "2027-01-24T09:19:25.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1946,7 +1946,7 @@
       "url": "https://career.valora.com/en/job/21220/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.019Z",
+      "crawledAt": "2026-11-14T09:19:25.626Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1996,7 +1996,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.019Z",
+      "validThrough": "2027-01-24T09:19:25.626Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2030,7 +2030,7 @@
       "url": "https://career.valora.com/en/job/21622/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.018Z",
+      "crawledAt": "2026-11-14T09:19:25.625Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -2080,7 +2080,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.018Z",
+      "validThrough": "2027-01-24T09:19:25.625Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2114,7 +2114,7 @@
       "url": "https://career.valora.com/en/job/21701/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.016Z",
+      "crawledAt": "2026-11-14T09:19:25.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -2164,7 +2164,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.016Z",
+      "validThrough": "2027-01-24T09:19:25.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2198,7 +2198,7 @@
       "url": "https://career.valora.com/en/job/21847/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.013Z",
+      "crawledAt": "2026-11-14T09:19:25.621Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2248,7 +2248,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.013Z",
+      "validThrough": "2027-01-24T09:19:25.621Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2282,7 +2282,7 @@
       "url": "https://career.valora.com/en/job/21923/verkauferin-verkaufer-k-kiosk-30-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.011Z",
+      "crawledAt": "2026-11-14T09:19:25.619Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2332,7 +2332,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:18:00.011Z",
+      "validThrough": "2027-01-24T09:19:25.619Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2366,7 +2366,7 @@
       "url": "https://career.valora.com/en/job/21265/produktionsmitarbeiter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:00.010Z",
+      "crawledAt": "2026-11-14T09:19:25.618Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -2387,10 +2387,11 @@
       "jobReqId": "21265",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
-        ],
         "it": [
           "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
@@ -2398,14 +2399,13 @@
         "en": [
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ],
+        "de": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
         "fr": [
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ]
       },
-      "previousSlugs": [
-        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
-      ],
       "firstSeenAt": "2026-09-23T23:35:45.536Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2421,7 +2421,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:18:00.010Z",
+      "validThrough": "2027-01-31T09:19:25.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2455,7 +2455,7 @@
       "url": "https://career.valora.com/en/job/22072/verkauferin-verkaufer-avec-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.991Z",
+      "crawledAt": "2026-11-14T09:19:25.598Z",
       "addressLocality": "Ittigen",
       "addressRegion": "Bern",
       "streetAddress": "Worblentalstrasse 103",
@@ -2505,7 +2505,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:17:59.991Z",
+      "validThrough": "2027-02-01T09:19:25.598Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2539,7 +2539,7 @@
       "url": "https://career.valora.com/en/job/21792/internal-control-risk-specialist-80-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.987Z",
+      "crawledAt": "2026-11-14T09:19:25.594Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2600,7 +2600,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:17:59.987Z",
+      "validThrough": "2027-01-14T09:19:25.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2634,7 +2634,7 @@
       "url": "https://career.valora.com/en/job/22004/consumer-finance-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.985Z",
+      "crawledAt": "2026-11-14T09:19:25.592Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2681,7 +2681,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:17:59.985Z",
+      "validThrough": "2027-02-02T09:19:25.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2715,7 +2715,7 @@
       "url": "https://career.valora.com/en/job/22005/specialist-collections-payments-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.984Z",
+      "crawledAt": "2026-11-14T09:19:25.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -2762,7 +2762,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:17:59.984Z",
+      "validThrough": "2027-02-02T09:19:25.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2796,7 +2796,7 @@
       "url": "https://career.valora.com/en/job/22064/compliance-officer-legal-counsel-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.982Z",
+      "crawledAt": "2026-11-14T09:19:25.588Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2844,7 +2844,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:17:59.982Z",
+      "validThrough": "2027-02-02T09:19:25.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2878,7 +2878,7 @@
       "url": "https://career.valora.com/en/job/22203/it-manager-finance-hr-applications-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.979Z",
+      "crawledAt": "2026-11-14T09:19:25.586Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2922,7 +2922,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:17:59.979Z",
+      "validThrough": "2027-02-07T09:19:25.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2956,7 +2956,7 @@
       "url": "https://career.valora.com/en/job/21602/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.978Z",
+      "crawledAt": "2026-11-14T09:19:25.585Z",
       "addressLocality": "Oberhofen",
       "addressRegion": "Bern",
       "streetAddress": "Staatsstrasse 4",
@@ -3006,16 +3006,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:17:59.978Z",
+      "validThrough": "2027-02-10T09:19:25.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "valora-96132f438cea",
       "slug": "it-pos-coordinatore-ch-w-m-d-valora-group-muttenz",
       "slugByLocale": {
-        "de": "it-pos-coordinator-ch-w-m-d-valora-muttenz",
         "it": "it-pos-coordinatore-ch-w-m-d-valora-group-muttenz",
         "en": "it-pos-coordinator-ch-w-m-d-valora-muttenz",
+        "de": "it-pos-coordinator-ch-w-m-d-valora-muttenz",
         "fr": "it-pos-coordinateur-ch-w-m-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -3023,16 +3023,16 @@
       "companyDomain": "valora.com",
       "title": "IT POS Coordinator CH (w/m/d)",
       "titleByLocale": {
-        "de": "IT POS Coordinator CH (w/m/d)",
         "it": "IT POS Coordinatore CH (w/m/d)",
         "en": "IT POS Coordinator CH (m/f/d)",
+        "de": "IT POS Coordinator CH (w/m/d)",
         "fr": "IT POS Coordinateur CH (w/m/d)"
       },
       "description": "Als IT POS Coordinator bist du die zentrale Schnittstelle zwischen unseren Stores, den Business-Bereichen und der IT. Du sorgst dafür, dass unsere POS-Lösungen im Tagesgeschäft stabil, leistungsfähig und anwenderfreundlich funktionieren. Aufgaben, die Dir gefallen werden\n• Du bist die zentrale Ansprechperson für alle POS- und Store-IT-Themen und verbindest die Anforderungen unserer Stores und B2C-Organisation mit den zuständigen IT-Teams.\n• Du nimmst Anforderungen aus dem Store-Umfeld auf, bewertest und priorisierst sie gemeinsam mit den relevanten Stakeholdern und übersetzt Business-Anforderungen in klare IT- und technische Anforderungen.\n• Bei Incidents und Service-Unterbrechungen koordinierst du die beteiligten Teams und Partner und sorgst für eine schnelle, pragmatische und nachhaltige Lösungsfindung.\n• Du analysierst wiederkehrende Störungen und Schwachstellen entlang der Customer Journey und leitest konkrete Maßnahmen ab, um Stabilität, Servicequalität und Benutzerfreundlichkeit unserer POS-Systeme kontinuierlich zu verbessern.\n• Du treibst die Weiterentwicklung unserer Business- und IT-Prozesse im POS Service Management aktiv voran und stellst eine transparente Priorisierung von Anforderungen sicher.\n• Du unterstützt NPS-Initiativen (Net Promoter Score) im operativen Geschäft und trägst damit zu einer positiven Customer Experience und einer langfristigen Kundenbindung bei.\n• Du begleitest POS-Rollouts, Store-Eröffnungen und weitere Store-IT-Projekte aus Business-Perspektive und stellst die IT- und POS-Readiness sicher.\n• Du koordinierst und begleitest Pilotierungen neuer Technologien und Anwendungen im Store-Umfeld und sorgst dafür, dass neue Lösungen erfolgreich in einen stabilen Betrieb überführt werden.\n• Du arbeitest eng mit Store Operations, Construction/Expansion, POS Product Teams, IT Service Center, Infrastructure & Network Teams sowie externen Service Providern zusammen.\n• Mit deinem Blick für Business und Technologie stellst du sicher, dass unsere IT-Services einen messbaren Mehrwert für Stores, Mitarbeitende und Kund:innen schaffen. Voraussetzungen, die Du mitbringst\n• Du verfügst über mehrjährige Erfahrung im Retail-IT-Umfeld, idealerweise mit Schwerpunkt auf POS-Systemen, Store Technology oder vergleichbaren Lösungen.\n• Du bringst praktische Erfahrung in Store Rollouts, Service Delivery oder IT Operations mit.\n• Du verfügst über ein gutes technisches Verständnis und kannst gleichzeitig die Perspektive des Business einnehmen.\n• Du hast Freude daran, Anforderungen zu strukturieren, unterschiedliche Interessen zusammenzubringen und Themen eigenständig voranzutreiben.\n• Du arbeitest lösungsorientiert, pragmatisch und strukturiert und behältst auch bei kritischen Incidents den Überblick.\n• Du kommunizierst klar und adressatengerecht und fühlst dich in einer Schnittstellenrolle zwischen Business, Stores, IT und externen Partnern wohl.\n• Du hast ein gutes Verständnis für Servicequalität und eine hohe Affinität zu Customer Experience und User Experience.\n• Du übernimmst Verantwortung für deine Themen und überzeugst durch eine Hands-on-Mentalität sowie eine ausgeprägte Service- und Kundenorientierung. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
       "descriptionByLocale": {
-        "de": "Als IT POS Coordinator bist du die zentrale Schnittstelle zwischen unseren Stores, den Business-Bereichen und der IT. Du sorgst dafür, dass unsere POS-Lösungen im Tagesgeschäft stabil, leistungsfähig und anwenderfreundlich funktionieren. Aufgaben, die Dir gefallen werden\n• Du bist die zentrale Ansprechperson für alle POS- und Store-IT-Themen und verbindest die Anforderungen unserer Stores und B2C-Organisation mit den zuständigen IT-Teams.\n• Du nimmst Anforderungen aus dem Store-Umfeld auf, bewertest und priorisierst sie gemeinsam mit den relevanten Stakeholdern und übersetzt Business-Anforderungen in klare IT- und technische Anforderungen.\n• Bei Incidents und Service-Unterbrechungen koordinierst du die beteiligten Teams und Partner und sorgst für eine schnelle, pragmatische und nachhaltige Lösungsfindung.\n• Du analysierst wiederkehrende Störungen und Schwachstellen entlang der Customer Journey und leitest konkrete Maßnahmen ab, um Stabilität, Servicequalität und Benutzerfreundlichkeit unserer POS-Systeme kontinuierlich zu verbessern.\n• Du treibst die Weiterentwicklung unserer Business- und IT-Prozesse im POS Service Management aktiv voran und stellst eine transparente Priorisierung von Anforderungen sicher.\n• Du unterstützt NPS-Initiativen (Net Promoter Score) im operativen Geschäft und trägst damit zu einer positiven Customer Experience und einer langfristigen Kundenbindung bei.\n• Du begleitest POS-Rollouts, Store-Eröffnungen und weitere Store-IT-Projekte aus Business-Perspektive und stellst die IT- und POS-Readiness sicher.\n• Du koordinierst und begleitest Pilotierungen neuer Technologien und Anwendungen im Store-Umfeld und sorgst dafür, dass neue Lösungen erfolgreich in einen stabilen Betrieb überführt werden.\n• Du arbeitest eng mit Store Operations, Construction/Expansion, POS Product Teams, IT Service Center, Infrastructure & Network Teams sowie externen Service Providern zusammen.\n• Mit deinem Blick für Business und Technologie stellst du sicher, dass unsere IT-Services einen messbaren Mehrwert für Stores, Mitarbeitende und Kund:innen schaffen. Voraussetzungen, die Du mitbringst\n• Du verfügst über mehrjährige Erfahrung im Retail-IT-Umfeld, idealerweise mit Schwerpunkt auf POS-Systemen, Store Technology oder vergleichbaren Lösungen.\n• Du bringst praktische Erfahrung in Store Rollouts, Service Delivery oder IT Operations mit.\n• Du verfügst über ein gutes technisches Verständnis und kannst gleichzeitig die Perspektive des Business einnehmen.\n• Du hast Freude daran, Anforderungen zu strukturieren, unterschiedliche Interessen zusammenzubringen und Themen eigenständig voranzutreiben.\n• Du arbeitest lösungsorientiert, pragmatisch und strukturiert und behältst auch bei kritischen Incidents den Überblick.\n• Du kommunizierst klar und adressatengerecht und fühlst dich in einer Schnittstellenrolle zwischen Business, Stores, IT und externen Partnern wohl.\n• Du hast ein gutes Verständnis für Servicequalität und eine hohe Affinität zu Customer Experience und User Experience.\n• Du übernimmst Verantwortung für deine Themen und überzeugst durch eine Hands-on-Mentalität sowie eine ausgeprägte Service- und Kundenorientierung. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
         "it": "In qualità di coordinatore IT POS, sei l'interfaccia centrale tra i nostri negozi, aree business e IT. Assicurarsi che le nostre soluzioni POS siano stabili, efficienti e facili da usare nel business quotidiano. Compiti che ti piacerà\n• Sei la persona di contatto centrale per tutti gli argomenti POS e Store IT e combina i requisiti dei nostri negozi e dell'organizzazione B2C con i team IT responsabili.\n• Prendere i requisiti dall'ambiente del negozio, valutarli e prioritizzarli insieme alle parti interessate pertinenti e tradurre i requisiti aziendali in chiari requisiti IT e tecnici.\n• In caso di incidenti e interruzioni di servizio, coordina i team e i partner coinvolti e garantisce una soluzione rapida, pragmatica e sostenibile.\n• Analizzerai i guasti ricorrenti e le vulnerabilità lungo il percorso del cliente e avrai misure concrete per migliorare continuamente la stabilità, la qualità del servizio e l'usabilità dei nostri sistemi POS.\n• Promuovi attivamente l'ulteriore sviluppo dei nostri processi aziendali e IT in POS Service Management e garantisci una priorità trasparente dei requisiti.\n• Supporti le iniziative NPS (Net Promoter Score) nel business operativo e quindi contribuisci a un'esperienza positiva del cliente e alla fidelizzazione del cliente a lungo termine.\n• Accompagnate i rollout POS, le aperture dei negozi e altri progetti IT del negozio da una prospettiva di business e garantite la disponibilità IT e POS.\n• Coordinate e accompagnate il pilotaggio di nuove tecnologie e applicazioni nell'ambiente del negozio e assicurate che le nuove soluzioni vengano trasferite con successo a un'operazione stabile.\n• Lavorate a stretto contatto con operazioni di Store, costruzioni/espansione, team di prodotti POS, centro servizi IT, team di infrastrutture e reti e fornitori di servizi esterni.\n• Con la vostra attenzione al business e alla tecnologia, assicuratevi che i nostri servizi IT creino un valore aggiunto misurabile per negozi, dipendenti e clienti. Requisiti che porti\n• Hai diversi anni di esperienza nell'ambiente IT al dettaglio, idealmente con un focus sui sistemi POS, la tecnologia store o soluzioni paragonabili.\n• Porti esperienza pratica in rollout negozio, consegna di servizio o operazioni IT.\n• Hai una buona comprensione tecnica e puoi prendere la prospettiva del business allo stesso tempo.\n• Ti piace strutturare i requisiti, riunire diversi interessi e guidare argomenti in modo indipendente.\n• Si lavora in modo orientato alla soluzione, pragmatico e strutturato e tenere traccia di incidenti critici.\n• Comunichi in modo chiaro e appropriato e ti senti a tuo agio in un ruolo di interfaccia tra business, negozi, IT e partner esterni.\n• Hai una buona comprensione della qualità del servizio e un'alta affinità per l'esperienza del cliente e l'esperienza dell'utente.\n• Si assume la responsabilità per i vostri argomenti e convincere attraverso una mentalità hands-on così come un servizio pronunciato e l'orientamento del cliente. Vantaggi Ti offriamo\n• Un ambiente di lavoro dinamico e internazionale con ampio spazio per idee e partecipazione creativa\n• Varie opportunità di sviluppo e formazione, anche attraverso la nostra Valora Academy e corsi di formazione dal vivo\n• Una cultura aziendale semplice con scambio diretto e una vivace du-culture che promuove innovazione e agilità.\n• Progetti emozionanti e varie attività con un grande spazio di manovra e un elevato grado di responsabilità personale\n• Approfitta di interessanti sconti per i dipendenti nei formati Valora e partner selezionati nei settori del tempo libero, dello sport, della salute e della mobilità\n• Condizioni di lavoro attraenti con il proprio fondo pensionistico e tre piani di risparmio selezionabili in modo flessibile\n• Ore lavorative flessibili con flessibilità e la possibilità di lavorare nell'ufficio",
         "en": "As an IT POS Coordinator, you are the central interface between our stores, business areas and IT. You ensure that our POS solutions are stable, efficient and user-friendly in day-to-day business. Tasks you will like\n• You are the central contact person for all POS and Store IT topics and combine the requirements of our stores and B2C organization with the responsible IT teams.\n• You take requirements from the store environment, evaluate and prioritize them together with the relevant stakeholders and translate business requirements into clear IT and technical requirements.\n• In the event of incidents and service interruptions, you coordinate the teams and partners involved and ensure a fast, pragmatic and sustainable solution.\n• You will analyze recurring faults and vulnerabilities along the customer journey and derive concrete measures to continuously improve the stability, service quality and usability of our POS systems.\n• You actively promote the further development of our business and IT processes in POS Service Management and ensure a transparent prioritization of requirements.\n• You support NPS (Net Promoter Score) initiatives in the operational business and thus contribute to a positive customer experience and long-term customer loyalty.\n• You accompany POS rollouts, store openings and other store IT projects from a business perspective and ensure IT and POS readiness.\n• You coordinate and accompany piloting of new technologies and applications in the store environment and ensure that new solutions are successfully transferred to a stable operation.\n• You work closely with Store Operations, Construction/Expansion, POS Product Teams, IT Service Center, Infrastructure & Network Teams and external service providers.\n• With your focus on business and technology, you ensure that our IT services create measurable added value for stores, employees and customers. Requirements that you bring\n• You have several years of experience in the retail IT environment, ideally with a focus on POS systems, store technology or comparable solutions.\n• You bring practical experience in store rollouts, service delivery or IT operations.\n• You have a good technical understanding and can take the perspective of the business at the same time.\n• You enjoy structuring requirements, bringing together different interests and driving forward topics independently.\n• You work in a solution-oriented, pragmatic and structured manner and keep track of critical incidents.\n• You communicate clearly and appropriately and feel comfortable in an interface role between business, stores, IT and external partners.\n• You have a good understanding of service quality and a high affinity for customer experience and user experience.\n• You take responsibility for your topics and convince through a hands-on mentality as well as a pronounced service and customer orientation. Benefits We Offer You\n• A dynamic, international working environment with plenty of room for ideas and creative participation\n• Various development and further education opportunities, including through our internal Valora Academy and live training courses\n• An uncomplicated corporate culture with direct exchange and a lively du-culture that promotes innovation and agility.\n• Exciting projects and varied tasks with a great deal of room for manoeuvre and a high degree of personal responsibility\n• Enjoy attractive employee discounts at Valora formats and selected partners in the fields of leisure, sports, health and mobility\n• Attractive employment conditions with own pension fund and three flexibly selectable savings plans\n• Flexible working hours with flexibility and the possibility to work in the home office",
+        "de": "Als IT POS Coordinator bist du die zentrale Schnittstelle zwischen unseren Stores, den Business-Bereichen und der IT. Du sorgst dafür, dass unsere POS-Lösungen im Tagesgeschäft stabil, leistungsfähig und anwenderfreundlich funktionieren. Aufgaben, die Dir gefallen werden\n• Du bist die zentrale Ansprechperson für alle POS- und Store-IT-Themen und verbindest die Anforderungen unserer Stores und B2C-Organisation mit den zuständigen IT-Teams.\n• Du nimmst Anforderungen aus dem Store-Umfeld auf, bewertest und priorisierst sie gemeinsam mit den relevanten Stakeholdern und übersetzt Business-Anforderungen in klare IT- und technische Anforderungen.\n• Bei Incidents und Service-Unterbrechungen koordinierst du die beteiligten Teams und Partner und sorgst für eine schnelle, pragmatische und nachhaltige Lösungsfindung.\n• Du analysierst wiederkehrende Störungen und Schwachstellen entlang der Customer Journey und leitest konkrete Maßnahmen ab, um Stabilität, Servicequalität und Benutzerfreundlichkeit unserer POS-Systeme kontinuierlich zu verbessern.\n• Du treibst die Weiterentwicklung unserer Business- und IT-Prozesse im POS Service Management aktiv voran und stellst eine transparente Priorisierung von Anforderungen sicher.\n• Du unterstützt NPS-Initiativen (Net Promoter Score) im operativen Geschäft und trägst damit zu einer positiven Customer Experience und einer langfristigen Kundenbindung bei.\n• Du begleitest POS-Rollouts, Store-Eröffnungen und weitere Store-IT-Projekte aus Business-Perspektive und stellst die IT- und POS-Readiness sicher.\n• Du koordinierst und begleitest Pilotierungen neuer Technologien und Anwendungen im Store-Umfeld und sorgst dafür, dass neue Lösungen erfolgreich in einen stabilen Betrieb überführt werden.\n• Du arbeitest eng mit Store Operations, Construction/Expansion, POS Product Teams, IT Service Center, Infrastructure & Network Teams sowie externen Service Providern zusammen.\n• Mit deinem Blick für Business und Technologie stellst du sicher, dass unsere IT-Services einen messbaren Mehrwert für Stores, Mitarbeitende und Kund:innen schaffen. Voraussetzungen, die Du mitbringst\n• Du verfügst über mehrjährige Erfahrung im Retail-IT-Umfeld, idealerweise mit Schwerpunkt auf POS-Systemen, Store Technology oder vergleichbaren Lösungen.\n• Du bringst praktische Erfahrung in Store Rollouts, Service Delivery oder IT Operations mit.\n• Du verfügst über ein gutes technisches Verständnis und kannst gleichzeitig die Perspektive des Business einnehmen.\n• Du hast Freude daran, Anforderungen zu strukturieren, unterschiedliche Interessen zusammenzubringen und Themen eigenständig voranzutreiben.\n• Du arbeitest lösungsorientiert, pragmatisch und strukturiert und behältst auch bei kritischen Incidents den Überblick.\n• Du kommunizierst klar und adressatengerecht und fühlst dich in einer Schnittstellenrolle zwischen Business, Stores, IT und externen Partnern wohl.\n• Du hast ein gutes Verständnis für Servicequalität und eine hohe Affinität zu Customer Experience und User Experience.\n• Du übernimmst Verantwortung für deine Themen und überzeugst durch eine Hands-on-Mentalität sowie eine ausgeprägte Service- und Kundenorientierung. Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert.\n• Spannende Projekte und abwechslungsreiche Aufgaben mit grossem Gestaltungsspielraum und hoher Eigenverantwortung\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Flexible Arbeitszeiten mit Gleitzeit und der Möglichkeit im Homeoffice zu arbeiten",
         "fr": "En tant que coordonnateur des POS IT, vous êtes l'interface centrale entre nos magasins, nos secteurs d'activité et les TI. Vous veillez à ce que nos solutions POS soient stables, efficaces et conviviales au quotidien. Tâches que vous aimerez\n• Vous êtes la personne de contact centrale pour tous les sujets de POS et de Store IT et combinez les exigences de nos magasins et de l'organisation B2C avec les équipes informatiques responsables.\n• Vous prenez les exigences de l'environnement de magasin, les évaluez et les priorisez avec les intervenants concernés et traduisez les exigences opérationnelles en exigences informatiques et techniques claires.\n• En cas d'incidents et d'interruptions de service, vous coordonnez les équipes et les partenaires concernés et vous assurez une solution rapide, pragmatique et durable.\n• Vous analyserez les failles récurrentes et les vulnérabilités tout au long du parcours client et élaborerez des mesures concrètes pour améliorer en permanence la stabilité, la qualité de service et la convivialité de nos systèmes POS.\n• Vous encouragez activement le développement de nos processus d'affaires et de TI dans la gestion des services de POS et vous assurez une priorisation transparente des exigences.\n• Vous soutenez les initiatives NPS (Net Promoter Score) dans l'entreprise opérationnelle et contribuez ainsi à une expérience client positive et une fidélité à long terme.\n• Vous accompagnez les déploiements de POS, les ouvertures de magasin et d'autres projets informatiques de magasin dans une perspective d'affaires et vous assurez la disponibilité des TI et des POS.\n• Vous coordonnez et accompagnez le pilotage de nouvelles technologies et applications dans l'environnement des magasins et vous assurez que de nouvelles solutions sont transférées avec succès à une exploitation stable.\n• Vous travaillez en étroite collaboration avec Store Operations, Construction/Expansion, POS Product Teams, IT Service Center, Infrastructure & Network Teams et des prestataires de services externes.\n• Avec votre attention sur les affaires et la technologie, vous assurez que nos services informatiques créent une valeur ajoutée mesurable pour les magasins, les employés et les clients. Exigences que vous apportez\n• Vous avez plusieurs années d'expérience dans l'environnement informatique de détail, idéalement avec un accent sur les systèmes POS, la technologie de stockage ou des solutions comparables.\n• Vous apportez une expérience pratique dans le déploiement des magasins, la prestation de services ou les opérations informatiques.\n• Vous avez une bonne compréhension technique et pouvez prendre la perspective de l'entreprise en même temps.\n• Vous aimez structurer les exigences, rassembler différents intérêts et faire avancer les sujets indépendamment.\n• Vous travaillez d'une manière pragmatique, structurée et orientée vers la solution et suivez les incidents critiques.\n• Vous communiquez clairement et adéquatement et vous sentez à l'aise dans un rôle d'interface entre les entreprises, les magasins, les TI et les partenaires externes.\n• Vous avez une bonne compréhension de la qualité du service et une grande affinité pour l'expérience client et l'expérience utilisateur.\n• Vous prenez la responsabilité de vos sujets et convainquez par une mentalité pratique ainsi qu'un service prononcé et une orientation client. Avantages que nous vous offrons\n• Un environnement de travail international dynamique avec beaucoup de place pour les idées et la participation créative\n• Diverses possibilités de développement et de formation continue, y compris par le biais de notre Académie interne de Valora et des cours de formation en direct\n• Une culture d'entreprise simple avec un échange direct et une du-culture vivante qui favorise l'innovation et l'agilité.\n• Projets passionnants et tâches variées avec une grande marge de manœuvre et un haut degré de responsabilité personnelle\n• Profitez de réductions d'employés attractives aux formats Valora et de partenaires sélectionnés dans les domaines des loisirs, du sport, de la santé et de la mobilité\n• Conditions d'emploi attrayantes avec fonds de pension propre et trois plans d'épargne flexibles sélectionnables\n• Durées de travail flexibles avec flexibilité et possibilité de travailler à domicile"
       },
       "location": "Muttenz",
@@ -3040,7 +3040,7 @@
       "url": "https://career.valora.com/en/job/22035/it-pos-coordinator-ch-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:59.951Z",
+      "crawledAt": "2026-11-14T09:19:25.557Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -3060,9 +3060,19 @@
       "applyUrl": "https://recruitingapp-2538.umantis.com/Vacancies/22035/Application/CheckLogin/1?lang=ger&DesignID=10004",
       "jobReqId": "22035",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-pos-coordinator-ch-w-m-d-valora-muttenz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-pos-coordinator-ch-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "it-pos-coordinator-ch-w-m-d-valora-muttenz"
+        ]
       },
+      "firstSeenAt": "2026-11-13T21:17:59.951Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -3077,20 +3087,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:17:59.951Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:59.951Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "it-pos-coordinator-ch-w-m-d-valora-muttenz"
-        ],
-        "fr": [
-          "it-pos-coordinator-ch-w-m-d-valora-muttenz"
-        ]
-      },
-      "previousSlugs": [
-        "it-pos-coordinator-ch-w-m-d-valora-muttenz"
-      ]
+      "validThrough": "2027-02-11T09:19:25.557Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

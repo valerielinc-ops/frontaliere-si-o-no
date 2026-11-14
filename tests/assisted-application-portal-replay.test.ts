@@ -431,13 +431,15 @@ describe('portal replay workflow wiring', () => {
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
     const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
-    const mergeCommit = workflow.indexOf('          ref: ${{ github.sha }}\n');
+    const mergeCommit = workflow.indexOf('          ref: ${{ github.event.pull_request.merge_commit_sha }}\n');
     expect(prCheckout).toBeGreaterThan(-1);
     expect(mergeCommit).toBeGreaterThan(prCheckout);
     expect(workflow).not.toContain('github.event.pull_request.head.sha');
     expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
     expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
+    expect(workflow).not.toContain('refs/pull/$PR_NUMBER/merge');
     expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
+    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
     expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
     expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
     expect(workflow).toContain('cancel-in-progress: false');
@@ -516,6 +518,27 @@ describe('portal replay base/head gate', () => {
     expect(result.findingCodes).toEqual([]);
     expect(result.familyRates.comparable).toBe(0);
     expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('compares new security violations against a measured base that already failed', () => {
+    const base = measured('one', 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      securityViolations: ['wrong_posting_or_talent_pool'],
+    });
+    const head = measured('one', 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      nodeEgressBlocked: 1,
+      securityViolations: ['wrong_posting_or_talent_pool', 'node_egress_attempt'],
+    });
+    const result = comparePortalReplayFamily({
+      family: 'refline',
+      baseRecords: [base],
+      headRecords: [head],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toEqual(['node_egress_attempt']);
   });
 
   it('does not block on a timeout already present on the base', () => {
