@@ -519,6 +519,10 @@ export const RC_TO_ENV = {
   // listings, `off` keeps only the per-page HTTP check. MAX_AGE_HOURS defaults to 36.
   JOB_ALERT_LIVE_LINK_MANIFEST: ['JOB_ALERT_LIVE_LINK_MANIFEST'],
   JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS: ['JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS'],
+  // Batch bookkeeping of the job-alert sender (perf-plan PR 4b): `on` (default)
+  // writes the delivery intent and finalize as WriteBatch with a lastUpdateTime
+  // precondition, `off` restores the per-email transactions (kill switch).
+  JOB_ALERT_BATCH_BOOKKEEPING: ['JOB_ALERT_BATCH_BOOKKEEPING'],
   JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
   JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
   // Daily job-alert subject experiment: all controls are required by the

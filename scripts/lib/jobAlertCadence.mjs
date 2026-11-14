@@ -948,3 +948,63 @@ export function reactivationAfterReturnVisit({ alert, sub, newsletter = null, no
     },
   };
 }
+
+// ── a lower bound on the next eligible day (perf-plan PR 8, SHADOW) ─────────
+
+/**
+ * Field written on the alert document by the same update that records a send or
+ * a decay: the earliest UTC day (YYYY-MM-DD) on which the cadence gate could say
+ * «due» again. Today it is only MEASURED (`cadenceIndexViolations` in the run's
+ * metrics): the loading query still returns every active alert. Once a week of
+ * shadow data shows zero violations, a query on `cadence_next_eligible_on <=
+ * TODAY` (plus the legacy alerts that lack the field) can stop reading the ~9k
+ * alerts that cannot be due today.
+ */
+export const JOB_ALERT_NEXT_ELIGIBLE_FIELD = 'cadence_next_eligible_on';
+/** A decayed alert is terminal: only a return visit, written elsewhere, reopens it. */
+export const JOB_ALERT_TERMINAL_NEXT_ELIGIBLE_ON = '9999-12-31';
+
+function addUtcDays(isoDay, days) {
+  const ms = Date.parse(`${isoDay}T00:00:00Z`);
+  return Number.isFinite(ms) ? new Date(ms + days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10) : null;
+}
+
+/**
+ * The earliest day the alert can be due again after a send, CONSERVATIVELY: it may
+ * never be later than the day the cadence gate would actually let it through.
+ *
+ *   - decayed by this very send: terminal;
+ *   - a frequency the person pinned: the sent day plus the pinned interval (the
+ *     gate reads the pin verbatim);
+ *   - otherwise the engine tier, which is NOT a safe basis: it lives on the
+ *     recipient document and the next send of any OTHER alert of the same
+ *     recipient can promote it to one day. The bound is therefore sent day + 1,
+ *     the fastest tier, never the tier in force today;
+ *   - a send scheduled for a later day (`scheduledFor`) is still in flight until
+ *     that day, so the bound starts from it (alreadyServedToday refuses the alert
+ *     until then).
+ *
+ * @returns {string|null} a YYYY-MM-DD day, or null when the sent day is unreadable
+ */
+export function cadenceNextEligibleLowerBound({ alert, sentAtIso, scheduledFor = null, decayStamp = null }) {
+  if (decayStamp) return JOB_ALERT_TERMINAL_NEXT_ELIGIBLE_ON;
+  const sentDay = utcDayOf(sentAtIso);
+  if (!sentDay) return null;
+  const scheduledDay = scheduledFor == null ? null : utcDayOf(scheduledFor);
+  const base = scheduledDay && scheduledDay > sentDay ? scheduledDay : sentDay;
+  const minInterval = isManuallyPinned(alert)
+    ? (alert?.frequency === 'daily' ? JOB_ALERT_MANUAL_FREQUENCY_DAYS.daily : JOB_ALERT_MANUAL_FREQUENCY_DAYS.weekly)
+    : JOB_ALERT_TIER_DAYS[JOB_ALERT_ENGAGEMENT_TIERS.DAILY];
+  return addUtcDays(base, minInterval);
+}
+
+/**
+ * What the stored bound says about a given day: whether the alert carries one and
+ * whether it would be skipped by a query on it. A bound that is not a plain
+ * YYYY-MM-DD day counts as absent: an unreadable bound must never exclude an alert.
+ */
+export function cadenceIndexReading(alert, todayIso) {
+  const raw = alert?.[JOB_ALERT_NEXT_ELIGIBLE_FIELD];
+  const present = typeof raw === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(raw);
+  return { present, nextEligibleOn: present ? raw : null, skippable: present && raw > todayIso };
+}

@@ -108,6 +108,7 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { computeDeliveryFinalize, computeProviderIntent } from './lib/job-alert-delivery-ledger.mjs';
 import { buildAlertInventory } from './lib/job-alert-inventory.mjs';
+import { createBatchBookkeeper, ledgerContext } from './lib/job-alert-batch-bookkeeping.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
 import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
@@ -124,7 +125,10 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeE
 import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import {
   JOB_ALERT_CADENCE_CEILING_DAYS,
+  JOB_ALERT_NEXT_ELIGIBLE_FIELD,
   JOB_ALERT_REACTIVATION_BLOCKS,
+  cadenceIndexReading,
+  cadenceNextEligibleLowerBound,
   decayStampAfterSend,
   engagedSinceLastJobAlertSend,
   isJobAlertDueToday,
@@ -1665,29 +1669,38 @@ function escHtml(s) {
 // differently-named/shaped subcollection) sees per-user send-time outcomes for
 // job alerts too. Used by both the first-send (sendBatch) and retry
 // (processRetryQueue) paths, same as the Maileroo ref writer above.
-export async function persistJobAlertDelivery(item, sendResult) {
+/**
+ * Il record di consegna di un invio accettato: dove va e cosa contiene. Separato
+ * dalla scrittura (perf-plan PR 4b) perche' lo stesso record viaggia sia da solo
+ * (`persistJobAlertDelivery`) sia dentro il commit del finalize.
+ *
+ * @returns {Promise<{ref: object, data: object, options: object}|null>} null senza destinatario
+ */
+export async function buildJobAlertDeliveryWrite(item, sendResult) {
   const email = item.recipient?.email?.toLowerCase().trim();
   const alertId = String(item.meta?.alertId || '').trim();
   const consentProof = item.meta?.consentProof || null;
-  if (!email) return;
-  try {
-    const db = await getFirestoreAdmin();
-    const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
-    const sentAt = new Date();
-    // The audience filter may run long before a provider accepts this item
-    // (especially when a scheduled send waits in the cascade). Preserve the
-    // timestamp captured by that filter alongside the already-evaluated allow
-    // decision and its basis. `sentAt` is the provider-accepted boundary, not
-    // a consent read, so it must never replace the filter timestamp.
-    const consentCheckedAt = consentProof?.checkedAt || null;
-    // A successful provider send must remain observable even if an upstream
-    // item lost its alert id. The null campaign_id keeps attribution closed;
-    // the provider id/time fallback prevents two unknown sends collapsing into
-    // one Firestore document and lets the exporter report missingAlertId.
-    const deliveryKey = rankingDeliveryId || alertId || uniqueUnknownFallback(sendResult?.messageId, sentAt.toISOString());
-    const deliveryDocId = buildDeliveryDocId(deliveryKey, email);
-    await db.collection('job_alert_subscribers').doc(email)
-      .collection('campaign_deliveries').doc(deliveryDocId).set({
+  if (!email) return null;
+  const db = await getFirestoreAdmin();
+  const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
+  const sentAt = new Date();
+  // The audience filter may run long before a provider accepts this item
+  // (especially when a scheduled send waits in the cascade). Preserve the
+  // timestamp captured by that filter alongside the already-evaluated allow
+  // decision and its basis. `sentAt` is the provider-accepted boundary, not
+  // a consent read, so it must never replace the filter timestamp.
+  const consentCheckedAt = consentProof?.checkedAt || null;
+  // A successful provider send must remain observable even if an upstream
+  // item lost its alert id. The null campaign_id keeps attribution closed;
+  // the provider id/time fallback prevents two unknown sends collapsing into
+  // one Firestore document and lets the exporter report missingAlertId.
+  const deliveryKey = rankingDeliveryId || alertId || uniqueUnknownFallback(sendResult?.messageId, sentAt.toISOString());
+  const deliveryDocId = buildDeliveryDocId(deliveryKey, email);
+  return {
+    ref: db.collection('job_alert_subscribers').doc(email)
+      .collection('campaign_deliveries').doc(deliveryDocId),
+    options: { merge: true },
+    data: {
       email,
       campaign_id: alertId || null,
       ranking_delivery_id: rankingDeliveryId,
@@ -1723,7 +1736,14 @@ export async function persistJobAlertDelivery(item, sendResult) {
       consent_checked_at: consentCheckedAt,
       is_operator_verification: !!item.meta?.isOperatorVerification,
       sent_at: sentAt,
-    }, { merge: true });
+    },
+  };
+}
+
+export async function persistJobAlertDelivery(item, sendResult) {
+  try {
+    const write = await buildJobAlertDeliveryWrite(item, sendResult);
+    if (write) await write.ref.set(write.data, write.options);
   } catch (e) {
     console.warn('⚠️ Job-alert delivery persist failed:', redactEmailAddresses(e?.message));
   }
@@ -1743,8 +1763,23 @@ async function onSentComposed(item, sendResult) {
       console.warn('⚠️ Discovery outcome persistence failed; claim retained:', redactEmailAddresses(error?.message));
     }
   }
-  await persistJobAlertDelivery(item, sendResult);
-  await finalizeJobAlertDeliveryAttempt(item, 'accepted', sendResult);
+  // Perf-plan PR 4b: il record di consegna viaggia nello STESSO commit del
+  // finalize dell'alert, invece di una scrittura sequenziale a parte. Un invio di
+  // verifica operatore non finalizza nulla: il record si scrive da solo, come prima.
+  let deliveryWrite = null;
+  if (!item.meta?.isOperatorVerification) {
+    try {
+      deliveryWrite = await buildJobAlertDeliveryWrite(item, sendResult);
+    } catch (error) {
+      console.warn('⚠️ Job-alert delivery persist failed:', redactEmailAddresses(error?.message));
+    }
+  }
+  if (!deliveryWrite) {
+    await persistJobAlertDelivery(item, sendResult);
+    await finalizeJobAlertDeliveryAttempt(item, 'accepted', sendResult);
+    return;
+  }
+  await finalizeJobAlertDeliveryAttempt(item, 'accepted', sendResult, { extraWrites: [deliveryWrite] });
 }
 
 // Throttle for both job-alert cascade calls (first send + retry queue). Run
@@ -1798,23 +1833,43 @@ function createJobAlertDeliveryAttemptId(alertId, prefix = 'job-alert') {
 }
 
 function jobAlertDeliveryLedgerContext(item) {
-  const jobs = Array.isArray(item?.meta?.rankingJobs) ? item.meta.rankingJobs : [];
-  const keys = jobs.map(jobDedupKey);
-  const claimId = String(item?.meta?.deliveryAttemptId || '').trim();
-  const ref = item?.deliveryRef;
-  if (!ref || !claimId || jobs.length === 0 || keys.some((key) => !key)) {
-    throw new Error('Job-alert delivery is missing its alert reference, attempt id, or stable job identity.');
-  }
-  return { ref, jobs, keys, claimId };
+  return ledgerContext(item);
 }
+
+/**
+ * Intent + finalize in WriteBatch con precondizione `lastUpdateTime` (perf-plan
+ * PR 4b). Vedi scripts/lib/job-alert-batch-bookkeeping.mjs per le invarianti.
+ * JOB_ALERT_BATCH_BOOKKEEPING=off (Remote Config, default `on`) ripristina la sola
+ * transazione per email: il kill switch.
+ */
+export function resolveBatchBookkeepingEnabled(env = process.env) {
+  return String(env.JOB_ALERT_BATCH_BOOKKEEPING ?? '').trim().toLowerCase() !== 'off';
+}
+const BATCH_BOOKKEEPING_ENABLED = resolveBatchBookkeepingEnabled();
+const batchBookkeeper = createBatchBookkeeper({
+  getDb: () => getFirestoreAdmin(),
+  persistIntentTx: (item, provider) => persistJobAlertProviderAttemptTx(item, provider),
+  finalizeTx: (item, outcome, provider, acceptedExtraFields) => finalizeJobAlertDeliveryAttemptTx(item, outcome, provider, acceptedExtraFields),
+  onAcceptedFieldsApplied: (item) => fusedAlertUpdateKeys.add(jobAlertDeliveryKey(item)),
+  metrics: jobAlertMetrics,
+  warn: (line) => console.warn(line),
+});
 
 /**
  * Persist the retry-blocking intent before the first provider request. The
  * marker is written as ambiguous up front because the process can die between
  * this write and receiving a provider response; a fallback provider in the
  * same cascade is allowed to reuse the same attempt id.
+ *
+ * Il percorso veloce e' un WriteBatch con precondizione sullo snapshot caricato;
+ * se non e' applicabile o fallisce si ripiega sulla transazione per email.
  */
 async function persistJobAlertProviderAttempt(item, provider) {
+  if (!BATCH_BOOKKEEPING_ENABLED) return persistJobAlertProviderAttemptTx(item, provider);
+  return batchBookkeeper.requestIntent(item, provider);
+}
+
+async function persistJobAlertProviderAttemptTx(item, provider) {
   if (item.meta?.isOperatorVerification) return true;
   const { ref, jobs, keys, claimId } = jobAlertDeliveryLedgerContext(item);
   const db = await getFirestoreAdmin();
@@ -1836,7 +1891,22 @@ async function persistJobAlertProviderAttempt(item, provider) {
  * advances sentJobIds and clears the marker atomically; a definite rejection
  * clears it for a safe retry; an unknown outcome stays retry-blocking.
  */
-async function finalizeJobAlertDeliveryAttempt(item, outcome, provider = {}) {
+async function finalizeJobAlertDeliveryAttempt(item, outcome, provider = {}, options = {}) {
+  if (!BATCH_BOOKKEEPING_ENABLED) {
+    try {
+      return await finalizeJobAlertDeliveryAttemptTx(item, outcome, provider);
+    } finally {
+      for (const write of options.extraWrites || []) {
+        try { await write.ref.set(write.data, write.options || {}); } catch (error) {
+          console.warn('⚠️ Job-alert delivery persist failed:', redactEmailAddresses(error?.message));
+        }
+      }
+    }
+  }
+  return batchBookkeeper.requestFinalize(item, outcome, provider, options);
+}
+
+async function finalizeJobAlertDeliveryAttemptTx(item, outcome, provider = {}, precomputedAcceptedFields = undefined) {
   if (item.meta?.isOperatorVerification) return false;
   const { ref, jobs, keys, claimId } = jobAlertDeliveryLedgerContext(item);
   const db = await getFirestoreAdmin();
@@ -1849,9 +1919,11 @@ async function finalizeJobAlertDeliveryAttempt(item, outcome, provider = {}) {
   // scriveva il passo post-batch (lastMatchedAt, matchCount, cadence, ranking,
   // decay) entrano nell'update del finalize `accepted`. Si costruiscono UNA volta,
   // fuori dalla transazione, che puo' essere rieseguita dopo un conflitto.
-  const acceptedExtraFields = state === 'accepted' && typeof item.meta?.buildAcceptedAlertFields === 'function'
-    ? item.meta.buildAcceptedAlertFields(provider)
-    : null;
+  const acceptedExtraFields = state !== 'accepted'
+    ? null
+    : (precomputedAcceptedFields !== undefined
+      ? precomputedAcceptedFields
+      : (typeof item.meta?.buildAcceptedAlertFields === 'function' ? item.meta.buildAcceptedAlertFields(provider) : null));
   const committed = await db.runTransaction(async (tx) => {
     const snapshot = await tx.get(ref);
     if (!snapshot.exists) throw new Error('Job-alert document disappeared before delivery finalization.');
@@ -1970,6 +2042,7 @@ async function sendBatch(emails) {
         subjectFreshnessQualified: e.subjectFreshnessQualified ?? null,
         sendTimeSource: e.sendTimeSource || null,
         consentProof: e.consentProof || null,
+        alertSnapshot: e.alertSnapshot || null,
         // Update fuso dell'alert inviato (perf-plan PR 4a): lo costruisce main(),
         // lo scrive il finalize `accepted`.
         buildAcceptedAlertFields: typeof e.buildAcceptedAlertFields === 'function' ? e.buildAcceptedAlertFields : null,
@@ -2402,6 +2475,10 @@ async function processRetryQueue(db) {
           deliveryRef: alertSnap.ref,
           meta: {
             type: 'job-alert-retry',
+            // Lo snapshot appena letto e' la precondizione dell'intent anche per la coda.
+            alertSnapshot: alertSnap.updateTime
+              ? { data: { deliveryLedger: alert.deliveryLedger, sentJobIds: alert.sentJobIds }, updateTime: alertSnap.updateTime }
+              : null,
             alertId: item.alertId,
             deliveryAttemptId: createJobAlertDeliveryAttemptId(item.alertId, 'job-alert-retry'),
             rankingDeliveryId: item.data.rankingDeliveryId || null,
@@ -3203,7 +3280,12 @@ async function main() {
     const parentEmail = doc.ref.parent.parent?.id || data.email;
     // `ref` is preserved so the post-send batch can update lastMatchedAt without
     // having to rebuild the path.
-    return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
+    const alert = { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
+    // L'updateTime dello snapshot (perf-plan PR 4b): e' la precondizione con cui
+    // l'intent in WriteBatch prova che l'alert non e' cambiato dal caricamento.
+    // Non enumerabile: non entra in nessuna copia o serializzazione dell'alert.
+    Object.defineProperty(alert, '__loadedUpdateTime', { value: doc.updateTime ?? null, writable: true, enumerable: false });
+    return alert;
   });
   // Include paused, immediate-company and not-due scopes: these are still
   // stated preferences, even when that alert is not being sent by this run.
@@ -3388,6 +3470,7 @@ async function main() {
   //
   // Since perf-plan PR 6 this gate runs BEFORE the newsletter document is read:
   // it only needs the alert and the job-alert document (see 2b-0).
+  jobAlertMetrics.set('cadenceIndexViolations', 0);
   let decayedSkipped = 0;
   const ceilingHeld = { daily: 0, 'every-other-day': 0 };
   const reactivationCandidates = new Set();
@@ -3406,6 +3489,19 @@ async function main() {
       alert.effectiveTier = decision.tier;
       alert.cadenceIntervalDays = decision.intervalDays;
       alert.cadenceManual = decision.manual;
+      // SHADOW del limite inferiore del prossimo giorno eleggibile (perf-plan PR 8):
+      // la query di caricamento NON cambia. Si misura soltanto quanti alert un
+      // filtro su `cadence_next_eligible_on <= TODAY` avrebbe saltato, e soprattutto
+      // quante volte avrebbe saltato un alert che la cadenza dice in programma
+      // (`cadenceIndexViolations`, deve restare 0 per 7 giorni prima di usarlo).
+      {
+        const indexReading = cadenceIndexReading(alert, TODAY_ISO);
+        jobAlertMetrics.count(indexReading.present ? 'cadenceIndexWithField' : 'cadenceIndexMissing');
+        if (indexReading.skippable) {
+          jobAlertMetrics.count('cadenceIndexSkippable');
+          if (decision.due) jobAlertMetrics.count('cadenceIndexViolations');
+        }
+      }
       if (decision.decayed) {
         // A decayed alert can only come back through a return visit, and four of
         // the refusals of reactivationAfterReturnVisit need no newsletter
@@ -3590,6 +3686,9 @@ async function main() {
         nowIso: reactivationNowIso,
       });
       if (verdict.reactivate) {
+        // Il limite del prossimo giorno eleggibile torna a «oggi»: l'alert e' di nuovo
+        // in gioco, e un limite terminale rimasto dal decadimento lo escluderebbe.
+        verdict.alertFields[JOB_ALERT_NEXT_ELIGIBLE_FIELD] = TODAY_ISO;
         reactivations.push({ alert, emailKey, verdict });
         // Apply to the in-memory copies so the cadence gate below, and the
         // post-send state, both see the reactivated document rather than a
@@ -3691,11 +3790,16 @@ async function main() {
   // An auxiliary lookup failure therefore preserves the old defer/no-write behavior.
   const reactivationsToPersist = pendingReactivations.filter((item) => !failedAuxiliaryEmails.has(item.emailKey));
   if (reactivationsToPersist.length > 0 && !DRY_RUN) {
-    await commitInChunks(
-      db,
-      reactivationsToPersist.filter((item) => item.alert.ref),
-      (batch, item) => batch.update(item.alert.ref, item.verdict.alertFields),
-    );
+    // Si tiene il writeTime di ogni alert riattivato: e' l'updateTime che vale per la
+    // precondizione dell'intent (lo snapshot caricato e' ormai superato).
+    const reactivationItems = reactivationsToPersist.filter((item) => item.alert.ref);
+    for (let offset = 0; offset < reactivationItems.length; offset += 400) {
+      const chunk = reactivationItems.slice(offset, offset + 400);
+      const batch = db.batch();
+      for (const item of chunk) batch.update(item.alert.ref, item.verdict.alertFields);
+      const writeResults = await batch.commit();
+      chunk.forEach((item, index) => { item.alert.__loadedUpdateTime = writeResults?.[index]?.writeTime ?? null; });
+    }
     const subFieldsByEmail = new Map();
     for (const item of reactivationsToPersist) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
     await commitInChunks(db, [...subFieldsByEmail], (batch, [emailKey, fields]) => {
@@ -4333,6 +4437,12 @@ async function main() {
       cadenceManual: alert.cadenceManual === true,
       cadenceIntervalDays: alert.cadenceIntervalDays ?? null,
       matchCount: matched.length,
+      // Stato dell'alert allo snapshot caricato: ledger e sentJobIds, con l'updateTime
+      // che fa da precondizione dell'intent in WriteBatch (perf-plan PR 4b).
+      alertSnapshot: alert.ref ? {
+        data: { deliveryLedger: alert.deliveryLedger, sentJobIds: alert.sentJobIds },
+        updateTime: alert.__loadedUpdateTime ?? null,
+      } : null,
       buildAcceptedAlertFields: (sendResult) => {
         // Gli stessi campi che scriveva il passo post-batch, calcolati con l'esito
         // di QUESTO invio (provider e orario programmato di questa email).
@@ -4361,6 +4471,14 @@ async function main() {
           lastMatchedAt: FieldValue.serverTimestamp(),
           matchCount: FieldValue.increment(matchedCount),
           cadence_scheduled_for: sendResult?.scheduledFor ?? null,
+          // Limite inferiore del prossimo giorno eleggibile (perf-plan PR 8, solo
+          // SHADOW): scritto nello stesso update, nessuna scrittura in piu'.
+          [JOB_ALERT_NEXT_ELIGIBLE_FIELD]: cadenceNextEligibleLowerBound({
+            alert,
+            sentAtIso: cadenceSentAtIso,
+            scheduledFor: sendResult?.scheduledFor ?? null,
+            decayStamp: decay,
+          }),
           ...rankingUpdate,
           ...(decay || {}),
         };
@@ -4646,6 +4764,10 @@ if (isEntryPoint) {
 
 export {
   buildAlertEmail,
+  persistJobAlertProviderAttempt,
+  persistJobAlertProviderAttemptTx,
+  finalizeJobAlertDeliveryAttempt,
+  finalizeJobAlertDeliveryAttemptTx,
   filterLiveJobs,
   jobPageUrl,
   createJobLivenessPrefetcher,
