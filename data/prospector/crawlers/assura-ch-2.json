@@ -1,0 +1,24 @@
+{
+  "companyKey": "assura-ch-2",
+  "companyName": "Assura",
+  "companyHost": "assura.ch",
+  "verifiedEmployerDomain": "assura.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.assura.ch/fr/carriere"
+  ],
+  "detailTemplate": "/fr/carriere/postes-a-pourvoir/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    ".css-alkspl{box-sizing:border-box;margin:0;min-width:0;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-",
+    "<img alt=\"\" draggable=\"false\" loading=\"lazy\" decoding=\"async\" data-nimg=\"fill\" style=\"position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;obj"
+  ],
+  "canton": "BL",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-14T13:16:46.156Z",
+  "candidateKey": "assura@pratteln"
+}

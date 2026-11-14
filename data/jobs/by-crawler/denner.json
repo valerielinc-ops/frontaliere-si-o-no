@@ -418,7 +418,6 @@
           "verkaufer-in-im-stundenlohn-denner-grosswangen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -7197,7 +7196,6 @@
           "verkaufer-in-denner-weinfelden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9270,7 +9268,6 @@
           "verkaufer-in-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -9363,7 +9360,6 @@
           "verkaufer-in-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -9672,7 +9668,6 @@
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-wadenswil"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -10764,7 +10759,6 @@
         "verkaufer-in-denner-zug",
         "seller-denner-ag-zug"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T21:37:00.850Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -10898,7 +10892,7 @@
         "fr": "Responsable adjoint·e de filiale"
       },
       "slugByLocale": {
-        "it": "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
+        "it": "stv-filialleiter-in-denner",
         "en": "deputy-branch-manager-denner-cham",
         "de": "stv-filialleiter-in-denner-cham",
         "fr": "responsable-adjoint-e-de-filiale-denner-cham"
@@ -10957,9 +10951,7 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-11l56c",
-          "stv-filialleiter-in-denner-cham-b334ddb645",
-          "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner-cham-b334ddb645"
         ],
         "en": [
           "stv-filialleiter-in-denner-cham"
@@ -10971,9 +10963,7 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-cham",
         "stv-filialleiter-in-denner-11l56c",
-        "stv-filialleiter-in-denner-cham-b334ddb645",
-        "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner-cham-b334ddb645"
       ],
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 110500,
@@ -13173,7 +13163,6 @@
           "verkaufer-in-denner-ibach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -14452,7 +14441,6 @@
           "verkaufer-in-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -17273,7 +17261,6 @@
         "verkaufer-in-denner-basel",
         "seller-denner-ag-basel-129873"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -17535,7 +17522,7 @@
         "fr": "Directeur (trice) adjoint (e) de succursale"
       },
       "slugByLocale": {
-        "it": "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
+        "it": "stv-filialleiter-in-denner",
         "en": "stv-filialleiter-in-denner-bern",
         "de": "stv-filialleiter-in-denner-ag-bern-tp6czy",
         "fr": "stv-filialleiter-in-denner-bern"
@@ -17593,15 +17580,11 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "vice-direttoredifiliale-denner-bern-0a22b0245e",
-          "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
-          "stv-filialleiter-in-denner"
+          "vice-direttoredifiliale-denner-bern-0a22b0245e"
         ]
       },
       "previousSlugs": [
-        "vice-direttoredifiliale-denner-bern-0a22b0245e",
-        "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
-        "stv-filialleiter-in-denner"
+        "vice-direttoredifiliale-denner-bern-0a22b0245e"
       ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 109000,
@@ -18523,7 +18506,8 @@
         "verkaufer-in-denner-7",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-5",
-        "verkaufer-in-denner-2"
+        "verkaufer-in-denner-2",
+        "verkaufer-in-denner-9d0cuj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18543,7 +18527,8 @@
           "verkaufer-in-denner-worb"
         ],
         "de": [
-          "verkaufer-in-denner-worb"
+          "verkaufer-in-denner-worb",
+          "verkaufer-in-denner-9d0cuj"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -18636,7 +18621,8 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-worb",
-        "salesperson-denner-worb-675a07"
+        "salesperson-denner-worb-675a07",
+        "verkaufer-in-denner-k5mgo5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18648,9 +18634,11 @@
         ],
         "fr": [
           "verkaufer-in-denner-worb"
+        ],
+        "de": [
+          "verkaufer-in-denner-k5mgo5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -21256,7 +21244,6 @@
           "salesperson-denner-baar"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -23168,7 +23155,6 @@
           "assistent-in-filialleitung-denner-8"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -23807,7 +23793,6 @@
           "assistent-in-filialleitung-denner-3"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -23912,7 +23897,6 @@
           "verkaufer-in-denner-landquart"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -24017,7 +24001,6 @@
           "stv-filialleiter-in-denner-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -24122,7 +24105,6 @@
           "stv-filialleiter-in-denner-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -24659,7 +24641,6 @@
           "verkaufer-in-denner-urtenen-schonbuhl-ekz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -24762,7 +24743,6 @@
           "verkaufer-in-im-stundenlohn-denner-berikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -24869,7 +24849,6 @@
           "verkaufer-in-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -24976,7 +24955,6 @@
           "verkaufer-in-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -25183,7 +25161,6 @@
           "strategische-r-einkaufer-in-indirekte-beschaffung-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T11:42:45.035Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -25288,7 +25265,6 @@
           "verkaufer-in-denner-sursee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -25393,7 +25369,6 @@
           "verkaufer-in-denner-frauenfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -26930,7 +26905,6 @@
           "verkaufer-in-denner-freienbach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -27241,7 +27215,6 @@
           "stv-filialleiter-in-denner-ebikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -27442,7 +27415,6 @@
           "assistent-in-filialleitung-denner-4"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -27537,7 +27509,6 @@
           "stv-filialleiter-in-denner-8"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -27640,7 +27611,6 @@
           "stv-filialleiter-in-denner-weinfelden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -27742,7 +27712,6 @@
           "assistent-in-filialleitung-denner-5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
       "salaryMin": 96000,
       "salaryMax": 147500,

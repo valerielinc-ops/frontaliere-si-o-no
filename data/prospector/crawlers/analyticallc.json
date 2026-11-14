@@ -1,0 +1,25 @@
+{
+  "companyKey": "analyticallc",
+  "companyName": "Analytica",
+  "companyHost": "analyticallc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://analyticallc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 28,
+  "sampleTitles": [
+    "Senior Data Analyst",
+    "Business Development Analyst Internship",
+    "AWS Solution Architect (DevSecOps)",
+    "Lead Data Architect",
+    "Senior Business Analyst"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:39.425Z",
+  "candidateKey": "analyticallc@applytojob.com"
+}
