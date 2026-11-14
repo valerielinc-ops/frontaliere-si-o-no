@@ -41,11 +41,21 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch PR diff
+      - name: Fetch PR head and diff without API
         env:
-          GH_TOKEN: ${{ github.token }}
+          PORTAL_BASE_COMMIT: ${{ github.event.pull_request.base.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+          PORTAL_HEAD_COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          git -C .portal-base fetch --no-tags --depth=1 origin "refs/pull/${PR_NUMBER}/head"
+          fetched_head="$(git -C .portal-base rev-parse FETCH_HEAD)"
+          if [[ "$fetched_head" != "$PORTAL_HEAD_COMMIT" ]]; then
+            echo "::error::PR head changed while detecting replay paths."
+            exit 1
+          fi
+          git -C .portal-base diff --binary "$PORTAL_BASE_COMMIT" "$fetched_head" -- \
+            > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Detect whether the runner needs replay
         id: detect
