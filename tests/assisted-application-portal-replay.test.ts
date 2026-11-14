@@ -14,6 +14,7 @@ import {
   aggregatePortalReplayGate,
   comparePortalReplayFamily,
   extractPortalStopHosts,
+  PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
@@ -401,6 +402,7 @@ describe('portal replay corpus', () => {
   });
 
   it('limits family replay to family-specific paths and expands shared paths to all families', () => {
+    expect(PORTAL_REPLAY_ALLOWED_PATHS).toContain('functions/src/assistedApplicationAiJob.js');
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
