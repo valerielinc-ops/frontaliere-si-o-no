@@ -463,7 +463,7 @@ function canonicalCompanyToken(value) {
  * @param {object|null|undefined} job
  * @returns {string[]}
  */
-function pinnedCompanyIdentityKeys(job) {
+export function pinnedCompanyIdentityKeys(job) {
   return companyDisplayIdentityKeys(job?.company).map(canonicalCompanyToken);
 }
 
@@ -854,7 +854,7 @@ export function jobMatchFeatures(job, locale) {
  * @param {string} jobLoc
  * @returns {string}
  */
-function paddedLocHaystack(jobLoc) {
+export function paddedLocHaystack(jobLoc) {
   return ` ${normalizeLocToken(jobLoc)} `;
 }
 
@@ -866,7 +866,7 @@ function paddedLocHaystack(jobLoc) {
  * @param {string[]} needles
  * @returns {string[]}
  */
-function paddedLocNeedles(needles) {
+export function paddedLocNeedles(needles) {
   const out = [];
   const seen = new Set();
   for (const needle of needles || []) {
@@ -889,7 +889,7 @@ function paddedLocNeedles(needles) {
  * @param {string[]} needles
  * @returns {boolean}
  */
-function includesAny(haystack, needles) {
+export function includesAny(haystack, needles) {
   for (let i = 0; i < needles.length; i++) if (haystack.includes(needles[i])) return true;
   return false;
 }
@@ -903,7 +903,7 @@ function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
 }
 
 /** `titleText + ' ' + descriptionText` without building that large string. */
-function keywordInTextParts(titleText, descriptionText, keyword) {
+export function keywordInTextParts(titleText, descriptionText, keyword) {
   return titleText.includes(keyword)
     || descriptionText.includes(keyword)
     || keywordAcrossTextJoin(titleText, descriptionText, keyword);
@@ -917,12 +917,12 @@ function searchHaystack(job, features, locale) {
   return buildStemmedHaystack(`${features.titleText} ${description} ${job.company || ''} ${features.jobLoc} ${job.contract || ''} ${category} ${features.jobSector} ${cantonNames} ${professionSynonymText(title)}`);
 }
 
-function compileSearchQuery(query) {
+export function compileSearchQuery(query) {
   const tokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
   return { query: String(query).toLowerCase(), tokens };
 }
 
-function matchesSearchQuery(compiled, job, features, locale, cached = null) {
+export function matchesSearchQuery(compiled, job, features, locale, cached = null) {
   // Unknown/unsupported script is never an empty AND matching everything.
   if (compiled.tokens.length === 0) {
     return keywordInTextParts(features.titleText, features.descriptionText, compiled.query);

@@ -77,6 +77,12 @@ import {
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import {
+  createJobAlertMetrics,
+  formatJobAlertMetricsLine,
+  formatJobAlertMetricsMarkdown,
+} from './lib/job-alert-metrics.mjs';
+import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildJobAlertProfileRefs } from './lib/job-alert-profile-reads.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
@@ -146,7 +152,14 @@ import {
   createJobAlertCandidateSelector,
   isOpenJobAlertJob,
   jobInventoryTimestampMs,
+  resolveJobAlertCursor,
 } from './lib/job-alert-newness.mjs';
+import {
+  comparePlanOutcomes,
+  createJobAlertCandidateIndex,
+  isAlertSampledForIndexCheck,
+  resolveCandidateIndexConfig,
+} from './lib/job-alert-candidate-index.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -170,6 +183,10 @@ const DRY_RUN = process.argv.includes('--dry-run');
 // (median 240 min, max 590 for the `33 0 * * *` slot) cannot push a run across
 // midnight into a different answer than the one the operator saw.
 const TODAY_ISO = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
+// Telemetria per fase (perf-plan PR 1): durate, letture/scritture Firestore per
+// collection, righe valutate, richieste HTTP del live-link, heap di picco. Una
+// sola istanza per processo; la riga `JOBALERT_METRICS` esce a fine run.
+export const jobAlertMetrics = createJobAlertMetrics();
 const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
 const JOB_ALERT_SUBJECT_CONFIG = readJobAlertSubjectConfig();
 const JOB_ALERT_SUBJECT_PERIOD_ID = jobAlertSubjectPeriodId(TODAY_ISO);
@@ -399,6 +416,7 @@ async function inspectLiveJobs(
   const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
   if (urlsToCheck.length > 0) {
     await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
+      jobAlertMetrics.count('liveLinkHttpRequests');
       cache.set(url, await check(url));
     });
   }
@@ -412,6 +430,7 @@ async function inspectLiveJobs(
   const checked = knownResults.length;
   const liveCount = knownLiveJobs.length;
   if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
+    jobAlertMetrics.count('liveLinkFailOpen');
     console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
     return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
   }
@@ -563,6 +582,7 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         const url = queue[head];
         head += 1;
         try {
+          jobAlertMetrics.count('liveLinkHttpRequests');
           cache.set(url, await check(url));
         } catch {
           // Left uncached on purpose — filterLiveJobs checks it again.
@@ -2669,6 +2689,12 @@ function planAlertMatch(alert, {
   allowDiscovery = true,
   applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
   compactMatches = false,
+  // Indice dei candidati per l'intera run (perf-plan PR 2). Con l'indice le
+  // righe da valutare arrivano da `candidateIndex.select()` — un sovrainsieme
+  // provato di quelle con score > 0, nell'ordine dell'inventario — e `recentJobs`
+  // non viene letto; `candidateCursorMs` è il limite inferiore della finestra.
+  candidateIndex = null,
+  candidateCursorMs = null,
 }) {
   // Enrich the alert with the subscriber's newsletter profile, browsing
   // personalization (filter usage + viewed-job geography) and the geography of
@@ -2755,11 +2781,27 @@ function planAlertMatch(alert, {
   const scored = [];
   const compactMetadataByJob = compactMatches ? new WeakMap() : null;
   let candidateCount = 0;
-  for (const job of recentJobs) {
-    if (!ownerAlert && isCanaryJob(job)) continue;
-    if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
-    candidateCount++;
+  let scoredRows = 0;
+  // Con l'indice le righe arrivano già escluse (canary, needsRetranslation,
+  // finestra) e `candidateCount` è il popcount dell'insieme eleggibile nella
+  // finestra, quindi identico al conteggio del ciclo legacy senza visitarlo.
+  const selection = candidateIndex
+    ? candidateIndex.select(profile, {
+      locale: alertLocale,
+      ownerAlert,
+      cursorMs: candidateCursorMs,
+      // Discovery: l'elenco completo delle righe eleggibili, come oggi.
+      forceWindow: discoveryMode,
+    })
+    : null;
+  for (const job of (selection ? selection.rows : recentJobs)) {
+    if (!selection) {
+      if (!ownerAlert && isCanaryJob(job)) continue;
+      if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
+      candidateCount++;
+    }
     if (discoveryMode) { discoveryCandidates.push(job); continue; }
+    scoredRows++;
     const relevance = scoreJob(job);
     if (relevance <= 0) continue;
     const applicationIntentRanked = applicationIntentRankingEnabled
@@ -2806,6 +2848,7 @@ function planAlertMatch(alert, {
       });
     }
   }
+  if (selection) candidateCount = selection.candidateCount;
   const sorted = scored
     .sort((a, b) => {
       // Primary: higher score first.
@@ -2848,10 +2891,12 @@ function planAlertMatch(alert, {
     return {
       alert,
       candidateCount,
+      scoredRows,
       rankedCount: 0,
       zeroCause: classifyZeroMatchCause(profile, { eligibleCandidateCount: candidateCount }),
       sentMap: null,
       matched: [],
+      ...(selection ? { indexStrategy: selection.strategy } : {}),
     };
   }
 
@@ -2868,12 +2913,100 @@ function planAlertMatch(alert, {
     DEDUP_WINDOW_MS,
     normalizeDeliveryLedger(alert.deliveryLedger),
   );
-  const result = { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
-    ...(discoveryMode ? { discoveryMode: true } : {}) };
+  const result = { alert, candidateCount, scoredRows, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
+    ...(discoveryMode ? { discoveryMode: true } : {}),
+    ...(selection ? { indexStrategy: selection.strategy } : {}) };
   if (compactMatches) {
     result.rankingMetadata = compactMetadataByJob;
   }
   return result;
+}
+
+/**
+ * Pianifica UN alert scegliendo fra il percorso legacy (finestra intera allo
+ * scorer) e l'indice dei candidati, secondo il rollout (perf-plan PR 2):
+ *
+ *  - `off`: solo legacy (kill switch);
+ *  - `shadow`: decide il legacy; su un campione deterministico (hash dell'id
+ *    dell'alert) l'indice è ricalcolato e confrontato;
+ *  - `on`: decide l'indice; sul campione si ricalcola il legacy e, se i due piani
+ *    divergono (candidateCount, rankedCount, zeroCause, matched: id, ordine,
+ *    score), si usa il piano LEGACY per quell'alert e si conta `indexMismatch`.
+ *    Un'eccezione dell'indice vale come divergenza: il run non si ferma.
+ *
+ * Nei log compare solo l'id dell'alert, mai l'email. Esportata per i test.
+ *
+ * @returns {{plan: object, windowRows: number, usedIndex: boolean}}
+ */
+export function planAlertForRun(alert, context, {
+  cursor,
+  selectLegacyWindow,
+  candidateIndex = null,
+  indexMode = 'off',
+  sampleRate = 0,
+  metrics = jobAlertMetrics,
+  warn = console.warn,
+} = {}) {
+  let legacyWindowRows = null;
+  const legacyPlan = () => {
+    const jobs = selectLegacyWindow();
+    legacyWindowRows = jobs.length;
+    return planAlertMatch(alert, { ...context, recentJobs: jobs });
+  };
+  const indexedPlan = () => planAlertMatch(alert, {
+    ...context,
+    candidateIndex,
+    candidateCursorMs: cursor.cursorMs,
+  });
+  const windowRowsOf = () => (candidateIndex ? candidateIndex.windowRowCount(cursor.cursorMs) : legacyWindowRows);
+  const recordMismatch = (field) => {
+    metrics.count('indexMismatch');
+    warn(`   ⚠️  candidate-index mismatch on alert ${alert.id} (${field}) — ${indexMode === 'on' ? 'using the legacy plan' : 'legacy decided'}`);
+  };
+
+  if (!candidateIndex || indexMode === 'off') {
+    const plan = legacyPlan();
+    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+  }
+
+  const sampled = isAlertSampledForIndexCheck(alert.id, sampleRate);
+  if (indexMode === 'shadow') {
+    const plan = legacyPlan();
+    if (sampled) {
+      metrics.count('indexSampled');
+      try {
+        const verdict = comparePlanOutcomes(plan, indexedPlan());
+        if (!verdict.equal) recordMismatch(verdict.field);
+      } catch (error) {
+        metrics.count('indexErrors');
+        recordMismatch(`error ${error?.name || 'Error'}`);
+      }
+    }
+    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+  }
+
+  // indexMode === 'on'
+  let indexed;
+  try {
+    indexed = indexedPlan();
+  } catch (error) {
+    metrics.count('indexErrors');
+    recordMismatch(`error ${error?.name || 'Error'}`);
+    const plan = legacyPlan();
+    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+  }
+  if (sampled) {
+    metrics.count('indexSampled');
+    const plan = legacyPlan();
+    const verdict = comparePlanOutcomes(plan, indexed);
+    if (!verdict.equal) {
+      recordMismatch(verdict.field);
+      return { plan, windowRows: legacyWindowRows, usedIndex: false };
+    }
+  }
+  metrics.count('indexedAlerts');
+  if (indexed.indexStrategy) metrics.count(`strategy:${indexed.indexStrategy}`);
+  return { plan: indexed, windowRows: windowRowsOf(), usedIndex: true };
 }
 
 /**
@@ -2954,6 +3087,17 @@ async function main() {
     return;
   }
 
+  // Telemetria per fase: il contatore si aggancia alle classi del client prima
+  // della prima operazione, così nessuna lettura/scrittura sfugge (nemmeno
+  // quelle delle librerie o del cascade). Mai bloccante.
+  try {
+    await installFirestoreOpCounterOnAdminSdk(jobAlertMetrics);
+  } catch (error) {
+    console.warn(`   ⚠️  Firestore op counter unavailable (metrics will lack read/write totals): ${redactEmailAddresses(error?.message || error)}`);
+  }
+  jobAlertMetrics.startMemorySampler();
+  jobAlertMetrics.enter('retry');
+
   // 0. Process retry queue FIRST — retries get priority on fresh daily quota
   const db = await getFirestoreAdmin();
   // Esito della coda di retry: entra nel funnel come «retry di invii precedenti».
@@ -2963,6 +3107,7 @@ async function main() {
   } else {
     console.log('   🔵 DRY RUN — skipping retry queue processing');
   }
+  jobAlertMetrics.enter('load_alerts');
 
   // Per-user send-time (#3798): read the site-wide fallback hour written by
   // send-newsletter.mjs onto newsletter_subscribers/_meta_ once per run — a
@@ -3079,6 +3224,8 @@ async function main() {
     return;
   }
 
+  jobAlertMetrics.enter('profiles');
+  jobAlertMetrics.set('alertsLoaded', funnelIn.archive);
   // 2b. Newsletter cooldown: skip users who received a newsletter in the last 36 hours
   // SKIP_NEWSLETTER_COOLDOWN=1 bypasses this check (for manual test sends)
   const NEWSLETTER_COOLDOWN_MS = process.env.SKIP_NEWSLETTER_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
@@ -3364,6 +3511,7 @@ async function main() {
   // Con il tetto disattivato (null) la riga diceva «nulld»: si stampa solo se attivo.
   if (JOB_ALERT_CADENCE_CEILING_DAYS != null) console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
 
+  jobAlertMetrics.enter('aux_profiles');
   // Personalization and first-discovery state affect ranking/idempotency, but
   // cannot change suppression, consent or today's cadence. Read them only for
   // the unique recipients that passed those gates.
@@ -3529,6 +3677,18 @@ async function main() {
   // Row timestamps and expiry are recipient-independent: parsed once for the
   // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
   const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
+  // Indice dei candidati per l'intera run (perf-plan PR 2). `off` = solo legacy.
+  const indexConfig = resolveCandidateIndexConfig(process.env, { dryRun: DRY_RUN });
+  if (indexConfig.invalidMode) {
+    console.warn('   ⚠️  JOB_ALERT_CANDIDATE_INDEX_MODE non riconosciuto: ripiego su `shadow` (decide il legacy, l\'indice è solo confrontato)');
+  }
+  const candidateIndex = indexConfig.mode === 'off' || quotaCapacity <= 0
+    ? null
+    : createJobAlertCandidateIndex(inventoryJobs, { nowMs: now, budgetBytes: indexConfig.budgetBytes });
+  if (candidateIndex) {
+    const indexStats = candidateIndex.stats();
+    console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB`);
+  }
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
   // Affinity profiles are read only when the configured treatment is affinity.
   // The newness treatment is independent of personal profiles, so it avoids
@@ -3758,11 +3918,14 @@ async function main() {
   const flushPendingSendBatch = async (count = pendingSendBatch.length) => {
     const emails = pendingSendBatch.splice(0, count);
     if (emails.length === 0) return;
+    jobAlertMetrics.enter('send');
     const result = await sendBatch(emails);
     runStats.batches += 1;
     console.log(formatJobAlertBatchLine(runStats.batches, result));
     if (result.failed > 0) await enqueueFailedEmails(db, result.failedItems);
+    jobAlertMetrics.enter('persist');
     await persistSentBatch(emails, result);
+    jobAlertMetrics.enter('planning');
   };
 
   const cursorReasons = {};
@@ -3773,6 +3936,7 @@ async function main() {
   let planBatchNumber = 0;
   let jobFeatureStore = createJobFeatureStore();
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
+    jobAlertMetrics.enter('planning');
     planBatchNumber += 1;
     const batchPlans = [];
     // Immutable job features are reused across batches; keyword and search
@@ -3789,14 +3953,16 @@ async function main() {
     const batchPlanningStartedAt = Date.now();
     for (const alert of alertBatch) {
       const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
-      const candidateWindow = selectCandidateWindow({
+      const windowOptions = {
         recipientLastSentAt: recipientProfile.last_sent_at,
         alertCreatedAt: alert.createdAt,
         initialLookbackMs: MATCH_WINDOW_MS,
-      });
-      cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
-      cursorCandidateCount += candidateWindow.jobs.length;
-      const plan = planAlertMatch(alert, {
+      };
+      // Stesso cursore di selectCandidateWindow (ne usa la stessa funzione): con
+      // l'indice la finestra non si materializza, serve solo il limite.
+      const cursor = resolveJobAlertCursor({ ...windowOptions, nowMs: now });
+      cursorReasons[cursor.reason] = (cursorReasons[cursor.reason] || 0) + 1;
+      const { plan, windowRows } = planAlertForRun(alert, {
         behaviorProfiles,
         lastClickedUrlByEmail,
         locationIndex,
@@ -3805,9 +3971,6 @@ async function main() {
         jobAlertProfiles,
         applicationIntentAccountProfiles,
         cvPersonalizationAccountProfiles,
-        // `planAlertMatch` keeps its historical property name for the test
-        // oracle, but the value is now the recipient-aware candidate pool.
-        recentJobs: candidateWindow.jobs,
         now,
         featureCache,
         discoveryRanker,
@@ -3815,7 +3978,18 @@ async function main() {
         allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
           && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
         compactMatches: true,
+      }, {
+        cursor,
+        // `planAlertMatch` keeps its historical `recentJobs` name for the test
+        // oracle, but the value is the recipient-aware candidate pool.
+        selectLegacyWindow: () => selectCandidateWindow(windowOptions).jobs,
+        candidateIndex,
+        indexMode: indexConfig.mode,
+        sampleRate: indexConfig.sampleRate,
       });
+      cursorCandidateCount += windowRows;
+      jobAlertMetrics.count('windowRows', windowRows);
+      jobAlertMetrics.count('scoredRows', plan.scoredRows ?? 0);
       if (plan.discoveryMode && plan.matched.length > 0) discoveryRecipientsPlanned.add(alert.email.toLowerCase());
       const rankingVariant = plan.discoveryMode ? 'control' : assignJobRankingVariant({
         subjectId: alert.email,
@@ -3855,7 +4029,9 @@ async function main() {
     planningMs += Date.now() - batchPlanningStartedAt;
 
     const batchDrainStartedAt = Date.now();
+    jobAlertMetrics.enter('live_link');
     await livenessPrefetcher.drain();
+    jobAlertMetrics.enter('planning');
     prefetchDrainMs += Date.now() - batchDrainStartedAt;
     sampleBatchMemory();
 
@@ -4096,6 +4272,7 @@ async function main() {
     console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from the yield rate)`);
   }
 
+  jobAlertMetrics.enter('health');
   // Matcher health: synthetic alerts cut from the active inventory, planned by
   // the same matcher against every open listing. This — not the yield — drives
   // the canonical monitor issue.
@@ -4209,6 +4386,7 @@ async function main() {
     // filled, so an explicit user value is never overwritten. Runs every day,
     // progressively enriching profiles that previously had empty location/sector
     // targeting (the "personalization fields missing" half of #2993).
+    jobAlertMetrics.enter('enrich');
     const alertsByEmail = new Map();
     for (const alert of alerts) {
       const key = String(alert.email || '').toLowerCase();
@@ -4244,6 +4422,36 @@ async function main() {
   console.log('\n🔔 Job Alert Matching — Done.');
 }
 
+// Riga `JOBALERT_METRICS` + tabella nel Job Summary (perf-plan PR 1). Esce
+// anche quando main() termina in anticipo o con un errore: il costo di una run
+// che muore a metà è proprio quello che serve leggere.
+export function emitJobAlertMetrics({ metrics = jobAlertMetrics, log = console.log } = {}) {
+  try {
+    const mode = DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE');
+    const snapshot = metrics.snapshot({
+      date: TODAY_ISO,
+      mode,
+      indexMode: resolveCandidateIndexConfig().mode,
+    });
+    log(formatJobAlertMetricsLine(snapshot));
+    if (writeJobAlertStepSummary(formatJobAlertMetricsMarkdown(snapshot))) {
+      log('   📝 Metriche per fase aggiunte al Job Summary');
+    }
+    return snapshot;
+  } catch (error) {
+    console.warn(`   ⚠️  JOBALERT_METRICS non emesse: ${redactEmailAddresses(error?.message || error)}`);
+    return null;
+  }
+}
+
+async function runMain() {
+  try {
+    await main();
+  } finally {
+    emitJobAlertMetrics();
+  }
+}
+
 // Only run main() when executed directly (not when imported by tests).
 const isEntryPoint = (() => {
   try {
@@ -4254,7 +4462,7 @@ const isEntryPoint = (() => {
 })();
 
 if (isEntryPoint) {
-  main().catch((err) => {
+  runMain().catch((err) => {
     console.error('Fatal error:', redactEmailAddresses(err?.stack || err));
     process.exit(1);
   });

@@ -503,6 +503,16 @@ export const RC_TO_ENV = {
   JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
   JOB_EMAIL_RANKING_AFFINITY_WEIGHT: ['JOB_EMAIL_RANKING_AFFINITY_WEIGHT'],
   JOB_EMAIL_RANKING_TREATMENT:    ['JOB_EMAIL_RANKING_TREATMENT'],
+  // Which ranking impressions the job-alert sender writes: auto | full | manifest
+  // (functions/src/lib/jobEmailRankingStore.js resolveImpressionsMode). Absent = `auto`.
+  JOB_EMAIL_RANKING_IMPRESSIONS_MODE: ['JOB_EMAIL_RANKING_IMPRESSIONS_MODE'],
+  // Job-alert candidate index (perf-plan PR 2, scripts/lib/job-alert-candidate-index.mjs).
+  // MODE = off | shadow | on (default `on`; `off` is the kill switch, `shadow`
+  // lets the legacy path decide while the index is compared on a sample).
+  // SHADOW_SAMPLE = fraction of alerts re-planned with the legacy path to verify
+  // the index (default 0.02 live, 0.10 in --dry-run). Absent = code defaults.
+  JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
+  JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
   // Daily job-alert subject experiment: all controls are required by the
   // sender, so an incomplete RC edit cannot activate traffic accidentally.
   JOB_ALERT_SUBJECT_AB_ENABLED:   ['JOB_ALERT_SUBJECT_AB_ENABLED'],
@@ -651,6 +661,10 @@ export const PLAIN_WORD_RC_KEYS = new Set([
   'ASSISTED_APPLICATION_DOCX_INPLACE',
   'ASSISTED_APPLICATION_AGENT_NAVIGATION',
   'TIKTOK_VIDEO_CREATIVE_MODE',
+  // Rollout words of the job-alert perf switches (`shadow`, `manifest`): masking
+  // them would turn every such word in the run's log into `***`.
+  'JOB_ALERT_CANDIDATE_INDEX_MODE',
+  'JOB_EMAIL_RANKING_IMPRESSIONS_MODE',
 ]);
 
 /**
