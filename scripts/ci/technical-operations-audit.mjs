@@ -1989,16 +1989,27 @@ function flagOutputSinkRanges(source, flags) {
   const raw = String(source || '');
   if (!flags || flags.size === 0) return [];
   const flagLiteralRes = [...flags].map((flag) => new RegExp(
-    `(["'\`])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
+    `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
   ));
-  const flagPropertyRes = [...flags].map((flag) => new RegExp(
-    `\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
-  ));
+  const flagAccessorRes = [...flags].map((flag) => {
+    const escapedFlag = flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(
+      `^(?:`
+        + `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${escapedFlag}\\1\\s*\\]`
+        + `|argument\\s*\\(\\s*(["'])(?:--)?${escapedFlag}\\2(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `|flag\\s*\\(\\s*(?:args|argv)\\s*,\\s*(["'])(?:--)?${escapedFlag}\\3(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `)$`,
+    );
+  });
   const flagVariables = new Set();
   for (const flag of flags) {
     const escapedFlag = flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const flagValueRe = new RegExp(
-      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*[^;\\n]*?(?:\\b[A-Za-z_$][A-Za-z0-9_$]*\\s*\\([^;\\n]*["'](?:--)?${escapedFlag}["'][^;\\n]*\\)|\\[[^\\]\\n]*["'](?:--)?${escapedFlag}["'][^\\]\\n]*\\])`,
+      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*(?:`
+        + `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${escapedFlag}\\2\\s*\\]`
+        + `|argument\\s*\\(\\s*(["'])(?:--)?${escapedFlag}\\3(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `|flag\\s*\\(\\s*(?:args|argv)\\s*,\\s*(["'])(?:--)?${escapedFlag}\\4(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `)`,
       'g',
     );
     for (const match of raw.matchAll(flagValueRe)) flagVariables.add(match[1]);
@@ -2006,7 +2017,7 @@ function flagOutputSinkRanges(source, flags) {
   const readsFlag = (text) => {
     const value = String(text || '').trim();
     return flagLiteralRes.some((re) => re.test(value))
-      || flagPropertyRes.some((re) => re.test(value))
+      || flagAccessorRes.some((re) => re.test(value))
       || flagVariables.has(value);
   };
   const ranges = fileWriterCalls(raw).filter((writer) => readsFlag(writer.target));

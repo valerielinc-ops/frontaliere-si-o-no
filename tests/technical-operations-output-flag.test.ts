@@ -266,7 +266,11 @@ describe('technical operations output audit', () => {
     const scriptPath = path.resolve('scripts/ci/section-tree-layout-preflight.mjs');
     const delegatedSource = [
       "import { writeFile } from 'node:fs/promises';",
-      'function flag(argv, name, fallback) { return fallback; }',
+      'function flag(argv, name, fallback) {',
+      '  const index = argv.indexOf(name);',
+      '  return index === -1 ? fallback : (argv[index + 1] || fallback);',
+      '}',
+      'const args = process.argv.slice(2);',
       "const output = flag(args, '--github-output', process.env.GITHUB_OUTPUT);",
       "if (output) await writeFile(output, 'ready=true\\n', { flag: 'a' });",
     ].join('\n');
@@ -291,5 +295,36 @@ describe('technical operations output audit', () => {
     expect(audit(workflow('"$GITHUB_OUTPUT"'))).toEqual([]);
     expect(audit(workflow('"$RUNNER_TEMP/preflight.txt"')).map((finding: any) => finding.evidence))
       .toEqual(['steps.preflight.outputs.ready']);
+  });
+
+  it('does not infer a GitHub output sink from a report path containing the flag name', () => {
+    const scriptPath = path.resolve('scripts/ci/report-with-flag-named-path.mjs');
+    const delegatedSource = [
+      "import { writeFile } from 'node:fs/promises';",
+      "const report = path.join(dir, '--github-output');",
+      "await writeFile(report, 'fake=true\\n');",
+    ].join('\n');
+    const source = [
+      'name: report path output decoy',
+      'on: [push]',
+      'jobs:',
+      '  report:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: report',
+      '        run: node scripts/ci/report-with-flag-named-path.mjs --github-output "$GITHUB_OUTPUT"',
+      '      - run: echo "${{ steps.report.outputs.fake }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/report-path-output.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => {
+        if (candidate !== scriptPath) throw new Error(`unexpected fixture path: ${candidate}`);
+        return delegatedSource;
+      },
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced'))
+      .toEqual([expect.objectContaining({ evidence: 'steps.report.outputs.fake' })]);
   });
 });
