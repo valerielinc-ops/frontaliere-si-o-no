@@ -69,6 +69,7 @@ jobs:
             /scripts/ci/benchmark-loop-fleet-ledger.mjs
             /scripts/ci/read-workflow-run-provenance.mjs
             /scripts/ci/lib/github-api-retry.mjs
+            /scripts/lib/is-invoked-directly.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-ledger-index.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
