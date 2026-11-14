@@ -14069,27 +14069,24 @@ ${staticAnalyticsHtml}
  // do not overlap the archive indexes and page buffers. The opt-in gcFreed
  // probe deliberately retains them until its final checkpoint for attribution.
  if (extraGcFreedProbeCandidate === null) {
+  const fuzzyKnownSlugEntries = knownSlugs.size;
   const fuzzyJobTokenEntries = jobsByToken.size;
   const fuzzyJobCityRows = jobCityTokens.length;
+  knownSlugs.clear();
   jobsByToken.clear();
   jobCityTokens.length = 0;
   logJobsSeoMem('after-orphan-fuzzy-index-release', {
+   fuzzyKnownSlugEntries,
    fuzzyJobTokenEntries,
    fuzzyJobCityRows,
   });
  }
 
- // Collect IT paths of all previous slugs so we can also exclude their
- // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
- // The tracking file stores one key per locale slug, all pointing to the
- // same IT path, so we must group by IT path to catch them all.
- const bridgeItPaths = new Set<string>();
+ // Collect all previous slugs before filtering the expired URL list below.
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const s of _allPrevSlugs(job)) {
  bridgeSlugSet.add(s);
- const itPath = (tracking[s] as any)?.it;
- if (itPath) bridgeItPaths.add(itPath);
  }
  }
  // Add implicit previous slugs (job.slug ≠ slugByLocale.it) to bridge set
@@ -14157,6 +14154,8 @@ ${staticAnalyticsHtml}
   if (bridgeSlugSet.has(slug) || RESERVED_HUB_SLUGS.has(slug)) continue;
   expiredSlugs.push(slug);
  }
+ const bridgeSlugEntriesReleased = bridgeSlugSet.size;
+ bridgeSlugSet.clear();
  // en/de/fr legacy-TI detail paths are deliberately left to the locale-router
  // Worker when the immutable registry still has a native canton path for the
  // same locale+slug. The registry entry may already have been compat-merged,
@@ -16454,6 +16453,7 @@ ${staticAnalyticsHtml}
   expiredCacheEntries: expiredSoftLandingCache.size,
   expiredHtmlCacheChunks,
   expiredHtmlCacheReleasedEntries,
+  bridgeSlugEntriesReleased,
   expiredSitemapEntries: expiredSitemapEntryCount,
   sitemapEntries: expiredSitemapEntryCount,
  }));

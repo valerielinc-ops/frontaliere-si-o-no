@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hugo-boss",
-  "assembledAt": "2026-11-13T09:50:17.089Z",
-  "runId": "43401165467",
+  "assembledAt": "2026-11-13T21:49:51.422Z",
+  "runId": "43510533350",
   "jobs": [
     {
       "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL145277EXTERNALENGLOBAL/sales-associate-boss-store-w-m-d",
@@ -46,10 +46,10 @@
       "experienceLevel": "MID",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-11-09T21:44:33.570Z",
-      "crawledAt": "2026-11-13T09:50:12.318Z",
+      "crawledAt": "2026-11-13T21:49:49.110Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:50:12.318Z",
+      "validThrough": "2027-02-07T21:49:49.110Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -89,7 +89,7 @@
       },
       "slugByLocale": {
         "it": "vice-responsabile-del-punto-vendita-boss-outlet-m-f-d-hugo-boss-landquart",
-        "en": "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart",
+        "en": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
         "de": "stellvertretende-r-filialleiter-in-boss-outlet-m-w-d-hugo-boss-landquart",
         "fr": "adjoint-au-responsable-de-magasin-boss-outlet-h-f-d-hugo-boss-landquart"
       },
@@ -109,11 +109,19 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
+      "previousSlugsByLocale": {
+        "en": [
+          "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart"
+      ],
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "crawledAt": "2026-11-13T09:50:12.318Z",
+      "crawledAt": "2026-11-13T21:49:49.110Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-16T09:50:12.318Z",
+      "validThrough": "2027-01-15T21:49:49.110Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
