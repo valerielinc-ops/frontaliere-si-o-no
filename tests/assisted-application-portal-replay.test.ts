@@ -22,6 +22,7 @@ import {
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
+  mergePortalReplayRetryEvidence,
 } from '../scripts/assisted-application/portal-replay.mjs';
 
 const tempDirs: string[] = [];
@@ -604,6 +605,23 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toEqual(['final_click_attempt', 'non_get_passed', 'submission_attempted', 'wrong_posting_or_talent_pool']);
+  });
+
+  it('retains submission security evidence when a neutral retry becomes the final result', () => {
+    const firstAttempt = { submissionAttempted: true, retryClass: 'neutral', securityViolations: [] };
+    const neutralRetry = { submissionAttempted: false, securityViolations: [] };
+    const merged = mergePortalReplayRetryEvidence(firstAttempt, neutralRetry);
+
+    expect(merged.submissionAttempted).toBe(true);
+    expect(merged.securityViolations).toContain('submission_attempted');
+
+    const result = comparePortalReplayFamily({
+      family: 'workday',
+      baseRecords: [measured('one', 'dry_run_ready')],
+      headRecords: [measured('one', 'dry_run_ready', merged)],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toContain('submission_attempted');
   });
 
   it('fails a blocked attempt to use Node network APIs outside the browser fence', () => {
