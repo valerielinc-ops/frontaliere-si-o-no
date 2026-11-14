@@ -38,7 +38,7 @@ import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
 import { isArticlePublisherCodePath } from '../lib/article-chunk-publish-freshness.mjs';
-import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
+import { isScanned as isSecretScanned, scanText } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 import { stripSourceComments } from '../lib/source-comments.mjs';
 
@@ -93,21 +93,17 @@ const isTransportScope = (file) => {
   transportScope ??= new Set([TRANSPORT_MANIFEST, ...transportManifestPaths(process.cwd())]);
   return transportScope.has(file);
 };
-// Lint dell'albero dei SORGENTI: scandiscono `.github`, `scripts` e `bin` per
-// directory e non nominano i file che giudicano, quindi né il grafo inverso né
-// l'indice dei letterali `.github/…` li collegano al diff. Girano quando il
-// diff tocca un path nel loro perimetro. Sulla PR 9959 i due fixer contavano i
-// commenti con `--paginate --slurp --jq`, che il gh reale rifiuta: il guard
-// esisteva dal 25-09 (#9797) ma su 126 test scelti per quel diff lui mancava.
+// Lint dell'albero dei SORGENTI: scandiscono directory e file di workflow e non
+// nominano tutti i file che giudicano, quindi né il grafo inverso né l'indice
+// dei letterali li collegano al diff. Il loro predicato deve però essere
+// specifico anche qui: il fatto che un file stia sotto `scripts/` non basta.
+// Sulla PR 9959 i due fixer contavano i commenti con
+// `--paginate --slurp --jq`, che il gh reale rifiuta; il guard esisteva dal
+// 25-09 (#9797) ma su 126 test scelti per quel diff lui mancava.
 //
-// Il perimetro è una RegExp oppure un predicato. Il gate dei segreti hardcoded
-// usa il predicato dello scanner stesso (`isScanned`): riscrivere qui il suo
-// perimetro in una regex creerebbe due definizioni libere di divergere. Sulla
-// PR 10336 una chiave Google Maps di terzi è entrata in una fixture HTML di
-// `tests/fixtures/`: il gate la riconosceva, ma un `.html` non è né sorgente né
-// asset indicizzato, quindi il diff selezionava zero test e lui non girava.
-// Nel perimetro anche il modulo che definisce l'elenco: cambiarlo cambia la
-// closure dichiarata dal generatore.
+// Il perimetro può essere una RegExp oppure un predicato path+contenuto. I
+// predicati leggono il file cambiato e riconoscono la forma che il test guarda;
+// un file cancellato o non materializzato fa scattare il guard fail-closed.
 const crawlerGenerationRuntimePaths = new Set([
   ...CRAWLER_GENERATION_RUNTIME_PATHS,
   'scripts/lib/crawler-generation-runtime-paths.mjs',
@@ -123,6 +119,107 @@ const socialRobotClosurePaths = new Set([
   'scripts/lib/social-publish-queue.mjs',
   'scripts/load-rc-env.mjs',
 ]);
+
+// A directory is not a dependency. The old selector treated every file under
+// `scripts/` as an input to a dozen source-tree census tests, so changing an
+// unrelated script (for example the portal replay) launched all of them. A
+// source-tree lint still scans the whole tree once it is selected, but the
+// selector admits it only when the changed file can contain the construct that
+// the lint guards. This keeps the invariant while keeping the PR run local.
+const textMatches = (text, patterns) => patterns.every((pattern) => {
+  pattern.lastIndex = 0;
+  return pattern.test(text);
+});
+
+const sourceTextMatches = (file, patterns) => {
+  try {
+    const raw = readFileSync(file, 'utf8');
+    const text = /\.(?:mjs|cjs|js|mts|cts|ts|tsx|jsx?)$/i.test(file)
+      ? stripSourceComments(raw)
+      : raw;
+    return textMatches(text, patterns);
+  } catch {
+    // A deleted or sparse-only file is still a meaningful input to a tree
+    // census. Fail closed for that file instead of silently dropping its guard.
+    return true;
+  }
+};
+
+const pathAndSourceMatch = (pathPattern, ...patterns) => (file) =>
+  file !== runnerPath && pathPattern.test(file) && sourceTextMatches(file, patterns);
+
+const runListingWithoutCreatedWindow = (file) => {
+  if (!/^(?:\.github|scripts|bin|functions)\//.test(file)) return false;
+  try {
+    const raw = readFileSync(file, 'utf8');
+    const text = /\.(?:mjs|cjs|js|mts|cts|ts|tsx|jsx?)$/i.test(file)
+      ? stripSourceComments(raw)
+      : raw;
+    const listing = /\brun\s+list\b|['"]run['"]\s*,\s*['"]list['"]|actions\/(?:workflows\/[^/\s'"`]+\/)?runs\?/;
+    const branch = /--branch\b|\s-b\s|['"]-b['"]|[?&]branch=/;
+    const created = /--created\b|[?&]created=|createdSince(?:Filter|Query)?\(/;
+    return listing.test(text) && branch.test(text) && !created.test(text);
+  } catch {
+    return true;
+  }
+};
+
+const secretSourceChange = (file) => {
+  if (!isSecretScanned(file)) return false;
+  try {
+    return scanText(readFileSync(file, 'utf8'), file).length > 0;
+  } catch {
+    return true;
+  }
+};
+
+const housekeepingRuntimePaths = new Set([
+  'scripts/cleanup-jobs.mjs',
+  'scripts/load-rc-env.mjs',
+  'scripts/lib/git-commit-data.sh',
+  'scripts/lib/crawler-generation-receipt.mjs',
+  'scripts/ci/canonicalize-expired-archive-slice.mjs',
+  'scripts/lib/run-bounded-command.mjs',
+  'scripts/lib/pipeline-phase-timing.mjs',
+]);
+const housekeepingScope = (file) => file === '.github/workflows/housekeeping-jobs-logic.yml'
+  || file === 'scripts/ci/housekeeping-sparse-paths.txt'
+  || housekeepingRuntimePaths.has(file)
+  || file.startsWith('packages/articles/engine/shared/')
+  || pathAndSourceMatch(/^scripts\/lib\//, /(?:crawler|housekeeping|expired|published|slug|translation|job)/i)(file);
+
+// The Bing workflow has an explicit code allow-list in YAML. Keep the
+// selector aligned with the named modules rather than with its broad sparse
+// checkout (`/scripts/`), which is an I/O optimisation and not a test scope.
+let bingWorkflowScope;
+const bingSeoScope = (file) => {
+  if (file === '.github/workflows/bing-seo-loop.yml') return true;
+  bingWorkflowScope ??= (() => {
+    try {
+      const workflow = readFileSync('.github/workflows/bing-seo-loop.yml', 'utf8');
+      return new Set([...workflow.matchAll(/\/(?:scripts|build-plugins|packages\/articles\/engine)\/[A-Za-z0-9_./-]+/g)]
+        .map(([match]) => match.slice(1)));
+    } catch {
+      return new Set();
+    }
+  })();
+  if (bingWorkflowScope.has(file)) return true;
+  return pathAndSourceMatch(
+    /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\//,
+    /(?:jobBoard|plateAuction|professionLandings|salaryProfession|articleSections|eventsSections|healthFacilitiesSections|pharmacySections|borderWaitSections|healthPremiumSections|weeklyJobMarketSections|canonicalExemptions|meta-description)/i,
+  )(file);
+};
+
+const viteConfigScope = (file) => file === 'vite.config.ts'
+  || /^build-plugins\//.test(file)
+  || pathAndSourceMatch(/^(?:services|components|data|functions|infra|scripts|packages\/articles)\//,
+    /(?:from|import\s*\()\s*['"]@\//)(file);
+
+const checkoutProfileScope = (file) => /^(?:\.github\/(?:workflows|actions)\/|package(?:-lock)?\.json$)/.test(file)
+  || /^(?:scripts\/ci\/(?:apply-checkout-profiles|checkout-profile-analyzer|checkout-profile-contracts|verify-checkout-profiles|check-dependency-free-import-closure)|tests\/checkout-sparse-profiles\.test\.ts)$/.test(file)
+  || pathAndSourceMatch(/^(?:scripts|functions|services|build-plugins|infra|server|packages\/articles)\//,
+    /(?:sparse-checkout|sparseIncludesPath|GLOBAL_TESTS_REQUIRED_SPARSE_PATHS|TYPECHECK_REQUIRED_SPARSE_PATHS|checkout-profile|checkoutEntryPoints|verifyCheckoutProfiles)/i)(file);
+
 const coreLocaleSource = /^services\/locales\/[^/]+-core\.ts$/;
 const sourceTreeLintTests = new Map([
   // This completeness guard discovers translation keys by scanning all of
@@ -160,8 +257,8 @@ const sourceTreeLintTests = new Map([
     'tests/prune-merged-worktrees-expiry-e2e.test.ts',
     'tests/prune-merged-worktrees-reclaim-e2e.test.ts',
   ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
-  ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
-  ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  ['tests/gh-slurp-jq-guard.test.ts', pathAndSourceMatch(/^(?:\.github|scripts|bin)\//, /--slurp\b/, /(?:--jq\b|--template\b|\s-[qt]\s)/)],
+  ['tests/no-hardcoded-secrets.test.ts', secretSourceChange],
   // `consent-shown-at-signup` discovers signup writers by reading every file
   // under these roots. Those `read()` calls are the contract, but they are
   // invisible to the static import graph; keep the observer adjacent to the
@@ -179,13 +276,13 @@ const sourceTreeLintTests = new Map([
   ['tests/mirror-transport-import-closure.test.ts', isTransportScope],
   // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
   // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
-  ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
+  ['tests/run-listing-created-window.test.ts', runListingWithoutCreatedWindow],
   // Il guard del nome del check vitest legge da disco ogni script sotto
   // `scripts/ci/`: un file NUOVO che scrive a mano il literal non importa
   // niente che il test conosca. La PR 11667 l'ha introdotto in
   // `scripts/ci/lib/followup-ci-suite-proof.mjs` e main e' rimasto rosso in
   // latenza finche' la 11705 non ha fatto selezionare il test.
-  ['tests/ci-vitest-check-name.test.ts', /^scripts\/ci\//],
+  ['tests/ci-vitest-check-name.test.ts', pathAndSourceMatch(/^scripts\/ci\//, /VITEST_(?:CHECK_NAME|EXECUTION_JOB_NAME|SHARD_NAME_RE)|vitest|auto-merge-eval|pr-autorebase/)],
   // Lint del token App su TUTTI i workflow (issue 10114): un workflow nuovo
   // che pusha con `env.APP_TOKEN || ...` non importa niente, e uno script in
   // `scripts/` puo' cominciare a pushare o a leggere APP_TOKEN senza che il
@@ -193,7 +290,7 @@ const sourceTreeLintTests = new Map([
   // stesso e' escluso: non pusha, e la sua suite di regressione ha un budget.
   [
     'tests/workflow-app-token-capability.test.ts',
-    (file) => /^(?:\.github\/workflows|scripts)\//.test(file) && file !== 'scripts/ci/run-related-tests.mjs',
+    pathAndSourceMatch(/^(?:\.github\/workflows|scripts)\//, /\bAPP_TOKEN\b/),
   ],
   // La lista sparse dell'observer delle generazioni crawler sta nel YAML: il
   // test la confronta con la chiusura degli import di
@@ -204,12 +301,12 @@ const sourceTreeLintTests = new Map([
   // `functions/` (githubApiHeaders.js); l'unico file fuori
   // (`data/canton-municipalities.json`) e' un JSON foglia e non puo'
   // aggiungere import. Il test costa meno di un secondo.
-  ['tests/crawler-generation-observer-workflow.test.ts', /^(?:scripts|functions)\//],
+  ['tests/crawler-generation-observer-workflow.test.ts', (file) => crawlerGenerationRuntimePaths.has(file) || file === 'scripts/crawler-generation-observer.mjs'],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo
   // che ne aggiunge uno fuori lista. Deve girare proprio su quel diff.
-  ['tests/housekeeping-sparse-paths.test.ts', /^(?:scripts|packages\/articles\/engine)\/|^\.github\/workflows\/housekeeping-jobs-logic\.yml$/],
+  ['tests/housekeeping-sparse-paths.test.ts', housekeepingScope],
   // Stessa forma per i gruppi crawler: il generatore dichiara la chiusura degli
   // import del finalizer con un elenco e il test la confronta con quella reale
   // letta da disco. Sulla PR 11262 un import nuovo in crawler-grace-policy.mjs
@@ -266,11 +363,11 @@ const sourceTreeLintTests = new Map([
   ['tests/job-og-cache-prewarm.test.ts', /^(?:\.github\/workflows\/(?:deploy|og-jobs-cache-prewarm|deploy-publish)\.yml|scripts\/ci\/prepare-r2-og-delta\.mjs|scripts\/lib\/push-section-shard\.sh)$/],
   ['tests/r2-og-manifest-carry.test.ts', /^\.github\/workflows\/deploy\.yml$/],
   ['tests/house-ad-image-publish.test.ts', /^(?:services\/(?:cdnImageBase|houseAdCreative)\.ts|scripts\/(?:lib\/deploy-it-pages-prep\.sh|ci\/check-house-ad-images\.mjs|offload-generated-images-cdn\.mjs|ensure-image-cdn-redirect\.mjs)|docs\/house-ad-creatives\.json|public\/images\/job-search-campaign\/.*)$/],
-  // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
-  // estensioni; costano pochi secondi.
-  ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
-  ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
-  ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  // Questi scandiscono ricorsivamente tutto scripts/, ma solo i file che
+  // possono partecipare al contratto entrano nella selezione.
+  ['tests/score-ledger-persistence.test.ts', pathAndSourceMatch(/^scripts\/.+\.mjs$/, /ai-models\.mjs/, /\b(?:callLLM|callSingleModel|flushScores(?:BeforeExit)?)\b/)],
+  ['tests/undici-dispatcher-fetch-pairing.test.ts', pathAndSourceMatch(/^scripts\/.+\.(?:mjs|js)$/, /\bundici\b/, /\bnew\s+(?:Agent|Pool|Client|ProxyAgent|EnvHttpProxyAgent|RetryAgent)\s*\(/)],
+  ['tests/is-invoked-directly.test.ts', pathAndSourceMatch(/^scripts\/.+\.(?:mjs|cjs|js|ts)$/, /\bisInvokedDirectly\s*\(|process\.argv\s*\[\s*1\s*\]/, /import\.meta\.(?:url|filename)|fileURLToPath\s*\(|pathToFileURL\s*\(|endsWith\s*\(|basename\s*\(/)],
   // Il censimento dei guard di entrypoint legge da disco ogni file di codice
   // sotto le sue radici: uno script NUOVO con un guard non canonico non importa
   // niente che il test conosca. Dopo la PR 12043 tre script sono entrati cosi'
@@ -279,9 +376,9 @@ const sourceTreeLintTests = new Map([
   // il file intero gira in sei secondi.
   [
     'tests/entrypoint-guard-identity.test.ts',
-    /^(?:scripts|build-plugins|packages\/articles\/engine|functions|infra)\/.+\.(?:mjs|js|ts|tsx)$/,
+    pathAndSourceMatch(/^(?:scripts|build-plugins|packages\/articles\/engine|functions|infra)\/.+\.(?:mjs|js|ts|tsx)$/, /process\.argv\s*\[\s*1\s*\]/, /import\.meta\.(?:url|filename)|fileURLToPath\s*\(|pathToFileURL\s*\(|endsWith\s*\(|basename\s*\(/),
   ],
-  ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/translation-protected-tokens.test.ts', pathAndSourceMatch(/^scripts\/.+\.mjs$/, /translation-glossary\.mjs|maskProtectedTokens|finalizeTranslatedText|applyGlossaryCorrections/)],
   // Lo UA da browser dei dettagli MySwitzerland e' un'eccezione del
   // proprietario (D1, 2026-10-05) confinata a quel crawler: il guard legge da
   // disco ogni sorgente di scripts/, e un file nuovo che la copia non importa
@@ -289,20 +386,20 @@ const sourceTreeLintTests = new Map([
   // codice crawler, ed e' gia' coperto dalla sua suite di regressione bounded:
   // escluderlo evita di far crescere quel budget senza restringere il guard per
   // nessun altro sorgente sotto scripts/.
-  ['tests/myswitzerland-browser-ua-confinement.test.ts', (file) => /^scripts\//.test(file) && file !== runnerPath],
-  ['tests/slug-write-encapsulation.test.ts', /^scripts\/.+\.(?:ts|mjs|js)$/],
+  ['tests/myswitzerland-browser-ua-confinement.test.ts', pathAndSourceMatch(/^scripts\//, /MYSWITZERLAND_DETAIL_BROWSER_UA|myswitzerland-detail-transport|MySwitzerland/)],
+  ['tests/slug-write-encapsulation.test.ts', pathAndSourceMatch(/^scripts\/.+\.(?:ts|mjs|js)$/, /\b(?:slug|slugByLocale|previousSlugs|previousSlugsByLocale|addPreviousSlugForLocale|captureLostSlugs)\b/)],
   ['tests/social-robot.test.ts', (file) => /^scripts\/social-robot\//.test(file) || socialRobotClosurePaths.has(file)],
   // Ratchet sulle chiusure per titolo: legge da disco ogni sorgente che usa
   // `resolveGithubIssue` e lo confronta con l'elenco dichiarato. Un closer
   // nuovo non importa il test, quindi senza questa voce entrerebbe senza
   // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
-  ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
+  ['tests/resolve-issue-by-title-ratchet.test.ts', pathAndSourceMatch(/^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/, /\bresolveGithubIssue\b/)],
   // Letture sincrone di `gh` senza `maxBuffer`: oltre 1 MiB finiscono in
   // ENOBUFS. La PR 12277 ne ha aggiunta una nella coda del deploy, che da
   // allora non ha piu' letto l'elenco delle run (issue 12308). Il censimento
   // legge da disco ogni modulo sotto `scripts/` e non ne importa nessuno:
   // deve girare sul diff che aggiunge la chiamata.
-  ['tests/gh-exec-buffer-census.test.ts', /^scripts\/.+\.mjs$/],
+  ['tests/gh-exec-buffer-census.test.ts', pathAndSourceMatch(/^scripts\/.+\.mjs$/, /\b(?:execFileSync|spawnSync|execSync)\s*\(\s*['"]gh['"]/)],
   // Le immagini pubblicate possono cambiare solo nell'albero pubblico senza
   // che un import leghi il test che ne controlla la generazione. I riferimenti
   // a `data/` sono invece indicizzati come normali dipendenze asset, sia nei
@@ -315,7 +412,7 @@ const sourceTreeLintTests = new Map([
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
   // path, non un import; il test verifica che la chiusura dei job ci stia.
-  ['tests/seo/bing-seo-loop-sparse-closure.test.ts', /^(?:scripts|build-plugins\/shared|packages\/articles\/engine)\/|^\.github\/workflows\/bing-seo-loop\.yml$/],
+  ['tests/seo/bing-seo-loop-sparse-closure.test.ts', bingSeoScope],
   // Grafo di `vite.config.ts`: i due test lo percorrono da disco (walker AST
   // ed esbuild come lo usa Vite) e non importano i moduli che giudicano. La
   // PR 11327 ha fatto importare a `build-plugins/shared/authorEditorial.ts`
@@ -327,7 +424,7 @@ const sourceTreeLintTests = new Map([
   // un sorgente lo usa, e quel sorgente e' gia' nel perimetro.
   ...['tests/vite-config-import-graph.test.ts', 'tests/vite-config-graph-no-alias.test.ts'].map((test) => [
     test,
-    /^(?:vite\.config\.ts|constants\.ts|(?:build-plugins|services|scripts|components|data|functions|infra|packages\/articles)\/.+\.(?:[mc]?[jt]sx?))$/,
+    viteConfigScope,
   ]),
   // I due pin del SiteShellContract (golden delle funzioni e digest degli
   // scalari) confrontano il bootstrap con file letti da disco che il corpus
@@ -376,7 +473,7 @@ const sourceTreeLintTests = new Map([
   // chiusura (`portal.mjs`, `ai-models.mjs`, `cf-5xx-issue-sync.mjs`,
   // `decompose-route-check.mjs`), quindi il perimetro e' il codice che un job
   // puo' caricare, non solo `.github/`. Il test costa ~35 s.
-  ['tests/checkout-sparse-profiles.test.ts', /^(?:\.github\/(?:workflows|actions)\/|package\.json$|(?:scripts|functions|services|build-plugins|infra|server|packages\/articles)\/.+\.(?:[cm]?[jt]sx?|sh|json)$|[^/]+\.(?:[cm]?[jt]sx?)$)/],
+  ['tests/checkout-sparse-profiles.test.ts', checkoutProfileScope],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
