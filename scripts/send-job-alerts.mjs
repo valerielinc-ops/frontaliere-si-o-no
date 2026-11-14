@@ -115,6 +115,11 @@ import { discoveryCanAttempt, claimDiscoveryDelivery, finalizeDiscoveryDelivery,
 import { createRegistrationGeoLookup, isSameIpGeo } from './lib/job-alert-ip-geography.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
+import {
+  loadJobPagesManifest,
+  manifestCoverage,
+  resolveLiveLinkManifestConfig,
+} from './lib/job-pages-manifest-client.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import {
@@ -426,7 +431,7 @@ async function inspectLiveJobs(
   jobs,
   locale,
   cache,
-  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY } = {},
+  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY, failOpen = true } = {},
 ) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
@@ -440,7 +445,6 @@ async function inspectLiveJobs(
   const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
   if (urlsToCheck.length > 0) {
     await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      jobAlertMetrics.count('liveLinkHttpRequests');
       cache.set(url, await check(url));
     });
   }
@@ -453,7 +457,11 @@ async function inspectLiveJobs(
   const unknownJobs = results.filter((result) => !result.known).map((result) => result.job);
   const checked = knownResults.length;
   const liveCount = knownLiveJobs.length;
-  if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
+  // `failOpen: false` e' il caso del manifest delle pagine pubblicate (perf-plan PR 5):
+  // la risposta non dipende dalla rete, quindi un tasso basso di pagine vive
+  // non e' un guasto transitorio da assorbire spedendo link non verificati, ma
+  // annunci scaduti o non ancora pubblicati, che non vanno spediti.
+  if (failOpen && checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
     jobAlertMetrics.count('liveLinkFailOpen');
     console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
     return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
@@ -463,6 +471,71 @@ async function inspectLiveJobs(
     logDetail(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
   return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
+}
+
+/**
+ * Sceglie COME si risponde a «la pagina di questo annuncio e' viva?» per l'intera
+ * run (perf-plan PR 5): col manifest delle pagine pubblicate, una sola richiesta,
+ * oppure col controllo HTTP per pagina di sempre (con il suo fail-open).
+ *
+ * Il manifest si usa solo se si scarica, e' abbastanza recente rispetto ai dati e
+ * copre abbastanza annunci aperti; altrimenti `source` e' `http` e il motivo e'
+ * nel log. Con il manifest il fail-open e' spento: l'assenza di una pagina non e'
+ * un guasto di rete. Gli annunci non ancora pubblicati vengono quindi rimandati,
+ * non spediti: restano nella finestra della run successiva, perche' il cursore del
+ * destinatario avanza solo con un invio e il dedup (`sentJobIds`) conosce solo cio'
+ * che e' stato mostrato.
+ *
+ * Esportata per i test.
+ */
+export async function createLiveLinkChecker({
+  config = resolveLiveLinkManifestConfig(),
+  inventory = [],
+  datasetAtMs,
+  fetchImpl = globalThis.fetch,
+  metrics = jobAlertMetrics,
+  log = console.log,
+  warn = console.warn,
+} = {}) {
+  const httpCheck = async (url) => {
+    metrics.count('liveLinkHttpRequests');
+    return checkJobPageLive(url);
+  };
+  const http = (reason) => {
+    metrics.set('liveLinkSource', `http:${reason}`);
+    return { source: 'http', reason, check: httpCheck, failOpen: true };
+  };
+  if (config.mode === 'off') return http('disabled');
+
+  const loaded = await loadJobPagesManifest({
+    url: config.url,
+    fetchImpl,
+    datasetAtMs,
+    maxAgeHours: config.maxAgeHours,
+    onRequest: () => metrics.count('liveLinkHttpRequests'),
+  });
+  if (!loaded.usable) {
+    warn(`   ⚠️  Job-pages manifest unusable (${loaded.reason}${loaded.detail ? ` ${loaded.detail}` : ''}) — falling back to the per-page HTTP live-link check`);
+    return http(loaded.reason);
+  }
+  const coverage = manifestCoverage(loaded.lookup, inventory, (job) => jobPageUrl(job, 'it'));
+  if (coverage.ratio < config.minCoverage) {
+    warn(`   ⚠️  Job-pages manifest covers only ${(coverage.ratio * 100).toFixed(1)}% of ${coverage.checked} sampled open listings (< ${(config.minCoverage * 100).toFixed(0)}%) — falling back to the per-page HTTP live-link check`);
+    return http('low-coverage');
+  }
+  log(`   📇 Live-link via job-pages manifest: ${loaded.lookup.pageCount} active pages in ${loaded.lookup.sectionCount} sections, ${loaded.ageHours.toFixed(1)} h old, covers ${(coverage.ratio * 100).toFixed(1)}% of ${coverage.checked} sampled open listings`);
+  metrics.set('liveLinkSource', 'manifest');
+  metrics.set('liveLinkManifestPages', loaded.lookup.pageCount);
+  return {
+    source: 'manifest',
+    reason: 'ok',
+    // Risposta locale: nessuna rete, nessun fail-open.
+    check: async (url) => {
+      metrics.count('liveLinkManifestResolved');
+      return loaded.lookup.has(url);
+    },
+    failOpen: false,
+  };
 }
 
 async function filterLiveJobs(jobs, locale, cache) {
@@ -488,7 +561,7 @@ async function rankLiveJobsForEmail(
   locale,
   cache,
   rankingOptions,
-  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive } = {},
+  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive, failOpen = true } = {},
 ) {
   const excludedUrls = new Set();
   const checkedUrls = new Set();
@@ -502,7 +575,7 @@ async function rankLiveJobsForEmail(
     const uncachedUrls = uniqueUrls.filter((url) => !cache.has(url));
     const remaining = Math.max(0, limit - checkedUrls.size);
     for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
-    return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining });
+    return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining, failOpen });
   };
 
   while (true) {
@@ -606,7 +679,6 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         const url = queue[head];
         head += 1;
         try {
-          jobAlertMetrics.count('liveLinkHttpRequests');
           cache.set(url, await check(url));
         } catch {
           // Left uncached on purpose — filterLiveJobs checks it again.
@@ -3758,7 +3830,15 @@ async function main() {
     const indexStats = candidateIndex.stats();
     console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB`);
   }
-  const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
+  // Liveness: manifest delle pagine pubblicate (una richiesta) o controllo HTTP per
+  // pagina, secondo disponibilita' e coerenza del manifest (perf-plan PR 5).
+  jobAlertMetrics.enter('live_link');
+  const liveLink = await createLiveLinkChecker({
+    inventory: inventoryJobs,
+    datasetAtMs: inventoryJobs.reduce((max, job) => Math.max(max, jobInventoryTimestampMs(job)), 0) || now,
+  });
+  jobAlertMetrics.enter('aux_profiles');
+  const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache, { check: liveLink.check });
   // Affinity profiles are read only when the configured treatment is affinity.
   // The newness treatment is independent of personal profiles, so it avoids
   // this batch of Firestore reads. A failed read degrades to "no profile"
@@ -4155,7 +4235,7 @@ async function main() {
       nlNormLocale(alert.locale),
       jobLiveCheckCache,
       rankingOptions,
-      { initialRanked: preflightRanked },
+      { initialRanked: preflightRanked, check: liveLink.check, failOpen: liveLink.failOpen },
     );
     sampleBatchMemory();
     if (rankedForEmail.length === 0) {

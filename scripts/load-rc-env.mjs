@@ -514,6 +514,11 @@ export const RC_TO_ENV = {
   // Plan batch size of the job-alert sender (1-256, default 8): lets a dry-run
   // try a larger group once the candidate index shrinks the per-alert match sets.
   JOB_ALERT_PLAN_BATCH_SIZE: ['JOB_ALERT_PLAN_BATCH_SIZE'],
+  // Live-link of the job-alert sender (perf-plan PR 5): `auto` (default) uses the
+  // build's manifest of published job pages when it is fresh and covers the open
+  // listings, `off` keeps only the per-page HTTP check. MAX_AGE_HOURS defaults to 36.
+  JOB_ALERT_LIVE_LINK_MANIFEST: ['JOB_ALERT_LIVE_LINK_MANIFEST'],
+  JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS: ['JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS'],
   JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
   JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
   // Daily job-alert subject experiment: all controls are required by the
