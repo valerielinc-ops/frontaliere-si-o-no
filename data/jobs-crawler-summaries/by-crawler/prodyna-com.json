@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-14T16:46:34.530Z",
+  "generatedAt": "2026-11-14T19:10:50.081Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -57,18 +57,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15143,
-  "avgDurationMs": 15143,
+  "unchangedCount": 0,
+  "durationMs": 27405,
+  "avgDurationMs": 27405,
   "durationHistory": [
-    15143
+    27405
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "prodyna-com-227cd4ac5dec",
       "slug": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
@@ -81,7 +79,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T16:45:40.770Z",
+      "crawledAt": "2026-11-14T19:10:02.887Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -104,7 +102,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T16:45:40.770Z",
+      "validThrough": "2027-02-09T19:10:02.887Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +124,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T16:45:40.763Z",
+      "crawledAt": "2026-11-14T19:10:02.884Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,7 +147,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T16:45:40.763Z",
+      "validThrough": "2027-02-09T19:10:02.884Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +158,7 @@
       }
     }
   ],
-  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

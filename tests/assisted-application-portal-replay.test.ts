@@ -17,6 +17,7 @@ import {
   comparePortalReplayFamily,
   completeUnmeasuredReplaySide,
   createPortalReplayDeadline,
+  settleWithin,
   extractPortalStopHosts,
   markdownForAggregate,
   PORTAL_REPLAY_ALLOWED_PATHS,
@@ -552,6 +553,22 @@ describe('portal replay workflow wiring', () => {
     const budget = Number(/timeout-minutes: (\d+)/u.exec(workflow.slice(workflow.indexOf('  replay:')))?.[1]);
     expect(budget).toBeGreaterThanOrEqual(boundMin);
     expect(workflow).toContain(`${Math.round(makespanS)} s`);
+    // ...and the per-family bound is enforced, not only declared: one family
+    // that outlived it once held its whole group to the job timeout.
+    expect(workflow).toContain(`timeout --kill-after=30s ${largestS}s node "$portal_replay_cli" compare`);
+  });
+
+  it('bounds the cleanup of an expired attempt and refuses new broker calls after it', async () => {
+    const cli = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
+    expect(cli).toContain('if (attemptOver || deadline.expired()) {');
+    expect(cli).toContain("new Error('portal_replay_deadline_exceeded')");
+    expect(cli).toContain('await settleWithin(runnerPromise, REPLAY_CODEX_CALL_TIMEOUT_MS + REPLAY_SETTLE_GRACE_MS);');
+    expect(cli).not.toMatch(/^\s*await runnerPromise;$/mu);
+    expect(cli).not.toMatch(/^\s*await shared(?:Head)?ReplayBrowser\?\.close\(\)/mu);
+    await expect(settleWithin(Promise.resolve('done'), 1_000)).resolves.toBe('done');
+    const started = Date.now();
+    await expect(settleWithin(new Promise(() => {}), 50)).resolves.toBeUndefined();
+    expect(Date.now() - started).toBeLessThan(1_000);
   });
 
   it('warms the broker up before the burst and fails by name when the Codex backend is unusable', () => {
