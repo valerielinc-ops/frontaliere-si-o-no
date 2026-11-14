@@ -3,7 +3,7 @@ Total output lines: 3752
 
 name: Publish to GitHub Pages (deploy + validate)
 
-run-name: Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}
+run-name: "Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}"
 
 # Second half of the build→publish split (see deploy.yml's concurrency comment).
 # deploy.yml only BUILDS (matrix-setup → prep → build-locale ×4) under a
