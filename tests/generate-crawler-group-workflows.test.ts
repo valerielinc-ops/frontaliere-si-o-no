@@ -3381,6 +3381,8 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain(
         'find "$common_git_dir" -type f -name "*.lock" -print0',
       );
+      expect(retryPreparation.run).toContain('rm -f -- "$lock_file"');
+      expect(retryPreparation.run).not.toContain('unlink "$lock_file"');
       expect(retryPreparation.run).toContain('cat "$git_dir/gitdir"');
       expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
