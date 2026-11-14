@@ -592,6 +592,7 @@ export async function buildDraft(ctx) {
       jobRoomApplyUrl: posting.jobRoomApplyUrl || '',
       jobRoomFormUrl: posting.jobRoomFormUrl || '',
       jobRoomExternalUrl: posting.jobRoomExternalUrl || '',
+      publishedPostingUrl: posting.publishedPostingUrl || '',
       postingUrl: posting.postingUrl || order.jobUrl || '',
       applyUrl: channel.applyUrl || String(order.jobUrl || '').slice(0, 1000),
     },

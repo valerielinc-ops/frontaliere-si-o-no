@@ -3,9 +3,17 @@ import {
   applicationEntryControls,
   formPostingMatch,
   jobRoomExternalAdTarget,
+  namesAnotherEmployer,
+  resolvedPostingUrlForIdentity,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('application form posting identity', () => {
+  it('keeps the opened posting URL when legacy context has no saved posting URL', () => {
+    expect(resolvedPostingUrlForIdentity('', 'https://jobs.example.test/42')).toBe('https://jobs.example.test/42');
+    expect(resolvedPostingUrlForIdentity('https://jobs.example.test/selected', 'https://jobs.example.test/42'))
+      .toBe('https://jobs.example.test/selected');
+  });
+
   it('matches the source language title when the draft title is localized', () => {
     const job = {
       title: 'Operatrice sociosanitaria',
@@ -35,6 +43,42 @@ describe('application form posting identity', () => {
     expect(formPostingMatch('Bewerbung\nVorname\nNachname\nE-Mail-Adresse', {
       title: 'Impiegata amministrativa', company: 'Ente Esempio',
     }, { pageUrl: applicationUrl, postingUrl })).toBe('match');
+  });
+
+  it('uses the Umantis application vacancy ID when liveness keeps the published listing URL', () => {
+    const applicationUrl = 'https://recruitingapp-9000.umantis.com/Vacancies/7351/Application/New/1';
+    const job = { title: 'Tecnico amministrativo', company: 'Ente Esempio' };
+    const form = 'Application Tracking System\nE-Mail-Adresse\nVorname\nNachname\nWeiter';
+
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://careers.example.test/jobs/tecnico-amministrativo/',
+    })).toBe('match');
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://recruitingapp-9000.umantis.com/Vacancies/7352/Description/1',
+    })).toBe('mismatch');
+    expect(formPostingMatch(form, job, {
+      applicationEntry: true,
+      pageUrl: applicationUrl,
+      postingUrl: 'https://jobs.example.test/jobs/other-role-7352/',
+    })).toBe('mismatch');
+  });
+
+  it('recognizes localized SuccessFactors login fields as the start of a generic form', () => {
+    const postingUrl = 'https://jobs.example.test/job/example-role/123456/';
+    const moduleUrl = 'https://career2.successfactors.eu/career?company=EXAMPLE&career_job_req_id=321';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const job = { title: 'Example Role', company: 'Example Employer' };
+    const form = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nBewerbung abschicken';
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: 'https://career2.successfactors.eu/portalcareer',
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
   });
 
   it('accepts the Kanton St. Gallen Application/New form with its full ATS title and Weiter control', () => {
@@ -102,7 +146,21 @@ describe('application form posting identity', () => {
     const genericForm = 'Bewerbung\nVorname\nNachname\nE-Mail-Adresse\nWeiter';
     const job = { title: 'Pflegefachperson', company: 'Spital Esempio' };
     expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('unknown');
+    const numberedForm = 'Numero candidatura\nData di compilazione\nNome\nCognome';
+    expect(namesAnotherEmployer(numberedForm, job)).toBe(false);
+    expect(formPostingMatch(numberedForm, job, {
+      postingMatched: true, applicationEntry: true,
+    })).toBe('unknown');
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
+  });
+
+  it('keeps same-kind employer names and standalone Data as conflicting evidence', () => {
+    expect(namesAnotherEmployer('Banca Cler — Bank Riviera', { company: 'Banca Cler' })).toBe(true);
+    expect(namesAnotherEmployer('Data', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Compilation', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Compilazione', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Data di compilazione:', { company: 'Alfa' })).toBe(false);
+    expect(namesAnotherEmployer('Date de candidature', { company: 'Alfa' })).toBe(false);
   });
 
   it('rejects a different named role and a different Umantis vacancy ID', () => {
