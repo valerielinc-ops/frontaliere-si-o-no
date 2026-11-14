@@ -50,6 +50,108 @@ export interface JobCanonBridgePath {
   targetPath: string;
   kind: 'previousSlug' | 'legacyTiMirror' | 'crossLocale';
   canton: string;
+  /** Stable job key whose fields in jobs-slug-map.json produced this path. */
+  sourceJobIdentifier?: string;
+}
+
+export interface FinalWorkerSlugMapReconciliation {
+  /** Jobs with one unique serialized row whose effective route fields now match the final SEO input. */
+  matchedJobIdentifiers: Set<string>;
+  /** Jobs with a missing/duplicate row or route-field drift; their bridges must stay static. */
+  unmatchedJobIdentifiers: Set<string>;
+  updatedJobCount: number;
+}
+
+function activeJobMapKey(job: ActiveJobSlugMapRow): string {
+  return String(job.id || job.slug || '').trim();
+}
+
+function copiedSlugArray(value: unknown): string[] | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const result = value.filter((item): item is string => typeof item === 'string' && item.length > 0);
+  return result.length > 0 ? result : undefined;
+}
+
+function copiedLocaleSlugArrays(value: unknown): Partial<Record<JobCanonLocale, string[]>> | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const result: Partial<Record<JobCanonLocale, string[]>> = {};
+  for (const locale of JOB_CANON_LOCALES) {
+    const slugs = copiedSlugArray((value as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+    if (slugs) result[locale] = slugs;
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
+function sameSlugField(left: unknown, right: unknown): boolean {
+  return JSON.stringify(copiedSlugArray(left) ?? null) === JSON.stringify(copiedSlugArray(right) ?? null);
+}
+
+function sameLocaleSlugField(left: unknown, right: unknown): boolean {
+  return JSON.stringify(copiedLocaleSlugArrays(left) ?? null)
+    === JSON.stringify(copiedLocaleSlugArrays(right) ?? null);
+}
+
+/**
+ * Reconcile late previous-slug discoveries into the exact serialized input
+ * later read by jobCanonRedirectMapPlugin. A missing or duplicate source row
+ * is reported as unmatched so callers retain its static bridge.
+ */
+export function reconcileFinalWorkerSlugMapRows(
+  serializedRows: ActiveJobSlugMapRow[],
+  finalJobs: readonly ActiveJobSlugMapRow[],
+): FinalWorkerSlugMapReconciliation {
+  const rowsByKey = new Map<string, ActiveJobSlugMapRow[]>();
+  for (const row of serializedRows) {
+    const key = activeJobMapKey(row);
+    if (!key) continue;
+    const rows = rowsByKey.get(key) ?? [];
+    rows.push(row);
+    rowsByKey.set(key, rows);
+  }
+
+  const finalJobsByKey = new Map<string, ActiveJobSlugMapRow[]>();
+  for (const job of finalJobs) {
+    const key = activeJobMapKey(job);
+    if (!key) continue;
+    const jobs = finalJobsByKey.get(key) ?? [];
+    jobs.push(job);
+    finalJobsByKey.set(key, jobs);
+  }
+
+  const matchedJobIdentifiers = new Set<string>();
+  const unmatchedJobIdentifiers = new Set<string>();
+  let updatedJobCount = 0;
+  for (const [key, jobs] of finalJobsByKey) {
+    const rows = rowsByKey.get(key);
+    if (jobs.length !== 1 || rows?.length !== 1) {
+      unmatchedJobIdentifiers.add(key);
+      continue;
+    }
+
+    const [job] = jobs;
+    const [row] = rows;
+    const sameRouteIdentity = String(row.slug ?? '') === String(job.slug ?? '')
+      && resolveJobCanton(row) === resolveJobCanton(job)
+      && JOB_CANON_LOCALES.every((locale) => localizedActiveJobSlug(row, locale) === localizedActiveJobSlug(job, locale));
+    if (!sameRouteIdentity) {
+      unmatchedJobIdentifiers.add(key);
+      continue;
+    }
+
+    const previousSlugs = copiedSlugArray(job.previousSlugs);
+    const previousSlugsByLocale = copiedLocaleSlugArrays(job.previousSlugsByLocale);
+    const rowChanged = !sameSlugField(row.previousSlugs, previousSlugs)
+      || !sameLocaleSlugField(row.previousSlugsByLocale, previousSlugsByLocale);
+    if (previousSlugs) row.previousSlugs = previousSlugs;
+    else delete row.previousSlugs;
+    if (previousSlugsByLocale) row.previousSlugsByLocale = previousSlugsByLocale;
+    else delete row.previousSlugsByLocale;
+    if (rowChanged) updatedJobCount += 1;
+
+    matchedJobIdentifiers.add(key);
+  }
+
+  return { matchedJobIdentifiers, unmatchedJobIdentifiers, updatedJobCount };
 }
 
 export type JobCanonEntryLookup =
@@ -440,6 +542,7 @@ export function buildActiveJobBridgePathPlan(
           targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
           kind: 'previousSlug',
           canton,
+          sourceJobIdentifier: jobIdentifier,
         });
         claimedPaths.add(`${locale}\u0000${oldPathKey}`);
 
@@ -460,6 +563,7 @@ export function buildActiveJobBridgePathPlan(
             targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
             kind: 'legacyTiMirror',
             canton,
+            sourceJobIdentifier: jobIdentifier,
           });
           claimedPaths.add(mirrorMapKey);
         }
@@ -521,6 +625,7 @@ export function buildActiveJobBridgePathPlan(
           targetPath: buildCanonicalJobDetailPath(baseLocale, job, baseSlug, canton),
           kind: 'crossLocale',
           canton,
+          sourceJobIdentifier: String(job.id || job.slug || ''),
         });
         claimedPaths.add(pathMapKey);
       }
@@ -1030,6 +1135,37 @@ export function classifyBridgePaths(
     keepBridge.set(bridge.path, reason);
   }
   return { removable, keepBridge };
+}
+
+/**
+ * A bridge is removable only when its source job was uniquely reconciled into
+ * the final serialized Worker slug map. The caller supplies alias facts built
+ * from that same reconciled input; unmatched source rows remain `keepBridge`.
+ */
+export function classifyBridgePathsFromFinalWorkerMap(
+  bridgePaths: readonly JobCanonBridgePath[],
+  entryForSlug: JobCanonEntryLookup,
+  matchedWorkerJobIdentifiers: ReadonlySet<string>,
+  ambiguousCantonKeys: ReadonlySet<string> = new Set(),
+  activeCurrentSlugKeys: ReadonlySet<string> = new Set(),
+  onHeapSample?: () => void,
+): BridgePathClassification {
+  const classification = classifyBridgePaths(
+    bridgePaths,
+    entryForSlug,
+    ambiguousCantonKeys,
+    activeCurrentSlugKeys,
+    onHeapSample,
+  );
+  for (const bridge of bridgePaths) {
+    if (bridge.sourceJobIdentifier && matchedWorkerJobIdentifiers.has(bridge.sourceJobIdentifier)) continue;
+    if (classification.removable.delete(bridge.path)) {
+      classification.keepBridge.set(bridge.path, 'noEntry');
+    } else if (!classification.keepBridge.has(bridge.path)) {
+      classification.keepBridge.set(bridge.path, 'noEntry');
+    }
+  }
+  return classification;
 }
 
 /** Fail a build when any old bridge is unclassified or its alias target drifts. */

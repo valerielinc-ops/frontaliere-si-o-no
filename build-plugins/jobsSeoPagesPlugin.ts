@@ -224,11 +224,13 @@ import {
 import {
  buildActiveJobBridgePathPlan,
  buildTrackedJobCanonEntries,
- classifyBridgePaths,
+ classifyBridgePathsFromFinalWorkerMap,
  planActiveJobCanonAliases,
+ reconcileFinalWorkerSlugMapRows,
  assertBridgePathClassificationCoverage,
  assertBridgePathDistCoverage,
  type JobCanonBridgePath,
+ type ActiveJobSlugMapRow,
  type BridgeKeepReason,
 } from './shared/jobCanonBridgePaths';
 import { hasExactCanonicalHref } from './shared/headLinkPatterns';
@@ -406,6 +408,7 @@ import {
 } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { buildJobMetaDescription } from './shared/jobMetaDescription';
+import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import {
@@ -14891,6 +14894,44 @@ ${staticAnalyticsHtml}
  };
  const activeBridgeJobs: ActiveBridgeJob[] = validJobs.map(compactActiveBridgeJob);
 
+ // The locale split serializes the Worker alias input before fuzzy-orphan and
+ // implicit job.slug reconciliation run. Mirror the final old-slug fields into
+ // that exact file now, before PR-B classification; jobCanonRedirectMapPlugin
+ // consumes it later in this same build. Rows that cannot be matched uniquely
+ // stay ineligible for bridge removal.
+ const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');
+ if (!fs.existsSync(workerSlugMapPath)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is missing before bridge classification');
+ }
+ let serializedWorkerJobs: unknown;
+ try {
+  serializedWorkerJobs = JSON.parse(fs.readFileSync(workerSlugMapPath, 'utf8'));
+ } catch {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not valid JSON');
+ }
+ if (!Array.isArray(serializedWorkerJobs)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not an array');
+ }
+ const workerSlugMapReconciliation = reconcileFinalWorkerSlugMapRows(
+  serializedWorkerJobs as ActiveJobSlugMapRow[],
+  activeBridgeJobs,
+ );
+ if (workerSlugMapReconciliation.updatedJobCount > 0) {
+  fs.writeFileSync(workerSlugMapPath, JSON.stringify(serializedWorkerJobs), 'utf8');
+  const workerSlugShardsDir = np.resolve(distDir, 'data', 'jobs-slug-map');
+  fs.mkdirSync(workerSlugShardsDir, { recursive: true });
+  const reconciledShards = buildJobSlugShards(serializedWorkerJobs as SlugMapJobEntry[]);
+  for (const [shardKey, shard] of Object.entries(reconciledShards)) {
+   fs.writeFileSync(np.resolve(workerSlugShardsDir, `${shardKey}.json`), JSON.stringify(shard), 'utf8');
+  }
+ }
+ console.log(
+  `[jobs-seo-pages] reconciled final Worker slug map: updated=${workerSlugMapReconciliation.updatedJobCount} `
+  + `matched=${workerSlugMapReconciliation.matchedJobIdentifiers.size} `
+  + `unmatched=${workerSlugMapReconciliation.unmatchedJobIdentifiers.size}`,
+ );
+ (serializedWorkerJobs as unknown[]).length = 0;
+
  // Resolve the same active bridge inventory consumed by PR-A before expired
  // soft-landings and self-heal run. Only exact Worker destinations may lose
  // their static output; uncertain paths remain full-content bridges.
@@ -14952,9 +14993,10 @@ ${staticAnalyticsHtml}
    entry[locale] = prefix;
    workerEntries.set(slug, entry);
   }
-  const classification = classifyBridgePaths(
+  const classification = classifyBridgePathsFromFinalWorkerMap(
    bridgePlan.bridgePaths,
    workerEntries,
+   workerSlugMapReconciliation.matchedJobIdentifiers,
    activeAliasPlan.ambiguousCantonKeys,
    bridgePlan.activeRouteSlugKeys,
    sampleBridgePlanHeap,

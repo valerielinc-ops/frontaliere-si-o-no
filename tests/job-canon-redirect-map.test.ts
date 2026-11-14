@@ -20,9 +20,11 @@ import {
   assertBridgePathClassificationCoverage,
   buildTrackedJobCanonEntries,
   buildActiveJobBridgePathPlan,
+  classifyBridgePathsFromFinalWorkerMap,
   classifyBridgePaths,
   emitActiveJobCanonAliases,
   planActiveJobCanonAliases,
+  reconcileFinalWorkerSlugMapRows,
   type ActiveJobSlugMapRow,
   type JobCanonEntryLike,
 } from '../build-plugins/shared/jobCanonBridgePaths';
@@ -30,8 +32,10 @@ import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPa
 import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
 import {
+  buildJobSlugShards,
   jobCanonV2ShardKey,
   jobSlugShardKey,
+  type SlugMapJobEntry,
 } from '../services/jobSlugShards';
 
 const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
@@ -765,6 +769,116 @@ describe('job canon bridge path planning and PR-B classification', () => {
     const classified = classifyBridgePaths(bridgePaths, entries);
     expect(classified.removable).toEqual(new Set(['/old-section/old-slug/']));
     expect(classified.keepBridge.get('/another-section/old-slug/')).toBe('targetMismatch');
+  });
+
+  it('keeps late fuzzy and implicit slugs until they exist in the final Worker map', () => {
+    const serializedJob = {
+      id: 'late-worker-map-fixture',
+      slug: 'implicit-legacy-job-slug',
+      canton: 'ZH',
+      slugByLocale: {
+        it: 'current-worker-map-slug',
+        en: 'current-worker-map-slug',
+        de: 'current-worker-map-slug',
+        fr: 'current-worker-map-slug',
+      },
+    } satisfies ActiveJobSlugMapRow;
+    const finalJob = {
+      ...serializedJob,
+      previousSlugs: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+      previousSlugsByLocale: {
+        it: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+      },
+    } satisfies ActiveJobSlugMapRow;
+    const emittedBridges = buildActiveJobBridgePathPlan([finalJob], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+    }).bridgePaths;
+    const targetBridges = emittedBridges.filter((bridge) =>
+      bridge.locale === 'it'
+      && ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'].includes(bridge.slug),
+    );
+    expect(targetBridges.length).toBeGreaterThanOrEqual(2);
+
+    const workerEntriesFromRows = (rows: readonly ActiveJobSlugMapRow[]) => {
+      const entries = new Map<string, JobCanonEntryLike>();
+      emitActiveJobCanonAliases(rows, {
+        winners: {},
+        reservedHubSlugs: new Set(),
+        entryForSlug: () => undefined,
+        workerWouldRecover: () => false,
+        canWriteCrossLocalePath: () => true,
+        emitAlias: (slug, locale, targetPath) => {
+          const entry = entries.get(slug) ?? {};
+          entry.alias = { ...(entry.alias ?? {}), [locale]: targetPath };
+          entries.set(slug, entry);
+        },
+      });
+      return entries;
+    };
+
+    // This is the file as localeJobsSplitPlugin originally serialized it:
+    // it contains the legacy `job.slug`, but not the later previous-slug fact.
+    const workerRows: ActiveJobSlugMapRow[] = [serializedJob];
+    const staleInMemoryClassification = classifyBridgePaths(
+      targetBridges,
+      workerEntriesFromRows([finalJob]),
+    );
+    expect(staleInMemoryClassification.removable).toEqual(new Set(targetBridges.map((bridge) => bridge.path)));
+
+    const preReconciliationClassification = classifyBridgePathsFromFinalWorkerMap(
+      targetBridges,
+      workerEntriesFromRows(workerRows),
+      new Set(),
+    );
+    expect(preReconciliationClassification.removable.size).toBe(0);
+    expect([...preReconciliationClassification.keepBridge.values()]).toEqual(
+      Array.from({ length: targetBridges.length }, () => 'noEntry'),
+    );
+
+    const reconciliation = reconcileFinalWorkerSlugMapRows(workerRows, [finalJob]);
+    expect(reconciliation.matchedJobIdentifiers).toEqual(new Set(['late-worker-map-fixture']));
+    expect(reconciliation.unmatchedJobIdentifiers.size).toBe(0);
+    expect(reconciliation.updatedJobCount).toBe(1);
+    expect(workerRows[0].previousSlugsByLocale).toEqual({
+      it: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+    });
+
+    // Round-trip the updated JSON exactly as jobCanonRedirectMapPlugin does
+    // when it reads dist/data/jobs-slug-map.json after jobsSeoPagesPlugin.
+    const consumedWorkerRows = JSON.parse(JSON.stringify(workerRows)) as ActiveJobSlugMapRow[];
+    const consumedShards = buildJobSlugShards(consumedWorkerRows as unknown as SlugMapJobEntry[]);
+    expect(consumedShards[jobSlugShardKey('late-fuzzy-orphan-slug')]['late-fuzzy-orphan-slug']?._id)
+      .toBe('late-worker-map-fixture');
+    const exactMapClassification = classifyBridgePathsFromFinalWorkerMap(
+      targetBridges,
+      workerEntriesFromRows(consumedWorkerRows),
+      reconciliation.matchedJobIdentifiers,
+    );
+    expect(exactMapClassification.removable).toEqual(new Set(targetBridges.map((bridge) => bridge.path)));
+    expect(exactMapClassification.keepBridge.size).toBe(0);
+  });
+
+  it('does not reconcile aliases into a serialized row whose route identity drifted', () => {
+    const serializedJob: ActiveJobSlugMapRow = {
+      id: 'route-drift-fixture',
+      slug: 'old-route-slug',
+      canton: 'ZH',
+      slugByLocale: { it: 'serialized-route' },
+      previousSlugs: ['serialized-previous'],
+    };
+    const finalJob: ActiveJobSlugMapRow = {
+      ...serializedJob,
+      slugByLocale: { it: 'final-route' },
+      previousSlugs: ['late-previous'],
+    };
+
+    const reconciliation = reconcileFinalWorkerSlugMapRows([serializedJob], [finalJob]);
+
+    expect(reconciliation.matchedJobIdentifiers.size).toBe(0);
+    expect(reconciliation.unmatchedJobIdentifiers).toEqual(new Set(['route-drift-fixture']));
+    expect(reconciliation.updatedJobCount).toBe(0);
+    expect(serializedJob.previousSlugs).toEqual(['serialized-previous']);
   });
 
   it('reconstructs registry prefixes and same-locale aliases for candidate paths', () => {
