@@ -293,6 +293,61 @@ describe('crawler workflow corpus transport', () => {
     }
   });
 
+  it('converge il mapping adattato dell observer con coupling snapshot dopo il test corpus-only', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-sync-observer-adaptation-'));
+    try {
+      const manifestPath = path.join(tmp, 'scripts/ci/loop-sync-manifest.json');
+      const observerEntry = {
+        path: 'generator/tests/crawler-cross-repo-artifacts.test.mjs',
+        sitePath: '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs',
+        mode: 'adapted',
+        adaptationIssue: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/pull/3801',
+        reason: 'corpus-only transport regression is verified in the corpus',
+        couplingSnapshot: [
+          { path: 'generator/data/crawler-cross-repo-contract.json', mode: 'identical' },
+        ],
+        baseline: { site: '1111111111111111', corpus: '1111111111111111', alignedAt: '2026-11-13' },
+      };
+      fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+      fs.writeFileSync(manifestPath, `${JSON.stringify({ files: [observerEntry] })}\n`);
+
+      prepareCrawlerWorkflowCorpusSync({
+        sourceDir: path.join(ROOT, '.github/corpus-workflows'),
+        corpusRoot: tmp,
+        alignedAt: '2026-11-14',
+      });
+
+      const prepared = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      const preparedObserver = prepared.files.find((entry: any) => (
+        entry.sitePath === observerEntry.sitePath
+      ));
+      expect(preparedObserver).toMatchObject({
+        path: observerEntry.path,
+        sitePath: observerEntry.sitePath,
+        mode: 'identical',
+        couplingSnapshot: observerEntry.couplingSnapshot,
+      });
+      expect(preparedObserver).not.toHaveProperty('adaptationIssue');
+      expect(preparedObserver).not.toHaveProperty('reason');
+
+      const adaptedBase = structuredClone(prepared);
+      const adaptedBaseObserver = adaptedBase.files.find((entry: any) => (
+        entry.sitePath === observerEntry.sitePath
+      ));
+      Object.assign(adaptedBaseObserver, {
+        mode: observerEntry.mode,
+        adaptationIssue: observerEntry.adaptationIssue,
+        reason: observerEntry.reason,
+      });
+      expect(() => assertCrawlerManifestDelta({
+        baseManifest: adaptedBase,
+        currentManifest: prepared,
+      })).not.toThrow();
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
   it('descrive nel body generato il delta reale, senza conteggi fissi del catalogo', () => {
     expect(script).toContain('i file di trasporto effettivamente presenti nel diff della branch');
     expect(script).toContain('il trasporto resta limitato ai file elencati dal diff');
