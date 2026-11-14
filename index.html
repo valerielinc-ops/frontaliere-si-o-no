@@ -421,9 +421,9 @@
          demand) must appear only when the visitor clicks "Candidati" on a
          job-board section. Funding Choices calls this twice per page view;
          on the job board the call that carries OFFERWALL is held and released
-         by services/offerwallClickGate.ts. Google's AD_BLOCKING message is
-         suppressed everywhere in favor of the first-party application offer;
-         consent and other message types remain available. Readable twin of
+         by services/offerwallClickGate.ts. The gate suppresses only the
+         Offerwall message, leaving Google's native AD_BLOCKING recovery and
+         consent messages available. Readable twin of
          FC_JOBBOARD_OFFERWALL_GATE_JS
          (build-plugins/constants.ts); tests/offerwall-click-gate-parity.test.ts
          executes both and pins this path regex to
@@ -479,20 +479,33 @@
             message.proceed(false);
           }
         }
+        function adBlockConfirmed(){
+          var signal = window.__ftAdBlock;
+          return !!signal && signal.blocked === true && signal.adsAllowed !== true;
+        }
         function hold(w, entry, offerwall){
           w.held = w.held || [];
           w.held.push(entry);
           w.offerwall = offerwall;
           w.state = 'held';
-          w.release = function(){
+          w.release = function(showOfferwall){
             if (w.state !== 'held') return false;
-            w.state = 'released';
+            var show = showOfferwall !== false;
+            w.state = show ? 'released' : 'suppressed';
             var h = w.held.splice(0);
             for (var i = 0; i < h.length; i++) {
-              try { deliver(h[i].message, h[i].previous, { allow: true }); } catch (e) {}
+              try { deliver(h[i].message, h[i].previous, show
+                ? { allow: true }
+                : { allow: false, types: [w.offerwall] }); } catch (e) {}
             }
             return true;
           };
+        }
+        function releaseForAdBlock(){
+          var w = window.__ftOfferwallGate;
+          if (w && w.state === 'held' && adBlockConfirmed() && typeof w.release === 'function') {
+            w.release(false);
+          }
         }
         function syncRoute(){
           var w = window.__ftOfferwallGate;
@@ -543,9 +556,6 @@
         }
         function handleControlledMessaging(message, previous){
           var E = g.MessageTypeEnum || {};
-          if (typeof E.AD_BLOCKING === 'number' || typeof E.AD_BLOCKING === 'string') {
-            previous = mergeDecisions(previous, { allow: false, types: [E.AD_BLOCKING] });
-          }
           // The first call arrives with an empty enum and must proceed at
           // once: holding it delays the CMP and the display ads. If a later
           // call is still unclassified, fail closed because the Offerwall
@@ -575,6 +585,17 @@
           var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
           if (w.state === 'released') {
             deliver(message, previous, { allow: true });
+            return;
+          }
+          if (w.state === 'suppressed') {
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
+            return;
+          }
+          if (adBlockConfirmed()) {
+            w.state = 'suppressed';
+            w.held = [];
+            w.release = undefined;
+            deliver(message, previous, { allow: false, types: [E.OFFERWALL] });
             return;
           }
           hold(w, { message: message, previous: previous }, E.OFFERWALL);
@@ -608,6 +629,9 @@
         };
         g.__ftOfferwallGateInstalled = true;
         watchRoutes();
+        if (typeof window.addEventListener === 'function') {
+          window.addEventListener('frontaliere:adblock-data', releaseForAdBlock);
+        }
       })();
     </script>
 
