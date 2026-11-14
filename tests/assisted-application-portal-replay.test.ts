@@ -693,4 +693,8 @@ describe('portal replay live preflight', () => {
     const responses = [{ status: 503 }];
     await expect(bestEffortPortalReplayPreflight(async () => responses)).resolves.toBe(responses);
   });
+
+  it('normalizes a malformed preflight result without aborting the family', async () => {
+    await expect(bestEffortPortalReplayPreflight(async () => null)).resolves.toEqual([{ status: 0 }]);
+  });
 });
