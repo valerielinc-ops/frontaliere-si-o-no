@@ -58,6 +58,47 @@ describe('Delvitech job parser', () => {
     });
   });
 
+  it('reads semantic open-role cards from the canonical careers page', () => {
+    const html = `
+      <main>
+        <section id="open-roles">
+          <article class="role-card">
+            <h3>Application Engineer</h3>
+            <a href="/application-engineer-2/">View role</a>
+          </article>
+          <article class="role-card">
+            <a href="/customer-support-manager/">Customer Support Manager</a>
+          </article>
+        </section>
+        <a href="/careers/">See open roles</a>
+        <a href="/news/company-update/">News</a>
+      </main>
+    `;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'Application Engineer',
+      'Customer Support Manager',
+    ]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
+    expect(jobs.delvitechListingRecordCount).toBe(2);
+  });
+
+  it('accepts same-company JobPosting links when the canonical page exposes structured listings', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'E2E Test Engineer',
+      url: 'https://delvi.tech/e2e-test-engineer/',
+    })}</script>`;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toEqual([{
+      href: 'https://delvi.tech/e2e-test-engineer/',
+      title: 'E2E Test Engineer',
+    }]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
+  });
+
   it('does not count external-only anchors as Delvitech listing records', () => {
     const html = `
       <div class="post-content">

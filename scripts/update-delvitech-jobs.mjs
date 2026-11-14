@@ -62,9 +62,9 @@ const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Delvitech SA';
-const COMPANY_HOST = 'legacy.delvi.tech';
+const COMPANY_HOST = 'delvi.tech';
 const COMPANY_DOMAIN = 'delvi.tech';
-const CAREERS_URL = 'https://legacy.delvi.tech/career/';
+const CAREERS_URL = 'https://delvi.tech/careers/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const execFile = promisify(execFileCb);
 const BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36';
@@ -212,7 +212,7 @@ function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
   const url = String(job.url || '').toLowerCase();
-  return key === COMPANY_KEY || company.includes('delvitech') || url.includes('legacy.delvi.tech/');
+  return key === COMPANY_KEY || company.includes('delvitech') || url.includes('legacy.delvi.tech/') || url.includes('delvi.tech/');
 }
 
 function isTrustedDomain(rawUrl = '') {
@@ -227,7 +227,23 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchListings() {
   console.log('🔍 Fetching Delvitech career page...');
   const html = await fetchRobust(CAREERS_URL);
-  const listings = parseDelvitechCareerPage(html);
+  let listings = parseDelvitechCareerPage(html);
+  if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true) {
+    // The redesigned canonical page hydrates the open-role cards in the
+    // browser. An HTTP 200 shell with no cards is not an authoritative zero;
+    // render it once before the snapshot guard decides whether the source was
+    // read completely.
+    console.log('⚠️  No Delvitech listing evidence in HTML, rendering the canonical page...');
+    try {
+      const renderedHtml = await fetchWithBrowser(CAREERS_URL);
+      const renderedListings = parseDelvitechCareerPage(renderedHtml);
+      if (renderedListings.length > 0 || renderedListings.delvitechListingEmptyStateObserved === true) {
+        listings = renderedListings;
+      }
+    } catch (error) {
+      console.warn(`⚠️  Browser listing fallback failed: ${error.message}`);
+    }
+  }
   console.log(`📋 Total Delvitech job pages found: ${listings.length}`);
   if (listings.length === 0) {
     console.log('ℹ️  Nessun annuncio trovato per Delvitech SA — non è un errore, il crawler prosegue.');
@@ -400,7 +416,7 @@ function updateAdapterConfig(jobs) {
     priority: 20,
     crawlerModes: ['html'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Delvitech crawler parses the legacy WordPress career page and detail pages, excluding Germany roles and publishing TI + GR vacancies.',
+    notes: 'Dedicated Delvitech crawler parses the canonical careers page and detail pages, excluding Germany roles and publishing TI + GR vacancies.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
