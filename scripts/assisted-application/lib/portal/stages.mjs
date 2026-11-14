@@ -46,7 +46,8 @@ const APPLICATION_DESTINATION_TITLE_RE = /^(?:talent\s*pool|talentpool|spontaneo
 const APPLICATION_DIVERSION_CONTROL_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alert|job\s*alert|job[- ]?abo|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
 const APPLICATION_DIVERSION_URL_RE = /\/(?:introduce(?:your)?self|talent[-_]?pool|spontaneous[-_]?application|unsolicited[-_]?application|general[-_]?application|job[-_]?alert|jobabo|stellenalarm|initiativbewerbung|jobbenachrichtigung)(?:[/?#]|$)/iu;
 const APPLICATION_DIVERSION_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica|unsolicited\s+application|spontaneous\s+application|general\s+application|candidature\s+(?:spontanée|spontanee|libre)|candidatura\s+(?:spontanea|libera)|initiativbewerbung|initiativ\s+bewerbung)\b/iu;
-const APPLICATION_NOT_SPECIFIC_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica)\b/iu;
+const APPLICATION_NOT_SPECIFIC_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica|unsolicited\s+application|spontaneous\s+application|general\s+application|candidature\s+(?:spontanée|spontanee|libre)|candidatura\s+(?:spontanea|libera)|initiativbewerbung|initiativ\s+bewerbung)\b/iu;
+const APPLICATION_GENERIC_HEADING_RE = /^(?:application|bewerbung|candidatura|candidature)\W*$/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -262,7 +263,8 @@ export function applicationDestinationDiversionHint(snapshot = {}) {
     .filter(Boolean);
   const hasJobSpecificHeading = explicitPageHeadings.some((heading) =>
     !APPLICATION_DESTINATION_TITLE_RE.test(heading)
-      && !APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading));
+      && !APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading)
+      && !APPLICATION_GENERIC_HEADING_RE.test(heading));
   const warningOnlyInSecondaryAccessibilityHeading = text.split(/\r?\n/u).some((line) => {
     const match = line.match(/^\s*-\s+heading\s+["'](.+?)["']\s+\[level=(\d+)/iu);
     return Boolean(match && Number(match[2]) > 1 && APPLICATION_NOT_SPECIFIC_WARNING_RE.test(match[1]));

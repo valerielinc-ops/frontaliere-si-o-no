@@ -62,6 +62,21 @@ describe('application stage ownership', () => {
     })).toBe('talent_pool_or_job_alert');
   });
 
+  it('does not let a generic Application heading suppress a diversion warning', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      pageHeadings: ['Application'],
+      text: 'This is not an application for a specific job',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('recognizes an unsolicited-application warning on a generic destination', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      text: 'This is an unsolicited application',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
   it('does not treat a job-alert sidebar link as a diversion destination for final binding', () => {
     const snapshot = {
       title: 'Application',
