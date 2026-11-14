@@ -12,6 +12,7 @@ import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
+  bestEffortPortalReplayPreflight,
   comparePortalReplayFamily,
   extractPortalStopHosts,
   PORTAL_REPLAY_ALLOWED_PATHS,
@@ -677,5 +678,19 @@ describe('portal replay base/head gate', () => {
       prepareRun: true, prepareResult: 'success', matrixResult: 'success', families: ['workday'],
       reports: [{ family: 'workday', status: 'pass' }],
     })).toMatchObject({ status: 'pass', code: 'portal_replay_passed' });
+  });
+});
+
+describe('portal replay live preflight', () => {
+  it('keeps a transient public endpoint failure local to the case', async () => {
+    const result = await bestEffortPortalReplayPreflight(async () => {
+      throw Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
+    });
+    expect(result).toEqual([{ status: 0 }]);
+  });
+
+  it('preserves successful preflight responses for the retry classifier', async () => {
+    const responses = [{ status: 503 }];
+    await expect(bestEffortPortalReplayPreflight(async () => responses)).resolves.toBe(responses);
   });
 });

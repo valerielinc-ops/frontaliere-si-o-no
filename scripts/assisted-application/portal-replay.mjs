@@ -474,6 +474,21 @@ async function publicPreflight(trustedRoot, record, isMutatingGetUrl) {
   }
 }
 
+/**
+ * A live preflight is a hint for retrying known upstream 5xx responses, not a
+ * prerequisite for the paired browser measurement. Keep a transient DNS,
+ * timeout, or connection failure local to the case so one unavailable public
+ * listing cannot abort its whole family before a report is written.
+ */
+export async function bestEffortPortalReplayPreflight(run) {
+  try {
+    const responses = await run();
+    return Array.isArray(responses) ? responses : [{ status: 0 }];
+  } catch {
+    return [{ status: 0 }];
+  }
+}
+
 function locationFrom(record, evidence, portalApi) {
   const value = evidence?.finalUrl || evidence?.steps?.at(-1)?.url || record.applyUrl;
   return {
@@ -996,11 +1011,11 @@ async function compareMode(values) {
   await Promise.all(diagnosticModules.map(warmPortalDiagnosticsModule));
   const preflightByKey = new Map();
   for (const record of records) {
-    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    let responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
       retryCount = 1;
-      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+      responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     }
     preflightByKey.set(record.key, { responses, retryCount });
   }
