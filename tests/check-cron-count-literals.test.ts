@@ -198,6 +198,31 @@ describe('buildCronPathMatcher', () => {
     expect(isCronPath('data/pharmacy-duties-geneva-sources.json')).toBe(false);
     expect(isCronPath('data/pharmacy-sources-registry.json')).toBe(true);
   });
+
+  it('non classifica come writer un loop schedulato che valida soltanto i file', () => {
+    const root = syntheticRepo();
+    writeFile(root, '.github/workflows/loop-sources.yml', [
+      'name: loop sources',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 1 * * *'",
+      'jobs:',
+      '  validate:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: |',
+      '          for file in data/validated.json; do',
+      '            test -s "$file"',
+      '          done',
+      '          for file in data/staged.json; do',
+      '            git add "$file"',
+      '          done',
+      '',
+    ].join('\n'));
+    const isCronPath = buildCronPathMatcher(root);
+    expect(isCronPath('data/validated.json')).toBe(false);
+    expect(isCronPath('data/staged.json')).toBe(true);
+  });
 });
 
 describe('osservatore sul repo', () => {
