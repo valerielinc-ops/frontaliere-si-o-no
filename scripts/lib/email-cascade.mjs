@@ -186,11 +186,17 @@ function getRefDb() {
  */
 export async function sendEmailCascade(emails, opts = {}) {
   const channel = resolveChannel();
+  // `mailerooRefChannel` (opzionale): il canale con cui registrare il riferimento
+  // Maileroo, quando non coincide con quello dell'entry script. Il sender dei job
+  // alert lo passa esplicitamente, cosi' il riferimento e' scritto UNA volta qui
+  // e non una seconda volta dal sender (perf-plan PR 4a).
+  const { mailerooRefChannel, ...cascadeOpts } = opts;
+  const refChannelId = String(mailerooRefChannel || channel.id);
   const optsWithRef = {
-    ...opts,
+    ...cascadeOpts,
     onSent: makeMailerooRefOnSent(getRefDb, {
-      defaultCampaignId: channel.id,
-      isJobAlert: channel.id === 'job-alert',
+      defaultCampaignId: refChannelId,
+      isJobAlert: refChannelId === 'job-alert',
       next: opts.onSent || null,
     }),
   };

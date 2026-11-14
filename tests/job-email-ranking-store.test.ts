@@ -4,7 +4,9 @@ import { appendJobRankingParams } from '../functions/src/lib/jobEmailRankingLink
 import {
   recordJobEmailImpressions,
   recordJobEmailRankingClick,
+  resolveRankingImpressionsMode,
 } from '../functions/src/lib/jobEmailRankingStore.js';
+import { rankingHasActiveTreatment } from '../functions/src/lib/jobEmailRanking.js';
 
 function fakeDb() {
   const values = new Map<string, any>();
@@ -318,5 +320,91 @@ describe('job email ranking Firestore store', () => {
       expect(impressions, deliveryId).toHaveLength(2);
       for (const impression of impressions) expect(impression.affinity_profile, deliveryId).toBe(flag);
     }
+  });
+});
+
+describe('impression mode of the job-alert sender (perf-plan PR 4a)', () => {
+  const records = () => [1, 2].map((n) => ({
+    deliveryId: `jer_job_alert_mode_${n}`,
+    surface: 'job_alert',
+    surfaceId: `alert-mode-${n}`,
+    alertId: `alert-mode-${n}`,
+    email: `mode${n}@example.test`,
+    variant: 'control',
+    affinityProfile: false,
+    sentAt: '2026-11-14T10:00:00.000Z',
+    jobs: [{ jobId: `mode-${n}-a` }, { jobId: `mode-${n}-b` }, { jobId: `mode-${n}-c` }],
+  }));
+
+  it('full keeps today\'s writes: one stats and one event per job, plus the delivery', async () => {
+    const { db, values } = fakeDb();
+    const result = await recordJobEmailImpressions(db, records(), { mode: 'full' });
+    expect(result.writes).toBe(2 * 3 + 2 * 3 + 2);
+    const all = [...values.values()];
+    expect(all.filter((v) => v.event_type === 'job_alert_impression')).toHaveLength(6);
+    expect(all.filter((v) => v.impressions !== undefined)).toHaveLength(6);
+    expect(all.filter((v) => Array.isArray(v.jobs))).toHaveLength(2);
+  });
+
+  it('the default (no options) is still full, so the newsletter sender is unchanged', async () => {
+    const { db } = fakeDb();
+    const result = await recordJobEmailImpressions(db, records());
+    expect(result.writes).toBe(14);
+  });
+
+  it('manifest writes ONLY the delivery documents: no stats, no event', async () => {
+    const { db, values } = fakeDb();
+    const result = await recordJobEmailImpressions(db, records(), { mode: 'manifest' });
+    expect(result).toEqual({ recorded: 2, writes: 2 });
+    const all = [...values.values()];
+    expect(all.filter((v) => v.event_type)).toHaveLength(0);
+    expect(all.filter((v) => v.impressions !== undefined)).toHaveLength(0);
+    const deliveries = all.filter((v) => Array.isArray(v.jobs));
+    expect(deliveries).toHaveLength(2);
+    // The one thing build-job-email-affinity.mjs joins clicks on.
+    expect(deliveries[0]).toMatchObject({ surface: 'job_alert', ranking_variant: 'control', affinity_profile: false });
+    expect(deliveries[0].jobs).toHaveLength(3);
+  });
+
+  it('auto is full only with an active non-control arm; manifest otherwise; unknown falls back to full', () => {
+    const off = { enabled: false, rollout: 0.5, treatmentVariant: 'control_plus_newness' };
+    const zero = { enabled: true, rollout: 0, treatmentVariant: 'affinity' };
+    const controlOnly = { enabled: true, rollout: 1, treatmentVariant: 'control' };
+    const newness = { enabled: true, rollout: 0.5, treatmentVariant: 'control_plus_newness' };
+    const affinity = { enabled: true, rollout: 0.1, treatmentVariant: 'affinity' };
+    for (const config of [off, zero, controlOnly]) {
+      expect(rankingHasActiveTreatment({ config }), JSON.stringify(config)).toBe(false);
+      expect(resolveRankingImpressionsMode({ requested: undefined, config })).toBe('manifest');
+      expect(resolveRankingImpressionsMode({ requested: 'auto', config })).toBe('manifest');
+    }
+    for (const config of [newness, affinity]) {
+      expect(rankingHasActiveTreatment({ config }), JSON.stringify(config)).toBe(true);
+      expect(resolveRankingImpressionsMode({ requested: '', config })).toBe('full');
+    }
+    expect(resolveRankingImpressionsMode({ requested: 'full', config: off })).toBe('full');
+    expect(resolveRankingImpressionsMode({ requested: ' MANIFEST ', config: newness })).toBe('manifest');
+    expect(resolveRankingImpressionsMode({ requested: 'turbo', config: off })).toBe('full');
+  });
+
+  it('a click on a delivery recorded in manifest mode still creates its event and stats by merge', async () => {
+    const { db, values } = fakeDb();
+    await recordJobEmailImpressions(db, records().slice(0, 1), { mode: 'manifest' });
+    const url = appendJobRankingParams('https://frontaliereticino.ch/cerca-lavoro-ticino/mode-1-a/', {
+      jobId: 'mode-1-a',
+      surface: 'job_alert',
+      surfaceId: 'alert-mode-1',
+      alertId: 'alert-mode-1',
+      deliveryId: 'jer_job_alert_mode_1',
+      position: 1,
+      variant: 'control',
+    });
+    const outcome = await recordJobEmailRankingClick(db, {
+      email: 'mode1@example.test', provider: 'maileroo', messageId: 'm-1', occurredAt: '2026-11-14T11:00:00.000Z', url,
+    });
+    expect(outcome.recorded).toBe(true);
+    const all = [...values.values()];
+    expect(all.some((v) => v.event_type === 'job_alert_click')).toBe(true);
+    const stats = all.find((v) => v.clicks && v.job_id === 'mode-1-a');
+    expect(stats).toBeTruthy();
   });
 });
