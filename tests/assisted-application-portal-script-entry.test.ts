@@ -43,10 +43,11 @@ describe('verified posting script entry (#17253)', () => {
   });
 
   it('opens the sole BrassRing Apply now control on UBS HomeWithPreLoad', () => {
-    const ubsUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const renderedUrl = ubsUrl.replace('/TGnewUI/', '/TGNewUI/');
     const apply = { text: 'Apply now', frame: 0 };
     const snapshot = {
-      url: ubsUrl,
+      url: renderedUrl,
       fields: [],
       buttons: [
         { text: 'Share', frame: 0 },
@@ -62,7 +63,7 @@ describe('verified posting script entry (#17253)', () => {
     };
 
     expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
-    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, ubsUrl, {
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, renderedUrl, {
       snapshot,
       applyUrl: ubsUrl,
     })).toMatchObject({ submit: null, next: null });
