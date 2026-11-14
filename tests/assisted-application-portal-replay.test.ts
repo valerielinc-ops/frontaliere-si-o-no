@@ -462,7 +462,6 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
-    expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     const replayGate = workflow.indexOf('\n  portal-replay-gate:');
     const replayBlock = workflow.slice(replay, replayGate);
@@ -510,11 +509,30 @@ describe('portal replay workflow wiring', () => {
     // the per-family exit status survives the sliding window
     expect(workflow).toContain('echo "$status" > "$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.exit"');
     expect(workflow).toContain('finished with exit $status after');
-    // worst case still fits the job budget: listings / parallel families * 75 s plus setup.
-    const worstListings = 3 * 9 + 5 * 3;
-    const parallelFamilies = Math.floor(laneCount / 2);
-    const replayMinutes = (Math.ceil(worstListings / parallelFamilies) * 75) / 60;
-    expect(replayMinutes + 7).toBeLessThan(30);
+    // the job budget covers a worst-case bound derived from the largest family
+    // (a family holds a slot for its whole workload), not from an average
+    const cli = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
+    const limits = /minPerFamily: (\d+), base: (\d+), hardCases: (\d+), maxPerFamily: (\d+), retries: (\d+)/u.exec(cli);
+    expect(limits).not.toBeNull();
+    const [maxPerFamily, retries] = [Number(limits?.[4]), Number(limits?.[5])];
+    const minPerFamily = Number(limits?.[1]);
+    const listingMs = Number(/--timeout-ms (\d+)/u.exec(workflow)?.[1]);
+    expect(listingMs).toBe(75_000);
+    const preflightS = 60;
+    const listingS = ((retries + 1) * listingMs) / 1000;
+    const largestS = maxPerFamily * listingS + preflightS;
+    const smallS = minPerFamily * listingS + preflightS;
+    const familyCount = 12; // PORTAL_REPLAY_FAMILIES
+    const largeFamilies = 3; // employer_site, successfactors, workday get maxPerFamily listings
+    const workS = largeFamilies * largestS + (familyCount - largeFamilies) * smallS;
+    const slots = Math.floor(laneCount / 2);
+    // greedy list scheduling: makespan <= work / slots + (1 - 1 / slots) * largest family
+    const makespanS = workS / slots + (1 - 1 / slots) * largestS;
+    const setupMin = 6;
+    const boundMin = Math.ceil(makespanS / 60) + setupMin;
+    const budget = Number(/timeout-minutes: (\d+)/u.exec(workflow.slice(workflow.indexOf('  replay:')))?.[1]);
+    expect(budget).toBeGreaterThanOrEqual(boundMin);
+    expect(workflow).toContain(`${Math.round(makespanS)} s`);
   });
 
   it('warms the broker up before the burst and fails by name when the Codex backend is unusable', () => {

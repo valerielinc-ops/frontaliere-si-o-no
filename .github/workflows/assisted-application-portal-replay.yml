@@ -192,11 +192,19 @@ jobs:
     needs: prepare
     if: needs.prepare.result == 'success'
     runs-on: ubuntu-latest
-    # The budget includes two trusted sparse checkouts, two npm ci runs,
-    # Chromium and up to five base/head listing pairs, not only the replay.
-    # Worst case (every listing burns its full 75 s): 42 listings / 3 parallel
-    # families * 75 s = about 18 min of replay after about 5 min of setup.
-    timeout-minutes: 30
+    # Budget bound, derived from the largest family and not from an average
+    # (a family holds one of the parallel slots for its whole workload):
+    #   listing   <= (retries 1 + 1) attempts * 75 s            = 150 s
+    #                (base and head run concurrently, not summed)
+    #   family    <= 5 listings (maxPerFamily) * 150 s + 60 s of
+    #                preflight and browser launch               = 810 s
+    #   corpus    <= 9 families of 3 + 3 families of 5          = 7020 s of work
+    #   makespan  <= work / 3 slots + (2/3) * largest family    = 2880 s (48 min)
+    #   setup     ~ 4.4 min measured (checkouts, two npm ci, Chromium, broker),
+    #               6 min allowed                                -> 54 min
+    # timeout-minutes covers that bound. Measured on run 43597436525: replay
+    # 10.7 min, largest family 287 s (employer_site, 5 listings), job 15.3 min.
+    timeout-minutes: 55
     env:
       # Broker lanes (the action accepts 1..6). Each family runs base and head
       # concurrently, so the number of families in flight is lanes / 2.
@@ -352,6 +360,10 @@ jobs:
             const pairMs = Date.now() - pair;
             const slowest = Math.max(...results.map((item) => item.ms));
             console.log(`Codex broker lanes probe: 2 concurrent requests in ${pairMs} ms (single request ${first.ms} ms, errors: ${results.filter((item) => !item.ok).length})`);
+            const failedProbes = results.filter((item) => !item.ok);
+            if (failedProbes.length) {
+              console.log(`::warning::Codex broker probe failed on ${failedProbes.length}/2 concurrent requests (${failedProbes[0].error || "unexpected answer"}); the broker is unhealthy under concurrency and replay results may be unmeasured.`);
+            }
             if (pairMs > first.ms * 1.7 && slowest > 5000) {
               console.log(`::warning::Codex broker lanes look serialized (2 requests took ${pairMs} ms against ${first.ms} ms for one); replay listings may wait in the broker queue.`);
             }
