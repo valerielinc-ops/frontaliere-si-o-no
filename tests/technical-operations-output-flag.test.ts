@@ -228,4 +228,68 @@ describe('technical operations output audit', () => {
       }),
     ]);
   });
+
+  it('follows inline object maps passed to env.GITHUB_OUTPUT writers', () => {
+    const scriptPath = path.resolve('scripts/social-copy/generate-free-model-fallback.mjs');
+    const delegatedSource = [
+      "import { appendFileSync } from 'node:fs';",
+      'function writeWorkflowOutput(env, values) {',
+      "  const lines = Object.entries(values).map(([key, value]) => `${key}=${value}`).join('\\n');",
+      '  if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, `${lines}\\n`);',
+      '}',
+      "writeWorkflowOutput(env, { pack_generated: false, provider: 'none', reason: 'failed', attempt_failures: 'none' });",
+    ].join('\n');
+    const source = [
+      'name: social fallback output',
+      'on: [push]',
+      'jobs:',
+      '  generate:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: free_fallback',
+      '        run: node scripts/social-copy/generate-free-model-fallback.mjs',
+      '      - run: echo "${{ steps.free_fallback.outputs.pack_generated }} ${{ steps.free_fallback.outputs.provider }} ${{ steps.free_fallback.outputs.reason }} ${{ steps.free_fallback.outputs.attempt_failures }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/social-copy-pack.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => {
+        if (candidate !== scriptPath) throw new Error(`unexpected fixture path: ${candidate}`);
+        return delegatedSource;
+      },
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('follows async writeFile targets derived from a --github-output flag', () => {
+    const scriptPath = path.resolve('scripts/ci/section-tree-layout-preflight.mjs');
+    const delegatedSource = [
+      "import { writeFile } from 'node:fs/promises';",
+      'function flag(argv, name, fallback) { return fallback; }',
+      "const output = flag(args, '--github-output', process.env.GITHUB_OUTPUT);",
+      "if (output) await writeFile(output, 'ready=true\\n', { flag: 'a' });",
+    ].join('\n');
+    const workflow = (target: string) => [
+      'name: async output flag',
+      'on: [push]',
+      'jobs:',
+      '  preflight:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: preflight',
+      `        run: node scripts/ci/section-tree-layout-preflight.mjs --github-output ${target}`,
+      '      - run: echo "${{ steps.preflight.outputs.ready }}"',
+    ].join('\n');
+    const files = new Map([[scriptPath, delegatedSource]]);
+    const audit = (source: string) => auditWorkflowText('.github/workflows/deploy-publish.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((finding: any) => finding.rule === 'workflow.output-not-produced');
+
+    expect(audit(workflow('"$GITHUB_OUTPUT"'))).toEqual([]);
+    expect(audit(workflow('"$RUNNER_TEMP/preflight.txt"')).map((finding: any) => finding.evidence))
+      .toEqual(['steps.preflight.outputs.ready']);
+  });
 });
