@@ -169,6 +169,7 @@ async function runPipeline(fetchJobs: () => Promise<unknown>, extra: Record<stri
     discovered: number | null;
     lastFetchOutcome: string | null;
     parsed: number | null;
+    fetchReceipt: Record<string, unknown> | null;
   };
 }
 
@@ -212,6 +213,26 @@ describe('parser-stamped zero: honoured by default, without runner wiring', () =
   it('(b) keeps a bare [] fail-closed: no-jobs-parsed, slice intact', async () => {
     const counts = await runPipeline(async () => []);
     expect(counts.abortKind).toBe('no-jobs-parsed');
+    expectSliceUntouched();
+  });
+
+  it('retains a prospector fetch receipt on an untyped zero without making it healthy', async () => {
+    const receipt = {
+      specKey: COMPANY_KEY,
+      seedUrls: ['https://example.com/jobs/'],
+      phase: 'listing',
+      pages: 1,
+      httpStatuses: [{ status: 200, url: 'https://example.com/jobs/' }],
+      proxiedBy: [],
+      fetchOutcome: null,
+      fetchDetail: null,
+    };
+    const counts = await runPipeline(async () => ({ jobs: [], fetchReceipt: receipt }));
+
+    expect(counts).toMatchObject({
+      abortKind: 'no-jobs-parsed',
+      fetchReceipt: receipt,
+    });
     expectSliceUntouched();
   });
 

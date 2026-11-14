@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   APPLICATION_INTENT_REMINDER_MIN_AGE_MS,
   buildApplicationIntentEntry,
+  createApplicationIntentReminderFeatureCache,
   isApplicationIntentReminderEligible,
   rankSimilarApplicationJobs,
 } from '../scripts/lib/applicationIntentReminder.mjs';
@@ -160,6 +161,28 @@ describe('application-intent reminder eligibility and recommendations', () => {
       max: 3,
       excludedJobIds: new Set(['source']),
     }).map((job) => job.id)).toEqual(['good', 'far']);
+  });
+
+  it('reuses candidate features across recipient rankings without changing results', () => {
+    const candidateJobs = [
+      { ...sourceJob, id: 'good', companyKey: 'other-company', company: 'Other SA', title: 'Software Developer', titleByLocale: { it: 'Software Developer' }, slug: 'software-developer', slugByLocale: { it: 'software-developer' }, location: 'Lugano' },
+      { ...sourceJob, id: 'far', companyKey: 'far-company', company: 'Far SA', title: 'Software Developer', titleByLocale: { it: 'Software Developer' }, slug: 'software-developer-far', slugByLocale: { it: 'software-developer-far' }, location: 'Zurich', canton: 'ZH' },
+    ];
+    const featureCache = createApplicationIntentReminderFeatureCache();
+    const rank = (cache) => rankSimilarApplicationJobs([sourceJob], candidateJobs, {
+      max: 3,
+      excludedJobIds: new Set(['source']),
+      featureCache: cache,
+    }).map((job) => job.id);
+    const expected = rankSimilarApplicationJobs([sourceJob], candidateJobs, {
+      max: 3,
+      excludedJobIds: new Set(['source']),
+    }).map((job) => job.id);
+
+    expect(rank(featureCache)).toEqual(expected);
+    const cachedSimilarity = featureCache.similarity(candidateJobs[0]);
+    expect(rank(featureCache)).toEqual(expected);
+    expect(featureCache.similarity(candidateJobs[0])).toBe(cachedSimilarity);
   });
 });
 

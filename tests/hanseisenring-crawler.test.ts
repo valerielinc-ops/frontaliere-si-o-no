@@ -7,6 +7,8 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/hanseisenring-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { extractRuntimeDetailFields } from '../scripts/lib/prospector/detail-extract.mjs';
+import { loadSpec } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('Hans Eisenring AG crawler parser', () => {
   // ── Constants ──
@@ -99,6 +101,52 @@ describe('Hans Eisenring AG crawler parser', () => {
         ...broadLocationContext('Regionen Nordwestschweiz, Zürich'),
         descriptionSufficient: false,
       })).toBe(false);
+    });
+
+    it('accepts a reviewed broad workplace when the source marks the structured location as conflicting', () => {
+      expect(isHanseisenringExpectedDetailFilter({
+        reason: 'geography',
+        decision: { geography: null, explicitlyForeign: true, hasDeclaredLocation: true },
+        detail: {
+          hasStructuredVacancy: false,
+          authoritativeLocationConflict: true,
+          workplaceLabels: ['Einsatzgebiet Ostschweiz oder Region Zürich'],
+        },
+        descriptionSufficient: true,
+      })).toBe(true);
+    });
+  });
+
+  it('maps the reviewed bare Münchwilen workplace to the source-declared canton', () => {
+    const spec = loadSpec(HANSEISENRING_KEY);
+    const detail = extractRuntimeDetailFields(
+      spec,
+      '<h3>Arbeitsort</h3><div><p>Münchwilen</p></div>',
+      'https://hanseisenring.ch/unternehmen/karriere/jobportal/test',
+    );
+
+    expect(detail).toMatchObject({
+      location: 'Münchwilen',
+      addressLocality: 'Münchwilen',
+      addressRegion: 'TG',
+      addressCountry: 'CH',
+    });
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Münchwilen', addressRegion: 'TG' }),
+    ]);
+  });
+
+  it('retains a reviewed broad workplace label when it cannot become one canton', () => {
+    const spec = loadSpec(HANSEISENRING_KEY);
+    const detail = extractRuntimeDetailFields(
+      spec,
+      '<h3>Arbeitsort</h3><div><p>Einsatzgebiet Ostschweiz oder Region Zürich</p></div>',
+      'https://hanseisenring.ch/unternehmen/karriere/jobportal/test',
+    );
+
+    expect(detail).toMatchObject({
+      authoritativeLocationConflict: true,
+      workplaceLabels: ['Einsatzgebiet Ostschweiz oder Region Zürich'],
     });
   });
 
