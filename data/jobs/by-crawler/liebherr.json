@@ -5192,7 +5192,8 @@
       "streetAddress": "Nussbaumen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:35:28.116Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-16cb4e08f91b",
