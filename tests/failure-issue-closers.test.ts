@@ -392,8 +392,10 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       .map(([file, closedBy]) => `${file}\t${closedBy}`);
     expectedRows.push(
       // deploy-publish.yml has five pre-existing caller reporters plus the
-      // non-IT tail and receipt reporters added with the deferred-tail split.
-      ...Array.from({ length: 7 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
+      // non-IT tail and receipt reporters added with the deferred-tail split,
+      // the IT publish reporter (CDN / section group / finalizer) and the
+      // Pages-not-deployed verdict reporter.
+      ...Array.from({ length: 9 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
       'sync-articles-sitemaps.yml\tclose-recovered-failure-issues',

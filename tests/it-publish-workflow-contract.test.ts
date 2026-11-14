@@ -103,7 +103,7 @@ describe('deploy IT build-to-publish handoff', () => {
     const missing = [...new Set([...closure, ...publisherRuntimePaths])]
       .filter((file) => !sparseCheckoutIncludes(sparsePaths, file));
 
-    expect(checkout.with.ref).toBe('refs/heads/main');
+    expect(checkout.with.ref).toBe('${{ github.sha }}');
     expect(missing).toEqual([]);
     expect(closure.has('services/publicConfigConstants.mjs')).toBe(true);
   });
