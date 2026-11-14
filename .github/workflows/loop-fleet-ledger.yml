@@ -67,6 +67,8 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
             /scripts/ci/benchmark-loop-fleet-ledger.mjs
+            /scripts/ci/read-workflow-run-provenance.mjs
+            /scripts/ci/lib/github-api-retry.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-ledger-index.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
@@ -154,7 +156,7 @@ jobs:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
         run: |
           set -euo pipefail
-          source_run=$(gh run view "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --json event,headBranch,headSha,status,conclusion)
+          source_run=$(node scripts/ci/read-workflow-run-provenance.mjs "$SOURCE_RUN_ID" "$GITHUB_REPOSITORY")
           source_event=$(jq -r '.event // ""' <<<"$source_run")
           source_branch=$(jq -r '.headBranch // ""' <<<"$source_run")
           observed_source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
