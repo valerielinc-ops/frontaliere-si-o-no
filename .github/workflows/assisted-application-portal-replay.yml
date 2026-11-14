@@ -467,7 +467,11 @@ jobs:
               local log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
               local started=$SECONDS
               local status=0
-              PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" node "$portal_replay_cli" compare \
+              # The 3060 s family bound derived above is enforced, not only
+              # declared: a family that outlives it exits 124, its log is still
+              # printed below and the gate counts it as failed. Without it one
+              # stuck family held its whole group to the 120-minute timeout.
+              PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" timeout --kill-after=30s 3060s node "$portal_replay_cli" compare \
                 --base-root .portal-base \
                 --head-root . \
                 --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \

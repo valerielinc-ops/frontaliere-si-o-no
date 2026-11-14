@@ -185,7 +185,10 @@ function emitDeployContentManifest(rootDir: string, distDir: string): void {
  const flag = (process.env.DEPLOY_CONTENT_MANIFEST || '').toLowerCase();
  if (flag !== '1' && flag !== 'true' && flag !== 'yes') return;
 
- const outPath = path.resolve(rootDir, 'content-manifest.tsv');
+ const outPath = path.resolve(
+  rootDir,
+  process.env.DEPLOY_CONTENT_MANIFEST_PATH || 'content-manifest.tsv',
+ );
  try {
  const stream = fs.createWriteStream(outPath, { encoding: 'utf-8' });
  let buf = '';
