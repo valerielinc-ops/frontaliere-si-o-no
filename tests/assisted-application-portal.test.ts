@@ -72,6 +72,14 @@ describe('application-surface detection', () => {
     expect(candidateAnswerForField(candidate, skills)).toBeNull();
     expect(questionTopic('Handy', 'Telefonnummer')).toBe('phone');
   });
+
+  it('does not map mobility questions to phone identity', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    for (const label of ['Are you mobile, willing to travel?', 'Sind Sie mobil, bereit zu reisen?']) {
+      expect(questionTopic(label)).not.toBe('phone');
+      expect(candidateAnswerForField(candidate, { kind: 'text', inputType: 'text', label })).toBeNull();
+    }
+  });
 });
 
 describe('account verification recovery', () => {

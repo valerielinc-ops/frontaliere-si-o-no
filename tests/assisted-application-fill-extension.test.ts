@@ -1552,11 +1552,15 @@ describe('fill extension: other portals', () => {
     const { F, document, window } = page(`<form>
       <label for="handy">Handy</label><input id="handy">
       <label for="skills">How handy are you with tools?</label><input id="skills">
+      <label for="mobility-en">Are you mobile, willing to travel?</label><input id="mobility-en">
+      <label for="mobility-de">Sind Sie mobil, bereit zu reisen?</label><input id="mobility-de">
     </form>`, 'https://jobs.example.ch/apply');
     const fields = F.collect(document);
     expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'handy'), kit))
       .toEqual({ value: '+39 333 1234567', family: 'phone' });
     expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'skills'), kit)).toBeNull();
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'mobility-en'), kit)).toBeNull();
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'mobility-de'), kit)).toBeNull();
     window.close();
   });
 

@@ -764,12 +764,13 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 const PHONE_CODE_FIELD_RE = new RegExp([
   // «Handy» is a German phone caption only when it is the field's own word
   // or has a German phone qualifier; it must not match English prose such as
-  // «How handy are you with tools?». Unspaced compounds stay outside this fix.
+  // «How handy are you with tools?». A bare mobile/mobil is likewise valid
+  // only as the complete field label, not merely before prose punctuation.
   String.raw`\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono|cellulare|natel)\b`,
   String.raw`^\s*handy(?:\s+(?:nummer|telefon|nr\.?))?\s*[:*]?\s*$`,
   String.raw`\bmobile\s+(?:number|phone|nummer)\b`,
   String.raw`\bmobil(?:nummer|telefon)\b`,
-  String.raw`\b(?:mobile|mobil)(?=\s*[*:()/,;?]|$)`,
+  String.raw`^\s*(?:mobile|mobil)\s*[:*]?\s*$`,
 ].join('|'), 'iu');
 const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:phone\s+)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/i;
 
