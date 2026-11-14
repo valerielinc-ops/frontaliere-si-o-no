@@ -1951,6 +1951,195 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(buildIssueBody(summary)).toContain(`\`${source}\` → \`${redirect}\``);
   });
 
+  it('reconciles same-owner frontier findings without dropping the evidence', () => {
+    const cases = [
+      {
+        source: `${BASE}/en/find-jobs-geneva/source/`,
+        target: `${BASE}/en/find-jobs-geneva/lugano/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+      {
+        source: `${BASE}/eventi/`,
+        target: `${BASE}/en/events/aargau/lugano/event-slug/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+      {
+        source: `${BASE}/fr/encheres-plaques-suisses/geneve-ge/`,
+        target: `${BASE}/fr/encheres-plaques-suisses/vaud-vd/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+      {
+        source: `${BASE}/en/find-jobs-geneva/source-canonical/`,
+        target: `${BASE}/en/find-jobs-geneva/lugano/canonical/`,
+        code: BING_FRONTIER_CANONICAL_DRIFT,
+      },
+      {
+        source: `${BASE}/eventi/source-canonical/`,
+        target: `${BASE}/en/events/aargau/lugano/event-canonical/`,
+        code: BING_FRONTIER_CANONICAL_DRIFT,
+      },
+    ];
+    const sources = cases.map((item) => item.source);
+    const targets = cases.map((item) => item.target).sort();
+    const caseByTarget = new Map(cases.map((item) => [item.target, item]));
+    const findings = targets.map((target) => {
+      const item = caseByTarget.get(target)!;
+      return { code: item.code, url: target, scope: 'discovered-frontier', root: '/frontier/', status: 200 };
+    });
+    const summary = aggregateCrawlReports([{
+      schemaVersion: 1,
+      scope: 'sitemap',
+      baseUrl: BASE,
+      manifestCount: sources.length,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: sources.length,
+      checkedCount: sources.length,
+      codeCounts: {},
+      statusCounts: { 200: sources.length },
+      folderStats: { '/': { checked: sources.length, statuses: { 200: sources.length }, findings: {} } },
+      findings: [],
+      discoveredOutOfSitemap: [],
+    }], {
+      baseUrl: BASE,
+      sitemapCount: 1,
+      manifestCount: sources.length,
+      urls: sources,
+    }, {
+      supplementalReports: [{
+        schemaVersion: 2,
+        scope: 'discovered-frontier',
+        baseUrl: BASE,
+        manifestCount: targets.length,
+        partition: 0,
+        partitions: 1,
+        partitionTotal: targets.length,
+        checkedCount: targets.length,
+        codeCounts: {
+          [BING_FRONTIER_NOINDEX]: 3,
+          [BING_FRONTIER_CANONICAL_DRIFT]: 2,
+        },
+        statusCounts: { 200: targets.length },
+        folderStats: { '/frontier/': { checked: targets.length, statuses: { 200: targets.length }, findings: {
+          [BING_FRONTIER_NOINDEX]: 3,
+          [BING_FRONTIER_CANONICAL_DRIFT]: 2,
+        } } },
+        findings,
+        discoveredOutOfSitemap: [],
+      }],
+      supplementalManifest: {
+        baseUrl: BASE,
+        kind: 'discovered-frontier',
+        manifestCount: targets.length,
+        urls: targets,
+        referrerRefs: targets.map((target) => {
+          const item = caseByTarget.get(target)!;
+          return [[sources.indexOf(item.source), templateIndexFor(item.source)]];
+        }),
+        templateTable: BING_TEMPLATE_TABLE,
+      },
+    });
+
+    expect(summary.actionableCount).toBe(0);
+    expect(summary.findings).toHaveLength(cases.length);
+    expect(summary.findings.every((item) => item.frontierAttribution?.status === 'reconciled')).toBe(true);
+    expect(summary.scopeSummaries.find((scope) => scope.kind === 'discovered-frontier')).toMatchObject({
+      findingCount: cases.length,
+      actionableCount: 0,
+      informativeCount: cases.length,
+    });
+    const body = buildIssueBody(summary);
+    expect(body).not.toContain('### frontier-noindex (');
+    expect(body).not.toContain('### frontier-canonical-drift (');
+    expect(body).toContain('riconciliato');
+  });
+
+  it('keeps frontier findings actionable when ownership is mixed, missing, or not allowlisted', () => {
+    const cases = [
+      {
+        source: `${BASE}/en/find-jobs-geneva/source/`,
+        target: `${BASE}/en/events/aargau/lugano/event-slug/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+      {
+        source: `${BASE}/fr/encheres-plaques-suisses/geneve-ge/`,
+        target: `${BASE}/fr/encheres-plaques-suisses/vaud-vd/canonical/`,
+        code: BING_FRONTIER_CANONICAL_DRIFT,
+      },
+      {
+        source: `${BASE}/en/find-jobs-geneva/missing-referrer/`,
+        target: `${BASE}/en/find-jobs-geneva/missing-referrer-target/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+      {
+        source: `${BASE}/eventi/mismatched-referrer/`,
+        target: `${BASE}/en/find-jobs-geneva/mismatched-referrer-target/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
+    ];
+    const sources = cases.map((item) => item.source);
+    const targets = cases.map((item) => item.target);
+    const findings = cases.map((item) => ({ ...item, url: item.target, scope: 'discovered-frontier', root: '/frontier/', status: 200 }));
+    const summary = aggregateCrawlReports([{
+      schemaVersion: 1,
+      scope: 'sitemap',
+      baseUrl: BASE,
+      manifestCount: sources.length,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: sources.length,
+      checkedCount: sources.length,
+      codeCounts: {},
+      statusCounts: { 200: sources.length },
+      folderStats: { '/': { checked: sources.length, statuses: { 200: sources.length }, findings: {} } },
+      findings: [],
+      discoveredOutOfSitemap: [],
+    }], {
+      baseUrl: BASE,
+      sitemapCount: 1,
+      manifestCount: sources.length,
+      urls: sources,
+    }, {
+      supplementalReports: [{
+        schemaVersion: 2,
+        scope: 'discovered-frontier',
+        baseUrl: BASE,
+        manifestCount: targets.length,
+        partition: 0,
+        partitions: 1,
+        partitionTotal: targets.length,
+        checkedCount: targets.length,
+        codeCounts: {
+          [BING_FRONTIER_NOINDEX]: 3,
+          [BING_FRONTIER_CANONICAL_DRIFT]: 1,
+        },
+        statusCounts: { 200: targets.length },
+        folderStats: { '/frontier/': { checked: targets.length, statuses: { 200: targets.length }, findings: {
+          [BING_FRONTIER_NOINDEX]: 3,
+          [BING_FRONTIER_CANONICAL_DRIFT]: 1,
+        } } },
+        findings,
+        discoveredOutOfSitemap: [],
+      }],
+      supplementalManifest: {
+        baseUrl: BASE,
+        kind: 'discovered-frontier',
+        manifestCount: targets.length,
+        urls: targets,
+        referrerRefs: [
+          [[0, templateIndexFor(sources[0])]],
+          [[1, templateIndexFor(sources[1])]],
+          [],
+          [[3, templateIndexFor(sources[0])]],
+        ],
+        templateTable: BING_TEMPLATE_TABLE,
+      },
+    });
+
+    expect(summary.actionableCount).toBe(cases.length);
+    expect(summary.findings.every((item) => item.frontierAttribution?.status === 'actionable')).toBe(true);
+  });
+
   it('keeps localized Gaggiolo article links out of the T0/T12 frontier redirect corpus', async () => {
     const cases = BORDER_WAIT_ARTICLES.map((article) => ({
       ...article,
