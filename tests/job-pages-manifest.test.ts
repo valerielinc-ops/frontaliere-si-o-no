@@ -350,6 +350,21 @@ describe('emissione nel build delle pagine annuncio', () => {
     expect(add).toBeLessThan(localeSkip);
   });
 
+  // #18658 ha compattato i registri di rivendicazione (`claimedJobPaths`, titoli): quel registro
+  // contiene ANCHE le soft-landing scadute e puo' dare falsi positivi per costruzione. Il manifest
+  // non lo legge: ha un suo insieme, alimentato in UN solo punto, l'emissione di un annuncio ATTIVO.
+  // Un annuncio scaduto e compattato non puo' quindi risultare vivo.
+  it('il manifest e alimentato in un solo punto (annuncio attivo) e mai dal registro compatto condiviso con le scadute', () => {
+    expect(plugin.split('activeJobPagePathsForManifest.add(').length - 1).toBe(1);
+    const add = plugin.indexOf('activeJobPagePathsForManifest.add(relPath)');
+    const expiredClaim = plugin.indexOf('claimedJobPaths.claim(__slPathKey)');
+    expect(expiredClaim).toBeGreaterThan(add);
+    expect(plugin).toContain('claimedJobPaths.claim(localePathClaimKey(relPath))');
+    // Nessuna lettura del registro compatto dentro la costruzione del manifest.
+    const write = plugin.indexOf('buildJobPagesManifest({');
+    expect(plugin.slice(write, write + 400)).not.toContain('claimedJobPaths');
+  });
+
   it('il manifest si scrive in dist/ prima di svuotare i Set, solo dalla build che possiede il locale it, e non ferma mai il build', () => {
     const write = plugin.indexOf('buildJobPagesManifest({');
     const clear = plugin.indexOf('emittedActiveJobPaths.clear()');

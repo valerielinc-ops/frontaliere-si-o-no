@@ -1,11 +1,48 @@
 {
   "key": "skan",
   "label": "Skan AG",
-  "generatedAt": "2026-11-14T09:49:21.476Z",
+  "generatedAt": "2026-11-14T16:46:43.482Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "skan",
+    "seedUrls": [
+      "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+    ],
+    "phase": "detail",
+    "pages": 6,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Team-Lead-ICT-Engineering-&-Operations/1361640957/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Experienced-Engineer-for-Commissioning-and-Qualification-%28inhouse-&-onsite%29/1369905757/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Senior-ICT-System-Engineer-Technical-Project-Lead-%28mwd%29/1370336957/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -19,10 +56,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14693,
-  "avgDurationMs": 14693,
+  "durationMs": 15897,
+  "avgDurationMs": 15897,
   "durationHistory": [
-    14693
+    15897
   ],
   "newJobs": [
     {
@@ -37,7 +74,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Senior-ICT-System-Engineer-Technical-Project-Lead-%28mwd%29/1370336957/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:48:31.755Z",
+      "crawledAt": "2026-11-14T16:45:55.248Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -74,9 +111,9 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:48:31.755Z",
+      "validThrough": "2027-02-12T16:45:55.248Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:48:31.755Z",
+      "firstSeenAt": "2026-11-14T16:45:55.248Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -97,7 +134,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:48:31.754Z",
+      "crawledAt": "2026-11-14T16:45:55.240Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -134,9 +171,9 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:48:31.754Z",
+      "validThrough": "2027-02-12T16:45:55.240Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:48:31.754Z",
+      "firstSeenAt": "2026-11-14T16:45:55.240Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -157,7 +194,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Experienced-Engineer-for-Commissioning-and-Qualification-%28inhouse-&-onsite%29/1369905757/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:48:31.748Z",
+      "crawledAt": "2026-11-14T16:45:55.239Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -194,9 +231,9 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:48:31.748Z",
+      "validThrough": "2027-02-12T16:45:55.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:48:31.748Z",
+      "firstSeenAt": "2026-11-14T16:45:55.239Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -217,7 +254,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:48:31.747Z",
+      "crawledAt": "2026-11-14T16:45:55.230Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -254,9 +291,9 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:48:31.747Z",
+      "validThrough": "2027-02-12T16:45:55.230Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:48:31.747Z",
+      "firstSeenAt": "2026-11-14T16:45:55.230Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -277,7 +314,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Team-Lead-ICT-Engineering-&-Operations/1361640957/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:48:31.741Z",
+      "crawledAt": "2026-11-14T16:45:55.222Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -314,9 +351,9 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:48:31.741Z",
+      "validThrough": "2027-02-12T16:45:55.222Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:48:31.741Z",
+      "firstSeenAt": "2026-11-14T16:45:55.222Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -329,5 +366,5 @@
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

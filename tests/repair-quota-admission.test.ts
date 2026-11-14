@@ -417,4 +417,17 @@ describe('provider-neutral action wiring', () => {
     expect(ISSUE_FIX).not.toContain('claude_args:');
     expect(ISSUE_FIX).toContain('Mai disabilitare AdSense Auto Ads');
   });
+
+  it('uses the minted App identity for both quota-floor ledger mutations', () => {
+    const tokenBinding = 'GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}';
+    const acquireStart = ISSUE_FIX.indexOf('- name: Pre-flight — Codex lane quota telemetry (pre-npm)');
+    const acquireEnd = ISSUE_FIX.indexOf('- name: Install dependencies', acquireStart);
+    const releaseStart = ISSUE_FIX.indexOf('- name: Release issue-fix quota-floor lease (zero-Claude)');
+    const releaseEnd = ISSUE_FIX.indexOf('\n  # The risk preflight can fail', releaseStart);
+
+    expect(acquireStart).toBeGreaterThanOrEqual(0);
+    expect(releaseStart).toBeGreaterThan(acquireStart);
+    expect(ISSUE_FIX.slice(acquireStart, acquireEnd)).toContain(tokenBinding);
+    expect(ISSUE_FIX.slice(releaseStart, releaseEnd)).toContain(tokenBinding);
+  });
 });

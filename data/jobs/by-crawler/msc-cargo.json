@@ -94,12 +94,12 @@
     },
     {
       "id": "msc-cargo-f21f2e88a182",
-      "slug": "global-sourcing-manager-msc-geneva",
+      "slug": "gestore-globale-di-sourcing-msc-group-geneva",
       "slugByLocale": {
         "en": "global-sourcing-manager-msc-geneva",
-        "it": "global-sourcing-manager-msc-geneva",
+        "it": "gestore-globale-di-sourcing-msc-group-geneva",
         "de": "global-sourcing-manager-msc-geneva",
-        "fr": "global-sourcing-manager-msc-geneva"
+        "fr": "gestionnaire-d-approvisionnement-mondial-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -162,7 +162,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:23:26.265Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:23:26.265Z"
+      "firstSeenAt": "2026-11-14T09:23:26.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-sourcing-manager-msc-geneva"
+        ],
+        "fr": [
+          "global-sourcing-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "global-sourcing-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-f0d5a97b2185",
@@ -822,11 +833,11 @@
     },
     {
       "id": "msc-cargo-f0daf0e92f7f",
-      "slug": "onboard-finance-operations-specialist-msc-geneva",
+      "slug": "onboard-finanza-operations-specialista-msc-group-geneva",
       "slugByLocale": {
         "en": "onboard-finance-operations-specialist-msc-geneva",
-        "it": "onboard-finance-operations-specialist-msc-geneva",
-        "de": "onboard-finance-operations-specialist-msc-geneva",
+        "it": "onboard-finanza-operations-specialista-msc-group-geneva",
+        "de": "onboard-finanzen-operations-spezialist-msc-group-geneva",
         "fr": "onboard-finance-operations-specialist-msc-geneva"
       },
       "company": "MSC Group",
@@ -893,21 +904,21 @@
       "firstSeenAt": "2026-10-14T21:29:29.822Z",
       "previousSlugsByLocale": {
         "it": [
-          "onboard-finanza-operations-specialista-msc-group-geneva",
           "onboard-finance-operations-specialiste-msc-group-geneva",
-          "onboard-finanzen-operations-spezialist-msc-group-geneva"
+          "onboard-finanzen-operations-spezialist-msc-group-geneva",
+          "onboard-finance-operations-specialist-msc-geneva"
         ],
         "de": [
-          "onboard-finanzen-operations-spezialist-msc-group-geneva"
+          "onboard-finance-operations-specialist-msc-geneva"
         ],
         "fr": [
           "onboard-finance-operations-specialiste-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "onboard-finanza-operations-specialista-msc-group-geneva",
         "onboard-finanzen-operations-spezialist-msc-group-geneva",
-        "onboard-finance-operations-specialiste-msc-group-geneva"
+        "onboard-finance-operations-specialiste-msc-group-geneva",
+        "onboard-finance-operations-specialist-msc-geneva"
       ]
     },
     {
@@ -917,7 +928,7 @@
         "en": "visual-merchandising-manager-msc-geneva",
         "it": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
-        "fr": "visual-merchandising-manager-msc-geneva"
+        "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -988,7 +999,6 @@
           "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
           "responsable-merchandising-visuel-msc-group-geneva"
         ]
       },
@@ -1000,12 +1010,12 @@
     },
     {
       "id": "msc-cargo-bf32d3dcad46",
-      "slug": "destinations-experience-senior-manager-msc-geneva",
+      "slug": "destinazioni-esperienza-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "destinations-experience-senior-manager-msc-geneva",
-        "it": "destinations-experience-senior-manager-msc-geneva",
-        "de": "destinations-experience-senior-manager-msc-geneva",
-        "fr": "destinations-experience-senior-manager-msc-geneva"
+        "it": "destinazioni-esperienza-senior-manager-msc-group-geneva",
+        "de": "destinationen-erfahrung-senior-manager-msc-group-geneva",
+        "fr": "destinations-experience-gestionnaire-principal-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1071,29 +1081,27 @@
       "firstSeenAt": "2026-10-06T21:17:29.732Z",
       "previousSlugsByLocale": {
         "it": [
-          "destinazioni-esperienza-senior-manager-msc-group-geneva",
           "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
           "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
           "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-          "destinations-experience-senior-manager-river-msc-geneva"
+          "destinations-experience-senior-manager-river-msc-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "de": [
-          "destinationen-erfahrung-senior-manager-msc-group-geneva",
-          "destinationen-erfahrung-senior-manager-river-msc-group-geneva"
+          "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "fr": [
-          "destinations-experience-gestionnaire-principal-msc-group-geneva",
-          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva"
+          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "destinazioni-esperienza-senior-manager-msc-group-geneva",
-        "destinationen-erfahrung-senior-manager-msc-group-geneva",
-        "destinations-experience-gestionnaire-principal-msc-group-geneva",
         "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
         "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
         "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-        "destinations-experience-senior-manager-river-msc-geneva"
+        "destinations-experience-senior-manager-river-msc-geneva",
+        "destinations-experience-senior-manager-msc-geneva"
       ]
     },
     {
@@ -1316,12 +1324,12 @@
     },
     {
       "id": "msc-cargo-1271772d19b8",
-      "slug": "retail-business-analytics-manager-msc-geneva",
+      "slug": "responsabile-analisi-aziendale-retail-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-business-analytics-manager-msc-geneva",
-        "it": "retail-business-analytics-manager-msc-geneva",
+        "it": "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "de": "retail-business-analytics-manager-msc-geneva",
-        "fr": "retail-business-analytics-manager-msc-geneva"
+        "fr": "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1387,26 +1395,25 @@
       "firstSeenAt": "2026-10-04T21:27:32.138Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-analisi-aziendale-retail-msc-group-geneva",
           "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
           "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-          "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva"
+          "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ],
         "de": [
           "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
           "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
-          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
-        "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
         "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
-        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+        "retail-business-analytics-manager-msc-geneva"
       ]
     },
     {

@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -242,14 +242,19 @@ async function dismissConsent(page) {
 
 async function withBrowser(fn) {
   const headless = process.env.JOBS_GRACE_HEADLESS === '1';
-  const browser = await launchChromium({
+  const args = ['--disable-blink-features=AutomationControlled'];
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
     headless,
-    args: ['--disable-blink-features=AutomationControlled'],
+    args,
+    fallbackOptions: { headless, args },
   });
-  const context = await browser.newContext({
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    viewport: { width: 1280, height: 720 },
-  });
+  const context = await browser.newContext(isStealthBrowser(browser)
+    ? { viewport: null }
+    : {
+        userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        viewport: { width: 1280, height: 720 },
+      });
   try {
     return await fn(context);
   } finally {

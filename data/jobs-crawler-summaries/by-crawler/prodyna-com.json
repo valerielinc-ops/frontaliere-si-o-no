@@ -1,11 +1,52 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-14T09:48:51.556Z",
+  "generatedAt": "2026-11-14T16:46:34.530Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "prodyna-com",
+    "seedUrls": [
+      "https://www.prodyna.com/jobs/ai-engineer-athens"
+    ],
+    "phase": "detail",
+    "pages": 8,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/jobs/ai-engineer-athens"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/about-us"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/contact"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/imprint-and-data-policy"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/jobs/senior-java-developer-athens"
+      },
+      {
+        "status": 200,
+        "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -19,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14461,
-  "avgDurationMs": 14461,
+  "durationMs": 15143,
+  "avgDurationMs": 15143,
   "durationHistory": [
-    14461
+    15143
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +81,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:47:50.761Z",
+      "crawledAt": "2026-11-14T16:45:40.770Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,7 +104,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:50.761Z",
+      "validThrough": "2027-02-09T16:45:40.770Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +126,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:47:50.754Z",
+      "crawledAt": "2026-11-14T16:45:40.763Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -108,7 +149,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:50.754Z",
+      "validThrough": "2027-02-09T16:45:40.763Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -119,5 +160,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

@@ -21,6 +21,8 @@ import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendatio
 import { releaseExpiredArchiveRowAfterRender } from './shared/expiredArchiveRetention';
 import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneSelfHealTracking';
 import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
+import { CompactLocalePathClaims } from './shared/compactLocalePathClaims';
+import { CompactStringHashSet } from './shared/compactStringHashSet';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -3885,11 +3887,14 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // must not compose the same <title>. Previously this was masked by the
  // unconditional ` · rif. {slug-tail}` suffix on every expired page; with
  // that suffix now collision-only, this registry is the explicit guarantee.
- // `claimUniqueTitle` registers every emitted title per locale; on a clash
- // it recomposes with the caller-supplied disambiguator chain, ending in a
- // deterministic `rif. {fnv8(slug)}` + numeric bump that can never collide.
- const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', Set<string>> = {
- it: new Set(), en: new Set(), de: new Set(), fr: new Set(),
+ // `claimUniqueTitle` registers every emitted title per locale; the compact
+ // registry keeps only occupancy hashes instead of retaining one normalized
+ // string per page. A hash collision is safe here: it can only add an
+ // unnecessary disambiguator, never allow an exact duplicate through. On a
+ // real clash it recomposes with the caller-supplied disambiguator chain,
+ // ending in a deterministic `rif. {fnv8(slug)}` + numeric bump.
+ const claimedTitlesByLocale: Record<'it' | 'en' | 'de' | 'fr', CompactStringHashSet> = {
+ it: new CompactStringHashSet(), en: new CompactStringHashSet(), de: new CompactStringHashSet(), fr: new CompactStringHashSet(),
  };
  jobsSeoMemContext.claimedTitlesByLocale = claimedTitlesByLocale;
  const claimUniqueTitle = (
@@ -4072,7 +4077,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  // Shared with the expired soft-landing sweep below: an active localized
  // path must reserve its cluster slot before any BUILD_LOCALE filter.
- const claimedJobPaths = new Set<string>();
+ const claimedJobPaths = new CompactLocalePathClaims();
  jobsSeoMemContext.emittedActiveJobPaths = emittedActiveJobPaths;
 
  // Count the exact active readers before the worker pre-pass. The cache key is
@@ -4502,7 +4507,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  renderedActiveJobPaths.add(__activeJobKey);
  emittedActiveJobPaths.add(__activeJobKey);
  activeJobPagePathsForManifest.add(relPath);
- claimedJobPaths.add(localePathClaimKey(relPath));
+ claimedJobPaths.claim(localePathClaimKey(relPath));
  // Per-locale shard build (BUILD_LOCALE): the dedup Set above is fully
  // populated for EVERY locale BEFORE this skip — the sitemap shard pass
  // (~line 8642) reads `emittedActiveJobPaths` to decide which job URLs to
@@ -14950,7 +14955,7 @@ ${staticAnalyticsHtml}
  // Sort expiredSlugs by the recency of the linked expired-job entry
  // (DESC, ties broken by slug for determinism) so the FIRST iteration
  // for any colliding `tracking[slug][locale]` path is the most-recent
- // job's content. The `claimedJobPaths` Set below skips later
+ // job's content. The compact `claimedJobPaths` registry below skips later
  // duplicates so the freshest version stays on disk. Without this sort,
  // the oldest version frequently won because it appeared earlier in
  // `Object.keys(tracking)` (insertion order from
@@ -15277,7 +15282,7 @@ ${staticAnalyticsHtml}
  // Claim before the shard-ownership filter: every BUILD_LOCALE shard must
  // reserve the same winner for a colliding tracking path, even though only
  // one shard writes that locale's HTML.
- claimedJobPaths.add(__slPathKey);
+ claimedJobPaths.claim(__slPathKey);
  // Per-locale shard build (BUILD_LOCALE): sibling pages are not written here.
  // The IT sitemap still needs each sibling's exact content-floor/noindex
  // verdict, so an IT build renders only the sibling's static body for that

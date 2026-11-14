@@ -45,7 +45,7 @@ import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawl
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
-import { launchChromium } from '../ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from '../stealth-browser.mjs';
 import {
   extractUmantisListingEvidence,
   umantisVacancyIdentity,
@@ -287,19 +287,27 @@ export async function fetchHtmlViaBrowser(
   try {
     if (signal?.aborted) throw browserAbortReason(signal, `browser rescue aborted for ${url}`);
     browser = await raceBrowserOperation(
-      launchChromium({
+      launchStealthOrChromium({
+        purpose: 'crawler',
         headless: true,
+        locale: 'de-CH',
         args: ['--disable-blink-features=AutomationControlled'],
+        fallbackOptions: {
+          headless: true,
+          args: ['--disable-blink-features=AutomationControlled'],
+        },
       }),
       signal,
       `browser rescue launch aborted for ${url}`,
       (lateBrowser) => lateBrowser?.close?.(),
     );
-    const context = await raceBrowserOperation(browser.newContext({
-      userAgent: BROWSER_RESCUE_USER_AGENT,
-      locale: 'de-CH',
-      viewport: { width: 1280, height: 720 },
-    }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
+    const context = await raceBrowserOperation(browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: BROWSER_RESCUE_USER_AGENT,
+          locale: 'de-CH',
+          viewport: { width: 1280, height: 720 },
+        }), signal, `browser rescue context aborted for ${url}`, (lateContext) => lateContext?.close?.());
     const page = await raceBrowserOperation(
       context.newPage(),
       signal,
@@ -985,7 +993,33 @@ function logRuntimeObservation(spec, observation) {
  * @param {string[]} [allowedDetailOrigins]
  * @returns {{ title: string, url: string, via: 'known-template' }[]}
  */
-function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) {
+function vacancyTitleFromUrl(rawUrl) {
+  let segment = '';
+  try {
+    const pathname = new URL(rawUrl).pathname;
+    segment = pathname.split('/').filter(Boolean).at(-1) || '';
+  } catch {
+    return '';
+  }
+  try {
+    segment = decodeURIComponent(segment);
+  } catch {
+    // Keep the raw path segment if the source contains malformed escaping.
+  }
+  return segment
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 180);
+}
+
+function matchKnownTemplate(
+  links,
+  templateRx,
+  host,
+  allowedDetailOrigins = [],
+  { listingTitleFromUrl = false } = {},
+) {
   const allowedOrigins = new Set();
   for (const rawOrigin of allowedDetailOrigins) {
     try {
@@ -1005,7 +1039,8 @@ function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) 
     if (!templateRx.test(u.pathname)) continue;
     if (seen.has(l.url)) continue;
     seen.add(l.url);
-    const title = (l.text || '').replace(/\s+/g, ' ').trim();
+    const title = (l.text || '').replace(/\s+/g, ' ').trim()
+      || (listingTitleFromUrl ? vacancyTitleFromUrl(u.href) : '');
     if (title.length <= 3) continue;
     out.push({ title: title.slice(0, 180), url: l.url, via: /** @type {const} */ ('known-template') });
   }
@@ -1213,7 +1248,9 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host
-      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
+      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins, {
+        listingTitleFromUrl: spec?.listingTitleFromUrl === true,
+      })
       : [];
     if (direct.length) {
       const hasStructuredCandidates = vacancies.some((vacancy) => (
