@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-11-14T09:23:17.851Z",
-  "runId": "43579322480",
+  "assembledAt": "2026-11-14T17:02:45.801Z",
+  "runId": "43616256613",
   "jobs": [
     {
       "id": "sro-29f37a30afb5",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/15a1ecd5-d555-47fc-b22c-77e7edda8e5b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:49.096Z",
+      "crawledAt": "2026-11-14T17:02:37.875Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ee845ce5-b070-4e15-8480-e2ec30623091",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:48.661Z",
+      "crawledAt": "2026-11-14T17:02:37.474Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2149c242-55a2-42a1-a1ef-33257eaab289",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:48.103Z",
+      "crawledAt": "2026-11-14T17:02:37.002Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f54cbc21-3cc2-4b08-ac85-43e933e536b8",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:47.531Z",
+      "crawledAt": "2026-11-14T17:02:36.511Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/6622d87b-32dd-4b22-9276-dbf150d77cab",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:47.073Z",
+      "crawledAt": "2026-11-14T17:02:36.038Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/326bd6cd-2c0e-485d-bcf1-098c8a120561",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:46.520Z",
+      "crawledAt": "2026-11-14T17:02:35.561Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -548,7 +548,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/343e3f84-40e0-4c0a-8bb6-179e8d6a1362",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:45.968Z",
+      "crawledAt": "2026-11-14T17:02:35.068Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -610,9 +610,9 @@
       "id": "sro-c3ecd98649f7",
       "slug": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-6d7efee434",
       "slugByLocale": {
-        "de": "oberarzt-oberarztin-zesa-60-sro-langenthal",
         "it": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-6d7efee434",
         "en": "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "oberarzt-oberarztin-zesa-60-sro-langenthal",
         "fr": "medecin-principal-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
@@ -637,7 +637,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b5690c8b-4e43-48d2-b088-ff98f4d92fef",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:45.409Z",
+      "crawledAt": "2026-11-14T17:02:34.563Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -661,16 +661,17 @@
       "pensum": "60%",
       "validThrough": "2026-12-11T23:59:59.999Z",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-zesa-60-sro-langenthal",
           "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
-      "previousSlugs": [
-        "oberarzt-oberarztin-zesa-60-sro-langenthal",
-        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:28.120Z",
       "salaryMin": 69000,
       "salaryMax": 96000,
       "salarySource": "estimated",
@@ -686,8 +687,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-09-19T22:50:28.120Z"
+      "validThroughSource": "source"
     },
     {
       "id": "sro-6d50a2de74ab",
@@ -721,7 +721,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f961bbd3-a147-4208-b695-bf458f4ed11b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:44.845Z",
+      "crawledAt": "2026-11-14T17:02:34.074Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -812,7 +812,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/131a10bb-06f4-4f78-a16a-9287afce2066",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:44.381Z",
+      "crawledAt": "2026-11-14T17:02:33.649Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -898,7 +898,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c05da0ac-1618-4a5c-9f92-258351825b84",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:43.916Z",
+      "crawledAt": "2026-11-14T17:02:33.169Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -979,7 +979,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b5f651b2-03ab-4135-8fc9-f0e57b526386",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:43.298Z",
+      "crawledAt": "2026-11-14T17:02:32.740Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1033,9 +1033,9 @@
       "id": "sro-c8dca3a1aabb",
       "slug": "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-25baad58ec",
       "slugByLocale": {
-        "de": "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
         "it": "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-25baad58ec",
         "en": "principal-physician-principal-intensive-care-unit-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
         "fr": "medecin-principal-unite-de-soins-intensifs-principaux-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
@@ -1055,12 +1055,13 @@
         "de": "Spital Langenthal\nStelle ausdrucken\nStelle als PDF\nUnsere von der Schweizerischen Gesellschaft für Intensivmedizin (SGI) als Weiterbildungsstätte der Kategorie B anerkannte Intensivstation verfügt über sechs Betten und bietet ein breites, abwechslungsreiches intensivmedizinisches Patientenspektrum.\nMit vier Beatmungsgeräten und einem Gerät zur kontinuierlichen Nierenersatztherapie betreuen wir Patientinnen und Patienten mit unterschiedlichsten intensivmedizinischen Krankheitsbildern.\nAls Intensivstation eines Regionalspitals verbinden wir anspruchsvolle Intensivmedizin mit kurzen Entscheidungswegen, enger interdisziplinärer Zusammenarbeit und einem hohen Mass an Eigenverantwortung.\nFür unsere interdisziplinäre Intensivstation in Langenthal suchen wir eine engagierte, fachlich versierte Persönlichkeit, die Freude an einer vielseitigen intensivmedizinischen Tätigkeit hat und unsere Station aktiv mitgestalten möchte. Zur Erweiterung des Teams suhen wir per sofort oder nach Vereinbarung eine/n\n\n## Das bewirken Sie bei uns\n• Selbstständige intensivmedizinische Betreuung unserer Patientinnen und Patienten\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Enge Zusammenarbeit mit den verschiedenen Fachdisziplinen\n• Mitgestaltung der fachlichen und organisatorischen Weiterentwicklung unserer Intensivstation\n• Beteiligung an der Qualitätssicherung und Weiterentwicklung intensivmedizinischer Standards\n\n## Das bringen Sie mit\n• Schweizerischer Facharzttitel Intensivmedizin oder bereits vorliegende Äquivalenzbescheinigung der Schweizerischen Gesellschaft für Intensivmedizin (SGI)\n• Fundierte klinische Erfahrung in der Intensivmedizin\n• Freude an einer vielseitigen, selbstständigen und eigenverantwortlichen Tätigkeit\n• Teamfähigkeit, Engagement und ausgeprägte kommunikative Fähigkeiten\n• Interesse an der fachlichen und organisatorischen Weiterentwicklung unserer Intensivstation\nIhre Vorteile\n\n## Aus-, Fort- und Weiterbildung\nDie betriebliche Fort- und Weiterbildung und spannende Karriereoptionen sind Bestandteil unserer zukunftsorientierten Unternehmensphilosophie.\n\n## Personalzimmer\nEs besteht die Möglichkeit, bei freier Kapazität in Langenthal für eine befristete Zeit ein möbliertes Zimmer zu mieten.\nFerien: Mindestens 25 Tage Ferien pro Jahr\n\n## Fringe Benefits\nDie Mitarbeitenden profitieren von Zusatzleistungen, welche Gesundheit und Wohlbefinden unterstützen – dazu zählen betriebliches Gesundheitsmanagement, Fitnessangebote, medizinische Betreuung, sowie Hotelkomfort bei Hospitalisierung. Zudem geniessen sie vielfältige Vergünstigungen in Apotheken, bei Sportartikeln, Unterhaltungselektronik und Getränken.\n\n## Verpflegung\nDie Mitarbeitenden geniessen in all unseren Restaurants an allen Standorten zu vergünstigten Preisen abwechslungsreiche Mahlzeiten.\n\n## Personalärztlicher Dienst\nDer personalärztliche Dienst berät die Mitarbeitenden gerne in gesundheitlichen Fragen. Sobald die Winterzeit naht, bieten wir eine kostenlose Grippeimpfung an.\n\n## Betriebskommission\nDie SRO AG verfügt über eine Betriebskommission, welche das Bindeglied zwischen den Mitarbeitenden und der Geschäftsleitung bildet. Als Personalvertretung steht sie den Mitarbeitenden als Ansprechperson zur Verfügung.\n\n## Angebote zur Gesundheitsförderung\nIm Rahmen des Betrieblichen Gesundheitsmanagements offeriert die SRO AG laufend Angebote in der Prävention in der Arbeitssicherheit und im Case Management.\n\n## Flottenrabatt\nUnsere Mitarbeitenden profitieren von Flottenrabatten bei verschiedenen Marken.\n\n## Zulagen und Prämien\nFür Einsätze am Abend, in der Nacht und an Wochenenden wird eine Inkonvenienzzulage von CHF 9.– pro Stunde ausbezahlt. Bei Abend- und Nachteinsätzen wird zusätzlich eine Zeitgutschrift von 20 % angerechnet. Auch kurzfristiges Einspringen oder die erfolgreiche Vermittlung eines neuen Teammitglieds belohnen wir mit einer Prämie.\n\n## Pensionskasse\nUnsere Mitarbeitenden sind bei der Pensionskasse SRO versichert. Die SRO AG übernimmt bis zu 60 % der Beiträge (statt der üblichen 50 %) und je nach individueller Situation kann zwischen drei Sparplänen gewählt werden.\n\n## Familie und Kinderbetreuung\nMitarbeitende mit gesetzlichem Anspruch auf Familienzulagen erhalten zusätzlich eine monatliche Betreuungszulage von CHF 180.– bis CHF 250.–. Die Lohnfortzahlung während eines 16-wöchigen Mutterschaftsurlaubs sowie des 15-tägigen Vaterschaftsurlaubs beträgt 100 %.\n\n## Bei uns arbeiten\n• Eine vielseitige und anspruchsvolle Tätigkeit mit einem breiten intensivmedizinischen Patientenspektrum\n• Eine SGI-anerkannte Weiterbildungsstätte der Kategorie B\n• Hohe klinische Eigenverantwortung und Gestaltungsspielraum\n• Ein kollegiales Arbeitsumfeld mit kurzen Entscheidungswegen\n• Die Möglichkeit, eigene fachliche Ideen einzubringen und die Zukunft unserer Intensivstation aktiv mitzugestalten\n• Die attraktive Perspektive, bei gegenseitigem Einvernehmen innerhalb der nächsten 3-4 Jahre die ärztliche Leitung unserer Intensivstation zu übernehmen\n• Zeitgemässe Anstellungsbedingungen und ein Arbeitspensum nach Vereinbarung\nDiese Stelle teilen\nÜber uns\nSRO AG: Mitwirken. Vertrauen. Familiär.\n\n## Respektvoll und engagiert\nWir begegnen Menschen mit Respekt und achten das Recht auf Selbstbestimmung. Unsere Zusammenarbeit ist geprägt von Sorgfalt, Toleranz und Wertschätzung. Wir setzen uns berufsübergreifend für das Behandlungsziel unserer Patienten ein. Dabei orientieren wir uns an den neusten fachlichen Standards. Wir engagieren uns als kompetente Fachpersonen über Nahtstellen hinweg als Team und denken sowie handeln wirtschaftlich und nachhaltig.\n\n## Facts\n• 132 Betten (Akut 126, IPS 6)\n• Aufwachraum 9 Plätze, Tagesklinik 16 Plätze\n• 6 Operationssäle\n• 1'366 Mitarbeitende (auf rund 976 Vollzeiten)\n• 8'593 stationäre Patienten pro Jahr\n• 76'683 ambulante Patienten pro Jahr\n• 207'674 Konsultationen pro Jahr\n• 6'670 Rettungsdiensteinsätze pro Jahr\n• CHF 214 Mio. Umsatz\nMit Teamgeist zum Erfolg",
         "fr": "Languenthal épital\nLieu d'impression\nAfficher en PDF\nNotre unité de soins intensifs, reconnue par la Swiss Society for Intensive Care Medicine (SGI) en tant que centre de formation de catégorie B, dispose de six lits et offre une large gamme de soins intensifs.\nAvec quatre appareils de ventilation et un appareil pour une thérapie de remplacement rénale continue, nous nous occupons des patients avec une grande variété de soins médicaux intensifs.\nEn tant qu'unité de soins intensifs d'un hôpital régional, nous combinons la médecine intensive exigeante avec des processus décisionnels courts, une coopération interdisciplinaire étroite et un haut degré de responsabilité personnelle.\nPour notre unité interdisciplinaire de soins intensifs à Langenthal, nous recherchons une personnalité engagée et expérimentée qui bénéficie d'une activité polyvalente de soins intensifs et qui souhaite façonner activement notre unité. Pour l'expansion de l'équipe, nous soupçonnons immédiatement ou par accord\n\n## Ils le font avec nous.\n• Soins intensifs indépendants pour nos patients\n• Supervision et perfectionnement des médecins adjoints\n• Coopération étroite avec les différentes disciplines\n• Co-conception du développement professionnel et organisationnel de notre unité de soins intensifs\n• Participation à l'assurance qualité et poursuite de l'élaboration de normes médicales intensives\n\n## C'est ce qu'ils apportent.\n• Titre du spécialiste suisse Médecine intensive ou certificat d'équivalence déjà existant de la Société suisse de médecine intensive (SGI)\n• Bonne expérience clinique en médecine intensive\n• Profitez d'une activité polyvalente, indépendante et autonome\n• Travail d'équipe, engagement et compétences en communication\n• Intéressé par le développement professionnel et organisationnel de notre unité de soins intensifs\nLeurs avantages\n\n## Formation et éducation\nLa formation continue opérationnelle et les options de carrière passionnantes font partie de notre philosophie d'entreprise orientée vers l'avenir.\n\n## Salle du personnel\nIl est possible de louer une chambre meublée à Langenthal pour une durée limitée.\nVacances: Au moins 25 jours de vacances par an\n\n## Avantages liés aux franges\nLes employés bénéficient de services supplémentaires qui soutiennent la santé et le bien-être – notamment la gestion de la santé de l'entreprise, les offres de conditionnement physique, les soins médicaux, ainsi que le confort de l'hôtel en hospitalisation. De plus, ils bénéficient de nombreux avantages dans les pharmacies, les articles de sport, l'électronique grand public et les boissons.\n\n## Produits alimentaires\nLes employés profitent de repas variés dans tous nos restaurants à des prix réduits.\n\n## Service du personnel médical\nLe service médical du personnel est heureux de conseiller les employés sur les questions de santé. Dès que l'heure d'hiver approche, nous offrons un vaccin contre la grippe.\n\n## Comité de fonctionnement\nSRO AG dispose d'un comité opérationnel qui constitue le lien entre les salariés et la direction. En tant que représentant du personnel, il est mis à la disposition des employés à titre de personne-ressource.\n\n## Services de promotion sanitaire\nDans le cadre de la gestion de la santé au travail, SRO AG propose des offres permanentes en matière de prévention en matière de sécurité au travail et de gestion des cas.\n\n## Remise sur la flotte\nNos employés bénéficient de réductions de flotte dans différentes marques.\n\n## Indemnités et primes\nPour les affectations le soir, la nuit et le week-end, une indemnité de désagrément de CHF 9 par heure est versée. Pour les affectations du soir et de la nuit, un crédit de temps supplémentaire de 20% est crédité. Nous récompensons également l'intervention à court terme ou le placement réussi d'un nouveau membre de l'équipe avec une prime.\n\n## Caisse des pensions\nNos employés sont assurés par la caisse de retraite SRO. SRO AG couvre jusqu'à 60% des cotisations (au lieu de 50% habituel) et selon la situation individuelle peut être choisi entre trois plans d'épargne.\n\n## Famille et garde des enfants\nLes salariés ayant légalement droit aux allocations familiales reçoivent également une allocation mensuelle de CHF 180.– à CHF 250.–. La rémunération continue pendant 16 semaines de congé de maternité et 15 jours de congé de paternité est de 100 %.\n\n## Travailler avec nous\n• Un travail polyvalent et exigeant avec un large éventail de patients en soins intensifs\n• Un établissement de formation reconnu par le SGI de la catégorie B\n• Haute responsabilité clinique et portée de la conception\n• Un environnement de travail collégial avec de courtes pistes de décision\n• L'occasion de contribuer à vos propres idées professionnelles et de façonner activement l'avenir de notre unité de soins intensifs\n• La perspective attrayante de reprendre la gestion médicale de notre unité de soins intensifs au cours des 3 à 4 prochaines années, si convenu d'un commun accord\n• Conditions d'emploi contemporaines et charge de travail conventionnelle\nPartager cette information\nÀ propos de nous\nSRO AG: Participation. Confiance. Famille.\n\n## Respectueux et engagés\nNous traitons les gens avec respect et respect du droit à l'autodétermination. Notre coopération se caractérise par le soin, la tolérance et l'appréciation. Nous nous engageons à atteindre l'objectif de traitement de nos patients dans toutes les professions. Nous sommes guidés par les dernières normes professionnelles. Nous sommes engagés en tant que spécialistes compétents à travers les coutures en tant qu'équipe et pensons et agissons économiquement et durablement.\n\n## Faits\n• 132 lits (Acute 126, IPS 6)\n• Salle de récupération 9 places, clinique de jour 16 places\n• 6 salles d'opération\n• 1 366 employés (environ 976 employés à temps plein)\n• 8'593 patients hospitalisés par an\n• 76 683 consultations externes par an\n• 207 674 consultations par an\n• 6 670 missions de secours par an\n• CHF 214 millions Chiffre d'affaires\nL'esprit d'équipe au succès"
       },
+      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/7fb0ad0a-56e8-4927-bf80-7b3c30bd2ceb",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:42.730Z",
+      "crawledAt": "2026-11-14T17:02:32.192Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1084,16 +1085,17 @@
       "pensum": "80 - 100%",
       "validThrough": "2026-12-11T23:59:59.999Z",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
+        "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
           "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
-        "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:26.301Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1109,8 +1111,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-09-19T22:50:26.301Z"
+      "validThroughSource": "source"
     },
     {
       "id": "sro-f31306d5d137",
@@ -1144,7 +1145,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e8aa831c-a585-43ca-b186-a511c8d95c79",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:42.166Z",
+      "crawledAt": "2026-11-14T17:02:31.606Z",
       "addressLocality": "Divers",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1226,7 +1227,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5aa36029-66e0-44d4-b8d8-8c65899703ed",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:41.691Z",
+      "crawledAt": "2026-11-14T17:02:31.162Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1310,7 +1311,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/22c88d11-a9bd-4309-a1b0-3f197a80b99a",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:41.250Z",
+      "crawledAt": "2026-11-14T17:02:30.761Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1364,9 +1365,9 @@
       "id": "sro-d45c5e341f45",
       "slug": "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region-oberaargau-a27c5b4d79",
       "slugByLocale": {
-        "de": "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
         "it": "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region-oberaargau-a27c5b4d79",
         "en": "vocational-integration-specialist-job-coach-80-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
         "fr": "integration-professionnelle-professionnelle-entraineur-d-emploi-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
@@ -1386,12 +1387,13 @@
         "de": "Spital Langenthal\nStelle ausdrucken\nStelle als PDF\nDie Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungs-strukturen wie Notfall-Triage, Stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär.\nDie Fachstelle für berufliche Integration erbringt verschiedene arbeitsmarktorientierte Dienstleistungen im Bereich Prävention, Früherkennung und Integration.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\n## Das bewirken Sie bei uns\nIn dieser verantwortungsvollen und vielseitigen Funktion beraten und unterstützen Sie unsere Kundinnen und Kunden in allen Belangen bezüglich Arbeit und psychischer Gesundheit. Sie begleiten diese zielführend beim Wiedereinstieg in den bestehenden Arbeitsplatz oder bei der Aufnahme einer neuen Erwerbstätigkeit. Als Ansprechperson stellen Sie die Koordination, Kommunikation mit Auftraggebenden, Ärztinnen/Ärzten, Therapeutinnen/Therapeuten und Arbeitgebenden etc. sicher. Mit Ihrer offenen und initiativen Persönlichkeit akquirieren und pflegen Sie ein Netzwerk von Partnerbetrieben und anderen Fachstellen.\n\n## Das bringen Sie mit\nNeben einer mehrjährigen, ausgewiesenen Berufserfahrung im Eingliederungsmanagement verfügen Sie über einen Tertiärabschluss in Sozialarbeit, Sozialpädagogik, Psychologie oder Pflege sowie Weiterbildungen in Coaching, Sozialversicherungen und Arbeitsrecht. Sie haben ein gutes Verständnis für gesundheitsbedingte Einschränkungen und mögliche Auswirkungen auf eine Arbeitstätigkeit. Sie sind versiert im Umgang mit verschiedenen Hierarchiestufen und Branchen. Fliessende Deutschkenntnisse sowie eine gute mündliche und schriftliche Ausdrucksweise ergänzen Ihr Profil. Sind Sie zudem gerne unterwegs und schätzen ein dynamisches Arbeitsumfeld, dann müssen wir Sie kennenlernen.\nIhre Vorteile\n\n## Aus-, Fort- und Weiterbildung\nDie betriebliche Fort- und Weiterbildung und spannende Karriereoptionen sind Bestandteil unserer zukunftsorientierten Unternehmensphilosophie.\n\n## Personalzimmer\nEs besteht die Möglichkeit, bei freier Kapazität in Langenthal für eine befristete Zeit ein möbliertes Zimmer zu mieten.\nFerien: Mindestens 25 Tage Ferien pro Jahr\n\n## Fringe Benefits\nDie Mitarbeitenden profitieren von Zusatzleistungen, welche Gesundheit und Wohlbefinden unterstützen – dazu zählen betriebliches Gesundheitsmanagement, Fitnessangebote, medizinische Betreuung, sowie Hotelkomfort bei Hospitalisierung. Zudem geniessen sie vielfältige Vergünstigungen in Apotheken, bei Sportartikeln, Unterhaltungselektronik und Getränken.\n\n## Verpflegung\nDie Mitarbeitenden geniessen in all unseren Restaurants an allen Standorten zu vergünstigten Preisen abwechslungsreiche Mahlzeiten.\n\n## Personalärztlicher Dienst\nDer personalärztliche Dienst berät die Mitarbeitenden gerne in gesundheitlichen Fragen. Sobald die Winterzeit naht, bieten wir eine kostenlose Grippeimpfung an.\n\n## Betriebskommission\nDie SRO AG verfügt über eine Betriebskommission, welche das Bindeglied zwischen den Mitarbeitenden und der Geschäftsleitung bildet. Als Personalvertretung steht sie den Mitarbeitenden als Ansprechperson zur Verfügung.\n\n## Angebote zur Gesundheitsförderung\nIm Rahmen des Betrieblichen Gesundheitsmanagements offeriert die SRO AG laufend Angebote in der Prävention in der Arbeitssicherheit und im Case Management.\n\n## Flottenrabatt\nUnsere Mitarbeitenden profitieren von Flottenrabatten bei verschiedenen Marken.\n\n## Zulagen und Prämien\nFür Einsätze am Abend, in der Nacht und an Wochenenden wird eine Inkonvenienzzulage von CHF 9.– pro Stunde ausbezahlt. Bei Abend- und Nachteinsätzen wird zusätzlich eine Zeitgutschrift von 20 % angerechnet. Auch kurzfristiges Einspringen oder die erfolgreiche Vermittlung eines neuen Teammitglieds belohnen wir mit einer Prämie.\n\n## Pensionskasse\nUnsere Mitarbeitenden sind bei der Pensionskasse SRO versichert. Die SRO AG übernimmt bis zu 60 % der Beiträge (statt der üblichen 50 %) und je nach individueller Situation kann zwischen drei Sparplänen gewählt werden.\n\n## Familie und Kinderbetreuung\nMitarbeitende mit gesetzlichem Anspruch auf Familienzulagen erhalten zusätzlich eine monatliche Betreuungszulage von CHF 180.– bis CHF 250.–. Die Lohnfortzahlung während eines 16-wöchigen Mutterschaftsurlaubs sowie des 15-tägigen Vaterschaftsurlaubs beträgt 100 %.\n\n## Bei uns arbeiten\nNeben zeitgemässen Arbeits- und Anstellungsbedingungen nach GAV, bieten wir Ihnen eine anspruchsvolle, interessante und abwechslungsreiche Tätigkeit mit viel Eigenverantwortung in einem zukunftsweisenden Bereich. Sie haben die Möglichkeit mit Ideen an der Weiterentwicklung und Gestaltung des Bereiches aktiv mitzuwirken. Wir unterstützen Sie mittels internen und externen Weiterbildungen.\nDiese Stelle teilen\nÜber uns\nSRO AG: Mitwirken. Vertrauen. Familiär.\n\n## Respektvoll und engagiert\nWir begegnen Menschen mit Respekt und achten das Recht auf Selbstbestimmung. Unsere Zusammenarbeit ist geprägt von Sorgfalt, Toleranz und Wertschätzung. Wir setzen uns berufsübergreifend für das Behandlungsziel unserer Patienten ein. Dabei orientieren wir uns an den neusten fachlichen Standards. Wir engagieren uns als kompetente Fachpersonen über Nahtstellen hinweg als Team und denken sowie handeln wirtschaftlich und nachhaltig.\n\n## Facts\n• 132 Betten (Akut 126, IPS 6)\n• Aufwachraum 9 Plätze, Tagesklinik 16 Plätze\n• 6 Operationssäle\n• 1'366 Mitarbeitende (auf rund 976 Vollzeiten)\n• 8'593 stationäre Patienten pro Jahr\n• 76'683 ambulante Patienten pro Jahr\n• 207'674 Konsultationen pro Jahr\n• 6'670 Rettungsdiensteinsätze pro Jahr\n• CHF 214 Mio. Umsatz\nMit Teamgeist zum Erfolg",
         "fr": "Languenthal épital\nLieu d'impression\nAfficher en PDF\nLe Bureau des services psychiatriques fournit des soins psychiatriques régionaux, communautaires et axés sur le patient à 80 000 résidents. Nous disposons de structures de soins modernes et intégrées telles que le triage d'urgence, les soins actifs mobiles équivalents au poste, les soins psychiatriques intégratifs, les consultations psychiatriques sociales et psychothérapeutiques à 4 endroits avec des offres spéciales, ainsi que la clinique de jour de réadaptation, la clinique de jour aiguë, la psychiatrie de la vieillesse avec ambulatoire et clinique de jour et une offre d'hospitalisation avec 34 lits à l'hôpital Langenthal. Nous avons la reconnaissance SIWF en tant qu'institution de formation de la catégorie A pendant 3 ans, à la fois ambulatoire et hospitalier.\nLe Centre d'intégration professionnelle offre divers services axés sur le marché du travail dans les domaines de la prévention, de la détection précoce et de l'intégration.\nDans le cadre d'une représentation de maternité, nous cherchons 1. Jusqu'au 28 novembre 2026. Février 2027 (avec possibilité d'emploi permanent)\n\n## Ils le font avec nous.\nDans cette fonction responsable et polyvalente, vous conseillerez et accompagnerez nos clients dans toutes les questions liées au travail et à la santé mentale. Ils les accompagnent délibérément lorsqu'ils rentrent dans l'emploi existant ou prennent un nouvel emploi. En tant que personne-ressource, vous assurez la coordination, la communication avec les clients, les médecins, les thérapeutes et les employeurs, etc. Avec votre personnalité ouverte et d'initiative, vous acquérez et maintenez un réseau d'entreprises partenaires et d'autres bureaux spécialisés.\n\n## C'est ce qu'ils apportent.\nEn plus de plusieurs années d'expérience professionnelle prouvée en gestion de l'intégration, vous avez un diplôme supérieur en travail social, éducation sociale, psychologie ou soins infirmiers ainsi que la formation continue en coaching, assurance sociale et droit du travail. Ils comprennent bien les limites liées à la santé et les effets possibles sur une activité professionnelle. Ils connaissent bien les différents niveaux hiérarchiques et industries. Une bonne connaissance de l'allemand ainsi qu'une bonne expression orale et écrite complètent votre profil. Si vous aimez aussi voyager et apprécier un environnement de travail dynamique, alors nous devons apprendre à vous connaître.\nLeurs avantages\n\n## Formation et éducation\nLa formation continue opérationnelle et les options de carrière passionnantes font partie de notre philosophie d'entreprise orientée vers l'avenir.\n\n## Salle du personnel\nIl est possible de louer une chambre meublée à Langenthal pour une durée limitée.\nVacances: Au moins 25 jours de vacances par an\n\n## Avantages liés aux franges\nLes employés bénéficient de services supplémentaires qui soutiennent la santé et le bien-être – notamment la gestion de la santé de l'entreprise, les offres de conditionnement physique, les soins médicaux, ainsi que le confort de l'hôtel en hospitalisation. De plus, ils bénéficient de nombreux avantages dans les pharmacies, les articles de sport, l'électronique grand public et les boissons.\n\n## Produits alimentaires\nLes employés profitent de repas variés dans tous nos restaurants à des prix réduits.\n\n## Service du personnel médical\nLe service médical du personnel est heureux de conseiller les employés sur les questions de santé. Dès que l'heure d'hiver approche, nous offrons un vaccin contre la grippe.\n\n## Comité de fonctionnement\nSRO AG dispose d'un comité opérationnel qui constitue le lien entre les salariés et la direction. En tant que représentant du personnel, il est mis à la disposition des employés à titre de personne-ressource.\n\n## Services de promotion sanitaire\nDans le cadre de la gestion de la santé au travail, SRO AG propose des offres permanentes en matière de prévention en matière de sécurité au travail et de gestion des cas.\n\n## Remise sur la flotte\nNos employés bénéficient de réductions de flotte dans différentes marques.\n\n## Indemnités et primes\nPour les affectations le soir, la nuit et le week-end, une indemnité de désagrément de CHF 9 par heure est versée. Pour les affectations du soir et de la nuit, un crédit de temps supplémentaire de 20% est crédité. Nous récompensons également l'intervention à court terme ou le placement réussi d'un nouveau membre de l'équipe avec une prime.\n\n## Caisse des pensions\nNos employés sont assurés par la caisse de retraite SRO. SRO AG couvre jusqu'à 60% des cotisations (au lieu de 50% habituel) et selon la situation individuelle peut être choisi entre trois plans d'épargne.\n\n## Famille et garde des enfants\nLes salariés ayant légalement droit aux allocations familiales reçoivent également une allocation mensuelle de CHF 180.– à CHF 250.–. La rémunération continue pendant 16 semaines de congé de maternité et 15 jours de congé de paternité est de 100 %.\n\n## Travailler avec nous\nEn plus des conditions de travail et d'emploi contemporaines selon GAV, nous vous proposons une activité exigeante, intéressante et variée avec beaucoup de responsabilité personnelle dans un domaine tourné vers l'avenir. Vous avez la possibilité de participer activement avec des idées dans le développement et la conception de la région. Nous vous soutenons par une formation interne et externe.\nPartager cette information\nSur nous\nSRO AG: Participation. Confiance. Famille.\n\n## Respectueux et engagés\nNous traitons les gens avec respect et respect du droit à l'autodétermination. Notre coopération se caractérise par le soin, la tolérance et l'appréciation. Nous nous engageons à atteindre l'objectif de traitement de nos patients dans toutes les professions. Nous sommes guidés par les dernières normes professionnelles. Nous sommes engagés en tant que spécialistes compétents à travers les coutures en tant qu'équipe et pensons et agissons économiquement et durablement.\n\n## Faits\n• 132 lits (Acute 126, IPS 6)\n• Salle de récupération 9 places, clinique de jour 16 places\n• 6 salles d'opération\n• 1 366 employés (environ 976 employés à temps plein)\n• 8'593 patients hospitalisés par an\n• 76 683 consultations externes par an\n• 207 674 consultations par an\n• 6 670 missions de secours par an\n• CHF 214 millions Chiffre d'affaires\nL'esprit d'équipe au succès"
       },
+      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/5abdd469-8c3c-4f13-8fce-55b485274080",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:40.174Z",
+      "crawledAt": "2026-11-14T17:02:29.747Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1415,16 +1417,17 @@
       "pensum": "80%",
       "validThrough": "2026-12-11T23:59:59.999Z",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
+        "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
           "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
-        "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:23.819Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
@@ -1440,8 +1443,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-09-19T22:50:23.819Z"
+      "validThroughSource": "source"
     },
     {
       "id": "sro-427892d13660",
@@ -1475,7 +1477,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0cf264fd-3e2e-4b7e-b661-18a2a902af5c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:39.548Z",
+      "crawledAt": "2026-11-14T17:02:29.213Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1529,9 +1531,9 @@
       "id": "sro-dad7dbf0be39",
       "slug": "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal-295f0ac9c6",
       "slugByLocale": {
-        "de": "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
         "it": "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal-295f0ac9c6",
         "en": "expert-expert-diabetes-counselling-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "de": "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
         "fr": "expert-expert-conseils-sur-le-diabete-60-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
@@ -1551,12 +1553,13 @@
         "de": "Spital Langenthal\nStelle ausdrucken\nStelle als PDF\nWir suchen zur Ergänzung unseres kleinen und motivierten Teams per sofort oder nach Vereinbarung eine/n\n\n## Das bewirken Sie bei uns\n• Evidenzbasierte Beratung, Schulung und Betreuung von Erwachsenen bei allen Diabetestypen ambulant wie auch stationär\n• Interprofessionelle Zusammenarbeit mit dem Endokrinologen/Diabetologen, der Ärzteschaft, Pflegefachpersonen und der Ernährungsberatung\n• Mithilfe bei internen Projekten, Richtlinien und Schulungen\n\n## Das bringen Sie mit\n• Fachexpertin/Fachexperten in der Diabetesfachberatung HFP oder Dipl. Pflegefachfrau/-mann HF/FH, DN II oder AKP mit Zusatzausbildung CAS-Diabetesberatung oder HöFa 1 Diabetesberatung\n• Du bist eine flexible, engagierte und selbständig arbeitende Persönlichkeit\n• Du verstehst es, auch bei hoher Arbeitsbelastung deinen Arbeitsalltag selbständig zu organisieren und anstehende Arbeiten entsprechend zu priorisieren\n• Du bist teamfähig und hast Freude an der Arbeit direkt mit unseren Patientinnen und Patienten und legst Wert auf eine gute interprofessionelle Zusammenarbeit\nIhre Vorteile\n\n## Aus-, Fort- und Weiterbildung\nDie betriebliche Fort- und Weiterbildung und spannende Karriereoptionen sind Bestandteil unserer zukunftsorientierten Unternehmensphilosophie.\n\n## Personalzimmer\nEs besteht die Möglichkeit, bei freier Kapazität in Langenthal für eine befristete Zeit ein möbliertes Zimmer zu mieten.\nFerien: Mindestens 25 Tage Ferien pro Jahr\n\n## Fringe Benefits\nDie Mitarbeitenden profitieren von Zusatzleistungen, welche Gesundheit und Wohlbefinden unterstützen – dazu zählen betriebliches Gesundheitsmanagement, Fitnessangebote, medizinische Betreuung, sowie Hotelkomfort bei Hospitalisierung. Zudem geniessen sie vielfältige Vergünstigungen in Apotheken, bei Sportartikeln, Unterhaltungselektronik und Getränken.\n\n## Verpflegung\nDie Mitarbeitenden geniessen in all unseren Restaurants an allen Standorten zu vergünstigten Preisen abwechslungsreiche Mahlzeiten.\n\n## Personalärztlicher Dienst\nDer personalärztliche Dienst berät die Mitarbeitenden gerne in gesundheitlichen Fragen. Sobald die Winterzeit naht, bieten wir eine kostenlose Grippeimpfung an.\n\n## Betriebskommission\nDie SRO AG verfügt über eine Betriebskommission, welche das Bindeglied zwischen den Mitarbeitenden und der Geschäftsleitung bildet. Als Personalvertretung steht sie den Mitarbeitenden als Ansprechperson zur Verfügung.\n\n## Angebote zur Gesundheitsförderung\nIm Rahmen des Betrieblichen Gesundheitsmanagements offeriert die SRO AG laufend Angebote in der Prävention in der Arbeitssicherheit und im Case Management.\n\n## Flottenrabatt\nUnsere Mitarbeitenden profitieren von Flottenrabatten bei verschiedenen Marken.\n\n## Zulagen und Prämien\nFür Einsätze am Abend, in der Nacht und an Wochenenden wird eine Inkonvenienzzulage von CHF 9.– pro Stunde ausbezahlt. Bei Abend- und Nachteinsätzen wird zusätzlich eine Zeitgutschrift von 20 % angerechnet. Auch kurzfristiges Einspringen oder die erfolgreiche Vermittlung eines neuen Teammitglieds belohnen wir mit einer Prämie.\n\n## Pensionskasse\nUnsere Mitarbeitenden sind bei der Pensionskasse SRO versichert. Die SRO AG übernimmt bis zu 60 % der Beiträge (statt der üblichen 50 %) und je nach individueller Situation kann zwischen drei Sparplänen gewählt werden.\n\n## Familie und Kinderbetreuung\nMitarbeitende mit gesetzlichem Anspruch auf Familienzulagen erhalten zusätzlich eine monatliche Betreuungszulage von CHF 180.– bis CHF 250.–. Die Lohnfortzahlung während eines 16-wöchigen Mutterschaftsurlaubs sowie des 15-tägigen Vaterschaftsurlaubs beträgt 100 %.\n\n## Bei uns arbeiten\n• Spannende Tätigkeit in einem fachkompetenten, neuen kleinen Team, das Sie mit Respekt und Wertschätzung willkommen heisst und in allen Belangen interprofessionell unterstützt\n• Herausfordernde und spannende Aufgabeninhalte in einem lebhaften, von Wachstum und Modernisierung geprägten Unternehmen\n• Zeitgemässe Anstellungsbedingungen nach GAV\nDiese Stelle teilen\nÜber uns\nSRO AG: Mitwirken. Vertrauen. Familiär.\n\n## Respektvoll und engagiert\nWir begegnen Menschen mit Respekt und achten das Recht auf Selbstbestimmung. Unsere Zusammenarbeit ist geprägt von Sorgfalt, Toleranz und Wertschätzung. Wir setzen uns berufsübergreifend für das Behandlungsziel unserer Patienten ein. Dabei orientieren wir uns an den neusten fachlichen Standards. Wir engagieren uns als kompetente Fachpersonen über Nahtstellen hinweg als Team und denken sowie handeln wirtschaftlich und nachhaltig.\n\n## Facts\n• 132 Betten (Akut 126, IPS 6)\n• Aufwachraum 9 Plätze, Tagesklinik 16 Plätze\n• 6 Operationssäle\n• 1'366 Mitarbeitende (auf rund 976 Vollzeiten)\n• 8'593 stationäre Patienten pro Jahr\n• 76'683 ambulante Patienten pro Jahr\n• 207'674 Konsultationen pro Jahr\n• 6'670 Rettungsdiensteinsätze pro Jahr\n• CHF 214 Mio. Umsatz\nMit Teamgeist zum Erfolg",
         "fr": "Lanthal épital\nLieu d'impression\nAfficher en PDF\nNous cherchons à compléter notre petite équipe motivée par 1. Septembre 2026 ou par accord un ou plusieurs\n\n## Ils le font avec nous.\n• Conseils, formation et soins fondés sur des données probantes pour les adultes de tous les types de diabète, qu'ils soient ambulatoires ou hospitalisés\n• Coopération interprofessionnelle avec l'endocrinologue/diabétologue, la profession médicale, les infirmières et les conseils nutritionnels\n• Assistance aux projets, politiques et formations internes\n\n## C'est ce qu'ils apportent.\n• Expert/expert en conseils spécialisés en diabète HFP ou Dipl. Spécialiste des soins infirmiers HF/FH, DN II ou AKP avec formation supplémentaire CAS Diabeteberatung ou HöFa 1 Diabeteberatung\n• Vous êtes une personnalité flexible, engagée et indépendante\n• Vous comprenez comment organiser votre travail quotidien indépendamment même en cas de charge de travail élevée et prioriser le travail à venir en conséquence\n• Vous êtes capable de travailler en équipe et aimez travailler directement avec nos patients et attachez de l'importance à une bonne coopération interprofessionnelle\nLeurs avantages\n\n## Formation et éducation\nLa formation continue opérationnelle et les options de carrière passionnantes font partie de notre philosophie d'entreprise orientée vers l'avenir.\n\n## Salle du personnel\nIl est possible de louer une chambre meublée à Langenthal pour une durée limitée.\nVacances: Au moins 25 jours de vacances par an\n\n## Avantages liés aux franges\nLes employés bénéficient de services supplémentaires qui soutiennent la santé et le bien-être – notamment la gestion de la santé de l'entreprise, les offres de conditionnement physique, les soins médicaux, ainsi que le confort de l'hôtel en hospitalisation. En outre, ils bénéficient de divers avantages dans les pharmacies, les articles de sport, l'électronique grand public et les boissons.\n\n## Produits alimentaires\nLes employés profitent de repas variés dans tous nos restaurants à tous les endroits à prix réduit.\n\n## Service du personnel médical\nLe service médical du personnel est heureux de conseiller les employés sur les questions de santé. Dès que l'heure d'hiver approche, nous offrons un vaccin contre la grippe.\n\n## Comité de fonctionnement\nSRO AG dispose d'un comité opérationnel qui constitue le lien entre les salariés et la direction. En tant que représentant du personnel, il est mis à la disposition des employés à titre de personne-ressource.\n\n## Services de promotion sanitaire\nDans le cadre de la gestion de la santé au travail, SRO AG propose des offres permanentes en matière de prévention en matière de sécurité au travail et de gestion des cas.\n\n## Remise sur la flotte\nNos employés bénéficient de réductions de flotte dans différentes marques.\n\n## Indemnités et primes\nPour les affectations le soir, la nuit et le week-end, une indemnité de désagrément de CHF 9 par heure est versée. Pour les affectations du soir et de la nuit, un crédit de temps supplémentaire de 20% est crédité. Nous récompensons également l'intervention à court terme ou le placement réussi d'un nouveau membre de l'équipe avec une prime.\n\n## Caisse des pensions\nNos employés sont assurés par la caisse de retraite SRO. SRO AG couvre jusqu'à 60% des cotisations (au lieu de 50% habituel) et selon la situation individuelle peut être choisi entre trois plans d'épargne.\n\n## Famille et garde des enfants\nLes salariés ayant légalement droit aux allocations familiales reçoivent également une allocation mensuelle de CHF 180.– à CHF 250.–. La rémunération continue pendant 16 semaines de congé de maternité et 15 jours de congé de paternité est de 100 %.\n\n## Travailler avec nous\n• Travail passionnant dans une nouvelle petite équipe compétente qui vous accueille avec respect et appréciation et fournit un soutien interprofessionnel dans tous les aspects\n• Des tâches stimulantes et stimulantes dans une entreprise animée caractérisée par la croissance et la modernisation\n• Conditions d'emploi actuelles selon GAV\nPartager cette information\nSur nous\nSRO AG: Participation. Confiance. Famille.\n\n## Respectueux et engagés\nNous traitons les gens avec respect et respect du droit à l'autodétermination. Notre coopération se caractérise par le soin, la tolérance et l'appréciation. Nous sommes attachés à l'objectif de traitement de nos patients dans toutes les professions. Nous sommes guidés par les dernières normes professionnelles. Nous sommes engagés en tant que spécialistes compétents à travers les coutures en tant qu'équipe et pensons et agissons économiquement et durablement.\n\n## Faits\n• 132 lits (Acute 126, IPS 6)\n• Salle de récupération 9 places, clinique de jour 16 places\n• 6 salles d'opération\n• 1 366 employés (environ 976 employés à temps plein)\n• 8'593 patients hospitalisés par an\n• 76 683 consultations externes par an\n• 207 674 consultations par an\n• 6 670 missions de secours par an\n• CHF 214 millions Chiffre d'affaires\nL'esprit d'équipe au succès"
       },
+      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/e715978f-be2e-4009-bdd6-33fb403e0d52",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:38.951Z",
+      "crawledAt": "2026-11-14T17:02:28.682Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1580,16 +1583,17 @@
       "pensum": "60 - 100%",
       "validThrough": "2026-12-11T23:59:59.999Z",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
+        "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
           "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
-      "previousSlugs": [
-        "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
-        "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:22.845Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1605,8 +1609,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-09-19T22:50:22.845Z"
+      "validThroughSource": "source"
     },
     {
       "id": "sro-86ef5fbf1d2d",
@@ -1640,7 +1643,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/03addddc-c470-4465-9fab-f51b4f1e1897",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:38.506Z",
+      "crawledAt": "2026-11-14T17:02:28.245Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1722,7 +1725,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/72799e03-02d8-423d-b6e2-d057216b6eaf",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:38.036Z",
+      "crawledAt": "2026-11-14T17:02:27.793Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1806,7 +1809,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2fa80b32-e9d4-419b-ba10-37870626feb3",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:37.557Z",
+      "crawledAt": "2026-11-14T17:02:27.354Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1894,7 +1897,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/860a74c5-9971-4656-a9e5-70df209ecd85",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:37.104Z",
+      "crawledAt": "2026-11-14T17:02:26.936Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1984,7 +1987,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e4e3524b-d414-459c-95c1-fdb0c72f203f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:36.646Z",
+      "crawledAt": "2026-11-14T17:02:26.527Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2067,7 +2070,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e7d2bbc5-afbb-49c3-8ae6-d9a2aa6ee6a2",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:36.186Z",
+      "crawledAt": "2026-11-14T17:02:26.116Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2150,7 +2153,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e7650213-186b-460f-8eb1-71737bd14d65",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:35.722Z",
+      "crawledAt": "2026-11-14T17:02:25.687Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2234,7 +2237,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e7505324-fee2-489f-aaf7-b466d16967fb",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:35.260Z",
+      "crawledAt": "2026-11-14T17:02:25.267Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2316,7 +2319,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fb974875-ba61-46d9-975d-df78bb2ea1c1",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:34.797Z",
+      "crawledAt": "2026-11-14T17:02:24.864Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2400,7 +2403,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fa2584df-2ff3-40b3-850d-979c472bc69a",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:34.330Z",
+      "crawledAt": "2026-11-14T17:02:24.469Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2481,7 +2484,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f7058a73-e4fb-440e-94e0-26599487a55d",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:33.867Z",
+      "crawledAt": "2026-11-14T17:02:24.029Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2560,7 +2563,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9c919a4d-6230-4786-b8c5-fe9ad04ce8dd",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:33.314Z",
+      "crawledAt": "2026-11-14T17:02:23.514Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2639,7 +2642,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4cedd5c4-5475-4a8d-a0f0-4a962e6959c2",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:32.878Z",
+      "crawledAt": "2026-11-14T17:02:23.068Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2726,7 +2729,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/bf9b30ba-b305-4c6e-bd49-b9d4a2a7fd0e",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:32.442Z",
+      "crawledAt": "2026-11-14T17:02:22.626Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2810,7 +2813,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/11c236ed-4886-499a-8eac-11b721920809",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:31.990Z",
+      "crawledAt": "2026-11-14T17:02:22.155Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2894,7 +2897,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/36772b65-6b97-46ad-9719-35d234342972",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:31.530Z",
+      "crawledAt": "2026-11-14T17:02:21.754Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2982,7 +2985,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/bac38b09-0db6-4880-a899-a0900022187f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:31.068Z",
+      "crawledAt": "2026-11-14T17:02:21.329Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3065,7 +3068,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/340c3a4f-194e-4434-8c3f-01a12bcc80ba",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:30.583Z",
+      "crawledAt": "2026-11-14T17:02:20.916Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3153,7 +3156,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f08d92d1-b64a-460c-bdc1-0afe8161954b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:29.998Z",
+      "crawledAt": "2026-11-14T17:02:20.375Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3246,7 +3249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/213e70f7-fc1f-4bdb-a0a2-69880f41e531",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:29.396Z",
+      "crawledAt": "2026-11-14T17:02:19.856Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3333,7 +3336,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a3845abb-4d17-4514-b1ff-0f93c3ad6728",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:28.815Z",
+      "crawledAt": "2026-11-14T17:02:19.331Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3420,7 +3423,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3c4fb735-4a37-41fb-b915-d135495fc87b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:28.172Z",
+      "crawledAt": "2026-11-14T17:02:18.758Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3478,7 +3481,7 @@
     },
     {
       "id": "sro-3b6dc526deb4",
-      "slug": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-88105880e3",
+      "slug": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
         "en": "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
@@ -3532,11 +3535,13 @@
       "validThrough": "2027-01-15T21:27:35.259Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarzt-oberarztin-zesa-60-sro-langenthal"
+        "oberarzt-oberarztin-zesa-60-sro-langenthal",
+        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-88105880e3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-oberarztin-zesa-60-sro-langenthal"
+          "oberarzt-oberarztin-zesa-60-sro-langenthal",
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal-88105880e3"
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:28.120Z",
@@ -3556,11 +3561,11 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sro-ccbef4fd7793",
-      "slug": "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-5083d11ed1",
+      "slug": "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "principal-physician-principal-intensive-care-unit-80-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -3620,12 +3625,14 @@
         ],
         "it": [
           "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal",
-          "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal"
+          "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
+          "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-5083d11ed1"
         ]
       },
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal",
-        "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal"
+        "leitende-arztin-leitenden-arzt-intensivmedizin-80-100-sro-langenthal",
+        "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-5083d11ed1"
       ],
       "firstSeenAt": "2026-09-19T22:50:26.301Z",
       "salaryMin": 115000,
@@ -3644,11 +3651,11 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sro-b44414a03b10",
-      "slug": "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region-oberaargau-6be4f3052a",
+      "slug": "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region",
       "slugByLocale": {
         "it": "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region",
         "en": "vocational-integration-specialist-job-coach-80-sro-ag-spital-region-oberaargau-langenthal",
@@ -3703,11 +3710,13 @@
       "validThrough": "2027-01-15T21:27:30.552Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal"
+        "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
+        "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region-oberaargau-6be4f3052a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal"
+          "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal",
+          "integrazione-professionale-professionale-professionale-professionale-allenatore-di-lavoro-80-sro-ag-spital-region-oberaargau-6be4f3052a"
         ],
         "en": [
           "fachfrau-mann-berufliche-integration-job-coach-80-sro-langenthal"
@@ -3730,11 +3739,11 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sro-2b558e8e97e1",
-      "slug": "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal-4e1b0bf9f7",
+      "slug": "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "expert-expert-diabetes-counselling-60-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -3789,11 +3798,13 @@
       "validThrough": "2027-01-15T21:27:29.277Z",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal"
+        "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
+        "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal-4e1b0bf9f7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal"
+          "fachexpertin-fachexperte-diabetesberatung-60-100-sro-langenthal",
+          "expert-expert-diabetes-consulenza-60-100-sro-ag-spital-region-oberaargau-langenthal-4e1b0bf9f7"
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:22.845Z",
@@ -3813,7 +3824,7 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
