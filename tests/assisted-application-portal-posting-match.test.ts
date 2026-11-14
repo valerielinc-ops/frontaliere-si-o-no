@@ -157,6 +157,8 @@ describe('application form posting identity', () => {
   it('keeps same-kind employer names and standalone Data as conflicting evidence', () => {
     expect(namesAnotherEmployer('Banca Cler — Bank Riviera', { company: 'Banca Cler' })).toBe(true);
     expect(namesAnotherEmployer('Data', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Compilation', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Compilazione', { company: 'Alfa' })).toBe(true);
     expect(namesAnotherEmployer('Data di compilazione:', { company: 'Alfa' })).toBe(false);
   });
 
