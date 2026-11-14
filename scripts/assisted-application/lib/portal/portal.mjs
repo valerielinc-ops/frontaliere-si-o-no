@@ -4026,8 +4026,8 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
-  'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'number', 'numero', 'nummer',
+  'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
@@ -4037,6 +4037,10 @@ const FORM_VOCABULARY = new Set([
   'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
   'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
+const FORM_DATE_FIELD_LABEL_RE = /^(?:data di compilazione|date (?:of )?(?:compilation|completion|application)|date de candidature|datum (?:der )?(?:bewerbung|erfassung))$/u;
+const isFormDateFieldLabel = value => FORM_DATE_FIELD_LABEL_RE.test(
+  normalizeWords(String(value || '').replace(/[*:]+$/u, '').trim()),
+);
 // A country in a company's name says which national entity it is, not which company: «Rituals Cosmetics
 // Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities. Countries only:
 // «Acme Europe» and «Acme International» are two companies (review of #12292).
@@ -4112,7 +4116,7 @@ const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder',
 // Filler between two words: skipped when looking for the word next to a company word.
 const FILLER_WORDS = new Set([
   'the', 'and', 'for', 'our', 'your', 'with', 'at', 'this', 'that', 'und', 'der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'bei', 'beim',
-  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
+  'als', 'von', 'vom', 'zum', 'zur', 'mit', 'per', 'con', 'di', 'de', 'una', 'uno', 'nel', 'nella', 'dei', 'del', 'della', 'degli', 'gli', 'les', 'pour',
   'chez', 'avec', 'aux', 'une',
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
@@ -4177,6 +4181,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
+  const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
   const postingLocationWords = allowPostingLocation
     ? new Set([
@@ -4218,11 +4223,10 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
-  // A title can put the selected employer and a different employer-like phrase
-  // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
-  // scan intentionally splits on dashes, so keep this explicit title-level
-  // conflict check before the selected employer's own identity neutralizes the
-  // line as a whole.
+  // A title can put the selected employer and a differently named employer
+  // with the same translated kind on one line («Banca Cler — Bank Riviera»).
+  // Compare the non-kind words against the selected identity before the
+  // ordinary neighbour scan lets the selected employer neutralize the line.
   if (titleNamesOwnEmployer(titleLine)) {
     const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
     if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
@@ -4232,11 +4236,15 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
-  if (!titleNamesOwnEmployer(titleLine) && title.some((word, index) => !filler(word) && !neutral.has(word)
+  if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
+    && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
-  const ourKinds = employerKindsOf([...ours]);
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
+    if (isFormDateFieldLabel(phrase)) continue;
+    // Employer-like names in the recruiting platform's attribution footer do
+    // not identify the employer that owns the application form.
+    if (/^\s*(?:powered|provided|developed|hosted)\s+by\b/iu.test(phrase)) continue;
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     // The same words with their case, when they line up one to one: a phrase in normal case (upper and lower
     // letters, no web address) writes a name with a capital and the sentence around it in lower case.
@@ -4363,6 +4371,11 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
     || contexts.some(matchesCurrentIdentity);
   return titleMatched && sourceIdentityMatched;
+}
+
+/** Prefer the saved posting address; keep the open source when legacy context omitted it. */
+export function resolvedPostingUrlForIdentity(contextPostingUrl, localPostingUrl) {
+  return String(contextPostingUrl || '').trim() || String(localPostingUrl || '').trim();
 }
 
 /** Read-only reconciliation cannot use an Apply control or a persisted route proof. */
@@ -4647,15 +4660,15 @@ export async function postingMainHeading(page) {
 // Gender markers a portal adds to a title («m/w/d», «(a)», «-in»): no other role.
 const TITLE_GENDER_MARKERS = new Set(['m', 'w', 'd', 'f', 'x', 'h', 'a', 'e', 'r', 'in', 'innen', 'div', 'divers']);
 function normalizeFormRoleTitle(value) {
-  return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
+  const text = String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '')
     .replace(/\(?\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)?/giu, ' ')
     .replace(/\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%/g, ' ')
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
-    .replace(/\(\s*\d{1,20}\s*\)/g, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b(?:\s*[-–—|:]\s*[\s\S]*|[\s\S]*)?$/iu, ' ')
-    .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
-    .replace(/\s+/g, ' ').trim();
+    .replace(/\(\s*\d{1,20}\s*\)/g, ' ');
+  return text.split(PHRASE_END_RE).map((segment) => segment.trim())
+    .filter((segment) => segment && !isGenericFormChromeSegment(segment))
+    .join(' ').replace(/\s+/g, ' ').trim();
 }
 function titleWordsOnly(line, title) {
   const candidates = jobTitleCandidates(title);
@@ -4673,6 +4686,7 @@ function titleWordsOnly(line, title) {
 const FORM_HEADING_VOCABULARY = new Set([
   ...FORM_VOCABULARY,
   ...FILLER_WORDS,
+  'account', 'create', 'profile', 'careers',
   'personal', 'information', 'informationen', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
   'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
   'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
@@ -4687,13 +4701,32 @@ const FORM_HEADING_VOCABULARY = new Set([
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
 
+const FORM_CHROME_WORDS = new Set([
+  ...FORM_HEADING_VOCABULARY,
+  ...EMPLOYER_KIND_WORDS,
+  'bewerbung', 'bewerbungsformular', 'application', 'candidatura', 'candidature', 'postulation',
+  'tracking', 'system', 'process', 'prozess', 'processo', 'processus', 'portal', 'career', 'careerportal', 'jobportal', 'im',
+]);
+const OTHER_EMPLOYER_MARKER_WORDS = new Set([
+  'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
+  'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
+]);
+const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
+
+function isGenericFormChromeSegment(segment) {
+  const words = normalizeWords(segment).split(' ').filter(Boolean);
+  if (!words.length || words.some((word) => OTHER_EMPLOYER_MARKER_WORDS.has(word))) return false;
+  return words.every((word) => FORM_CHROME_WORDS.has(word) || /^\d+$/u.test(word));
+}
+
 function formRoleHeadingStatus(formText, job = {}) {
   const candidates = jobTitleCandidates(job);
   if (!candidates.length) return 'unknown';
+  // Skip a few leading account and navigation headings so the role can still
+  // bind when it appears just below them. Stop at the first substantive line:
+  // later form fields and questions are not role evidence.
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
     .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
-  const headings = lines.filter(value => !/^https?:\/\//iu.test(value)).map(normalizeFormRoleTitle).filter(Boolean);
-  if (headings.some(heading => titleWordsOnly(heading, candidates))) return 'match';
   const neutral = new Set([
     ...FORM_HEADING_VOCABULARY,
     ...TITLE_GENDER_MARKERS,
@@ -4701,8 +4734,19 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
-  return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
-    .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
+  let formSurfaceStarted = false;
+  for (const line of lines) {
+    if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
+    if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) formSurfaceStarted = true;
+    const heading = normalizeFormRoleTitle(line);
+    if (!heading) continue;
+    if (titleWordsOnly(heading, candidates)) return 'match';
+    if (formSurfaceStarted) continue;
+    const words = normalizeWords(heading).split(' ').filter(Boolean);
+    if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
+    return 'mismatch';
+  }
+  return 'unknown';
 }
 
 // Umantis titles append the application surface to the portal's own role
@@ -4770,12 +4814,13 @@ export function formPostingMatch(formText, job = {}, {
     ? pageUrl
     : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
+  const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
   const umantisPostingPair = isUmantisPostingEntry({
     applyUrl: formApplicationUrl,
-    postingUrl: formPostingUrl,
+    postingUrl: umantisPairPostingUrl,
     postingRouteProof,
   });
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
@@ -4795,6 +4840,13 @@ export function formPostingMatch(formText, job = {}, {
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return 'mismatch';
+  // A witnessed application entry can also carry the published posting's id
+  // across hosts (for example a canonical job slug ending in the same id).
+  // Preserve that contrary evidence when liveness keeps the published URL;
+  // an inferred Umantis route must not rebind the form to a different listing.
+  if (applicationEntry && isUmantisApplicationRoute(formApplicationUrl)
+    && postingAddressIds(postingUrl).size > 0
+    && !applicationEntryCarriesPostingId(formApplicationUrl, postingUrl)) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
@@ -9705,7 +9757,7 @@ export async function readPortalRequirements(ctx) {
         pageUrl: page.url(),
         pageTitle: sourceTitle,
         pageHeading: sourcePostingHeading,
-        postingUrl: ctx.postingUrl,
+        postingUrl: resolvedPostingUrlForIdentity(ctx.postingUrl, page.url()),
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: sourceApplicationEntryProven,
@@ -10332,7 +10384,7 @@ export async function submitViaPortal(ctx) {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
         pageHeading: postingHeading,
-        postingUrl,
+        postingUrl: resolvedPostingUrlForIdentity(ctx.postingUrl, postingUrl),
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
