@@ -7,7 +7,7 @@ import {
   ASSEMBLE_OUTPUT_CACHE_VERSION,
   assembleCacheFileContract,
 } from '../../scripts/assemble-jobs-dataset.mjs';
-import { restore } from '../../scripts/ci/assemble-test-snapshot.mjs';
+import { prepare, restore } from '../../scripts/ci/assemble-test-snapshot.mjs';
 
 const roots: string[] = [];
 const files = assembleCacheFileContract({ withStats: true, withSummaries: true, withExpired: true }).requiredSnapshotFiles;
@@ -41,7 +41,46 @@ afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
 
-describe('hourly assemble test snapshot restore', () => {
+describe('hourly assemble test snapshot', () => {
+  it('prepares from the pre-assemble cache key rather than rehashing post-assemble inputs', () => {
+    const root = tempRoot();
+    const snapshotRoot = path.join(root, '.cache', 'assemble-jobs-test-snapshot');
+    const cacheKey = `${'a'.repeat(64)}_stats`;
+    const inputFingerprint = cacheKey.slice(0, 64);
+    const sourceDir = path.join(root, '.cache', 'assemble-jobs', cacheKey);
+    const now = Date.now();
+    fs.mkdirSync(sourceDir, { recursive: true });
+    for (const name of files) fs.writeFileSync(path.join(sourceDir, name), `assembled:${name}`);
+    fs.writeFileSync(path.join(sourceDir, 'manifest.json'), JSON.stringify({
+      inputFingerprint,
+      cacheKey,
+      outputCacheVersion: ASSEMBLE_OUTPUT_CACHE_VERSION,
+      nodeMajor,
+      includeTranslationHeld: false,
+      withStats: true,
+      withSummaries: true,
+      withExpired: true,
+      snapshotFiles: files,
+      fileCount: files.length,
+    }));
+
+    prepare({
+      root,
+      snapshotRoot,
+      sourceCacheKey: cacheKey,
+      sourceRunId: '101',
+      sourceRunAttempt: '1',
+      sourceCapturedAt: new Date(now - 1000).toISOString(),
+      compatibilityFingerprint: 'compatible-code',
+      now,
+    });
+
+    const snapshotManifest = JSON.parse(fs.readFileSync(path.join(snapshotRoot, 'test-snapshot.json'), 'utf8'));
+    expect(snapshotManifest.sourceCacheKey).toBe(cacheKey);
+    expect(snapshotManifest.sourceInputFingerprint).toBe(inputFingerprint);
+    expect(fs.readFileSync(path.join(snapshotRoot, files[0]), 'utf8')).toBe(`assembled:${files[0]}`);
+  });
+
   it('rejects and does not copy a snapshot when current assemble inputs changed', () => {
     const root = tempRoot();
     const checkoutRoot = path.join(root, 'checkout');
