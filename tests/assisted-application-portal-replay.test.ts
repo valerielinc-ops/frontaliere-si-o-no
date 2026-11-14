@@ -689,6 +689,18 @@ describe('portal replay base/head gate', () => {
     expect(deadline.expired()).toBe('wall');
   });
 
+  it('logs how long each Codex call took and whether it failed', () => {
+    let clock = 0;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, now: () => clock });
+    const first = deadline.agentStarted();
+    clock += 41_000;
+    deadline.agentSettled(first, true);
+    const second = deadline.agentStarted();
+    clock += 150_000;
+    deadline.agentSettled(second, false);
+    expect(deadline.snapshot().callLog).toEqual([{ ms: 41_000, ok: true }, { ms: 150_000, ok: false }]);
+  });
+
   describe('completing an unmeasured side', () => {
     const attempt = (stage: string, overrides: Record<string, unknown> = {}) => ({
       stage, status: 'measured', stopCode: 'posting_mismatch', agentCalls: 1, retryCount: 0,

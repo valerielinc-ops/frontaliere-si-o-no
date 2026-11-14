@@ -682,19 +682,23 @@ export function createPortalReplayDeadline({ activeBudgetMs, wallCapMs = REPLAY_
   let flightSince = 0;
   let agentMs = 0;
   let calls = 0;
+  const callLog = [];
   const snapshot = () => {
     const at = now();
     const wallMs = at - startedAt;
     const waited = agentMs + (inFlight > 0 ? at - flightSince : 0);
-    return { wallMs, agentMs: waited, activeMs: wallMs - waited, calls };
+    return { wallMs, agentMs: waited, activeMs: wallMs - waited, calls, callLog: callLog.slice() };
   };
   return {
+    /** Returns the token to hand back to `agentSettled`. */
     agentStarted() {
       calls += 1;
       if (inFlight === 0) flightSince = now();
       inFlight += 1;
+      return now();
     },
-    agentSettled() {
+    agentSettled(startedCallAt = null, ok = true) {
+      if (startedCallAt !== null) callLog.push({ ms: now() - startedCallAt, ok: ok !== false });
       if (inFlight === 0) return;
       inFlight -= 1;
       if (inFlight === 0) agentMs += now() - flightSince;
@@ -749,11 +753,14 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     deadlineState = deadline;
     const codex = async (request) => {
       agentCalls += 1;
-      deadline.agentStarted();
+      const startedCallAt = deadline.agentStarted();
+      let ok = false;
       try {
-        return await requestCodex(request);
+        const answer = await requestCodex(request);
+        ok = true;
+        return answer;
       } finally {
-        deadline.agentSettled();
+        deadline.agentSettled(startedCallAt, ok);
       }
     };
     activeProxy = await fenceApi.createPinnedPublicHttpsProxy({
@@ -879,7 +886,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     securityViolations: violations,
     // Local diagnostics only: comparePortalReplayFamily copies named fields, so
     // none of this reaches the public report.
-    timing: { ...(deadlineState?.snapshot() || { wallMs: 0, agentMs: 0, activeMs: 0, calls: 0 }), timeout: timeoutKind },
+    timing: { ...(deadlineState?.snapshot() || { wallMs: 0, agentMs: 0, activeMs: 0, calls: 0, callLog: [] }), timeout: timeoutKind },
   };
 }
 
@@ -1188,7 +1195,10 @@ async function detectMode(values) {
 // One line per listing with the two clocks of every attempt (wall/active/agent
 // milliseconds): the evidence for sizing the budget. Numbers and safe codes only.
 function logReplayTiming(family, index, sides) {
-  const attempts = (record) => (record.timings || []).map((t) => `${Math.round(t.wallMs)}/${Math.round(t.activeMs)}/${Math.round(t.agentMs)}${t.timeout ? `:${t.timeout === 'wall' ? 'wall' : 'active'}` : ''}`).join(' + ') || 'n/a';
+  // Per call: seconds the broker took to answer, `x` when it failed (killed at
+  // the call limit, rejected, ...), so completed calls and hung ones tell apart.
+  const calls = (t) => (t.callLog || []).map((c) => `${(Number(c.ms) / 1000).toFixed(1)}${c.ok ? '' : 'x'}`).join(',');
+  const attempts = (record) => (record.timings || []).map((t) => `${Math.round(t.wallMs)}/${Math.round(t.activeMs)}/${Math.round(t.agentMs)}${t.timeout ? `:${t.timeout === 'wall' ? 'wall' : 'active'}` : ''}${t.callLog?.length ? ` calls[s]=${calls(t)}` : ''}`).join(' + ') || 'n/a';
   const side = (name) => `${name} ${safeCode(sides[name]?.stage)}/${safeCode(sides[name]?.stopCode)} calls=${Number(sides[name]?.agentCalls) || 0} attempts[wall/active/agent ms]=${attempts(sides[name] || {})}`;
   console.log(`portal replay timing ${family} #${index}: ${side('base')} | ${side('head')}`);
 }
