@@ -3183,6 +3183,21 @@ jobs:
             exit 1
           fi
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+          # F7: una HEAD che e' un checkpoint WIP di issue-fix
+          # (`wip(issue-N): checkpoint pre-test` / `checkpoint automatico`) e'
+          # codice non finito, salvato per non perderlo col container (#4337):
+          # una review piena (tier high, 60 turni) su di essa e' sprecata
+          # (#18635: 3 checkpoint, #18615: 3 in 4 minuti). Si chiude il review
+          # gate fail-closed SENZA modello: `skip=true` (l'ultimo valore scritto
+          # vince) spegne tier, carry-forward e Codex, mentre `review-gate.mjs`
+          # non trova nessun LGTM sulla HEAD e lascia rosso il check required.
+          # La HEAD successiva (il fix vero) riceve la sua review. Lettura
+          # fail-open: se il subject non e' leggibile si procede come prima.
+          head_subject=$(timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD_SHA" --jq '.commit.message | split("\n") | .[0]' 2>/dev/null || true)
+          if [[ "$head_subject" =~ ^wip\(issue-[0-9]+\):[[:space:]]checkpoint ]]; then
+            echo "::error::HEAD ${HEAD_SHA:0:12} e' un checkpoint WIP ($head_subject): codice non finito, review gate chiuso fail-closed senza modello."
+            { echo "wip_checkpoint=true"; echo "skip=true"; } >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Determine review tier
         id: tier
