@@ -29,6 +29,7 @@ import {
   uncoveredAllowListCode,
   uncoveredAllowListOpenedFiles,
   openedByNameIn,
+  materializedHeadPathsBeforeRuntime,
 } from '../scripts/ci/verify-checkout-profiles.mjs';
 import {
   BUCKETS,
@@ -690,5 +691,59 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       'node -e "import(\'./scripts/lazy-only.mjs\')"',
     ].join('\n');
     expect(inlineModuleEntryPoints(text)).toEqual(['scripts/runtime-reliability-watch.mjs']);
+  });
+});
+
+describe('materializzazioni sparse dichiarate nel workflow', () => {
+  it('copre solo i file tracked copiati da HEAD prima dell esecuzione nell observer', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'retired-jobs-archive-observer.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const job = workflow?.jobs?.observe;
+    const checkout = job?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const materialized = materializedHeadPathsBeforeRuntime(job?.steps);
+
+    expect(String(checkout?.with?.['sparse-checkout'] ?? '').trim()).toBe('scripts');
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(true);
+    expect([...materialized].sort()).toEqual([
+      'build-plugins/shared/cantonResolvers.mjs',
+      'data/canton-municipalities.json',
+      'data/canton-url-slugs.json',
+    ]);
+  });
+
+  it.each([
+    [
+      'destination differs from source',
+      'git show "HEAD:data/canton-url-slugs.json" > data/other.json',
+    ],
+    [
+      'source is not HEAD',
+      'git show "origin/main:data/canton-url-slugs.json" > data/canton-url-slugs.json',
+    ],
+    [
+      'source is not tracked',
+      'git show "HEAD:data/not-a-tracked-file.json" > data/not-a-tracked-file.json',
+    ],
+  ])('does not cover a %s', (_description, copyCommand) => {
+    const materialized = materializedHeadPathsBeforeRuntime([
+      { run: 'mkdir -p data' },
+      { run: copyCommand },
+      { run: 'node scripts/ci/check-retired-jobs-archived.mjs' },
+    ]);
+
+    expect([...materialized]).toEqual([]);
+  });
+
+  it('non copre materiale dichiarato dopo il primo comando runtime', () => {
+    const materialized = materializedHeadPathsBeforeRuntime([
+      { run: 'node scripts/ci/check-retired-jobs-archived.mjs' },
+      { run: 'mkdir -p data\ngit show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json' },
+    ]);
+
+    expect([...materialized]).toEqual([]);
   });
 });
