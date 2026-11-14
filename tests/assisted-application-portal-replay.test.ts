@@ -404,6 +404,10 @@ describe('portal replay corpus', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies([
+      'functions/src/lib/permitStatus.js',
+      'functions/src/assistedApplicationAnswerEvidence.js',
+    ])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 

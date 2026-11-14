@@ -236,13 +236,14 @@ export function affectedPortalReplayFamilies(pathsOrDiff) {
   const families = new Set();
   let sharedRunnerPathChanged = false;
   for (const value of paths) {
-    const file = String(value || '').replace(/^\//u, '').toLowerCase();
+    const originalFile = String(value || '').replace(/^\//u, '');
+    const file = originalFile.toLowerCase();
     const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
       .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
       .map(([family]) => family);
     if (matchedFamilies.length) {
       for (const family of matchedFamilies) families.add(family);
-    } else if (isPortalReplayAffectedPath(file)) {
+    } else if (isPortalReplayAffectedPath(originalFile)) {
       sharedRunnerPathChanged = true;
     }
   }
