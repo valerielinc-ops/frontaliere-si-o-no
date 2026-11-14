@@ -1,10 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
-  HISTORY_BLOB_PREFETCH_BATCH_SIZE,
-  historyBlobOidBatches,
+  HISTORY_BACKFILL_MIN_BATCH_SIZE,
   historyBlobOidsFromTreeBatch,
-  historyBlobPrefetchArgs,
   historyBlobPrefetchInput,
+  historyBackfillArgs,
   historyCommitOidsFromDiffTree,
   historyCommitWalkArgs,
   historyDiffTreeArgs,
@@ -13,7 +12,6 @@ import {
   historySinceArgs,
   historySliceTreeRefInput,
   historyTreeOidsFromBatchCheck,
-  prefetchAndVerifyBlobs,
 } from '../scripts/ci/prefetch-history-blobs.mjs';
 
 function treeEntry(mode: string, name: string, oid: string): Buffer {
@@ -133,87 +131,38 @@ describe('prefetch-history-blobs', () => {
     expect(historyBlobOidsFromTreeBatch(expiredTree)).toContain(unchangedExpiredBlob);
   });
 
-  it('does nothing for empty input and formats no phantom stdin line', () => {
-    const fetchBatch = vi.fn();
-    const verify = vi.fn();
-
+  it('formats no phantom stdin line for an empty object batch', () => {
     expect(historyBlobPrefetchInput([])).toBe('');
-    expect(historyBlobOidBatches([])).toEqual([]);
-    expect(prefetchAndVerifyBlobs([], { fetchBatch, verify })).toBe(0);
-    expect(fetchBatch).not.toHaveBeenCalled();
-    expect(verify).not.toHaveBeenCalled();
   });
 
-  it('deduplicates OIDs before applying the bounded fetch size', () => {
-    const oidA = 'a'.repeat(40);
-    const oidB = 'b'.repeat(40);
-    const oidC = 'c'.repeat(40);
-
-    expect(historyBlobOidBatches([oidA, oidB, oidA, oidC, oidB], 2)).toEqual([
-      [oidA, oidB],
-      [oidC],
-    ]);
-    const defaultBatchInput = Array.from(
-      { length: HISTORY_BLOB_PREFETCH_BATCH_SIZE + 1 },
-      (_, index) => index.toString(16).padStart(40, '0'),
-    );
-    expect(historyBlobOidBatches(defaultBatchInput).map((batch) => batch.length)).toEqual([
-      HISTORY_BLOB_PREFETCH_BATCH_SIZE,
-      1,
+  it('uses promisor-aware Git backfill with the same history window and slice paths', () => {
+    expect(historyBackfillArgs({ since: '2026-09-20' })).toEqual([
+      'backfill',
+      `--min-batch-size=${HISTORY_BACKFILL_MIN_BATCH_SIZE}`,
+      '--no-sparse',
+      '--include-edges',
+      '--since=2026-09-20',
+      '--',
+      'data/jobs/by-crawler',
+      'data/jobs/expired/by-crawler',
     ]);
   });
 
-  it('fetches every bounded batch before verifying the complete unique OID set', () => {
-    const oids = ['a'.repeat(40), 'b'.repeat(40), 'a'.repeat(40), 'c'.repeat(40), 'd'.repeat(40)];
-    const events = [];
-
-    expect(prefetchAndVerifyBlobs(oids, {
-      batchSize: 2,
-      fetchBatch: (batch) => events.push(['fetch', [...batch]]),
-      verify: (allOids) => events.push(['verify', [...allOids]]),
-    })).toBe(2);
-
-    expect(events).toEqual([
-      ['fetch', [oids[0], oids[1]]],
-      ['fetch', [oids[3], oids[4]]],
-      ['verify', [oids[0], oids[1], oids[3], oids[4]]],
+  it('keeps the observer range explicit while including its base boundary', () => {
+    expect(historyBackfillArgs({ revisionRange: 'base^..head' })).toEqual([
+      'backfill',
+      `--min-batch-size=${HISTORY_BACKFILL_MIN_BATCH_SIZE}`,
+      '--no-sparse',
+      '--include-edges',
+      'base^..head',
+      '--',
+      'data/jobs/by-crawler',
+      'data/jobs/expired/by-crawler',
     ]);
   });
 
-  it('stops on fetch failure and propagates verification failure', () => {
+  it('keeps object input suitable for Git batch verification', () => {
     const oids = ['a'.repeat(40), 'b'.repeat(40)];
-    const fetchFailure = new Error('fetch failed');
-    const verifyFailure = new Error('verification failed');
-    const verify = vi.fn();
-
-    expect(() => prefetchAndVerifyBlobs(oids, {
-      batchSize: 1,
-      fetchBatch: (_batch, batchNumber) => {
-        if (batchNumber === 2) throw fetchFailure;
-      },
-      verify,
-    })).toThrow(fetchFailure);
-    expect(verify).not.toHaveBeenCalled();
-    expect(() => prefetchAndVerifyBlobs(oids, {
-      batchSize: 1,
-      fetchBatch: vi.fn(),
-      verify: () => { throw verifyFailure; },
-    })).toThrow(verifyFailure);
-  });
-
-  it('uses Git transport support for the HTTPS prefetch', () => {
-    const remote = 'https://github.com/owner/repo.git';
-    const oids = ['a'.repeat(40), 'b'.repeat(40)];
-
-    expect(historyBlobPrefetchArgs(remote)).toEqual([
-      'fetch',
-      '--keep',
-      '--no-progress',
-      '--no-tags',
-      '--no-write-fetch-head',
-      '--stdin',
-      remote,
-    ]);
     expect(historyBlobPrefetchInput(oids)).toBe(`${oids.join('\n')}\n`);
   });
 

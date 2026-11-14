@@ -5,12 +5,10 @@
  *
  * The backfill needs the commit/tree history plus the contents of the two job
  * slice directories at revisions that changed a slice. A blobless checkout
- * keeps commit and tree metadata local. This script finds relevant commits
- * without a path-limited revision walk, resolves only the two slice directory
- * trees at those commits, then fetches and verifies every matching blob in
- * bounded packs before the backfill starts. Metadata discovery and local
- * verification disable partial-clone lazy fetching so only the explicit,
- * bounded fetch downloads historical blobs.
+ * keeps commit and tree metadata local. This script finds the relevant slice
+ * blobs for verification, then delegates the download to Git's promisor-aware
+ * `backfill` command. That command requests missing historical blobs in
+ * bounded batches without treating blob object IDs as remote refspecs.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -26,6 +24,7 @@ const HISTORY_PATHS = [
 ];
 export const HISTORY_BLOB_PREFETCH_BATCH_SIZE = 8192;
 export const HISTORY_TREE_OBJECT_BATCH_SIZE = 100;
+export const HISTORY_BACKFILL_MIN_BATCH_SIZE = HISTORY_BLOB_PREFETCH_BATCH_SIZE;
 const SLICE_PATH_RE = /^data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/u;
 const OID_RE = /^[0-9a-f]{40}(?:[0-9a-f]{24})?$/u;
 const DIFF_STATUS_RE = /^(?:[ACDMRTUXB])\d*$/u;
@@ -51,16 +50,6 @@ export function historySafeGitErrorMessage(error) {
 
 export function historyMetadataEnv(baseEnv = process.env) {
   return { ...baseEnv, GIT_NO_LAZY_FETCH: '1' };
-}
-
-function checkoutRemoteUrl() {
-  const token = process.env.CHECKOUT_TOKEN || process.env.GITHUB_TOKEN;
-  const repository = process.env.REPOSITORY || process.env.GITHUB_REPOSITORY;
-  if (!token) throw new Error('CHECKOUT_TOKEN or GITHUB_TOKEN is required to prefetch history blobs.');
-  if (!repository || !/^[^/]+\/[^/]+$/u.test(repository)) {
-    throw new Error(`Invalid repository for history blob prefetch: ${repository || '(missing)'}`);
-  }
-  return `https://x-access-token:${encodeURIComponent(token)}@github.com/${repository}.git`;
 }
 
 /** Commit-only walk: retain --all and the same HISTORY_SINCE cutoff as the backfill. */
@@ -196,62 +185,8 @@ export function historyBlobOidsFromTreeBatch(output) {
   return blobOids;
 }
 
-/**
- * Build one HTTPS-capable fetch invocation for the requested reachable objects.
- * `fetch-pack` does not dispatch an HTTPS URL through Git's transport helpers;
- * `fetch --stdin` sends each full object id as an object want.
- */
-export function historyBlobPrefetchArgs(remote) {
-  return ['fetch', '--keep', '--no-progress', '--no-tags', '--no-write-fetch-head', '--stdin', remote];
-}
-
 export function historyBlobPrefetchInput(oids) {
   return oids.length > 0 ? `${oids.join('\n')}\n` : '';
-}
-
-/** Deduplicate object ids, then split them into bounded fetch requests. */
-export function historyBlobOidBatches(oids, batchSize = HISTORY_BLOB_PREFETCH_BATCH_SIZE) {
-  if (!Number.isSafeInteger(batchSize) || batchSize < 1) {
-    throw new RangeError('History blob prefetch batch size must be a positive integer.');
-  }
-
-  const uniqueOids = [...new Set(oids)];
-  for (const oid of uniqueOids) {
-    if (!OID_RE.test(oid)) throw new TypeError('History blob prefetch received an invalid object id.');
-  }
-  return Array.from({ length: Math.ceil(uniqueOids.length / batchSize) }, (_, index) =>
-    uniqueOids.slice(index * batchSize, (index + 1) * batchSize));
-}
-
-/** Fetch every batch, then verify the complete unique set before callers walk history. */
-export function prefetchAndVerifyBlobs(oids, { fetchBatch, verify, batchSize = HISTORY_BLOB_PREFETCH_BATCH_SIZE }) {
-  const batches = historyBlobOidBatches(oids, batchSize);
-  if (batches.length === 0) return 0;
-  if (typeof fetchBatch !== 'function' || typeof verify !== 'function') {
-    throw new TypeError('History blob prefetch requires fetchBatch and verify functions.');
-  }
-
-  for (let index = 0; index < batches.length; index += 1) {
-    fetchBatch(batches[index], index + 1, batches.length);
-  }
-  verify(batches.flat());
-  return batches.length;
-}
-
-/** Fetch the given blob ids in bounded packs and verify all of them. */
-export function prefetch(oids) {
-  let remote;
-  return prefetchAndVerifyBlobs(oids, {
-    fetchBatch(batch, batchNumber, batchCount) {
-      remote ??= checkoutRemoteUrl();
-      console.log(`  ↳ Fetching pack ${batchNumber}/${batchCount} (${batch.length} blob OIDs).`);
-      runGit(historyBlobPrefetchArgs(remote), {
-        input: historyBlobPrefetchInput(batch),
-        env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
-      });
-    },
-    verify: verifyPrefetchedBlobs,
-  });
 }
 
 export function verifyPrefetchedBlobs(oids) {
@@ -276,6 +211,31 @@ export function verifyPrefetchedBlobs(oids) {
 export function historySinceArgs(value = process.env.HISTORY_SINCE) {
   const since = String(value || '').trim();
   return since && since !== 'all' ? [`--since=${since}`] : [];
+}
+
+/**
+ * Build the promisor-aware historical blob backfill command. `--no-sparse` is
+ * required because the observer checkout deliberately contains only scripts;
+ * the pathspec keeps the backfill scoped to the two job-slice families.
+ */
+export function historyBackfillArgs({ revisionRange = '', since } = {}) {
+  const range = String(revisionRange || '').trim();
+  return [
+    'backfill',
+    `--min-batch-size=${HISTORY_BACKFILL_MIN_BATCH_SIZE}`,
+    '--no-sparse',
+    '--include-edges',
+    ...(range ? [range] : historySinceArgs(since)),
+    '--',
+    ...HISTORY_PATHS,
+  ];
+}
+
+/** Download the missing historical slice blobs through the configured promisor remote. */
+export function backfillHistoryBlobs(options = {}) {
+  return runGit(historyBackfillArgs(options), {
+    env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
+  });
 }
 
 export function main() {
@@ -307,8 +267,8 @@ export function main() {
     throw new Error(`No historical job-slice trees found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
-  const treeBatches = historyTreeOidBatches(treeOids);
   const blobOids = new Set();
+  const treeBatches = historyTreeOidBatches(treeOids);
   for (let index = 0; index < treeBatches.length; index += 1) {
     const batch = treeBatches[index];
     console.log(`  ↳ Reading slice tree batch ${index + 1}/${treeBatches.length} (${batch.length} trees).`);
@@ -325,9 +285,9 @@ export function main() {
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
-  const batchCount = Math.ceil(oids.length / HISTORY_BLOB_PREFETCH_BATCH_SIZE);
-  console.log(`📦 Prefetching ${oids.length} historical job-slice blobs in ${batchCount} bounded pack(s).`);
-  prefetch(oids);
+  console.log(`📦 Backfilling ${oids.length} historical job-slice blobs through Git's promisor batches.`);
+  backfillHistoryBlobs({ since: process.env.HISTORY_SINCE });
+  verifyPrefetchedBlobs(oids);
   console.log('✅ All historical job-slice blobs are available locally.');
 }
 
