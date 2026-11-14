@@ -1022,8 +1022,7 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     const codes = [];
     if (!base || !head) codes.push('sample_missing');
     for (const record of [base, head].filter(Boolean)) {
-      if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
-      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
+      codes.push(...securityCodesForRecord(record));
       if (record.status === 'error') codes.push('replay_unmeasured');
     }
     if (base && head && !isNeutral(base) && !isNeutral(head)) {
