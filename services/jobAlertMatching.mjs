@@ -943,6 +943,7 @@ function createSubstringMemo() {
 }
 
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
+const MAX_SHARED_SEARCH_MEMOS = 256;
 const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
 const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
 const DESCRIPTION_TRIGRAM_BLOOM_MASK = DESCRIPTION_TRIGRAM_BLOOM_WORDS * 32 - 1;
@@ -1089,6 +1090,7 @@ export function createJobFeatureStore() {
   const geoByJob = new WeakMap();
   let jobCount = 0;
   const descriptionMemos = new Map();
+  const searchMemos = new Map();
   // Only built below the existing 65,536-job ceiling: at 512 bytes each,
   // description Bloom payload is capped at 32 MiB per run-scoped store.
   const descriptionBloomsByFeatures = new WeakMap();
@@ -1119,11 +1121,13 @@ export function createJobFeatureStore() {
     }
     return index;
   };
-  const descriptionMemo = (keyword) => {
+  const descriptionMemo = (keyword, touch = true) => {
     let memo = descriptionMemos.get(keyword);
     if (memo) {
-      descriptionMemos.delete(keyword);
-      descriptionMemos.set(keyword, memo);
+      if (touch) {
+        descriptionMemos.delete(keyword);
+        descriptionMemos.set(keyword, memo);
+      }
       return memo;
     }
     memo = {
@@ -1136,11 +1140,38 @@ export function createJobFeatureStore() {
     }
     return memo;
   };
+  const sharedSearchMemo = (key, touch = true) => {
+    let memo = searchMemos.get(key);
+    if (memo) {
+      if (touch) {
+        searchMemos.delete(key);
+        searchMemos.set(key, memo);
+      }
+      return memo;
+    }
+    memo = createSubstringMemo();
+    searchMemos.set(key, memo);
+    if (searchMemos.size > MAX_SHARED_SEARCH_MEMOS) {
+      searchMemos.delete(searchMemos.keys().next().value);
+    }
+    return memo;
+  };
+  const searchContains = (key, index, compute) => {
+    // Keep cross-batch search results bounded: 256 memos × two 65,536-bit
+    // bitmaps use at most 4 MiB. Later jobs are still cached within the batch.
+    if (index >= MAX_SHARED_DESCRIPTION_MEMO_JOBS) return compute();
+    const memo = sharedSearchMemo(key, false);
+    const known = memoRead(memo, index);
+    if (known !== -1) return known === 1;
+    const found = compute();
+    memoWrite(memo, index, found);
+    return found;
+  };
   const descriptionContains = (keyword, index, text, sharedFeatures = null) => {
     // Bound bitmap growth as well as memo count: 2,048 memos × two bitmaps ×
     // 65,536 bits stays at 32 MiB. Later jobs are scanned without memoizing.
     if (index >= MAX_SHARED_DESCRIPTION_MEMO_JOBS) return text.includes(keyword);
-    const memo = descriptionMemo(keyword);
+    const memo = descriptionMemo(keyword, false);
     const known = memoRead(memo, index);
     if (known !== -1) return known === 1;
     if (sharedFeatures && keyword.length >= 3 && keyword.length <= text.length) {
@@ -1165,7 +1196,14 @@ export function createJobFeatureStore() {
     base,
     geo,
     jobIndex,
+    touchDescriptionMemo(keyword) {
+      descriptionMemo(keyword);
+    },
+    touchSearchMemo(key) {
+      sharedSearchMemo(key);
+    },
     descriptionContains,
+    searchContains,
     pinnedKeys(job) {
       let keys = pinnedKeysByJob.get(job);
       if (!keys) {
@@ -1252,9 +1290,16 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
         localeMemo = createSubstringMemo();
         space.keywordMemos.set(keyword, localeMemo);
       }
+      let touched = false;
       // Keep bitmap ownership inside the feature store's capped LRU: alert
       // scorer closures must not retain memo objects after LRU eviction.
-      return (entry) => memoKeywordInFullText(entry, localeMemo, featureStore, keyword);
+      return (entry) => {
+        if (!touched) {
+          featureStore.touchDescriptionMemo(keyword);
+          touched = true;
+        }
+        return memoKeywordInFullText(entry, localeMemo, featureStore, keyword);
+      };
     },
     searchTest(locale, query) {
       const space = spaceFor(locale || '');
@@ -1264,10 +1309,20 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
         space.searchMemos.set(query, memo);
       }
       const compiled = compileSearchQuery(query);
+      const sharedKey = `${locale || ''}\u0000${query}`;
+      let touched = false;
       return (job, cached) => {
+        if (!touched) {
+          featureStore.touchSearchMemo(sharedKey);
+          touched = true;
+        }
         const known = memoRead(memo, cached.index);
         if (known !== -1) return known === 1;
-        const hit = matchesSearchQuery(compiled, job, cached.features, locale, cached);
+        const hit = featureStore.searchContains(
+          sharedKey,
+          cached.jobIndex,
+          () => matchesSearchQuery(compiled, job, cached.features, locale, cached),
+        );
         memoWrite(memo, cached.index, hit);
         return hit;
       };

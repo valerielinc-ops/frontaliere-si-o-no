@@ -398,6 +398,54 @@ describe('matching cost per alert (#9314)', () => {
     expect(counts.descriptionScans).toBeLessThanOrEqual(keywordCount * jobs.length);
   });
 
+  it('shares hard-search results across fresh per-batch caches', () => {
+    const jobs = fixtureJobs();
+    const alert = {
+      id: 'legacy-search',
+      email: 'legacy@example.test',
+      locale: 'en',
+      backfilled_from: 'newsletter_subscribers:legacy@example.test',
+      keywords: ['software engineer'],
+    };
+    const profile = buildAlertProfile(alert, { job_search_query: 'software engineer' });
+    expect(profile.hardSearchQueries).toEqual(['software engineer']);
+    const store = createJobFeatureStore();
+    const { counts } = countDuring(() => {
+      for (let batch = 0; batch < 2; batch++) {
+        const cache = createJobFeatureCache(store);
+        const scorer = createAlertScorer(profile, 'en', cache);
+        jobs.forEach((job) => scorer(job));
+      }
+    });
+
+    // A two-token query evaluates the large stemmed haystack at most twice per
+    // job across both batches; the run-scoped memo serves the second batch.
+    expect(counts.descriptionScans).toBeLessThanOrEqual(jobs.length * 2);
+  });
+
+  it('keeps shared hard-search results separate by locale', () => {
+    const alert = {
+      id: 'legacy-search-locale',
+      email: 'legacy-locale@example.test',
+      locale: 'en',
+      backfilled_from: 'newsletter_subscribers:legacy-locale@example.test',
+      keywords: ['software engineer'],
+    };
+    const profile = buildAlertProfile(alert, { job_search_query: 'software engineer' });
+    const store = createJobFeatureStore();
+    const job = {
+      ...fixtureJobs()[0],
+      title: 'Contabile',
+      titleByLocale: { en: 'Senior Software Engineer', fr: 'Comptable' },
+      description: FILLER,
+    };
+
+    const english = createAlertScorer(profile, 'en', createJobFeatureCache(store))(job);
+    const french = createAlertScorer(profile, 'fr', createJobFeatureCache(store))(job);
+    expect(english).toBeGreaterThan(0);
+    expect(french).toBe(0);
+  });
+
   it('normalizes the job side once per (job, locale), however many alerts score it', () => {
     const jobs = fixtureJobs();
     const geoAlerts = (count: number) => Array.from({ length: count }, (_, i) => ({
