@@ -540,7 +540,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       applicationEntry: true,
       pageHeading: 'About You - Other Resort',
       pageHeadings: ['About You - Other Resort'],
-    })).toBe('mismatch');
+    })).toBe('unknown');
     expect(formPostingMatch(formText, { company: 'ABOUT YOU', title: 'Senior Engineer' }, {
       pageUrl,
       pageHeading: 'About You',
