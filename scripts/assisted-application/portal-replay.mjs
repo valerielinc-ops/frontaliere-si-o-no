@@ -228,7 +228,7 @@ function changedLinesByPath(diff) {
   for (const line of String(diff || '').split(/\r?\n/u)) {
     const fileHeader = /^diff --git a\/(.+) b\/(.+)$/u.exec(line);
     if (fileHeader) {
-      currentPaths = [fileHeader[1], fileHeader[2]];
+      currentPaths = [...new Set([fileHeader[1], fileHeader[2]])];
       for (const file of currentPaths) byPath.set(file, []);
       continue;
     }

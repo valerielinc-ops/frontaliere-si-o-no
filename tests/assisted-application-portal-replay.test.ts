@@ -424,6 +424,13 @@ describe('portal replay corpus', () => {
     ].join('\n');
     expect(affectedPortalReplayFamilies(workdayPatch)).toEqual(['workday']);
 
+    const singleMarkerPatch = [
+      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
+      '@@ -1,2 +1,3 @@',
+      '+return workdayJobRoute(currentUrl);',
+    ].join('\n');
+    expect(affectedPortalReplayFamilies(singleMarkerPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+
     const genericPortalPatch = [
       'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
       '@@ -1,2 +1,4 @@',
