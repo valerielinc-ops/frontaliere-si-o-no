@@ -1,0 +1,23 @@
+{
+  "companyKey": "anticapital",
+  "companyName": "Anti Capital",
+  "companyHost": "anticapital.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://anticapital.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Business Development Associate",
+    "Business Development Manager",
+    "HFT Trader/Market Maker (New York/Taipei/ Remote)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:40.680Z",
+  "candidateKey": "anticapital@applytojob.com"
+}

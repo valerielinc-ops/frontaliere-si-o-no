@@ -275,7 +275,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "alpiq-0d54e1b2a0a9",
@@ -390,7 +391,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-11-14T09:32:22.319Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T21:39:53.841Z",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-02T09:32:22.319Z",
