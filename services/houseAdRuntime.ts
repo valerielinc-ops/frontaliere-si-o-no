@@ -9,7 +9,13 @@ export function installHouseAds(
   css: string,
   emit: (event: string, properties: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { assignmentUrl: string; consentKey: string; consentEvent: string; variants: readonly HouseAdVariant[] },
+  config: {
+    assignmentUrl: string;
+    consentKey: string;
+    consentEvent: string;
+    variants: readonly HouseAdVariant[];
+    readerSubscriptionPaths?: Partial<Record<HouseAdLocale, string>>;
+  },
 ) {
   type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number>; contextSignature: string };
   type HouseWindow = Window & {
@@ -97,7 +103,13 @@ export function installHouseAds(
   };
   const modalVisible = () => Array.from(document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"],.fc-consent-root,.fc-ab-root,.fc-monetization-dialog-container')).some(visible);
   const permitted = () => {
-    try { return allowed() && !/\/(automatizza-ricerca-lavoro-svizzera|automate-job-search-switzerland|arbeitssuche-schweiz-automatisieren|automatiser-recherche-emploi-suisse)(\/|$)/.test(location.pathname); }
+    try {
+      const subscriptionRoute = Object.values(config.readerSubscriptionPaths || {}).some((route) =>
+        location.pathname.replace(/\/+$/, '') === route.replace(/\/+$/, ''),
+      );
+      return allowed() && !subscriptionRoute
+        && !/\/(automatizza-ricerca-lavoro-svizzera|automate-job-search-switzerland|arbeitssuche-schweiz-automatisieren|automatiser-recherche-emploi-suisse)(\/|$)/.test(location.pathname);
+    }
     catch { return false; }
   };
   const blockerConfirmed = () => (w.__ftAdBlock?.blocked === true || w.__ftAdBlockProbe === 'blocked') && w.__ftAdBlock?.adsAllowed !== true;
@@ -390,7 +402,9 @@ export function installHouseAds(
       const data = campaign === 'reader_subscription'
         ? { campaign, experiment_id: assignment.readerSubscriptionExperimentId, experiment_variant: assignment.readerSubscriptionVariant, enrolled: Number(assignment.readerSubscriptionEnrolled), assignment_source: assignment.readerSubscriptionAssignmentSource, creative_id: 'subscription_v1', component: `${assignment.readerSubscriptionExperimentId}.${assignment.readerSubscriptionVariant}.test.${locale}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop' }
         : { campaign, experiment_id: assignment.experimentId, experiment_variant: assignment.variant, enrolled: Number(assignment.enrolled), assignment_source: assignment.assignmentSource, creative_id: `${assignment.variant}_v1`, component: `${assignment.experimentId}.${assignment.variant}_v1.${assignment.enrolled ? 'test' : 'fixed'}.${locale}.${frameContext.source}.${frameContext.sector}`, fallback_reason: fallbackReason, format, locale, placement, surface: `${format}.${placement}`, device: matchMedia('(max-width:767px)').matches ? 'mobile' : 'desktop', context_source: frameContext.source, context_sector: frameContext.sector };
-      const creative = render({ campaign, variant: assignment.variant, format, locale, placement, portraitArtwork, context, onClick: () => {
+      const creative = render({ campaign, variant: assignment.variant, format, locale, placement, portraitArtwork, context,
+        ...(campaign === 'reader_subscription' ? { destinationPath: config.readerSubscriptionPaths?.[locale] || '/abbonamento/' } : {}),
+        onClick: () => {
         if (!permitted()) return;
         report('house_ad_click', { ...data, action: 'click' });
         if (readerSubscriptionTarget === frame && authState === 'anonymous' && assignment.readerSubscriptionEnrolled) {

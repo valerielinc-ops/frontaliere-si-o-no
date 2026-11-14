@@ -5,12 +5,13 @@ import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from 
 import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../functions/src/houseAdAttribution.js';
 import { resolveHouseAdImageSector, sanitizeHouseAdContextLabel } from '../services/houseAdContext';
 import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
+import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
 let dom: JSDOM;
 let w: any;
 let testHouseBlock: HTMLElement;
 const emit = vi.fn();
-const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS };
+const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS, readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS };
 function frame(state: string, placement = 'article-inline', block: HTMLElement = testHouseBlock) {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
@@ -445,11 +446,22 @@ describe('per-slot first-party creative delivery', () => {
   it('renders the localized subscription offer for a compact banner', () => {
     const render = w.eval(`(${createHouseAdCreative.toString()})`);
     const creative = render({ campaign: 'reader_subscription', variant: 'control', format: 'mobile_banner', locale: 'it', placement: 'article-inline' });
-    expect(creative.href).toContain('/abbonamento/?');
+    expect(creative.href).toContain(`${READER_SUBSCRIPTION_PATHS.it}?`);
     expect(creative.textContent).toContain('Naviga senza pubblicità');
     expect(creative.textContent).toContain('CHF 2.99 al mese');
     expect(creative.textContent).toContain('Scopri');
     expect(creative.dataset.houseCreative).toBe('subscription_v1');
+  });
+  it.each(['en', 'de', 'fr'] as const)('routes the %s anonymous treatment to its localized subscription page', async (locale) => {
+    w.document.documentElement.lang = locale;
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); frame('unfilled', 'article-end'); await start();
+    expect(first.host.querySelector('a')?.href).toContain(`${READER_SUBSCRIPTION_PATHS[locale]}?utm_source=house_ads`);
   });
   it('uses the job role, place, and matching artwork in desktop and mobile creatives', () => {
     const render = w.eval(`(${createHouseAdCreative.toString()})`);

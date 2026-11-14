@@ -34,7 +34,7 @@ export function createHouseAdCreative(options: {
     anchor.dataset.houseCreative = 'subscription_v1';
     anchor.dataset.houseArtwork = 'none';
     const query = new URLSearchParams({ utm_source: 'house_ads', utm_medium: 'display', utm_campaign: 'reader_subscription_house', utm_content: 'subscription_v1', utm_term: `${format}.${placement}` });
-    anchor.href = `/abbonamento/?${query}`;
+    anchor.href = `${options.destinationPath || '/abbonamento/'}?${query}`;
     anchor.setAttribute('aria-label', `${words.title}. ${words.body} ${words.price}. ${words.cta}`);
     const copy = document.createElement('span'); copy.className = 'ft-house-copy';
     const title = document.createElement('span'); title.className = 'ft-house-title'; title.textContent = words.title;

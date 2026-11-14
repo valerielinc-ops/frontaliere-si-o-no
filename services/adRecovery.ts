@@ -7,7 +7,7 @@ export function installAdRecovery(
   createLoader: (kind: 'cmp', src: string, allowed: () => boolean, emit: (event: string, props: Record<string, string | number>) => void) => { load: () => void; state: () => string; subscribe: (listener: (state: string) => void) => () => void },
   emit: (event: string, props: Record<string, string | number>) => void,
   allowed: () => boolean,
-  config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean },
+  config: { consentKey: string; consentEvent: string; publisherId: string; inlineHouseAds?: boolean; readerSubscriptionPaths?: readonly string[] },
 ) {
   type RecoveryWindow = Window & { __ftAdRecovery?: { refresh: () => void }; __ftHouseAds?: { refresh: () => void }; __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean }; __ftNativeApplicationOfferShown?: boolean; googlefc?: { showRevocationMessage?: () => void; callbackQueue?: unknown[]; __ftRevocationQueued?: boolean }; __ftAdBlockProbe?: string };
   const w = window as RecoveryWindow;
@@ -66,6 +66,7 @@ export function installAdRecovery(
     de: '/de/arbeitssuche-schweiz-automatisieren/',
     fr: '/fr/automatiser-recherche-emploi-suisse/',
   } as const;
+  const readerSubscriptionPaths = config.readerSubscriptionPaths || [];
   const jobPath = applicationPaths[language as keyof typeof applicationPaths];
   // Keep the existing session keys so a same-session deployment does not
   // reopen a recovery prompt the visitor has already dismissed.
@@ -117,7 +118,9 @@ export function installAdRecovery(
     return !occupied(frame);
   });
   const permitted = () => {
-    try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden' && !Object.values(applicationPaths).some((servicePath) => location.pathname.startsWith(servicePath)); }
+    try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden'
+      && !Object.values(applicationPaths).some((servicePath) => location.pathname.startsWith(servicePath))
+      && !readerSubscriptionPaths.some((servicePath) => location.pathname.replace(/\/+$/, '') === servicePath.replace(/\/+$/, '')); }
     catch { return false; }
   };
   const cmp = createLoader('cmp', `https://fundingchoicesmessages.google.com/i/${config.publisherId}?ers=1`, () => { try { return allowed() && navigator.onLine !== false; } catch { return false; } }, emit);
