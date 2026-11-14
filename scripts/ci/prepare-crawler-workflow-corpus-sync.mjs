@@ -74,6 +74,13 @@ const IDENTICAL_CONTRACT_WITH_REMOTE_DIGEST_KEYS =
 const HISTORICAL_ADAPTATION_METADATA_KEYS =
   'adaptationIssue,baseline,mode,path,reason,sitePath';
 const ADAPTATION_ISSUE_ONLY_KEYS = 'adaptationIssue,baseline,mode,path,sitePath';
+const COUPLING_SNAPSHOT_KEYS = 'baseline,couplingSnapshot,mode,path,sitePath';
+const COUPLING_SNAPSHOT_WITH_REASON_KEYS =
+  'baseline,couplingSnapshot,mode,path,reason,sitePath';
+const COUPLING_SNAPSHOT_WITH_ADAPTATION_ISSUE_KEYS =
+  'adaptationIssue,baseline,couplingSnapshot,mode,path,sitePath';
+const COUPLING_SNAPSHOT_WITH_HISTORY_KEYS =
+  'adaptationIssue,baseline,couplingSnapshot,mode,path,reason,sitePath';
 const CORPUS_ADAPTATION_ISSUE_RE =
   /^https:\/\/github\.com\/(?:nanakokyobashi-rgb\/frontaliere-articles|valerielinc-ops\/frontaliere-si-o-no)\/(?:issues|pull)\/\d+\/?$/u;
 const COUPLING_SNAPSHOT_SITE_PATH =
@@ -90,6 +97,22 @@ function hasValidCouplingSnapshot(value) {
     && (coupling.unreadable === undefined || typeof coupling.unreadable === 'string')
     && Object.keys(coupling).every((key) => ['path', 'mode', 'unreadable'].includes(key))
   ));
+}
+
+function hasValidCouplingSnapshotMetadata(entry) {
+  if (entry.sitePath !== COUPLING_SNAPSHOT_SITE_PATH
+      || !hasValidCouplingSnapshot(entry.couplingSnapshot)) return false;
+  const keys = Object.keys(entry).sort().join(',');
+  if (keys === COUPLING_SNAPSHOT_KEYS) return true;
+  if (keys === COUPLING_SNAPSHOT_WITH_REASON_KEYS) {
+    return typeof entry.reason === 'string';
+  }
+  if (keys === COUPLING_SNAPSHOT_WITH_ADAPTATION_ISSUE_KEYS) {
+    return CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
+  }
+  return keys === COUPLING_SNAPSHOT_WITH_HISTORY_KEYS
+    && typeof entry.reason === 'string'
+    && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
 }
 
 function hasValidTransportManifestKeys(entry) {
@@ -112,7 +135,7 @@ function hasValidTransportManifestKeys(entry) {
       && typeof entry.reason === 'string'
       && entry.remoteDigestRequired === true) return true;
   // The corpus records the issue that justified a temporary adaptation. The
-  // two convergent crawler entries may retain that history when already
+  // convergent crawler entries may retain that history when already
   // `identical`; keep the exception scoped to the corpus repository and the
   // explicitly convergent paths below.
   if (CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS.has(entry.sitePath)
@@ -127,20 +150,21 @@ function hasValidTransportManifestKeys(entry) {
       && entry.mode === 'identical'
       && keys === ADAPTATION_ISSUE_ONLY_KEYS
       && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue)) return true;
-  return entry.sitePath === COUPLING_SNAPSHOT_SITE_PATH
-    && keys === 'baseline,couplingSnapshot,mode,path,sitePath'
-    && hasValidCouplingSnapshot(entry.couplingSnapshot);
+  return hasValidCouplingSnapshotMetadata(entry);
 }
 
 const LEGACY_OBSERVER_TARGETS = new Set(CORPUS_OBSERVER_FILES.map(({ target }) => target));
 
-// PR #1515 registered these two transport entries as `adapted` while the
+// PR #1515 registered two transport entries as `adapted` while the
 // corpus-only translation lease removal was being carried. Once the canonical
 // site artifact also drops that lease, the next official sync must be able to
-// converge them back to `identical` and remove the temporary reason.
+// converge them back to `identical` and remove the temporary reason. The
+// corpus-only transport regression uses the same convergence path for the
+// dedicated observer after its shared-site test was removed.
 const CONVERGENT_ADAPTED_TRANSPORT_SITE_PATHS = new Set([
   '.github/corpus-workflows/translate-pending.yml',
   '.github/corpus-workflows/contract.json',
+  COUPLING_SNAPSHOT_SITE_PATH,
 ]);
 
 // A previous transport layout accidentally registered observer files below
@@ -163,6 +187,9 @@ function isConvergentAdaptedTransportEntry(entry, sitePath) {
   if (keys === HISTORICAL_ADAPTATION_METADATA_KEYS) {
     return typeof entry.reason === 'string'
       && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
+  }
+  if (sitePath === COUPLING_SNAPSHOT_SITE_PATH && hasValidCouplingSnapshotMetadata(entry)) {
+    return true;
   }
   return keys === ADAPTATION_ISSUE_ONLY_KEYS
     && CORPUS_ADAPTATION_ISSUE_RE.test(entry.adaptationIssue);
@@ -295,6 +322,16 @@ function comparableOwnedTransportEntry(entry) {
   return canonicalJson(comparable);
 }
 
+function preserveOwnedTransportMetadata(target, current) {
+  if (Object.hasOwn(current, 'couplingSnapshot')) {
+    target.couplingSnapshot = structuredClone(current.couplingSnapshot);
+  }
+  if (current.sitePath !== COUPLING_SNAPSHOT_SITE_PATH) return;
+  for (const key of ['reason', 'adaptationIssue']) {
+    if (Object.hasOwn(current, key)) target[key] = current[key];
+  }
+}
+
 /**
  * `files` is a set of mappings even though the manifest stores it as an array.
  * A clean merge or a re-attestation can leave the same owned mapping twice.
@@ -399,9 +436,7 @@ export function assertCrawlerManifestDelta({
         expected.files[baseIndex] = structuredClone(current);
       } else {
         expected.files[baseIndex].baseline = structuredClone(current.baseline);
-        if (Object.hasOwn(current, 'couplingSnapshot')) {
-          expected.files[baseIndex].couplingSnapshot = structuredClone(current.couplingSnapshot);
-        }
+        preserveOwnedTransportMetadata(expected.files[baseIndex], current);
       }
     } else {
       expected.files.push(structuredClone(current));
