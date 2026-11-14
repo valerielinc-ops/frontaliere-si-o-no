@@ -11,21 +11,24 @@ const recoveryWorkflow = readFileSync(
 );
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
-  it('keeps full commit/tree history but prefetches only slice blobs as one pack', () => {
+  it('keeps full commit/tree history and verifies bounded slice-blob prefetch before the backfill walk', () => {
     const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched below)');
-    const prefetchStart = workflow.indexOf('- name: Prefetch historical job-slice blobs in one pack');
+    const prefetchStart = workflow.indexOf('- name: Prefetch historical job-slice blobs in bounded packs');
     const setupStart = workflow.indexOf('- name: Setup Node.js');
+    const walkStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
     const checkoutBlock = workflow.slice(checkoutStart, prefetchStart);
     const prefetchBlock = workflow.slice(prefetchStart, setupStart);
 
     expect(checkoutStart).toBeGreaterThanOrEqual(0);
     expect(prefetchStart).toBeGreaterThan(checkoutStart);
     expect(setupStart).toBeGreaterThan(prefetchStart);
+    expect(walkStart).toBeGreaterThan(setupStart);
     expect(checkoutBlock).toContain('fetch-depth: 0');
     expect(checkoutBlock).toContain('filter: blob:none');
     expect(prefetchBlock).toContain('scripts/ci/prefetch-history-blobs.mjs');
     expect(prefetchBlock).toContain('CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
     expect(prefetchBlock).toContain('REPOSITORY: ${{ github.repository }}');
+    expect(prefetchBlock).toContain("HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}");
   });
 
   it('gives the full active-plus-expired assembly an explicit heap ceiling', () => {

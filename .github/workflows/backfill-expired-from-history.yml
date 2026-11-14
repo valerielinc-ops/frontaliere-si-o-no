@@ -76,18 +76,18 @@ jobs:
           filter: blob:none
         timeout-minutes: 40
 
-      - name: Prefetch historical job-slice blobs in one pack
+      - name: Prefetch historical job-slice blobs in bounded packs
         timeout-minutes: 40
         env:
           CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
-          # The unbounded prefetch (every slice blob of the whole history) hit
-          # the 40-minute cap twice in run 43320183949 (2026-11-12); the walk
-          # below reads only the same window.
+          # Run 43462137893 (2026-11-13) hit the 40-minute cap with the
+          # requested 2026-09-20 window. Split the fetch into bounded packs;
+          # HISTORY_SINCE still matches the walk below.
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
-        # The backfill reads each historical slice with `git show`. A blobless
-        # checkout is safe only after the exact slice blobs are fetched in one
-        # pack; otherwise every revision would trigger a separate lazy fetch.
+        # The prefetch uses the same commit-date window as the backfill and
+        # reads only the two slice-family trees. It verifies all fetched blob
+        # OIDs before the history walk can trigger any per-blob lazy fetch.
         run: node scripts/ci/prefetch-history-blobs.mjs
 
       - name: Setup Node.js
