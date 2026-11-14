@@ -187,28 +187,36 @@ function prepare() {
   console.log(`Prepared hourly test snapshot from ${cache.cacheKey.slice(0, 12)}... (${requiredFiles.length} outputs)`);
 }
 
-function restore() {
-  const expectedRunId = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ID || '');
-  const expectedRunAttempt = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT || '');
+export function restore({
+  snapshotRoot = SNAPSHOT_ROOT,
+  root = ROOT,
+  expectedRunId = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ID || ''),
+  expectedRunAttempt = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT || ''),
+  currentInputFingerprint = computeAssembleCacheKey({ withStats: true, withSummaries: true, withExpired: true }).inputFingerprint,
+  compatibilityFingerprint = computeCompatibilityFingerprint(),
+  now = Date.now(),
+  output = writeOutput,
+} = {}) {
   let manifest;
   try {
-    manifest = JSON.parse(fs.readFileSync(path.join(SNAPSHOT_ROOT, 'test-snapshot.json'), 'utf8'));
+    manifest = JSON.parse(fs.readFileSync(path.join(snapshotRoot, 'test-snapshot.json'), 'utf8'));
   } catch {
-    writeOutput('restored', 'false');
-    writeOutput('reason', 'snapshot manifest is missing or invalid JSON');
+    output('restored', 'false');
+    output('reason', 'snapshot manifest is missing or invalid JSON');
     return;
   }
 
   // Age starts at checkout, before npm install and assembly. Using the later
   // publish time would make data already stale during a slow seed appear fresh.
-  const ageMs = Date.now() - Date.parse(manifest?.sourceCapturedAt || '');
+  const ageMs = now - Date.parse(manifest?.sourceCapturedAt || '');
   const expectedFiles = SNAPSHOT_FILES;
-  const compatibilityFingerprint = computeCompatibilityFingerprint();
+  // A fresh snapshot can still predate a main data refresh. Reuse it only if
+  // the complete assembler input set still matches the checkout being tested.
   const allFilesPresent = Array.isArray(manifest?.snapshotFiles)
     && expectedFiles.length === manifest.snapshotFiles.length
     && expectedFiles.every((name) => {
       if (!manifest.snapshotFiles.includes(name)) return false;
-      try { return fs.lstatSync(path.join(SNAPSHOT_ROOT, name)).isFile(); } catch { return false; }
+      try { return fs.lstatSync(path.join(snapshotRoot, name)).isFile(); } catch { return false; }
     });
   const valid = manifest && typeof manifest === 'object' && !Array.isArray(manifest)
     && manifest.schemaVersion === 1
@@ -218,6 +226,7 @@ function restore() {
     && manifest.outputCacheVersion === ASSEMBLE_OUTPUT_CACHE_VERSION
     && manifest.nodeMajor === NODE_MAJOR
     && manifest.mode === 'stats,summaries,expired'
+    && manifest.sourceInputFingerprint === currentInputFingerprint
     && Number.isFinite(ageMs)
     && ageMs >= 0
     && ageMs <= MAX_AGE_MS
@@ -233,36 +242,40 @@ function restore() {
       reason = 'snapshot run attempt does not match the selected workflow run';
     } else if (manifest.compatibilityFingerprint !== compatibilityFingerprint) {
       reason = 'assembler or test snapshot compatibility changed';
+    } else if (manifest.sourceInputFingerprint !== currentInputFingerprint) {
+      reason = 'assemble inputs changed since the snapshot was created';
     } else if (!Number.isFinite(ageMs) || ageMs < 0 || ageMs > MAX_AGE_MS) {
       reason = 'snapshot is older than 60 minutes or has an invalid timestamp';
     }
-    writeOutput('restored', 'false');
-    writeOutput('reason', reason);
+    output('restored', 'false');
+    output('reason', reason);
     return;
   }
 
   const restorePairs = expectedFiles.flatMap((name) => outputTargets(name).map((target) => [
-    path.join(SNAPSHOT_ROOT, name),
-    path.join(ROOT, target),
+    path.join(snapshotRoot, name),
+    path.join(root, target),
   ]));
   for (const [, target] of restorePairs) fs.mkdirSync(path.dirname(target), { recursive: true });
   for (const [source, target] of restorePairs) fs.copyFileSync(source, target);
-  writeOutput('restored', 'true');
-  writeOutput('reason', `snapshot from run ${expectedRunId}, age ${Math.floor(ageMs / 60000)} min`);
+  output('restored', 'true');
+  output('reason', `snapshot from run ${expectedRunId}, age ${Math.floor(ageMs / 60000)} min`);
 }
 
-const command = process.argv[2];
-if (command === 'fingerprint') {
-  writeOutput('fingerprint', computeCompatibilityFingerprint());
-} else if (command === 'can-use') {
-  const result = checkChangedPaths();
-  writeOutput('eligible', String(result.eligible));
-  writeOutput('reason', result.reason);
-} else if (command === 'prepare') {
-  prepare();
-} else if (command === 'restore') {
-  restore();
-} else {
-  console.error('Usage: assemble-test-snapshot.mjs <fingerprint|can-use|prepare|restore>');
-  process.exitCode = 2;
+if (process.argv[1] && path.resolve(process.argv[1]) === SNAPSHOT_SCRIPT) {
+  const command = process.argv[2];
+  if (command === 'fingerprint') {
+    writeOutput('fingerprint', computeCompatibilityFingerprint());
+  } else if (command === 'can-use') {
+    const result = checkChangedPaths();
+    writeOutput('eligible', String(result.eligible));
+    writeOutput('reason', result.reason);
+  } else if (command === 'prepare') {
+    prepare();
+  } else if (command === 'restore') {
+    restore();
+  } else {
+    console.error('Usage: assemble-test-snapshot.mjs <fingerprint|can-use|prepare|restore>');
+    process.exitCode = 2;
+  }
 }
