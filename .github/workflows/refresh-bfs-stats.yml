@@ -300,6 +300,22 @@ jobs:
             --label bug \
             --reopen-within-hours 720
 
+      # Chiuditore GEMELLO dell'allarme qui sopra: il titolo e' letterale e
+      # identico perche' `failure-issue-inventory.mjs` possa verificare
+      # l'accoppiamento. La chiusura richiede una prova di recupero: il
+      # dispatch e' riuscito oppure la sonda ha gia' trovato l'articolo.
+      - name: Resolve a recovered corpus dispatch failure
+        if: steps.refresh.outputs.new_quarter != '' && (steps.dispatch.outcome == 'success' || steps.article_probe.outputs.exists == 'true')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Dispatch articolo BFS al corpus fallito" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+
       # L'articolo esiste gia'? (#5846, differita da #5817)
       #
       # Lo step qui sotto aveva come UNICA condizione `new_quarter != ''` e non
