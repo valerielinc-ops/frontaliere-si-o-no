@@ -3462,13 +3462,14 @@ jobs:
         if: steps.pages-receipt.outputs.pages_deployed != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
         run: |
           set -euo pipefail
           live="$(gh api --paginate --slurp \
             "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?per_page=100" \
             | jq '[ .[] | .artifacts[] | select(.name == "github-pages" and .expired == false) ] | length')"
           if [ "${live:-0}" -lt 1 ]; then
-            echo "::error title=Pages artifact missing::pages_deployed is false for source run ${{ inputs.source_run_id }} but this publisher run has no unexpired github-pages artifact to deploy (finalize-it-publish did not upload it, or it expired). Nothing was published; rebuild the source run."
+            echo "::error title=Pages artifact missing::pages_deployed is false for source run ${SOURCE_RUN_ID} but this publisher run has no unexpired github-pages artifact to deploy (finalize-it-publish did not upload it, or it expired). Nothing was published; rebuild the source run."
             exit 1
           fi
           echo "github-pages artifact present in run ${GITHUB_RUN_ID}"
