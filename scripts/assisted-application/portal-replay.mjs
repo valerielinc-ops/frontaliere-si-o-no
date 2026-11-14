@@ -78,6 +78,7 @@ export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   'scripts/lib/source-body-failure.mjs',
   'scripts/lib/source-body-floor.mjs',
   'scripts/lib/transient-fetch.mjs',
+  'functions/src/assistedApplicationAiJob.js',
   'functions/src/applicationConciergeConstants.js',
   'functions/src/emailWorkerName.js',
   'functions/src/remoteConfigSecrets.js',

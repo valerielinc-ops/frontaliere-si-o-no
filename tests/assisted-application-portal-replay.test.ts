@@ -405,6 +405,7 @@ describe('portal replay corpus', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies([
+      'functions/src/assistedApplicationAiJob.js',
       'functions/src/lib/permitStatus.js',
       'functions/src/assistedApplicationAnswerEvidence.js',
     ])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
