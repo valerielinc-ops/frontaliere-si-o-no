@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -631,7 +632,7 @@ function runBaseCrawler() {
 
 function postProcessZegnaJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
   let removed = 0;
@@ -699,7 +700,7 @@ function logZegnaJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const zegnaJobs = allJobs.filter(isZegnaJob);
 
@@ -823,7 +824,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isZegnaJob) : [];
   writeJobsCrawlerSlice(ZEGNA_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

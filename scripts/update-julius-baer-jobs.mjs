@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Julius Baer crawler runner.
  *
@@ -257,7 +258,7 @@ async function main() {
   const discoveredJobs = await fetchJuliusBaerJobs();
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Swiss target-canton Julius Baer jobs discovered. Keeping existing.');
-    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isJuliusBaerJob)) : new Map();
+    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((readJsonFile(DATA_JOBS) || []).filter(isJuliusBaerJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Julius Baer');
     await cleanStoredJobsOnSoftExit();
@@ -271,7 +272,7 @@ async function main() {
 
   // Post-process
   if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const jobs = readJsonFile(DATA_JOBS);
     let fixed = 0;
     for (const j of (Array.isArray(jobs) ? jobs : [])) {
       if (!isJuliusBaerJob(j)) continue;

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -207,7 +208,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isJyskJob);
   const byCanton = new Map();
@@ -268,7 +269,7 @@ async function main() {
 
   // Step 3b: Stamp sourceLang on JYSK jobs
   if (fs.existsSync(DATA_JOBS)) {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const raw = readJsonFile(DATA_JOBS);
     if (Array.isArray(raw)) {
       for (const job of raw) {
         if (isJyskJob(job) && !job.sourceLang) {
@@ -297,7 +298,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isJyskJob) : [];
   writeJobsCrawlerSlice(JYSK_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

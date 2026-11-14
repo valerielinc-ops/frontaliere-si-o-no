@@ -39,7 +39,6 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
