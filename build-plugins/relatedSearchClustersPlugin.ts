@@ -5846,12 +5846,13 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       await jobsSeoPagesFlushed;
       const activeJobSitemapLocs = getActiveJobSitemapLocs() ?? new Set<string>();
       const __tLoadEnriched = profileStart();
-      const enriched = loadEnriched(rootDir);
+      let enriched = loadEnriched(rootDir);
       profileRecord('load-enriched', __tLoadEnriched);
       const __tLoadJobs = profileStart();
       const jobs = loadJobs(rootDir);
       profileRecord('load-jobs', __tLoadJobs);
-      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
+      const enrichedEntryCount = Object.keys(enriched).length;
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${enrichedEntryCount} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
       const summaryOnly = Boolean(process.env.RELATED_SEARCH_CLUSTERS_SUMMARY_OUT);
       // Generazione del summary in parallelo (scripts/generate-related-search-
       // clusters-summary.ts): ogni processo figlio abbina SOLO i candidati dei
@@ -6028,6 +6029,30 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       profileRecord('postings-prepass', __tPrePass);
 
       const contexts: ClusterContext[] = [];
+      const releaseMatchingInputs = (label: string): void => {
+        const contextCount = contexts.length;
+        const jobCount = jobs.length;
+        const heapBeforeRelease = process.memoryUsage().heapUsed;
+        contexts.length = 0;
+        // TokenIndex.clear() drops its postings and haystack maps, but the
+        // index still points at this array. Empty it only after rendering has
+        // finished so the final GC can reclaim the full raw-job corpus.
+        jobs.length = 0;
+        // Context emission is the last reader of this locale-independent
+        // enrichment map. Replace the binding instead of allocating an
+        // Object.keys array and deleting every retained entry individually.
+        enriched = Object.create(null);
+        const gcAvailable = forceGc();
+        const heapAfterRelease = process.memoryUsage().heapUsed;
+        const heapDeltaMb = gcAvailable
+          ? Math.round((heapBeforeRelease - heapAfterRelease) / 1048576)
+          : 'n/d';
+        console.log(
+          `[related-search-clusters] ${label} matching inputs released `
+          + `contexts=${contextCount} jobs=${jobCount} enriched_entries=${enrichedEntryCount} `
+          + `heap_gc_delta_mb=${heapDeltaMb}`,
+        );
+      };
       const __tContextBuild = profileStart();
       const contextStartedAt = Date.now();
       let processedContexts = 0;
@@ -6149,9 +6174,13 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           writeRelatedSearchClusterSummary(rootDir, summaryOutput, candidates, jobs, contexts);
         }
         profileRecord('summary-write', __tSummaryWrite);
+        const contextCount = contexts.length;
+        const skippedCount = candidates.length - contextCount;
+        const jobCount = jobs.length;
         console.log(
-          `\x1b[36m[related-search-clusters]\x1b[0m wrote shared matching summary: ${contexts.length} contexts, ${candidates.length - contexts.length} skipped, ${jobs.length} jobs, ${summaryOutput}`,
+          `\x1b[36m[related-search-clusters]\x1b[0m wrote shared matching summary: ${contextCount} contexts, ${skippedCount} skipped, ${jobCount} jobs, ${summaryOutput}`,
         );
+        releaseMatchingInputs('summary');
         printRelatedSearchProfile();
         return;
       }
@@ -6752,21 +6781,15 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       // saveToCache below does ~3,200 fs.copyFile syscalls in parallel and
       // doesn't need any of these — keeping them pinned would push peak
       // heap up while the next plugin's closeBundle starts overlapping.
-      contexts.length = 0;
       emissionByCtx.clear();
       byClusterFamily.clear();
       familyKeyByCtx.clear();
       byLocale.clear();
       byLocaleCity.clear();
-      // As above: `.clear()` only drops references. Force the actual
-      // reclaim here too, right before saveToCache's own ~3,200-syscall
-      // burst and before the next SSG plugin's closeBundle starts —
-      // matching the same clear()+gc() pattern this file already applied
-      // to `tokenIndex` above, and the sibling fix in staticPagesPlugin.ts
-      // / borderMunicipalityPagesPlugin.ts for the same build-locale(it)
-      // OOM incident (runs 29867257038 / 29881848735).
-      forceGc();
-
+      releaseMatchingInputs('emit');
+      // releaseMatchingInputs() forces collection after these maps have
+      // dropped their context references, before saveToCache's ~3,200-syscall
+      // burst and before the next SSG plugin's closeBundle starts.
       // Persist for next build. patchMasterSitemap is intentionally skipped
       // here — it patches a file owned by another plugin and is re-run on
       // every build (cache-hit and miss alike) inside the cache fast path.
