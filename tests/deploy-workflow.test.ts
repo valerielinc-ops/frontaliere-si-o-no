@@ -176,14 +176,27 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(VALIDATION_YML).not.toContain('npm run validate:page-seo');
   });
 
-  it('runs report audits in a separate workflow_run with no publisher dependency edge', () => {
+  it('dispatches report audits with immutable publisher inputs and no publisher dependency edge', () => {
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const publisher = YAML.parse(DEPLOY_PUBLISH_YML) as any;
     const publishNeeds = publisher.jobs.publish.needs as string[];
-    expect(published.on.workflow_run.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+    expect(published.on.workflow_dispatch.inputs).toMatchObject({
+      deploy_run_id: { type: 'string' },
+      shard_artifact_run_id: { type: 'string' },
+      deploy_ref: { type: 'string' },
+      audit_sample_salt: { type: 'string' },
+    });
+    expect(published.on.workflow_run).toBeUndefined();
     expect(published.jobs.report.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
     expect(String(published.jobs.report.with.audits)).toContain('validate:page-seo');
     expect(String(published.jobs.report.with.audits)).toContain('validate:og-images');
+    const dispatchStep = publisher.jobs.publish.steps.find(
+      (step: any) => step.name === 'Dispatch published dist audit',
+    );
+    expect(dispatchStep.if).toContain("needs.publish.result == 'success'");
+    expect(dispatchStep.run).toContain('audit-published-dist.yml');
+    expect(dispatchStep.run).toContain('-f deploy_run_id="$PUBLISHER_SOURCE_RUN_ID"');
+    expect(dispatchStep.run).toContain('-f shard_artifact_run_id="$PUBLISHER_RUN_ID"');
     expect(publisher.jobs['audit-dist-report']).toBeUndefined();
     expect(publishNeeds).not.toContain('audit-dist-report');
     expect(publishNeeds).toContain('validate-dist');
