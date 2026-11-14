@@ -26,6 +26,7 @@ const POST_BUILD_MATRIX_YML = readFileSync(resolve(ROOT, '.github/workflows/post
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
+const CATHEDRAL_YML = readFileSync(resolve(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf-8');
 const AUDIT_PUBLISHED_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist.yml'), 'utf-8');
 const AUDIT_FULL_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist-full.yml'), 'utf-8');
 const CRAWLER_CONTENT_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/crawler-content-plausibility-audit.yml'), 'utf-8');
@@ -231,6 +232,33 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.AUDIT_FORCE_FULL).toContain('inputs.full_scan');
     expect(auditStep.env.PUBLISHER_PAGE_MANIFEST_DIR).toContain('publisher-audit-manifests/pages');
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
+  });
+
+  it('loads the artifact resolver from main when the replay code is historical', () => {
+    const cases = [
+      {
+        source: AUDIT_REPORT_YML,
+        resolverPath: './current-index-validator/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-index-validator',
+      },
+      {
+        source: CATHEDRAL_YML,
+        resolverPath: './current-artifact-resolver/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-artifact-resolver',
+      },
+    ];
+
+    for (const { source, resolverPath, checkoutPath } of cases) {
+      const workflow = YAML.parse(source) as any;
+      const job = Object.values(workflow.jobs ?? {}).find((candidate: any) => (
+        (candidate.steps ?? []).some((step: any) => step.uses === resolverPath)
+      )) as any;
+      const resolverCheckout = job.steps.find((step: any) => step.with?.path === checkoutPath);
+      expect(resolverCheckout?.uses).toBe('actions/checkout@v7');
+      expect(resolverCheckout?.with?.ref).toBe('refs/heads/main');
+      expect(resolverCheckout?.with?.['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+      expect(job.steps.find((step: any) => step.uses === resolverPath)).toBeTruthy();
+    }
   });
 
   it('uses bounded parallelism only after source-only images are pruned', () => {
