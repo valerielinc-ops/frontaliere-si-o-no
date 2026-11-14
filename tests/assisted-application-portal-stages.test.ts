@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { applicationEntryControls, isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -24,14 +24,65 @@ describe('application stage ownership', () => {
     'Initiativbewerbung',
     'Candidature spontanée',
     'Candidatura spontanea',
+    'Spontaneous application',
     'Job-Abo erstellen',
+    'Create a job alert',
+    'Job alert',
     'Créer une alerte emploi',
   ])('returns talent-pool and alert language as an agent hint, not a route stop: %s', (text) => {
     expect(applicationDiversionHint({ title: text })).toBe('talent_pool_or_job_alert');
   });
 
+  it('keeps ambiguous self-introduction titles as hints, not final diversion proof', () => {
+    expect(applicationDiversionHint({ title: 'Introduce yourself' })).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint({ title: 'Introduce yourself' })).toBe('');
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      pageHeadings: ['Personal information', 'Candidature spontanée'],
+    })).toBe('talent_pool_or_job_alert');
+  });
+
   it('does not call ordinary job-specific application labels a diversion', () => {
     expect(applicationDiversionHint({ title: 'Apply for Payroll Specialist', text: 'Continue your application.' })).toBe('');
+  });
+
+  it('recognizes a diversion route even when the page title is generic', () => {
+    expect(applicationDiversionHint({
+      title: 'Application',
+      url: 'https://careers.example/talent-pool',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not treat a job-alert sidebar link as a diversion destination for final binding', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      links: [{ text: 'Create a job alert' }],
+    };
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+  });
+
+  it('keeps an adjacent panel warning as an agent hint without overriding a bound job heading', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/en-US/job/Infrastructure-Strategy-Manager_R-12345',
+      pageHeadings: ['Infrastructure Strategy Manager'],
+      text: 'This is not an application for a specific job. Apply to this selected position.',
+    };
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+  });
+
+  it('does not promote a secondary accessibility heading to destination evidence', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      text: '- heading "Application" [level=1] [ref=e1]\n- heading "Not an application for a specific job" [level=2] [ref=e2]',
+    };
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
   });
 
   it('does not treat ordinary application copy containing Introduce yourself as a diversion', () => {

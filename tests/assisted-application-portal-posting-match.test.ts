@@ -105,6 +105,61 @@ describe('application form posting identity', () => {
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
   });
 
+  it('does not bind an ATS form from an employer URL elsewhere in the snapshot', () => {
+    const job = { title: 'Senior Engineer', company: 'Acme AG' };
+    const formText = 'Application form\nFirst name\nE-mail\nhttps://acme.example/careers';
+    expect(formPostingMatch(formText, job, {
+      postingMatched: true,
+      applicationEntry: true,
+      pageUrl: 'https://third-party-ats.example/apply',
+      postingUrl: 'https://paid-board.example/job/123',
+    })).toBe('unknown');
+  });
+
+  it('does not treat an unrelated Umantis link as the current form route', () => {
+    const job = { title: 'Senior Engineer', company: 'Acme AG' };
+    const formText = 'Application form\nFirst name\nhttps://otherco.umantis.com/Vacancies/987/Application/New/1';
+    expect(formPostingMatch(formText, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: 'https://third-party-ats.example/apply',
+      postingUrl: 'https://paid-board.example/job/123',
+    })).toBe('unknown');
+  });
+
+  it('does not accept the employer name in a third-party subdomain as its host', () => {
+    const job = { title: 'Senior Engineer', company: 'Acme AG' };
+    expect(formPostingMatch('Application form\nE-mail', job, {
+      postingMatched: true,
+      applicationEntry: true,
+      pageUrl: 'https://acme.attacker.example/apply',
+      postingUrl: 'https://paid-board.example/job/123',
+    })).toBe('unknown');
+  });
+
+  it('recognizes the employer registrable domain below a multi-label public suffix', () => {
+    const job = { title: 'Senior Engineer', company: 'Acme Limited' };
+    expect(formPostingMatch('Application form\nE-mail', job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: 'https://forms.acme.co.uk/apply',
+      pageUrl: 'https://forms.acme.co.uk/apply',
+      postingUrl: 'https://paid-board.example/job/123',
+    })).toBe('match');
+  });
+
+  it('does not carry an application entry binding to a later generic form on the employer site', () => {
+    const job = { title: 'Senior Engineer', company: 'Acme AG' };
+    expect(formPostingMatch('Application form\nE-mail', job, {
+      postingMatched: true,
+      postingEntry: true,
+      applicationEntry: true,
+      applicationEntryUrl: 'https://jobs.acme.example/paid-application',
+      pageUrl: 'https://jobs.acme.example/spontaneous-application',
+      postingUrl: 'https://paid-board.example/job/123',
+    })).toBe('unknown');
+  });
+
   it('rejects a different named role and a different Umantis vacancy ID', () => {
     const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
     const job = { title: 'Pflegefachfrau Gesundheit', sourceTitle: 'Pflegefachfrau Gesundheit' };
