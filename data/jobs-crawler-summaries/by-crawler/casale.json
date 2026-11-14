@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-11-13T09:17:23.450Z",
+  "generatedAt": "2026-11-14T09:19:24.739Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3484,
-  "avgDurationMs": 3484,
+  "durationMs": 7045,
+  "avgDurationMs": 7045,
   "durationHistory": [
-    3484
+    7045
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,10 +45,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-11-11T21:15:11.220Z",
-      "crawledAt": "2026-11-13T09:17:08.854Z",
+      "crawledAt": "2026-11-14T09:19:16.194Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:17:08.854Z",
+      "validThrough": "2027-02-10T09:19:16.194Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -91,10 +91,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-13T09:17:08.854Z",
+      "crawledAt": "2026-11-14T09:19:16.194Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T09:17:08.854Z",
+      "validThrough": "2027-01-07T09:19:16.194Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "3ec32fe1bfdcb3533e7440ade15e86d42012197e"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
