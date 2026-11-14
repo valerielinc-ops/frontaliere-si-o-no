@@ -160,6 +160,7 @@ describe('application form posting identity', () => {
     expect(namesAnotherEmployer('Compilation', { company: 'Alfa' })).toBe(true);
     expect(namesAnotherEmployer('Compilazione', { company: 'Alfa' })).toBe(true);
     expect(namesAnotherEmployer('Data di compilazione:', { company: 'Alfa' })).toBe(false);
+    expect(namesAnotherEmployer('Date de candidature', { company: 'Alfa' })).toBe(false);
   });
 
   it('rejects a different named role and a different Umantis vacancy ID', () => {

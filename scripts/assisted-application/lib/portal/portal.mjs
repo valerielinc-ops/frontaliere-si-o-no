@@ -4037,7 +4037,7 @@ const FORM_VOCABULARY = new Set([
   'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
   'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
-const FORM_DATE_FIELD_LABEL_RE = /^(?:data di compilazione|date (?:of )?(?:compilation|completion|application)|datum (?:der )?(?:bewerbung|erfassung))$/u;
+const FORM_DATE_FIELD_LABEL_RE = /^(?:data di compilazione|date (?:of )?(?:compilation|completion|application)|date de candidature|datum (?:der )?(?:bewerbung|erfassung))$/u;
 const isFormDateFieldLabel = value => FORM_DATE_FIELD_LABEL_RE.test(
   normalizeWords(String(value || '').replace(/[*:]+$/u, '').trim()),
 );
