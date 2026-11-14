@@ -658,7 +658,10 @@ function parseShellCommands(source) {
   let operatorBefore = null;
 
   const flush = (operatorAfter = null) => {
-    if (segment.length === 0) return;
+    if (segment.length === 0) {
+      operatorBefore = operatorAfter;
+      return;
+    }
     const prefixKeywords = [];
     let commandIndex = -1;
     for (let index = 0; index < segment.length; index += 1) {
