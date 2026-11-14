@@ -431,6 +431,14 @@ describe('portal replay corpus', () => {
     ].join('\n');
     expect(affectedPortalReplayFamilies(singleMarkerPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
 
+    const nonCodeMarkersPatch = [
+      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
+      '@@ -1,2 +1,5 @@',
+      "+const message = 'workday workday';",
+      '+/* workday workday */',
+    ].join('\n');
+    expect(affectedPortalReplayFamilies(nonCodeMarkersPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+
     const genericPortalPatch = [
       'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
       '@@ -1,2 +1,4 @@',
@@ -438,6 +446,13 @@ describe('portal replay corpus', () => {
       '+  return snapshot.buttons.filter(isApplicationEntry);',
     ].join('\n');
     expect(affectedPortalReplayFamilies(genericPortalPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+
+    const comparatorPatch = [
+      'diff --git a/scripts/assisted-application/portal-replay.mjs b/scripts/assisted-application/portal-replay.mjs',
+      '@@ -867,4 +867,5 @@ export function comparePortalReplayFamily(options) {',
+      '+  const changed = true;',
+    ].join('\n');
+    expect(affectedPortalReplayFamilies(comparatorPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 
   it('does not fall back to a PR-controlled replay fence when the trusted base lacks it', () => {
@@ -511,12 +526,16 @@ describe('portal replay base/head gate', () => {
   it('does not fail a security finding that is identical on base and head', () => {
     const result = comparePortalReplayFamily({
       family: 'workday',
-      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', { formLinkedToPosting: 'no' })),
-      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', { formLinkedToPosting: 'no' })),
+      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', {
+        formLinkedToPosting: 'no', securityViolations: ['wrong_posting_or_talent_pool'],
+      })),
+      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', {
+        formLinkedToPosting: 'no', securityViolations: ['wrong_posting_or_talent_pool'],
+      })),
     });
-    expect(result.status).toBe('pass');
-    expect(result.findingCodes).toEqual([]);
-    expect(result.baselineFindingCodes).toEqual(['wrong_posting_or_talent_pool']);
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toEqual(['wrong_posting_or_talent_pool']);
+    expect(result.baselineFindingCodes).toBeUndefined();
 
     const sanitized = sanitizePortalReplayReport(result);
     expect(sanitized.status).toBe('pass');
@@ -532,7 +551,6 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toEqual(['replay_unmeasured']);
-    expect(result.baselineFindingCodes).toEqual([]);
   });
 
   it('fails a blocked attempt to use Node network APIs outside the browser fence', () => {
