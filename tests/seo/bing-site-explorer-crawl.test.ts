@@ -2071,6 +2071,11 @@ describe('Bing-compatible full-tree crawler', () => {
         target: `${BASE}/en/find-jobs-geneva/missing-referrer-target/`,
         code: BING_FRONTIER_NOINDEX,
       },
+      {
+        source: `${BASE}/eventi/mismatched-referrer/`,
+        target: `${BASE}/en/find-jobs-geneva/mismatched-referrer-target/`,
+        code: BING_FRONTIER_NOINDEX,
+      },
     ];
     const sources = cases.map((item) => item.source);
     const targets = cases.map((item) => item.target);
@@ -2105,12 +2110,12 @@ describe('Bing-compatible full-tree crawler', () => {
         partitionTotal: targets.length,
         checkedCount: targets.length,
         codeCounts: {
-          [BING_FRONTIER_NOINDEX]: 2,
+          [BING_FRONTIER_NOINDEX]: 3,
           [BING_FRONTIER_CANONICAL_DRIFT]: 1,
         },
         statusCounts: { 200: targets.length },
         folderStats: { '/frontier/': { checked: targets.length, statuses: { 200: targets.length }, findings: {
-          [BING_FRONTIER_NOINDEX]: 2,
+          [BING_FRONTIER_NOINDEX]: 3,
           [BING_FRONTIER_CANONICAL_DRIFT]: 1,
         } } },
         findings,
@@ -2125,6 +2130,7 @@ describe('Bing-compatible full-tree crawler', () => {
           [[0, templateIndexFor(sources[0])]],
           [[1, templateIndexFor(sources[1])]],
           [],
+          [[3, templateIndexFor(sources[0])]],
         ],
         templateTable: BING_TEMPLATE_TABLE,
       },

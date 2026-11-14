@@ -548,31 +548,41 @@ export function buildFrontierAttribution(findings, {
     const targetTemplate = templateTable.findIndex((family) => family?.id === targetClassification.id);
     const ownerTemplate = targetTemplate >= 0 ? targetTemplate : fallbackTemplate;
     const refs = refsByTarget.get(item.url) || [];
-    const referrerFamilies = refs.map(([, referrerTemplate]) => templateTable[referrerTemplate]?.id || UNKNOWN_FAMILY.id);
+    const referrerRecords = refs.map(([sourceIndex, referrerTemplate]) => {
+      const declaredFamily = templateTable[referrerTemplate]?.id || UNKNOWN_FAMILY.id;
+      const sourceFamily = classifyBingTemplate(sitemapManifest?.urls?.[sourceIndex]).id;
+      return {
+        sourceIndex,
+        referrerTemplate,
+        family: sourceFamily === declaredFamily ? declaredFamily : UNKNOWN_FAMILY.id,
+      };
+    });
     const reconciled = targetTemplate >= 0 && isReconciledFrontierFinding({
       code: item.code,
       targetFamily: targetClassification.id,
-      referrerFamilies,
+      referrerFamilies: referrerRecords.map(({ family }) => family),
     });
     item.frontierAttribution = {
       ownerFamily: targetClassification.id,
       ownerTemplate,
-      referrers: refs.map(([sourceIndex, referrerTemplate], index) => ({
+      referrers: referrerRecords.map(({ sourceIndex, referrerTemplate, family }) => ({
         sourceIndex,
         template: referrerTemplate,
-        family: referrerFamilies[index],
+        family,
       })),
       status: reconciled ? 'reconciled' : 'actionable',
     };
-    const effectiveRefs = refs.length > 0 ? refs : [[-1, fallbackTemplate]];
+    const effectiveRefs = referrerRecords.length > 0
+      ? referrerRecords
+      : [{ sourceIndex: -1, referrerTemplate: fallbackTemplate, family: UNKNOWN_FAMILY.id }];
     if (refs.length > 0) findingsWithReferrer += 1;
 
-    for (const [sourceIndex, referrerTemplate] of effectiveRefs) {
+    for (const { sourceIndex, referrerTemplate, family: referrerFamily } of effectiveRefs) {
       const key = `${referrerTemplate}\u0000${ownerTemplate}\u0000${item.code}`;
       const current = rows.get(key) || {
         referrerTemplate,
         targetTemplate: ownerTemplate,
-        referrerFamily: templateTable[referrerTemplate]?.id || UNKNOWN_FAMILY.id,
+        referrerFamily,
         targetFamily: targetClassification.id,
         code: item.code,
         findingCount: 0,
