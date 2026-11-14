@@ -3,9 +3,20 @@ name: Assisted application portal replay
 # Always publish the required `portal replay gate` job. The prepare step skips
 # the public replay when a PR changes no runner path. Shared runner changes
 # expand to the complete family group. The shared setup runs once on one
-# worker; the trusted base compare CLI starts up to thirteen family processes
-# in parallel inside that worker, like the crawler-group workflows, instead of
-# creating a runner job for every family.
+# worker; the trusted base compare CLI runs the families inside that worker,
+# like the crawler-group workflows, instead of creating a runner job for every
+# family.
+#
+# Broker capacity (root cause of the all-red `portal_replay_timeout` reports,
+# run 43593542762): every family replays base and head at the same time, so a
+# family is two concurrent Codex callers, and the 75 s per-listing budget of the
+# CLI also runs while a request waits in the broker queue. Starting all twelve
+# families together put 22 callers behind a broker whose first request runs
+# alone and which has two lanes: nothing but the first call finished in 75 s,
+# every other listing was reported as unmeasured. The worker now (1) opens all
+# six broker lanes, (2) warms the broker up with one tiny request, which opens
+# the lanes and fails fast and by name if the Codex backend is not usable, and
+# (3) never starts more families than lanes/2, so no request waits in a queue.
 #
 # Determinism: the changed-path list comes from git, not from the REST API. The
 # detect job checks out the PR merge commit (github.sha, depth 2, blob-less,
@@ -180,7 +191,13 @@ jobs:
     runs-on: ubuntu-latest
     # The budget includes two trusted sparse checkouts, two npm ci runs,
     # Chromium and up to five base/head listing pairs, not only the replay.
+    # Worst case (every listing burns its full 75 s): 42 listings / 3 parallel
+    # families * 75 s = about 18 min of replay after about 5 min of setup.
     timeout-minutes: 30
+    env:
+      # Broker lanes (the action accepts 1..6). Each family runs base and head
+      # concurrently, so the number of families in flight is lanes / 2.
+      PORTAL_REPLAY_BROKER_LANES: '6'
     steps:
       - name: Checkout PR runner
         uses: actions/checkout@v7
@@ -277,7 +294,7 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '1200000'
-          broker_max_concurrency: '2'
+          broker_max_concurrency: ${{ env.PORTAL_REPLAY_BROKER_LANES }}
           broker_max_timeout_ms: '60000'
 
       - name: Require trusted Codex broker
@@ -289,6 +306,53 @@ jobs:
             echo '::error::trusted Codex broker did not produce a Unix socket; refusing to start portal replay.'
             exit 1
           fi
+
+      # The broker runs its first request alone and only then opens its other
+      # lanes, and a broker whose Codex login is rejected would otherwise show
+      # up as twelve `portal_replay_timeout` families. One tiny trusted request
+      # (the base `ai-models.mjs`, never PR code) opens the lanes and either
+      # proves the backend usable or fails here with the cause. Two more
+      # concurrent requests measure whether the lanes really run in parallel.
+      - name: Warm up the Codex broker and measure its lanes
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
+          CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+        run: |
+          set -euo pipefail
+          node --input-type=module -e '
+            import path from "node:path";
+            import { pathToFileURL } from "node:url";
+            const { requestCodexBrokerJson } = await import(pathToFileURL(path.resolve(".portal-base/scripts/lib/ai-models.mjs")).href);
+            const schema = { type: "object", properties: { ok: { type: "boolean" } }, required: ["ok"], additionalProperties: false };
+            const ask = async () => {
+              const started = Date.now();
+              try {
+                const answer = await requestCodexBrokerJson({ prompt: "Return the JSON object {\"ok\": true} and nothing else.", schema, timeoutMs: 60000 });
+                return { ms: Date.now() - started, ok: answer?.ok === true, error: "" };
+              } catch (error) {
+                return { ms: Date.now() - started, ok: false, error: String(error?.message || error).split("\n")[0].slice(0, 200) };
+              }
+            };
+            let first = await ask();
+            if (!first.ok) {
+              console.log(`Codex broker warm-up attempt 1 failed after ${first.ms} ms: ${first.error || "unexpected answer"}`);
+              await new Promise((resolve) => setTimeout(resolve, 15000));
+              first = await ask();
+            }
+            if (!first.ok) {
+              console.log(`::error::blocked: the Codex backend did not answer a minimal request (${first.error || "unexpected answer"}, ${first.ms} ms); the portal replay cannot be measured until the CODEX_AUTH_JSON login or the Codex quota is restored.`);
+              process.exit(1);
+            }
+            console.log(`Codex broker warm-up: first request answered in ${first.ms} ms`);
+            const pair = Date.now();
+            const results = await Promise.all([ask(), ask()]);
+            const pairMs = Date.now() - pair;
+            const slowest = Math.max(...results.map((item) => item.ms));
+            console.log(`Codex broker lanes probe: 2 concurrent requests in ${pairMs} ms (single request ${first.ms} ms, errors: ${results.filter((item) => !item.ok).length})`);
+            if (pairMs > first.ms * 1.7 && slowest > 5000) {
+              console.log(`::warning::Codex broker lanes look serialized (2 requests took ${pairMs} ms against ${first.ms} ms for one); replay listings may wait in the broker queue.`);
+            }
+          '
 
       - name: Replay portal families in parallel inside this worker
         env:
@@ -311,37 +375,46 @@ jobs:
             ' > "$RUNNER_TEMP/portal-replay-families.txt"
             mapfile -t families < "$RUNNER_TEMP/portal-replay-families.txt"
             test "${#families[@]}" -gt 0
-            max_parallel=13
-            running=()
-            failed_count=0
+            # Base and head replay at the same time: one family is two broker
+            # callers. Keep the callers within the broker lanes so a request
+            # never waits in the broker queue while the 75 s listing timer runs.
+            lanes="${PORTAL_REPLAY_BROKER_LANES:-2}"
+            max_parallel=$(( lanes / 2 ))
+            if (( max_parallel < 1 )); then max_parallel=1; fi
+            echo "portal replay group: ${#families[@]} families, at most $max_parallel in parallel ($lanes broker lanes)"
+            rm -f "$PORTAL_REPLAY_LOG_DIR"/*.exit
 
             run_family() {
               local family="$1"
               local report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
               local log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
+              local started=$SECONDS
+              local status=0
               PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" node "$portal_replay_cli" compare \
                 --base-root .portal-base \
                 --head-root . \
                 --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \
                 --family "$family" \
                 --timeout-ms 75000 \
-                --output "$report" > "$log" 2>&1
+                --output "$report" > "$log" 2>&1 || status=$?
+              # The exit status goes through a file: a sliding window cannot
+              # wait for each pid, and a lost status would hide a failed family.
+              echo "$status" > "$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.exit"
+              echo "portal replay family $family finished with exit $status after $((SECONDS - started))s"
             }
 
-            wait_for_wave() {
-              local pid
-              for pid in "${running[@]}"; do
-                if ! wait "$pid"; then failed_count=$((failed_count + 1)); fi
-              done
-              running=()
-            }
-
+            # Sliding window: start the next family as soon as one finishes.
             for family in "${families[@]}"; do
+              while (( $(jobs -pr | wc -l) >= max_parallel )); do sleep 1; done
               run_family "$family" &
-              running+=("$!")
-              if (( ${#running[@]} >= max_parallel )); then wait_for_wave; fi
             done
-            wait_for_wave
+            wait
+
+            failed_count=0
+            for family in "${families[@]}"; do
+              exit_file="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.exit"
+              if [[ ! -s "$exit_file" || "$(cat "$exit_file")" != "0" ]]; then failed_count=$((failed_count + 1)); fi
+            done
 
             for family in "${families[@]}"; do
               report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
