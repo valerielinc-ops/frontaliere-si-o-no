@@ -642,11 +642,11 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
   });
 
-  it('does not report a verdict for a cancelled run and posts one sticky comment', () => {
+  it('keeps the required gate fail-closed and comments only on uncancelled runs, once per PR', () => {
     const text = workflow();
-    expect(text).toContain('if: ${{ !cancelled() }}');
+    // a job skipped by `if` counts as success for a required check: the gate must not use `!cancelled()`
+    expect(text).toMatch(/name: portal replay gate\n(?:\s*#.*\n)*\s*if: always\(\)\n\s*needs: \[detect, prepare, replay\]/u);
     expect(text).toContain("if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}");
-    expect(text).not.toMatch(/if: always\(\)\s*\n\s*needs: \[detect, prepare, replay\]/u);
     expect(text).not.toContain('if: always() && needs.detect.outputs.run');
     expect(text).toContain('upsertStickyComment');
     expect(text).toContain('<!-- portal-replay-gate -->');

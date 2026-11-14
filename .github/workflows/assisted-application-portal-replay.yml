@@ -389,9 +389,14 @@ jobs:
 
   portal-replay-gate:
     name: portal replay gate
-    # A run cancelled by a newer push (concurrency) must not publish a verdict:
-    # the superseding run owns the required check for the new head.
-    if: ${{ !cancelled() }}
+    # Stays `always()`: this is a REQUIRED check, and a job skipped by its `if`
+    # reports as success to branch protection. With `!cancelled()` a run
+    # cancelled on the current head with no successor (manual cancel) would
+    # leave a green gate without any replay. A run superseded by a newer push
+    # still fails here, but only on the old head SHA, which no longer decides
+    # the merge; the comment job below skips cancelled runs (no FAIL spam) and
+    # the fixers re-check the head before acting.
+    if: always()
     needs: [detect, prepare, replay]
     runs-on: ubuntu-latest
     timeout-minutes: 5
