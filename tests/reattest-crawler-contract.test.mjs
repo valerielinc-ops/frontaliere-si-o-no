@@ -137,7 +137,7 @@ test('workflow verifies the reconciled contract before publishing it', () => {
   const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
   const reattest = openStep.indexOf('reattest-crawler-contract.mjs');
   const verify = openStep.indexOf('verify-crawler-contract-provenance.mjs');
-  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"');
+  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"', verify);
   const push = openStep.indexOf('git push --set-upstream origin "$REATTEST_BRANCH"');
 
   assert.match(
