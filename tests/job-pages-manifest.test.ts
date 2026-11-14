@@ -380,13 +380,12 @@ describe('emissione nel build delle pagine annuncio', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Review automatica 5907068125: «il `check` del manifest restituisce un booleano ma
-// `inspectLiveJobs` consuma `{ known, live }`». Non e' cosi': `inspectLiveJobs` scrive il
-// valore di ritorno nella cache condivisa (`cache.set(url, await check(url))`) e ricava
-// `known = cache.has(url)` e `live = cache.get(url) !== false`. Il booleano e' la forma del
-// percorso HTTP (`checkPageBodyLive`); cambiarla in `{ known, live }` romperebbe la cache.
+// Review automatica 5907068125: il checker del manifest e la cache devono condividere
+// il contratto `{ known, live }`. I checker HTTP che restituiscono booleani vengono
+// normalizzati al confine della cache, così liveness nota e risposta non disponibile
+// restano distinguibili anche nel percorso `failOpen: false`.
 // Qui il criterio di accettazione, con un checker vero alimentato da un manifest usabile.
-describe('manifest + inspectLiveJobs: il booleano del check e la cache danno known/live', () => {
+describe('manifest + inspectLiveJobs: il contratto { known, live } dà known/live', () => {
   const config = { mode: 'auto', url: 'https://example.test/m.json', maxAgeHours: 36, minCoverage: 0 } as any;
   const manifestOf = (published: any[]) => (async () => ({
     ok: true,
@@ -403,29 +402,31 @@ describe('manifest + inspectLiveJobs: il booleano del check e la cache danno kno
     const published = JOBS.slice(0, 3);
     const checker = await checkerFor(published);
     expect(checker.source).toBe('manifest');
-    expect(await checker.check(jobPageUrl(published[0], 'it') as string)).toBe(true);
-    const cache = new Map<string, boolean>();
+    expect(await checker.check(jobPageUrl(published[0], 'it') as string)).toEqual({ known: true, live: true });
+    const cache = new Map<string, { known: boolean; live: boolean }>();
     const result = await inspectLiveJobs(published, 'it', cache, { check: checker.check, failOpen: checker.failOpen });
     expect(idsOf(result.knownLiveJobs)).toEqual(idsOf(published));
     expect(idsOf(result.jobs)).toEqual(idsOf(published));
     expect(result.unknownJobs).toEqual([]);
     expect(result.failOpen).toBe(false);
-    // La cache contiene il BOOLEANO del check: e' da li' che nascono known e live.
-    for (const j of published) expect(cache.get(jobPageUrl(j, 'it') as string)).toBe(true);
+    // La cache contiene il risultato condiviso: da lì nascono known e live.
+    for (const j of published) {
+      expect(cache.get(jobPageUrl(j, 'it') as string)).toEqual({ known: true, live: true });
+    }
   });
 
   it('(b) un URL assente e\' filtrato SENZA fail-open, anche se la quota di pagine vive e\' bassa (liveLinkFailOpen non incrementato)', async () => {
     const published = JOBS.slice(0, 3);
     const checker = await checkerFor(published);
     const before = failOpenCount();
-    const cache = new Map<string, boolean>();
+    const cache = new Map<string, { known: boolean; live: boolean }>();
     // 3 pubblicati su 12: con il ramo HTTP questo rapporto (25%) farebbe scattare il fail-open.
     const result = await inspectLiveJobs(JOBS, 'it', cache, { check: checker.check, failOpen: checker.failOpen });
     expect(idsOf(result.knownLiveJobs)).toEqual(idsOf(published));
     expect(idsOf(result.jobs)).toEqual(idsOf(published));
     for (const absent of JOBS.slice(3)) {
       expect(result.jobs.some((j: any) => j.id === absent.id)).toBe(false);
-      expect(cache.get(jobPageUrl(absent, 'it') as string)).toBe(false);
+      expect(cache.get(jobPageUrl(absent, 'it') as string)).toEqual({ known: true, live: false });
     }
     expect(result.failOpen).toBe(false);
     expect(failOpenCount()).toBe(before);
