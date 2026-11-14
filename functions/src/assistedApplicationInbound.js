@@ -47,6 +47,10 @@ export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
   'auto_acknowledgement', 'verification', 'offer', 'other',
 ];
+export const PORTAL_NOTICE_KINDS = Object.freeze([
+  'automatic_application_receipt', 'account_verification', 'portal_preferences', 'employer_platform_redirect',
+]);
+const CANDIDATE_ACTION_CATEGORIES = new Set(['interview_invite', 'rejection', 'offer', 'assessment', 'documents_request']);
 // The employer has the application: an automatic acknowledgement, or a reply
 // about it. An account verification or an unrelated message proves nothing.
 const RECEIPT_CATEGORIES = new Set([
@@ -395,6 +399,36 @@ const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rif
 // Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
 const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|einmalige[rnsm]? (?:passcode|code|kennwort|passwort)|einmal(?:passcode|kennwort|passwort|code)|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:(?:pass)?code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
 
+// A portal preference notice has both a preference/settings subject and a
+// bounded state or management action. A bare "preferences" word is not enough:
+// it can occur in an employer's ordinary application correspondence.
+const PORTAL_PREFERENCE_TOPIC_RE = phrases([
+  String.raw`(?:your|our|their|e-?mail|email|notification|communication|job alert|newsletter)\s+(?:preferences?|settings?|subscriptions?)`,
+  String.raw`(?:e-?mail|benachrichtigungs?|kommunikations?|newsletter)[-\s](?:einstellungen|präferenzen)`,
+  String.raw`(?:präferenzen|einstellungen)\s+(?:für\s+)?(?:e-?mail|benachrichtigungen?|kommunikation|newsletter)`,
+  String.raw`(?:preferenze?|impostazioni)\s+(?:di\s+|delle?\s+|per\s+)?(?:e-?mail|notifiche?|comunicazioni?|newsletter|avvisi?)`,
+  String.raw`(?:préférences?|paramètres?)\s+(?:d['’]e-?mail|de notification|de communication|de newsletter)`,
+].join('|'));
+const PORTAL_PREFERENCE_ACTION_RE = phrases([
+  String.raw`(?:manage|update|change|save|confirm|unsubscribe|subscribe|disable|enable|review)\s+(?:your\s+)?(?:e-?mail|email|notification|communication|job alert|newsletter)?\s*(?:preferences?|settings?|subscriptions?)`,
+  String.raw`(?:preferences?|settings?|subscriptions?)\s+(?:have been|were|are|is)\s+(?:updated|changed|saved|confirmed|disabled|enabled)`,
+  String.raw`(?:gestisc|aggiorn|modific|salv|conferm|disiscriv|iscriv|disattiv|attiv)\p{L}*[^.\n]{0,50}(?:preferenze?|impostazioni|notifiche?|comunicazioni?)`,
+  String.raw`(?:preferenze?|impostazioni|notifiche?|comunicazioni?)\s+(?:sono state|sono|vengono)\s+(?:aggiornate|modificate|salvate|confermate|disattivate|attivate)`,
+  String.raw`(?:gér|modif|enregistr|confirm|désinscri|inscri|activ|désactiv)\p{L}*[^.\n]{0,50}(?:préférences?|paramètres?)`,
+  String.raw`(?:präferenzen|einstellungen)\s+(?:wurden|sind|werden)\s+(?:aktualisiert|geändert|gespeichert|bestätigt|deaktiviert|aktiviert)`,
+].join('|'));
+
+// A redirect is only this explicit when it names the application and the
+// employer's own portal/platform. Generic links or "visit our website" mail
+// remain ordinary messages and follow the existing forwarding policy.
+const EMPLOYER_PLATFORM_REDIRECT_RE = phrases([
+  String.raw`(?:submit|send|complete|file)\s+(?:your\s+)?application\s+(?:through|via|on|using)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)`,
+  String.raw`(?:apply|complete your application)\s+(?:through|via|on|using)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)`,
+  String.raw`(?:applications?|candidacy|candidature|candidatura|bewerbungen?|bewerbung)\s+(?:are|must be|sollen|müssen|devono|doivent|devono)\s+(?:submitted|sent|completed|eingereicht|abgeschickt|inviate|envoyées|déposées)\s+(?:through|via|on|über|auf|tramite|sul|sur|via)\s+(?:our|the|unser(?:em|er)?|nostr[oa]|notre|notre)\s+(?:online\s+)?(?:portal|platform|portal[eé]|piattaforma|plattform|plateforme)`,
+  String.raw`(?:please\s+)?(?:use|access|open)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)\s+to\s+(?:apply|submit|complete)`,
+  String.raw`(?:invia|present|complet|finaliz|einreich|abschick|dépos|soumet)\p{L}*\s+(?:la\s+)?(?:votre\s+|your\s+|ihre\s+|deine\s+)?(?:candidatura|candidature|bewerbung|application)\s+(?:tramite|sul|nel|über|auf|via|sur)\s+(?:il\s+|la\s+|nostr[oa]\s+|unser(?:em|er)?\s+|notre\s+)?(?:portale|piattaforma|portal|plattform|plateforme)`,
+].join('|'));
+
 const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
 const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
 const QUOTE_FORWARD_RE = /^\s*(?:begin forwarded message|anfang der weitergeleiteten nachricht|inizio messaggio inoltrato|début du message réexpédié)\s*:/i;
@@ -642,10 +676,10 @@ const asksForAction = (sentence) => {
  * test, verification, question or action of any kind), mentions no interview,
  * and carries no file but images.
  */
-export function automaticApplicationReceipt(message, classification = {}) {
-  if (classification.category !== 'auto_acknowledgement' || classification.needsReply === true
-    || classification.interviewWhen || (classification.requestedDocuments || []).length
-    || classification.verificationCode) return false;
+function structuralAutomaticApplicationReceipt(message, classification = {}) {
+  if (classification.category && !['auto_acknowledgement', 'other'].includes(classification.category)) return false;
+  if (classification.needsReply === true || classification.interviewWhen
+    || (classification.requestedDocuments || []).length || classification.verificationCode) return false;
   if ((message.attachments || []).some((item) => !/^image\//i.test(String(item?.contentType || '')))) return false;
   const rules = readByRules(message);
   if (rules.category !== 'auto_acknowledgement' || rules.verificationAsked) return false;
@@ -655,6 +689,11 @@ export function automaticApplicationReceipt(message, classification = {}) {
     || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || asksAccountVerification(sentence)
     || asksForAction(sentence) || /\?\s*$/.test(sentence))) return false;
   return automatedMessage(message);
+}
+
+export function automaticApplicationReceipt(message, classification = {}) {
+  return classification.category === 'auto_acknowledgement'
+    && structuralAutomaticApplicationReceipt(message, classification);
 }
 
 // A portal's reminder that an application was started there and never sent (SBB on SuccessFactors,
@@ -735,6 +774,55 @@ export function portalApplicationReminder(message, classification = {}) {
 }
 
 /**
+ * Classify the remaining portal-shaped messages without granting them any
+ * order effect. The caller must still bind account notices to the order's
+ * authenticated portal account before suppressing delivery. An unknown or
+ * contradictory message returns the empty string and follows the existing
+ * candidate/owner-review policy.
+ */
+export function portalNoticeKind(message, classification = {}) {
+  const rules = readByRules(message);
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  const modelHasCandidateAction = CANDIDATE_ACTION_CATEGORIES.has(classification.category)
+    || classification.interviewWhen || (classification.requestedDocuments || []).length;
+  if (modelHasCandidateAction) return '';
+
+  const hasEmployerPurpose = sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence)
+    || rejectsApplication(sentence) || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence)
+    || asksAQuestion(sentence) || rules.postingWithdrawn);
+
+  // This is intentionally the same strict, machine-authored receipt contract
+  // used by settlement, but it accepts `other` as the model result so a
+  // mislabelled receipt can be held without becoming proof of submission.
+  if (!hasEmployerPurpose && structuralAutomaticApplicationReceipt(message, classification)) {
+    return 'automatic_application_receipt';
+  }
+
+  // Account verification is a candidate action for the portal runner, not for
+  // the candidate. The host/code/link is bound later by verificationAccountHost.
+  if (!hasEmployerPurpose && rules.category === 'verification' && rules.verificationAsked) {
+    return 'account_verification';
+  }
+
+  // A reminder has a separate contract and event. Do not let the broader
+  // preference/redirect wording steal it, especially for "complete your
+  // application through the portal" variants.
+  if (sentences.some(remindsOfApplication)) return '';
+
+  const hasPreferenceTopic = sentences.some((sentence) => PORTAL_PREFERENCE_TOPIC_RE.test(sentence));
+  const hasPreferenceAction = sentences.some((sentence) => PORTAL_PREFERENCE_ACTION_RE.test(sentence));
+  if (!hasEmployerPurpose && !sentences.some(acknowledgesApplication)
+    && hasPreferenceTopic && hasPreferenceAction) return 'portal_preferences';
+
+  if (!hasEmployerPurpose && !sentences.some(acknowledgesApplication)
+    && sentences.some((sentence) => EMPLOYER_PLATFORM_REDIRECT_RE.test(sentence))) {
+    return 'employer_platform_redirect';
+  }
+
+  return '';
+}
+
+/**
  * Deterministic fallback when Codex is unavailable: the purpose of the sender's
  * own sentences. An Auto-Submitted header says who wrote the message, not what
  * it says, so only the receipt wording makes an acknowledgement.
@@ -769,6 +857,23 @@ function containsVerbatimCode(text, code) {
     from = index + 1;
   }
   return false;
+}
+
+function structuralVerificationClassification(classification, rules) {
+  const sourceText = String(rules?.sourceText || '');
+  const proposedCode = String(classification?.verificationCode || '');
+  const verificationCode = proposedCode && containsVerbatimCode(sourceText, proposedCode)
+    ? proposedCode
+    : NAMED_CODE_RE.exec(sourceText)?.[1] || '';
+  const sourceLink = rules?.linkAsked ? soleSecureLink(sourceText) : '';
+  const proposedUrl = String(classification?.verificationUrl || '');
+  const verificationUrl = proposedUrl && sourceLink === proposedUrl ? proposedUrl : sourceLink;
+  return {
+    ...classification,
+    category: 'verification',
+    verificationCode,
+    verificationUrl,
+  };
 }
 
 function sanitizeClassification(raw, message) {
@@ -1131,8 +1236,6 @@ function forwardedFromDelivery(state) {
   return { status: state.status || 'queued' };
 }
 
-const CANDIDATE_ACTION_CATEGORIES = new Set(['interview_invite', 'rejection', 'offer', 'assessment', 'documents_request']);
-
 function candidateForwardAllowed(message, classification) {
   if (CANDIDATE_ACTION_CATEGORIES.has(classification.category)) return true;
   const rules = readByRules(message);
@@ -1237,7 +1340,7 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
     const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.passwordResetHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt
-      || inbox.portalApplicationReminder || inbox.candidateForwardAllowed !== true);
+      || inbox.portalApplicationReminder || inbox.portalNoticeHeld || inbox.candidateForwardAllowed !== true);
     if (!to || keptFromCandidate) {
       const status = keptFromCandidate ? 'skipped' : 'failed';
       await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
@@ -1472,10 +1575,17 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       }, { subject: rules.sourceSubject, text: rules.sourceText });
     }
 
+    // Structural portal notices are only a content classification. Any order
+    // effect still needs the exact account binding below; an unknown or
+    // contradictory message keeps the existing forwarding/owner-review path.
+    const detectedPortalNotice = portalNoticeKind(message, classification);
+    const verificationClassification = detectedPortalNotice === 'account_verification'
+      ? structuralVerificationClassification(classification, rules)
+      : classification;
     // A portal's account verification (a verbatim link or code) is read by the
     // runner that created the account on the alias when it can be bound safely.
     // It remains in the concierge in every case and never goes to the candidate.
-    const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
+    const portalVerificationHost = await verificationAccountHost(orderRef, verificationClassification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
     const passwordReset = await passwordResetAccount(orderRef, {
       authenticated,
       asksPasswordReset: rules.asksPasswordReset,
@@ -1503,6 +1613,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // recorded below as its acknowledgement (and proof of a submission of unknown
     // outcome), shown on the Application Concierge page, never forwarded.
     const applicationReceipt = !consumedByRunner && !portalAccountNoticeHost && automaticApplicationReceipt(message, classification);
+    const structuralApplicationReceipt = detectedPortalNotice === 'automatic_application_receipt';
+    const portalNoticeAccountHost = !consumedByRunner && !portalAccountNoticeHost
+      && !applicationReceipt
+      && (detectedPortalNotice === 'portal_preferences' || detectedPortalNotice === 'employer_platform_redirect')
+      ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
+      : '';
     // A portal's reminder of an application started there and not sent (portalApplicationReminder), from an
     // authenticated sender bound to the order's portal account: the robot's own unfinished run. Recorded as
     // an event of the order, never forwarded, never an employer reply, never a proof of submission. It
@@ -1513,7 +1629,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
       : '';
     const applicationReminder = Boolean(reminderHost);
-    const knownSystemHold = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder;
+    const portalNoticeHeld = structuralApplicationReceipt || Boolean(portalNoticeAccountHost);
+    const knownSystemHold = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder || portalNoticeHeld;
     // What the order records: a reminder is no answer of the employer, whatever the model read.
     const recorded = passwordReset
       ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
@@ -1526,6 +1643,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
           verificationUrl: '',
           ...(classification.needsReply === true ? { summaryCandidate: '', needsReply: false } : {}),
         }
+        : portalNoticeAccountHost
+          ? { ...classification, summaryCandidate: '', needsReply: false }
+          : structuralApplicationReceipt
+            ? { ...classification, summaryCandidate: '', needsReply: false }
         : classification.category === 'auto_acknowledgement' && rules.category !== 'auto_acknowledgement'
           ? { ...classification, category: 'other', summaryIt: '', summaryCandidate: '', needsReply: false }
         : classification;
@@ -1548,6 +1669,10 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
         : applicationReceipt
         ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : structuralApplicationReceipt
+        ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : portalNoticeAccountHost
+        ? { status: 'skipped', reason: detectedPortalNotice, attempts: 0, lastError: null }
         : applicationReminder
         ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
         : recorded.category === 'verification' && !mayForwardToCandidate
@@ -1586,6 +1711,8 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
         ...recorded,
+        ...(detectedPortalNotice ? { portalNoticeKind: detectedPortalNotice } : {}),
+        ...(portalNoticeHeld ? { portalNoticeHeld: true } : {}),
         senderAuthenticated: authenticated,
         ...(sourceVerificationLinkHost ? { sourceVerificationLinkHost } : {}),
         ...(sourceVerificationLink ? { sourceVerificationLinkEnc: encryptJson({ url: sourceVerificationLink }, runKeyFrom(runKey)) } : {}),
