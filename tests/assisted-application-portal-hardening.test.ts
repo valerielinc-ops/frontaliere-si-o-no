@@ -797,6 +797,38 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   });
 
   it.each([
+    ['an external source posting', 'https://jobs.example.test/room/rituals'],
+    ['an absent source posting', ''],
+  ])('accepts the sole Workday Apply opener with %s on the exact requisition route', (_description, postingUrl) => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Conseiller-de-Vente-h-f_R-12345';
+    const context = { applyUrl, postingUrl, job: { title: 'Conseiller de Vente (h/f)', company: 'Rituals' } };
+    const snapshot = {
+      url: applyUrl,
+      fields: [],
+      buttons: [
+        { text: 'Read Full Privacy Message', frame: 0 },
+        { text: 'Decline', frame: 0 },
+        { text: 'Accept Cookies', frame: 0 },
+        { text: 'Sign In', frame: 0 },
+        { text: 'Rituals Careers', frame: 0 },
+        { text: 'Apply', frame: 0 },
+        { text: 'View All 4 Jobs', frame: 0 },
+        { text: 'Read More', frame: 0 },
+      ],
+      links: [],
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([
+      expect.objectContaining({ text: 'Apply' }),
+    ]);
+
+    expect(applicationEntryControls(snapshot, {
+      ...context,
+      postingUrl: applyUrl.replace('R-12345', 'R-99999'),
+    })).toEqual([]);
+  });
+
+  it.each([
     ['fr', 'Créer une alerte', 'Sélectionnez la fréquence (en jours) de réception d’une alerte :'],
     ['en', 'Create an alert', 'Select how often (in days) to receive an alert:'],
     ['en-job', 'Create a job alert', 'Select how often (in days) to receive an alert:'],
