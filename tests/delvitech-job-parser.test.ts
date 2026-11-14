@@ -31,10 +31,10 @@ describe('Delvitech job parser', () => {
         <div class="fusion-layout-column"><h5>Unrelated role</h5></div>
       </div>
     `;
-    const jobs = parseDelvitechCareerPage(html);
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
     expect(jobs).toHaveLength(2);
     expect(jobs.map((job) => job.href)).toEqual([
-      'https://legacy.delvi.tech/application-engineer-2/',
+      'https://delvi.tech/application-engineer-2/',
       'https://delvi.tech/customer-support-manager/',
     ]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
@@ -74,8 +74,12 @@ describe('Delvitech job parser', () => {
         <a href="/news/company-update/">News</a>
       </main>
     `;
-    const jobs = parseDelvitechCareerPage(html);
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
     expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://delvi.tech/application-engineer-2/',
+      'https://delvi.tech/customer-support-manager/',
+    ]);
     expect(jobs.map((job) => job.title)).toEqual([
       'Application Engineer',
       'Customer Support Manager',

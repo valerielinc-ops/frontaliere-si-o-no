@@ -227,7 +227,7 @@ function isTrustedDomain(rawUrl = '') {
 async function fetchListings() {
   console.log('🔍 Fetching Delvitech career page...');
   const html = await fetchRobust(CAREERS_URL);
-  let listings = parseDelvitechCareerPage(html);
+  let listings = parseDelvitechCareerPage(html, CAREERS_URL);
   if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true) {
     // The redesigned canonical page hydrates the open-role cards in the
     // browser. An HTTP 200 shell with no cards is not an authoritative zero;
@@ -236,7 +236,7 @@ async function fetchListings() {
     console.log('⚠️  No Delvitech listing evidence in HTML, rendering the canonical page...');
     try {
       const renderedHtml = await fetchWithBrowser(CAREERS_URL);
-      const renderedListings = parseDelvitechCareerPage(renderedHtml);
+      const renderedListings = parseDelvitechCareerPage(renderedHtml, CAREERS_URL);
       if (renderedListings.length > 0 || renderedListings.delvitechListingEmptyStateObserved === true) {
         listings = renderedListings;
       }

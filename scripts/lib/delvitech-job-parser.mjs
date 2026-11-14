@@ -8,7 +8,7 @@ import { hasExplicitEmptyJobListing } from './job-listing-evidence.mjs';
 import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
-const DELVITECH_CAREER_URL = 'https://delvi.tech/careers/';
+const DELVITECH_LEGACY_CAREER_URL = 'https://legacy.delvi.tech/career/';
 const DELVITECH_NAV_PATH_RE = /^\/(?:about(?:-us)?|company|contact|industr(?:y|ies)|news|solutions?|technology|sustainability|certifications?)(?:\/|$)/i;
 const DELVITECH_CAREER_ROOT_RE = /^\/careers?\/?$/i;
 const GENERIC_ROLE_LINK_TEXT_RE = /^(?:apply(?: now)?|learn more|read more|see (?:open )?roles?|view (?:role|details?)|discover more)$/i;
@@ -74,9 +74,9 @@ function inferLocation(text = '') {
   return '';
 }
 
-function resolveDelvitechDetailUrl(rawHref = '') {
+function resolveDelvitechDetailUrl(rawHref = '', baseUrl = DELVITECH_LEGACY_CAREER_URL) {
   try {
-    const url = new URL(String(rawHref || '').trim(), DELVITECH_CAREER_URL);
+    const url = new URL(String(rawHref || '').trim(), baseUrl);
     const host = url.hostname.toLowerCase();
     if (!['http:', 'https:'].includes(url.protocol)) return '';
     if (host !== 'legacy.delvi.tech' && host !== 'delvi.tech' && !host.endsWith('.delvi.tech')) return '';
@@ -87,8 +87,8 @@ function resolveDelvitechDetailUrl(rawHref = '') {
   }
 }
 
-function normalizedHref(anchor) {
-  return resolveDelvitechDetailUrl(anchor?.getAttribute?.('href') || '');
+function normalizedHref(anchor, baseUrl) {
+  return resolveDelvitechDetailUrl(anchor?.getAttribute?.('href') || '', baseUrl);
 }
 
 function roleCardForAnchor(anchor) {
@@ -138,30 +138,30 @@ function collectSemanticListingAnchors(listingContainer) {
     });
 }
 
-function collectStructuredListings(html) {
+function collectStructuredListings(html, baseUrl) {
   return extractJobPostingNodes(html)
     .map((posting) => ({
-      href: resolveDelvitechDetailUrl(posting.url || posting.mainEntityOfPage?.['@id'] || posting.mainEntityOfPage),
+      href: resolveDelvitechDetailUrl(posting.url || posting.mainEntityOfPage?.['@id'] || posting.mainEntityOfPage, baseUrl),
       title: normalizeSpace(posting.title || ''),
     }))
     .filter(({ href, title }) => Boolean(href && title));
 }
 
-export function parseDelvitechCareerPage(html = '') {
+export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_CAREER_URL) {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const listingContainer = findListingContainer(document);
   const legacyCards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href]')]
     .map((anchor) => ({
       anchor,
-      href: normalizedHref(anchor),
+      href: normalizedHref(anchor, pageUrl),
     }))
     .filter(({ href }) => Boolean(href));
   const semanticCards = collectSemanticListingAnchors(listingContainer)
     .filter((anchor) => !anchor.matches?.('.fusion-column-anchor'))
-    .map((anchor) => ({ anchor, href: normalizedHref(anchor) }))
+    .map((anchor) => ({ anchor, href: normalizedHref(anchor, pageUrl) }))
     .filter(({ href }) => Boolean(href));
-  const structuredListings = collectStructuredListings(html);
+  const structuredListings = collectStructuredListings(html, pageUrl);
   const seen = new Set();
   const jobs = [];
   let skippedMalformedRows = 0;
