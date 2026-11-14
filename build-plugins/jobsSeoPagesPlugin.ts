@@ -6768,6 +6768,16 @@ ${companyFollowHtml}
  companyPagesCount++;
  recordEmit('company-landing', __tCompany);
  await flushHubPageWritesIfNeeded();
+ // The auto-flush threshold moves the active Map into background promises,
+ // so the helper above may legitimately return with collector.count === 0
+ // while those promises still retain the rendered HTML. Keep the retention
+ // bound at the end of EVERY company, not only at the start of the next one;
+ // otherwise the final company (and any large alias set) can carry an
+ // unbounded backlog into the phase checkpoint. The cadence-gated GC is
+ // deliberately after the drain so completed writes no longer retain their
+ // content through the path-flush chains (#1290).
+ await collector.awaitDrainSlot(2);
+ maybeForceJobsSeoHtmlGc();
  }
  }
  // Drain the tail even when the phase ends below the threshold. Without an
@@ -13905,9 +13915,10 @@ ${staticAnalyticsHtml}
  // recency-sorted expired-jobs.json winners indexed above — this only fills the
  // long tail those 5000 left empty.
  const expiredSlicesDir = np.resolve(rootDir, 'data/jobs/expired/by-crawler');
- // Keep per-crawler rows disk-backed by default. The cap only opts into
- // retaining full row objects in RAM; overflow keeps compact offsets/recency.
- const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 0);
+ // Bound in-memory aliases, not archive coverage. The published c805 build
+ // reached this cap before Spital Uster and silently lost original content.
+ // Overflow retains compact offsets/recency; full records live on disk.
+ const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  expiredSliceOverflow = new ExpiredSliceOverflow();
  if (fs.existsSync(expiredSlicesDir)) {
  const isTrackedSlug = (slug: string): boolean => Object.prototype.hasOwnProperty.call(tracking, slug);
