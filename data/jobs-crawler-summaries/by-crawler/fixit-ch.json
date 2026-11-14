@@ -1,7 +1,7 @@
 {
   "key": "fixit-ch",
   "label": "Fixit AG",
-  "generatedAt": "2026-11-13T21:21:57.707Z",
+  "generatedAt": "2026-11-14T09:21:08.446Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -15,19 +15,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4938,
-  "avgDurationMs": 4938,
+  "durationMs": 4883,
+  "avgDurationMs": 4883,
   "durationHistory": [
-    4938
+    4883
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fixit-ch-40a937f69a04",
-      "slug": "verkaufsberatung-im-aussendienst-m-w-untervaz-fixit-ch-ch",
+      "slug": "servizi-di-consulenza-commerciale-m-f-fixit-ag-untervaz",
       "company": "Fixit AG",
       "companyKey": "fixit-ch",
       "companyDomain": "fixit.ch",
@@ -37,7 +38,7 @@
       "url": "https://www.fixit.ch/karriere/jobs/position/verkaufsberatung-im-aussendienst-mw",
       "source": "Fixit AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:21:41.912Z",
+      "crawledAt": "2026-11-14T09:20:43.807Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -55,25 +56,23 @@
       "postedDate": "2026-11-11T00:00:00+01:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.fixit.ch/karriere/jobs/position/verkaufsberatung-im-aussendienst-mw",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-13T21:21:41.912Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:41.912Z",
+      "validThrough": "2027-02-09T09:20:43.807Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:21:41.912Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
