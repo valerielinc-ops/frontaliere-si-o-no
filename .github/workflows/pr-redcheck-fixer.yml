@@ -293,6 +293,7 @@ jobs:
                 "Classify bounded loop-fleet ledger path",
                 "Publish bounded ledger-only automatic LGTM",
                 "Publish non-runtime-code automatic LGTM",
+                "Merge trusted non-runtime-code PR immediately",
                 "Resolve PR from pull request",
                 "Resolve review input revision (zero-agent)",
                 "Re-review guard (skip Claude when no code changed since last LGTM)",

@@ -230,7 +230,7 @@ jobs:
     runs-on: ubuntu-latest
     # Letti dal job `post-review` (vedi `Decide post-review follow-up`).
     outputs:
-      automerge: ${{ steps.post_review.outputs.automerge || steps.non_code_review.outputs.automerge }}
+      automerge: ${{ steps.post_review.outputs.automerge || (steps.non_code_review.outputs.automerge == 'true' && steps.immediate_non_code_merge.outputs.merged != 'true') }}
       autorebase: ${{ steps.post_review.outputs.autorebase }}
       pr_number: ${{ steps.post_review.outputs.pr_number || steps.non_code_review.outputs.pr_number }}
     # 360 min, il massimo di GitHub, dal 2026-08-26 (#6571): quando la review è
@@ -1486,9 +1486,41 @@ jobs:
           LOOP_FLEET_REGISTRY_PATH="$POLICY_ROOT/data/loop-fleet/loop-registry.json" \
             GH_TOKEN="$APP_TOKEN" node "$POLICY_ROOT/scripts/ci/review-test-policy.mjs" ledger-post
 
+      # Trusted producer PRs in the non-runtime-code lane do not need to wait
+      # for required checks or an automatic review. If a producer did emit the
+      # PR with an App/PAT and therefore started this fallback run, merge it as
+      # soon as the exact HEAD gate passes. A failed/uncapable direct lane
+      # falls through to the existing automatic-review/native-auto-merge path;
+      # human-authored safe PRs always stay on that path.
+      - name: Merge trusted non-runtime-code PR immediately
+        id: immediate_non_code_merge
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && github.event_name == 'pull_request' && github.event.pull_request.user.type == 'Bot' && (github.event.pull_request.user.login == 'frontaliere-automation[bot]' || github.event.pull_request.user.login == 'github-actions[bot]') && github.event.pull_request.head.repo.full_name == github.repository && !cancelled() }}
+        continue-on-error: true
+        env:
+          APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo '::error::non-runtime-code immediate merge unavailable: trusted App token missing; falling back to the normal review lane.'
+            exit 1
+          fi
+          GH_TOKEN="$APP_TOKEN" \
+            REPO="$REPO" \
+            PR_NUMBER="$PR_NUMBER" \
+            HEAD_SHA="$HEAD_SHA" \
+            TRUSTED_GH_BIN="$TRUSTED_GH_BIN" \
+            node "$REVIEW_POLICY_ROOT/scripts/ci/review-test-policy.mjs" non-code-merge-check
+          GH_TOKEN="$APP_TOKEN" "$TRUSTED_GH_BIN" pr merge "$PR_NUMBER" --repo "$REPO" \
+            --admin --squash --delete-branch --match-head-commit "$HEAD_SHA"
+          echo 'merged=true' >> "$GITHUB_OUTPUT"
+
       - name: Publish non-runtime-code automatic LGTM
         id: non_code_review
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && !cancelled() }}
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_status == 'non-runtime-code' && steps.immediate_non_code_merge.outcome != 'success' && !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -4638,6 +4670,7 @@ jobs:
               'Classify bounded loop-fleet ledger path',
               'Publish bounded ledger-only automatic LGTM',
               'Publish non-runtime-code automatic LGTM',
+              'Merge trusted non-runtime-code PR immediately',
               'Resolve PR from pull request',
               'Resolve review input revision (zero-agent)',
               'Re-review guard (skip Claude when no code changed since last LGTM)',

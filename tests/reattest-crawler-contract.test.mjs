@@ -96,7 +96,7 @@ test('workflow reattests every contract source input', () => {
   }
 });
 
-test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN', () => {
+test('workflow pushes and merges through a trusted App/PAT identity', () => {
   const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
 
   assert.doesNotMatch(workflow, /GH_TOKEN:\s*\$\{\{\s*github\.token\s*\}\}/u);
@@ -105,6 +105,18 @@ test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN'
   assert.match(workflow, /GITHUB_PAT/u);
   assert.match(workflow, /git remote set-url origin .*\$\{PUSH_TOKEN\}/u);
   assert.match(workflow, /GH_TOKEN=\$PUSH_TOKEN/u);
+  assert.match(workflow, /git commit -m "ci: reattest crawler contract to landed main \[skip ci\]"/u);
+});
+
+test('safe reattestation PRs bypass PR workflows only after the trusted exact-head gate', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+
+  assert.match(openStep, /gh pr (?:edit|create)/u);
+  assert.doesNotMatch(openStep, /PR_API_TOKEN/u);
+  assert.match(openStep, /review-test-policy\.mjs non-code-merge-check/u);
+  assert.match(openStep, /--admin --squash --delete-branch --match-head-commit "\$head_sha"/u);
+  assert.doesNotMatch(openStep, /gh pr merge[^\n]*--auto/u);
 });
 
 test('workflow verifies current artifacts against the landed source revision', () => {
