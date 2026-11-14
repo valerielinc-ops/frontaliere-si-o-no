@@ -324,11 +324,13 @@ jobs:
               return 1
             fi
           }
-          export -f run_group
+          group_script="$RUNNER_TEMP/portal-replay-group.sh"
+          declare -f run_group > "$group_script"
+          printf '\nrun_group\n' >> "$group_script"
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c 'run_group'
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash "$group_script"
           else
-            run_group
+            bash "$group_script"
           fi
 
       - name: Upload sanitized family reports
