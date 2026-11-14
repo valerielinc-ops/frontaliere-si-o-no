@@ -1,0 +1,111 @@
+name: Hourly test assemble snapshot
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: hourly-test-assemble-snapshot
+  cancel-in-progress: false
+
+jobs:
+  seed:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    name: Seed shared test dataset
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Record snapshot source time
+        id: snapshot_source_time
+        run: printf 'captured_at=%s\n' "$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node and install dependencies
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Compute exact assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
+
+      - name: Restore exact assemble-jobs cache
+        id: assemble_cache
+        if: ${{ steps.assemble_cache_key.outputs.key != '' }}
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble test dataset
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      # Save the content-addressed cache before packaging the hourly snapshot.
+      # The test snapshot has its own key and manifest; this keeps deploys and
+      # other consumers on the existing exact-input cache contract.
+      - name: Save exact assemble-jobs cache
+        if: ${{ steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Prepare hourly test snapshot
+        id: prepare_snapshot
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT: ${{ steps.snapshot_source_time.outputs.captured_at }}
+          # Assembly may update local auxiliary inputs after hashing them. Keep
+          # the snapshot tied to the exact pre-assemble key used for its output.
+          ASSEMBLE_TEST_SNAPSHOT_SOURCE_CACHE_KEY: ${{ steps.assemble_cache_key.outputs.key }}
+        run: node scripts/ci/assemble-test-snapshot.mjs prepare
+
+      - name: Compute snapshot compatibility fingerprint
+        id: snapshot_fingerprint
+        run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
+
+      - name: Save hourly test snapshot
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs-test-snapshot
+          key: assemble-jobs-test-snapshot-${{ runner.os }}-${{ steps.snapshot_fingerprint.outputs.fingerprint }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      # Snapshot caches are immutable. Keep only the three newest main-scoped
+      # entries so hourly refreshes do not fill the repository cache quota.
+      - name: Prune older hourly test snapshots
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const prefix = 'assemble-jobs-test-snapshot-Linux-';
+            const { data } = await github.rest.actions.getActionsCacheList({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/heads/main',
+              key: prefix,
+              sort: 'created_at',
+              direction: 'desc',
+              per_page: 100,
+            });
+            const snapshots = data.actions_caches.filter((cache) => cache.key.startsWith(prefix));
+            snapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+            for (const cache of snapshots.slice(3)) {
+              await github.rest.actions.deleteActionsCache({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                cache_id: cache.id,
+              });
+              core.info(`Deleted old hourly test snapshot cache ${cache.key}`);
+            }

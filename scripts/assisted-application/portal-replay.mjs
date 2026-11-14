@@ -34,6 +34,10 @@ let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
+// The gate checks this marker before re-sanitizing reports. A PR that changes
+// comparison semantics must be able to validate its new report contract until
+// that contract is present in the base checkout used by the trusted gate.
+export const PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2';
 export const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
@@ -153,9 +157,12 @@ const STAGE_RANK = Object.freeze({
 });
 const NEUTRAL_STAGES = new Set(['http_5xx', 'posting_closed', 'captcha', 'region_blocked']);
 const SUCCESS_STAGES = new Set(['dry_run_ready', 'account_gate']);
+const FORM_REACHED_STAGES = new Set(['form', 'account_gate', 'dry_run_ready']);
 const SAFE_REPORT_CODES = new Set([
   ...PORTAL_REPLAY_FAMILIES,
   ...Object.keys(STAGE_RANK),
+  'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool',
+  'sample_count_out_of_range', 'replay_unmeasured', 'stage_regression', 'family_ready_rate_decreased',
   'account', 'account_gate', 'account_verification', 'candidate_required', 'captcha', 'dry_run_ready', 'http_5xx', 'measured', 'neutral', 'pass', 'fail',
   'account_application_already_applied', 'account_application_history_uncertain', 'application_region_unsupported',
   'application_stage_unknown', 'cookie_preferences_unresolved', 'cv_upload_failed', 'portal_choice_not_registered',
@@ -174,9 +181,44 @@ const SAFE_FINDING_CODES = new Set([
   'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted',
   'sample_count_out_of_range', 'replay_unmeasured', 'stage_regression', 'family_ready_rate_decreased',
 ]);
+const SECURITY_FINDING_CODES = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
 const SAFE_LINK_STATES = new Set(['yes', 'no', 'unknown']);
 const SAFE_STATUSES = new Set(['measured', 'neutral', 'error', 'fail', 'pass']);
-const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, maxPerFamily: 5, retries: 1, delayMs: 700 });
+/** One bounded retry for neutral or timed-out read-only portal replays. */
+export const PORTAL_REPLAY_MAX_RETRIES = 1;
+const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, maxPerFamily: 5, retries: PORTAL_REPLAY_MAX_RETRIES, delayMs: 700 });
+// A listing attempt has two clocks. The ACTIVE budget (`--timeout-ms`) is what
+// the runner under test spends on the page: navigation, clicks, waits, its own
+// code. The time it spends waiting for the Codex broker (queue + model, effort
+// max) is not a property of the code under test and varies from one call to the
+// next, so it is measured apart and bounded apart: every call by the broker's
+// 150 s run limit, the whole attempt by this wall cap. Both sides of a listing
+// are judged by the same two clocks.
+//
+// Measured on run 43606105427 (PR #18744, 12 families, 40 listings): the active
+// clock of a listing is 3-20 s (one umantis outlier at 76.6 s), the broker wait
+// is 15-150 s per attempt and every call that did not answer is killed at
+// exactly 150.0 s by the broker limit. Those
+// kills, not the page, left personio, softgarden and greenhouse unmeasured on
+// one side. The per-call limit is therefore its own constant, no longer tied to
+// the listing budget; production runs the same runner with a 10 min call limit.
+const REPLAY_WALL_CAP_MS = 300_000;
+export const REPLAY_CODEX_CALL_TIMEOUT_MS = 150_000;
+// Cleanup after an attempt is over must stay inside the attempt's budget: a
+// context or browser close that never resolves, or a runner that keeps going,
+// would otherwise hold the family (and its CI group) until the job timeout.
+const REPLAY_CLOSE_TIMEOUT_MS = 15_000;
+const REPLAY_SETTLE_GRACE_MS = 10_000;
+
+/** Resolves with the promise's value, or with `undefined` after `ms`. */
+export function settleWithin(promise, ms) {
+  let timer;
+  const bound = new Promise((resolve) => {
+    timer = setTimeout(resolve, ms);
+    timer.unref?.();
+  });
+  return Promise.race([Promise.resolve(promise), bound]).finally(() => clearTimeout(timer));
+}
 
 const stableHash = (value) => createHash('sha256').update(String(value)).digest('hex');
 const safeCode = (value, fallback = 'unknown') => SAFE_REPORT_CODES.has(String(value || '')) ? String(value) : fallback;
@@ -428,8 +470,9 @@ function runStage({ event, evidence }) {
   return 'stopped';
 }
 
-function retryClass(stage, navigation5xx = 0) {
+export function retryClass(stage, navigation5xx = 0, stopCode = '') {
   if (navigation5xx > 0 || stage === 'http_5xx') return 'http_5xx';
+  if (stopCode === 'portal_replay_timeout') return 'portal_replay_timeout';
   return NEUTRAL_STAGES.has(stage) ? stage : '';
 }
 
@@ -512,6 +555,21 @@ async function publicPreflight(trustedRoot, record, isMutatingGetUrl) {
   }
 }
 
+/**
+ * A live preflight is a hint for retrying known upstream 5xx responses, not a
+ * prerequisite for the paired browser measurement. Keep a transient DNS,
+ * timeout, or connection failure local to the case so one unavailable public
+ * listing cannot abort its whole family before a report is written.
+ */
+export async function bestEffortPortalReplayPreflight(run) {
+  try {
+    const responses = await run();
+    return Array.isArray(responses) ? responses : [{ status: 0 }];
+  } catch {
+    return [{ status: 0 }];
+  }
+}
+
 function locationFrom(record, evidence, portalApi) {
   const value = evidence?.finalUrl || evidence?.steps?.at(-1)?.url || record.applyUrl;
   return {
@@ -520,20 +578,40 @@ function locationFrom(record, evidence, portalApi) {
   };
 }
 
-function violationsFor({ event, evidence, metrics }) {
+export function violationsFor({ event, evidence, metrics, stage = runStage({ event, evidence }) }) {
   const codes = [];
   if ((Number(metrics?.finalClickAttempts) || 0) > 0) codes.push('final_click_attempt');
   if ((Number(metrics?.unexpectedNonGetPassed) || 0) > 0) codes.push('non_get_passed');
   if ((Number(metrics?.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-  if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') codes.push('wrong_posting_or_talent_pool');
+  const mismatchEvidence = evidence?.postingMatch === 'mismatch'
+    || (event?.reason === 'posting_mismatch' && evidence?.postingMatch !== 'match');
+  if (FORM_REACHED_STAGES.has(stage) && mismatchEvidence) codes.push('wrong_posting_or_talent_pool');
   if (event?.type === 'submit_succeeded') codes.push('submission_attempted');
   return [...new Set(codes)];
 }
 
-function postingLinkStatus(event, evidence) {
+function submissionAttemptedFor(record) {
+  return record?.submissionAttempted === true
+    || (Array.isArray(record?.securityViolations) && record.securityViolations.includes('submission_attempted'));
+}
+
+export function postingLinkStatus(event, evidence, stage = runStage({ event, evidence })) {
+  if (!FORM_REACHED_STAGES.has(stage)) return 'unknown';
+  if (event?.reason === 'posting_mismatch' && evidence?.postingMatch === 'match') return 'unknown';
   if (evidence?.postingMatch === 'match') return 'yes';
   if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') return 'no';
   return 'unknown';
+}
+
+function securityViolationsFor(record) {
+  const codes = new Set((Array.isArray(record?.securityViolations) ? record.securityViolations : [])
+    .filter((code) => SECURITY_FINDING_CODES.has(code)));
+  if ((Number(record?.finalClickAttempts) || 0) > 0) codes.add('final_click_attempt');
+  if ((Number(record?.unexpectedNonGetPassed) || 0) > 0) codes.add('non_get_passed');
+  if ((Number(record?.nodeEgressBlocked) || 0) > 0) codes.add('node_egress_attempt');
+  if (FORM_REACHED_STAGES.has(record?.stage) && record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
+  if (record?.submissionAttempted === true) codes.add('submission_attempted');
+  return [...codes].sort();
 }
 
 function sanitizeOutcomeRecord(record) {
@@ -550,8 +628,12 @@ function sanitizeOutcomeRecord(record) {
     unexpectedNonGetPassed: Math.max(0, Math.min(100000, Number(record.unexpectedNonGetPassed) || 0)),
     nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
-    formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
+    submissionAttempted: record.submissionAttempted === true,
+    formLinkedToPosting: FORM_REACHED_STAGES.has(stage) && SAFE_LINK_STATES.has(record.formLinkedToPosting)
+      ? record.formLinkedToPosting
+      : 'unknown',
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
+    securityViolations: securityViolationsFor(record),
   };
 }
 
@@ -570,20 +652,17 @@ export function sanitizePortalReplayReport(report) {
   const headRecords = [];
   const findingCodes = new Set((Array.isArray(report?.findingCodes) ? report.findingCodes : [])
     .filter((code) => SAFE_FINDING_CODES.has(code)));
-  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
   cases.forEach((item, index) => {
     if (!item.base || !item.head) item.findingCodes.push('sample_missing');
-    const violations = item.findingCodes.filter((code) => securityCodes.has(code));
-    for (const record of [item.base, item.head]) {
-      if (!record) continue;
-      if (record.finalClickAttempts > 0) violations.push('final_click_attempt');
-      if (record.unexpectedNonGetPassed > 0) violations.push('non_get_passed');
-      if (record.nodeEgressBlocked > 0) violations.push('node_egress_attempt');
-      if (record.formLinkedToPosting === 'no') violations.push('wrong_posting_or_talent_pool');
-    }
-    const securityViolations = [...new Set(violations)];
-    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations });
-    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations });
+    const comparisonSecurityViolations = item.findingCodes.filter((code) => SECURITY_FINDING_CODES.has(code));
+    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations: securityViolationsFor(item.base) });
+    if (item.head) headRecords.push({
+      ...item.head,
+      caseId: String(index),
+      // Findings already attached to the comparison are regressions discovered
+      // on the PR side. Keep that distinction when sanitizing an artifact again.
+      securityViolations: [...new Set([...securityViolationsFor(item.head), ...comparisonSecurityViolations])].sort(),
+    });
   });
   const checked = comparePortalReplayFamily({ family, baseRecords, headRecords, includeCaseIds: true });
   const checkedById = new Map(checked.cases.map((item) => [item.caseId, item]));
@@ -606,6 +685,49 @@ export function sanitizePortalReplayReport(report) {
   };
 }
 
+/**
+ * Two-clock deadline of one replay attempt. `activeMs` is wall time minus the
+ * time during which at least one Codex call was in flight; the attempt is over
+ * when the active budget is spent or when the wall cap is reached, whichever
+ * comes first. The clock is injectable so the arithmetic is testable.
+ */
+export function createPortalReplayDeadline({ activeBudgetMs, wallCapMs = REPLAY_WALL_CAP_MS, now = Date.now } = {}) {
+  const startedAt = now();
+  let inFlight = 0;
+  let flightSince = 0;
+  let agentMs = 0;
+  let calls = 0;
+  const callLog = [];
+  const snapshot = () => {
+    const at = now();
+    const wallMs = at - startedAt;
+    const waited = agentMs + (inFlight > 0 ? at - flightSince : 0);
+    return { wallMs, agentMs: waited, activeMs: wallMs - waited, calls, callLog: callLog.slice() };
+  };
+  return {
+    /** Returns the token to hand back to `agentSettled`. */
+    agentStarted() {
+      calls += 1;
+      if (inFlight === 0) flightSince = now();
+      inFlight += 1;
+      return now();
+    },
+    agentSettled(startedCallAt = null, ok = true) {
+      if (startedCallAt !== null) callLog.push({ ms: now() - startedCallAt, ok: ok !== false });
+      if (inFlight === 0) return;
+      inFlight -= 1;
+      if (inFlight === 0) agentMs += now() - flightSince;
+    },
+    snapshot,
+    /** `'active'` | `'wall'` | `''` while the attempt may continue. */
+    expired() {
+      const { wallMs, activeMs } = snapshot();
+      if (wallMs >= wallCapMs) return 'wall';
+      return activeMs >= activeBudgetMs ? 'active' : '';
+    },
+  };
+}
+
 async function runOnePortalReplay(options) {
   const metrics = {
     blockedRequests: 0,
@@ -621,11 +743,13 @@ async function runOnePortalReplay(options) {
   return replayMetricsContext.run(metrics, () => runOnePortalReplayMeasured({ ...options, metrics }));
 }
 
-async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, trustedNetwork, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
+async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, wallCapMs = REPLAY_WALL_CAP_MS, fenceApi, trustedNetwork, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
   let agentCalls = 0;
   let activeContext = null;
   let activeProxy = null;
   let timedOut = false;
+  let timeoutKind = '';
+  let deadlineState = null;
   let eventResult;
   let failure = null;
 
@@ -634,15 +758,11 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return {
         caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
         status: 'neutral', retryClass: '', retryCount: preflightRetryCount, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
+        submissionAttempted: false,
         securityViolations: [],
       };
     }
     const portalApi = await importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs');
-    const requestCodex = portalBrokerCodex(trustedRoot);
-    const codex = async (request) => {
-      agentCalls += 1;
-      return requestCodex(request);
-    };
     activeProxy = await fenceApi.createPinnedPublicHttpsProxy({
       resolve: trustedDnsLookup,
       connect: trustedNetConnect,
@@ -685,6 +805,33 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return runnerBrowser;
     };
 
+    // Do not charge proxy/browser harness setup to the runner's active budget.
+    // The workflow accounts for setup separately; this clock starts at the
+    // exact boundary where the runner can begin spending time on the page.
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: timeoutMs, wallCapMs: Math.max(timeoutMs, wallCapMs) });
+    deadlineState = deadline;
+    const requestCodex = portalBrokerCodex(trustedRoot);
+    let attemptOver = false;
+    const codex = async (request) => {
+      // An attempt that is over must not start another broker call: after the
+      // context closes, the runner's agent loop can otherwise keep asking
+      // Codex for each remaining step (up to 150 s per call) for hours, far
+      // past the per-attempt cap the workflow timeout is derived from.
+      if (attemptOver || deadline.expired()) {
+        attemptOver = true;
+        throw Object.assign(new Error('portal_replay_deadline_exceeded'), { code: 'portal_replay_deadline_exceeded' });
+      }
+      agentCalls += 1;
+      const startedCallAt = deadline.agentStarted();
+      let ok = false;
+      try {
+        const answer = await requestCodex(request);
+        ok = true;
+        return answer;
+      } finally {
+        deadline.agentSettled(startedCallAt, ok);
+      }
+    };
     const runnerPromise = portalApi.submitViaPortal({
       applyUrl: record.applyUrl,
       postingUrl: record.postingUrl,
@@ -715,14 +862,24 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     }).then((value) => ({ value })).catch((error) => ({ error }));
     let timer;
     const timeout = new Promise((resolve) => {
-      timer = setTimeout(() => resolve({ timeout: true }), timeoutMs);
+      timer = setInterval(() => {
+        const kind = deadline.expired();
+        if (kind) resolve({ timeout: kind });
+      }, 200);
     });
     const settled = await Promise.race([runnerPromise, timeout]);
-    clearTimeout(timer);
+    clearInterval(timer);
     if (settled?.timeout) {
       timedOut = true;
-      await activeContext?.close().catch(() => {});
-      await Promise.race([runnerPromise, new Promise((resolve) => setTimeout(resolve, 1500))]);
+      timeoutKind = settled.timeout;
+      attemptOver = true;
+      await settleWithin(activeContext?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
+      // The browser context may stop immediately while a Codex request is
+      // still in flight. Wait for the runner promise, and therefore its broker
+      // call, before a completion retry can start and contend for the lane:
+      // that call ends within the broker limit and no new one can start, so
+      // the wait is bounded by that limit instead of by the runner.
+      await settleWithin(runnerPromise, REPLAY_CODEX_CALL_TIMEOUT_MS + REPLAY_SETTLE_GRACE_MS);
       failure = { code: 'portal_replay_timeout' };
     } else if (settled?.error) {
       failure = settled.error;
@@ -741,7 +898,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
   const inferredStage = timedOut ? 'stopped' : runStage({ event, evidence });
   const stage = metrics.navigation5xx > 0 ? 'http_5xx' : inferredStage;
   const stopCode = timedOut ? 'portal_replay_timeout' : safeOutcomeCode(event, failure);
-  const violations = violationsFor({ event, evidence, metrics });
+  const violations = violationsFor({ event, evidence, metrics, stage });
   const measuredEvents = new Set(['submit_handoff', 'submit_needs_candidate', 'dry_run_ready', 'posting_closed', 'submit_succeeded', 'submit_failed']);
   const status = violations.length ? 'fail'
     : NEUTRAL_STAGES.has(stage) ? 'neutral'
@@ -752,13 +909,17 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     stage,
     stopCode,
     status,
-    retryClass: retryClass(stage, metrics.navigation5xx),
+    retryClass: retryClass(stage, metrics.navigation5xx, stopCode),
     retryCount: preflightRetryCount,
     agentCalls,
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
-    formLinkedToPosting: postingLinkStatus(event, evidence),
+    formLinkedToPosting: postingLinkStatus(event, evidence, stage),
+    submissionAttempted: event?.type === 'submit_succeeded',
     securityViolations: violations,
+    // Local diagnostics only: comparePortalReplayFamily copies named fields, so
+    // none of this reaches the public report.
+    timing: { ...(deadlineState?.snapshot() || { wallMs: 0, agentMs: 0, activeMs: 0, calls: 0, callLog: [] }), timeout: timeoutKind },
   };
 }
 
@@ -767,42 +928,106 @@ function portalBrokerCodex(sourceRoot) {
     const { requestCodexBrokerJson } = await importFrom(sourceRoot, 'scripts/lib/ai-models.mjs');
     if (typeof requestCodexBrokerJson !== 'function' || !process.env.CODEX_AUTH_BROKER_SOCKET) throw Object.assign(new Error('portal_replay_codex_broker_unavailable'), { code: 'portal_replay_codex_broker_unavailable' });
     const requestedTimeout = Number(request?.timeoutMs);
-    const timeoutMs = Math.min(60_000, Number.isFinite(requestedTimeout) && requestedTimeout > 0 ? requestedTimeout : 60_000);
+    const timeoutMs = Math.min(REPLAY_CODEX_CALL_TIMEOUT_MS, Number.isFinite(requestedTimeout) && requestedTimeout > 0 ? requestedTimeout : REPLAY_CODEX_CALL_TIMEOUT_MS);
     return requestCodexBrokerJson({ ...request, timeoutMs });
   };
+}
+
+export function mergePortalReplayRetryEvidence(totalMetrics, current) {
+  // A neutral retry may be the record we return, but it must not erase a
+  // funnel-critical submission observed by an earlier attempt.
+  for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
+    totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current?.[key]) || 0);
+  }
+  totalMetrics.submissionAttempted = submissionAttemptedFor(totalMetrics) || submissionAttemptedFor(current);
+  totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current?.securityViolations || [])])];
+  if (totalMetrics.submissionAttempted) totalMetrics.securityViolations.push('submission_attempted');
+  totalMetrics.securityViolations = [...new Set(totalMetrics.securityViolations)];
+  totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current?.retryCount) || 0);
+  return totalMetrics;
+}
+
+// Folds the evidence of every attempt into the record we keep: a later attempt
+// may be the record we return, but it must not erase a funnel-critical
+// submission or a violation observed by an earlier one.
+function settleRetryEvidence(totalMetrics, result) {
+  if (!totalMetrics) return result;
+  for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
+    result[key] = Number(totalMetrics[key]) || 0;
+  }
+  result.retryCount = Number(totalMetrics.retryCount) || 0;
+  result.submissionAttempted = submissionAttemptedFor(totalMetrics);
+  result.securityViolations = totalMetrics.securityViolations || [];
+  if (result.submissionAttempted && !result.securityViolations.includes('submission_attempted')) {
+    result.securityViolations = [...result.securityViolations, 'submission_attempted'];
+  }
+  if (result.securityViolations.length) result.status = 'fail';
+  return result;
 }
 
 async function replayWithOneNeutralRetry(options) {
   let totalMetrics = null;
   let result;
+  const timings = [];
   for (let attempt = 0; attempt <= REPLAY_LIMITS.retries; attempt += 1) {
     const current = await runOnePortalReplay(options);
     current.retryCount = (Number(current.retryCount) || 0) + attempt;
+    if (current.timing) timings.push(current.timing);
     if (!totalMetrics) totalMetrics = current;
-    else {
-      for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
-        totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current[key]) || 0);
-      }
-      totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
-      totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
-    }
+    else mergePortalReplayRetryEvidence(totalMetrics, current);
     result = current;
     if (!current.retryClass || current.securityViolations?.length || attempt >= REPLAY_LIMITS.retries) break;
     await new Promise((resolve) => setTimeout(resolve, REPLAY_LIMITS.delayMs));
   }
-  if (totalMetrics) {
-    for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
-      result[key] = Number(totalMetrics[key]) || 0;
-    }
-    result.retryCount = Number(totalMetrics.retryCount) || 0;
-    result.securityViolations = totalMetrics.securityViolations || [];
-    if (result.securityViolations.length) result.status = 'fail';
-  }
+  settleRetryEvidence(totalMetrics, result);
+  result.timings = timings;
   return result;
+}
+
+/**
+ * Completes the measurement of a listing whose two sides disagree about being
+ * measured. A live portal and the Codex backend are noisy: one side can hit a
+ * runner error or the replay timeout while the other one reaches its outcome.
+ * The side that did NOT get a measurement is replayed once more, alone (the
+ * other side has finished, so nothing contends for the broker or the CPU), and
+ * only when its failure is `error`: a neutral stage (captcha, region block,
+ * closed posting, upstream 5xx) is a fact about the portal, not a lost
+ * measurement. The rule is the same whichever side is the unmeasured one, it
+ * never takes a side past (retries + 1) attempts, it keeps the evidence of the
+ * first attempt, and it leaves the comparison criteria untouched: a head that
+ * stays unmeasured is still `replay_unmeasured`.
+ */
+export async function completeUnmeasuredReplaySide({ base, head, rerun } = {}) {
+  if (!base || !head || typeof rerun !== 'function') return { base, head, completed: '' };
+  const baseMeasured = isMeasuredOutcome(base);
+  const headMeasured = isMeasuredOutcome(head);
+  if (baseMeasured === headMeasured) return { base, head, completed: '' };
+  const side = baseMeasured ? 'head' : 'base';
+  const first = side === 'head' ? head : base;
+  if (first.status !== 'error') return { base, head, completed: '' };
+  // A side that already used its neutral retry has had its (retries + 1)
+  // attempts: the bound of the workflow counts exactly that many per listing.
+  if ((first.timings?.length || 1) > REPLAY_LIMITS.retries) return { base, head, completed: '' };
+  const retried = await rerun(side);
+  if (!retried) return { base, head, completed: '' };
+  retried.retryCount = (Number(first.retryCount) || 0) + 1;
+  const total = { ...first, securityViolations: [...(first.securityViolations || [])] };
+  mergePortalReplayRetryEvidence(total, retried);
+  settleRetryEvidence(total, retried);
+  retried.timings = [...(first.timings || (first.timing ? [first.timing] : [])), ...(retried.timing ? [retried.timing] : [])];
+  retried.completedByRetry = true;
+  return side === 'head' ? { base, head: retried, completed: side } : { base: retried, head, completed: side };
 }
 
 function isNeutral(record) {
   return record?.status === 'neutral' || NEUTRAL_STAGES.has(record?.stage);
+}
+
+function isMeasuredOutcome(record) {
+  // A security violation makes runOnePortalReplay report `fail`, but the
+  // browser run is still measured and its metrics are a valid baseline for
+  // detecting a newly introduced violation on the head side.
+  return record?.status === 'measured' || record?.status === 'fail';
 }
 
 function isSuccessfulStage(stage) {
@@ -822,12 +1047,21 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     const head = headById.get(caseId);
     const codes = [];
     if (!base || !head) codes.push('sample_missing');
-    for (const record of [base, head].filter(Boolean)) {
-      if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
-      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-      if (record.status === 'error') codes.push('replay_unmeasured');
+    const baseSecurity = new Set(securityViolationsFor(base));
+    const headSecurity = securityViolationsFor(head);
+    // A live portal can be stale or unavailable on the base side. Without a
+    // measured base there is no safe reference from which to infer a PR
+    // regression; only a new violation against a measured base can block.
+    // `fail` is also a measured outcome here: runOnePortalReplay uses it when
+    // the browser completed but recorded a security violation.
+    const baseMeasured = isMeasuredOutcome(base);
+    if (baseMeasured) {
+      for (const code of headSecurity) {
+        if (!baseSecurity.has(code)) codes.push(code);
+      }
     }
-    if (base && head && !isNeutral(base) && !isNeutral(head)) {
+    if (baseMeasured && head?.status === 'error') codes.push('replay_unmeasured');
+    if (base && head && base.status === 'measured' && head.status === 'measured' && !isNeutral(base) && !isNeutral(head)) {
       comparable.push({ base, head });
       if ((STAGE_RANK[head.stage] ?? 0) < (STAGE_RANK[base.stage] ?? 0)) codes.push('stage_regression');
     }
@@ -842,14 +1076,18 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
         blockedNonGet: base.blockedNonGet, blockedWebSockets: base.blockedWebSockets,
         nodeEgressBlocked: base.nodeEgressBlocked,
         unexpectedNonGetPassed: base.unexpectedNonGetPassed,
-        finalClickAttempts: base.finalClickAttempts, formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
+        finalClickAttempts: base.finalClickAttempts, submissionAttempted: base.submissionAttempted,
+        formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
+        securityViolations: [...baseSecurity],
       } : null,
       head: head ? {
         stage: head.stage, stopCode: head.stopCode, status: head.status, agentCalls: head.agentCalls,
         blockedNonGet: head.blockedNonGet, blockedWebSockets: head.blockedWebSockets,
         nodeEgressBlocked: head.nodeEgressBlocked,
         unexpectedNonGetPassed: head.unexpectedNonGetPassed,
-        finalClickAttempts: head.finalClickAttempts, formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
+        finalClickAttempts: head.finalClickAttempts, submissionAttempted: head.submissionAttempted,
+        formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
+        securityViolations: headSecurity,
       } : null,
       findingCodes: [...new Set(codes)].sort(),
     });
@@ -888,7 +1126,7 @@ export function aggregatePortalReplayGate({ prepareRun = false, prepareResult = 
   return { status: 'pass', code: 'portal_replay_passed', reportCount: reports.length };
 }
 
-function markdownForAggregate(verdict, reports, prepareRun) {
+export function markdownForAggregate(verdict, reports, prepareRun) {
   const lines = ['## Assisted application portal replay', ''];
   if (!prepareRun && verdict.status === 'pass') return [...lines, '- Esito: PASS (`no_runner_paths_changed`)', '- La PR non modifica i percorsi del runner che richiedono replay.'].join('\n');
   if (!prepareRun) return [...lines, `- Esito: ${verdict.status.toUpperCase()} (${safeCode(verdict.code)})`, '- Il replay non ha potuto determinare i path del runner interessati.'].join('\n');
@@ -987,6 +1225,17 @@ async function detectMode(values) {
   return 0;
 }
 
+// One line per listing with the two clocks of every attempt (wall/active/agent
+// milliseconds): the evidence for sizing the budget. Numbers and safe codes only.
+function logReplayTiming(family, index, sides) {
+  // Per call: seconds the broker took to answer, `x` when it failed (killed at
+  // the call limit, rejected, ...), so completed calls and hung ones tell apart.
+  const calls = (t) => (t.callLog || []).map((c) => `${(Number(c.ms) / 1000).toFixed(1)}${c.ok ? '' : 'x'}`).join(',');
+  const attempts = (record) => (record.timings || []).map((t) => `${Math.round(t.wallMs)}/${Math.round(t.activeMs)}/${Math.round(t.agentMs)}${t.timeout ? `:${t.timeout === 'wall' ? 'wall' : 'active'}` : ''}${t.callLog?.length ? ` calls[s]=${calls(t)}` : ''}`).join(' + ') || 'n/a';
+  const side = (name) => `${name} ${safeCode(sides[name]?.stage)}/${safeCode(sides[name]?.stopCode)} calls=${Number(sides[name]?.agentCalls) || 0} attempts[wall/active/agent ms]=${attempts(sides[name] || {})}`;
+  console.log(`portal replay timing ${family} #${index}: ${side('base')} | ${side('head')}`);
+}
+
 async function compareMode(values) {
   const corpus = JSON.parse(readFileSync(values.corpus, 'utf8'));
   const family = PORTAL_REPLAY_FAMILIES.has(values.family) ? values.family : 'unknown';
@@ -1008,11 +1257,11 @@ async function compareMode(values) {
   await Promise.all(diagnosticModules.map(warmPortalDiagnosticsModule));
   const preflightByKey = new Map();
   for (const record of records) {
-    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    let responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
       retryCount = 1;
-      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+      responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     }
     preflightByKey.set(record.key, { responses, retryCount });
   }
@@ -1040,10 +1289,20 @@ async function compareMode(values) {
         preflight: preflightByKey.get(record.key)?.responses || [],
         preflightRetryCount: preflightByKey.get(record.key)?.retryCount || 0,
       };
-      const [base, head] = await Promise.all([
-        replayWithOneNeutralRetry({ ...shared, sourceRoot: trustedRoot, runtimeBrowser: sharedReplayBrowser }),
-        replayWithOneNeutralRetry({ ...shared, sourceRoot: headRoot, runtimeBrowser: sharedHeadReplayBrowser }),
+      const sides = {
+        base: { sourceRoot: trustedRoot, runtimeBrowser: sharedReplayBrowser },
+        head: { sourceRoot: headRoot, runtimeBrowser: sharedHeadReplayBrowser },
+      };
+      const [firstBase, firstHead] = await Promise.all([
+        replayWithOneNeutralRetry({ ...shared, ...sides.base }),
+        replayWithOneNeutralRetry({ ...shared, ...sides.head }),
       ]);
+      const { base, head } = await completeUnmeasuredReplaySide({
+        base: firstBase,
+        head: firstHead,
+        rerun: (side) => runOnePortalReplay({ ...shared, ...sides[side] }),
+      });
+      logReplayTiming(family, baseRecords.length + 1, { base, head });
       baseRecords.push(base);
       headRecords.push(head);
     }
@@ -1055,8 +1314,8 @@ async function compareMode(values) {
     return comparison.status === 'pass' ? 0 : 1;
   } finally {
     nodeEgressFence?.restore();
-    await sharedReplayBrowser?.close().catch(() => {});
-    await sharedHeadReplayBrowser?.close().catch(() => {});
+    await settleWithin(sharedReplayBrowser?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
+    await settleWithin(sharedHeadReplayBrowser?.close().catch(() => {}), REPLAY_CLOSE_TIMEOUT_MS);
     sharedReplayBrowser = null;
     sharedHeadReplayBrowser = null;
   }

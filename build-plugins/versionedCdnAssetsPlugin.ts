@@ -250,6 +250,14 @@ export interface VersionedCdnAssetPlan {
   stableOutOfBandAssets: string[];
 }
 
+export interface VersionedCdnAssetsManifest {
+  cdnOrigin: string;
+  buildId: string;
+  routeChunks: string[];
+}
+
+export const VERSIONED_CDN_POST_BUILD_MANIFEST = '.versioned-cdn-assets.json';
+
 export function planVersionedCdnAssets({
   assetsDir,
   cdnOrigin,
@@ -287,54 +295,78 @@ export function versionedCdnAssetsPlugin(rootDir: string): Plugin {
         // The bootstrap embeds the allowlist of route chunks: it must see every hint.
         await routeHintEmittersSettled();
 
-        const assetsDir = path.resolve(rootDir, 'dist', 'assets');
-        const originalEntry = path.join(assetsDir, VERSIONED_RELEASE_ENTRY);
-        if (!fs.existsSync(originalEntry)) {
-          throw new Error(`[versioned-cdn-assets] missing ${originalEntry}`);
-        }
-
-        const plan = planVersionedCdnAssets({ assetsDir, cdnOrigin, buildId });
-        if (!plan.assetPaths.includes(VERSIONED_RELEASE_ENTRY)) {
-          throw new Error('[versioned-cdn-assets] the SPA entry was not selected for release publishing');
-        }
-
-        fs.rmSync(plan.releaseDir, { recursive: true, force: true });
-        fs.mkdirSync(plan.releaseDir, { recursive: true });
-        const releasePrefix = `${VERSIONED_RELEASES_DIR}/${buildId}`;
-
-        for (const relativePath of plan.assetPaths) {
-          const sourcePath = path.join(assetsDir, relativePath);
-          const targetPath = path.join(plan.releaseDir, relativePath);
-          fs.mkdirSync(path.dirname(targetPath), { recursive: true });
-          let source = fs.readFileSync(sourcePath, 'utf-8');
-          if (path.posix.basename(relativePath) === 'blogBodyLoader.js') {
-            source = pointReleaseBlogBodyImportsAtStableLeaves(source);
-          }
-          source = pointReleaseStableDataImportsAtStableLeaves(source);
-          source = rewriteReleaseAssetReferences(source, plan.assetPaths, buildId, cdnOrigin);
-          fs.writeFileSync(targetPath, source, 'utf-8');
-        }
-
-        const releaseAssets = new Set(plan.assetPaths);
-        const modules = staticImportClosure(
-          [VERSIONED_RELEASE_ENTRY, 'App.js'],
-          releaseAssets,
-          (asset) => fs.readFileSync(path.join(plan.releaseDir, asset), 'utf-8'),
-        ).filter((asset) => asset !== VERSIONED_RELEASE_ENTRY);
-        const routeChunks = getRegisteredRouteChunks().filter((chunk) => releaseAssets.has(chunk));
-        fs.writeFileSync(
-          originalEntry,
-          buildVersionedBootstrap(cdnOrigin, buildId, { modules, routeChunks }),
-          'utf-8',
-        );
-
-        console.log(
-          `[versioned-cdn-assets] published ${plan.assetPaths.length} executable/style asset(s) ` +
-          `under /assets/${releasePrefix}/; kept ${plan.stableBlogBodyAssets.length} article body leaf/leaves ` +
-          `and ${plan.stableOutOfBandAssets.length} independently published data asset(s) stable; ` +
-          `bootstrap preloads ${modules.length} module(s), ${routeChunks.length} route chunk(s) allowed`,
-        );
+        // Rollup can still be writing dist/assets during closeBundle. Persist
+        // only the route hints here; a post-build command reads and transforms
+        // the finished output after `vite build` has exited.
+        const manifestPath = path.resolve(rootDir, 'dist', VERSIONED_CDN_POST_BUILD_MANIFEST);
+        fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+        fs.writeFileSync(manifestPath, JSON.stringify({
+          cdnOrigin,
+          buildId,
+          routeChunks: getRegisteredRouteChunks(),
+        } satisfies VersionedCdnAssetsManifest), 'utf-8');
+        console.log('[versioned-cdn-assets] queued for post-build publication');
       },
     },
   };
+}
+
+/** Publish after Vite exits, so Rollup has finished writing the complete asset tree. */
+export async function publishVersionedCdnAssets(
+  rootDir: string,
+  manifest: VersionedCdnAssetsManifest,
+): Promise<void> {
+  const cdnOrigin = normalizeCdnOrigin(manifest.cdnOrigin);
+  const buildId = normalizeDeployBuildId(manifest.buildId);
+  if (!cdnOrigin || !buildId) {
+    throw new Error('[versioned-cdn-assets] post-build manifest has invalid CDN origin or build id');
+  }
+
+  const assetsDir = path.resolve(rootDir, 'dist', 'assets');
+  const originalEntry = path.join(assetsDir, VERSIONED_RELEASE_ENTRY);
+  if (!fs.existsSync(originalEntry)) {
+    throw new Error(`[versioned-cdn-assets] missing ${originalEntry} after vite build completed`);
+  }
+
+  const plan = planVersionedCdnAssets({ assetsDir, cdnOrigin, buildId });
+  if (!plan.assetPaths.includes(VERSIONED_RELEASE_ENTRY)) {
+    throw new Error('[versioned-cdn-assets] the SPA entry was not selected for release publishing');
+  }
+
+  fs.rmSync(plan.releaseDir, { recursive: true, force: true });
+  fs.mkdirSync(plan.releaseDir, { recursive: true });
+  const releasePrefix = `${VERSIONED_RELEASES_DIR}/${buildId}`;
+
+  for (const relativePath of plan.assetPaths) {
+    const sourcePath = path.join(assetsDir, relativePath);
+    const targetPath = path.join(plan.releaseDir, relativePath);
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+    let source = fs.readFileSync(sourcePath, 'utf-8');
+    if (path.posix.basename(relativePath) === 'blogBodyLoader.js') {
+      source = pointReleaseBlogBodyImportsAtStableLeaves(source);
+    }
+    source = pointReleaseStableDataImportsAtStableLeaves(source);
+    source = rewriteReleaseAssetReferences(source, plan.assetPaths, buildId, cdnOrigin);
+    fs.writeFileSync(targetPath, source, 'utf-8');
+  }
+
+  const releaseAssets = new Set(plan.assetPaths);
+  const modules = staticImportClosure(
+    [VERSIONED_RELEASE_ENTRY, 'App.js'],
+    releaseAssets,
+    (asset) => fs.readFileSync(path.join(plan.releaseDir, asset), 'utf-8'),
+  ).filter((asset) => asset !== VERSIONED_RELEASE_ENTRY);
+  const routeChunks = manifest.routeChunks.filter((chunk) => releaseAssets.has(chunk));
+  fs.writeFileSync(
+    originalEntry,
+    buildVersionedBootstrap(cdnOrigin, buildId, { modules, routeChunks }),
+    'utf-8',
+  );
+
+  console.log(
+    `[versioned-cdn-assets] published ${plan.assetPaths.length} executable/style asset(s) ` +
+    `under /assets/${releasePrefix}/; kept ${plan.stableBlogBodyAssets.length} article body leaf/leaves ` +
+    `and ${plan.stableOutOfBandAssets.length} independently published data asset(s) stable; ` +
+    `bootstrap preloads ${modules.length} module(s), ${routeChunks.length} route chunk(s) allowed`,
+  );
 }

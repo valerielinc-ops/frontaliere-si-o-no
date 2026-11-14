@@ -1,3 +1,5 @@
+import { CompactLocalePathClaims } from './compactLocalePathClaims';
+
 /**
  * Locale eligibility for pages that must be reflected in a shared sitemap.
  *
@@ -11,14 +13,12 @@ export function indexableLocalePageSet<TLocale extends string>(
 ): ReadonlySet<TLocale> {
   return new Set(locales.filter(isIndexable));
 }
-
 export function isIndexableLocalePage<TLocale extends string>(
   locale: TLocale,
   indexableLocales: ReadonlySet<TLocale>,
 ): boolean {
   return indexableLocales.has(locale);
 }
-
 export interface ReciprocalSitemapLocaleGroup<TLocale extends string> {
   locale: TLocale;
   href: string;
@@ -52,17 +52,16 @@ export function reciprocalSitemapLocaleGroups<TLocale extends string>(
 export function createLocalePagePathClaims<TLocale extends string>(
   locales: readonly TLocale[],
 ) {
-  const claims = new Map<TLocale, Set<string>>(
-    locales.map((locale) => [locale, new Set<string>()]),
+  const claims = new Map<TLocale, CompactLocalePathClaims>(
+    locales.map((locale) => [locale, new CompactLocalePathClaims()]),
   );
-  const normalize = (path: string): string => String(path).replace(/^\/+|\/+$/g, '');
 
   return {
     claim(locale: TLocale, path: string): void {
-      claims.get(locale)?.add(normalize(path));
+      claims.get(locale)?.claim(path);
     },
     has(locale: TLocale, path: string): boolean {
-      return claims.get(locale)?.has(normalize(path)) ?? false;
+      return claims.get(locale)?.has(path) ?? false;
     },
   };
 }

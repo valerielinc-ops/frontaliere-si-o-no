@@ -768,7 +768,10 @@ jobs:
         # sopprimere il run, e la quota Claude non salta Codex.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The ledger read is after the App mint above. Prefer that distinct
+          # installation identity so shared Actions-token rate limits cannot
+          # turn an otherwise valid lease into a fail-closed admission error.
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CODEX_FALLBACK_MODE: '1'
@@ -2116,7 +2119,9 @@ jobs:
         # release a lease that this run actually acquired or already owns.
         if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.quota.outputs.quota_floor_lease_owned == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use the same App identity for the release as for acquisition; the
+          # fallback only covers a mint that did not produce APP_TOKEN.
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           QUOTA_FLOOR_REQUIRED: '1'

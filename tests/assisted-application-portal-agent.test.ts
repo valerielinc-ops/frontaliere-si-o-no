@@ -180,6 +180,50 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(result.evidence.rounds[0].actions[0]).toMatchObject({ action: 'click', ok: true });
   });
 
+  it('does not rebind the paid posting after an application route diverts to another generic form', async () => {
+    let currentUrl = 'https://careers.example.test/job/REQ-42';
+    const page: any = {
+      url: () => currentUrl,
+      title: async () => currentUrl.includes('/spontaneous-application') ? 'Spontaneous application' : 'Payroll Specialist',
+      content: async () => '<h1>Payroll Specialist</h1>',
+      ariaSnapshot: async () => currentUrl.endsWith('/job/REQ-42')
+        ? '- button "Apply" [ref=e1]'
+        : currentUrl.includes('/apply?')
+          ? '- button "Continue application" [ref=e2]'
+          : '- heading "Spontaneous application" [level=1] [ref=e3]\n- textbox "Name" [ref=e4]',
+      waitForTimeout: async () => {},
+      waitForLoadState: async () => {},
+      waitForURL: async () => {},
+      isClosed: () => false,
+      evaluate: async () => false,
+      goto: async (url: string) => { currentUrl = url; },
+      locator: () => ({
+        evaluate: async (callback: Function) => callback === undefined ? {} : currentUrl.endsWith('/job/REQ-42')
+          ? { name: 'Apply', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }
+          : { name: 'Continue application', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false },
+        click: async () => {
+          currentUrl = currentUrl.endsWith('/job/REQ-42')
+            ? 'https://careers.example.test/apply?job=REQ-42'
+            : 'https://careers.example.test/spontaneous-application';
+        },
+      }),
+    };
+    let agentRounds = 0;
+    const result = await completeWithAgent({
+      page, hint: 'posting_mismatch', candidate: null, candidateLocale: 'it', allowApplicationEntry: true,
+      codex: async () => {
+        agentRounds += 1;
+        if (agentRounds === 1) return turn('ACT', [act({ ref: 'e1', action: 'click', value: 'Apply' })]);
+        if (agentRounds === 2) return turn('ACT', [act({ ref: 'e2', action: 'click', value: 'Continue application' })]);
+        return turn('REACHED_FORM');
+      },
+    });
+
+    expect(result.status).toBe('REACHED_FORM');
+    expect(result.page.url()).toBe('https://careers.example.test/spontaneous-application');
+    expect(result.enteredApplicationEntryUrl).toBe('https://careers.example.test/apply?job=REQ-42');
+  });
+
   it('sends OTP and account-form submits to the existing account flow', async () => {
     const runReservedAction = async (info: Record<string, unknown>, action: Record<string, string>) => {
       const page: any = {

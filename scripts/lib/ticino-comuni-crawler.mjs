@@ -51,6 +51,7 @@ import {
   TICINO_COMUNI_USER_AGENT,
   createPoliteClient,
 } from './ticino-comuni-polite-client.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './stealth-browser.mjs';
 import {
   ASSOLO_TEXT_QUERY,
   CITYOS_DETAIL_SELECTOR,
@@ -118,10 +119,14 @@ export function createPageRenderer() {
   return {
     async render(url, { waitForSelector }) {
       if (!browser) {
-        const { chromium } = await import('playwright');
-        browser = await chromium.launch();
+        browser = await launchStealthOrChromium({
+          purpose: 'crawler',
+          fallbackOptions: { headless: true },
+        });
       }
-      const page = await browser.newPage({ userAgent: TICINO_COMUNI_USER_AGENT });
+      const page = isStealthBrowser(browser)
+        ? await browser.newPage({ viewport: null })
+        : await browser.newPage({ userAgent: TICINO_COMUNI_USER_AGENT });
       try {
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 });
         await page.waitForSelector(waitForSelector, { timeout: 30_000, state: 'attached' });

@@ -1,11 +1,23 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-14T09:48:14.186Z",
+  "generatedAt": "2026-11-14T19:09:52.366Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
+  "fetchReceipt": {
+    "specKey": "creditx-ch",
+    "seedUrls": [
+      "https://creditx.ch/fr/careers/"
+    ],
+    "phase": "listing",
+    "pages": 1,
+    "httpStatuses": [],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": "Prospector fetch failed for https://creditx.ch/fr/careers/: prospector URL origin not allowed: https://www.creditx.ch"
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "source-extraction-failed",
@@ -20,5 +32,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

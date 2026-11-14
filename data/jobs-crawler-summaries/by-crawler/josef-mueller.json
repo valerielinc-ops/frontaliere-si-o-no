@@ -1,11 +1,12 @@
 {
   "key": "josef-mueller",
   "label": "Josef Müller Gemüse AG",
-  "generatedAt": "2026-11-14T09:21:28.781Z",
+  "generatedAt": "2026-11-14T17:10:12.071Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1068,
-  "avgDurationMs": 1068,
+  "durationMs": 919,
+  "avgDurationMs": 919,
   "durationHistory": [
-    1068
+    919
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }
