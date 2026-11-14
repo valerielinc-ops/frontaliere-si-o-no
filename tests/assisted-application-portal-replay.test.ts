@@ -508,6 +508,8 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
     expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
     expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
+    expect(workflow).toContain('path: .portal-pr');
+    expect(workflow).toContain('portal_replay_cli=.portal-pr/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });

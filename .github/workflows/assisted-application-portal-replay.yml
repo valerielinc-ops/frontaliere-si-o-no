@@ -95,6 +95,18 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Checkout PR replay selector
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          path: .portal-pr
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            functions/src
+            scripts/assisted-application
+          sparse-checkout-cone-mode: true
+
       - name: List open portal-stop hosts
         env:
           GH_TOKEN: ${{ github.token }}
@@ -115,7 +127,7 @@ jobs:
         run: |
           replay_now_ms="$(node -p 'Date.now()')"
           set -euo pipefail
-          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          portal_replay_cli=.portal-pr/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" prepare \
             --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
