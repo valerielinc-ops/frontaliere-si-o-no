@@ -120,6 +120,12 @@ const WORKFLOW_LOOP_RE = /\bfor\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\b/u;
 const DATA_PATH_RE = /(?:public\/)?data\/[A-Za-z0-9_./*{}-]+/g;
 
 const PURE_READ_COMMANDS = new Set(['[', '[[', 'test', ':', 'cat', 'echo', 'printf', 'grep', 'sed', 'awk', 'jq']);
+const WRITE_CAPABLE_OPTIONS = {
+  // `sed -i`, including clustered/backup-suffix forms, rewrites its input.
+  sed: /(?:^|\s)(?:--in-place(?:=\S*)?|-[^-\s]*i\S*)(?=\s|$)/u,
+  // gawk's in-place extension turns an otherwise allowlisted read into a writer.
+  awk: /(?:^|\s)-i(?:\s|=|$)/u,
+};
 
 /** @param {string[]} lines @param {number} start */
 function loopEnd(lines, start) {
@@ -156,7 +162,9 @@ function isPureReadLoop(body) {
     if (!statement) continue;
     if (/(?:^|[^<])>>?|\|&/u.test(statement)) return false;
     const command = statement.match(/^(\[\[?|[A-Za-z_][A-Za-z0-9_.-]*)/u)?.[1];
-    if (!command || !PURE_READ_COMMANDS.has(command)) {
+    const args = command ? statement.slice(command.length) : '';
+    const hasWriteCapableOption = command && WRITE_CAPABLE_OPTIONS[command]?.test(args);
+    if (!command || !PURE_READ_COMMANDS.has(command) || hasWriteCapableOption) {
       if (!/^git\s+(?:diff|show|status|ls-files)\b/u.test(statement)) return false;
     }
   }

@@ -417,22 +417,49 @@ function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
   return true;
 }
 
-function extractDataWritePaths(run, operationalRun) {
+function isSafeRelativePath(value) {
+  return /^[A-Za-z0-9._/-]+$/u.test(value)
+    && !value.startsWith('/')
+    && value.split('/').every((part) => part && part !== '.' && part !== '..');
+}
+
+/**
+ * Identify only the redirection command that is directly fed by its matching
+ * `git show "HEAD:path"` command. A path set would also exempt an unrelated
+ * later `> path`, which is a real rewrite.
+ *
+ * @param {string} source
+ * @returns {Set<number>}
+ */
+function materializedHeadTargetStarts(source) {
+  const { commands } = parseShellCommands(source);
+  const starts = new Set();
+  for (let index = 0; index < commands.length - 1; index += 1) {
+    const producer = commands[index];
+    const target = commands[index + 1];
+    if (producer.name !== 'git'
+      || producer.operatorAfter !== '>'
+      || target.operatorBefore !== '>'
+      || target.args.length > 0
+      || producer.args.length !== 2
+      || producer.args[0].value !== 'show') continue;
+    const sourceReference = producer.args[1].value;
+    if (!sourceReference.startsWith('HEAD:')) continue;
+    const sourcePath = sourceReference.slice('HEAD:'.length);
+    if (sourcePath && sourcePath === target.name && isSafeRelativePath(sourcePath)) {
+      starts.add(target.start);
+    }
+  }
+  return starts;
+}
+
+export function extractDataWritePaths(run, operationalRun) {
   const dataPaths = extractDataPaths(operationalRun);
   if (dataPaths.length === 0 || !/(?:\bgit\s+(?:add|commit)\b|(?:>>?|>\|))/i.test(operationalRun)) return [];
 
   const assignments = shellDataPathAssignments(run);
   const { commands } = parseShellCommands(operationalRun);
-  const materializedHeadPaths = new Set();
-  for (const match of String(run || '').matchAll(/^\s*git show "HEAD:([^"\s]+)" > ([A-Za-z0-9._/-]+)\s*$/gmu)) {
-    const [, sourcePath, destinationPath] = match;
-    const safePath = (value) => /^[A-Za-z0-9._/-]+$/u.test(value)
-      && !value.startsWith('/')
-      && value.split('/').every((part) => part && part !== '.' && part !== '..');
-    if (sourcePath === destinationPath && safePath(sourcePath) && safePath(destinationPath)) {
-      materializedHeadPaths.add(destinationPath);
-    }
-  }
+  const materializedHeadTargets = materializedHeadTargetStarts(run);
   const written = new Set();
   const staged = new Set();
   let broadStage = false;
@@ -450,7 +477,7 @@ function extractDataWritePaths(run, operationalRun) {
       const isHeadMaterialization = command.operatorBefore === '>'
         && command.args.length === 0
         && target
-        && materializedHeadPaths.has(target);
+        && materializedHeadTargets.has(command.start);
       if (isHeadMaterialization) continue;
       if (target) written.add(target);
       else if (!isKnownNonDataShellTarget(command.name, assignments)

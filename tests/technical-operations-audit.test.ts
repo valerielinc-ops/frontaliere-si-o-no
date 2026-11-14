@@ -9,6 +9,7 @@ import {
   auditIssueRouting,
   buildL11IssueContract,
   buildL11OperationalMetadata,
+  extractDataWritePaths,
   l11OperationalMetadataFinding,
   loadL11OperationalMetadata,
   cronError,
@@ -461,6 +462,15 @@ describe('technical operations audit', () => {
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/redirected-write.yml', source, { root: '/repo' });
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('non esenta una redirezione successiva al materializzare lo stesso blob HEAD', () => {
+    const run = [
+      'git show "HEAD:data/x.json" > data/x.json',
+      '> data/x.json',
+    ].join('\n');
+
+    expect(extractDataWritePaths(run, run)).toEqual(['data/x.json']);
   });
 
   it('rileva anche il path quotato in una scrittura mista', () => {

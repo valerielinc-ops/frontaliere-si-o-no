@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, describe, expect, it } from 'vitest';
 import {
   buildCronPathMatcher,
+  collectScheduledWorkflowWritePaths,
   scanRepository,
   scanTestSource,
 } from '../scripts/ci/check-cron-count-literals.mjs';
@@ -222,6 +223,26 @@ describe('buildCronPathMatcher', () => {
     const isCronPath = buildCronPathMatcher(root);
     expect(isCronPath('data/validated.json')).toBe(false);
     expect(isCronPath('data/staged.json')).toBe(true);
+  });
+
+  it('classifica come writer un loop schedulato che usa sed in-place', () => {
+    const root = syntheticRepo();
+    writeFile(root, '.github/workflows/in-place.yml', [
+      'name: in-place',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 2 * * *'",
+      'jobs:',
+      '  rewrite:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: |',
+      '          for file in data/x.json; do',
+      "            sed -i 's/a/b/' \"$file\"",
+      '          done',
+      '',
+    ].join('\n'));
+    expect(collectScheduledWorkflowWritePaths(root)).toContain('data/x.json');
   });
 });
 
