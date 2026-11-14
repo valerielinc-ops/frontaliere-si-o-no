@@ -18,13 +18,12 @@ const SNAPSHOT_ROOT = path.join(ROOT, '.cache', 'assemble-jobs-test-snapshot');
 const SNAPSHOT_SCRIPT = fileURLToPath(import.meta.url);
 const NODE_MAJOR = process.versions.node.split('.')[0];
 const MAX_AGE_MS = 60 * 60 * 1000;
-const OUTPUTS = Object.freeze([
-  ['jobs.json', ['data/jobs.json', 'public/data/jobs.json']],
-  ['jobs-meta.json', ['data/jobs-meta.json']],
-  ['expired-jobs.json', ['data/expired-jobs.json', 'public/data/expired-jobs.json']],
-  ['jobs-crawler-summaries.json', ['data/jobs-crawler-summaries.json']],
-  ['jobs-stats.json', ['data/jobs-stats.json', 'public/data/jobs-stats.json']],
-]);
+const PUBLIC_TWINS = new Set(['jobs.json', 'expired-jobs.json', 'jobs-stats.json']);
+const SNAPSHOT_FILES = assembleCacheFileContract({
+  withStats: true,
+  withSummaries: true,
+  withExpired: true,
+}).requiredSnapshotFiles;
 const ASSEMBLE_INPUT_PATHS = Object.freeze([
   'data/jobs/by-crawler',
   'data/jobs/expired/by-crawler',
@@ -32,14 +31,10 @@ const ASSEMBLE_INPUT_PATHS = Object.freeze([
   ...ASSEMBLE_AUX_DATA_INPUTS,
   // These files are normally assembler outputs; a PR that edits one must not
   // have its change overwritten by a snapshot built from main.
-  'data/jobs.json',
-  'public/data/jobs.json',
-  'data/jobs-meta.json',
-  'data/expired-jobs.json',
-  'public/data/expired-jobs.json',
-  'data/jobs-crawler-summaries.json',
-  'data/jobs-stats.json',
-  'public/data/jobs-stats.json',
+  ...SNAPSHOT_FILES.flatMap((name) => [
+    `data/${name}`,
+    ...(PUBLIC_TWINS.has(name) ? [`public/data/${name}`] : []),
+  ]),
 ]);
 
 function relativePath(file) {
@@ -79,10 +74,18 @@ function computeCompatibilityFingerprint() {
 }
 
 function writeOutput(name, value) {
+  const safeValue = String(value).replace(/[\r\n]/gu, ' ');
   if (process.env.GITHUB_OUTPUT) {
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${value}\n`);
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${safeValue}\n`);
   }
-  console.log(`${name}=${value}`);
+  console.log(`${name}=${safeValue}`);
+}
+
+function outputTargets(name) {
+  return [
+    `data/${name}`,
+    ...(PUBLIC_TWINS.has(name) ? [`public/data/${name}`] : []),
+  ];
 }
 
 function normalizedChangedPath(value) {
@@ -199,7 +202,7 @@ function restore() {
   // Age starts at checkout, before npm install and assembly. Using the later
   // publish time would make data already stale during a slow seed appear fresh.
   const ageMs = Date.now() - Date.parse(manifest?.sourceCapturedAt || '');
-  const expectedFiles = OUTPUTS.map(([name]) => name);
+  const expectedFiles = SNAPSHOT_FILES;
   const compatibilityFingerprint = computeCompatibilityFingerprint();
   const allFilesPresent = Array.isArray(manifest?.snapshotFiles)
     && expectedFiles.length === manifest.snapshotFiles.length
@@ -238,7 +241,7 @@ function restore() {
     return;
   }
 
-  const restorePairs = OUTPUTS.flatMap(([name, targets]) => targets.map((target) => [
+  const restorePairs = expectedFiles.flatMap((name) => outputTargets(name).map((target) => [
     path.join(SNAPSHOT_ROOT, name),
     path.join(ROOT, target),
   ]));
