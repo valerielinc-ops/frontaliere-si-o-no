@@ -88,7 +88,6 @@ jobs:
         run: node scripts/ci/assemble-test-snapshot.mjs cache-key
 
       - name: Save hourly test snapshot
-        continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/assemble-jobs-test-snapshot
