@@ -59,6 +59,98 @@ function trackedPaths() {
   return TRACKED;
 }
 
+function isSafeRelativeCheckoutPath(value) {
+  if (typeof value !== 'string' || !/^[A-Za-z0-9._/-]+$/.test(value) || value.startsWith('/')) return false;
+  const parts = value.split('/');
+  return parts.every((part) => part && part !== '.' && part !== '..') && path.posix.normalize(value) === value;
+}
+
+/**
+ * Parse a run block containing only explicit directory creation and literal
+ * HEAD-to-identical-path materializations. Any other shell form is left
+ * uninterpreted so it cannot make an excluded checkout path look available.
+ */
+function parseMaterializationRun(run) {
+  const directories = [];
+  const copies = [];
+
+  for (const rawLine of String(run ?? '').split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+
+    const mkdir = line.match(/^mkdir -p ([A-Za-z0-9._/-]+(?: [A-Za-z0-9._/-]+)*)$/);
+    if (mkdir) {
+      const paths = mkdir[1].split(' ');
+      if (paths.some((item) => !isSafeRelativeCheckoutPath(item))) return null;
+      directories.push(...paths);
+      continue;
+    }
+
+    const show = line.match(/^git show "HEAD:([^"\s]+)" > ([A-Za-z0-9._/-]+)$/);
+    if (show) {
+      const [, source, destination] = show;
+      if (!isSafeRelativeCheckoutPath(source) || !isSafeRelativeCheckoutPath(destination) || source !== destination) return null;
+      copies.push({ source, destination });
+      continue;
+    }
+
+    return null;
+  }
+
+  return { directories, copies };
+}
+
+/**
+ * Files that this job explicitly materializes from HEAD before its first
+ * runtime step. Only standalone, literal commands are accepted; an unknown
+ * run block or action ends the pre-runtime window.
+ */
+export function materializedHeadPathsBeforeRuntime(job, workflowDefaults = {}) {
+  const steps = Array.isArray(job) ? job : job?.steps;
+  const defaults = [workflowDefaults?.run, job?.defaults?.run].filter(Boolean);
+  if (defaults.some((run) => run['working-directory'] !== undefined
+    || (run.shell !== undefined && run.shell !== 'bash'))) return new Set();
+  if ([workflowDefaults?.env, job?.env].some((env) => env && Object.keys(env).length)) return new Set();
+
+  const tracked = trackedPaths();
+  const createdDirectories = new Set();
+  const materialized = new Set();
+
+  for (const step of Array.isArray(steps) ? steps : []) {
+    if (!step || typeof step !== 'object') continue;
+    if (typeof step.uses === 'string') {
+      if (step.uses.startsWith('actions/checkout@')) continue;
+      return materialized;
+    }
+    if (typeof step.run !== 'string') continue;
+    if (step.if !== undefined
+      || (step['continue-on-error'] !== undefined && step['continue-on-error'] !== false)
+      || step['working-directory'] !== undefined
+      || (step.shell !== undefined && step.shell !== 'bash')
+      || (step.env && Object.keys(step.env).length)) return materialized;
+
+    const parsed = parseMaterializationRun(step.run);
+    if (!parsed) return materialized;
+
+    const nextDirectories = new Set([...createdDirectories, ...parsed.directories]);
+    const validCopies = parsed.copies.every(({ source, destination }) => {
+      if (!tracked.has(source) || destination !== source) return false;
+      const parent = path.posix.dirname(destination);
+      if (parent === '.') return true;
+      return [...nextDirectories].some((dir) => dir === parent || dir.startsWith(`${parent}/`));
+    });
+    if (!validCopies) return materialized;
+
+    for (const directory of parsed.directories) createdDirectories.add(directory);
+    for (const { destination } of parsed.copies) materialized.add(destination);
+  }
+
+  // A declaration without a later action or command cannot cover a runtime
+  // dependency. Reaching the end with only checkout/materialization steps is
+  // therefore not evidence that any path is available when consumed.
+  return new Set();
+}
+
 /**
  * Controllo INDIPENDENTE dall'analizzatore: estrae i percorsi letterali dal
  * codice che il job carica e verifica che nessuno di quelli realmente tracciati
@@ -308,9 +400,12 @@ export function verifyCheckoutProfiles() {
         if (checkouts.length !== 1 || step.with.path) continue;
         const cone = step.with['sparse-checkout-cone-mode'] !== false;
         allowListsVerified++;
+        const workflowJob = doc?.jobs?.[job.jobId] ?? {};
+        const materialized = materializedHeadPathsBeforeRuntime(workflowJob, doc?.defaults);
         let missing = [];
         try {
-          missing = uncoveredAllowListCode(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone });
+          missing = uncoveredAllowListCode(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone })
+            .filter((rel) => !materialized.has(rel));
         } catch (e) {
           problems.push(`${where}: allow-list sparse non verificabile (git sparse-checkout check-rules: ${String(e.message || e).split('\n')[0]})`);
           continue;
@@ -320,7 +415,8 @@ export function verifyCheckoutProfiles() {
         }
         let unopened = [];
         try {
-          unopened = uncoveredAllowListOpenedFiles(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone });
+          unopened = uncoveredAllowListOpenedFiles(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone })
+            .filter((rel) => !materialized.has(rel));
         } catch (e) {
           problems.push(`${where}: allow-list sparse non verificabile (git sparse-checkout check-rules: ${String(e.message || e).split('\n')[0]})`);
           continue;
