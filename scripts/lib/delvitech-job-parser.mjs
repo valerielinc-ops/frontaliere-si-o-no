@@ -53,18 +53,34 @@ function inferLocation(text = '') {
   return '';
 }
 
+function resolveDelvitechDetailUrl(rawHref = '') {
+  try {
+    const url = new URL(String(rawHref || '').trim(), 'https://legacy.delvi.tech/career/');
+    const host = url.hostname.toLowerCase();
+    if (!['http:', 'https:'].includes(url.protocol)) return '';
+    if (host !== 'legacy.delvi.tech' && host !== 'delvi.tech' && !host.endsWith('.delvi.tech')) return '';
+    if (url.pathname.replace(/\/+$/, '') === '/career') return '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
 export function parseDelvitechCareerPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const cards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href*="legacy.delvi.tech/"]')];
+  const cards = [...document.querySelectorAll('.post-content a.fusion-column-anchor[href]')]
+    .map((anchor) => ({
+      anchor,
+      href: resolveDelvitechDetailUrl(anchor.getAttribute('href')),
+    }))
+    .filter(({ href }) => Boolean(href));
   const listingContainer = document.querySelector('.post-content');
   const seen = new Set();
   const jobs = [];
   let skippedMalformedRows = 0;
 
-  for (const anchor of cards) {
-    const href = String(anchor.getAttribute('href') || '').trim();
-    if (!href || href.includes('/career/')) continue;
+  for (const { anchor, href } of cards) {
     if (seen.has(href)) continue;
     seen.add(href);
 
