@@ -3371,6 +3371,14 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain('git -C "$workspace" reset --hard HEAD');
       expect(retryPreparation.run).toContain('git -C "$workspace" clean -ffdx');
       expect(retryPreparation.run).toContain(
+        'isSafeGitDir() {',
+      );
+      expect(retryPreparation.run).toContain('if ! isSafeGitDir "$workspace" "$git_dir"; then');
+      expect(retryPreparation.run).toContain('realpath "$workspace/.git"');
+      expect(retryPreparation.run).toContain(
+        'git -C "$workspace" rev-parse --path-format=absolute --git-common-dir',
+      );
+      expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
       );
       expect(retryPreparation.run).toContain('rm -rf -- "$workspace/.git"');
@@ -3457,6 +3465,72 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(noGitBranch).toBeGreaterThanOrEqual(0);
     expect(cleanupCall).toBeGreaterThan(noGitBranch);
     expect(emptyWorkspaceMessage).toBeGreaterThan(cleanupCall);
+  });
+
+  it('recupera repository canonici e worktree path-equivalent, ma rifiuta metadata esterni', () => {
+    const { prepare } = retrySparseCheckout({
+      sourceCheckout: { uses: 'actions/checkout@v7' },
+      checkout: {},
+    });
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-safe-git-dir-'));
+    const gitEnv = { ...process.env, GIT_CONFIG_NOSYSTEM: '1' };
+    const runPreparation = (workspace: string) => execFileSync(
+      'bash',
+      ['-e', '-u', '-o', 'pipefail', '-c', prepare.run],
+      {
+        env: { ...gitEnv, GITHUB_WORKSPACE: workspace },
+        encoding: 'utf8',
+      },
+    );
+
+    try {
+      const canonicalRepository = path.join(temp, 'canonical');
+      execFileSync('git', ['init', '--quiet', canonicalRepository], { env: gitEnv });
+      expect(runPreparation(canonicalRepository)).toContain('Discarded incomplete Git metadata');
+      expect(fs.existsSync(path.join(canonicalRepository, '.git'))).toBe(false);
+
+      const pathEquivalentRepository = path.join(temp, 'path-equivalent');
+      const pathEquivalentAlias = path.join(temp, 'path-equivalent-alias');
+      execFileSync('git', ['init', '--quiet', pathEquivalentRepository], { env: gitEnv });
+      fs.symlinkSync(pathEquivalentRepository, pathEquivalentAlias, 'dir');
+      expect(runPreparation(pathEquivalentAlias)).toContain('Discarded incomplete Git metadata');
+      expect(fs.existsSync(path.join(pathEquivalentRepository, '.git'))).toBe(false);
+
+      const sourceRepository = path.join(temp, 'source');
+      const linkedWorktree = path.join(temp, 'linked-worktree');
+      execFileSync('git', ['init', '--quiet', sourceRepository], { env: gitEnv });
+      execFileSync('git', ['-C', sourceRepository, 'config', 'user.email', 'fixer@example.invalid'], { env: gitEnv });
+      execFileSync('git', ['-C', sourceRepository, 'config', 'user.name', 'FU-005 test'], { env: gitEnv });
+      execFileSync('git', ['-C', sourceRepository, 'commit', '--quiet', '--allow-empty', '-m', 'fixture'], { env: gitEnv });
+      execFileSync('git', ['-C', sourceRepository, 'worktree', 'add', '--quiet', '--detach', linkedWorktree], { env: gitEnv });
+      const linkedGitDir = execFileSync(
+        'git',
+        ['-C', linkedWorktree, 'rev-parse', '--absolute-git-dir'],
+        { env: gitEnv, encoding: 'utf8' },
+      ).trim();
+      const commonGitDir = execFileSync(
+        'git',
+        ['-C', linkedWorktree, 'rev-parse', '--path-format=absolute', '--git-common-dir'],
+        { env: gitEnv, encoding: 'utf8' },
+      ).trim();
+      const commonLock = path.join(commonGitDir, 'refs', 'heads', 'retry.lock');
+      fs.mkdirSync(path.dirname(commonLock), { recursive: true });
+      fs.writeFileSync(commonLock, 'stale');
+      fs.writeFileSync(path.join(linkedGitDir, 'HEAD'), 'ref: refs/heads/missing\n');
+      expect(runPreparation(linkedWorktree)).toContain('Discarded incomplete Git metadata');
+      expect(fs.existsSync(commonLock)).toBe(false);
+      expect(fs.existsSync(path.join(linkedWorktree, '.git'))).toBe(false);
+
+      const unsafeWorkspace = path.join(temp, 'unsafe-workspace');
+      const unsafeGitDir = path.join(temp, 'unsafe-git-dir');
+      execFileSync('git', [
+        'init', '--quiet', '--separate-git-dir', unsafeGitDir, unsafeWorkspace,
+      ], { env: gitEnv });
+      expect(() => runPreparation(unsafeWorkspace)).toThrow();
+      expect(fs.existsSync(path.join(unsafeWorkspace, '.git'))).toBe(true);
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 
   it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
@@ -4529,10 +4603,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With compact waiter, safe incomplete-metadata retry, and empty-workspace
-    // cleanup, size is 479504 bytes (<= 480000 budget).
+    // With the safe Git-metadata retry, compact result waiters, and
+    // empty-workspace cleanup, size is 473517 bytes (<= 480000 budget).
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(479504);
+    expect(bytes).toBe(473517);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {

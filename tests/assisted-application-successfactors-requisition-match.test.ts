@@ -27,6 +27,8 @@ describe('SuccessFactors after sign-in: the requisition the runner entered binds
     expect(formPostingMatch(form('Application Manager/-in (20604)'), job, { pageUrl })).toBe('mismatch');
     expect(formPostingMatch(form('Application Manager/-in (20604)'), job, { pageUrl, applyUrl })).toBe('match');
     expect(successFactorsRequisitionShown(form('Application Manager/-in (20604)'), job, { pageUrl, applyUrl })).toBe(true);
+    expect(formPostingMatch(form('Application Manager/-in (H/F) (20604)'), job, { pageUrl, applyUrl })).toBe('match');
+    expect(formPostingMatch(form('Application Manager/-in (M/F/D) (20604)'), job, { pageUrl, applyUrl })).toBe('match');
   });
 
   it('never matches another posting', () => {
