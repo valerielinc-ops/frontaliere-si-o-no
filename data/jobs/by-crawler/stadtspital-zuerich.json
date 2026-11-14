@@ -8534,9 +8534,9 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
       "titleByLocale": {
+        "de": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
         "it": "Medico assistente in medicina d'urgenza interdisciplinare",
         "en": "Resident Physician in Interdisciplinary Emergency Medicine",
-        "de": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
         "fr": "Médecin assistant*e en médecine d’urgence interdisciplinaire"
       },
       "description": "Unser Institut für Notfallmedizin (INM) behandelt als eines der grössten Notfallzentren der Schweiz an den beiden Standorten Triemli und Waid zusammen über 70'000 Patient*innen pro Jahr. Per sofort oder nach Vereinbarung suchen wir deshalb eine engagierte Persönlichkeit mit Begeisterung für die Notfallmedizin und ausgeprägter Dienstleistungsmentalität.\n\n• In dieser vielseitigen und spannenden Funktion erlernst du – unterstützt von den Kaderärzt*innen und der Notfallpflege – die notfallmedizinische Diagnostik, Behandlung und Betreuung von Patient*innen auf unseren interdisziplinären Notfallstationen an den Standorten Triemli und Waid.\n\n• Du setzt dich mit Freude für eine qualitativ hochstehende medizinische Betreuung und Behandlung unserer Notfallpatient*innen ein.\n\n• Mit den anderen internen Fachabteilungen sowie der zuweisenden Ärzteschaft pflegst du einen engen interdisziplinären Austausch.\n\n• Mit persönlichem Engagement sammelst du wertvolle Erfahrungen auf deinem Weg zum Schwerpunkt Klinische Notfallmedizin SGNOR.\n\n• Eidgenössisches Arztdiplom oder vorliegendes, von der MEBEKO anerkanntes ausländisches Diplom in Humanmedizin\n\n• Mindestens zwei Jahre klinische Erfahrung\n\n• Freude an interdisziplinärer Notfallmedizin in einem spannenden und herausfordernden Umfeld\n\n• Hohe Selbständigkeit, Belastbarkeit, Durchsetzungsvermögen und ausgeprägte Sozialkompetenz\n\n• Sehr gute Deutschkenntnisse\n\n• Bereitschaft, an beiden Standorten (Triemli und Waid) tätig zu sein\n\nWir bieten dir mehr als nur einen Job! Unsere Stadtspital-Welt ist geprägt von einer offenen Du-Kultur, einem unkomplizierten, persönlichen Miteinander, Respekt und Wertschätzung. Du bist – zusammen mit dem ganzen Team des Instituts – Visitenkarte des Stadtspitals und leistest einen erheblichen Beitrag zur Strahlkraft des Spitals gegenüber Patient*innen und potenziellen neuen Mitarbeitenden. Darüber hinaus hast du die Möglichkeit, während deiner Weiterbildungszeit bei uns am Stadtspital Zürich gleich auf zwei Notfallstationen mit unterschiedlicher Ausrichtung Erfahrungen zu sammeln. Ein kompetentes, engagiertes und kollegiales Team freut sich, dich auf dem Weg zur/zum Notfallmediziner*in zu begleiten.\n\nDas Stadtspital Zürich zählt mit über 36'000 stationären und rund 455'000 ambulanten Patient*innen pro Jahr zu den Top 10 der Schweizer Spitäler. Als modernes Zentrumsspital an mehreren Standorten in der Stadt Zürich bieten wir die gesamte Bandbreite der medizinischen Grundversorgung, inklusive 24-Stunden-Notfall und Intensivmedizin an. Unsere 4'500 Mitarbeitenden setzen sich täglich mit viel Engagement und Herzblut für eine exzellente Patientenversorgung ein.",
@@ -8574,10 +8574,7 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "4249",
-      "previousSlugs": [
-        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249",
-        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich"
-      ],
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249"
@@ -8589,8 +8586,10 @@
           "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "previousSlugs": [
+        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zuerich-4249",
+        "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -8606,7 +8605,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-14T09:59:52.462Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-12T22:04:54.244Z"
     },
     {
       "id": "stadtspital-zuerich-83422beff8fb",

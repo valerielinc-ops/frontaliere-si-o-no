@@ -5,9 +5,9 @@
  * Vitest's `related` command rebuilds an in-memory Vite graph for every CI
  * run and inspects every discovered spec. In this repository that discovery
  * costs minutes while the selected tests take seconds. This runner keeps a
- * small static import graph on disk, updates only changed files, walks it in
- * reverse from changed sources, and passes the resulting test files directly
- * to Vitest. It stays related-only for ordinary imports, with a conservative
+ * small static import graph on disk, updates only changed files, and passes
+ * symbol-owned test files directly to Vitest. Asset roots retain their
+ * bounded reader closure. It stays related-only for ordinary imports, with a conservative
  * full-test run only when the changed file is the global Vitest config.
  * An incomplete diff or an unmodelled source edge fails fast instead of
  * turning uncertainty into a full suite. Runtime/configuration files are not
@@ -30,6 +30,7 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
@@ -45,6 +46,9 @@ import { stripSourceComments } from '../lib/source-comments.mjs';
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
+const graphVersion = 20;
+const require = createRequire(import.meta.url);
+let typescript;
 const selectionOnly = process.argv.includes('--select-only');
 const sourceRe = GRAPH_SOURCE_RE;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
@@ -221,6 +225,13 @@ const checkoutProfileScope = (file) => /^(?:\.github\/(?:workflows|actions)\/|pa
     /(?:sparse-checkout|sparseIncludesPath|GLOBAL_TESTS_REQUIRED_SPARSE_PATHS|TYPECHECK_REQUIRED_SPARSE_PATHS|checkout-profile|checkoutEntryPoints|verifyCheckoutProfiles)/i)(file);
 
 const coreLocaleSource = /^services\/locales\/[^/]+-core\.ts$/;
+// Keep the selector's own search patterns structurally distinct from the
+// literal flags that `tests/gh-slurp-jq-guard.test.ts` must find in commands.
+// Otherwise changing a workflow that contains a valid `--slurp` pipeline
+// selects the guard, which then mistakes these selector regexes for a broken
+// gh invocation.
+const ghSlurpFlagPattern = /--s(?:lurp)\b/;
+const ghJqOrTemplateFlagPattern = /(?:--j(?:q)\b|--t(?:emplate)\b|\s-[qt]\s)/;
 const sourceTreeLintTests = new Map([
   // This completeness guard discovers translation keys by scanning all of
   // `services/` and `components/`, so no import edge ties a locale dictionary
@@ -257,7 +268,7 @@ const sourceTreeLintTests = new Map([
     'tests/prune-merged-worktrees-expiry-e2e.test.ts',
     'tests/prune-merged-worktrees-reclaim-e2e.test.ts',
   ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
-  ['tests/gh-slurp-jq-guard.test.ts', pathAndSourceMatch(/^(?:\.github|scripts|bin)\//, /--slurp\b/, /(?:--jq\b|--template\b|\s-[qt]\s)/)],
+  ['tests/gh-slurp-jq-guard.test.ts', pathAndSourceMatch(/^(?:\.github|scripts|bin)\//, ghSlurpFlagPattern, ghJqOrTemplateFlagPattern)],
   ['tests/no-hardcoded-secrets.test.ts', secretSourceChange],
   // `consent-shown-at-signup` discovers signup writers by reading every file
   // under these roots. Those `read()` calls are the contract, but they are
@@ -514,6 +525,33 @@ const crawlerDataAssetScope = [
 ];
 const crawlerRelatedAssetScope = [...crawlerAssetScope, ...crawlerDataAssetScope];
 const companyLogoAssetScope = [/^data\/company-logos-manifest\.json$/i];
+const rootDocAssetRe = /^(?:AGENTS|DECISIONS|FOLLOWUP|ISSUES|REVIEW|VISION)\.md$/i;
+const workflowAssetRe = /^\.github\/(?:workflows|corpus-workflows)\/.+\.ya?ml$/i;
+const allWorkflowAssetScope = [workflowAssetRe];
+const portalReplayWorkflowScope = [
+  /^\.github\/workflows\/assisted-application-portal-replay\.ya?ml$/i,
+];
+const deployWorkflowScope = [
+  /^\.github\/workflows\/(?:deploy(?:-[^/]+)?|post-deploy-[^/]+|post-build-matrix-test|audit-(?:dist-from-run|published-dist(?:-full)?))\.ya?ml$/i,
+];
+const socialWorkflowScope = [
+  /^\.github\/workflows\/social-[^/]+\.ya?ml$/i,
+];
+const workflowAssetGlobalTests = [
+  'tests/cancel-superseded-reporter-contract.test.ts',
+  'tests/technical-operations-audit.test.ts',
+  'tests/validate-modified-workflows.test.ts',
+  'tests/workflow-background-wait-schema.test.ts',
+  'tests/workflow-concurrency-group-not-per-run.test.ts',
+  'tests/workflow-input-injection.test.ts',
+  'tests/workflow-npx-and-reflog-invariants.test.ts',
+  'tests/workflow-permissions-parity.test.ts',
+  'tests/workflow-push-main-path-filter.test.ts',
+  'tests/workflow-reserved-env-override.test.ts',
+  'tests/workflow-risk-inventory.test.ts',
+  'tests/workflow-run-target-resolves.test.ts',
+  'tests/workflow-timeout-contract.test.ts',
+];
 const crawlerAssetRelatedTests = [
   'tests/crawler-generation-barrier-shadow.test.ts',
   'tests/crawler-generation-barrier-workflows.test.ts',
@@ -551,6 +589,22 @@ const relatedAssetFileScopes = new Map([
   ['scripts/lib/githubWorkflowDispatch.mjs', []],
   ['tests/generate-crawler-group-workflows.test.ts', crawlerRelatedAssetScope],
   ...crawlerAssetRelatedTests.map((file) => [file, crawlerRelatedAssetScope]),
+  ...workflowAssetGlobalTests.map((file) => [file, allWorkflowAssetScope]),
+  ['tests/assisted-application-portal-replay.test.ts', portalReplayWorkflowScope],
+  ['tests/social-robot.test.ts', socialWorkflowScope],
+  ...[
+    'tests/deploy-workflow.test.ts',
+    'tests/deploy-matrix-experiment-workflow.test.ts',
+    'tests/deploy-no-human-approval-gate.test.ts',
+    'tests/deploy-in-run-alarm.test.ts',
+    'tests/deploy-skew-signal.test.ts',
+    'tests/r2-og-manifest-carry.test.ts',
+    'tests/job-og-cache-prewarm.test.ts',
+  ].map((file) => [file, deployWorkflowScope]),
+  // This suite writes selector fixtures containing workflow paths. Those
+  // strings are not reads from the repository's workflow tree; it is selected
+  // explicitly when the runner itself changes.
+  ['tests/run-related-tests-selection.test.ts', []],
   // This test scans only generated crawler-group workflows; an unrelated
   // workflow edit must not pull it into the graph.
   ['tests/nord-anglia-crawler.test.ts', crawlerGroupWorkflowScope],
@@ -567,6 +621,7 @@ const boundedRootAssetScopes = [
   /^data\/jobs\/expired\/by-crawler\/[^/]+\.json$/i,
   ...crawlerRelatedAssetScope,
   ...companyLogoAssetScope,
+  rootDocAssetRe,
 ];
 const hasBoundedRootAssetScope = (asset) =>
   boundedRootAssetScopes.some((pattern) => pattern.test(asset));
@@ -730,12 +785,72 @@ const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
 const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
 
+function importedBindings(clause) {
+  const value = clause.trim().replace(/^type\s+/u, '').trim();
+  if (!value) return [{ imported: '*', local: '*' }];
+  if (value.startsWith('*')) {
+    const local = value.match(/\bas\s+([A-Za-z_$][\w$]*)/u)?.[1] || '*';
+    return [{ imported: '*', local }];
+  }
+  const bindings = [];
+  const named = value.match(/\{([\s\S]*)\}/u)?.[1];
+  if (named !== undefined) {
+    for (const part of named.split(',')) {
+      const pieces = part.trim().replace(/^type\s+/u, '').split(/\s+as\s+/u).map((item) => item.trim());
+      const imported = pieces[0];
+      if (imported) bindings.push({ imported, local: pieces[1] || imported });
+    }
+    const beforeNamed = value.slice(0, value.indexOf('{')).replace(/,$/u, '').trim();
+    if (beforeNamed) bindings.push({ imported: 'default', local: beforeNamed });
+  } else {
+    bindings.push({ imported: 'default', local: value.split(/\s*,\s*/u)[0].trim() });
+  }
+  return bindings.length > 0 ? bindings : [{ imported: '*', local: '*' }];
+}
+
+function addImportBindings(imports, dep, bindings) {
+  const current = imports.get(dep) || [];
+  for (const binding of bindings) {
+    if (!current.some((existing) => existing.imported === binding.imported && existing.local === binding.local)) {
+      current.push(binding);
+    }
+  }
+  imports.set(dep, current);
+}
+
 function resolveAssetLiteral(from, rawLiteral) {
   const literal = rawLiteral.replace(/\/+$/, '');
   const isRelative = literal.startsWith('./') || literal.startsWith('../');
   return normalize(isRelative
     ? path.posix.normalize(path.posix.join(path.posix.dirname(from), literal))
     : literal);
+}
+
+function assetLiteralsIn(code, from) {
+  const literals = new Set([...code.matchAll(assetLiteralRe)]
+    .map((match) => resolveAssetLiteral(from, match[0])));
+  for (const [sequence] of code.matchAll(segmentedAssetRe)) {
+    const segments = [...sequence.matchAll(segmentLiteralRe)].map((match) => match[1]);
+    if (segments.length >= 2) literals.add(resolveAssetLiteral(from, segments.join('/')));
+  }
+  return literals;
+}
+
+function scannedAssetDirectories(code, from) {
+  const variables = new Map();
+  for (const match of code.matchAll(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*([^;\n]+)/gu)) {
+    variables.set(match[1], match[2]);
+  }
+  const directories = new Set();
+  for (const match of code.matchAll(/\b(?:readdirSync|readdir|globSync|glob)\s*\(([^)]*)\)/gu)) {
+    const argument = match[1];
+    for (const literal of assetLiteralsIn(argument, from)) directories.add(literal);
+    for (const [variable, expression] of variables) {
+      if (!new RegExp(`\\b${variable}\\b`, 'u').test(argument)) continue;
+      for (const literal of assetLiteralsIn(expression, from)) directories.add(literal);
+    }
+  }
+  return directories;
 }
 
 /**
@@ -869,19 +984,29 @@ function importsOf(file, fileSet, assets, assetSet) {
     // The file is dropped from the graph, never silently: the count is
     // reported below so an under-selection is visible instead of assumed.
     unreadable.push(file);
-    return [];
+    return { deps: [], imports: {} };
   }
   const deps = new Set();
+  const imports = new Map();
   const code = stripSourceComments(source);
-  // A directory literal is a dependency only when the file actually scans a
-  // directory.  `path.join(ROOT, '.github', 'workflows', WORKFLOW_FILE)` has
-  // only the two quoted directory segments available to this static parser;
-  // treating those segments as a wildcard makes every workflow test depend on
-  // every workflow.  Exact quoted filenames remain precise below.
-  const hasDirectoryScan = /\b(?:readdirSync|readdir|globSync|glob)\s*\(/.test(code);
+  // A directory literal is a dependency only when that exact path reaches a
+  // directory scan. `path.join(ROOT, '.github', 'workflows', WORKFLOW_FILE)`
+  // is a file reader, while `readdirSync(WORKFLOWS_DIR)` is a directory reader.
+  // The distinction prevents a path variable in an otherwise unrelated test
+  // from expanding one workflow edit into the whole repository.
+  const directoryLiterals = scannedAssetDirectories(code, file);
   for (const match of code.matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
-    if (dep) deps.add(dep);
+    if (!dep) continue;
+    deps.add(dep);
+    const raw = match[0];
+    const fromIndex = raw.lastIndexOf(' from ');
+    if (fromIndex < 0 || /\b(?:import|require)\s*\(/u.test(raw)) {
+      addImportBindings(imports, dep, [{ imported: '*', local: '*' }]);
+    } else {
+      const keyword = raw.startsWith('export') ? 'export' : 'import';
+      addImportBindings(imports, dep, importedBindings(raw.slice(keyword.length, fromIndex)));
+    }
   }
   // Il letterale vale come dipendenza quando nomina un asset o la directory
   // che lo contiene (`'.github/workflows'` e `tests/fixtures`, usati dai test
@@ -894,18 +1019,24 @@ function importsOf(file, fileSet, assets, assetSet) {
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
     const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
     const literal = segments.join('/');
-    if (segments.length >= 2 || hasDirectoryScan) literals.push(literal);
+    if (segments.length >= 2) literals.push(literal);
   }
   for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = resolveAssetLiteral(file, rawLiteral);
-    const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
-    if (assetSet.has(literal) && !testIrrelevantAssetEdges.get(file)?.has(literal)) deps.add(literal);
+    const directoryLiteral = directoryLiterals.has(literal);
+    if (assetSet.has(literal) && !testIrrelevantAssetEdges.get(file)?.has(literal)) {
+      deps.add(literal);
+      addImportBindings(imports, literal, [{ imported: '*', local: '*' }]);
+    }
     if (directoryLiteral) {
       for (const asset of assets) {
-        if (asset.startsWith(`${literal}/`)) deps.add(asset);
+        if (asset.startsWith(`${literal}/`)) {
+          deps.add(asset);
+          addImportBindings(imports, asset, [{ imported: '*', local: '*' }]);
+        }
       }
     }
   }
@@ -918,13 +1049,20 @@ function importsOf(file, fileSet, assets, assetSet) {
   // contro i ~20 che lo leggono davvero.
   if (testTreeRe.test(file)) {
     for (const [literal] of code.matchAll(rootDocLiteralRe)) {
-      if (assetSet.has(literal)) deps.add(literal);
+      if (assetSet.has(literal)) {
+        deps.add(literal);
+        addImportBindings(imports, literal, [{ imported: '*', local: '*' }]);
+      }
     }
   }
   const scope = relatedAssetFileScopes.get(file);
-  return [...deps]
+  const filtered = [...deps]
     .filter((dep) => !isRelatedAsset(dep) || !scope || assetScopeMatches(scope, dep))
     .sort();
+  return {
+    deps: filtered,
+    imports: Object.fromEntries(filtered.map((dep) => [dep, imports.get(dep) || [{ imported: '*', local: '*' }]])),
+  };
 }
 
 function loadGraph(files, assets) {
@@ -968,7 +1106,11 @@ function loadGraph(files, assets) {
   // ripristinate devono essere ricostruite. La versione 15 estende gli scope
   // crawler agli asset dati e richiede di ricostruire gli archi dei loro test.
   // La versione 16 aggiunge scope per i reader che enumerano workflow e
-  // consente matcher predicativi basati sul contenuto dell'asset.
+  // consente matcher predicativi basati sul contenuto dell'asset. La versione
+  // 17 registra i binding degli import per la selezione symbol-aware; la 18
+  // restringe i wildcard ai path che raggiungono davvero una directory scan;
+  // la 19 limita gli asset workflow ai contratti globali o a scope espliciti;
+  // la 20 conserva i reader che nominano il file workflow esatto.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -979,7 +1121,7 @@ function loadGraph(files, assets) {
   } catch {}
   let changedSinceCache = null;
   let sourceTopologyChanged = false;
-  if (previousVersion === 16 && previousAssets === assetsDigest
+  if (previousVersion === graphVersion && previousAssets === assetsDigest
     && previousRevision !== '' && currentRevision !== '') {
     try {
       execFileSync('git', ['merge-base', '--is-ancestor', previousRevision, currentRevision], {
@@ -1046,19 +1188,263 @@ function loadGraph(files, assets) {
       graph[file] = old;
       reusedEntries += 1;
     } else {
-      graph[file] = { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
+      graph[file] = { signature: sig, ...importsOf(file, fileSet, assets, assetSet) };
       rebuiltEntries += 1;
     }
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 16,
+    version: graphVersion,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,
   }));
   console.log(`Related graph: reused ${reusedEntries} entries, rebuilt ${rebuiltEntries}.`);
   return graph;
+}
+
+function scriptKindFor(file) {
+  const ts = loadTypeScript();
+  if (/\.tsx$/i.test(file)) return ts.ScriptKind.TSX;
+  if (/\.jsx$/i.test(file)) return ts.ScriptKind.JSX;
+  if (/\.json$/i.test(file)) return ts.ScriptKind.JSON;
+  if (/\.ts$/i.test(file)) return ts.ScriptKind.TS;
+  return ts.ScriptKind.JS;
+}
+
+function loadTypeScript() {
+  if (!typescript) typescript = require('typescript');
+  return typescript;
+}
+
+function declarationName(node) {
+  const ts = loadTypeScript();
+  return node.name && ts.isIdentifier(node.name) ? node.name.text : null;
+}
+
+function modifierSet(node) {
+  const ts = loadTypeScript();
+  return new Set((ts.getModifiers(node) || []).map((modifier) => modifier.kind));
+}
+
+function sourceDeclarations(file, source) {
+  const ts = loadTypeScript();
+  const sourceFile = ts.createSourceFile(
+    file,
+    source,
+    ts.ScriptTarget.Latest,
+    true,
+    scriptKindFor(file),
+  );
+  const declarations = [];
+  const add = (node, localNames, exportNames = []) => {
+    declarations.push({
+      start: sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile)).line + 1,
+      end: sourceFile.getLineAndCharacterOfPosition(node.end).line + 1,
+      localNames: [...new Set(localNames.filter(Boolean))],
+      exportNames: [...new Set(exportNames.filter(Boolean))],
+      body: source.slice(node.getStart(sourceFile), node.end),
+    });
+  };
+
+  for (const statement of sourceFile.statements) {
+    const modifiers = modifierSet(statement);
+    const isExported = modifiers.has(ts.SyntaxKind.ExportKeyword);
+    const isDefault = modifiers.has(ts.SyntaxKind.DefaultKeyword);
+    if (ts.isFunctionDeclaration(statement)
+      || ts.isClassDeclaration(statement)
+      || ts.isInterfaceDeclaration(statement)
+      || ts.isTypeAliasDeclaration(statement)
+      || ts.isEnumDeclaration(statement)) {
+      const local = declarationName(statement);
+      const exports = isDefault ? ['default'] : (isExported && local ? [local] : []);
+      add(statement, [local], exports);
+      continue;
+    }
+    if (ts.isVariableStatement(statement)) {
+      const locals = statement.declarationList.declarations
+        .map((declaration) => declarationName(declaration));
+      add(statement, locals, isExported ? (isDefault ? ['default'] : locals) : []);
+      continue;
+    }
+    if (ts.isExportDeclaration(statement)) {
+      if (!statement.exportClause || !ts.isNamedExports(statement.exportClause)) continue;
+      for (const element of statement.exportClause.elements) {
+        const local = element.propertyName?.text || element.name.text;
+        add(element, [local], [element.name.text]);
+      }
+      continue;
+    }
+    if (ts.isExportAssignment(statement)) {
+      const expression = ts.isIdentifier(statement.expression) ? statement.expression.text : null;
+      add(statement, [expression], ['default']);
+    }
+  }
+  return declarations;
+}
+
+let sourceDiffBase;
+function relatedDiffBase() {
+  if (sourceDiffBase !== undefined) return sourceDiffBase;
+  sourceDiffBase = null;
+  const refs = [...new Set([
+    process.env.GITHUB_BASE_REF ? `origin/${process.env.GITHUB_BASE_REF}` : null,
+    'origin/main',
+  ].filter(Boolean))];
+  for (const ref of refs) {
+    try {
+      sourceDiffBase = execFileSync('git', ['merge-base', ref, 'HEAD'], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+      if (sourceDiffBase) break;
+    } catch {}
+  }
+  return sourceDiffBase;
+}
+
+function changedLineRanges(diff) {
+  const ranges = [];
+  let hasDeletion = false;
+  for (const match of diff.matchAll(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/gm)) {
+    const start = Number(match[1]);
+    const count = Number(match[2] || 1);
+    if (count === 0) hasDeletion = true;
+    else ranges.push([start, start + count - 1]);
+  }
+  return { ranges, hasDeletion };
+}
+
+const sourceImpactCache = new Map();
+const identifierPattern = (name) => new RegExp(
+  `\\b${name.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}\\b`,
+  'u',
+);
+function changedExportSymbols(file) {
+  if (sourceImpactCache.has(file)) return sourceImpactCache.get(file);
+  let result = null;
+  const base = relatedDiffBase();
+  let source;
+  let diff;
+  try {
+    source = readFileSync(file, 'utf8');
+    if (!base) throw new Error('no merge base');
+    diff = execFileSync('git', ['diff', '--unified=0', base, '--', file], {
+      encoding: 'utf8',
+      maxBuffer: 4 * 1024 * 1024,
+    });
+  } catch {
+    sourceImpactCache.set(file, null);
+    return null;
+  }
+  const { ranges, hasDeletion } = changedLineRanges(diff);
+  if (ranges.length === 0 || hasDeletion) {
+    sourceImpactCache.set(file, null);
+    return null;
+  }
+  const declarations = sourceDeclarations(file, source);
+  const executableLines = stripSourceComments(source).split(/\r?\n/u);
+  const exportedNames = new Set(declarations.flatMap(({ exportNames }) => exportNames));
+  if (exportedNames.size === 0) {
+    sourceImpactCache.set(file, null);
+    return null;
+  }
+  const impactedLocals = new Set();
+  let unmappedChange = false;
+  for (const [start, end] of ranges) {
+    for (let line = start; line <= end; line += 1) {
+      if (!executableLines[line - 1]?.trim()) continue;
+      const matching = declarations.filter((declaration) => declaration.start <= line && declaration.end >= line);
+      if (matching.length === 0) unmappedChange = true;
+      for (const declaration of matching) {
+        for (const local of declaration.localNames) impactedLocals.add(local);
+      }
+    }
+  }
+  if (unmappedChange || impactedLocals.size === 0) {
+    sourceImpactCache.set(file, null);
+    return null;
+  }
+
+  // A private helper can carry the changed behavior into an exported
+  // function. Propagate only through declarations in this file; this is the
+  // bounded replacement for traversing the entire reverse application graph.
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const declaration of declarations) {
+      if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
+      if ([...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) {
+        for (const local of declaration.localNames) impactedLocals.add(local);
+        changed = true;
+      }
+    }
+  }
+  result = new Set(declarations
+    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name)))
+    .flatMap(({ exportNames }) => exportNames));
+  if (result.size === 0) result = null;
+  sourceImpactCache.set(file, result);
+  return result;
+}
+
+function sourceEdgeIsImpacted(edgeBindings, changedSymbols) {
+  if (!changedSymbols || edgeBindings.some(({ imported }) => imported === '*')) return true;
+  return edgeBindings.some(({ imported }) => changedSymbols.has(imported));
+}
+
+const sourcePropagationCache = new Map();
+function impactedExportsThroughSource(file, bindings, incomingSymbols) {
+  const cacheKey = `${file}\0${incomingSymbols ? [...incomingSymbols].sort().join(',') : '*'}`;
+  if (sourcePropagationCache.has(cacheKey)) return sourcePropagationCache.get(cacheKey);
+  let source;
+  try {
+    source = readFileSync(file, 'utf8');
+  } catch {
+    sourcePropagationCache.set(cacheKey, null);
+    return null;
+  }
+  const declarations = sourceDeclarations(file, source);
+  const exportedNames = new Set(declarations.flatMap(({ exportNames }) => exportNames));
+  const wildcard = bindings.some(({ imported }) => imported === '*');
+  if (wildcard && exportedNames.size === 0) {
+    sourcePropagationCache.set(cacheKey, null);
+    return null;
+  }
+  const impactedLocals = new Set();
+  for (const binding of bindings) {
+    if (incomingSymbols && binding.imported !== '*' && !incomingSymbols.has(binding.imported)) continue;
+    if (binding.local === '*') {
+      for (const name of exportedNames) impactedLocals.add(name);
+    } else {
+      impactedLocals.add(binding.local);
+    }
+  }
+  if (impactedLocals.size === 0 && !wildcard) {
+    const empty = new Set();
+    sourcePropagationCache.set(cacheKey, empty);
+    return empty;
+  }
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const declaration of declarations) {
+      if (declaration.localNames.some((name) => impactedLocals.has(name))) continue;
+      if ([...impactedLocals].some((name) => identifierPattern(name).test(declaration.body))) {
+        for (const local of declaration.localNames) impactedLocals.add(local);
+        changed = true;
+      }
+    }
+  }
+  const result = new Set(declarations
+    .filter((declaration) => declaration.localNames.some((name) => impactedLocals.has(name)))
+    .flatMap(({ exportNames: names }) => names));
+  if (result.size === 0 && wildcard) {
+    sourcePropagationCache.set(cacheKey, null);
+    return null;
+  }
+  sourcePropagationCache.set(cacheKey, result);
+  return result;
 }
 
 const candidates = [...new Set(changed.filter((file) =>
@@ -1159,9 +1545,13 @@ const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
   for (const dep of entry.deps) {
     if (!reverse.has(dep)) reverse.set(dep, []);
-    reverse.get(dep).push(file);
+    reverse.get(dep).push({
+      file,
+      bindings: entry.imports?.[dep] || [{ imported: '*', local: '*' }],
+    });
   }
 }
+const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
 const related = new Set(fullSuiteRequired ? allTests : candidates.filter(isRunnableTest));
 if (globalVitestConfigChanged) {
   console.log('vitest.config.ts changed → running all tracked tests because it configures the complete Vitest suite.');
@@ -1178,47 +1568,96 @@ if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   }
   console.log('test file(s) changed → running the test-tree lints.');
 }
+if (!fullSuiteRequired && candidates.some((file) => workflowAssetRe.test(file))) {
+  for (const test of workflowAssetGlobalTests) {
+    if (isRunnableTest(test)) related.add(test);
+  }
+  console.log('workflow asset changed → running the bounded global workflow contracts.');
+}
 // `selectMaxWorkers` keeps the historical argument name for compatibility;
 // after this fix it is true only for the explicit global-config run, never for
 // an unmodelled dependency.
 const usedFullFallback = fullSuiteRequired;
 const assetCandidate = isRelatedAsset;
+const testReadsExactAsset = (test, asset) => {
+  try {
+    return assetLiteralsIn(stripSourceComments(readFileSync(test, 'utf8')), test).has(asset);
+  } catch {
+    return true;
+  }
+};
 const assetScopeAllows = (test, asset) => {
   const scope = relatedAssetFileScopes.get(test);
   if (scope) return assetScopeMatches(scope, asset);
+  if (workflowAssetRe.test(asset)) return testReadsExactAsset(test, asset);
   if (hasBoundedRootAssetScope(asset)) return graph[test]?.deps.includes(asset) === true;
   return true;
 };
-const queue = candidates.map((file) => ({
+
+// A source file is a test owner through symbol-aware imports. Propagation
+// across a source wrapper is allowed only when the imported symbol is carried
+// into one of that wrapper's exports; this keeps a private helper change from
+// becoming every test that happens to share the app shell. Shared roots with
+// path/dynamic contracts opt into a bounded scope above.
+if (!fullSuiteRequired) {
+  const sourceQueue = [];
+  for (const file of sourceCandidates.filter((candidate) => !isRunnableTest(candidate))) {
+    const scope = sourceTestScopeFor(file);
+    if (scope) {
+      for (const test of allTests) {
+        if (scope.tests.some((pattern) => pattern.test(test))) related.add(test);
+      }
+      continue;
+    }
+    sourceQueue.push({ file, symbols: changedExportSymbols(file) });
+  }
+  const sourceVisited = new Set();
+  while (sourceQueue.length) {
+    const current = sourceQueue.shift();
+    const symbolKey = current.symbols ? [...current.symbols].sort().join(',') : '*';
+    const visitKey = `${current.file}\0${symbolKey}`;
+    if (sourceVisited.has(visitKey)) continue;
+    sourceVisited.add(visitKey);
+    for (const edge of reverse.get(current.file) || []) {
+      if (!sourceEdgeIsImpacted(edge.bindings, current.symbols)) continue;
+      if (isRunnableTest(edge.file)) {
+        related.add(edge.file);
+        continue;
+      }
+      if (!sourceRe.test(edge.file) || sourceTestScopeFor(edge.file)) continue;
+      const nextSymbols = impactedExportsThroughSource(edge.file, edge.bindings, current.symbols);
+      if (nextSymbols === null || nextSymbols.size > 0) {
+        sourceQueue.push({ file: edge.file, symbols: nextSymbols });
+      }
+    }
+  }
+}
+
+// Asset readers still need their bounded closure: a workflow/data path is
+// often consumed by a helper that the test imports indirectly. This queue is
+// deliberately asset-rooted; source candidates never enter it.
+const queue = candidates.filter(assetCandidate).map((file) => ({
   file,
-  rootAsset: assetCandidate(file) ? file : null,
-  rootSource: sourceTestScopeFor(file) ? file : null,
+  rootAsset: file,
 }));
-const queued = new Set(queue.map(({ file, rootAsset, rootSource }) => `${rootAsset || ''}\0${rootSource || ''}\0${file}`));
+const queued = new Set(queue.map(({ file, rootAsset }) => `${rootAsset}\0${file}`));
 const visited = new Set();
 while (queue.length) {
   const current = queue.shift();
-  const { file, rootAsset, rootSource } = current;
-  const visitKey = `${rootAsset || ''}\0${rootSource || ''}\0${file}`;
+  const { file, rootAsset } = current;
+  const visitKey = `${rootAsset}\0${file}`;
   if (visited.has(visitKey)) continue;
   visited.add(visitKey);
-  for (const importer of reverse.get(file) || []) {
+  for (const edge of reverse.get(file) || []) {
+    const importer = edge.file;
     const importerIsTest = isRunnableTest(importer);
-    const sourceScope = rootSource ? sourceTestScopeFor(rootSource) : null;
-    const directScopedTest = rootSource === file && importerIsTest;
-    const sourceScopeAllows = !sourceScope || directScopedTest
-      || sourceScope.tests.some((pattern) => pattern.test(importer));
-    const admitted = (!rootAsset || !importerIsTest || assetScopeAllows(importer, rootAsset))
-      && (!importerIsTest || sourceScopeAllows);
+    const admitted = !importerIsTest || assetScopeAllows(importer, rootAsset);
     if (admitted && importerIsTest) related.add(importer);
-    // A test rejected by either root scope cannot act as a bridge to other
-    // shared modules and reconnect the scoped change to the whole app. Other
-    // source modules remain traversable so in-scope consumers stay reachable.
     if (!admitted) continue;
-    const queueKey = `${rootAsset || ''}\0${rootSource || ''}\0${importer}`;
+    const queueKey = `${rootAsset}\0${importer}`;
     if (!queued.has(queueKey)) {
       queued.add(queueKey);
-      queue.push({ file: importer, rootAsset, rootSource });
+      queue.push({ file: importer, rootAsset });
     }
   }
 }
@@ -1239,7 +1678,6 @@ if (!fullSuiteRequired) {
 // actionable selection failure. The author must add/update the impacted test
 // or declare a scoped tree-lint dependency; CI never silently pays the full
 // suite for an unknown edge.
-const sourceCandidates = candidates.filter((file) => sourceRe.test(file));
 if (!fullSuiteRequired
   && related.size === 0
   && sourceCandidates.length > 0) {

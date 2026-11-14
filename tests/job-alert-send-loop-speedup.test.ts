@@ -204,8 +204,8 @@ describe('planAlertMatch', () => {
 });
 
 describe('job-alert plan batching', () => {
-  it('caps full-match planning groups at 16 alerts, independently of send capacity', () => {
-    expect(JOB_ALERT_PLAN_BATCH_SIZE).toBeLessThanOrEqual(16);
+  it('keeps planning groups bounded independently of send capacity', () => {
+    expect(JOB_ALERT_PLAN_BATCH_SIZE).toBe(8);
   });
 
   it('never hands the sender more than the bounded plan batch, and invokes batches sequentially', async () => {
@@ -228,7 +228,7 @@ describe('job-alert plan batching', () => {
 
     expect(batchSizes.length).toBe(Math.ceil(alertCount / JOB_ALERT_PLAN_BATCH_SIZE));
     expect(batchSizes[0]).toBe(JOB_ALERT_PLAN_BATCH_SIZE);
-    expect(batchSizes.at(-1)).toBe(alertCount % JOB_ALERT_PLAN_BATCH_SIZE);
+    expect(batchSizes.at(-1)).toBe(alertCount % JOB_ALERT_PLAN_BATCH_SIZE || JOB_ALERT_PLAN_BATCH_SIZE);
     expect(Math.max(...batchSizes)).toBeLessThanOrEqual(JOB_ALERT_PLAN_BATCH_SIZE);
     expect(peakCallbacks).toBe(1);
     expect(activeCallbacks).toBe(0);
