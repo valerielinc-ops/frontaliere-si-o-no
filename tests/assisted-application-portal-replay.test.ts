@@ -429,8 +429,10 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
+    const replayGate = workflow.indexOf('\n  portal-replay-gate:');
+    const replayBlock = workflow.slice(replay, replayGate);
+    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });
 });
 

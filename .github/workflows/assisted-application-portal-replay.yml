@@ -249,7 +249,7 @@ jobs:
           PORTAL_REPLAY_REPORT: ${{ runner.temp }}/portal-replay-${{ matrix.family }}.json
         run: |
           set -euo pipefail
-          portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
           replay=(node "$portal_replay_cli" compare \
             --base-root .portal-base \
