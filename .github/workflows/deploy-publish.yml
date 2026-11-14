@@ -1,4 +1,4 @@
-name: Publish to GitHub Pages (deploy + validate)
+name: "Publish to GitHub Pages (deploy + validate)"
 
 run-name: "Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}"
 
