@@ -255,12 +255,27 @@ export function isApplicationRegionUnsupported(text = '') {
 /** Page-level evidence that the current destination is a talent pool, unsolicited application, or job alert. */
 export function applicationDestinationDiversionHint(snapshot = {}) {
   const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();
+  const text = String(snapshot?.text || '');
+  const explicitPageHeadings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
+    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : [])]
+    .map((value) => String(value || '').replace(/\s+/gu, ' ').trim())
+    .filter(Boolean);
+  const hasJobSpecificHeading = explicitPageHeadings.some((heading) =>
+    !APPLICATION_DESTINATION_TITLE_RE.test(heading)
+      && !APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading));
+  const warningOnlyInSecondaryAccessibilityHeading = text.split(/\r?\n/u).some((line) => {
+    const match = line.match(/^\s*-\s+heading\s+["'](.+?)["']\s+\[level=(\d+)/iu);
+    return Boolean(match && Number(match[2]) > 1 && APPLICATION_NOT_SPECIFIC_WARNING_RE.test(match[1]));
+  });
   const headings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
-    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : []), ...String(snapshot?.text || '').split(/\r?\n/u)
+    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : []), ...text.split(/\r?\n/u)
     .map((line) => line.match(/^\s*-\s+heading\s+["'](.+?)["']\s+\[level=1\](?:\s|$)/iu)?.[1] || '')]
     .map((value) => String(value || '').replace(/\s+/gu, ' ').trim());
   if (APPLICATION_DESTINATION_TITLE_RE.test(title)
     || APPLICATION_NOT_SPECIFIC_WARNING_RE.test(title)
+    || (APPLICATION_NOT_SPECIFIC_WARNING_RE.test(text)
+      && !hasJobSpecificHeading
+      && !warningOnlyInSecondaryAccessibilityHeading)
     || headings.some((heading) => APPLICATION_DESTINATION_TITLE_RE.test(heading))
     || headings.some((heading) => APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading))
     || APPLICATION_DIVERSION_URL_RE.test(String(snapshot?.url || ''))) {

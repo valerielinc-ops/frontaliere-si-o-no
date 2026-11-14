@@ -167,6 +167,19 @@ describe('application form posting identity', () => {
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
   });
 
+  it('does not treat a missing entry URL as route-bound provenance', () => {
+    expect(formPostingMatch('Application Payroll Specialist', {
+      company: 'Example Employer',
+      title: 'Payroll Specialist',
+    }, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: '',
+      pageUrl: 'https://other.example/spontaneous/',
+      postingUrl: 'https://paid.example/job/123/',
+    })).toBe('unknown');
+  });
+
   it('does not bind an ATS form from an employer URL elsewhere in the snapshot', () => {
     const job = { title: 'Senior Engineer', company: 'Acme AG' };
     const formText = 'Application form\nFirst name\nE-mail\nhttps://acme.example/careers';

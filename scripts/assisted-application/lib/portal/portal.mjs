@@ -5222,8 +5222,9 @@ export function formPostingMatch(formText, job = {}, {
   // An application-entry witness remains valid only while the browser is on
   // the exact route that was entered. A later generic form can otherwise
   // inherit the old posting match after a diversion.
-  const applicationEntryRouteBound = !applicationEntry || !applicationEntryUrl
-    || samePostingAddress(pageUrl, applicationEntryUrl);
+  const applicationEntryRouteBound = !applicationEntry
+    || (Boolean(String(applicationEntryUrl || '').trim())
+      && samePostingAddress(pageUrl, applicationEntryUrl));
   const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
   const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
   const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)

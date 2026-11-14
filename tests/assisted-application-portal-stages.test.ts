@@ -54,6 +54,14 @@ describe('application stage ownership', () => {
     })).toBe('talent_pool_or_job_alert');
   });
 
+  it('recognizes a generic application page whose body disclaims a specific job', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      url: 'https://example.test/apply/',
+      text: 'This is not an application for a specific job',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
   it('does not treat a job-alert sidebar link as a diversion destination for final binding', () => {
     const snapshot = {
       title: 'Application',
