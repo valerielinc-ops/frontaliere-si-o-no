@@ -5053,6 +5053,35 @@ function formRoleHeadingStatus(formText, job = {}) {
   return 'unknown';
 }
 
+// A role heading in another language can be intentionally uncertain to the
+// detector. Keep that uncertainty for a generic shell, but do not let a
+// concrete non-chrome heading override contrary raw-document evidence when a
+// posting route or a stale heading would otherwise make the form look bound.
+function hasExplicitFormRoleHeading(formText, job = {}) {
+  const companyWords = new Set([
+    ...nameWords(job.company),
+    ...nameWords(job.organization),
+  ]);
+  const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+  let formSurfaceStarted = false;
+  for (const line of lines) {
+    if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
+    if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) {
+      formSurfaceStarted = true;
+      continue;
+    }
+    if (formSurfaceStarted) continue;
+    const heading = normalizeFormRoleTitle(line);
+    if (!heading) continue;
+    const words = normalizeWords(heading).split(' ').filter(Boolean);
+    const meaningfulWords = words.filter(word => !FORM_CHROME_WORDS.has(word)
+      && !companyWords.has(word) && !/^\d+$/u.test(word));
+    if (meaningfulWords.length) return true;
+  }
+  return false;
+}
+
 // Umantis titles append the application surface to the portal's own role
 // title. On a verified vacancy route the route id is the posting identity;
 // only a second employer named after that application marker is still a
@@ -5181,7 +5210,8 @@ export function formPostingMatch(formText, job = {}, {
   // inherit the old posting match after a diversion.
   const applicationEntryRouteBound = !applicationEntry || !applicationEntryUrl
     || samePostingAddress(pageUrl, applicationEntryUrl);
-  const verifiedEntry = postingEntry || (postingMatched && applicationEntryRouteBound);
+  const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
+  const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
   const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
     && samePostingAddress(pageUrl, applicationEntryUrl);
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
@@ -5197,7 +5227,6 @@ export function formPostingMatch(formText, job = {}, {
         && postingMatch(segment, { company: job.company }, pageUrl) !== 'match';
     }));
   const verifiedFormBinding = verifiedEntry || bound || paidTalentSoftPostingBound;
-  if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   const allowAmbiguousStageHeading = Boolean(verifiedFormBinding);
   const employerHeadingCandidates = headingCandidates
     .map((heading) => employerIdentityHeadingText(heading, { allowAmbiguous: allowAmbiguousStageHeading }))
@@ -5210,6 +5239,12 @@ export function formPostingMatch(formText, job = {}, {
   const employerText = [...employerHeadingCandidates, formIdentityText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
   const direct = postingMatch(postingEvidenceText, job, pageUrl);
+  const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
+  const explicitRoleConflict = roleHeading === 'unknown'
+    && rawDirect === 'mismatch'
+    && hasExplicitFormRoleHeading(formText, job);
+  if (explicitRoleConflict && (roleOnlyPostingBound || direct === 'match')) return 'mismatch';
+  if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   const formTitleLine = formIdentityText.split(/\r?\n/, 1)[0];
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: bound }));
@@ -5289,6 +5324,7 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, formPostingUrl)) {
+    if (roleHeading === 'mismatch') return 'mismatch';
     if (namesAnotherEmployer(boundPostingConflictText(employerText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
@@ -5306,12 +5342,17 @@ export function formPostingMatch(formText, job = {}, {
       && !formTextMentionsEmployerHost(formText, job)
       && namesAnotherEmployer(formText, job))) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
+  // A verified posting can expose a generic application shell whose heading
+  // normalizer deliberately remains uncertain (for example across languages),
+  // while the raw document still names a different role. Keep that conflict
+  // fail-closed without promoting the shell to a verified application entry.
+  if (direct === 'unknown' && roleOnlyPostingBound && rawDirect === 'mismatch') return 'mismatch';
   // A paid posting can link to a generic form hosted on the employer's own
   // secondary domain (for example, an ECAM DocuWare form). Preserve the
   // posting's entry proof when the form URL names that employer, while the
   // generic form with no link/URL evidence remains unknown.
   if (verifiedEmployerFormRoute) return 'match';
-  if (direct === 'match' || (roleHeading === 'match' && verifiedEntry)) return 'match';
+  if (direct === 'match' || (roleHeading === 'match' && roleOnlyPostingBound)) return 'match';
   // A verified SuccessFactors module is a bound application surface even when
   // its account page contains no requisition or role text of its own.
   if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
