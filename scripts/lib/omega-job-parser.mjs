@@ -255,8 +255,7 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
  */
 // Deprecated local alias: the encoding now lives in the shared proxy module
 // (jinaProxiedRequest applies it to every consumer by construction, and it is
-// idempotent, so the explicit call below is belt-and-suspenders). Kept as an
-// export so existing tests/callers keep working.
+// idempotent). Kept as an export so existing tests/callers keep working.
 export const jinaSafeUrl = encodeJinaTargetUrl;
 
 /**
