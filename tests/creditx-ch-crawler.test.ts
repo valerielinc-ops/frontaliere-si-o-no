@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   CREDITX_CH_KEY,
@@ -12,6 +13,17 @@ describe('CreditX Sàrl crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(CREDITX_CH_KEY).toBe('creditx-ch');
     expect(CREDITX_CH_COMPANY_NAME).toBe('CreditX Sàrl');
+  });
+
+  it('uses the active French careers seed while retaining canonical detail links', () => {
+    const spec = JSON.parse(readFileSync(
+      new URL('../data/prospector/crawlers/creditx-ch.json', import.meta.url),
+      'utf8',
+    ));
+
+    expect(spec.seedUrls).toEqual(['https://creditx.ch/fr/careers/']);
+    expect(spec.sourceLang).toBe('fr');
+    expect(spec.detailTemplate).toBe('/careers/*');
   });
 
   // ── isCompanyJob ──

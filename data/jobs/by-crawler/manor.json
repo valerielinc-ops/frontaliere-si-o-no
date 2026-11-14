@@ -2636,7 +2636,6 @@
           "manor-collaborateur-trice-caisse-food-50-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:29:03.390Z",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -8268,7 +8267,6 @@
           "manor-mitarbeiter-in-logistik-50-sargans"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-10T09:32:35.709Z",
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -9098,7 +9096,6 @@
           "manor-mitarbeiter-in-packlitisch-50-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-06T22:13:29.971Z",
       "salaryMin": 37000,
       "salaryMax": 56800,
@@ -10105,7 +10102,6 @@
       },
       "sourceLang": "de",
       "id": "manor-1075f8ca58ad",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T21:28:28.263Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -10493,7 +10489,6 @@
           "manor-mitarbeiter-in-logistik-20-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:40:48.826Z",
       "salaryMin": 13700,
       "salaryMax": 20800,
@@ -10618,9 +10613,9 @@
       "slug": "head-of-retail-media-100-manor-ag-basel-a1284369e4",
       "slugByLocale": {
         "it": "head-of-retail-media-100-manor-ag-basel-a1284369e4",
-        "en": "manor-head-of-retail-media-100-basel",
-        "de": "manor-head-of-retail-media-100-basel",
-        "fr": "manor-head-of-retail-media-100-basel"
+        "en": "manor-head-of-retail-media-100-basel-0r202q",
+        "de": "manor-head-of-retail-media-100-basel-0r202q",
+        "fr": "manor-head-of-retail-media-100-basel-0r202q"
       },
       "titleByLocale": {
         "it": "Responsabile Retail Media 100%",
@@ -10637,6 +10632,15 @@
       "previousSlugsByLocale": {
         "it": [
           "manor-head-of-retail-media-100-basel-2",
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "en": [
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "de": [
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "fr": [
           "manor-head-of-retail-media-100-basel"
         ]
       },
@@ -11011,7 +11015,6 @@
           "manor-mitarbeiter-in-service-50-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T21:44:51.217Z",
       "salaryMin": 34500,
       "salaryMax": 43300,
@@ -11087,7 +11090,6 @@
           "manor-mitarbeiter-in-service-80-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:40:48.826Z",
       "salaryMin": 55200,
       "salaryMax": 69200,
@@ -14508,7 +14510,6 @@
         "manor-impiegato-a-del-commercio-dettaglio-afc-vezia",
         "manor-impiegato-a-del-commercio-dettaglio-afc-casalinghi-100-vezia"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -20663,7 +20664,6 @@
           "manor-mitarbeiter-in-service-50-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T21:31:49.293Z",
       "salaryMin": 34500,
       "salaryMax": 43300,
@@ -20739,7 +20739,6 @@
           "manor-mitarbeiter-in-service-20-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T09:29:50.955Z",
       "salaryMin": 13800,
       "salaryMax": 17300,
@@ -25264,7 +25263,6 @@
           "manor-mitarbeiter-in-logistik-100-hochdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -25347,7 +25345,6 @@
           "manor-mitarbeiter-in-logistik-100-hochdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -25430,7 +25427,6 @@
           "manor-mitarbeiter-in-logistik-100-hochdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
