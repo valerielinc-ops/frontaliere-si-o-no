@@ -1,0 +1,25 @@
+{
+  "companyKey": "vebego-ch",
+  "companyName": "Vebego AG",
+  "companyHost": "vebego.ch",
+  "verifiedEmployerDomain": "vebego.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vebego.ch/it/lavoro-e-carriera"
+  ],
+  "detailTemplate": "/it/lavoro-e-carriera/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Apprendistato presso Vebego",
+    "Il mondo del lavoro da Vebego",
+    "Vebego è un «Great Place To Work»"
+  ],
+  "canton": "GE",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-14T13:07:08.589Z",
+  "candidateKey": "vebego@geneve"
+}

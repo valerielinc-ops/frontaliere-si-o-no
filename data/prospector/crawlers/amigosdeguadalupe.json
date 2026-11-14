@@ -1,0 +1,23 @@
+{
+  "companyKey": "amigosdeguadalupe",
+  "companyName": "Amigos de Guadalupe",
+  "companyHost": "amigosdeguadalupe.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://amigosdeguadalupe.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Case Manager",
+    "Director of Education",
+    "Education Coordinator - Part Time"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:38.167Z",
+  "candidateKey": "amigosdeguadalupe@applytojob.com"
+}

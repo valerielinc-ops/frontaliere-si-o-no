@@ -27,6 +27,21 @@ function makeDist(): string {
   return dir;
 }
 
+describe('related-search shell checkout contract', () => {
+  it('materializes the tracked profession route fixture', () => {
+    const routes = JSON.parse(
+      readFileSync(new URL('../data/profession-landing-routes.json', import.meta.url), 'utf8'),
+    ) as Record<string, unknown>;
+
+    expect(routes).toEqual(expect.objectContaining({
+      professionLegacyRoutes: expect.arrayContaining([expect.any(String)]),
+      professionCantonRoutes: expect.arrayContaining([expect.any(String)]),
+      professionCityRoutes: expect.arrayContaining([expect.any(String)]),
+      salaryProfessionCantonRoutes: expect.arrayContaining([expect.any(String)]),
+    }));
+  });
+});
+
 afterEach(() => {
   for (const dir of tmpDirs.splice(0)) rmSync(dir, { recursive: true, force: true });
 });
