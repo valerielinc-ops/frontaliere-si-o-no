@@ -2588,9 +2588,9 @@
     },
     {
       "id": "spital-sts-9d1a00acea99",
-      "slug": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
+      "slug": "psicologo-a-fsp-sbap-triage-ambulatorio-spital-sts-thun",
       "slugByLocale": {
-        "it": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
+        "it": "psicologo-a-fsp-sbap-triage-ambulatorio-spital-sts-thun",
         "en": "psychologist-fsp-sbap-triage-ambulatory-spital-sts-thun",
         "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "fr": "psychologue-fsp-sbap-triage-ambulatoire-spital-sts-thun"
@@ -2668,7 +2668,15 @@
       },
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-13T21:24:20.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-637a3256afe9",

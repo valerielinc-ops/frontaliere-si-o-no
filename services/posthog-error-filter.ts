@@ -35,6 +35,7 @@
 import {
   UNIVERSAL_BENIGN_PATTERNS,
   BROWSER_EXTENSION_ORIGIN_PATTERN,
+  isGoogleVignetteInjectedOpaqueError,
   isGoogleIosAppInjectedStackOverflow,
   isOriginRedactedThirdPartyStack,
 } from './benignErrorPatterns';
@@ -145,6 +146,12 @@ function eventUserAgent(event: PostHogExceptionEvent): string {
   return typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
 }
 
+function eventPageUrl(event: PostHogExceptionEvent): string {
+  const raw = event.properties?.$current_url;
+  if (typeof raw === 'string' && raw) return raw;
+  return typeof window !== 'undefined' ? window.location.href : '';
+}
+
 /**
  * True when the exception has at least one resolved stack frame AND every
  * frame's origin matches a known third-party script we do not control
@@ -247,6 +254,11 @@ export function createExceptionFilter() {
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,
       eventUserAgent(event),
+    )) return null;
+    if (isGoogleVignetteInjectedOpaqueError(
+      blob,
+      origins.length > 0 ? origins.join('\n') : rawStack,
+      eventPageUrl(event),
     )) return null;
     // Zero resolved frames → fall back to the raw stack we recorded ahead of
     // PostHog's own handler and classify on its SHAPE (#4173).
