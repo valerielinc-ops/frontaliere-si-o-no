@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-11-13T21:43:04.241Z",
+  "generatedAt": "2026-11-14T09:47:51.124Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8448,
-  "avgDurationMs": 8448,
+  "durationMs": 17388,
+  "avgDurationMs": 17388,
   "durationHistory": [
-    8448
+    17388
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-80dfba1c11f4",
-      "slug": "head-of-global-business-services-gbs-galderma-ch",
+      "slug": "responsabile-global-business-services-gbs-galderma-zug",
       "company": "Galderma",
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Head of Global Business Services (GBS)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Global-Business-Services--GBS-_JR021691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:42:40.586Z",
+      "crawledAt": "2026-11-14T09:47:16.078Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -52,6 +53,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Global-Business-Services--GBS-_JR021691-1",
       "jobReqId": "JR021691",
+      "firstSeenAt": "2026-11-13T21:42:40.586Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -69,19 +71,17 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:42:40.586Z",
+      "validThrough": "2027-02-11T09:47:16.078Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:42:40.586Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -97,7 +97,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:42:41.336Z",
+      "crawledAt": "2026-11-14T09:47:16.809Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T21:42:41.336Z",
+      "validThrough": "2027-01-25T09:47:16.809Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -143,5 +143,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
