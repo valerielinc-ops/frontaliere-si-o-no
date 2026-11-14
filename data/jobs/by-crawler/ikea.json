@@ -1836,7 +1836,6 @@
           "mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T21:09:41.871Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2007,7 +2006,6 @@
       "requirementsByLocale": {
         "it": []
       },
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37500,
       "salarySource": "estimated",
@@ -2031,9 +2029,9 @@
       "slug": "collaboratore-trice-ristorante-e-bistro-50-ikea-ch",
       "slugByLocale": {
         "it": "collaboratore-trice-ristorante-e-bistro-50-ikea-ch",
-        "en": "collaboratore-trice-ristorante-e-bistro-50-ikea-ch",
+        "en": "restaurant-and-bistro-assistant-50-ikea-grancia-ticino",
         "de": "collaboratore-trice-ristorante-e-bistro-50-ikea-ch",
-        "fr": "collaboratore-trice-ristorante-e-bistro-50-ikea-ch"
+        "fr": "collaborateur-trice-restaurant-et-bistro-50-ikea-grancia-ticino"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2078,7 +2076,6 @@
       "requirementsByLocale": {
         "it": []
       },
-      "needsRetranslation": true,
       "salaryMin": 24800,
       "salaryMax": 37500,
       "salarySource": "estimated",
@@ -2194,7 +2191,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -2241,7 +2238,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2249,7 +2246,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -2425,7 +2422,6 @@
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:34:24.357Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2780,7 +2776,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitabeiter-in-logistik-auffullteam-40-ikea-ch"

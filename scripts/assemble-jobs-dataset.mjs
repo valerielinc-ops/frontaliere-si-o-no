@@ -1061,7 +1061,7 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
   };
 }
 
-function assembleCacheFileContract({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export function assembleCacheFileContract({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
   if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
   if (withSummaries) requiredSnapshotFiles.push('jobs-crawler-summaries.json');

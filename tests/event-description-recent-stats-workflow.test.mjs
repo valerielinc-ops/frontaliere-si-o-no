@@ -13,11 +13,15 @@ test('the recent-state workflow writes one run id per line and reports download 
   assert.ok(step, 'recent-state workflow step not found');
   const script = step.match(/node --input-type=module -e '([\s\S]*?)'\s+"\$RUNNER_TEMP\/event-description-recent-runs\.json"\s+"\$RUNNER_TEMP\/event-description-recent-run-ids\.txt"/)?.[1];
   assert.ok(script, 'recent run id writer not found');
+  assert.match(step, /if ! node scripts\/ci\/run-gh-read\.mjs run list/u);
+  assert.match(step, /continuing without historical throughput state/u);
+  assert.match(step, /: > "\$RUNNER_TEMP\/event-description-recent-runs\.json"/u);
   assert.match(step, /Recent successful runs found: \$recent_run_count/);
   assert.match(step, /states downloaded: \$downloaded_count/);
   assert.match(step, /downloads failed: \$failed_download_count/);
   assert.match(step, /::warning::/);
   assert.doesNotMatch(step, />\/dev\/null 2>&1 \|\| true/);
+  assert.doesNotMatch(workflow, /^\s+gh run list\s*\\/mu);
 
   const root = mkdtempSync(path.join(os.tmpdir(), 'event-description-workflow-contract-'));
   try {

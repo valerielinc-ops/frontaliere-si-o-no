@@ -597,12 +597,12 @@
     },
     {
       "id": "omega-34191",
-      "slug": "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne",
+      "slug": "formazione-professionale-m-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne",
-        "it": "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne",
-        "en": "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne",
-        "de": "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne"
+        "it": "formazione-professionale-m-f-omega-sa-biel-bienne",
+        "en": "occupational-trade-maturity-stagiary-m-f-omega-sa-biel-bienne",
+        "de": "betriebliche-maturitatsstagien-m-w-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -676,16 +676,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-12T10:00:53.643Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:00:53.643Z"
+      "firstSeenAt": "2026-11-14T10:00:53.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne"
+        ],
+        "en": [
+          "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne"
+        ],
+        "de": [
+          "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-de-maturite-professionnelle-commerciale-h-f-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-34211",
-      "slug": "customer-service-polisher-omega-biel-bienne",
+      "slug": "servizio-clienti-polisher-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "customer-service-polisher-omega-biel-bienne",
-        "it": "customer-service-polisher-omega-biel-bienne",
+        "it": "servizio-clienti-polisher-omega-sa-biel-bienne",
         "en": "customer-service-polisher-omega-biel-bienne",
-        "de": "customer-service-polisher-omega-biel-bienne"
+        "de": "kundendienst-polisher-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -760,7 +774,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-12T10:00:32.436Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:00:32.436Z"
+      "firstSeenAt": "2026-11-14T10:00:32.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-polisher-omega-biel-bienne"
+        ],
+        "de": [
+          "customer-service-polisher-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-polisher-omega-biel-bienne"
+      ]
     },
     {
       "id": "omega-33509",
