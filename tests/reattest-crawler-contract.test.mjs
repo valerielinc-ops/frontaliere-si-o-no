@@ -137,7 +137,7 @@ test('workflow verifies the reconciled contract before publishing it', () => {
   const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
   const reattest = openStep.indexOf('reattest-crawler-contract.mjs');
   const verify = openStep.indexOf('verify-crawler-contract-provenance.mjs');
-  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"');
+  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"', verify);
   const push = openStep.indexOf('git push --set-upstream origin "$REATTEST_BRANCH"');
 
   assert.match(
@@ -162,4 +162,21 @@ test('workflow configures commit identity before reconciling the persistent bran
   assert.ok(merge >= 0, 'persistent branch reconciliation must merge origin/main');
   assert.ok(identity < merge, 'committer name must precede the merge');
   assert.ok(email < merge, 'committer email must precede the merge');
+});
+
+test('workflow resolves only the generated contract when persistent branch reconciliation conflicts', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+  const merge = openStep.indexOf('if ! git merge --no-edit origin/main; then');
+  const conflictPaths = openStep.indexOf('conflicted_paths=$(git diff --name-only --diff-filter=U)');
+  const abort = openStep.indexOf('git merge --abort || true');
+  const resolve = openStep.indexOf('git checkout --theirs -- "$CONTRACT_PATH"');
+  const commit = openStep.indexOf('git commit --no-edit');
+
+  assert.ok(merge >= 0, 'persistent branch reconciliation must inspect merge failure');
+  assert.ok(conflictPaths > merge, 'conflict paths must be collected after merge failure');
+  assert.match(openStep, /if \[ "\$conflicted_paths" != "\$CONTRACT_PATH" \]; then/u);
+  assert.ok(abort > conflictPaths, 'unexpected conflicts must abort the merge');
+  assert.ok(resolve > conflictPaths, 'only the contract conflict may be auto-resolved');
+  assert.ok(commit > resolve, 'the resolved merge must be committed before reattestation');
 });

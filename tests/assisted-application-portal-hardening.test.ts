@@ -359,16 +359,193 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       'Sie können nun Ihren Lebenslauf hochladen.',
       ...snapshot.fields.map((field) => field.label),
     ].join('\n');
+    const postingUrl = url.replace('?ApplicationType=OfferApplication', '?source=paid-posting');
 
     expect(hasApplicationSurface(snapshot)).toBe(true);
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url).next).toEqual(expect.objectContaining({ text: 'Weiter' }));
     expect(postingMatch('Senior Engineer Weiter', { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' }, url)).toBe('match');
-    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url, postingUrl, paidPostingUrl: postingUrl })).toBe('match');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn', 'Rhätische Bahn AG'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+      postingEntry: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+      applicationEntry: true,
+      postingMatched: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: 'https://rhb-career.talent-soft.com/application?source=paid',
+      postingEntry: true,
+    })).toBe('mismatch');
+    for (const suffix of ['/', '/step']) {
+      expect(formPostingMatch(formText, job, {
+        pageUrl: url.replace('_2233.aspx', `_2233.aspx${suffix}`),
+        paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+        postingEntry: true,
+      })).toBe('mismatch');
+    }
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Other Resort - Meine Bewerbung absenden'), job, { pageUrl: url })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Other Resort - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Rhätische Bahn - Other Resort - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn - Meine Bewerbung absenden', 'Other Resort - Rhätische Bahn - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn', 'Other Resort'), job, { pageUrl: url })).toBe('mismatch');
     expect(formPostingMatch(formText, job, { pageUrl: url.replace('rhb-career', 'other-career') })).toBe('mismatch');
     expect(formPostingMatch(formText, {
       ...job,
       title: 'Rangiermitarbeiter/in (50-100%)',
     })).toBe('mismatch');
+  });
+
+  it('rejects a TalentSoft form headed by another employer even when tenant alias and role match', () => {
+    const job = { company: 'Acme AG (ACME)', title: 'Senior Engineer' };
+    const heading = 'Greenfield Systems - My application';
+    const formText = `${heading}\nSenior Engineer`;
+    const talentSoftUrl = 'https://acme-career.talent-soft.com/job/fixture_123.aspx';
+
+    expect(formPostingMatch(formText, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, { pageUrl: talentSoftUrl, paidPostingUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`ACME - Greenfield Systems\n${job.title}`, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`Research Hub - My application\n${job.title}`, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`${formText}\n${talentSoftUrl}`, job, {
+      pageUrl: 'https://other-career.example/apply/fixture',
+    })).toBe('mismatch');
+
+    const mixedCaseAliasJob = { company: 'Acme AG (RhB)', title: 'Senior Engineer' };
+    expect(formPostingMatch('Research High Bio - My application\nSenior Engineer', mixedCaseAliasJob, {
+      pageUrl: 'https://rhb-career.talent-soft.com/apply/fixture',
+    })).toBe('mismatch');
+  });
+
+  it('does not treat arbitrary names beginning with the letters of a mixed-case employer alias as equivalent', () => {
+    const job = { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' };
+    const pageUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx';
+    const paidPostingUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx?source=paid-posting';
+    const wrongPaidPostingUrl = paidPostingUrl.replace('_2233.aspx', '_2234.aspx');
+    const localizedDocumentTitle = `My application\nRhätische Bahn - My application\n${job.title}`;
+
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeading: 'Rhätische Bahn - My application',
+    })).toBe('match');
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl: wrongPaidPostingUrl,
+      postingEntry: true,
+      pageHeading: 'Rhätische Bahn - My application',
+    })).toBe('mismatch');
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeading: 'Other Resort - My application',
+    })).toBe('mismatch');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeadings: ['Rhätische Bahn - My application', 'Other Resort - My application'],
+    })).toBe('mismatch');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeadings: null,
+    })).toBe('unknown');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl: 'https://rhb-career.talent-soft.com/application',
+      pageHeadings: null,
+    })).toBe('unknown');
+    const wrongFinalRoute = pageUrl.replace('_2233.aspx', '_2234.aspx');
+    for (const formText of ['My application\nSenior Engineer', 'My application']) {
+      expect(formPostingMatch(formText, job, {
+        pageUrl: wrongFinalRoute,
+        paidPostingUrl,
+        postingEntry: true,
+        postingMatched: true,
+        pageHeadings: [],
+      })).toBe('mismatch');
+    }
+
+    for (const employer of ['Rhine Business', 'Rhodium Bank']) {
+      expect(formPostingMatch(`${employer} - My application\n${job.title}`, job, {
+        pageUrl,
+        paidPostingUrl,
+      })).toBe('mismatch');
+    }
+    expect(formPostingMatch(`Bahn AG - My application\n${job.title}`, job, {
+      pageUrl,
+      paidPostingUrl,
+    })).toBe('mismatch');
+  });
+
+  it('does not treat a generic Workday information heading as another employer', () => {
+    const job = { company: 'Acme AG', title: 'Senior Engineer' };
+    for (const heading of [
+      'My Information', 'My Experience', 'My Documents', 'Application Questions', 'Voluntary Disclosures', 'My Education',
+      'Meine Ausbildung', 'Mes études', 'La mia formazione', 'Review', 'Review and Submit', 'Personal Details',
+      'Contact Details', 'Your Profile', 'Work History', 'Candidate Details',
+    ]) {
+      expect(formPostingMatch(`${heading}\nSenior Engineer`, job, {
+        pageUrl: 'https://careers.acme.example/application',
+        postingMatched: true,
+        applicationEntry: true,
+        pageHeading: heading,
+        pageHeadings: [heading],
+      })).toBe('unknown');
+    }
+    expect(formPostingMatch('Review\nSenior Engineer', job, {
+      pageUrl: 'https://careers.acme.example/application',
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'Review - Other Resort',
+      pageHeadings: ['Review - Other Resort'],
+    })).toBe('mismatch');
+  });
+
+  it('keeps the ambiguous “About You” heading unknown until a posting link is proved', () => {
+    const job = { company: 'Acme AG', title: 'Senior Engineer' };
+    const formText = 'About You\nSenior Engineer';
+    const pageUrl = 'https://careers.example/application';
+
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'About You - Other Resort',
+      pageHeadings: ['About You - Other Resort'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, { company: 'ABOUT YOU', title: 'Senior Engineer' }, {
+      pageUrl,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('match');
   });
 
   it('opens a SuccessFactors application from its matching posting page', () => {

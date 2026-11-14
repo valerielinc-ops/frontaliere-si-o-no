@@ -15,14 +15,21 @@ import {
   aggregatePortalReplayGate,
   bestEffortPortalReplayPreflight,
   comparePortalReplayFamily,
+  completeUnmeasuredReplaySide,
+  createPortalReplayDeadline,
   extractPortalStopHosts,
+  markdownForAggregate,
   PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
+  PORTAL_REPLAY_MAX_RETRIES,
   portalReplayPathScope,
+  postingLinkStatus,
+  retryClass,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
   mergePortalReplayRetryEvidence,
+  violationsFor,
 } from '../scripts/assisted-application/portal-replay.mjs';
 
 const tempDirs: string[] = [];
@@ -476,19 +483,19 @@ describe('portal replay workflow wiring', () => {
     expect(gateBlock).toContain('node "$gate_cli" aggregate');
   });
 
-  it('does shared setup once and runs the family group inside one worker', () => {
+  it('runs bounded family groups in parallel workers and keeps one group scheduler per worker', () => {
     const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
-    expect(workflow).toContain('name: replay portal families (group)');
+    expect(workflow).toContain('name: replay portal families (group ${{ matrix.group }})');
+    expect(workflow).toContain('group: [0, 1, 2]');
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
     expect(workflow).toContain('declare -f run_group > "$group_script"');
     expect(workflow).not.toContain("bash -c 'run_group'");
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
-    expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
+    expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}-${{ matrix.group }}');
     expect(workflow).not.toContain('max-parallel: 6');
     expect(workflow).not.toContain('matrix.family');
-    expect(workflow).not.toContain('      matrix:\n');
   });
 
   it('keeps the concurrent Codex callers within the broker lanes so no listing waits in the queue', () => {
@@ -513,19 +520,30 @@ describe('portal replay workflow wiring', () => {
     // the job budget covers a worst-case bound derived from the largest family
     // (a family holds a slot for its whole workload), not from an average
     const cli = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
-    const limits = /minPerFamily: (\d+), base: (\d+), hardCases: (\d+), maxPerFamily: (\d+), retries: (\d+)/u.exec(cli);
+    const limits = /minPerFamily: (\d+), base: (\d+), hardCases: (\d+), maxPerFamily: (\d+), retries: (\d+|PORTAL_REPLAY_MAX_RETRIES)/u.exec(cli);
     expect(limits).not.toBeNull();
-    const [maxPerFamily, retries] = [Number(limits?.[4]), Number(limits?.[5])];
+    const maxPerFamily = Number(limits?.[4]);
+    const retries = limits?.[5] === 'PORTAL_REPLAY_MAX_RETRIES' ? PORTAL_REPLAY_MAX_RETRIES : Number(limits?.[5]);
     const minPerFamily = Number(limits?.[1]);
     const listingMs = Number(/--timeout-ms (\d+)/u.exec(workflow)?.[1]);
     expect(listingMs).toBe(75_000);
     const preflightS = 60;
-    const listingS = ((retries + 1) * listingMs) / 1000;
+    // a side gets (retries + 1) attempts, each bounded by the wall cap of an
+    // attempt; the broker limit of one call must fit inside that cap
+    const wallCapMs = Number(/REPLAY_WALL_CAP_MS = ([\d_]+)/u.exec(cli)?.[1]?.replaceAll('_', ''));
+    const callMs = Number(/REPLAY_CODEX_CALL_TIMEOUT_MS = ([\d_]+)/u.exec(cli)?.[1]?.replaceAll('_', ''));
+    expect(wallCapMs).toBeGreaterThanOrEqual(listingMs + callMs);
+    expect(Number(/broker_max_timeout_ms: '(\d+)'/u.exec(workflow.slice(workflow.indexOf('  replay:')))?.[1])).toBe(callMs);
+    expect(workflow).toContain(`REPLAY_CODEX_CALL_TIMEOUT_MS (${callMs / 1000} s`);
+    expect(workflow).toContain(`REPLAY_WALL_CAP_MS (${wallCapMs / 1000} s)`);
+    const listingS = ((retries + 1) * wallCapMs) / 1000;
     const largestS = maxPerFamily * listingS + preflightS;
     const smallS = minPerFamily * listingS + preflightS;
-    const familyCount = 12; // PORTAL_REPLAY_FAMILIES
-    const largeFamilies = 3; // employer_site, successfactors, workday get maxPerFamily listings
-    const workS = largeFamilies * largestS + (familyCount - largeFamilies) * smallS;
+    // The modulo partition puts at most four families in a worker. Bound all
+    // four at maxPerFamily so the timeout remains safe for any affected subset.
+    const groupLargeFamilies = 4;
+    const groupSmallFamilies = 0;
+    const workS = groupLargeFamilies * largestS + groupSmallFamilies * smallS;
     const slots = Math.floor(laneCount / 2);
     // greedy list scheduling: makespan <= work / slots + (1 - 1 / slots) * largest family
     const makespanS = workS / slots + (1 - 1 / slots) * largestS;
@@ -633,6 +651,139 @@ describe('portal replay base/head gate', () => {
     expect(sanitizePortalReplayReport(result).status).toBe('pass');
   });
 
+  it('retries a read-only replay timeout once', () => {
+    expect(PORTAL_REPLAY_MAX_RETRIES).toBe(1);
+    expect(retryClass('stopped', 0, 'portal_replay_timeout')).toBe('portal_replay_timeout');
+    expect(retryClass('stopped')).toBe('');
+  });
+
+  it('measures the active budget without the time spent waiting for the Codex broker', () => {
+    let clock = 1_000;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, wallCapMs: 180_000, now: () => clock });
+    clock += 20_000; // navigation and clicks
+    expect(deadline.expired()).toBe('');
+    deadline.agentStarted();
+    clock += 100_000; // one slow Codex call: 100 s that are not the runner's
+    expect(deadline.expired()).toBe('');
+    expect(deadline.snapshot()).toMatchObject({ wallMs: 120_000, agentMs: 100_000, activeMs: 20_000, calls: 1 });
+    deadline.agentSettled();
+    clock += 54_000;
+    expect(deadline.expired()).toBe('');
+    clock += 1_000; // 20 s + 55 s of runner time: the same 75 s every listing gets
+    expect(deadline.expired()).toBe('active');
+  });
+
+  it('counts overlapping Codex calls once and still ends at the wall cap', () => {
+    let clock = 0;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, wallCapMs: 180_000, now: () => clock });
+    deadline.agentStarted();
+    clock += 10_000;
+    deadline.agentStarted();
+    clock += 10_000;
+    deadline.agentSettled();
+    clock += 10_000;
+    deadline.agentSettled();
+    expect(deadline.snapshot()).toMatchObject({ wallMs: 30_000, agentMs: 30_000, activeMs: 0, calls: 2 });
+    deadline.agentStarted(); // a call that never answers
+    clock += 149_999;
+    expect(deadline.expired()).toBe('');
+    clock += 1;
+    expect(deadline.expired()).toBe('wall');
+  });
+
+  it('logs how long each Codex call took and whether it failed', () => {
+    let clock = 0;
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: 75_000, now: () => clock });
+    const first = deadline.agentStarted();
+    clock += 41_000;
+    deadline.agentSettled(first, true);
+    const second = deadline.agentStarted();
+    clock += 150_000;
+    deadline.agentSettled(second, false);
+    expect(deadline.snapshot().callLog).toEqual([{ ms: 41_000, ok: true }, { ms: 150_000, ok: false }]);
+  });
+
+  describe('completing an unmeasured side', () => {
+    const attempt = (stage: string, overrides: Record<string, unknown> = {}) => ({
+      stage, status: 'measured', stopCode: 'posting_mismatch', agentCalls: 1, retryCount: 0,
+      blockedNonGet: 0, securityViolations: [], timing: { wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' },
+      timings: [{ wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' }], ...overrides,
+    });
+    const timedOut = (overrides: Record<string, unknown> = {}) => attempt('stopped', { status: 'error', stopCode: 'portal_replay_timeout', ...overrides });
+
+    it('replays the head once, alone, when only the head lost its measurement', async () => {
+      const calls: string[] = [];
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: timedOut(),
+        rerun: async (side: string) => { calls.push(side); return attempt('form'); },
+      });
+      expect(calls).toEqual(['head']);
+      expect(result.completed).toBe('head');
+      expect(result.head.status).toBe('measured');
+      expect(result.head.retryCount).toBe(1);
+      expect(result.head.agentCalls).toBe(2);
+      expect(result.head.timings).toHaveLength(2);
+      expect(result.base.stage).toBe('form');
+    });
+
+    it('applies the same rule when the base is the side that lost its measurement', async () => {
+      const calls: string[] = [];
+      const result = await completeUnmeasuredReplaySide({
+        base: timedOut(), head: attempt('form'),
+        rerun: async (side: string) => { calls.push(side); return attempt('form'); },
+      });
+      expect(calls).toEqual(['base']);
+      expect(result.completed).toBe('base');
+      expect(result.base.status).toBe('measured');
+    });
+
+    it('never takes a side past its attempts: a side that already used its neutral retry is not replayed again', async () => {
+      const twice = timedOut({ timings: [{ wallMs: 1, activeMs: 1, agentMs: 0, timeout: '' }, { wallMs: 1, activeMs: 1, agentMs: 0, timeout: 'active' }] });
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: twice,
+        rerun: async () => { throw new Error('must not rerun'); },
+      });
+      expect(result.completed).toBe('');
+      expect(result.head).toBe(twice);
+    });
+
+    it('does not replay when both sides measured, both are unmeasured, or the miss is a neutral portal fact', async () => {
+      const rerun = async () => { throw new Error('must not rerun'); };
+      for (const [base, head] of [
+        [attempt('form'), attempt('form')],
+        [timedOut(), timedOut()],
+        [attempt('form'), attempt('captcha', { status: 'neutral', stopCode: 'captcha' })],
+        [attempt('form'), undefined],
+      ]) {
+        const result = await completeUnmeasuredReplaySide({ base, head, rerun });
+        expect(result.completed).toBe('');
+        expect(result.head).toBe(head);
+      }
+    });
+
+    it('keeps the criterion: a side that stays unmeasured is still replay_unmeasured', async () => {
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'), head: timedOut(), rerun: async () => timedOut(),
+      });
+      expect(result.completed).toBe('head');
+      const gate = comparePortalReplayFamily({
+        family: 'greenhouse', baseRecords: [{ caseId: 'one', ...result.base }], headRecords: [{ caseId: 'one', ...result.head }],
+      });
+      expect(gate.status).toBe('fail');
+      expect(gate.findingCodes).toContain('replay_unmeasured');
+    });
+
+    it('retains a violation observed by the first attempt when the retry is the record we keep', async () => {
+      const result = await completeUnmeasuredReplaySide({
+        base: attempt('form'),
+        head: timedOut({ finalClickAttempts: 1, securityViolations: ['final_click_attempt'] }),
+        rerun: async () => attempt('form'),
+      });
+      expect(result.head.securityViolations).toContain('final_click_attempt');
+      expect(result.head.status).toBe('fail');
+    });
+  });
+
   it('does not infer a security regression from an unmeasured base', () => {
     const result = comparePortalReplayFamily({
       family: 'personio',
@@ -651,6 +802,36 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toContain('replay_unmeasured');
+  });
+
+  it('keeps a pre-form mismatch stop from becoming a wrong-module finding', () => {
+    const comparison = comparePortalReplayFamily({
+      family: 'manatal',
+      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'ad_opened', {
+        stopCode: 'posting_mismatch', formLinkedToPosting: 'no',
+      })),
+      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'ad_opened', {
+        stopCode: 'posting_mismatch', formLinkedToPosting: 'no',
+      })),
+    });
+    const report = sanitizePortalReplayReport(comparison);
+
+    expect(report.status).toBe('pass');
+    expect(report.findingCodes).not.toContain('wrong_posting_or_talent_pool');
+    expect(report.cases[0].head.formLinkedToPosting).toBe('unknown');
+  });
+
+  it('keeps contradictory posting-match evidence unknown and flags explicit form mismatch', () => {
+    const mismatchEvent = { type: 'submit_handoff', reason: 'posting_mismatch' };
+    const matchingEvidence = { formReady: true, postingMatch: 'match' };
+    const mismatchingEvidence = { formReady: true, postingMatch: 'mismatch' };
+
+    expect(postingLinkStatus(mismatchEvent, matchingEvidence, 'form')).toBe('unknown');
+    expect(violationsFor({ event: mismatchEvent, evidence: matchingEvidence, metrics: {}, stage: 'form' }))
+      .not.toContain('wrong_posting_or_talent_pool');
+    expect(postingLinkStatus(mismatchEvent, mismatchingEvidence, 'form')).toBe('no');
+    expect(violationsFor({ event: mismatchEvent, evidence: mismatchingEvidence, metrics: {}, stage: 'form' }))
+      .toContain('wrong_posting_or_talent_pool');
   });
 
   it('fails every security violation, including a final click, a passed mutation, or a wrong posting', () => {
@@ -700,6 +881,26 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.cases[0].head.formLinkedToPosting).toBe('unknown');
+  });
+
+  it('prints only sanitized replay finding codes in the aggregate report', () => {
+    const summary = markdownForAggregate({
+      status: 'fail', code: 'matrix_incomplete_or_failed', failedFamilies: ['manatal'], reportCount: 1,
+    }, [{
+      family: 'manatal',
+      familyRates: { baseReady: 0, headReady: 0, comparable: 1 },
+      cases: [{
+        host: 'careers.example.test', path: '/jobs/*', findingCodes: ['wrong_posting_or_talent_pool', 'replay_unmeasured'],
+        base: { stage: 'ad_opened' },
+        head: {
+          stage: 'form', stopCode: 'posting_mismatch', agentCalls: 0, blockedNonGet: 0,
+          nodeEgressBlocked: 0, finalClickAttempts: 0, formLinkedToPosting: 'unknown',
+        },
+      }],
+    }], true);
+
+    expect(summary).toContain('wrong_posting_or_talent_pool, replay_unmeasured');
+    expect(summary).not.toContain('https://');
   });
 
   it('removes case identifiers and unexpected fields from the public replay report', () => {

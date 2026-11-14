@@ -31,10 +31,10 @@ describe('Delvitech job parser', () => {
         <div class="fusion-layout-column"><h5>Unrelated role</h5></div>
       </div>
     `;
-    const jobs = parseDelvitechCareerPage(html);
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
     expect(jobs).toHaveLength(2);
     expect(jobs.map((job) => job.href)).toEqual([
-      'https://legacy.delvi.tech/application-engineer-2/',
+      'https://delvi.tech/application-engineer-2/',
       'https://delvi.tech/customer-support-manager/',
     ]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
@@ -56,6 +56,95 @@ describe('Delvitech job parser', () => {
       href: 'https://legacy.delvi.tech/career/job-123',
       title: 'Engineer',
     });
+  });
+
+  it('reads semantic open-role cards from the canonical careers page', () => {
+    const html = `
+      <main>
+        <section id="open-roles">
+          <article class="role-card">
+            <h3>Application Engineer</h3>
+            <a href="/application-engineer-2/">View role</a>
+          </article>
+          <article class="role-card">
+            <a href="/customer-support-manager/">Customer Support Manager</a>
+          </article>
+        </section>
+        <a href="/careers/">See open roles</a>
+        <a href="/news/company-update/">News</a>
+      </main>
+    `;
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://delvi.tech/application-engineer-2/',
+      'https://delvi.tech/customer-support-manager/',
+    ]);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'Application Engineer',
+      'Customer Support Manager',
+    ]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
+    expect(jobs.delvitechListingRecordCount).toBe(2);
+  });
+
+  it('ignores same-company navigation links outside explicit role cards', () => {
+    const html = `
+      <main>
+        <h2>Open roles</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li>
+            <article>
+              <h3>Engineer</h3>
+              <a href="/careers/engineer">Apply</a>
+            </article>
+          </li>
+        </ul>
+      </main>
+    `;
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://delvi.tech/careers/engineer',
+    ]);
+  });
+
+  it('does not let a malformed semantic row suppress its structured JobPosting', () => {
+    const html = `
+      <main>
+        <section id="open-roles">
+          <article class="role-card">
+            <a href="/careers/engineer" aria-label="Open Engineer role"><svg aria-hidden="true"></svg></a>
+          </article>
+        </section>
+      </main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Engineer',
+        url: 'https://delvi.tech/careers/engineer',
+      })}</script>
+    `;
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
+    expect(jobs).toEqual([{
+      href: 'https://delvi.tech/careers/engineer',
+      title: 'Engineer',
+    }]);
+  });
+
+  it('accepts same-company JobPosting links when the canonical page exposes structured listings', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'E2E Test Engineer',
+      url: 'https://delvi.tech/e2e-test-engineer/',
+    })}</script>`;
+    const jobs = parseDelvitechCareerPage(html);
+    expect(jobs).toEqual([{
+      href: 'https://delvi.tech/e2e-test-engineer/',
+      title: 'E2E Test Engineer',
+    }]);
+    expect(jobs.delvitechListingMarkupSeen).toBe(true);
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {
@@ -95,6 +184,37 @@ describe('Delvitech job parser', () => {
   it('rejects a publication date from an unrelated WebPage node', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({ '@type': 'WebPage', url: 'https://legacy.delvi.tech/other/', datePublished: '2025-04-17' })}</script><div class="post-content"><h1>Application Engineer</h1></div>`;
     expect(parseDelvitechJobDetail(html, 'https://legacy.delvi.tech/application-engineer-2/').datePublished).toBe('');
+    const ambiguousHtml = `<script type="application/ld+json">${JSON.stringify([
+      { '@type': 'JobPosting', title: 'First role', description: '<p>First</p>' },
+      { '@type': 'JobPosting', title: 'Second role', description: '<p>Second</p>' },
+    ])}</script><main></main>`;
+    expect(parseDelvitechJobDetail(ambiguousHtml, 'https://delvi.tech/unknown-role/')).toMatchObject({
+      title: '',
+      location: '',
+      description: '',
+      datePublished: '',
+    });
+  });
+
+  it('falls back to canonical JobPosting metadata on a redesigned detail page', () => {
+    const html = `
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'E2E Test Engineer',
+        description: '<p>Build and maintain automated tests.</p>',
+        datePosted: '2026-11-01',
+        jobLocation: { address: { addressLocality: 'Mendrisio', addressRegion: 'TI', addressCountry: 'CH' } },
+      })}</script>
+      <main><p>The role is part of the engineering team.</p></main>
+    `;
+    const detail = parseDelvitechJobDetail(html, 'https://delvi.tech/e2e-test-engineer/');
+    expect(detail).toMatchObject({
+      title: 'E2E Test Engineer',
+      location: 'Mendrisio',
+      datePublished: '2026-11-01',
+    });
+    expect(detail.description).toContain('Build and maintain automated tests.');
   });
 
   it('filters out the explicit Germany role', () => {

@@ -58,7 +58,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { extractJobPostingNodes } from './lib/jobposting-jsonld.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
@@ -199,14 +199,23 @@ export async function fetchDennerJobUrls() {
   const paginationStallPolls = Math.max(1, Number(process.env.JOBS_DENNER_PAGINATION_STALL_POLLS) || 4);
   const maxPages = positiveIntFromEnv('JOBS_DENNER_MAX_PAGES', 200);
   const browserChannel = String(process.env.JOBS_DENNER_BROWSER_CHANNEL || '').trim();
-  const browser = await launchChromium({
+  const args = ['--disable-blink-features=AutomationControlled'];
+  const fallbackOptions = {
     headless,
-    args: ['--disable-blink-features=AutomationControlled'],
+    args,
     ...(browserChannel ? { channel: browserChannel } : {}),
+  };
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    headless,
+    args,
+    fallbackOptions,
   });
 
   try {
-    const context = await browser.newContext({ userAgent: UA });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : { userAgent: UA });
     const page = await context.newPage();
     console.log(`\ud83d\udd0d Fetching nationwide Denner jobs: ${DENNER_LISTING_BASE}`);
     await page.goto(DENNER_LISTING_BASE, { waitUntil: 'domcontentloaded', timeout: navTimeoutMs });

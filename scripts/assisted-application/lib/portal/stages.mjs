@@ -41,10 +41,13 @@ const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|sen
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
-const APPLICATION_DIVERSION_TITLE_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
+const APPLICATION_DIVERSION_TITLE_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|spontaneous\s+application|unsolicited\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alerts?|job\s*alerts?|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
+const APPLICATION_DESTINATION_TITLE_RE = /^(?:talent\s*pool|talentpool|spontaneous\s+application|unsolicited\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alerts?|job\s*alerts?|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
 const APPLICATION_DIVERSION_CONTROL_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alert|job\s*alert|job[- ]?abo|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
-const APPLICATION_DIVERSION_URL_RE = /\/(?:introduce(?:your)?self|talent[-_]?pool|job[-_]?alert|jobabo|stellenalarm|jobbenachrichtigung)(?:[/?#]|$)/iu;
+const APPLICATION_DIVERSION_URL_RE = /\/(?:introduce(?:your)?self|talent[-_]?pool|spontaneous[-_]?application|unsolicited[-_]?application|general[-_]?application|job[-_]?alert|jobabo|stellenalarm|initiativbewerbung|jobbenachrichtigung)(?:[/?#]|$)/iu;
 const APPLICATION_DIVERSION_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica|unsolicited\s+application|spontaneous\s+application|general\s+application|candidature\s+(?:spontanée|spontanee|libre)|candidatura\s+(?:spontanea|libera)|initiativbewerbung|initiativ\s+bewerbung)\b/iu;
+const APPLICATION_NOT_SPECIFIC_WARNING_RE = /\b(?:not\s+an\s+application\s+for\s+a\s+specific\s+job|pas\s+une\s+candidature\s+pour\s+un\s+poste\s+sp[eé]cifique|keine\s+bewerbung\s+f[uü]r\s+eine\s+bestimmte\s+stelle|non\s+è\s+una\s+candidatura\s+per\s+una\s+posizione\s+specifica|unsolicited\s+application|spontaneous\s+application|general\s+application|candidature\s+(?:spontanée|spontanee|libre)|candidatura\s+(?:spontanea|libera)|initiativbewerbung|initiativ\s+bewerbung)\b/iu;
+const APPLICATION_GENERIC_HEADING_RE = /^(?:application|bewerbung|candidatura|candidature)\W*$/iu;
 const APPLICANT_IDENTITY_LABEL_RE = /^(?:e-?mail|first name|last name|nome|cognome|vorname|nachname)\b/i;
 const GRAVITY_FORMS_RECEIPT_RE = new RegExp([
   String.raw`\bthank\s+you\s+for\s+your\s+application\b`,
@@ -250,12 +253,49 @@ export function isApplicationRegionUnsupported(text = '') {
   return APPLICATION_REGION_UNSUPPORTED_PATTERNS.some(pattern => pattern.test(normalized));
 }
 
-/** A diversion cue for the navigation agent; it is never a submission stop by itself. */
-export function applicationDiversionHint(snapshot = {}) {
+/** Page-level evidence that the current destination is a talent pool, unsolicited application, or job alert. */
+export function applicationDestinationDiversionHint(snapshot = {}) {
   const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();
-  if (APPLICATION_DIVERSION_TITLE_RE.test(title) || APPLICATION_DIVERSION_URL_RE.test(String(snapshot?.url || ''))) {
+  const text = String(snapshot?.text || '');
+  const explicitPageHeadings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
+    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : [])]
+    .map((value) => String(value || '').replace(/\s+/gu, ' ').trim())
+    .filter(Boolean);
+  const hasJobSpecificHeading = explicitPageHeadings.some((heading) =>
+    !APPLICATION_DESTINATION_TITLE_RE.test(heading)
+      && !APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading)
+      && !APPLICATION_GENERIC_HEADING_RE.test(heading));
+  const warningOnlyInSecondaryAccessibilityHeading = text.split(/\r?\n/u).some((line) => {
+    const match = line.match(/^\s*-\s+heading\s+["'](.+?)["']\s+\[level=(\d+)/iu);
+    return Boolean(match && Number(match[2]) > 1 && APPLICATION_NOT_SPECIFIC_WARNING_RE.test(match[1]));
+  });
+  const headings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
+    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : []), ...text.split(/\r?\n/u)
+    .map((line) => line.match(/^\s*-\s+heading\s+["'](.+?)["']\s+\[level=1\](?:\s|$)/iu)?.[1] || '')]
+    .map((value) => String(value || '').replace(/\s+/gu, ' ').trim());
+  if (APPLICATION_DESTINATION_TITLE_RE.test(title)
+    || APPLICATION_NOT_SPECIFIC_WARNING_RE.test(title)
+    || (APPLICATION_NOT_SPECIFIC_WARNING_RE.test(text)
+      && !hasJobSpecificHeading
+      && !warningOnlyInSecondaryAccessibilityHeading)
+    || headings.some((heading) => APPLICATION_DESTINATION_TITLE_RE.test(heading))
+    || headings.some((heading) => APPLICATION_NOT_SPECIFIC_WARNING_RE.test(heading))
+    || APPLICATION_DIVERSION_URL_RE.test(String(snapshot?.url || ''))) {
     return 'talent_pool_or_job_alert';
   }
+  return '';
+}
+
+/** A diversion cue for the navigation agent; it is never a submission stop by itself. */
+export function applicationDiversionHint(snapshot = {}) {
+  const destinationHint = applicationDestinationDiversionHint(snapshot);
+  if (destinationHint) return destinationHint;
+  const title = String(snapshot?.title || '').replace(/\s+/gu, ' ').trim();
+  const headings = [snapshot?.pageHeading, snapshot?.heading, snapshot?.h1,
+    ...(Array.isArray(snapshot?.pageHeadings) ? snapshot.pageHeadings : [])]
+    .map((value) => String(value || '').replace(/\s+/gu, ' ').trim());
+  if (APPLICATION_DIVERSION_TITLE_RE.test(title)
+    || headings.some((heading) => APPLICATION_DIVERSION_TITLE_RE.test(heading))) return 'talent_pool_or_job_alert';
   const controls = [...(snapshot?.buttons || []), ...(snapshot?.links || [])]
     .filter(item => !item?.formId && item?.chrome !== true)
     .map(item => `${item?.text || ''} ${item?.label || ''} ${item?.ariaLabel || ''} ${item?.title || ''}`

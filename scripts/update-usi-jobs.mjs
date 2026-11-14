@@ -41,7 +41,7 @@ import {
 } from './lib/crawler-template.mjs';
 import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { WAF_IP_BLOCK_STATUS, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -406,7 +406,13 @@ export function looksLikeUsiListingHtml(html = '') {
  * Chromium is lazy and self-healing; normal runs pay no browser startup cost.
  */
 export async function fetchUsiPageViaBrowser(url, timeoutMs, {
-  launchBrowser = launchChromium,
+  launchBrowser = (options) => launchStealthOrChromium({
+    purpose: 'crawler',
+    locale: 'it-CH',
+    timezone: 'Europe/Zurich',
+    ...options,
+    fallbackOptions: options,
+  }),
   attempts = 3,
   sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
@@ -416,14 +422,19 @@ export async function fetchUsiPageViaBrowser(url, timeoutMs, {
       headless: true,
       args: ['--disable-blink-features=AutomationControlled'],
     });
-    const context = await browser.newContext({
-      userAgent: USI_BROWSER_HEADERS['User-Agent'],
-      viewport: { width: 1280, height: 720 },
-      locale: 'it-CH',
-      timezoneId: 'Europe/Zurich',
-      extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
-    });
-    if (typeof context.addInitScript === 'function') {
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? {
+          viewport: null,
+          extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+        }
+      : {
+          userAgent: USI_BROWSER_HEADERS['User-Agent'],
+          viewport: { width: 1280, height: 720 },
+          locale: 'it-CH',
+          timezoneId: 'Europe/Zurich',
+          extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+        });
+    if (!isStealthBrowser(browser) && typeof context.addInitScript === 'function') {
       await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         Object.defineProperty(navigator, 'languages', { get: () => ['it-CH', 'it', 'en'] });

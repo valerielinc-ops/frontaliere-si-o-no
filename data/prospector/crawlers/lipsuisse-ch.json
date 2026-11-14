@@ -10,6 +10,8 @@
   ],
   "detailTemplate": "/offres-emploi/*/",
   "detailEnrichment": true,
+  "listingTitleFromUrl": true,
+  "detailPostalCodeLocation": true,
   "pagination": {
     "maxPages": 1,
     "minCoverage": 0.95,
