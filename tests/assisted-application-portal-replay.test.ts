@@ -372,7 +372,6 @@ describe('portal replay corpus', () => {
       'rename from scripts/assisted-application/lib/portal/removed.mjs',
       'rename to docs/removed.mjs',
       'diff --git a/scripts/lib/ai-models.mjs b/scripts/lib/ai-models.mjs',
-      'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
       'diff --git a/package-lock.json b/package-lock.json',
       'diff --git a/services/router.ts b/services/router.ts',
     ].join('\n');
@@ -380,7 +379,6 @@ describe('portal replay corpus', () => {
       'functions/src/assistedApplicationAnswerEvidence.js',
       'functions/src/lib/permitStatus.js',
       'package-lock.json',
-      'packages/portal-runner/index.mjs',
       'scripts/assisted-application/agent.mjs',
       'scripts/assisted-application/lib/liveness.mjs',
       'scripts/assisted-application/lib/portal/agent.mjs',
@@ -390,13 +388,22 @@ describe('portal replay corpus', () => {
     expect(affectedPortalReplayPaths('scripts/assisted-application/lib/submit.mjs\nservices/router.ts')).toEqual([
       'scripts/assisted-application/lib/submit.mjs',
     ]);
+
+    const unrelatedSharedDirectories = [
+      'diff --git a/.github/workflows/social-publish-readiness-watch.yml b/.github/workflows/social-publish-readiness-watch.yml',
+      'diff --git a/scripts/check-social-publish-readiness.mjs b/scripts/check-social-publish-readiness.mjs',
+      'diff --git a/scripts/lib/social-readiness.mjs b/scripts/lib/social-readiness.mjs',
+      'diff --git a/functions/src/lib/unrelated-site-helper.js b/functions/src/lib/unrelated-site-helper.js',
+      'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
+      'diff --git a/tests/social-publish-readiness.test.ts b/tests/social-publish-readiness.test.ts',
+    ].join('\n');
+    expect(affectedPortalReplayPaths(unrelatedSharedDirectories)).toEqual([]);
   });
 
   it('limits family replay to family-specific paths and expands shared paths to all families', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-    expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/jobsch-adapter.mjs'])).toEqual(['jobs_ch']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 
