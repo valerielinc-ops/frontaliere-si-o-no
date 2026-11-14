@@ -262,7 +262,10 @@ export function parseLargeJsonArray(chunks) {
  */
 export function* iterateJsonArrayFile(
   filePath,
-  { maxInlineBytes = DEFAULT_JSON_STRING_LIMIT, maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {},
+  // This API promises item-wise retention. Keep the inline fast path opt-in:
+  // data/jobs.json can be below V8's string limit while its parsed object graph
+  // is still large enough to overlap the SEO build peak.
+  { maxInlineBytes = 0, maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {},
 ) {
   const { size } = fs.statSync(filePath);
   if (size <= maxInlineBytes) {

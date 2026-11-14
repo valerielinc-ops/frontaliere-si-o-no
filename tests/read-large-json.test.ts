@@ -38,7 +38,10 @@ describe('large JSON reader', () => {
 
     try {
       fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
-      expect([...iterateJsonArrayFile(target, { maxInlineBytes: 1 })]).toEqual(rows);
+      // The iterator defaults to the item-wise path even for a small file:
+      // callers use it specifically when the complete parsed array must not
+      // overlap another build phase's retained corpus.
+      expect([...iterateJsonArrayFile(target)]).toEqual(rows);
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
@@ -87,6 +90,11 @@ describe('large JSON reader', () => {
 // reader of the assembled corpus in these paths goes through readJsonFile.
 describe('data/jobs.json readers', () => {
   const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+  const streamingReaders = [
+    'build-plugins/jobBoardSeo.ts',
+    'build-plugins/localeJobsSplitPlugin.ts',
+    'build-plugins/shared/autoSectorHubPublicationData.ts',
+  ];
   const readers = [
     'build-plugins/careerJobsAggregate.ts',
     'build-plugins/cityJobsAggregate.ts',
@@ -139,6 +147,21 @@ describe('data/jobs.json readers', () => {
     };
     walk(path.join(root, 'build-plugins'));
     expect(offenders).toEqual([]);
+  });
+
+  it('keeps memory-sensitive build readers on the item-wise iterator', () => {
+    for (const rel of streamingReaders) {
+      const src = fs.readFileSync(path.join(root, rel), 'utf8');
+      expect(src).toContain('import { iterateJsonArrayFile } from ');
+      expect(src).toContain('read-large-json.mjs');
+      expect(src).toContain('iterateJsonArrayFile(');
+      expect(src).not.toContain('readJsonFile(');
+    }
+  });
+
+  it('keeps the iterator streaming by default even below the V8 string limit', () => {
+    const src = fs.readFileSync(path.join(root, 'scripts/lib/read-large-json.mjs'), 'utf8');
+    expect(src).toContain('{ maxInlineBytes = 0, maxItemBytes = DEFAULT_JSON_STRING_LIMIT }');
   });
 
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {
