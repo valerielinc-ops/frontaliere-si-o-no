@@ -245,7 +245,13 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK', summaryCounts);
   console.log('🛋️ Running dedicated JYSK jobs crawler...');
   console.log(`   Portal: ${JYSK_HOST} (Drupal CMS)`);
   console.log('');
@@ -253,8 +259,16 @@ async function main() {
   // Step 1: Discover job detail URLs from the listing page
   const discovery = await fetchJyskJobUrls();
   const detailUrls = discovery.urls;
+  summaryCounts.discovered = detailUrls.length;
+  summaryCounts.lastFetchOutcome = discovery.sourceZero ? 'selector_miss' : 'ok';
   if (discovery.sourceZero) {
-    console.log('ℹ️ No JYSK job URLs discovered. Exiting OK.');
+    // The title marker proves that the page belongs to JYSK, but an empty link
+    // set is not proof that the board has no vacancies. Keep the live slice and
+    // name this fail-closed bail-out so crawler-health can route it to the
+    // discovery/parser boundary instead of reporting an anonymous exit guard.
+    summaryCounts.parsed = 0;
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ No JYSK job URLs discovered without an empty-board proof; preserving the existing slice.');
     return;
   }
 
@@ -265,7 +279,10 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(JYSK_KEY, DATA_JOBS).filter(isJyskJob))
 
   // Step 3: Run the base crawler (fetches JSON-LD from detail pages)
-  await runBaseCrawler();
+  const crawlResult = await runBaseCrawler();
+  summaryCounts.parsed = Array.isArray(crawlResult?.observedJobs)
+    ? crawlResult.observedJobs.length
+    : null;
 
   // Step 3b: Stamp sourceLang on JYSK jobs
   if (fs.existsSync(DATA_JOBS)) {
@@ -290,7 +307,10 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ No JYSK jobs found after crawl. Exiting OK.');
+    if (summaryCounts.parsed === 0) {
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
+    console.log('⚠️ No JYSK jobs found after a non-empty discovery; preserving the existing slice and recording the fail-closed result.');
     return;
   }
 
