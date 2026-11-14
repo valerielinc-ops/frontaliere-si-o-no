@@ -4,6 +4,7 @@ import {
   parseDelvitechCareerWidgetConfig,
   parseDelvitechZohoListings,
   isDelvitechRecruitSite,
+  isDelvitechCompanyJob,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
 } from '../scripts/lib/delvitech-job-parser.mjs';
@@ -176,6 +177,22 @@ describe('Delvitech job parser', () => {
     expect(isDelvitechRecruitSite('https://example.invalid')).toBe(false);
   });
 
+  it('does not claim another employer on the shared Zoho Recruit host', () => {
+    expect(isDelvitechCompanyJob({
+      companyKey: 'other-company',
+      company: 'Other',
+      url: 'https://jobs.zohorecruit.eu/public/other',
+    })).toBe(false);
+    expect(isDelvitechCompanyJob({
+      companyKey: 'delvitech-sa',
+      company: 'Delvitech SA',
+      url: 'https://delvi.zohorecruit.eu/jobs/Careers/123',
+    })).toBe(true);
+    expect(isDelvitechCompanyJob({
+      url: 'https://legacy.delvi.tech/application-engineer-2/',
+    })).toBe(true);
+  });
+
   it('maps a successful Zoho Recruit feed and keeps source completeness evidence', () => {
     const listings = parseDelvitechZohoListings({
       code: 'success',
@@ -224,6 +241,31 @@ describe('Delvitech job parser', () => {
     expect(listings).toHaveLength(1);
     expect(listings.delvitechListingRecordCount).toBe(2);
     expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
+  });
+
+  it('counts null provider rows as malformed without discarding valid rows', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [null, {
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Engineer',
+        Posting_Title: 'Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: 'Description',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings.delvitechListingRecordCount).toBe(2);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
+  });
+
+  it('does not turn an empty provider response into rendered empty evidence', () => {
+    const listings = parseDelvitechZohoListings({ code: 'success', data: [] });
+    expect(listings).toEqual([]);
+    expect(listings.delvitechListingRecordCount).toBe(0);
+    expect(listings.delvitechListingMarkupSeen).toBe(false);
+    expect(listings.delvitechListingEmptyStateObserved).toBe(false);
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {

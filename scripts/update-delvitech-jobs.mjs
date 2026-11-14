@@ -38,6 +38,7 @@ import {
   parseDelvitechCareerWidgetConfig,
   parseDelvitechZohoListings,
   isDelvitechRecruitSite,
+  isDelvitechCompanyJob,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
   inferDelvitechCategory,
@@ -78,20 +79,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function normalize(value = '') {
-  return String(value || '').trim().toLowerCase();
-}
-
-function normalizeKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 function sleep(ms) {
@@ -247,10 +234,7 @@ function absoluteUrl(raw = '') {
 }
 
 function isTargetJob(job = {}) {
-  const key = normalizeKey(job.companyKey || job.company || '');
-  const company = normalize(job.company || '');
-  const url = String(job.url || '').toLowerCase();
-  return key === COMPANY_KEY || company.includes('delvitech') || isTrustedDomain(url);
+  return isDelvitechCompanyJob(job);
 }
 
 function isTrustedDomain(rawUrl = '') {

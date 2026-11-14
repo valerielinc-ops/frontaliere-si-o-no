@@ -65,6 +65,30 @@ export function isDelvitechRecruitSite(rawUrl = '') {
   }
 }
 
+function isDelvitechLegacySite(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim());
+    const host = url.hostname.toLowerCase();
+    return ['legacy.delvi.tech', 'delvi.tech'].includes(host) || host.endsWith('.delvi.tech');
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Identify stored jobs owned by Delvitech without treating a shared ATS
+ * hostname as an employer identity. The legacy URL-only fallback is retained
+ * only for old records that predate company metadata; explicit foreign
+ * identity always wins.
+ */
+export function isDelvitechCompanyJob(job = {}) {
+  const companyKey = String(job.companyKey || '').trim().toLowerCase();
+  const company = normalizeSpace(job.company || '').toLowerCase();
+  if (companyKey === 'delvitech-sa' || company.includes('delvitech')) return true;
+  if (companyKey || company) return false;
+  return isDelvitechLegacySite(job.url || '');
+}
+
 function normalizeZohoDate(value = '') {
   const raw = normalizeSpace(value);
   const match = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
@@ -317,7 +341,8 @@ export function parseDelvitechCareerWidgetConfig(html = '') {
 export function parseDelvitechZohoListings(payload = {}) {
   if (payload?.code !== 'success' || !Array.isArray(payload.data)) return null;
 
-  const rows = payload.data.map((row = {}) => {
+  const rows = payload.data.map((rawRow) => {
+    const row = rawRow && typeof rawRow === 'object' && !Array.isArray(rawRow) ? rawRow : {};
     const href = String(row.$url || '').trim();
     const title = normalizeSpace(row.Posting_Title || row.Job_Opening_Name || '');
     const city = normalizeSpace(row.City || '');
@@ -357,10 +382,16 @@ export function parseDelvitechZohoListings(payload = {}) {
   ));
 
   Object.defineProperties(listings, {
-    delvitechListingMarkupSeen: { value: true, enumerable: false },
+    // Provider JSON is not rendered page evidence. The browser path must
+    // independently observe an explicit empty-state message before the
+    // crawler can authorize removal of an existing slice.
+    delvitechListingMarkupSeen: { value: false, enumerable: false },
     delvitechListingRecordCount: { value: rows.length, enumerable: false },
     delvitechListingSkippedMalformedRows: { value: malformedRows, enumerable: false },
-    delvitechListingEmptyStateObserved: { value: rows.length === 0, enumerable: false },
+    // An empty provider response is not rendered source evidence. The caller
+    // must still inspect the canonical page before an empty snapshot can be
+    // considered authoritative.
+    delvitechListingEmptyStateObserved: { value: false, enumerable: false },
   });
   return listings;
 }
