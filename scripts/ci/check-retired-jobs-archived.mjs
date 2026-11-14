@@ -71,6 +71,33 @@ export function hasArchivedTitle(entry) {
   return nonblank(entry?.title) || Object.values(entry?.titleByLocale || {}).some(nonblank);
 }
 
+/** Builds category-specific recovery guidance for the observer issue body. */
+export function buildFailureIssueDescription(report = {}, runUrl = '') {
+  const count = (value) => {
+    const parsed = Number(value);
+    return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 0;
+  };
+  const retiredUnarchived = count(report?.retiredUnarchived);
+  const archiveLost = count(report?.archiveLost);
+  const activeLocaleSlugLost = count(report?.activeLocaleSlugLost);
+  const lines = ['## Retired-job archive observer findings'];
+
+  if (retiredUnarchived > 0) {
+    lines.push(`- ${retiredUnarchived} retired posting(s) left the active set without a titled expired archive record. Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the listed crawlers.`);
+  }
+  if (archiveLost > 0) {
+    lines.push(`- ${archiveLost} titled expired archive record(s) disappeared between revisions. Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the listed crawlers.`);
+  }
+  if (activeLocaleSlugLost > 0) {
+    lines.push(`- ${activeLocaleSlugLost} locale route(s) were lost while the offer remains active. Recovery: preserve or restore the affected locale slugs on the active posting; expired-archive backfill does not repair an offer that remains active.`);
+  }
+  if (retiredUnarchived === 0 && archiveLost === 0 && activeLocaleSlugLost === 0) {
+    lines.push('The observer failed before it produced category counts. Inspect the run log to identify the cause.');
+  }
+  if (nonblank(runUrl)) lines.push('', `**Run:** ${runUrl.trim()}`);
+  return lines.join('\n');
+}
+
 function addRoutes(target, job, { withHistory }) {
   const add = (value) => {
     if (nonblank(value)) target.add(value.trim());
@@ -123,7 +150,7 @@ function activeJobPath(job, locale, slug) {
   return `/${segments.join('/')}/`;
 }
 
-function addActiveHistoryPaths(target, job) {
+function addHistoryPathsByLocale(target, job) {
   const localeHistory = job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
     ? job.previousSlugsByLocale
     : {};
@@ -144,6 +171,19 @@ function addActiveHistoryPaths(target, job) {
       if (nonblank(value)) target.add(activeJobPath(job, locale, value));
     }
   }
+}
+
+/** Adds only the archived route that each locale would actually serve. */
+function addExpiredHistoryPaths(target, entry) {
+  const canonical = nonblank(entry?.slug) ? entry.slug.trim() : '';
+  for (const locale of JOB_LOCALES) {
+    const localized = nonblank(entry?.slugByLocale?.[locale]) ? entry.slugByLocale[locale].trim() : '';
+    const slug = localized || canonical;
+    if (slug) target.add(activeJobPath(entry, locale, slug));
+  }
+  // Keep the same locale-specific and genuinely-flat legacy history rules as
+  // active rows; a flat value already claimed by a locale bucket stays local.
+  addHistoryPathsByLocale(target, entry);
 }
 
 function isHeld(job) {
@@ -205,19 +245,13 @@ export function measureRetiredArchiveCoverage({ baseActive, baseExpired, headAct
         const slug = localizedActiveJobSlug(job, locale);
         if (nonblank(slug)) headActiveAndHistoryPaths.add(activeJobPath(job, locale, slug));
       }
-      addActiveHistoryPaths(headActiveAndHistoryPaths, job);
+      addHistoryPathsByLocale(headActiveAndHistoryPaths, job);
     }
   }
   for (const rows of headExpired.values()) {
     for (const entry of rows) {
       if (!hasArchivedTitle(entry)) continue;
-      const variants = new Set();
-      addRoutes(variants, entry, { withHistory: true });
-      for (const slug of variants) {
-        for (const locale of JOB_LOCALES) {
-          headActiveAndHistoryPaths.add(activeJobPath(entry, locale, slug));
-        }
-      }
+      addExpiredHistoryPaths(headActiveAndHistoryPaths, entry);
     }
   }
 

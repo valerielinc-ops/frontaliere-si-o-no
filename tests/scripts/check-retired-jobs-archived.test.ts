@@ -9,7 +9,10 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { measureRetiredArchiveCoverage } from '../../scripts/ci/check-retired-jobs-archived.mjs';
+import {
+  buildFailureIssueDescription,
+  measureRetiredArchiveCoverage,
+} from '../../scripts/ci/check-retired-jobs-archived.mjs';
 
 type Row = Record<string, any>;
 const job = (slug: string, extra: Row = {}): Row => ({
@@ -151,6 +154,55 @@ describe('measureRetiredArchiveCoverage()', () => {
     ]);
   });
 
+  it('does not let an expired locale slug cover the same slug in another locale', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [{ canton: 'TI', slugByLocale: { it: 'lost-it' } }] }),
+      baseExpired: map({}),
+      headActive: map({ a: [] }),
+      headExpired: map({ a: [{ canton: 'TI', slugByLocale: { en: 'lost-it' }, title: 'Archived' }] }),
+    });
+
+    expect(result.activeLocaleSlugLost).toHaveLength(1);
+    expect(result.activeLocaleSlugLost[0]).toMatchObject({
+      crawlerKey: 'a',
+      locale: 'it',
+      slug: 'lost-it',
+    });
+  });
+
+  it('keeps expired locale history local and shares only unclaimed flat legacy history', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({
+        a: [{
+          slug: 'base-canonical',
+          slugByLocale: {
+            it: 'it-old',
+            en: 'legacy-shared',
+            de: 'legacy-shared',
+            fr: 'de-old',
+          },
+          canton: 'TI',
+        }],
+      }),
+      baseExpired: map({}),
+      headActive: map({ a: [] }),
+      headExpired: map({
+        a: [{
+          slug: 'current-canonical',
+          slugByLocale: { en: 'current-en' },
+          previousSlugsByLocale: { it: ['it-old'], de: ['de-old'] },
+          previousSlugs: ['de-old', 'legacy-shared'],
+          title: 'Archived',
+          canton: 'TI',
+        }],
+      }),
+    });
+
+    expect(result.activeLocaleSlugLost.map(({ locale, slug }) => [locale, slug])).toEqual([
+      ['fr', 'de-old'],
+    ]);
+  });
+
   it('covers an equal route owned by another row and a titled expired entry, but not another canton', () => {
     const result = measureRetiredArchiveCoverage({
       baseActive: map({
@@ -200,6 +252,34 @@ describe('measureRetiredArchiveCoverage()', () => {
     expect(first.activeLocaleSlugLost.map(({ locale }) => locale).sort()).toEqual(['de', 'it']);
     expect(first.activeLocaleSlugLost).toEqual(reversed.activeLocaleSlugLost);
     expect(first.activeLocaleSlugLost.every(({ crawlerKey, baseIdentifier }) => crawlerKey === 'a' && baseIdentifier === 'row-a')).toBe(true);
+  });
+});
+
+describe('buildFailureIssueDescription()', () => {
+  it('describes an active locale route loss without expired-backfill-only guidance', () => {
+    const description = buildFailureIssueDescription({
+      retiredUnarchived: 0,
+      archiveLost: 0,
+      activeLocaleSlugLost: 1,
+    }, 'https://example.invalid/actions/runs/123/');
+
+    expect(description).toContain('1 locale route(s) were lost while the offer remains active');
+    expect(description).toContain('preserve or restore the affected locale slugs on the active posting');
+    expect(description).not.toContain('backfill-expired-from-history.yml');
+  });
+
+  it('includes separate expired and active recovery guidance when categories coexist', () => {
+    const description = buildFailureIssueDescription({
+      retiredUnarchived: 2,
+      archiveLost: 3,
+      activeLocaleSlugLost: 1,
+    }, 'https://example.invalid/actions/runs/123/');
+
+    expect(description).toContain('2 retired posting(s) left the active set');
+    expect(description).toContain('3 titled expired archive record(s) disappeared');
+    expect(description).toContain('1 locale route(s) were lost while the offer remains active');
+    expect(description.match(/backfill-expired-from-history\.yml/g)).toHaveLength(2);
+    expect(description).toContain('preserve or restore the affected locale slugs on the active posting');
   });
 });
 
@@ -360,5 +440,18 @@ describe('retired jobs archive observer workflow checkout', () => {
       ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
       ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
     ]);
+
+    const prepareDescription = steps.find((step) => step.id === 'issue-description');
+    expect(prepareDescription?.if).toBe('failure()');
+    expect(prepareDescription?.run).toContain('buildFailureIssueDescription');
+    expect(prepareDescription?.run).toContain('retired-jobs-archive.json');
+    expect(prepareDescription?.run).toContain('GITHUB_OUTPUT');
+
+    const reportIssue = steps.find((step) => step.name === 'Report failure to GitHub Issues');
+    expect(reportIssue?.if).toBe('failure()');
+    expect(reportIssue?.['continue-on-error']).toBe(true);
+    expect(reportIssue?.env?.ISSUE_DESCRIPTION).toBe('${{ steps.issue-description.outputs.description }}');
+    expect(reportIssue?.run).toContain('node scripts/lib/github-issue-creator.mjs');
+    expect(reportIssue?.run).toContain('--description "$ISSUE_DESCRIPTION"');
   });
 });
