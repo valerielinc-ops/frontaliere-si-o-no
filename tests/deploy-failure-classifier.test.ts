@@ -122,6 +122,24 @@ describe('classifyDeployFailure', () => {
   });
 });
 
+describe('warnings and notices never decide the class', () => {
+  const warn = (message: string) => ({ annotation_level: 'warning', message });
+  const classify = (annotations: unknown[]) => classifyDeployFailure({ jobs: [failedJob()], annotationsByJob: { 1: annotations as any[] } });
+
+  it('an assertion failure stays deterministic next to a warning quoting ECONNRESET', () => {
+    expect(classify([note('AssertionError: expected 3 to be 4'), warn('read ECONNRESET')]).classification).toBe('deterministic');
+  });
+  it('a bare exit code stays unknown next to a warning quoting HTTP 503', () => {
+    expect(classify([note('Process completed with exit code 1.'), warn('Request failed: HTTP 503 Service Unavailable')]).classification).toBe('unknown');
+  });
+  it('a memory-guard abort stays deterministic next to "The operation was canceled" in a notice', () => {
+    expect(classify([note('[build-mem-guard] RSS over the ceiling'), { annotation_level: 'notice', message: 'The operation was canceled.' }]).classification).toBe('deterministic');
+  });
+  it('a lost runner is still infra', () => {
+    expect(classify([note('The hosted runner lost communication with the server.')]).classification).toBe('infra');
+  });
+});
+
 describe('several failed jobs', () => {
   const leg = (id: number, loc: string, step: string, conclusion = 'failure') => ({
     id, name: `build-locale (${loc})`, status: 'completed', conclusion,

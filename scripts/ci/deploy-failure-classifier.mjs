@@ -212,7 +212,14 @@ function describeJob(job, annotations) {
 
   const jobName = stripMatrixIdentity(job.name);
   const stepKey = stripMatrixIdentity(stepName);
-  const haystack = [firstError, annotations.map(annotationText).join('\n'), stepName, job.name].join('\n');
+  // Only failure/error annotations (plus the first error, step and job names) may
+  // decide the class: a warning or notice quoting ECONNRESET or a 503 must not
+  // turn a failed assertion or a memory-guard abort into `infra`.
+  const failureText = (Array.isArray(annotations) ? annotations : [])
+    .filter(isFailureAnnotation)
+    .map(annotationText)
+    .join('\n');
+  const haystack = [firstError, failureText, stepName, job.name].join('\n');
   const rule = matchRule(haystack, stepName);
   const message = normalizeFailureText(firstError).slice(0, MAX_SIGNATURE_PART);
   return {
