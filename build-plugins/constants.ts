@@ -880,13 +880,14 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  *    FC decides, not us) → granted; TCF Purpose 1 consent (store/access
  *    information on a device — the bit without which AdSense cannot serve
  *    personalized ads at all) → granted;
- *  - without Purpose 1, `denied` is written ONLY on `useractioncomplete` (the
- *    visitor just answered and did not grant) or on `tcloaded` when the local
- *    gate says `granted` and the TC string refutes it (stale grant). A bare
- *    `tcloaded`/undetermined `gdprApplies` writes NOTHING: fabricating a
- *    permanent `denied` out of an unanswered or indeterminate state was
- *    review round-1's second bug — it also let the communications panel
- *    render behind the still-open CMP dialog;
+ *  - without Purpose 1, `denied` is written on `useractioncomplete` after the
+ *    CMP UI was seen, or on `tcloaded` when the local gate says `granted` and
+ *    the TC string refutes it (stale grant). If the first callback instead
+ *    reports `useractioncomplete` with Purpose 1 false, no local choice, and no
+ *    observed CMP UI, the bridge asks Google to show its message once and
+ *    leaves the gate unset until the visitor answers. This recovers the live
+ *    silent-CMP state without turning it into a fabricated refusal. A bare
+ *    `tcloaded`/undetermined `gdprApplies` still writes NOTHING;
  *  - symmetrically, every NON-interactive grant path (`__tcfapi` absent,
  *    `gdprApplies === false`, Purpose 1 read back from a stored TC string on
  *    `tcloaded`) respects a locally-stored `denied`: that value can only come
@@ -919,7 +920,22 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  */
 export const FC_ENSURE_JS = `function ensureFc(){if(document.querySelector('script[data-fc-loader]'))return;var f=document.createElement('script');f.async=true;f.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';f.setAttribute('data-fc-loader','1');f.addEventListener('load',function(){f.setAttribute('data-loaded','1');},{once:true});f.addEventListener('error',function(){f.setAttribute('data-failed','1');},{once:true});document.head.appendChild(f);(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var fr=document.createElement('iframe');fr.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';fr.style.display='none';fr.name='googlefcPresent';document.body.appendChild(fr);}else{setTimeout(sig,0);}}})();}`;
 
-export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)return;window.__ftFcConsentBridge=1;window.addEventListener('storage',function(e){if(e.key===null||e.key==='${ADS_CONSENT_STORAGE_KEY}')delete window.__ftAdsConsentDecision;});function prev(){if(window.__ftAdsConsentDecision==='${ADS_CONSENT_GRANTED}'||window.__ftAdsConsentDecision==='${ADS_CONSENT_DENIED}')return window.__ftAdsConsentDecision;try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){return null;}}function record(g){var v=g?'${ADS_CONSENT_GRANTED}':'${ADS_CONSENT_DENIED}';if(prev()===v)return;window.__ftAdsConsentDecision=v;try{window.localStorage.setItem('${ADS_CONSENT_STORAGE_KEY}',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('${ADS_CONSENT_CHANGE_EVENT}',{detail:v}));}catch(e){}}function grant(act){if(act||prev()!=='${ADS_CONSENT_DENIED}')record(true);}var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);});}});})();`;
+export const FC_CONSENT_BRIDGE_JS = `(function(){
+if(window.__ftFcConsentBridge)return;
+window.__ftFcConsentBridge=1;
+window.addEventListener('storage',function(e){if(e.key===null||e.key==='${ADS_CONSENT_STORAGE_KEY}')delete window.__ftAdsConsentDecision;});
+function prev(){if(window.__ftAdsConsentDecision==='${ADS_CONSENT_GRANTED}'||window.__ftAdsConsentDecision==='${ADS_CONSENT_DENIED}')return window.__ftAdsConsentDecision;try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){return null;}}
+function record(g){var v=g?'${ADS_CONSENT_GRANTED}':'${ADS_CONSENT_DENIED}';if(prev()===v)return;window.__ftAdsConsentDecision=v;try{window.localStorage.setItem('${ADS_CONSENT_STORAGE_KEY}',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('${ADS_CONSENT_CHANGE_EVENT}',{detail:v}));}catch(e){}}
+function grant(act){if(act||prev()!=='${ADS_CONSENT_DENIED}')record(true);}
+var g=window.googlefc=window.googlefc||{},uiSeen=false,recoveryRequested=false,uiObserver;
+function noteVisibleCmp(){try{var n=document.querySelector('.fc-consent-root');if(!n)return uiSeen;var r=n.getBoundingClientRect(),s=window.getComputedStyle?window.getComputedStyle(n):null,visible=!!r&&r.width>0&&r.height>0;if(s&&(s.display==='none'||s.visibility==='hidden'||s.opacity==='0'))visible=false;if(visible){uiSeen=true;if(uiObserver)uiObserver.disconnect();}}catch(e){}return uiSeen;}
+function watchCmp(){noteVisibleCmp();if(uiSeen||!window.MutationObserver||!document.documentElement)return;uiObserver=new window.MutationObserver(noteVisibleCmp);uiObserver.observe(document.documentElement,{attributes:true,childList:true,subtree:true,attributeFilter:['class','style','hidden','aria-hidden']});}
+function wasRecoveryAttempted(){try{return window.sessionStorage.getItem('__ftFcSilentConsentRecovery')==='1';}catch(e){return false;}}
+function recoverSilentCmp(){noteVisibleCmp();var saved=prev();if(uiSeen||saved==='${ADS_CONSENT_GRANTED}'||saved==='${ADS_CONSENT_DENIED}')return false;if(recoveryRequested)return true;if(wasRecoveryAttempted()){recoveryRequested=true;return true;}if(typeof g.showRevocationMessage!=='function')return true;recoveryRequested=true;var stored=false;try{window.sessionStorage.setItem('__ftFcSilentConsentRecovery','1');stored=true;}catch(e){}try{g.showRevocationMessage();return true;}catch(e){recoveryRequested=false;if(stored)try{window.sessionStorage.removeItem('__ftFcSilentConsentRecovery');}catch(e){}return true;}}
+watchCmp();
+g.callbackQueue=g.callbackQueue||[];
+g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){uiSeen=true;if(uiObserver)uiObserver.disconnect();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){if(d.gdprApplies===true&&p&&p[1]===false&&recoverSilentCmp())return;record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);});}});
+})();`;
 
 /**
  * Ad-block bridge, twin of FC_CONSENT_BRIDGE_JS above and of the copy in
