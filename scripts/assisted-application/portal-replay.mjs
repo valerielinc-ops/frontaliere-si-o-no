@@ -52,7 +52,25 @@ const PORTAL_REPLAY_FAMILY_PATH_HINTS = Object.freeze({
   workday: Object.freeze(['workday']),
   successfactors: Object.freeze(['successfactors', 'success-factors', 'sapsf']),
 });
-export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
+/**
+ * Keep the two kinds of shared scripts/lib dependencies explicit. The ATS
+ * adapters shape the sampled corpus, while these exact runtime modules are
+ * imported by the portal runner or by this replay harness. A crawler-only
+ * parser (for example molecular-partners-job-parser.mjs) is not replay scope.
+ * An unrecognised file inside the parser scope remains fail-closed below.
+ */
+export const PORTAL_REPLAY_PARSER_PATHS = Object.freeze([
+  'scripts/lib/ats-adapters/',
+]);
+export const PORTAL_REPLAY_RUNTIME_PATHS = Object.freeze([
+  'scripts/lib/ai-models.mjs',
+  'scripts/lib/bounded-response-body.mjs',
+  'scripts/lib/detect-language.mjs',
+  'scripts/lib/ensure-chromium.mjs',
+  'scripts/lib/pdf-job-content.mjs',
+  'scripts/lib/prospector/public-fetch-policy.mjs',
+]);
+const PORTAL_REPLAY_OTHER_ALLOWED_PATHS = Object.freeze([
   // The portal runner also imports shared helpers from lib/ outside portal/.
   'scripts/assisted-application/lib/',
   'scripts/assisted-application/agent.mjs',
@@ -65,7 +83,6 @@ export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   'scripts/assisted-application/nopecha-e2e.mjs',
   'scripts/assisted-application/install-nopecha.sh',
   'scripts/assisted-application/portal-replay.mjs',
-  'scripts/lib/',
   'functions/src/lib/',
   'packages/',
   'package.json',
@@ -74,6 +91,11 @@ export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   '.github/workflows/assisted-application-portal-recovery.yml',
   '.github/workflows/assisted-application-portal-replay.yml',
   'functions/src/lib/applicationConsent.js',
+]);
+export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
+  ...PORTAL_REPLAY_OTHER_ALLOWED_PATHS,
+  ...PORTAL_REPLAY_PARSER_PATHS,
+  ...PORTAL_REPLAY_RUNTIME_PATHS,
 ]);
 
 const STAGE_RANK = Object.freeze({
@@ -182,10 +204,25 @@ function extractPathsFromDiff(diff) {
   return [...paths];
 }
 
+function normalizedPortalReplayPath(value) {
+  return String(value || '').replace(/^\//u, '');
+}
+
+function matchesPortalReplayPath(file, entry) {
+  return entry.endsWith('/') ? file.startsWith(entry) : file === entry;
+}
+
+export function portalReplayPathScope(value) {
+  const file = normalizedPortalReplayPath(value).toLowerCase();
+  if (PORTAL_REPLAY_PARSER_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'parser';
+  if (PORTAL_REPLAY_RUNTIME_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'runtime';
+  if (PORTAL_REPLAY_OTHER_ALLOWED_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'shared';
+  if (/^functions\/src\/assistedapplication[^/]*\.js$/u.test(file)) return 'shared';
+  return null;
+}
+
 export function isPortalReplayAffectedPath(value) {
-  const file = String(value || '').replace(/^\//u, '');
-  if (PORTAL_REPLAY_ALLOWED_PATHS.some((entry) => entry.endsWith('/') ? file.startsWith(entry) : file === entry)) return true;
-  return /^functions\/src\/assistedApplication[^/]*\.js$/u.test(file);
+  return portalReplayPathScope(value) !== null;
 }
 
 export function affectedPortalReplayPaths(diff) {
@@ -197,13 +234,13 @@ export function affectedPortalReplayFamilies(pathsOrDiff) {
   const families = new Set();
   let sharedRunnerPathChanged = false;
   for (const value of paths) {
-    const file = String(value || '').replace(/^\//u, '').toLowerCase();
+    const file = normalizedPortalReplayPath(value).toLowerCase();
     const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
       .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
       .map(([family]) => family);
     if (matchedFamilies.length) {
       for (const family of matchedFamilies) families.add(family);
-    } else if (isPortalReplayAffectedPath(file)) {
+    } else if (portalReplayPathScope(file)) {
       sharedRunnerPathChanged = true;
     }
   }

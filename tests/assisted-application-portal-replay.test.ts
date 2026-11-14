@@ -15,6 +15,7 @@ import {
   comparePortalReplayFamily,
   extractPortalStopHosts,
   PORTAL_REPLAY_FAMILIES,
+  portalReplayPathScope,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
@@ -372,6 +373,8 @@ describe('portal replay corpus', () => {
       'rename from scripts/assisted-application/lib/portal/removed.mjs',
       'rename to docs/removed.mjs',
       'diff --git a/scripts/lib/ai-models.mjs b/scripts/lib/ai-models.mjs',
+      'diff --git a/scripts/lib/ensure-chromium.mjs b/scripts/lib/ensure-chromium.mjs',
+      'diff --git a/scripts/lib/molecular-partners-job-parser.mjs b/scripts/lib/molecular-partners-job-parser.mjs',
       'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
       'diff --git a/package-lock.json b/package-lock.json',
       'diff --git a/services/router.ts b/services/router.ts',
@@ -386,10 +389,12 @@ describe('portal replay corpus', () => {
       'scripts/assisted-application/lib/portal/agent.mjs',
       'scripts/assisted-application/lib/portal/removed.mjs',
       'scripts/lib/ai-models.mjs',
+      'scripts/lib/ensure-chromium.mjs',
     ]);
     expect(affectedPortalReplayPaths('scripts/assisted-application/lib/submit.mjs\nservices/router.ts')).toEqual([
       'scripts/assisted-application/lib/submit.mjs',
     ]);
+    expect(affectedPortalReplayPaths('scripts/lib/molecular-partners-job-parser.mjs')).toEqual([]);
   });
 
   it('limits family replay to family-specific paths and expands shared paths to all families', () => {
@@ -397,7 +402,20 @@ describe('portal replay corpus', () => {
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/jobsch-adapter.mjs'])).toEqual(['jobs_ch']);
+    expect(affectedPortalReplayFamilies([
+      'scripts/assisted-application/lib/portal/workday-route.mjs',
+      'scripts/lib/molecular-partners-job-parser.mjs',
+    ])).toEqual(['workday']);
+    expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/index.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies(['scripts/lib/ensure-chromium.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+  });
+
+  it('keeps parser/runtime scope explicit and fails closed for unknown parser modules', () => {
+    expect(portalReplayPathScope('scripts/lib/ats-adapters/jobsch-adapter.mjs')).toBe('parser');
+    expect(portalReplayPathScope('scripts/lib/ats-adapters/unknown-adapter.mjs')).toBe('parser');
+    expect(portalReplayPathScope('scripts/lib/ensure-chromium.mjs')).toBe('runtime');
+    expect(portalReplayPathScope('scripts/lib/molecular-partners-job-parser.mjs')).toBeNull();
   });
 
   it('does not fall back to a PR-controlled replay fence when the trusted base lacks it', () => {
