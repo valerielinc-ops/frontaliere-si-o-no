@@ -36,6 +36,7 @@ import { randomUUID } from 'node:crypto';
 import { readFileSync, existsSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 import { SOCIAL_REDIRECT_ORIGIN, socialRedirectKey } from './lib/social-redirect-links.mjs';
 import { isGeneratedSocialCopyMode, loadSocialCopyPack, releaseUnpublishedSocialCopyAssignmentBestEffort, selectSocialCopyForPublish, socialCopyLedgerFields, socialCopyTrackingContent } from './lib/social-copy-pack.mjs';
@@ -640,8 +641,7 @@ function loadJobs(repoRoot, log) {
       log('⚠️', `jobs.json not found at ${file}`);
       return [];
     }
-    const raw = readFileSync(file, 'utf-8');
-    const parsed = JSON.parse(raw);
+    const parsed = readJsonFile(file);
     return Array.isArray(parsed) ? parsed : [];
   } catch (err) {
     log('⚠️', `failed to read jobs.json: ${err.message}`);

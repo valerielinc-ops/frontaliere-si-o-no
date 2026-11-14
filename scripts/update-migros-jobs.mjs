@@ -50,6 +50,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -144,7 +145,7 @@ function isMigrosJob(job) {
  * @returns {Array<{url: string, keptUrl: string}>} the collapsed reposts
  */
 export function collapseMigrosRepostsInFiles({ dataJobsPath, publicJobsPath }) {
-  const raw = fs.existsSync(dataJobsPath) ? JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8')) : [];
+  const raw = fs.existsSync(dataJobsPath) ? readJsonFile(dataJobsPath) : [];
   const allJobs = Array.isArray(raw) ? raw : [];
   const { jobs: uniqueJobs, reposts } = dedupeMigrosReposts(allJobs);
   if (reposts.length === 0) return reposts;
@@ -681,7 +682,7 @@ function logMigrosJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const migrosJobs = allJobs.filter(isMigrosJob);
   const byCanton = new Map();
@@ -759,7 +760,7 @@ async function main() {
 
   // Step 3b: Ensure sourceLang is set on all Migros jobs
   {
-    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const raw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     let patched = 0;
     for (const job of allJobs) {
@@ -792,7 +793,7 @@ async function main() {
   // m-way, Micasa, Voi, OBI, Do it + Garden, …). Gated behind
   // SKIP_QUALITY_GUARDS=1 for emergency bypass.
   if (process.env.SKIP_QUALITY_GUARDS !== '1') {
-    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const raw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     const migrosJobs = allJobs.filter(isMigrosJob);
     const report = runQualityGuards(migrosJobs, {
@@ -821,7 +822,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMigrosJob) : [];
   writeJobsCrawlerSlice(MIGROS_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

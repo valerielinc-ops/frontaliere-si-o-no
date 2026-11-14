@@ -11,6 +11,7 @@ import { parseKsgrApiJob } from '../scripts/lib/ksgr-job-parser.mjs';
 import { parseJobPage } from '../scripts/update-manor-jobs.mjs';
 import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC } from '../scripts/lib/lidl-job-parser.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 
 type Job = Record<string, unknown>;
 type Builder = (input: Job, observedAt?: string) => Job;
@@ -27,7 +28,8 @@ function isolatedFunction<T>(file: string, name: string, dependencies: Record<st
     ts.isFunctionDeclaration(node) && node.name?.text === name);
   if (!declaration) throw new Error(`Missing crawler function ${file}:${name}`);
   const context = vm.createContext({
-    sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates, console: { log: noop, warn: noop }, ...dependencies,
+    sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates, readJsonFile,
+    console: { log: noop, warn: noop }, ...dependencies,
   });
   return vm.runInContext(`(${declaration.getText(ast).replace(/^export\s+/, '')})`, context) as T;
 }
@@ -74,6 +76,7 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     const enrich = isolatedFunction<(jobs: Job[]) => number>('update-lidl-jobs.mjs', 'mergeApiDescriptions', {
       fs: { existsSync: () => true, readFileSync: () => JSON.stringify([job]) },
       DATA_JOBS: '/unused-data', PUBLIC_DATA_JOBS: '/unused-public',
+      readJsonFile: () => [job],
       normalizeLidlDetailPath: (value: string) => new URL(value).pathname,
       extractReqId: () => '123456', isLidlJob: () => true,
       restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC,

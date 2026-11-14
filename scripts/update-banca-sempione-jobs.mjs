@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -434,7 +435,7 @@ async function runBaseCrawler() {
 /* ── Post-processing ───────────────────────────────────────── */
 function postProcessBancaSempioneJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
 
   let changed = false;
@@ -477,7 +478,7 @@ function postProcessBancaSempioneJobs() {
 /* ── Stats ─────────────────────────────────────────────────── */
 function logStats(before) {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   const bsJobs = Array.isArray(jobs) ? jobs.filter(isBancaSempioneJob) : [];
   const after = snapshotJobSlugs(bsJobs);
   const diff = computeCrawlDiff(before, after);
@@ -548,7 +549,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBancaSempioneJob) : [];
   writeJobsCrawlerSlice(BANCA_SEMPIONE_KEY, _sliceJobs, { observedJobs: discoveredJobs });
   writeSummaryCrawlerSlice({

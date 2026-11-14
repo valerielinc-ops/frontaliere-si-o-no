@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -479,7 +480,7 @@ function writeJobsFiles(jobs) {
 
 function postProcessIbsaJobs(seedMetaByUrl = {}) {
   if (!fs.existsSync(DATA_JOBS)) return { total: 0, ibsa: 0, deduped: 0 };
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   if (!Array.isArray(raw)) return { total: 0, ibsa: 0, deduped: 0 };
 
   const bestByKey = new Map();
@@ -525,7 +526,7 @@ function postProcessIbsaJobs(seedMetaByUrl = {}) {
 
 function loadIbsaJobs() {
   if (!fs.existsSync(DATA_JOBS)) return [];
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   if (!Array.isArray(raw)) return [];
   return raw.filter(isIbsaJob);
 }
@@ -587,7 +588,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isIbsaJob) : [];
   writeJobsCrawlerSlice(IBSA_KEY, _sliceJobs, { preserveExistingSlugs: true });
   writeSummaryCrawlerSlice({
