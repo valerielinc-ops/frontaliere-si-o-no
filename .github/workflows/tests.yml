@@ -2727,13 +2727,13 @@ jobs:
       # checks compatibility and a strict 60-minute age before restoring data.
       - name: Compute hourly assemble snapshot compatibility
         id: hourly_snapshot_fingerprint
-        if: ${{ steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
         continue-on-error: true
         run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
 
       - name: Check PR changes against assemble inputs
         id: hourly_snapshot_eligibility
-        if: ${{ steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
         continue-on-error: true
         env:
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
@@ -2742,7 +2742,7 @@ jobs:
 
       - name: Find latest successful hourly assemble snapshot
         id: latest_hourly_snapshot
-        if: ${{ steps.hourly_snapshot_eligibility.outputs.eligible == 'true' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_eligibility.outputs.eligible == 'true' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
         continue-on-error: true
         uses: actions/github-script@v9
         with:
@@ -2785,7 +2785,7 @@ jobs:
 
       - name: Restore exact hourly assemble snapshot
         id: hourly_snapshot_cache
-        if: ${{ steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
         continue-on-error: true
         uses: actions/cache/restore@v6
         with:
@@ -2794,7 +2794,7 @@ jobs:
 
       - name: Validate and restore hourly assemble snapshot
         id: hourly_snapshot_restore
-        if: ${{ steps.hourly_snapshot_cache.outputs.cache-hit == 'true' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_cache.outputs.cache-hit == 'true' }}
         continue-on-error: true
         env:
           ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
