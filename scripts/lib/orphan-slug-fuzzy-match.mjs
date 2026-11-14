@@ -1,4 +1,5 @@
 import { hasSameJobSourcePosting as defaultHasSameJobSourcePosting } from './job-identity.mjs';
+import { addPreviousSlugForLocale as defaultAddPreviousSlugForLocale } from './dedicated-crawler-common.mjs';
 
 const HASH_TRAILER_RE = /-[a-z0-9]{4,8}$/;
 const SKIP_PREFIX_FUZZY = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
@@ -51,6 +52,7 @@ export function inferOrphanSlugAliases({
   orphanGscData,
   localeList,
   hasSameJobSourcePosting = defaultHasSameJobSourcePosting,
+  addPreviousSlugForLocale = defaultAddPreviousSlugForLocale,
   retainIndexes = false,
 }) {
   const knownSlugs = new Set();
@@ -142,11 +144,11 @@ export function inferOrphanSlugAliases({
 
     if (!best || best.score < 0.6 || best.shared < 3) continue;
     const target = best.job;
-    if (!target.previousSlugsByLocale) target.previousSlugsByLocale = {};
-    const aliases = target.previousSlugsByLocale[best.locale]
-      || (target.previousSlugsByLocale[best.locale] = []);
+    const aliases = Array.isArray(target.previousSlugsByLocale?.[best.locale])
+      ? target.previousSlugsByLocale[best.locale]
+      : [];
     if (aliases.includes(orphanSlug)) continue;
-    aliases.push(orphanSlug);
+    addPreviousSlugForLocale(target, best.locale, orphanSlug, undefined, 'orphan-slug-fuzzy-match');
     knownSlugs.add(orphanSlug);
     fuzzyMatched++;
   }

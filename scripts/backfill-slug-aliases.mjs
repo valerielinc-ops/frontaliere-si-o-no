@@ -352,6 +352,8 @@ function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+if (process.argv[1] && (() => {
+  try { return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href; } catch { return false; }
+})()) {
   main();
 }
