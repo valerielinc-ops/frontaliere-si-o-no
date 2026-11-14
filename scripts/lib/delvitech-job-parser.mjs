@@ -12,6 +12,20 @@ const DELVITECH_LEGACY_CAREER_URL = 'https://legacy.delvi.tech/career/';
 const DELVITECH_NAV_PATH_RE = /^\/(?:about(?:-us)?|company|contact|industr(?:y|ies)|news|solutions?|technology|sustainability|certifications?)(?:\/|$)/i;
 const DELVITECH_CAREER_ROOT_RE = /^\/careers?\/?$/i;
 const GENERIC_ROLE_LINK_TEXT_RE = /^(?:apply(?: now)?|learn more|read more|see (?:open )?roles?|view (?:role|details?)|discover more)$/i;
+const SEMANTIC_ROLE_CARD_SELECTOR = [
+  'article',
+  'li',
+  '[data-job-card]',
+  '[data-job]',
+  '[data-role-card]',
+  '[class*="job-card" i]',
+  '[class*="role-card" i]',
+  '[class*="career-card" i]',
+  '[class*="job-item" i]',
+  '[class*="role-item" i]',
+  '[class*="career-item" i]',
+  '.fusion-layout-column',
+].join(', ');
 const LISTING_CONTAINER_SELECTOR = [
   '.post-content',
   'main',
@@ -92,9 +106,7 @@ function normalizedHref(anchor, baseUrl) {
 }
 
 function roleCardForAnchor(anchor) {
-  return anchor.closest(
-    'article, li, [data-job-card], [data-job], [data-role-card], [class*="job-card" i], [class*="role-card" i], [class*="career-card" i], [class*="job-item" i], [class*="role-item" i], [class*="career-item" i], .fusion-layout-column',
-  ) || anchor.parentElement;
+  return anchor.closest(SEMANTIC_ROLE_CARD_SELECTOR) || anchor.parentElement;
 }
 
 function roleTitleForAnchor(anchor) {
@@ -127,7 +139,10 @@ function findListingContainer(document) {
 
 function collectSemanticListingAnchors(listingContainer) {
   if (!listingContainer) return [];
-  return [...listingContainer.querySelectorAll('a[href], [data-job-url], [data-role-url]')]
+  const roleCardAnchors = [...listingContainer.querySelectorAll('a[href]')]
+    .filter((anchor) => anchor.closest(SEMANTIC_ROLE_CARD_SELECTOR));
+  const dataAnchors = [...listingContainer.querySelectorAll('[data-job-url], [data-role-url]')];
+  return [...roleCardAnchors, ...dataAnchors]
     .map((element) => {
       if (element.matches?.('a[href]')) return element;
       const href = element.getAttribute('data-job-url') || element.getAttribute('data-role-url') || '';
@@ -198,7 +213,6 @@ export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_C
 
   for (const { anchor, href } of [...legacyCards, ...semanticCards]) {
     if (seen.has(href)) continue;
-    seen.add(href);
 
     const card = anchor.closest('.fusion-layout-column')
       || anchor.parentElement?.nextElementSibling
@@ -213,6 +227,7 @@ export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_C
       skippedMalformedRows += 1;
       continue;
     }
+    seen.add(href);
     jobs.push({ href, title });
   }
 

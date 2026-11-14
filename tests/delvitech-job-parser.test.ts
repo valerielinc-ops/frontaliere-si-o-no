@@ -88,6 +88,46 @@ describe('Delvitech job parser', () => {
     expect(jobs.delvitechListingRecordCount).toBe(2);
   });
 
+  it('ignores same-company navigation links outside explicit role cards', () => {
+    const html = `
+      <main>
+        <h2>Open roles</h2>
+        <a href="/privacy/">Privacy</a>
+        <article>
+          <h3>Engineer</h3>
+          <a href="/careers/engineer">Apply</a>
+        </article>
+      </main>
+    `;
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
+    expect(jobs.map((job) => job.href)).toEqual([
+      'https://delvi.tech/careers/engineer',
+    ]);
+  });
+
+  it('does not let a malformed semantic row suppress its structured JobPosting', () => {
+    const html = `
+      <main>
+        <section id="open-roles">
+          <article class="role-card">
+            <a href="/careers/engineer" aria-label="Open Engineer role"><svg aria-hidden="true"></svg></a>
+          </article>
+        </section>
+      </main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Engineer',
+        url: 'https://delvi.tech/careers/engineer',
+      })}</script>
+    `;
+    const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');
+    expect(jobs).toEqual([{
+      href: 'https://delvi.tech/careers/engineer',
+      title: 'Engineer',
+    }]);
+  });
+
   it('accepts same-company JobPosting links when the canonical page exposes structured listings', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',

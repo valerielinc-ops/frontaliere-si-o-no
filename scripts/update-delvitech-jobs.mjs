@@ -212,7 +212,7 @@ function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
   const url = String(job.url || '').toLowerCase();
-  return key === COMPANY_KEY || company.includes('delvitech') || url.includes('legacy.delvi.tech/') || url.includes('delvi.tech/');
+  return key === COMPANY_KEY || company.includes('delvitech') || isTrustedDomain(url);
 }
 
 function isTrustedDomain(rawUrl = '') {
