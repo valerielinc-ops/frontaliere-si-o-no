@@ -30,6 +30,19 @@ describe('application form posting identity', () => {
     })).toBe('match');
   });
 
+  it('keeps a cross-language ATS role heading unknown', () => {
+    const job = {
+      title: 'Pflegefachfrau Gesundheit',
+      sourceTitle: 'Pflegefachfrau Gesundheit',
+      sourceLang: 'de',
+    };
+
+    expect(formPostingMatch('Développeur logiciel\nVorname\nNachname', job, {
+      postingMatched: true,
+      applicationEntry: true,
+    })).toBe('unknown');
+  });
+
   it('normalizes slash-in, workload and M/F/D variants', () => {
     expect(formPostingMatch('Sachbearbeiter Buchhaltung 80% (M/F/D) - Bewerbung', {
       title: 'Impiegata amministrativa',
@@ -220,9 +233,16 @@ describe('application form posting identity', () => {
 
   it('rejects a different named role and a different Umantis vacancy ID', () => {
     const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
     const job = { title: 'Pflegefachfrau Gesundheit', sourceTitle: 'Pflegefachfrau Gesundheit' };
     expect(formPostingMatch('Sachbearbeiter Buchhaltung - Bewerbung', job, {
       pageUrl: 'https://careers.example.test/application/new', postingMatched: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch('Sachbearbeiter Buchhaltung - Bewerbung\nVorname\nNachname', job, {
+      pageUrl: applicationUrl, postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(`Sachbearbeiter Buchhaltung - Bewerbung\nVorname\nNachname\n${applicationUrl}`, job, {
+      postingMatched: true, postingEntry: true, postingUrl,
     })).toBe('mismatch');
     expect(formPostingMatch('Bewerbung\nVorname\nNachname', job, {
       pageUrl: 'https://recruitingapp-2800.umantis.com/Vacancies/6605/Application/New/1', postingUrl,
