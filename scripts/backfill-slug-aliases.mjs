@@ -24,7 +24,8 @@ import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { hasSameJobSourcePosting } from './lib/job-identity.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
@@ -116,6 +117,102 @@ function saveCrawlerFiles(modifiedFiles) {
   }
 }
 
+export function backfillOrphanSlugAliases({
+  orphanSlugs,
+  byCompany,
+  enrichedRecords,
+  hasSameJobSourcePosting: samePosting = hasSameJobSourcePosting,
+}) {
+  const wantedOrphans = new Set(orphanSlugs);
+  const orphanProofs = new Map();
+  for (const record of enrichedRecords) {
+    if (!wantedOrphans.has(record.slug) || !record.sourceUrl) continue;
+    if (!orphanProofs.has(record.slug)) orphanProofs.set(record.slug, record);
+    else {
+      const previous = orphanProofs.get(record.slug);
+      if (!previous || !samePosting(record, { url: previous.sourceUrl })) {
+        orphanProofs.set(record.slug, null);
+      }
+    }
+  }
+
+  let matched = 0;
+  let added = 0;
+  const addedAliases = [];
+
+  for (const slug of orphanSlugs) {
+    const proof = orphanProofs.get(slug);
+    if (!proof) continue;
+    const normalizedSlug = normalize(slug);
+
+    // Try to match to a company by checking if any company key tokens appear in the slug
+    let bestMatch = null;
+    let bestOverlap = 0;
+
+    for (const [companyKey, companyJobs] of byCompany) {
+      const tokens = extractCompanyToken(normalizedSlug, companyKey);
+      if (tokens.length === 0) continue;
+
+      // Found company match — now find the best job match within this company
+      for (const job of companyJobs) {
+        if (!samePosting(proof, job)) continue;
+        const currentSlugs = allCurrentSlugs(job);
+        // Already known slug — skip
+        if (currentSlugs.has(normalizedSlug)) {
+          bestMatch = null;
+          bestOverlap = Infinity; // Signal: already matched, don't add
+          break;
+        }
+
+        // Check word overlap between the orphan slug and current slugs
+        // Require location match (last word of slug is typically the location)
+        const orphanWords = normalizedSlug.split('-').filter((word) => word.length > 2);
+        const orphanLocation = normalizedSlug.split('-').pop() || '';
+        const jobLocation = normalize(job.addressLocality || job.location || '').replace(/[^a-z0-9]+/g, '-');
+
+        // Location must match (prevents cross-location false positives)
+        const locationMatches = orphanLocation && jobLocation &&
+          (jobLocation.includes(orphanLocation) || orphanLocation.includes(jobLocation));
+        if (!locationMatches) continue;
+
+        const orphanWordSet = new Set(orphanWords);
+        let maxOverlap = 0;
+        for (const currentSlug of currentSlugs) {
+          const currentWords = new Set(currentSlug.split('-').filter((word) => word.length > 2));
+          let common = 0;
+          for (const word of orphanWordSet) {
+            if (currentWords.has(word)) common++;
+          }
+          const overlap = common / Math.max(orphanWordSet.size, currentWords.size);
+          if (overlap > maxOverlap) maxOverlap = overlap;
+        }
+
+        // For long company names (VF International, etc.), require higher overlap
+        // to avoid matching completely different roles
+        const threshold = orphanWordSet.size > 12 ? 0.85 : orphanWordSet.size > 8 ? 0.7 : 0.55;
+        if (maxOverlap > bestOverlap && maxOverlap >= threshold) {
+          bestOverlap = maxOverlap;
+          bestMatch = job;
+        }
+      }
+
+      if (bestOverlap === Infinity) break; // Already matched, skip
+    }
+
+    if (bestMatch && bestOverlap !== Infinity) {
+      matched++;
+      if (!Array.isArray(bestMatch.previousSlugs)) bestMatch.previousSlugs = [];
+      if (!bestMatch.previousSlugs.includes(slug)) {
+        bestMatch.previousSlugs.push(slug);
+        added++;
+        addedAliases.push({ slug, job: bestMatch, overlap: bestOverlap });
+      }
+    }
+  }
+
+  return { matched, added, addedAliases };
+}
+
 function main() {
   const { jobs, sources } = loadJobs();
   if (jobs.length === 0) {
@@ -146,90 +243,16 @@ function main() {
 
   console.log(`Found ${orphanSlugs.length} job slugs from 404 compat paths.`);
 
-  const wantedOrphans = new Set(orphanSlugs);
-  const orphanProofs = new Map();
-  for (const record of readOrphanEnriched(ROOT)) {
-    if (!wantedOrphans.has(record.slug) || !record.sourceUrl) continue;
-    if (!orphanProofs.has(record.slug)) orphanProofs.set(record.slug, record);
-    else {
-      const previous = orphanProofs.get(record.slug);
-      if (!previous || !hasSameJobSourcePosting(record, { url: previous.sourceUrl })) orphanProofs.set(record.slug, null);
-    }
+  const pass = backfillOrphanSlugAliases({
+    orphanSlugs,
+    byCompany,
+    enrichedRecords: readOrphanEnriched(ROOT),
+  });
+  for (const { slug, job, overlap } of pass.addedAliases) {
+    console.log(`  ✅ "${slug}" → "${job.slug}" (${job.company}, overlap: ${(overlap * 100).toFixed(0)}%)`);
   }
 
-  let matched = 0;
-  let added = 0;
-
-  for (const slug of orphanSlugs) {
-    const proof = orphanProofs.get(slug);
-    if (!proof) continue;
-    const normalizedSlug = normalize(slug);
-
-    // Try to match to a company by checking if any company key tokens appear in the slug
-    let bestMatch = null;
-    let bestOverlap = 0;
-
-    for (const [companyKey, companyJobs] of byCompany) {
-      const tokens = extractCompanyToken(normalizedSlug, companyKey);
-      if (tokens.length === 0) continue;
-
-      // Found company match — now find the best job match within this company
-      for (const job of companyJobs) {
-        if (!hasSameJobSourcePosting(proof, job)) continue;
-        const currentSlugs = allCurrentSlugs(job);
-        // Already known slug — skip
-        if (currentSlugs.has(normalizedSlug)) {
-          bestMatch = null;
-          bestOverlap = Infinity; // Signal: already matched, don't add
-          break;
-        }
-
-        // Check word overlap between the orphan slug and current slugs
-        // Require location match (last word of slug is typically the location)
-        const orphanWords = normalizedSlug.split('-').filter((w) => w.length > 2);
-        const orphanLocation = normalizedSlug.split('-').pop() || '';
-        const jobLocation = normalize(job.addressLocality || job.location || '').replace(/[^a-z0-9]+/g, '-');
-
-        // Location must match (prevents cross-location false positives)
-        const locationMatches = orphanLocation && jobLocation &&
-          (jobLocation.includes(orphanLocation) || orphanLocation.includes(jobLocation));
-        if (!locationMatches) continue;
-
-        const orphanWordSet = new Set(orphanWords);
-        let maxOverlap = 0;
-        for (const cs of currentSlugs) {
-          const currentWords = new Set(cs.split('-').filter((w) => w.length > 2));
-          let common = 0;
-          for (const w of orphanWordSet) {
-            if (currentWords.has(w)) common++;
-          }
-          const overlap = common / Math.max(orphanWordSet.size, currentWords.size);
-          if (overlap > maxOverlap) maxOverlap = overlap;
-        }
-
-        // For long company names (VF International, etc.), require higher overlap
-        // to avoid matching completely different roles
-        const threshold = orphanWordSet.size > 12 ? 0.85 : orphanWordSet.size > 8 ? 0.7 : 0.55;
-        if (maxOverlap > bestOverlap && maxOverlap >= threshold) {
-          bestOverlap = maxOverlap;
-          bestMatch = job;
-        }
-      }
-
-      if (bestOverlap === Infinity) break; // Already matched, skip
-    }
-
-    if (bestMatch && bestOverlap !== Infinity) {
-      matched++;
-      if (!Array.isArray(bestMatch.previousSlugs)) bestMatch.previousSlugs = [];
-      if (!bestMatch.previousSlugs.includes(slug)) {
-        bestMatch.previousSlugs.push(slug);
-        added++;
-        console.log(`  ✅ "${slug}" → "${bestMatch.slug}" (${bestMatch.company}, overlap: ${(bestOverlap * 100).toFixed(0)}%)`);
-      }
-    }
-  }
-
+  const { matched, added } = pass;
   console.log(`\nMatched ${matched} orphan slugs to active jobs (${added} new aliases added).`);
 
   // ── Pass 2: Registry reconciliation ──────────────────────────
@@ -329,4 +352,8 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && (() => {
+  try { return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href; } catch { return false; }
+})()) {
+  main();
+}

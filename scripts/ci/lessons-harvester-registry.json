@@ -211,6 +211,20 @@
       "decidedAt": "2026-11-12T13:57:42Z",
       "ref": "#18184, #17546, #17261",
       "reason": "Gia' coperto da AGENTS.md #6: ownership non dimostrata, assenza non provata e identita' ambigua sono casi di dominio/contesto e unknown da preservare; una nuova riga duplicherà la regola."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:monitor-blocked",
+      "outcome": "declined",
+      "decidedAt": "2026-11-14T12:28:19Z",
+      "ref": "#18338, #18157, #17979, #17892, #17814",
+      "reason": "Marker owner/monitor di riconciliazione naturale, non esito del fixer né capability mancante; aggiungerlo ad Abort senza PR confonderebbe la telemetria e non prevenirebbe un comportamento dell'agente."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-new-branch",
+      "outcome": "added",
+      "decidedAt": "2026-11-14T12:28:19Z",
+      "ref": "#18541, #18047, #16689",
+      "reason": "AGENTS.md #6 ora impone che ogni nuovo ramo funnel-critical dimostri discriminatore di dominio/ownership e preservi l'invariante dei rami fratelli; shape/status/match parziale non autorizza da solo classificazione o azione."
     }
   ]
 }

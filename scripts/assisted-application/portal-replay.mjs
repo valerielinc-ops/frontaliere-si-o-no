@@ -34,6 +34,10 @@ let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
+// The gate checks this marker before re-sanitizing reports. A PR that changes
+// comparison semantics must be able to validate its new report contract until
+// that contract is present in the base checkout used by the trusted gate.
+export const PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2';
 export const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
@@ -174,6 +178,7 @@ const SAFE_FINDING_CODES = new Set([
   'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted',
   'sample_count_out_of_range', 'replay_unmeasured', 'stage_regression', 'family_ready_rate_decreased',
 ]);
+const SECURITY_FINDING_CODES = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
 const SAFE_LINK_STATES = new Set(['yes', 'no', 'unknown']);
 const SAFE_STATUSES = new Set(['measured', 'neutral', 'error', 'fail', 'pass']);
 const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, maxPerFamily: 5, retries: 1, delayMs: 700 });
@@ -512,6 +517,21 @@ async function publicPreflight(trustedRoot, record, isMutatingGetUrl) {
   }
 }
 
+/**
+ * A live preflight is a hint for retrying known upstream 5xx responses, not a
+ * prerequisite for the paired browser measurement. Keep a transient DNS,
+ * timeout, or connection failure local to the case so one unavailable public
+ * listing cannot abort its whole family before a report is written.
+ */
+export async function bestEffortPortalReplayPreflight(run) {
+  try {
+    const responses = await run();
+    return Array.isArray(responses) ? responses : [{ status: 0 }];
+  } catch {
+    return [{ status: 0 }];
+  }
+}
+
 function locationFrom(record, evidence, portalApi) {
   const value = evidence?.finalUrl || evidence?.steps?.at(-1)?.url || record.applyUrl;
   return {
@@ -530,10 +550,26 @@ function violationsFor({ event, evidence, metrics }) {
   return [...new Set(codes)];
 }
 
+function submissionAttemptedFor(record) {
+  return record?.submissionAttempted === true
+    || (Array.isArray(record?.securityViolations) && record.securityViolations.includes('submission_attempted'));
+}
+
 function postingLinkStatus(event, evidence) {
   if (evidence?.postingMatch === 'match') return 'yes';
   if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') return 'no';
   return 'unknown';
+}
+
+function securityViolationsFor(record) {
+  const codes = new Set((Array.isArray(record?.securityViolations) ? record.securityViolations : [])
+    .filter((code) => SECURITY_FINDING_CODES.has(code)));
+  if ((Number(record?.finalClickAttempts) || 0) > 0) codes.add('final_click_attempt');
+  if ((Number(record?.unexpectedNonGetPassed) || 0) > 0) codes.add('non_get_passed');
+  if ((Number(record?.nodeEgressBlocked) || 0) > 0) codes.add('node_egress_attempt');
+  if (record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
+  if (record?.submissionAttempted === true) codes.add('submission_attempted');
+  return [...codes].sort();
 }
 
 function sanitizeOutcomeRecord(record) {
@@ -550,8 +586,10 @@ function sanitizeOutcomeRecord(record) {
     unexpectedNonGetPassed: Math.max(0, Math.min(100000, Number(record.unexpectedNonGetPassed) || 0)),
     nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
+    submissionAttempted: record.submissionAttempted === true,
     formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
+    securityViolations: securityViolationsFor(record),
   };
 }
 
@@ -570,20 +608,17 @@ export function sanitizePortalReplayReport(report) {
   const headRecords = [];
   const findingCodes = new Set((Array.isArray(report?.findingCodes) ? report.findingCodes : [])
     .filter((code) => SAFE_FINDING_CODES.has(code)));
-  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
   cases.forEach((item, index) => {
     if (!item.base || !item.head) item.findingCodes.push('sample_missing');
-    const violations = item.findingCodes.filter((code) => securityCodes.has(code));
-    for (const record of [item.base, item.head]) {
-      if (!record) continue;
-      if (record.finalClickAttempts > 0) violations.push('final_click_attempt');
-      if (record.unexpectedNonGetPassed > 0) violations.push('non_get_passed');
-      if (record.nodeEgressBlocked > 0) violations.push('node_egress_attempt');
-      if (record.formLinkedToPosting === 'no') violations.push('wrong_posting_or_talent_pool');
-    }
-    const securityViolations = [...new Set(violations)];
-    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations });
-    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations });
+    const comparisonSecurityViolations = item.findingCodes.filter((code) => SECURITY_FINDING_CODES.has(code));
+    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations: securityViolationsFor(item.base) });
+    if (item.head) headRecords.push({
+      ...item.head,
+      caseId: String(index),
+      // Findings already attached to the comparison are regressions discovered
+      // on the PR side. Keep that distinction when sanitizing an artifact again.
+      securityViolations: [...new Set([...securityViolationsFor(item.head), ...comparisonSecurityViolations])].sort(),
+    });
   });
   const checked = comparePortalReplayFamily({ family, baseRecords, headRecords, includeCaseIds: true });
   const checkedById = new Map(checked.cases.map((item) => [item.caseId, item]));
@@ -634,6 +669,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return {
         caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
         status: 'neutral', retryClass: '', retryCount: preflightRetryCount, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
+        submissionAttempted: false,
         securityViolations: [],
       };
     }
@@ -758,6 +794,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
     formLinkedToPosting: postingLinkStatus(event, evidence),
+    submissionAttempted: event?.type === 'submit_succeeded',
     securityViolations: violations,
   };
 }
@@ -772,6 +809,20 @@ function portalBrokerCodex(sourceRoot) {
   };
 }
 
+export function mergePortalReplayRetryEvidence(totalMetrics, current) {
+  // A neutral retry may be the record we return, but it must not erase a
+  // funnel-critical submission observed by an earlier attempt.
+  for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
+    totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current?.[key]) || 0);
+  }
+  totalMetrics.submissionAttempted = submissionAttemptedFor(totalMetrics) || submissionAttemptedFor(current);
+  totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current?.securityViolations || [])])];
+  if (totalMetrics.submissionAttempted) totalMetrics.securityViolations.push('submission_attempted');
+  totalMetrics.securityViolations = [...new Set(totalMetrics.securityViolations)];
+  totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current?.retryCount) || 0);
+  return totalMetrics;
+}
+
 async function replayWithOneNeutralRetry(options) {
   let totalMetrics = null;
   let result;
@@ -779,13 +830,7 @@ async function replayWithOneNeutralRetry(options) {
     const current = await runOnePortalReplay(options);
     current.retryCount = (Number(current.retryCount) || 0) + attempt;
     if (!totalMetrics) totalMetrics = current;
-    else {
-      for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
-        totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current[key]) || 0);
-      }
-      totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
-      totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
-    }
+    else mergePortalReplayRetryEvidence(totalMetrics, current);
     result = current;
     if (!current.retryClass || current.securityViolations?.length || attempt >= REPLAY_LIMITS.retries) break;
     await new Promise((resolve) => setTimeout(resolve, REPLAY_LIMITS.delayMs));
@@ -795,7 +840,11 @@ async function replayWithOneNeutralRetry(options) {
       result[key] = Number(totalMetrics[key]) || 0;
     }
     result.retryCount = Number(totalMetrics.retryCount) || 0;
+    result.submissionAttempted = submissionAttemptedFor(totalMetrics);
     result.securityViolations = totalMetrics.securityViolations || [];
+    if (result.submissionAttempted && !result.securityViolations.includes('submission_attempted')) {
+      result.securityViolations = [...result.securityViolations, 'submission_attempted'];
+    }
     if (result.securityViolations.length) result.status = 'fail';
   }
   return result;
@@ -803,6 +852,13 @@ async function replayWithOneNeutralRetry(options) {
 
 function isNeutral(record) {
   return record?.status === 'neutral' || NEUTRAL_STAGES.has(record?.stage);
+}
+
+function isMeasuredOutcome(record) {
+  // A security violation makes runOnePortalReplay report `fail`, but the
+  // browser run is still measured and its metrics are a valid baseline for
+  // detecting a newly introduced violation on the head side.
+  return record?.status === 'measured' || record?.status === 'fail';
 }
 
 function isSuccessfulStage(stage) {
@@ -822,12 +878,21 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     const head = headById.get(caseId);
     const codes = [];
     if (!base || !head) codes.push('sample_missing');
-    for (const record of [base, head].filter(Boolean)) {
-      if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
-      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-      if (record.status === 'error') codes.push('replay_unmeasured');
+    const baseSecurity = new Set(securityViolationsFor(base));
+    const headSecurity = securityViolationsFor(head);
+    // A live portal can be stale or unavailable on the base side. Without a
+    // measured base there is no safe reference from which to infer a PR
+    // regression; only a new violation against a measured base can block.
+    // `fail` is also a measured outcome here: runOnePortalReplay uses it when
+    // the browser completed but recorded a security violation.
+    const baseMeasured = isMeasuredOutcome(base);
+    if (baseMeasured) {
+      for (const code of headSecurity) {
+        if (!baseSecurity.has(code)) codes.push(code);
+      }
     }
-    if (base && head && !isNeutral(base) && !isNeutral(head)) {
+    if (baseMeasured && head?.status === 'error') codes.push('replay_unmeasured');
+    if (base && head && base.status === 'measured' && head.status === 'measured' && !isNeutral(base) && !isNeutral(head)) {
       comparable.push({ base, head });
       if ((STAGE_RANK[head.stage] ?? 0) < (STAGE_RANK[base.stage] ?? 0)) codes.push('stage_regression');
     }
@@ -842,14 +907,18 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
         blockedNonGet: base.blockedNonGet, blockedWebSockets: base.blockedWebSockets,
         nodeEgressBlocked: base.nodeEgressBlocked,
         unexpectedNonGetPassed: base.unexpectedNonGetPassed,
-        finalClickAttempts: base.finalClickAttempts, formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
+        finalClickAttempts: base.finalClickAttempts, submissionAttempted: base.submissionAttempted,
+        formLinkedToPosting: base.formLinkedToPosting, retryCount: base.retryCount,
+        securityViolations: [...baseSecurity],
       } : null,
       head: head ? {
         stage: head.stage, stopCode: head.stopCode, status: head.status, agentCalls: head.agentCalls,
         blockedNonGet: head.blockedNonGet, blockedWebSockets: head.blockedWebSockets,
         nodeEgressBlocked: head.nodeEgressBlocked,
         unexpectedNonGetPassed: head.unexpectedNonGetPassed,
-        finalClickAttempts: head.finalClickAttempts, formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
+        finalClickAttempts: head.finalClickAttempts, submissionAttempted: head.submissionAttempted,
+        formLinkedToPosting: head.formLinkedToPosting, retryCount: head.retryCount,
+        securityViolations: headSecurity,
       } : null,
       findingCodes: [...new Set(codes)].sort(),
     });
@@ -1008,11 +1077,11 @@ async function compareMode(values) {
   await Promise.all(diagnosticModules.map(warmPortalDiagnosticsModule));
   const preflightByKey = new Map();
   for (const record of records) {
-    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+    let responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
       retryCount = 1;
-      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl);
+      responses = await bestEffortPortalReplayPreflight(() => publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl));
     }
     preflightByKey.set(record.key, { responses, retryCount });
   }

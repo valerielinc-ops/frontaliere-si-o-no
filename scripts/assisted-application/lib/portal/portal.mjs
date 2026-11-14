@@ -770,6 +770,17 @@ function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
       || posting.suffix === 'apply' || posting.suffix === 'manual');
 }
 
+function workdayPostingRouteMatchesCurrent(currentUrl, applyUrl, postingUrl = '') {
+  const apply = workdayJobRoute(applyUrl);
+  const current = workdayJobRoute(currentUrl);
+  if (!sameWorkdayJobRoute(apply, current)) return false;
+  // A Job-Room source can remain in context while the browser is already on
+  // the selected Workday requisition. Only another Workday URL is competing
+  // route evidence that must bind to the same requisition.
+  if (!isWorkdayTenantUrl(postingUrl)) return true;
+  return sameWorkdayJobRoute(apply, workdayJobRoute(postingUrl));
+}
+
 function workdayManualApplyEntry(control, snapshot, context = {}) {
   const current = workdayJobRoute(snapshot?.url);
   const expected = workdayJobRoute(context.applyUrl);
@@ -2185,11 +2196,9 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const workdayManualEntries = controls.filter((control) => workdayManualApplyEntry(control, snapshot, context));
   if (workdayManualEntries.length === 1) return workdayManualEntries;
   if (workdayManualEntries.length > 1) return [];
-  const workdayRoutePair = [context.applyUrl, context.postingUrl, snapshot.url].map(workdayJobRoute);
-  const [workdayApply, workdayPosting, workdayCurrent] = workdayRoutePair;
-  const workdayRouteBound = workdayApply && workdayPosting && workdayCurrent
-    && sameWorkdayJobRoute(workdayApply, workdayPosting)
-    && sameWorkdayJobRoute(workdayCurrent, workdayPosting);
+  const workdayRouteBound = workdayPostingRouteMatchesCurrent(
+    snapshot.url, context.applyUrl, context.postingUrl,
+  );
   const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label));
   const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
@@ -4734,6 +4743,15 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
+  const knownTitleLanguages = new Set(candidates.flatMap((candidate) => {
+    const detected = detectLanguageWithConfidence(candidate);
+    return detected.confidence > 0.6 ? [detected.lang] : [];
+  }));
+  const declaredSourceLanguage = String(job.sourceLang || job.sourceLanguage || job.postingLanguage || '')
+    .trim().toLowerCase().split(/[-_]/u)[0];
+  if (['de', 'en', 'fr', 'it'].includes(declaredSourceLanguage)) {
+    knownTitleLanguages.add(declaredSourceLanguage);
+  }
   let formSurfaceStarted = false;
   for (const line of lines) {
     if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
@@ -4744,7 +4762,13 @@ function formRoleHeadingStatus(formText, job = {}) {
     if (titleWordsOnly(heading, candidates)) return 'match';
     const words = normalizeWords(heading).split(' ').filter(Boolean);
     if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
-    return 'mismatch';
+    const detected = detectLanguageWithConfidence(heading);
+    // A different-language ATS heading is not proof of a different vacancy.
+    // Keep uncertain evidence unknown unless the heading and source title
+    // share a confidently detected language.
+    return detected.confidence > 0.6 && knownTitleLanguages.has(detected.lang)
+      ? 'mismatch'
+      : 'unknown';
   }
   return 'unknown';
 }
@@ -4850,10 +4874,11 @@ export function formPostingMatch(formText, job = {}, {
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
-  // generic; keep the other-employer guard on that heading, not on native field
-  // labels that describe the application itself.
+  // generic; keep mismatch guards on that heading, not native field labels
+  // that describe the application itself. A bound route cannot make an
+  // explicitly different role belong to the selected vacancy.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict) return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
@@ -4861,7 +4886,7 @@ export function formPostingMatch(formText, job = {}, {
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
     const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
-    if (unpairedHeadingConflict) return 'mismatch';
+    if (unpairedHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
@@ -10377,7 +10402,7 @@ export async function submitViaPortal(ctx) {
     // bound to it, the route is vacancy evidence even if the page omits the
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
-      && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
+      && workdayPostingRouteMatchesCurrent(page.url(), ctx.applyUrl, postingUrl);
     let postingVacancyMatched = enteredFromMatchingPosting || jobRoomExternalAdFollowed || postingDocumentHost
       || workdayRouteEntryProven || initialJobRoomEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, portalJob, {
