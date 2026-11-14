@@ -5073,7 +5073,9 @@ function hasExplicitFormRoleHeading(formText, job = {}) {
   ]);
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
     .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+  const roleMarker = /(?:\(\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%\b)/iu;
   let formSurfaceStarted = false;
+  let firstHeadingSeen = false;
   for (const line of lines) {
     if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
     if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) {
@@ -5083,10 +5085,13 @@ function hasExplicitFormRoleHeading(formText, job = {}) {
     if (formSurfaceStarted) continue;
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
+    const isFirstHeading = !firstHeadingSeen;
+    if (firstHeadingSeen && !roleMarker.test(line)) continue;
+    firstHeadingSeen = true;
     const words = normalizeWords(heading).split(' ').filter(Boolean);
     const meaningfulWords = words.filter(word => !FORM_CHROME_WORDS.has(word)
       && !companyWords.has(word) && !/^\d+$/u.test(word));
-    if (meaningfulWords.length) return true;
+    if (meaningfulWords.length && (isFirstHeading || roleMarker.test(line))) return true;
   }
   return false;
 }
@@ -5249,11 +5254,6 @@ export function formPostingMatch(formText, job = {}, {
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
   const direct = postingMatch(postingEvidenceText, job, pageUrl);
   const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
-  const explicitRoleConflict = roleHeading === 'unknown'
-    && rawDirect === 'mismatch'
-    && hasExplicitFormRoleHeading(formText, job);
-  if (explicitRoleConflict && (roleOnlyPostingBound || direct === 'match')) return 'mismatch';
-  if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   const formTitleLine = formIdentityText.split(/\r?\n/, 1)[0];
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: bound }));
@@ -5276,6 +5276,12 @@ export function formPostingMatch(formText, job = {}, {
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
     : null;
+  const explicitRoleConflict = roleHeading === 'unknown'
+    && rawDirect === 'mismatch'
+    && hasExplicitFormRoleHeading(formText, job);
+  if (explicitRoleConflict && !trustedUmantisApplication
+    && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
+  if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
