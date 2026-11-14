@@ -2796,12 +2796,12 @@
     },
     {
       "id": "mobiliar-b955e2146ee0",
-      "slug": "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch",
+      "slug": "aiuto-settlement-payroll-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch",
-        "it": "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch",
-        "en": "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch",
-        "fr": "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch"
+        "it": "aiuto-settlement-payroll-m-f-d-die-mobiliar-bern",
+        "en": "help-settlement-payroll-m-f-d-die-mobiliar-bern",
+        "fr": "aide-paiement-de-reglement-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2875,7 +2875,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:19:44.858Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:19:44.858Z"
+      "firstSeenAt": "2026-11-14T09:19:44.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-abrechnung-lohnsumme-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c851c27f18f5",
@@ -6694,9 +6708,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6760,17 +6774,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

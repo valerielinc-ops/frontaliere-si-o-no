@@ -255,7 +255,7 @@
         "it": "constructor-project-manager-m-f-yellowshark-ag-wurenlos-ag",
         "en": "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
         "de": "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
-        "fr": "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
+        "fr": "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -302,7 +302,8 @@
         "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
         "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos",
         "constructeur-gestionnaire-de-projet-h-f-yellowshark-ag-wurenlos-ag",
-        "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag"
+        "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag",
+        "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -313,7 +314,7 @@
           "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
           "constructeur-gestionnaire-de-projet-h-f-yellowshark-ag-wurenlos-ag",
           "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag",
-          "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos"
+          "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.781Z",
@@ -24396,7 +24397,7 @@
         "it": "falegname-m-f-yellowshark-ag-bern",
         "en": "carpenter-m-f-yellowshark-ag-bern",
         "de": "schreiner-m-w-bern-be-yellowshark-ch",
-        "fr": "charpentier-m-w-d-yellowshark-ag-bern"
+        "fr": "menuisier-h-f-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -24442,7 +24443,7 @@
       "previousSlugs": [
         "schreiner-m-w-bern-be-yellowshark-ch",
         "schreiner-m-w-d-yellowshark-ag-bern",
-        "menuisier-h-f-yellowshark-ag-bern"
+        "charpentier-m-w-d-yellowshark-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24453,7 +24454,7 @@
         ],
         "fr": [
           "schreiner-m-w-d-yellowshark-ag-bern",
-          "menuisier-h-f-yellowshark-ag-bern"
+          "charpentier-m-w-d-yellowshark-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.574Z",
@@ -24477,11 +24478,11 @@
     },
     {
       "id": "yellowshark-976c6c4f9e83",
-      "slug": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
+      "slug": "carpenter-m-f-yellowshark-ag-aarau-ag",
       "slugByLocale": {
         "de": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
         "fr": "charpentier-h-f-yellowshark-ag-aarau",
-        "it": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
+        "it": "carpenter-m-f-yellowshark-ag-aarau-ag",
         "en": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
       },
       "company": "yellowshark AG",
@@ -24533,7 +24534,8 @@
           "schreiner-monteur-m-w-d-yellowshark-ag-aarau"
         ],
         "it": [
-          "carpenter-m-f-yellowshark-ag-aarau-ag-c30c1d"
+          "carpenter-m-f-yellowshark-ag-aarau-ag-c30c1d",
+          "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
         ],
         "en": [
           "carpenter-m-f-yellowshark-ag-aarau-ag"
@@ -24543,7 +24545,8 @@
         "carpenter-m-f-yellowshark-ag-aarau-ag-c30c1d",
         "carpenter-m-f-yellowshark-ag-aarau-ag",
         "charpentier-h-f-yellowshark-ag-aarau-ag-c30c1d",
-        "schreiner-monteur-m-w-d-yellowshark-ag-aarau"
+        "schreiner-monteur-m-w-d-yellowshark-ag-aarau",
+        "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -25154,9 +25157,9 @@
       "slug": "piastrellista-m-f-yellowshark-ag-luzern-lu",
       "slugByLocale": {
         "it": "piastrellista-m-f-yellowshark-ag-luzern-lu",
-        "en": "m-w-d-yellowshark-ag-luzern",
+        "en": "panel-layer-m-f-yellowshark-ag-luzern-lu",
         "de": "plattenleger-m-w-luzern-lu-yellowshark-ch",
-        "fr": "m-w-d-yellowshark-ag-luzern"
+        "fr": "carreleur-h-f-yellowshark-ag-luzern-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -25202,8 +25205,7 @@
       "previousSlugs": [
         "plattenleger-m-w-luzern-lu-yellowshark-ch",
         "plattenleger-m-w-d-yellowshark-ag-luzern",
-        "panel-layer-m-f-yellowshark-ag-luzern-lu",
-        "carreleur-h-f-yellowshark-ag-luzern-lu"
+        "m-w-d-yellowshark-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25211,11 +25213,11 @@
         ],
         "en": [
           "plattenleger-m-w-d-yellowshark-ag-luzern",
-          "panel-layer-m-f-yellowshark-ag-luzern-lu"
+          "m-w-d-yellowshark-ag-luzern"
         ],
         "fr": [
           "plattenleger-m-w-d-yellowshark-ag-luzern",
-          "carreleur-h-f-yellowshark-ag-luzern-lu"
+          "m-w-d-yellowshark-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.613Z",
@@ -27920,7 +27922,7 @@
         "it": "carpentiere-m-f-yellowshark-ag-st-gallen-sg",
         "en": "carpenter-fitter-m-f-yellowshark-ag-st-gallen-sg",
         "de": "schreiner-monteur-m-w-st-gallen-sg-yellowshark-ch",
-        "fr": "charpentier-m-w-d-yellowshark-ag-st-gallen"
+        "fr": "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -27966,7 +27968,7 @@
       "previousSlugs": [
         "schreiner-monteur-m-w-st-gallen-sg-yellowshark-ch",
         "schreiner-monteur-m-w-d-yellowshark-ag-st-gallen",
-        "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
+        "charpentier-m-w-d-yellowshark-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27977,7 +27979,7 @@
         ],
         "fr": [
           "schreiner-monteur-m-w-d-yellowshark-ag-st-gallen",
-          "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
+          "charpentier-m-w-d-yellowshark-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.536Z",
@@ -28576,8 +28578,8 @@
       "slugByLocale": {
         "de": "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
         "it": "macchinista-escavatore-ragno-m-f-yellowshark-ag-zug-zg",
-        "en": "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug",
-        "fr": "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug"
+        "en": "engineer-walking-excavator-m-f-yellowshark-ag-zug-zg",
+        "fr": "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -28630,12 +28632,14 @@
         "en": [
           "engineer-walking-excavator-m-f-yellowshark-ag-zug-zg",
           "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
-          "machinery-operator-m-f-yellowshark-ag-zug-zg"
+          "machinery-operator-m-f-yellowshark-ag-zug-zg",
+          "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug"
         ],
         "fr": [
           "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg",
           "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
-          "operateur-de-machines-h-f-yellowshark-ag-zug-zg"
+          "operateur-de-machines-h-f-yellowshark-ag-zug-zg",
+          "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug"
         ]
       },
       "previousSlugs": [
@@ -28644,7 +28648,8 @@
         "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg",
         "operatore-di-macchine-m-f-yellowshark-ag-zug-zg",
         "machinery-operator-m-f-yellowshark-ag-zug-zg",
-        "operateur-de-machines-h-f-yellowshark-ag-zug-zg"
+        "operateur-de-machines-h-f-yellowshark-ag-zug-zg",
+        "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -33085,7 +33090,7 @@
         "it": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
         "en": "gardener-new-plants-m-f-yellowshark-ag-zurich-zh",
         "de": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-        "fr": "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
+        "fr": "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -33131,7 +33136,7 @@
       "previousSlugs": [
         "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
         "giardini-nuovi-m-f-yellowshark-ag-zurich-d9f2e030af",
-        "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
+        "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -33139,7 +33144,7 @@
           "giardini-nuovi-m-f-yellowshark-ag-zurich-d9f2e030af"
         ],
         "fr": [
-          "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
+          "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T14:45:10.379Z",
@@ -34970,7 +34975,7 @@
         "it": "plaster-m-f-yellowshark-ag-sarnen",
         "en": "plaster-m-f-yellowshark-ag-sarnen",
         "de": "gipser-m-w-sarnen-ow-yellowshark-ch",
-        "fr": "plaquette-m-w-d-yellowshark-ag-sarnen"
+        "fr": "gipser-m-w-d-yellowshark-ag-sarnen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -35015,14 +35020,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-m-w-sarnen-ow-yellowshark-ch",
-        "gipser-m-w-d-yellowshark-ag-sarnen"
+        "plaquette-m-w-d-yellowshark-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-m-w-sarnen-ow-yellowshark-ch"
         ],
         "fr": [
-          "gipser-m-w-d-yellowshark-ag-sarnen"
+          "plaquette-m-w-d-yellowshark-ag-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.482Z",
@@ -36190,9 +36195,9 @@
       "slug": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen-sg",
       "slugByLocale": {
         "it": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen-sg",
-        "en": "dryers-m-w-d-yellowshark-ag-st-gallen",
+        "en": "drywall-builder-m-f-yellowshark-ag-st-gallen-sg",
         "de": "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
-        "fr": "sechoirs-m-w-d-yellowshark-ag-st-gallen"
+        "fr": "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -36237,18 +36242,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
-        "drywall-builder-m-f-yellowshark-ag-st-gallen-sg",
-        "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
+        "dryers-m-w-d-yellowshark-ag-st-gallen",
+        "sechoirs-m-w-d-yellowshark-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "trockenbauer-m-w-st-gallen-sg-yellowshark-ch"
         ],
         "en": [
-          "drywall-builder-m-f-yellowshark-ag-st-gallen-sg"
+          "dryers-m-w-d-yellowshark-ag-st-gallen"
         ],
         "fr": [
-          "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
+          "sechoirs-m-w-d-yellowshark-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.598Z",
@@ -47675,7 +47680,7 @@
         "it": "intonacatore-m-f-yellowshark-ag-schwyz",
         "en": "plasterer-m-f-yellowshark-ag-schwyz",
         "de": "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "plaquette-m-w-d-yellowshark-ag-schwyz"
+        "fr": "gipser-m-w-d-yellowshark-ag-schwyz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -47720,14 +47725,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "gipser-m-w-d-yellowshark-ag-schwyz"
+        "plaquette-m-w-d-yellowshark-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-m-w-schwyz-sz-yellowshark-ch"
         ],
         "fr": [
-          "gipser-m-w-d-yellowshark-ag-schwyz"
+          "plaquette-m-w-d-yellowshark-ag-schwyz"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.540Z",
@@ -47920,9 +47925,9 @@
       "slug": "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
       "slugByLocale": {
         "it": "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
-        "en": "manufacturer-m-w-d-yellowshark-ag-liestal",
+        "en": "construction-plunger-m-f-yellowshark-ag-liestal-bl",
         "de": "bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "fr": "fabricant-m-w-d-yellowshark-ag-liestal"
+        "fr": "baupengler-h-f-yellowshark-ag-liestal-bl"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -47967,18 +47972,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "construction-plunger-m-f-yellowshark-ag-liestal-bl",
-        "baupengler-h-f-yellowshark-ag-liestal-bl"
+        "manufacturer-m-w-d-yellowshark-ag-liestal",
+        "fabricant-m-w-d-yellowshark-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauspengler-m-w-liestal-bl-yellowshark-ch"
         ],
         "en": [
-          "construction-plunger-m-f-yellowshark-ag-liestal-bl"
+          "manufacturer-m-w-d-yellowshark-ag-liestal"
         ],
         "fr": [
-          "baupengler-h-f-yellowshark-ag-liestal-bl"
+          "fabricant-m-w-d-yellowshark-ag-liestal"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.619Z",
@@ -50535,7 +50540,7 @@
       "slug": "posatore-di-pavimenti-m-f-yellowshark-ag-schwyz-sz",
       "slugByLocale": {
         "it": "posatore-di-pavimenti-m-f-yellowshark-ag-schwyz-sz",
-        "en": "ground-layer-m-w-d-yellowshark-ag-schwyz",
+        "en": "flooring-installer-m-f-yellowshark-ag-schwyz-sz",
         "de": "bodenleger-m-w-schwyz-sz-yellowshark-ch",
         "fr": "poseur-de-revetements-de-sol-h-f-yellowshark-ag-schwyz-sz"
       },
@@ -50583,7 +50588,7 @@
       "previousSlugs": [
         "bodenleger-m-w-schwyz-sz-yellowshark-ch",
         "bodenleger-m-w-d-yellowshark-ag-schwyz",
-        "flooring-installer-m-f-yellowshark-ag-schwyz-sz"
+        "ground-layer-m-w-d-yellowshark-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -50591,7 +50596,7 @@
         ],
         "en": [
           "bodenleger-m-w-d-yellowshark-ag-schwyz",
-          "flooring-installer-m-f-yellowshark-ag-schwyz-sz"
+          "ground-layer-m-w-d-yellowshark-ag-schwyz"
         ],
         "fr": [
           "bodenleger-m-w-d-yellowshark-ag-schwyz"
@@ -52104,7 +52109,7 @@
         "it": "addetto-a-alle-vendite-servizio-interno-m-w-d-yellowshark-ag-uster",
         "en": "sales-associate-innendienst-m-w-d-yellowshark-ag-uster",
         "de": "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "fr": "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
+        "fr": "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -52149,14 +52154,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
+        "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch"
         ],
         "fr": [
-          "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
+          "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
         ]
       },
       "firstSeenAt": "2026-09-30T21:57:40.139Z",
@@ -52995,12 +53000,12 @@
     },
     {
       "id": "yellowshark-2294e6349c7e",
-      "slug": "bodenleger-m-w-liestal-bl-yellowshark-ch",
+      "slug": "strato-terra-m-f-yellowshark-ag-liestal-bl-165c48",
       "slugByLocale": {
         "de": "bodenleger-m-w-liestal-bl-yellowshark-ch",
-        "it": "bodenleger-m-w-liestal-bl-yellowshark-ch",
-        "en": "bodenleger-m-w-liestal-bl-yellowshark-ch",
-        "fr": "bodenleger-m-w-liestal-bl-yellowshark-ch"
+        "it": "strato-terra-m-f-yellowshark-ag-liestal-bl-165c48",
+        "en": "ground-layer-m-f-yellowshark-ag-liestal-bl-165c48",
+        "fr": "couche-au-sol-h-f-yellowshark-ag-liestal-bl-165c48"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -53065,19 +53070,23 @@
       "firstSeenAt": "2026-09-28T21:58:25.581Z",
       "previousSlugsByLocale": {
         "it": [
-          "strato-terra-m-f-yellowshark-ag-liestal-bl"
+          "strato-terra-m-f-yellowshark-ag-liestal-bl",
+          "bodenleger-m-w-liestal-bl-yellowshark-ch"
         ],
         "en": [
-          "ground-layer-m-f-yellowshark-ag-liestal-bl"
+          "ground-layer-m-f-yellowshark-ag-liestal-bl",
+          "bodenleger-m-w-liestal-bl-yellowshark-ch"
         ],
         "fr": [
-          "couche-au-sol-h-f-yellowshark-ag-liestal-bl"
+          "couche-au-sol-h-f-yellowshark-ag-liestal-bl",
+          "bodenleger-m-w-liestal-bl-yellowshark-ch"
         ]
       },
       "previousSlugs": [
         "strato-terra-m-f-yellowshark-ag-liestal-bl",
         "ground-layer-m-f-yellowshark-ag-liestal-bl",
-        "couche-au-sol-h-f-yellowshark-ag-liestal-bl"
+        "couche-au-sol-h-f-yellowshark-ag-liestal-bl",
+        "bodenleger-m-w-liestal-bl-yellowshark-ch"
       ]
     },
     {
@@ -55227,7 +55236,7 @@
         "it": "lucidatrice-edilizia-m-f-yellowshark-ag-chur-gr",
         "en": "polishing-building-construction-m-f-yellowshark-ag-chur-gr",
         "de": "polier-hochbau-m-w-chur-gr-yellowshark-ch",
-        "fr": "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
+        "fr": "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55273,7 +55282,7 @@
       "previousSlugs": [
         "polier-hochbau-m-w-chur-gr-yellowshark-ch",
         "polier-hochbau-m-w-d-yellowshark-ag-chur",
-        "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
+        "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -55284,7 +55293,7 @@
         ],
         "fr": [
           "polier-hochbau-m-w-d-yellowshark-ag-chur",
-          "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
+          "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.627Z",
@@ -55804,7 +55813,7 @@
         "it": "capocantiere-m-f-yellowshark-ag-chur-gr",
         "en": "site-manager-m-f-yellowshark-ag-chur-gr",
         "de": "baufuhrer-m-w-chur-gr-yellowshark-ch",
-        "fr": "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
+        "fr": "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55850,7 +55859,7 @@
       "previousSlugs": [
         "baufuhrer-m-w-chur-gr-yellowshark-ch",
         "baufuhrer-m-w-d-yellowshark-ag-chur",
-        "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
+        "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -55861,7 +55870,7 @@
         ],
         "fr": [
           "baufuhrer-m-w-d-yellowshark-ag-chur",
-          "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
+          "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.619Z",
@@ -61691,7 +61700,7 @@
         "it": "montatore-falegname-m-f-yellowshark-ag-bern",
         "en": "carpenter-installer-m-f-yellowshark-ag-bern",
         "de": "schreiner-monteur-m-w-bern-be-yellowshark-ch",
-        "fr": "charpentier-m-w-d-yellowshark-ag-bern"
+        "fr": "menuisier-monteur-h-f-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -61737,7 +61746,7 @@
       "previousSlugs": [
         "schreiner-monteur-m-w-bern-be-yellowshark-ch",
         "schreiner-monteur-m-w-d-yellowshark-ag-bern",
-        "menuisier-monteur-h-f-yellowshark-ag-bern"
+        "charpentier-m-w-d-yellowshark-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61747,7 +61756,7 @@
           "schreiner-monteur-m-w-d-yellowshark-ag-bern"
         ],
         "fr": [
-          "menuisier-monteur-h-f-yellowshark-ag-bern"
+          "charpentier-m-w-d-yellowshark-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.632Z",
@@ -67488,7 +67497,7 @@
         "it": "agente-di-vendita-interno-m-f-yellowshark-ag-arbon-tg",
         "en": "in-house-sales-agent-m-f-yellowshark-ag-arbon-tg",
         "de": "sachbearbeiter-verkaufsinnendienst-m-w-arbon-tg-yellowshark-ch",
-        "fr": "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
+        "fr": "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -67534,7 +67543,7 @@
       "previousSlugs": [
         "sachbearbeiter-verkaufsinnendienst-m-w-arbon-tg-yellowshark-ch",
         "sachbearbeiter-verkaufsinnendienst-m-w-d-yellowshark-ag-arbon",
-        "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
+        "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67545,7 +67554,7 @@
         ],
         "fr": [
           "sachbearbeiter-verkaufsinnendienst-m-w-d-yellowshark-ag-arbon",
-          "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
+          "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
         ]
       },
       "firstSeenAt": "2026-10-15T10:02:18.709Z",
@@ -70373,7 +70382,7 @@
         "it": "controllori-yellowshark-ag-zurich-zh",
         "en": "controllers-yellowshark-ag-zurich-zh",
         "de": "controller-zurich-zh-yellowshark-ch",
-        "fr": "controleur-yellowshark-ag-zurich"
+        "fr": "controller-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70418,7 +70427,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "controller-zurich-zh-yellowshark-ch",
-        "controller-yellowshark-ag-zurich"
+        "controller-yellowshark-ag-zurich",
+        "controleur-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -70428,7 +70438,7 @@
           "controller-yellowshark-ag-zurich"
         ],
         "fr": [
-          "controller-yellowshark-ag-zurich"
+          "controleur-yellowshark-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.538Z",
@@ -70452,12 +70462,12 @@
     },
     {
       "id": "yellowshark-fba8faaf1c34",
-      "slug": "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch",
+      "slug": "specialista-di-tecnologia-ambientale-m-f-80-100-yellowshark-ag-munsingen-be",
       "slugByLocale": {
         "de": "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch",
-        "it": "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch",
-        "en": "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch",
-        "fr": "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch"
+        "it": "specialista-di-tecnologia-ambientale-m-f-80-100-yellowshark-ag-munsingen-be",
+        "en": "environmental-technology-specialist-m-f-80-100-yellowshark-ag-munsingen-be",
+        "fr": "specialiste-des-technologies-environnementales-h-f-80-100-yellowshark-ag-munsingen-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70519,16 +70529,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.111Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.111Z"
+      "firstSeenAt": "2026-11-14T10:02:09.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch"
+        ],
+        "en": [
+          "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch"
+        ],
+        "fr": [
+          "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "umwelttechnik-spezialist-m-w-80-100-munsingen-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-6ea0febdf6a8",
-      "slug": "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch",
+      "slug": "tecnologia-di-servizio-di-vendita-interna-m-f-d-80-100-yellowshark-ag-cham-zg",
       "slugByLocale": {
         "de": "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch",
-        "it": "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch",
-        "en": "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch",
-        "fr": "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch"
+        "it": "tecnologia-di-servizio-di-vendita-interna-m-f-d-80-100-yellowshark-ag-cham-zg",
+        "en": "in-house-sales-service-technology-m-f-d-80-100-yellowshark-ag-cham-zg",
+        "fr": "technologie-de-service-de-vente-interne-h-f-d-80-100-yellowshark-ag-cham-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70590,7 +70614,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.111Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.111Z"
+      "firstSeenAt": "2026-11-14T10:02:09.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch"
+        ],
+        "en": [
+          "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsinnendienst-technik-w-m-d-80-100-cham-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-32ae5152507c",
@@ -70598,8 +70636,8 @@
       "slugByLocale": {
         "de": "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch",
         "it": "technischer-servizio-interno-80-100-m-w-d-yellowshark-ag-munchwilen-tg",
-        "en": "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch",
-        "fr": "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch"
+        "en": "technical-interior-service-80-100-m-f-yellowshark-ag-munchwilen-tg-tg",
+        "fr": "service-d-interieur-technique-80-100-h-f-yellowshark-ag-munchwilen-tg-tg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70647,6 +70685,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch"
+        ],
+        "en": [
+          "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch"
+        ],
+        "fr": [
+          "technischer-innendienst-80-100-m-w-munchwilen-tg-tg-yellowshark-ch"
         ]
       },
       "previousSlugs": [
@@ -70677,8 +70721,8 @@
       "slugByLocale": {
         "de": "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch",
         "it": "technischer-projektleiter-metallbau-80-100-m-w-d-yellowshark-ag-belp",
-        "en": "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch",
-        "fr": "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch"
+        "en": "technical-project-manager-metal-construction-80-100-m-f-yellowshark-ag-belp-be",
+        "fr": "chef-fe-de-projet-technique-en-construction-metallique-80-100-h-f-yellowshark-ag-belp-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70725,6 +70769,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch"
+        ],
+        "en": [
+          "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch"
+        ],
+        "fr": [
           "technischer-projektleiter-metallbau-80-100-m-w-belp-be-yellowshark-ch"
         ]
       },
@@ -70823,12 +70873,12 @@
     },
     {
       "id": "yellowshark-c53a566ef14b",
-      "slug": "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch",
+      "slug": "contabilita-80-yellowshark-ag-st-gallen-sg",
       "slugByLocale": {
         "de": "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch",
-        "it": "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch",
-        "en": "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch",
-        "fr": "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch"
+        "it": "contabilita-80-yellowshark-ag-st-gallen-sg",
+        "en": "accounting-80-yellowshark-ag-st-gallen-sg",
+        "fr": "comptabilite-80-yellowshark-ag-st-gallen-sg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70890,7 +70940,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.107Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.107Z"
+      "firstSeenAt": "2026-11-14T10:02:09.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch"
+        ],
+        "en": [
+          "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-rechnungswesen-80-st-gallen-sg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-8a79a81ee87c",
@@ -70973,12 +71037,12 @@
     },
     {
       "id": "yellowshark-1aba93259a42",
-      "slug": "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch",
+      "slug": "gestione-della-proprieta-contabilita-80-100-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "de": "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch",
-        "it": "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch",
-        "en": "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch",
-        "fr": "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch"
+        "it": "gestione-della-proprieta-contabilita-80-100-yellowshark-ag-zurich-zh",
+        "en": "property-management-accounting-80-100-yellowshark-ag-zurich-zh",
+        "fr": "gestion-immobiliere-comptabilite-80-100-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71040,7 +71104,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.106Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.106Z"
+      "firstSeenAt": "2026-11-14T10:02:09.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "en": [
+          "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-buchhaltung-80-100-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-ebaa1068a318",
@@ -71048,8 +71126,8 @@
       "slugByLocale": {
         "de": "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch",
         "it": "projektleiter-warmetechnik-80-100-m-w-d-yellowshark-ag-luzern",
-        "en": "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch",
-        "fr": "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch"
+        "en": "project-manager-thermal-engineering-80-100-m-f-yellowshark-ag-luzern-lu",
+        "fr": "gestionnaire-de-projet-genie-thermique-80-100-h-f-yellowshark-ag-luzern-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71097,6 +71175,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "en": [
+          "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "projektleiter-warmetechnik-80-100-m-w-luzern-lu-yellowshark-ch"
         ]
       },
       "previousSlugs": [
@@ -71123,12 +71207,12 @@
     },
     {
       "id": "yellowshark-09a6447c013b",
-      "slug": "mobelschreiner-m-w-luzern-lu-yellowshark-ch",
+      "slug": "carpenter-per-mobili-m-f-yellowshark-ag-luzern-lu",
       "slugByLocale": {
         "de": "mobelschreiner-m-w-luzern-lu-yellowshark-ch",
-        "it": "mobelschreiner-m-w-luzern-lu-yellowshark-ch",
-        "en": "mobelschreiner-m-w-luzern-lu-yellowshark-ch",
-        "fr": "mobelschreiner-m-w-luzern-lu-yellowshark-ch"
+        "it": "carpenter-per-mobili-m-f-yellowshark-ag-luzern-lu",
+        "en": "furniture-carpenter-m-f-yellowshark-ag-luzern-lu",
+        "fr": "charpentier-de-meubles-h-f-yellowshark-ag-luzern-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71190,7 +71274,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.104Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.465Z"
+      "firstSeenAt": "2026-09-28T21:58:25.465Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mobelschreiner-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "en": [
+          "mobelschreiner-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "mobelschreiner-m-w-luzern-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mobelschreiner-m-w-luzern-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-9cefd1c38aa7",
@@ -71269,8 +71367,8 @@
       "slugByLocale": {
         "de": "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch",
         "it": "it-responsabile-di-progetto-digitalisierung-yellowshark-ag-bern",
-        "en": "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch",
-        "fr": "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch"
+        "en": "it-project-manager-digitalization-yellowshark-ag-bern-be",
+        "fr": "chef-fe-de-projet-informatique-en-numerisation-yellowshark-ag-bern-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71318,6 +71416,12 @@
       "previousSlugsByLocale": {
         "it": [
           "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch"
+        ],
+        "en": [
+          "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch"
+        ],
+        "fr": [
+          "it-projektleiter-in-digitalisierung-bern-be-yellowshark-ch"
         ]
       },
       "previousSlugs": [
@@ -71344,12 +71448,12 @@
     },
     {
       "id": "yellowshark-8ce2c5d05183",
-      "slug": "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch",
+      "slug": "specialista-del-sistema-it-m-f-80-100-yellowshark-ag-sursee-lu",
       "slugByLocale": {
         "de": "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch",
-        "it": "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch",
-        "en": "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch",
-        "fr": "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch"
+        "it": "specialista-del-sistema-it-m-f-80-100-yellowshark-ag-sursee-lu",
+        "en": "it-system-specialist-m-f-80-100-yellowshark-ag-sursee-lu",
+        "fr": "specialiste-du-systeme-informatique-h-f-80-100-yellowshark-ag-sursee-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71411,16 +71515,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.101Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.101Z"
+      "firstSeenAt": "2026-11-14T10:02:09.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch"
+        ],
+        "en": [
+          "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-systemspezialist-m-w-80-100-sursee-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-117ff8dbe844",
-      "slug": "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch",
+      "slug": "specialista-di-manutenzione-elettrica-automazione-80-100-m-f-yellowshark-ag-zofingen-ag",
       "slugByLocale": {
         "de": "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch",
-        "it": "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch",
-        "en": "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch",
-        "fr": "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch"
+        "it": "specialista-di-manutenzione-elettrica-automazione-80-100-m-f-yellowshark-ag-zofingen-ag",
+        "en": "maintenance-specialist-electric-automation-80-100-m-f-yellowshark-ag-zofingen-ag",
+        "fr": "specialiste-de-la-maintenance-electric-automatisation-80-100-h-f-yellowshark-ag-zofingen-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71482,16 +71600,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.100Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.100Z"
+      "firstSeenAt": "2026-11-14T10:02:09.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch"
+        ],
+        "en": [
+          "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungsfachmann-elektro-automation-80-100-m-w-zofingen-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-c4e0f8b15255",
-      "slug": "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch",
+      "slug": "specialista-di-supporto-it-80-100-yellowshark-ag-ostermundigen-be",
       "slugByLocale": {
         "de": "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch",
-        "it": "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch",
+        "it": "specialista-di-supporto-it-80-100-yellowshark-ag-ostermundigen-be",
         "en": "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch",
-        "fr": "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch"
+        "fr": "specialiste-du-soutien-informatique-80-100-yellowshark-ag-ostermundigen-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71553,16 +71685,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.100Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.100Z"
+      "firstSeenAt": "2026-11-14T10:02:09.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch"
+        ],
+        "fr": [
+          "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-spezialist-80-100-ostermundigen-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-f1a9918d2fe2",
-      "slug": "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch",
+      "slug": "supporto-ingegnere-del-sistema-ict-m-f-d-80-100-yellowshark-ag-fribourg-fr",
       "slugByLocale": {
         "de": "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch",
-        "it": "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch",
+        "it": "supporto-ingegnere-del-sistema-ict-m-f-d-80-100-yellowshark-ag-fribourg-fr",
         "en": "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch",
-        "fr": "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch"
+        "fr": "support-de-l-ingenieur-systeme-tic-h-f-d-80-100-yellowshark-ag-fribourg-fr"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71624,16 +71767,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.099Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.099Z"
+      "firstSeenAt": "2026-11-14T10:02:09.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch"
+        ],
+        "fr": [
+          "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-systemtechniker-support-m-w-d-80-100-fribourg-fr-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-6a93b5a13673",
-      "slug": "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch",
+      "slug": "produzione-tecnico-operativo-m-f-100-yellowshark-ag-studen-be-be",
       "slugByLocale": {
         "de": "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch",
-        "it": "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch",
-        "en": "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch",
-        "fr": "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch"
+        "it": "produzione-tecnico-operativo-m-f-100-yellowshark-ag-studen-be-be",
+        "en": "operational-technician-production-m-f-100-yellowshark-ag-studen-be-be",
+        "fr": "technicien-operationnel-production-h-f-100-yellowshark-ag-studen-be-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71695,7 +71849,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T10:02:09.095Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T10:02:09.095Z"
+      "firstSeenAt": "2026-11-14T10:02:09.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch"
+        ],
+        "en": [
+          "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch"
+        ],
+        "fr": [
+          "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebstechniker-produktion-m-w-100-studen-be-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-567c68445d3f",
@@ -73250,9 +73418,9 @@
       "slug": "copritetto-lattoniere-m-f-yellowshark-ag-liestal-bl",
       "slugByLocale": {
         "it": "copritetto-lattoniere-m-f-yellowshark-ag-liestal-bl",
-        "en": "roofing-and-construction-equipment-m-w-d-yellowshark-ag-liestal",
+        "en": "roofers-building-brushes-m-f-yellowshark-ag-liestal-bl",
         "de": "dachdecker-bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "fr": "equipement-de-toiture-et-de-construction-m-w-d-yellowshark-ag-liestal"
+        "fr": "couvreur-ferblantier-h-f-yellowshark-ag-liestal-bl"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73297,18 +73465,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dachdecker-bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "roofers-building-brushes-m-f-yellowshark-ag-liestal-bl",
-        "couvreur-ferblantier-h-f-yellowshark-ag-liestal-bl"
+        "roofing-and-construction-equipment-m-w-d-yellowshark-ag-liestal",
+        "equipement-de-toiture-et-de-construction-m-w-d-yellowshark-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dachdecker-bauspengler-m-w-liestal-bl-yellowshark-ch"
         ],
         "en": [
-          "roofers-building-brushes-m-f-yellowshark-ag-liestal-bl"
+          "roofing-and-construction-equipment-m-w-d-yellowshark-ag-liestal"
         ],
         "fr": [
-          "couvreur-ferblantier-h-f-yellowshark-ag-liestal-bl"
+          "equipement-de-toiture-et-de-construction-m-w-d-yellowshark-ag-liestal"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.634Z",
