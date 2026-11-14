@@ -108,7 +108,11 @@ import {
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
-import { rankSimilarApplicationJobs, snapshotData } from './lib/applicationIntentReminder.mjs';
+import {
+  createApplicationIntentReminderFeatureCache,
+  rankSimilarApplicationJobs,
+  snapshotData,
+} from './lib/applicationIntentReminder.mjs';
 import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1026,6 +1030,8 @@ async function main() {
   assertUnsubscribeSecret();
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
+  const allJobs = [...jobsById.values()];
+  const recommendationFeatureCache = createApplicationIntentReminderFeatureCache();
   const nowMs = Date.now();
   // One campaignId per run (#4862) — all recipients of a given weekly send
   // share it, same convention as send-newsletter.mjs's weekly_{monday}.
@@ -1211,9 +1217,10 @@ async function main() {
     const savedIds = new Set([...savedCardCandidates, ...rankingIntentEntries].map((entry) => entry.id));
     const recommendations = [];
     const intentSourceJobs = rankingIntentEntries.map((entry) => entry.sourceJob).filter(Boolean);
-    for (const job of rankSimilarApplicationJobs(intentSourceJobs, [...jobsById.values()], {
+    for (const job of rankSimilarApplicationJobs(intentSourceJobs, allJobs, {
       max: MAX_RECOMMENDATIONS,
       excludedJobIds: savedIds,
+      featureCache: recommendationFeatureCache,
     })) {
       recommendations.push({
         id: job.id,

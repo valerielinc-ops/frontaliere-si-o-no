@@ -83,7 +83,15 @@ export function extractLabelledDetailValue(html = '', label = '') {
   return '';
 }
 
-function labelledLocationEvidence(value) {
+function reviewedLocationCantonOverride(spec, value) {
+  const overrides = spec?.detailLocationCantonOverrides;
+  if (!overrides || typeof overrides !== 'object' || Array.isArray(overrides)) return '';
+  const key = normalizedLabel(value);
+  const entry = Object.entries(overrides).find(([label]) => normalizedLabel(label) === key)?.[1];
+  return normalizeSwissCantonCode(entry || '');
+}
+
+function labelledLocationEvidence(value, spec) {
   const raw = String(value || '').replace(/\s+/g, ' ').trim();
   // A choice of broad work areas does not identify one workplace. Refuse it
   // explicitly so the page-wide company address cannot fall back in.
@@ -92,7 +100,18 @@ function labelledLocationEvidence(value) {
   const suffix = /^(.*?)\s*\(([A-Za-z]{2,3})\)(?:\s+.*)?$/.exec(workplace);
   const addressRegion = normalizeSwissCantonCode(suffix?.[2] || '');
   const addressLocality = String(suffix?.[1] || '').trim();
-  if (!addressRegion || !addressLocality) return { location: raw };
+  if (!addressRegion || !addressLocality) {
+    const reviewedCanton = reviewedLocationCantonOverride(spec, raw);
+    if (reviewedCanton) {
+      return {
+        location: raw,
+        addressLocality: raw,
+        addressRegion: reviewedCanton,
+        addressCountry: 'CH',
+      };
+    }
+    return { location: raw };
+  }
   return {
     location: addressLocality,
     addressLocality,
@@ -168,7 +187,8 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     // The named source heading describes the vacancy's workplace. Replace the
     // page-wide address candidates so a company address in JSON-LD/footer
     // cannot outrank it during the shared Swiss geography resolution.
-    const evidence = labelledLocationEvidence(labelledLocation);
+    detail.workplaceLabels = [labelledLocation];
+    const evidence = labelledLocationEvidence(labelledLocation, spec);
     if (!evidence) {
       detail.authoritativeLocationConflict = true;
       return detail;
