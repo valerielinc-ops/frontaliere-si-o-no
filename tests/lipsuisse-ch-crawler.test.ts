@@ -60,7 +60,8 @@ describe('LIP Suisse crawler parser', () => {
           addressCountry: '1227',
           postalCode: '1227',
         },
-        expected: { addressRegion: 'GE', addressCountry: 'CH', postalCode: '1227' },
+        expected: { addressRegion: 'GE', addressCountry: 'CH' },
+        candidate: { postalCode: '1227' },
       },
       {
         address: { postalCode: '1700 ' },
@@ -85,6 +86,7 @@ describe('LIP Suisse crawler parser', () => {
         'https://www.lipsuisse.ch/offres-emploi/test-vacancy/',
       );
       expect(detail).toMatchObject(expected);
+      if (candidate) expect(detail.locationCandidates[0]).toMatchObject(candidate);
     }
   });
 
