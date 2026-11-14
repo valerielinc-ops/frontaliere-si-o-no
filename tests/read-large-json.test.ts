@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { parseLargeJsonArray, readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile, parseLargeJsonArray, readJsonFile } from '../scripts/lib/read-large-json.mjs';
 
 describe('large JSON reader', () => {
   it('parses nested records when chunks split strings and objects', () => {
@@ -26,6 +26,38 @@ describe('large JSON reader', () => {
     try {
       fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
       expect(readJsonFile(target, { maxInlineBytes: 1 })).toEqual(rows);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('iterates a large top-level array without retaining the array container', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'iterate-large-json-'));
+    const target = path.join(dir, 'jobs.json');
+    const rows = [{ id: 1, title: 'café' }, { id: 2, nested: { ok: true } }];
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(rows), 'utf8');
+      // The iterator defaults to the item-wise path even for a small file:
+      // callers use it specifically when the complete parsed array must not
+      // overlap another build phase's retained corpus.
+      expect([...iterateJsonArrayFile(target)]).toEqual(rows);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('iterates a jobs wrapper without retaining the wrapper or jobs array', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'iterate-large-json-wrapper-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = {
+      generatedAt: '2026-11-03T00:00:00.000Z',
+      jobs: [{ id: 'x', title: 'café' }, { id: 'y', nested: { ok: true } }],
+    };
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect([...iterateJsonArrayFile(target)]).toEqual(payload.jobs);
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
@@ -74,6 +106,14 @@ describe('large JSON reader', () => {
 // reader of the assembled corpus in these paths goes through readJsonFile.
 describe('data/jobs.json readers', () => {
   const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+  const streamingReaders = [
+    'build-plugins/jobBoardSeo.ts',
+    'build-plugins/localeJobsSplitPlugin.ts',
+    'build-plugins/shared/autoSectorHubPublicationData.ts',
+    'build-plugins/staticPagesPlugin.ts',
+    'build-plugins/weeklyEmployersPlugin.ts',
+    'build-plugins/orphanQueryLandingPlugin.ts',
+  ];
   const readers = [
     'build-plugins/careerJobsAggregate.ts',
     'build-plugins/cityJobsAggregate.ts',
@@ -81,14 +121,11 @@ describe('data/jobs.json readers', () => {
     'build-plugins/jobRecencyPagesPlugin.ts',
     'build-plugins/jobSectorPagesPlugin.ts',
     'build-plugins/jobsSeoPagesPlugin.ts',
-    'build-plugins/orphanQueryLandingPlugin.ts',
     'build-plugins/nursingJobsAggregate.ts',
     'build-plugins/professionJobsAggregate.ts',
     'build-plugins/relatedSearchClustersPlugin.ts',
     'build-plugins/shared/loadDataJson.ts',
     'build-plugins/shared/reportJobPanel.ts',
-    'build-plugins/staticPagesPlugin.ts',
-    'build-plugins/weeklyEmployersPlugin.ts',
     'scripts/build-employer-profiles.mjs',
     'scripts/audit-related-search-candidates.mjs',
     'scripts/migrate-all-known-job-slugs-canton-aware.mjs',
@@ -128,6 +165,21 @@ describe('data/jobs.json readers', () => {
     };
     walk(path.join(root, 'build-plugins'));
     expect(offenders).toEqual([]);
+  });
+
+  it('keeps memory-sensitive build readers on the item-wise iterator', () => {
+    for (const rel of streamingReaders) {
+      const src = fs.readFileSync(path.join(root, rel), 'utf8');
+      expect(src).toContain('import { iterateJsonArrayFile } from ');
+      expect(src).toContain('read-large-json.mjs');
+      expect(src).toContain('iterateJsonArrayFile(');
+      expect(src).not.toContain('readJsonFile(');
+    }
+  });
+
+  it('keeps the iterator streaming by default even below the V8 string limit', () => {
+    const src = fs.readFileSync(path.join(root, 'scripts/lib/read-large-json.mjs'), 'utf8');
+    expect(src).toContain('{ maxInlineBytes = 0, maxItemBytes = DEFAULT_JSON_STRING_LIMIT }');
   });
 
   it.each(readers)('%s reads the corpus through readJsonFile', (rel) => {

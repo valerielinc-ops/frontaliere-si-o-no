@@ -38,9 +38,7 @@ describe('historical archive fallback hreflang', () => {
     expect(selfHealing).toContain(
       'const emissionPaths = pathResolution.canonicalizedLegacySection',
     );
-    expect(selfHealing).toContain(
-      'buildTrackedHreflangLinks(slug, emissionPaths)',
-    );
+    expect(selfHealing).toContain('buildTrackedHreflangLinks(slug, emissionPaths)');
     expect(selfHealing).toContain(
       'buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)',
     );

@@ -467,7 +467,7 @@ describe.each([undefined, 'it'] as const)('job sitemap generator contract (BUILD
   });
 
   it('keeps the nested shard index coherent with the files on disk', () => {
-    const shards = sitemapFiles().filter((f) => /^sitemap-jobs-[a-z0-9-]+\.xml$/.test(f) && f !== 'sitemap-jobs-expired.xml');
+    const shards = sitemapFiles().filter((f) => /^sitemap-jobs-[a-z0-9-]+\.xml$/.test(f) && !/^sitemap-jobs-expired(?:-\d+)?\.xml$/.test(f));
     const indexXml = fs.readFileSync(path.join(dist, 'sitemap-index.xml'), 'utf8');
     const referenced = [...indexXml.matchAll(/<loc>[^<]*\/(sitemap-[^<]+\.xml)<\/loc>/g)].map((m) => m[1]).sort();
     expect(referenced).toEqual([...shards].sort());

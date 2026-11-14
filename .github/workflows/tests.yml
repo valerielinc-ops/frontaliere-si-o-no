@@ -2784,6 +2784,17 @@ jobs:
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      # Publish the exact snapshot as soon as assembly and migration succeed.
+      # Saving here lets main seed the cache before the longer test and review
+      # steps, and still runs before any later test failure.
+      - name: Save assemble-jobs cache
+        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        continue-on-error: true
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
       - name: Verify published blog cover ledger
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
@@ -4465,16 +4476,6 @@ jobs:
             echo '- Le fasi di report, remediation e review sono state saltate perché la run è stata cancellata.'
           } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           echo "::notice::tests run classified as $classification; no failure report or remediation was attempted"
-
-      # Persist the exact snapshot after all test steps. This runs after a test
-      # failure too, so the next run on the same PR can reuse the assembly.
-      - name: Save assemble-jobs cache
-        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
-        continue-on-error: true
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/assemble-jobs
-          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       # ULTIMO step del job, e deve restarlo: legge l'esito di tutti quelli
       # sopra. `always()` non è decorativo — un `if:` che nomina uno step senza
