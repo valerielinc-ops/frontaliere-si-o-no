@@ -195,10 +195,13 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
     expect(workflow.on.workflow_call.inputs.it_shard_artifact_run_id).toBeTruthy();
     const steps = workflow.jobs.audit.steps;
-    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator');
+    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator and artifact resolver');
     expect(indexValidatorCheckout.uses).toBe('actions/checkout@v7');
     expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
     expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
+    expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+    const fetchPages = steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
+    expect(fetchPages.uses).toBe('./current-index-validator/.github/actions/fetch-pages-artifact');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const upperLocale = locale.toUpperCase();
