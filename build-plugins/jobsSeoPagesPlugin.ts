@@ -13890,9 +13890,10 @@ ${staticAnalyticsHtml}
  // recency-sorted expired-jobs.json winners indexed above — this only fills the
  // long tail those 5000 left empty.
  const expiredSlicesDir = np.resolve(rootDir, 'data/jobs/expired/by-crawler');
- // Keep per-crawler rows disk-backed by default. The cap only opts into
- // retaining full row objects in RAM; overflow keeps compact offsets/recency.
- const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 0);
+ // Bound in-memory aliases, not archive coverage. The published c805 build
+ // reached this cap before Spital Uster and silently lost original content.
+ // Overflow retains compact offsets/recency; full records live on disk.
+ const SLICE_AUGMENT_CAP = intFromEnv('EXPIRED_SLICE_AUGMENT_CAP', 60000);
  expiredSliceOverflow = new ExpiredSliceOverflow();
  if (fs.existsSync(expiredSlicesDir)) {
  const isTrackedSlug = (slug: string): boolean => Object.prototype.hasOwnProperty.call(tracking, slug);
