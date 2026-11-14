@@ -125,14 +125,12 @@ describe('prospector source-backed empty listing contract', () => {
   });
 
   it('does not turn a populated structured listing into an empty snapshot', async () => {
-    const html = NEXT_DATA_EMPTY_HTML.replace(
+    const structuredHtml = NEXT_DATA_EMPTY_HTML.replace(
       '"items":[],"pagination":{"total":0,"pageCount":0}',
       '"items":[{"id":1}],"pagination":{"total":1,"pageCount":1}',
     );
-    const rows = await runSpecInProduction(
-      nextDataSpec(),
-      runtime(`<p>${EMPTY_MARKER}</p>${html}`),
-    );
+    const html = `<html><body><p>${EMPTY_MARKER}</p>${structuredHtml}</body></html>`;
+    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
 
     expect(rows).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
@@ -140,11 +138,12 @@ describe('prospector source-backed empty listing contract', () => {
   });
 
   it('does not accept structured empty data from another tenant', async () => {
-    const html = NEXT_DATA_EMPTY_HTML.replace('"domain":"eqe"', '"domain":"other-company"');
-    const rows = await runSpecInProduction(
-      nextDataSpec(),
-      runtime(`<p>${EMPTY_MARKER}</p>${html}`),
+    const structuredHtml = NEXT_DATA_EMPTY_HTML.replace(
+      '"domain":"eqe"',
+      '"domain":"other-company"',
     );
+    const html = `<html><body><p>${EMPTY_MARKER}</p>${structuredHtml}</body></html>`;
+    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
 
     expect(rows).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);

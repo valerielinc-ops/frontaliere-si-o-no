@@ -507,11 +507,11 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
     .map((value) => value.replace(/\s+/g, ' ').trim().toLowerCase())
     .filter(Boolean);
   if (!markers.length) return false;
-  const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
-  // A structured contract is stronger than the rendered fallback: once a
-  // spec names tenant/list/counter paths, a visible marker must not bypass
-  // those checks when the payload is populated or belongs to another tenant.
-  if (!spec?.authoritativeEmptyData && markers.some((marker) => sourceText.includes(marker))) return true;
+  const contract = spec?.authoritativeEmptyData;
+  if (contract === undefined || contract === null) {
+    const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
+    return markers.some((marker) => sourceText.includes(marker));
+  }
 
   // Some SSR career pages keep the empty-state sentence in an application
   // payload rather than rendering it into the HTML body. `textOf()` correctly
@@ -519,8 +519,6 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
   // second proof and name every source-owned field that makes the zero safe:
   // the script, tenant identity, empty item array, zero counters and marker
   // container. A marker alone is never enough to retire a live slice.
-  const contract = spec?.authoritativeEmptyData;
-  if (!contract || typeof contract !== 'object') return false;
   const requiredPaths = [
     'scriptId',
     'companyPath',
