@@ -282,8 +282,9 @@ describe('pr-contribution-fingerprint CLI', () => {
 // fingerprint sono stub, `review-carry-forward.mjs decide` e i filtri jq sono
 // quelli reali. Caso #9968 (review 5327152883 sull'head 3b348916): un merge di
 // autorebase porta #9947/#9949, che toccano `services/locales/*-core.ts`, gli
-// stessi file della PR. Il compare dall'ultima review vede quindi 4 file code
-// della PR, ma il contributo è identico: il tier deve riusare il verdetto.
+// stessi file della PR. Le locale sono ora non-runtime-code, quindi il compare
+// non deve trasformare questi quattro file in un delta code; il tier riusa il
+// verdetto solo quando il fingerprint lo conferma.
 describe('tier step: fingerprint before the code delta (#9968)', () => {
   const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
   const job = workflow.jobs.vitest as { env: Record<string, string>; steps: Array<{ id?: string; run?: string }> };
@@ -361,12 +362,15 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
       const gh = join(dir, 'gh');
       writeFileSync(gh, `#!/usr/bin/env bash\nexec node "${join(dir, 'gh.cjs')}" "$@"\n`);
       chmodSync(gh, 0o755);
+      const timeout = join(dir, 'timeout');
+      writeFileSync(timeout, '#!/usr/bin/env bash\nshift 2\nexec "$@"\n');
+      chmodSync(timeout, 0o755);
       const output = join(dir, 'github-output');
       writeFileSync(output, '');
       const result = spawnSync('bash', ['-c', tierRun], {
         encoding: 'utf8',
         env: {
-          PATH: process.env.PATH,
+          PATH: `${dir}:${process.env.PATH}`,
           HOME: process.env.HOME,
           GITHUB_OUTPUT: output,
           REVIEW_POLICY_ROOT: join(dir, 'policy'),
@@ -390,35 +394,35 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
   const reviewsOneToFour = before('2026-09-26T19:30:00Z');
   const SAME = 'a'.repeat(64);
 
-  it('replays #9968: 4 PR locale files in the compare, identical fingerprints, reviews 1-4 → carry-forward', () => {
+  it('replays #9968: locale files are excluded from the code delta before carry-forward', () => {
     const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: SAME } });
     expect(run.status, run.stderr).toBe(0);
     expect(run.outputs.tier).toBe('carry-forward');
     expect(run.outputs.carry_prior_review).toBe('5327040158');
     expect(run.outputs.carry_prior_commit).toBe(PRIOR_9968);
     expect(run.outputs.incremental_base).toBeUndefined();
-    expect(run.stdout).toContain('delta-code portato dalla base (4 file PR nel compare)');
+    expect(run.stdout).toContain('nessun delta-code');
   });
 
-  it('keeps the incremental review when the contribution fingerprint changed', () => {
+  it('falls back to a full review when the contribution fingerprint changed', () => {
     const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: 'b'.repeat(64) } });
     expect(run.status, run.stderr).toBe(0);
-    expect(run.outputs.tier).toBe('incremental');
-    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+    expect(run.outputs.tier).toBe('normal');
+    expect(run.outputs.incremental_base).toBeUndefined();
     expect(run.outputs.carry_prior_review).toBeUndefined();
   });
 
   it.each([
     ['the HEAD fingerprint is UNKNOWN', { [PRIOR_9968]: SAME }],
     ['both fingerprints are UNKNOWN', {}],
-  ])('keeps the incremental review when %s', (_label, fps: Record<string, string>) => {
+  ])('falls back to a full review when %s', (_label, fps: Record<string, string>) => {
     const run = runTier({ reviewPages: reviewsOneToFour, fps });
     expect(run.status, run.stderr).toBe(0);
-    expect(run.outputs.tier).toBe('incremental');
-    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+    expect(run.outputs.tier).toBe('normal');
+    expect(run.outputs.incremental_base).toBeUndefined();
   });
 
-  it('turns an identical contribution after a non-approving verdict into minimal, not incremental', () => {
+  it('uses the minimal review after a non-approving verdict without a code delta', () => {
     const reviewsOneToTwo = before('2026-09-26T18:45:00Z');
     const prior = reviewsOneToTwo.flat().at(-1)!.commit_id;
     const run = runTier({ reviewPages: reviewsOneToTwo, fps: { [HEAD_9968]: SAME, [prior]: SAME } });

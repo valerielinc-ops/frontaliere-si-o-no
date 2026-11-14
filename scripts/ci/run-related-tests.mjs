@@ -221,6 +221,13 @@ const checkoutProfileScope = (file) => /^(?:\.github\/(?:workflows|actions)\/|pa
     /(?:sparse-checkout|sparseIncludesPath|GLOBAL_TESTS_REQUIRED_SPARSE_PATHS|TYPECHECK_REQUIRED_SPARSE_PATHS|checkout-profile|checkoutEntryPoints|verifyCheckoutProfiles)/i)(file);
 
 const coreLocaleSource = /^services\/locales\/[^/]+-core\.ts$/;
+// Keep the selector's own search patterns structurally distinct from the
+// literal flags that `tests/gh-slurp-jq-guard.test.ts` must find in commands.
+// Otherwise changing a workflow that contains a valid `--slurp` pipeline
+// selects the guard, which then mistakes these selector regexes for a broken
+// gh invocation.
+const ghSlurpFlagPattern = /--s(?:lurp)\b/;
+const ghJqOrTemplateFlagPattern = /(?:--j(?:q)\b|--t(?:emplate)\b|\s-[qt]\s)/;
 const sourceTreeLintTests = new Map([
   // This completeness guard discovers translation keys by scanning all of
   // `services/` and `components/`, so no import edge ties a locale dictionary
@@ -257,7 +264,7 @@ const sourceTreeLintTests = new Map([
     'tests/prune-merged-worktrees-expiry-e2e.test.ts',
     'tests/prune-merged-worktrees-reclaim-e2e.test.ts',
   ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
-  ['tests/gh-slurp-jq-guard.test.ts', pathAndSourceMatch(/^(?:\.github|scripts|bin)\//, /--slurp\b/, /(?:--jq\b|--template\b|\s-[qt]\s)/)],
+  ['tests/gh-slurp-jq-guard.test.ts', pathAndSourceMatch(/^(?:\.github|scripts|bin)\//, ghSlurpFlagPattern, ghJqOrTemplateFlagPattern)],
   ['tests/no-hardcoded-secrets.test.ts', secretSourceChange],
   // `consent-shown-at-signup` discovers signup writers by reading every file
   // under these roots. Those `read()` calls are the contract, but they are
