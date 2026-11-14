@@ -1149,7 +1149,7 @@
         "it": "collaboratore-trice-visual-merchandising-interior-design-e-attivita-100-ikea-riddes",
         "en": "collaborateur-trice-visual-merchandising-interior-design-activity-100-ikea-ch",
         "de": "mitarbeiter-in-visual-merchandising-interior-design-activity-100-ikea-riddes",
-        "fr": "collaborateur-trice-visual-merchandising-interior-design-activity-100-ikea-ch"
+        "fr": "collaborateur-trice-conception-et-activite-d-interieur-100-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1204,7 +1204,8 @@
           "collaborateur-trice-visual-merchandising-interior-design-activity-100-ikea-ch"
         ],
         "fr": [
-          "collaborateur-trice-visual-merchandising-conception-et-activite-d-interieur-100-ikea-riddes-valais"
+          "collaborateur-trice-visual-merchandising-conception-et-activite-d-interieur-100-ikea-riddes-valais",
+          "collaborateur-trice-visual-merchandising-interior-design-activity-100-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-11-11T21:16:25.488Z",
@@ -1326,8 +1327,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch",
         "it": "addetto-a-alle-vendite-wohnzimmerabteilung-60-100-ikea-spreitenbach",
-        "en": "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch"
+        "en": "sales-associate-living-room-department-60-100-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-rice-de-vente-departement-salon-60-100-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1376,6 +1377,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-verkauf-wohnzimmerabteilung-60-100-ikea-ch"
         ]
       },
       "previousSlugs": [
@@ -1413,12 +1420,12 @@
     },
     {
       "id": "ikea-c04af115a3d6",
-      "slug": "collaboratore-trice-bereich-kasse-30-ikea-spreitenbach",
+      "slug": "addetto-a-al-settore-casse-30-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "de": "mitarbeiter-in-bereich-kasse-30-ikea-ch",
-        "it": "collaboratore-trice-bereich-kasse-30-ikea-spreitenbach",
-        "en": "mitarbeiter-in-bereich-kasse-30-ikea-ch",
-        "fr": "mitarbeiter-in-bereich-kasse-30-ikea-ch"
+        "it": "addetto-a-al-settore-casse-30-ikea-spreitenbach-aargau",
+        "en": "checkout-department-employee-30-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-rice-dans-le-secteur-des-caisses-30-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1466,11 +1473,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-bereich-kasse-30-ikea-ch",
+          "collaboratore-trice-bereich-kasse-30-ikea-spreitenbach"
+        ],
+        "en": [
+          "mitarbeiter-in-bereich-kasse-30-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-bereich-kasse-30-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bereich-kasse-30-ikea-ch"
+        "mitarbeiter-in-bereich-kasse-30-ikea-ch",
+        "collaboratore-trice-bereich-kasse-30-ikea-spreitenbach"
       ],
       "salaryMin": 18600,
       "salaryMax": 28200,
@@ -1504,12 +1519,12 @@
     },
     {
       "id": "ikea-1a22b692516c",
-      "slug": "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch",
+      "slug": "pianificazione-della-cucina-remota-senior-sales-generalist-fr-de-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "fr": "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch",
-        "it": "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch",
+        "it": "pianificazione-della-cucina-remota-senior-sales-generalist-fr-de-ikea-spreitenbach-aargau",
         "en": "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch",
-        "de": "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch"
+        "de": "fernkuchenplanung-senior-sales-generalist-fr-de-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1583,7 +1598,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:20:02.404Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:20:02.404Z"
+      "firstSeenAt": "2026-11-13T21:20:02.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch"
+        ],
+        "de": [
+          "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "remote-kitchen-planning-senior-sales-generalist-fr-de-ikea-ch"
+      ]
     },
     {
       "id": "ikea-22373adc103a",
@@ -1672,9 +1698,9 @@
       "slug": "collaborateur-trice-service-clientele-80-ikea-aubonne",
       "slugByLocale": {
         "fr": "collaborateur-trice-service-clientele-80-ikea-ch",
-        "it": "collaborateur-trice-service-clientele-80-ikea-aubonne",
+        "it": "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland",
         "en": "collaborator-trix-customer-service-80-ikea-vernier-geneve-switzerland",
-        "de": "collaborateur-trice-service-clientele-80-ikea-aubonne"
+        "de": "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1721,17 +1747,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-service-clientele-80-ikea-ch",
-          "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland"
-        ],
-        "de": [
-          "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
+          "collaborateur-trice-service-clientele-80-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-service-clientele-80-ikea-ch",
-        "collaboratore-trix-servizio-clienti-80-ikea-vernier-geneve-switzerland",
-        "mitarbeiter-trix-kundenservice-80-ikea-vernier-geneve-switzerland"
+        "collaborateur-trice-service-clientele-80-ikea-ch"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -2024,7 +2044,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -2071,7 +2091,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2079,7 +2099,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",

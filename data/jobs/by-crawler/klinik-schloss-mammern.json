@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "klinik-schloss-mammern-d8faae95e015",
-      "slug": "psychologin-psychologe-60-klinik-schloss-mammern-mammern",
+      "slug": "psicologo-psicologo-60-klinik-schloss-mammern-mammern",
       "slugByLocale": {
         "de": "psychologin-psychologe-60-klinik-schloss-mammern-mammern",
-        "it": "psychologin-psychologe-60-klinik-schloss-mammern-mammern",
-        "en": "psychologin-psychologe-60-klinik-schloss-mammern-mammern",
-        "fr": "psychologin-psychologe-60-klinik-schloss-mammern-mammern"
+        "it": "psicologo-psicologo-60-klinik-schloss-mammern-mammern",
+        "en": "psychologist-psychologist-60-klinik-schloss-mammern-mammern",
+        "fr": "psychologue-psychologue-60-klinik-schloss-mammern-mammern"
       },
       "company": "Klinik Schloss Mammern",
       "companyKey": "klinik-schloss-mammern",
@@ -83,7 +83,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:49:11.009Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:49:11.009Z"
+      "firstSeenAt": "2026-11-13T21:49:11.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-60-klinik-schloss-mammern-mammern"
+        ],
+        "en": [
+          "psychologin-psychologe-60-klinik-schloss-mammern-mammern"
+        ],
+        "fr": [
+          "psychologin-psychologe-60-klinik-schloss-mammern-mammern"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-60-klinik-schloss-mammern-mammern"
+      ]
     },
     {
       "id": "klinik-schloss-mammern-7e7ce8c400a6",

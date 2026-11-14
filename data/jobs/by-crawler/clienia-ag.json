@@ -186,7 +186,7 @@
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -267,7 +267,8 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -277,7 +278,7 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
+          "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon"
@@ -7383,8 +7384,8 @@
       "slugByLocale": {
         "de": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-zurich",
         "it": "peer-mitarbeiterin-peer-collaboratore-trice-ex-in-20-clienia-ag-pfaffikon",
-        "en": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-pfaffikon",
-        "fr": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-pfaffikon"
+        "en": "peer-employee-ex-in-20-clienia-ag-pfaffikon-zh",
+        "fr": "employe-par-les-pairs-ex-in-20-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7433,10 +7434,17 @@
       "previousSlugsByLocale": {
         "it": [
           "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-zurich"
+        ],
+        "en": [
+          "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-zurich"
+        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-zurich",
+        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-20-clienia-ag-pfaffikon"
       ],
       "salaryMin": 18300,
       "salaryMax": 25600,

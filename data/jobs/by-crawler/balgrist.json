@@ -4471,12 +4471,12 @@
     },
     {
       "id": "balgrist-d49d2501d194",
-      "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-m-w-d-100-befristet-per-6-monate-universitatsklinik-balgrist-zurich",
+      "slug": "addetta-addetto-all-economia-domestica-dei-reparti-m-f-d-100-a-tempo-determinato-per-6-mesi-universitatsklinik-balgrist",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate",
-        "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-m-w-d-100-befristet-per-6-monate-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate"
+        "it": "addetta-addetto-all-economia-domestica-dei-reparti-m-f-d-100-a-tempo-determinato-per-6-mesi-universitatsklinik-balgrist",
+        "en": "employee-employee-housekeeping-stations-m-f-d-100-temporary-for-6-months-universitatsklinik-balgrist-zurich",
+        "fr": "postes-d-entretien-menager-des-employes-employes-h-f-d-100-temporaire-pendant-6-mois-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4525,11 +4525,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-m-w-d-100-befristet-per-6-monate-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-stationen-w-m-d-100-befristet-fur-6-monate",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-stationen-m-w-d-100-befristet-per-6-monate-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 73000,
       "salaryMax": 91500,

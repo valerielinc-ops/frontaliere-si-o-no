@@ -18887,12 +18887,12 @@
     },
     {
       "id": "usz-b0fda758c4c6",
-      "slug": "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
+      "slug": "formatore-trice-professionale-in-cure-infermieristiche-reparto-di-degenza-di-cardiologia-e-cardiochirurgia-80-100",
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
-        "it": "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
-        "en": "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
-        "fr": "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+        "it": "formatore-trice-professionale-in-cure-infermieristiche-reparto-di-degenza-di-cardiologia-e-cardiochirurgia-80-100",
+        "en": "vocational-trainer-in-nursing-for-the-cardiology-cardiac-surgery-inpatient-ward-80-100-universitatsspital-zurich-usz",
+        "fr": "formateur-trice-professionnel-le-en-soins-infirmiers-unite-d-hospitalisation-de-cardiologie-et-de-chirurgie-cardiaque-80"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18955,7 +18955,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:19:24.885Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-04T11:53:25.704Z"
+      "firstSeenAt": "2026-08-04T11:53:25.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-cf1dcd217a0f",
@@ -20316,7 +20330,7 @@
       "id": "usz-19c9a3287495",
       "slug": "cura-speciale-infermiera-hf-fh-per-l-assistenza-di-emergenza-istituto-di-medicina-di-emergenza-60-100-universitatsspital-zurich-170b7b0cfb",
       "slugByLocale": {
-        "it": "cura-speciale-infermiera-hf-fh-per-l-assistenza-di-emergenza-istituto-di-medicina-di-emergenza-60-100-universitatsspital-zurich-170b7b0cfb",
+        "it": "cura-speciale-infermiera-hf-fh-per-l-assistenza-di-emergenza-istituto-di-medicina-di-emergenza-60-100-universitatsspital",
         "en": "special-care-nurse-hf-fh-for-emergency-care-institute-of-emergency-medicine-60-100-universitatsspital-zurich-usz-campus",
         "de": "spezialpflege-pflegefachperson-hf-fh-fur-die-notfallpflege-institut-fur-notfallmedizin-60",
         "fr": "soins-speciaux-infirmiere-hf-fh-pour-les-soins-d-urgence-institut-de-medecine-d-urgence-60-100-universitatsspital-zurich"
@@ -20364,14 +20378,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-pflegefachperson-hf-fh-fur-die-notfallpflege-institut-fur-notfallmedizin-60",
-        "spezialpflege-pflegefachperson-hf-fh-per-la-notfallpflege-institut-per-notfallmedizin-60-100-universitatsspital-zurich-usz-campus",
-        "cura-speciale-infermiera-hf-fh-per-l-assistenza-di-emergenza-istituto-di-medicina-di-emergenza-60-100-universitatsspital"
+        "spezialpflege-pflegefachperson-hf-fh-per-la-notfallpflege-institut-per-notfallmedizin-60-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-pflegefachperson-hf-fh-fur-die-notfallpflege-institut-fur-notfallmedizin-60",
-          "spezialpflege-pflegefachperson-hf-fh-per-la-notfallpflege-institut-per-notfallmedizin-60-100-universitatsspital-zurich-usz-campus",
-          "cura-speciale-infermiera-hf-fh-per-l-assistenza-di-emergenza-istituto-di-medicina-di-emergenza-60-100-universitatsspital"
+          "spezialpflege-pflegefachperson-hf-fh-per-la-notfallpflege-institut-per-notfallmedizin-60-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "spezialpflege-pflegefachperson-hf-fh-fur-die-notfallpflege-institut-fur-notfallmedizin-60"
@@ -20405,7 +20417,7 @@
       "id": "usz-dc3c7bd9fd44",
       "slug": "cura-speciale-diplomato-esperto-nds-in-infermieristica-d-emergenza-m-f-d-con-un-focus-sulla-cura-del-gesso-80-100-7709177f5d",
       "slugByLocale": {
-        "it": "cura-speciale-diplomato-esperto-nds-in-infermieristica-d-emergenza-m-f-d-con-un-focus-sulla-cura-del-gesso-80-100-7709177f5d",
+        "it": "cura-speciale-diplomato-esperto-nds-in-infermieristica-d-emergenza-m-f-d-con-un-focus-sulla-cura-del-gesso-80-100",
         "en": "special-care-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-with-focus-on-plaster-supply-80-100-universitatsspital",
         "de": "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt",
         "fr": "soins-speciaux-dipl-expertin-dipl-expert-nds-emergency-care-h-f-d-avec-un-accent-sur-l-approvisionnement-en-platre-80"
@@ -20457,8 +20469,7 @@
         "soins-speciaux-dipl-expertin-dipl-expert-nds-emergency-care-h-f-d-avec-un-accent-sur-l-approvisionnement-en-25a23a",
         "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
         "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita",
-        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt",
-        "cura-speciale-diplomato-esperto-nds-in-infermieristica-d-emergenza-m-f-d-con-un-focus-sulla-cura-del-gesso-80-100"
+        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20467,8 +20478,7 @@
           "soins-speciaux-dipl-expertin-dipl-expert-nds-emergency-care-h-f-d-avec-un-accent-sur-l-approvisionnement-en-25a23a",
           "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
           "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita",
-          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt",
-          "cura-speciale-diplomato-esperto-nds-in-infermieristica-d-emergenza-m-f-d-con-un-focus-sulla-cura-del-gesso-80-100"
+          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt"
         ],
         "en": [
           "special-care-dipl-expertin-dipl-expert-nds-emergency-care-m-f-d-with-focus-on-plaster-supply-80-100-25a23a"
@@ -20501,7 +20511,7 @@
       "id": "usz-fab4cb844f26",
       "slug": "cure-specialistiche-esperto-esperta-in-cure-infermieristiche-m-f-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-93106d9650",
       "slugByLocale": {
-        "it": "cure-specialistiche-esperto-esperta-in-cure-infermieristiche-m-f-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-93106d9650",
+        "it": "cure-specialistiche-esperto-esperta-in-cure-infermieristiche-m-f-d-per-la-chest-pain-unit-50-60-universitatsspital",
         "en": "specialist-care-specialist-care-m-f-d-for-chest-pain-unit-50-60-universitatsspital-zurich-usz-zurich",
         "de": "spezialpflege-fachexperte-fachexpertin-pflege-w-m-d-fur-die-chest-pain-unit-50-60-usz-ch",
         "fr": "soins-specialises-soins-specialises-h-f-d-pour-l-unite-de-douleur-thoracique-50-60-universitatsspital-zurich-usz-zurich"
@@ -20549,14 +20559,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-fachexperte-fachexpertin-pflege-w-m-d-fur-die-chest-pain-unit-50-60-usz-ch",
-        "spezialpflege-fachexperte-fachexpertin-pflege-m-w-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-zurich",
-        "cure-specialistiche-esperto-esperta-in-cure-infermieristiche-m-f-d-per-la-chest-pain-unit-50-60-universitatsspital"
+        "spezialpflege-fachexperte-fachexpertin-pflege-m-w-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-fachexperte-fachexpertin-pflege-w-m-d-fur-die-chest-pain-unit-50-60-usz-ch",
-          "spezialpflege-fachexperte-fachexpertin-pflege-m-w-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-zurich",
-          "cure-specialistiche-esperto-esperta-in-cure-infermieristiche-m-f-d-per-la-chest-pain-unit-50-60-universitatsspital"
+          "spezialpflege-fachexperte-fachexpertin-pflege-m-w-d-per-la-chest-pain-unit-50-60-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "spezialpflege-fachexperte-fachexpertin-pflege-w-m-d-fur-die-chest-pain-unit-50-60-usz-ch"
@@ -20589,7 +20597,7 @@
       "id": "usz-bd0086a37f09",
       "slug": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-l-imc-interdisciplinare-a-conduzione-internistica-80-100-6911d738f8",
       "slugByLocale": {
-        "it": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-l-imc-interdisciplinare-a-conduzione-internistica-80-100-6911d738f8",
+        "it": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-l-imc-interdisciplinare-a-conduzione-internistica",
         "en": "specialist-care-specialist-care-m-f-d-for-the-interdisciplinary-imc-80-100-universitatsspital-zurich-usz-zurich",
         "de": "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-die-internistisch-gefuhrte",
         "fr": "soins-specialises-soins-specialises-h-f-d-pour-l-imc-interdisciplinaire-80-100-universitatsspital-zurich-usz-zurich"
@@ -20637,14 +20645,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-die-internistisch-gefuhrte",
-        "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich",
-        "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-l-imc-interdisciplinare-a-conduzione-internistica"
+        "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-die-internistisch-gefuhrte",
-          "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich",
-          "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-l-imc-interdisciplinare-a-conduzione-internistica"
+          "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-die-internistisch-gefuhrte"
@@ -20677,7 +20683,7 @@
       "id": "usz-9913fe336669",
       "slug": "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich-6554b32b18",
       "slugByLocale": {
-        "it": "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich-6554b32b18",
+        "it": "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
         "en": "departmental-management-care-bed-station-cardiology-80-100-universitatsspital-zurich-usz-zurich",
         "de": "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch",
         "fr": "gestion-du-ministere-cardiologie-de-la-station-lit-de-soins-80-100-universitatsspital-zurich-usz-zurich"
@@ -20724,13 +20730,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch",
-        "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich"
+        "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch",
-          "gestione-del-dipartimento-care-bed-station-cardiologia-80-100-universitatsspital-zurich-usz-zurich"
+          "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch"
         ],
         "en": [
           "abteilungsleitung-pflege-bettenstation-kardiologie-80-100-usz-ch"

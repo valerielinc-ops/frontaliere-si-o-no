@@ -911,12 +911,12 @@
     },
     {
       "id": "uroviva-3cafa583bc29",
-      "slug": "assistent-in-coo-e-praxenmanagement-uroviva-bulach",
+      "slug": "assistente-del-coo-e-gestione-degli-studi-medici-uroviva-bulach",
       "slugByLocale": {
         "de": "assistent-in-coo-und-praxenmanagement-uroviva-bulach",
-        "it": "assistent-in-coo-e-praxenmanagement-uroviva-bulach",
-        "en": "assistent-in-coo-und-praxenmanagement-uroviva-bulach",
-        "fr": "assistent-in-coo-und-praxenmanagement-uroviva-bulach"
+        "it": "assistente-del-coo-e-gestione-degli-studi-medici-uroviva-bulach",
+        "en": "assistant-to-the-coo-and-practice-management-uroviva-bulach",
+        "fr": "assistant-e-du-coo-et-de-la-gestion-des-cabinets-uroviva-bulach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -964,11 +964,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-coo-und-praxenmanagement-uroviva-bulach",
+          "assistent-in-coo-e-praxenmanagement-uroviva-bulach"
+        ],
+        "en": [
+          "assistent-in-coo-und-praxenmanagement-uroviva-bulach"
+        ],
+        "fr": [
           "assistent-in-coo-und-praxenmanagement-uroviva-bulach"
         ]
       },
       "previousSlugs": [
-        "assistent-in-coo-und-praxenmanagement-uroviva-bulach"
+        "assistent-in-coo-und-praxenmanagement-uroviva-bulach",
+        "assistent-in-coo-e-praxenmanagement-uroviva-bulach"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

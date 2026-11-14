@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "stiftung-ilgenhalde-7c9989692085",
-      "slug": "apprendistato-come-fachperson-betreuung-cfc-stiftung-ilgenhalde-fehraltorf",
+      "slug": "apprendistato-come-operatore-operatrice-socioassistenziale-afc-stiftung-ilgenhalde-fehraltorf-zh",
       "slugByLocale": {
         "de": "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch",
-        "it": "apprendistato-come-fachperson-betreuung-cfc-stiftung-ilgenhalde-fehraltorf",
-        "en": "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch",
-        "fr": "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch"
+        "it": "apprendistato-come-operatore-operatrice-socioassistenziale-afc-stiftung-ilgenhalde-fehraltorf-zh",
+        "en": "teaching-as-a-specialist-supervision-efz-stiftung-ilgenhalde-fehraltorf-zh",
+        "fr": "enseignement-en-tant-que-supervision-specialisee-efz-stiftung-ilgenhalde-fehraltorf-zh"
       },
       "company": "Stiftung Ilgenhalde",
       "companyKey": "stiftung-ilgenhalde",
@@ -59,11 +59,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch",
+          "apprendistato-come-fachperson-betreuung-cfc-stiftung-ilgenhalde-fehraltorf"
+        ],
+        "en": [
+          "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch"
+        ],
+        "fr": [
           "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch"
         ]
       },
       "previousSlugs": [
-        "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch"
+        "lehre-als-fachperson-betreuung-efz-fehraltorf-zh-stiftung-ilgenhalde-ch",
+        "apprendistato-come-fachperson-betreuung-cfc-stiftung-ilgenhalde-fehraltorf"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -1317,12 +1317,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-ad4a269269fc",
-      "slug": "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du",
+      "slug": "medical-radiology-technician-mrt-radiologia-delemont-e-porrentruy-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du",
-        "it": "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du",
-        "en": "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du",
-        "de": "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du"
+        "it": "medical-radiology-technician-mrt-radiologia-delemont-e-porrentruy-hopital-du-jura-h-ju-delemont",
+        "en": "medical-radiology-technician-mrt-radiology-delemont-and-porrentruy-hopital-du-jura-h-ju-delemont",
+        "de": "medizinische-radiologie-techniker-mrt-radiologie-delemont-und-porrentruy-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1385,16 +1385,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:17:00.752Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:00.752Z"
+      "firstSeenAt": "2026-11-13T21:17:00.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du"
+        ],
+        "en": [
+          "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du"
+        ],
+        "de": [
+          "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-medicale-trm-radiologie-delemont-et-porrentruy-h-ju-hopital-du"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-6e26829588ab",
-      "slug": "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general",
+      "slug": "infrastrutture-e-progetti-immobiliari-segreteria-generale-delemont-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general",
-        "it": "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general",
-        "en": "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general",
-        "de": "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general"
+        "it": "infrastrutture-e-progetti-immobiliari-segreteria-generale-delemont-hopital-du-jura-h-ju-delemont",
+        "en": "programme-manager-infrastructure-and-real-estate-projects-general-secretariat-delemont-hopital-du-jura-h-ju-delemont",
+        "de": "programmmanager-infrastruktur-und-immobilienprojekte-generalsekretariat-delemont-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1457,7 +1471,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:17:00.184Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:00.184Z"
+      "firstSeenAt": "2026-11-13T21:17:00.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general"
+        ],
+        "en": [
+          "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general"
+        ],
+        "de": [
+          "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-programme-projets-infrastructures-et-immobilier-secretariat-general"
+      ]
     }
   ]
 }
