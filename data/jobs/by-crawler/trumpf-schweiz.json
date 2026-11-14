@@ -364,19 +364,26 @@
       },
       "slugByLocale": {
         "it": "manutenzione-linea-pe-ib-m-f-d-trumpf-schweiz-ag-grusch",
-        "en": "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch",
+        "en": "line-maintenance-pe-ib-m-f-d-trumpf-schweiz-ag-grusch",
         "de": "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch",
-        "fr": "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch"
+        "fr": "entretien-des-lignes-pe-ib-h-f-d-trumpf-schweiz-ag-grusch"
       },
       "crawledAt": "2026-11-13T21:48:17.362Z",
       "id": "trumpf-schweiz-e1b12411ced2",
       "previousSlugsByLocale": {
         "it": [
           "linienbetreuer-pe-ib-m-w-d-trumpf-r00041804"
+        ],
+        "en": [
+          "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch"
+        ],
+        "fr": [
+          "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch"
         ]
       },
       "previousSlugs": [
-        "linienbetreuer-pe-ib-m-w-d-trumpf-r00041804"
+        "linienbetreuer-pe-ib-m-w-d-trumpf-r00041804",
+        "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,

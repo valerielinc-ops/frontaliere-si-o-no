@@ -689,12 +689,12 @@
     },
     {
       "id": "endress-hauser-aba7cc50fdbd",
-      "slug": "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach",
+      "slug": "assistente-del-vicepresidente-finanza-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "de": "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach",
-        "it": "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach",
+        "it": "assistente-del-vicepresidente-finanza-m-f-d-endress-hauser-reinach",
         "en": "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach",
-        "fr": "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach"
+        "fr": "vice-president-adjoint-finances-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -757,7 +757,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:23:27.936Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:23:27.936Z"
+      "firstSeenAt": "2026-11-13T21:23:27.936Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-des-vice-president-finance-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-9bf9dfae3ab8",
@@ -765,7 +776,7 @@
       "slugByLocale": {
         "en": "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach",
         "it": "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach",
-        "de": "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach",
+        "de": "assistent-to-the-managing-direktor-m-f-d-endress-hauser-reinach",
         "fr": "assistant-to-the-managing-director-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
@@ -3656,7 +3667,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "taster-days-computerscientist-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -3704,7 +3715,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "taster-days-computerscientist-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3712,7 +3723,7 @@
         ],
         "en": [
           "schnuppertage-informatiker-in-endress-hauser-reinach",
-          "computer-science-experts-endress-hauser-reinach"
+          "taster-days-computerscientist-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"

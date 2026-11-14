@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-6e3c4be8dffa",
-      "slug": "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch",
+      "slug": "impiegato-a-amministrativo-a-2-3-pilastro-80-100-asanti-ag-region-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch",
-        "it": "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch",
-        "en": "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch",
-        "fr": "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
+        "it": "impiegato-a-amministrativo-a-2-3-pilastro-80-100-asanti-ag-region-zurich",
+        "en": "administrative-specialist-2-3-pillar-80-100-asanti-ag-region-zurich",
+        "fr": "gestionnaire-du-2e-3e-pilier-80-100-asanti-ag-region-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T21:49:36.492Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:49:36.492Z"
+      "firstSeenAt": "2026-11-13T21:49:36.492Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-c42a20ad2b1d",
-      "slug": "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch",
+      "slug": "responsabile-vendite-automotive-m-f-d-100-asanti-ag-3000-bern",
       "slugByLocale": {
         "de": "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch",
-        "it": "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch",
-        "en": "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch",
-        "fr": "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch"
+        "it": "responsabile-vendite-automotive-m-f-d-100-asanti-ag-3000-bern",
+        "en": "sales-manager-automotive-m-f-d-100-asanti-ag-3000-bern",
+        "fr": "directeur-des-ventes-automobile-h-f-d-100-asanti-ag-3000-bern"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -144,7 +158,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:49:36.491Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:49:36.491Z"
+      "firstSeenAt": "2026-11-13T21:49:36.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch"
+        ],
+        "en": [
+          "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch"
+        ],
+        "fr": [
+          "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsleiter-automobil-m-w-d-100-3000-bern-asanti-ch-ch"
+      ]
     },
     {
       "id": "asanti-ch-1043867d8c76",

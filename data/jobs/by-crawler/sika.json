@@ -4193,11 +4193,11 @@
     },
     {
       "id": "sika-dbdb5c50be3e",
-      "slug": "ai-engineer-sika-ch",
+      "slug": "ai-ingegnere-sika-zurich-zurich",
       "slugByLocale": {
         "en": "ai-engineer-sika-ch",
-        "it": "ai-engineer-sika-ch",
-        "de": "ai-engineer-sika-ch",
+        "it": "ai-ingegnere-sika-zurich-zurich",
+        "de": "ai-ingenieur-sika-zurich-zurich",
         "fr": "ai-engineer-sika-ch"
       },
       "company": "Sika",
@@ -4260,15 +4260,26 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:19:32.944Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:19:32.944Z"
+      "firstSeenAt": "2026-11-13T21:19:32.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-sika-ch"
+        ],
+        "de": [
+          "ai-engineer-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-sika-ch"
+      ]
     },
     {
       "id": "sika-c7957f6eb35b",
-      "slug": "analytics-engineer-sika-ch",
+      "slug": "analytics-ingegnere-sika-zurich-zurich",
       "slugByLocale": {
         "en": "analytics-engineer-sika-ch",
-        "it": "analytics-engineer-sika-ch",
-        "de": "analytics-engineer-sika-ch",
+        "it": "analytics-ingegnere-sika-zurich-zurich",
+        "de": "analytics-ingenieur-sika-zurich-zurich",
         "fr": "analytics-engineer-sika-ch"
       },
       "company": "Sika",
@@ -4331,7 +4342,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:19:31.061Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:19:31.061Z"
+      "firstSeenAt": "2026-11-13T21:19:31.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytics-engineer-sika-ch"
+        ],
+        "de": [
+          "analytics-engineer-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "analytics-engineer-sika-ch"
+      ]
     }
   ]
 }

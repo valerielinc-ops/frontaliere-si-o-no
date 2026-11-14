@@ -32,8 +32,8 @@
  *     [--max-retired-unarchived N] [--max-archive-lost N] [--json <path>]
  *     [--prefetch]
  *
- * `--prefetch` fetches, in one pack, the slice blobs of both revisions that a
- * blobless CI checkout does not have yet, through the fetch of
+ * `--prefetch` fetches, in bounded packs, the slice blobs of both revisions that
+ * a blobless CI checkout does not have yet, through the fetch of
  * scripts/ci/prefetch-history-blobs.mjs (CHECKOUT_TOKEN/GITHUB_TOKEN, REPOSITORY).
  */
 
@@ -47,7 +47,7 @@ import { isHeldFromPublication } from '../lib/translation-publication-hold.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
 import { expiredSliceKeyOf } from '../lib/expired-slice-names.mjs';
 import { DEFAULT_JSON_STRING_LIMIT, parseLargeJsonArray } from '../lib/read-large-json.mjs';
-import { prefetch as prefetchBlobs, verifyPrefetchedBlobs } from './prefetch-history-blobs.mjs';
+import { prefetch as prefetchBlobs } from './prefetch-history-blobs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -173,9 +173,8 @@ function prefetchMissing(oids) {
   });
   const missing = check.split('\n').filter((line) => / missing$/u.test(line)).map((line) => line.split(' ')[0]);
   if (missing.length === 0) return;
-  console.log(`📦 Prefetching ${missing.length} slice blob(s) in one pack.`);
+  console.log(`📦 Prefetching ${missing.length} slice blob(s) in bounded packs.`);
   prefetchBlobs(missing);
-  verifyPrefetchedBlobs(missing);
 }
 
 /** Streams blobs through one `git cat-file --batch` and parses each slice. */

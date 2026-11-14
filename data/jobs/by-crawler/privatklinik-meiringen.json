@@ -1050,12 +1050,12 @@
     },
     {
       "id": "privatklinik-meiringen-a17be9620f48",
-      "slug": "dipl-pflegefachperson-hf-fh-zentrum-per-stressfolgeerkrankungen-burnout-80-privatklinik-meiringen-hasliberg-hohfluh",
+      "slug": "infermiere-a-diplomato-a-hf-fh-centro-per-le-malattie-conseguenti-allo-stress-burnout-80-privatklinik-meiringen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik",
-        "it": "dipl-pflegefachperson-hf-fh-zentrum-per-stressfolgeerkrankungen-burnout-80-privatklinik-meiringen-hasliberg-hohfluh",
-        "en": "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik",
-        "fr": "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik"
+        "it": "infermiere-a-diplomato-a-hf-fh-centro-per-le-malattie-conseguenti-allo-stress-burnout-80-privatklinik-meiringen",
+        "en": "dipl-nurse-hf-fh-center-for-stress-adverse-diseases-burnout-80-privatklinik-meiringen-hasliberg-hohfluh",
+        "fr": "dipl-infirmiere-hf-fh-centre-pour-les-maladies-et-les-eclosions-de-stress-80-privatklinik-meiringen-hasliberg-hohfluh"
       },
       "company": "Privatklinik Meiringen",
       "companyKey": "privatklinik-meiringen",
@@ -1106,11 +1106,19 @@
       "department": "Pflege- und Betreuungsberufe",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik",
+          "dipl-pflegefachperson-hf-fh-zentrum-per-stressfolgeerkrankungen-burnout-80-privatklinik-meiringen-hasliberg-hohfluh"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik"
+        "dipl-pflegefachperson-hf-fh-zentrum-fur-stressfolgeerkrankungen-burnout-80-privatklinik",
+        "dipl-pflegefachperson-hf-fh-zentrum-per-stressfolgeerkrankungen-burnout-80-privatklinik-meiringen-hasliberg-hohfluh"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,

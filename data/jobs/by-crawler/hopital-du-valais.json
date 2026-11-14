@@ -4132,12 +4132,12 @@
     },
     {
       "id": "hopital-du-valais-6b00e72fd775",
-      "slug": "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel",
+      "slug": "responsabile-gestione-integrata-delle-capacita-icm-e-responsabile-del-centro-operativo-per-flussi-e-capacita-cofc-al-100",
       "slugByLocale": {
         "fr": "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel",
-        "it": "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel",
-        "en": "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel",
-        "de": "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel"
+        "it": "responsabile-gestione-integrata-delle-capacita-icm-e-responsabile-del-centro-operativo-per-flussi-e-capacita-cofc-al-100",
+        "en": "head-of-integrated-capacity-management-icm-and-head-of-the-operational-centre-for-flows-and-capabilities-cofc-at-100",
+        "de": "leiter-des-integrated-capacity-management-icm-und-leiter-des-operational-centre-for-flows-and-capabilities-cofc-zu-100"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4201,7 +4201,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:17:03.162Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:17:03.162Z"
+      "firstSeenAt": "2026-11-13T21:17:03.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel"
+        ],
+        "en": [
+          "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel"
+        ],
+        "de": [
+          "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-gestion-integree-des-capacites-gic-et-responsable-du-centre-operationnel"
+      ]
     },
     {
       "id": "hopital-du-valais-5fedd327e2bc",

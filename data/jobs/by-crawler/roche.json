@@ -7724,9 +7724,9 @@
       "slug": "tirocinante-roche-kaiseraugst",
       "slugByLocale": {
         "it": "tirocinante-roche-kaiseraugst",
-        "en": "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "en": "internal-roche-kaiseraugst",
         "de": "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-        "fr": "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
+        "fr": "stagiaire-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7771,8 +7771,8 @@
         "praktikum-im-bereich-quality-control-pharma-roche-ch",
         "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
         "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-        "internal-roche-kaiseraugst",
-        "stagiaire-roche-kaiseraugst"
+        "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7780,14 +7780,14 @@
         ],
         "en": [
           "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-          "internal-roche-kaiseraugst"
+          "internship-in-quality-control-pharma-roche-kaiseraugst"
         ],
         "de": [
           "praktikum-im-bereich-quality-control-pharma-roche-ch"
         ],
         "fr": [
           "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-          "stagiaire-roche-kaiseraugst"
+          "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -8708,12 +8708,12 @@
     },
     {
       "id": "roche-c37533b7f1db",
-      "slug": "procurement-partnering-lead-it-roche-ch",
+      "slug": "partner-di-appalti-lead-it-roche-basel",
       "slugByLocale": {
         "en": "procurement-partnering-lead-it-roche-ch",
-        "it": "procurement-partnering-lead-it-roche-ch",
-        "de": "procurement-partnering-lead-it-roche-ch",
-        "fr": "procurement-partnering-lead-it-roche-ch"
+        "it": "partner-di-appalti-lead-it-roche-basel",
+        "de": "leitung-fur-it-beschaffungspartnerschaften-roche-basel",
+        "fr": "partenaires-en-matiere-d-approvisionnement-responsable-de-la-ti-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8776,16 +8776,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:12.359Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:12.359Z"
+      "firstSeenAt": "2026-11-13T21:16:12.359Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-partnering-lead-it-roche-ch"
+        ],
+        "de": [
+          "procurement-partnering-lead-it-roche-ch"
+        ],
+        "fr": [
+          "procurement-partnering-lead-it-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-partnering-lead-it-roche-ch"
+      ]
     },
     {
       "id": "roche-e86b4ce594b0",
-      "slug": "process-technician-2-jahre-befristung-roche-ch",
+      "slug": "processo-tecnico-2-anni-roche-basel",
       "slugByLocale": {
         "de": "process-technician-2-jahre-befristung-roche-ch",
-        "it": "process-technician-2-jahre-befristung-roche-ch",
-        "en": "process-technician-2-jahre-befristung-roche-ch",
-        "fr": "process-technician-2-jahre-befristung-roche-ch"
+        "it": "processo-tecnico-2-anni-roche-basel",
+        "en": "process-technician-2-years-term-roche-basel",
+        "fr": "technicien-de-processus-contrat-a-duree-determinee-de-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8848,16 +8862,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:10.882Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:10.882Z"
+      "firstSeenAt": "2026-11-13T21:16:10.882Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-technician-2-jahre-befristung-roche-ch"
+        ],
+        "en": [
+          "process-technician-2-jahre-befristung-roche-ch"
+        ],
+        "fr": [
+          "process-technician-2-jahre-befristung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-technician-2-jahre-befristung-roche-ch"
+      ]
     },
     {
       "id": "roche-2f3ed1790cb8",
-      "slug": "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch",
+      "slug": "supporto-di-controllo-della-qualita-di-stage-e-analisi-dei-dati-d-f-m-kaiseraugst-6-mesi-roche-kaiseraugst",
       "slugByLocale": {
         "de": "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch",
-        "it": "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch",
+        "it": "supporto-di-controllo-della-qualita-di-stage-e-analisi-dei-dati-d-f-m-kaiseraugst-6-mesi-roche-kaiseraugst",
         "en": "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch",
-        "fr": "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch"
+        "fr": "stage-en-support-du-controle-qualite-et-analyse-de-donnees-d-f-m-kaiseraugst-6-mois-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8920,7 +8948,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:10.010Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:10.010Z"
+      "firstSeenAt": "2026-11-13T21:16:10.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch"
+        ],
+        "fr": [
+          "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-quality-control-support-data-analytics-d-f-m-kaiseraugst-6-monate-roche-ch"
+      ]
     },
     {
       "id": "roche-d1a7674dec8b",
@@ -8995,12 +9034,12 @@
     },
     {
       "id": "roche-256fbd3d43b6",
-      "slug": "digital-content-creation-manager-roche-ch",
+      "slug": "gestione-della-creazione-di-contenuti-digitali-roche-rotkreuz",
       "slugByLocale": {
         "en": "digital-content-creation-manager-roche-ch",
-        "it": "digital-content-creation-manager-roche-ch",
-        "de": "digital-content-creation-manager-roche-ch",
-        "fr": "digital-content-creation-manager-roche-ch"
+        "it": "gestione-della-creazione-di-contenuti-digitali-roche-rotkreuz",
+        "de": "manager-fur-die-erstellung-digitaler-inhalte-roche-rotkreuz",
+        "fr": "gestionnaire-de-creation-de-contenu-numerique-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9063,16 +9102,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:07.434Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:07.434Z"
+      "firstSeenAt": "2026-11-13T21:16:07.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-content-creation-manager-roche-ch"
+        ],
+        "de": [
+          "digital-content-creation-manager-roche-ch"
+        ],
+        "fr": [
+          "digital-content-creation-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-content-creation-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-0d9d8449cd9f",
-      "slug": "senior-qualification-lead-roche-ch",
+      "slug": "responsabile-senior-della-qualificazione-roche-basel",
       "slugByLocale": {
         "de": "senior-qualification-lead-roche-ch",
-        "it": "senior-qualification-lead-roche-ch",
+        "it": "responsabile-senior-della-qualificazione-roche-basel",
         "en": "senior-qualification-lead-roche-ch",
-        "fr": "senior-qualification-lead-roche-ch"
+        "fr": "responsable-principal-des-qualifications-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9135,7 +9188,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:16:04.827Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:04.827Z"
+      "firstSeenAt": "2026-11-13T21:16:04.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qualification-lead-roche-ch"
+        ],
+        "fr": [
+          "senior-qualification-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qualification-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-ed5aaf0718e7",

@@ -5579,12 +5579,12 @@
     },
     {
       "id": "ksw-ced35a106662",
-      "slug": "expertin-experte-anasthesiepflege-ksw-ch",
+      "slug": "expert-expert-anesthesia-care-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "expertin-experte-anasthesiepflege-ksw-ch",
-        "it": "expertin-experte-anasthesiepflege-ksw-ch",
+        "it": "expert-expert-anesthesia-care-kantonsspital-winterthur-ksw-winterthur",
         "en": "expertin-experte-anasthesiepflege-ksw-ch",
-        "fr": "expertin-experte-anasthesiepflege-ksw-ch"
+        "fr": "soins-d-anesthesie-expert-expert-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5647,7 +5647,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:18:38.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:18:38.360Z"
+      "firstSeenAt": "2026-11-13T21:18:38.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-anasthesiepflege-ksw-ch"
+        ],
+        "fr": [
+          "expertin-experte-anasthesiepflege-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-anasthesiepflege-ksw-ch"
+      ]
     },
     {
       "id": "ksw-a472f3354a54",
@@ -6227,12 +6238,12 @@
     },
     {
       "id": "ksw-d25e6ee34861",
-      "slug": "assistentin-assistent-leitung-berufsbildung-ksw-ch",
+      "slug": "assistente-assistente-capo-della-formazione-professionale-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "assistentin-assistent-leitung-berufsbildung-ksw-ch",
-        "it": "assistentin-assistent-leitung-berufsbildung-ksw-ch",
-        "en": "assistentin-assistent-leitung-berufsbildung-ksw-ch",
-        "fr": "assistentin-assistent-leitung-berufsbildung-ksw-ch"
+        "it": "assistente-assistente-capo-della-formazione-professionale-kantonsspital-winterthur-ksw-winterthur",
+        "en": "assistant-assistant-head-of-vocational-training-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-assistant-chef-de-la-formation-professionnelle-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -6295,16 +6306,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:18:38.358Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:18:38.358Z"
+      "firstSeenAt": "2026-11-13T21:18:38.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-leitung-berufsbildung-ksw-ch"
+        ],
+        "en": [
+          "assistentin-assistent-leitung-berufsbildung-ksw-ch"
+        ],
+        "fr": [
+          "assistentin-assistent-leitung-berufsbildung-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-leitung-berufsbildung-ksw-ch"
+      ]
     },
     {
       "id": "ksw-3cdb667aa0f0",
-      "slug": "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "dipartimento-logistico-dipartimento-logistico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "abteilungslogistikerin-abteilungslogistiker-ksw-ch",
-        "it": "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur",
-        "en": "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
+        "it": "dipartimento-logistico-dipartimento-logistico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "department-logistician-department-logistician-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "departement-logistique-departement-logistique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -6352,11 +6377,19 @@
       "department": "Klinik für Anästhesiologie",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungslogistikerin-abteilungslogistiker-ksw-ch"
+          "abteilungslogistikerin-abteilungslogistiker-ksw-ch",
+          "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "abteilungslogistikerin-abteilungslogistiker-ksw-ch"
+        "abteilungslogistikerin-abteilungslogistiker-ksw-ch",
+        "abteilungslogistikerin-abteilungslogistiker-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
