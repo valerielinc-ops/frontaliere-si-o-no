@@ -250,7 +250,8 @@ function normalizedPortalReplayPath(value) {
 }
 
 function matchesPortalReplayPath(file, entry) {
-  return entry.endsWith('/') ? file.startsWith(entry) : file === entry;
+  const normalizedEntry = entry.toLowerCase();
+  return normalizedEntry.endsWith('/') ? file.startsWith(normalizedEntry) : file === normalizedEntry;
 }
 
 export function portalReplayPathScope(value) {

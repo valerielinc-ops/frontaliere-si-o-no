@@ -432,6 +432,7 @@ describe('portal replay corpus', () => {
     expect(portalReplayPathScope('scripts/lib/ats-adapters/unknown-adapter.mjs')).toBe('parser');
     expect(portalReplayPathScope('scripts/lib/ensure-chromium.mjs')).toBe('runtime');
     expect(portalReplayPathScope('/SCRIPTS/LIB/ENSURE-CHROMIUM.MJS')).toBe('runtime');
+    expect(portalReplayPathScope('/FUNCTIONS/SRC/LIB/PERMITSTATUS.JS')).toBe('shared');
     expect(portalReplayPathScope('scripts/lib/molecular-partners-job-parser.mjs')).toBeNull();
     expect(portalReplayPathScope('scripts/lib/new-unclassified-helper.mjs')).toBeNull();
   });
