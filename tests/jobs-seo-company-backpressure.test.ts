@@ -35,6 +35,10 @@ describe('jobsSeoPages company-landing backpressure', () => {
     expect(hubFlushThreshold).toBeLessThan(threshold);
     expect(pluginSource).toContain('autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,');
     expect(companyPhase).toContain('await flushHubPageWritesIfNeeded();');
+    const companyEmitTail = companyPhase.slice(companyPhase.lastIndexOf("recordEmit('company-landing'"));
+    expect(companyEmitTail).toMatch(
+      /await flushHubPageWritesIfNeeded\(\);[\s\S]*await collector\.awaitDrainSlot\(2\);[\s\S]*maybeForceJobsSeoHtmlGc\(\);/,
+    );
     expect(companyPhase).toContain('await collector.flush();');
     // The active map is drained at the same bound used by every jobs-SEO
     // phase; this is the memory bound the old awaitDrainSlot-only guard did
