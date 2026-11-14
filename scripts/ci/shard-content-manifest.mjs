@@ -246,6 +246,44 @@ export function createSectionManifest({
   };
 }
 
+/**
+ * Re-bind a section manifest written by an EARLIER publisher attempt to the run
+ * that finalizes the set.
+ *
+ * `create-section` stamps the group job's own run id into `artifactRunId`, and
+ * `finalizeSectionManifestSet` insists every manifest names the finalizing run
+ * (the validation batches it points at are uploaded by that run). When a retry
+ * skips a group because its durable receipt proves it was pushed, the manifest
+ * and tar come from the earlier run's result artifact; they describe exactly the
+ * content that was pushed, so only the run binding is rewritten, after proving
+ * that the identity matches and that the tar on disk is the one the manifest
+ * hashed. A manifest that already names this run is returned unchanged.
+ */
+export function adoptEarlierSectionManifest({
+  manifest,
+  tarPath,
+  locale,
+  sourceRunId,
+  sourceSha,
+  artifactRunId,
+}) {
+  if (manifest?.kind !== 'publisher-shard-content' || manifest.locale !== locale) {
+    throw new Error('section manifest kind or locale is invalid');
+  }
+  if (String(manifest.sourceRunId) !== String(sourceRunId) || manifest.sourceSha !== String(sourceSha).toLowerCase()) {
+    throw new Error(`section manifest identity mismatch for ${manifest.section}`);
+  }
+  if (String(manifest.artifactRunId) === String(artifactRunId)) return manifest;
+  if (manifest.tarSha256) {
+    let actual = '';
+    try { actual = digestFile(tarPath); } catch { actual = ''; }
+    if (actual !== manifest.tarSha256) {
+      throw new Error(`section ${manifest.section}: the tar at ${tarPath} is not the one its manifest hashed`);
+    }
+  }
+  return { ...manifest, artifactRunId: String(artifactRunId) };
+}
+
 export function finalizeSectionManifestSet({
   manifests,
   locale,
@@ -429,6 +467,30 @@ async function main() {
     console.log(`[shard-manifest] ${manifest.locale}/${manifest.section}: ${manifest.population} HTML page(s), ${manifest.sourcePathLayout}`);
     return;
   }
+  if (command === 'adopt-sections') {
+    // Manifests restored from an earlier attempt's result artifact are adopted
+    // in place so that `finalize-sections` sees a single run binding.
+    let adopted = 0;
+    for (const entry of fs.readdirSync(args['input-dir'], { withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+      const file = path.join(args['input-dir'], entry.name);
+      const manifest = readJson(file);
+      const next = adoptEarlierSectionManifest({
+        manifest,
+        tarPath: path.join(args['tar-dir'], `${manifest?.section}-dist-${args.locale}.tar`),
+        locale: args.locale,
+        sourceRunId: args['source-run-id'],
+        sourceSha: args['source-sha'],
+        artifactRunId: args['artifact-run-id'],
+      });
+      if (next !== manifest) {
+        fs.writeFileSync(file, `${JSON.stringify(next)}\n`);
+        adopted += 1;
+      }
+    }
+    console.log(`[shard-manifest] ${args.locale}: adopted ${adopted} section manifest(s) from earlier publisher attempts`);
+    return;
+  }
   if (command === 'finalize-sections') {
     const files = fs.readdirSync(args.input, { withFileTypes: true })
       .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
@@ -467,7 +529,7 @@ async function main() {
     console.log(`[page-manifest] ${manifest.locale}: ${manifest.entries.length} sitemap page(s), ${manifest.artifactRefs.length} artifact ref(s)`);
     return;
   }
-  throw new Error('usage: shard-content-manifest.mjs refresh-expired-archive-evidence|create-section|finalize-sections|bind-page ...');
+  throw new Error('usage: shard-content-manifest.mjs refresh-expired-archive-evidence|create-section|adopt-sections|finalize-sections|bind-page ...');
 }
 
 if (isInvokedDirectly(import.meta.url)) {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -149,6 +150,36 @@ export function validateItShardGroupPlan(plan, { sourceRunId, sourceSha, buildId
     }
   }
   return { valid: errors.length === 0, errors };
+}
+
+/**
+ * Content digest of one IT section group as declared by the source publication
+ * plan. It is the value a durable group receipt carries (publish-receipts.mjs):
+ * a retry of the same source run may skip a group only when the receipt it finds
+ * was written for exactly this population, so a re-run attempt that rebuilt the
+ * section tree with different content never adopts the earlier publication.
+ */
+export function itShardGroupPlanDigest(plan, groupId) {
+  const group = (Array.isArray(plan?.groups) ? plan.groups : []).find((candidate) => candidate?.id === groupId);
+  if (!group) throw new Error(`IT shard group ${JSON.stringify(groupId)} is not part of the publication plan`);
+  const sections = [...(Array.isArray(group.sections) ? group.sections : [])].map(String).sort();
+  const payload = {
+    v: 1,
+    sourceRunId: text(plan.sourceRunId),
+    sourceSha: text(plan.sourceSha).toLowerCase(),
+    buildId: text(plan.buildId),
+    group: groupId,
+    sections,
+    fileCounts: Object.fromEntries(sections.map((section) => [section, plan.fileCounts?.[section] ?? null])),
+  };
+  return createHash('sha256').update(JSON.stringify(payload)).digest('hex');
+}
+
+/** `{ group: digest }` for every group of a plan, in canonical group order. */
+export function expectedItGroupDigests(plan) {
+  return Object.fromEntries(IT_SHARD_GROUP_IDS
+    .filter((id) => (Array.isArray(plan?.groups) ? plan.groups : []).some((group) => group?.id === id))
+    .map((id) => [id, itShardGroupPlanDigest(plan, id)]));
 }
 
 function parseArgs(argv) {

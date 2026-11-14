@@ -79,6 +79,7 @@ jobs:
             /scripts/lib/is-invoked-directly.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/ci/publish-receipts.mjs
+            /scripts/ci/it-shard-group-plan.mjs
             /scripts/ci/mint-app-token.mjs
             /functions/src/githubApiHeaders.js
           sparse-checkout-cone-mode: false

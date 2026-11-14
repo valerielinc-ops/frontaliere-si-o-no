@@ -358,12 +358,21 @@ jobs:
     permissions:
       contents: read
       statuses: read
+      actions: read   # the plan artifact, and the result artifacts of earlier IT attempts
     outputs:
       pages_deployed: ${{ steps.receipts.outputs.pages_deployed }}
       published_locales: ${{ steps.receipts.outputs.published_locales }}
       published_locales_csv: ${{ steps.receipts.outputs.published_locales_csv }}
       pending_locales: ${{ steps.receipts.outputs.pending_locales }}
       pending_nonit_locales: ${{ steps.receipts.outputs.pending_nonit_locales }}
+      # IT is resumable too: each unit that was pushed leaves a durable receipt
+      # (scripts/ci/publish-receipts.mjs), so a retry of the same source run
+      # skips the CDN job and the groups already published, and the finalizer
+      # takes the earlier groups' results from `receipt_it_groups`
+      # ([{group, runId}], the publisher run that holds each result artifact).
+      it_cdn_published: ${{ steps.receipts.outputs.it_cdn_published }}
+      pending_it_groups: ${{ steps.receipts.outputs.pending_it_groups }}
+      receipt_it_groups: ${{ steps.receipts.outputs.receipt_it_groups }}
     steps:
       - name: Checkout receipt resolver
         uses: actions/checkout@v7
@@ -371,7 +380,20 @@ jobs:
           ref: ${{ github.sha }}
           sparse-checkout: |
             /scripts/ci/publish-receipts.mjs
+            /scripts/ci/it-shard-group-plan.mjs
           sparse-checkout-cone-mode: false
+
+      # The plan carries the digest each group receipt must match. It is read
+      # best-effort: without it every IT group stays pending (more work, never
+      # a group wrongly skipped).
+      - name: Download IT shard source plan
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: it-shard-source-plan-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/it-publish-plan
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Resolve source-run receipts
         id: receipts
@@ -380,6 +402,7 @@ jobs:
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
           SOURCE_SHA: ${{ inputs.source_sha }}
           TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
+          BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
         run: |
           set -euo pipefail
           node scripts/ci/publish-receipts.mjs \
@@ -387,6 +410,8 @@ jobs:
             --source-run-id "$SOURCE_RUN_ID" \
             --source-sha "$SOURCE_SHA" \
             --locales "$(node -e 'process.stdout.write(JSON.parse(process.env.TAIL_LOCALES || "[]").join(","))')" \
+            --it-plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" \
+            --build-id "$BUILD_ID" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # Make the layout decision once for the complete four-locale source before
@@ -516,13 +541,21 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   # Publish the IT CDN payload before either IT or non-IT HTML shard pushes.
   # Its success is an explicit dependency of both fan-outs.
+  #
+  # Skipped when a durable receipt proves this source run's CDN payload is live
+  # (a retry of the same build): re-pushing it costs 10-20 runner minutes and
+  # changes nothing. The ordering gate of every consumer (IT groups, finalizer,
+  # non-IT tail) then settles on the cdn-build-id.txt marker alone, see
+  # `CDN_IT_JOB_NAME` below.
   publish-it-cdn:
     name: Publish IT CDN assets first
-    needs: [resolve-publish-plan]
+    needs: [resolve-publish-plan, resolve-publish-receipts]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
-          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') }}
+          contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') &&
+          needs.resolve-publish-receipts.result == 'success' &&
+          needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     concurrency:
@@ -531,6 +564,7 @@ jobs:
     permissions:
       contents: read
       actions: read
+      statuses: write   # durable IT CDN receipt
     outputs:
       cdn_build_id: ${{ steps.cdn-ready.outputs.build_id }}
       cdn_base: ${{ steps.cdn-ready.outputs.cdn_base }}
@@ -744,6 +778,23 @@ jobs:
           fi
           echo "build_id=$EXPECTED_BUILD_ID" >> "$GITHUB_OUTPUT"
           echo "cdn_base=https://cdn.frontaliereticino.ch" >> "$GITHUB_OUTPUT"
+      # The receipt is an optimisation of the NEXT attempt, never a gate of this
+      # one: a failed write only means a retry repeats the CDN push.
+      - name: Write durable IT CDN receipt
+        if: steps.cdn-ready.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --write it-cdn \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --build-id "$BUILD_ID"
       - name: Save final R2 OG manifest cache
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -755,19 +806,31 @@ jobs:
   # Six balanced groups run concurrently. Zurich and Switzerland each retain
   # a dedicated runner; the other live sections are greedily balanced by file
   # count in the immutable source plan.
+  #
+  # The matrix is the set of groups the durable receipts leave pending (all six
+  # on a first attempt). `!cancelled()` replaces the implicit `success()`: with
+  # the CDN job skipped by its receipt the implicit check would skip every
+  # group, so each dependency is tested explicitly instead. No pending group
+  # (every one already published) skips the job and the finalizer takes the
+  # earlier results from the receipts.
   push-it-shard-groups:
     name: Push IT section group (${{ matrix.group }})
-    needs: [resolve-publish-plan, publish-it-cdn, preflight-section-tree-layouts]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn, preflight-section-tree-layouts]
     if: >-
-      ${{ needs.resolve-publish-plan.result == 'success' &&
+      ${{ !cancelled() &&
+          needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.preflight-section-tree-layouts.result == 'success' &&
           contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') &&
-          needs.publish-it-cdn.result == 'success' }}
+          needs.resolve-publish-receipts.result == 'success' &&
+          needs.resolve-publish-receipts.outputs.pending_it_groups != '[]' &&
+          (needs.publish-it-cdn.result == 'success' ||
+           (needs.publish-it-cdn.result == 'skipped' &&
+            needs.resolve-publish-receipts.outputs.it_cdn_published == 'true')) }}
     strategy:
       fail-fast: false
       matrix:
-        group: [zurigo, svizzera, small-1, small-2, small-3, small-4]
+        group: ${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_it_groups) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     environment: shard-secrets-overflow
@@ -778,6 +841,7 @@ jobs:
       contents: read
       actions: read
       issues: write
+      statuses: write   # durable IT group receipt
     steps:
       - name: Record IT shard group job start (#7106 deadline safety margin)
         run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
@@ -873,8 +937,15 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
-          CDN_IT_JOB_NAME: Publish IT CDN assets first
-          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
+          # With the CDN job skipped by its durable receipt there is no job of
+          # THIS run to observe: emptying both names makes the script poll the
+          # cdn-build-id.txt marker alone. The receipt stands for «this build's
+          # payload was pushed», the marker still proves it is live and not yet
+          # superseded by a newer build (a strictly newer id fails closed).
+          # `cond != 'true' && 'name' || ''` because `'' || x` is the other
+          # branch of the ternary idiom.
+          CDN_IT_JOB_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Publish IT CDN assets first' || '' }}
+          CDN_IT_READY_STEP_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Require IT CDN build id before shard pushes' || '' }}
           CDN_IT_READY_TIMEOUT_S: 10800
           CDN_IT_READY_INTERVAL_S: 30
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
@@ -884,7 +955,9 @@ jobs:
       - name: Verify IT CDN handoff
         if: steps.cdn-gate.outcome == 'success'
         env:
-          CDN_BUILD_ID: ${{ needs.publish-it-cdn.outputs.cdn_build_id }}
+          # From the CDN job when it ran, else the receipt (same source run,
+          # same build id as the plan).
+          CDN_BUILD_ID: ${{ needs.publish-it-cdn.outputs.cdn_build_id || (needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' && needs.resolve-publish-plan.outputs.build_id || '') }}
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
         run: test -n "$CDN_BUILD_ID" && test "$CDN_BUILD_ID" = "$EXPECTED_BUILD_ID"
       - name: Push and package IT section group
@@ -939,6 +1012,7 @@ jobs:
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           bash scripts/ci/push-it-shard-group.sh "$GROUP_ID"
       - name: Upload IT section group results and ok-markers
+        id: upload-group-results
         if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -950,6 +1024,32 @@ jobs:
           compression-level: 0
           retention-days: 2
           if-no-files-found: ignore
+      # The group's receipt follows its proof: the push step succeeded (so every
+      # section has its ok-marker) AND the result artifact the finalizer will
+      # need was uploaded. publish-receipts.mjs also re-checks the markers,
+      # manifests and tars of every assigned section before it writes. A retry
+      # that finds this receipt skips the group and downloads this artifact
+      # from this run (the receipt's target_url).
+      - name: Write durable IT group receipt
+        if: >-
+          always() &&
+          steps.push-section-group.outcome == 'success' &&
+          steps.upload-group-results.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          GROUP_ID: ${{ matrix.group }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --write it-group \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --group "$GROUP_ID" \
+            --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" \
+            --results-dir "$RUNNER_TEMP"
       - name: Require IT section group and CDN gate success
         if: always()
         env:
@@ -975,16 +1075,26 @@ jobs:
   # buried the real failing group and burned 4-18 runner minutes per attempt.
   # A skipped finalizer is not a green run: `publish-outcome` and
   # `report-failure` below name the group that actually failed.
+  #
+  # `skipped` is also a success here, but only when a durable receipt backs it:
+  # the CDN job is skipped when `it_cdn_published`, the group matrix when no
+  # group is pending (all six were pushed by earlier attempts). Their results
+  # are then restored from the publisher runs named by `receipt_it_groups`.
   finalize-it-publish:
     name: Finalize IT section manifests and Pages artifact
-    needs: [resolve-publish-plan, publish-it-cdn, push-it-shard-groups]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn, push-it-shard-groups]
     if: >-
       ${{ always() && !cancelled() &&
           needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           contains(fromJSON(needs.resolve-publish-plan.outputs.tail_locales), 'it') &&
-          needs.publish-it-cdn.result == 'success' &&
-          needs.push-it-shard-groups.result == 'success' }}
+          needs.resolve-publish-receipts.result == 'success' &&
+          (needs.publish-it-cdn.result == 'success' ||
+           (needs.publish-it-cdn.result == 'skipped' &&
+            needs.resolve-publish-receipts.outputs.it_cdn_published == 'true')) &&
+          (needs.push-it-shard-groups.result == 'success' ||
+           (needs.push-it-shard-groups.result == 'skipped' &&
+            needs.resolve-publish-receipts.outputs.pending_it_groups == '[]')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     concurrency:
@@ -1051,8 +1161,57 @@ jobs:
           path: ${{ runner.temp }}/it-shard-results
           merge-multiple: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      # Groups skipped by their durable receipt were pushed by an EARLIER
+      # publisher run; their ok-markers, section manifests and tars live in
+      # that run's result artifact. Fail closed: a download that does not
+      # succeed stops the finalizer here (the assembler would otherwise report
+      # the missing ok-marker, but with a less direct message).
+      - name: Download IT section group results from earlier attempts
+        if: needs.resolve-publish-receipts.outputs.receipt_it_groups != '[]'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          RECEIPT_GROUPS: ${{ needs.resolve-publish-receipts.outputs.receipt_it_groups }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/it-shard-results"
+          node -e '
+            const groups = JSON.parse(process.env.RECEIPT_GROUPS || "[]");
+            const allowed = ["zurigo", "svizzera", "small-1", "small-2", "small-3", "small-4"];
+            for (const entry of groups) {
+              if (!allowed.includes(entry.group) || !/^[0-9]+$/.test(String(entry.runId))) {
+                console.error(`unexpected receipt entry ${JSON.stringify(entry)}`);
+                process.exit(1);
+              }
+              console.log(`${entry.group} ${entry.runId}`);
+            }
+          ' | while read -r group run_id; do
+            echo "restoring IT group ${group} from publisher run ${run_id}"
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" \
+              --name "it-shard-result-group-${group}-${SOURCE_RUN_ID}" \
+              --dir "$RUNNER_TEMP/it-shard-results/earlier-${group}"
+          done
       - name: Assemble IT root, section manifests and validation tars
         run: bash scripts/ci/assemble-it-publish-root.sh
+      # `finalize-sections` requires every section manifest to name this run
+      # (the validation batches it points at are uploaded below, by this run).
+      # Manifests restored from earlier attempts name the run that pushed them:
+      # re-bind them after proving identity and tar content.
+      - name: Adopt section manifests published by earlier attempts
+        if: needs.resolve-publish-receipts.outputs.receipt_it_groups != '[]'
+        env:
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          ARTIFACT_RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/shard-content-manifest.mjs adopt-sections \
+            --input-dir "$RUNNER_TEMP/shard-content-manifests/it" \
+            --tar-dir "$RUNNER_TEMP" \
+            --locale it \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --artifact-run-id "$ARTIFACT_RUN_ID"
       - name: Restore R2 OG manifest from the early CDN job
         if: ${{ vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both' }}
         uses: actions/cache/restore@v6
@@ -1061,11 +1220,9 @@ jobs:
           key: r2-og-published-${{ github.run_id }}
           restore-keys: r2-og-published-${{ github.run_id }}-
       - name: Package IT post-push validation batches
-        if: needs.push-it-shard-groups.result == 'success'
         run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"
       - name: Upload shard batch 1 dist for post-deploy validation
         id: upload-shard-batch-1
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1076,7 +1233,6 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 2 dist for post-deploy validation
         id: upload-shard-batch-2
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1087,7 +1243,6 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 3 dist for post-deploy validation
         id: upload-shard-batch-3
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1098,7 +1253,6 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 4 dist for post-deploy validation
         id: upload-shard-batch-4
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1109,7 +1263,6 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 5 dist for post-deploy validation
         id: upload-shard-batch-5
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1120,7 +1273,6 @@ jobs:
           if-no-files-found: ignore
       - name: Upload shard batch 6 dist for post-deploy validation
         id: upload-shard-batch-6
-        if: needs.push-it-shard-groups.result == 'success'
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1167,8 +1319,10 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
-          CDN_IT_JOB_NAME: Publish IT CDN assets first
-          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
+          # Empty names (CDN job skipped by its receipt) = marker poll only,
+          # see the gate of push-it-shard-groups.
+          CDN_IT_JOB_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Publish IT CDN assets first' || '' }}
+          CDN_IT_READY_STEP_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Require IT CDN build id before shard pushes' || '' }}
           CDN_IT_READY_TIMEOUT_S: 10800
           CDN_IT_READY_INTERVAL_S: 30
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
@@ -1191,7 +1345,7 @@ jobs:
         env:
           CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
           CDN_TARGET: ${{ vars.CDN_TARGET || 'pages' }}
-          CDN_BASE: ${{ needs.publish-it-cdn.outputs.cdn_base }}
+          CDN_BASE: ${{ needs.publish-it-cdn.outputs.cdn_base || 'https://cdn.frontaliereticino.ch' }}
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
@@ -1317,8 +1471,10 @@ jobs:
           PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
           PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
           PROVENANCE_OFFLOAD_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
-          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ needs.push-it-shard-groups.result }}
-          PROVENANCE_CDN_GATE_OUTCOME: ${{ needs.publish-it-cdn.result }}
+          # A job skipped because a durable receipt proves its work is a
+          # success of the CDN / section push; any other skip stays visible.
+          PROVENANCE_SECTION_PUSH_OUTCOME: ${{ needs.push-it-shard-groups.result == 'skipped' && needs.resolve-publish-receipts.outputs.pending_it_groups == '[]' && 'success' || needs.push-it-shard-groups.result }}
+          PROVENANCE_CDN_GATE_OUTCOME: ${{ needs.publish-it-cdn.result == 'skipped' && needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' && 'success' || needs.publish-it-cdn.result }}
           # The tail receipt is written by THIS toolchain, so it declares the
           # contract version of this toolchain (locale-publish-provenance.mjs).
           PROVENANCE_PUBLISH_CONTRACT_VERSION: '1'
@@ -1361,14 +1517,20 @@ jobs:
   publish-nonit-shards:
     name: Publish non-IT shard tail (${{ matrix.locale }})
     needs: [resolve-publish-plan, resolve-publish-receipts, publish-it-cdn, preflight-section-tree-layouts]
+    # `!cancelled()` instead of the implicit `success()`: with the CDN job
+    # skipped by its durable receipt the implicit check would skip this tail.
+    # Every dependency is tested explicitly.
     if: >-
-      ${{ needs.resolve-publish-plan.result == 'success' &&
+      ${{ !cancelled() &&
+          needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
           needs.preflight-section-tree-layouts.result == 'success' &&
           needs.resolve-publish-receipts.outputs.pending_nonit_locales != '[]' &&
           needs.resolve-publish-receipts.result == 'success' &&
-          needs.publish-it-cdn.result == 'success' }}
+          (needs.publish-it-cdn.result == 'success' ||
+           (needs.publish-it-cdn.result == 'skipped' &&
+            needs.resolve-publish-receipts.outputs.it_cdn_published == 'true')) }}
     strategy:
       fail-fast: false
       matrix:
@@ -1445,6 +1607,7 @@ jobs:
           path: receipt-resolver
           sparse-checkout: |
             /scripts/ci/publish-receipts.mjs
+            /scripts/ci/it-shard-group-plan.mjs
           sparse-checkout-cone-mode: false
 
       # The source checkout above is intentionally pinned to the build SHA so
@@ -1670,8 +1833,10 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           CDN_WAIT_TIMEOUT_S: 2700
           CDN_WAIT_MARGIN_WARN_S: 600
-          CDN_IT_JOB_NAME: Publish IT CDN assets first
-          CDN_IT_READY_STEP_NAME: Require IT CDN build id before shard pushes
+          # Empty names (CDN job skipped by its receipt) = marker poll only,
+          # see the gate of push-it-shard-groups.
+          CDN_IT_JOB_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Publish IT CDN assets first' || '' }}
+          CDN_IT_READY_STEP_NAME: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' && 'Require IT CDN build id before shard pushes' || '' }}
           CDN_IT_READY_TIMEOUT_S: 10800
           CDN_IT_READY_INTERVAL_S: 30
           CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
@@ -3051,6 +3216,7 @@ jobs:
             scripts/ci/locale-publish-provenance.mjs
             scripts/ci/resolve-nonit-publish-plan.mjs
             scripts/ci/publish-receipts.mjs
+            scripts/ci/it-shard-group-plan.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

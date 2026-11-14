@@ -5,6 +5,8 @@ import { tmpdir } from 'node:os';
 import { dirname, relative, resolve } from 'node:path';
 import ts from 'typescript';
 import YAML from 'yaml';
+import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
+import { evaluateExpression } from './helpers/workflowNeedsSimulator';
 
 const root = resolve(import.meta.dirname, '..');
 const deployText = readFileSync(resolve(root, '.github/workflows/deploy.yml'), 'utf8');
@@ -16,6 +18,15 @@ const cdnSteps = publish.jobs['publish-it-cdn'].steps as Array<Record<string, an
 const groupSteps = publish.jobs['push-it-shard-groups'].steps as Array<Record<string, any>>;
 const finalizeSteps = publish.jobs['finalize-it-publish'].steps as Array<Record<string, any>>;
 const namedStep = (steps: Array<Record<string, any>>, name: string) => steps.find((step) => step.name === name);
+// The CDN-gate env names are expressions: they are the real names while the
+// CDN job runs, and empty (marker poll only) when a durable receipt skipped it
+// (tests/deploy-publish-it-receipts.test.ts covers the receipt side).
+const cdnJobRuns = {
+  result: () => 'success',
+  output: (_job: string, key: string) => (key === 'it_cdn_published' ? 'false' : ''),
+  input: () => '',
+};
+const gateName = (value: unknown) => evaluateExpression(String(value), cdnJobRuns);
 
 const publisherEntrypoints = [
   'scripts/ci/list-live-shard-sections.mjs',
@@ -201,7 +212,12 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(groups['timeout-minutes']).toBe(360);
     expect(finalizer['timeout-minutes']).toBe(360);
     expect(groups.environment).toBe('shard-secrets-overflow');
-    expect(groups.strategy.matrix.group).toEqual(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
+    // The six groups are the allowlist of publish-receipts.mjs; the matrix is
+    // whichever of them the durable receipts leave pending (all six on a first
+    // attempt), see tests/deploy-publish-it-receipts.test.ts.
+    expect(groups.strategy.matrix.group)
+      .toBe('${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_it_groups) }}');
+    expect([...IT_SHARD_GROUP_IDS]).toEqual(['zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4']);
     expect([].concat(groups.needs)).toContain('publish-it-cdn');
     expect([].concat(publish.jobs['publish-nonit-shards'].needs)).toContain('publish-it-cdn');
     expect(cdn.concurrency).toMatchObject({ group: 'it-cdn-assets-publish', 'cancel-in-progress': false });
@@ -237,8 +253,8 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(ready?.id).toBe('cdn-ready');
     expect([gateIndex, pushIndex]).toEqual([expect.any(Number), expect.any(Number)]);
     expect(gateIndex).toBeLessThan(pushIndex);
-    expect(groupSteps[gateIndex].env.CDN_IT_JOB_NAME).toBe('Publish IT CDN assets first');
-    expect(groupSteps[gateIndex].env.CDN_IT_READY_STEP_NAME).toBe('Require IT CDN build id before shard pushes');
+    expect(gateName(groupSteps[gateIndex].env.CDN_IT_JOB_NAME)).toBe('Publish IT CDN assets first');
+    expect(gateName(groupSteps[gateIndex].env.CDN_IT_READY_STEP_NAME)).toBe('Require IT CDN build id before shard pushes');
     expect(groupSteps[pushIndex].run).toContain('scripts/ci/push-it-shard-group.sh');
     expect(groupSteps[pushIndex].run).toContain('wall_seconds=$SECONDS');
     expect(groupSteps[pushIndex]['continue-on-error']).toBe(true);
@@ -265,7 +281,12 @@ describe('deploy IT build-to-publish handoff', () => {
     ]));
     expect(namedStep(finalizeSteps, 'Download IT section group results')?.['continue-on-error']).toBe(true);
     const packageBatches = namedStep(finalizeSteps, 'Package IT post-push validation batches');
-    expect(packageBatches?.if).toBe("needs.push-it-shard-groups.result == 'success'");
+    // The job-level condition already proves every group is `success` (or
+    // fully backed by a durable receipt), so the steps carry no guard of their
+    // own: `push-it-shard-groups.result == 'success'` would skip the batches
+    // when every group was published by an earlier attempt.
+    expect(packageBatches?.if).toBeUndefined();
+    expect(finalizer.if).toContain("needs.push-it-shard-groups.result == 'success'");
     expect(packageBatches?.run).toContain('package-it-shard-validation-batches.mjs');
 
     const finalizeIndex = finalizeSteps.findIndex((step) => step.name === 'Finalize IT section content manifests');
@@ -278,7 +299,7 @@ describe('deploy IT build-to-publish handoff', () => {
     expect(finalizeSteps[finalizeIndex].run).toContain('finalize-sections');
     expect(finalizeSteps[finalizeIndex].run).toContain('--required-sections');
     expect(finalizeSteps[manifestUploadIndex].with.name).toBe('section-page-manifest-it-${{ github.run_id }}');
-    expect(finalizeSteps[cdnRecheckIndex].env.CDN_IT_JOB_NAME).toBe('Publish IT CDN assets first');
+    expect(gateName(finalizeSteps[cdnRecheckIndex].env.CDN_IT_JOB_NAME)).toBe('Publish IT CDN assets first');
     expect(finalizeIndex).toBeLessThan(manifestUploadIndex);
     expect(manifestUploadIndex).toBeLessThan(cdnRecheckIndex);
     expect(cdnRecheckIndex).toBeLessThan(stripIndex);
@@ -288,7 +309,7 @@ describe('deploy IT build-to-publish handoff', () => {
 
     for (let batch = 1; batch <= 6; batch += 1) {
       const upload = namedStep(finalizeSteps, `Upload shard batch ${batch} dist for post-deploy validation`);
-      expect(upload?.if).toBe("needs.push-it-shard-groups.result == 'success'");
+      expect(upload?.if).toBeUndefined();
       expect(upload?.with?.name).toBe(`shard-batch-${batch}-dist-it-\${{ github.run_id }}`);
       expect(Number(upload?.with?.['retention-days'])).toBeGreaterThanOrEqual(8);
     }

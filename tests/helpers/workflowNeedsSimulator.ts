@@ -45,14 +45,15 @@ function stripExpressionDelimiters(expression: string): string {
   return (match ? match[1] : trimmed).replace(/\s+/g, ' ').trim();
 }
 
-export function evaluateJobIf(
+/** Evaluate one `${{ … }}` expression (or a bare `if` condition) to its value. */
+export function evaluateExpression(
   expression: string,
   context: {
     result: (job: string) => string;
     output: (job: string, name: string) => string;
     input: (name: string) => string;
   },
-): boolean {
+): unknown {
   const source = stripExpressionDelimiters(expression);
   const compiled = source
     .replace(/needs\.([A-Za-z0-9_-]+)\.outputs\.([A-Za-z0-9_-]+)/g, "O('$1','$2')")
@@ -81,7 +82,7 @@ export function evaluateJobIf(
     I: context.input,
   };
   // eslint-disable-next-line no-new-func
-  const fn = new Function(...Object.keys(helpers), `return Boolean(${compiled});`);
+  const fn = new Function(...Object.keys(helpers), `return (${compiled});`);
   return fn(...Object.values(helpers));
 }
 
@@ -112,14 +113,14 @@ export function simulateWorkflow(
     let runs = !forceSkip.includes(job);
     if (runs && !explicitStatus && !allAncestorsSucceeded) runs = false;
     if (runs && condition) {
-      runs = evaluateJobIf(condition, {
+      runs = Boolean(evaluateExpression(condition, {
         result: (name) => {
           if (!jobs[name]) throw new Error(`workflowNeedsSimulator: ${job} reads needs.${name} which is not a job`);
           return resolve(name);
         },
         output: (name, key) => (resolve(name) === 'success' ? outputs[name]?.[key] ?? '' : ''),
         input: (name) => inputs[name] ?? '',
-      });
+      }));
     }
     results[job] = runs ? (overrides[job] ?? 'success') : 'skipped';
     return results[job];
