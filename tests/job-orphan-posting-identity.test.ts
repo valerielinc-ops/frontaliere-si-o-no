@@ -1,21 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
-import { transformSync } from 'esbuild';
 import {
   hasSameJobSourcePosting,
   sourcePostingUrlHref,
   sourcePostingUrlHrefs,
 } from '../scripts/lib/job-identity.mjs';
+import { inferOrphanSlugAliases } from '../scripts/lib/orphan-slug-fuzzy-match.mjs';
+import { backfillOrphanSlugAliases } from '../scripts/backfill-slug-aliases.mjs';
 import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
-
-function readFuzzyOrphanBlock(): string {
-  const source = fs.readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
-  const start = source.indexOf('/* ── Fuzzy match orphan slugs');
-  const end = source.indexOf('// Collect all previous slugs before filtering the expired URL list below');
-  expect(start).toBeGreaterThanOrEqual(0);
-  expect(end).toBeGreaterThan(start);
-  return source.slice(start, end);
-}
 
 describe('inferred orphan aliases require positive posting identity', () => {
   const url = 'https://jobs.example.invalid/vacancies/orthopedics/';
@@ -71,28 +62,24 @@ describe('inferred orphan aliases require positive posting identity', () => {
     const result = reconcileOrphanSlugs([active], [slug], [{ slug, sourceUrl: url }]);
     expect(result.mergedCount).toBe(1);
   });
-  it('gates the independent SSG fuzzy candidate loop before scoring', () => {
-    const block = readFuzzyOrphanBlock();
-    expect(block).toContain('if (!orphanProof?.sourceUrl) continue;');
-    expect(block.indexOf('if (!hasSameJobSourcePosting(orphanProof, cand)) continue;')).toBeLessThan(block.indexOf('const score = inter /'));
-    expect(block.indexOf('if (!hasSameJobSourcePosting(orphanProof, cand)) continue;')).toBeGreaterThan(0);
-  });
-  it.each([undefined, 'https://jobs.example.invalid/vacancies/oncology/', url])('executes the real SSG loop without guessing oncology ownership (%s)', (sourceUrl) => {
-    const block = readFuzzyOrphanBlock();
+  it.each([undefined, 'https://jobs.example.invalid/vacancies/oncology/', url])('executes the SSG fuzzy matcher without guessing oncology ownership (%s)', (sourceUrl) => {
     const orphan = 'head-physician-oncology-60-100-spital-uster-uster';
     const job = { url, location: 'Uster', slug: 'assistant-physician-100-orthopedics-spital-uster-uster', slugByLocale: { en: 'assistant-physician-100-orthopedics-spital-uster-uster' } };
-    const execute = new Function(
-      'validJobs', 'tracking', 'orphanGscData', 'localeList', '_allPrevSlugs',
-      'hasSameJobSourcePosting', 'extraGcFreedProbeCandidate', 'logJobsSeoMem',
-      transformSync(block, { loader: 'ts' }).code,
-    );
-    execute(
-      [job], { [orphan]: {} }, new Map([[orphan, { sourceUrl }]]), ['en'], () => [],
-      hasSameJobSourcePosting, null, () => {},
-    );
+    const result = inferOrphanSlugAliases({
+      validJobs: [job],
+      tracking: { [orphan]: {} },
+      orphanGscData: new Map([[orphan, { sourceUrl }]]),
+      localeList: ['en'],
+      hasSameJobSourcePosting,
+    });
     // Even the legacy >=60% overlap must not create an alias without source proof.
-    if (sourceUrl === url) expect(job).toHaveProperty('previousSlugsByLocale.en', [orphan]);
-    else expect(job).not.toHaveProperty('previousSlugsByLocale');
+    if (sourceUrl === url) {
+      expect(result.fuzzyMatched).toBe(1);
+      expect(job).toHaveProperty('previousSlugsByLocale.en', [orphan]);
+    } else {
+      expect(result.fuzzyMatched).toBe(0);
+      expect(job).not.toHaveProperty('previousSlugsByLocale');
+    }
   });
   it.each([
     { sourceUrls: [] },
@@ -100,14 +87,20 @@ describe('inferred orphan aliases require positive posting identity', () => {
     { sourceUrls: [url] },
     { sourceUrls: [url, 'https://jobs.example.invalid/vacancies/oncology/'] },
   ])('also gates the one-shot backfill heuristic (%j)', ({ sourceUrls }) => {
-    const source = fs.readFileSync(new URL('../scripts/backfill-slug-aliases.mjs', import.meta.url), 'utf8');
-    const helpers = source.slice(source.indexOf('function normalize('), source.indexOf('function loadJobs('));
-    const loop = source.slice(source.indexOf('  const wantedOrphans ='), source.indexOf('  // ── Pass 2: Registry reconciliation'));
     const orphan = 'head-physician-oncology-60-100-spital-uster-uster';
     const job = { url, company: 'Spital Uster', location: 'Uster', slug: 'assistant-physician-100-orthopedics-spital-uster-uster' };
-    const execute = new Function('orphanSlugs', 'byCompany', 'readOrphanEnriched', 'hasSameJobSourcePosting', 'ROOT', `${helpers}\n${loop}`);
-    execute([orphan], new Map([['spital-uster', [job]]]), () => sourceUrls.map((sourceUrl) => ({ slug: orphan, sourceUrl })), hasSameJobSourcePosting, 'fixture-root');
-    if (sourceUrls.length === 1 && sourceUrls[0] === url) expect(job).toHaveProperty('previousSlugs', [orphan]);
-    else expect(job).not.toHaveProperty('previousSlugs');
+    const result = backfillOrphanSlugAliases({
+      orphanSlugs: [orphan],
+      byCompany: new Map([['spital-uster', [job]]]),
+      enrichedRecords: sourceUrls.map((sourceUrl) => ({ slug: orphan, sourceUrl })),
+      hasSameJobSourcePosting,
+    });
+    if (sourceUrls.length === 1 && sourceUrls[0] === url) {
+      expect(result.added).toBe(1);
+      expect(job).toHaveProperty('previousSlugs', [orphan]);
+    } else {
+      expect(result.added).toBe(0);
+      expect(job).not.toHaveProperty('previousSlugs');
+    }
   });
 });
