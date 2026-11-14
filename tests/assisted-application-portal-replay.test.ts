@@ -483,19 +483,19 @@ describe('portal replay workflow wiring', () => {
     expect(gateBlock).toContain('node "$gate_cli" aggregate');
   });
 
-  it('does shared setup once and runs the family group inside one worker', () => {
+  it('runs bounded family groups in parallel workers and keeps one group scheduler per worker', () => {
     const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
-    expect(workflow).toContain('name: replay portal families (group)');
+    expect(workflow).toContain('name: replay portal families (group ${{ matrix.group }})');
+    expect(workflow).toContain('group: [0, 1, 2]');
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
     expect(workflow).toContain('declare -f run_group > "$group_script"');
     expect(workflow).not.toContain("bash -c 'run_group'");
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
-    expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
+    expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}-${{ matrix.group }}');
     expect(workflow).not.toContain('max-parallel: 6');
     expect(workflow).not.toContain('matrix.family');
-    expect(workflow).not.toContain('      matrix:\n');
   });
 
   it('keeps the concurrent Codex callers within the broker lanes so no listing waits in the queue', () => {
@@ -539,9 +539,11 @@ describe('portal replay workflow wiring', () => {
     const listingS = ((retries + 1) * wallCapMs) / 1000;
     const largestS = maxPerFamily * listingS + preflightS;
     const smallS = minPerFamily * listingS + preflightS;
-    const familyCount = 12; // PORTAL_REPLAY_FAMILIES
-    const largeFamilies = 3; // employer_site, successfactors, workday get maxPerFamily listings
-    const workS = largeFamilies * largestS + (familyCount - largeFamilies) * smallS;
+    // The modulo partition puts at most four families in a worker. Bound all
+    // four at maxPerFamily so the timeout remains safe for any affected subset.
+    const groupLargeFamilies = 4;
+    const groupSmallFamilies = 0;
+    const workS = groupLargeFamilies * largestS + groupSmallFamilies * smallS;
     const slots = Math.floor(laneCount / 2);
     // greedy list scheduling: makespan <= work / slots + (1 - 1 / slots) * largest family
     const makespanS = workS / slots + (1 - 1 / slots) * largestS;

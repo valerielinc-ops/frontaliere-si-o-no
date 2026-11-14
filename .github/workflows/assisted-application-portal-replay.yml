@@ -2,10 +2,10 @@ name: Assisted application portal replay
 
 # Always publish the required `portal replay gate` job. The prepare step skips
 # the public replay when a PR changes no runner path. Shared runner changes
-# expand to the complete family group. The shared setup runs once on one
-# worker; the trusted base compare CLI runs the families inside that worker,
-# like the crawler-group workflows, instead of creating a runner job for every
-# family.
+# expand to the complete family group. The shared setup runs once per bounded
+# group worker; the trusted base compare CLI runs the families inside each
+# worker, like the crawler-group workflows, instead of creating a runner job for
+# every family.
 #
 # Broker capacity (root cause of the all-red `portal_replay_timeout` reports,
 # run 43593542762): every family replays base and head at the same time, so a
@@ -188,12 +188,18 @@ jobs:
             --github-output "$GITHUB_OUTPUT"
 
   replay:
-    name: replay portal families (group)
+    name: replay portal families (group ${{ matrix.group }})
     needs: prepare
     if: needs.prepare.result == 'success'
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2]
     runs-on: ubuntu-latest
-    # Budget bound, derived from the largest family and not from an average
-    # (a family holds one of the parallel slots for its whole workload).
+    # Budget bound, derived from the largest group and not from an average
+    # (a family holds one of the parallel slots for its whole workload). The
+    # sorted modulo partition puts at most four families in each of the three
+    # workers; the bound below treats all four as five-listing families.
     # `--timeout-ms 75000` is the ACTIVE budget of a listing attempt: the time
     # the runner under test spends on the page. The time it waits for the Codex
     # broker (queue + model at effort max) is measured apart: each call is
@@ -206,17 +212,18 @@ jobs:
     #                side; base and head run concurrently, not summed)
     #   family    <= 5 listings (maxPerFamily) * 600 s + 60 s of
     #                preflight and browser launch               = 3060 s
-    #   corpus    <= 9 families of 3 + 3 families of 5          = 25920 s of work
-    #   makespan  <= work / 3 slots + (2/3) * largest family    = 10680 s (178 min)
+    #   group     <= 4 families of 5                              = 12240 s of work
+    #   makespan  <= work / 3 slots + (2/3) * largest family    = 6120 s (102 min)
     #   setup     ~ 4.4 min measured (checkouts, two npm ci, Chromium, broker),
-    #               6 min allowed                                -> 184 min
-    # timeout-minutes covers that bound. Measured on run 43606105427 (12 families,
-    # 40 listings): replay 29 min wall in the worst family (personio, 498 s).
-    timeout-minutes: 184
+    #               6 min allowed                                -> 108 min
+    # timeout-minutes covers that bound and stays under the 120-minute PR ceiling.
+    timeout-minutes: 120
     env:
       # Broker lanes (the action accepts 1..6). Each family runs base and head
       # concurrently, so the number of families in flight is lanes / 2.
       PORTAL_REPLAY_BROKER_LANES: '6'
+      PORTAL_REPLAY_GROUP: ${{ matrix.group }}
+      PORTAL_REPLAY_GROUP_COUNT: '3'
     steps:
       - name: Checkout PR runner
         uses: actions/checkout@v7
@@ -393,13 +400,21 @@ jobs:
             # the base checkout remains the source of trusted fences and data.
             portal_replay_cli=scripts/assisted-application/portal-replay.mjs
             test -f "$portal_replay_cli"
-            PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
+            PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" PORTAL_REPLAY_GROUP="$PORTAL_REPLAY_GROUP" PORTAL_REPLAY_GROUP_COUNT="$PORTAL_REPLAY_GROUP_COUNT" node --input-type=module -e '
               const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");
+              const group = Number(process.env.PORTAL_REPLAY_GROUP);
+              const groupCount = Number(process.env.PORTAL_REPLAY_GROUP_COUNT);
               if (!Array.isArray(families) || !families.length || families.some((family) => typeof family !== "string" || !/^[a-z0-9_]+$/.test(family))) process.exit(1);
-              for (const family of [...new Set(families)].sort()) console.log(family);
+              if (!Number.isInteger(group) || !Number.isInteger(groupCount) || group < 0 || group >= groupCount || groupCount < 1) process.exit(1);
+              for (const [index, family] of [...new Set(families)].sort().entries()) {
+                if (index % groupCount === group) console.log(family);
+              }
             ' > "$RUNNER_TEMP/portal-replay-families.txt"
             mapfile -t families < "$RUNNER_TEMP/portal-replay-families.txt"
-            test "${#families[@]}" -gt 0
+            if (( ${#families[@]} == 0 )); then
+              echo "portal replay group $PORTAL_REPLAY_GROUP has no affected families"
+              return 0
+            fi
             # Base and head replay at the same time: one family is two broker
             # callers. Keep the callers within the broker lanes so a request
             # never waits in the broker queue while the 75 s listing timer runs.
@@ -472,7 +487,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: assisted-application-portal-replay-reports-${{ github.run_id }}
+          name: assisted-application-portal-replay-reports-${{ github.run_id }}-${{ matrix.group }}
           path: ${{ runner.temp }}/portal-replay-reports/*.json
           if-no-files-found: ignore
           retention-days: 7
@@ -550,7 +565,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
-          name: assisted-application-portal-replay-reports-${{ github.run_id }}
+          pattern: assisted-application-portal-replay-reports-${{ github.run_id }}-*
           path: ${{ runner.temp }}/portal-replay-reports
           merge-multiple: true
 

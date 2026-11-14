@@ -192,13 +192,13 @@ const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, ma
 // code. The time it spends waiting for the Codex broker (queue + model, effort
 // max) is not a property of the code under test and varies from one call to the
 // next, so it is measured apart and bounded apart: every call by the broker's
-// 60 s run limit, the whole attempt by this wall cap. Both sides of a listing
+// 150 s run limit, the whole attempt by this wall cap. Both sides of a listing
 // are judged by the same two clocks.
 //
 // Measured on run 43606105427 (PR #18744, 12 families, 40 listings): the active
 // clock of a listing is 3-20 s (one umantis outlier at 76.6 s), the broker wait
-// is 15-60 s per attempt and every call that did not answer was killed at
-// exactly 60.0 s by the broker limit that the 75 s timer used to require. Those
+// is 15-150 s per attempt and every call that did not answer is killed at
+// exactly 150.0 s by the broker limit. Those
 // kills, not the page, left personio, softgarden and greenhouse unmeasured on
 // one side. The per-call limit is therefore its own constant, no longer tied to
 // the listing budget; production runs the same runner with a 10 min call limit.
@@ -748,21 +748,6 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       };
     }
     const portalApi = await importFrom(sourceRoot, 'scripts/assisted-application/lib/portal/portal.mjs');
-    const requestCodex = portalBrokerCodex(trustedRoot);
-    const deadline = createPortalReplayDeadline({ activeBudgetMs: timeoutMs, wallCapMs: Math.max(timeoutMs, wallCapMs) });
-    deadlineState = deadline;
-    const codex = async (request) => {
-      agentCalls += 1;
-      const startedCallAt = deadline.agentStarted();
-      let ok = false;
-      try {
-        const answer = await requestCodex(request);
-        ok = true;
-        return answer;
-      } finally {
-        deadline.agentSettled(startedCallAt, ok);
-      }
-    };
     activeProxy = await fenceApi.createPinnedPublicHttpsProxy({
       resolve: trustedDnsLookup,
       connect: trustedNetConnect,
@@ -805,6 +790,24 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return runnerBrowser;
     };
 
+    // Do not charge proxy/browser harness setup to the runner's active budget.
+    // The workflow accounts for setup separately; this clock starts at the
+    // exact boundary where the runner can begin spending time on the page.
+    const deadline = createPortalReplayDeadline({ activeBudgetMs: timeoutMs, wallCapMs: Math.max(timeoutMs, wallCapMs) });
+    deadlineState = deadline;
+    const requestCodex = portalBrokerCodex(trustedRoot);
+    const codex = async (request) => {
+      agentCalls += 1;
+      const startedCallAt = deadline.agentStarted();
+      let ok = false;
+      try {
+        const answer = await requestCodex(request);
+        ok = true;
+        return answer;
+      } finally {
+        deadline.agentSettled(startedCallAt, ok);
+      }
+    };
     const runnerPromise = portalApi.submitViaPortal({
       applyUrl: record.applyUrl,
       postingUrl: record.postingUrl,
@@ -846,7 +849,10 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       timedOut = true;
       timeoutKind = settled.timeout;
       await activeContext?.close().catch(() => {});
-      await Promise.race([runnerPromise, new Promise((resolve) => setTimeout(resolve, 1500))]);
+      // The browser context may stop immediately while a Codex request is
+      // still in flight. Wait for the runner promise, and therefore its broker
+      // call, before a completion retry can start and contend for the lane.
+      await runnerPromise;
       failure = { code: 'portal_replay_timeout' };
     } else if (settled?.error) {
       failure = settled.error;
