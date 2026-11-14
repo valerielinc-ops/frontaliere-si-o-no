@@ -943,7 +943,13 @@ export function orderPendingByTraffic(pending, { capture } = {}) {
     popularity = {};
   }
 
-  const { order, stats } = buildTrafficPriority(pending, popularity, { lane: CASCADE_TRAFFIC_LANE });
+  const { order, stats } = buildTrafficPriority(pending, popularity, {
+    lane: CASCADE_TRAFFIC_LANE,
+    // The marker is explicit repair debt: keep flagged jobs ahead of ordinary
+    // incomplete coverage before the cap is applied. The shared builder still
+    // orders each cohort by traffic with its oldest-first reserve.
+    priorityOf: (job) => Boolean(job?.needsRetranslation),
+  });
   for (const line of formatPriorityReport(stats)) console.log(line);
   assertTrafficPriorityUsable(stats, { allowEmpty: ALLOW_NO_TRAFFIC });
   if (capture && typeof capture === 'object') {
