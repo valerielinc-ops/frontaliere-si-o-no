@@ -17,6 +17,7 @@ import {
   PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
   portalReplayPathScope,
+  replayWithOneNeutralRetry,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
@@ -610,6 +611,28 @@ describe('portal replay base/head gate', () => {
       family: 'workday',
       baseRecords: [measured('one', 'form')],
       headRecords: [measured('one', 'form', { securityViolations: ['submission_attempted'] })],
+    });
+    expect(result.findingCodes).toContain('submission_attempted');
+  });
+
+  it('carries submissionAttempted through a neutral retry and into the finding code', async () => {
+    const attempts = [
+      measured('one', 'form', {
+        status: 'neutral',
+        retryClass: 'neutral',
+        submissionAttempted: true,
+      }),
+      measured('one', 'form', {
+        submissionAttempted: false,
+      }),
+    ];
+    const final = await replayWithOneNeutralRetry({}, async () => attempts.shift());
+    expect(final.submissionAttempted).toBe(true);
+
+    const result = comparePortalReplayFamily({
+      family: 'workday',
+      baseRecords: [measured('one', 'form')],
+      headRecords: [final],
     });
     expect(result.findingCodes).toContain('submission_attempted');
   });

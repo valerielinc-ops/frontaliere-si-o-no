@@ -690,6 +690,7 @@ function sanitizeOutcomeRecord(record) {
     nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
     formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
+    submissionAttempted: record.submissionAttempted === true,
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
   };
 }
@@ -710,6 +711,7 @@ function securityCodesForRecord(record) {
     if ((Number(record?.[field]) || 0) > 0) codes.add(code);
   }
   if (record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
+  if (record?.submissionAttempted === true) codes.add('submission_attempted');
   return codes;
 }
 
@@ -824,6 +826,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return {
         caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
         status: 'neutral', retryClass: '', retryCount: preflightRetryCount, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
+        submissionAttempted: false,
         securityViolations: [],
       };
     }
@@ -932,6 +935,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
   const stage = metrics.navigation5xx > 0 ? 'http_5xx' : inferredStage;
   const stopCode = timedOut ? 'portal_replay_timeout' : safeOutcomeCode(event, failure);
   const violations = violationsFor({ event, evidence, metrics });
+  const submissionAttempted = event?.type === 'submit_succeeded';
   const measuredEvents = new Set(['submit_handoff', 'submit_needs_candidate', 'dry_run_ready', 'posting_closed', 'submit_succeeded', 'submit_failed']);
   const status = violations.length ? 'fail'
     : NEUTRAL_STAGES.has(stage) ? 'neutral'
@@ -948,6 +952,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
     formLinkedToPosting: postingLinkStatus(event, evidence),
+    submissionAttempted,
     securityViolations: violations,
   };
 }
@@ -962,11 +967,11 @@ function portalBrokerCodex(sourceRoot) {
   };
 }
 
-async function replayWithOneNeutralRetry(options) {
+export async function replayWithOneNeutralRetry(options, runReplay = runOnePortalReplay) {
   let totalMetrics = null;
   let result;
   for (let attempt = 0; attempt <= REPLAY_LIMITS.retries; attempt += 1) {
-    const current = await runOnePortalReplay(options);
+    const current = await runReplay(options);
     current.retryCount = (Number(current.retryCount) || 0) + attempt;
     if (!totalMetrics) totalMetrics = current;
     else {
@@ -976,6 +981,7 @@ async function replayWithOneNeutralRetry(options) {
       totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
       totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
     }
+    totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);
     result = current;
     if (!current.retryClass || current.securityViolations?.length || attempt >= REPLAY_LIMITS.retries) break;
     await new Promise((resolve) => setTimeout(resolve, REPLAY_LIMITS.delayMs));
@@ -985,7 +991,9 @@ async function replayWithOneNeutralRetry(options) {
       result[key] = Number(totalMetrics[key]) || 0;
     }
     result.retryCount = Number(totalMetrics.retryCount) || 0;
+    result.submissionAttempted = Boolean(totalMetrics.submissionAttempted);
     result.securityViolations = totalMetrics.securityViolations || [];
+    if (result.submissionAttempted) result.securityViolations = [...new Set([...result.securityViolations, 'submission_attempted'])];
     if (result.securityViolations.length) result.status = 'fail';
   }
   return result;
