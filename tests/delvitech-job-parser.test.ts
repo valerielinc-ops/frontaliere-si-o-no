@@ -288,6 +288,21 @@ describe('Delvitech job parser', () => {
     });
   });
 
+  it('accepts an explicitly rendered empty state as authoritative', () => {
+    const renderedEmpty = [];
+    Object.defineProperties(renderedEmpty, {
+      delvitechSourceReadComplete: { value: true },
+      delvitechSourceTerminationProven: { value: true },
+      delvitechSourceRecordCount: { value: 0 },
+      delvitechSourceClassifiedCount: { value: 0 },
+      delvitechSourceTargetCount: { value: 0 },
+    });
+    expect(evaluateDelvitechAuthoritativeSnapshot(renderedEmpty)).toMatchObject({
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+    });
+  });
+
   it('does not count external-only anchors as Delvitech listing records', () => {
     const html = `
       <div class="post-content">
