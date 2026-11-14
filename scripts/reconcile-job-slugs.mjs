@@ -29,6 +29,7 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import {
   addPreviousSlugForLocale,
@@ -92,7 +93,7 @@ const PCT_PATTERN = /^\d+$/;
 
 function readJson(filePath, fallback = null) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return readJsonFile(filePath);
   } catch {
     return fallback;
   }

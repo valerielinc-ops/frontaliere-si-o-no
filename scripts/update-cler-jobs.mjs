@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Banca Cler crawler.
  * Fetches jobs from the Cler jobssearch API, scrapes detail pages for rich descriptions,
@@ -182,7 +183,7 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)';
 // ─────────────────────────────────────────────────────────────
 
 function readJson(filePath, fallback) {
-  try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
+  try { return readJsonFile(filePath); }
   catch { return fallback; }
 }
 
@@ -753,7 +754,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
