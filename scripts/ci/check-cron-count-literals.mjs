@@ -115,8 +115,67 @@ export const EXTRA_CRON_PATHS = Object.freeze([
 ]);
 
 const WORKFLOW_WRITE_LINE_RE =
-  /git add|add-paths|file_pattern|\bfor \w+ in\b|git diff (?:--cached )?--quiet|git status --porcelain/;
+  /git add|add-paths|file_pattern|git diff (?:--cached )?--quiet|git status --porcelain/;
+const WORKFLOW_LOOP_RE = /\bfor\s+([A-Za-z_][A-Za-z0-9_]*)\s+in\b/u;
 const DATA_PATH_RE = /(?:public\/)?data\/[A-Za-z0-9_./*{}-]+/g;
+
+const PURE_READ_COMMANDS = new Set(['[', '[[', 'test', ':', 'cat', 'echo', 'printf', 'grep', 'sed', 'awk', 'jq']);
+const WRITE_CAPABLE_OPTIONS = {
+  // `sed -i`, including clustered/backup-suffix forms, rewrites its input.
+  sed: /(?:^|\s)(?:--in-place(?:=\S*)?|-[^-\s]*i\S*)(?=\s|$)/u,
+  // gawk's in-place extension turns an otherwise allowlisted read into a writer.
+  awk: /(?:^|\s)-i(?:\s|=|$)/u,
+};
+
+/** @param {string[]} lines @param {number} start */
+function loopEnd(lines, start) {
+  for (let index = start; index < lines.length; index += 1) {
+    if (/\bdone\b/u.test(lines[index])) return index;
+  }
+  return start;
+}
+
+/** @param {string[]} lines @param {number} start @param {number} end */
+function loopBody(lines, start, end) {
+  const source = lines.slice(start, end + 1).join('\n');
+  const doMatch = /\bdo\b/u.exec(source);
+  if (!doMatch) return '';
+  const doneIndex = source.lastIndexOf('done');
+  return source.slice(doMatch.index + doMatch[0].length, doneIndex >= 0 ? doneIndex : source.length);
+}
+
+/**
+ * A loop header alone is not evidence that its paths are rewritten. Keep the
+ * historical fail-closed behavior for unknown loop bodies, but let an
+ * explicitly read-only validation loop stay out of the writer inventory.
+ *
+ * @param {string} body
+ */
+function isPureReadLoop(body) {
+  const statements = body
+    .replace(/^\s*#.*$/gmu, '')
+    .split(/&&|\|\||[;\n|(){}]/u)
+    .map((statement) => statement.trim())
+    .filter(Boolean);
+  for (let statement of statements) {
+    statement = statement.replace(/^(?:if|then|else|elif|while|until|case|esac|fi|do|done)\b\s*/u, '');
+    if (!statement) continue;
+    if (/(?:^|[^<])>>?|\|&/u.test(statement)) return false;
+    const command = statement.match(/^(\[\[?|[A-Za-z_][A-Za-z0-9_.-]*)/u)?.[1];
+    const args = command ? statement.slice(command.length) : '';
+    const hasWriteCapableOption = command && WRITE_CAPABLE_OPTIONS[command]?.test(args);
+    if (!command || !PURE_READ_COMMANDS.has(command) || hasWriteCapableOption) {
+      if (!/^git\s+(?:diff|show|status|ls-files)\b/u.test(statement)) return false;
+    }
+  }
+  return true;
+}
+
+/** @param {string} body */
+function isWorkflowWriteLoop(body) {
+  if (WORKFLOW_WRITE_LINE_RE.test(body)) return true;
+  return !isPureReadLoop(body);
+}
 
 function globToRegExp(glob) {
   const escaped = glob
@@ -142,8 +201,18 @@ export function collectScheduledWorkflowWritePaths(root = ROOT) {
     let src = '';
     try { src = fs.readFileSync(path.join(dir, name), 'utf8'); } catch { continue; }
     if (!/^\s*schedule:/m.test(src)) continue;
-    for (const line of src.replace(/\\\n/g, ' ').split('\n')) {
-      if (!WORKFLOW_WRITE_LINE_RE.test(line)) continue;
+    const lines = src.replace(/\\\n/g, ' ').split('\n');
+    for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+      const line = lines[lineIndex];
+      if (WORKFLOW_WRITE_LINE_RE.test(line)) {
+        for (const m of line.matchAll(DATA_PATH_RE)) out.add(m[0].replace(/[.]+$/, ''));
+      }
+
+      const loop = line.match(WORKFLOW_LOOP_RE);
+      if (!loop) continue;
+      const end = loopEnd(lines, lineIndex);
+      const body = loopBody(lines, lineIndex, end);
+      if (!isWorkflowWriteLoop(body)) continue;
       for (const m of line.matchAll(DATA_PATH_RE)) out.add(m[0].replace(/[.]+$/, ''));
     }
   }
