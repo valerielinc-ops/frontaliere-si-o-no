@@ -55864,6 +55864,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T21:16:32.478Z",
       "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 471
     },
