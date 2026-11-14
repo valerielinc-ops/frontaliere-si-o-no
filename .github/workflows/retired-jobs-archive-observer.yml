@@ -47,6 +47,15 @@ jobs:
           sparse-checkout-cone-mode: true
         timeout-minutes: 18
 
+      # Cone mode selects directories, so materialize these leaf-file
+      # dependencies directly instead of checking out the complete data tree.
+      - name: Materialize observer file dependencies
+        run: |
+          mkdir -p build-plugins/shared data
+          git show "HEAD:build-plugins/shared/cantonResolvers.mjs" > build-plugins/shared/cantonResolvers.mjs
+          git show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json
+          git show "HEAD:data/canton-municipalities.json" > data/canton-municipalities.json
+
       - name: Setup Node
         uses: actions/setup-node@v7
         with:

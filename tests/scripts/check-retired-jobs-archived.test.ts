@@ -6,7 +6,9 @@
  * title must not vanish. Either gap is a job URL the build turns into the
  * noindex «Offerta non verificata» stub.
  */
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 import { measureRetiredArchiveCoverage } from '../../scripts/ci/check-retired-jobs-archived.mjs';
 
 type Row = Record<string, any>;
@@ -330,5 +332,33 @@ describe('check-retired-jobs-archived CLI', () => {
     const result = observe(base, head);
     expect(result.status).toBe(2);
     expect(result.stderr).toMatch(/cannot read acme\.json .*unsupported slice root/);
+  });
+});
+
+describe('retired jobs archive observer workflow checkout', () => {
+  it('keeps cone mode narrow and materializes exactly the observer file dependencies', () => {
+    const workflow = YAML.parse(readFileSync(
+      new URL('../../.github/workflows/retired-jobs-archive-observer.yml', import.meta.url),
+      'utf8',
+    ));
+    const steps = workflow.jobs.observe.steps as Array<Record<string, any>>;
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
+    if (!checkout) throw new Error('Observer checkout step is missing');
+    const sparsePaths = checkout.with['sparse-checkout']
+      .split('\n')
+      .map((value: string) => value.trim())
+      .filter(Boolean);
+    expect(sparsePaths).toEqual(['scripts']);
+    expect(checkout.with['sparse-checkout-cone-mode']).toBe(true);
+
+    const materialize = steps.find((step) => step.name === 'Materialize observer file dependencies');
+    if (!materialize) throw new Error('Observer dependency materialization step is missing');
+    const materializedFiles = [...materialize.run.matchAll(/git show "HEAD:([^"]+)" > ([^\s]+)/g)]
+      .map((match) => [match[1], match[2]]);
+    expect(materializedFiles).toEqual([
+      ['build-plugins/shared/cantonResolvers.mjs', 'build-plugins/shared/cantonResolvers.mjs'],
+      ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
+      ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
+    ]);
   });
 });
