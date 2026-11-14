@@ -440,20 +440,26 @@ function locationFrom(record, evidence, portalApi) {
   };
 }
 
+export function classifyPortalReplayPostingEvidence(evidence = {}) {
+  // A handoff can happen before the application module opens. Its stop code
+  // alone cannot prove that the module belongs to a different listing.
+  const formLinkedToPosting = evidence?.postingMatch === 'match' ? 'yes'
+    : evidence?.postingMatch === 'mismatch' ? 'no' : 'unknown';
+  return { formLinkedToPosting, wrongPosting: formLinkedToPosting === 'no' };
+}
+
 function violationsFor({ event, evidence, metrics }) {
   const codes = [];
   if ((Number(metrics?.finalClickAttempts) || 0) > 0) codes.push('final_click_attempt');
   if ((Number(metrics?.unexpectedNonGetPassed) || 0) > 0) codes.push('non_get_passed');
   if ((Number(metrics?.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-  if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') codes.push('wrong_posting_or_talent_pool');
+  if (classifyPortalReplayPostingEvidence(evidence).wrongPosting) codes.push('wrong_posting_or_talent_pool');
   if (event?.type === 'submit_succeeded') codes.push('submission_attempted');
   return [...new Set(codes)];
 }
 
-function postingLinkStatus(event, evidence) {
-  if (evidence?.postingMatch === 'match') return 'yes';
-  if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') return 'no';
-  return 'unknown';
+function postingLinkStatus(evidence) {
+  return classifyPortalReplayPostingEvidence(evidence).formLinkedToPosting;
 }
 
 function sanitizeOutcomeRecord(record) {
@@ -678,7 +684,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     agentCalls,
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
-    formLinkedToPosting: postingLinkStatus(event, evidence),
+    formLinkedToPosting: postingLinkStatus(evidence),
     securityViolations: violations,
   };
 }
@@ -824,7 +830,7 @@ function markdownForAggregate(verdict, reports, prepareRun) {
   for (const report of reports) {
     for (const item of report.cases || []) {
       const head = item.head || {};
-      lines.push(`| ${safeCode(report.family)} | ${safeReportHost(item.host)} | ${safeReportPath(item.path)} | ${safeCode(item.base?.stage)} | ${safeCode(head.stage)} | ${safeCode(head.stopCode)} | ${(item.findingCodes || []).map((code) => safeCode(code)).join(', ') || '—'} | ${Number(head.agentCalls) || 0} | ${Number(head.blockedNonGet) || 0} | ${Number(head.nodeEgressBlocked) || 0} | ${Number(head.finalClickAttempts) || 0} | ${safeCode(head.formLinkedToPosting)} |`);
+      lines.push(`| ${safeCode(report.family)} | ${safeReportHost(item.host)} | ${safeReportPath(item.path)} | ${safeCode(item.base?.stage)} | ${safeCode(head.stage)} | ${safeCode(head.stopCode)} | ${(item.findingCodes || []).map((code) => SAFE_FINDING_CODES.has(code) ? code : 'unknown').join(', ') || '—'} | ${Number(head.agentCalls) || 0} | ${Number(head.blockedNonGet) || 0} | ${Number(head.nodeEgressBlocked) || 0} | ${Number(head.finalClickAttempts) || 0} | ${safeCode(head.formLinkedToPosting)} |`);
     }
   }
   lines.push('', 'Il rapporto non contiene URL completi, contenuto delle pagine, risposte del candidato o screenshot.');

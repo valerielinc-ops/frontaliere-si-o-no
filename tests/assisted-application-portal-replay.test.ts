@@ -13,6 +13,7 @@ import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
+  classifyPortalReplayPostingEvidence,
   comparePortalReplayFamily,
   extractPortalStopHosts,
   PORTAL_REPLAY_FAMILIES,
@@ -149,7 +150,7 @@ describe('portal replay read-only fence', () => {
   });
 
   it('blocks final application clicks in trusted page instrumentation and counts them outside the runner', async () => {
-    const dom = new JSDOM('<form><label>E-mail<input name="email"></label><button type="submit">Submit application</button></form><button>Continue</button><button id="guarded-final">Apply for a niche vacancy</button>', { url: 'https://ats.example.test/apply' });
+    const dom = new JSDOM('<form><label>E-mail<input name="email"></label><button type="submit">Submit application</button></form><div><input name="firstName"><input name="lastName"><button id="apply-entry">Apply now</button></div><button>Continue</button><button id="guarded-final">Apply for a niche vacancy</button>', { url: 'https://ats.example.test/apply' });
     let attempts = 0;
     const page = dom.window as any;
     page.__frontalierePortalReplayFinalClickAttempt = () => { attempts += 1; };
@@ -165,6 +166,11 @@ describe('portal replay read-only fence', () => {
       event.preventDefault();
     });
 
+    let applicationEntryRan = false;
+    page.document.querySelector('#apply-entry').addEventListener('click', () => { applicationEntryRan = true; });
+    page.document.querySelector('#apply-entry').click();
+    expect(attempts).toBe(0);
+    expect(applicationEntryRan).toBe(true);
     page.document.querySelector('button[type="submit"]').click();
     expect(attempts).toBe(1);
     expect(submitted).toBe(false);
@@ -494,6 +500,7 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('  fence-contract:');
     expect(workflow).toContain('needs: [detect, prepare, replay, fence-contract]');
     expect(workflow).toContain('FENCE_RESULT: ${{ needs.fence-contract.result }}');
+    expect(workflow).toContain('            scripts/ci');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
@@ -558,6 +565,12 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.cases[0].head.formLinkedToPosting).toBe('unknown');
+  });
+
+  it('requires form-level mismatch evidence before calling a handoff a wrong posting', () => {
+    expect(classifyPortalReplayPostingEvidence({})).toEqual({ formLinkedToPosting: 'unknown', wrongPosting: false });
+    expect(classifyPortalReplayPostingEvidence({ postingMatch: 'mismatch' })).toEqual({ formLinkedToPosting: 'no', wrongPosting: true });
+    expect(classifyPortalReplayPostingEvidence({ postingMatch: 'match' })).toEqual({ formLinkedToPosting: 'yes', wrongPosting: false });
   });
 
   it('removes case identifiers and unexpected fields from the public replay report', () => {

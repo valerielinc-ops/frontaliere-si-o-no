@@ -298,6 +298,7 @@ jobs:
           sparse-checkout: |
             functions/src
             packages
+            scripts/ci
             scripts/assisted-application
             scripts/lib
             tests

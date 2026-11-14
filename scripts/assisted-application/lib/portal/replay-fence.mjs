@@ -317,10 +317,15 @@ export function capturePortalReplayFinalClicksInPage() {
   const compact = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 240);
   const labelOf = (node) => compact(node?.getAttribute?.('aria-label') || node?.getAttribute?.('title')
     || node?.value || node?.innerText || node?.textContent || '');
-  const ownerOf = (node) => node?.form || node?.closest?.('form') || null;
+  const ownerOf = (node) => node?.form || node?.closest?.('form, [role="form"]') || null;
   const isFinalControl = (node, owner) => {
     if (!node || owner?.querySelector?.('input[type="password"], input[autocomplete="current-password"], input[autocomplete="new-password"]')) return false;
     const label = labelOf(node);
+    // Public posting CTAs use the same verbs as final application actions.
+    // Without a form owner they are navigation entries; the request fence
+    // still constrains their destination and method before any network call.
+    const applicationEntry = /^(?:apply(?:\s+(?:now|for this job|for this role|with (?:an )?account))?|postuler(?:\s+(?:maintenant|manuellement|à cette (?:offre|annonce)|à ce poste))?|(?:jetzt\s+)?bewerben(?:\s+(?:sie sich(?: jetzt)?|für diese stelle|auf diese stelle))?|candidati(?:\s+(?:ora|per questa posizione))?|applica(?:\s+(?:ora|per questa offerta))?|postul(?:ar|er)(?:\s+(?:ahora|a esta oferta))?|start(?:\s+(?:the\s+)?application))\W*$/iu;
+    if (!owner && applicationEntry.test(label)) return false;
     if (!label || notFinalLabel.test(label) || !finalLabel.test(label)) return false;
     const fields = [...(owner?.querySelectorAll?.('input, textarea, select') || document.querySelectorAll('input, textarea, select'))];
     if (fields.some((field) => String(field.type || '').toLowerCase() === 'search'
