@@ -31,9 +31,7 @@
     "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-50/1370742255/",
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-vente-%28Home-&-M%C3%A9nage%29-80/1375882455/",
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-vente-%28Papeterie%29-40/1375883255/",
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28parfumerie%29-40/1375884155/",
     "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28Jouets%29-50/1375880155/",
-    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-80/1375878755/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Wareneingang-100/1375876255/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-P%C3%A2tissier%C3%A8re-%28Manora%29-80/1375999455/",
     "https://positions.manor.ch/job/M%C3%B6hlin-Teamleiterin-Facility-&-Security-VZ-100/1376036655/",
@@ -331,10 +329,11 @@
     "https://positions.manor.ch/job/Affoltern-am-Albis-Mitarbeiterin-Verkauf-%28Spielwaren%29-50/1375873755/",
     "https://positions.manor.ch/job/Locarno-Impiegatoa-del-commercio-dettaglio-AFC-100/1365814355/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-de-vente-%28Fashion%29-50/1372960355/",
-    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Merchandising-50-60/1368625055/"
+    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Merchandising-50-60/1368625055/",
+    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-80/1375878755/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-11-14T09:32:07.338Z",
+  "updatedAt": "2026-11-14T21:29:18.333Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28%C3%89picerie%29-80/1373452855/": {
       "company": "Manor AG",
@@ -428,15 +427,7 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28parfumerie%29-40/1375884155/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Morges-Collaborateurtrice-caisse-%28Jouets%29-50/1375880155/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-80/1375878755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -1629,6 +1620,10 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Merchandising-50-60/1368625055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-80/1375878755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }

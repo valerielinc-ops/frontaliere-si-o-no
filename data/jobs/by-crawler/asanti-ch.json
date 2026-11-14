@@ -1,7 +1,7 @@
 {
   "crawlerKey": "asanti-ch",
-  "assembledAt": "2026-11-14T19:09:34.206Z",
-  "runId": "43629732600",
+  "assembledAt": "2026-11-14T21:38:09.267Z",
+  "runId": "43642933872",
   "jobs": [
     {
       "id": "asanti-ch-1043867d8c76",
@@ -34,7 +34,7 @@
       "url": "https://asanti.ch/job/logistiker-efz-m-w-d-100/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.213Z",
+      "crawledAt": "2026-11-14T21:37:29.189Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8302",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T19:09:21.213Z",
+      "validThrough": "2027-01-25T21:37:29.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -91,9 +91,9 @@
       "slug": "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich",
       "slugByLocale": {
         "it": "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich",
-        "en": "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
+        "en": "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-zurich",
         "de": "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
-        "fr": "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+        "fr": "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -117,7 +117,7 @@
       "url": "https://asanti.ch/job/leiterin-administration-mit-guten-italienischkenntnissen-100-2/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.213Z",
+      "crawledAt": "2026-11-14T21:37:29.190Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,9 +135,15 @@
       "applyUrl": "https://asanti.ch/job/leiterin-administration-mit-guten-italienischkenntnissen-100-2/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+        ],
+        "en": [
+          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+        ],
+        "fr": [
           "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
         ]
       },
@@ -160,7 +166,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T19:09:21.213Z",
+      "validThrough": "2026-12-14T21:37:29.190Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T16:43:21.250Z"
     },
@@ -195,7 +201,7 @@
       "url": "https://asanti.ch/job/logistiker-efz-m-w-d-2/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.210Z",
+      "crawledAt": "2026-11-14T21:37:29.188Z",
       "addressLocality": "Frenkendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -244,7 +250,7 @@
       "postalCode": "4402",
       "streetAddress": "Frenkendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T19:09:21.210Z",
+      "validThrough": "2027-01-25T21:37:29.188Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -278,7 +284,7 @@
       "url": "https://asanti.ch/job/sachbearbeitung-logistik-m-w-d-100/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.209Z",
+      "crawledAt": "2026-11-14T21:37:29.186Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,7 +333,7 @@
       "postalCode": "8180",
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T19:09:21.209Z",
+      "validThrough": "2027-01-27T21:37:29.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -361,7 +367,7 @@
       "url": "https://asanti.ch/job/verkaufsleiter-automobil-m-w-d-100/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.205Z",
+      "crawledAt": "2026-11-14T21:37:29.185Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -410,7 +416,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T19:09:21.205Z",
+      "validThrough": "2027-02-11T21:37:29.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -444,7 +450,7 @@
       "url": "https://asanti.ch/job/verkaufsberaterin-schuhmode-80-100-stadt-zuerich/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T19:09:21.203Z",
+      "crawledAt": "2026-11-14T21:37:29.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -493,94 +499,8 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T19:09:21.203Z",
+      "validThrough": "2027-01-27T21:37:29.182Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "asanti-ch-992baedbc28e",
-      "slug": "impiegato-a-amministrativo-a-80-100-asanti-ag-region-zurich",
-      "slugByLocale": {
-        "de": "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch",
-        "it": "impiegato-a-amministrativo-a-80-100-asanti-ag-region-zurich",
-        "en": "administrative-officer-80-100-asanti-ag-region-zurich",
-        "fr": "employe-e-administratif-ve-80-100-asanti-ag-region-zurich"
-      },
-      "company": "Asanti AG",
-      "companyKey": "asanti-ch",
-      "companyDomain": "asanti.ch",
-      "title": "Sachbearbeiter*in Administration 80-100%",
-      "titleByLocale": {
-        "de": "Sachbearbeiter*in Administration 80-100%",
-        "it": "Impiegato/a amministrativo/a 80-100%",
-        "en": "Administrative Officer 80-100%",
-        "fr": "Employé·e administratif·ve 80-100%"
-      },
-      "description": "J e t z t b e w e r b e n\nSeit 2002 markterprobt und very personal suchen wir für unsere Kunden Persönlichkeiten die flexibel und unkompliziert sind und ein fröhliches Naturell besitzen.\nGanz aktuell suchen wir für unseren Kunden ab sofort/nach Vereinbarung eine zahlenaffine, motivierte und dienstleistungsorientierte Persönlichkeit als\nSachbearbeiter*in Administration 80-100%\nHauptaufgaben:\n- Administrative Unterstützung im Team\n- Bearbeiten von verschiedenen Anträgen\n- Mitwirkung in der Sachbearbeitung\n- Kontrolle von Basisdokumenten\n- Allgemeine Korrespondenz und administrative Aufgaben\nIhr Profil:\n- Abgeschlossene Kaufmännische Ausbildung, von Vorteil Erfahrung im Bank- und/oder Finanzsektor\n- Ausgeprägtes Zahlenflair, Verantwortungsbewusstsein und organisatorische Fähigkeiten\n- Vertraut mit MS Office Anwendungen\n- Stilsicher in Deutsch in Wort und Schrift\nGerne beantworte ich Ihre Fragen:\nDANIELE SESSO\nSenior Personalberater\nkaufmännische und technische Berufe\nTel. 079 876 41 87\ndaniele.sesso@asanti.ch\nLinkedin",
-      "descriptionByLocale": {
-        "de": "J e t z t b e w e r b e n\nSeit 2002 markterprobt und very personal suchen wir für unsere Kunden Persönlichkeiten die flexibel und unkompliziert sind und ein fröhliches Naturell besitzen.\nGanz aktuell suchen wir für unseren Kunden ab sofort/nach Vereinbarung eine zahlenaffine, motivierte und dienstleistungsorientierte Persönlichkeit als\nSachbearbeiter*in Administration 80-100%\nHauptaufgaben:\n- Administrative Unterstützung im Team\n- Bearbeiten von verschiedenen Anträgen\n- Mitwirkung in der Sachbearbeitung\n- Kontrolle von Basisdokumenten\n- Allgemeine Korrespondenz und administrative Aufgaben\nIhr Profil:\n- Abgeschlossene Kaufmännische Ausbildung, von Vorteil Erfahrung im Bank- und/oder Finanzsektor\n- Ausgeprägtes Zahlenflair, Verantwortungsbewusstsein und organisatorische Fähigkeiten\n- Vertraut mit MS Office Anwendungen\n- Stilsicher in Deutsch in Wort und Schrift\nGerne beantworte ich Ihre Fragen:\nDANIELE SESSO\nSenior Personalberater\nkaufmännische und technische Berufe\nTel. 079 876 41 87\ndaniele.sesso@asanti.ch\nLinkedin",
-        "it": "J e t z t b e r b\nDal 2002 mercato collaudato e molto personale stiamo cercando le nostre personalità clienti che sono flessibili e semplici e hanno una natura allegra.\nSiamo attualmente alla ricerca di una personalità numericamente affine, motivata e orientata al servizio per i nostri clienti da ora in/dopo accordo.\nPersonale in Amministrazione 80-100 %\nPrincipali compiti:\n- Supporto amministrativo nel team\n- Elaborazione di varie richieste\n- Partecipazione alla lavorazione dei materiali\n- Controllo dei documenti di base\n- Corrispondenza generale e compiti amministrativi\nIl tuo profilo:\n- Formazione commerciale completa, esperienza benefica nel settore bancario e/o finanziario\n- Forte flair numerico, senso di responsabilità e capacità organizzative\n- Familiare con le applicazioni MS Office\n- Stylistic fiducioso in tedesco nella parola e nella scrittura\nSono felice di rispondere alle vostre domande:\nDANIELE SESSO\nConsulenti di reclutamento senior\nProfessioni commerciali e tecniche\nTel. 079 876 41 87\ndaniele.sesso@asanti.ch\nIodio",
-        "en": "J e t z t b e w e r b e n\nSince 2002 market-proven and very personal we are looking for our customers personalities who are flexible and uncomplicated and have a cheerful nature.\nWe are currently looking for a numerically affine, motivated and service-oriented personality for our customers from now on/after agreement.\nPersonnel in Administration 80-100 %\nMain tasks:\n- Administrative support in the team\n- Processing of various requests\n- Participation in material processing\n- Control of basic documents\n- General correspondence and administrative tasks\nYour profile:\n- Completed commercial training, beneficial experience in banking and/or financial sector\n- Strong numerical flair, sense of responsibility and organizational skills\n- Familiar with MS Office applications\n- Stylistic confident in German in word and writing\nI am happy to answer your questions:\nDANIELE SESSO\nSenior recruitment consultants\nCommercial and technical professions\nTel. 079 876 41 87\ndaniele.sesso@asanti.ch\nlindine",
-        "fr": "J e t z t b e w e r b e n\nDepuis 2002, le marché est éprouvé et très personnel, nous recherchons des personnalités de nos clients qui sont flexibles et simples et ont un caractère joyeux.\nNous recherchons actuellement une personnalité numériquement affine, motivée et orientée vers le service pour nos clients dès maintenant et après accord.\nPersonnel administratif 80-100 %\nPrincipales tâches:\n- Appui administratif dans l'équipe\n- Traitement de diverses demandes\n- Participation à la transformation des matériaux\n- Contrôle des documents de base\n- Correspondance générale et tâches administratives\nVotre profil:\n- Formation commerciale terminée, expérience bénéfique dans le secteur bancaire et/ou financier\n- Solide style numérique, sens des responsabilités et compétences organisationnelles\n- Familiariser avec les applications MS Office\n- Stylistique confiance en l'allemand dans la parole et l'écriture\nJe suis heureux de répondre à vos questions:\nDANIELE SESSO\nConseillers principaux en recrutement\nProfessions commerciales et techniques\nTél. 079 876 41 87\ndaniele.sesso@asanti.ch\nlindine"
-      },
-      "location": "Region Zürich",
-      "canton": "ZH",
-      "url": "https://asanti.ch/job/sachbearbeiterin-administration-80-100/",
-      "source": "Asanti AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:45:31.033Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-01-12T07:43:21+01:00",
-      "postedDate": "2026-01-12T07:43:21+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://asanti.ch/job/sachbearbeiterin-administration-80-100/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:31.033Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:45:31.033Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch"
-        ],
-        "en": [
-          "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-in-administration-80-100-region-zurich-asanti-ch-ch"
-      ],
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-14T19:10:50.081Z",
+  "generatedAt": "2026-11-14T21:40:34.131Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -60,10 +60,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27405,
-  "avgDurationMs": 27405,
+  "durationMs": 14902,
+  "avgDurationMs": 14902,
   "durationHistory": [
-    27405
+    14902
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,7 +79,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T19:10:02.887Z",
+      "crawledAt": "2026-11-14T21:39:37.929Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -102,7 +102,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T19:10:02.887Z",
+      "validThrough": "2027-02-09T21:39:37.929Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -124,7 +124,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T19:10:02.884Z",
+      "crawledAt": "2026-11-14T21:39:37.916Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T19:10:02.884Z",
+      "validThrough": "2027-02-09T21:39:37.916Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +160,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

@@ -1,16 +1,16 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-11-14T17:10:32.788Z",
+  "generatedAt": "2026-11-14T21:27:15.689Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7105,
-  "avgDurationMs": 7105,
+  "durationMs": 8154,
+  "avgDurationMs": 8154,
   "durationHistory": [
-    7105
+    8154
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -47,7 +47,7 @@
       },
       "id": "hes-so-valais-60cf728c5753",
       "firstSeenAt": "2026-11-05T21:15:57.137Z",
-      "crawledAt": "2026-11-14T17:10:20.397Z",
+      "crawledAt": "2026-11-14T21:27:01.167Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -56,7 +56,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T17:10:20.397Z",
+      "validThrough": "2027-02-03T21:27:01.167Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       },
       "id": "hes-so-valais-6e6dcd0b615a",
       "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "crawledAt": "2026-11-14T17:10:20.397Z",
+      "crawledAt": "2026-11-14T21:27:01.167Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -106,7 +106,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T17:10:20.397Z",
+      "validThrough": "2027-01-28T21:27:01.167Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }
