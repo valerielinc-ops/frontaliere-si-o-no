@@ -1,11 +1,12 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-11-14T09:36:43.675Z",
+  "generatedAt": "2026-11-14T16:47:36.693Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5805,
-  "avgDurationMs": 5805,
+  "durationMs": 6566,
+  "avgDurationMs": 6566,
   "durationHistory": [
-    5805
+    6566
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +39,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/0c4764ff-4c69-417c-a4d4-717850ef1f97/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:36:21.058Z",
+      "crawledAt": "2026-11-14T16:47:19.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:36:21.058Z",
+      "validThrough": "2027-01-28T16:47:19.942Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +85,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:36:20.633Z",
+      "crawledAt": "2026-11-14T16:47:19.112Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +119,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:36:20.633Z",
+      "validThrough": "2026-12-29T16:47:19.112Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -140,7 +141,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:36:20.203Z",
+      "crawledAt": "2026-11-14T16:47:18.558Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +175,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:36:20.203Z",
+      "validThrough": "2027-01-12T16:47:18.558Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -197,7 +198,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:36:19.760Z",
+      "crawledAt": "2026-11-14T16:47:17.994Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -231,7 +232,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:36:19.760Z",
+      "validThrough": "2027-01-21T16:47:17.994Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -254,7 +255,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/968bd4db-45d0-439a-8b95-6d029fda4e6d/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:36:19.327Z",
+      "crawledAt": "2026-11-14T16:47:17.437Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -288,7 +289,7 @@
       },
       "streetAddress": "Islikonerstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:36:19.327Z",
+      "validThrough": "2027-01-28T16:47:17.437Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -299,5 +300,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

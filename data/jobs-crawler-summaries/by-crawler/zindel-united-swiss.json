@@ -1,11 +1,68 @@
 {
   "key": "zindel-united-swiss",
   "label": "Zindel + Co. AG",
-  "generatedAt": "2026-11-14T09:46:47.186Z",
+  "generatedAt": "2026-11-14T19:11:39.812Z",
   "total": 7,
   "discovered": 7,
   "parsed": 7,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "zindel-united-swiss",
+    "seedUrls": [
+      "https://www.zindel-united.swiss/karriere/lehrstellen/"
+    ],
+    "phase": "detail",
+    "pages": 12,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/karriere/lehrstellen/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/impressum/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/kontakt/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/kauffrau-kaufmann-efz-branche-bauen-und-wohnen/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/baumaschinenmechanikerin/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/maurerin/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/produktionsmechanikerin/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/strassentransportfachleute/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/grundbauerin/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.zindel-united.swiss/lehrstellen/zeichnerin-fachrichtung-architektur/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 7,
@@ -19,10 +76,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 30107,
-  "avgDurationMs": 30107,
+  "durationMs": 26893,
+  "avgDurationMs": 26893,
   "durationHistory": [
-    30107
+    26893
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +97,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/zeichnerin-fachrichtung-architektur",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.303Z",
+      "crawledAt": "2026-11-14T19:11:14.643Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -63,7 +120,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.303Z",
+      "validThrough": "2027-02-03T19:11:14.643Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -85,7 +142,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/grundbauerin",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.296Z",
+      "crawledAt": "2026-11-14T19:11:14.642Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +165,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.296Z",
+      "validThrough": "2027-02-03T19:11:14.642Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +187,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/strassentransportfachleute",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.295Z",
+      "crawledAt": "2026-11-14T19:11:14.641Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,7 +210,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.295Z",
+      "validThrough": "2027-02-03T19:11:14.641Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -175,7 +232,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/produktionsmechanikerin",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.290Z",
+      "crawledAt": "2026-11-14T19:11:14.640Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -198,7 +255,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.290Z",
+      "validThrough": "2027-02-03T19:11:14.640Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -220,7 +277,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/maurerin",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.286Z",
+      "crawledAt": "2026-11-14T19:11:14.634Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +300,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.286Z",
+      "validThrough": "2027-02-03T19:11:14.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -265,7 +322,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/baumaschinenmechanikerin",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.280Z",
+      "crawledAt": "2026-11-14T19:11:14.631Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -288,7 +345,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.280Z",
+      "validThrough": "2027-02-03T19:11:14.631Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -310,7 +367,7 @@
       "url": "https://www.zindel-united.swiss/lehrstellen/kauffrau-kaufmann-efz-branche-bauen-und-wohnen",
       "source": "Zindel + Co. AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:46:05.272Z",
+      "crawledAt": "2026-11-14T19:11:14.625Z",
       "addressLocality": "Maienfeld",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -333,7 +390,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:46:05.272Z",
+      "validThrough": "2027-02-03T19:11:14.625Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -344,5 +401,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

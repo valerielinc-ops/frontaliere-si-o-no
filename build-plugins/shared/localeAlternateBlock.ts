@@ -77,7 +77,7 @@ export interface LocaleClusterClaimDecision {
  */
 export function resolveLocaleClusterClaim(
   paths: Readonly<Partial<Record<AlternateLocale, string>>>,
-  claimedPaths: ReadonlySet<string>,
+  claimedPaths: Pick<ReadonlySet<string>, 'has'>,
 ): LocaleClusterClaimDecision {
   const normalizedKeys = new Set<string>();
   const unclaimedLocales = new Set<AlternateLocale>();

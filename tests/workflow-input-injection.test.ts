@@ -63,6 +63,10 @@ describe('workflow inputs never reach a run: block as script text (#5032)', () =
     expect(violations[0].reason).toMatch(/no resolvable declaration/);
   });
 
+  it('does not treat a needs job id containing inputs as an input context', () => {
+    expect(scanWorkflows(path.join(FIXTURES_DIR, 'needs-suffix'))).toEqual([]);
+  });
+
   it('accepts the env-indirection fix, and boolean/choice inputs inline', () => {
     expect(scanWorkflows(path.join(FIXTURES_DIR, 'safe'))).toEqual([]);
   });

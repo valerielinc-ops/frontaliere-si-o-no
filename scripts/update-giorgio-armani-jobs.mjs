@@ -31,7 +31,7 @@ import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-p
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -142,12 +142,19 @@ function isTrustedDomain(rawUrl = '') {
  * Run `fn(page)` inside a headless Chromium session (self-healing install).
  */
 async function withBrowser(fn) {
-  const browser = await launchChromium({ headless: HEADLESS });
-  const context = await browser.newContext({
-    userAgent: DEFAULT_UA,
-    viewport: { width: 1440, height: 1200 },
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    headless: HEADLESS,
     locale: 'en-US',
+    fallbackOptions: { headless: HEADLESS },
   });
+  const context = await browser.newContext(isStealthBrowser(browser)
+    ? { viewport: null }
+    : {
+        userAgent: DEFAULT_UA,
+        viewport: { width: 1440, height: 1200 },
+        locale: 'en-US',
+      });
   const page = await context.newPage();
   try {
     return await fn(page);

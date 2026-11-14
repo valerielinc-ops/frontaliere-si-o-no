@@ -7,6 +7,8 @@
  * AntiBotBlockError surfaces exactly as before.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import {
   AntiBotBlockError,
   closeAll,
@@ -16,6 +18,28 @@ import {
 const KEY = 'cb_0123456789abcdef0123456789abcdef';
 const ON = { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY };
 const SESSION_LIMIT = 'CloakBrowser Pro: session limit reached for your plan.';
+
+const DIRECT_CRAWLER_BROWSER_FILES = [
+  'scripts/update-alten-jobs.mjs',
+  'scripts/update-bosch-jobs.mjs',
+  'scripts/update-cambiavalute-jobs.mjs',
+  'scripts/update-colin-cie-jobs.mjs',
+  'scripts/update-csc-costruzioni-jobs.mjs',
+  'scripts/update-delvitech-jobs.mjs',
+  'scripts/update-denner-jobs.mjs',
+  'scripts/update-giorgio-armani-jobs.mjs',
+  'scripts/update-goline-jobs.mjs',
+  'scripts/update-grace-jobs.mjs',
+  'scripts/update-migros-jobs.mjs',
+  'scripts/update-usi-jobs.mjs',
+  'scripts/lib/albergo-gardenia-job-parser.mjs',
+  'scripts/lib/clinica-holistica-engiadina-job-parser.mjs',
+  'scripts/lib/jobup-ch-feed-common.mjs',
+  'scripts/lib/migrolino-job-parser.mjs',
+  'scripts/lib/pastahr-widget-client.mjs',
+  'scripts/lib/prospector/spec-crawler.mjs',
+  'scripts/lib/ticino-comuni-crawler.mjs',
+];
 
 beforeEach(() => {
   process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
@@ -166,5 +190,23 @@ describe('createBrowser user agent', () => {
     expect(disguised._frontaliereDefaultUserAgent).toMatch(/Chrome\/156\.0\.0\.0 Safari\/537\.36$/);
     expect(disguised._frontaliereDefaultUserAgent).not.toMatch(/bot|headless/i);
     vi.doUnmock('../scripts/lib/ensure-chromium.mjs');
+  });
+});
+
+describe('direct crawler launch coverage', () => {
+  it('routes every direct crawler browser through the CloakBrowser-aware entrypoint', () => {
+    for (const relativePath of DIRECT_CRAWLER_BROWSER_FILES) {
+      const source = readFileSync(resolve(process.cwd(), relativePath), 'utf8');
+      expect(source, relativePath).not.toMatch(/\blaunchChromium\s*\(/);
+      expect(source, relativePath).toMatch(/\blaunchStealthOrChromium\s*\(/);
+      expect(source, relativePath).toMatch(/purpose:\s*['"]crawler['"]/);
+    }
+  });
+
+  it('keeps the shared browser discovery fallback on the escalation runtime', () => {
+    const source = readFileSync(resolve(process.cwd(), 'scripts/lib/shared-jobs-crawler.mjs'), 'utf8');
+    expect(source).not.toMatch(/\blaunchChromium\s*\(/);
+    expect(source).toMatch(/fetchWithRateLimit\(context/);
+    expect(source).toMatch(/closeAll\(browser\)/);
   });
 });

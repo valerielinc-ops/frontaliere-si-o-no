@@ -1,14 +1,14 @@
 {
   "crawlerKey": "prodyna-com",
-  "assembledAt": "2026-11-14T09:48:11.064Z",
-  "runId": "43580673891",
+  "assembledAt": "2026-11-14T19:10:29.380Z",
+  "runId": "43629732600",
   "jobs": [
     {
       "id": "prodyna-com-227cd4ac5dec",
       "slug": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
       "slugByLocale": {
         "it": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
-        "en": "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch",
+        "en": "senior-data-engineer-all-genders-prodyna-schweiz-ag-basel",
         "de": "senior-data-ingenieur-all-genders-prodyna-schweiz-ag-basel",
         "fr": "senior-data-ingenieur-all-genders-prodyna-schweiz-ag-basel"
       },
@@ -34,7 +34,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:47:50.761Z",
+      "crawledAt": "2026-11-14T19:10:02.887Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -66,6 +66,9 @@
         ],
         "fr": [
           "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
+        ],
+        "en": [
+          "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
         ]
       },
       "firstSeenAt": "2026-11-10T22:03:29.808Z",
@@ -83,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:50.761Z",
+      "validThrough": "2027-02-09T19:10:02.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -91,7 +94,7 @@
       "slug": "senior-java-sviluppatore-all-genders-prodyna-schweiz-ag-basel",
       "slugByLocale": {
         "it": "senior-java-sviluppatore-all-genders-prodyna-schweiz-ag-basel",
-        "en": "senior-java-developer-all-genders-4052-basel-prodyna-com-ch",
+        "en": "senior-java-developer-all-genders-prodyna-schweiz-ag-basel",
         "de": "senior-java-entwickler-all-genders-prodyna-schweiz-ag-basel",
         "fr": "senior-java-developpeur-all-genders-prodyna-schweiz-ag-basel"
       },
@@ -117,7 +120,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:47:50.754Z",
+      "crawledAt": "2026-11-14T19:10:02.884Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,6 +152,9 @@
         ],
         "fr": [
           "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
+        ],
+        "en": [
+          "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
         ]
       },
       "firstSeenAt": "2026-11-10T22:03:29.802Z",
@@ -166,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:50.754Z",
+      "validThrough": "2027-02-09T19:10:02.884Z",
       "validThroughSource": "last-observed-window"
     }
   ]

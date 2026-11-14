@@ -1,11 +1,56 @@
 {
   "key": "mountains-ch",
   "label": "Engadin St. Moritz Mountains AG",
-  "generatedAt": "2026-11-14T09:48:06.665Z",
+  "generatedAt": "2026-11-14T19:11:41.542Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "mountains-ch",
+    "seedUrls": [
+      "https://www.mountains.ch/de/offene-stellen"
+    ],
+    "phase": "detail",
+    "pages": 9,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/impressum"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen/receptionist"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -19,10 +64,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 18545,
-  "avgDurationMs": 18545,
+  "durationMs": 14721,
+  "avgDurationMs": 14721,
   "durationHistory": [
-    18545
+    14721
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +85,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:04.676Z",
+      "crawledAt": "2026-11-14T19:11:13.062Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -63,7 +108,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:04.676Z",
+      "validThrough": "2027-02-03T19:11:13.062Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -85,7 +130,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:04.669Z",
+      "crawledAt": "2026-11-14T19:11:13.061Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +153,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:04.669Z",
+      "validThrough": "2027-02-03T19:11:13.061Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +175,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/receptionist",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:04.668Z",
+      "crawledAt": "2026-11-14T19:11:13.057Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,7 +198,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:47:04.668Z",
+      "validThrough": "2027-02-05T19:11:13.057Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -175,7 +220,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:04.663Z",
+      "crawledAt": "2026-11-14T19:11:13.056Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -198,7 +243,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:04.663Z",
+      "validThrough": "2027-02-03T19:11:13.056Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -220,7 +265,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:04.659Z",
+      "crawledAt": "2026-11-14T19:11:13.055Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +288,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:47:04.659Z",
+      "validThrough": "2027-02-03T19:11:13.055Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -254,5 +299,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3f6612b00ffd63fdbc88bbc4ec2e2a062a598961"
 }

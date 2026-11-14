@@ -36,9 +36,9 @@
  *     [--max-retired-unarchived N] [--max-archive-lost N]
  *     [--max-active-locale-slug-lost N] [--json <path>] [--prefetch]
  *
- * `--prefetch` fetches, in bounded packs, the slice blobs of both revisions that
- * a blobless CI checkout does not have yet, through the fetch of
- * scripts/ci/prefetch-history-blobs.mjs (CHECKOUT_TOKEN/GITHUB_TOKEN, REPOSITORY).
+ * `--prefetch` backfills the slice blobs of both revisions that a blobless CI
+ * checkout does not have yet through Git's promisor-aware backfill command in
+ * scripts/ci/prefetch-history-blobs.mjs.
  */
 
 import { execFileSync, spawn } from 'node:child_process';
@@ -52,7 +52,10 @@ import { isSliceFile } from '../lib/crawler-slice-files.mjs';
 import { expiredSliceKeyOf } from '../lib/expired-slice-names.mjs';
 import { DEFAULT_JSON_STRING_LIMIT, parseLargeJsonArray } from '../lib/read-large-json.mjs';
 import { createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
-import { prefetch as prefetchBlobs } from './prefetch-history-blobs.mjs';
+import {
+  backfillHistoryBlobs,
+  verifyPrefetchedBlobs,
+} from './prefetch-history-blobs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -343,7 +346,7 @@ function sliceTree(rev, dir) {
   }).filter((entry) => isSliceFile(entry.name));
 }
 
-function prefetchMissing(oids) {
+function prefetchMissing(oids, revisionRange) {
   const unique = [...new Set(oids)];
   if (unique.length === 0) return;
   const check = git(['cat-file', '--batch-check'], {
@@ -352,8 +355,9 @@ function prefetchMissing(oids) {
   });
   const missing = check.split('\n').filter((line) => / missing$/u.test(line)).map((line) => line.split(' ')[0]);
   if (missing.length === 0) return;
-  console.log(`📦 Prefetching ${missing.length} slice blob(s) in bounded packs.`);
-  prefetchBlobs(missing);
+  console.log(`📦 Backfilling ${missing.length} slice blob(s) through Git's promisor batches.`);
+  backfillHistoryBlobs({ revisionRange });
+  verifyPrefetchedBlobs(missing);
 }
 
 /** Streams blobs through one `git cat-file --batch` and parses each slice. */
@@ -507,7 +511,12 @@ export async function main(argv = process.argv.slice(2)) {
     headActive: sliceTree(head, ACTIVE_DIR),
     headExpired: sliceTree(head, EXPIRED_DIR),
   };
-  if (args.prefetch) prefetchMissing(Object.values(trees).flat().map((entry) => entry.oid));
+  if (args.prefetch) {
+    prefetchMissing(
+      Object.values(trees).flat().map((entry) => entry.oid),
+      `${base}^..${head}`,
+    );
+  }
 
   const reader = createBlobReader();
   let result;
