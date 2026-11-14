@@ -457,6 +457,14 @@ describe('ads-consent gate — CMP → gate bridge', () => {
     expect(showRevocationMessage).toHaveBeenCalledOnce();
   });
 
+  it('does not fabricate a refusal when the silent CMP state cannot be reopened', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+    expect((window as unknown as TestWindow).__ftAdsConsentDecision).toBeUndefined();
+  });
+
   it('does not reopen the CMP or rewrite a previously saved refusal', () => {
     const showRevocationMessage = vi.fn();
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
