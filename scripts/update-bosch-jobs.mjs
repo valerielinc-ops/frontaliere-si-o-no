@@ -4,7 +4,7 @@ import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-p
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -91,11 +91,16 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
 }
 
 async function fetchRenderedBoschListings() {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const page = await browser.newPage({
-      userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-    });
+    const page = isStealthBrowser(browser)
+      ? await browser.newPage({ viewport: null })
+      : await browser.newPage({
+          userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        });
     await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     const declineCookies = page.getByRole('button', { name: /decline|reject|only necessary/i });
     if (await declineCookies.count()) {
