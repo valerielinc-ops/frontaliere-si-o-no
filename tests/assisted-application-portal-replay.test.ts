@@ -13,6 +13,7 @@ import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
+  bestEffortPortalReplayPreflight,
   comparePortalReplayFamily,
   extractPortalStopHosts,
   PORTAL_REPLAY_ALLOWED_PATHS,
@@ -456,6 +457,7 @@ describe('portal replay workflow wiring', () => {
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
+    expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
@@ -463,8 +465,16 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
+    const replayGate = workflow.indexOf('\n  portal-replay-gate:');
+    const replayBlock = workflow.slice(replay, replayGate);
+    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    const gateBlock = workflow.slice(replayGate);
+    expect(gateBlock).toContain('ref: ${{ github.event.pull_request.merge_commit_sha }}');
+    expect(gateBlock).toContain('path: .portal-head');
+    expect(gateBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
+    expect(gateBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
+    expect(gateBlock).toContain('node "$gate_cli" aggregate');
   });
 
   it('does shared setup once and runs the family group inside one worker', () => {
@@ -474,8 +484,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('wait_for_wave');
-    expect(workflow).toContain('declare -f run_group');
-    expect(workflow).toContain('bash -c "$(declare -f run_group); run_group"');
+    expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
+    expect(workflow).toContain('declare -f run_group > "$group_script"');
+    expect(workflow).not.toContain("bash -c 'run_group'");
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
     expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
     expect(workflow).not.toContain('max-parallel: 6');
@@ -511,6 +522,77 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.familyRates.comparable).toBe(0);
+  });
+
+  it('does not block on a posting mismatch already present on the base', () => {
+    const base = (caseId: string) => measured(caseId, 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      securityViolations: ['wrong_posting_or_talent_pool'],
+    });
+    const result = comparePortalReplayFamily({
+      family: 'refline',
+      baseRecords: ['one', 'two', 'three'].map(base),
+      headRecords: ['one', 'two', 'three'].map(base),
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+    expect(result.familyRates.comparable).toBe(0);
+    expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('compares new security violations against a measured base that already failed', () => {
+    const base = measured('one', 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      securityViolations: ['wrong_posting_or_talent_pool'],
+    });
+    const head = measured('one', 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      nodeEgressBlocked: 1,
+      securityViolations: ['wrong_posting_or_talent_pool', 'node_egress_attempt'],
+    });
+    const result = comparePortalReplayFamily({
+      family: 'refline',
+      baseRecords: [base],
+      headRecords: [head],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toEqual(['node_egress_attempt']);
+  });
+
+  it('does not block on a timeout already present on the base', () => {
+    const timeout = (caseId: string) => measured(caseId, 'stopped', { status: 'error', stopCode: 'portal_replay_timeout' });
+    const result = comparePortalReplayFamily({
+      family: 'greenhouse',
+      baseRecords: ['one', 'two', 'three'].map(timeout),
+      headRecords: ['one', 'two', 'three'].map(timeout),
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+    expect(result.familyRates.comparable).toBe(0);
+    expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('does not infer a security regression from an unmeasured base', () => {
+    const result = comparePortalReplayFamily({
+      family: 'personio',
+      baseRecords: [measured('one', 'stopped', { status: 'error', stopCode: 'runner_error' })],
+      headRecords: [measured('one', 'form', { status: 'fail', formLinkedToPosting: 'no' })],
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+  });
+
+  it('still fails when the PR introduces an unmeasured replay', () => {
+    const result = comparePortalReplayFamily({
+      family: 'greenhouse',
+      baseRecords: [measured('one', 'form')],
+      headRecords: [measured('one', 'stopped', { status: 'error', stopCode: 'portal_replay_timeout' })],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toContain('replay_unmeasured');
   });
 
   it('fails every security violation, including a final click, a passed mutation, or a wrong posting', () => {
@@ -636,6 +718,24 @@ describe('portal replay base/head gate', () => {
   });
 });
 
+describe('portal replay live preflight', () => {
+  it('keeps a transient public endpoint failure local to the case', async () => {
+    const result = await bestEffortPortalReplayPreflight(async () => {
+      throw Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
+    });
+    expect(result).toEqual([{ status: 0 }]);
+  });
+
+  it('preserves successful preflight responses for the retry classifier', async () => {
+    const responses = [{ status: 503 }];
+    await expect(bestEffortPortalReplayPreflight(async () => responses)).resolves.toBe(responses);
+  });
+
+  it('normalizes a malformed preflight result without aborting the family', async () => {
+    await expect(bestEffortPortalReplayPreflight(async () => null)).resolves.toEqual([{ status: 0 }]);
+  });
+});
+
 describe('portal replay gate determinism (F2)', () => {
   const workflow = () => readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
 
@@ -654,10 +754,12 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('uses: actions/download-artifact@v8');
   });
 
-  it('keeps the compare on the trusted base CLI', () => {
+  it('keeps trusted base setup while running comparison semantics from the PR CLI', () => {
     const text = workflow();
     expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(text).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
+    const gateStart = text.indexOf('\n  portal-replay-gate:');
+    expect(text.slice(replayStart, gateStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
   });
 
@@ -671,7 +773,7 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('<!-- portal-replay-gate -->');
     expect(text).toContain('portal-replay-gate-head:');
     expect(text).not.toMatch(/gh pr comment "\$PR_NUMBER"/u);
-    expect(text).toContain('cancel-in-progress: true');
+    expect(text).toContain('cancel-in-progress: false');
   });
 
   it('treats a cancelled run as transient for the red-check fixer and the auto-merge evaluator', () => {
