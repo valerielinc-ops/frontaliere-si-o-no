@@ -37,6 +37,11 @@ describe('LIP Suisse crawler parser', () => {
       normalizeSpecPagination(spec),
       spec,
     )).toBe(30);
+    expect(readDeclaredListingTotal(
+      '<h2>30&nbsp;Offres d&#039;emploi trouvées</h2>',
+      normalizeSpecPagination(spec),
+      spec,
+    )).toBe(30);
     expect(detailTemplate.test('/offres-emploi/assistant-de-direction-batiment-h-f-3/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/carreleur-2/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/')).toBe(false);
