@@ -2,7 +2,10 @@ name: Assisted application portal replay
 
 # Always publish the required `portal replay gate` job. The prepare step skips
 # the public replay when a PR changes no runner path. Shared runner changes
-# expand to the complete family matrix.
+# expand to the complete family group. The shared setup runs once on one
+# worker; the trusted base compare CLI starts up to thirteen family processes
+# in parallel inside that worker, like the crawler-group workflows, instead of
+# creating a runner job for every family.
 on:
   pull_request:
     branches: [main]
@@ -114,18 +117,13 @@ jobs:
             --github-output "$GITHUB_OUTPUT"
 
   replay:
-    name: replay ${{ matrix.family }}
+    name: replay portal families (group)
     needs: prepare
     if: needs.prepare.result == 'success'
     runs-on: ubuntu-latest
     # The budget includes two trusted sparse checkouts, two npm ci runs,
     # Chromium and up to five base/head listing pairs, not only the replay.
     timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      max-parallel: 6
-      matrix:
-        family: ${{ fromJSON(needs.prepare.outputs.families) }}
     steps:
       - name: Checkout PR runner
         uses: actions/checkout@v7
@@ -240,36 +238,90 @@ jobs:
             exit 1
           fi
 
-      - name: Replay base and PR runner behind the read-only fence
+      - name: Replay portal families in parallel inside this worker
         env:
           ASSISTED_APPLICATION_HEADED: '1'
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
           CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
-          PORTAL_REPLAY_FAMILY: ${{ matrix.family }}
-          PORTAL_REPLAY_REPORT: ${{ runner.temp }}/portal-replay-${{ matrix.family }}.json
+          PORTAL_REPLAY_FAMILIES: ${{ needs.prepare.outputs.families }}
+          PORTAL_REPLAY_REPORT_DIR: ${{ runner.temp }}/portal-replay-reports
+          PORTAL_REPLAY_LOG_DIR: ${{ runner.temp }}/portal-replay-logs
         run: |
-          set -euo pipefail
-          portal_replay_cli=scripts/assisted-application/portal-replay.mjs
-          test -f "$portal_replay_cli"
-          replay=(node "$portal_replay_cli" compare \
-            --base-root .portal-base \
-            --head-root . \
-            --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \
-            --family "$PORTAL_REPLAY_FAMILY" \
-            --timeout-ms 75000 \
-            --output "$PORTAL_REPLAY_REPORT")
+          run_group() {
+            set -euo pipefail
+            mkdir -p "$PORTAL_REPLAY_REPORT_DIR" "$PORTAL_REPLAY_LOG_DIR"
+            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+            test -f "$portal_replay_cli"
+            PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
+              const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");
+              if (!Array.isArray(families) || !families.length || families.some((family) => typeof family !== "string" || !/^[a-z0-9_]+$/.test(family))) process.exit(1);
+              for (const family of [...new Set(families)].sort()) console.log(family);
+            ' > "$RUNNER_TEMP/portal-replay-families.txt"
+            mapfile -t families < "$RUNNER_TEMP/portal-replay-families.txt"
+            test "${#families[@]}" -gt 0
+            max_parallel=13
+            running=()
+            failed_count=0
+
+            run_family() {
+              local family="$1"
+              local report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
+              local log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
+              PORTAL_REPLAY_FAMILY="$family" PORTAL_REPLAY_REPORT="$report" node "$portal_replay_cli" compare \
+                --base-root .portal-base \
+                --head-root . \
+                --corpus "$RUNNER_TEMP/portal-replay-corpus.json" \
+                --family "$family" \
+                --timeout-ms 75000 \
+                --output "$report" > "$log" 2>&1
+            }
+
+            wait_for_wave() {
+              local pid
+              for pid in "${running[@]}"; do
+                if ! wait "$pid"; then failed_count=$((failed_count + 1)); fi
+              done
+              running=()
+            }
+
+            for family in "${families[@]}"; do
+              run_family "$family" &
+              running+=("$!")
+              if (( ${#running[@]} >= max_parallel )); then wait_for_wave; fi
+            done
+            wait_for_wave
+
+            for family in "${families[@]}"; do
+              report="$PORTAL_REPLAY_REPORT_DIR/portal-replay-${family}.json"
+              log="$PORTAL_REPLAY_LOG_DIR/portal-replay-${family}.log"
+              if [[ -s "$report" ]]; then
+                echo "portal replay group $family: report ready"
+              else
+                echo "portal replay group $family: report missing"
+              fi
+              if [[ -s "$log" ]]; then
+                echo "--- $family ---"
+                sed -n '1,200p' "$log"
+              fi
+            done
+            if (( failed_count > 0 )); then
+              echo "portal replay group: $failed_count/${#families[@]} family process(es) failed"
+              return 1
+            fi
+          }
+          export -f run_group
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" "${replay[@]}"
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c 'run_group'
           else
-            "${replay[@]}"
+            run_group
           fi
 
-      - name: Upload sanitized family report
+      - name: Upload sanitized family reports
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: assisted-application-portal-replay-report-${{ matrix.family }}-${{ github.run_id }}
-          path: ${{ runner.temp }}/portal-replay-${{ matrix.family }}.json
+          name: assisted-application-portal-replay-reports-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-reports/*.json
           if-no-files-found: ignore
           retention-days: 7
 
@@ -322,7 +374,7 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v8
         with:
-          pattern: assisted-application-portal-replay-report-*-${{ github.run_id }}
+          name: assisted-application-portal-replay-reports-${{ github.run_id }}
           path: ${{ runner.temp }}/portal-replay-reports
           merge-multiple: true
 
@@ -332,7 +384,7 @@ jobs:
           PREPARE_RUN: ${{ needs.detect.outputs.run || 'false' }}
           DETECT_RESULT: ${{ needs.detect.result }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
-          MATRIX_RESULT: ${{ needs.replay.result }}
+          REPLAY_RESULT: ${{ needs.replay.result }}
           FAMILIES: ${{ needs.prepare.outputs.families || '[]' }}
           REPORT_DIR: ${{ runner.temp }}/portal-replay-reports
           SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary.md
@@ -351,7 +403,7 @@ jobs:
           node "$portal_replay_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \
-            --matrix-result "$MATRIX_RESULT" \
+            --matrix-result "$REPLAY_RESULT" \
             --families "$FAMILIES" \
             --report-dir "$REPORT_DIR" \
             --output "$RUNNER_TEMP/portal-replay-gate.json" \
