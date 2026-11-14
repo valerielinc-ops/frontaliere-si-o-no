@@ -17,7 +17,7 @@ describe('article compact ad rail contract', () => {
   it('reserves a 160px rail tier from the content-driven 1200px breakpoint', () => {
     expect(INDEX_CSS).toMatch(/--breakpoint-xlc:\s*1200px/);
     expect(BLOG).toContain('xlc:grid-cols-[var(--ft-rail-w-c-l,160px)_minmax(0,1fr)_var(--ft-rail-w-c-r,160px)]');
-    expect(BLOG).toContain('<div className="max-w-3xl xlc:max-w-none mx-auto">');
+    expect(BLOG).toMatch(/<div className="max-w-3xl xlc:max-w-none mx-auto"[^>]*data-ft-article-reading="true">/);
     expect(INDEX_HTML).toContain('.ft-blog-rail-grid-x { display: grid;');
     expect(INDEX_HTML).toContain('@media (min-width: 1200px) {\n        .xlc\\:max-w-none { max-width: none; }\n      }');
     expect(CRITICAL_CSS).toContain("'.ft-blog-rail-grid-x{display:grid;");
@@ -43,7 +43,7 @@ describe('article compact ad rail contract', () => {
   });
 
   it('pins the sticky ad cluster below the 81px sticky nav', () => {
-    expect(RAIL_STACK).toContain('<div className="sticky top-24 flex flex-col gap-2">');
+    expect(RAIL_STACK).toContain('<div className="sticky top-24 flex flex-col gap-2" data-ft-house-block={`article-rail-${side}`}>');
     expect(RAIL_STACK).not.toContain('sticky top-6');
   });
 

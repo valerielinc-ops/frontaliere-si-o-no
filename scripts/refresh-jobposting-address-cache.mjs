@@ -4,6 +4,7 @@ import { existsSync, readdirSync, readFileSync, realpathSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import SWISS_LOCALITY_POSTAL_CODES from '../data/swiss-locality-postal-codes.json' with { type: 'json' };
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { withSingleFlightLockAsync } from './lib/single-flight-lock.mjs';
@@ -51,7 +52,7 @@ const COMPANY_REGISTERED_NAME_ALIASES = new Map([
 ]);
 
 function readJson(filePath) {
-  return JSON.parse(readFileSync(filePath, 'utf8'));
+  return readJsonFile(filePath);
 }
 
 function loadJobs() {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Sintetica SA (Mendrisio, TI) crawler runner.
  *
@@ -263,7 +264,7 @@ async function main() {
   // Read from data/jobs.json (just written by mergeJobs above) — NOT via
   // readExistingCrawlerJobs which prefers the slice and would otherwise echo
   // back the stale committed slice, losing this run's fetches entirely.
-  const _afterMerge = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _afterMerge = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = (Array.isArray(_afterMerge) ? _afterMerge : []).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
