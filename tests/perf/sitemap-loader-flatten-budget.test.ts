@@ -29,8 +29,8 @@
  * with min-of-N sampling it was the one `tests/seo/` file that could turn
  * `gate:seo-source` red on a busy runner (deploy runs 42649761480, 42619730081).
  * A gate has to be green 20 times out of 20 on the same commit, so this lives in
- * tests/perf/, which vitest.config.ts excludes from every gate (the PR run, the
- * related selector, `gate:seo-source`). Run it with `npm run test:perf`.
+ * tests/perf/ (outside `gate:seo-source`) and skips itself unless VITEST_PERF=1.
+ * Run it with `npm run test:perf`.
  *
  * WHAT THIS TEST GUARDS. Not the numbers above — those are the record. It
  * guards the thing that could still flip the gate to a timeout: someone
@@ -183,7 +183,12 @@ const MAX_OVERHEAD_RATIO = 1.5;
  */
 const EXTRAPOLATED_BUDGET_MS = 30_000;
 
-describe('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () => {
+// Skipped unless `npm run test:perf` (VITEST_PERF=1): the assertion is a RATIO of two
+// wall-clock timings and a busy shared runner can fail it with correct code (deploy
+// runs 42649761480 and 42619730081 lost `gate:seo-source` to it). The skip lives here,
+// not in vitest.config.ts: touching that file makes the related selector run the whole
+// suite. Being outside tests/seo/ it is also outside `gate:seo-source`.
+describe.skipIf(process.env.VITEST_PERF !== '1')('validate-sitemap-pages sitemap loaders: flatten wall-time budget', () => {
   it('costs a fraction of the parse loop it rides on, at both call sites', () => {
     const xml = buildShard(LOCS);
 

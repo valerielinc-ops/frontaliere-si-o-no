@@ -237,14 +237,7 @@ const JSDOM_TS_FILES = [
   'tests/userProfile.test.ts',
 ];
 
-// Wall-clock tests: they judge a RATIO of two timings, so a noisy shared runner
-// can fail them with correct code (deploy runs 42649761480 and 42619730081 lost
-// `gate:seo-source` to one). They are kept out of every gate and run by hand or
-// by a trend job: `npm run test:perf` (sets VITEST_PERF=1, which lifts the
-// exclusion). Deterministic tests under tests/perf/ keep running everywhere.
-const WALLTIME_TESTS = ['tests/perf/sitemap-loader-flatten-budget.test.ts'];
-const PERF_EXCLUDE = process.env.VITEST_PERF === '1' ? [] : WALLTIME_TESTS;
-const COMMON_EXCLUDE = ['tests/post-build/**', 'tests/e2e/**', ...PERF_EXCLUDE];
+const COMMON_EXCLUDE = ['tests/post-build/**', 'tests/e2e/**'];
 
 // Shared `test` options applied to both the jsdom and node projects. Only
 // `name`/`environment`/`include`/`exclude` differ between them.

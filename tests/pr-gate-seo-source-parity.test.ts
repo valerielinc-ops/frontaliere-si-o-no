@@ -64,14 +64,14 @@ describe('F1.1 — tests.yml (the required check) runs gate:seo-source on every 
 });
 
 describe('F1.2 — gate:seo-source is deterministic', () => {
-  it('has no wall-clock test: the ratio test moved to tests/perf and is excluded from every gate', () => {
+  it('has no wall-clock test: the ratio test moved to tests/perf and skips itself outside test:perf', () => {
     expect(fs.existsSync('tests/seo/sitemap-loader-flatten-budget.test.ts')).toBe(false);
     expect(fs.existsSync('tests/perf/sitemap-loader-flatten-budget.test.ts')).toBe(true);
     const src = read('tests/perf/sitemap-loader-flatten-budget.test.ts');
     expect(src).toContain('MAX_OVERHEAD_RATIO');
-    const config = read('vitest.config.ts');
-    expect(config).toContain("process.env.VITEST_PERF === '1' ? [] : WALLTIME_TESTS");
-    expect(config).toContain("'tests/perf/sitemap-loader-flatten-budget.test.ts'");
+    expect(src).toContain("describe.skipIf(process.env.VITEST_PERF !== '1')");
+    // vitest.config.ts is untouched: editing it makes the related selector run the whole suite
+    expect(read('vitest.config.ts')).not.toMatch(/WALLTIME|VITEST_PERF/);
   });
 
   it('can still be run by hand', () => {
