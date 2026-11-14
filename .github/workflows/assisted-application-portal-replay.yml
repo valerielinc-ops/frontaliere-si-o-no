@@ -17,7 +17,10 @@ permissions:
 
 concurrency:
   group: assisted-application-portal-replay-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  # A queued replay is expensive and main may synchronize the PR while it is
+  # running. Keep the active event immutable and let the newest pending run
+  # replace only an older pending run, rather than cancelling the active gate.
+  cancel-in-progress: false
 
 jobs:
   detect:
@@ -128,13 +131,11 @@ jobs:
       - name: Checkout PR runner
         uses: actions/checkout@v7
         with:
-          # Replay the synthetic merge ref, not the raw head SHA. A PR can be
-          # opened before main receives portal fixes; checking out head alone
-          # would compare an old portal runner with current main and report
-          # pre-existing differences as regressions. The merge ref is the
-          # exact tree GitHub would merge and therefore the only meaningful
-          # PR-side replay target.
-          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+          # github.sha is the immutable synthetic merge commit captured by
+          # this pull_request event, not the raw head SHA and not the moving
+          # refs/pull/<number>/merge ref. A queued run must keep testing the
+          # exact tree represented by its event even if main advances again.
+          ref: ${{ github.sha }}
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |
@@ -250,7 +251,7 @@ jobs:
           run_group() {
             set -euo pipefail
             mkdir -p "$PORTAL_REPLAY_REPORT_DIR" "$PORTAL_REPLAY_LOG_DIR"
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+            portal_replay_cli=scripts/assisted-application/portal-replay.mjs
             test -f "$portal_replay_cli"
             PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
               const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");

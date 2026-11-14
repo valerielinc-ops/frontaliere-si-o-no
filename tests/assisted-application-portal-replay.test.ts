@@ -431,11 +431,13 @@ describe('portal replay workflow wiring', () => {
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
     const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
-    const mergeRef = workflow.indexOf('          ref: refs/pull/${{ github.event.pull_request.number }}/merge\n');
+    const mergeCommit = workflow.indexOf('          ref: ${{ github.sha }}\n');
     expect(prCheckout).toBeGreaterThan(-1);
-    expect(mergeRef).toBeGreaterThan(prCheckout);
+    expect(mergeCommit).toBeGreaterThan(prCheckout);
     expect(workflow).not.toContain('github.event.pull_request.head.sha');
     expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
+    expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
+    expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
@@ -445,7 +447,7 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
     const replayGate = workflow.indexOf('\n  portal-replay-gate:');
     const replayBlock = workflow.slice(replay, replayGate);
-    expect(replayBlock).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
   });
 
