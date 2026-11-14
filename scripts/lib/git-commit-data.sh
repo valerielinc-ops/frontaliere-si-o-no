@@ -2039,12 +2039,13 @@ if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
   FILE_SIZE_MB=$(du -m "data/jobs.json" | cut -f1)
   if [ "$FILE_SIZE_MB" -gt 90 ]; then
     echo "⚠️  data/jobs.json is ${FILE_SIZE_MB} MB — running emergency age-based trim (crawledAt > ${JOBS_SIZE_TRIM_DAYS:-45} days)..."
-    node - <<'NODE'
-const fs = require('fs');
+    node --input-type=module - <<'NODE'
+import fs from 'node:fs';
+import { readJsonFile } from './scripts/lib/read-large-json.mjs';
 const TRIM_DAYS = parseInt(process.env.JOBS_SIZE_TRIM_DAYS || '45', 10);
 const TRIM_MS   = TRIM_DAYS * 24 * 60 * 60 * 1000;
 const filePath  = 'data/jobs.json';
-const jobs      = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+const jobs      = readJsonFile(filePath);
 const cutoff    = Date.now() - TRIM_MS;
 const before    = jobs.length;
 const fresh     = jobs.filter(job => {
@@ -3587,10 +3588,12 @@ translation_handoff_recovery_prepare_candidate
 # Keep canonical files aligned after any merge path.
 # (Skipped in --slice-only mode: shared files are not committed)
 if [ "$SLICE_ONLY" = false ]; then
-node - <<'NODE'
-const fs = require('fs');
+node --input-type=module - <<'NODE'
+import fs from 'node:fs';
+import path from 'node:path';
+import { readJsonFile } from './scripts/lib/read-large-json.mjs';
 
-function readJson(filePath) {
+function readSmallJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
@@ -3604,7 +3607,7 @@ const metaPath = 'data/jobs-meta.json';
 
 let jobs = null;
 if (fs.existsSync(dataJobsPath)) {
-  jobs = readJson(dataJobsPath);
+  jobs = readJsonFile(dataJobsPath);
   if (!Array.isArray(jobs)) {
     console.error(`❌ ${dataJobsPath} must be a JSON array`);
     process.exit(1);
@@ -3612,12 +3615,12 @@ if (fs.existsSync(dataJobsPath)) {
 }
 
 if (jobs) {
-  fs.mkdirSync(require('path').dirname(publicJobsPath), { recursive: true });
+  fs.mkdirSync(path.dirname(publicJobsPath), { recursive: true });
   writeJson(publicJobsPath, jobs);
 }
 
 if (jobs && fs.existsSync(metaPath)) {
-  const meta = readJson(metaPath);
+  const meta = readSmallJson(metaPath);
   if (meta && typeof meta === 'object' && !Array.isArray(meta)) {
     meta.totalJobs = jobs.length;
     if (meta.sources && typeof meta.sources === 'object' && Object.prototype.hasOwnProperty.call(meta.sources, 'curatedTicino')) {
@@ -3632,15 +3635,16 @@ fi  # end SLICE_ONLY=false canonical alignment block
 # Validate critical JSON files before staging/commit to avoid destructive pushes.
 # (Skipped in --slice-only mode: shared files are not committed)
 if [ "$SLICE_ONLY" = false ]; then
-node - <<'NODE'
-const fs = require('fs');
+node --input-type=module - <<'NODE'
+import fs from 'node:fs';
+import { readJsonFile } from './scripts/lib/read-large-json.mjs';
 const critical = [
   'data/jobs.json',
   'public/data/jobs.json',
 ];
 for (const file of critical) {
   if (!fs.existsSync(file)) continue;
-  const value = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const value = readJsonFile(file);
   if (!Array.isArray(value)) {
     console.error(`❌ ${file} must be a JSON array before commit`);
     process.exit(1);

@@ -34,6 +34,7 @@ import {
 import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
@@ -158,7 +159,7 @@ function readJobsJson(rootDir: string): JobMinimal[] {
   for (const c of candidates) {
     if (!existsSync(c)) continue;
     try {
-      const parsed = JSON.parse(readFileSync(c, 'utf-8')) as unknown;
+      const parsed = readJsonFile(c) as unknown;
       if (Array.isArray(parsed)) return parsed as JobMinimal[];
       const wrapped = parsed as { jobs?: JobMinimal[] };
       if (wrapped && Array.isArray(wrapped.jobs)) return wrapped.jobs;

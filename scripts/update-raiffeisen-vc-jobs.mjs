@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -602,7 +603,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isRaiffeisenVCJob);
   const cantonCounts = jobs.reduce((counts, job) => {
@@ -640,7 +641,7 @@ function validateLocaleCoverage() {
 /* ── Description patching ──────────────────────────────────── */
 function ensureSourceLang() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   let changed = 0;
   for (const job of jobs) {
@@ -665,7 +666,7 @@ function ensureSourceLang() {
  */
 function patchDescriptionsFromDetailBodies(detailBodies) {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
 
   let patched = 0;
@@ -780,7 +781,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isRaiffeisenVCJob) : [];
   writeJobsCrawlerSlice(RAIFF_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

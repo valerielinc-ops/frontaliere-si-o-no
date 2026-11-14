@@ -30,7 +30,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve, dirname } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
@@ -58,6 +58,12 @@ function initHarness(): Harness {
   execFileSync('git', ['clone', '-q', originDir, repoDir]);
   execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
   execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+  // git-commit-data.sh runs from the temporary checkout and imports this
+  // helper by repository-relative path. Keep the fixture layout in sync with
+  // the production checkout without copying the full workspace.
+  const readerPath = join(repoDir, 'scripts/lib/read-large-json.mjs');
+  mkdirSync(dirname(readerPath), { recursive: true });
+  copyFileSync(resolve(ROOT, 'scripts/lib/read-large-json.mjs'), readerPath);
   return { originDir, repoDir, otherDir };
 }
 

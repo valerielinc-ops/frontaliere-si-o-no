@@ -73,6 +73,9 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     const writes: Job[][] = [];
     const enrich = isolatedFunction<(jobs: Job[]) => number>('update-lidl-jobs.mjs', 'mergeApiDescriptions', {
       fs: { existsSync: () => true, readFileSync: () => JSON.stringify([job]) },
+      // `isolatedFunction` evaluates only the declaration, so module-scope
+      // imports are not present in its VM context.
+      readJsonFile: () => [job],
       DATA_JOBS: '/unused-data', PUBLIC_DATA_JOBS: '/unused-public',
       normalizeLidlDetailPath: (value: string) => new URL(value).pathname,
       extractReqId: () => '123456', isLidlJob: () => true,
