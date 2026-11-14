@@ -19,6 +19,7 @@ import {
   assertBridgePathDistCoverage,
   assertBridgePathClassificationCoverage,
   buildTrackedJobCanonEntries,
+  buildTrackedJobCanonEntriesFromPersistedRegistry,
   buildActiveJobBridgePathPlan,
   classifyBridgePathsFromFinalWorkerMap,
   classifyBridgePaths,
@@ -893,6 +894,116 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(tracked.entries.get('legacy-en')?.alias?.en).toBe('/en/find-jobs-ticino/current-en');
     expect(tracked.entries.get('current-en')?.en).toBe('/en/find-jobs-ticino');
     expect(tracked.entries.get('shared-route')?.fr).toBe('/fr/trouver-emploi-zurich');
+  });
+
+  it('classifies from the persisted streamed registry after a late compatibility overwrite', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-persisted-classification-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+
+      const persistedRegistry = {
+        'compatibility-old-route': { en: '/en/find-jobs-zurich/worker-actual-destination' },
+        'exact-old-route': { en: '/en/find-jobs-bern/worker-exact-destination' },
+        'later-prefix-owner': { fr: '/fr/trouver-emploi-berne/shared-prefix-candidate' },
+      };
+      writeAllKnownJobSlugs(persistedRegistry, root);
+      // The legacy part is read first, but the numbered shard is the later
+      // owner of compatibility-old-route. Duplicate source keys inside the
+      // legacy part retain file-order behavior for equal-order prefix paths.
+      fs.writeFileSync(knownSlugsLegacyFile(root), `{
+  "compatibility-old-route": { "en": "/en/find-jobs-ticino/legacy-compatibility-target" },
+  "first-prefix-owner": { "fr": "/fr/trouver-emploi-zurich/shared-prefix-candidate" },
+  "first-prefix-owner": { "fr": "/fr/trouver-emploi-geneve/shared-prefix-candidate" }
+}`);
+
+      process.env.BUILD_LOCALE = 'it';
+      setJobCanonOrderingFields([]);
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+      const workerShard = JSON.parse(fs.readFileSync(
+        path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey('compatibility-old-route')}.json`),
+        'utf8',
+      )) as Record<string, { alias?: Record<string, string> }>;
+      expect(workerShard['compatibility-old-route']?.alias?.en)
+        .toBe('/en/find-jobs-zurich/worker-actual-destination');
+      const workerPrefixShard = JSON.parse(fs.readFileSync(
+        path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey('shared-prefix-candidate')}.json`),
+        'utf8',
+      )) as Record<string, Record<string, string>>;
+      expect(workerPrefixShard['shared-prefix-candidate']?.fr).toBe('/fr/trouver-emploi-zurich');
+
+      // This models the GSC compatibility merge performed after the registry
+      // write: the in-memory row now disagrees with the Worker input on disk.
+      const tracking = readAllKnownJobSlugs(root) as Record<string, Record<string, string>>;
+      tracking['compatibility-old-route'].en = '/en/find-jobs-ticino/legacy-compatibility-target';
+      const bridgePaths = [
+        {
+          path: '/en/jobs-im-tessin/compatibility-old-route/',
+          locale: 'en',
+          slug: 'compatibility-old-route',
+          targetPath: '/en/find-jobs-ticino/legacy-compatibility-target/',
+          kind: 'previousSlug',
+          canton: 'TI',
+          sourceJobIdentifier: 'reconciled-active-job',
+        },
+        {
+          path: '/en/jobs-im-tessin/exact-old-route/',
+          locale: 'en',
+          slug: 'exact-old-route',
+          targetPath: '/en/find-jobs-bern/worker-exact-destination/',
+          kind: 'previousSlug',
+          canton: 'BE',
+          sourceJobIdentifier: 'reconciled-active-job',
+        },
+      ] as const;
+      const bridgeSlugs = new Set(bridgePaths.map(({ slug }) => slug));
+      bridgeSlugs.add('shared-prefix-candidate');
+
+      const inMemoryEntries = buildTrackedJobCanonEntries(tracking, bridgeSlugs).entries;
+      expect(inMemoryEntries.get('shared-prefix-candidate')?.fr).toBe('/fr/trouver-emploi-geneve');
+      const staleClassification = classifyBridgePaths(bridgePaths, inMemoryEntries);
+      expect(staleClassification.removable).toContain('/en/jobs-im-tessin/compatibility-old-route/');
+
+      const serializedWorkerJob: ActiveJobSlugMapRow = {
+        id: 'reconciled-active-job',
+        slug: 'reconciled-active-job',
+        canton: 'ZH',
+        slugByLocale: {
+          it: 'reconciled-active-job',
+          en: 'reconciled-active-job',
+          de: 'reconciled-active-job',
+          fr: 'reconciled-active-job',
+        },
+      };
+      const finalWorkerJob: ActiveJobSlugMapRow = {
+        ...serializedWorkerJob,
+        previousSlugsByLocale: { en: ['compatibility-old-route', 'exact-old-route'] },
+      };
+      const reconciliation = reconcileFinalWorkerSlugMapRows([serializedWorkerJob], [finalWorkerJob]);
+      expect(reconciliation.matchedJobIdentifiers).toEqual(new Set(['reconciled-active-job']));
+      expect(reconciliation.unmatchedJobIdentifiers.size).toBe(0);
+      expect(reconciliation.updatedJobCount).toBe(1);
+      expect(serializedWorkerJob.previousSlugsByLocale)
+        .toEqual({ en: ['compatibility-old-route', 'exact-old-route'] });
+
+      const persistedEntries = buildTrackedJobCanonEntriesFromPersistedRegistry(root, bridgeSlugs).entries;
+      expect(persistedEntries.get('shared-prefix-candidate')?.fr).toBe('/fr/trouver-emploi-zurich');
+      const persistedClassification = classifyBridgePathsFromFinalWorkerMap(
+        bridgePaths,
+        persistedEntries,
+        reconciliation.matchedJobIdentifiers,
+      );
+      expect(persistedClassification.removable).toEqual(new Set(['/en/jobs-im-tessin/exact-old-route/']));
+      expect(persistedClassification.keepBridge.get('/en/jobs-im-tessin/compatibility-old-route/'))
+        .toBe('targetMismatch');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+    }
   });
 
   it('rejects a fixture whose maximum shard grows beyond five percent', () => {

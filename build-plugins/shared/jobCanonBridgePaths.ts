@@ -20,9 +20,12 @@ import {
   jobSlugShardIndexForCount,
 } from '../../services/jobSlugShards';
 import { jobCanonTarget } from '../../infra/cloudflare-worker/locale-router.js';
+import { iterateAllKnownJobSlugPartEntries } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 export const JOB_CANON_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 export type JobCanonLocale = (typeof JOB_CANON_LOCALES)[number];
+/** Registry aliases are emitted only for the three non-Italian locales by the Worker. */
+export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
 export interface ActiveJobSlugMapRow {
   id?: unknown;
@@ -159,10 +162,11 @@ export type JobCanonEntryLookup =
   | ((slug: string) => JobCanonEntryLike | undefined);
 
 /**
- * Reconstruct the registry prefix/alias facts for a bounded set of slugs from
- * the same all-known-slugs rows consumed by jobCanonRedirectMapPlugin.
- * The registry read preserves first-insertion key order, which is the same
- * precedence consumed by jobCanonRedirectMapPlugin's compact slug index.
+ * Reconstruct prefix/alias facts from an in-memory logical registry. This is
+ * useful for pure fixtures, but late PR-B classification must use
+ * `buildTrackedJobCanonEntriesFromPersistedRegistry`: the caller's mutable
+ * snapshot may have diverged from the immutable store parts consumed by the
+ * Worker.
  */
 export function buildTrackedJobCanonEntries(
   tracking: Readonly<Record<string, Partial<Record<JobCanonLocale, unknown>>>>,
@@ -226,6 +230,140 @@ export function buildTrackedJobCanonEntries(
       if (alias[locale] === undefined) alias[locale] = parsed.targetPath;
     }
   }
+  return { entries };
+}
+
+/**
+ * Reconstruct only the persisted registry facts that can affect candidate
+ * bridge slugs. This mirrors jobCanonRedirectMapPlugin's streamed registry
+ * phases without materializing the full registry or its key index.
+ *
+ * Store parts stream legacy first, then numbered shards. The Worker keeps the
+ * first-seen source-key order for prefix conflict resolution, but the last
+ * store part containing a source key owns its locale map. Duplicate JSON keys
+ * in that winning part are all visited in file order: the first path wins an
+ * equal-order prefix tie and the first staged registry alias wins. The Worker's
+ * separate recovery scan resets a duplicate source's recovery facts on each
+ * row, so its last duplicate wins there; PR-B consumes only the redirect
+ * prefix/alias facts reconstructed below.
+ */
+export function buildTrackedJobCanonEntriesFromPersistedRegistry(
+  rootDir: string,
+  candidateSlugs: ReadonlySet<string>,
+  onHeapSample?: () => void,
+): { entries: Map<string, JobCanonEntryLike> } {
+  const sourceFacts = new Map<string, { winningPart: number; firstOrder?: number }>();
+  const pathParts = (value: unknown): { targetSlug: string; prefix: string; targetPath: string } | null => {
+    if (typeof value !== 'string') return null;
+    const targetPath = value.replace(/\/+$/, '');
+    const segments = targetPath.split('/').filter(Boolean);
+    if (segments.length < 2) return null;
+    return {
+      targetSlug: segments[segments.length - 1],
+      prefix: `/${segments.slice(0, -1).join('/')}`,
+      targetPath,
+    };
+  };
+  const hasCandidateTarget = (paths: unknown): boolean => {
+    if (!paths || typeof paths !== 'object') return false;
+    for (const locale of JOB_CANON_LOCALES) {
+      const parsed = pathParts((paths as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+      if (parsed && candidateSlugs.has(parsed.targetSlug)) return true;
+    }
+    return false;
+  };
+
+  // First pass: retain final-part ownership only for source keys that can
+  // supply a prefix to a candidate or an alias from a candidate slug. A later
+  // non-candidate row for an already relevant key still replaces its map.
+  let scannedEntries = 0;
+  for (const [sourceSlug, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
+    scannedEntries += 1;
+    if (scannedEntries % 8192 === 0) onHeapSample?.();
+    const existing = sourceFacts.get(sourceSlug);
+    if (existing) {
+      existing.winningPart = entryPartIndex;
+      continue;
+    }
+    if (candidateSlugs.has(sourceSlug) || hasCandidateTarget(paths)) {
+      sourceFacts.set(sourceSlug, { winningPart: entryPartIndex });
+    }
+  }
+
+  const prefixByLocaleSlug = new Map<string, { prefix: string; order: number }>();
+  const aliasByLocaleSlug = new Map<string, string>();
+  let sourceOrder = 0;
+  scannedEntries = 0;
+
+  // Second pass: recover first-seen order for the targeted keys while applying
+  // only their winning-part rows, matching the Worker's phase-a index and
+  // phase-b staging predicates. Raw entry ordinals preserve relative first-key
+  // order without retaining an index for unrelated registry keys.
+  for (const [sourceSlug, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
+    scannedEntries += 1;
+    if (scannedEntries % 8192 === 0) onHeapSample?.();
+    const order = sourceOrder;
+    sourceOrder += 1;
+    const sourceFact = sourceFacts.get(sourceSlug);
+    if (!sourceFact) continue;
+    const firstOrder = sourceFact.firstOrder ?? order;
+    sourceFact.firstOrder = firstOrder;
+    if (sourceFact.winningPart !== entryPartIndex || !paths || typeof paths !== 'object') continue;
+
+    for (const locale of JOB_CANON_LOCALES) {
+      const parsed = pathParts((paths as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+      if (!parsed) continue;
+
+      if (candidateSlugs.has(parsed.targetSlug)) {
+        const key = localeSlugKey(locale, parsed.targetSlug);
+        const prior = prefixByLocaleSlug.get(key);
+        if (!prior || firstOrder < prior.order) {
+          // Equal-order rows are duplicate source keys in one winning part;
+          // retaining the first encountered path matches staged-file order.
+          prefixByLocaleSlug.set(key, { prefix: parsed.prefix, order: firstOrder });
+        }
+      }
+
+      if (
+        candidateSlugs.has(sourceSlug)
+        && (JOB_CANON_REGISTRY_ALIAS_LOCALES as readonly string[]).includes(locale)
+        && parsed.targetSlug !== sourceSlug
+      ) {
+        const key = localeSlugKey(locale, sourceSlug);
+        if (!aliasByLocaleSlug.has(key)) aliasByLocaleSlug.set(key, parsed.targetPath);
+      }
+    }
+  }
+
+  const entries = new Map<string, JobCanonEntryLike>();
+  const entryFor = (slug: string): JobCanonEntryLike => {
+    let entry = entries.get(slug);
+    if (!entry) {
+      entry = {};
+      entries.set(slug, entry);
+    }
+    return entry;
+  };
+  for (const [key, { prefix }] of prefixByLocaleSlug) {
+    const split = key.indexOf('\u0000');
+    const locale = key.slice(0, split) as JobCanonLocale;
+    const slug = key.slice(split + 1);
+    entryFor(slug)[locale] = prefix;
+  }
+  for (const [key, targetPath] of aliasByLocaleSlug) {
+    if (prefixByLocaleSlug.has(key)) continue;
+    const split = key.indexOf('\u0000');
+    const locale = key.slice(0, split) as JobCanonLocale;
+    const slug = key.slice(split + 1);
+    const entry = entryFor(slug);
+    const alias = { ...(entry.alias ?? {}) };
+    alias[locale] = targetPath;
+    entry.alias = alias;
+  }
+
+  sourceFacts.clear();
+  prefixByLocaleSlug.clear();
+  aliasByLocaleSlug.clear();
   return { entries };
 }
 

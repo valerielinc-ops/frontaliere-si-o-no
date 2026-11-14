@@ -223,7 +223,7 @@ import {
 } from '../services/previousSlugWinners';
 import {
  buildActiveJobBridgePathPlan,
- buildTrackedJobCanonEntries,
+ buildTrackedJobCanonEntriesFromPersistedRegistry,
  classifyBridgePathsFromFinalWorkerMap,
  planActiveJobCanonAliases,
  reconcileFinalWorkerSlugMapRows,
@@ -14968,7 +14968,7 @@ ${staticAnalyticsHtml}
    },
   });
   const bridgeSlugs = new Set(bridgePlan.bridgePaths.map((bridge) => bridge.slug));
-  const tracked = buildTrackedJobCanonEntries(tracking, bridgeSlugs, sampleBridgePlanHeap);
+  const tracked = buildTrackedJobCanonEntriesFromPersistedRegistry(rootDir, bridgeSlugs, sampleBridgePlanHeap);
   const activeAliasPlan = planActiveJobCanonAliases(
    bridgePlan,
    (slug) => tracked.entries.get(slug),

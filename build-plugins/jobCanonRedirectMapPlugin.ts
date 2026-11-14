@@ -30,6 +30,7 @@ import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
+  JOB_CANON_REGISTRY_ALIAS_LOCALES,
   type ActiveJobAliasStats,
   type ActiveJobSlugMapRow,
   type JobCanonLocale,
@@ -37,7 +38,6 @@ import {
 
 const OUT_SUBDIR = 'job-canon';
 const V2_SUBDIR = 'v2';
-const REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
 const V2_MAX_SHARD_BYTES = 256 * 1024;
 const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix'] as const;
@@ -541,7 +541,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (slugIndexEntry < 0 || slugIndex!.parts[slugIndexEntry] !== entryPartIndex) continue;
           if (!paths || typeof paths !== 'object') continue;
           const order = slugIndex!.orders[slugIndexEntry];
-          for (const locale of REGISTRY_ALIAS_LOCALES) {
+          for (const locale of JOB_CANON_REGISTRY_ALIAS_LOCALES) {
             const value = paths[locale];
             if (typeof value !== 'string') continue;
             const target = value.replace(/\/+$/, '');
