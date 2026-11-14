@@ -8,6 +8,11 @@ import {
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
 } from '../scripts/lib/delvitech-job-parser.mjs';
+import {
+  evaluateDelvitechAuthoritativeSnapshot,
+  isTargetJob,
+  shouldPreserveDelvitechSnapshot,
+} from '../scripts/update-delvitech-jobs.mjs';
 
 describe('Delvitech job parser', () => {
   it('extracts vacancy links from the career page cards', () => {
@@ -260,12 +265,27 @@ describe('Delvitech job parser', () => {
     expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
   });
 
-  it('does not turn an empty provider response into rendered empty evidence', () => {
-    const listings = parseDelvitechZohoListings({ code: 'success', data: [] });
-    expect(listings).toEqual([]);
-    expect(listings.delvitechListingRecordCount).toBe(0);
-    expect(listings.delvitechListingMarkupSeen).toBe(false);
-    expect(listings.delvitechListingEmptyStateObserved).toBe(false);
+  it('does not treat a shared Zoho URL as Delvitech ownership', () => {
+    const otherCompany = {
+      companyKey: 'other-company',
+      company: 'Other',
+      url: 'https://jobs.zohorecruit.eu/public/other',
+    };
+    expect(isTargetJob(otherCompany)).toBe(false);
+    expect([otherCompany].filter(isTargetJob)).toEqual([]);
+  });
+
+  it('keeps an API-empty result non-authoritative without rendered evidence', () => {
+    const apiEmpty = parseDelvitechZohoListings({ code: 'success', data: [] });
+    expect(apiEmpty.delvitechListingEmptyStateObserved).toBe(false);
+
+    const jobs = [];
+    Object.defineProperty(jobs, 'delvitechSourceReadComplete', { value: false });
+    expect(shouldPreserveDelvitechSnapshot(jobs)).toBe(true);
+    expect(evaluateDelvitechAuthoritativeSnapshot(jobs)).toMatchObject({
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {

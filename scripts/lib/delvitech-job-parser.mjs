@@ -388,9 +388,9 @@ export function parseDelvitechZohoListings(payload = {}) {
     delvitechListingMarkupSeen: { value: false, enumerable: false },
     delvitechListingRecordCount: { value: rows.length, enumerable: false },
     delvitechListingSkippedMalformedRows: { value: malformedRows, enumerable: false },
-    // An empty provider response is not rendered source evidence. The caller
-    // must still inspect the canonical page before an empty snapshot can be
-    // considered authoritative.
+    // An empty API array is only an API result, not independent evidence that
+    // the rendered careers page has no open roles. The runner may replace this
+    // result with a browser-rendered empty state after the API response.
     delvitechListingEmptyStateObserved: { value: false, enumerable: false },
   });
   return listings;

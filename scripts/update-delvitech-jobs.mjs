@@ -51,6 +51,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -233,7 +234,7 @@ function absoluteUrl(raw = '') {
   return new URL(raw, CAREERS_URL).toString();
 }
 
-function isTargetJob(job = {}) {
+export function isTargetJob(job = {}) {
   return isDelvitechCompanyJob(job);
 }
 
@@ -247,6 +248,27 @@ function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+export function shouldPreserveDelvitechSnapshot(jobs = []) {
+  return Array.isArray(jobs)
+    && jobs.length === 0
+    && jobs.delvitechSourceReadComplete !== true;
+}
+
+export function evaluateDelvitechAuthoritativeSnapshot(jobs = []) {
+  if (shouldPreserveDelvitechSnapshot(jobs)) {
+    return {
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    };
+  }
+  return evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteDelvitechSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 }
 
 async function fetchListings() {
@@ -403,6 +425,24 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
+
+  if (shouldPreserveDelvitechSnapshot(discoveredJobs)) {
+    console.warn('⚠️  Delvitech source did not prove an empty rendered snapshot; preserving the existing slice.');
+    const diff = computeCrawlDiff(beforeSnapshot, beforeSnapshot);
+    printCrawlChangeSummary(diff, 'Delvitech SA');
+    writeCrawlChangeSummaryToGH(diff, 'Delvitech SA');
+    writeJobsSummary(targetExisting, 'Delvitech SA');
+    printPublishedJobUrls(targetExisting, 'Delvitech SA');
+    return {
+      total: targetExisting.length,
+      added: 0,
+      updated: 0,
+      mergedTarget: targetExisting,
+      preservedExisting: true,
+      diff,
+    };
+  }
+
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
@@ -438,7 +478,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Delvitech SA');
   writeJobsSummary(mergedTarget, 'Delvitech SA');
   printPublishedJobUrls(mergedTarget, 'Delvitech SA');
-  return { total: mergedTarget.length, added, updated, diff };
+  return { total: mergedTarget.length, added, updated, mergedTarget, preservedExisting: false, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -527,21 +567,18 @@ async function main() {
   const {
     authoritativeEmptySnapshot,
     authoritativeSnapshotVerified,
-  } = evaluateAuthoritativeSnapshot(jobs, {
-    validateAuthoritativeSnapshot: assertCompleteDelvitechSnapshot,
-    allowAuthoritativeEmptySnapshot: true,
-    authoritativeSnapshotScope: 'empty-only',
-    companyLabel: COMPANY_NAME,
-  });
+  } = evaluateDelvitechAuthoritativeSnapshot(jobs);
 
-  const { total, diff} = mergeJobs(jobs);
-  updateAdapterConfig(jobs);
+  const { total, diff, mergedTarget, preservedExisting } = mergeJobs(jobs);
+  if (!preservedExisting) updateAdapterConfig(mergedTarget);
 
   console.log('\n🌐 Running locale fill for Delvitech jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (!preservedExisting) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
   validateLocales(authoritativeEmptySnapshot);
 
   console.log('\n📊 === Delvitech Job Stats ===');
@@ -582,4 +619,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Delvitech'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Delvitech'));
+}
