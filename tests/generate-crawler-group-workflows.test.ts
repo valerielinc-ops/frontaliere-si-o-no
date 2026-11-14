@@ -3373,11 +3373,15 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain(
         'isSafeGitDir() {',
       );
-      expect(retryPreparation.run).toContain('if ! isSafeGitDir "$workspace" "$git_dir"; then');
+      expect(retryPreparation.run).toContain('local git_dir common_git_dir');
+      expect(retryPreparation.run).toContain('rev-parse --path-format=absolute --git-common-dir');
+      expect(retryPreparation.run).toContain('if ! isSafeGitDir "$workspace" "$git_dir" "$common_git_dir"; then');
       expect(retryPreparation.run).toContain('realpath "$workspace/.git"');
       expect(retryPreparation.run).toContain(
-        'git -C "$workspace" rev-parse --path-format=absolute --git-common-dir',
+        '[ "$common_git_dir" = "$git_dir" ] && common_git_dir=""',
       );
+      expect(retryPreparation.run).toContain('find "$common_git_dir" -type f -name "*.lock" -print0');
+      expect(retryPreparation.run).toContain('cat "$git_dir/gitdir"');
       expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
       );
@@ -3508,18 +3512,21 @@ describe('cross-repo crawler execution artifacts', () => {
         ['-C', linkedWorktree, 'rev-parse', '--absolute-git-dir'],
         { env: gitEnv, encoding: 'utf8' },
       ).trim();
-      const commonGitDir = execFileSync(
+      const linkedCommonGitDir = execFileSync(
         'git',
         ['-C', linkedWorktree, 'rev-parse', '--path-format=absolute', '--git-common-dir'],
         { env: gitEnv, encoding: 'utf8' },
       ).trim();
-      const commonLock = path.join(commonGitDir, 'refs', 'heads', 'retry.lock');
-      fs.mkdirSync(path.dirname(commonLock), { recursive: true });
-      fs.writeFileSync(commonLock, 'stale');
+      const worktreeLock = path.join(linkedGitDir, 'index.lock');
+      const commonDirLock = path.join(linkedCommonGitDir, 'refs', 'heads', 'retry.lock');
+      fs.writeFileSync(worktreeLock, 'partial worktree metadata\n');
+      fs.mkdirSync(path.dirname(commonDirLock), { recursive: true });
+      fs.writeFileSync(commonDirLock, 'partial common metadata\n');
       fs.writeFileSync(path.join(linkedGitDir, 'HEAD'), 'ref: refs/heads/missing\n');
       expect(runPreparation(linkedWorktree)).toContain('Discarded incomplete Git metadata');
-      expect(fs.existsSync(commonLock)).toBe(false);
+      expect(fs.existsSync(worktreeLock)).toBe(false);
       expect(fs.existsSync(path.join(linkedWorktree, '.git'))).toBe(false);
+      expect(fs.existsSync(commonDirLock)).toBe(false);
 
       const unsafeWorkspace = path.join(temp, 'unsafe-workspace');
       const unsafeGitDir = path.join(temp, 'unsafe-git-dir');
@@ -3528,6 +3535,12 @@ describe('cross-repo crawler execution artifacts', () => {
       ], { env: gitEnv });
       expect(() => runPreparation(unsafeWorkspace)).toThrow();
       expect(fs.existsSync(path.join(unsafeWorkspace, '.git'))).toBe(true);
+
+      const symlinkedMetadataWorkspace = path.join(temp, 'symlinked-metadata-workspace');
+      fs.mkdirSync(symlinkedMetadataWorkspace);
+      fs.symlinkSync(path.join(sourceRepository, '.git'), path.join(symlinkedMetadataWorkspace, '.git'), 'dir');
+      expect(() => runPreparation(symlinkedMetadataWorkspace)).toThrow();
+      expect(fs.lstatSync(path.join(symlinkedMetadataWorkspace, '.git')).isSymbolicLink()).toBe(true);
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
     }
@@ -4603,10 +4616,10 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With the safe Git-metadata retry, compact result waiters, and
-    // empty-workspace cleanup, size is 473517 bytes (<= 480000 budget).
+    // With the safe Git-metadata retry and empty-workspace cleanup, size is
+    // 473665 bytes (<= 480000 budget) after the common Git-dir guard is emitted.
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473517);
+    expect(bytes).toBe(473665);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
