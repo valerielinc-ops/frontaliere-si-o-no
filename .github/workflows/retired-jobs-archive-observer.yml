@@ -56,6 +56,10 @@ jobs:
           git show "HEAD:build-plugins/shared/cantonResolvers.mjs" > build-plugins/shared/cantonResolvers.mjs
           git show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json
           git show "HEAD:data/canton-municipalities.json" > data/canton-municipalities.json
+
+      - name: Validate observer file dependencies
+        run: |
+          set -euo pipefail
           for file in data/canton-url-slugs.json data/canton-municipalities.json; do
             test -s "$file"
           done

@@ -78,6 +78,11 @@ function parseMaterializationRun(run) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;
 
+    // GitHub's bash runner already enables these options, but materialization
+    // steps keep the declaration explicit. It changes shell failure behavior
+    // only and cannot create, copy, or hide a checkout path.
+    if (line === 'set -euo pipefail') continue;
+
     const mkdir = line.match(/^mkdir -p ([A-Za-z0-9._/-]+(?: [A-Za-z0-9._/-]+)*)$/);
     if (mkdir) {
       const paths = mkdir[1].split(' ');
