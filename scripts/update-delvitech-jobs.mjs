@@ -35,6 +35,7 @@ import {
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseDelvitechCareerPage,
+  hasDelvitechListingEvidence,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
   inferDelvitechCategory,
@@ -68,6 +69,8 @@ const CAREERS_URL = 'https://delvi.tech/careers/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const execFile = promisify(execFileCb);
 const BROWSER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36';
+const CAREER_LISTING_POLL_MS = 750;
+const CAREER_LISTING_WAIT_MS = 10000;
 
 function readJson(filePath, fallback) {
   try {
@@ -122,7 +125,7 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
   }
 }
 
-async function fetchWithBrowser(url) {
+async function fetchWithBrowser(url, { revealCareerListings = false } = {}) {
   const browser = await launchStealthOrChromium({
     purpose: 'crawler',
     fallbackOptions: { headless: true },
@@ -133,7 +136,42 @@ async function fetchWithBrowser(url) {
       : await browser.newPage({ userAgent: BROWSER_UA });
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(1000);
-    const html = await page.content();
+    let html = await page.content();
+
+    if (revealCareerListings && !hasDelvitechListingEvidence(html, CAREERS_URL)) {
+      // The current careers shell exposes the vacancy section through an
+      // explicit CTA and lazy rendering. A DOM snapshot taken immediately
+      // after domcontentloaded therefore contains the marketing shell but not
+      // the source listing. Trigger the source's own control, scroll the
+      // section into view, and wait for parser-visible evidence; if it never
+      // arrives, return the unproven snapshot so the caller still fails closed.
+      await page.evaluate(() => {
+        const control = [...document.querySelectorAll('a,button')].find((node) => (
+          /see\s+open\s+roles?/i.test(String(node.textContent || '').replace(/\s+/g, ' ').trim())
+        ));
+        if (!control) return false;
+        control.scrollIntoView?.({ block: 'center', inline: 'nearest' });
+        control.click?.();
+        return true;
+      }).catch(() => false);
+      await page.evaluate(() => {
+        const target = [...document.querySelectorAll('[id], [class]')].find((node) => {
+          const className = typeof node.className === 'string' ? node.className : '';
+          return /open[-_ ]?roles?/i.test(`${node.id || ''} ${className}`);
+        });
+        target?.scrollIntoView?.({ block: 'center', inline: 'nearest' });
+        window.scrollTo?.(0, document.documentElement.scrollHeight);
+      }).catch(() => {});
+      await page.waitForLoadState('networkidle', { timeout: CAREER_LISTING_WAIT_MS }).catch(() => {});
+
+      const deadline = Date.now() + CAREER_LISTING_WAIT_MS;
+      while (Date.now() < deadline) {
+        html = await page.content().catch(() => '');
+        if (hasDelvitechListingEvidence(html, CAREERS_URL)) break;
+        await page.waitForTimeout(CAREER_LISTING_POLL_MS);
+      }
+    }
+
     if (isAccessLimited(html)) {
       throw new Error('Browser fallback still blocked by site owner');
     }
@@ -238,7 +276,7 @@ async function fetchListings() {
     // read completely.
     console.log('⚠️  No Delvitech listing evidence in HTML, rendering the canonical page...');
     try {
-      const renderedHtml = await fetchWithBrowser(CAREERS_URL);
+      const renderedHtml = await fetchWithBrowser(CAREERS_URL, { revealCareerListings: true });
       const renderedListings = parseDelvitechCareerPage(renderedHtml, CAREERS_URL);
       if (renderedListings.length > 0 || renderedListings.delvitechListingEmptyStateObserved === true) {
         listings = renderedListings;

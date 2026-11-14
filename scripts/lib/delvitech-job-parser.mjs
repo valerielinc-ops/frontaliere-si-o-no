@@ -250,6 +250,11 @@ export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_C
   return jobs;
 }
 
+export function hasDelvitechListingEvidence(html = '', pageUrl = DELVITECH_LEGACY_CAREER_URL) {
+  const listings = parseDelvitechCareerPage(html, pageUrl);
+  return listings.length > 0 || listings.delvitechListingEmptyStateObserved === true;
+}
+
 export function parseDelvitechJobDetail(html = '', url = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;

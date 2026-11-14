@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseDelvitechCareerPage,
+  hasDelvitechListingEvidence,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
 } from '../scripts/lib/delvitech-job-parser.mjs';
@@ -145,6 +146,28 @@ describe('Delvitech job parser', () => {
       title: 'E2E Test Engineer',
     }]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
+  });
+
+  it('does not treat the static careers shell as listing evidence before the open-roles section hydrates', () => {
+    const shell = `
+      <main>
+        <a href="#open-roles">See open roles</a>
+        <p>Open positions are listed in the Open roles section of this page.</p>
+      </main>
+    `;
+    const hydrated = shell.replace(
+      '</main>',
+      `<section id="open-roles">
+          <article class="role-card">
+            <h3>Application Engineer</h3>
+            <a href="/application-engineer-2/">View role</a>
+          </article>
+        </section>
+      </main>`,
+    );
+
+    expect(hasDelvitechListingEvidence(shell, 'https://delvi.tech/careers/')).toBe(false);
+    expect(hasDelvitechListingEvidence(hydrated, 'https://delvi.tech/careers/')).toBe(true);
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {
