@@ -47,11 +47,18 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch PR diff
+      - name: Fetch immutable PR merge diff
         env:
-          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_MERGE_SHA: ${{ github.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+        run: |
+          set -euo pipefail
+          merge_ref=FETCH_HEAD
+          if ! git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"; then
+            git -C .portal-base fetch --no-tags --depth=1 origin "refs/pull/$PR_NUMBER/merge"
+          fi
+          git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Detect whether the runner needs replay
         id: detect
@@ -97,11 +104,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"
 
-      - name: Fetch PR diff
+      - name: Fetch immutable PR merge diff
         env:
-          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_MERGE_SHA: ${{ github.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+        run: |
+          set -euo pipefail
+          merge_ref=FETCH_HEAD
+          if ! git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"; then
+            git -C .portal-base fetch --no-tags --depth=1 origin "refs/pull/$PR_NUMBER/merge"
+          fi
+          git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Select a deterministic corpus
         id: prepare

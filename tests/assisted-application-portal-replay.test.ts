@@ -437,6 +437,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.sha');
     expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
     expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
+    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
+    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
+    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
     expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
