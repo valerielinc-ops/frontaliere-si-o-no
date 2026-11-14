@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+  'whatsNew.v31022.title': 'More control over application emails',
+  'whatsNew.v31022.inbound-forward.title': 'Messages forwarded when the candidate needs to act',
+  'whatsNew.v31022.inbound-forward.desc': 'Automatic receipts and portal notices stay in Application Concierge. Messages that call for candidate action are forwarded; unclear automatic notifications wait for owner review.',
   'whatsNew.v31021.title': 'Reuse your CV skills across job listings',
   'whatsNew.v31021.cv-affinity.title': 'Upload a CV and compare its skills with a job',
   'whatsNew.v31021.cv-affinity.desc': 'Your CV stays in your private profile. You can review and edit extracted skills, reuse them across listings, and optionally let them refine job-alert ranking.',
