@@ -1,7 +1,7 @@
 {
   "key": "klinik-arlesheim",
   "label": "Klinik Arlesheim",
-  "generatedAt": "2026-11-13T21:52:45.253Z",
+  "generatedAt": "2026-11-14T09:32:11.707Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6000,
-  "avgDurationMs": 6000,
+  "durationMs": 6780,
+  "avgDurationMs": 6780,
   "durationHistory": [
-    6000
+    6780
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:52:30.137Z",
+      "crawledAt": "2026-11-14T09:31:46.131Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T21:52:30.137Z",
+      "validThrough": "2027-01-03T09:31:46.131Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -95,7 +95,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:52:29.657Z",
+      "crawledAt": "2026-11-14T09:31:45.666Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:52:29.657Z",
+      "validThrough": "2026-12-30T09:31:45.666Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -152,7 +152,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:52:29.194Z",
+      "crawledAt": "2026-11-14T09:31:45.191Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:52:29.194Z",
+      "validThrough": "2026-12-30T09:31:45.191Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -209,7 +209,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/52e615fd-01b0-4394-b020-078596bb3e0a/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:52:28.707Z",
+      "crawledAt": "2026-11-14T09:31:44.733Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T21:52:28.707Z",
+      "validThrough": "2027-02-01T09:31:44.733Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/231a7f8d-bd7b-4f12-923b-144c31173006/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:52:28.246Z",
+      "crawledAt": "2026-11-14T09:31:44.258Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -299,7 +299,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:52:28.246Z",
+      "validThrough": "2026-12-30T09:31:44.258Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -310,5 +310,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
