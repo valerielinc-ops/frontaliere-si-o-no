@@ -130,8 +130,13 @@ jobs:
       - name: Checkout PR runner
         uses: actions/checkout@v7
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
+          # Replay the synthetic merge ref, not the raw head SHA. A PR can be
+          # opened before main receives portal fixes; checking out head alone
+          # would compare an old portal runner with current main and report
+          # pre-existing differences as regressions. The merge ref is the
+          # exact tree GitHub would merge and therefore the only meaningful
+          # PR-side replay target.
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |

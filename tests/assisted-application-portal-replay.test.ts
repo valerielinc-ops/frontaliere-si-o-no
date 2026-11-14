@@ -416,6 +416,12 @@ describe('portal replay workflow wiring', () => {
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
+    const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
+    const mergeRef = workflow.indexOf('          ref: refs/pull/${{ github.event.pull_request.number }}/merge\n');
+    expect(prCheckout).toBeGreaterThan(-1);
+    expect(mergeRef).toBeGreaterThan(prCheckout);
+    expect(workflow).not.toContain('github.event.pull_request.head.sha');
+    expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
@@ -454,6 +460,56 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.familyRates.comparable).toBe(0);
+  });
+
+  it('does not block on a posting mismatch already present on the base', () => {
+    const base = (caseId: string) => measured(caseId, 'form', {
+      status: 'fail',
+      formLinkedToPosting: 'no',
+      securityViolations: ['wrong_posting_or_talent_pool'],
+    });
+    const result = comparePortalReplayFamily({
+      family: 'refline',
+      baseRecords: ['one', 'two', 'three'].map(base),
+      headRecords: ['one', 'two', 'three'].map(base),
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+    expect(result.familyRates.comparable).toBe(0);
+    expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('does not block on a timeout already present on the base', () => {
+    const timeout = (caseId: string) => measured(caseId, 'stopped', { status: 'error', stopCode: 'portal_replay_timeout' });
+    const result = comparePortalReplayFamily({
+      family: 'greenhouse',
+      baseRecords: ['one', 'two', 'three'].map(timeout),
+      headRecords: ['one', 'two', 'three'].map(timeout),
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+    expect(result.familyRates.comparable).toBe(0);
+    expect(sanitizePortalReplayReport(result).status).toBe('pass');
+  });
+
+  it('does not infer a security regression from an unmeasured base', () => {
+    const result = comparePortalReplayFamily({
+      family: 'personio',
+      baseRecords: [measured('one', 'stopped', { status: 'error', stopCode: 'runner_error' })],
+      headRecords: [measured('one', 'form', { status: 'fail', formLinkedToPosting: 'no' })],
+    });
+    expect(result.status).toBe('pass');
+    expect(result.findingCodes).toEqual([]);
+  });
+
+  it('still fails when the PR introduces an unmeasured replay', () => {
+    const result = comparePortalReplayFamily({
+      family: 'greenhouse',
+      baseRecords: [measured('one', 'form')],
+      headRecords: [measured('one', 'stopped', { status: 'error', stopCode: 'portal_replay_timeout' })],
+    });
+    expect(result.status).toBe('fail');
+    expect(result.findingCodes).toContain('replay_unmeasured');
   });
 
   it('fails every security violation, including a final click, a passed mutation, or a wrong posting', () => {
