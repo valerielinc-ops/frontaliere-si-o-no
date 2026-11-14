@@ -450,7 +450,10 @@ function templateLabel(table, index) {
 export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
   const actionableFindings = (summary.findings || []).filter(isReportActionableFinding);
   const actionableByRoot = new Map();
-  for (const item of actionableFindings) increment(actionableByRoot, item.root || folderFor(item.url));
+  for (const item of actionableFindings) {
+    const root = item.root || folderFor(item.url);
+    actionableByRoot.set(root, (actionableByRoot.get(root) || 0) + 1);
+  }
   const scopeSummaries = summary.scopeSummaries || (summary.scopes || []).map((scope) => ({
     ...scope,
     findingCount: 0,

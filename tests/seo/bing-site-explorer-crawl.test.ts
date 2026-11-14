@@ -2079,7 +2079,7 @@ describe('Bing-compatible full-tree crawler', () => {
     ];
     const sources = cases.map((item) => item.source);
     const targets = cases.map((item) => item.target);
-    const findings = cases.map((item) => ({ ...item, scope: 'discovered-frontier', root: '/frontier/', status: 200 }));
+    const findings = cases.map((item) => ({ ...item, url: item.target, scope: 'discovered-frontier', root: '/frontier/', status: 200 }));
     const summary = aggregateCrawlReports([{
       schemaVersion: 1,
       scope: 'sitemap',
