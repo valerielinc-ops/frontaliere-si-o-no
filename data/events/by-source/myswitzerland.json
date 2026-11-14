@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-13T13:51:21.416Z",
+  "assembledAt": "2026-11-14T12:55:18.841Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -166734,19 +166734,13 @@
       },
       "startDate": "2026-09-18",
       "endDate": "2027-01-10",
-      "startTime": "02:00",
-      "category": "Exhibition",
-      "venue": "Musée de Pully",
+      "category": "Event",
+      "venue": "Pully",
       "comune": "Pully",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/cuno-amiet-die-vier-jahreszeiten/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cuno-amiet-the-four-seasons/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Chemin Davel 2",
-        "postalCode": "1009",
-        "locality": "Pully"
-      },
       "geo": {
         "lat": 46.5090106,
         "lng": 6.6605189
@@ -197006,7 +197000,6 @@
       },
       "startDate": "2026-11-25",
       "endDate": "2026-11-25",
-      "startTime": "20:00",
       "category": "Event",
       "venue": "Unterengstringen",
       "comune": "Unterengstringen",
@@ -197021,10 +197014,29 @@
       "recurring": false,
       "performer": [
         {
+          "name": "Format"
+        },
+        {
+          "name": "Stimme"
+        },
+        {
+          "name": "Generation"
+        },
+        {
           "name": "David Ruosch"
         },
         {
-          "name": "Band mit einem Gospelabend auf die Adventszeit einstimmen"
+          "name": "Gänsehautmomenten"
+        },
+        {
+          "name": "Christina Jaccard"
+        },
+        {
+          "name": "Dave Ruosch"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Band"
         }
       ],
       "sourceDescriptionHash": "bd7b430172b3467fc7b4c34890ab80e96e8c220c0143cec48339ac5a39ecf1c8"
@@ -225512,7 +225524,6 @@
       },
       "startDate": "2027-05-04",
       "endDate": "2027-05-04",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Schaan",
       "canton": "",
@@ -225524,15 +225535,6 @@
         "lng": 9.5118214
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Schaan"
-      },
       "sourceDescriptionHash": "8f76aedcb7198f8e9373a61eb6260f2d65fc0c9e47f4cd1cf51a493ebaa03584"
     },
     {
@@ -276402,6 +276404,508 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "640142b3dc4be8738dc8b03de31bdd18009e7dc30af8da8449b584c2c9b765ac"
+    },
+    {
+      "id": "myswitzerland:5be3d1853c124d76a99b906fb901ab00",
+      "title": "Silvester 2026 im Golf Panorama",
+      "titleByLocale": {
+        "it": "Silvester 2026 im Golf Panorama",
+        "en": "Silvester 2026 im Golf Panorama",
+        "de": "Silvester 2026 im Golf Panorama",
+        "fr": "Silvester 2026 im Golf Panorama"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2027-01-01",
+      "category": "Event",
+      "venue": "Lipperswil",
+      "comune": "Wäldi",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/silvester-2026-im-golf-panorama/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6217503,
+        "lng": 9.058249
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Feuerwerk"
+        },
+        {
+          "name": "Gala-Dinner"
+        },
+        {
+          "name": "Live Painting"
+        },
+        {
+          "name": "Musik"
+        }
+      ],
+      "sourceDescriptionHash": "ad6db97d0730c5741d5a35a6e487fd1cef31486ed8778e357f742155b1e11447"
+    },
+    {
+      "id": "myswitzerland:5b5b6b3006e541ad8dfe4bfb1cf52248",
+      "title": "LA REINE - Strictly Female Cycling Festival",
+      "titleByLocale": {
+        "it": "LA REINE - Strictly Female Cycling Festival",
+        "en": "LA REINE - Strictly Female Cycling Festival",
+        "de": "LA REINE - Strictly Female Cycling Festival",
+        "fr": "LA REINE - Strictly Female Cycling Festival"
+      },
+      "startDate": "2027-06-17",
+      "endDate": "2027-06-19",
+      "category": "Event",
+      "venue": "Gstaad",
+      "comune": "Saanen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-reine-strictly-female-cycling-festival/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.472927,
+        "lng": 7.28637
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7063053c9951d8d4e15cef846fa3d057ab187ab901c5f5c8aeedd0286a5a5ff0"
+    },
+    {
+      "id": "myswitzerland:5b232f108a8f4014882c3ade3f6a6a8b",
+      "title": "Das Märchen vom Schlaraffenland",
+      "titleByLocale": {
+        "it": "Das Märchen vom Schlaraffenland",
+        "en": "Das Märchen vom Schlaraffenland",
+        "de": "Das Märchen vom Schlaraffenland",
+        "fr": "Das Märchen vom Schlaraffenland"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "category": "Event",
+      "venue": "Stein am Rhein",
+      "comune": "Stein am Rhein",
+      "canton": "SH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/das-maerchen-vom-schlaraffenland-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6600381,
+        "lng": 8.8610494
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "8b5419af4d8920b7a054887dcdaa231a7bf7b2eb1050ea8f50c54bd62b7d1ea4"
+    },
+    {
+      "id": "myswitzerland:5afe09ccd7ad4ae8bc8e87f679da1f7f",
+      "title": "Taschenlampenführung für Kinder",
+      "titleByLocale": {
+        "it": "Taschenlampenführung für Kinder",
+        "en": "Taschenlampenführung für Kinder",
+        "de": "Taschenlampenführung für Kinder",
+        "fr": "Taschenlampenführung für Kinder"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-12-04",
+      "category": "Event",
+      "venue": "Muri AG",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/taschenlampenfuehrung-fuer-kinder/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2673554,
+        "lng": 8.3435447
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "b913c622dfb553000cb81d5287ee45aaa678c71183dbb928c906d4d4455c0237"
+    },
+    {
+      "id": "myswitzerland:5a9e56d89bb2461db7c8bded32dd2946",
+      "title": "Musikalischer Adventskalender Nidau",
+      "titleByLocale": {
+        "it": "Musikalischer Adventskalender Nidau",
+        "en": "Musikalischer Adventskalender Nidau",
+        "de": "Musikalischer Adventskalender Nidau",
+        "fr": "Calendrier de l’Avent musical de Nidau"
+      },
+      "startDate": "2026-12-23",
+      "endDate": "2026-12-23",
+      "category": "Event",
+      "venue": "Nidau",
+      "comune": "Nidau",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/musikalischer-adventskalender-nidau-11/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1170486,
+        "lng": 7.2482845
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Verein Nidau klingt!"
+      },
+      "sourceDescriptionHash": "16533e1ae718fe16d84b2b2e115aceb06e561bbd3dc09f33e9583a101baaafcc"
+    },
+    {
+      "id": "myswitzerland:5a598deb2b3249de9966df3aaf8f4331",
+      "title": "Verlustanzeige",
+      "titleByLocale": {
+        "it": "Verlustanzeige",
+        "en": "Verlustanzeige",
+        "de": "Verlustanzeige",
+        "fr": "Verlustanzeige"
+      },
+      "startDate": "2027-02-11",
+      "endDate": "2027-02-11",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/verlustanzeige/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3882752,
+        "lng": 8.5534552
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Pianist"
+        },
+        {
+          "name": "Nicole Knuth"
+        },
+        {
+          "name": "Mona Petri"
+        },
+        {
+          "name": "Niklaus Kost"
+        },
+        {
+          "name": "Hans Adolfsen"
+        }
+      ],
+      "sourceDescriptionHash": "3a780ded75b7708c027290f3f71c4a692b835f7fb9de2896cbcb1eceb2a57d34"
+    },
+    {
+      "id": "myswitzerland:5a531b29027e4cdbbeda6c196d430912",
+      "title": "Hands-on",
+      "titleByLocale": {
+        "it": "Hands-on",
+        "en": "Hands-on",
+        "de": "Hands-on",
+        "fr": "Hands-on"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2027-05-17",
+      "category": "Event",
+      "venue": "Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hands-on/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4992367,
+        "lng": 8.729453
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Coral Crochet Reef"
+        },
+        {
+          "name": "Arbeiten"
+        },
+        {
+          "name": "Tätigkeiten"
+        },
+        {
+          "name": "Dingen"
+        },
+        {
+          "name": "Behinderungen"
+        },
+        {
+          "name": "Händen"
+        }
+      ],
+      "sourceDescriptionHash": "e881c57b59aacc97ac72b96082c5c095a7398ddd26d642a1592ff672eab58dd6"
+    },
+    {
+      "id": "myswitzerland:5993cb646dd0474a915de1a623d700f3",
+      "title": "Marché de Noël à Jaun",
+      "titleByLocale": {
+        "it": "Marché de Noël à Jaun",
+        "en": "Marché de Noël à Jaun",
+        "de": "Marché de Noël à Jaun",
+        "fr": "Marché de Noël à Jaun"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Jaun - Dorf",
+      "comune": "Jaun",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/marche-de-noel-a-jaun/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6103237,
+        "lng": 7.2861429
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "d92abd2475528eabf94ce0ddeba12ae02889bc598e14a055a10834063af27210"
+    },
+    {
+      "id": "myswitzerland:596a4baebe3543748a7e691a2bcbdd6c",
+      "title": "Schweizer Erzählnacht: Stimmen",
+      "titleByLocale": {
+        "it": "Schweizer Erzählnacht: Stimmen",
+        "en": "Schweizer Erzählnacht: Stimmen",
+        "de": "Schweizer Erzählnacht: Stimmen",
+        "fr": "Schweizer Erzählnacht: Stimmen"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schweizer-erzaehlnacht-stimmen-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Stimmen"
+        },
+        {
+          "name": "Geräuschen"
+        }
+      ],
+      "sourceDescriptionHash": "73d60ac2eab97f1de80038aeb3df0d66dc5ce0fcb058e9f5c652aa0d0b582ad0"
+    },
+    {
+      "id": "myswitzerland:596a03c6fef24cd0b2aa22dbd26f4f85",
+      "title": "Sonntagsbrunch",
+      "titleByLocale": {
+        "it": "Sonntagsbrunch",
+        "en": "Sonntagsbrunch",
+        "de": "Sonntagsbrunch",
+        "fr": "Sonntagsbrunch"
+      },
+      "startDate": "2027-01-17",
+      "endDate": "2027-12-05",
+      "category": "Event",
+      "venue": "Spiez",
+      "comune": "Spiez",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sonntagsbrunch-16/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6894751,
+        "lng": 7.6820491
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "SchokoladenbrunnenProsecco"
+        },
+        {
+          "name": "FruchtsäfteKaffeespezialitäten"
+        }
+      ],
+      "sourceDescriptionHash": "a90bcedba4b36ae9db56addd49f0516b75c9a1af1a9358cd21c56e79228325fe"
+    },
+    {
+      "id": "myswitzerland:593f947808394929a1e2b8c28d5a7838",
+      "title": "Schauturnen Engi: «Malheur bim Coiffeur»",
+      "titleByLocale": {
+        "it": "Schauturnen Engi: «Malheur bim Coiffeur»",
+        "en": "Schauturnen Engi: «Malheur bim Coiffeur»",
+        "de": "Schauturnen Engi: «Malheur bim Coiffeur»",
+        "fr": "Schauturnen Engi: «Malheur bim Coiffeur»"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-27",
+      "category": "Event",
+      "venue": "Engi",
+      "comune": "Glarus Süd",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schauturnen-engi-malheur-bim-coiffeur/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0002749,
+        "lng": 9.0864468
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "3a453a4928104553da0ab3caf990e2a21d3ff34af3dde85d6ebc4db7b2f643be"
+    },
+    {
+      "id": "myswitzerland:58efcf25e5d2471c9d941a0de8173c3a",
+      "title": "HUNDESCHULEFEST 1212",
+      "titleByLocale": {
+        "it": "HUNDESCHULEFEST 1212",
+        "en": "HUNDESCHULEFEST 1212",
+        "de": "HUNDESCHULEFEST 1212",
+        "fr": "HUNDESCHULEFEST 1212"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hundeschulefest-1212/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4781559,
+        "lng": 8.3086597
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "57e1c5ab6a80014d43e0e993fd804ce28398b57e423dfbe6e1634e3023959409"
+    },
+    {
+      "id": "myswitzerland:589c225ded2d44e894ce58213437a521",
+      "title": "Swiss National Day",
+      "titleByLocale": {
+        "it": "Swiss National Day",
+        "en": "Swiss National Day",
+        "de": "Nationalfeiertag",
+        "fr": "Fête nationale"
+      },
+      "startDate": "2027-08-01",
+      "endDate": "2027-08-01",
+      "category": "Event",
+      "venue": "Nendaz",
+      "comune": "Nendaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/swiss-national-day-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1631007,
+        "lng": 7.2881687
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Nendaz Alpine Horn Ensemble"
+      },
+      "sourceDescriptionHash": "ac319146f5cd71049f65f31dc8c7fb470419adef8a5094451421e49919f9ea6f"
+    },
+    {
+      "id": "myswitzerland:5884fff42ab5410dbf5e97aa11a75991",
+      "title": "Coding for Kids – micro:bit: Schere, Stein, Papier & Co.",
+      "titleByLocale": {
+        "it": "Coding for Kids – micro:bit: Schere, Stein, Papier & Co.",
+        "en": "Coding for Kids – micro:bit: Schere, Stein, Papier & Co.",
+        "de": "Coding for Kids – micro:bit: Schere, Stein, Papier & Co.",
+        "fr": "Coding for Kids – micro:bit: Schere, Stein, Papier & Co."
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-18",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/coding-for-kids-microbit-schere-stein-papier-co/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1646109,
+        "lng": 8.5148439
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "dc1ceb703c1b31684f7d4d61c90ec40c31e4eb51adf170ca690c4278740a3848"
+    },
+    {
+      "id": "myswitzerland:580df3c1265141e99bc13b01e4085c2c",
+      "title": "Cena a lume di candela di San Valentino alla Marbachegg",
+      "titleByLocale": {
+        "it": "Cena a lume di candela di San Valentino alla Marbachegg",
+        "en": "Valentine's Day Candlelight Dinner at Marbachegg",
+        "de": "Valentinstag Candle-Light-Dinner auf der Marbachegg",
+        "fr": "Dîner aux chandelles pour la Saint-Valentin à la Marbachegg"
+      },
+      "startDate": "2027-02-14",
+      "endDate": "2027-02-14",
+      "category": "Event",
+      "venue": "Escholzmatt-Marbach",
+      "comune": "Escholzmatt-Marbach",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/cena-a-lume-di-candela-di-san-valentino-alla-marbachegg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8350048,
+        "lng": 7.9059654
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "66e0ea425ef827475354928d444989c73a10d267cd086fb79bf4bc764ebda9f1"
+    },
+    {
+      "id": "myswitzerland:57e2b408d07d4feb95b1612e89dfb3ce",
+      "title": "Metzgete nach Wahl: Im Hotel Sedartis kommt auf den Teller, was schmeckt",
+      "titleByLocale": {
+        "it": "Metzgete nach Wahl: Im Hotel Sedartis kommt auf den Teller, was schmeckt",
+        "en": "Metzgete nach Wahl: Im Hotel Sedartis kommt auf den Teller, was schmeckt",
+        "de": "Metzgete nach Wahl: Im Hotel Sedartis kommt auf den Teller, was schmeckt",
+        "fr": "Metzgete nach Wahl: Im Hotel Sedartis kommt auf den Teller, was schmeckt"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-30",
+      "category": "Event",
+      "venue": "Thalwil",
+      "comune": "Thalwil",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/metzgete-nach-wahl-im-hotel-sedartis-kommt-auf-den-teller-was-schmeckt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2955532,
+        "lng": 8.5659082
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Dörrbohnen"
+      },
+      "sourceDescriptionHash": "9b8a12f48af29931f177a84ee455f6c48ccd52d07648665a6171e33477fb5115"
+    },
+    {
+      "id": "myswitzerland:57bf5407c3c14cbd948d72c34eeedcbc",
+      "title": "«Touching your Soul»",
+      "titleByLocale": {
+        "it": "«Touching your Soul»",
+        "en": "«Touching your Soul»",
+        "de": "«Touching your Soul»",
+        "fr": "«Touching your Soul»"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "category": "Event",
+      "venue": "Rüti ZH",
+      "comune": "Rüti (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/touching-your-soul/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2554008,
+        "lng": 8.8577852
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e49af0af2d8bae4f37b8d2ecdc3a79909c748a47b7e6281bace50fd6b15de28e"
     }
   ]
 }
