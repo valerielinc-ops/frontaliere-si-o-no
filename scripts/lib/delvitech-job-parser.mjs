@@ -141,10 +141,40 @@ function collectSemanticListingAnchors(listingContainer) {
 function collectStructuredListings(html, baseUrl) {
   return extractJobPostingNodes(html)
     .map((posting) => ({
-      href: resolveDelvitechDetailUrl(posting.url || posting.mainEntityOfPage?.['@id'] || posting.mainEntityOfPage, baseUrl),
+      href: resolveDelvitechDetailUrl(structuredPostingUrl(posting), baseUrl),
       title: normalizeSpace(posting.title || ''),
     }))
     .filter(({ href, title }) => Boolean(href && title));
+}
+
+function structuredPostingUrl(posting = {}) {
+  const mainEntity = posting.mainEntityOfPage;
+  return String(posting.url || (typeof mainEntity === 'object' ? mainEntity?.['@id'] : mainEntity) || '').trim();
+}
+
+function detailPath(rawUrl = '', baseUrl = '') {
+  const resolved = resolveDelvitechDetailUrl(rawUrl, baseUrl || rawUrl);
+  if (!resolved) return '';
+  try {
+    return new URL(resolved).pathname.replace(/\/+$/, '') || '/';
+  } catch {
+    return '';
+  }
+}
+
+function structuredPostingForDetail(html, url) {
+  const postings = extractJobPostingNodes(html);
+  if (postings.length === 0) return {};
+  if (postings.length === 1) {
+    const postingUrl = structuredPostingUrl(postings[0]);
+    if (!postingUrl || !url) return postings[0];
+    return detailPath(postingUrl, url) === detailPath(url, url) ? postings[0] : {};
+  }
+
+  const targetPath = detailPath(url, url);
+  if (!targetPath) return {};
+  const matches = postings.filter((posting) => detailPath(structuredPostingUrl(posting), url) === targetPath);
+  return matches.length === 1 ? matches[0] : {};
 }
 
 export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_CAREER_URL) {
@@ -210,7 +240,7 @@ export function parseDelvitechJobDetail(html = '', url = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const root = document.querySelector('.post-content, main, [role="main"]') || document.body;
-  const structuredPosting = extractJobPostingNodes(html)[0] || {};
+  const structuredPosting = structuredPostingForDetail(html, url);
   const structuredTitle = normalizeSpace(structuredPosting.title || '');
   const title = normalizeSpace(root.querySelector('h1')?.textContent || structuredTitle);
   const email = String(root.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '')

@@ -163,6 +163,19 @@ describe('Delvitech job parser', () => {
     expect(detail.description).toContain('Build and maintain automated tests.');
   });
 
+  it('keeps ambiguous JobPosting detail metadata unknown', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify([
+      { '@type': 'JobPosting', title: 'First role', description: '<p>First</p>' },
+      { '@type': 'JobPosting', title: 'Second role', description: '<p>Second</p>' },
+    ])}</script><main></main>`;
+    expect(parseDelvitechJobDetail(html, 'https://delvi.tech/unknown-role/')).toMatchObject({
+      title: '',
+      location: '',
+      description: '',
+      datePublished: '',
+    });
+  });
+
   it('filters out the explicit Germany role', () => {
     expect(isDelvitechTicinoJob({
       title: 'Office Manager Germany',
