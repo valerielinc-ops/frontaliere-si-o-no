@@ -442,6 +442,8 @@ export function postingAddressOf(draft, order = null) {
  * Older orders can have only a stale application endpoint in `order.jobUrl` and no `draft.job.postingUrl`.
  */
 export async function resolvePublishedPostingAddressOf(draft, order = null, { fetchImpl = fetch, resolve } = {}) {
+  const savedPublishedPostingUrl = String(draft?.job?.publishedPostingUrl || '').trim();
+  if (savedPublishedPostingUrl) return savedPublishedPostingUrl;
   const savedPostingUrl = String(draft?.job?.postingUrl || '').trim();
   const savedApplyAddresses = new Set([
     order?.jobUrl,
@@ -451,7 +453,7 @@ export async function resolvePublishedPostingAddressOf(draft, order = null, { fe
   if (savedPostingUrl && !savedApplyAddresses.has(savedPostingUrl)) return savedPostingUrl;
   try {
     const posting = await fetchJobPosting(order, { fetchImpl, resolve });
-    if (posting?.source === 'job_detail' && posting.publishedPostingUrl) return posting.publishedPostingUrl;
+    if (posting?.publishedPostingUrl) return posting.publishedPostingUrl;
   } catch {
     // The saved order or channel address remains a best-effort fallback.
   }
