@@ -1,11 +1,12 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-11-14T09:33:12.150Z",
+  "generatedAt": "2026-11-14T21:42:21.843Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2055,
-  "avgDurationMs": 2055,
+  "durationMs": 2285,
+  "avgDurationMs": 2285,
   "durationHistory": [
-    2055
+    2285
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }
