@@ -8,7 +8,6 @@ import {
   ASSEMBLE_AUX_DATA_INPUTS,
   ASSEMBLE_OUTPUT_CACHE_VERSION,
   assembleCacheFileContract,
-  computeAssembleCacheKey,
   isAssembleCacheManifestValid,
   listAssembleCodeClosure,
 } from '../assemble-jobs-dataset.mjs';
@@ -18,6 +17,7 @@ const SNAPSHOT_ROOT = path.join(ROOT, '.cache', 'assemble-jobs-test-snapshot');
 const SNAPSHOT_SCRIPT = fileURLToPath(import.meta.url);
 const NODE_MAJOR = process.versions.node.split('.')[0];
 const MAX_AGE_MS = 60 * 60 * 1000;
+const SOURCE_CACHE_KEY_RE = /^([0-9a-f]{64})_(stats(?:_noreconcile)?(?:_withheld)?)$/u;
 const PUBLIC_TWINS = new Set(['jobs.json', 'expired-jobs.json', 'jobs-stats.json']);
 const SNAPSHOT_FILES = assembleCacheFileContract({
   withStats: true,
@@ -59,15 +59,15 @@ function addFileHash(hasher, file) {
 }
 
 function computeCompatibilityFingerprint() {
+  // Fingerprint output compatibility, not workflow orchestration: unrelated
+  // edits to tests.yml must not invalidate an otherwise reusable dataset.
   const files = new Set([
     ...listAssembleCodeClosure(),
     SNAPSHOT_SCRIPT,
     path.join(ROOT, 'package-lock.json'),
-    path.join(ROOT, '.github', 'workflows', 'tests.yml'),
-    path.join(ROOT, '.github', 'workflows', 'hourly-test-assemble-snapshot.yml'),
   ]);
   const hasher = crypto.createHash('sha256');
-  hasher.update('assemble-test-snapshot:v1\0');
+  hasher.update('assemble-test-snapshot:v2\0');
   hasher.update(`output:${ASSEMBLE_OUTPUT_CACHE_VERSION}\0node:${NODE_MAJOR}\0mode:stats,summaries,expired\0`);
   for (const file of [...files].sort()) addFileHash(hasher, file);
   return hasher.digest('hex');
@@ -123,7 +123,7 @@ function checkChangedPaths() {
 
 function expectedCacheManifest(sourceCacheKey) {
   const cacheKey = String(sourceCacheKey || '');
-  const match = cacheKey.match(/^([0-9a-f]{64})_(stats(?:_noreconcile)?(?:_withheld)?)$/u);
+  const match = cacheKey.match(SOURCE_CACHE_KEY_RE);
   if (!match) throw new Error('the pre-assemble cache key is missing or invalid');
   const inputFingerprint = match[1];
   const contract = assembleCacheFileContract({ withStats: true, withSummaries: true, withExpired: true });
@@ -139,6 +139,11 @@ function expectedCacheManifest(sourceCacheKey) {
       ...contract,
     },
   };
+}
+
+function hasValidSourceCacheIdentity(manifest) {
+  const match = String(manifest?.sourceCacheKey || '').match(SOURCE_CACHE_KEY_RE);
+  return Boolean(match && manifest.sourceInputFingerprint === match[1]);
 }
 
 export function prepare({
@@ -201,7 +206,6 @@ export function restore({
   root = ROOT,
   expectedRunId = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ID || ''),
   expectedRunAttempt = String(process.env.ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT || ''),
-  currentInputFingerprint = computeAssembleCacheKey({ withStats: true, withSummaries: true, withExpired: true }).inputFingerprint,
   compatibilityFingerprint = computeCompatibilityFingerprint(),
   now = Date.now(),
   output = writeOutput,
@@ -219,8 +223,9 @@ export function restore({
   // publish time would make data already stale during a slow seed appear fresh.
   const ageMs = now - Date.parse(manifest?.sourceCapturedAt || '');
   const expectedFiles = SNAPSHOT_FILES;
-  // A fresh snapshot can still predate a main data refresh. Reuse it only if
-  // the complete assembler input set still matches the checkout being tested.
+  // Source input data is intentionally allowed to drift for at most one hour.
+  // PRs that change assembler inputs are excluded by checkChangedPaths; changes
+  // to the assembler's code closure still invalidate compatibilityFingerprint.
   const allFilesPresent = Array.isArray(manifest?.snapshotFiles)
     && expectedFiles.length === manifest.snapshotFiles.length
     && expectedFiles.every((name) => {
@@ -235,7 +240,7 @@ export function restore({
     && manifest.outputCacheVersion === ASSEMBLE_OUTPUT_CACHE_VERSION
     && manifest.nodeMajor === NODE_MAJOR
     && manifest.mode === 'stats,summaries,expired'
-    && manifest.sourceInputFingerprint === currentInputFingerprint
+    && hasValidSourceCacheIdentity(manifest)
     && Number.isFinite(ageMs)
     && ageMs >= 0
     && ageMs <= MAX_AGE_MS
@@ -251,8 +256,8 @@ export function restore({
       reason = 'snapshot run attempt does not match the selected workflow run';
     } else if (manifest.compatibilityFingerprint !== compatibilityFingerprint) {
       reason = 'assembler or test snapshot compatibility changed';
-    } else if (manifest.sourceInputFingerprint !== currentInputFingerprint) {
-      reason = 'assemble inputs changed since the snapshot was created';
+    } else if (!hasValidSourceCacheIdentity(manifest)) {
+      reason = 'snapshot source cache key does not match its input fingerprint';
     } else if (!Number.isFinite(ageMs) || ageMs < 0 || ageMs > MAX_AGE_MS) {
       reason = 'snapshot is older than 60 minutes or has an invalid timestamp';
     }
