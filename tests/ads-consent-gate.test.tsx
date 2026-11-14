@@ -138,14 +138,37 @@ type TcData = {
   purpose?: { consents?: Record<number, boolean> };
 };
 
+type TestWindow = Window & {
+  __ftFcConsentBridge?: number;
+  __ftAdsConsentDecision?: string;
+  __ftTestTcfListener?: (data: TcData, ok: boolean) => void;
+  googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
+  __tcfapi?: unknown;
+};
+
 function installTcfapi(tcData: TcData, ok = true): void {
-  (window as unknown as { __tcfapi: unknown }).__tcfapi = (
+  const w = window as unknown as TestWindow;
+  w.__tcfapi = (
     cmd: string,
     _ver: number,
     cb: (d: TcData, success: boolean) => void,
   ) => {
-    if (cmd === 'addEventListener') cb(tcData, ok);
+    if (cmd === 'addEventListener') {
+      w.__ftTestTcfListener = cb;
+      cb(tcData, ok);
+    }
   };
+}
+
+function emitTcfEvent(data: TcData, ok = true): void {
+  (window as unknown as TestWindow).__ftTestTcfListener?.(data, ok);
+}
+
+function showCmpUi(): void {
+  const root = document.createElement('div');
+  root.className = 'fc-consent-root';
+  Object.defineProperty(root, 'getBoundingClientRect', { value: () => ({ width: 640, height: 480 }) });
+  document.body.appendChild(root);
 }
 
 function drainFcCallbackQueue(): void {
@@ -165,18 +188,21 @@ function runBridge(): void {
 beforeEach(() => {
   Object.defineProperty(window.navigator, 'userAgent', { value: REAL_UA, configurable: true });
   localStorage.clear();
+  sessionStorage.clear();
   document.head.querySelectorAll('script').forEach((s) => s.remove());
   document.body.innerHTML = '';
   // The bridge is idempotent per-window; tests need a fresh registration each.
-  const w = window as unknown as { __ftFcConsentBridge?: number; googlefc?: unknown; __tcfapi?: unknown };
+  const w = window as unknown as TestWindow;
   delete w.__ftFcConsentBridge;
   delete w.googlefc;
   delete w.__tcfapi;
+  delete w.__ftTestTcfListener;
 });
 
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();
 });
 
 describe('ads-consent gate — no ad-serving script before consent', () => {
@@ -405,12 +431,68 @@ describe('ads-consent gate — CMP → gate bridge', () => {
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
   });
 
-  it('a TCF refusal (purpose 1 withheld on useractioncomplete) records denied; the bridge alone serves nothing', () => {
+  it('a TCF refusal after the CMP was visible records denied; the bridge alone serves nothing', () => {
     runBridge();
+    showCmpUi();
     installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
     drainFcCallbackQueue();
     expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
     expect(injectedAdServingScripts()).toEqual([]);
+  });
+
+  it('leaves the consent gate unset when useractioncomplete has unknown Purpose 1 data', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: {} });
+    drainFcCallbackQueue();
+    expect((window as unknown as TestWindow).__ftAdsConsentDecision).toBeUndefined();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it('a silent first-visit refusal reopens Google CMP once and leaves the choice unset until the user answers', () => {
+    const showRevocationMessage = vi.fn();
+    (window as unknown as TestWindow).googlefc = { showRevocationMessage };
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+
+    expect(showRevocationMessage).toHaveBeenCalledOnce();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+    expect((window as unknown as TestWindow).__ftAdsConsentDecision).toBeUndefined();
+
+    emitTcfEvent({ eventStatus: 'cmpuishown', gdprApplies: true });
+    emitTcfEvent({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
+    expect(showRevocationMessage).toHaveBeenCalledOnce();
+  });
+
+  it('does not fabricate a refusal when the silent CMP state cannot be reopened', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+    expect((window as unknown as TestWindow).__ftAdsConsentDecision).toBeUndefined();
+  });
+
+  it('does not reopen the CMP or rewrite a previously saved refusal', () => {
+    const showRevocationMessage = vi.fn();
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    (window as unknown as TestWindow).googlefc = { showRevocationMessage };
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(showRevocationMessage).not.toHaveBeenCalled();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
+  });
+
+  it('does not turn an unanswered CMP recovery from an earlier page into a refusal', () => {
+    const showRevocationMessage = vi.fn();
+    sessionStorage.setItem('__ftFcSilentConsentRecovery', '1');
+    (window as unknown as TestWindow).googlefc = { showRevocationMessage };
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(showRevocationMessage).not.toHaveBeenCalled();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
   });
 
   it('gdprApplies === false (no framework in the visitor\'s jurisdiction) grants', () => {
