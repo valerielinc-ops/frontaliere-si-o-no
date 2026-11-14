@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Lidl Svizzera crawler runner.
  * Lidl Svizzera is a national discount retailer, so this crawler collects Lidl
@@ -856,7 +857,7 @@ export async function enrichLidlDetailDescriptions(urls, options = {}) {
   if (!fs.existsSync(DATA_JOBS)) return 0;
   const bodies = await fetchLidlDetailBodies(urls, options);
   if (!bodies.size) return 0;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   const changed = applyLidlDetailDescriptions(jobs, bodies);
   if (!changed) return 0;
@@ -874,7 +875,7 @@ export async function enrichLidlDetailDescriptions(urls, options = {}) {
  */
 function mergeApiDescriptions(jobsFromApi) {
   if (!jobsFromApi.length || !fs.existsSync(DATA_JOBS)) return 0;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
 
   // Index API jobs by URL path and reqId for fast lookup
@@ -930,7 +931,7 @@ function mergeApiDescriptions(jobsFromApi) {
 
 function postProcessLidlJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1098,7 +1099,7 @@ function logLidlJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, cantons: {}, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const lidlJobs = allJobs.filter(isLidlJob);
   const byCanton = new Map();
@@ -1177,7 +1178,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isLidlJob) : [];
   writeJobsCrawlerSlice(LIDL_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

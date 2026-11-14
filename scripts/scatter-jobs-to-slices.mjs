@@ -14,6 +14,7 @@
 
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -784,7 +785,7 @@ function readSliceFileEntries(directory) {
 
 function readJson(filePath, fallback) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return readJsonFile(filePath);
   } catch {
     return fallback;
   }

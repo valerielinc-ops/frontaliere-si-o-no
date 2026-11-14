@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Fust crawler runner.
  *
@@ -714,7 +715,7 @@ export function ensureAdapterSeedUrls(
 function retagFustJobs() {
   if (!fs.existsSync(DATA_JOBS)) return 0;
 
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   if (!Array.isArray(raw)) return 0;
 
   let retagged = 0;
@@ -957,7 +958,7 @@ export function ensureUniqueFustSlugs(jobs, priorJobs = []) {
 
 function readScratchJobs() {
   if (!fs.existsSync(DATA_JOBS)) return [];
-  const parsed = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const parsed = readJsonFile(DATA_JOBS);
   return Array.isArray(parsed) ? parsed : [];
 }
 
