@@ -1,7 +1,40 @@
 import { describe, expect, it } from 'vitest';
-import { formPostingMatch } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { formPostingMatch, namesAnotherEmployer } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('portal form binding identity', () => {
+  it('does not treat the selected role after a separator as another employer', () => {
+    expect(namesAnotherEmployer('Example Employer - Payroll Specialist', {
+      company: 'Example Employer',
+      title: 'Payroll Specialist',
+    })).toBe(false);
+  });
+
+  it('does not carry a stale application entry through a diverted route', () => {
+    expect(formPostingMatch('Application\nPayroll Specialist', {
+      company: 'Example Employer',
+      title: 'Payroll Specialist',
+    }, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: 'https://paid.example/apply/',
+      pageUrl: 'https://other.example/spontaneous/',
+      postingUrl: 'https://paid.example/job/123/',
+    })).toBe('unknown');
+  });
+
+  it('recognizes safe hyphen-separated components of an employer-owned host', () => {
+    expect(formPostingMatch('Application', {
+      company: 'Example Employer',
+      title: 'Payroll Specialist',
+    }, {
+      postingEntry: true,
+      applicationEntry: true,
+      applicationEntryUrl: 'https://apply.example-employer.ch/form/',
+      pageUrl: 'https://apply.example-employer.ch/form/',
+      postingUrl: 'https://jobs.example.ch/job/123/',
+    })).toBe('match');
+  });
+
   it('keeps generic application step headings from looking like another employer', () => {
     const job = { company: 'Acme AG', title: 'Senior Engineer' };
     const pageUrl = 'https://careers.acme.example/application';

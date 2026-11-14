@@ -5102,7 +5102,8 @@ function hostnameCarriesEmployerHost(hostname, job = {}) {
       && !BRANCH_WORDS.has(word));
   if (!employerWords.length) return false;
   const labels = registrableHostLabels(hostname);
-  return employerWords.some(word => labels.includes(word));
+  const hostWords = labels.flatMap(label => label.split('-').filter(Boolean));
+  return employerWords.some(word => hostWords.includes(word));
 }
 
 function currentFormUrlCarriesEmployerHost(pageUrl, job = {}) {
@@ -5160,7 +5161,12 @@ export function formPostingMatch(formText, job = {}, {
   // provenance cannot authorize a different requisition, even on a generic
   // account/application page that names no employer or role.
   if (talentSoftPageIdentity && !paidTalentSoftPostingBound) return 'mismatch';
-  const verifiedEntry = postingEntry || (applicationEntry && postingMatched);
+  // An application-entry witness remains valid only while the browser is on
+  // the exact route that was entered. A later generic form can otherwise
+  // inherit the old posting match after a diversion.
+  const applicationEntryRouteBound = !applicationEntry || !applicationEntryUrl
+    || samePostingAddress(pageUrl, applicationEntryUrl);
+  const verifiedEntry = postingEntry || (postingMatched && applicationEntryRouteBound);
   const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
     && samePostingAddress(pageUrl, applicationEntryUrl);
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
@@ -5289,7 +5295,7 @@ export function formPostingMatch(formText, job = {}, {
   // posting's entry proof when the form URL names that employer, while the
   // generic form with no link/URL evidence remains unknown.
   if (verifiedEmployerFormRoute) return 'match';
-  if (direct === 'match' || (roleHeading === 'match' && (postingMatched || postingEntry || applicationEntry))) return 'match';
+  if (direct === 'match' || (roleHeading === 'match' && verifiedEntry)) return 'match';
   // A verified SuccessFactors module is a bound application surface even when
   // its account page contains no requisition or role text of its own.
   if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
