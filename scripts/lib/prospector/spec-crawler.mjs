@@ -58,6 +58,11 @@ import {
   selectPublishableTitle,
   vacancyTitleFromDocumentTitle,
 } from './production-title.mjs';
+import {
+  createCrawlerFetchReceipt,
+  finalizeCrawlerFetchReceipt,
+  recordCrawlerFetchReceiptPage,
+} from '../crawler-fetch-receipt.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -383,6 +388,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'fetchOutcome',
   'discoveredCount',
   'fetchDetail',
+  'fetchReceipt',
   'detailDrop',
   'expectedFilterCount',
   'expectedFilters',
@@ -421,6 +427,21 @@ export function copySpecFetchMetadata(target, source) {
     });
   }
   return target;
+}
+
+/**
+ * Attach the fetch receipt to the same error that already carries the
+ * fail-closed listing/detail classification. The shared crawler template can
+ * then write a summary even when no vacancy array reaches it.
+ *
+ * @param {unknown} error
+ * @param {Record<string, any>} receipt
+ * @returns {Error & { specFetchReceipt?: Record<string, any> }}
+ */
+function attachSpecFetchReceipt(error, receipt) {
+  const failure = error instanceof Error ? error : new Error(String(error));
+  Object.assign(failure, { specFetchReceipt: receipt });
+  return failure;
 }
 
 /**
@@ -472,7 +493,7 @@ function configuredEmptyListingOutcome(spec) {
 function matchesConfiguredAuthoritativeEmptyText(spec, html) {
   const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
   if (!marker) return false;
-  const sourceText = textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
+  const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
   return sourceText.includes(marker);
 }
 
@@ -712,7 +733,8 @@ async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
  * @param {Record<string, any>} runtime
  * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
  *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean, readPdf?: boolean,
- *   detailLocationLabel?: string, detailTitleLeadIn?: string, detailTitleEndLabel?: string,
+ *   detailLocationLabel?: string, detailLocationCantonOverrides?: Record<string, string>,
+ *   detailTitleLeadIn?: string, detailTitleEndLabel?: string,
  *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string, detailApplyUrl?: string }} [request]
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
@@ -723,44 +745,67 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
     if (typeof runtime.onPageFetched === 'function') void runtime.onPageFetched(page, url);
     return page;
   };
-  const result = await politeFetch(url, {
-    urlPolicy,
-    dispatcher: urlPolicy.dispatcher,
-    fetchImpl: request.readPdf === true
-      ? createPdfSafeFetch(runtime.fetchImpl)
-      : runtime.fetchImpl,
-    sleepImpl: runtime.sleepImpl,
-    retries: runtime.retries,
-    retryBaseMs: runtime.retryBaseMs,
-    timeoutMs: runtime.timeoutMs,
-    hostDelayMs: runtime.hostDelayMs,
-    method: request.method,
-    body: request.body,
-    contentType: request.contentType,
-    accept: request.accept,
-    headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
-  });
+  const notifyPageFetchFailed = (page = {}) => {
+    // Failure observations carry only bounded response metadata. In
+    // particular, never forward the response body into a crawler receipt.
+    if (typeof runtime.onPageFetchFailed === 'function') {
+      void runtime.onPageFetchFailed({
+        status: page.status,
+        url: page.url || url,
+        ...(page.proxiedBy ? { proxiedBy: page.proxiedBy } : {}),
+      }, url);
+    }
+  };
+  let result;
+  try {
+    result = await politeFetch(url, {
+      urlPolicy,
+      dispatcher: urlPolicy.dispatcher,
+      fetchImpl: request.readPdf === true
+        ? createPdfSafeFetch(runtime.fetchImpl)
+        : runtime.fetchImpl,
+      sleepImpl: runtime.sleepImpl,
+      retries: runtime.retries,
+      retryBaseMs: runtime.retryBaseMs,
+      timeoutMs: runtime.timeoutMs,
+      hostDelayMs: runtime.hostDelayMs,
+      method: request.method,
+      body: request.body,
+      contentType: request.contentType,
+      accept: request.accept,
+      headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
+    });
+  } catch (error) {
+    notifyPageFetchFailed({ status: error?.status, url });
+    throw error;
+  }
   const isPdfBody = request.readPdf === true
     && typeof result.body === 'string'
     && result.body.startsWith(PDF_BODY_PREFIX);
   if (result.ok && isPdfBody) {
-    return notifyPageFetched(await parsePdfResponseBody(
-      result.url || url,
-      result.body,
-      result,
-      runtime,
-      request.detailLocationLabel,
-      request.detailTitleLeadIn,
-      request.detailTitleEndLabel,
-      request.detailApplyUrlHost,
-      request.detailApplyUrlPathPrefix,
-      request.detailApplyUrl,
-    ));
+    try {
+      return notifyPageFetched(await parsePdfResponseBody(
+        result.url || url,
+        result.body,
+        result,
+        runtime,
+        request.detailLocationLabel,
+        request.detailTitleLeadIn,
+        request.detailTitleEndLabel,
+        request.detailApplyUrlHost,
+        request.detailApplyUrlPathPrefix,
+        request.detailApplyUrl,
+      ));
+    } catch (error) {
+      notifyPageFetchFailed(result);
+      throw error;
+    }
   }
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   const connectionLevelFailure = isConnectionLevelFetchResult(result);
   const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
+  if (!result.ok || directChallenge) notifyPageFetchFailed(result);
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
   // Treat that response like the existing 403/406/415/451 rescue path: a
@@ -770,6 +815,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
   if (result.ok && !directChallenge) {
     if (request.readPdf === true) {
+      notifyPageFetchFailed(result);
       throw Object.assign(new Error(`Expected a PDF detail response from ${result.url || url}`), {
         status: result.status,
         retryable: Number(result.status) >= 500,
@@ -2681,9 +2727,26 @@ export async function runSpecInProduction(spec, runtime = {}) {
   if (spec.browserRescue === true && typeof runtime.browserFetchImpl !== 'function') {
     runtime = { ...runtime, browserFetchImpl: fetchHtmlViaBrowser };
   }
+  const fetchReceipt = createCrawlerFetchReceipt(spec);
+  const previousPageFetched = runtime.onPageFetched;
+  const previousPageFetchFailed = runtime.onPageFetchFailed;
+  runtime = {
+    ...runtime,
+    onPageFetched(page, requestedUrl) {
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      if (typeof previousPageFetched === 'function') return previousPageFetched(page, requestedUrl);
+      return undefined;
+    },
+    onPageFetchFailed(page, requestedUrl) {
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      if (typeof previousPageFetchFailed === 'function') return previousPageFetchFailed(page, requestedUrl);
+      return undefined;
+    },
+  };
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
+  let rows = null;
   try {
-    const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    rows = await collectSpecListingRows(spec, runtime, validateUrl);
     const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
       ? (runtime.officialEmployerSiteLocation
         || await fetchOfficialEmployerSiteLocation(spec, runtime))
@@ -2707,7 +2770,12 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const titleEvidenceByUrl = runtime.returnObservation === true || runtime.retainDetailPages === true
       ? new Map()
       : null;
-    if (!needsDetailEnrichment(spec, rows)) {
+    const needsDetails = needsDetailEnrichment(spec, rows);
+    // An empty template listing never enters a detail fetch. Keep its receipt
+    // in the listing phase so a zero is not reported as if detail pages had
+    // been observed and filtered out.
+    fetchReceipt.phase = 'listing';
+    if (!needsDetails) {
       const dropCounts = {
         source_backed_geography_missing: 0,
         generic_or_missing_title: 0,
@@ -2794,9 +2862,17 @@ export async function runSpecInProduction(spec, runtime = {}) {
           dropped: qualityDrops,
         },
       };
+      const completedReceipt = finalizeCrawlerFetchReceipt(
+        fetchReceipt,
+        rows,
+        null,
+        'listing',
+      );
+      observation.fetchReceipt = completedReceipt;
       logRuntimeObservation(spec, observation);
       const output = copySpecFetchMetadata(safeRows, rows);
       copySpecFetchMetadata(output, {
+        fetchReceipt: completedReceipt,
         detailDrop: observation.detailDrop,
         discoveredCount: rows.length,
         expectedFilterCount: observation.expectedFilterCount,
@@ -2831,6 +2907,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
         : stampedOutput;
     }
 
+    fetchReceipt.phase = rows.length > 0 ? 'detail' : 'listing';
     // Template extraction has no per-row semantics. Visit the detail pages with
     // a bounded pool so location and full descriptions are source-backed.
     // Workers complete out of order; index-addressed writes keep the listing
@@ -2861,6 +2938,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(detailUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
@@ -2874,6 +2952,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
@@ -3109,6 +3188,13 @@ export async function runSpecInProduction(spec, runtime = {}) {
       complete,
       detailDrop,
     };
+    const completedReceipt = finalizeCrawlerFetchReceipt(
+      fetchReceipt,
+      rows,
+      null,
+      fetchReceipt.phase,
+    );
+    observation.fetchReceipt = completedReceipt;
     logRuntimeObservation(spec, observation);
     const shouldThrow = (listingOutcome.failed && !preserveEmptyListingResult)
       || (listingOutcome.unverifiedEmpty && !preserveEmptyListingResult)
@@ -3150,6 +3236,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     }
     const output = copySpecFetchMetadata(publishedRows, rows);
     copySpecFetchMetadata(output, {
+      fetchReceipt: completedReceipt,
       detailDrop,
       discoveredCount: rows.length,
       expectedFilterCount: observation.expectedFilterCount,
@@ -3166,6 +3253,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
     return runtime.returnObservation === true
       ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
       : stampedOutput;
+  } catch (error) {
+    const receipt = finalizeCrawlerFetchReceipt(
+      fetchReceipt,
+      rows || {},
+      error,
+      fetchReceipt.phase,
+    );
+    throw attachSpecFetchReceipt(error, receipt);
   } finally {
     try {
       await validateUrl.dispatcher.close();

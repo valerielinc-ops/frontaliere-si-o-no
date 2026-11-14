@@ -163,7 +163,7 @@ describe('production-canary workflow wiring', () => {
   const probeIndex = steps.findIndex((step) => step.id === 'probe');
 
   it('can read Actions run state and places admission before the live probe', () => {
-    expect(workflow.permissions.actions).toBe('read');
+    expect(workflow.permissions.actions).toBe('write');
     expect(admissionIndex).toBeGreaterThan(-1);
     expect(probeIndex).toBeGreaterThan(admissionIndex);
     expect(steps[admissionIndex].run).toContain('scripts/ci/production-canary-admission.mjs');

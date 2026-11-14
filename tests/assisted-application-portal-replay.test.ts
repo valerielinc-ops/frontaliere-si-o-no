@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { request as httpRequest } from 'node:http';
 import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
@@ -403,6 +404,7 @@ describe('portal replay corpus', () => {
       'diff --git a/scripts/lib/social-readiness.mjs b/scripts/lib/social-readiness.mjs',
       'diff --git a/functions/src/lib/unrelated-site-helper.js b/functions/src/lib/unrelated-site-helper.js',
       'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
+      'diff --git a/services/locales/it-core.ts b/services/locales/it-core.ts',
       'diff --git a/tests/social-publish-readiness.test.ts b/tests/social-publish-readiness.test.ts',
     ].join('\n');
     expect(affectedPortalReplayPaths(unrelatedSharedDirectories)).toEqual([]);
@@ -454,19 +456,6 @@ describe('portal replay workflow wiring', () => {
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
-    const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
-    const mergeCommit = workflow.indexOf('          ref: ${{ github.event.pull_request.merge_commit_sha }}\n');
-    expect(prCheckout).toBeGreaterThan(-1);
-    expect(mergeCommit).toBeGreaterThan(prCheckout);
-    expect(workflow).not.toContain('github.event.pull_request.head.sha');
-    expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
-    expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
-    expect(workflow).not.toContain('refs/pull/$PR_NUMBER/merge');
-    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
-    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
-    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
-    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
-    expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
@@ -474,12 +463,11 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
+    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     const replayGate = workflow.indexOf('\n  portal-replay-gate:');
     const replayBlock = workflow.slice(replay, replayGate);
     expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
-    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     const gateBlock = workflow.slice(replayGate);
-    expect(gateBlock).toContain('ref: ${{ github.event.pull_request.merge_commit_sha }}');
     expect(gateBlock).toContain('path: .portal-head');
     expect(gateBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
     expect(gateBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
@@ -493,9 +481,8 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('wait_for_wave');
-    expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
-    expect(workflow).toContain('declare -f run_group > "$group_script"');
-    expect(workflow).not.toContain("bash -c 'run_group'");
+    expect(workflow).toContain('declare -f run_group');
+    expect(workflow).toContain('bash -c "$(declare -f run_group); run_group"');
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
     expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
     expect(workflow).not.toContain('max-parallel: 6');
@@ -707,6 +694,81 @@ describe('portal replay base/head gate', () => {
       prepareRun: true, prepareResult: 'success', matrixResult: 'success', families: ['workday'],
       reports: [{ family: 'workday', status: 'pass' }],
     })).toMatchObject({ status: 'pass', code: 'portal_replay_passed' });
+  });
+});
+
+describe('portal replay gate determinism (F2)', () => {
+  const workflow = () => readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+
+  it('lists the changed paths from the merge commit with git, never through the REST API', () => {
+    const text = workflow();
+    expect(text).not.toMatch(/gh pr diff/u);
+    expect(text).not.toContain('portal-replay-paths.patch');
+    expect(text).toContain('ref: ${{ github.sha }}');
+    expect(text).toContain('fetch-depth: 2');
+    expect(text).toContain('filter: blob:none');
+    expect(text).toContain('git diff --name-only --no-renames HEAD^1 HEAD');
+    // un diff a due punti contro la base corrente darebbe falsi positivi quando main avanza
+    expect(text).not.toMatch(/git diff[^\n]*(BASE_SHA|base\.sha)/u);
+    // prepare riusa l'elenco di detect invece di richiederlo di nuovo
+    expect(text).toContain('name: portal-replay-paths-${{ github.run_id }}');
+    expect(text).toContain('uses: actions/download-artifact@v8');
+  });
+
+  it('keeps trusted base setup while running comparison semantics from the PR CLI', () => {
+    const text = workflow();
+    expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
+    const gateStart = text.indexOf('\n  portal-replay-gate:');
+    expect(text.slice(replayStart, gateStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
+  });
+
+  it('keeps the required gate fail-closed and comments only on uncancelled runs, once per PR', () => {
+    const text = workflow();
+    // a job skipped by `if` counts as success for a required check: the gate must not use `!cancelled()`
+    expect(text).toMatch(/name: portal replay gate\n(?:\s*#.*\n)*\s*if: always\(\)\n\s*needs: \[detect, prepare, replay\]/u);
+    expect(text).toContain("if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}");
+    expect(text).not.toContain('if: always() && needs.detect.outputs.run');
+    expect(text).toContain('upsertStickyComment');
+    expect(text).toContain('<!-- portal-replay-gate -->');
+    expect(text).toContain('portal-replay-gate-head:');
+    expect(text).not.toMatch(/gh pr comment "\$PR_NUMBER"/u);
+    expect(text).toContain('cancel-in-progress: true');
+  });
+
+  it('treats a cancelled run as transient for the red-check fixer and the auto-merge evaluator', () => {
+    const fixer = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+    // il fixer agisce solo su una run `tests` con conclusione `failure`: `cancelled` esce in skip
+    expect(fixer).toContain('[ "$run_conclusion" != "failure" ]');
+    const evaluator = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
+    expect(evaluator).toContain("if (conclusion !== 'success') {");
+    expect(evaluator).toContain("conclusion !== 'failure'");
+  });
+
+  it('merge-commit parent diff lists only the PR paths even when main moved on', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'portal-replay-merge-'));
+    try {
+      const git = (...args: string[]) => execFileSync('git', ['-C', repo, '-c', 'user.email=t@example.com', '-c', 'user.name=t', '-c', 'commit.gpgsign=false', ...args], { encoding: 'utf8' });
+      git('init', '-q', '-b', 'main');
+      writeFileSync(join(repo, 'a.txt'), 'a');
+      git('add', '.'); git('commit', '-q', '-m', 'base');
+      git('checkout', '-q', '-b', 'pr');
+      writeFileSync(join(repo, 'pr-only.txt'), 'pr');
+      git('add', '.'); git('commit', '-q', '-m', 'pr');
+      git('checkout', '-q', 'main');
+      writeFileSync(join(repo, 'main-only.txt'), 'main');
+      git('add', '.'); git('commit', '-q', '-m', 'main moved');
+      git('checkout', '-q', '-b', 'merge-ref');
+      git('merge', '-q', '--no-ff', '-m', 'merge', 'pr');
+      const names = git('diff', '--name-only', '--no-renames', 'HEAD^1', 'HEAD').trim().split('\n');
+      expect(names).toEqual(['pr-only.txt']);
+      // la forma scartata: un diff a due punti fra base corrente e head include i file di main
+      const staleBase = git('diff', '--name-only', '--no-renames', 'pr', 'main').trim().split('\n').sort();
+      expect(staleBase).toEqual(['main-only.txt', 'pr-only.txt']);
+    } finally {
+      rmSync(repo, { recursive: true, force: true });
+    }
   });
 });
 

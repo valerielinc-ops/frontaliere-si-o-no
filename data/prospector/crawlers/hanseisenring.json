@@ -10,6 +10,9 @@
   "detailTemplate": "/unternehmen/karriere/jobportal/*",
   "detailEnrichment": true,
   "detailLocationLabel": "Arbeitsort",
+  "detailLocationCantonOverrides": {
+    "Münchwilen": "TG"
+  },
   "qualityContractVersion": 2,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 10,
