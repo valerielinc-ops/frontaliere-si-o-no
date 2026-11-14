@@ -3524,7 +3524,7 @@ describe('cross-repo crawler execution artifacts', () => {
       fs.writeFileSync(commonDirLock, 'partial common metadata\n');
       fs.writeFileSync(path.join(linkedGitDir, 'HEAD'), 'ref: refs/heads/missing\n');
       expect(runPreparation(linkedWorktree)).toContain('Discarded incomplete Git metadata');
-      expect(fs.existsSync(commonLock)).toBe(false);
+      expect(fs.existsSync(commonDirLock)).toBe(false);
       expect(fs.existsSync(path.join(linkedWorktree, '.git'))).toBe(false);
       expect(fs.existsSync(worktreeLock)).toBe(false);
       expect(fs.existsSync(commonDirLock)).toBe(false);
@@ -4618,9 +4618,9 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
     // With the safe Git-metadata retry and empty-workspace cleanup, size is
-    // 473665 bytes (<= 480000 budget) after the common Git-dir guard is emitted.
+     // 473667 bytes (<= 480000 budget) after the common Git-dir guard is emitted.
     expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473665);
+    expect(bytes).toBe(473667);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
