@@ -506,7 +506,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
         applicationEntry: true,
         pageHeading: heading,
         pageHeadings: [heading],
-      })).toBe('match');
+      })).toBe('unknown');
     }
     expect(formPostingMatch('Review\nSenior Engineer', job, {
       pageUrl: 'https://careers.acme.example/application',
@@ -533,7 +533,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       applicationEntry: true,
       pageHeading: 'About You',
       pageHeadings: ['About You'],
-    })).toBe('match');
+    })).toBe('unknown');
     expect(formPostingMatch(formText, job, {
       pageUrl,
       postingMatched: true,

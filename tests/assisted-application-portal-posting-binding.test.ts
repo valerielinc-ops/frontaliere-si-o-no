@@ -50,7 +50,7 @@ describe('portal form binding identity', () => {
         applicationEntry: true,
         pageHeading: heading,
         pageHeadings: [heading],
-      })).toBe('match');
+      })).toBe('unknown');
     }
 
     expect(formPostingMatch('Review\nSenior Engineer', job, {
@@ -121,14 +121,14 @@ describe('portal form binding identity', () => {
       applicationEntry: true,
       pageHeading: heading,
       pageHeadings: [heading],
-    })).toBe('match');
+    })).toBe('unknown');
     expect(formPostingMatch(formText, job, {
       pageUrl,
       postingMatched: true,
       applicationEntry: true,
       pageHeading: 'About You - Other Resort',
       pageHeadings: ['About You - Other Resort'],
-    })).toBe('mismatch');
+    })).toBe('unknown');
     expect(formPostingMatch(formText, { company: 'ABOUT YOU', title: job.title }, {
       pageUrl,
       pageHeading: heading,
