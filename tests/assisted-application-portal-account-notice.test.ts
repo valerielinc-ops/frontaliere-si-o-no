@@ -208,42 +208,51 @@ describe('a portal account notice for the order’s own account', () => {
 });
 
 describe('what still reaches the candidate', () => {
-  it('without a portal account of the order', async () => {
+  it('keeps an account alert in the concierge when it cannot bind it to this order', async () => {
     const { store, alias } = await setup(null);
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer() });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
-  it('from a sender whose mail is not authenticated', async () => {
+  it('keeps an unauthenticated account alert in the concierge', async () => {
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ dkim: '' }), answer: modelAnswer() });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it.each([
-    ['an interview invitation', `${CREATED}\n\nGerne laden wir Sie zu einem Vorstellungsgespräch am 12. Dezember ein.`, { interviewWhen: '12. Dezember' }],
-    ['a refusal', `${CREATED}\n\nLeider müssen wir Ihnen mitteilen, dass wir Ihre Bewerbung nicht berücksichtigen können.`, {}],
-    ['a document request', `${CREATED}\n\nBitte senden Sie uns Ihre Diplome und Zeugnisse.`, { requestedDocuments: ['Diplome'] }],
-    ['a receipt of the application', `${CREATED}\n\nWir haben Ihre Bewerbung erhalten.`, {}],
-  ])('when the account notice also carries %s', async (_name, text, overrides) => {
+    ['an interview invitation', `${CREATED}\n\nGerne laden wir Sie zu einem Vorstellungsgespräch am 12. Dezember ein.`, { interviewWhen: '12. Dezember' }, true],
+    ['a refusal', `${CREATED}\n\nLeider müssen wir Ihnen mitteilen, dass wir Ihre Bewerbung nicht berücksichtigen können.`, {}, true],
+    ['a document request', `${CREATED}\n\nBitte senden Sie uns Ihre Diplome und Zeugnisse.`, { requestedDocuments: ['Diplome'] }, true],
+    ['an assessment', `${CREATED}\n\nBitte absolvieren Sie den Online-Test bis Freitag.`, { category: 'assessment' }, true],
+    ['an offer', `${CREATED}\n\nWir freuen uns, Ihnen die Stelle anzubieten.`, { category: 'offer' }, true],
+    ['a receipt of the application', `${CREATED}\n\nWir haben Ihre Bewerbung erhalten.`, { category: 'auto_acknowledgement' }, false],
+  ])('when the account notice also carries %s', async (_name, text, overrides, shouldForward) => {
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ text }), answer: modelAnswer(overrides) });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    if (shouldForward) {
+      expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    } else {
+      expect(inbox).toMatchObject({ automaticApplicationReceipt: true, forwarded: { status: 'skipped', reason: 'application_receipt' } });
+      expect(sendCascade).not.toHaveBeenCalled();
+    }
   });
 
-  it('forwards the welcome when it also asks the candidate to verify an e-mail address', async () => {
+  it('keeps an account welcome and verification request in the concierge', async () => {
     const { store, alias } = await setup();
     const text = `${CITY_PORTAL_WELCOME}\n\nBitte bestätigen Sie Ihre E-Mail-Adresse über den folgenden Link.`;
     expect(portalAccountNoticeKind({ subject: 'Willkommen', text }, modelAnswer({ verificationUrl: '' }))).toBe('');
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Willkommen', text }), answer: modelAnswer({ verificationUrl: '' }) });
 
-    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'sent' } });
+    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'skipped', reason: 'account_verification' } });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('forwards the welcome when it also invites the candidate to an interview', async () => {
@@ -271,11 +280,15 @@ describe('what still reaches the candidate', () => {
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
-  it('when the model reads it as something else than an account mail', async () => {
+  it('queues an unresolved automated account alert for owner review', async () => {
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer({ category: 'other' }) });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox).toMatchObject({
+      category: 'other', correlationStatus: 'unknown', ownerReviewRequired: true, ownerReviewStatus: 'pending',
+      forwarded: { status: 'skipped', reason: 'owner_review' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 });
 

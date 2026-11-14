@@ -32124,12 +32124,12 @@
     },
     {
       "id": "seco-jobroom-0493353b-a9ca-4097-a329-e2a00484e85e",
-      "slug": "collaboratore-trice-in-holzplatz-kanton-graubunden-cazis",
+      "slug": "addetto-a-al-piazzale-del-legname-kanton-graubunden-cazis-0493353b",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-holzplatz-kanton-graubunden-cazis",
+        "it": "addetto-a-al-piazzale-del-legname-kanton-graubunden-cazis-0493353b",
         "en": "wooden-yard-employee-kanton-graubunden-cazis-0493353b",
         "de": "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b",
-        "fr": "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b"
+        "fr": "employe-e-du-parc-a-bois-kanton-graubunden-cazis-0493353b"
       },
       "slugDisambiguator": "0493353b",
       "company": "Kanton Graubünden",
@@ -32177,13 +32177,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b"
+        "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b",
+        "collaboratore-trice-in-holzplatz-kanton-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b"
+          "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b",
+          "collaboratore-trice-in-holzplatz-kanton-graubunden-cazis"
         ],
         "en": [
+          "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b"
+        ],
+        "fr": [
           "mitarbeiter-in-holzplatz-kanton-graubunden-cazis-0493353b"
         ]
       },
@@ -32204,7 +32209,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-07T09:49:19.558Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-0761ae7e-22e3-4d89-927d-de4e117cbb5d",
@@ -36612,7 +36617,7 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-36ccbe89-c7fc-4d6d-bebc-857f201d7ced",
@@ -41007,7 +41012,7 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-a234665d-7a30-4a72-b4ed-9e83fd1e4d51",
@@ -45353,7 +45358,7 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-13af2173-6ff5-4238-aaa8-219c2ef08582",
@@ -49616,7 +49621,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-07T09:49:19.558Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-78a76eec-f489-4c24-9964-0aba5b593702",
@@ -52667,10 +52672,10 @@
     },
     {
       "id": "seco-jobroom-d5bae711-13d0-47e6-a84d-c34d022dc941",
-      "slug": "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711",
+      "slug": "sta-apprendista-meccatronico-di-impianti-di-risalita-afc-groupe-televerbier-sembrancher-d5bae711",
       "slugByLocale": {
-        "it": "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711",
-        "en": "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711",
+        "it": "sta-apprendista-meccatronico-di-impianti-di-risalita-afc-groupe-televerbier-sembrancher-d5bae711",
+        "en": "sta-cableway-mechatronics-technician-apprentice-cfc-groupe-televerbier-sembrancher-d5bae711",
         "de": "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711",
         "fr": "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711"
       },
@@ -52736,7 +52741,18 @@
       "streetAddress": "Sembrancher",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711"
+        ],
+        "en": [
+          "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711"
+        ]
+      },
+      "previousSlugs": [
+        "sta-apprenti-mecatronicien-de-remontees-mecaniques-cfc-groupe-televerbier-d5bae711"
+      ]
     },
     {
       "id": "seco-jobroom-db847f45-313d-46a5-8515-c160663f107f",
@@ -64563,7 +64579,7 @@
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-2d28696a-0df1-462e-be89-3ed3b225ce0e",
@@ -65140,7 +65156,7 @@
       "slug": "couvreurs-plusieurs-missions-dans-la-region-agat-martigny-martigny-415cc7a6",
       "slugByLocale": {
         "it": "couvreurs-plusieurs-missions-dans-la-region-agat-martigny-martigny-415cc7a6",
-        "en": "couvreurs-plusieurs-missions-dans-la-region-agat-martigny-martigny-415cc7a6",
+        "en": "roofers-several-assignments-in-the-region-agat-martigny-martigny-415cc7a6",
         "de": "couvreurs-plusieurs-missions-dans-la-region-agat-martigny-martigny-415cc7a6",
         "fr": "couvreurs-plusieurs-missions-dans-la-region-agat-martigny-martigny-415cc7a6"
       },
@@ -69836,7 +69852,7 @@
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-aa392e06-80eb-4d12-badf-1cc4cafcf37e",
@@ -94428,9 +94444,9 @@
       "slug": "cuoco-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820",
       "slugByLocale": {
         "it": "cuoco-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820",
-        "en": "cuoco-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820",
+        "en": "cook-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820",
         "de": "cuoco-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820",
-        "fr": "cuoco-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820"
+        "fr": "cuisinier-snack-bar-centro-sportivo-di-bioggio-bioggio-c3690820"
       },
       "slugDisambiguator": "c3690820",
       "company": "Snack Bar Centro Sportivo di Bioggio",
@@ -94494,7 +94510,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-07T09:49:19.558Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-c5622f1c-d463-4df1-9dbd-1d80ce5cefcd",
@@ -99515,9 +99531,9 @@
       "slug": "cuoco-rist-la-froda-cavergno-4cde73e7",
       "slugByLocale": {
         "it": "cuoco-rist-la-froda-cavergno-4cde73e7",
-        "en": "cuoco-rist-la-froda-cavergno-4cde73e7",
+        "en": "cook-rist-la-froda-cavergno-4cde73e7",
         "de": "cuoco-rist-la-froda-cavergno-4cde73e7",
-        "fr": "cuoco-rist-la-froda-cavergno-4cde73e7"
+        "fr": "cuisinier-rist-la-froda-cavergno-4cde73e7"
       },
       "slugDisambiguator": "4cde73e7",
       "company": "Rist. la Froda",
@@ -99581,7 +99597,7 @@
       "streetAddress": "Cavergno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-06T22:07:15.795Z"
+      "translationHoldReleasedAt": "2026-11-13T23:00:10.139Z"
     },
     {
       "id": "seco-jobroom-4deb7dc3-69a9-4260-84b6-f5d83c214ec3",
@@ -102000,7 +102016,7 @@
       "slug": "a-tutto-si-aggiunge-la-cura-del-parco-ed-il-servizio-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9",
       "slugByLocale": {
         "it": "a-tutto-si-aggiunge-la-cura-del-parco-ed-il-servizio-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9",
-        "en": "addetto-alla-cura-del-parco-e-ai-servizi-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9",
+        "en": "park-maintenance-and-hotel-services-attendant-parkhotel-brenscino-brissago-9ec32ce9",
         "de": "addetto-alla-cura-del-parco-e-ai-servizi-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9",
         "fr": "a-cela-s-ajoute-l-entretien-du-parc-et-le-service-de-l-hotel-parkhotel-brenscino-brissago-9ec32ce9"
       },
@@ -102057,6 +102073,9 @@
           "addetto-alla-cura-del-parco-e-ai-servizi-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9"
         ],
         "fr": [
+          "addetto-alla-cura-del-parco-e-ai-servizi-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9"
+        ],
+        "en": [
           "addetto-alla-cura-del-parco-e-ai-servizi-dell-hotel-parkhotel-brenscino-brissago-9ec32ce9"
         ]
       },

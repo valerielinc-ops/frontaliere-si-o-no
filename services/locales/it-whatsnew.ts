@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+  'whatsNew.v31022.title': 'Più controllo sulle e-mail delle candidature',
+  'whatsNew.v31022.inbound-forward.title': 'Messaggi inoltrati quando serve agire',
+  'whatsNew.v31022.inbound-forward.desc': 'Ricevute e avvisi automatici restano in Application Concierge. I messaggi che richiedono un’azione arrivano al candidato; le notifiche automatiche non chiare attendono la revisione del proprietario.',
   'whatsNew.v31021.title': 'CV e competenze riutilizzabili negli annunci',
   'whatsNew.v31021.cv-affinity.title': 'Carica il CV e confronta le competenze richieste',
   'whatsNew.v31021.cv-affinity.desc': 'Il CV resta nel tuo profilo privato. Le competenze estratte si possono correggere e riutilizzare su altri annunci; puoi anche autorizzarne l’uso per ordinare meglio i JobAlert.',

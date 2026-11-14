@@ -283,6 +283,67 @@ export const FIRST_PARTY_ASSET_FRAME_PATTERN = /\/assets\/[^\s?#:@]+\.js\b/;
 
 export const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
 
+const GOOGLE_VIGNETTE_OPAQUE_ERROR_MESSAGES = new Set([
+  'Na',
+  'Error: Na',
+  'Uncaught Error: Na',
+]);
+
+function isFirstPartySiteHost(hostname: string): boolean {
+  return hostname === 'frontaliereticino.ch' || hostname.endsWith('.frontaliereticino.ch');
+}
+
+function extractStackUrls(stack: string): string[] {
+  return (stack.match(/https?:\/\/[^\s)]+/gi) || [])
+    .map((candidate) => candidate
+      .replace(/[),;]+$/u, '')
+      .replace(/:\d+:\d+$/u, '')
+      .replace(/[),;]+$/u, ''))
+    .filter(Boolean);
+}
+
+/**
+ * True only for the opaque `Na` exception attributed to the document while a
+ * Google vignette is active (#18592). WebKit can report injected ad code with
+ * the page URL instead of the injected script URL, so the stack looks
+ * first-party even though no application chunk is involved.
+ *
+ * The classifier is deliberately fail-open: it requires the exact message,
+ * the production first-party page and exact vignette hash, at least one
+ * parseable stack URL, every frame to point at that same document, and no
+ * first-party asset frame. Missing or malformed context stays observable.
+ * This filters telemetry only; it does not alter ad loading or rendering.
+ */
+export function isGoogleVignetteInjectedOpaqueError(
+  message: string,
+  stack: string,
+  pageUrl: string,
+): boolean {
+  if (!GOOGLE_VIGNETTE_OPAQUE_ERROR_MESSAGES.has(String(message || '').trim())) return false;
+  if (!stack || !pageUrl || FIRST_PARTY_ASSET_FRAME_PATTERN.test(stack)) return false;
+
+  let page: URL;
+  try {
+    page = new URL(pageUrl);
+  } catch {
+    return false;
+  }
+  if (page.protocol !== 'https:' || !isFirstPartySiteHost(page.hostname) || page.hash !== '#google_vignette') {
+    return false;
+  }
+
+  const frameUrls = extractStackUrls(stack);
+  if (frameUrls.length === 0) return false;
+  return frameUrls.every((frame) => {
+    try {
+      const frameUrl = new URL(frame);
+      return frameUrl.origin === page.origin && frameUrl.pathname === page.pathname;
+    } catch {
+      return false;
+    }
+  });
+}
+
 /**
  * True for the stack overflow that Chrome for iOS and the Google app raise
  * inside the scripts THEY inject into every page they render (issue #8773).

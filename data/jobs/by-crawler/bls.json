@@ -618,9 +618,9 @@
     },
     {
       "id": "bls-78b981a3c53e",
-      "slug": "maler-in-nautiker-in-brienzersee-bls-ch",
+      "slug": "pittore-trice-operatore-trice-nautico-a-lago-di-brienz-bls-ag-interlaken",
       "slugByLocale": {
-        "it": "maler-in-nautiker-in-brienzersee-bls-ch",
+        "it": "pittore-trice-operatore-trice-nautico-a-lago-di-brienz-bls-ag-interlaken",
         "en": "painter-navigator-in-lake-brienz-bls-ag-interlaken",
         "de": "maler-in-nautiker-in-brienzersee-bls-ch",
         "fr": "peintre-nautiste-au-lac-de-brienz-bls-ag-interlaken"
@@ -701,7 +701,15 @@
       "addressRegion": "BE",
       "streetAddress": "Interlaken",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-nautiker-in-brienzersee-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maler-in-nautiker-in-brienzersee-bls-ch"
+      ]
     },
     {
       "id": "bls-ea85b6472826",
