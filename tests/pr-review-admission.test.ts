@@ -707,7 +707,9 @@ describe('workflow wiring for one review per HEAD', () => {
   it('keeps title-only edits out while body edits revalidate the trusted review input', () => {
     expect(testsYml).toMatch(/types:\s*\[opened, synchronize, reopened, ready_for_review\]/);
     expect(bodyRecoveryYml).toContain('types: [edited]');
-    expect(bodyRecoveryYml).toContain("github.event_name == 'workflow_run' || github.event_name == 'schedule' || github.event.changes.body != null");
+    expect(bodyRecoveryYml).toContain("github.event_name == 'workflow_run' && github.event.workflow_run.event == 'pull_request'");
+    expect(bodyRecoveryYml).toContain("github.event_name == 'schedule'");
+    expect(bodyRecoveryYml).toContain('github.event.changes.body != null');
     expect(bodyRecoveryYml).toContain('workflows: [tests]');
     expect(bodyRecoveryYml).toContain('BODY_REVIEW_RECOVERY_PENDING');
     expect(bodyRecoveryYml).not.toContain('setTimeout');
