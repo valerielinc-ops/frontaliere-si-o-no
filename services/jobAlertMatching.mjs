@@ -966,10 +966,17 @@ function buildDescriptionTrigramBloom(text) {
   return bloom;
 }
 
-/** A false result is conclusive; a true result still needs the exact includes check. */
-function descriptionTrigramBloomMayContain(bloom, keyword) {
-  if (keyword.length < 3) return true;
-  for (let index = 0; index + 2 < keyword.length; index++) {
+/** Compile up to five distributed query trigrams once per keyword. */
+function descriptionTrigramBloomQueryBits(keyword) {
+  const gramCount = keyword.length - 2;
+  if (gramCount <= 0) return [];
+  const sampleCount = Math.min(5, gramCount);
+  const bits = [];
+  const seen = new Set();
+  for (let sample = 0; sample < sampleCount; sample++) {
+    const index = sampleCount === 1
+      ? 0
+      : Math.floor(sample * (gramCount - 1) / (sampleCount - 1));
     const first = keyword.charCodeAt(index) + 1;
     const second = keyword.charCodeAt(index + 1) + 1;
     const third = keyword.charCodeAt(index + 2) + 1;
@@ -979,11 +986,22 @@ function descriptionTrigramBloomMayContain(bloom, keyword) {
       ^ Math.imul(third, 0xc2b2ae35)
     ) >>> 0;
     const hashB = Math.imul(hashA ^ 0x27d4eb2d, 0x165667b1) >>> 0;
-    let bit = hashA & DESCRIPTION_TRIGRAM_BLOOM_MASK;
-    if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
-    bit = hashB & DESCRIPTION_TRIGRAM_BLOOM_MASK;
-    if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
-    bit = (hashA + hashB) & DESCRIPTION_TRIGRAM_BLOOM_MASK;
+    for (const bit of [
+      hashA & DESCRIPTION_TRIGRAM_BLOOM_MASK,
+      hashB & DESCRIPTION_TRIGRAM_BLOOM_MASK,
+      (hashA + hashB) & DESCRIPTION_TRIGRAM_BLOOM_MASK,
+    ]) {
+      if (seen.has(bit)) continue;
+      seen.add(bit);
+      bits.push(bit);
+    }
+  }
+  return bits;
+}
+
+/** A false result is conclusive; a true result still needs the exact includes check. */
+function descriptionTrigramBloomMayContain(bloom, queryBits) {
+  for (const bit of queryBits) {
     if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
   }
   return true;
@@ -1090,7 +1108,10 @@ export function createJobFeatureStore() {
       descriptionMemos.set(keyword, memo);
       return memo;
     }
-    memo = createSubstringMemo();
+    memo = {
+      ...createSubstringMemo(),
+      bloomQueryBits: descriptionTrigramBloomQueryBits(keyword),
+    };
     descriptionMemos.set(keyword, memo);
     if (descriptionMemos.size > MAX_SHARED_DESCRIPTION_MEMOS) {
       descriptionMemos.delete(descriptionMemos.keys().next().value);
@@ -1110,7 +1131,7 @@ export function createJobFeatureStore() {
         bloom = buildDescriptionTrigramBloom(text);
         descriptionBloomsByFeatures.set(sharedFeatures, bloom);
       }
-      if (!descriptionTrigramBloomMayContain(bloom, keyword)) {
+      if (!descriptionTrigramBloomMayContain(bloom, memo.bloomQueryBits)) {
         memoWrite(memo, index, false);
         return false;
       }
