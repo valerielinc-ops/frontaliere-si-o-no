@@ -1,5 +1,6 @@
 import { JOB_CATEGORY_LABELS, JOB_META_LABELS, jobMetaLocale } from '../services/jobMetaLabels';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { createStreamingSitemapWriter } from '../scripts/lib/streaming-sitemap-writer.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
@@ -2904,9 +2905,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  resolveJobsSeoPagesFlushed();
  return;
  }
- let jobsRaw: any = readJsonFile(jobsPath);
- let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
- jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const localeList = JOB_SEO_LOCALES;
  const allIndexablePageLocales = indexableLocalePageSet(localeList, () => true);
  const localizedSlug = localizedActiveJobSlug;
@@ -2935,7 +2933,17 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  return false;
  };
  const isFixtureSlug = (s: string): boolean => !!s && FIXTURE_SLUG_RE.test(s);
- const fixtureCount = jobs.filter(isFixtureJob).length;
+ let fixtureCount = 0;
+ let validJobs: any[] = [];
+ for (const rawJob of iterateJsonArrayFile(jobsPath)) {
+  if (isFixtureJob(rawJob)) {
+   fixtureCount++;
+   continue;
+  }
+  if (!isListingInventoryJob(rawJob)) continue;
+  const normalized = normalizeListingIdentity(rawJob);
+  if (normalized.slug) validJobs.push(normalized);
+ }
  if (fixtureCount > 0) {
  console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Filtered ${fixtureCount} fixture job(s) from input (test/dev seed records)`);
  }
@@ -2966,18 +2974,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   return recency;
  };
 
- let validJobs = jobs
- .filter((j: any) => !isFixtureJob(j))
- .filter((j: any): boolean => isListingInventoryJob(j))
- .map((j: any) => normalizeListingIdentity(j))
- .filter((j: any) => !!j.slug)
  // DESC by durable active-job order, tiebreak by id for determinism. The
  // active detail's related-job pool must not move when only the crawler
  // heartbeat changes; see compareActiveJobsByStableOrder above.
  // This makes duplicate active routes choose the same durable winner across
  // crawls; older duplicates record a collision (visible in
  // dist/.write-collisions.json) but don't overwrite on disk.
- .sort(compareActiveJobsByStableOrder);
+ validJobs.sort(compareActiveJobsByStableOrder);
  if (jobsSeoSample !== null) {
   const totalValidJobs = validJobs.length;
   validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
@@ -3034,10 +3037,9 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  }
  // Keep the sample at this boundary: every active job detail, hub, bridge and
  // related/search derivation below reads this same `validJobs` array.
- // Release the raw dataset: validJobs is an independent spread-copy (new objects
- // per job), and `jobs` is never read past this point — free ~150-250 MB before
- // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
- jobs = [];
+ // The source corpus was consumed item-by-item, so there is no second full
+ // `jobs` array to release before the heavy per-page emit + expired/bridge
+ // pre-scans. (Build OOM fix, #1290.)
  jobsSeoMemContext.validJobs = validJobs;
  logJobsSeoMem('after-valid-jobs');
 
