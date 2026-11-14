@@ -33,6 +33,12 @@ describe('paginationIndexPolicy', () => {
     for (const page of [2, 5, 10, 11, 5011]) expect(isPaginationSitemapEligible(page), String(page)).toBe(false);
   });
 
+  it('rejects non-integer and non-first page inputs from the sitemap', () => {
+    for (const page of [0, -1, 1.5, Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]) {
+      expect(isPaginationSitemapEligible(page), String(page)).toBe(false);
+    }
+  });
+
   it('keeps the sitemap mutation behind the same page policy', () => {
     const entries: string[] = [];
 

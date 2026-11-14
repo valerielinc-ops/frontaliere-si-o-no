@@ -3524,6 +3524,7 @@ describe('cross-repo crawler execution artifacts', () => {
       fs.writeFileSync(commonDirLock, 'partial common metadata\n');
       fs.writeFileSync(path.join(linkedGitDir, 'HEAD'), 'ref: refs/heads/missing\n');
       expect(runPreparation(linkedWorktree)).toContain('Discarded incomplete Git metadata');
+      expect(fs.existsSync(commonLock)).toBe(false);
       expect(fs.existsSync(path.join(linkedWorktree, '.git'))).toBe(false);
       expect(fs.existsSync(worktreeLock)).toBe(false);
       expect(fs.existsSync(commonDirLock)).toBe(false);

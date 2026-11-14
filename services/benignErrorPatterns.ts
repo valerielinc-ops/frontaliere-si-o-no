@@ -122,6 +122,11 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   // extension's internal error surfacing in page context, not our code.
   /Invalid call to (?:runtime|tabs)\.sendMessage\(\)\. Tab not found\.?/i,
 
+  // Browser-extension tab bridge no-listener failure — #18593.
+  // `tabs:outgoing.message.ready` is not emitted by this site; WebKit masks
+  // the injected extension origin as `webkit-masked-url://hidden/`.
+  /No Listener:\s*tabs:outgoing\.message\.ready\b/i,
+
   // ── Microsoft Clarity internal selector crash — #3760 ──
   // Clarity (clarity.ms) uses `standardSelectors` internally for its element
   // capture. It can throw when accessing that property on an undefined object
