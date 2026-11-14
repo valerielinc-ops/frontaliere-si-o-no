@@ -3379,6 +3379,9 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain('realpath "$workspace/.git"');
       expect(retryPreparation.run).toContain('[ "$common_git_dir" = "$git_dir" ] && common_git_dir=""');
       expect(retryPreparation.run).toContain(
+        'find "$git_dir" -path "$git_dir/worktrees" -prune -o -type f -name "*.lock" -print0',
+      );
+      expect(retryPreparation.run).toContain(
         'find "$common_git_dir" -path "$common_git_dir/worktrees" -prune -o -type f -name "*.lock" -print0',
       );
       expect(retryPreparation.run).toContain('rm -f -- "$lock_file"');
@@ -3471,6 +3474,45 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(noGitBranch).toBeGreaterThanOrEqual(0);
     expect(cleanupCall).toBeGreaterThan(noGitBranch);
     expect(emptyWorkspaceMessage).toBeGreaterThan(cleanupCall);
+  });
+
+  it('preserva i lock dei linked worktree durante il retry da un repository canonico', () => {
+    const { prepare } = retrySparseCheckout({
+      sourceCheckout: { uses: 'actions/checkout@v7' },
+      checkout: {},
+    });
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-canonical-locks-'));
+    const canonicalRepository = path.join(temp, 'canonical');
+    const gitEnv = { ...process.env, GIT_CONFIG_NOSYSTEM: '1' };
+    const runPreparation = () => execFileSync(
+      'bash',
+      ['-e', '-u', '-o', 'pipefail', '-c', prepare.run],
+      {
+        env: { ...gitEnv, GITHUB_WORKSPACE: canonicalRepository },
+        encoding: 'utf8',
+      },
+    );
+
+    try {
+      execFileSync('git', ['init', '--quiet', canonicalRepository], { env: gitEnv });
+      execFileSync('git', ['-C', canonicalRepository, 'config', 'user.email', 'fixer@example.invalid'], { env: gitEnv });
+      execFileSync('git', ['-C', canonicalRepository, 'config', 'user.name', 'FU-005 test'], { env: gitEnv });
+      execFileSync('git', ['-C', canonicalRepository, 'commit', '--quiet', '--allow-empty', '-m', 'fixture'], { env: gitEnv });
+
+      const gitDir = path.join(canonicalRepository, '.git');
+      const indexLock = path.join(gitDir, 'index.lock');
+      const siblingWorktreeLock = path.join(gitDir, 'worktrees', 'sibling', 'held.lock');
+      fs.mkdirSync(path.dirname(siblingWorktreeLock), { recursive: true });
+      fs.writeFileSync(indexLock, 'partial canonical metadata\n');
+      fs.writeFileSync(siblingWorktreeLock, 'sibling worktree metadata\n');
+
+      runPreparation();
+
+      expect(fs.existsSync(indexLock)).toBe(false);
+      expect(fs.existsSync(siblingWorktreeLock)).toBe(true);
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
   });
 
   it('recupera repository canonici e worktree path-equivalent, ma rifiuta metadata esterni', () => {
