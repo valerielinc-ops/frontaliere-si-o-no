@@ -52,7 +52,9 @@ function resolveSentinel(value: any, previous: any) {
   if (method === 'FieldValue.increment') return (Number(previous) || 0) + Number(value.operand ?? value._operand ?? 0);
   return value;
 }
+const writesByPath: Record<string, number> = {};
 function applyWrite(docPath: string, data: any, kind: 'update' | 'set', merge: boolean, at: Stamp) {
+  writesByPath[docPath] = (writesByPath[docPath] || 0) + 1;
   const existing = store.get(docPath);
   const next = kind === 'set' && !merge ? {} : (existing ? { ...existing.data } : {});
   for (const [key, raw] of Object.entries(data)) {
@@ -160,6 +162,8 @@ const UID = 'firebase-uid-idempotence';
 const READER_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
 const REACT = 'react0@example.test';
 const LEGACY = 'legacy0@example.test';
+const FINAL_FAIL = 'finalfail0@example.test';
+const CONTROL = 'control0@example.test';
 const alertPath = (email: string) => `job_alert_subscribers/${email}/alerts/a1`;
 const FOREIGN_CLAIM = 'altra-run:foreign-claim';
 
@@ -169,6 +173,7 @@ let sender: any;
 let jobDedupKey: (job: any) => string;
 let mergeDeliveryLedger: any;
 let ledgerAfterReactivation: any = null;
+let finalizeBatchFailures = 0;
 
 beforeAll(async () => {
   // Alert decaduto il cui destinatario e' tornato sul sito: sara' riattivato in questa run.
@@ -195,6 +200,16 @@ beforeAll(async () => {
   store.set('job_alert_retry_queue/legacy-row-1', { data: {
     email: LEGACY, alertId: 'a1', rankingJobs: [jobs[0]], retryCount: 0, error: 'timeout', createdAt: new Date(NOW - 3 * 3600_000),
   }, updateTime: tick() });
+
+  // Destinatario normale: il commit del batch di FINALIZE fallira (A: ripiego per email riuscito).
+  store.set(`job_alert_subscribers/${FINAL_FAIL}`, { data: {}, updateTime: tick() });
+  store.set(`newsletter_subscribers/${FINAL_FAIL}`, { data: { status: 'active' }, updateTime: tick() });
+  store.set(alertPath(FINAL_FAIL), { data: { active: true, email: FINAL_FAIL, locale: 'it', keywords: ['infermiere'], createdAt: iso(-60 * DAY), deliveryLedger: {}, sentJobIds: {}, matchCount: 0 }, updateTime: tick() });
+
+  // Controllo: stesso profilo, il batch di finalize riesce. Il confronto fra i due dice se l update fuso e' stato applicato una volta o due.
+  store.set(`job_alert_subscribers/${CONTROL}`, { data: {}, updateTime: tick() });
+  store.set(`newsletter_subscribers/${CONTROL}`, { data: { status: 'active' }, updateTime: tick() });
+  store.set(alertPath(CONTROL), { data: { active: true, email: CONTROL, locale: 'it', keywords: ['infermiere'], createdAt: iso(-60 * DAY), deliveryLedger: {}, sentJobIds: {}, matchCount: 0 }, updateTime: tick() });
 
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'job-alert-idem-'));
   const jobsPath = path.join(dir, 'jobs.json');
@@ -246,6 +261,14 @@ beforeAll(async () => {
       doc.updateTime = tick();
       ledgerAfterReactivation = JSON.parse(JSON.stringify(doc.data.deliveryLedger));
     });
+    // Il commit del batch che FINALIZZA l'alert di FINAL_FAIL (esito `accepted`) fallisce: la transazione
+    // di ripiego riesce e deve scrivere l'update fuso UNA volta sola.
+    commitHooks.push((ops) => {
+      if (ops.some((op) => op.path === alertPath(FINAL_FAIL) && op.data?.deliveryLastOutcome === 'accepted')) {
+        finalizeBatchFailures += 1;
+        throw Object.assign(new Error('UNAVAILABLE: injected finalize batch failure'), { code: 14 });
+      }
+    });
     sender = await import('../scripts/send-job-alerts.mjs');
     sender.__setFirestoreAdminForTest(db);
     await sender.runJobAlertsMain();
@@ -288,5 +311,36 @@ describe('R5 — riga storica della coda retry senza deliveryState', () => {
     const ledger = store.get(alertPath(LEGACY))!.data.deliveryLedger;
     expect(ledger[jobDedupKey(jobs[0])]).toMatchObject({ state: 'ambiguous', claimId: 'legacy-retry:legacy-row-1', reason: 'legacy-retry-outcome-not-proven-definite' });
     expect(sentMessages.map((m) => m.to)).not.toContain(LEGACY);
+  });
+});
+
+describe('finalize in batch fallito, ripiego per email riuscito: l update fuso si applica UNA volta', () => {
+  it('lo scenario e\' reale: il commit del batch di finalize e\' fallito e l email e\' partita', () => {
+    expect(finalizeBatchFailures).toBe(1);
+    expect(sentMessages.map((m) => m.to)).toContain(FINAL_FAIL);
+  });
+
+  it('un solo incremento di matchCount e un solo aggiornamento ranking/decay: identico al controllo con batch riuscito', () => {
+    const failed = store.get(alertPath(FINAL_FAIL))!.data;
+    const control = store.get(alertPath(CONTROL))!.data;
+    expect(sentMessages.map((m) => m.to)).toContain(CONTROL);
+    expect(failed.deliveryLastOutcome).toBe('accepted');
+    expect(failed.deliveryLedger).toEqual({});
+    expect(control.matchCount).toBeGreaterThan(0);
+    // Una seconda applicazione (`increment`) raddoppierebbe il conteggio rispetto al controllo.
+    expect(failed.matchCount).toBe(control.matchCount);
+    // I contatori (non gli istanti, che differiscono per run) devono coincidere.
+    const counters = (value: any): any => (value instanceof Date ? undefined
+      : Array.isArray(value) ? value.map(counters)
+        : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).map(([k, v]) => [k, counters(v)]).filter(([, v]) => v !== undefined))
+          : typeof value === 'number' ? value : undefined);
+    expect(counters(failed.ranking_stats ?? null)).toEqual(counters(control.ranking_stats ?? null));
+    expect(Object.keys(failed.sentJobIds).length).toBe(Object.keys(control.sentJobIds).length);
+    expect(failed.cadence_state ?? null).toBe(control.cadence_state ?? null);
+  });
+
+  it('nessun update standalone del passo post-batch: l alert e\' scritto esattamente due volte (intent + finalize del ripiego)', () => {
+    expect(writesByPath[alertPath(FINAL_FAIL)]).toBe(2);
+    expect(writesByPath[alertPath(CONTROL)]).toBe(2);
   });
 });

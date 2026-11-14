@@ -622,3 +622,63 @@ describe('deliveryFinalizeAlreadyApplied (funzione pura)', () => {
     expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: sent(5) }, { keys: [], intentAtMs: at })).toBe(false);
   });
 });
+
+
+describe('ripiego del finalize `accepted`: l update fuso e\' segnalato come scritto (contratto esplicito)', () => {
+  const makeItem = () => ({
+    to: 'a@example.test',
+    deliveryRef: { path: 'job_alert_subscribers/a@example.test/alerts/alert-1' },
+    meta: {
+      alertId: 'alert-1',
+      deliveryAttemptId: 'att-1',
+      rankingJobs: JOBS,
+      alertSnapshot: { data: { deliveryLedger: {}, sentJobIds: {} }, updateTime: { token: 't0' }, committedIntent: true },
+    },
+  } as any);
+  const keeperWith = (finalizeTx: any, applied: any[]) => createBatchBookkeeper({
+    // Il gruppo viene rifiutato prima del commit: il finalize passa dal ripiego per email.
+    getDb: async () => { throw new Error('batch commit failed'); },
+    persistIntentTx: async () => true,
+    finalizeTx,
+    buildAcceptedFields: () => ({ matchCount: 1 }),
+    onAcceptedFieldsApplied: (item: any) => applied.push(item),
+    windowMs: 0,
+  });
+
+  it('finalizeTx riesce (true): onAcceptedFieldsApplied e\' chiamata UNA volta, per l item', async () => {
+    const applied: any[] = [];
+    const item = makeItem();
+    const keeper = keeperWith(async () => true, applied);
+    expect(await keeper.requestFinalize(item, 'accepted', { provider: 'maileroo' })).toBe(true);
+    expect(applied).toEqual([item]);
+  });
+
+  it('finalizeTx risponde false: non e\' chiamata', async () => {
+    const applied: any[] = [];
+    const keeper = keeperWith(async () => false, applied);
+    expect(await keeper.requestFinalize(makeItem(), 'accepted', { provider: 'maileroo' })).toBe(false);
+    expect(applied).toEqual([]);
+  });
+
+  it('finalizeTx lancia: non e\' chiamata e l errore risale', async () => {
+    const applied: any[] = [];
+    const keeper = keeperWith(async () => { throw new Error('tx exploded'); }, applied);
+    await expect(keeper.requestFinalize(makeItem(), 'accepted', { provider: 'maileroo' })).rejects.toThrow(/tx exploded/);
+    expect(applied).toEqual([]);
+  });
+
+  it('outcome `failed` (nessun update fuso): non e\' chiamata', async () => {
+    const applied: any[] = [];
+    const keeper = keeperWith(async () => true, applied);
+    expect(await keeper.requestFinalize(makeItem(), 'failed', { error: 'quota' })).toBe(true);
+    expect(applied).toEqual([]);
+  });
+
+  it('le scritture accessorie partono comunque, anche se il finalize del ripiego lancia', async () => {
+    const written: any[] = [];
+    const keeper = keeperWith(async () => { throw new Error('tx exploded'); }, []);
+    const write = { ref: { set: async (data: any) => { written.push(data); } }, data: { id: 'd-1' } };
+    await expect(keeper.requestFinalize(makeItem(), 'accepted', { provider: 'maileroo' }, { extraWrites: [write] })).rejects.toThrow();
+    expect(written).toEqual([{ id: 'd-1' }]);
+  });
+});

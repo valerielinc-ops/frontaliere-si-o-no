@@ -570,6 +570,12 @@ export async function createLiveLinkChecker({
       return { known: true, live: loaded.lookup.has(url) };
     },
     failOpen: false,
+    // Nessun budget di verifiche: i lookup nel manifest sono locali e gratuiti. Il budget
+    // (`limit` per alert) serve solo a limitare le GET HTTP (anti fan-out pre-#9314); col
+    // manifest lascerebbe `rankLiveJobsForEmail` uscire con la rosa corrente, anche vuota,
+    // senza guardare gli annunci pubblicati piu' in basso. La decisione sta qui, nel
+    // checker: il ramo HTTP non dichiara `checkBudget` e vale il default (`limit`).
+    checkBudget: Number.POSITIVE_INFINITY,
   };
 }
 
@@ -596,7 +602,7 @@ async function rankLiveJobsForEmail(
   locale,
   cache,
   rankingOptions,
-  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive, failOpen = true } = {},
+  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive, failOpen = true, checkBudget = limit } = {},
 ) {
   const excludedUrls = new Set();
   const checkedUrls = new Set();
@@ -608,10 +614,28 @@ async function rankLiveJobsForEmail(
       if (cachedLiveLinkResult(cache, url)) checkedUrls.add(url);
     }
     const uncachedUrls = uniqueUrls.filter((url) => !cachedLiveLinkResult(cache, url));
-    const remaining = Math.max(0, limit - checkedUrls.size);
+    const remaining = Math.max(0, checkBudget - checkedUrls.size);
     for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
     return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining, failOpen });
   };
+
+  // Verifiche gratuite (manifest, `checkBudget` infinito): UNA passata di lookup su tutto
+  // `matched` PRIMA del ciclo, e si escludono subito gli URL morti. Senza questo pre-filtro
+  // ogni iterazione escluderebbe al piu' `limit` morti e ri-classificherebbe tutto `matched`
+  // (map, sort, diversify, affinity per job): O((morti/limit) x n log n) per alert, con
+  // decine di migliaia di annunci non ancora pubblicati dopo deploy radi. Cosi' il ciclo fa
+  // al piu' UNA classifica, sui soli candidati vivi. L'ordine fra annunci a pari punteggio
+  // (`diversifyEqualRankGroups`) puo' differire da quello del ciclo iterativo solo nei casi
+  // in cui questo avrebbe iterato, e in entrambi i casi e' una classifica valida dei soli
+  // annunci vivi. Il ramo HTTP (budget finito) non passa di qui e resta identico.
+  if (!Number.isFinite(checkBudget)) {
+    await inspectLiveJobs(matched, locale, cache, { check, failOpen });
+    for (const job of matched) {
+      const url = jobPageUrl(job, locale);
+      if (url && isCachedDeadLiveLink(cache, url)) excludedUrls.add(url);
+    }
+    if (ranked && ranked.some((job) => excludedUrls.has(jobPageUrl(job, locale)))) ranked = null;
+  }
 
   while (true) {
     if (!ranked) {
@@ -661,7 +685,10 @@ async function rankLiveJobsForEmail(
         .map((job) => jobPageUrl(job, locale))
         .filter((url) => isCachedDeadLiveLink(cache, url)),
     );
-    if (deadUrls.size === 0 || checkedUrls.size >= limit) return result.jobs;
+    // Con `checkBudget` infinito (manifest) il ciclo termina comunque: ogni iterazione esclude
+    // almeno un URL morto NUOVO (`ranked` e' ricalcolato sui candidati senza `excludedUrls`),
+    // quindi al piu' |matched| iterazioni. `limit` resta il numero di card, mai il budget.
+    if (deadUrls.size === 0 || checkedUrls.size >= checkBudget) return result.jobs;
 
     for (const url of deadUrls) excludedUrls.add(url);
     ranked = null;
@@ -1992,6 +2019,8 @@ async function finalizeJobAlertDeliveryAttemptTx(item, outcome, provider = {}, p
     tx.update(ref, fields);
     return true;
   });
+  // Copre il percorso con il bookkeeping a batch spento (`finalizeTx` chiamata direttamente); col batch lo
+  // segnala anche `requestFinalize` (idempotente: un Set).
   if (committed && acceptedExtraFields) fusedAlertUpdateKeys.add(jobAlertDeliveryKey(item));
   return committed;
 }
@@ -4438,7 +4467,7 @@ async function main() {
       nlNormLocale(alert.locale),
       jobLiveCheckCache,
       rankingOptions,
-      { initialRanked: preflightRanked, check: liveLink.check, failOpen: liveLink.failOpen },
+      { initialRanked: preflightRanked, check: liveLink.check, failOpen: liveLink.failOpen, checkBudget: liveLink.checkBudget },
     );
     sampleBatchMemory();
     if (rankedForEmail.length === 0) {

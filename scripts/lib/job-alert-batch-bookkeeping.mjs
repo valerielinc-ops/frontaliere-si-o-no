@@ -104,7 +104,7 @@ export function createMicroBatcher(flush, {
  * @param {(item: object, provider: string) => Promise<boolean>} deps.persistIntentTx ripiego: la transazione per email
  * @param {(item: object, outcome: string, provider?: object) => Promise<boolean>} deps.finalizeTx ripiego: la transazione per email
  * @param {(item: object, provider?: object) => object|null} [deps.buildAcceptedFields] campi fusi nell'update `accepted`
- * @param {(item: object) => void} [deps.onAcceptedFieldsApplied] chiamata quando l'update fuso e' stato scritto dal batch
+ * @param {(item: object) => void} [deps.onAcceptedFieldsApplied] chiamata quando l'update fuso e' stato scritto, dal batch o dal ripiego per email
  * @param {() => number} [deps.now]
  * @param {{count: (name: string, n?: number) => void}} [deps.metrics]
  * @param {(line: string) => void} [deps.warn]
@@ -283,7 +283,13 @@ export function createBatchBookkeeper({
     const fallback = async () => {
       metrics.count('bookkeepingFinalizeTxFallback');
       try {
-        return await finalizeTx(item, outcome, provider, acceptedExtraFields);
+        const applied = await finalizeTx(item, outcome, provider, acceptedExtraFields);
+        // Contratto esplicito: l'update fuso e' stato scritto anche dal ripiego per email, quindi
+        // il passo post-batch NON deve riapplicarlo (`increment`, ranking, decay). Non dipende
+        // dall'effetto collaterale di `finalizeTx`. Solo se il finalize e' riuscito: se lancia o
+        // risponde `false` l'update fuso non c'e' e resta il passo standalone di sempre.
+        if (applied === true && acceptedExtraFields) onAcceptedFieldsApplied(item);
+        return applied;
       } finally {
         // Le scritture accessorie non sono mai bloccanti, e partono anche se il
         // finalize fallisce, come prima (il record di consegna era scritto prima

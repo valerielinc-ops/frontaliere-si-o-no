@@ -34,6 +34,7 @@ import {
   rankLiveJobsForEmail,
 } from '../scripts/send-job-alerts.mjs';
 import { createJobAlertMetrics } from '../scripts/lib/job-alert-metrics.mjs';
+import { rankEmailJobs } from '../functions/src/lib/jobEmailRanking.js';
 import { checkPageBodyLive, EXPIRED_JOB_MARKER } from '../scripts/lib/live-link-check.mjs';
 import { createJobFeatureCache, createJobFeatureStore } from '../services/jobAlertMatching.mjs';
 import { createJobAlertCandidateSelector, resolveJobAlertCursor } from '../scripts/lib/job-alert-newness.mjs';
@@ -472,5 +473,114 @@ describe('manifest + inspectLiveJobs: il contratto { known, live } dà known/liv
     expect(sender).toMatch(/if \(rankedForEmail\.length === 0\) \{\s*funnelIn\.deadLinks \+= 1;/);
     const funnel = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/job-alert-funnel.mjs'), 'utf8');
     expect(funnel).toContain("key: 'deadLinks', label: 'link pagina non più vivi'");
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Review automatica 5907369449: il budget delle verifiche (`limit` per alert) serve solo a
+// limitare le GET HTTP. Col manifest i lookup sono locali e gratuiti: con il budget, se i primi
+// `limit` URL della rosa sono assenti dal manifest, `rankLiveJobsForEmail` usciva con una lista
+// vuota senza guardare gli annunci pubblicati piu' in basso.
+describe('rankLiveJobsForEmail: il manifest non ha budget di verifiche live-link', () => {
+  const LIMIT = 10;
+  const config = { mode: 'auto', url: 'https://example.test/m.json', maxAgeHours: 36, minCoverage: 0 } as any;
+  const alert = { id: 'budget-1', email: 'budget@example.test', locale: 'it', keywords: ['infermiere'] };
+  const matchedOf = (jobs: any[]) => {
+    const context: any = {
+      behaviorProfiles: new Map(), lastClickedUrlByEmail: new Map(), locationIndex: new Map(), cityToCanton: new Map(),
+      subscriberProfiles: new Map(), now: NOW, featureCache: createJobFeatureCache(createJobFeatureStore()), compactMatches: true, allowDiscovery: false,
+    };
+    const plan = planAlertMatch(alert, { ...context, recentJobs: jobs });
+    const rankingOptions: any = { variant: 'control', config: { enabled: false }, rankingMetadata: plan.rankingMetadata };
+    return { plan, rankingOptions };
+  };
+  const manifestChecker = (published: any[]) => createLiveLinkChecker({
+    config, inventory: JOBS, datasetAtMs: NOW,
+    fetchImpl: (async () => ({ ok: true, status: 200, text: async () => JSON.stringify(buildJobPagesManifest({ paths: livePathsOf(published), generatedAt: new Date(NOW - HOUR).toISOString() })) })) as any,
+    metrics: metricsOf(), log: () => {}, warn: () => {},
+  });
+
+  it('11 annunci, limit 10, i primi 10 della classifica assenti dal manifest e l 11 presente: restituisce l 11', async () => {
+    const eleven = JOBS.slice(0, 11);
+    const { plan, rankingOptions } = matchedOf(eleven);
+    expect(plan.matched.length).toBe(11);
+    // La classifica senza filtro dice quali sono davvero i primi 10 e quale l'11: l'11 e' l'unico pubblicato.
+    const unfiltered = rankEmailJobs(plan.matched, { ...rankingOptions, limit: 11 });
+    const top10 = unfiltered.slice(0, LIMIT);
+    const eleventh = unfiltered[LIMIT];
+    expect(rankEmailJobs(plan.matched, { ...rankingOptions, limit: LIMIT }).map((j: any) => j.id)).toEqual(top10.map((j: any) => j.id));
+    expect(top10.some((j: any) => j.id === eleventh.id)).toBe(false);
+
+    const checker = await manifestChecker([eleventh]);
+    expect(checker.source).toBe('manifest');
+    expect(checker.checkBudget).toBe(Number.POSITIVE_INFINITY);
+    const result = await rankLiveJobsForEmail(
+      plan.matched, 'it', new Map(), rankingOptions,
+      { limit: LIMIT, check: checker.check, failOpen: checker.failOpen, checkBudget: checker.checkBudget } as any,
+    );
+    expect(result.map((j: any) => j.id)).toEqual([eleventh.id]);
+  });
+
+  it('con il manifest tutti i pubblicati oltre il decimo vengono promossi, e quando nessuno e\' pubblicato la lista e\' vuota (il ciclo termina)', async () => {
+    const { plan, rankingOptions } = matchedOf(JOBS);
+    const unfiltered = rankEmailJobs(plan.matched, { ...rankingOptions, limit: JOBS.length });
+    const published = unfiltered.slice(10);
+    const checker = await manifestChecker(published);
+    const result = await rankLiveJobsForEmail(plan.matched, 'it', new Map(), rankingOptions, { limit: LIMIT, check: checker.check, failOpen: checker.failOpen, checkBudget: checker.checkBudget } as any);
+    expect(result.map((j: any) => j.id).sort()).toEqual(published.map((j: any) => j.id).sort());
+    const other = await createLiveLinkChecker({
+      config, inventory: JOBS, datasetAtMs: NOW,
+      fetchImpl: (async () => ({ ok: true, status: 200, text: async () => JSON.stringify(buildJobPagesManifest({ paths: ['/it/altra-sezione/altro-1'], generatedAt: new Date(NOW - HOUR).toISOString() })) })) as any,
+      metrics: metricsOf(), log: () => {}, warn: () => {},
+    });
+    expect(await rankLiveJobsForEmail(plan.matched, 'it', new Map(), rankingOptions, { limit: LIMIT, check: other.check, failOpen: other.failOpen, checkBudget: other.checkBudget } as any)).toEqual([]);
+  });
+
+  it('200 annunci, limit 10, i primi 150 della classifica assenti: restituisce i 10 pubblicati meglio classificati, con UN lookup per URL unico (pre-filtro in un solo passaggio)', async () => {
+    const many = Array.from({ length: 200 }, (_, i) => job(i));
+    const { plan, rankingOptions } = matchedOf(many);
+    expect(plan.matched.length).toBe(200);
+    const unfiltered = rankEmailJobs(plan.matched, { ...rankingOptions, limit: 200 });
+    expect(unfiltered.length).toBe(200);
+    const absent = unfiltered.slice(0, 150);
+    const published = unfiltered.slice(150);
+    const checker = await createLiveLinkChecker({
+      config, inventory: many, datasetAtMs: NOW,
+      fetchImpl: (async () => ({ ok: true, status: 200, text: async () => JSON.stringify(buildJobPagesManifest({ paths: livePathsOf(published), generatedAt: new Date(NOW - HOUR).toISOString() })) })) as any,
+      metrics: metricsOf(), log: () => {}, warn: () => {},
+    });
+    expect(checker.source).toBe('manifest');
+    const calls = new Map<string, number>();
+    const counting = async (url: string) => { calls.set(url, (calls.get(url) || 0) + 1); return checker.check(url); };
+    const cache = new Map();
+    // Conta quanti annunci attraversano `rankEmailJobs` (una `get` dei metadati per annuncio e per passata).
+    let rankedItems = 0;
+    const countingMetadata = { get: (key: any) => { rankedItems += 1; return (plan.rankingMetadata as any)?.get(key); } };
+    const result = await rankLiveJobsForEmail(
+      plan.matched, 'it', cache, { ...rankingOptions, rankingMetadata: countingMetadata },
+      { limit: LIMIT, check: counting, failOpen: checker.failOpen, checkBudget: checker.checkBudget, initialRanked: unfiltered.slice(0, LIMIT) } as any,
+    );
+    // I 10 meglio classificati fra i soli pubblicati, nell'ordine della classifica non filtrata.
+    expect(result.map((j: any) => j.id)).toEqual(published.slice(0, LIMIT).map((j: any) => j.id));
+    for (const j of result) expect(absent.some((a: any) => a.id === j.id)).toBe(false);
+    // Un solo lookup per URL unico: nessuna passata ripetuta per ogni gruppo di `limit` morti.
+    expect(calls.size).toBe(200);
+    for (const [url, count] of calls) expect(count, url).toBe(1);
+    // UNA sola classifica, sui 50 candidati vivi: il ciclo iterativo ne avrebbe fatte ~15 su ~200..50 annunci.
+    expect(rankedItems).toBe(published.length);
+  });
+
+  it('controllo HTTP: il budget e\' invariato (checkBudget non dichiarato, al piu\' `limit` chiamate a check per alert)', async () => {
+    const { plan, rankingOptions } = matchedOf(JOBS);
+    const httpChecker = await createLiveLinkChecker({ config: { ...config, mode: 'off' }, inventory: JOBS, metrics: metricsOf(), log: () => {}, warn: () => {} });
+    expect(httpChecker.source).toBe('http');
+    expect(httpChecker.failOpen).toBe(true);
+    expect('checkBudget' in httpChecker && httpChecker.checkBudget !== undefined).toBe(false);
+    // Un checker HTTP finto: ogni pagina e' morta. Con 12 annunci e limit 10 non deve superare 10 chiamate.
+    const calls: string[] = [];
+    const deadCheck = async (url: string) => { calls.push(url); return false; };
+    await rankLiveJobsForEmail(plan.matched, 'it', new Map(), rankingOptions, { limit: LIMIT, check: deadCheck, failOpen: httpChecker.failOpen, checkBudget: (httpChecker as any).checkBudget } as any);
+    expect(calls.length).toBeLessThanOrEqual(LIMIT);
+    expect(new Set(calls).size).toBe(calls.length);
   });
 });
