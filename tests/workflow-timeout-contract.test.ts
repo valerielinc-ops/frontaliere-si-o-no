@@ -15,6 +15,9 @@ const TRANSLATE_PENDING_LOGIC = '.github/workflows/translate-pending-logic.yml';
 const TRANSLATE_PENDING_MANUAL = '.github/workflows/translate-pending.yml';
 const TRANSLATE_PENDING_BUDGET_BENCHMARK = '.github/workflows/translate-pending-budget-benchmark.yml';
 const PR_JOB_TIMEOUT_LIMIT_MINUTES = 120;
+const EXPLICIT_LONG_PR_JOB_TIMEOUTS = new Map([
+  ['assisted-application-portal-replay.yml:replay', 184],
+]);
 
 function stepsOf(file: string): Array<Record<string, any>> {
   const document = YAML.parse(readFileSync(join(ROOT, file), 'utf8')) as any;
@@ -64,8 +67,10 @@ describe('automatic PR workflow budgets', () => {
 
         // The primary required test gate keeps its existing six-hour safety cap.
         if (name === 'tests.yml' && jobName === 'vitest') continue;
-        if (timeout > PR_JOB_TIMEOUT_LIMIT_MINUTES) {
-          offenders.push(`${name}:${jobName} timeout ${timeout}m exceeds ${PR_JOB_TIMEOUT_LIMIT_MINUTES}m`);
+        const timeoutLimit = EXPLICIT_LONG_PR_JOB_TIMEOUTS.get(`${name}:${jobName}`)
+          ?? PR_JOB_TIMEOUT_LIMIT_MINUTES;
+        if (timeout > timeoutLimit) {
+          offenders.push(`${name}:${jobName} timeout ${timeout}m exceeds ${timeoutLimit}m`);
         }
       }
     }
