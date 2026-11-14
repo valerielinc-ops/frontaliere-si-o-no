@@ -494,7 +494,7 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"');
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
-    expect(workflow).toContain('timeout-minutes: 30');
+    expect(workflow).toContain('timeout-minutes: 20');
     expect(workflow).toContain("--testNamePattern='portal replay read-only fence'");
     expect(workflow).toContain('            tests');
     expect(workflow).toContain('  fence-contract:');
