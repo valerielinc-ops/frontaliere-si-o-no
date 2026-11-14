@@ -106,7 +106,9 @@ describe('il dispatch punta al corpus, non a questo repo (#5289 non si ripete)',
 describe('il dispatch scatta SOLO sulla transizione di trimestre', () => {
   it('è gated su new_quarter non vuoto', () => {
     // Senza questo gate genererebbe un articolo a ogni run (2/giorno).
-    expect(dispatch.if).toBe("steps.refresh.outputs.new_quarter != ''");
+    expect(dispatch.if).toBe(
+      "steps.refresh.outputs.new_quarter != '' && steps.article_probe.outputs.exists != 'true'",
+    );
   });
 
   it('passa il trimestre nella forma attesa dal ricevente (`url=stats-bfs://<quarter>`)', () => {
@@ -259,7 +261,7 @@ describe('un dispatch fallito non è mai silenzioso (PAT che ruota)', () => {
   it('il dispatch non fa fallire il run, ma il fallimento apre una issue', () => {
     expect(dispatch['continue-on-error' as keyof Step]).toBe(true);
     expect(fallback).toBeDefined();
-    expect(fallback.if).toContain("steps.dispatch.outcome != 'success'");
+    expect(fallback.if).toContain("steps.dispatch.outcome == 'failure'");
     expect(fallback.run).toContain('github-issue-creator.mjs');
   });
 

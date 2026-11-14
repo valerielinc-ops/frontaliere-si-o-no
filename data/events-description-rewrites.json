@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-14T00:25:19.117Z",
+  "generatedAt": "2026-11-14T01:23:37.595Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -145018,6 +145018,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T07:22:51.112Z"
     },
+    "myswitzerland:b9a644b996fc4e19a138af30902e112e::e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2": {
+      "id": "myswitzerland:b9a644b996fc4e19a138af30902e112e",
+      "sourceDescriptionHash": "e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Diessenhofen; cantone: TG; categoria: Event; data: 2027-02-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Diessenhofen; cantone: TG; categoria: Event; data: 2027-02-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Diessenhofen; canton: TG; category: Event; date: 2027-02-14. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Diessenhofen; kanton: TG; kategorie: Event; datum: 2027-02-14. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Diessenhofen; canton: TG; catégorie: Event; date: 2027-02-14. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-14T01:17:24.312Z"
+    },
     "myswitzerland:b9aa82694e354c6d950ce14577709a19::b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80": {
       "id": "myswitzerland:b9aa82694e354c6d950ce14577709a19",
       "sourceDescriptionHash": "b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80",
@@ -192485,9 +192499,9 @@
     "guidle:AvjfgKJ::d95edaa1d05ab3454c0b99cb82c00c2f3bf59ea12064e1dbb7e53a49394f42e6": {
       "id": "guidle:AvjfgKJ",
       "sourceDescriptionHash": "d95edaa1d05ab3454c0b99cb82c00c2f3bf59ea12064e1dbb7e53a49394f42e6",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-13T21:45:18.658Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-14T01:19:30.594Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -196052,15 +196066,6 @@
       "code": "source-ngram-8",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:31:17.578Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:b9a644b996fc4e19a138af30902e112e::e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2": {
-      "id": "myswitzerland:b9a644b996fc4e19a138af30902e112e",
-      "sourceDescriptionHash": "e2839ebbb2a4b53a98e97fad335dd0e038ac324f9f94010ab434af6a189636e2",
-      "code": "sentence-count",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:39:43.027Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
