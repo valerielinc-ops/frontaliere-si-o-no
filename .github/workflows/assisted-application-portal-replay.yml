@@ -57,7 +57,7 @@ jobs:
             --no-tags --filter=blob:none "https://github.com/$HEAD_REPOSITORY.git" "$HEAD_SHA"
           path_file="$RUNNER_TEMP/portal-replay-paths.txt"
           patch_file="$RUNNER_TEMP/portal-replay-paths.patch"
-          git -C .portal-base diff --name-only --no-renames "$BASE_SHA" "$HEAD_SHA" > "$path_file"
+          git -C .portal-base diff --name-only --no-renames "$(git -C .portal-base merge-base "$BASE_SHA" "$HEAD_SHA")" "$HEAD_SHA" > "$path_file"
           : > "$patch_file"
           while IFS= read -r path; do
             [[ -n "$path" ]] || continue
@@ -121,7 +121,7 @@ jobs:
             --no-tags --filter=blob:none "https://github.com/$HEAD_REPOSITORY.git" "$HEAD_SHA"
           path_file="$RUNNER_TEMP/portal-replay-paths.txt"
           patch_file="$RUNNER_TEMP/portal-replay-paths.patch"
-          git -C .portal-base diff --name-only --no-renames "$BASE_SHA" "$HEAD_SHA" > "$path_file"
+          git -C .portal-base diff --name-only --no-renames "$(git -C .portal-base merge-base "$BASE_SHA" "$HEAD_SHA")" "$HEAD_SHA" > "$path_file"
           : > "$patch_file"
           while IFS= read -r path; do
             [[ -n "$path" ]] || continue

@@ -463,7 +463,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('gh pr diff');
-    expect(workflow).toContain('git -C .portal-base diff --name-only --no-renames "$BASE_SHA" "$HEAD_SHA"');
+    const mergeBaseDiff = 'git -C .portal-base diff --name-only --no-renames "$(git -C .portal-base merge-base "$BASE_SHA" "$HEAD_SHA")" "$HEAD_SHA"';
+    expect(workflow.split(mergeBaseDiff)).toHaveLength(3);
+    expect(workflow).not.toContain('git -C .portal-base diff --name-only --no-renames "$BASE_SHA" "$HEAD_SHA"');
     expect(workflow).toContain("printf 'diff --git a/%s b/%s\\n'");
   });
 
