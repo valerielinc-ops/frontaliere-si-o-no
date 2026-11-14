@@ -26,6 +26,7 @@ const POST_BUILD_MATRIX_YML = readFileSync(resolve(ROOT, '.github/workflows/post
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
+const CATHEDRAL_YML = readFileSync(resolve(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf-8');
 const AUDIT_PUBLISHED_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist.yml'), 'utf-8');
 const AUDIT_FULL_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist-full.yml'), 'utf-8');
 const CRAWLER_CONTENT_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/crawler-content-plausibility-audit.yml'), 'utf-8');
@@ -176,14 +177,29 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(VALIDATION_YML).not.toContain('npm run validate:page-seo');
   });
 
-  it('runs report audits in a separate workflow_run with no publisher dependency edge', () => {
+  it('dispatches report audits with immutable publisher inputs and no publisher dependency edge', () => {
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const publisher = YAML.parse(DEPLOY_PUBLISH_YML) as any;
     const publishNeeds = publisher.jobs.publish.needs as string[];
-    expect(published.on.workflow_run.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+    expect(published.on.workflow_dispatch.inputs).toMatchObject({
+      deploy_run_id: { type: 'string' },
+      shard_artifact_run_id: { type: 'string' },
+      deploy_ref: { type: 'string' },
+      audit_sample_salt: { type: 'string' },
+    });
+    expect(published.on.workflow_run).toBeUndefined();
     expect(published.jobs.report.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
     expect(String(published.jobs.report.with.audits)).toContain('validate:page-seo');
     expect(String(published.jobs.report.with.audits)).toContain('validate:og-images');
+    const runtimeWatchdog = publisher.jobs['runtime-watchdog'];
+    expect(runtimeWatchdog.needs).toContain('publish');
+    const dispatchStep = runtimeWatchdog.steps.find(
+      (step: any) => step.name === 'Dispatch published dist audit',
+    );
+    expect(dispatchStep.if).toContain("needs.publish.result == 'success'");
+    expect(dispatchStep.run).toContain('audit-published-dist.yml');
+    expect(dispatchStep.run).toContain('-f deploy_run_id="$PUBLISHER_SOURCE_RUN_ID"');
+    expect(dispatchStep.run).toContain('-f shard_artifact_run_id="$PUBLISHER_RUN_ID"');
     expect(publisher.jobs['audit-dist-report']).toBeUndefined();
     expect(publishNeeds).not.toContain('audit-dist-report');
     expect(publishNeeds).toContain('validate-dist');
@@ -195,10 +211,13 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
     expect(workflow.on.workflow_call.inputs.it_shard_artifact_run_id).toBeTruthy();
     const steps = workflow.jobs.audit.steps;
-    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator');
+    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator and artifact resolver');
     expect(indexValidatorCheckout.uses).toBe('actions/checkout@v7');
     expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
     expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
+    expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+    const fetchPages = steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
+    expect(fetchPages.uses).toBe('./current-index-validator/.github/actions/fetch-pages-artifact');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const upperLocale = locale.toUpperCase();
@@ -228,6 +247,33 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.AUDIT_FORCE_FULL).toContain('inputs.full_scan');
     expect(auditStep.env.PUBLISHER_PAGE_MANIFEST_DIR).toContain('publisher-audit-manifests/pages');
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
+  });
+
+  it('loads the artifact resolver from main when the replay code is historical', () => {
+    const cases = [
+      {
+        source: AUDIT_REPORT_YML,
+        resolverPath: './current-index-validator/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-index-validator',
+      },
+      {
+        source: CATHEDRAL_YML,
+        resolverPath: './current-artifact-resolver/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-artifact-resolver',
+      },
+    ];
+
+    for (const { source, resolverPath, checkoutPath } of cases) {
+      const workflow = YAML.parse(source) as any;
+      const job = Object.values(workflow.jobs ?? {}).find((candidate: any) => (
+        (candidate.steps ?? []).some((step: any) => step.uses === resolverPath)
+      )) as any;
+      const resolverCheckout = job.steps.find((step: any) => step.with?.path === checkoutPath);
+      expect(resolverCheckout?.uses).toBe('actions/checkout@v7');
+      expect(resolverCheckout?.with?.ref).toBe('refs/heads/main');
+      expect(resolverCheckout?.with?.['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+      expect(job.steps.find((step: any) => step.uses === resolverPath)).toBeTruthy();
+    }
   });
 
   it('uses bounded parallelism only after source-only images are pruned', () => {

@@ -17,7 +17,6 @@ import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 const API = 'https://api.github.com';
 const API_TIMEOUT_MS = 30_000;
 const PAGE_SIZE = 100;
-const ADMISSION_PAGE_SIZE = 1;
 const STATUS_PAGE_RETRY_ATTEMPTS = 3;
 const STATUS_PAGE_RETRY_DELAY_MS = 250;
 const ACTIVE_STATUSES = Object.freeze(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
@@ -128,31 +127,44 @@ function sleep(ms) {
 }
 
 /**
- * The repository-wide Actions run collection can be large and can change
- * while it is paginated. A stale Link header on a later global page made the
- * canary fail even though it only needed to know whether one of five known
- * writer workflows had an active run.
+ * Read one workflow's run collection without an API status filter.
  *
- * Query each writer workflow directly and ask for one row: any row proves the
- * writer is active, while an empty response without a next page proves there
- * is no matching run. Retry an empty response only when GitHub advertises a
- * next page; a persistent inconsistency remains fail-closed.
+ * The Actions API can return HTTP 403 for the `status=waiting` filter to a
+ * workflow GITHUB_TOKEN even when the workflow has `actions: write`. The
+ * unfiltered per-workflow collection is available with the same token, so
+ * keep the active-status predicate local instead of losing the `waiting`
+ * safety case or failing the canary before the probe. A stale Link header on
+ * an empty terminal page is retried before a persistent inconsistency fails
+ * closed.
  */
-async function readWorkflowStatusRuns({
+async function readWorkflowRuns({
   repositoryPath: repoPath,
   workflow,
-  status,
   token,
   fetchImpl,
 }) {
   const workflowId = workflowFileName(workflow.path);
-  const url = `${API}/repos/${repoPath}/actions/workflows/${encodeURIComponent(workflowId)}/runs?status=${encodeURIComponent(status)}&per_page=${ADMISSION_PAGE_SIZE}`;
-  for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
-    const { body, hasNextPage } = await readJson(url, token, fetchImpl);
-    if (body.workflow_runs.length > 0 || !hasNextPage) return body.workflow_runs;
-    if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
+  const baseUrl = `${API}/repos/${repoPath}/actions/workflows/${encodeURIComponent(workflowId)}/runs`;
+  const seenPages = new Set();
+
+  for (let page = 1; ; page += 1) {
+    const url = `${baseUrl}?per_page=${PAGE_SIZE}&page=${page}`;
+    if (seenPages.has(url)) throw new Error(`GitHub API ${url} repeated a pagination link`);
+    seenPages.add(url);
+
+    for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
+      const { body, hasNextPage } = await readJson(url, token, fetchImpl);
+      const active = selectActiveProductionWriters(body.workflow_runs);
+      if (active.length > 0) return active;
+      if (!hasNextPage) return [];
+      // A terminal empty page with a stale next link is the race that caused
+      // the original admission failure. Retry it before following the link;
+      // a non-empty page can safely advance to the next page immediately.
+      if (body.workflow_runs.length > 0) break;
+      if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
+      else throw new Error(`GitHub API workflow run listing for ${workflowId} remained paginated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
+    }
   }
-  throw new Error(`GitHub API ${status} run listing for ${workflowId} remained paginated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
 }
 
 /**
@@ -167,19 +179,15 @@ export async function readActiveProductionWriters({
   if (!repository) throw new Error('GITHUB_REPOSITORY required');
   const repoPath = repositoryPath(repository);
 
-  const batches = await Promise.all(PRODUCTION_WRITERS.flatMap((workflow) => (
-    ACTIVE_STATUSES.map((status) => readWorkflowStatusRuns({
-      repositoryPath: repoPath,
-      workflow,
-      status,
-      token,
-      fetchImpl,
-    }))
-  )));
+  const batches = await Promise.all(PRODUCTION_WRITERS.map((workflow) => readWorkflowRuns({
+    repositoryPath: repoPath,
+    workflow,
+    token,
+    fetchImpl,
+  })));
   const byId = new Map();
-  for (const run of batches.flat()) {
-    const selected = selectActiveProductionWriters([run]);
-    for (const candidate of selected) byId.set(String(candidate.id), candidate);
+  for (const candidate of batches.flat()) {
+    byId.set(String(candidate.id), candidate);
   }
   return [...byId.values()];
 }

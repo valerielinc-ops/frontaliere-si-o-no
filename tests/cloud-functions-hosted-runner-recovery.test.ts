@@ -188,11 +188,24 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
     expect(recovery.jobs.retry.if).toContain("startup_failure");
     expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/load-rc-env.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/google-service-account-token.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/fetch-with-ref-timeout.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/remote-config-template-url.mjs');
+    const recoveryTokenStep = recovery.jobs.retry.steps.find((step: any) => step.name === 'Load recovery API token from Remote Config');
+    expect(recoveryTokenStep?.run).toContain('node scripts/load-rc-env.mjs --only-env=GITHUB_PAT');
+    const recoveryScript = recovery.jobs.retry.steps.at(-1).with.script;
+    expect(recoveryScript).toContain("getOctokit(recoveryToken)");
+    expect(recoveryScript).toContain('process.env.GITHUB_PAT');
+    expect(recoveryScript).toContain('recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt');
+    expect(recoveryScript).toContain('recoveryGithub.rest.checks.listAnnotations');
+    expect(recoveryScript).toContain('recoveryGithub.rest.actions.reRunWorkflow');
+    expect(recoveryScript).not.toContain('github.rest.actions.listJobsForWorkflowRunAttempt');
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('startup/runner recovery signature');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('listRecentCloudFunctionsRuns');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
+    expect(recoveryScript).toContain('shouldRetryCloudFunctionsRun');
+    expect(recoveryScript).toContain('startup/runner recovery signature');
+    expect(recoveryScript).toContain('listRecentCloudFunctionsRuns');
+    expect(recoveryScript).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);
   });
 
