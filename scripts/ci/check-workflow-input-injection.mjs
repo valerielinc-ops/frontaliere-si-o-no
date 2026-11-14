@@ -50,7 +50,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 
 /** Does the expression read a workflow input at all? */
-const READS_INPUT_RE = /\b(?:inputs|github\.event\.inputs)\s*[.[]/;
+const READS_INPUT_RE = /(?<![A-Za-z0-9_.-])(?:inputs|github\.event\.inputs)\s*[.[]/;
 /** Every input reference in a chunk of text — used both to classify and to audit. */
 /** Types the Actions runtime constrains to a finite, metacharacter-free set. */
 const CONSTRAINED_TYPES = new Set(['boolean', 'choice', 'number']);
