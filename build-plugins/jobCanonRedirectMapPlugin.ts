@@ -42,10 +42,12 @@ const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
 const V2_MAX_SHARD_BYTES = 256 * 1024;
 const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix'] as const;
 const LOCALE_INDEX = new Map<JobCanonLocale, number>(JOB_CANON_LOCALES.map((locale, index) => [locale, index]));
+const WORKER_LOCALE_MASK = (1 << JOB_CANON_LOCALES.length) - 1;
 const WORKER_CANDIDATE_FLAG = 1 << 12;
 const WORKER_ACTIVE_ROUTE_FLAG = 1 << 13;
-const WORKER_DIRECT_FACT_MASK = ((1 << JOB_CANON_LOCALES.length) - 1)
-  | (((1 << JOB_CANON_LOCALES.length) - 1) << 4);
+const WORKER_DIRECT_FACT_MASK = WORKER_LOCALE_MASK | (WORKER_LOCALE_MASK << 4);
+const WORKER_NATIVE_NON_TI_MASK = WORKER_LOCALE_MASK << 8;
+const WORKER_REPLACED_MAP_FACT_MASK = WORKER_DIRECT_FACT_MASK | WORKER_NATIVE_NON_TI_MASK;
 
 type StageOperation = (typeof STAGE_OPERATIONS)[number];
 type LocaleEntry = Partial<Record<JobCanonLocale, string>> & {
@@ -622,6 +624,20 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           // Keep one compact candidate map for the Worker predicate instead
           // of separate active-route, candidate, and recovery collections.
           const workerFlagsBySlug = new Map<string, number>();
+          // Keep native-fact provenance so replacing one route map revokes its
+          // own facts without erasing another route's evidence for the slug.
+          const nativeTargetsByRouteSlug = new Map<string, Array<[string, number]>>();
+          const nativeContributionCounts = new Map<string, number>();
+          const nativeContributionKey = (slug: string, localeBit: number): string => localeBit + ':' + slug;
+          const changeNativeContribution = (slug: string, localeBit: number, delta: 1 | -1): void => {
+            const contributionKey = nativeContributionKey(slug, localeBit);
+            const count = (nativeContributionCounts.get(contributionKey) ?? 0) + delta;
+            if (count > 0) nativeContributionCounts.set(contributionKey, count);
+            else nativeContributionCounts.delete(contributionKey);
+            const nativeBit = 1 << (localeBit + 8);
+            const flags = workerFlagsBySlug.get(slug) ?? 0;
+            workerFlagsBySlug.set(slug, count > 0 ? flags | nativeBit : flags & ~nativeBit);
+          };
           const addWorkerSlugFlags = (slug: string, flags: number): void => {
             workerFlagsBySlug.set(slug, (workerFlagsBySlug.get(slug) ?? 0) | flags);
           };
@@ -703,16 +719,32 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
               scannedPartCount += 1;
               sampleHeap();
             }
+            const previousNativeTargets = nativeTargetsByRouteSlug.get(key);
+            if (previousNativeTargets) {
+              for (const [targetSlug, localeBit] of previousNativeTargets) {
+                changeNativeContribution(targetSlug, localeBit, -1);
+              }
+              nativeTargetsByRouteSlug.delete(key);
+            }
             let keyCandidateFlags = workerFlagsBySlug.get(key) ?? 0;
             if ((keyCandidateFlags & WORKER_CANDIDATE_FLAG) !== 0) {
               // A later store part replaces this slug's complete locale map.
               // The iterator can also observe duplicate JSON keys, whose last
-              // value wins under JSON.parse, so each occurrence replaces only
-              // these direct facts while preserving route/candidate/native bits.
-              keyCandidateFlags &= ~WORKER_DIRECT_FACT_MASK;
+              // value wins under JSON.parse. Reset direct and native facts for
+              // this source map; restore native facts still contributed by other
+              // route keys before preserving route/candidate identity.
+              keyCandidateFlags = workerFlagsBySlug.get(key) ?? keyCandidateFlags;
+              keyCandidateFlags &= ~WORKER_REPLACED_MAP_FACT_MASK;
+              for (const locale of JOB_CANON_LOCALES) {
+                const localeBit = LOCALE_INDEX.get(locale)!;
+                if ((nativeContributionCounts.get(nativeContributionKey(key, localeBit)) ?? 0) > 0) {
+                  keyCandidateFlags |= 1 << (localeBit + 8);
+                }
+              }
               workerFlagsBySlug.set(key, keyCandidateFlags);
             }
             if (!paths || typeof paths !== 'object') continue;
+            const nativeTargets: Array<[string, number]> = [];
             for (const locale of JOB_CANON_LOCALES) {
               const value = paths[locale];
               if (typeof value !== 'string') continue;
@@ -741,14 +773,12 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 // exact one-slug legacy TI path. Its last non-TI prefix wins.
                 if (prefix !== legacyRoots[locale]) {
                   const localeBit = LOCALE_INDEX.get(locale)!;
-                  const nativeNonTiBit = 1 << (localeBit + 8);
-                  workerFlagsBySlug.set(
-                    targetSlug,
-                    (workerFlagsBySlug.get(targetSlug) ?? 0) | nativeNonTiBit,
-                  );
+                  changeNativeContribution(targetSlug, localeBit, 1);
+                  nativeTargets.push([targetSlug, localeBit]);
                 }
               }
             }
+            if (nativeTargets.length > 0) nativeTargetsByRouteSlug.set(key, nativeTargets);
           }
           markHeap('worker-recovery-index-built');
           // Collapse the staging bits into only the locale mask needed by the
@@ -854,6 +884,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           jobs.length = 0;
           activeJobsRaw.length = 0;
           workerFlagsBySlug.clear();
+          nativeTargetsByRouteSlug.clear();
+          nativeContributionCounts.clear();
           activeAliasExampleKeys.clear();
           clearJobCanonOrderingFields();
           markHeap('inputs-released');

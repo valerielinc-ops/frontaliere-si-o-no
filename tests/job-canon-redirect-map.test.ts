@@ -295,6 +295,14 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         ],
       },
     }),
+    job('worker-reset-route', 'ZH', {
+      it: 'worker-reset-route-it', en: 'worker-reset-route-en',
+      de: 'worker-reset-candidate', fr: 'worker-reset-route-fr',
+    }),
+    job('worker-reset-target-route', 'ZH', {
+      it: 'worker-reset-target-it', en: 'worker-reset-target-en',
+      de: 'worker-reset-target-de', fr: 'worker-reset-native-target',
+    }),
   ];
 
   beforeAll(async () => {
@@ -347,6 +355,7 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
       'worker-native-recovery-en': { de: '/de/jobs-im-tessin/worker-native-recovery-en' },
       'worker-override-claim-en': { en: '/en/find-jobs-zurich/worker-native-recovery-en' },
       'worker-duplicate-entry-en': { de: '/de/jobs-im-tessin/worker-duplicate-entry-en' },
+      'worker-reset-candidate': { en: '/en/find-jobs-zurich/worker-reset-candidate' },
     }, tmp);
     const duplicateSlug = 'worker-duplicate-entry-en';
     const duplicateShardFile = knownSlugsShardFile(knownSlugsShardIndex(duplicateSlug), tmp);
@@ -373,7 +382,36 @@ ${duplicateShardEntries.join(',\n')}
       'worker-override-omitted-en': { en: '/en/find-jobs-geneva/worker-override-omitted-en' },
       'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
       'worker-native-recovery-en': { en: '/en/find-jobs-geneva/worker-native-recovery-en' },
+      'worker-reset-candidate': { en: '/en/find-jobs-zurich/worker-reset-candidate' },
     }));
+    const resetSlug = 'worker-reset-candidate';
+    const resetShardFile = knownSlugsShardFile(knownSlugsShardIndex(resetSlug), tmp);
+    const resetShard = JSON.parse(fs.readFileSync(resetShardFile, 'utf-8')) as {
+      slugs: Record<string, Record<string, string>>;
+    };
+    delete resetShard.slugs[resetSlug];
+    const resetShardEntries = Object.entries(resetShard.slugs).map(([slug, paths]) =>
+      '    ' + JSON.stringify(slug) + ': ' + JSON.stringify(paths));
+    resetShardEntries.push(
+      '    ' + JSON.stringify(resetSlug) + ': ' + JSON.stringify({
+        en: '/en/find-jobs-ticino/worker-reset-candidate',
+        de: '/de/jobs-im-tessin/worker-reset-candidate',
+        fr: '/fr/trouver-emploi-tessin/worker-reset-candidate',
+      }),
+      '    ' + JSON.stringify(resetSlug) + ': ' + JSON.stringify({
+        en: '/en/find-jobs-ticino/worker-reset-candidate',
+        de: '/de/jobs-in-zurich/worker-reset-native-target',
+        fr: '/fr/trouver-emploi-zurich/worker-reset-candidate',
+      }),
+    );
+    fs.writeFileSync(resetShardFile, [
+      '{',
+      '  "slugs": {',
+      resetShardEntries.join(',\n'),
+      '  }',
+      '}',
+      '',
+    ].join('\n'));
     const plugin = jobCanonRedirectMapPlugin(tmp);
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
     try {
@@ -442,6 +480,16 @@ ${duplicateShardEntries.join(',\n')}
       .toBe('/en/find-jobs-zurich/worker-override-claim-en');
     expect(readEntry('worker-effective-direct-en')?.alias?.en).toBeUndefined();
     expect(readEntry('worker-native-recovery-en')?.alias?.en).toBeUndefined();
+  });
+
+  it('clears stale native recovery when a later store part replaces a candidate map', () => {
+    expect(readEntry('worker-reset-candidate')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-reset-route-en');
+    // The candidate and active-route identity bits survive both replacements:
+    // the final FR self-path remains direct recovery, and its DE target remains
+    // native recovery for the other active route.
+    expect(readEntry('worker-reset-candidate')?.alias?.fr).toBeUndefined();
+    expect(readEntry('worker-reset-native-target')?.alias?.de).toBeUndefined();
   });
 
   it('uses the stable SEO job order when a cross-locale bridge path has multiple claimants', () => {
