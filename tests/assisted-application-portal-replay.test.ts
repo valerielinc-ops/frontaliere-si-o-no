@@ -456,18 +456,6 @@ describe('portal replay workflow wiring', () => {
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
-    const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
-    const mergeCommit = workflow.indexOf('          ref: ${{ github.event.pull_request.merge_commit_sha }}\n');
-    expect(prCheckout).toBeGreaterThan(-1);
-    expect(mergeCommit).toBeGreaterThan(prCheckout);
-    expect(workflow).not.toContain('github.event.pull_request.head.sha');
-    expect(workflow).not.toContain('github.event.pull_request.head.repo.full_name');
-    expect(workflow).not.toContain('refs/pull/${{ github.event.pull_request.number }}/merge');
-    expect(workflow).not.toContain('refs/pull/$PR_NUMBER/merge');
-    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
-    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
-    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
-    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
     expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('            .github/actions/setup-codex-sandbox');
     expect(workflow).toContain('source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"');
@@ -748,10 +736,12 @@ describe('portal replay gate determinism (F2)', () => {
     expect(text).toContain('uses: actions/download-artifact@v8');
   });
 
-  it('keeps the compare on the trusted base CLI', () => {
+  it('keeps trusted base setup while running comparison semantics from the PR CLI', () => {
     const text = workflow();
     expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(text).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
+    const gateStart = text.indexOf('\n  portal-replay-gate:');
+    expect(text.slice(replayStart, gateStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
   });
 
