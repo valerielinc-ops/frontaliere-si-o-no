@@ -10,6 +10,11 @@
   "detailTemplate": "/companies/sintio/*",
   "detailEnrichment": false,
   "authoritativeEmptyText": "We don't have any open positions at the moment",
+  "authoritativeEmptyTexts": [
+    "Al momento non ci sono posizioni aperte",
+    "Wir haben aktuell keine offenen Stellen zu besetzen",
+    "Nous n’avons aucun poste à pourvoir pour le moment"
+  ],
   "authoritativeEmptyData": {
     "scriptId": "__NEXT_DATA__",
     "companyPath": "props.pageProps.pageData.company.domain",

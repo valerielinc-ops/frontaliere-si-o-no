@@ -27,6 +27,11 @@ describe('Sintio crawler parser', () => {
     expect(spec.authoritativeEmptyText).toBe(
       "We don't have any open positions at the moment",
     );
+    expect(spec.authoritativeEmptyTexts).toEqual([
+      'Al momento non ci sono posizioni aperte',
+      'Wir haben aktuell keine offenen Stellen zu besetzen',
+      'Nous n’avons aucun poste à pourvoir pour le moment',
+    ]);
     expect(spec.authoritativeEmptyData).toEqual({
       scriptId: '__NEXT_DATA__',
       companyPath: 'props.pageProps.pageData.company.domain',

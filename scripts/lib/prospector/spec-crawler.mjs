@@ -499,10 +499,15 @@ function configuredEmptyListingOutcome(spec) {
  * @returns {boolean}
  */
 function matchesConfiguredAuthoritativeEmptyText(spec, html) {
-  const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
-  if (!marker) return false;
+  const markers = [
+    spec?.authoritativeEmptyText,
+    ...(Array.isArray(spec?.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
+  ]
+    .map((value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase())
+    .filter(Boolean);
+  if (!markers.length) return false;
   const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
-  if (sourceText.includes(marker)) return true;
+  if (markers.some((marker) => sourceText.includes(marker))) return true;
 
   // Some SSR career pages keep the empty-state sentence in an application
   // payload rather than rendering it into the HTML body. `textOf()` correctly
@@ -573,7 +578,8 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
     const markerText = typeof markerSource === 'string'
       ? markerSource
       : JSON.stringify(markerSource ?? '');
-    if (decodeEntities(markerText).replace(/\s+/g, ' ').trim().toLowerCase().includes(marker)) {
+    const normalizedMarkerText = decodeEntities(markerText).replace(/\s+/g, ' ').trim().toLowerCase();
+    if (markers.some((marker) => normalizedMarkerText.includes(marker))) {
       return true;
     }
   }
@@ -2797,11 +2803,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     && observedListingPageCount === seedCount
     && authoritativeEmptySources.length === seedCount
     && safeExistingOutcome) {
+    const configuredEmptyMarkers = [
+      spec.authoritativeEmptyText,
+      ...(Array.isArray(spec.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
+    ].map((value) => String(value || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
     copySpecFetchMetadata(rows, {
       fetchOutcome: 'ok',
       discoveredCount: 0,
       authoritativeEmptyState: 'authoritative-source-zero',
-      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) rendered the configured source-empty marker "${spec.authoritativeEmptyText}" at ${authoritativeEmptySources.join(', ')}`,
+      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) matched one of the configured source-empty marker(s) "${configuredEmptyMarkers.join(' | ')}" at ${authoritativeEmptySources.join(', ')}`,
     });
   }
   return rows;
