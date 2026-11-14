@@ -22,15 +22,19 @@
  *                       shrinks between two builds (a writer that rewrites the
  *                       expired slice from a partial read, a merge that drops
  *                       records) falls here.
+ *   active-locale-slug-lost
+ *                       explicit locale routes on active base rows that have
+ *                       no equal active, historical-alias, or titled-expired
+ *                       path at head.
  *
- * Both are printed on every run, with totals per crawler, so the next
- * threshold tightens on a measured number. The default threshold is 0 for
- * both: one job URL turned into a stub is the defect.
+ * All three are printed on every run, with totals per crawler. The two
+ * existing thresholds retain their original behavior; the locale-slug
+ * threshold also defaults to 0 so one lost active route fails closed.
  *
  * Usage:
  *   node scripts/ci/check-retired-jobs-archived.mjs --base <rev> [--head <rev>]
- *     [--max-retired-unarchived N] [--max-archive-lost N] [--json <path>]
- *     [--prefetch]
+ *     [--max-retired-unarchived N] [--max-archive-lost N]
+ *     [--max-active-locale-slug-lost N] [--json <path>] [--prefetch]
  *
  * `--prefetch` fetches, in bounded packs, the slice blobs of both revisions that
  * a blobless CI checkout does not have yet, through the fetch of
@@ -47,12 +51,18 @@ import { isHeldFromPublication } from '../lib/translation-publication-hold.mjs';
 import { isSliceFile } from '../lib/crawler-slice-files.mjs';
 import { expiredSliceKeyOf } from '../lib/expired-slice-names.mjs';
 import { DEFAULT_JSON_STRING_LIMIT, parseLargeJsonArray } from '../lib/read-large-json.mjs';
+import { createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { prefetch as prefetchBlobs } from './prefetch-history-blobs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
 const ACTIVE_DIR = 'data/jobs/by-crawler';
 const EXPIRED_DIR = 'data/jobs/expired/by-crawler';
+const JOB_LOCALES = ['it', 'en', 'de', 'fr'];
+const cantonResolvers = createCantonResolvers({
+  cantonSlugFile: JSON.parse(fs.readFileSync(path.join(ROOT, 'data/canton-url-slugs.json'), 'utf8')),
+  municipalitiesFile: JSON.parse(fs.readFileSync(path.join(ROOT, 'data/canton-municipalities.json'), 'utf8')),
+});
 
 const nonblank = (value) => typeof value === 'string' && value.trim().length > 0;
 
@@ -76,6 +86,70 @@ function addRoutes(target, job, { withHistory }) {
       if (Array.isArray(values)) values.forEach(add);
     }
   }
+}
+
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 200);
+}
+
+/** Mirrors localizedActiveJobSlug() in build-plugins/shared/activeJobPageSelection.ts. */
+function localizedActiveJobSlug(job, locale) {
+  const explicit = String(job?.slugByLocale?.[locale] || '').trim();
+  if (explicit) return explicit;
+
+  const canonical = String(job?.slug || '').trim();
+  if (canonical) return canonical;
+
+  const localizedTitle = String(job?.titleByLocale?.[locale] || job?.title || '');
+  return slugify(`${localizedTitle}-${job?.company || ''}-${job?.location || ''}`)
+    || slugify(localizedTitle);
+}
+
+/** Exact canonical job path shape from build-plugins/shared/jobDetailPath.ts. */
+function activeJobPath(job, locale, slug) {
+  const canton = cantonResolvers.resolveJobCanton({ canton: job?.canton, location: job?.location });
+  const section = cantonResolvers.resolveCantonSection(locale, canton);
+  const normalizedSlug = String(slug ?? '')
+    .trim()
+    .replace(/^\/+|\/+$/g, '')
+    .replace(/\/+/g, '/');
+  const segments = [locale === 'it' ? '' : locale, section, normalizedSlug].filter(Boolean);
+  return `/${segments.join('/')}/`;
+}
+
+function addActiveHistoryPaths(target, job) {
+  const localeHistory = job?.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+    ? job.previousSlugsByLocale
+    : {};
+  const localeAwareSlugs = new Set();
+  for (const values of Object.values(localeHistory)) {
+    if (!Array.isArray(values)) continue;
+    for (const value of values) if (typeof value === 'string' && value) localeAwareSlugs.add(value);
+  }
+  // The renderer treats flat entries already claimed by any locale-aware
+  // bucket as locale-specific; only the remaining legacy entries fan out.
+  const legacyOnly = Array.isArray(job?.previousSlugs)
+    ? job.previousSlugs.filter((value) => nonblank(value) && !localeAwareSlugs.has(value))
+    : [];
+
+  for (const locale of JOB_LOCALES) {
+    const localeSpecific = Array.isArray(localeHistory[locale]) ? localeHistory[locale] : [];
+    for (const value of [...localeSpecific, ...legacyOnly]) {
+      if (nonblank(value)) target.add(activeJobPath(job, locale, value));
+    }
+  }
+}
+
+function isHeld(job) {
+  return typeof job?.heldFromPublication === 'boolean'
+    ? job.heldFromPublication
+    : isHeldFromPublication(job);
 }
 
 /**
@@ -119,6 +193,75 @@ export function measureRetiredArchiveCoverage({ baseActive, baseExpired, headAct
     }
   }
 
+  // Locale-slug coverage is keyed by the actual canonical URL path. Canton is
+  // part of that path, so an equal slug in another canton is not evidence that
+  // this route is still served. IDs are diagnostic only; ownership is decided
+  // by route equality, including routes owned by a different row.
+  const headActiveAndHistoryPaths = new Set();
+  for (const rows of headActive.values()) {
+    for (const job of rows) {
+      if (isHeld(job)) continue;
+      for (const locale of JOB_LOCALES) {
+        const slug = localizedActiveJobSlug(job, locale);
+        if (nonblank(slug)) headActiveAndHistoryPaths.add(activeJobPath(job, locale, slug));
+      }
+      addActiveHistoryPaths(headActiveAndHistoryPaths, job);
+    }
+  }
+  for (const rows of headExpired.values()) {
+    for (const entry of rows) {
+      if (!hasArchivedTitle(entry)) continue;
+      const variants = new Set();
+      addRoutes(variants, entry, { withHistory: true });
+      for (const slug of variants) {
+        for (const locale of JOB_LOCALES) {
+          headActiveAndHistoryPaths.add(activeJobPath(entry, locale, slug));
+        }
+      }
+    }
+  }
+
+  const localeSlugCandidates = [];
+  for (const [crawlerKey, rows] of baseActive) {
+    for (const job of rows) {
+      if (isHeld(job) || !job?.slugByLocale || typeof job.slugByLocale !== 'object') continue;
+      const baseSlug = nonblank(job.slug) ? job.slug.trim() : '';
+      const baseIdentifier = nonblank(job.id)
+        ? job.id.trim()
+        : baseSlug || `locale-slug:${crawlerKey}`;
+      for (const [locale, value] of Object.entries(job.slugByLocale)) {
+        if (!JOB_LOCALES.includes(locale) || !nonblank(value)) continue;
+        const slug = value.trim();
+        const routePath = activeJobPath(job, locale, slug);
+        if (headActiveAndHistoryPaths.has(routePath)) continue;
+        localeSlugCandidates.push({
+          routePath,
+          finding: {
+            crawlerKey,
+            locale,
+            slug,
+            path: routePath,
+            baseIdentifier,
+            baseSlug: baseSlug || slug,
+          },
+        });
+      }
+    }
+  }
+  const compareText = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+  localeSlugCandidates.sort((a, b) => compareText(a.routePath, b.routePath)
+    || compareText(a.finding.crawlerKey, b.finding.crawlerKey)
+    || compareText(a.finding.baseIdentifier, b.finding.baseIdentifier)
+    || compareText(a.finding.baseSlug, b.finding.baseSlug)
+    || compareText(a.finding.slug, b.finding.slug));
+  const activeLocaleSlugLost = [];
+  const seenLocalePaths = new Set();
+  for (const candidate of localeSlugCandidates) {
+    if (seenLocalePaths.has(candidate.routePath)) continue;
+    seenLocalePaths.add(candidate.routePath);
+    activeLocaleSlugLost.push(candidate.finding);
+  }
+
   const archiveLost = [];
   const seenLost = new Set();
   for (const [crawlerKey, rows] of baseExpired) {
@@ -142,6 +285,8 @@ export function measureRetiredArchiveCoverage({ baseActive, baseExpired, headAct
     retiredUnarchivedByCrawler: countBy(retiredUnarchived),
     archiveLost,
     archiveLostByCrawler: countBy(archiveLost),
+    activeLocaleSlugLost,
+    activeLocaleSlugLostByCrawler: countBy(activeLocaleSlugLost),
   };
 }
 
@@ -266,6 +411,9 @@ function slim(row) {
     previousSlugsByLocale: row.previousSlugsByLocale,
     title: typeof row.title === 'string' ? row.title : undefined,
     titleByLocale: row.titleByLocale,
+    id: row.id,
+    company: row.company,
+    location: row.location,
     canton: row.canton,
     // Judged on the whole row: the hold predicate reads more than this slim copy keeps.
     heldFromPublication: isHeldFromPublication(row),
@@ -288,7 +436,14 @@ async function readRevision(reader, tree) {
 }
 
 function parseArgs(argv) {
-  const args = { head: 'HEAD', maxRetiredUnarchived: 0, maxArchiveLost: 0, json: '', prefetch: false };
+  const args = {
+    head: 'HEAD',
+    maxRetiredUnarchived: 0,
+    maxArchiveLost: 0,
+    maxActiveLocaleSlugLost: 0,
+    json: '',
+    prefetch: false,
+  };
   for (let index = 0; index < argv.length; index++) {
     const flag = argv[index];
     const value = () => argv[++index];
@@ -296,12 +451,13 @@ function parseArgs(argv) {
     else if (flag === '--head') args.head = value();
     else if (flag === '--max-retired-unarchived') args.maxRetiredUnarchived = Number(value());
     else if (flag === '--max-archive-lost') args.maxArchiveLost = Number(value());
+    else if (flag === '--max-active-locale-slug-lost') args.maxActiveLocaleSlugLost = Number(value());
     else if (flag === '--json') args.json = value();
     else if (flag === '--prefetch') args.prefetch = true;
     else throw new Error(`unknown argument: ${flag}`);
   }
   if (!args.base) throw new Error('--base <rev> is required');
-  for (const key of ['maxRetiredUnarchived', 'maxArchiveLost']) {
+  for (const key of ['maxRetiredUnarchived', 'maxArchiveLost', 'maxActiveLocaleSlugLost']) {
     if (!Number.isInteger(args[key]) || args[key] < 0) throw new Error(`invalid threshold for ${key}`);
   }
   return args;
@@ -335,11 +491,18 @@ export async function main(argv = process.argv.slice(2)) {
     retired: result.retired,
     retiredUnarchived: result.retiredUnarchived.length,
     archiveLost: result.archiveLost.length,
-    thresholds: { retiredUnarchived: args.maxRetiredUnarchived, archiveLost: args.maxArchiveLost },
+    activeLocaleSlugLost: result.activeLocaleSlugLost.length,
+    thresholds: {
+      retiredUnarchived: args.maxRetiredUnarchived,
+      archiveLost: args.maxArchiveLost,
+      activeLocaleSlugLost: args.maxActiveLocaleSlugLost,
+    },
     retiredUnarchivedByCrawler: result.retiredUnarchivedByCrawler,
     archiveLostByCrawler: result.archiveLostByCrawler,
+    activeLocaleSlugLostByCrawler: result.activeLocaleSlugLostByCrawler,
     retiredUnarchivedSample: result.retiredUnarchived.slice(0, 50),
     archiveLostSample: result.archiveLost.slice(0, 50),
+    activeLocaleSlugLostSample: result.activeLocaleSlugLost.slice(0, 50),
   };
   if (args.json) fs.writeFileSync(args.json, `${JSON.stringify(report, null, 2)}\n`);
 
@@ -347,18 +510,28 @@ export async function main(argv = process.argv.slice(2)) {
   console.log(`   rows retired from the active set: ${report.retired}`);
   console.log(`   retired WITHOUT an archive record with title: ${report.retiredUnarchived} (max ${args.maxRetiredUnarchived})`);
   console.log(`   archive records with title lost: ${report.archiveLost} (max ${args.maxArchiveLost})`);
+  console.log(`   active locale slugs lost: ${report.activeLocaleSlugLost} (max ${args.maxActiveLocaleSlugLost})`);
   const top = (byCrawler) => Object.entries(byCrawler).slice(0, 15).map(([key, count]) => `${key}×${count}`).join(', ');
   if (report.retiredUnarchived > 0) console.log(`   retired-unarchived by crawler: ${top(report.retiredUnarchivedByCrawler)}`);
   if (report.archiveLost > 0) console.log(`   archive-lost by crawler: ${top(report.archiveLostByCrawler)}`);
+  if (report.activeLocaleSlugLost > 0) console.log(`   active-locale-slug-lost by crawler: ${top(report.activeLocaleSlugLostByCrawler)}`);
   for (const row of result.retiredUnarchived.slice(0, 10)) console.log(`     ↳ retired ${row.crawlerKey}: ${row.slug}`);
   for (const row of result.archiveLost.slice(0, 10)) console.log(`     ↳ lost ${row.crawlerKey}: ${row.slug}`);
+  for (const row of result.activeLocaleSlugLost.slice(0, 10)) {
+    console.log(`     ↳ locale slug lost ${row.crawlerKey} [${row.locale}]: ${row.slug} (${row.path})`);
+  }
 
-  const failed = report.retiredUnarchived > args.maxRetiredUnarchived || report.archiveLost > args.maxArchiveLost;
-  if (failed) {
+  const retiredArchiveFailed = report.retiredUnarchived > args.maxRetiredUnarchived
+    || report.archiveLost > args.maxArchiveLost;
+  const localeSlugFailed = report.activeLocaleSlugLost > args.maxActiveLocaleSlugLost;
+  if (retiredArchiveFailed) {
     console.error('❌ Job URLs left the active set without an expired soft-landing: the build will serve them as unverified stubs.');
     console.error('   Recovery: dispatch backfill-expired-from-history.yml (dry_run=false) for the crawlers above.');
   }
-  return failed ? 1 : 0;
+  if (localeSlugFailed) {
+    console.error('❌ Active job locale routes lost their explicit slug without a matching route at head.');
+  }
+  return retiredArchiveFailed || localeSlugFailed ? 1 : 0;
 }
 
 if (isInvokedDirectly(import.meta.url)) {
