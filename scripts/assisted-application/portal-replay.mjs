@@ -782,6 +782,8 @@ function portalBrokerCodex(sourceRoot) {
 }
 
 export function mergePortalReplayRetryEvidence(totalMetrics, current) {
+  // A neutral retry may be the record we return, but it must not erase a
+  // funnel-critical submission observed by an earlier attempt.
   for (const key of ['agentCalls', 'blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']) {
     totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current?.[key]) || 0);
   }
