@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medics-labor",
-  "assembledAt": "2026-11-14T16:47:03.714Z",
-  "runId": "43614957127",
+  "assembledAt": "2026-11-14T21:40:27.114Z",
+  "runId": "43642566027",
   "jobs": [
     {
       "id": "medics-labor-5c7b15764558",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/1474/0147/pub/109/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T16:46:59.037Z",
+      "crawledAt": "2026-11-14T21:40:21.522Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T16:46:59.037Z",
+      "validThrough": "2027-02-03T21:40:21.522Z",
       "validThroughSource": "last-observed-window"
     }
   ]
