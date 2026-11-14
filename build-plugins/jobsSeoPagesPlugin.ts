@@ -6758,6 +6758,16 @@ ${companyFollowHtml}
  companyPagesCount++;
  recordEmit('company-landing', __tCompany);
  await flushHubPageWritesIfNeeded();
+ // The auto-flush threshold moves the active Map into background promises,
+ // so the helper above may legitimately return with collector.count === 0
+ // while those promises still retain the rendered HTML. Keep the retention
+ // bound at the end of EVERY company, not only at the start of the next one;
+ // otherwise the final company (and any large alias set) can carry an
+ // unbounded backlog into the phase checkpoint. The cadence-gated GC is
+ // deliberately after the drain so completed writes no longer retain their
+ // content through the path-flush chains (#1290).
+ await collector.awaitDrainSlot(2);
+ maybeForceJobsSeoHtmlGc();
  }
  }
  // Drain the tail even when the phase ends below the threshold. Without an
