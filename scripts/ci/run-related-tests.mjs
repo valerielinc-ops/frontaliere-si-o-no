@@ -376,7 +376,7 @@ const sourceTreeLintTests = new Map([
   // il file intero gira in sei secondi.
   [
     'tests/entrypoint-guard-identity.test.ts',
-    pathAndSourceMatch(/^(?:scripts|build-plugins|packages\/articles\/engine|functions|infra)\/.+\.(?:mjs|js|ts|tsx)$/, /process\.argv\s*\[\s*1\s*\]/, /import\.meta\.(?:url|filename)|fileURLToPath\s*\(|pathToFileURL\s*\(|endsWith\s*\(|basename\s*\(/),
+    /^(?:scripts|build-plugins|packages\/articles\/engine|functions|infra)\/.+\.(?:mjs|js|ts|tsx)$/,
   ],
   ['tests/translation-protected-tokens.test.ts', pathAndSourceMatch(/^scripts\/.+\.mjs$/, /translation-glossary\.mjs|maskProtectedTokens|finalizeTranslatedText|applyGlossaryCorrections/)],
   // Lo UA da browser dei dettagli MySwitzerland e' un'eccezione del
@@ -476,11 +476,22 @@ const sourceTreeLintTests = new Map([
   ['tests/checkout-sparse-profiles.test.ts', checkoutProfileScope],
 ]);
 const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
+const sourceTreeLintContentScopes = new Map([
+  ['tests/entrypoint-guard-identity.test.ts', [
+    /process\.argv\s*\[\s*1\s*\]/,
+    /import\.meta\.(?:url|filename)|fileURLToPath\s*\(|pathToFileURL\s*\(|endsWith\s*\(|basename\s*\(/,
+  ]],
+]);
+const sourceTreeLintAdmission = (test, scope, file) => {
+  if (!inLintScope(scope, file)) return false;
+  const patterns = sourceTreeLintContentScopes.get(test);
+  return !patterns || sourceTextMatches(file, patterns);
+};
 // Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
 // che enumera l'albero giudica anche i file che il grafo non conosce (HTML,
 // shell, Markdown), e sono proprio quelli che non hanno altro gate.
 const sourceTreeLintsFor = (files) => [...sourceTreeLintTests]
-  .filter(([, scope]) => files.some((file) => inLintScope(scope, file)))
+  .filter(([test, scope]) => files.some((file) => sourceTreeLintAdmission(test, scope, file)))
   .map(([test]) => test);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few
