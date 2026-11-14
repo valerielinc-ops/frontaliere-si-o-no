@@ -426,7 +426,7 @@ describe('portal replay workflow wiring', () => {
     const materialize = workflow.indexOf('Materialize trusted Codex sandbox action');
     const codex = workflow.indexOf('uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback');
     const brokerGuard = workflow.indexOf('      - name: Require trusted Codex broker\n');
-    const replay = workflow.indexOf('Replay base and PR runner behind the read-only fence');
+    const replay = workflow.indexOf('Replay portal families in parallel inside this worker');
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
@@ -440,6 +440,21 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });
+
+  it('does shared setup once and runs the family group inside one worker', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+    expect(workflow).toContain('name: replay portal families (group)');
+    expect(workflow).toContain('max_parallel=13');
+    expect(workflow).toContain('node "$portal_replay_cli" compare');
+    expect(workflow).toContain('run_family "$family" &');
+    expect(workflow).toContain('wait_for_wave');
+    expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
+    expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
+    expect(workflow).not.toContain('max-parallel: 6');
+    expect(workflow).not.toContain('matrix.family');
+    expect(workflow).not.toContain('      matrix:\n');
+  });
+
 });
 
 describe('portal replay base/head gate', () => {
