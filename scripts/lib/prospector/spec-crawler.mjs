@@ -503,7 +503,8 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
     spec?.authoritativeEmptyText,
     ...(Array.isArray(spec?.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
   ]
-    .map((value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase())
+    .filter((value) => typeof value === 'string')
+    .map((value) => value.replace(/\s+/g, ' ').trim().toLowerCase())
     .filter(Boolean);
   if (!markers.length) return false;
   const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
@@ -526,7 +527,9 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
     'pageCountPath',
     'markerPath',
   ];
-  if (requiredPaths.some((key) => typeof contract[key] !== 'string' || !contract[key].trim())) {
+  if (requiredPaths.some((key) => typeof contract[key] !== 'string' || !contract[key].trim())
+    || typeof contract.companyValue !== 'string'
+    || !contract.companyValue.trim()) {
     return false;
   }
 

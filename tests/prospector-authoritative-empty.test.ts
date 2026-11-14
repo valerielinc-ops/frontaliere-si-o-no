@@ -104,6 +104,17 @@ describe('prospector source-backed empty listing contract', () => {
     });
   });
 
+  it('ignores non-string marker configuration instead of coercing it into evidence', async () => {
+    const rows = await runSpecInProduction({
+      ...spec(),
+      authoritativeEmptyText: true,
+    } as any, runtime('<html><body><p>true</p></body></html>'));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
+  });
+
   it('stamps a zero when the reviewed empty state lives in structured source data', async () => {
     const rows = await runSpecInProduction(nextDataSpec(), runtime(NEXT_DATA_EMPTY_HTML));
 
@@ -128,6 +139,20 @@ describe('prospector source-backed empty listing contract', () => {
   it('does not accept structured empty data from another tenant', async () => {
     const html = NEXT_DATA_EMPTY_HTML.replace('"domain":"eqe"', '"domain":"other-company"');
     const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
+  });
+
+  it('rejects a structured contract with a non-string tenant value', async () => {
+    const rows = await runSpecInProduction({
+      ...nextDataSpec(),
+      authoritativeEmptyData: {
+        ...nextDataSpec().authoritativeEmptyData,
+        companyValue: true,
+      },
+    } as any, runtime(NEXT_DATA_EMPTY_HTML));
 
     expect(rows).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
