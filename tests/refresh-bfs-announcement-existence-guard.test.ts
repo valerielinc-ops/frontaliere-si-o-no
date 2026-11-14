@@ -98,8 +98,14 @@ describe('la sonda di esistenza dell articolo e cablata', () => {
   });
 
   it('la soppressione e visibile nel job summary, mai silenziosa', () => {
-    const note = steps.find((s) => s.if?.includes("steps.article_probe.outputs.exists == 'true'"));
+    // The recovery resolver intentionally shares this condition; select the
+    // summary-writing step by its semantic name instead of the guard alone.
+    const note = steps.find((s) => (
+      s.name === 'Note the suppressed editorial signal (article already exists)'
+      && s.if?.includes("steps.article_probe.outputs.exists == 'true'")
+    ));
     expect(note).toBeDefined();
+    expect(note!.if).toContain("steps.article_probe.outputs.exists == 'true'");
     expect(note!.run).toContain('GITHUB_STEP_SUMMARY');
   });
 });
