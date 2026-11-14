@@ -208,7 +208,7 @@ describe('employer messages on the alias', () => {
     const classify = vi.fn(async () => ({ category: 'auto_acknowledgement', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false }));
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
     await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId: first.body.accepted, runKey: RUN_KEY, classify, sendCascade, nowMs: 3000 });
-    expect(sendCascade).toHaveBeenCalledOnce();
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('prefers one valid RFC Message-ID over transport differences', async () => {
@@ -287,6 +287,15 @@ describe('employer messages on the alias', () => {
   it('uses Maileroo for employer replies without attachments', async () => {
     const { store, alias } = await setupInbound();
     const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
+    const raw = Buffer.from([
+      'From: Erika Muster <erika@arbeitgeber.ch>',
+      'Reply-To: recruiter@arbeitgeber.ch',
+      'Subject: Availability',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      'Könnten Sie bitte bestätigen, ob Sie ab Januar verfügbar sind?',
+      '',
+    ].join('\r\n'), 'latin1');
     const classify = vi.fn(async () => ({
       category: 'question',
       summaryIt: 'Domanda del datore di lavoro.',
@@ -297,7 +306,7 @@ describe('employer messages on the alias', () => {
       verificationUrl: '',
       needsReply: true,
     }));
-    await deliver({ store, alias, raw: htmlEmployerMail({ subject: 'Domanda' }), classify, sendCascade });
+    await deliver({ store, alias, raw, classify, sendCascade });
     const [[, options]] = sendCascade.mock.calls as any;
     expect(options).toMatchObject({
       delayMs: 0,
@@ -306,6 +315,7 @@ describe('employer messages on the alias', () => {
       onSent: expect.any(Function),
       onAmbiguous: expect.any(Function),
     });
+    expect(sendCascade.mock.calls[0][0][0].payload.attachments).toBeUndefined();
   });
 
   it('keeps a real verification code and falls back to rules when Codex is unavailable', async () => {
@@ -387,28 +397,29 @@ describe('employer messages on the alias', () => {
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
-  it('forwards a verification message no waiting portal account claims', async () => {
+  it('keeps an unclaimed account verification message in the concierge', async () => {
     const verification = (url: string, code = '') => async () => ({ category: 'verification', summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: code, verificationUrl: url, needsReply: false });
     const mail = (text: string) => employerMail({ subject: 'Confirm your e-mail', text, authenticated: true });
 
-    // An account waits on careers.arbeitgeber.ch, but the link is on another site.
+    // A link on a sibling ATS tenant is still an account-verification message.
     const other = await setupInbound();
     await other.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
       .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: null } });
     const sendOther = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({ store: other.store, alias: other.alias, raw: mail('Confirm: https://login.other-ats.com/confirm?t=abc'), sendCascade: sendOther, classify: verification('https://login.other-ats.com/confirm?t=abc') });
     const [forwarded] = other.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => other.store.read(path)!);
-    expect(forwarded).toMatchObject({ verificationUrl: 'https://login.other-ats.com/confirm?t=abc', forwarded: { status: 'sent' } });
-    expect(sendOther).toHaveBeenCalledTimes(1);
+    expect(forwarded).toMatchObject({ verificationUrl: 'https://login.other-ats.com/confirm?t=abc', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendOther).not.toHaveBeenCalled();
 
-    // No account waits at all (none created, or already verified): a code reaches the candidate too.
+    // With no waiting account, a verification code remains in the concierge.
     const none = await setupInbound();
     await none.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
       .set({ careers_arbeitgeber_ch: { host: 'careers.arbeitgeber.ch', passwordEnc: { v: 1 }, verifiedAt: 1000 } });
     const sendNone = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({ store: none.store, alias: none.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendNone, classify: verification('', '482913') });
     const [coded] = none.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => none.store.read(path)!);
-    expect(coded).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
+    expect(coded).toMatchObject({ verificationCode: '482913', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendNone).not.toHaveBeenCalled();
 
     // A code from the employer's own domain while the order's sole account waits on its ATS host
     // (Federal Administration on career74.sapsf.eu, 2026-11-10): the runner consumes it, the
@@ -422,7 +433,7 @@ describe('employer messages on the alias', () => {
     expect(claimed).toMatchObject({ verificationCode: '482913', portalVerificationHost: 'jobs.other-portal.com', forwarded: { status: 'skipped', reason: 'portal_verification' } });
     expect(sendSole).not.toHaveBeenCalled();
 
-    // Two unrelated accounts wait: nothing says which one the code is for, so it is forwarded.
+    // Two unrelated accounts wait: the ambiguous code still stays in the concierge.
     const unrelated = await setupInbound();
     await unrelated.store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('accounts')
       .set({
@@ -432,7 +443,8 @@ describe('employer messages on the alias', () => {
     const sendUnrelated = vi.fn(async () => ({ failed: [], sent: [{}] }));
     await deliver({ store: unrelated.store, alias: unrelated.alias, raw: mail('Ihr Bestätigungscode lautet 482913'), sendCascade: sendUnrelated, classify: verification('', '482913') });
     const [unclaimed] = unrelated.store.list(`assisted_applications/${ORDER}/inbox/`).map((path) => unrelated.store.read(path)!);
-    expect(unclaimed).toMatchObject({ verificationCode: '482913', forwarded: { status: 'sent' } });
+    expect(unclaimed).toMatchObject({ verificationCode: '482913', forwarded: { status: 'skipped', reason: 'account_verification' } });
+    expect(sendUnrelated).not.toHaveBeenCalled();
 
     // A link on the waiting account's site is kept for the runner.
     const same = await setupInbound();
@@ -514,7 +526,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
 
   it('confirms an ambiguous portal submit on the automatic acknowledgement, once', async () => {
     const { store, effects, receive } = await ambiguousOrder();
-    expect(await receive('auto_acknowledgement')).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent', submissionConfirmed: true });
+    expect(await receive('auto_acknowledgement')).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'skipped', submissionConfirmed: true });
     expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', channel: 'portal', sentAt: 600, confirmedBy: 'acknowledgement', confirmedAt: 1000 });
     expect(store.read(FLOW_PATH)).toMatchObject({ state: 'submitted', heldBy: [], submittedVia: 'portal' });
     expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'submitted', automationState: 'submitted', automationDueAt: null });
@@ -523,7 +535,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(audit.some((entry) => entry?.eventType === 'submit_acknowledged' && entry?.actor === 'employer_email' && entry?.fromState === 'owner_takeover')).toBe(true);
 
     // A second acknowledgement changes nothing.
-    expect(await receive('auto_acknowledgement', { nowMs: 2000 })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(await receive('auto_acknowledgement', { nowMs: 2000 })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'skipped' });
     expect(store.read(GUARD_PATH)!.r1.confirmedAt).toBe(1000);
     expect(effects).toHaveLength(1);
   });
@@ -603,7 +615,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ sent: { ...attempt, confirmedBy: 'acknowledgement', confirmedAt: 1000 }, sentAttempt: null });
   });
 
-  it('never fires on an account verification or an unrelated message', async () => {
+  it('does not settle or forward an account verification or an unrelated message', async () => {
     for (const category of ['verification', 'other']) {
       const { store, effects, sendCascade, receive } = await ambiguousOrder();
       expect((await receive(category)).submissionConfirmed).toBeUndefined();
@@ -611,8 +623,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
       expect(store.read(ORDER_PATH)!.submissionStatus).toBe('ready_for_manual_submission');
       expect(effects).toEqual([]);
-      // Still forwarded to the candidate as before.
-      expect(sendCascade).toHaveBeenCalledTimes(1);
+      expect(sendCascade).not.toHaveBeenCalled();
     }
   });
 
@@ -660,7 +671,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
         },
       })),
     };
-    expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'skipped' });
     expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: 600 });
     expect(store.read(GUARD_PATH)!.r1.receipt).toBeUndefined();
     expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
@@ -678,7 +689,7 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
       observedAt: 2000,
     });
     expect(effects).toEqual([{ type: 'mark_submitted' }]);
-    expect(sendCascade).toHaveBeenCalledTimes(2);
+    expect(sendCascade).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -700,15 +711,15 @@ it('commits inbox processing and employer response in one transaction and keeps 
   expect(store.read(orderPath)?.employerResponse).toMatchObject({ category: 'auto_acknowledgement', receivedAt: 5000, needsReply: false });
   expect(store.read(orderPath)?.employerResponseTimeline).toEqual([{ category: 'auto_acknowledgement', receivedAt: 5000, needsReply: false, messageId }]);
   expect(await processAssistedApplicationInbound({ db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs: 6000 })).toEqual({ ok: true, skipped: true });
-  expect(sendCascade).toHaveBeenCalledTimes(1);
+  expect(sendCascade).not.toHaveBeenCalled();
 });
 
 it('keeps UTF-8 and the full long employer text in a wrapping forwarded email', async () => {
   const { store, alias } = await setupInbound();
-  const text = 'Réception confirmée — documenti ricevuti. Grüße. ' + 'https://example.test/' + 'long-path'.repeat(50);
+  const text = 'Könnten Sie bestätigen, welche Dokumente eingegangen sind? Réception confirmée — documenti ricevuti. Grüße. ' + 'https://example.test/' + 'long-path'.repeat(50);
   const raw = Buffer.from(['From: HR <hr@example.test>', 'Subject: Documents received', 'Content-Type: text/plain; charset=utf-8', 'Content-Transfer-Encoding: base64', '', Buffer.from(text).toString('base64')].join('\r\n'));
   const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo' }] }));
-  await deliver({ store, alias, raw, sendCascade, classify: async () => ({ category: 'auto_acknowledgement', summaryCandidate: '', needsReply: false }) });
+  await deliver({ store, alias, raw, sendCascade, classify: async () => ({ category: 'question', summaryCandidate: '', needsReply: true }) });
   const payload = (sendCascade.mock.calls as any)[0][0][0].payload;
   expect(payload.text).toContain(text);
   expect(payload.html).toContain('overflow-wrap:anywhere');
@@ -739,7 +750,7 @@ it('keeps HTML-only HTTPS links clickable and uses the authenticated original Re
 
 it('does not recreate a purged inbox or reply projection if retention finishes during forwarding', async () => {
   const { store, alias } = await setupInbound();
-  const classify = async () => ({ category: 'auto_acknowledgement', needsReply: false });
+  const classify = async () => ({ category: 'question', needsReply: true });
   const sendCascade = async () => {
     await store.db.collection('assisted_applications').doc(ORDER).set({
       retentionPurgedAt: 6000,
@@ -751,7 +762,7 @@ it('does not recreate a purged inbox or reply projection if retention finishes d
     for (const path of store.list(`assisted_applications/${ORDER}/inbox/`)) store.docs.delete(path);
     return { failed: [], sent: [{ provider: 'maileroo' }] };
   };
-  await deliver({ store, alias, raw: employerMail({ subject: 'Application received', text: 'We have received your application.' }), classify, sendCascade, nowMs: 5000 });
+  await deliver({ store, alias, raw: employerMail({ subject: 'Availability', text: 'Could you confirm whether you are available in January?' }), classify, sendCascade, nowMs: 5000 });
   expect(store.list(`assisted_applications/${ORDER}/inbox/`)).toEqual([]);
   expect(store.read(`assisted_applications/${ORDER}`)?.employerResponse).toBeNull();
 });
