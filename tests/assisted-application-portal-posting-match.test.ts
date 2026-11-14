@@ -38,6 +38,42 @@ describe('application form posting identity', () => {
     }, { pageUrl: applicationUrl, postingUrl })).toBe('match');
   });
 
+  it('uses the Umantis application vacancy ID when liveness keeps the published listing URL', () => {
+    const applicationUrl = 'https://recruitingapp-9000.umantis.com/Vacancies/7351/Application/New/1';
+    const job = { title: 'Tecnico amministrativo', company: 'Ente Esempio' };
+    const form = 'Application Tracking System\nE-Mail-Adresse\nVorname\nNachname\nWeiter';
+
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://careers.example.test/jobs/tecnico-amministrativo/',
+    })).toBe('match');
+    expect(formPostingMatch(form, job, {
+      pageUrl: applicationUrl,
+      postingUrl: 'https://recruitingapp-9000.umantis.com/Vacancies/7352/Description/1',
+    })).toBe('mismatch');
+    expect(formPostingMatch(form, job, {
+      applicationEntry: true,
+      pageUrl: applicationUrl,
+      postingUrl: 'https://jobs.example.test/jobs/other-role-7352/',
+    })).toBe('mismatch');
+  });
+
+  it('recognizes localized SuccessFactors login fields as the start of a generic form', () => {
+    const postingUrl = 'https://jobs.example.test/job/example-role/123456/';
+    const moduleUrl = 'https://career2.successfactors.eu/career?company=EXAMPLE&career_job_req_id=321';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const job = { title: 'Example Role', company: 'Example Employer' };
+    const form = 'Karrierechancen: Anmelden\nE-Mail-Adresse\nKennwort\nBewerbung abschicken';
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: 'https://career2.successfactors.eu/portalcareer',
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
+  });
+
   it('accepts the Kanton St. Gallen Application/New form with its full ATS title and Weiter control', () => {
     const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
     const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';

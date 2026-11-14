@@ -4702,7 +4702,7 @@ const OTHER_EMPLOYER_MARKER_WORDS = new Set([
   'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
   'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
 ]);
-const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|dati\s+personali|first\s+name|last\s+name|vorname|nachname|e-?mail(?:\s+address)?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
+const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
 
 function isGenericFormChromeSegment(segment) {
   const words = normalizeWords(segment).split(' ').filter(Boolean);
@@ -4805,12 +4805,13 @@ export function formPostingMatch(formText, job = {}, {
     ? pageUrl
     : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
+  const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
   const heading = String(formText || '').split(/\r?\n/, 1)[0];
   const umantisPostingPair = isUmantisPostingEntry({
     applyUrl: formApplicationUrl,
-    postingUrl,
+    postingUrl: umantisPairPostingUrl,
     postingRouteProof,
   });
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
@@ -4830,6 +4831,13 @@ export function formPostingMatch(formText, job = {}, {
   // different or incomplete `/career` route into a generic form match.
   if (postingRouteProof?.via === 'successfactors' && isSuccessFactorsCareerPath(pageUrl) && !bound) return 'mismatch';
   if (isUmantisApplicationRoute(formApplicationUrl) && hasConflictingUmantisVacancyRoute(formApplicationUrl, [postingUrl])) return 'mismatch';
+  // A witnessed application entry can also carry the published posting's id
+  // across hosts (for example a canonical job slug ending in the same id).
+  // Preserve that contrary evidence when liveness keeps the published URL;
+  // an inferred Umantis route must not rebind the form to a different listing.
+  if (applicationEntry && isUmantisApplicationRoute(formApplicationUrl)
+    && postingAddressIds(postingUrl).size > 0
+    && !applicationEntryCarriesPostingId(formApplicationUrl, postingUrl)) return 'mismatch';
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
