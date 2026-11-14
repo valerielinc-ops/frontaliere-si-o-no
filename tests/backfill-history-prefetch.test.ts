@@ -141,6 +141,7 @@ describe('prefetch-history-blobs', () => {
       `--min-batch-size=${HISTORY_BACKFILL_MIN_BATCH_SIZE}`,
       '--no-sparse',
       '--include-edges',
+      '--all',
       '--since=2026-09-20',
       '--',
       'data/jobs/by-crawler',

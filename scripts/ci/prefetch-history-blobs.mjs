@@ -22,9 +22,8 @@ const HISTORY_PATHS = [
   'data/jobs/by-crawler',
   'data/jobs/expired/by-crawler',
 ];
-export const HISTORY_BLOB_PREFETCH_BATCH_SIZE = 8192;
 export const HISTORY_TREE_OBJECT_BATCH_SIZE = 100;
-export const HISTORY_BACKFILL_MIN_BATCH_SIZE = HISTORY_BLOB_PREFETCH_BATCH_SIZE;
+export const HISTORY_BACKFILL_MIN_BATCH_SIZE = 8192;
 const SLICE_PATH_RE = /^data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/u;
 const OID_RE = /^[0-9a-f]{40}(?:[0-9a-f]{24})?$/u;
 const DIFF_STATUS_RE = /^(?:[ACDMRTUXB])\d*$/u;
@@ -225,7 +224,7 @@ export function historyBackfillArgs({ revisionRange = '', since } = {}) {
     `--min-batch-size=${HISTORY_BACKFILL_MIN_BATCH_SIZE}`,
     '--no-sparse',
     '--include-edges',
-    ...(range ? [range] : historySinceArgs(since)),
+    ...(range ? [range] : ['--all', ...historySinceArgs(since)]),
     '--',
     ...HISTORY_PATHS,
   ];
