@@ -1,7 +1,7 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-11-13T21:26:33.811Z",
+  "generatedAt": "2026-11-14T09:25:53.019Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6904,
-  "avgDurationMs": 6904,
+  "durationMs": 6576,
+  "avgDurationMs": 6576,
   "durationHistory": [
-    6904
+    6576
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-50dc2cd19f4c",
       "slug": "sales-representative-m-f-d-air-sea-logistics-kuehne-nagel-ge-chatelaine",
@@ -34,7 +35,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL20382EXTERNALENGLOBAL/sales-representative-m-f-d-air-sea-logistics",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:26:16.320Z",
+      "crawledAt": "2026-11-14T09:25:35.217Z",
       "addressLocality": "Ge Chatelaine",
       "addressRegion": "GE",
       "postalCode": "1219",
@@ -54,23 +55,22 @@
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL20382EXTERNALENGLOBAL/sales-representative-m-f-d-air-sea-logistics",
       "jobReqId": "20382",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-13T21:26:16.320Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:26:16.320Z",
+      "validThrough": "2027-02-12T09:25:35.217Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:26:16.320Z",
-      "_qualityScore": 79,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +85,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:26:17.171Z",
+      "crawledAt": "2026-11-14T09:25:36.104Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -109,7 +109,7 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:26:17.171Z",
+      "validThrough": "2026-12-14T09:25:36.104Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:26:16.729Z",
+      "crawledAt": "2026-11-14T09:25:35.618Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -156,7 +156,7 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:26:16.729Z",
+      "validThrough": "2026-12-14T09:25:35.618Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:26:15.884Z",
+      "crawledAt": "2026-11-14T09:25:34.669Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -202,7 +202,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:26:15.884Z",
+      "validThrough": "2026-12-14T09:25:34.669Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -213,5 +213,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
