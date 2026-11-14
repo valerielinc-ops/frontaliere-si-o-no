@@ -20,6 +20,7 @@ import {
   extractPortalStopHosts,
   installPortalReplayFenceWithHeadClickCapture,
   PORTAL_REPLAY_FAMILIES,
+  publicPortalReplayPreflight,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
@@ -632,6 +633,35 @@ describe('portal replay DNS capability', () => {
     await expect(resolver.resolve('ats.example.test', { all: true })).rejects.toMatchObject({
       code: 'portal_replay_dns_unsafe',
     });
+  });
+
+  it('keeps a DNS or network preflight failure unknown and still returns a browser attempt', async () => {
+    let probes = 0;
+    const result = await publicPortalReplayPreflight({
+      record: { postingUrl: 'https://careers.example.test/jobs/123' },
+      isMutatingGetUrl: () => false,
+      allowedPostingQueryParams: new Set(),
+      publicContractGet: async () => {
+        probes += 1;
+        throw Object.assign(new Error('private diagnostic detail'), { code: 'contract_dns_unsafe' });
+      },
+    });
+
+    expect(result).toEqual([{ status: 0, unknown: true }]);
+    expect(probes).toBe(1);
+  });
+
+  it('does not preflight a mutating GET', async () => {
+    let probes = 0;
+    const result = await publicPortalReplayPreflight({
+      record: { postingUrl: 'https://careers.example.test/apply?email=synthetic@example.invalid' },
+      isMutatingGetUrl: () => true,
+      allowedPostingQueryParams: new Set(),
+      publicContractGet: async () => { probes += 1; return { status: 200 }; },
+    });
+
+    expect(result).toEqual([{ status: 0, blockedMutationGet: true }]);
+    expect(probes).toBe(0);
   });
 });
 

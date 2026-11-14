@@ -415,19 +415,29 @@ function portalReplayCandidate() {
   };
 }
 
-async function publicPreflight(trustedRoot, record, isMutatingGetUrl, allowedPostingQueryParams) {
-  // The bounded DNS-pinned helper is trusted base code. Do not let a PR edit
-  // execute a raw Node request before the browser fence is installed, and do
-  // not probe an URL that the GET mutation classifier would block in-browser.
+export async function publicPortalReplayPreflight({ record, isMutatingGetUrl, allowedPostingQueryParams, publicContractGet } = {}) {
+  if (!record?.postingUrl || typeof isMutatingGetUrl !== 'function' || typeof publicContractGet !== 'function') {
+    throw Object.assign(new Error('portal_replay_preflight_unavailable'), { code: 'portal_replay_preflight_unavailable' });
+  }
+  // Do not make a raw Node request for a URL that the browser fence classifies
+  // as a mutating GET. It stays unknown until the fenced browser observes it.
   if (isMutatingGetUrl(record.postingUrl, { allowedPostingQueryParams })) return [{ status: 0, blockedMutationGet: true }];
-  const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
   try {
     const response = await publicContractGet(record.postingUrl, { maxBytes: 1_500_000, followRedirects: false });
     return [{ status: Number(response.status) || 0 }];
   } catch (error) {
     if (error?.code === 'contract_redirect_not_allowed') return [{ status: 0, redirected: true }];
-    throw error;
+    // DNS/timeouts do not prove a listing closed or unsafe. Keep them unknown
+    // and let the independently fenced browser attempt the public navigation.
+    return [{ status: 0, unknown: true }];
   }
+}
+
+async function publicPreflight(trustedRoot, record, isMutatingGetUrl, allowedPostingQueryParams) {
+  // The bounded DNS-pinned helper is trusted base code; the raw Node request
+  // remains outside PR-owned modules and is never given candidate data.
+  const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
+  return publicPortalReplayPreflight({ record, isMutatingGetUrl, allowedPostingQueryParams, publicContractGet });
 }
 
 function locationFrom(record, evidence, portalApi) {
