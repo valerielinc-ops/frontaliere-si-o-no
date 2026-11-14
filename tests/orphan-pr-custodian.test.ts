@@ -328,7 +328,7 @@ describe('stale-pr-rescuer — cablaggio', () => {
   });
 
   it('non gira sui completamenti di tests dei push su main', () => {
-    expect(WORKFLOW).toContain("if: github.event_name != 'workflow_run' || github.event.workflow_run.event != 'push'");
+    expect(WORKFLOW).toContain("if: github.event_name != 'workflow_run' || (github.event.workflow_run.event != 'push' && github.event.workflow_run.conclusion != 'cancelled')");
   });
 
   it('misura l\'inattivita\' sul push, come il custode che esegue', () => {

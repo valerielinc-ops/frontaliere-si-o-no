@@ -783,6 +783,19 @@ jobs:
             echo "::error::PR metadata/body illeggibile → review input unavailable, nessun Codex."
             exit 1
           fi
+          # La HEAD puo' essere avanzata durante il checkout (769-1379 s). Il
+          # claim, che arriva solo dopo npm ci e Remote Config, la rileverebbe
+          # dopo ~7 min di setup buttati: qui, prima di qualunque installazione,
+          # una HEAD diversa o una PR chiusa esce verde senza claim ne' setup (la
+          # nuova HEAD riceve una review propria). `actionable` != true gatta
+          # ogni step a valle.
+          current_state="$(jq -r '.state // ""' "$pr_file")"
+          current_head="$(jq -r '.head.sha // ""' "$pr_file")"
+          if [ "$current_state" != "open" ] || [ "$current_head" != "$HEAD_SHA" ]; then
+            echo "::notice::HEAD cambiata prima del claim (evento ${HEAD_SHA:0:12}, ora ${current_head:0:12}, PR $current_state) → nessun npm ci/Remote Config/claim."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           review_revision=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json --file "$pr_file")
           # Here-string, non `printf | grep -q`: con `pipefail` il SIGPIPE di
           # printf quando grep -q esce al primo match rende falso il guard e

@@ -1277,11 +1277,11 @@
     },
     {
       "id": "spitex-ch-d2d8d61d35c6",
-      "slug": "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen",
+      "slug": "infermiere-a-diplomato-a-sss-sup-come-responsabile-principale-del-caso-spitex-regiokirchspiel-kleindottingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen",
-        "en": "dipl-nurse-hf-fh-as-main-case-management-spitex-regiokirchspiel-kleindottingen",
         "de": "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
+        "it": "infermiere-a-diplomato-a-sss-sup-come-responsabile-principale-del-caso-spitex-regiokirchspiel-kleindottingen",
+        "en": "dipl-nurse-hf-fh-as-main-case-management-spitex-regiokirchspiel-kleindottingen",
         "fr": "dipl-infirmiere-hf-h-comme-principale-gestion-de-cas-spitex-regiokirchspiel-kleindottingen"
       },
       "company": "Spitex RegioKirchspiel",
@@ -1329,7 +1329,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
+          "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
+          "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
@@ -1339,7 +1340,8 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen"
+        "dipl-pflegefachperson-hf-fh-als-haupt-fallfuhrung-spitex-ch-kleindottingen",
+        "dipl-pflegefachperson-hf-fh-come-haupt-fallfuhrung-spitex-regiokirchspiel-kleindottingen"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
