@@ -196,7 +196,7 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
     <div ref={ref} className={visibilityClass}>
       {/* Inner cluster pins to the viewport top and rides the whole scroll, so a
           tall article's gutter never goes blank below the physical ads. */}
-      <div className="sticky top-24 flex flex-col gap-2">
+      <div className="sticky top-24 flex flex-col gap-2" data-ft-house-block={`article-rail-${side}`}>
         {Array.from({ length: panels }, (_, i) => (
           <ArticleRailAd
             key={i}
