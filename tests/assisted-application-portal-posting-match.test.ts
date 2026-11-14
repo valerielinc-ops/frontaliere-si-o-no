@@ -4,9 +4,16 @@ import {
   formPostingMatch,
   jobRoomExternalAdTarget,
   namesAnotherEmployer,
+  resolvedPostingUrlForIdentity,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('application form posting identity', () => {
+  it('keeps the opened posting URL when legacy context has no saved posting URL', () => {
+    expect(resolvedPostingUrlForIdentity('', 'https://jobs.example.test/42')).toBe('https://jobs.example.test/42');
+    expect(resolvedPostingUrlForIdentity('https://jobs.example.test/selected', 'https://jobs.example.test/42'))
+      .toBe('https://jobs.example.test/selected');
+  });
+
   it('matches the source language title when the draft title is localized', () => {
     const job = {
       title: 'Operatrice sociosanitaria',
@@ -145,6 +152,12 @@ describe('application form posting identity', () => {
       postingMatched: true, applicationEntry: true,
     })).toBe('unknown');
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
+  });
+
+  it('keeps same-kind employer names and standalone Data as conflicting evidence', () => {
+    expect(namesAnotherEmployer('Banca Cler — Bank Riviera', { company: 'Banca Cler' })).toBe(true);
+    expect(namesAnotherEmployer('Data', { company: 'Alfa' })).toBe(true);
+    expect(namesAnotherEmployer('Data di compilazione:', { company: 'Alfa' })).toBe(false);
   });
 
   it('rejects a different named role and a different Umantis vacancy ID', () => {

@@ -4026,7 +4026,7 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
-  'number', 'numero', 'nummer', 'date', 'datum', 'data', 'compilation', 'compilazione',
+  'number', 'numero', 'nummer', 'compilation', 'compilazione',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
@@ -4037,6 +4037,10 @@ const FORM_VOCABULARY = new Set([
   'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
   'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
+const FORM_DATE_FIELD_LABEL_RE = /^(?:data di compilazione|date (?:of )?(?:compilation|completion|application)|datum (?:der )?(?:bewerbung|erfassung))$/u;
+const isFormDateFieldLabel = value => FORM_DATE_FIELD_LABEL_RE.test(
+  normalizeWords(String(value || '').replace(/[*:]+$/u, '').trim()),
+);
 // A country in a company's name says which national entity it is, not which company: «Rituals Cosmetics
 // Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities. Countries only:
 // «Acme Europe» and «Acme International» are two companies (review of #12292).
@@ -4177,6 +4181,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
   const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
+  const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
   const postingLocationWords = allowPostingLocation
     ? new Set([
@@ -4218,26 +4223,25 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
-  const ourKinds = employerKindsOf([...ours]);
-  // A title can put the selected employer and a different employer-like phrase
-  // on the same line («Grand Hotel — Other Resort»). The ordinary neighbour
-  // scan intentionally splits on dashes, so keep this explicit title-level
-  // conflict check before the selected employer's own identity neutralizes the
-  // line as a whole.
+  // A title can put the selected employer and a differently named employer
+  // with the same translated kind on one line («Banca Cler — Bank Riviera»).
+  // Compare the non-kind words against the selected identity before the
+  // ordinary neighbour scan lets the selected employer neutralize the line.
   if (titleNamesOwnEmployer(titleLine)) {
     const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
-    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word)
-      && (!EMPLOYER_KIND_CLASS.has(word) || !ourKinds.has(EMPLOYER_KIND_CLASS.get(word))))
+    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
       && words.some((word) => !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word) && !filler(word)))) return true;
   }
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
   // reads every phrase in the full page text.
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
-  if (!titleNamesOwnEmployer(titleLine) && title.some((word, index) => !filler(word) && !neutral.has(word)
+  if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
+    && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
+    if (isFormDateFieldLabel(phrase)) continue;
     // Employer-like names in the recruiting platform's attribution footer do
     // not identify the employer that owns the application form.
     if (/^\s*(?:powered|provided|developed|hosted)\s+by\b/iu.test(phrase)) continue;
@@ -4367,6 +4371,11 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
     || contexts.some(matchesCurrentIdentity);
   return titleMatched && sourceIdentityMatched;
+}
+
+/** Prefer the saved posting address; keep the open source when legacy context omitted it. */
+export function resolvedPostingUrlForIdentity(contextPostingUrl, localPostingUrl) {
+  return String(contextPostingUrl || '').trim() || String(localPostingUrl || '').trim();
 }
 
 /** Read-only reconciliation cannot use an Apply control or a persisted route proof. */
@@ -9686,7 +9695,7 @@ export async function readPortalRequirements(ctx) {
         pageUrl: page.url(),
         pageTitle: sourceTitle,
         pageHeading: sourcePostingHeading,
-        postingUrl: ctx.postingUrl,
+        postingUrl: resolvedPostingUrlForIdentity(ctx.postingUrl, page.url()),
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: sourceApplicationEntryProven,
@@ -10313,7 +10322,7 @@ export async function submitViaPortal(ctx) {
         pageUrl: postingUrl,
         pageTitle: postingTitle,
         pageHeading: postingHeading,
-        postingUrl: ctx.postingUrl,
+        postingUrl: resolvedPostingUrlForIdentity(ctx.postingUrl, postingUrl),
         postingRouteProof: ctx.postingRouteProof,
         vacancyIdentityContexts: currentVacancyIdentityContexts(snapshot),
         uniqueApplicationEntryProven: initialApplicationEntryProven,
