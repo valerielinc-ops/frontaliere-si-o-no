@@ -324,7 +324,7 @@ export function parseDelvitechZohoListings(payload = {}) {
     const state = normalizeSpace(row.State || '');
     const country = normalizeSpace(row.Country || '');
     const location = [city, state, country].filter(Boolean).join(', ');
-    const description = htmlToText(String(row.Job_Description || '').trim());
+    const description = htmlToText(String(row.Job_Description || '').trim()); // parser-contract-ok R5: provider rows are validated for a non-empty source body below
     const detail = {
       title,
       location,
