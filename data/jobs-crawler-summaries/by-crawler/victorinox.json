@@ -1,7 +1,7 @@
 {
   "key": "victorinox",
   "label": "Victorinox",
-  "generatedAt": "2026-11-13T21:20:17.819Z",
+  "generatedAt": "2026-11-14T09:31:11.116Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 17002,
-  "avgDurationMs": 17002,
+  "durationMs": 15580,
+  "avgDurationMs": 15580,
   "durationHistory": [
-    17002
+    15580
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:48.568Z",
+      "crawledAt": "2026-11-14T09:30:43.085Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -60,7 +60,7 @@
       "salaryMax": 137000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:19:48.568Z",
+      "validThrough": "2026-12-14T09:30:43.085Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -71,56 +71,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "victorinox-d37d2d1ef237",
-      "slug": "senior-product-manager-swiss-army-knife-tools-m-w-d-victorinox-ibach-schwyz",
-      "company": "Victorinox",
-      "companyKey": "victorinox",
-      "companyDomain": "victorinox.com",
-      "title": "​​Senior Product Manager (Swiss Army Knife™ & Tools) m/w/d",
-      "needsRetranslation": true,
-      "location": "Ibach-Schwyz",
-      "canton": "SZ",
-      "url": "https://victorinox-career.talent-soft.com/stelle/stelle--senior-product-manager-swiss-army-knife-tools-m-w-d_267.aspx",
-      "source": "Victorinox Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:18:34.857Z",
-      "addressLocality": "Ibach-Schwyz",
-      "addressRegion": "SZ",
-      "streetAddress": "Schmiedgasse 57",
-      "postalCode": "6438",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Innovazione / Prodotto",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Industria / Manifatturiero",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle--senior-product-manager-swiss-army-knife-tools-m-w-d_267.aspx",
-      "jobReqId": "2026-267",
-      "firstSeenAt": "2026-10-29T21:40:08.373Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:18:34.857Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "victorinox-c9a73ab3b99d",
@@ -135,7 +86,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:52.501Z",
+      "crawledAt": "2026-11-14T09:30:47.296Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -159,7 +110,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:19:52.501Z",
+      "validThrough": "2026-12-14T09:30:47.296Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -181,7 +132,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:51.941Z",
+      "crawledAt": "2026-11-14T09:30:46.733Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -205,7 +156,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:19:51.941Z",
+      "validThrough": "2026-12-14T09:30:46.733Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -228,7 +179,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:51.391Z",
+      "crawledAt": "2026-11-14T09:30:46.187Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -252,7 +203,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:19:51.391Z",
+      "validThrough": "2026-12-14T09:30:46.187Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -275,7 +226,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:50.831Z",
+      "crawledAt": "2026-11-14T09:30:45.635Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -299,7 +250,7 @@
       "salaryMax": 64000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:19:50.831Z",
+      "validThrough": "2027-01-19T09:30:45.635Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -322,7 +273,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:50.269Z",
+      "crawledAt": "2026-11-14T09:30:45.068Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -346,7 +297,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:19:50.269Z",
+      "validThrough": "2026-12-19T09:30:45.068Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -369,7 +320,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-application-integration-manager-erp-m-w-d_248.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:49.684Z",
+      "crawledAt": "2026-11-14T09:30:44.466Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -393,7 +344,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:19:49.684Z",
+      "validThrough": "2026-12-14T09:30:44.466Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -416,7 +367,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:49.126Z",
+      "crawledAt": "2026-11-14T09:30:43.670Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -440,7 +391,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:19:49.126Z",
+      "validThrough": "2026-12-14T09:30:43.670Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -463,7 +414,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-marketing-operations-coordinator-europe-60-80-m-w-d_272.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:19:47.981Z",
+      "crawledAt": "2026-11-14T09:30:42.534Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -487,7 +438,7 @@
       "salaryMax": 77600,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:19:47.981Z",
+      "validThrough": "2027-02-04T09:30:42.534Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -498,5 +449,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
