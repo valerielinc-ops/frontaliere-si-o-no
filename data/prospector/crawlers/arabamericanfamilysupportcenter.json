@@ -1,0 +1,25 @@
+{
+  "companyKey": "arabamericanfamilysupportcenter",
+  "companyName": "Arab American Family Support Center",
+  "companyHost": "arabamericanfamilysupportcenter.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://arabamericanfamilysupportcenter.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Anti-Violence Program Case Manager (Staten Island Location)",
+    "Client Navigator (Queens Location)",
+    "Client Navigator (Staten Island Location)",
+    "Mental Health Clinician",
+    "Restorative Practice Site Coordinator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:45.690Z",
+  "candidateKey": "arabamericanfamilysupportcenter@applytojob.com"
+}
