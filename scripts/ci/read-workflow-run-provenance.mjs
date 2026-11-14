@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import { execFileSync } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { withTransientGithubApiRetry } from './lib/github-api-retry.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 export const SOURCE_RUN_JSON_FIELDS = 'event,headBranch,headSha,status,conclusion';
 
@@ -76,7 +75,7 @@ export function main(argv = process.argv.slice(2)) {
   process.stdout.write(`${JSON.stringify(readWorkflowRunProvenance({ runId, repository }))}\n`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     main();
   } catch (error) {
