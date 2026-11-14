@@ -658,6 +658,29 @@ describe('portal replay DNS capability', () => {
     expect(probes).toBe(1);
   });
 
+  it('keeps an unavailable preflight helper unknown without making a raw request', async () => {
+    const result = await publicPortalReplayPreflight({
+      record: { postingUrl: 'https://careers.example.test/jobs/123' },
+      isMutatingGetUrl: () => false,
+      allowedPostingQueryParams: new Set(),
+    });
+
+    expect(result).toEqual([{ status: 0, unknown: true }]);
+  });
+
+  it('keeps a preflight classification error unknown without probing', async () => {
+    let probes = 0;
+    const result = await publicPortalReplayPreflight({
+      record: { postingUrl: 'https://careers.example.test/jobs/123' },
+      isMutatingGetUrl: () => { throw new Error('private classifier detail'); },
+      allowedPostingQueryParams: new Set(),
+      publicContractGet: async () => { probes += 1; return { status: 200 }; },
+    });
+
+    expect(result).toEqual([{ status: 0, unknown: true }]);
+    expect(probes).toBe(0);
+  });
+
   it('does not preflight a mutating GET', async () => {
     let probes = 0;
     const result = await publicPortalReplayPreflight({

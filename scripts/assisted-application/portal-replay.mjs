@@ -438,13 +438,17 @@ function portalReplayCandidate() {
 }
 
 export async function publicPortalReplayPreflight({ record, isMutatingGetUrl, allowedPostingQueryParams, publicContractGet } = {}) {
-  if (!record?.postingUrl || typeof isMutatingGetUrl !== 'function' || typeof publicContractGet !== 'function') {
+  if (!record?.postingUrl || typeof isMutatingGetUrl !== 'function') {
     throw Object.assign(new Error('portal_replay_preflight_unavailable'), { code: 'portal_replay_preflight_unavailable' });
   }
-  // Do not make a raw Node request for a URL that the browser fence classifies
-  // as a mutating GET. It stays unknown until the fenced browser observes it.
-  if (isMutatingGetUrl(record.postingUrl, { allowedPostingQueryParams })) return [{ status: 0, blockedMutationGet: true }];
+  // A missing trusted helper cannot prove page state. The browser replay has
+  // its own read-only fence, so continue there while keeping this observation
+  // unknown. No raw request is made without the trusted helper.
+  if (typeof publicContractGet !== 'function') return [{ status: 0, unknown: true }];
   try {
+    // Do not make a raw Node request for a URL that the browser fence classifies
+    // as a mutating GET. It stays unknown until the fenced browser observes it.
+    if (isMutatingGetUrl(record.postingUrl, { allowedPostingQueryParams })) return [{ status: 0, blockedMutationGet: true }];
     const response = await publicContractGet(record.postingUrl, { maxBytes: 1_500_000, followRedirects: false });
     return [{ status: Number(response.status) || 0 }];
   } catch (error) {
@@ -1113,7 +1117,14 @@ async function compareMode(values) {
   // Import the bounded public GET helper once from the trusted base checkout.
   // Separating this phase from the per-record check makes setup failures
   // diagnosable without emitting an exception message, path, or URL.
-  const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
+  let publicContractGet;
+  try {
+    ({ publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs'));
+  } catch {
+    // No request is made without this helper. The separately fenced browser
+    // can still measure the listing; only the preflight remains unknown.
+    console.warn('portal_replay_preflight:unknown:helper_unavailable');
+  }
   const preflightByKey = new Map();
   for (const record of records) {
     compareFailurePhase = 'public_preflight_check';
