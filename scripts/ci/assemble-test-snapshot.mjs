@@ -121,15 +121,18 @@ function checkChangedPaths() {
   return { eligible: true, reason: 'PR diff does not change assembler inputs' };
 }
 
-function expectedCacheManifest() {
-  const cache = computeAssembleCacheKey({ withStats: true, withSummaries: true, withExpired: true });
+function expectedCacheManifest(sourceCacheKey) {
+  const cacheKey = String(sourceCacheKey || '');
+  const match = cacheKey.match(/^([0-9a-f]{64})_(stats(?:_noreconcile)?(?:_withheld)?)$/u);
+  if (!match) throw new Error('the pre-assemble cache key is missing or invalid');
+  const inputFingerprint = match[1];
   const contract = assembleCacheFileContract({ withStats: true, withSummaries: true, withExpired: true });
   return {
-    cache,
+    cache: { inputFingerprint, cacheKey },
     expected: {
-      inputFingerprint: cache.inputFingerprint,
-      cacheKey: cache.cacheKey,
-      includeTranslationHeld: cache.includeTranslationHeld,
+      inputFingerprint,
+      cacheKey,
+      includeTranslationHeld: match[2].endsWith('_withheld'),
       withStats: true,
       withSummaries: true,
       withExpired: true,
@@ -138,19 +141,25 @@ function expectedCacheManifest() {
   };
 }
 
-function prepare() {
-  const sourceRunId = String(process.env.GITHUB_RUN_ID || '');
-  const sourceRunAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '');
-  const sourceCapturedAt = String(process.env.ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT || '');
+export function prepare({
+  root = ROOT,
+  snapshotRoot = SNAPSHOT_ROOT,
+  sourceCacheKey = String(process.env.ASSEMBLE_TEST_SNAPSHOT_SOURCE_CACHE_KEY || ''),
+  sourceRunId = String(process.env.GITHUB_RUN_ID || ''),
+  sourceRunAttempt = String(process.env.GITHUB_RUN_ATTEMPT || ''),
+  sourceCapturedAt = String(process.env.ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT || ''),
+  compatibilityFingerprint = computeCompatibilityFingerprint(),
+  now = Date.now(),
+} = {}) {
   if (!/^\d+$/.test(sourceRunId) || !/^\d+$/.test(sourceRunAttempt)) {
     throw new Error('GITHUB_RUN_ID or GITHUB_RUN_ATTEMPT is missing or invalid');
   }
-  if (!Number.isFinite(Date.parse(sourceCapturedAt)) || Date.parse(sourceCapturedAt) > Date.now()) {
+  if (!Number.isFinite(Date.parse(sourceCapturedAt)) || Date.parse(sourceCapturedAt) > now) {
     throw new Error('ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT is missing or invalid');
   }
 
-  const { cache, expected } = expectedCacheManifest();
-  const sourceDir = path.join(ROOT, '.cache', 'assemble-jobs', cache.cacheKey);
+  const { cache, expected } = expectedCacheManifest(sourceCacheKey);
+  const sourceDir = path.join(root, '.cache', 'assemble-jobs', cache.cacheKey);
   const manifestPath = path.join(sourceDir, 'manifest.json');
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   if (!isAssembleCacheManifestValid(manifest, expected)) {
@@ -164,18 +173,18 @@ function prepare() {
     }
   }
 
-  fs.rmSync(SNAPSHOT_ROOT, { recursive: true, force: true });
-  fs.mkdirSync(SNAPSHOT_ROOT, { recursive: true });
+  fs.rmSync(snapshotRoot, { recursive: true, force: true });
+  fs.mkdirSync(snapshotRoot, { recursive: true });
   for (const name of requiredFiles) {
-    fs.copyFileSync(path.join(sourceDir, name), path.join(SNAPSHOT_ROOT, name));
+    fs.copyFileSync(path.join(sourceDir, name), path.join(snapshotRoot, name));
   }
-  fs.writeFileSync(path.join(SNAPSHOT_ROOT, 'test-snapshot.json'), JSON.stringify({
+  fs.writeFileSync(path.join(snapshotRoot, 'test-snapshot.json'), JSON.stringify({
     schemaVersion: 1,
     sourceRunId,
     sourceRunAttempt,
     sourceCapturedAt,
-    snapshotAt: new Date().toISOString(),
-    compatibilityFingerprint: computeCompatibilityFingerprint(),
+    snapshotAt: new Date(now).toISOString(),
+    compatibilityFingerprint,
     outputCacheVersion: ASSEMBLE_OUTPUT_CACHE_VERSION,
     nodeMajor: NODE_MAJOR,
     mode: 'stats,summaries,expired',

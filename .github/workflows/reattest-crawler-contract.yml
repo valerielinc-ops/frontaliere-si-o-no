@@ -199,7 +199,24 @@ jobs:
           if git ls-remote --exit-code --heads origin "$REATTEST_BRANCH" >/dev/null 2>&1; then
             git fetch --no-tags origin main "$REATTEST_BRANCH"
             git switch -C "$REATTEST_BRANCH" "origin/$REATTEST_BRANCH"
-            git merge --no-edit origin/main
+            if ! git merge --no-edit origin/main; then
+              conflicted_paths=$(git diff --name-only --diff-filter=U)
+              if [ "$conflicted_paths" != "$CONTRACT_PATH" ]; then
+                echo "::error::persistent reattestation branch has an unexpected merge conflict"
+                printf '%s\n' "$conflicted_paths"
+                git merge --abort || true
+                exit 1
+              fi
+
+              # The persistent branch only carries the previous contract
+              # reattestation. When main has changed that same generated file,
+              # its digest/roster is authoritative; reattest it below instead
+              # of carrying a stale branch-side JSON merge hunk forward.
+              echo "Resolving the expected contract-only conflict from origin/main."
+              git checkout --theirs -- "$CONTRACT_PATH"
+              git add -- "$CONTRACT_PATH"
+              git commit --no-edit
+            fi
           else
             git fetch --no-tags origin main
             git switch -c "$REATTEST_BRANCH" origin/main

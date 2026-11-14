@@ -58,7 +58,7 @@
  *   fetchPostWidgetWithAntiBotHardening(body, contentType, endpoint, opts)
  *                                             — generic POST widget fetch (Phenom etc.)
  */
-import { launchChromium } from './ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './stealth-browser.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 /* ── Browser UA pool (within the publicjobs.ch / Cloudflare accepted window) ── */
@@ -208,18 +208,24 @@ async function fetchWidgetViaPlaywright(bodyString, contentType, endpoint, { ref
 
   let browser;
   try {
-    browser = await launchChromium({ headless: true });
-    const playwrightUa = ua || PASTAHR_BROWSER_USER_AGENTS[0];
-    const context = await browser.newContext({
-      userAgent: playwrightUa,
+    browser = await launchStealthOrChromium({
+      purpose: 'crawler',
       locale: 'de-CH',
-      extraHTTPHeaders: {
-        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-        'Sec-CH-UA': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-        'Sec-CH-UA-Mobile': '?0',
-        'Sec-CH-UA-Platform': platformHintForUserAgent(playwrightUa),
-      },
+      fallbackOptions: { headless: true },
     });
+    const playwrightUa = ua || PASTAHR_BROWSER_USER_AGENTS[0];
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: playwrightUa,
+          locale: 'de-CH',
+          extraHTTPHeaders: {
+            'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+            'Sec-CH-UA': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+            'Sec-CH-UA-Mobile': '?0',
+            'Sec-CH-UA-Platform': platformHintForUserAgent(playwrightUa),
+          },
+        });
     const page = await context.newPage();
 
     // Navigate to the employer's career page first to establish the correct
