@@ -415,7 +415,9 @@ describe('portal replay corpus', () => {
     expect(portalReplayPathScope('scripts/lib/ats-adapters/jobsch-adapter.mjs')).toBe('parser');
     expect(portalReplayPathScope('scripts/lib/ats-adapters/unknown-adapter.mjs')).toBe('parser');
     expect(portalReplayPathScope('scripts/lib/ensure-chromium.mjs')).toBe('runtime');
+    expect(portalReplayPathScope('/SCRIPTS/LIB/ENSURE-CHROMIUM.MJS')).toBe('runtime');
     expect(portalReplayPathScope('scripts/lib/molecular-partners-job-parser.mjs')).toBeNull();
+    expect(portalReplayPathScope('scripts/lib/new-unclassified-helper.mjs')).toBeNull();
   });
 
   it('does not fall back to a PR-controlled replay fence when the trusted base lacks it', () => {

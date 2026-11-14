@@ -57,7 +57,7 @@ const PORTAL_REPLAY_FAMILY_PATH_HINTS = Object.freeze({
  * adapters shape the sampled corpus, while these exact runtime modules are
  * imported by the portal runner or by this replay harness. A crawler-only
  * parser (for example molecular-partners-job-parser.mjs) is not replay scope.
- * An unrecognised file inside the parser scope remains fail-closed below.
+ * A file outside these explicit scopes remains fail-closed below.
  */
 export const PORTAL_REPLAY_PARSER_PATHS = Object.freeze([
   'scripts/lib/ats-adapters/',
