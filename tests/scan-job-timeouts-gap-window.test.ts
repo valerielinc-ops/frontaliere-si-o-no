@@ -41,15 +41,24 @@ function installGh({
   previousScanStartedAt,
   previousScanEvent = 'schedule',
   historyResult = 'readable',
+  historyRateLimitFailures = 0,
 }: {
   previousScanStartedAt: string | null;
   previousScanEvent?: string;
   historyResult?: 'readable' | 'failure' | 'malformed';
+  historyRateLimitFailures?: number;
 }) {
+  let remainingHistoryRateLimitFailures = historyRateLimitFailures;
   execFileSync.mockImplementation((_cmd: string, args: string[]) => {
     if (args[0] === 'api') {
       const path = String(args[1]);
       if (path.includes('/runs?status=success')) {
+        if (remainingHistoryRateLimitFailures > 0) {
+          remainingHistoryRateLimitFailures -= 1;
+          throw Object.assign(new Error('Command failed: gh api'), {
+            stderr: Buffer.from('gh: API rate limit exceeded for user ID 123 (HTTP 403)'),
+          });
+        }
         if (historyResult === 'failure') throw new Error('Actions API unavailable');
         if (historyResult === 'malformed') return '{not-json';
         return JSON.stringify({
@@ -185,6 +194,16 @@ describe('main — a timeout between two sparse scans is still reported', () => 
     installGh({ previousScanStartedAt: null, historyResult: 'malformed' });
     await expect(main()).rejects.toThrow(/impossibile leggere la history/);
     expect(creates()).toHaveLength(0);
+  });
+
+  it('retries a rate-limit-only history failure before continuing the scan', async () => {
+    installGh({ previousScanStartedAt: null, historyRateLimitFailures: 1 });
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+
+    await expect(main()).resolves.toBeUndefined();
+
+    expect(apiPaths().filter((path) => path.includes('/runs?status=success'))).toHaveLength(2);
+    expect(creates()).toHaveLength(1);
   });
 
   it('without a previous scan the fixed window still misses it (the old behaviour)', async () => {
