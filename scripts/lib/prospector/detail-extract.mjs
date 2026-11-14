@@ -187,6 +187,7 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     // The named source heading describes the vacancy's workplace. Replace the
     // page-wide address candidates so a company address in JSON-LD/footer
     // cannot outrank it during the shared Swiss geography resolution.
+    detail.workplaceLabels = [labelledLocation];
     const evidence = labelledLocationEvidence(labelledLocation, spec);
     if (!evidence) {
       detail.authoritativeLocationConflict = true;

@@ -136,6 +136,20 @@ describe('Hans Eisenring AG crawler parser', () => {
     ]);
   });
 
+  it('retains a reviewed broad workplace label when it cannot become one canton', () => {
+    const spec = loadSpec(HANSEISENRING_KEY);
+    const detail = extractRuntimeDetailFields(
+      spec,
+      '<h3>Arbeitsort</h3><div><p>Einsatzgebiet Ostschweiz oder Region Zürich</p></div>',
+      'https://hanseisenring.ch/unternehmen/karriere/jobportal/test',
+    );
+
+    expect(detail).toMatchObject({
+      authoritativeLocationConflict: true,
+      workplaceLabels: ['Einsatzgebiet Ostschweiz oder Region Zürich'],
+    });
+  });
+
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
