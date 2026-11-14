@@ -23,6 +23,7 @@ const postDeployWf = read('.github/workflows/post-deploy-publish.yml');
 const postDeploy = parse(postDeployWf);
 const fastPublish = parse(read('.github/workflows/fast-publish-article.yml'));
 const publisher = parse(read('.github/workflows/deploy-publish.yml'));
+const publishedDistAudit = parse(read('.github/workflows/audit-published-dist.yml'));
 
 type Step = { name?: string; if?: string; run?: string; uses?: string; env?: Record<string, string>; id?: string };
 const stepNamed = (steps: Step[], re: RegExp) => steps.find((s) => re.test(s.name || ''));
@@ -58,11 +59,6 @@ describe('post-publish Indexing API top-up', () => {
   });
 
   it('no NEW workflow waits for a workflow_run of the publisher that never fires', () => {
-    // Ratchet. audit-published-dist.yml has the same dead trigger (zero runs
-    // in its history at 2026-11-10); its fix needs a dispatch from
-    // deploy-publish.yml, which this change may not touch. Remove it from this
-    // list when that lands — the test fails until you do.
-    const KNOWN_DEAD = ['audit-published-dist.yml'];
     const offenders = readdirSync(resolve('.github/workflows'))
       .filter((f: string) => /\.ya?ml$/.test(f))
       .filter((f: string) => {
@@ -70,7 +66,7 @@ describe('post-publish Indexing API top-up', () => {
         const wr = on && typeof on === 'object' ? on.workflow_run : undefined;
         return Boolean(wr?.workflows?.includes('Publish to GitHub Pages (deploy + validate)'));
       });
-    expect(offenders).toEqual(KNOWN_DEAD);
+    expect(offenders).toEqual([]);
   });
 
   it('monitor-gsc-seo.yml accepts the dispatch and no longer relies on workflow_run', () => {
@@ -78,6 +74,40 @@ describe('post-publish Indexing API top-up', () => {
     expect(monitor.on.workflow_dispatch.inputs.mode.options).toContain('post-publish');
     expect(monitor.jobs.monitor.if).toContain("inputs.mode != 'post-publish'");
     expect(monitor.jobs.indexing.if).toContain('always()');
+  });
+});
+
+describe('published dist audit dispatch', () => {
+  const watchdog = publisher.jobs['runtime-watchdog'];
+  const steps: Step[] = watchdog.steps;
+  const dispatch = stepNamed(steps, /Dispatch published dist audit/);
+
+  it('dispatches the audit with the source build and publisher run identities', () => {
+    const command = dispatch?.run?.replace(/\\\n\s*/g, '');
+    expect(command).toContain('gh workflow run audit-published-dist.yml --repo "$GITHUB_REPOSITORY" --ref main');
+    expect(command).toContain('-f deploy_run_id="$PUBLISHER_SOURCE_RUN_ID"');
+    expect(command).toContain('-f shard_artifact_run_id="$PUBLISHER_RUN_ID"');
+    expect(command).toContain('-f deploy_ref="$PUBLISHER_SOURCE_SHA"');
+    expect(command).toContain('-f audit_sample_salt="$PUBLISHER_RUN_NUMBER"');
+    expect(dispatch?.env?.PUBLISHER_RUN_ID).toBe('${{ github.run_id }}');
+    expect(dispatch?.env?.PUBLISHER_SOURCE_RUN_ID).toBe('${{ inputs.source_run_id }}');
+    expect(dispatch?.env?.PUBLISHER_SOURCE_SHA).toBe('${{ inputs.source_sha }}');
+    expect(dispatch?.if).toContain("needs.publish.result == 'success'");
+    expect(watchdog.permissions.actions).toBe('write');
+  });
+
+  it('uses an explicit dispatch input contract and no suppressed workflow_run', () => {
+    expect(publishedDistAudit.on.workflow_run).toBeUndefined();
+    const inputs = publishedDistAudit.on.workflow_dispatch.inputs;
+    expect(inputs.deploy_run_id.required).toBe(true);
+    expect(inputs.shard_artifact_run_id.required).toBe(true);
+    expect(inputs.deploy_ref.required).toBe(true);
+    expect(inputs.audit_sample_salt.required).toBe(true);
+    expect(publishedDistAudit.jobs.report.with.deploy_run_id).toBe('${{ inputs.deploy_run_id }}');
+    expect(publishedDistAudit.jobs.report.with.shard_artifact_run_id).toBe('${{ inputs.shard_artifact_run_id }}');
+    expect(publishedDistAudit.jobs.report.with.deploy_ref).toBe('${{ inputs.deploy_ref }}');
+    expect(publishedDistAudit.jobs.report.with.audit_sample_salt).toBe('${{ inputs.audit_sample_salt }}');
+    expect(publishedDistAudit.jobs.report.needs).toEqual(['validate-inputs']);
   });
 });
 
