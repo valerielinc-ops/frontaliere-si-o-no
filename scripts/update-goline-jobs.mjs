@@ -149,7 +149,7 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
           });
           try {
             const page = isStealthBrowser(browser)
-              ? await browser.newPage()
+              ? await browser.newPage({ viewport: null })
               : await browser.newPage({ userAgent: USER_AGENTS[0] });
             await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
             await page.waitForSelector('h2.wp-block-heading', { timeout: 10000 }).catch(() => {});

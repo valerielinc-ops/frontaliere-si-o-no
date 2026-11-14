@@ -325,7 +325,7 @@ export async function fetchMigrolinoListingHrefs() {
   });
 
   try {
-    const context = await browser.newContext();
+    const context = await browser.newContext({ viewport: null });
     const page = await context.newPage();
     await page.goto(LISTING_URL, { waitUntil: 'domcontentloaded', timeout: navTimeoutMs });
 

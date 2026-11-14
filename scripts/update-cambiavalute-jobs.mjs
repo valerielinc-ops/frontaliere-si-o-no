@@ -247,7 +247,7 @@ async function fetchListingPageViaBrowser(url, timeoutMs) {
   });
   try {
     const page = isStealthBrowser(browser)
-      ? await browser.newPage()
+      ? await browser.newPage({ viewport: null })
       : await browser.newPage({ userAgent: BROWSER_USER_AGENTS[0] });
     // domcontentloaded (not networkidle): the listing is static HTML; networkidle
     // can hang past the timeout on pages with ads/polling/keep-alive, silently

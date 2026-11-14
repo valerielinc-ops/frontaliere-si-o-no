@@ -125,7 +125,7 @@ export function createPageRenderer() {
         });
       }
       const page = isStealthBrowser(browser)
-        ? await browser.newPage()
+        ? await browser.newPage({ viewport: null })
         : await browser.newPage({ userAgent: TICINO_COMUNI_USER_AGENT });
       try {
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 });

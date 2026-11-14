@@ -162,7 +162,7 @@ async function fetchPage(url) {
           });
           try {
             const page = isStealthBrowser(browser)
-              ? await browser.newPage()
+            ? await browser.newPage({ viewport: null })
               : await browser.newPage({ userAgent: USER_AGENTS[0] });
             await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
             return await page.content();

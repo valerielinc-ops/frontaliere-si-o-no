@@ -129,7 +129,7 @@ async function fetchWithBrowser(url) {
   });
   try {
     const page = isStealthBrowser(browser)
-      ? await browser.newPage()
+      ? await browser.newPage({ viewport: null })
       : await browser.newPage({ userAgent: BROWSER_UA });
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await page.waitForTimeout(1000);

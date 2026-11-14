@@ -97,7 +97,7 @@ async function fetchRenderedBoschListings() {
   });
   try {
     const page = isStealthBrowser(browser)
-      ? await browser.newPage()
+      ? await browser.newPage({ viewport: null })
       : await browser.newPage({
           userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
         });
