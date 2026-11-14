@@ -170,6 +170,12 @@ import {
 // dedicated parsers that already gate on it.
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+} from './ats-clients/playwright-runtime.mjs';
+import {
   JOBS_CRAWLER_CONFIG_DEFAULTS,
   JOBS_CRAWLER_CONFIG_LIMITS,
   normalizeJobsCrawlerConfig as normalizeCrawlerConfig,
@@ -457,7 +463,6 @@ let aiCacheLoadedEntries = 0;
 let aiCacheHits = 0;
 let aiCacheMisses = 0;
 let fastXmlParserModulePromise = null;
-let playwrightChromiumPromise = null;
 
 function buildAiCacheKey(prefix = '', parts = []) {
   const h = createHash('sha256');
@@ -620,16 +625,6 @@ async function getFastXmlParserModule() {
     .then((mod) => mod || null)
     .catch(() => null);
   return fastXmlParserModulePromise;
-}
-
-import { launchChromium } from './ensure-chromium.mjs';
-
-async function getPlaywrightChromium() {
-  if (playwrightChromiumPromise) return playwrightChromiumPromise;
-  playwrightChromiumPromise = import('playwright')
-    .then((mod) => mod?.chromium || null)
-    .catch(() => null);
-  return playwrightChromiumPromise;
 }
 
 function clampNum(value, min, max, fallback) {
@@ -3352,17 +3347,14 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
   if (!BROWSER_FALLBACK_ENABLED) {
     return { urls: [], reason: 'disabled' };
   }
-  const chromium = await getPlaywrightChromium();
-  if (!chromium) {
-    return { urls: [], reason: 'playwright_unavailable' };
-  }
 
   let browser = null;
   const out = new Set();
   try {
-    browser = await launchChromium({ headless: true });
-    const page = await browser.newPage({ userAgent: CRAWLER_USER_AGENT });
-    await page.goto(companyWebsite, { waitUntil: 'domcontentloaded', timeout: BROWSER_FALLBACK_TIMEOUT_MS });
+    browser = await createBrowser({ userAgent: CRAWLER_USER_AGENT });
+    const context = await createPoliteContext(browser, { userAgent: CRAWLER_USER_AGENT });
+    context.setDefaultNavigationTimeout(BROWSER_FALLBACK_TIMEOUT_MS);
+    const page = await fetchWithRateLimit(context, companyWebsite, { minDelayMs: 0 });
     if (BROWSER_FALLBACK_WAIT_MS > 0) {
       await page.waitForTimeout(BROWSER_FALLBACK_WAIT_MS);
     }
@@ -3383,9 +3375,7 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
       reason: normalizeSpace(String(err?.message || 'browser_fallback_failed')).slice(0, 160) || 'browser_fallback_failed',
     };
   } finally {
-    if (browser) {
-      try { await browser.close(); } catch {}
-    }
+    await closeAll(browser);
   }
 }
 
@@ -7010,6 +7000,7 @@ export const __testables = {
   readExistingJobsFromSlices,
   pruneStaleCrawlerJobs,
   getCompanyAdapter,
+  discoverCareerUrlsWithBrowserFallback,
   absoluteLinks,
   absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the
