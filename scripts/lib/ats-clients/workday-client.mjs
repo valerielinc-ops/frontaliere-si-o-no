@@ -101,7 +101,9 @@ function workdayPublicUrlFromApiBase(apiBase) {
   const parsed = new URL(apiBase);
   const segments = parsed.pathname.split('/').filter(Boolean);
   const cxsIndex = segments.indexOf('cxs');
-  const sitePath = cxsIndex >= 0 ? segments.slice(cxsIndex + 2).join('/') : '';
+  const cxsPath = cxsIndex >= 0 ? segments.slice(cxsIndex + 1) : [];
+  // Most tenants expose /cxs/<tenant>/<site>; a few use /cxs/<site>.
+  const sitePath = cxsPath.length > 1 ? cxsPath.slice(1).join('/') : cxsPath.join('/');
   if (!sitePath) throw new Error(`Workday API base has no career-site path: ${apiBase}`);
   return `${parsed.origin}/en-US/${sitePath}`;
 }

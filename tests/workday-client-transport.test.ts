@@ -75,6 +75,27 @@ describe('Workday JSON transport', () => {
     expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
   });
 
+  it('derives a public career page from a tenant-only CXS base', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+    const { page } = browserTransport({
+      total: 0,
+      jobPostings: [],
+    });
+
+    const jobs = [];
+    for await (const posting of fetchWorkdayJobs(
+      'https://everest.wd5.myworkdayjobs.com/wday/cxs/everest-re',
+      { minDelayMs: 0 },
+    )) jobs.push(posting);
+
+    expect(jobs).toHaveLength(0);
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://everest.wd5.myworkdayjobs.com/en-US/everest-re',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+  });
+
   it('aborts a stalled browser fallback at the request timeout', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
