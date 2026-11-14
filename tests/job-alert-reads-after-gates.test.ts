@@ -233,11 +233,12 @@ describe('retry queue: only actionable rows, and old quarantine rows are purged'
     await expect(purgeStaleQuarantinedRetryRows(db, { nowMs: Date.now() })).resolves.toBe(0);
   });
 
-  it('processRetryQueue reads only the definite-failure rows', () => {
+  it('processRetryQueue legge la coda per intero: una riga senza deliveryState non e\' selezionabile con una query e va messa in quarantena, mai ignorata', () => {
     const start = source.indexOf('async function processRetryQueue(');
-    const body = source.slice(start, start + 4000);
-    expect(body).toMatch(/where\('deliveryState', '==', 'definite-failure'\)\.get\(\)/);
-    expect(body).not.toMatch(/db\.collection\(RETRY_COLLECTION\)\.get\(\)/);
+    const body = source.slice(start, start + 6000);
+    expect(body).toMatch(/await purgeStaleQuarantinedRetryRows\(db\);\s*const snap = await db\.collection\(RETRY_COLLECTION\)\.get\(\);/);
+    expect(body).not.toMatch(/where\('deliveryState'/);
+    expect(body).toMatch(/quarantineUnclassifiedRetryItem\(db, doc, data, FieldValue\)/);
   });
 });
 

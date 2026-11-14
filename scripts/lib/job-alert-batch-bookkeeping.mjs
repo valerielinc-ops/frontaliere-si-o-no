@@ -29,7 +29,16 @@
 //   3. se la precondizione fallisce (o qualunque errore rende incerto l'esito), si
 //      ripiega SEMPRE sulla transazione per email di prima: mai un invio senza
 //      intent. Il ripiego e' idempotente anche se il commit incerto era riuscito: il
-//      claimId e' lo stesso, e la transazione riconosce un intent proprio.
+//      claimId e' lo stesso, e la transazione riconosce un intent proprio. Vale
+//      anche per il finalize `accepted`: se il batch e' stato scritto ma il client
+//      ha visto un errore, la transazione trova il marcatore gia' tolto e
+//      `sentJobIds` avanzato oltre l'intent (deliveryFinalizeAlreadyApplied) e non
+//      riapplica i campi fusi (`increment`, decay);
+//   4. anche un gruppo rifiutato PRIMA del commit (per esempio `getDb()` che lancia)
+//      ripiega sulla transazione: se questa fallisce a sua volta, l'errore risale
+//      alla cascade e il provider non viene chiamato. Il documento dell'alert la cui
+//      precondizione non e' piu' vera (riattivazione scritta in questa run) non entra
+//      nel batch: `__loadedUpdateTime` e' azzerato e il primo intent rilegge.
 //
 // IL GRUPPO E' PICCOLO DI PROPOSITO. Le richieste che arrivano insieme (la
 // concorrenza del cascade e' 4) si raccolgono in un solo commit entro pochi
@@ -42,9 +51,6 @@ import { computeDeliveryFinalize, computeProviderIntent } from './job-alert-deli
 
 export const GROUP_MAX_ITEMS = 8;
 export const GROUP_WINDOW_MS = 8;
-// Provider segnaposto nel registro: l'id del provider reale non e' ancora noto
-// quando il gruppo si scrive, ed e' registrato dal finalize.
-export const INTENT_PROVIDER_PLACEHOLDER = 'cascade';
 
 /** Errore di precondizione di Firestore (gRPC 9 FAILED_PRECONDITION). */
 export function isFailedPrecondition(error) {
@@ -170,22 +176,36 @@ export function createBatchBookkeeper({
   async function requestIntent(item, provider) {
     if (item?.meta?.isOperatorVerification) return true;
     const snapshot = snapshotOf(item);
-    // Un intent gia' scritto da questo tentativo (fallback su un secondo provider
-    // dello stesso item) resta valido: stesso claimId, nessuna scrittura in piu'.
-    if (snapshot?.committedIntent) return true;
+    // Un intent gia' scritto da questo tentativo per LO STESSO provider resta
+    // valido (stesso claimId, nessuna scrittura in piu'). Se la cascade passa a un
+    // secondo provider, l'intent si riscrive col provider reale, come faceva la
+    // transazione per email: il registro dice sempre chi sta per essere chiamato.
+    if (snapshot?.committedIntent && snapshot.intentProvider === provider) return true;
     if (!usable(snapshot)) {
       metrics.count('bookkeepingIntentTxFallback');
       return persistIntentTx(item, provider);
     }
     const ctx = ledgerContext(item);
+    const intentAtMs = now();
     const decision = computeProviderIntent(snapshot.data, {
-      jobs: ctx.jobs, keys: ctx.keys, claimId: ctx.claimId, provider: INTENT_PROVIDER_PLACEHOLDER, now: now(),
+      jobs: ctx.jobs, keys: ctx.keys, claimId: ctx.claimId, provider, now: intentAtMs,
     });
     // Bloccato dallo stato che la precondizione garantisce ancora valido: non si
     // chiama il provider. (Stesso esito della transazione: `false`.)
     if (!decision.allowed) return false;
 
-    const outcome = await intents.submit({ item, provider, ctx, fields: decision.fields, snapshot });
+    // Se il gruppo viene rifiutato PRIMA del commit (per esempio `getDb()` che
+    // lancia) la richiesta non resta senza intent: ripiega come per un commit
+    // fallito. Se anche la transazione di ripiego lancia, l'errore risale alla
+    // cascade, che non chiama il provider: senza intent provato non si invia.
+    let outcome;
+    try {
+      outcome = await intents.submit({ item, provider, ctx, fields: decision.fields, snapshot });
+    } catch (error) {
+      metrics.count('bookkeepingIntentBatchError');
+      warn(`   ⚠️  job-alert intent batch rejected before commit: ${String(error?.message || error).slice(0, 160)}`);
+      outcome = { committed: false };
+    }
     if (!outcome.committed) {
       metrics.count('bookkeepingIntentTxFallback');
       return persistIntentTx(item, provider);
@@ -196,7 +216,11 @@ export function createBatchBookkeeper({
       data: { ...snapshot.data, ...decision.fields },
       updateTime: outcome.writeTime,
       committedIntent: true,
+      intentProvider: provider,
     };
+    // L'istante dell'intent: serve al ripiego del finalize per riconoscere un
+    // finalize gia' applicato da un commit di esito incerto.
+    item.meta.deliveryIntentAt = intentAtMs;
     return true;
   }
 
@@ -275,9 +299,17 @@ export function createBatchBookkeeper({
     // l'updateTime in mano e' quello dell'ultima scrittura di questa run.
     if (!usable(snapshot) || snapshot.committedIntent !== true) return fallback();
     const ctx = ledgerContext(item);
-    const outcomeOfBatch = await finalizes.submit({
-      item, outcome, provider, ctx, snapshot, acceptedExtraFields, extraWrites,
-    });
+    // Un gruppo rifiutato prima del commit (o qualunque errore del gruppo) non
+    // perde il finalize ne' il record di consegna: si ripiega sulla transazione.
+    let outcomeOfBatch = null;
+    try {
+      outcomeOfBatch = await finalizes.submit({
+        item, outcome, provider, ctx, snapshot, acceptedExtraFields, extraWrites,
+      });
+    } catch (error) {
+      metrics.count('bookkeepingFinalizeBatchError');
+      warn(`   ⚠️  job-alert finalize batch rejected before commit: ${String(error?.message || error).slice(0, 160)}`);
+    }
     if (!outcomeOfBatch?.committed) return fallback();
     if (acceptedExtraFields) onAcceptedFieldsApplied(item);
     return true;

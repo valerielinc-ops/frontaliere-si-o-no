@@ -87,6 +87,8 @@ const db: any = {
   collection: (name: string) => ({
     doc: (id: string) => refOf(`${name}/${id}`),
     where: () => ({ limit: () => ({ get: async () => emptyQuery }), get: async () => emptyQuery }),
+    // La coda retry si legge per intero (vuota in questo scenario).
+    get: async () => emptyQuery,
   }),
   collectionGroup: (name: string) => ({
     where: () => ({

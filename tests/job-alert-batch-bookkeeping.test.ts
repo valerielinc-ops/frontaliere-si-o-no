@@ -16,6 +16,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   __setFirestoreAdminForTest,
   finalizeJobAlertDeliveryAttempt,
+  isAlertUpdateFused,
   persistJobAlertProviderAttempt,
   resolveBatchBookkeepingEnabled,
   jobAlertMetrics,
@@ -54,7 +55,7 @@ function setPath(target: any, dotted: string, value: unknown) {
 function createFakeFirestore() {
   const docs = new Map<string, DocState>();
   let clock = 1_000_000_000;
-  const stats = { txReads: 0, txRuns: 0, batches: 0, batchOps: 0, directReads: 0 };
+  const stats = { txReads: 0, txRuns: 0, txWrites: 0, batches: 0, batchOps: 0, directReads: 0 };
   const faults: { nextBatch: null | 'precondition' | 'unavailable' | 'ambiguous-commit' } = { nextBatch: null };
   // Un altro scrittore (utente, altra run) tocca il documento prima del commit del batch.
   const beforeBatchCommit: Array<() => void> = [];
@@ -117,6 +118,7 @@ function createFakeFirestore() {
         get: async (ref: any) => { stats.txReads += 1; return snapshotOf(ref.path); },
         update: (ref: any, data: any) => {
           if (!docs.has(ref.path)) throw Object.assign(new Error('NOT_FOUND'), { code: 5 });
+          stats.txWrites += 1;
           writes.push({ path: ref.path, data });
         },
       };
@@ -191,12 +193,27 @@ describe('intent in WriteBatch con precondizione', () => {
     expect(item.meta.alertSnapshot.updateTime.isEqual(fake.updateTimeOf(ALERT_PATH))).toBe(true);
   });
 
-  it('un secondo provider dello stesso item non riscrive nulla (stesso claimId)', async () => {
+  it('il provider reale che la cascade sta per chiamare e\' registrato nell intent (non un segnaposto)', async () => {
+    const item = makeItem(fake);
+    await persistJobAlertProviderAttempt(item, 'maileroo');
+    for (const job of JOBS) expect(ledgerOf()[jobDedupKey(job)].provider).toBe('maileroo');
+  });
+
+  it('lo stesso provider chiamato due volte non riscrive nulla; un secondo provider riscrive l intent col provider reale (stesso claimId)', async () => {
     const item = makeItem(fake);
     await persistJobAlertProviderAttempt(item, 'maileroo');
     const writes = fake.stats.batches;
-    expect(await persistJobAlertProviderAttempt(item, 'resend')).toBe(true);
+    expect(await persistJobAlertProviderAttempt(item, 'maileroo')).toBe(true);
     expect(fake.stats.batches).toBe(writes);
+    expect(await persistJobAlertProviderAttempt(item, 'resend')).toBe(true);
+    expect(fake.stats.batches).toBe(writes + 1);
+    expect(fake.stats.txRuns).toBe(0);
+    for (const job of JOBS) {
+      expect(ledgerOf()[jobDedupKey(job)]).toMatchObject({ provider: 'resend', claimId: 'attempt-A', state: DELIVERY_STATES.AMBIGUOUS });
+    }
+    // Lo snapshot segue: il finalize successivo usa l'updateTime dell'ultimo intent.
+    expect(item.meta.alertSnapshot.intentProvider).toBe('resend');
+    expect(item.meta.alertSnapshot.updateTime.isEqual(fake.updateTimeOf(ALERT_PATH))).toBe(true);
   });
 
   it('le richieste simultanee del cascade (concorrenza 4) si raccolgono in un solo commit', async () => {
@@ -474,5 +491,134 @@ describe('micro-batcher, flag e metriche', () => {
     expect(counts).toMatchObject({ bookkeepingIntentBatches: 1, bookkeepingFinalizeBatches: 1 });
     expect(applied).toEqual([item]);
     expect(jobAlertMetrics).toBeTruthy();
+  });
+});
+
+
+describe('finalize con commit di esito incerto: nessuna doppia applicazione dei campi fusi', () => {
+  const deliveryWrite = () => ({
+    ref: fake.db.collection('job_alert_subscribers').doc('a@example.test').collection('campaign_deliveries').doc('d-1'),
+    data: { email: 'a@example.test', campaign_id: 'alert-1', message_id: 'm-1' },
+    options: { merge: true },
+  });
+
+  it('il batch di finalize `accepted` e\' scritto sul server ma il client vede un errore: il ripiego riconosce l esito gia applicato, non riscrive nulla e segna l update fuso', async () => {
+    const item = makeItem(fake);
+    let builds = 0;
+    item.meta.buildAcceptedAlertFields = () => { builds += 1; return { matchCount: 7, 'ranking_stats.sent': 1 }; };
+    await persistJobAlertProviderAttempt(item, 'maileroo');
+    expect(item.meta.deliveryIntentAt).toBeGreaterThan(0);
+    fake.faults.nextBatch = 'ambiguous-commit';
+    const metricsBefore = jobAlertMetrics.snapshot().counters.bookkeepingFinalizeAlreadyApplied || 0;
+    expect(await finalizeJobAlertDeliveryAttempt(item, 'accepted', { provider: 'maileroo', messageId: 'm-1' }, { extraWrites: [deliveryWrite()] })).toBe(true);
+    // Il commit e' riuscito sul server: l'alert e' scritto UNA volta, dal batch.
+    expect(fake.stats.txRuns).toBe(1);        // il ripiego ha letto
+    expect(fake.stats.txWrites).toBe(0);      // e NON ha riscritto (niente seconda applicazione)
+    const alert = fake.read(ALERT_PATH);
+    expect(alert).toMatchObject({ matchCount: 7, deliveryLastOutcome: 'accepted' });
+    expect(alert.deliveryLedger).toEqual({});
+    // Il passo post-batch non deve riapplicare increment e decay: l'update risulta fuso.
+    expect(isAlertUpdateFused(item)).toBe(true);
+    expect(jobAlertMetrics.snapshot().counters.bookkeepingFinalizeAlreadyApplied).toBe(metricsBefore + 1);
+    // Il record di consegna c'e' (scrittura idempotente del ripiego).
+    expect(fake.read('job_alert_subscribers/a@example.test/campaign_deliveries/d-1')).toMatchObject({ message_id: 'm-1' });
+  });
+
+  it('senza la prova completa l errore resta: sentJobIds piu vecchio dell intent, o un marcatore altrui, non sono un finalize gia applicato', async () => {
+    // Annunci propri di questo test: l'insieme degli update fusi vive per tutta la run.
+    const jobs = [{ id: 'neg-1', title: 'A' }, { id: 'neg-2', title: 'B' }];
+    const item = makeItem(fake, { jobs });
+    item.meta.buildAcceptedAlertFields = () => ({ matchCount: 1 });
+    await persistJobAlertProviderAttempt(item, 'maileroo');
+    // Il marcatore e' sparito ma sentJobIds e' VECCHIO (un altro invio, non questo).
+    const doc = fake.docs.get(ALERT_PATH)!;
+    doc.data.deliveryLedger = {};
+    doc.data.sentJobIds = Object.fromEntries(jobs.map((job) => [jobDedupKey(job), item.meta.deliveryIntentAt - 60_000]));
+    doc.updateTime = new FakeTimestamp(9_999_999_999);
+    await expect(finalizeJobAlertDeliveryAttempt(item, 'accepted', { provider: 'maileroo', messageId: 'm-1' })).rejects.toThrow(/no longer owns/);
+    expect(isAlertUpdateFused(item)).toBe(false);
+    expect(fake.stats.txWrites).toBe(0);
+  });
+
+  it('un solo annuncio dell item senza prova (gli altri si) basta a mantenere l errore', async () => {
+    const jobs = [{ id: 'part-1', title: 'A' }, { id: 'part-2', title: 'B' }];
+    const item = makeItem(fake, { jobs });
+    await persistJobAlertProviderAttempt(item, 'maileroo');
+    const doc = fake.docs.get(ALERT_PATH)!;
+    doc.data.deliveryLedger = {};
+    doc.data.sentJobIds = { [jobDedupKey(jobs[0])]: item.meta.deliveryIntentAt + 1000 };
+    doc.updateTime = new FakeTimestamp(9_999_999_999);
+    await expect(finalizeJobAlertDeliveryAttempt(item, 'accepted', { provider: 'maileroo', messageId: 'm-1' })).rejects.toThrow(/no longer owns/);
+  });
+});
+
+describe('micro-batch rifiutato prima del commit: ripiego, mai un invio senza intent ne un finalize perso', () => {
+  const item = (extra: Record<string, unknown> = {}) => ({
+    to: 'a@example.test',
+    deliveryRef: { path: 'job_alert_subscribers/a@example.test/alerts/alert-1' },
+    meta: {
+      alertId: 'alert-1',
+      deliveryAttemptId: 'att-1',
+      rankingJobs: JOBS,
+      alertSnapshot: { data: { deliveryLedger: {}, sentJobIds: {} }, updateTime: { token: 't0' }, ...extra },
+    },
+  } as any);
+  const rejecting = async () => { throw new Error('getDb exploded'); };
+
+  it('intent: se `getDb` lancia il gruppo e\' rifiutato prima del try del flush, ma la richiesta ripiega sulla transazione', async () => {
+    const calls: string[] = [];
+    const keeper = createBatchBookkeeper({
+      getDb: rejecting,
+      persistIntentTx: async (_item: any, provider: string) => { calls.push(`tx:${provider}`); return true; },
+      finalizeTx: async () => true,
+      windowMs: 0,
+    });
+    expect(await keeper.requestIntent(item(), 'maileroo')).toBe(true);
+    expect(calls).toEqual(['tx:maileroo']);
+  });
+
+  it('intent: se anche la transazione di ripiego fallisce l errore risale (la cascade non chiama il provider)', async () => {
+    let providerCalled = false;
+    const keeper = createBatchBookkeeper({
+      getDb: rejecting,
+      persistIntentTx: async () => { throw new Error('tx unavailable'); },
+      finalizeTx: async () => true,
+      windowMs: 0,
+    });
+    // Come la cascade: il provider parte solo se l'hook risolve a `true`.
+    const hook = async () => { const allowed = await keeper.requestIntent(item(), 'maileroo'); if (allowed) providerCalled = true; };
+    await expect(hook()).rejects.toThrow(/tx unavailable/);
+    expect(providerCalled).toBe(false);
+  });
+
+  it('finalize: se `getDb` lancia, il finalize passa dalla transazione e il record di consegna e\' scritto comunque', async () => {
+    const calls: string[] = [];
+    const written: any[] = [];
+    const keeper = createBatchBookkeeper({
+      getDb: rejecting,
+      persistIntentTx: async () => true,
+      finalizeTx: async (_item: any, outcome: string) => { calls.push(`tx:${outcome}`); return true; },
+      windowMs: 0,
+    });
+    const it1 = item({ committedIntent: true });
+    const write = { ref: { set: async (data: any) => { written.push(data); } }, data: { id: 'delivery-1' } };
+    expect(await keeper.requestFinalize(it1, 'accepted', { provider: 'maileroo' }, { extraWrites: [write] })).toBe(true);
+    expect(calls).toEqual(['tx:accepted']);
+    expect(written).toEqual([{ id: 'delivery-1' }]);
+  });
+});
+
+describe('deliveryFinalizeAlreadyApplied (funzione pura)', () => {
+  const keys = [jobDedupKey(JOBS[0]), jobDedupKey(JOBS[1])];
+  it('vero solo con registro vuoto per ogni annuncio e sentJobIds non anteriore all intent', async () => {
+    const { deliveryFinalizeAlreadyApplied } = await import('../scripts/lib/job-alert-delivery-ledger.mjs');
+    const at = 1_000_000;
+    const sent = (offset: number) => Object.fromEntries(keys.map((key) => [key, at + offset]));
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: sent(0) }, { keys, intentAtMs: at })).toBe(true);
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: sent(-1) }, { keys, intentAtMs: at })).toBe(false);
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: {} }, { keys, intentAtMs: at })).toBe(false);
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: { [keys[0]]: { state: 'ambiguous', at: Date.now(), claimId: 'altro' } }, sentJobIds: sent(5) }, { keys, intentAtMs: at })).toBe(false);
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: sent(5) }, { keys, intentAtMs: undefined as any })).toBe(false);
+    expect(deliveryFinalizeAlreadyApplied({ deliveryLedger: {}, sentJobIds: sent(5) }, { keys: [], intentAtMs: at })).toBe(false);
   });
 });

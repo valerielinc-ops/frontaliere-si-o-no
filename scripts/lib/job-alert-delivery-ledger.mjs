@@ -145,3 +145,33 @@ export function computeDeliveryFinalize(current, {
   }
   return fields;
 }
+
+/**
+ * Il finalize `accepted` di questo tentativo e' GIA' applicato?
+ *
+ * Serve al ripiego dopo un commit di esito incerto: il batch di finalize puo'
+ * essere stato scritto sul server mentre il client riceveva un errore di rete o
+ * una deadline scaduta. La transazione di ripiego trova allora il marcatore gia'
+ * tolto e `computeDeliveryFinalize` rifiuta («non possiede piu' ogni annuncio»);
+ * ma riapplicare il finalize (e i campi fusi con `increment`) sarebbe una DOPPIA
+ * applicazione. La prova che il finalize e' gia' avvenuto e' doppia: per OGNI
+ * annuncio del tentativo (1) il registro non ha piu' nessuna voce (ne' nostra ne'
+ * di un altro tentativo: una voce altrui e' un caso diverso e resta un errore) e
+ * (2) `sentJobIds` porta un orario non anteriore all'intent di questo tentativo
+ * (il finalize scrive `now`, sempre >= dell'intent; un invio piu' vecchio e'
+ * un'altra consegna, non questa).
+ *
+ * @param {object} current dati del documento dell'alert
+ * @param {{keys: string[], intentAtMs: number}} input
+ * @returns {boolean}
+ */
+export function deliveryFinalizeAlreadyApplied(current, { keys, intentAtMs }) {
+  if (!Array.isArray(keys) || keys.length === 0) return false;
+  if (!Number.isFinite(intentAtMs) || intentAtMs <= 0) return false;
+  const data = current || {};
+  const ledger = normalizeDeliveryLedger(data.deliveryLedger);
+  const sentMap = normalizeSentMap(data.sentJobIds);
+  return keys.every((key) => !ledger[key]
+    && Number.isFinite(sentMap[key])
+    && sentMap[key] >= intentAtMs);
+}

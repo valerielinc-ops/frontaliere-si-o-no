@@ -106,7 +106,7 @@ import {
   removeDeliveryLedgerJobs,
   DEDUP_WINDOW_MS,
 } from './lib/alert-sent-jobs.mjs';
-import { computeDeliveryFinalize, computeProviderIntent } from './lib/job-alert-delivery-ledger.mjs';
+import { computeDeliveryFinalize, computeProviderIntent, deliveryFinalizeAlreadyApplied } from './lib/job-alert-delivery-ledger.mjs';
 import { buildAlertInventory } from './lib/job-alert-inventory.mjs';
 import { createBatchBookkeeper, ledgerContext } from './lib/job-alert-batch-bookkeeping.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
@@ -1807,6 +1807,11 @@ const JOB_ALERT_SEND_THROTTLE = Object.freeze({
 // buon fine resta fuori da questo insieme e riceve l'update standalone di sempre.
 const fusedAlertUpdateKeys = new Set();
 
+/** Solo per i test: l'update fuso dell'alert di questo item e' gia' stato scritto dal finalize? */
+export function isAlertUpdateFused(item) {
+  return fusedAlertUpdateKeys.has(jobAlertDeliveryKey(item));
+}
+
 function jobAlertDeliveryKey(item) {
   const email = String(item?.to || item?.recipient?.email || '').trim().toLowerCase();
   const alertId = String(item?.alertId || item?.meta?.alertId || '').trim();
@@ -1885,6 +1890,11 @@ async function persistJobAlertProviderAttemptTx(item, provider) {
     if (!intent.allowed) return false;
     tx.update(ref, intent.fields);
     return true;
+  }).then((allowed) => {
+    // L'istante dell'intent, per riconoscere un finalize gia' applicato (vedi
+    // finalizeJobAlertDeliveryAttemptTx). Fuori dalla transazione: puo' rieseguirsi.
+    if (allowed && item.meta) item.meta.deliveryIntentAt = now;
+    return allowed;
   });
 }
 
@@ -1926,12 +1936,30 @@ async function finalizeJobAlertDeliveryAttemptTx(item, outcome, provider = {}, p
     : (precomputedAcceptedFields !== undefined
       ? precomputedAcceptedFields
       : (typeof item.meta?.buildAcceptedAlertFields === 'function' ? item.meta.buildAcceptedAlertFields(provider) : null));
+  const intentAtMs = Number(item.meta?.deliveryIntentAt);
   const committed = await db.runTransaction(async (tx) => {
     const snapshot = await tx.get(ref);
     if (!snapshot.exists) throw new Error('Job-alert document disappeared before delivery finalization.');
-    tx.update(ref, computeDeliveryFinalize(snapshot.data() || {}, {
-      jobs, keys, claimId, outcome: state, provider, now, acceptedExtraFields,
-    }));
+    const current = snapshot.data() || {};
+    let fields;
+    try {
+      fields = computeDeliveryFinalize(current, {
+        jobs, keys, claimId, outcome: state, provider, now, acceptedExtraFields,
+      });
+    } catch (error) {
+      // Commit di esito incerto: il batch di finalize `accepted` puo' essere stato
+      // scritto sul server mentre il client vedeva un errore. Il marcatore e' gia'
+      // tolto e `sentJobIds` gia' avanzato: riapplicare i campi fusi
+      // (`matchCount`/`ranking_stats` con `increment`, il decay) li conterebbe due
+      // volte. Se la prova e' completa il finalize e' gia' avvenuto e non si riscrive
+      // nulla; altrimenti resta l'errore.
+      if (state === 'accepted' && deliveryFinalizeAlreadyApplied(current, { keys, intentAtMs })) {
+        jobAlertMetrics.count('bookkeepingFinalizeAlreadyApplied');
+        return true;
+      }
+      throw error;
+    }
+    tx.update(ref, fields);
     return true;
   });
   if (committed && acceptedExtraFields) fusedAlertUpdateKeys.add(jobAlertDeliveryKey(item));
@@ -2294,19 +2322,20 @@ async function processRetryQueue(db) {
     console.log('   🔄 Retry queue: skipped in targeted operator verification; queue and production state are untouched');
     return { succeeded: 0, sent: 0, ambiguous: 0, requeued: 0, recipients: new Set() };
   }
-  // Solo le righe azionabili (perf-plan PR 6). La coda veniva letta per intero e
-  // le righe in quarantena non vengono mai cancellate: ogni run ripagava tutto lo
-  // storico. Una riga senza `deliveryState` non esiste piu': ogni scrittore
-  // (enqueueFailedEmails, la quarantena) lo imposta, e le righe storiche senza il
-  // campo sono state classificate dai run precedenti.
+  // La coda si legge per intero, come prima: una riga SENZA `deliveryState` (storica)
+  // non e' selezionabile con una query (Firestore non filtra i campi assenti, ne' con
+  // `==`, ne' con `!=`/`not-in`), e va classificata e messa in quarantena col
+  // marcatore che blocca il reinvio, mai ignorata. Il costo che cresceva era quello
+  // delle righe in quarantena, che non venivano mai cancellate: il passo seguente le
+  // ripulisce dopo 30 giorni (perf-plan PR 6), quindi la lettura resta limitata.
   await purgeStaleQuarantinedRetryRows(db);
-  const snap = await db.collection(RETRY_COLLECTION).where('deliveryState', '==', 'definite-failure').get();
+  const snap = await db.collection(RETRY_COLLECTION).get();
   if (snap.empty) {
     console.log('   🔄 Retry queue: empty — nothing to retry');
     return { succeeded: 0, sent: 0, ambiguous: 0, requeued: 0, recipients: new Set() };
   }
 
-  console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
+  console.log(`   🔄 Retry queue: ${snap.size} item(s) read`);
   const { sendEmailCascade, BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./lib/email-cascade.mjs');
   const { FieldValue } = await import('firebase-admin/firestore');
 
@@ -3792,15 +3821,20 @@ async function main() {
   // An auxiliary lookup failure therefore preserves the old defer/no-write behavior.
   const reactivationsToPersist = pendingReactivations.filter((item) => !failedAuxiliaryEmails.has(item.emailKey));
   if (reactivationsToPersist.length > 0 && !DRY_RUN) {
-    // Si tiene il writeTime di ogni alert riattivato: e' l'updateTime che vale per la
-    // precondizione dell'intent (lo snapshot caricato e' ormai superato).
+    // L'alert riattivato NON puo' usare la precondizione `lastUpdateTime` dello
+    // snapshot di t0: fra il caricamento e questa scrittura un altro processo puo'
+    // aver scritto un intent o `sentJobIds`, e il ledger in memoria sarebbe piu'
+    // vecchio di una precondizione presa sul writeTime di questa riattivazione (un
+    // AMBIGUOUS altrui verrebbe sovrascritto e l'email partirebbe due volte). Dopo
+    // la scrittura `__loadedUpdateTime` e' quindi azzerato: il primo intent di
+    // questo alert ripiega sulla transazione per email, che rilegge il documento.
     const reactivationItems = reactivationsToPersist.filter((item) => item.alert.ref);
     for (let offset = 0; offset < reactivationItems.length; offset += 400) {
       const chunk = reactivationItems.slice(offset, offset + 400);
       const batch = db.batch();
       for (const item of chunk) batch.update(item.alert.ref, item.verdict.alertFields);
-      const writeResults = await batch.commit();
-      chunk.forEach((item, index) => { item.alert.__loadedUpdateTime = writeResults?.[index]?.writeTime ?? null; });
+      await batch.commit();
+      chunk.forEach((item) => { item.alert.__loadedUpdateTime = null; });
     }
     const subFieldsByEmail = new Map();
     for (const item of reactivationsToPersist) subFieldsByEmail.set(item.emailKey, item.verdict.subFields);
