@@ -69,6 +69,20 @@ describe('verified posting script entry (#17253)', () => {
     })).toMatchObject({ submit: null, next: null });
   });
 
+  it('keeps the sole BrassRing entry when the selected route changes only its fragment', () => {
+    const baseUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?jobid=123';
+    const postingUrl = `${baseUrl}#posting`;
+    const applyUrl = `${baseUrl}#apply`;
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({ url: applyUrl, fields: [], buttons: [apply] }, {
+      applyUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([apply]);
+  });
+
   it('keeps BrassRing search shells and other UBS jobs unresolved', () => {
     const ubsUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
     const apply = { text: 'Apply now', frame: 0 };

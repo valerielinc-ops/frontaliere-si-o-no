@@ -1915,7 +1915,7 @@ function sameBrassRingPostingAddress(firstUrl, secondUrl) {
       && BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
       && BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
       && first.pathname.replace(/\/+$/u, '').toLowerCase() === second.pathname.replace(/\/+$/u, '').toLowerCase()
-      && first.search === second.search && first.hash === second.hash;
+      && first.search === second.search;
   } catch {
     return false;
   }
