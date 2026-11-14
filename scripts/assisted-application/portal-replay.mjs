@@ -29,8 +29,21 @@ let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
 let compareFailurePhase = 'cli';
 const SAFE_COMPARE_FAILURE_PHASES = new Set([
-  'compare_inputs', 'trusted_imports', 'resolver_setup', 'diagnostics_setup', 'public_preflight',
+  'compare_inputs', 'trusted_imports', 'resolver_setup', 'diagnostics_setup', 'public_preflight_import', 'public_preflight_check',
   'browser_launch', 'node_egress_fence', 'head_click_detector_import', 'family_replay',
+]);
+const SAFE_COMPARE_FAILURE_CODES = new Map([
+  ['ERR_MODULE_NOT_FOUND', 'module_not_found'],
+  ['ERR_PACKAGE_PATH_NOT_EXPORTED', 'module_path_unavailable'],
+  ['ERR_PACKAGE_IMPORT_NOT_DEFINED', 'module_alias_unavailable'],
+  ['ERR_UNSUPPORTED_DIR_IMPORT', 'directory_import_unsupported'],
+  ['ERR_UNKNOWN_FILE_EXTENSION', 'module_extension_unsupported'],
+  ['ERR_IMPORT_ATTRIBUTE_MISSING', 'module_attribute_missing'],
+  ['ERR_REQUIRE_ESM', 'module_format_mismatch'],
+  ['ENOENT', 'file_not_found'],
+  ['EACCES', 'file_access_denied'],
+  ['ERR_INVALID_URL', 'invalid_url'],
+  ['ERR_INVALID_ARG_TYPE', 'invalid_argument'],
 ]);
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
@@ -117,6 +130,10 @@ const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, ma
 
 const stableHash = (value) => createHash('sha256').update(String(value)).digest('hex');
 const safeCode = (value, fallback = 'unknown') => SAFE_REPORT_CODES.has(String(value || '')) ? String(value) : fallback;
+export function safeCompareFailureCode(error) {
+  const code = String(error?.code || '');
+  return SAFE_COMPARE_FAILURE_CODES.get(code) || safeCode(code);
+}
 const SAFE_ROUTE_SEGMENTS = new Set([
   'about', 'account', 'accounts', 'apply', 'application', 'applications', 'auth', 'candidate', 'candidates',
   'career', 'careers', 'confirmation', 'continue', 'create', 'external', 'form', 'home', 'index', 'job',
@@ -436,13 +453,6 @@ export async function publicPortalReplayPreflight({ record, isMutatingGetUrl, al
     // and let the independently fenced browser attempt the public navigation.
     return [{ status: 0, unknown: true }];
   }
-}
-
-async function publicPreflight(trustedRoot, record, isMutatingGetUrl, allowedPostingQueryParams) {
-  // The bounded DNS-pinned helper is trusted base code; the raw Node request
-  // remains outside PR-owned modules and is never given candidate data.
-  const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
-  return publicPortalReplayPreflight({ record, isMutatingGetUrl, allowedPostingQueryParams, publicContractGet });
 }
 
 function locationFrom(record, evidence, portalApi) {
@@ -1099,11 +1109,16 @@ async function compareMode(values) {
   compareFailurePhase = 'diagnostics_setup';
   const trustedDiagnostics = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs');
   await warmPortalDiagnosticsModule(trustedDiagnostics);
+  compareFailurePhase = 'public_preflight_import';
+  // Import the bounded public GET helper once from the trusted base checkout.
+  // Separating this phase from the per-record check makes setup failures
+  // diagnosable without emitting an exception message, path, or URL.
+  const { publicContractGet } = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/public-contract-get.mjs');
   const preflightByKey = new Map();
-  compareFailurePhase = 'public_preflight';
   for (const record of records) {
+    compareFailurePhase = 'public_preflight_check';
     const allowedPostingQueryParams = fenceApi.portalReplayQueryAllowlist([record.postingUrl, record.applyUrl]);
-    let responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl, allowedPostingQueryParams);
+    let responses = await publicPortalReplayPreflight({ record, isMutatingGetUrl: fenceApi.isMutatingGetUrl, allowedPostingQueryParams, publicContractGet });
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
       retryCount = 1;
@@ -1209,7 +1224,7 @@ if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(r
   try { process.exitCode = await main(); }
   catch (error) {
     const phase = SAFE_COMPARE_FAILURE_PHASES.has(compareFailurePhase) ? compareFailurePhase : 'unknown';
-    console.error(`portal_replay_error:${phase}:${safeCode(error?.code, 'unknown')}`);
+    console.error(`portal_replay_error:${phase}:${safeCompareFailureCode(error)}`);
     process.exitCode = 1;
   }
 }

@@ -21,6 +21,7 @@ import {
   installPortalReplayFenceWithHeadClickCapture,
   PORTAL_REPLAY_FAMILIES,
   publicPortalReplayPreflight,
+  safeCompareFailureCode,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
@@ -560,6 +561,12 @@ describe('portal replay workflow wiring', () => {
 });
 
 describe('portal replay DNS capability', () => {
+  it('maps only fixed module errors to sanitized compare codes', () => {
+    expect(safeCompareFailureCode(Object.assign(new Error('private path'), { code: 'ERR_MODULE_NOT_FOUND' }))).toBe('module_not_found');
+    expect(safeCompareFailureCode(Object.assign(new Error('private path'), { code: 'PRIVATE_VALUE' }))).toBe('unknown');
+    expect(safeCompareFailureCode(new Error('private detail'))).toBe('unknown');
+  });
+
   it('keeps the raw socket connector bound to the pinned proxy after Node egress fencing', () => {
     class FakeSocket {
       connect(options: unknown) { return { options }; }
