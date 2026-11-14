@@ -73,7 +73,7 @@ describe('LIP Suisse crawler parser', () => {
       },
     ];
 
-    for (const { address, expected } of cases) {
+    for (const { address, expected, candidate } of cases) {
       const html = `<script type="application/ld+json">${JSON.stringify({
         '@type': 'JobPosting',
         title: 'Test vacancy',
