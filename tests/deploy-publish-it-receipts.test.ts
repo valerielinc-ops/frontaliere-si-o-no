@@ -13,6 +13,7 @@ import {
   assertItGroup,
   formatItCdnReceiptDescription,
   formatItGroupReceiptDescription,
+  itCdnManifestArtifactName,
   itCdnReceiptContext,
   itGroupReceiptContext,
   itGroupResultArtifactName,
@@ -401,7 +402,7 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     const cdnReady = cdnSteps.findIndex((step) => step.id === 'cdn-ready');
     const cdnReceiptStep = namedStep('publish-it-cdn', 'Write durable IT CDN receipt');
     expect(cdnSteps.indexOf(cdnReceiptStep)).toBeGreaterThan(cdnReady);
-    expect(cdnReceiptStep.if).toBe("steps.cdn-ready.outcome == 'success'");
+    expect(String(cdnReceiptStep.if)).toContain("steps.cdn-ready.outcome == 'success'");
     expect(cdnReceiptStep['continue-on-error']).toBe(true);
     expect(cdnReceiptStep.run).toContain('--write it-cdn');
     expect(publish.jobs['publish-it-cdn'].permissions.statuses).toBe('write');
@@ -685,5 +686,146 @@ process.exit(1);
       `context=${IT_CDN_RECEIPT_PREFIX}/${SOURCE_RUN_ID}`,
       `description=${formatItCdnReceiptDescription({ sourceRunId: SOURCE_RUN_ID, buildId: BUILD_ID })}`,
     ]));
+  });
+});
+
+describe('durable R2 OG manifest behind the IT CDN receipt', () => {
+  const resolveCdn = (statuses: any[], options: Record<string, unknown> = {}) => resolveItPublishReceipts({
+    statuses,
+    sourceRunId: SOURCE_RUN_ID,
+    buildId: BUILD_ID,
+    expectedDigests: expectedItGroupDigests(plan),
+    ...options,
+  });
+
+  it('extracts the publisher run that wrote the CDN receipt from its target_url', () => {
+    const state = resolveCdn([cdnReceipt()]);
+    expect(state.itCdnPublished).toBe(true);
+    expect(state.itCdnRunId).toBe(PUBLISHER_RUN_ID);
+    expect(resolveCdn([]).itCdnRunId).toBe('');
+    expect(itCdnManifestArtifactName(SOURCE_RUN_ID)).toBe(`r2-og-manifest-it-${SOURCE_RUN_ID}`);
+  });
+
+  it('with an R2 target a receipt whose manifest artifact is gone does not skip the CDN job', () => {
+    const seen: string[] = [];
+    const gone = resolveCdn([cdnReceipt()], {
+      cdnManifestRequired: true,
+      cdnManifestAvailable: ({ publisherRunId }: any) => { seen.push(publisherRunId); return false; },
+    });
+    expect(seen).toEqual([PUBLISHER_RUN_ID]);
+    expect(gone.itCdnPublished).toBe(false);
+    expect(gone.itCdnRunId).toBe('');
+    expect(gone.itCdnRejectedReason).toBe('r2-manifest-artifact-unavailable');
+    const present = resolveCdn([cdnReceipt()], { cdnManifestRequired: true, cdnManifestAvailable: () => true });
+    expect(present.itCdnPublished).toBe(true);
+    expect(present.itCdnRunId).toBe(PUBLISHER_RUN_ID);
+  });
+
+  it('with an R2 target a receipt without a recoverable publisher run is not enough', () => {
+    const noRun = { ...cdnReceipt(), target_url: 'https://example.invalid/x' };
+    const state = resolveCdn([noRun], { cdnManifestRequired: true, cdnManifestAvailable: () => true });
+    expect(state.itCdnPublished).toBe(false);
+    expect(state.itCdnRejectedReason).toBe('no-publisher-run');
+  });
+
+  it('without an R2 target the manifest is not required (pages-only CDN keeps skipping)', () => {
+    const state = resolveCdn([cdnReceipt()], { cdnManifestRequired: false, cdnManifestAvailable: () => false });
+    expect(state.itCdnPublished).toBe(true);
+    expect(state.itCdnRejectedReason).toBe('');
+  });
+
+  const publishedState = {
+    result: () => 'success',
+    output: () => '',
+    input: () => '',
+  };
+
+  it('orders the workflow so a receipt can only exist after the manifest upload, and the finalizer restores it before deploy prep', () => {
+    const cdnSteps = jobSteps('publish-it-cdn');
+    const ready = cdnSteps.findIndex((step) => step.id === 'cdn-ready');
+    const upload = cdnSteps.find((step) => step.id === 'upload-r2-og-manifest');
+    const receiptStep = namedStep('publish-it-cdn', 'Write durable IT CDN receipt');
+    expect(upload.uses).toMatch(/^actions\/upload-artifact@/);
+    expect(upload.with.name).toBe('r2-og-manifest-it-${{ inputs.source_run_id }}');
+    expect(upload.with.path).toBe('.cache/r2-og-published-manifest.json');
+    expect(upload.with['include-hidden-files']).toBe(true);
+    expect(upload.with['if-no-files-found']).toBe('error');
+    expect(upload.with['retention-days']).toBe(2);
+    expect(upload.if).toContain("steps.cdn-ready.outcome == 'success'");
+    expect(upload.if).toContain("vars.CDN_TARGET == 'r2'");
+    expect(cdnSteps.indexOf(upload)).toBeGreaterThan(ready);
+    expect(cdnSteps.indexOf(receiptStep)).toBeGreaterThan(cdnSteps.indexOf(upload));
+    // The receipt condition: CDN ready AND (no R2 target OR the upload succeeded).
+    const expression = String(receiptStep.if);
+    const evaluate = (target: string, uploadOutcome: string, ready_ = 'success') => evaluateExpression(
+      expression.replace(/vars\.CDN_TARGET/g, JSON.stringify(target).replace(/"/g, "'"))
+        .replace(/steps\.cdn-ready\.outcome/g, `'${ready_}'`)
+        .replace(/steps\.upload-r2-og-manifest\.outcome/g, `'${uploadOutcome}'`),
+      publishedState,
+    );
+    expect(evaluate('r2', 'success')).toBe(true);
+    expect(evaluate('both', 'success')).toBe(true);
+    expect(evaluate('r2', 'failure')).toBe(false);
+    expect(evaluate('both', 'skipped')).toBe(false);
+    expect(evaluate('pages', 'skipped')).toBe(true);
+    expect(evaluate('r2', 'success', 'failure')).toBe(false);
+
+    const steps = jobSteps('finalize-it-publish');
+    const restore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from the CDN receipt run');
+    const prep = steps.findIndex((step) => step.name === 'Deploy prep (IT → Pages + CDN)');
+    expect(steps.indexOf(restore)).toBeLessThan(prep);
+    expect(restore.uses).toMatch(/^actions\/download-artifact@/);
+    expect(restore.with.name).toBe('r2-og-manifest-it-${{ inputs.source_run_id }}');
+    expect(restore.with.path).toBe('.cache');
+    expect(restore.with['run-id']).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_run_id }}');
+    expect(restore.with['github-token']).toBe('${{ secrets.GITHUB_TOKEN }}');
+    expect(restore.if).toContain("it_cdn_published == 'true'");
+    expect(restore.if).toContain("vars.CDN_TARGET == 'r2'");
+    expect(restore['continue-on-error']).toBeUndefined();
+    // The per-run cache restore stays for the normal case (CDN job in this run).
+    expect(namedStep('finalize-it-publish', 'Restore R2 OG manifest from the early CDN job').with.key)
+      .toBe('r2-og-published-${{ github.run_id }}');
+  });
+
+  it('asks the resolver to require the manifest exactly for r2/both and exposes the run id', () => {
+    const resolver = namedStep('resolve-publish-receipts', 'Resolve source-run receipts');
+    expect(resolver.run).toContain('--cdn-manifest-required "$CDN_MANIFEST_REQUIRED"');
+    expect(resolver.env.CDN_MANIFEST_REQUIRED)
+      .toBe("${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && 'true' || 'false' }}");
+    expect(publish.jobs['resolve-publish-receipts'].outputs.it_cdn_run_id).toBe('${{ steps.receipts.outputs.it_cdn_run_id }}');
+  });
+
+  it('CLI: an R2 retry skips the CDN job only when the previous run still lists the manifest artifact', () => {
+    const script = path.join(root, 'scripts/ci/publish-receipts.mjs');
+    const make = (artifacts: any[]) => {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'fake-gh-r2-'));
+      tempDirs.push(dir);
+      fs.writeFileSync(path.join(dir, 'gh'), `#!/usr/bin/env node
+const fs = require('node:fs');
+const endpoint = process.argv.slice(2).find((a) => a.startsWith('repos/')) || '';
+const out = (t) => { fs.writeSync(1, t); process.exit(0); };
+if (/statuses/.test(endpoint)) out(JSON.stringify([${JSON.stringify([cdnReceipt()])}]));
+if (/actions\\/runs\\/\\d+\\/artifacts/.test(endpoint)) out(JSON.stringify([{ artifacts: ${JSON.stringify(artifacts)} }]));
+process.exit(1);
+`);
+      fs.chmodSync(path.join(dir, 'gh'), 0o755);
+      return dir;
+    };
+    const run = (dir: string, required: string) => {
+      const output = path.join(dir, 'out');
+      const plan_ = path.join(dir, 'plan.json');
+      fs.writeFileSync(plan_, JSON.stringify(plan));
+      const result = spawnSync(process.execPath, [script, '--resolve', '--source-run-id', SOURCE_RUN_ID, '--source-sha', SOURCE_SHA, '--it-plan', plan_, '--build-id', BUILD_ID, '--cdn-manifest-required', required, '--github-output', output], {
+        encoding: 'utf8',
+        env: { PATH: `${dir}:${process.env.PATH ?? ''}`, GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no', GH_TOKEN: 'x' },
+      });
+      expect(result.status, result.stderr).toBe(0);
+      return Object.fromEntries(fs.readFileSync(output, 'utf8').trim().split('\n').map((line) => [line.slice(0, line.indexOf('=')), line.slice(line.indexOf('=') + 1)]));
+    };
+    const listed = make([{ name: itCdnManifestArtifactName(SOURCE_RUN_ID), expired: false }]);
+    expect(run(listed, 'true')).toMatchObject({ it_cdn_published: 'true', it_cdn_run_id: PUBLISHER_RUN_ID });
+    const expired = make([{ name: itCdnManifestArtifactName(SOURCE_RUN_ID), expired: true }]);
+    expect(run(expired, 'true')).toMatchObject({ it_cdn_published: 'false', it_cdn_run_id: '' });
+    expect(run(expired, 'false')).toMatchObject({ it_cdn_published: 'true', it_cdn_run_id: PUBLISHER_RUN_ID });
   });
 });

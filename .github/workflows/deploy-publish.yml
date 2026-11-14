@@ -371,6 +371,7 @@ jobs:
       # takes the earlier groups' results from `receipt_it_groups`
       # ([{group, runId}], the publisher run that holds each result artifact).
       it_cdn_published: ${{ steps.receipts.outputs.it_cdn_published }}
+      it_cdn_run_id: ${{ steps.receipts.outputs.it_cdn_run_id }}
       pending_it_groups: ${{ steps.receipts.outputs.pending_it_groups }}
       receipt_it_groups: ${{ steps.receipts.outputs.receipt_it_groups }}
     steps:
@@ -403,6 +404,9 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
           TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
           BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          # R2 target: the CDN receipt only counts while its R2 OG manifest
+          # artifact is still restorable (otherwise the CDN job reruns).
+          CDN_MANIFEST_REQUIRED: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && 'true' || 'false' }}
         run: |
           set -euo pipefail
           node scripts/ci/publish-receipts.mjs \
@@ -412,6 +416,7 @@ jobs:
             --locales "$(node -e 'process.stdout.write(JSON.parse(process.env.TAIL_LOCALES || "[]").join(","))')" \
             --it-plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" \
             --build-id "$BUILD_ID" \
+            --cdn-manifest-required "$CDN_MANIFEST_REQUIRED" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # Make the layout decision once for the complete four-locale source before
@@ -778,10 +783,31 @@ jobs:
           fi
           echo "build_id=$EXPECTED_BUILD_ID" >> "$GITHUB_OUTPUT"
           echo "cdn_base=https://cdn.frontaliereticino.ch" >> "$GITHUB_OUTPUT"
+      # With an R2 target the finalizer's deploy prep diffs against the R2 OG
+      # manifest this job leaves in `.cache/`. The per-run cache is best-effort
+      # and unreachable from a NEW publisher run, so the manifest is also
+      # uploaded as an ARTIFACT (an upload really fails, a cache save does not).
+      # The receipt below is written only after this upload succeeded, so a
+      # receipt implies a restorable manifest by construction; a retry that
+      # skips this job restores it from the run named by the receipt.
+      - name: Upload durable R2 OG manifest artifact
+        id: upload-r2-og-manifest
+        if: ${{ steps.cdn-ready.outcome == 'success' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: r2-og-manifest-it-${{ inputs.source_run_id }}
+          path: .cache/r2-og-published-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 2
       # The receipt is an optimisation of the NEXT attempt, never a gate of this
       # one: a failed write only means a retry repeats the CDN push.
       - name: Write durable IT CDN receipt
-        if: steps.cdn-ready.outcome == 'success'
+        if: >-
+          ${{ steps.cdn-ready.outcome == 'success' &&
+              ((vars.CDN_TARGET != 'r2' && vars.CDN_TARGET != 'both') ||
+               steps.upload-r2-og-manifest.outcome == 'success') }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1219,6 +1245,19 @@ jobs:
           path: .cache/r2-og-published-manifest.json
           key: r2-og-published-${{ github.run_id }}
           restore-keys: r2-og-published-${{ github.run_id }}-
+      # CDN job skipped by its receipt: no cache entry exists for THIS run, so
+      # the manifest comes from the artifact of the run that pushed the CDN.
+      # The resolver only reports `it_cdn_published` when that artifact is
+      # still listed, so a failure here is a real error, not a silent
+      # full-tree R2 re-upload in deploy prep.
+      - name: Restore R2 OG manifest from the CDN receipt run
+        if: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' }}
+        uses: actions/download-artifact@v8
+        with:
+          name: r2-og-manifest-it-${{ inputs.source_run_id }}
+          path: .cache
+          run-id: ${{ needs.resolve-publish-receipts.outputs.it_cdn_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Package IT post-push validation batches
         run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"
       - name: Upload shard batch 1 dist for post-deploy validation

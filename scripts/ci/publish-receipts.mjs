@@ -99,6 +99,16 @@ export function itGroupResultArtifactName(group, sourceRunId) {
   return `it-shard-result-group-${assertItGroup(group)}-${validateRunId(sourceRunId)}`;
 }
 
+/**
+ * Durable copy of the R2 OG manifest, uploaded by publish-it-cdn BEFORE its
+ * receipt (actions/cache saves are best-effort and per-run, an artifact upload
+ * really fails). It is what lets a retry skip the CDN job without losing the
+ * delta base of deploy-it-pages-prep.sh.
+ */
+export function itCdnManifestArtifactName(sourceRunId) {
+  return `r2-og-manifest-it-${validateRunId(sourceRunId)}`;
+}
+
 const SHA256_HEX_RE = /^[0-9a-f]{64}$/;
 
 export function formatItGroupReceiptDescription({ group, digest }) {
@@ -207,14 +217,28 @@ export function resolveItPublishReceipts({
   buildId,
   expectedDigests = null,
   artifactAvailable = () => true,
+  cdnManifestRequired = false,
+  cdnManifestAvailable = () => true,
 } = {}) {
   const entries = Array.isArray(statuses) ? statuses : [];
   const cdnContext = itCdnReceiptContext(sourceRunId);
   const cdnStatus = cdnContext ? newestStatusFor(entries, cdnContext) : null;
   const expectedBuild = text(buildId);
-  const itCdnPublished = Boolean(cdnStatus
+  const cdnReceiptValid = Boolean(cdnStatus
     && text(cdnStatus.state).toLowerCase() === STATUS_SUCCESS
     && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild));
+  // The publisher run that wrote the CDN receipt also holds the durable R2 OG
+  // manifest artifact the finalizer restores in place of the per-run cache.
+  const itCdnRunId = cdnReceiptValid ? publisherRunIdOf(cdnStatus) : '';
+  // With an R2 CDN target the receipt is only as good as the manifest behind it:
+  // skipping the CDN job is allowed solely when that manifest can be restored,
+  // otherwise the finalizer's deploy prep would re-upload the whole og tree.
+  const cdnRejectedReason = !cdnReceiptValid ? ''
+    : !cdnManifestRequired ? ''
+      : !itCdnRunId ? 'no-publisher-run'
+        : !cdnManifestAvailable({ publisherRunId: itCdnRunId }) ? 'r2-manifest-artifact-unavailable'
+          : '';
+  const itCdnPublished = cdnReceiptValid && !cdnRejectedReason;
 
   const publishedItGroups = [];
   const pendingItGroups = [];
@@ -243,6 +267,8 @@ export function resolveItPublishReceipts({
   }
   return {
     itCdnPublished,
+    itCdnRunId: itCdnPublished ? itCdnRunId : '',
+    itCdnRejectedReason: cdnRejectedReason,
     pendingItGroups,
     publishedItGroups,
     rejectedItGroups,
@@ -368,6 +394,7 @@ function writeGithubOutputs(file, state, itState = null) {
   const itLines = itState
     ? [
       `it_cdn_published=${itState.itCdnPublished}`,
+      `it_cdn_run_id=${itState.itCdnRunId}`,
       `pending_it_groups=${JSON.stringify(itState.pendingItGroups)}`,
       `receipt_it_groups=${JSON.stringify(itState.publishedItGroups.map((entry) => ({ group: entry.group, runId: entry.publisherRunId })))}`,
     ]
@@ -487,10 +514,10 @@ function writeItGroupReceipt({ sourceRunId, sourceSha, group, planFile, resultsD
 }
 
 /** `true` when `name` is listed, unexpired, among the artifacts of `runId`. */
-function artifactChecker(repo, sourceRunId) {
+/** `(publisherRunId, name) => boolean`: listed and unexpired among that run's artifacts. */
+function artifactLister(repo) {
   const cache = new Map();
-  return ({ group, publisherRunId }) => {
-    const wanted = itGroupResultArtifactName(group, sourceRunId);
+  return (publisherRunId, wanted) => {
     if (!cache.has(publisherRunId)) {
       let names = new Set();
       try {
@@ -511,6 +538,7 @@ function artifactChecker(repo, sourceRunId) {
     return cache.get(publisherRunId).has(wanted);
   };
 }
+
 function parseArgs(argv) {
   const args = {};
   for (let index = 0; index < argv.length; index += 1) {
@@ -551,12 +579,15 @@ function main() {
       } catch (error) {
         console.warn(`::warning::IT publication plan is unreadable (${error?.message || error}); every IT group stays pending`);
       }
+      const hasArtifact = artifactLister(repo);
       itState = resolveItPublishReceipts({
         statuses,
         sourceRunId,
         buildId: text(args['build-id']) || undefined,
         expectedDigests,
-        artifactAvailable: artifactChecker(repo, sourceRunId),
+        artifactAvailable: ({ group, publisherRunId }) => hasArtifact(publisherRunId, itGroupResultArtifactName(group, sourceRunId)),
+        cdnManifestRequired: text(args['cdn-manifest-required']) === 'true',
+        cdnManifestAvailable: ({ publisherRunId }) => hasArtifact(publisherRunId, itCdnManifestArtifactName(sourceRunId)),
       });
     }
     writeGithubOutputs(args['github-output'], state, itState);
@@ -592,7 +623,7 @@ function main() {
     });
     return;
   }
-  console.error('Usage: publish-receipts.mjs --resolve --source-run-id <id> --source-sha <sha> [--github-output <file>] [--it-plan <file> --build-id <id>] | --write pages|locale --source-run-id <id> --source-sha <sha> [--locale <locale>] | --write it-cdn --source-run-id <id> --source-sha <sha> --build-id <id> | --write it-group --source-run-id <id> --source-sha <sha> --group <group> --plan <file> --results-dir <dir>');
+  console.error('Usage: publish-receipts.mjs --resolve --source-run-id <id> --source-sha <sha> [--github-output <file>] [--it-plan <file> --build-id <id> [--cdn-manifest-required true]] | --write pages|locale --source-run-id <id> --source-sha <sha> [--locale <locale>] | --write it-cdn --source-run-id <id> --source-sha <sha> --build-id <id> | --write it-group --source-run-id <id> --source-sha <sha> --group <group> --plan <file> --results-dir <dir>');
   process.exitCode = 2;
 }
 
