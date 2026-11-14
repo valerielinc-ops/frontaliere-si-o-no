@@ -6,6 +6,15 @@ name: Assisted application portal replay
 # worker; the trusted base compare CLI starts up to thirteen family processes
 # in parallel inside that worker, like the crawler-group workflows, instead of
 # creating a runner job for every family.
+#
+# Determinism: the changed-path list comes from git, not from the REST API. The
+# detect job checks out the PR merge commit (github.sha, depth 2, blob-less,
+# sparse) and lists `git diff --name-only --no-renames HEAD^1 HEAD`: parent 1
+# is the base tip the merge was built on, so the list is exactly what the PR
+# contributes even when main has moved on. The PR diff API hit HTTP 422 ("diff
+# taking too long") on large PRs and HTTP 403 when the installation token ran
+# dry. A run cancelled by a newer push is transient: the required gate and the
+# comment skip on cancellation instead of reporting a failure.
 on:
   pull_request:
     branches: [main]
@@ -44,11 +53,43 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch PR diff
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+      # Only the git objects of the merge commit are needed (tree names, never
+      # blob content), so the checkout is blob-less, two commits deep and sparse
+      # on a single tiny path. Nothing from the PR is executed.
+      - name: Checkout PR merge commit (path list only)
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: .portal-merge
+          fetch-depth: 2
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout: |
+            .github/CODEOWNERS
+          sparse-checkout-cone-mode: false
+
+      # `HEAD^1` is the base tip the merge commit was built on; a two-dot diff
+      # against the current base SHA would also list files that only main
+      # changed after the PR branched.
+      - name: List changed paths from the merge commit
+        run: |
+          set -euo pipefail
+          cd .portal-merge
+          parents="$(git rev-list --parents -n 1 HEAD | wc -w | tr -d ' ')"
+          if [ "$parents" != "3" ]; then
+            echo "::error::expected a two-parent merge commit at $(git rev-parse HEAD), got $((parents - 1)) parent(s); refusing to guess the changed paths."
+            exit 1
+          fi
+          git diff --name-only --no-renames HEAD^1 HEAD > "$RUNNER_TEMP/portal-replay-paths.txt"
+          echo "changed paths: $(wc -l < "$RUNNER_TEMP/portal-replay-paths.txt" | tr -d ' ')"
+
+      - name: Upload changed path list for prepare
+        uses: actions/upload-artifact@v7
+        with:
+          name: portal-replay-paths-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-paths.txt
+          retention-days: 1
+          overwrite: true
 
       - name: Detect whether the runner needs replay
         id: detect
@@ -57,7 +98,7 @@ jobs:
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" detect \
-            --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
+            --diff-file "$RUNNER_TEMP/portal-replay-paths.txt" \
             --github-output "$GITHUB_OUTPUT"
 
   prepare:
@@ -89,16 +130,32 @@ jobs:
         with:
           node-version: '22'
 
+      # The open portal-stop issues are the one input git cannot supply, so this
+      # stays an API call: bounded retries with a growing backoff instead of a
+      # single attempt that a transient 403/5xx turns into a red required check.
       - name: List open portal-stop hosts
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3 4; do
+            if gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 4 ]; then
+              delay=$((attempt * attempt * 15))
+              echo "::warning::portal-stop listing failed (attempt $attempt/4); retrying in ${delay}s"
+              sleep "$delay"
+            fi
+          done
+          echo '::error::could not list the open portal-stop issues after 4 attempts'
+          exit 1
 
-      - name: Fetch PR diff
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+      - name: Download changed path list from detect
+        uses: actions/download-artifact@v8
+        with:
+          name: portal-replay-paths-${{ github.run_id }}
+          path: ${{ runner.temp }}/portal-replay-paths
 
       - name: Select a deterministic corpus
         id: prepare
@@ -108,7 +165,7 @@ jobs:
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
           node "$portal_replay_cli" prepare \
-            --diff-file "$RUNNER_TEMP/portal-replay-paths.patch" \
+            --diff-file "$RUNNER_TEMP/portal-replay-paths/portal-replay-paths.txt" \
             --data-dir .portal-base/data/jobs/by-crawler \
             --classifier-root .portal-base \
             --stop-titles "$RUNNER_TEMP/portal-stop-titles.json" \
@@ -332,7 +389,9 @@ jobs:
 
   portal-replay-gate:
     name: portal replay gate
-    if: always()
+    # A run cancelled by a newer push (concurrency) must not publish a verdict:
+    # the superseding run owns the required check for the new head.
+    if: ${{ !cancelled() }}
     needs: [detect, prepare, replay]
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -414,7 +473,7 @@ jobs:
 
   portal-replay-report-comment:
     name: portal replay report comment
-    if: always() && needs.detect.outputs.run == 'true'
+    if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}
     needs: [detect, portal-replay-gate]
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -430,14 +489,48 @@ jobs:
           name: assisted-application-portal-replay-summary-${{ github.run_id }}
           path: ${{ runner.temp }}/portal-replay-summary
 
-      - name: Comment the sanitized report on the pull request
-        if: always()
+      - name: Checkout trusted base sticky-comment helper
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .portal-base
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            scripts/ci/lib
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # One comment per pull request, updated in place: the marker finds it and
+      # the head SHA line says which commit the verdict belongs to.
+      - name: Comment the sanitized report on the pull request (sticky)
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           SUMMARY_FILE: ${{ runner.temp }}/portal-replay-summary/portal-replay-summary.md
         run: |
-          if [ -s "$SUMMARY_FILE" ]; then
-            gh pr comment "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$SUMMARY_FILE"
-          fi
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { readFileSync, existsSync, statSync } from 'node:fs';
+          import { upsertStickyComment } from './.portal-base/scripts/ci/lib/prComments.mjs';
+          const file = process.env.SUMMARY_FILE;
+          if (!existsSync(file) || statSync(file).size === 0) process.exit(0);
+          const marker = '<!-- portal-replay-gate -->';
+          const body = `${marker}\n<!-- portal-replay-gate-head:${process.env.HEAD_SHA} -->\n${readFileSync(file, 'utf8')}`;
+          const gh = (args, { json = true, allowFail = false } = {}) => {
+            try {
+              const out = execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+              return json ? JSON.parse(out) : out;
+            } catch (error) {
+              if (allowFail) return null;
+              throw error;
+            }
+          };
+          upsertStickyComment(gh, process.env.GITHUB_REPOSITORY, process.env.PR_NUMBER, marker, body);
+          NODE
