@@ -279,18 +279,16 @@ jobs:
             scripts/lib
           sparse-checkout-cone-mode: true
 
-      - name: Materialize trusted replay actions
+      - name: Materialize trusted Codex sandbox action
         shell: bash
         run: |
           set -euo pipefail
-          for action in setup-codex-sandbox setup-claude-haiku-fallback; do
-            source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/$action"
-            target_action="$GITHUB_WORKSPACE/.github/actions/$action"
-            test -f "$source_action/action.yml"
-            test ! -e "$target_action" && test ! -L "$target_action"
-            mkdir -p "$target_action"
-            cp -R "$source_action/." "$target_action/"
-          done
+          source_action="$GITHUB_WORKSPACE/.portal-base/.github/actions/setup-codex-sandbox/action.yml"
+          target_action="$GITHUB_WORKSPACE/.github/actions/setup-codex-sandbox/action.yml"
+          test -f "$source_action"
+          test ! -e "$target_action" && test ! -L "$target_action"
+          mkdir -p "$(dirname "$target_action")"
+          install -m 0644 "$source_action" "$target_action"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -340,7 +338,7 @@ jobs:
           (cd .portal-base && npx playwright install chromium) || (cd .portal-base && npx playwright install --with-deps chromium)
 
       - id: codex
-        uses: ./.github/actions/setup-claude-haiku-fallback
+        uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '1200000'
