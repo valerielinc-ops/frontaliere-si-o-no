@@ -49,9 +49,9 @@
 import { identifiedPostingPublication } from './identified-posting-publication.mjs';
 import { mergeSourcePostingDates, sourcePostingDateFields, withLegacyPostingDay } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
-import { encodeJinaTargetUrl, fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { encodeJinaTargetUrl } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -260,48 +260,23 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 export const jinaSafeUrl = encodeJinaTargetUrl;
 
 /**
- * Fetch a page: direct first, then through the shared Jina Reader proxy.
+ * Fetch a page through the shared HTML transport.
  *
- * swatchgroup.com sits behind the same Akamai WAF family as the brand portal
- * and may 403 / reset the connection on datacenter egress IPs (GitHub Actions
- * runners). The direct attempt is kept so nothing changes if the runner IP is
- * clean; on ANY direct failure (non-2xx, network/TLS error, or a
- * 200-with-challenge body) we re-fetch through Jina's clean-IP pool
- * (retried across its rotating egress IPs by fetchHtmlViaJinaWithRetry).
+ * This parser used to reimplement direct fetch + Jina fallback here. That
+ * bypassed fetchWithRetry(), so a transient connection failure spent the
+ * entire direct attempt before entering the proxy path. The shared helper
+ * keeps the same direct-first/Jina behavior while applying the repository's
+ * bounded retry contract to every attempt.
  */
-async function fetchPage(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  let directErr;
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9,de;q=0.8,fr;q=0.7',
-        'User-Agent': USER_AGENT,
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (res.ok) {
-      const body = await res.text();
-      if (!looksLikeAntiBotChallenge(body)) return body;
-      directErr = new Error(`WAF challenge page from ${url}`);
-    } else {
-      directErr = new Error(`HTTP ${res.status} from ${url}`);
-    }
-  } catch (err) {
-    directErr = err;
-  } finally {
-    clearTimeout(timer);
-  }
-
-  const viaJina = await fetchHtmlViaJinaWithRetry(jinaSafeUrl(url), { timeoutMs: Math.max(timeoutMs, 30000) });
-  if (viaJina != null && !looksLikeAntiBotChallenge(viaJina)) return viaJina;
-  throw directErr;
+export async function fetchPage(url) {
+  return fetchHtml(url, {
+    timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'en-US,en;q=0.9,de;q=0.8,fr;q=0.7',
+      'User-Agent': USER_AGENT,
+    },
+  });
 }
 
 /* ── List Page Parser ─────────────────────────────────────── */
