@@ -24,6 +24,9 @@ describe('Sintio crawler parser', () => {
 
     expect(spec.seedUrls).toEqual(['https://join.com/companies/sintio']);
     expect(spec.detailTemplate).toBe('/companies/sintio/*');
+    expect(spec.authoritativeEmptyText).toBe(
+      "We don't have any open positions at the moment",
+    );
     expect(templateToRegex(spec.detailTemplate).test(
       '/companies/sintio/another-current-vacancy',
     )).toBe(true);

@@ -1,0 +1,23 @@
+{
+  "companyKey": "assuredallies",
+  "companyName": "Assured Allies",
+  "companyHost": "assuredallies.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://assuredallies.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Bookkeeper (Permanent&Part-Time)",
+    "Designer - Brand & Marketing (Contract to Perm)",
+    "Senior Salesforce Systems & Integration Engineer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:53.072Z",
+  "candidateKey": "assuredallies@applytojob.com"
+}
