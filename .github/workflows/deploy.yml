@@ -154,6 +154,7 @@ jobs:
             /scripts/ci/rearm-deploy-build.mjs
             /scripts/ci/deploy-rearm-request.mjs
             /scripts/ci/lib/deploy-job-failure-signature.mjs
+            /scripts/ci/deploy-failure-classifier.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/int-from-env.mjs
             /scripts/lib/is-invoked-directly.mjs
@@ -2810,6 +2811,7 @@ jobs:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
       statuses: read   # read the durable canonical-regression queue
+      issues: write    # one "Deploy build blocked" issue per failure signature
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -2878,6 +2880,10 @@ jobs:
           # job-level rerun. The rerun reuses this run's SHA and prepared
           # snapshot artifact; it must never fan out into a second full matrix.
           REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'
+          # The failure circuit breaker (backoff + 6/12 h budget) also files and
+          # closes the single "Deploy build blocked: <signature>" issue; only
+          # this job has `issues: write`, the resolvers just write the summary.
+          REARM_ISSUE_UPDATE: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
 
       # This dispatch is deliberately at the end of the build workflow. The

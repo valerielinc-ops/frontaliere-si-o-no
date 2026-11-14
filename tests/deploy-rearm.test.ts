@@ -566,7 +566,13 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
   });
 
   it('has exactly the permissions the dispatch needs and nothing more', () => {
-    expect(doc.jobs.rearm.permissions).toEqual({ contents: 'read', actions: 'write', statuses: 'read' });
+    expect(doc.jobs.rearm.permissions).toEqual({
+      contents: 'read',
+      actions: 'write',
+      statuses: 'read',
+      // one `Deploy build blocked: <signature>` issue, filed by the breaker
+      issues: 'write',
+    });
   });
 
   it('cannot fail the deploy: the re-arm step is continue-on-error', () => {
