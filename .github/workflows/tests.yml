@@ -2710,6 +2710,11 @@ jobs:
         # output is only a scheduling decision; the blocking Vitest invocation
         # remains the step below. Any selector error is execution-safe: an
         # unknown answer writes required=true and keeps the gate conservative.
+        # The selection takes ~20 s; the step timeout turns a selector that
+        # stops terminating into a fast red check instead of holding the
+        # required job for its whole 360-minute budget (2026-11-14: every PR
+        # sat here for hours after the symbol-aware propagation went cubic).
+        timeout-minutes: 10
         env:
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
           VITEST_SKIP_CORPUS_WIDE: 'true'

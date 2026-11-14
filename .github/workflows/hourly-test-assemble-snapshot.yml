@@ -2,7 +2,7 @@ name: Hourly test assemble snapshot
 
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 permissions:
