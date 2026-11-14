@@ -30,14 +30,18 @@ import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
+  JOB_CANON_REGISTRY_ALIAS_LOCALES,
   type ActiveJobAliasStats,
   type ActiveJobSlugMapRow,
   type JobCanonLocale,
 } from './shared/jobCanonBridgePaths';
+import {
+  jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from './shared/buildSignals';
 
 const OUT_SUBDIR = 'job-canon';
 const V2_SUBDIR = 'v2';
-const REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
 const V2_MAX_SHARD_BYTES = 256 * 1024;
 const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix'] as const;
@@ -388,13 +392,33 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
+      if (shouldAwaitJobsSeoPagesFlushed()) {
+        console.log('[job-canon-redirect-map] waiting for jobs SEO to flush the reconciled Worker slug map');
+        await jobsSeoPagesFlushed;
+      }
+
       const distDir = path.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
-      const buildLocale = process.env.BUILD_LOCALE;
-      if (buildLocale !== 'it') {
+      const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
+      const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
+      if (!fs.existsSync(distDir)) {
+        if (ownsWorkerMap) {
+          const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
+          throw new Error(
+            `[job-canon-redirect-map] ${buildLocale === '' ? 'all-locale build' : 'BUILD_LOCALE=it'} `
+            + `requires ${path.relative(rootDir, slugMapPath)} from jobsSeoPagesPlugin`,
+          );
+        }
+        return;
+      }
+      if (!ownsWorkerMap) {
+        console.log(
+          `[job-canon-redirect-map] BUILD_LOCALE=${buildLocale} does not own the Worker map; `
+          + 'the IT or all-locale build emits it',
+        );
         clearJobCanonOrderingFields();
         return;
       }
+      console.log(`[job-canon-redirect-map] Worker map owner=${buildLocale || 'all-locale'}`);
 
       let peakHeapUsed = process.memoryUsage().heapUsed;
       let peakHeapPhase = 'start';
@@ -541,7 +565,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (slugIndexEntry < 0 || slugIndex!.parts[slugIndexEntry] !== entryPartIndex) continue;
           if (!paths || typeof paths !== 'object') continue;
           const order = slugIndex!.orders[slugIndexEntry];
-          for (const locale of REGISTRY_ALIAS_LOCALES) {
+          for (const locale of JOB_CANON_REGISTRY_ALIAS_LOCALES) {
             const value = paths[locale];
             if (typeof value !== 'string') continue;
             const target = value.replace(/\/+$/, '');
@@ -584,13 +608,18 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
         };
 
-        if (buildLocale === 'it') {
+        if (ownsWorkerMap) {
           if (!fs.existsSync(slugMapPath)) {
-            throw new Error(`[job-canon-redirect-map] BUILD_LOCALE=it requires ${path.relative(rootDir, slugMapPath)} from localeJobsSplitPlugin`);
+            throw new Error(
+              `[job-canon-redirect-map] ${buildLocale === '' ? 'all-locale build' : 'BUILD_LOCALE=it'} `
+              + `requires ${path.relative(rootDir, slugMapPath)} from jobsSeoPagesPlugin`,
+            );
           }
           const raw = readJsonFile(slugMapPath) as unknown;
           if (!Array.isArray(raw)) {
-            throw new Error(`[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`);
+            throw new Error(
+              `[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`,
+            );
           }
           activeJobsRaw = raw;
           jobs = raw as ActiveJobSlugMapRow[];

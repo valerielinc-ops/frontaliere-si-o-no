@@ -205,6 +205,51 @@ describe('locale-router canton-drift 301', () => {
     expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
   });
 
+  it.each([
+    { locale: 'it', prefix: '', legacy: '/cerca-lavoro-ticino', native: '/cerca-lavoro-zurigo' },
+    { locale: 'en', prefix: '/en', legacy: '/en/find-jobs-ticino', native: '/en/find-jobs-zurich' },
+    { locale: 'de', prefix: '/de', legacy: '/de/jobs-im-tessin', native: '/de/jobs-in-zurich' },
+    { locale: 'fr', prefix: '/fr', legacy: '/fr/trouver-emploi-tessin', native: '/fr/trouver-emploi-zurich' },
+  ] as const)('redirects previous, legacy-TI mirror, and cross-locale aliases in $locale without a chain', async ({ locale, legacy, native }) => {
+    const oldSlug = `previous-route-${locale}`;
+    const foreignSlug = `foreign-route-${locale}`;
+    const currentSlug = `current-route-${locale}`;
+    const canonical = `${native}/${currentSlug}/`;
+    const map = {
+      [oldSlug]: { alias: { [locale]: canonical.replace(/\/$/, '') } },
+      [foreignSlug]: { alias: { [locale]: canonical.replace(/\/$/, '') } },
+    };
+    const sourcePaths = [
+      `${native}/${oldSlug}/`,
+      `${legacy}/${oldSlug}/`,
+      `${legacy}/${foreignSlug}/`,
+    ];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname.includes('/job-canon/')) {
+        return new Response(JSON.stringify(map), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      return new Response(url.pathname === canonical ? 'canonical' : 'origin-404', {
+        status: url.pathname === canonical ? 200 : 404,
+      });
+    });
+
+    for (const sourcePath of sourcePaths) {
+      const response = await worker.fetch(new Request(`${APEX}${sourcePath}`), {}, ctx);
+      expect(response.status, sourcePath).toBe(301);
+      expect(response.headers.get('Location'), sourcePath).toBe(canonical);
+      if (locale !== 'it') expect(response.headers.get('Location')).toMatch(new RegExp(`^/${locale}/`));
+
+      const destination = await worker.fetch(new Request(`${APEX}${response.headers.get('Location')}`), {}, ctx);
+      expect(destination.status, sourcePath).toBe(200);
+      expect(destination.headers.get('Location'), sourcePath).toBeNull();
+    }
+    await flushCacheWrites();
+  });
+
   it('301s within the request locale, never cross-locale to the IT page', async () => {
     // The slug exists under every locale (identical slug segment, localized
     // prefix). A /de orphan must 301 to the DE page, NOT the it prefix — the

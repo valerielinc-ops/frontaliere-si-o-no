@@ -32,8 +32,8 @@ describe('jobsSeoPagesPlugin self-heal backpressure', () => {
     expect(loop.indexOf('buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)')).toBeGreaterThan(drain);
   });
 
-  it('skips already written paths before waiting, so only emitted pages pay the drain', () => {
-    const skip = loop.indexOf('if (_writtenPaths.has(absFile)) continue;');
+  it('skips already claimed paths before waiting, so only emitted pages pay the drain', () => {
+    const skip = loop.indexOf('if (pathWasClaimed(absFile)) continue;');
     expect(skip).toBeGreaterThan(-1);
     expect(skip).toBeLessThan(loop.indexOf('await collector.awaitDrainSlot(2);'));
   });

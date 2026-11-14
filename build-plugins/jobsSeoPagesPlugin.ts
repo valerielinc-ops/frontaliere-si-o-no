@@ -246,6 +246,19 @@ import {
  type CandidateInput as PreviousSlugCandidate,
  type WinnersFile as PreviousSlugWinnersFile,
 } from '../services/previousSlugWinners';
+import {
+ buildActiveJobBridgePathPlan,
+ buildTrackedJobCanonEntriesFromPersistedRegistry,
+ classifyBridgePathsFromFinalWorkerMap,
+ planActiveJobCanonAliases,
+ reconcileFinalWorkerSlugMapRows,
+ assertBridgePathClassificationCoverage,
+ assertBridgePathDistCoverage,
+ type JobCanonBridgePath,
+ type ActiveJobSlugMapRow,
+ type BridgeKeepReason,
+} from './shared/jobCanonBridgePaths';
+import { hasExactCanonicalHref } from './shared/headLinkPatterns';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import { isLocationMatch } from '../services/textUtils';
 import {
@@ -376,7 +389,11 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+ employerProfilesFlushed,
+ registerJobsSeoPagesProducer,
+ resolveJobsSeoPagesFlushed,
+} from './shared/buildSignals';
 import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
@@ -410,9 +427,17 @@ import {
  type CompanyCityKeyDeps,
 } from './shared/companyCityHubPlan';
 import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
-import { getOutputShapeDirCount, getPathHistory } from './sharedWriteRegistry';
+import {
+ getOutputShapeDirCount,
+ getPathHistory,
+ hasClaimedPath,
+ reserveJobAliasRedirectDir,
+ isJobAliasRedirectPath,
+ getJobAliasRedirectDirs,
+} from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { buildJobMetaDescription } from './shared/jobMetaDescription';
+import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import {
@@ -1852,10 +1877,16 @@ export interface JobsSeoPagesPluginOptions {
 }
 
 export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
+ registerJobsSeoPagesProducer();
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
  enforce: 'post',
+ // closeBundle hooks run in parallel, so reset the signal before each build
+ // generation when Vite reuses this plugin instance in watch mode.
+ buildStart() {
+  registerJobsSeoPagesProducer();
+ },
  async closeBundle() {
  if (options.fastLane && (
   options.activeJobIds === undefined
@@ -2243,7 +2274,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // requires extending `postWalkWorker.mjs` to run `minifyHtml` across the
  // existing 4-worker pool — tracked as a follow-up.
  const __SKIP_MINIFY = process.env.JOBS_SEO_SKIP_MINIFY === '1';
- const pathWasClaimed = (filePath: string): boolean => getPathHistory().has(filePath);
+ const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);
  function _qw(filePath: string, content: string) {
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
@@ -2270,7 +2301,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   canonicalCleanedCache?: ReadonlyMap<unknown, unknown>;
   previousSlugClaimants?: ReadonlyMap<unknown, unknown>;
   winnerByPrevSlugKey?: ReadonlyMap<unknown, unknown>;
-  crossLocaleCacheReads?: ReadonlyMap<unknown, unknown>;
   activeJobDirs?: ReadonlySet<unknown>;
   emittedActiveJobPaths?: ReadonlySet<unknown>;
   legacyTiBridgeDirs?: ReadonlySet<unknown>;
@@ -2349,7 +2379,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    canonicalCacheEntries: jobsSeoMemContext.canonicalCleanedCache?.size ?? 0,
    previousSlugClaimants: jobsSeoMemContext.previousSlugClaimants?.size ?? 0,
    previousSlugWinners: jobsSeoMemContext.winnerByPrevSlugKey?.size ?? 0,
-   crossLocaleCacheReads: jobsSeoMemContext.crossLocaleCacheReads?.size ?? 0,
    collectorWrittenPaths: collector.writtenPathCount,
    jobsSeoPageWriteFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,
    activeJobDirs: jobsSeoMemContext.activeJobDirs?.size ?? 0,
@@ -14804,6 +14833,174 @@ ${staticAnalyticsHtml}
  };
  const activeBridgeJobs: ActiveBridgeJob[] = validJobs.map(compactActiveBridgeJob);
 
+ // The locale split serializes the Worker alias input before fuzzy-orphan and
+ // implicit job.slug reconciliation run. Mirror the final old-slug fields into
+ // that exact file now, before PR-B classification; jobCanonRedirectMapPlugin
+ // consumes it later in this same build. Rows that cannot be matched uniquely
+ // stay ineligible for bridge removal.
+ const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');
+ if (!fs.existsSync(workerSlugMapPath)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is missing before bridge classification');
+ }
+ let serializedWorkerJobs: unknown;
+ try {
+  serializedWorkerJobs = JSON.parse(fs.readFileSync(workerSlugMapPath, 'utf8'));
+ } catch {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not valid JSON');
+ }
+ if (!Array.isArray(serializedWorkerJobs)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not an array');
+ }
+ const workerSlugMapReconciliation = reconcileFinalWorkerSlugMapRows(
+  serializedWorkerJobs as ActiveJobSlugMapRow[],
+  activeBridgeJobs,
+ );
+ if (workerSlugMapReconciliation.updatedJobCount > 0) {
+  fs.writeFileSync(workerSlugMapPath, JSON.stringify(serializedWorkerJobs), 'utf8');
+  const workerSlugShardsDir = np.resolve(distDir, 'data', 'jobs-slug-map');
+  fs.mkdirSync(workerSlugShardsDir, { recursive: true });
+  const reconciledShards = buildJobSlugShards(serializedWorkerJobs as SlugMapJobEntry[]);
+  for (const [shardKey, shard] of Object.entries(reconciledShards)) {
+   fs.writeFileSync(np.resolve(workerSlugShardsDir, `${shardKey}.json`), JSON.stringify(shard), 'utf8');
+  }
+ }
+ console.log(
+  `[jobs-seo-pages] reconciled final Worker slug map: updated=${workerSlugMapReconciliation.updatedJobCount} `
+  + `matched=${workerSlugMapReconciliation.matchedJobIdentifiers.size} `
+  + `unmatched=${workerSlugMapReconciliation.unmatchedJobIdentifiers.size}`,
+ );
+ (serializedWorkerJobs as unknown[]).length = 0;
+
+ // Resolve the same active bridge inventory consumed by PR-A before expired
+ // soft-landings and self-heal run. Only exact Worker destinations may lose
+ // their static output; uncertain paths remain full-content bridges.
+ const retainedBridgePaths = new Map<string, { bridge: JobCanonBridgePath; reason: BridgeKeepReason }>();
+ const bridgePathKey = (locale: string, pathname: string): string =>
+  `${locale}\u0000${pathname.replace(/^\/+|\/+$/g, '')}`;
+ const activeBridgeRedirectCounts: Record<typeof localeList[number], number> = {
+  it: 0, en: 0, de: 0, fr: 0,
+ };
+ const activeBridgeKeepCounts: Record<typeof localeList[number], number> = {
+  it: 0, en: 0, de: 0, fr: 0,
+ };
+ const activeBridgeRemovableByKind: Record<JobCanonBridgePath['kind'], number> = {
+  previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
+ };
+ const activeBridgeKeepByKind: Record<JobCanonBridgePath['kind'], number> = {
+  previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
+ };
+ const bridgePlanHeapStartBytes = process.memoryUsage().heapUsed;
+ let bridgePlanHeapPeakBytes = bridgePlanHeapStartBytes;
+ const sampleBridgePlanHeap = (): void => {
+  bridgePlanHeapPeakBytes = Math.max(bridgePlanHeapPeakBytes, process.memoryUsage().heapUsed);
+ };
+ {
+  const previousSlugWinnersPath = np.resolve(rootDir, 'data', 'previous-slug-winners.json');
+  const bridgePlan = buildActiveJobBridgePathPlan(activeBridgeJobs, {
+   winners: loadWinners(previousSlugWinnersPath),
+   reservedHubSlugs: RESERVED_HUB_SLUGS,
+   workerWouldRecover: legacyTiPathRecoveredByWorker,
+   onHeapSample: sampleBridgePlanHeap,
+   canWriteCrossLocalePath: (bridgePath) => {
+    const safeTargets = getSafeDistPageTargets(distDir, bridgePath);
+    return Boolean(safeTargets && !pathWasClaimed(safeTargets.indexPath));
+   },
+  });
+  const bridgeSlugs = new Set(bridgePlan.bridgePaths.map((bridge) => bridge.slug));
+  const tracked = buildTrackedJobCanonEntriesFromPersistedRegistry(rootDir, bridgeSlugs, sampleBridgePlanHeap);
+  const activeAliasPlan = planActiveJobCanonAliases(
+   bridgePlan,
+   (slug) => tracked.entries.get(slug),
+   sampleBridgePlanHeap,
+  );
+  const workerEntries = new Map(tracked.entries);
+  for (const alias of activeAliasPlan.aliases) {
+   const entry = { ...(workerEntries.get(alias.slug) ?? {}) };
+   const registryAlias = { ...(entry.alias ?? {}) };
+   delete entry[alias.locale];
+   registryAlias[alias.locale] = alias.targetPath;
+   entry.alias = registryAlias;
+   workerEntries.set(alias.slug, entry);
+  }
+  for (const [key, prefix] of bridgePlan.activePrefixByLocaleSlug) {
+   if (prefix === null) continue;
+   const split = key.indexOf('\u0000');
+   const locale = key.slice(0, split) as typeof localeList[number];
+   const slug = key.slice(split + 1);
+   if (!bridgeSlugs.has(slug)) continue;
+   const entry = { ...(workerEntries.get(slug) ?? {}) };
+   entry[locale] = prefix;
+   workerEntries.set(slug, entry);
+  }
+  const classification = classifyBridgePathsFromFinalWorkerMap(
+   bridgePlan.bridgePaths,
+   workerEntries,
+   workerSlugMapReconciliation.matchedJobIdentifiers,
+   activeAliasPlan.ambiguousCantonKeys,
+   bridgePlan.activeRouteSlugKeys,
+   sampleBridgePlanHeap,
+  );
+  assertBridgePathClassificationCoverage(bridgePlan.bridgePaths, classification, workerEntries);
+
+  for (const bridge of bridgePlan.bridgePaths) {
+   if (classification.removable.has(bridge.path)) {
+    activeBridgeRedirectCounts[bridge.locale]++;
+    activeBridgeRemovableByKind[bridge.kind]++;
+    if (!shouldEmitLocale(bridge.locale)) continue;
+    const targets = getSafeDistPageTargets(distDir, bridge.path);
+    if (!targets) {
+     throw new Error('[job-alias-redirect-gate] removable bridge path is not a safe dist target');
+    }
+    reserveJobAliasRedirectDir(targets.directoryPath);
+    continue;
+   }
+   const reason = classification.keepBridge.get(bridge.path);
+   if (!reason) throw new Error('[job-alias-redirect-gate] bridge path has no classification');
+   retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });
+   activeBridgeKeepCounts[bridge.locale]++;
+   activeBridgeKeepByKind[bridge.kind]++;
+  }
+  bridgePlan.bridgePaths.length = 0;
+  bridgePlan.activePrefixByLocaleSlug.clear();
+  bridgeSlugs.clear();
+  workerEntries.clear();
+  tracked.entries.clear();
+  classification.removable.clear();
+  classification.keepBridge.clear();
+  activeAliasPlan.aliases.length = 0;
+  activeAliasPlan.stats.ambiguousExamples.length = 0;
+  // The planner exposes its route indexes as ReadonlySet; let these block-local
+  // references fall out of scope rather than mutating through a cast.
+  sampleBridgePlanHeap();
+ }
+ const activeBridgeRedirectCount = Object.values(activeBridgeRedirectCounts).reduce((sum, count) => sum + count, 0);
+ const activeBridgeKeepCount = Object.values(activeBridgeKeepCounts).reduce((sum, count) => sum + count, 0);
+ let reservedJobAliasDirCount = 0;
+ for (const _directory of getJobAliasRedirectDirs()) reservedJobAliasDirCount++;
+ console.log(
+  `[jobs-seo-pages] active bridge handoff plan: removable=${activeBridgeRedirectCount} retained=${activeBridgeKeepCount} `
+  + `by-locale=${JSON.stringify({ removable: activeBridgeRedirectCounts, retained: activeBridgeKeepCounts })} `
+  + `by-kind=${JSON.stringify({ removable: activeBridgeRemovableByKind, retained: activeBridgeKeepByKind })} `
+  + `heap-peak-mb=${(bridgePlanHeapPeakBytes / (1024 * 1024)).toFixed(1)} `
+  + `heap-over-start-mb=${((bridgePlanHeapPeakBytes - bridgePlanHeapStartBytes) / (1024 * 1024)).toFixed(1)}`,
+ );
+ forceGc();
+ logJobsSeoMem('after-active-bridge-classification', {
+  removableBridgePaths: activeBridgeRedirectCount,
+  retainedBridgePaths: activeBridgeKeepCount,
+  reservedJobAliasDirs: reservedJobAliasDirCount,
+ });
+ const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {
+  const canonicalPath = withSlash(pathname);
+  const targets = getSafeDistPageTargets(distDir, canonicalPath);
+  if (!targets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');
+  if (isJobAliasRedirectPath(targets.indexPath)) return false;
+  if (!retainedBridgePaths.has(bridgePathKey(locale, canonicalPath))) {
+   throw new Error('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
+  }
+  return true;
+ };
+
  // Keep both employer and recent recommendations in the archived job's canton.
  const archiveRecommendations = buildArchiveJobRecommendations(activeBridgeJobs);
  const companyActiveJobsMap = archiveRecommendations.companyJobs;
@@ -16405,12 +16602,13 @@ ${staticAnalyticsHtml}
   trackingSlugsRetained: selfHealTrackingRetention.retained,
  }));
 
- /* ── Full-content pages for previousSlugs of active jobs ────── */
- // Serve full-content noindex pages at old URLs (bookmarks, search engines).
+ /* ── Retained full-content pages for previousSlugs ──────────── */
+ // Keep full-content noindex pages only where PR-A's Worker mapping does not
+ // resolve the old path to this exact canonical destination.
  // The only SEO surface that may be indexed is the current canonical slug:
  // <link rel="canonical"> points there, and window.__BRIDGE_TARGET_SLUG__
- // tells the SPA to use the current slug. No redirect, no countdown — users
- // still see the job content immediately.
+ // tells the SPA to use the current slug. These uncertain paths retain their
+ // existing content until a later mapping makes the destination unambiguous.
  //
  // Uses locale-aware previousSlugsByLocale when available:
  // - previousSlugsByLocale[locale] → bridge pages only under that locale's prefix
@@ -16521,11 +16719,8 @@ ${staticAnalyticsHtml}
  // emit loop below reads winnerByPrevSlugKey only.
  // Mirrors expiredSoftLandingCache.clear()+forceGc() a few hundred lines up
  // (same "clear the dead map before the next big emit" pattern, #6134):
- // free it before the ~65k-page previousSlugs full-content loop, the
- // largest remaining phase before the OOM observed 2026-08-19 (7/8 deploys,
- // exit 134 "Ineffective mark-compacts near heap limit" shortly after the
- // "after expired-softlandings" [mem] checkpoint, no further checkpoint
- // logged before the crash).
+ // free it before the retained previous-slug bridge pass, so only path
+ // classification survivors can hold full-page HTML in this phase.
  let previousSlugCandidates = 0;
  for (const candidates of previousSlugClaimants.values()) previousSlugCandidates += candidates.length;
  logJobsSeoMem('before-previous-slug-claimant-clear', { previousSlugCandidates });
@@ -16534,6 +16729,11 @@ ${staticAnalyticsHtml}
 
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
+ const previousSlugBridgeHeapStartBytes = process.memoryUsage().heapUsed;
+ let previousSlugBridgeHeapPeakBytes = previousSlugBridgeHeapStartBytes;
+ const samplePreviousSlugBridgeHeap = (): void => {
+  previousSlugBridgeHeapPeakBytes = Math.max(previousSlugBridgeHeapPeakBytes, process.memoryUsage().heapUsed);
+ };
  const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL = 32;
  let previousSlugBridgeEmitsSinceYield = 0;
  let previousSlugPeriodicYieldCount = 0;
@@ -16544,11 +16744,15 @@ ${staticAnalyticsHtml}
   return true;
  };
  const yieldPreviousSlugBridgeWrites = async (): Promise<void> => {
+  samplePreviousSlugBridgeHeap();
   await collector.awaitDrainSlot(2);
+  samplePreviousSlugBridgeHeap();
   maybeForceJobsSeoHtmlGc();
+  samplePreviousSlugBridgeHeap();
   previousSlugPeriodicYieldCount++;
  };
  for (const job of activeBridgeJobs) {
+ samplePreviousSlugBridgeHeap();
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -16677,61 +16881,57 @@ ${staticAnalyticsHtml}
  if (emittedActiveJobPaths.has(`${jobCantonForBridge}:${locale}:${oldSlug}`)) continue;
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
- // Always generate bridge pages — they take priority over any compat/legacy
- // page that another plugin (e.g. legacyRedirectsPlugin) may have written
- // at the same path via fs.writeFileSync during concurrent closeBundle.
- //
- // Reuse the full active page HTML — canonical already points to the
- // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
- // use the current slug for data lookup instead of parsing the old URL, then
- // force noindex on the alias after either a fresh render or cache reuse.
- // A job alias has the same complete content irrespective of traffic.
- bridgeFullCount++;
- const previousSlugReuseInput = incrementalManifests
-  ? {
-   source: 'active-job',
-   jobId: stableJobId(job),
-   path: oldPath,
-   sourceInputHash: canonicalReuseHash,
-   canton: jobCantonForBridge,
-   oldSlug,
-   currentSlug,
-   winnerId,
-   action: 'full',
-  }
-  : null;
- const previousSlugReuse = jobsSeoReuse?.lookup(
-  locale,
-  oldPath,
-  'previous-slugs-full-content',
-  previousSlugReuseInput,
-  'previous-slug-legacy',
-  {
-   rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
-  },
- );
- let indexHtml: string;
- if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
-  indexHtml = noindexJobAliasHtml(
-   jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html,
+ let indexHtml: string | null = null;
+ if (isRetainedActiveBridgePath(locale, oldPath)) {
+  // Keep full-content rendering and incremental reuse only for URLs that the
+  // Worker cannot redirect to this exact canonical destination.
+  bridgeFullCount++;
+  const previousSlugReuseInput = incrementalManifests
+   ? {
+    source: 'active-job',
+    jobId: stableJobId(job),
+    path: oldPath,
+    sourceInputHash: canonicalReuseHash,
+    canton: jobCantonForBridge,
+    oldSlug,
+    currentSlug,
+    winnerId,
+    action: 'full',
+   }
+   : null;
+  const previousSlugReuse = jobsSeoReuse?.lookup(
+   locale,
+   oldPath,
+   'previous-slugs-full-content',
+   previousSlugReuseInput,
+   'previous-slug-legacy',
+   {
+    rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
+   },
   );
- } else {
-  indexHtml = ensureBridgeHtml();
- }
- jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
- _md(outDir);
- _qw(np.join(outDir, 'index.html'), indexHtml);
- if (incrementalManifests) {
-  registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', previousSlugReuseInput);
- }
+  if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
+   indexHtml = noindexJobAliasHtml(
+    jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html,
+   );
+  } else {
+   indexHtml = ensureBridgeHtml();
+  }
+  jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
+  _md(outDir);
+  _qw(np.join(outDir, 'index.html'), indexHtml);
+  if (incrementalManifests) {
+   registerIncrementalPage(locale, oldPath, 'previous-slugs-full-content', previousSlugReuseInput);
+  }
 
- const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
- _md(np.dirname(flatFile));
- _qwFlat(flatFile, indexHtml);
+  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
+  _md(np.dirname(flatFile));
+  _qwFlat(flatFile, indexHtml);
+  samplePreviousSlugBridgeHeap();
 
- bridgeCount++;
- recordEmit('previous-slug-bridge', __tPrevSlugBridge);
- if (shouldYieldPreviousSlugBridgeWrites()) await yieldPreviousSlugBridgeWrites();
+  bridgeCount++;
+  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
+  if (shouldYieldPreviousSlugBridgeWrites()) await yieldPreviousSlugBridgeWrites();
+ }
 
  // Pre-cathedral, every job — regardless of resolved canton — was
  // indexed under the legacy TI section (`/cerca-lavoro-ticino/`,
@@ -16769,6 +16969,7 @@ ${staticAnalyticsHtml}
  !activeJobDirs.has(legacyTIKey) &&
  !legacyTiBridgeDirs.has(legacyTIKey)
  ) {
+ if (!isRetainedActiveBridgePath(locale, legacyTIRelPath)) continue;
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
@@ -16796,9 +16997,10 @@ ${staticAnalyticsHtml}
    rewriteHtml: (bridgeHtml: string) => rewriteActiveBridgeHtmlWithChange(bridgeHtml, cachedHtml),
   },
  );
+ const legacyTIBaseHtml = indexHtml ?? ensureBridgeHtml();
  const legacyTIHtml = legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)
   ? jobsSeoReuse.reusedHtml(legacyTIReuse, STATIC_PAGE_BUILD_ID) || legacyTIReuse.html
-  : indexHtml;
+  : legacyTIBaseHtml;
  const noindexLegacyTIHtml = noindexJobAliasHtml(legacyTIHtml);
  jobsSeoReuse?.finish(legacyTIReuse, noindexLegacyTIHtml);
  _md(legacyTIOutDir);
@@ -16823,13 +17025,17 @@ ${staticAnalyticsHtml}
  ? ` (${bridgeSkippedNotWinner} duplicate emits skipped — see data/previous-slug-winners.json for the canonical owner per slug)`
  : '';
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
- // Backpressure between previousSlugs full-content (~65k pages) and
- // the next big emit (cross-locale-active-bridge ~56k pages).
+ // Backpressure between retained previous-slug pages and the cross-locale
+ // reconciliation pass.
  await collector.awaitDrainSlot(2);
  maybeForceJobsSeoHtmlGc();
  }
  logJobsSeoMem('after-previous-slug-bridges', {
   bridgeCount,
+  removableBridgeCount: activeBridgeRedirectCounts.it + activeBridgeRedirectCounts.en + activeBridgeRedirectCounts.de + activeBridgeRedirectCounts.fr,
+  removableFullContentBridgeCount: activeBridgeRemovableByKind.previousSlug + activeBridgeRemovableByKind.legacyTiMirror,
+  previousSlugBridgeHeapPeakMb: Number((previousSlugBridgeHeapPeakBytes / (1024 * 1024)).toFixed(1)),
+  previousSlugBridgeHeapOverStartMb: Number(((previousSlugBridgeHeapPeakBytes - previousSlugBridgeHeapStartBytes) / (1024 * 1024)).toFixed(1)),
   bridgeSkippedNotWinner,
  previousSlugPeriodicYieldCount,
  jobsSeoHtmlGcRuns,
@@ -16880,39 +17086,20 @@ ${staticAnalyticsHtml}
  // the French slug under the Italian base URL before the Italian slug
  // was generated), a direct hit on `/cerca-lavoro-ticino/<slug-fr>` would
  // otherwise render nothing until the client-side slug map loads.
- // Generate a full-content bridge page at every (baseLocale × foreignSlug)
- // combination where the foreign-locale slug differs from the base-locale
- // slug. Content is served in the base URL's locale; canonical points to
- // the base locale's current slug URL. No redirect, no countdown.
- // #6134 (strutturale): `jobHtmlCache` (una pagina HTML completa da
- // ~30-50 KB per ogni job attivo del locale posseduto) ha il suo ULTIMO
- // lettore in questo loop, ma veniva svuotata solo alla fine (clear() sotto)
- // — quindi la fase attraversava il proprio picco con l'intera cache in
- // pancia, ed e' esattamente il tratto dove i run 32315058310 e 32319344037
- // sono morti (exit 134, heap 9431 MB al checkpoint precedente). Refcount
- // esatto invece di delete-al-primo-uso: due job possono condividere uno
- // slug (il caso convit-holding dei previousSlugs), quindi una entry si
- // libera solo quando il suo ultimo lettore l'ha consumata. Il pre-pass
- // replica ESATTAMENTE il predicato di lettura del loop (slug non vuoto +
- // shouldEmitLocale sul baseLocale): se i due divergono, l'effetto e' solo
- // memoria non liberata, mai una lettura mancata.
- const crossLocaleCacheReads = new Map<string, number>();
- jobsSeoMemContext.crossLocaleCacheReads = crossLocaleCacheReads;
- for (const job of activeBridgeJobs) {
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- const s = localizedSlug(job, locale);
- if (!s) continue;
- const k = jobsSeoHtmlCacheKey(
-  locale,
-  withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, sharedResolveJobCanton(job as { canton?: string; location?: string }))}/${s}`.replace(/\/+/g, '/')),
- );
- crossLocaleCacheReads.set(k, (crossLocaleCacheReads.get(k) ?? 0) + 1);
- }
- }
+ // Preserve a full-content bridge only for (baseLocale × foreignSlug)
+ // combinations whose Worker destination is missing or differs from the
+ // planned canonical. Content remains in the base locale and points to that
+ // canonical URL.
  let crossLocaleCount = 0;
+ const crossLocaleBridgeHeapStartBytes = process.memoryUsage().heapUsed;
+ let crossLocaleBridgeHeapPeakBytes = crossLocaleBridgeHeapStartBytes;
+ const sampleCrossLocaleBridgeHeap = (): void => {
+  crossLocaleBridgeHeapPeakBytes = Math.max(crossLocaleBridgeHeapPeakBytes, process.memoryUsage().heapUsed);
+ };
  for (const job of activeBridgeJobs) {
-  await collector.awaitDrainSlot(2); // bound flush backlog (#1290; 2 e non 6: qui l'heap e' gia' al picco, vedi il commento del refcount sopra)
+  sampleCrossLocaleBridgeHeap();
+  await collector.awaitDrainSlot(2); // bound the write backlog during the retained bridge pass (#1290)
+  sampleCrossLocaleBridgeHeap();
  // Sibling guard to the active-job/previousSlug legacy-TI bridges above
  // (PR #3052, isCompanyHubNamespaceSlug): a non-TI job whose foreign slug
  // merely starts with azienda-/company-/unternehmen-/entreprise- must not
@@ -16943,6 +17130,20 @@ ${staticAnalyticsHtml}
  // still built for ALL locales above so foreignSlugs detection is unaffected.
  // No-op in the all-locale build.
  if (!shouldEmitLocale(baseLocale)) continue;
+ const foreignSlugs = new Set<string>();
+ for (const otherLocale of localeList) {
+  if (otherLocale === baseLocale) continue;
+  const currentForeignSlug = slugPerLocale[otherLocale];
+  if (currentForeignSlug && currentForeignSlug !== baseSlug) foreignSlugs.add(currentForeignSlug);
+  for (const previousSlug of prevSlugsByLocale[otherLocale] || []) {
+   if (previousSlug && previousSlug !== baseSlug) foreignSlugs.add(previousSlug);
+  }
+ }
+ for (const foreignSlug of foreignSlugs) {
+  const candidatePath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+  if (!retainedBridgePaths.has(bridgePathKey(baseLocale, candidatePath))) foreignSlugs.delete(foreignSlug);
+ }
+ if (foreignSlugs.size === 0) continue;
  const baseCanonicalPath = withSlash(
   `${localePrefix[baseLocale]}/${buildCantonAwareSection(baseLocale, jobCantonForCrossLocale)}/${baseSlug}`
    .replace(/\/+/g, '/'),
@@ -16963,43 +17164,7 @@ ${staticAnalyticsHtml}
   distDir,
   baseCanonicalPath,
  );
- // Eviction all'ultimo lettore (vedi il refcount pre-pass sopra): la cache
- // scende progressivamente DURANTE il loop invece di restare piatta fino al
- // clear() in coda. Il decremento avviene anche su cache-miss, perche' il
- // pre-pass ha contato lo stesso predicato, non la presenza in cache.
- // Review di #6154: il default `?? 1` trasformava una divergenza di
- // predicato (chiave letta ma mai contata) in una EVIZIONE PREMATURA al
- // primo lettore — l'opposto dell'invariante dichiarata. Una chiave non
- // contata ora non viene mai evitta: il costo della divergenza torna a
- // essere solo memoria (fino al clear() di coda), mai una lettura mancata.
- const countedReads = crossLocaleCacheReads.get(crossLocaleCacheKey);
- if (countedReads !== undefined) {
- const remainingReads = countedReads - 1;
- if (remainingReads <= 0) {
-  crossLocaleCacheReads.delete(crossLocaleCacheKey);
-  // The canonical HTML is disk-backed after the active-pages flush. The
-  // fallback entry, when a foreign writer left no readable file, is removed
-  // only at the corpus-release safety net below.
-  if (jobHtmlCache.has(crossLocaleCacheKey) && hasCollectorWrittenHtmlForPath(baseCanonicalPath)) {
-   jobHtmlCache.delete(crossLocaleCacheKey);
-  }
- } else {
- crossLocaleCacheReads.set(crossLocaleCacheKey, remainingReads);
- }
- }
  if (!cachedHtml) continue;
- const foreignSlugs = new Set<string>();
- for (const otherLocale of localeList) {
- if (otherLocale === baseLocale) continue;
- // Other locale's current slug
- const s = slugPerLocale[otherLocale];
- if (s && s !== baseSlug) foreignSlugs.add(s);
- // Other locale's previous slugs (covers legacy renames per locale)
- for (const ps of prevSlugsByLocale[otherLocale] || []) {
- if (ps && ps !== baseSlug) foreignSlugs.add(ps);
- }
- }
- if (foreignSlugs.size === 0) continue;
  // Compute once per (job, baseLocale) — same HTML is written at every foreign slug path.
  let bridgeHtml: string | null = null;
  const getBridgeHtml = (): string => {
@@ -17051,6 +17216,7 @@ ${staticAnalyticsHtml}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathWasClaimed(indexFile)) continue;
+ if (!isRetainedActiveBridgePath(baseLocale, relPath)) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
@@ -17083,6 +17249,7 @@ ${staticAnalyticsHtml}
  jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);
  _md(outDir);
  _qw(indexFile, noindexCrossLocaleActiveHtml);
+ sampleCrossLocaleBridgeHeap();
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleActiveReuseInput);
  }
@@ -17097,6 +17264,12 @@ ${staticAnalyticsHtml}
  if (crossLocaleCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
+ sampleCrossLocaleBridgeHeap();
+ console.log(
+  `[jobs-seo-pages] cross-locale bridge heap peak-mb=${(crossLocaleBridgeHeapPeakBytes / (1024 * 1024)).toFixed(1)} `
+  + `heap-over-start-mb=${((crossLocaleBridgeHeapPeakBytes - crossLocaleBridgeHeapStartBytes) / (1024 * 1024)).toFixed(1)} `
+  + `removable=${activeBridgeRemovableByKind.crossLocale} retained=${activeBridgeKeepByKind.crossLocale}`,
+ );
  // #6134: prima di questo checkpoint la finestra cieca andava da
  // previousSlugs-bridges fino a fine plugin (378 righe con le due fasi piu'
  // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
@@ -17113,26 +17286,14 @@ ${staticAnalyticsHtml}
   expiredSitemapEntries: expiredSitemapEntryCount,
  }));
 
- // Last-reader release, after the existing checkpoint: the cross-locale-active
- // loop above is the final reader of both sets. Expired sitemap rows are
- // streamed to disk during the archive sweep, so no row array remains here.
- // Keep pathHistory untouched.
- crossLocaleCacheReads.clear();
+ // Expired sitemap rows are streamed to disk during the archive sweep, so no
+ // row array remains here. Keep pathHistory untouched.
  emittedActiveJobPaths.clear();
  activeJobSitemapLocOwnerIds.clear();
  prevSlugEntries.length = 0;
 
- // `jobHtmlCache` (populated during the ~85k active-job-page render
- // phase) was read for the last time above, in the cross-locale-active
- // bridge loop — the self-heal pass and final flush below never touch
- // it again. Issue #5864 / run 31798646143 OOM'd (exit 134, V8 heap
- // ~10.6 GB) right after the self-heal log line, the same failure shape
- // already fixed once for `expiredSoftLandingCache` above. Free it here
- // so the tail of the build isn't carrying tens of thousands of
- // full-HTML strings it no longer needs.
- // (Dopo il refcount-eviction nel loop qui sopra questo clear() e' quasi un
- // no-op — restano solo le entry che il predicato del pre-pass non ha
- // contato. Resta come rete di sicurezza, non come meccanismo.)
+ // Only retained cross-locale bridges read this cache. Drop the remaining
+ // active-page fallback entries before the self-heal pass.
  jobHtmlCache.clear();
  // #6134 (strutturale): il corpus completo e' gia' stato rilasciato prima
  // dello sweep expired; qui resta solo la proiezione compatta usata dai due
@@ -17541,6 +17702,49 @@ ${staticAnalyticsHtml}
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();
  const written = await collector.flush();
+ const removableBridgeOutputs = (function* () {
+  for (const directory of getJobAliasRedirectDirs()) {
+   yield {
+    indexPath: np.join(directory, 'index.html'),
+    flatPath: `${directory}.html`,
+   };
+  }
+ })();
+ const retainedBridgeOutputs = (function* () {
+  for (const { bridge } of retainedBridgePaths.values()) {
+   if (!shouldEmitLocale(bridge.locale)) continue;
+   const targets = getSafeDistPageTargets(distDir, bridge.path);
+   if (!targets) throw new Error('[job-alias-redirect-gate] retained bridge path is not a safe dist target');
+   yield {
+    indexPath: targets.indexPath,
+    targetPath: `${BASE_URL}${bridge.targetPath}`,
+   };
+  }
+ })();
+ const bridgeDistCoverage = assertBridgePathDistCoverage(
+  removableBridgeOutputs,
+  retainedBridgeOutputs,
+  fs.existsSync,
+  (indexPath, targetPath) => {
+   const html = fs.readFileSync(indexPath, 'utf-8');
+   const targetSlug = targetPath.replace(/\/+$/, '').split('/').pop() || '';
+    const checks = {
+     noindex: hasNoindexRobotsMeta(html),
+     targetSlug: html.includes(`window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(targetSlug)}`),
+     canonical: hasExactCanonicalHref(html, targetPath),
+    };
+    if (!checks.noindex || !checks.targetSlug || !checks.canonical) {
+    throw new Error(
+     `[job-alias-redirect-gate] retained bridge invariant failed: noindex=${checks.noindex} `
+      + `targetSlug=${checks.targetSlug} canonical=${checks.canonical}`,
+    );
+   }
+   return true;
+  },
+ );
+ console.log(
+  `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200}`,
+ );
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));

@@ -5,6 +5,7 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES as MAX_FILESYSTEM_SEGMENT_BYTES_SHARED,
   isSafeCompatPath,
 } from '../../scripts/lib/compat-path-safety.mjs';
+import { isJobAliasRedirectPath } from '../sharedWriteRegistry';
 
 export {
   MAX_FILESYSTEM_SEGMENT_BYTES,
@@ -103,6 +104,9 @@ export function writeDistPageSafely(options: SafeDistPageWriteOptions): boolean 
 
   const indexPath = safeTargets?.indexPath ?? options.indexPath;
   const flatPath = safeTargets?.flatPath ?? options.flatPath;
+  if (isJobAliasRedirectPath(indexPath) || (flatPath && isJobAliasRedirectPath(flatPath))) {
+    return false;
+  }
 
   try {
     fs.mkdirSync(path.dirname(indexPath), { recursive: true });

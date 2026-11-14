@@ -12,21 +12,37 @@ import {
   knownSlugsLegacyFile,
   knownSlugsShardFile,
   knownSlugsShardIndex,
+  readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
 } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
+  assertBridgePathDistCoverage,
+  assertBridgePathClassificationCoverage,
+  buildTrackedJobCanonEntries,
+  buildTrackedJobCanonEntriesFromPersistedRegistry,
   buildActiveJobBridgePathPlan,
+  classifyBridgePathsFromFinalWorkerMap,
   classifyBridgePaths,
   emitActiveJobCanonAliases,
   planActiveJobCanonAliases,
+  reconcileFinalWorkerSlugMapRows,
   type ActiveJobSlugMapRow,
   type JobCanonEntryLike,
 } from '../build-plugins/shared/jobCanonBridgePaths';
 import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
+import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
 import {
+  _resetJobsSeoPagesSignalForTests,
+  registerJobsSeoPagesProducer,
+  resolveJobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from '../build-plugins/shared/buildSignals';
+import {
+  buildJobSlugShards,
   jobCanonV2ShardKey,
   jobSlugShardKey,
+  type SlugMapJobEntry,
 } from '../services/jobSlugShards';
 
 const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
@@ -124,6 +140,31 @@ describe('jobCanonRedirectMapPlugin', () => {
     const v2Files = fs.readdirSync(path.join(tmp, 'dist', 'job-canon', 'v2'));
     expect(v2Files.length).toBeGreaterThan(0);
     expect(v2Files.every((file) => /^[0-9a-f]{3}\.json$/.test(file))).toBe(true);
+  });
+
+  it('reconstructs the same Worker targets as PR-A registry output for bridge candidates', () => {
+    const logicalTracking = readAllKnownJobSlugs(tmp) as Record<string, Record<string, string>>;
+    const candidateSlugs = new Set(Object.keys(logicalTracking));
+    for (const paths of Object.values(logicalTracking)) {
+      for (const value of Object.values(paths ?? {})) {
+        const slug = typeof value === 'string' ? value.replace(/\/+$/, '').split('/').pop() : '';
+        if (slug) candidateSlugs.add(slug);
+      }
+    }
+    const reconstructed = buildTrackedJobCanonEntries(logicalTracking, candidateSlugs);
+    const emitted = new Map<string, Record<string, unknown>>();
+    for (const file of fs.readdirSync(path.join(tmp, 'dist', 'job-canon'))) {
+      if (!/^[a-z0-9_]{2}\.json$/.test(file)) continue;
+      const shard = JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', file), 'utf8')) as Record<string, Record<string, unknown>>;
+      for (const [slug, entry] of Object.entries(shard)) emitted.set(slug, entry);
+    }
+
+    for (const slug of candidateSlugs) {
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        expect(jobCanonTarget(reconstructed.entries.get(slug), slug, locale))
+          .toBe(jobCanonTarget(emitted.get(slug), slug, locale));
+      }
+    }
   });
 
   it('uses the shared djb2-xor hash for v2 and preserves the v1 hash modulo', () => {
@@ -617,6 +658,55 @@ describe('job canon bridge path planning and PR-B classification', () => {
       .sort()).toEqual(['en']);
   });
 
+  it('applies active-prefix precedence before deciding whether an alias is exact', () => {
+    const currentOwner = {
+      id: 'current-owner',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'shared-current', fr: 'current-fr' },
+    } satisfies ActiveJobSlugMapRow;
+    const previousOwner = {
+      id: 'previous-owner',
+      slug: 'previous-it',
+      canton: 'TI',
+      slugByLocale: { it: 'previous-it', en: 'previous-en', de: 'previous-de', fr: 'previous-fr' },
+      previousSlugsByLocale: { de: ['shared-current'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan(
+      [currentOwner, previousOwner],
+      { winners: {}, reservedHubSlugs: new Set() },
+    );
+    const bridge = plan.bridgePaths.find((candidate) =>
+      candidate.kind === 'previousSlug' && candidate.locale === 'de' && candidate.slug === 'shared-current');
+    expect(bridge).toBeDefined();
+    expect(plan.activePrefixByLocaleSlug.get('de\u0000shared-current')).toBe('/de/jobs-in-zurich');
+
+    const entry: JobCanonEntryLike = {
+      alias: { de: bridge!.targetPath.replace(/\/$/, '') },
+    };
+    entry.de = plan.activePrefixByLocaleSlug.get('de\u0000shared-current')!;
+    const classification = classifyBridgePaths(
+      [bridge!],
+      new Map([['shared-current', entry]]),
+      new Set(),
+      plan.activeRouteSlugKeys,
+    );
+    expect(classification.removable.has(bridge!.path)).toBe(false);
+    expect(classification.keepBridge.get(bridge!.path)).toBe('exactPrefix');
+
+    const conflictingOwner = {
+      id: 'conflicting-owner',
+      slug: 'conflicting-it',
+      canton: 'GE',
+      slugByLocale: { it: 'conflicting-it', en: 'conflicting-en', de: 'shared-current', fr: 'conflicting-fr' },
+    } satisfies ActiveJobSlugMapRow;
+    const conflictPlan = buildActiveJobBridgePathPlan(
+      [currentOwner, conflictingOwner, previousOwner],
+      { winners: {}, reservedHubSlugs: new Set() },
+    );
+    expect(conflictPlan.activePrefixByLocaleSlug.get('de\u0000shared-current')).toBeNull();
+  });
+
   it('streams the same alias destinations as the bridge-path reference planner', () => {
     const options = {
       winners: {},
@@ -688,6 +778,240 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(classified.keepBridge.get('/another-section/old-slug/')).toBe('targetMismatch');
   });
 
+  it('keeps late fuzzy and implicit slugs until they exist in the final Worker map', () => {
+    const serializedJob = {
+      id: 'late-worker-map-fixture',
+      slug: 'implicit-legacy-job-slug',
+      canton: 'ZH',
+      slugByLocale: {
+        it: 'current-worker-map-slug',
+        en: 'current-worker-map-slug',
+        de: 'current-worker-map-slug',
+        fr: 'current-worker-map-slug',
+      },
+    } satisfies ActiveJobSlugMapRow;
+    const finalJob = {
+      ...serializedJob,
+      previousSlugs: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+      previousSlugsByLocale: {
+        it: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+      },
+    } satisfies ActiveJobSlugMapRow;
+    const emittedBridges = buildActiveJobBridgePathPlan([finalJob], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+    }).bridgePaths;
+    const targetBridges = emittedBridges.filter((bridge) =>
+      bridge.locale === 'it'
+      && ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'].includes(bridge.slug),
+    );
+    expect(targetBridges.length).toBeGreaterThanOrEqual(2);
+
+    const workerEntriesFromRows = (rows: readonly ActiveJobSlugMapRow[]) => {
+      const entries = new Map<string, JobCanonEntryLike>();
+      emitActiveJobCanonAliases(rows, {
+        winners: {},
+        reservedHubSlugs: new Set(),
+        entryForSlug: () => undefined,
+        workerWouldRecover: () => false,
+        canWriteCrossLocalePath: () => true,
+        emitAlias: (slug, locale, targetPath) => {
+          const entry = entries.get(slug) ?? {};
+          entry.alias = { ...(entry.alias ?? {}), [locale]: targetPath };
+          entries.set(slug, entry);
+        },
+      });
+      return entries;
+    };
+
+    // This is the file as localeJobsSplitPlugin originally serialized it:
+    // it contains the legacy `job.slug`, but not the later previous-slug fact.
+    const workerRows: ActiveJobSlugMapRow[] = [serializedJob];
+    const staleInMemoryClassification = classifyBridgePaths(
+      targetBridges,
+      workerEntriesFromRows([finalJob]),
+    );
+    expect(staleInMemoryClassification.removable).toEqual(new Set(targetBridges.map((bridge) => bridge.path)));
+
+    const preReconciliationClassification = classifyBridgePathsFromFinalWorkerMap(
+      targetBridges,
+      workerEntriesFromRows(workerRows),
+      new Set(),
+    );
+    expect(preReconciliationClassification.removable.size).toBe(0);
+    expect([...preReconciliationClassification.keepBridge.values()]).toEqual(
+      Array.from({ length: targetBridges.length }, () => 'noEntry'),
+    );
+
+    const reconciliation = reconcileFinalWorkerSlugMapRows(workerRows, [finalJob]);
+    expect(reconciliation.matchedJobIdentifiers).toEqual(new Set(['late-worker-map-fixture']));
+    expect(reconciliation.unmatchedJobIdentifiers.size).toBe(0);
+    expect(reconciliation.updatedJobCount).toBe(1);
+    expect(workerRows[0].previousSlugsByLocale).toEqual({
+      it: ['implicit-legacy-job-slug', 'late-fuzzy-orphan-slug'],
+    });
+
+    // Round-trip the updated JSON exactly as jobCanonRedirectMapPlugin does
+    // when it reads dist/data/jobs-slug-map.json after jobsSeoPagesPlugin.
+    const consumedWorkerRows = JSON.parse(JSON.stringify(workerRows)) as ActiveJobSlugMapRow[];
+    const consumedShards = buildJobSlugShards(consumedWorkerRows as unknown as SlugMapJobEntry[]);
+    expect(consumedShards[jobSlugShardKey('late-fuzzy-orphan-slug')]['late-fuzzy-orphan-slug']?._id)
+      .toBe('late-worker-map-fixture');
+    const exactMapClassification = classifyBridgePathsFromFinalWorkerMap(
+      targetBridges,
+      workerEntriesFromRows(consumedWorkerRows),
+      reconciliation.matchedJobIdentifiers,
+    );
+    expect(exactMapClassification.removable).toEqual(new Set(targetBridges.map((bridge) => bridge.path)));
+    expect(exactMapClassification.keepBridge.size).toBe(0);
+  });
+
+  it('does not reconcile aliases into a serialized row whose route identity drifted', () => {
+    const serializedJob: ActiveJobSlugMapRow = {
+      id: 'route-drift-fixture',
+      slug: 'old-route-slug',
+      canton: 'ZH',
+      slugByLocale: { it: 'serialized-route' },
+      previousSlugs: ['serialized-previous'],
+    };
+    const finalJob: ActiveJobSlugMapRow = {
+      ...serializedJob,
+      slugByLocale: { it: 'final-route' },
+      previousSlugs: ['late-previous'],
+    };
+
+    const reconciliation = reconcileFinalWorkerSlugMapRows([serializedJob], [finalJob]);
+
+    expect(reconciliation.matchedJobIdentifiers.size).toBe(0);
+    expect(reconciliation.unmatchedJobIdentifiers).toEqual(new Set(['route-drift-fixture']));
+    expect(reconciliation.updatedJobCount).toBe(0);
+    expect(serializedJob.previousSlugs).toEqual(['serialized-previous']);
+  });
+
+  it('reconstructs registry prefixes and same-locale aliases for candidate paths', () => {
+    const tracked = buildTrackedJobCanonEntries({
+      'old-it': { it: '/cerca-lavoro-zurigo/old-it' },
+      'legacy-en': { en: '/en/find-jobs-ticino/current-en' },
+      'prefix-owner': { fr: '/fr/trouver-emploi-zurich/shared-route' },
+      'prefix-owner-2': { fr: '/fr/trouver-emploi-berne/shared-route' },
+    }, new Set(['old-it', 'legacy-en', 'current-en', 'shared-route']));
+
+    expect(tracked.entries.get('old-it')?.it).toBe('/cerca-lavoro-zurigo');
+    expect(tracked.entries.get('legacy-en')?.alias?.en).toBe('/en/find-jobs-ticino/current-en');
+    expect(tracked.entries.get('current-en')?.en).toBe('/en/find-jobs-ticino');
+    expect(tracked.entries.get('shared-route')?.fr).toBe('/fr/trouver-emploi-zurich');
+  });
+
+  it('classifies from the persisted streamed registry after a late compatibility overwrite', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-persisted-classification-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+
+      const persistedRegistry = {
+        'compatibility-old-route': { en: '/en/find-jobs-zurich/worker-actual-destination' },
+        'exact-old-route': { en: '/en/find-jobs-bern/worker-exact-destination' },
+        'later-prefix-owner': { fr: '/fr/trouver-emploi-berne/shared-prefix-candidate' },
+      };
+      writeAllKnownJobSlugs(persistedRegistry, root);
+      // The legacy part is read first, but the numbered shard is the later
+      // owner of compatibility-old-route. Duplicate source keys inside the
+      // legacy part retain file-order behavior for equal-order prefix paths.
+      fs.writeFileSync(knownSlugsLegacyFile(root), `{
+  "compatibility-old-route": { "en": "/en/find-jobs-ticino/legacy-compatibility-target" },
+  "first-prefix-owner": { "fr": "/fr/trouver-emploi-zurich/shared-prefix-candidate" },
+  "first-prefix-owner": { "fr": "/fr/trouver-emploi-geneve/shared-prefix-candidate" }
+}`);
+
+      process.env.BUILD_LOCALE = 'it';
+      setJobCanonOrderingFields([]);
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+      const workerShard = JSON.parse(fs.readFileSync(
+        path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey('compatibility-old-route')}.json`),
+        'utf8',
+      )) as Record<string, { alias?: Record<string, string> }>;
+      expect(workerShard['compatibility-old-route']?.alias?.en)
+        .toBe('/en/find-jobs-zurich/worker-actual-destination');
+      const workerPrefixShard = JSON.parse(fs.readFileSync(
+        path.join(root, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey('shared-prefix-candidate')}.json`),
+        'utf8',
+      )) as Record<string, Record<string, string>>;
+      expect(workerPrefixShard['shared-prefix-candidate']?.fr).toBe('/fr/trouver-emploi-zurich');
+
+      // This models the GSC compatibility merge performed after the registry
+      // write: the in-memory row now disagrees with the Worker input on disk.
+      const tracking = readAllKnownJobSlugs(root) as Record<string, Record<string, string>>;
+      tracking['compatibility-old-route'].en = '/en/find-jobs-ticino/legacy-compatibility-target';
+      const bridgePaths = [
+        {
+          path: '/en/jobs-im-tessin/compatibility-old-route/',
+          locale: 'en',
+          slug: 'compatibility-old-route',
+          targetPath: '/en/find-jobs-ticino/legacy-compatibility-target/',
+          kind: 'previousSlug',
+          canton: 'TI',
+          sourceJobIdentifier: 'reconciled-active-job',
+        },
+        {
+          path: '/en/jobs-im-tessin/exact-old-route/',
+          locale: 'en',
+          slug: 'exact-old-route',
+          targetPath: '/en/find-jobs-bern/worker-exact-destination/',
+          kind: 'previousSlug',
+          canton: 'BE',
+          sourceJobIdentifier: 'reconciled-active-job',
+        },
+      ] as const;
+      const bridgeSlugs = new Set(bridgePaths.map(({ slug }) => slug));
+      bridgeSlugs.add('shared-prefix-candidate');
+
+      const inMemoryEntries = buildTrackedJobCanonEntries(tracking, bridgeSlugs).entries;
+      expect(inMemoryEntries.get('shared-prefix-candidate')?.fr).toBe('/fr/trouver-emploi-geneve');
+      const staleClassification = classifyBridgePaths(bridgePaths, inMemoryEntries);
+      expect(staleClassification.removable).toContain('/en/jobs-im-tessin/compatibility-old-route/');
+
+      const serializedWorkerJob: ActiveJobSlugMapRow = {
+        id: 'reconciled-active-job',
+        slug: 'reconciled-active-job',
+        canton: 'ZH',
+        slugByLocale: {
+          it: 'reconciled-active-job',
+          en: 'reconciled-active-job',
+          de: 'reconciled-active-job',
+          fr: 'reconciled-active-job',
+        },
+      };
+      const finalWorkerJob: ActiveJobSlugMapRow = {
+        ...serializedWorkerJob,
+        previousSlugsByLocale: { en: ['compatibility-old-route', 'exact-old-route'] },
+      };
+      const reconciliation = reconcileFinalWorkerSlugMapRows([serializedWorkerJob], [finalWorkerJob]);
+      expect(reconciliation.matchedJobIdentifiers).toEqual(new Set(['reconciled-active-job']));
+      expect(reconciliation.unmatchedJobIdentifiers.size).toBe(0);
+      expect(reconciliation.updatedJobCount).toBe(1);
+      expect(serializedWorkerJob.previousSlugsByLocale)
+        .toEqual({ en: ['compatibility-old-route', 'exact-old-route'] });
+
+      const persistedEntries = buildTrackedJobCanonEntriesFromPersistedRegistry(root, bridgeSlugs).entries;
+      expect(persistedEntries.get('shared-prefix-candidate')?.fr).toBe('/fr/trouver-emploi-zurich');
+      const persistedClassification = classifyBridgePathsFromFinalWorkerMap(
+        bridgePaths,
+        persistedEntries,
+        reconciliation.matchedJobIdentifiers,
+      );
+      expect(persistedClassification.removable).toEqual(new Set(['/en/jobs-im-tessin/exact-old-route/']));
+      expect(persistedClassification.keepBridge.get('/en/jobs-im-tessin/compatibility-old-route/'))
+        .toBe('targetMismatch');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+    }
+  });
+
   it('rejects a fixture whose maximum shard grows beyond five percent', () => {
     expect(assertMaxShardGrowthWithinPercent([100, 900], [100, 945], 5)).toBe(5);
     expect(() => assertMaxShardGrowthWithinPercent([100, 900], [100, 946], 5))
@@ -724,5 +1048,327 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(classified.keepBridge.get('/it/missing/')).toBe('noEntry');
     expect(classified.keepBridge.get('/it/chain/')).toBe('chain');
     expect(classified.removable.has('/it/next-bridge/')).toBe(true);
+  });
+
+  it('fails the build gate on a residual page, missing alias target, or missing keepBridge page', () => {
+    const removableBridge = {
+      path: '/cerca-lavoro-ticino/old-route/',
+      locale: 'it',
+      slug: 'old-route',
+      targetPath: '/cerca-lavoro-zurigo/current-route/',
+      kind: 'previousSlug',
+      canton: 'ZH',
+    } as const;
+    const removableEntries = new Map<string, JobCanonEntryLike>([
+      ['old-route', { alias: { it: removableBridge.targetPath.replace(/\/$/, '') } }],
+    ]);
+    const removableClassification = classifyBridgePaths([removableBridge], removableEntries);
+    expect(removableClassification.removable.has(removableBridge.path)).toBe(true);
+    expect(() => assertBridgePathDistCoverage(
+      [{ indexPath: '/dist/cerca-lavoro-ticino/old-route/index.html', flatPath: '/dist/cerca-lavoro-ticino/old-route.html' }],
+      [],
+      () => true,
+      () => true,
+    )).toThrow('[job-alias-redirect-gate] removable path still has static HTML');
+    expect(() => assertBridgePathClassificationCoverage(
+      [removableBridge],
+      { removable: new Set([removableBridge.path]), keepBridge: new Map() },
+      new Map(),
+    )).toThrow('[job-alias-redirect-gate] removable path has no exact Worker target');
+
+    const keepBridge = { ...removableBridge, path: '/cerca-lavoro-ticino/unmapped-route/', slug: 'unmapped-route' };
+    const keepClassification = classifyBridgePaths([keepBridge], new Map());
+    expect(keepClassification.keepBridge.get(keepBridge.path)).toBe('noEntry');
+    expect(() => assertBridgePathDistCoverage(
+      [],
+      [{ indexPath: '/dist/cerca-lavoro-ticino/unmapped-route/index.html', targetPath: 'https://frontaliereticino.ch/cerca-lavoro-zurigo/current-route/' }],
+      () => false,
+      () => false,
+    )).toThrow('[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge');
+
+    expect(() => assertBridgePathDistCoverage(
+      [],
+      [{ indexPath: '/dist/cerca-lavoro-ticino/unmapped-route/index.html', targetPath: 'https://frontaliereticino.ch/cerca-lavoro-zurigo/current-route/' }],
+      () => true,
+      () => false,
+    )).toThrow('[job-alias-redirect-gate] retained bridge does not point to its planned canonical');
+  });
+
+  it('measures four-locale bridge removal on a synthetic full-content corpus', () => {
+    const locales = ['it', 'en', 'de', 'fr'] as const;
+    const syntheticJobCount = 2048;
+    const syntheticHtml = `<html><head></head><body>${'x'.repeat(32 * 1024)}</body></html>`;
+    const htmlBytes = Buffer.byteLength(syntheticHtml, 'utf8');
+    const jobs: ActiveJobSlugMapRow[] = Array.from({ length: syntheticJobCount }, (_, index) => {
+      const suffix = String(index).padStart(4, '0');
+      const currentSlug = `fixture-current-${suffix}`;
+      const oldSlug = `fixture-previous-${suffix}`;
+      return {
+        id: `fixture-${suffix}`,
+        slug: currentSlug,
+        canton: 'TI',
+        slugByLocale: Object.fromEntries(locales.map((locale) => [locale, currentSlug])),
+        previousSlugsByLocale: Object.fromEntries(locales.map((locale) => [locale, [oldSlug]])),
+      };
+    });
+    const heapStart = process.memoryUsage().heapUsed;
+    let heapPeak = heapStart;
+    const sampleHeap = (): void => {
+      heapPeak = Math.max(heapPeak, process.memoryUsage().heapUsed);
+    };
+    const bridgePlan = buildActiveJobBridgePathPlan(jobs, {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      onHeapSample: sampleHeap,
+    });
+    const entries = new Map<string, JobCanonEntryLike>();
+    const firstOldSlug = 'fixture-previous-0000';
+    entries.set(firstOldSlug, {
+      alias: Object.fromEntries(locales.map((locale) => [locale, `/wrong/${firstOldSlug}`])),
+    });
+    const activeAliasPlan = planActiveJobCanonAliases(
+      bridgePlan,
+      (slug) => entries.get(slug),
+      sampleHeap,
+    );
+    for (const alias of activeAliasPlan.aliases) {
+      const entry = { ...(entries.get(alias.slug) ?? {}) };
+      const registryAlias = { ...(entry.alias ?? {}) };
+      registryAlias[alias.locale] = alias.targetPath;
+      entry.alias = registryAlias;
+      entries.set(alias.slug, entry);
+    }
+    const classification = classifyBridgePaths(
+      bridgePlan.bridgePaths,
+      entries,
+      activeAliasPlan.ambiguousCantonKeys,
+      bridgePlan.activeRouteSlugKeys,
+      sampleHeap,
+    );
+    sampleHeap();
+
+    const metrics = Object.fromEntries(locales.map((locale) => {
+      const paths = bridgePlan.bridgePaths.filter((bridge) => bridge.locale === locale);
+      const removable = paths.filter((bridge) => classification.removable.has(bridge.path)).length;
+      const retained = paths.filter((bridge) => classification.keepBridge.has(bridge.path)).length;
+      return [locale, {
+        bridgeCountBefore: paths.length,
+        bridgeFullCountBefore: paths.length,
+        removableBridgeCountBefore: removable,
+        removableBridgeCountAfter: 0,
+        bridgeCountAfter: retained,
+        bridgeFullCountAfter: retained,
+        htmlFilesRemoved: removable * 2,
+        bytesRemoved: removable * 2 * htmlBytes,
+      }];
+    }));
+    assertBridgePathClassificationCoverage(bridgePlan.bridgePaths, classification, entries);
+    const removableOutputs = bridgePlan.bridgePaths
+      .filter((bridge) => classification.removable.has(bridge.path))
+      .map((bridge) => ({
+        indexPath: `/dist/${bridge.path.replace(/^\/+|\/+$/g, '')}/index.html`,
+        flatPath: `/dist/${bridge.path.replace(/^\/+|\/+$/g, '')}.html`,
+      }));
+    const retainedOutputs = bridgePlan.bridgePaths
+      .filter((bridge) => classification.keepBridge.has(bridge.path))
+      .map((bridge) => ({
+        indexPath: `/dist/${bridge.path.replace(/^\/+|\/+$/g, '')}/index.html`,
+        targetPath: bridge.targetPath,
+      }));
+    const retainedIndexes = new Set(retainedOutputs.map((output) => output.indexPath));
+    const retainedTargets = new Map(retainedOutputs.map((output) => [output.indexPath, output.targetPath]));
+    assertBridgePathDistCoverage(
+      removableOutputs,
+      retainedOutputs,
+      (filePath) => retainedIndexes.has(filePath),
+      (filePath, targetPath) => retainedTargets.get(filePath) === targetPath,
+    );
+    console.log(`[job-alias-fixture-measure] ${JSON.stringify({
+      syntheticJobs: syntheticJobCount,
+      htmlBytesPerPage: htmlBytes,
+      byLocale: metrics,
+      heapPeakMb: Number((heapPeak / (1024 * 1024)).toFixed(1)),
+      heapOverStartMb: Number(((heapPeak - heapStart) / (1024 * 1024)).toFixed(1)),
+    })}`);
+    for (const locale of locales) {
+      expect(metrics[locale]).toMatchObject({
+        bridgeCountBefore: syntheticJobCount,
+        bridgeFullCountBefore: syntheticJobCount,
+        removableBridgeCountBefore: syntheticJobCount - 1,
+        removableBridgeCountAfter: 0,
+        bridgeCountAfter: 1,
+        bridgeFullCountAfter: 1,
+      });
+    }
+  });
+
+  it('completes an isolated Worker invocation without a jobs SEO producer', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-no-producer-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = 'en';
+    try {
+      expect(shouldAwaitJobsSeoPagesFlushed()).toBe(false);
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it('waits for the registered jobs SEO producer before checking dist in a parallel-style closeBundle', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-jobs-seo-barrier-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    const previousFastBuild = process.env.FAST_BUILD;
+    let workerRun: Promise<void> | undefined;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = 'it';
+    delete process.env.FAST_BUILD;
+    try {
+      // Register the producer directly. This suite mocks jobsSeoPagesPlugin's
+      // data helpers, so importing a second real plugin instance here would
+      // make the test depend on Vitest's mocked module graph rather than the
+      // shared build barrier contract.
+      registerJobsSeoPagesProducer();
+      expect(shouldAwaitJobsSeoPagesFlushed()).toBe(true);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      let workerFinished = false;
+      workerRun = (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin)
+        .then(() => { workerFinished = true; });
+      await new Promise<void>((resolve) => setImmediate(resolve));
+      expect(workerFinished).toBe(false);
+      expect(fs.existsSync(path.join(root, 'dist'))).toBe(false);
+
+      const slug = 'parallel-handoff-worker-fixture';
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({
+        [slug]: { it: `/cerca-lavoro-zurigo/${slug}` },
+      }, root);
+      setJobCanonOrderingFields([]);
+
+      // Model the producer finishing its reconciled slug map while Worker
+      // closeBundle is already running and still has no dist to inspect.
+      resolveJobsSeoPagesFlushed();
+      await workerRun;
+      workerRun = undefined;
+
+      const workerShardPath = path.join(
+        root,
+        'dist',
+        'job-canon',
+        'v2',
+        `${jobCanonV2ShardKey(slug)}.json`,
+      );
+      expect(fs.existsSync(workerShardPath)).toBe(true);
+      expect(JSON.parse(fs.readFileSync(workerShardPath, 'utf8'))[slug]?.it)
+        .toBe('/cerca-lavoro-zurigo');
+    } finally {
+      resolveJobsSeoPagesFlushed();
+      if (workerRun) await workerRun.catch(() => undefined);
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      if (previousFastBuild === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = previousFastBuild;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each([
+    ['unset', undefined],
+    ['empty', ''],
+  ] as const)('emits the Worker map for all-locale BUILD_LOCALE=%s', async (_label, buildLocale) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-all-locale-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    if (buildLocale === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = buildLocale;
+    try {
+      const slug = 'all-locale-worker-map-fixture';
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({
+        [slug]: { en: `/en/find-jobs-zurich/${slug}` },
+      }, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      const workerShardPath = path.join(
+        root,
+        'dist',
+        'job-canon',
+        'v2',
+        `${jobCanonV2ShardKey(slug)}.json`,
+      );
+      expect(fs.existsSync(workerShardPath)).toBe(true);
+      expect(JSON.parse(fs.readFileSync(workerShardPath, 'utf8'))[slug]?.en)
+        .toBe('/en/find-jobs-zurich');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each(['en', 'de', 'fr'] as const)('does not emit a competing Worker map for BUILD_LOCALE=%s', async (buildLocale) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-non-owner-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = buildLocale;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({}, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      expect(fs.existsSync(path.join(root, 'dist', 'job-canon'))).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each([
+    ['missing', undefined],
+    ['invalid', '{}'],
+  ] as const)('fails closed for an all-locale Worker slug map that is %s', async (state, mapContents) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-all-locale-invalid-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    delete process.env.BUILD_LOCALE;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      if (mapContents !== undefined) {
+        fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), mapContents);
+      }
+      writeAllKnownJobSlugs({}, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
+        .rejects.toThrow(state === 'missing' ? 'all-locale build requires' : 'must contain an array');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
   });
 });

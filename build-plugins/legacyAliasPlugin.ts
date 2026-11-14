@@ -53,6 +53,7 @@ import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageP
 import type { Locale } from '../services/i18n';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -364,6 +365,10 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
         // guard always passes and the alias always writes.
         if (isUnshippablePath(entry.orphanPath, unshippablePrefixes)) { skippedUnshippable++; continue; }
         const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
+        if (isJobAliasRedirectPath(indexTarget) || (flatTarget && isJobAliasRedirectPath(flatTarget))) {
+          skipped++;
+          continue;
+        }
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);

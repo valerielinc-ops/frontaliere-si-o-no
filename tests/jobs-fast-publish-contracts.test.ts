@@ -18,8 +18,67 @@ import {
   localizedActiveJobSlug,
 } from "../build-plugins/shared/activeJobPageSelection";
 import { buildCanonicalJobDetailPath } from "../build-plugins/shared/jobDetailPath";
+import { buildActiveJobBridgePathPlan } from "../build-plugins/shared/jobCanonBridgePaths";
 
 describe("jobs fast-publish HTML asset contract", () => {
+  it("matches full-build canonical routes and emits no previous-slug or cross-locale bridges", () => {
+    const jobs = [{
+      id: "fast-parity-active",
+      slug: "current-it-route",
+      slugByLocale: {
+        it: "current-it-route",
+        en: "current-en-route",
+        de: "current-de-route",
+        fr: "current-fr-route",
+      },
+      previousSlugs: ["previous-it-route"],
+      previousSlugsByLocale: { en: ["previous-en-route"] },
+      canton: "ZH",
+    }];
+    const helpers = {
+      buildCanonicalJobDetailPath,
+      resolveJobCanton: (job: { canton: string }) => job.canton,
+    };
+    const owners = buildActiveJobPathOwners(
+      jobs,
+      ACTIVE_JOB_PAGE_LOCALES,
+      helpers.resolveJobCanton,
+      localizedActiveJobSlug,
+    );
+    const fastPaths = canonicalPathsForFastLaneJob(jobs[0], {
+      ...helpers,
+      pathOwners: owners,
+    });
+    const fullPaths = ACTIVE_JOB_PAGE_LOCALES.map((locale) =>
+      buildCanonicalJobDetailPath(locale, jobs[0], localizedActiveJobSlug(jobs[0], locale), "ZH"),
+    );
+    const bridgePaths = buildActiveJobBridgePathPlan(jobs, {
+      winners: {},
+      reservedHubSlugs: new Set(),
+    }).bridgePaths.map((bridge) => bridge.path);
+
+    expect(fastPaths).toEqual(fullPaths);
+    expect(fastPaths.some((route) => bridgePaths.includes(route))).toBe(false);
+
+    const fullRenderer = readFileSync(
+      new URL("../build-plugins/jobsSeoPagesPlugin.ts", import.meta.url),
+      "utf8",
+    );
+    const fastPublisher = readFileSync(
+      new URL("../scripts/publish-jobs-fast.mjs", import.meta.url),
+      "utf8",
+    );
+    const fastLaneExit = fullRenderer.indexOf("if (options.fastLane) {");
+    const previousBridgePhase = fullRenderer.indexOf(
+      "/* ── Retained full-content pages for previousSlugs",
+    );
+    expect(fastLaneExit).toBeGreaterThan(-1);
+    expect(previousBridgePhase).toBeGreaterThan(fastLaneExit);
+    expect(fastPublisher).not.toContain("__BRIDGE_TARGET_SLUG__");
+    expect(fastPublisher).not.toContain("previousSlugsByLocale");
+    expect(fastPublisher).toContain("canonicalPathsForFastLaneJob");
+  });
+
   it("matches the full build's all-or-nothing active hreflang contract", () => {
     const partialPages = [
       { locale: "it", path: "/it/jobs/partial-it/" },

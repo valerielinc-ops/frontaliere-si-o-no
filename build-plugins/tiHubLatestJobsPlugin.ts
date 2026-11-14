@@ -51,10 +51,12 @@ export function tiHubLatestJobsPlugin(rootDir: string): Plugin {
     enforce: 'post',
     async closeBundle() {
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
       await (shouldAwaitJobsSeoPagesFlushed()
         ? Promise.all([staticPagesFlushed, jobsSeoPagesFlushed])
         : staticPagesFlushed);
+      // staticPagesPlugin may create dist during its parallel closeBundle;
+      // inspect it only after the producer barrier has completed.
+      if (!fs.existsSync(distDir)) return;
       const blocks = getTiHubLatestJobsBlocks();
       const results = LOCALES.filter((locale) => shouldEmitLocale(locale)).map((locale) => ({
         locale,

@@ -27,6 +27,7 @@ import {
   junkRetirementWrites,
   loadPreviouslyEmittedClusterKeys,
   prepareRetirementGuardInputs,
+  reapplyRetiredManifestFiles,
   retiredManifestWrites,
   restoredKeywordLandingPaths,
   restoredRetiredLandingPaths,
@@ -35,6 +36,10 @@ import {
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
+import {
+  reserveJobAliasRedirectDir,
+  reset as resetSharedWriteRegistry,
+} from '../build-plugins/sharedWriteRegistry';
 import type { CandidateEntry, RawJob } from '../build-plugins/relatedSearchClustersData';
 
 const JUNK: CandidateEntry = {
@@ -486,6 +491,27 @@ describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HI
       expect(fs.readFileSync(path.join(dist2, write.rel), 'utf-8')).toBe(write.html);
     }
     fs.rmSync(root, { recursive: true, force: true });
+  });
+});
+
+describe('retired manifest restore respects reserved job alias paths', () => {
+  it('does not reapply an index or flat retirement output over a reserved alias', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-job-alias-reservation-'));
+    const distDir = path.join(root, 'dist');
+    const writes = junkRetirementWrites(
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern/',
+      buildJunkRetirementHtml('it'),
+    );
+    const indexPath = path.join(distDir, writes[0].rel);
+    resetSharedWriteRegistry();
+    try {
+      reserveJobAliasRedirectDir(path.dirname(indexPath));
+      expect(reapplyRetiredManifestFiles(distDir, writes.map((write) => write.rel))).toBe(0);
+      expect(writes.every((write) => !fs.existsSync(path.join(distDir, write.rel)))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 

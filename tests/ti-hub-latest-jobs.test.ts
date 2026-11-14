@@ -16,7 +16,14 @@ import {
   replaceCantonJobListingGrid,
 } from '../build-plugins/shared/cantonJobListingGrid';
 import { patchTiHubFile, tiHubIndexPath, tiHubLatestJobsPlugin } from '../build-plugins/tiHubLatestJobsPlugin';
-import { resolveStaticPagesFlushed } from '../build-plugins/shared/buildSignals';
+import {
+  _resetJobsSeoPagesSignalForTests,
+  registerJobsSeoPagesProducer,
+  resolveJobsSeoPagesFlushed,
+  resolveStaticPagesFlushed,
+  setTiHubLatestJobsBlocks,
+} from '../build-plugins/shared/buildSignals';
+import { shouldEmitLocale } from '../build-plugins/shared/localeEmitFilter';
 import { SECTION_LEGACY_TI_ROOT } from '../build-plugins/shared/cantonSection';
 import {
   buildCantonHubH1,
@@ -190,6 +197,52 @@ describe('salary page → canton job hub link', () => {
 });
 
 describe('tiHubLatestJobsPlugin closeBundle', () => {
+  it('waits for both producers before checking a dist created during closeBundle', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ti-hub-late-dist-'));
+    const dist = path.join(root, 'dist');
+    const previousFastBuild = process.env.FAST_BUILD;
+    let pluginRun: Promise<void> | undefined;
+    let finished = false;
+    delete process.env.FAST_BUILD;
+    _resetJobsSeoPagesSignalForTests();
+    registerJobsSeoPagesProducer();
+    setTiHubLatestJobsBlocks(null);
+
+    try {
+      const plugin = tiHubLatestJobsPlugin(root) as { closeBundle: () => Promise<void> };
+      pluginRun = plugin.closeBundle().then(() => { finished = true; });
+      await new Promise<void>((resolve) => setImmediate(resolve));
+      expect(finished).toBe(false);
+      expect(fs.existsSync(dist)).toBe(false);
+
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const indexPath = tiHubIndexPath(dist, locale);
+        fs.mkdirSync(path.dirname(indexPath), { recursive: true });
+        fs.writeFileSync(indexPath, `<h1>x</h1>${TI_HUB_LATEST_JOBS_SLOT}`);
+      }
+
+      resolveStaticPagesFlushed();
+      await new Promise<void>((resolve) => setImmediate(resolve));
+      expect(finished).toBe(false);
+      resolveJobsSeoPagesFlushed();
+      await pluginRun;
+      pluginRun = undefined;
+
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        if (!shouldEmitLocale(locale)) continue;
+        expect(fs.readFileSync(tiHubIndexPath(dist, locale), 'utf-8')).toBe('<h1>x</h1>');
+      }
+    } finally {
+      resolveStaticPagesFlushed();
+      resolveJobsSeoPagesFlushed();
+      if (pluginRun) await pluginRun.catch(() => undefined);
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousFastBuild === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = previousFastBuild;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
   const run = async (rootDir: string) => {
     const prev = process.env.FAST_BUILD;
     process.env.FAST_BUILD = '1'; // no jobsSeo producer: blocks stay null → slot cleared

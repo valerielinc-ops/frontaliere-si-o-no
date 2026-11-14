@@ -76,6 +76,7 @@ import {
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
   professionLandingsFlushed,
@@ -971,6 +972,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             console.warn(`[job-sector-pages] skipped unsafe path ${canonicalPath}`);
             continue;
           }
+          if (isJobAliasRedirectPath(safeTargets.indexPath) || isJobAliasRedirectPath(safeTargets.flatPath)) continue;
           ensureDir(safeTargets.directoryPath);
           fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
           ensureDir(np.dirname(safeTargets.flatPath));

@@ -63,6 +63,7 @@
  */
 
 import path from 'node:path';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -405,6 +406,11 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
           continue;
         }
         const { indexPath: indexTarget, flatPath: flatTarget } = safeTargets;
+
+        if (isJobAliasRedirectPath(indexTarget) || (flatTarget && isJobAliasRedirectPath(flatTarget))) {
+          skippedCollision++;
+          continue;
+        }
 
         // Skip if another plugin already wrote real content here (e.g. a
         // re-activated job that re-uses the same slug). Idempotency guard.

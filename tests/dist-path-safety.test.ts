@@ -11,6 +11,10 @@ import {
   MAX_FILESYSTEM_SEGMENT_BYTES,
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
+import {
+  reserveJobAliasRedirectDir,
+  reset as resetWriteRegistry,
+} from '../build-plugins/sharedWriteRegistry';
 
 const read = (relativePath: string): string =>
   fs.readFileSync(path.resolve(__dirname, relativePath), 'utf8');
@@ -24,6 +28,8 @@ const LEGACY_ALIAS_SOURCE = read('../build-plugins/legacyAliasPlugin.ts');
 const LOCATION_SOURCE = read('../build-plugins/locationHubBridgePlugin.ts');
 const COMPANY_SOURCE = read('../build-plugins/companyHubBridgePlugin.ts');
 const RELATED_SOURCE = read('../build-plugins/relatedSearchClustersPlugin.ts');
+const CANTON_ORPHAN_SOURCE = read('../build-plugins/cantonOrphanRedirectsPlugin.ts');
+const DIST_SAFETY_SOURCE = read('../build-plugins/shared/distPathSafety.ts');
 
 describe('isSafeDistPath', () => {
   it('rejects dot-prefixed segments, including the Search Console offender shape', () => {
@@ -106,6 +112,28 @@ describe('filesystem target preflight', () => {
       fs.rmSync(distDir, { recursive: true, force: true });
     }
   });
+
+  it('blocks safe compatibility page writes after an alias path is reserved', () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-reserved-alias-'));
+    const pathname = '/de/jobs-in-zurich/old-route/';
+    const targets = getSafeDistPageTargets(distDir, pathname)!;
+    try {
+      reserveJobAliasRedirectDir(targets.directoryPath);
+      expect(writeDistPageSafely({
+        distDir,
+        indexPath: targets.indexPath,
+        flatPath: targets.flatPath,
+        html: '<html>compatibility page</html>',
+        urlPath: pathname,
+        logPrefix: 'reserved-alias-test',
+      })).toBe(false);
+      expect(fs.existsSync(targets.indexPath)).toBe(false);
+      expect(fs.existsSync(targets.flatPath!)).toBe(false);
+    } finally {
+      resetWriteRegistry();
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('raw URL-to-dist writers apply the guard before filesystem joins', () => {
@@ -169,5 +197,18 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(RELATED_SOURCE).toContain('if (stem === \'\' || !isSafeDistPath(stem)) return null;');
     expect(RELATED_SOURCE).toContain('const safeTargets = getSafeDistPageTargets(distDir, landingPath);');
     expect(RELATED_SOURCE).toContain('return safeWrites.length;');
+  });
+
+  it('routes every direct compatibility page writer through alias reservations', () => {
+    for (const source of [JOB_ORPHAN_SOURCE, LEGACY_ALIAS_SOURCE, LOCATION_SOURCE,
+      COMPANY_SOURCE, CANTON_ORPHAN_SOURCE]) {
+      expect(source).toContain('isJobAliasRedirectPath');
+    }
+    expect(LEGACY_SOURCE).toContain('writeDistPageSafely({');
+    expect(CF_SOURCE).toContain('writeDistPageSafely({');
+    expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(indexPath)');
+    expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(flatPath)');
+    expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
+    expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
   });
 });
