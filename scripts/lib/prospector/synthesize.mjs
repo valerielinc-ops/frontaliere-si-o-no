@@ -99,6 +99,7 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {'pdf'} [detailFormat] Detail responses whose source format is PDF
  * @property {string} [detailLocationLabel] Exact detail-page heading whose following paragraph names the vacancy workplace
  * @property {Record<string, string>} [detailLocationCantonOverrides] Reviewed exact workplace labels mapped to a Swiss canton when the label is ambiguous in the shared locality registry
+ * @property {boolean} [detailPostalCodeLocation] Source contract: the detail JSON-LD stores the vacancy locality/CAP in `postalCode`, so resolve that field through the official Swiss locality directory
  * @property {string} [detailTitleLeadIn] Exact source text before a PDF vacancy title
  * @property {string} [detailTitleEndLabel] Exact source heading after a PDF vacancy title
  * @property {string} [detailApplyUrlHost] Exact approved HTTPS host for a PDF's application annotation link
@@ -113,6 +114,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   before enrichment. Neither a missing detail marker nor absent target text
  *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {boolean} [listingTitleFromUrl] Use a known detail URL slug as a provisional listing title when the source anchor is untitled
  * @property {boolean} [employerSiteLocationFallback] Allow the single-site official address proof after offer-specific location evidence is absent
  * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
  *   Reviewed exact Umantis listing postcode/locality pairs used only to
