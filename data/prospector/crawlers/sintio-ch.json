@@ -9,6 +9,7 @@
   ],
   "detailTemplate": "/companies/sintio/*",
   "detailEnrichment": false,
+  "authoritativeEmptyText": "Al momento non ci sono posizioni aperte",
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [

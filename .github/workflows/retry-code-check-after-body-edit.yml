@@ -40,7 +40,17 @@ concurrency:
 
 jobs:
   recover:
-    if: github.event_name == 'workflow_run' || github.event_name == 'schedule' || github.event.changes.body != null
+    # Solo le completion di `tests` generate da una pull_request hanno un marker
+    # da consumare: `handleWorkflowRun` esce subito su ogni altro `run.event`
+    # (i push su main erano la quota piu' grande delle 963 run/24 h). Le
+    # completion CANCELLED restano ammesse di proposito: il recovery cancella la
+    # run partita prima dell'edit del body e il rerun e' demandato proprio a
+    # quell'evento `cancelled`. Una HEAD superata viene scartata nello script
+    # (`pr.head.sha !== run.head_sha`), senza retry.
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.event == 'pull_request')
+      || github.event_name == 'schedule'
+      || github.event.changes.body != null
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

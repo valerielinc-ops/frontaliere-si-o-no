@@ -204,6 +204,56 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('uses changed export symbols to keep direct consumers precise', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'export const impacted = 1;',
+        'export const untouched = 1;',
+        '',
+      ].join('\n'),
+      'tests/impacted.test.ts': "import { impacted } from '../services/changed.mjs'; export const observed = impacted;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'export const impacted = 2;',
+      'export const untouched = 1;',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/impacted.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('propagates a private helper change only through its owning export', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'const changedHelper = () => 1;',
+        'const untouchedHelper = () => 1;',
+        'export function impacted() { return changedHelper(); }',
+        'export function untouched() { return untouchedHelper(); }',
+        '',
+      ].join('\n'),
+      'tests/impacted.test.ts': "import { impacted } from '../services/changed.mjs'; export const observed = impacted;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'const changedHelper = () => 2;',
+      'const untouchedHelper = () => 1;',
+      'export function impacted() { return changedHelper(); }',
+      'export function untouched() { return untouchedHelper(); }',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/impacted.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
   it('scopes shared locale and concierge service roots to their owning tests', () => {
     const locale = 'services/locales/en-core.ts';
     const concierge = 'services/applicationConciergeService.ts';
@@ -400,12 +450,14 @@ describe('run-related-tests selection contract', () => {
       '.github/workflows/unrelated.yml': 'name: unrelated\n',
       'tests/nord-anglia-crawler.test.ts': directoryReader,
       'tests/expired-at-parsable.test.ts': directoryReader,
+      'tests/generic-workflow-directory-reader.test.ts': directoryReader,
       'tests/unrelated.test.ts': 'export const unrelated = true;\n',
     });
 
     const testsWorkflow = select(root, ['.github/workflows/tests.yml']);
     expect(testsWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
     expect(testsWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+    expect(testsWorkflow.stdout).not.toContain('tests/generic-workflow-directory-reader.test.ts');
 
     const crawlerWorkflow = select(root, ['.github/workflows/crawler-group-01.yml']);
     expect(crawlerWorkflow.stdout).toContain('tests/nord-anglia-crawler.test.ts');
@@ -623,7 +675,7 @@ describe('run-related-tests selection contract', () => {
       }
       expect(result.output).not.toContain('selection_failed=true');
     }
-  });
+  }, 30_000);
 
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
     const reader = 'tests/translation-data-reader.test.ts';

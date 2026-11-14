@@ -319,6 +319,34 @@ describe('scorer oracle (#9314): same score as the pre-#9314 scoreJobForAlert', 
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
   });
+
+  it('rejects hard-geo misses before building full job features', () => {
+    const alert = ALERTS.find((candidate) => candidate.id === 'kw-geo')!;
+    const profile = profileOf(alert);
+    const store = createJobFeatureStore();
+    const originalBase = store.base;
+    let baseBuilds = 0;
+    store.base = (job: object) => {
+      baseBuilds++;
+      return originalBase(job);
+    };
+    const cache = createJobFeatureCache(store);
+    const scorer = createAlertScorer(profile, 'de', cache);
+    const job = {
+      ...fixtureJobs()[1],
+      title: 'Senior Software Engineer (Java)',
+      titleByLocale: { de: 'Senior Software Engineer (Java)' },
+      location: 'Genève',
+      canton: 'GE',
+    };
+
+    expect(scorer(job)).toBe(0);
+    expect(baseBuilds).toBe(0);
+
+    const inScopeJob = { ...job, location: 'Zürich', canton: 'ZH' };
+    expect(scorer(inScopeJob)).toBe(oracleScore(inScopeJob, profile, 'de'));
+    expect(baseBuilds).toBe(1);
+  });
 });
 
 describe('partitionByGeoPreference (#9314): needles normalized once, same split', () => {
@@ -370,6 +398,54 @@ describe('matching cost per alert (#9314)', () => {
     expect(counts.descriptionScans).toBeLessThanOrEqual(keywordCount * jobs.length);
   });
 
+  it('shares hard-search results across fresh per-batch caches', () => {
+    const jobs = fixtureJobs();
+    const alert = {
+      id: 'legacy-search',
+      email: 'legacy@example.test',
+      locale: 'en',
+      backfilled_from: 'newsletter_subscribers:legacy@example.test',
+      keywords: ['software engineer'],
+    };
+    const profile = buildAlertProfile(alert, { job_search_query: 'software engineer' });
+    expect(profile.hardSearchQueries).toEqual(['software engineer']);
+    const store = createJobFeatureStore();
+    const { counts } = countDuring(() => {
+      for (let batch = 0; batch < 2; batch++) {
+        const cache = createJobFeatureCache(store);
+        const scorer = createAlertScorer(profile, 'en', cache);
+        jobs.forEach((job) => scorer(job));
+      }
+    });
+
+    // A two-token query evaluates the large stemmed haystack at most twice per
+    // job across both batches; the run-scoped memo serves the second batch.
+    expect(counts.descriptionScans).toBeLessThanOrEqual(jobs.length * 2);
+  });
+
+  it('keeps shared hard-search results separate by locale', () => {
+    const alert = {
+      id: 'legacy-search-locale',
+      email: 'legacy-locale@example.test',
+      locale: 'en',
+      backfilled_from: 'newsletter_subscribers:legacy-locale@example.test',
+      keywords: ['software engineer'],
+    };
+    const profile = buildAlertProfile(alert, { job_search_query: 'software engineer' });
+    const store = createJobFeatureStore();
+    const job = {
+      ...fixtureJobs()[0],
+      title: 'Contabile',
+      titleByLocale: { en: 'Senior Software Engineer', fr: 'Comptable' },
+      description: FILLER,
+    };
+
+    const english = createAlertScorer(profile, 'en', createJobFeatureCache(store))(job);
+    const french = createAlertScorer(profile, 'fr', createJobFeatureCache(store))(job);
+    expect(english).toBeGreaterThan(0);
+    expect(french).toBe(0);
+  });
+
   it('normalizes the job side once per (job, locale), however many alerts score it', () => {
     const jobs = fixtureJobs();
     const geoAlerts = (count: number) => Array.from({ length: count }, (_, i) => ({
@@ -399,7 +475,7 @@ describe('matching cost per alert (#9314)', () => {
     expect(jobSide(geoAlerts(6 * LOCALES.length))).toBe(once);
   });
 
-  it('reuses immutable job features across fresh per-batch keyword caches', () => {
+  it('reuses compact job features across fresh per-batch keyword caches', () => {
     const jobs = [fixtureJobs()[6], fixtureJobs()[1]];
     const alert = {
       id: 'across-batches',
@@ -409,29 +485,113 @@ describe('matching cost per alert (#9314)', () => {
     };
     const profile = profileOf(alert);
     const expectedScores = jobs.map((job) => scoreJobForAlert(job, profile, 'en'));
-    const oneBatchCost = countDuring(() => {
-      const cache = createJobFeatureCache(createJobFeatureStore());
-      jobs.forEach((job) => cache.get(job, 'en'));
-    }).counts.normalizations;
-
     const store = createJobFeatureStore();
     const firstBatchCache = createJobFeatureCache(store);
     const secondBatchCache = createJobFeatureCache(store);
-    const { result: entries, counts } = countDuring(() => ({
-      first: jobs.map((job) => firstBatchCache.entry(job, 'en')),
-      second: [...jobs].reverse().map((job) => secondBatchCache.entry(job, 'en')),
-    }));
+    const originalLowercase = String.prototype.toLowerCase;
+    let descriptionLowercases = 0;
+    const entries = (() => {
+      String.prototype.toLowerCase = function (this: string, ...args: []) {
+        if (jobs.some((job) => this === job.description)) descriptionLowercases++;
+        return originalLowercase.apply(this, args);
+      };
+      try {
+        return {
+          first: jobs.map((job) => firstBatchCache.entry(job, 'en')),
+          second: [...jobs].reverse().map((job) => secondBatchCache.entry(job, 'en')),
+        };
+      } finally {
+        String.prototype.toLowerCase = originalLowercase;
+      }
+    })();
 
     jobs.forEach((job, index) => {
       expect(scoreJobForAlert(job, profile, 'en', firstBatchCache)).toBe(expectedScores[index]);
       expect(scoreJobForAlert(job, profile, 'en', secondBatchCache)).toBe(expectedScores[index]);
-      const secondEntry = entries.second.find((entry) => entry.features === entries.first[index].features);
-      expect(secondEntry).toBeDefined();
-      expect(secondEntry?.features).toBe(entries.first[index].features);
-      expect(entries.first[index].index).toBe(index);
-      expect(secondEntry?.index).toBe(jobs.length - 1 - index);
+      const secondFeatures = entries.second[jobs.length - 1 - index].features;
+      expect(secondFeatures).not.toBe(entries.first[index].features);
+      expect(secondFeatures.titleText).toBe(entries.first[index].features.titleText);
+      expect(secondFeatures.descriptionText).toBe(entries.first[index].features.descriptionText);
+      expect(secondFeatures.jobTokens).toBe(entries.first[index].features.jobTokens);
+      expect(secondFeatures.jobCategoryKeys).toBe(entries.first[index].features.jobCategoryKeys);
     });
-    expect(counts.normalizations).toBe(oneBatchCost);
+    expect(descriptionLowercases).toBe(jobs.length);
+    expect(entries.first.map((entry) => entry.index)).toEqual([0, 1]);
+    expect(entries.second.map((entry) => entry.index)).toEqual([0, 1]);
+  });
+
+  it('shares conclusive negative results across fresh per-batch caches', () => {
+    const job = fixtureJobs()[6];
+    const store = createJobFeatureStore();
+    const { counts } = countDuring(() => {
+      for (const locale of ['en', 'it']) {
+        const cache = createJobFeatureCache(store);
+        const entry = cache.entry(job, locale);
+        expect(cache.keywordTest(locale, 'unlikely-keyword-not-in-fixture')(entry)).toBe(false);
+      }
+    });
+    expect(counts.descriptionScans).toBe(0);
+  });
+
+  it('keeps trigram-prefiltered keyword results equal to exact full-text includes', () => {
+    const job = {
+      id: 'trigram-prefilter',
+      title: 'Senior exper',
+      titleByLocale: { en: 'Senior exper' },
+      description: 't autonome: café, Zürich, ingénieur système 🌟.',
+    };
+    const cache = createJobFeatureCache();
+    const entry = cache.entry(job, 'en');
+    const fullText = `${entry.features.titleText} ${entry.features.descriptionText}`;
+    const queries = new Set<string>(['exper t', 'it', 'xyz', 'café', '🌟']);
+    const text = entry.features.descriptionText;
+    for (let start = 0; start < text.length; start++) {
+      for (const length of [3, 4, 7, 12]) {
+        if (start + length <= text.length) queries.add(text.slice(start, start + length));
+      }
+    }
+
+    for (const keyword of queries) {
+      expect(cache.keywordTest('en', keyword)(entry)).toBe(fullText.includes(keyword));
+    }
+  });
+
+  it('skips exact description scans when the shared trigram filter rules out a keyword', () => {
+    const job = {
+      id: 'trigram-prefilter-misses',
+      title: 'Baker',
+      titleByLocale: { en: 'Baker' },
+      description: 'a'.repeat(1000),
+    };
+    const cache = createJobFeatureCache();
+    const entry = cache.entry(job, 'en');
+    const descriptionText = entry.features.descriptionText;
+    const originalIncludes = String.prototype.includes;
+    let descriptionScans = 0;
+    const queries = ['xyz', 'qzx', 'vjq', 'rty', 'mno', 'uvw', 'kpd', 'bfg'];
+    try {
+      String.prototype.includes = function (this: string, search: string, position?: number) {
+        if (this === descriptionText) descriptionScans++;
+        return originalIncludes.call(this, search, position);
+      };
+      for (const keyword of queries) {
+        expect(cache.keywordTest('en', keyword)(entry)).toBe(false);
+      }
+    } finally {
+      String.prototype.includes = originalIncludes;
+    }
+    expect(descriptionScans).toBe(0);
+  });
+
+  it('does not grow shared description bitmaps beyond the fixed job-index ceiling', () => {
+    const store = createJobFeatureStore();
+    const description = `${FILLER} ${FILLER}`;
+    const { counts } = countDuring(() => {
+      expect(store.descriptionContains('not-present', 65_536, description)).toBe(false);
+      expect(store.descriptionContains('not-present', 65_536, description)).toBe(false);
+    });
+    // Above the bitmap ceiling, results stay correct but are not retained.
+    expect(counts.descriptionScans).toBe(2);
   });
 
   it('keeps bitmap indexes dense after the shared feature store has seen many jobs', () => {
