@@ -22,6 +22,7 @@ import { successFactorsPostingDateFields } from './ats-clients/successfactors-cl
 import fs from 'node:fs';
 import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
@@ -642,6 +643,14 @@ function clampFloat(value, min, max, fallback) {
 function readJson(filePath, fallback = null) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function readJobsJson(filePath, fallback = null) {
+  try {
+    return readJsonFile(filePath);
   } catch {
     return fallback;
   }
@@ -6300,7 +6309,7 @@ async function main(runtimeOptions = {}) {
   } else {
     // Pre-load known job URLs to skip re-crawling detail pages already in data/jobs.json
     // Fall back to per-crawler slices when data/jobs.json is absent (CI environment)
-    let _preloadedJobs = readJson(DATA_JOBS, null);
+    let _preloadedJobs = readJobsJson(DATA_JOBS, null);
     if (_preloadedJobs === null) {
       _preloadedJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
       if (_preloadedJobs.length > 0) {
@@ -6401,7 +6410,7 @@ async function main(runtimeOptions = {}) {
   // Read existing jobs from data/jobs.json — or fall back to per-crawler slices.
   // In CI, data/jobs.json is gitignored and absent. Without this fallback,
   // existingJobs=[] causes mergeAndDeduplicate to lose all translated titles/slugs.
-  let existingJobs = readJson(DATA_JOBS, null);
+  let existingJobs = readJobsJson(DATA_JOBS, null);
   if (existingJobs === null) {
     existingJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
     if (existingJobs.length > 0) {

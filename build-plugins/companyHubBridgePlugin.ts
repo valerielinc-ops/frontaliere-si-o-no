@@ -40,6 +40,7 @@ import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBrea
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
@@ -224,8 +225,12 @@ function loadCompanyCantonAvailability(rootDir: string): CompanyCantonAvailabili
   const seenJobs = new Set<string>();
   for (const source of sources) {
     try {
-      const parsed = JSON.parse(fs.readFileSync(source, 'utf-8')) as { jobs?: unknown };
-      const jobs = Array.isArray(parsed?.jobs) ? parsed.jobs as Array<Record<string, unknown>> : [];
+      const parsed = readJsonFile(source) as unknown;
+      const jobs = Array.isArray(parsed)
+        ? parsed as Array<Record<string, unknown>>
+        : parsed && typeof parsed === 'object' && Array.isArray((parsed as { jobs?: unknown }).jobs)
+          ? (parsed as { jobs: Array<Record<string, unknown>> }).jobs
+          : [];
       for (const job of jobs) {
         const company = String(job.company || '').trim();
         if (!company) continue;
