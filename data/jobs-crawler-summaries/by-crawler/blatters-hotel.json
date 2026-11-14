@@ -1,11 +1,44 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-14T09:23:09.113Z",
+  "generatedAt": "2026-11-14T17:03:43.283Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "blatters-hotel",
+    "seedUrls": [
+      "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
+    ],
+    "phase": "detail",
+    "pages": 4,
+    "httpStatuses": [
+      {
+        "status": 403,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
+      },
+      {
+        "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340",
+        "proxiedBy": "browser"
+      },
+      {
+        "status": 403,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-chef-de-service-chef-de-rang-4041106?rltr=comp"
+      },
+      {
+        "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-chef-de-service-chef-de-rang-4041106?rltr=comp",
+        "proxiedBy": "browser"
+      }
+    ],
+    "proxiedBy": [
+      "browser"
+    ],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
@@ -19,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 35803,
-  "avgDurationMs": 35803,
+  "durationMs": 39369,
+  "avgDurationMs": 39369,
   "durationHistory": [
-    35803
+    39369
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +73,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-chef-de-service-chef-de-rang-4041106?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:22:50.280Z",
+      "crawledAt": "2026-11-14T17:03:24.997Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -64,7 +97,7 @@
       "postalCode": "7050",
       "streetAddress": "Arosa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:22:50.280Z",
+      "validThrough": "2027-01-05T17:03:24.997Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -75,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

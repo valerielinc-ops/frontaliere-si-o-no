@@ -6,6 +6,17 @@ import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs'
 const SEED_URL = 'https://eqe.example/unternehmen-2/karriere';
 const EMPTY_MARKER = "We don't have any open positions at the moment";
 const EMPTY_HTML = `<html><body><h1>Current Vacancies</h1><p>${EMPTY_MARKER.replace("'", '&#x27;')}</p></body></html>`;
+const NEXT_DATA_EMPTY_HTML = `<script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+  props: {
+    pageProps: {
+      messages: { 'companyShow.noJobsSubTitle': EMPTY_MARKER },
+      pageData: {
+        company: { domain: 'eqe' },
+        jobs: { items: [], pagination: { total: 0, pageCount: 0 } },
+      },
+    },
+  },
+})}</script>`;
 
 function response(url: string, body: string) {
   return {
@@ -43,6 +54,21 @@ function spec(authoritativeEmptyText = EMPTY_MARKER) {
   } as any;
 }
 
+function nextDataSpec() {
+  return {
+    ...spec(),
+    authoritativeEmptyData: {
+      scriptId: '__NEXT_DATA__',
+      companyPath: 'props.pageProps.pageData.company.domain',
+      companyValue: 'eqe',
+      itemsPath: 'props.pageProps.pageData.jobs.items',
+      totalPath: 'props.pageProps.pageData.jobs.pagination.total',
+      pageCountPath: 'props.pageProps.pageData.jobs.pagination.pageCount',
+      markerPath: 'props.pageProps.messages',
+    },
+  } as any;
+}
+
 describe('prospector source-backed empty listing contract', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
 
@@ -76,6 +102,66 @@ describe('prospector source-backed empty listing contract', () => {
       fetchOutcome: null,
       fetchDetail: null,
     });
+  });
+
+  it('ignores non-string marker configuration instead of coercing it into evidence', async () => {
+    const rows = await runSpecInProduction({
+      ...spec(),
+      authoritativeEmptyText: true,
+    } as any, runtime('<html><body><p>true</p></body></html>'));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
+  });
+
+  it('stamps a zero when the reviewed empty state lives in structured source data', async () => {
+    const rows = await runSpecInProduction(nextDataSpec(), runtime(NEXT_DATA_EMPTY_HTML));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(true);
+    expect(rows).toHaveProperty('fetchOutcome', 'ok');
+    expect(rows).toHaveProperty('authoritativeEmptyEvidence', expect.stringContaining(EMPTY_MARKER));
+  });
+
+  it('does not turn a populated structured listing into an empty snapshot', async () => {
+    const structuredHtml = NEXT_DATA_EMPTY_HTML.replace(
+      '"items":[],"pagination":{"total":0,"pageCount":0}',
+      '"items":[{"id":1}],"pagination":{"total":1,"pageCount":1}',
+    );
+    const html = `<html><body><p>${EMPTY_MARKER}</p>${structuredHtml}</body></html>`;
+    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
+  });
+
+  it('does not accept structured empty data from another tenant', async () => {
+    const structuredHtml = NEXT_DATA_EMPTY_HTML.replace(
+      '"domain":"eqe"',
+      '"domain":"other-company"',
+    );
+    const html = `<html><body><p>${EMPTY_MARKER}</p>${structuredHtml}</body></html>`;
+    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
+  });
+
+  it('rejects a structured contract with a non-string tenant value', async () => {
+    const rows = await runSpecInProduction({
+      ...nextDataSpec(),
+      authoritativeEmptyData: {
+        ...nextDataSpec().authoritativeEmptyData,
+        companyValue: true,
+      },
+    } as any, runtime(NEXT_DATA_EMPTY_HTML));
+
+    expect(rows).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
+    expect(rows).not.toHaveProperty('authoritativeEmptyState');
   });
 
   it('keeps the detail phase and observed HTTP status when detail fetches fail', async () => {

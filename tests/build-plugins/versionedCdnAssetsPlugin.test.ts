@@ -13,9 +13,11 @@ import {
   isStableBlogBodyAsset,
   isStableOutOfBandAsset,
   planVersionedCdnAssets,
+  publishVersionedCdnAssets,
   pointReleaseBlogBodyImportsAtStableLeaves,
   pointReleaseStableDataImportsAtStableLeaves,
   rewriteReleaseAssetReferences,
+  VERSIONED_CDN_POST_BUILD_MANIFEST,
   versionedCdnAssetsPlugin,
 } from '@/build-plugins/versionedCdnAssetsPlugin';
 
@@ -105,6 +107,14 @@ describe('versioned CDN asset namespace', () => {
     endEmitter();
     await closing;
 
+    const manifestPath = join(root, 'dist', VERSIONED_CDN_POST_BUILD_MANIFEST);
+    expect(existsSync(manifestPath)).toBe(true);
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+    expect(manifest.routeChunks).toEqual(['JobBoard.js', 'gone.js']);
+    expect(existsSync(join(assets, 'releases', BUILD))).toBe(false);
+
+    await publishVersionedCdnAssets(root, manifest);
+
     const bootstrap = readFileSync(join(assets, 'index-entry.js'), 'utf8');
     expect(bootstrap).toContain('const FRONTALIERE_ROUTE_CHUNKS=["JobBoard.js"];');
     resetRegisteredRouteChunks();
@@ -161,7 +171,7 @@ describe('versioned CDN asset namespace', () => {
     expect(entries).toEqual([`${CDN}/assets/releases/${BUILD}/index-entry.js`]);
   });
 
-  it('copies the executable graph and replaces the stable entry with a release bootstrap', async () => {
+  it('copies the executable graph after Vite finishes writing and replaces the stable entry', async () => {
     const root = mkdtempSync(join(tmpdir(), 'versioned-cdn-assets-'));
     const assets = join(root, 'dist', 'assets');
     mkdirSync(assets, { recursive: true });
@@ -180,10 +190,7 @@ describe('versioned CDN asset namespace', () => {
     writeFileSync(join(assets, 'first.it.js'), 'export default {};');
     writeFileSync(join(assets, 'index.css'), 'body{color:red}');
 
-    process.env.ASSET_CDN = CDN;
-    process.env.DEPLOY_BUILD_ID = BUILD;
-    const plugin = versionedCdnAssetsPlugin(root);
-    await (plugin.closeBundle as { handler: () => Promise<void> }).handler();
+    await publishVersionedCdnAssets(root, { cdnOrigin: CDN, buildId: BUILD, routeChunks: [] });
 
     const release = join(assets, 'releases', BUILD);
     expect(existsSync(join(release, 'index-entry.js'))).toBe(true);

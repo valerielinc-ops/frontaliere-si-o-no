@@ -1,11 +1,28 @@
 {
   "key": "proplaning-ag",
   "label": "Proplaning AG",
-  "generatedAt": "2026-11-14T09:35:19.981Z",
+  "generatedAt": "2026-11-14T16:47:14.818Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "proplaning-ag",
+    "seedUrls": [
+      "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d"
+    ],
+    "phase": "listing",
+    "pages": 1,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
@@ -19,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4089,
-  "avgDurationMs": 4089,
+  "durationMs": 4078,
+  "avgDurationMs": 4078,
   "durationHistory": [
-    4089
+    4078
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +57,7 @@
       "url": "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d",
       "source": "Proplaning AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:34:59.110Z",
+      "crawledAt": "2026-11-14T16:46:57.525Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -63,7 +80,7 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:34:59.110Z",
+      "validThrough": "2026-12-14T16:46:57.525Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -74,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }
