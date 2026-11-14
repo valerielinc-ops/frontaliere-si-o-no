@@ -100,18 +100,39 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      - name: Prepare GitHub API read credential
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON unavailable; GitHub API reads will use the Actions token.'
+            exit 0
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/github-api-firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/github-api-firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/github-api-firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load GitHub API read credential
+        run: |
+          if [ -n "${GOOGLE_APPLICATION_CREDENTIALS:-}" ]; then
+            node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+          fi
+
       - name: Check rewrite admission
         id: admission
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh run list \
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            export GH_TOKEN="$GITHUB_PAT"
+          fi
+          node scripts/ci/run-gh-read.mjs run list \
             --repo "$GITHUB_REPOSITORY" \
             --workflow event-description-rewrite.yml \
             --limit 50 \
             --json databaseId,status > "$RUNNER_TEMP/event-description-runs.json"
-          gh pr list \
+          node scripts/ci/run-gh-read.mjs pr list \
             --repo "$GITHUB_REPOSITORY" \
             --state open \
             --head "$DATA_PR_BRANCH" \
@@ -140,6 +161,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            export GH_TOKEN="$GITHUB_PAT"
+          fi
           run_timed_download() {
             local label="$1" seconds=120 status
             shift
@@ -156,13 +180,16 @@ jobs:
           }
           state_dir="$RUNNER_TEMP/event-description-previous-state"
           mkdir -p "$state_dir"
-          previous_run="$(gh run list \
+          if ! previous_run="$(node scripts/ci/run-gh-read.mjs run list \
             --repo "$GITHUB_REPOSITORY" \
             --workflow event-description-rewrite.yml \
             --status completed \
             --limit 20 \
             --json databaseId,conclusion \
-            --jq 'map(select(.databaseId != (env.GITHUB_RUN_ID | tonumber) and .conclusion == "success")) | .[0].databaseId // empty')"
+            --jq 'map(select(.databaseId != (env.GITHUB_RUN_ID | tonumber) and .conclusion == "success")) | .[0].databaseId // empty')"; then
+            echo '::warning::Previous event-description run listing was unavailable; continuing without historical state.'
+            previous_run=''
+          fi
           if [ -n "$previous_run" ]; then
             run_timed_download 'gh run download previous event-description state' gh run download "$previous_run" \
               --repo "$GITHUB_REPOSITORY" \
@@ -244,6 +271,9 @@ jobs:
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
+      - name: Load GitHub API read credential
+        run: node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+
       - name: Prepare stable private artifact key
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -272,6 +302,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            export GH_TOKEN="$GITHUB_PAT"
+          fi
           run_timed_download() {
             local label="$1" seconds=120 status
             shift
@@ -288,13 +321,17 @@ jobs:
           }
           source_dir="$RUNNER_TEMP/event-description-source"
           mkdir -p "$source_dir"
-          run_id="$(gh run list \
+          if ! run_id="$(node scripts/ci/run-gh-read.mjs run list \
             --repo "$GITHUB_REPOSITORY" \
             --workflow crawl-events.yml \
             --status success \
             --limit 1 \
             --json databaseId \
-            --jq '.[0].databaseId // empty')"
+            --jq '.[0].databaseId // empty')"; then
+            echo '::warning::Latest crawl run listing was unavailable; continuing without incremental input.'
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ -z "$run_id" ]; then
             echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
             exit 0
@@ -463,6 +500,24 @@ jobs:
             echo 'ready=false' >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Prepare GitHub API read credential
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON unavailable; GitHub API reads will use the Actions token.'
+            exit 0
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/github-api-firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/github-api-firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/github-api-firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load GitHub API read credential
+        run: |
+          if [ -n "${GOOGLE_APPLICATION_CREDENTIALS:-}" ]; then
+            node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+          fi
+
       # The publisher still reconciles against the moving main branch after
       # this point. If main was briefly published as an incomplete tree while
       # this run was active, use the immutable run snapshot instead of letting
@@ -496,21 +551,31 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            export GH_TOKEN="$GITHUB_PAT"
+          fi
           recent_dir="$RUNNER_TEMP/event-description-recent-states"
           mkdir -p "$recent_dir"
-          gh run list \
+          if ! node scripts/ci/run-gh-read.mjs run list \
             --repo "$GITHUB_REPOSITORY" \
             --workflow event-description-rewrite.yml \
             --status success \
             --limit 30 \
-            --json databaseId,createdAt > "$RUNNER_TEMP/event-description-recent-runs.json"
-          node --input-type=module -e '
+            --json databaseId,createdAt > "$RUNNER_TEMP/event-description-recent-runs.json"; then
+            echo '::warning::Recent event-description run listing was unavailable; continuing without historical throughput state.'
+            : > "$RUNNER_TEMP/event-description-recent-runs.json"
+          fi
+          if [ -s "$RUNNER_TEMP/event-description-recent-runs.json" ]; then
+            node --input-type=module -e '
             import { readFileSync, writeFileSync } from "node:fs";
             const cutoff = Date.now() - 24 * 60 * 60 * 1000;
             const runs = JSON.parse(readFileSync(process.argv[1], "utf8"));
             const ids = runs.filter((run) => Date.parse(run.createdAt || "") >= cutoff).map((run) => run.databaseId);
             writeFileSync(process.argv[2], ids.map(String).join("\n") + (ids.length ? "\n" : ""));
-          ' "$RUNNER_TEMP/event-description-recent-runs.json" "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+            ' "$RUNNER_TEMP/event-description-recent-runs.json" "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          else
+            : > "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          fi
           recent_run_count="$(wc -l < "$RUNNER_TEMP/event-description-recent-run-ids.txt" | tr -d '[:space:]')"
           downloaded_count=0
           failed_download_count=0
