@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-11-14T09:27:09.733Z",
-  "runId": "43578975285",
+  "assembledAt": "2026-11-14T21:29:22.090Z",
+  "runId": "43641025057",
   "jobs": [
     {
       "title": "Muratore specializzato in rifiniture (M/F)",
@@ -62,7 +62,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -128,7 +128,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -194,7 +194,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -260,7 +260,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -306,9 +306,9 @@
       },
       "slugByLocale": {
         "it": "addetto-alla-bonifica-dall-amp-8217-amianto-m-f-pemsa-fribourg",
-        "en": "addetto-alla-bonifica-dall-amp-8217-amianto-m-f-pemsa-fribourg",
-        "de": "addetto-alla-bonifica-dall-amp-8217-amianto-m-f-pemsa-fribourg",
-        "fr": "addetto-alla-bonifica-dall-amp-8217-amianto-m-f-pemsa-fribourg"
+        "en": "associate-alla-bonifica-dall-amianto-m-f-pemsa-fribourg",
+        "de": "mitarbeiter-alla-bonifica-dall-amianto-m-f-pemsa-fribourg",
+        "fr": "prepose-alla-bonifica-dall-amianto-m-f-pemsa-fribourg"
       },
       "id": "pemsa-9f4336377602",
       "salaryMin": 76500,
@@ -326,7 +326,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -392,12 +392,28 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-14T09:27:04.805Z"
+      "firstSeenAt": "2026-11-14T09:27:04.805Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "m-f-d-electric-panel-installer-pemsa-geneve"
+        ],
+        "de": [
+          "m-w-d-elektroinstallation-pemsa-geneve"
+        ],
+        "fr": [
+          "installation-de-panneaux-electriques-h-f-d-pemsa-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "m-f-d-electric-panel-installer-pemsa-geneve",
+        "m-w-d-elektroinstallation-pemsa-geneve",
+        "installation-de-panneaux-electriques-h-f-d-pemsa-geneve"
+      ]
     },
     {
       "title": "Carpentiere edile",
@@ -458,7 +474,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -524,12 +540,28 @@
         }
       },
       "postalCode": "1630",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-14T09:27:04.805Z"
+      "firstSeenAt": "2026-11-14T09:27:04.805Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "piping-installer-welder-in-the-heating-industry-fr-pemsa-bulle"
+        ],
+        "de": [
+          "rohrinstallateur-schwei-er-in-der-heizungsindustrie-fr-pemsa-bulle"
+        ],
+        "fr": [
+          "installation-de-tuyauterie-soudeur-dans-l-industrie-du-chauffage-fr-pemsa-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "piping-installer-welder-in-the-heating-industry-fr-pemsa-bulle",
+        "rohrinstallateur-schwei-er-in-der-heizungsindustrie-fr-pemsa-bulle",
+        "installation-de-tuyauterie-soudeur-dans-l-industrie-du-chauffage-fr-pemsa-bulle"
+      ]
     },
     {
       "title": "Installatore Idraulico per Riscaldamenti",
@@ -590,7 +622,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -656,7 +688,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -722,7 +754,7 @@
         }
       },
       "postalCode": "6815",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Melide",
       "streetAddressSource": "to-enrich",
@@ -788,7 +820,7 @@
         }
       },
       "postalCode": "6982",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Agno",
       "streetAddressSource": "to-enrich",
@@ -854,7 +886,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -920,7 +952,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -986,7 +1018,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -1068,7 +1100,7 @@
         }
       },
       "postalCode": "6943",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Vezia",
       "streetAddressSource": "to-enrich",
@@ -1134,7 +1166,7 @@
         }
       },
       "postalCode": "6814",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1211,7 +1243,7 @@
         }
       },
       "postalCode": "2740",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Moutier",
       "streetAddressSource": "to-enrich",
@@ -1277,7 +1309,7 @@
         }
       },
       "postalCode": "6710",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Biasca",
       "streetAddressSource": "to-enrich",
@@ -1343,7 +1375,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -1409,7 +1441,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -1475,7 +1507,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -1541,7 +1573,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -1607,7 +1639,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1684,7 +1716,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1761,7 +1793,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -1827,7 +1859,7 @@
         }
       },
       "postalCode": "6808",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Torricella",
       "streetAddressSource": "to-enrich",
@@ -1893,7 +1925,7 @@
         }
       },
       "postalCode": "6982",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Agno",
       "streetAddressSource": "to-enrich",
@@ -1959,7 +1991,7 @@
         }
       },
       "postalCode": "6815",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Melide",
       "streetAddressSource": "to-enrich",
@@ -2025,7 +2057,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -2091,7 +2123,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2157,7 +2189,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2223,7 +2255,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2289,7 +2321,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2355,7 +2387,7 @@
         }
       },
       "postalCode": "2000",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
@@ -2421,7 +2453,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2487,7 +2519,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2553,7 +2585,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2619,7 +2651,7 @@
         }
       },
       "postalCode": "2000",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
@@ -2685,7 +2717,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -2762,7 +2794,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2828,7 +2860,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -2905,7 +2937,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2971,7 +3003,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -3052,7 +3084,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-14T21:28:33.642Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3129,7 +3161,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3164,7 +3196,7 @@
         "fr": "GESSATEUR / PLÂTRIER"
       },
       "descriptionByLocale": {
-        "it": "Edilizia - rami affini - Intonacatore\nGESSATORE / INTONACATORE\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nGESSATORE / INTONACATORE\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gessatore / intonacatore\nMissione :\n- missione nel Sopraceneri\nProfilo :\n·Applicare intonaci interni ed esterni\n·Eseguire lavori di isolazione interna ed esterna\n·Posare controsoffitti in diversi materiali\n·Montare pareti divisorie in diversi materiali\n·Eseguire e posare stucchi\n·Posare betoncini a secco e auto livellanti\n·Realizzare pavimenti tecnici\n·Intonaci interni ed esterni\n·Isolazione termica e fonica interna ed esterna&amp;nbsp;\n·Realizzazione soffitti, controsoffitti, pareti, ribassamenti, velette ed elementi arrotondati in cartongesso&amp;nbsp;\n·Posa lastre di gesso&amp;nbsp;\n·Posa cornici, colonne, rosoni ed elementi decorativi in gesso\n·Rasatura, stabilitura e lisciatura&amp;nbsp;\n·Posa pavimenti tecnici\n·Posa cappotto rete e colla\n·Disponibilità immediata\n·Automunito\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Valentina Jensen. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLocarno\nTipo di lavoro\nA tempo pieno - Interinale",
+        "it": "Edilizia - rami affini - Intonacatore\nGESSATORE / INTONACATORE\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nGESSATORE / INTONACATORE\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gessatore / intonacatore\nMissione :\n- missione nel Sopraceneri\nProfilo :\n·Applicare intonaci interni ed esterni\n·Eseguire lavori di isolazione interna ed esterna\n·Posare controsoffitti in diversi materiali\n·Montare pareti divisorie in diversi materiali\n·Eseguire e posare stucchi\n·Posare betoncini a secco e auto livellanti\n·Realizzare pavimenti tecnici\n·Intonaci interni ed esterni\n·Isolazione termica e fonica interna ed esterna&amp;amp;amp;amp;amp;nbsp;\n·Realizzazione soffitti, controsoffitti, pareti, ribassamenti, velette ed elementi arrotondati in cartongesso&amp;amp;amp;amp;amp;nbsp;\n·Posa lastre di gesso&amp;amp;amp;amp;amp;nbsp;\n·Posa cornici, colonne, rosoni ed elementi decorativi in gesso\n·Rasatura, stabilitura e lisciatura&amp;amp;amp;amp;amp;nbsp;\n·Posa pavimenti tecnici\n·Posa cappotto rete e colla\n·Disponibilità immediata\n·Automunito\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Valentina Jensen. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLocarno\nTipo di lavoro\nA tempo pieno - Interinale",
         "en": "Construction - related branches - Intonacator\nGESSATORE / INTONACATORE\nFull time Interinale\nCandidate\nApply for this job\nGESSATORE / INTONACATORE\n* indicates mandatory fields\nDo you want the freedom of temporary work and the security of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of gessator / plasterer\nMission:\n- mission in the Sopraceneri\nProfile :\n·Apply internal and external plasters\n· Perform internal and external insulation works\n·Posing countertops in different materials\n·Mounting partition walls in different materials\n· Run and pose stucco\n·Posare dry betoncini e auto levelanti\n·Realize technical floors\n·Internal and external plasters\n·Internal and external thermal insulation\n·Realization of ceilings, ceilings, walls, lowerings, velettes and rounded elements in plasterboard\n·Posa slabs di gesso\n·Posa cornices, columns, roses and decorative elements in chalk\n· Radiation, stability and smoothing\n·Posa technical floors\n·Posa coat net and glue\n·Immediate availability\n·Automunito\nYour contact person:\nYour contact for this location is Valentina Jensen. With over 15 years of recruitment experience, you will be able to accompany, advise and answer all your questions about the location. This job isn't exactly what he's looking for, but do you like our values? Do not hesitate to send us your spontaneous application!\nPlace of work\nLocarno\nType of work\nFull time - Interinale",
         "de": "Bau - verwandte Zweige - Intonacator\nGESSATORE / INTONACATORE\nVollzeit Interinale\nKandidat\nBewerben Sie sich für diesen Job\nGESSATORE / INTONACATORE\n* Angabe von Pflichtfeldern\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer dauerhaften Arbeit?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position des Gessators / Gipsers bei\nMission:\n- Mission in der Sopraceneri\nProfil :\n· Innen- und Außenputze auftragen\n· Durchführung interner und externer Isolationsarbeiten\n· Posing Arbeitsplatten in verschiedenen Materialien\n· Anbringen von Trennwänden in verschiedenen Materialien\n· Laufen und Pose Stuck\n· Posare trocken betoncini e auto levelanti\n· Technische Böden realisieren\n· Inneres und äußeres Pflaster\n·Interne und externe Wärmedämmung\n·Verwirklichung von Decken, Decken, Wänden, Absenkungen, Veletts und abgerundeten Elementen in Gipskartonplatten\n·Posa slabs di gesso\n·Posa-Gesimse, Säulen, Rosen und Zierelemente in Kreide\n· Strahlung, Stabilität und Glättung\n·Posa technische Böden\n·Posa Mantelnetz und Klebstoff\n· Sofortige Verfügbarkeit\n·Automunito\nIhre Kontaktperson:\nIhre Ansprechpartnerin für diesen Standort ist Valentina Jensen. Mit über 15 Jahren Rekrutierungserfahrung können Sie alle Ihre Fragen zum Standort begleiten, beraten und beantworten. Dieser Job ist nicht genau das, wonach er sucht, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nArbeitsort\nLocarno\nArt der Arbeit\nVollzeit - Interinale",
         "fr": "Construction - branches connexes - Intonacator\nGESSATORE / INTONACATORE\nInterinale à temps plein\nCandidat\nPostulez à ce poste\nGESSATORE / INTONACATORE\n* indique les champs obligatoires\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous sommes témoins de centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de gessator / plâtrier\nMission :\n- mission dans le Sopraceneri\nProfil :\n·Appliquer les plâtres internes et externes\n· Effectuer des travaux d'isolation interne et externe\n·Poser des comptoirs dans différents matériaux\n·Montage des cloisons en différents matériaux\n· Courir et poser du stuc\n·Posare sec betoncini e auto levelanti\nRéalisation des planchers techniques\nPlastiques internes et externes\n·Isolation thermique interne et externe\n·Réalisation de plafonds, de plafonds, de murs, d'abaissements, de velettes et d'éléments arrondis en plaques de plâtre\n·Posa dalles di gesso\n·Corniches, colonnes, roses et éléments décoratifs en craie\n· Radiation, stabilité et lissage\n·Planchers techniques Posa\n·Réseau et colle de couche de posa\n· Disponibilité immédiate\n·Automunito\nVotre personne-ressource :\nVotre contact pour cet emplacement est Valentina Jensen. Avec plus de 15 ans d'expérience en recrutement, vous pourrez accompagner, conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce qu'il cherche, mais tu aimes nos valeurs ? N'hésitez pas à nous envoyer votre candidature spontanée!\nLieu de travail\nLocarno\nType de travail\nTemps plein - Interinale"
@@ -3206,7 +3238,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-14T21:28:33.642Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3283,7 +3315,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-06T21:25:03.944Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3349,7 +3381,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3415,7 +3447,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3481,7 +3513,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3547,7 +3579,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3624,7 +3656,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3690,7 +3722,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3756,7 +3788,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3822,7 +3854,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3899,7 +3931,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -3965,7 +3997,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4031,7 +4063,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4108,7 +4140,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4174,7 +4206,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4240,7 +4272,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4306,7 +4338,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4368,7 +4400,7 @@
         }
       },
       "postalCode": "1908",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Riddes",
       "streetAddressSource": "to-enrich",
@@ -4438,7 +4470,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4504,7 +4536,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4570,7 +4602,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4636,7 +4668,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4702,7 +4734,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-21T09:28:46.293Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4768,7 +4800,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-23T21:34:02.689Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4834,7 +4866,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T09:24:26.373Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4900,7 +4932,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -4966,7 +4998,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5032,7 +5064,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-04T13:36:36.597Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5098,7 +5130,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5164,7 +5196,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5230,7 +5262,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-23T23:48:15.835Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5296,7 +5328,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5362,7 +5394,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5428,7 +5460,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5494,7 +5526,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5529,7 +5561,7 @@
         "fr": "PLÂTRIER / ENDUISEUR"
       },
       "descriptionByLocale": {
-        "it": "Edilizia - rami affini - Intonacatore\nGESSATORE / INTONACATORE\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nGESSATORE / INTONACATORE\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gessatore / intonacatore\nMissione :\n- missione nel Sopraceneri\nProfilo :\n·Applicare intonaci interni ed esterni\n·Eseguire lavori di isolazione interna ed esterna\n·Posare controsoffitti in diversi materiali\n·Montare pareti divisorie in diversi materiali\n·Eseguire e posare stucchi\n·Posare betoncini a secco e auto livellanti\n·Realizzare pavimenti tecnici\n·Intonaci interni ed esterni\n·Isolazione termica e fonica interna ed esterna \n·Realizzazione soffitti, controsoffitti, pareti, ribassamenti, velette ed elementi arrotondati in cartongesso \n·Posa lastre di gesso \n·Posa cornici, colonne, rosoni ed elementi decorativi in gesso\n·Rasatura, stabilitura e lisciatura \n·Posa pavimenti tecnici\n·Posa cappotto rete e colla\n·Disponibilità immediata\n·Automunito\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Valentina Jensen. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nMuralto\nTipo di lavoro\nA tempo pieno - Interinale",
+        "it": "Edilizia - rami affini - Intonacatore\nGESSATORE / INTONACATORE\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nGESSATORE / INTONACATORE\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gessatore / intonacatore\nMissione :\n- missione nel Sopraceneri\nProfilo :\n·Applicare intonaci interni ed esterni\n·Eseguire lavori di isolazione interna ed esterna\n·Posare controsoffitti in diversi materiali\n·Montare pareti divisorie in diversi materiali\n·Eseguire e posare stucchi\n·Posare betoncini a secco e auto livellanti\n·Realizzare pavimenti tecnici\n·Intonaci interni ed esterni\n·Isolazione termica e fonica interna ed esterna&amp;amp;amp;nbsp;\n·Realizzazione soffitti, controsoffitti, pareti, ribassamenti, velette ed elementi arrotondati in cartongesso&amp;amp;amp;nbsp;\n·Posa lastre di gesso&amp;amp;amp;nbsp;\n·Posa cornici, colonne, rosoni ed elementi decorativi in gesso\n·Rasatura, stabilitura e lisciatura&amp;amp;amp;nbsp;\n·Posa pavimenti tecnici\n·Posa cappotto rete e colla\n·Disponibilità immediata\n·Automunito\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Valentina Jensen. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nMuralto\nTipo di lavoro\nA tempo pieno - Interinale",
         "en": "Construction - related branches - Intonacator\nGESSATORE / INTONACATORE\nFull time Interinale\nCandidate\nApply for this job\nGESSATORE / INTONACATORE\n* indicates mandatory fields\nDo you want the freedom of temporary work and the security of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of gessator / plasterer\nMission:\n- mission in the Sopraceneri\nProfile :\n·Apply internal and external plasters\n· Perform internal and external insulation works\n·Posing countertops in different materials\n·Mounting partition walls in different materials\n· Run and pose stucco\n·Posare dry betoncini e auto levelanti\n·Realize technical floors\n·Internal and external plasters\n· Thermal insulation and internal and external seal\n·Realization of ceilings, ceilings, walls, lowerings, velettes and rounded elements in plasterboard\n·Posa slabs di gesso\n·Posa cornices, columns, roses and decorative elements in chalk\n· Radiation, stability and smoothing\n·Posa technical floors\n·Posa coat net and glue\n·Immediate availability\n·Automunito\nYour contact person:\nYour contact for this location is Valentina Jensen. With over 15 years of recruitment experience, you will be able to accompany, advise and answer all your questions about the location. This job isn't exactly what he's looking for, but do you like our values? Do not hesitate to send us your spontaneous application!\nPlace of work\nMuralto\nType of work\nFull time - Interinale",
         "de": "Bau - verwandte Zweige - Intonacator\nGESSATORE / INTONACATORE\nVollzeit Interinale\nKandidat\nBewerben Sie sich für diesen Job\nGESSATORE / INTONACATORE\n* Angabe von Pflichtfeldern\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer festen Stelle?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht belügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position des Gessators / Gipsers bei\nMission:\n- Mission in der Sopraceneri\nProfil :\n· Innen- und Außenputze auftragen\n· Durchführung interner und externer Isolationsarbeiten\n· Posing Arbeitsplatten in verschiedenen Materialien\n· Anbringen von Trennwänden in verschiedenen Materialien\n· Laufen und Pose Stuck\n· Posare trocken betoncini e auto levelanti\n· Technische Böden realisieren\n· Inneres und äußeres Pflaster\n· Wärmedämmung und interne und externe Dichtung\n·Verwirklichung von Decken, Decken, Wänden, Absenkungen, Veletts und abgerundeten Elementen in Gipskartonplatten\n·Posa slabs di gesso\n·Posa-Gesimse, Säulen, Rosen und Zierelemente in Kreide\n· Strahlung, Stabilität und Glättung\n·Posa technische Böden\n· Posa Mantelnetz und Klebstoff\n· Sofortige Verfügbarkeit\n·Automunito\nIhre Kontaktperson:\nIhre Ansprechpartnerin für diesen Standort ist Valentina Jensen. Mit über 15 Jahren Erfahrung in der Rekrutierung können Sie alle Ihre Fragen zum Standort begleiten, beraten und beantworten. Dieser Job ist nicht genau das, wonach er sucht, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nArbeitsort\nMuralto\nArt der Arbeit\nVollzeit - Interinale",
         "fr": "Construction - branches connexes - Intonacator\nGESSATORE / INTONACATORE\nInterinale à temps plein\nCandidat\nPostulez à ce poste\nGESSATORE / INTONACATORE\n* indique les champs obligatoires\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de gessator / plâtrier\nMission :\n- mission dans le Sopraceneri\nProfil :\n·Appliquer les plâtres internes et externes\n· Effectuer des travaux d'isolation interne et externe\n·Poser des comptoirs dans différents matériaux\n·Montage des cloisons dans différents matériaux\n· Courir et poser du stuc\n·Posare sec betoncini e auto levelanti\n·Réaliser les planchers techniques\nPlastiques internes et externes\n· Isolation thermique et étanchéité interne et externe\n·Réalisation de plafonds, plafonds, murs, abaissements, vélettes et éléments arrondis en plâtre\n·Posa dalles di gesso\n·Corniches, colonnes, roses et éléments décoratifs en craie\n· Radiation, stabilité et lissage\n·Planchers techniques Posa\n·Réseau et colle de couche de posa\n· Disponibilité immédiate\n·Automunito\nVotre personne-ressource:\nVotre contact pour cet emplacement est Valentina Jensen. Avec plus de 15 ans d'expérience de recrutement, vous pourrez accompagner, conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce qu'il cherche, mais tu aimes nos valeurs ? N'hésitez pas à nous envoyer votre candidature spontanée!\nLieu de travail\nMuralto\nType de travail\nTemps plein - Interinale"
@@ -5560,7 +5592,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5637,7 +5669,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5714,7 +5746,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5780,7 +5812,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5846,7 +5878,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-19T23:01:40.902Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5912,7 +5944,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -5978,7 +6010,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T09:27:39.894Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6044,7 +6076,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-23T09:31:05.623Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6110,7 +6142,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-16T21:27:48.541Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6176,7 +6208,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6242,7 +6274,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6308,7 +6340,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6374,7 +6406,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6440,7 +6472,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6506,7 +6538,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6572,7 +6604,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6638,7 +6670,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6704,7 +6736,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6770,7 +6802,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6836,7 +6868,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6902,7 +6934,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-03T09:25:00.674Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -6968,7 +7000,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7034,7 +7066,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7100,7 +7132,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7166,7 +7198,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7232,7 +7264,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-19T21:28:05.212Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "previousSlugsByLocale": {
         "it": [
@@ -7315,7 +7347,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7381,7 +7413,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-03T21:37:23.256Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7447,7 +7479,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-03T21:37:23.256Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7513,7 +7545,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7579,7 +7611,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-19T21:28:05.212Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7656,7 +7688,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7733,7 +7765,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7799,7 +7831,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7876,7 +7908,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -7941,7 +7973,7 @@
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8007,7 +8039,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-19T21:28:05.212Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8093,7 +8125,7 @@
         "ohrringe-pemsa-bellinzona",
         "boucles-d-oreille-pemsa-bellinzona"
       ],
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8159,7 +8191,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8225,7 +8257,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8291,7 +8323,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8357,7 +8389,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:38:20.225Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8423,7 +8455,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-08-06T11:37:56.117Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8489,7 +8521,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8524,7 +8556,7 @@
         "fr": "Technicien PREVENTIVISTA QUADRI ELETTRICI (Automazione / Distribuzione)"
       },
       "descriptionByLocale": {
-        "it": "Impianti elettrici - Ingegnere elettrico\nTECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\nA tempo pieno Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nTECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di TECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\nMissione :\n- Assunzione diretta presso azienda cliente.\n- Analisi delle richieste del cliente.\n- Valutazione di fattibilità tecnica.\n- Redazione di offerte commerciali e preventivi per quadri elettrici (di bassa/media tensione, automazione o distribuzione).\n- Collaborazione attiva con progettisti, officina e fornitori.\n- Analizzare capitolati, specifiche tecniche, schemi elettrici e richieste d’offerta (RFQ) provenienti dai clienti.\n- Configurare e dimensionare la quadristica identificando la carpenteria e la componentistica idonea (interruttori, PLC, inverter, relè, ecc.).\n- Elaborare la distinta base (BOM) dei materiali e calcolare i costi della manodopera per il cablaggio.\n- Sviluppo dell’offerta economica finale e invio della quotazione al cliente.\n- Interfacciarsi con i fornitori di materiale elettrico per la richiesta di quotazioni dedicate o aggiornamento dei listini.\n- Offrire supporto tecnico pre-vendita ai clienti e alla rete commerciale.\nProfilo :\n- Diploma in ambito Eletttrotecnico / Elettronico o Laurea in Ingegneria Elettrica.\n- Ottima capacità di lettura e interpretazione di schemi elettrici e disegni unifilari/multifilari.\n- Conoscenza dei principali software di preventivazione e di strumenti CAD.\n- Conoscenza profonda delle normative del settore. \n- Orientamento al risultato, precisione, doti analitiche e spiccata attitudine al lavoro di squadra.\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Massimiliano. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLugano\nTipo di lavoro\nA tempo pieno - Posto fisso",
+        "it": "Impianti elettrici - Ingegnere elettrico\nTECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\nA tempo pieno Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nTECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di TECNICO PREVENTIVISTA QUADRI ELETTRICI (Distribuzione)\nMissione :\n- Assunzione diretta presso azienda cliente.\n- Analisi delle richieste del cliente.\n- Valutazione di fattibilità tecnica.\n- Redazione di offerte commerciali e preventivi per quadri elettrici (di bassa/media tensione, automazione o distribuzione).\n- Collaborazione attiva con progettisti, officina e fornitori.\n- Analizzare capitolati, specifiche tecniche, schemi elettrici e richieste d’offerta (RFQ) provenienti dai clienti.\n- Configurare e dimensionare la quadristica identificando la carpenteria e la componentistica idonea (interruttori, PLC, inverter, relè, ecc.).\n- Elaborare la distinta base (BOM) dei materiali e calcolare i costi della manodopera per il cablaggio.\n- Sviluppo dell’offerta economica finale e invio della quotazione al cliente.\n- Interfacciarsi con i fornitori di materiale elettrico per la richiesta di quotazioni dedicate o aggiornamento dei listini.\n- Offrire supporto tecnico pre-vendita ai clienti e alla rete commerciale.\nProfilo :\n- Diploma in ambito Eletttrotecnico / Elettronico o Laurea in Ingegneria Elettrica.\n- Ottima capacità di lettura e interpretazione di schemi elettrici e disegni unifilari/multifilari.\n- Conoscenza dei principali software di preventivazione e di strumenti CAD.\n- Conoscenza profonda delle normative del settore.&nbsp;\n- Orientamento al risultato, precisione, doti analitiche e spiccata attitudine al lavoro di squadra.\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Massimiliano. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!\nLuogo di lavoro\nLugano\nTipo di lavoro\nA tempo pieno - Posto fisso",
         "en": "Electrical systems - Electrical engineer\nTECHNICAL PREVENTIVIST ELECTRIC QUADRI (Automation / Distribution)\nFull time Fixed place\nCandidate\nApply for this job\nTECHNICAL PREVENTIVIST ELECTRIC QUADRI (Automation / Distribution)\n* indicates mandatory fields\nDo you want the freedom of temporary work and the security of a permanent?\nFor 30 years, we have witnessed hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of TECHNIQUE PREVENTIVIST ELECTRIC QUADRI (Automation / Distribution)\nMission:\n- Direct recruitment at the customer company.\n- Analysis of customer requests.\n- Evaluation of technical feasibility.\n- Production of commercial offers and quotes for electric paintings (low/medium voltage, automation or distribution).\n- Active collaboration with designers, workshop and suppliers.\n- Analyze specifications, technical specifications, electrical schematics and supply requests (RFQ) from customers.\n- Configure and dimensionalize the quadristic by identifying the suitable carpentry and components (changers, PLC, inverter, relay, etc.).\n- Draw out the base (BOM) of materials and calculate labor costs for wiring.\n- Development of the final economic offer and sending the quotation to the customer.\n- Interface with electrical material suppliers for requesting dedicated quotations or updating of lists.\n- Offer pre-sales technical support to customers and the commercial network.\nProfile :\n- Diploma in Electrical / Electronics or Bachelor of Electrical Engineering.\n- Excellent readability and interpretation of electric patterns and unifilari/multifilari designs.\n- Knowledge of the main preventive software and CAD tools.\n- Deep knowledge of industry regulations.\n- Guidance to the result, precision, analytical skills and strong attitude to teamwork.\nYour contact person:\nYour contact for this location is Maximilian. With over 15 years of recruitment experience, you will be able to accompany, advise and answer all your questions about the location. This job isn't exactly what he's looking for, but do you like our values? Do not hesitate to send us your spontaneous application!\nPlace of work\nLugano\nType of work\nFull time - Fixed place",
         "de": "Elektrische Systeme - Elektroingenieur\nTECHNISCHES PREVENTIVISTISCHES ELEKTRISCHES QUADRI (Automation / Distribution)\nVollzeit Festplatz\nKandidat\nBewerben Sie sich für diesen Job\nTECHNISCHES PREVENTIVISTISCHES ELEKTRISCHES QUADRI (Automation / Distribution)\n* Angabe von Pflichtfeldern\nWollen Sie die Freiheit der Leiharbeit und die Sicherheit einer dauerhaften Arbeit?\nSeit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden dich nicht anlügen, aber wir fordern. Wenn Sie also eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position des TECHNIQUE PREVENTIVIST ELECTRIC QUADRI (Automation / Distribution) bei\nMission:\n- Direkte Rekrutierung im Kundenunternehmen.\n- Analyse von Kundenwünschen.\n- Bewertung der technischen Machbarkeit.\n- Erstellung von kommerziellen Angeboten und Angeboten für elektrische Gemälde (Nieder-/Mittelspannung, Automatisierung oder Verteilung).\n- Aktive Zusammenarbeit mit Designern, Werkstätten und Lieferanten.\n- Analysieren Sie Spezifikationen, technische Spezifikationen, elektrische Schaltpläne und Versorgungsanfragen (RFQ) von Kunden.\n- Konfigurieren und dimensionieren Sie die Quadristik, indem Sie die geeignete Schreinerei und Komponenten (Wechsler, SPS, Wechselrichter, Relais usw.) identifizieren.\n- Zeichnen Sie die Basis (BOM) der Materialien und berechnen Sie die Arbeitskosten für die Verdrahtung.\n- Entwicklung des endgültigen wirtschaftlichen Angebots und Übermittlung des Angebots an den Kunden.\n- Schnittstelle mit Elektromateriallieferanten für die Anforderung spezieller Angebote oder die Aktualisierung von Listen.\n- Bieten Sie Pre-Sales-technischen Support für Kunden und das kommerzielle Netzwerk.\nProfil :\n- Diplom in Elektrotechnik / Elektronik oder Bachelor of Electrical Engineering.\n- Hervorragende Lesbarkeit und Interpretation von elektrischen Mustern und unifilari / multifilari Designs.\n- Kenntnisse der wichtigsten präventiven Software und CAD-Tools.\n- Tiefes Wissen über Industrievorschriften.\n- Anleitung zum Ergebnis, Präzision, analytische Fähigkeiten und eine starke Einstellung zur Teamarbeit.\nIhre Kontaktperson:\nIhr Ansprechpartner für diesen Standort ist Maximilian. Mit über 15 Jahren Rekrutierungserfahrung können Sie alle Ihre Fragen zum Standort begleiten, beraten und beantworten. Dieser Job ist nicht genau das, wonach er sucht, aber mögen Sie unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nArbeitsort\nLugano\nArt der Arbeit\nVollzeit - Fester Ort",
         "fr": "Systèmes électriques - Ingénieur électrique\nQUADRI ÉLECTRIQUE PRÉVENTIVISTE TECHNIQUE (Automation / Distribution)\nTemps plein Lieu fixe\nCandidat\nPostulez à ce poste\nQUADRI ÉLECTRIQUE PRÉVENTIVISTE TECHNIQUE (Automation / Distribution)\n* indique les champs obligatoires\nVoulez-vous la liberté du travail temporaire et la sécurité d'un permanent?\nDepuis 30 ans, nous sommes témoins de centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de TECHNIQUE PREVENTIVIST ELECTRIC QUADRI (Automation / Distribution)\nMission :\n- Recrutement direct chez l'entreprise cliente.\n- Analyse des demandes des clients.\n- Évaluation de la faisabilité technique.\n- Production d'offres commerciales et de devis pour des peintures électriques (faible/moyen tension, automatisation ou distribution).\n- Collaboration active avec les concepteurs, les ateliers et les fournisseurs.\n- Analyser les spécifications, les spécifications techniques, les schémas électriques et les demandes d'approvisionnement (RFQ) des clients.\n- Configurer et dimensionner le quadristique en identifiant la menuiserie et les composants appropriés (changeurs, PLC, onduleur, relais, etc.).\n- Dessiner la base (BOM) des matériaux et calculer les coûts de main-d'œuvre pour le câblage.\n- Développement de l'offre économique finale et envoi du devis au client.\n- Interface avec les fournisseurs de matériel électrique pour demander des devis spécifiques ou mettre à jour les listes.\n- Offrez une assistance technique prévente aux clients et au réseau commercial.\nProfil :\n- Diplôme en Électrique / Électronique ou Baccalauréat en génie électrique.\n- Excellente lisibilité et interprétation des modèles électriques et unifilari/multifilari.\n- Connaissance des principaux logiciels de prévention et outils CAO.\n- Connaissance approfondie des règlements de l'industrie.\n- Orientation au résultat, précision, compétences analytiques et forte attitude envers le travail d'équipe.\nVotre personne-ressource :\nVotre contact pour cet emplacement est Maximilian. Avec plus de 15 ans d'expérience en recrutement, vous pourrez accompagner, conseiller et répondre à toutes vos questions sur l'emplacement. Ce travail n'est pas exactement ce qu'il cherche, mais tu aimes nos valeurs ? N'hésitez pas à nous envoyer votre candidature spontanée!\nLieu de travail\nLugano\nType de travail\nTemps plein - Lieu fixe"
@@ -8555,7 +8587,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer",
       "previousSlugsByLocale": {
         "it": [
@@ -8629,7 +8661,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8695,7 +8727,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8761,7 +8793,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8827,7 +8859,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8893,7 +8925,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -8959,7 +8991,7 @@
       "streetAddress": "Mezzovico",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9025,7 +9057,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9091,7 +9123,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9157,7 +9189,7 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9223,7 +9255,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9289,7 +9321,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9355,7 +9387,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9421,7 +9453,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9487,7 +9519,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9553,7 +9585,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9619,7 +9651,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9693,7 +9725,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9736,7 +9768,7 @@
       "slugByLocale": {
         "it": "stuccatore-m-f-pemsa-fribourg",
         "en": "m-f-spout-pemsa-fribourg",
-        "de": "m-w-pemsa-fribourg-99bafa",
+        "de": "m-w-d-pemsa-fribourg",
         "fr": "bouton-h-f-pemsa-fribourg"
       },
       "id": "pemsa-35e56bc73b68",
@@ -9758,16 +9790,16 @@
       "firstSeenAt": "2026-10-26T21:40:47.927Z",
       "previousSlugsByLocale": {
         "de": [
-          "m-w-d-pemsa-fribourg"
+          "m-w-pemsa-fribourg-99bafa"
         ]
       },
       "previousSlugs": [
-        "m-w-d-pemsa-fribourg"
+        "m-w-pemsa-fribourg-99bafa"
       ],
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9833,7 +9865,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9899,7 +9931,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -9965,7 +9997,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10043,12 +10075,13 @@
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano"
+        "saldatore-tubista-pemsa-lugano",
+        "saldatore-tubista-pemsa-lugano-uq96lw"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10114,7 +10147,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10180,7 +10213,7 @@
       "firstSeenAt": "2026-10-23T09:31:05.623Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10246,7 +10279,7 @@
       "streetAddress": "Rivera",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10320,7 +10353,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10386,7 +10419,7 @@
       "streetAddress": "Lamone",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10452,7 +10485,7 @@
       "streetAddress": "Massagno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10518,7 +10551,7 @@
       "streetAddress": "Grund b",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10584,7 +10617,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10650,7 +10683,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10716,7 +10749,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10782,7 +10815,7 @@
       "streetAddress": "Rossens FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10848,7 +10881,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10914,7 +10947,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -10980,7 +11013,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11046,7 +11079,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11120,7 +11153,7 @@
       "previousSlugs": [
         "installatore-elettricista-afc-pemsa-bulle-4a31e96ef4"
       ],
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11186,7 +11219,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11252,7 +11285,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11318,7 +11351,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11384,7 +11417,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11450,7 +11483,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11516,7 +11549,7 @@
       "streetAddress": "Lamone",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11582,7 +11615,7 @@
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11648,7 +11681,7 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11714,7 +11747,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11780,7 +11813,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11846,7 +11879,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11912,7 +11945,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -11978,7 +12011,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12044,7 +12077,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12110,7 +12143,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12176,7 +12209,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12242,7 +12275,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12308,7 +12341,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12374,7 +12407,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12440,7 +12473,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12506,7 +12539,7 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12588,7 +12621,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12654,7 +12687,7 @@
       "streetAddress": "Rossens FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12720,7 +12753,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12786,7 +12819,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12852,7 +12885,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-19T23:01:40.902Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12918,7 +12951,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -12984,7 +13017,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13050,7 +13083,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13116,7 +13149,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13182,7 +13215,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13248,7 +13281,7 @@
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13288,9 +13321,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m6-pemsa-nyon",
-        "en": "earrings-m6-pemsa-nyon",
-        "de": "ohrringe-m6-pemsa-nyon",
-        "fr": "boucles-d-oreilles-m6-pemsa-nyon"
+        "en": "m6-machinery-operator-pemsa-nyon",
+        "de": "m6-maschinenfuhrer-pemsa-nyon",
+        "fr": "operateur-de-machinerie-m6-pemsa-nyon"
       },
       "id": "pemsa-6a7b415e0709",
       "salaryMin": 74500,
@@ -13310,19 +13343,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "m6-machinery-operator-pemsa-nyon"
+          "earrings-m6-pemsa-nyon"
         ],
         "de": [
-          "m6-maschinenfuhrer-pemsa-nyon"
+          "ohrringe-m6-pemsa-nyon"
         ],
         "fr": [
-          "operateur-de-machinerie-m6-pemsa-nyon"
+          "boucles-d-oreilles-m6-pemsa-nyon"
         ]
       },
       "previousSlugs": [
-        "m6-machinery-operator-pemsa-nyon",
-        "m6-maschinenfuhrer-pemsa-nyon",
-        "operateur-de-machinerie-m6-pemsa-nyon"
+        "earrings-m6-pemsa-nyon",
+        "ohrringe-m6-pemsa-nyon",
+        "boucles-d-oreilles-m6-pemsa-nyon"
       ],
       "datePosted": "2026-09-10T17:22:14+02:00",
       "postingDateSource": "reported",
@@ -13330,7 +13363,7 @@
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13370,9 +13403,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m5-pemsa-gland",
-        "en": "knife-m5-pemsa-gland",
-        "de": "messer-m5-pemsa-gland",
-        "fr": "couteau-m5-pemsa-gland"
+        "en": "m5-operator-pemsa-gland",
+        "de": "m5-maschinenfuhrer-pemsa-gland",
+        "fr": "operateur-m5-pemsa-gland"
       },
       "id": "pemsa-de8971539cbe",
       "salaryMin": 74500,
@@ -13392,19 +13425,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "m5-operator-pemsa-gland"
+          "knife-m5-pemsa-gland"
         ],
         "de": [
-          "m5-maschinenfuhrer-pemsa-gland"
+          "messer-m5-pemsa-gland"
         ],
         "fr": [
-          "operateur-m5-pemsa-gland"
+          "couteau-m5-pemsa-gland"
         ]
       },
       "previousSlugs": [
-        "m5-operator-pemsa-gland",
-        "m5-maschinenfuhrer-pemsa-gland",
-        "operateur-m5-pemsa-gland"
+        "knife-m5-pemsa-gland",
+        "messer-m5-pemsa-gland",
+        "couteau-m5-pemsa-gland"
       ],
       "datePosted": "2026-09-10T17:18:14+02:00",
       "postingDateSource": "reported",
@@ -13412,7 +13445,7 @@
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13452,9 +13485,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m3-pemsa-montreux",
-        "en": "knife-m3-pemsa-montreux",
-        "de": "messer-m3-pemsa-montreux",
-        "fr": "couteau-m3-pemsa-montreux"
+        "en": "m3-machine-operator-pemsa-montreux",
+        "de": "m3-maschinenfuhrer-pemsa-montreux",
+        "fr": "operateur-m3-pemsa-montreux"
       },
       "id": "pemsa-6a7a7bd8551c",
       "salaryMin": 74500,
@@ -13474,19 +13507,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "m3-machine-operator-pemsa-montreux"
+          "knife-m3-pemsa-montreux"
         ],
         "de": [
-          "m3-maschinenfuhrer-pemsa-montreux"
+          "messer-m3-pemsa-montreux"
         ],
         "fr": [
-          "operateur-m3-pemsa-montreux"
+          "couteau-m3-pemsa-montreux"
         ]
       },
       "previousSlugs": [
-        "m3-machine-operator-pemsa-montreux",
-        "m3-maschinenfuhrer-pemsa-montreux",
-        "operateur-m3-pemsa-montreux"
+        "knife-m3-pemsa-montreux",
+        "messer-m3-pemsa-montreux",
+        "couteau-m3-pemsa-montreux"
       ],
       "datePosted": "2026-09-10T17:16:14+02:00",
       "postingDateSource": "reported",
@@ -13494,7 +13527,7 @@
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13534,9 +13567,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m2-pemsa-morges",
-        "en": "knife-m2-pemsa-morges",
-        "de": "messer-m2-pemsa-morges",
-        "fr": "couteau-m2-pemsa-morges"
+        "en": "m2-machine-operator-pemsa-morges",
+        "de": "m2-maschinenfuhrer-pemsa-morges",
+        "fr": "operateur-m2-pemsa-morges"
       },
       "id": "pemsa-d3b667bc3dd5",
       "salaryMin": 74500,
@@ -13556,19 +13589,19 @@
       "firstSeenAt": "2026-09-10T23:15:16.093Z",
       "previousSlugsByLocale": {
         "en": [
-          "m2-machine-operator-pemsa-morges"
+          "knife-m2-pemsa-morges"
         ],
         "de": [
-          "m2-maschinenfuhrer-pemsa-morges"
+          "messer-m2-pemsa-morges"
         ],
         "fr": [
-          "operateur-m2-pemsa-morges"
+          "couteau-m2-pemsa-morges"
         ]
       },
       "previousSlugs": [
-        "m2-machine-operator-pemsa-morges",
-        "m2-maschinenfuhrer-pemsa-morges",
-        "operateur-m2-pemsa-morges"
+        "knife-m2-pemsa-morges",
+        "messer-m2-pemsa-morges",
+        "couteau-m2-pemsa-morges"
       ],
       "datePosted": "2026-09-10T17:11:56+02:00",
       "postingDateSource": "reported",
@@ -13576,7 +13609,7 @@
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13642,7 +13675,7 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13708,7 +13741,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13774,7 +13807,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13840,7 +13873,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13881,7 +13914,7 @@
       "slugByLocale": {
         "it": "installatore-di-isolanti-termici-installatore-di-sistemi-antincendio-m-f-pemsa-fribourg",
         "en": "thermal-insulation-installer-fire-systems-installer-m-f-pemsa-fribourg",
-        "de": "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg",
+        "de": "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg",
         "fr": "installateur-d-isolation-thermique-installateur-de-systemes-d-incendie-h-f-pemsa-fribourg"
       },
       "id": "pemsa-f2d6e8b2b2a5",
@@ -13902,11 +13935,11 @@
       "firstSeenAt": "2026-09-05T12:46:35.883Z",
       "previousSlugsByLocale": {
         "de": [
-          "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg"
+          "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "warmedammstoff-monteur-brandschutzanlangen-monteur-m-w-d-pemsa-fribourg"
+        "warmedammungsinstallateur-feueranlageninstallateur-m-w-pemsa-fribourg"
       ],
       "datePosted": "2026-09-04T21:09:03+02:00",
       "postingDateSource": "reported",
@@ -13914,7 +13947,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -13954,7 +13987,7 @@
       },
       "slugByLocale": {
         "it": "muratore-specializzato-in-finiture-m-f-pemsa-fribourg",
-        "en": "wall-specializing-in-m-f-finishes-pemsa-fribourg",
+        "en": "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg",
         "de": "wand-spezialisiert-auf-m-w-oberflachen-pemsa-fribourg",
         "fr": "mur-specialise-dans-les-finitions-h-f-pemsa-fribourg"
       },
@@ -13976,11 +14009,11 @@
       "firstSeenAt": "2026-09-05T12:46:35.883Z",
       "previousSlugsByLocale": {
         "en": [
-          "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg"
+          "wall-specializing-in-m-f-finishes-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "finishing-bricklayer-specialist-m-w-d-pemsa-fribourg"
+        "wall-specializing-in-m-f-finishes-pemsa-fribourg"
       ],
       "datePosted": "2026-09-04T21:03:57+02:00",
       "postingDateSource": "reported",
@@ -13988,7 +14021,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14054,7 +14087,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14098,7 +14131,7 @@
         "it": "costruttore-di-strade-m-f-pemsa-fribourg",
         "en": "road-manufacturer-m-f-pemsa-fribourg",
         "de": "stra-enhersteller-m-w-pemsa-fribourg",
-        "fr": "fabricant-routier-h-f-pemsa-fribourg"
+        "fr": "constructeur-de-routes-m-w-d-pemsa-fribourg"
       },
       "id": "pemsa-db2307652df7",
       "salaryMin": 76500,
@@ -14129,14 +14162,14 @@
         ],
         "fr": [
           "costruttore-di-strade-m-w-d-pemsa-fribourg",
-          "constructeur-de-routes-m-w-d-pemsa-fribourg"
+          "fabricant-routier-h-f-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
         "costruttore-di-strade-m-w-d-pemsa-fribourg",
-        "constructeur-de-routes-m-w-d-pemsa-fribourg"
+        "fabricant-routier-h-f-pemsa-fribourg"
       ],
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14202,7 +14235,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14268,7 +14301,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14334,7 +14367,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14400,7 +14433,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14466,7 +14499,7 @@
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14532,7 +14565,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14598,7 +14631,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14664,7 +14697,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14730,7 +14763,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14796,7 +14829,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14862,7 +14895,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14928,7 +14961,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -14994,7 +15027,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15060,7 +15093,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15126,7 +15159,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15192,7 +15225,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15258,7 +15291,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15324,7 +15357,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15390,7 +15423,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15456,7 +15489,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15522,7 +15555,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15588,7 +15621,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15654,7 +15687,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15720,7 +15753,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15786,7 +15819,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15827,7 +15860,7 @@
       "slugByLocale": {
         "it": "applicatore-di-resina-pemsa-lausanne",
         "en": "resin-applicator-pemsa-lausanne",
-        "de": "harzapplikator-pemsa-lausanne",
+        "de": "harzanwender-pemsa-lausanne",
         "fr": "applicateur-de-resine-pemsa-lausanne"
       },
       "id": "pemsa-5eae3fb0bd53",
@@ -15848,11 +15881,11 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
-          "harzanwender-pemsa-lausanne"
+          "harzapplikator-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "harzanwender-pemsa-lausanne"
+        "harzapplikator-pemsa-lausanne"
       ],
       "datePosted": "2026-08-10T10:49:14+02:00",
       "postingDateSource": "reported",
@@ -15860,7 +15893,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -15926,7 +15959,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16000,7 +16033,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16066,7 +16099,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16132,7 +16165,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16199,7 +16232,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16265,7 +16298,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16331,7 +16364,7 @@
       "streetAddress": "Vaulruz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16397,7 +16430,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16479,7 +16512,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16545,7 +16578,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16611,7 +16644,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16654,7 +16687,7 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
         "en": "electrical-project-manager-federal-expert-diploma-required-pemsa-lausanne",
-        "de": "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne",
+        "de": "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
         "fr": "responsable-de-projet-dans-le-secteur-electrique-diplome-federal-d-expert-requis-pemsa-lausanne"
       },
       "id": "pemsa-b5c506039f6c",
@@ -16676,11 +16709,11 @@
       "firstSeenAt": "2026-09-03T23:26:09.342Z",
       "previousSlugs": [
         "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne-7113075e73",
-        "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
+        "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "verantwortlicher-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
+          "projektleiter-im-elektrobereich-eidgenossisches-experten-diplom-erforderlich-pemsa-lausanne"
         ],
         "it": [
           "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne-7113075e73"
@@ -16689,7 +16722,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16755,7 +16788,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16821,7 +16854,7 @@
       "streetAddress": "Aigle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16887,7 +16920,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16953,7 +16986,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -16994,7 +17027,7 @@
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
         "en": "versatile-electromechanical-technician-agricultural-and-green-care-machinery-pemsa-lausanne",
-        "de": "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne",
+        "de": "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne",
         "fr": "technicien-electromecanique-polyvalent-machines-agricoles-et-equipements-d-entretien-des-espaces-verts-pemsa-lausanne"
       },
       "id": "pemsa-9fff7c18c197",
@@ -17015,11 +17048,11 @@
       "firstSeenAt": "2026-09-01T23:16:38.648Z",
       "previousSlugsByLocale": {
         "de": [
-          "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
+          "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "techniker-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-pemsa-lausanne"
+        "vielseitiger-elektromechaniker-landmaschinen-und-maschinen-fur-die-grunpflege-pemsa-lausanne"
       ],
       "datePosted": "2026-07-29T10:04:04+02:00",
       "postingDateSource": "reported",
@@ -17027,7 +17060,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17109,7 +17142,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17183,7 +17216,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17224,8 +17257,8 @@
       "slugByLocale": {
         "it": "elettricista-industriale-pemsa-montreux",
         "en": "industrial-electricity-pemsa-montreux",
-        "de": "industriestrom-pemsa-montreux",
-        "fr": "electricite-industrielle-pemsa-montreux"
+        "de": "industrieelektriker-pemsa-montreux",
+        "fr": "electricien-industriel-pemsa-montreux"
       },
       "id": "pemsa-eb9447a2b0ec",
       "salaryMin": 74500,
@@ -17247,21 +17280,21 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "de": [
-          "industrieelektriker-pemsa-montreux"
+          "industriestrom-pemsa-montreux"
         ],
         "fr": [
-          "electricien-industriel-pemsa-montreux"
+          "electricite-industrielle-pemsa-montreux"
         ]
       },
       "previousSlugs": [
-        "industrieelektriker-pemsa-montreux",
-        "electricien-industriel-pemsa-montreux"
+        "industriestrom-pemsa-montreux",
+        "electricite-industrielle-pemsa-montreux"
       ],
       "postalCode": "1820",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17327,7 +17360,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17367,9 +17400,9 @@
       },
       "slugByLocale": {
         "it": "operario-addetto-alla-gru-a-torre-pemsa-fribourg",
-        "en": "tower-crane-operator-pemsa-fribourg",
-        "de": "turmkranfuhrer-pemsa-fribourg",
-        "fr": "operateur-de-grue-a-tour-pemsa-fribourg"
+        "en": "operario-associate-alla-gru-a-torre-pemsa-fribourg",
+        "de": "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg",
+        "fr": "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
       },
       "id": "pemsa-7fac9c3fc3c4",
       "salaryMin": 76500,
@@ -17389,19 +17422,19 @@
       "firstSeenAt": "2026-08-31T17:09:18.558Z",
       "previousSlugsByLocale": {
         "en": [
-          "operario-associate-alla-gru-a-torre-pemsa-fribourg"
+          "tower-crane-operator-pemsa-fribourg"
         ],
         "de": [
-          "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg"
+          "turmkranfuhrer-pemsa-fribourg"
         ],
         "fr": [
-          "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
+          "operateur-de-grue-a-tour-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "operario-associate-alla-gru-a-torre-pemsa-fribourg",
-        "operario-mitarbeiter-alla-gru-a-torre-pemsa-fribourg",
-        "operario-prepose-alla-gru-a-torre-pemsa-fribourg"
+        "tower-crane-operator-pemsa-fribourg",
+        "turmkranfuhrer-pemsa-fribourg",
+        "operateur-de-grue-a-tour-pemsa-fribourg"
       ],
       "datePosted": "2026-07-24T12:07:16+02:00",
       "postingDateSource": "reported",
@@ -17409,7 +17442,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17475,7 +17508,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17515,9 +17548,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-copritetto-pemsa-fribourg",
-        "en": "roofing-and-plastering-specialist-pemsa-fribourg",
-        "de": "dachzieher-und-plasterer-pemsa-fribourg",
-        "fr": "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
+        "en": "milking-machine-copratet-pemsa-fribourg",
+        "de": "melkmaschine-copratet-pemsa-fribourg",
+        "fr": "machine-a-traite-copratet-pemsa-fribourg"
       },
       "id": "pemsa-7adb184e5f31",
       "salaryMin": 76500,
@@ -17537,19 +17570,19 @@
       "firstSeenAt": "2026-09-02T13:42:58.107Z",
       "previousSlugsByLocale": {
         "en": [
-          "milking-machine-copratet-pemsa-fribourg"
+          "roofing-and-plastering-specialist-pemsa-fribourg"
         ],
         "de": [
-          "melkmaschine-copratet-pemsa-fribourg"
+          "dachzieher-und-plasterer-pemsa-fribourg"
         ],
         "fr": [
-          "machine-a-traite-copratet-pemsa-fribourg"
+          "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "milking-machine-copratet-pemsa-fribourg",
-        "melkmaschine-copratet-pemsa-fribourg",
-        "machine-a-traite-copratet-pemsa-fribourg"
+        "roofing-and-plastering-specialist-pemsa-fribourg",
+        "dachzieher-und-plasterer-pemsa-fribourg",
+        "specialiste-de-la-toiture-et-du-platre-pemsa-fribourg"
       ],
       "datePosted": "2026-07-24T08:40:35+02:00",
       "postingDateSource": "reported",
@@ -17557,7 +17590,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17623,7 +17656,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17689,7 +17722,7 @@
       "streetAddress": "Vaulruz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17755,7 +17788,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17821,7 +17854,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17887,7 +17920,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -17953,7 +17986,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18019,7 +18052,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18085,7 +18118,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18151,7 +18184,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18192,7 +18225,7 @@
       "slugByLocale": {
         "it": "pavimentista-posatore-di-pavimenti-pemsa-fribourg",
         "en": "floor-pavimentist-floor-dispenser-pemsa-fribourg",
-        "de": "flooring-specialist-parquet-installer-pemsa-fribourg",
+        "de": "floor-pavimentist-floor-dispenser-pemsa-fribourg",
         "fr": "pavageur-de-sol-distributeur-de-sol-pemsa-fribourg"
       },
       "id": "pemsa-470331a2026f",
@@ -18213,11 +18246,11 @@
       "firstSeenAt": "2026-09-02T13:42:58.107Z",
       "previousSlugsByLocale": {
         "de": [
-          "floor-pavimentist-floor-dispenser-pemsa-fribourg"
+          "flooring-specialist-parquet-installer-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "floor-pavimentist-floor-dispenser-pemsa-fribourg"
+        "flooring-specialist-parquet-installer-pemsa-fribourg"
       ],
       "datePosted": "2026-07-17T10:02:58+02:00",
       "postingDateSource": "reported",
@@ -18225,7 +18258,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18314,7 +18347,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18380,7 +18413,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18446,7 +18479,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18512,7 +18545,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18578,7 +18611,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18654,7 +18687,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18694,8 +18727,8 @@
       },
       "slugByLocale": {
         "it": "lattoniere-pemsa-tafers",
-        "en": "tinsmith-pemsa-tafers",
-        "de": "dachdecker-pemsa-tafers",
+        "en": "milking-machine-pemsa-tafers",
+        "de": "melkmaschine-pemsa-tafers",
         "fr": "latteniere-pemsa-tafers"
       },
       "id": "pemsa-77b7b0c9321b",
@@ -18716,15 +18749,15 @@
       "firstSeenAt": "2026-08-31T17:09:18.558Z",
       "previousSlugsByLocale": {
         "en": [
-          "milking-machine-pemsa-tafers"
+          "tinsmith-pemsa-tafers"
         ],
         "de": [
-          "melkmaschine-pemsa-tafers"
+          "dachdecker-pemsa-tafers"
         ]
       },
       "previousSlugs": [
-        "milking-machine-pemsa-tafers",
-        "melkmaschine-pemsa-tafers"
+        "tinsmith-pemsa-tafers",
+        "dachdecker-pemsa-tafers"
       ],
       "datePosted": "2026-07-13T09:05:27+02:00",
       "postingDateSource": "reported",
@@ -18732,7 +18765,7 @@
       "streetAddress": "Tafers",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18798,7 +18831,7 @@
       "streetAddress": "Marly",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18864,7 +18897,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18930,7 +18963,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -18996,7 +19029,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19037,7 +19070,7 @@
       "slugByLocale": {
         "it": "tecnico-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
         "en": "specialized-technician-in-bituminous-waterproofing-pemsa-lausanne",
-        "de": "spezialist-fur-bituminose-dichtung-pemsa-lausanne",
+        "de": "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne",
         "fr": "technicien-specialise-en-etancheite-bitumineuse-pemsa-lausanne"
       },
       "id": "pemsa-8bc01fdd31bd",
@@ -19057,11 +19090,11 @@
       "firstSeenAt": "2026-08-12T10:23:47.343Z",
       "previousSlugsByLocale": {
         "de": [
-          "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
+          "spezialist-fur-bituminose-dichtung-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "techniker-specializzato-in-impermeabilizzazione-con-bitume-pemsa-lausanne"
+        "spezialist-fur-bituminose-dichtung-pemsa-lausanne"
       ],
       "salarySource": "reported",
       "datePosted": "2026-07-09T13:52:07+02:00",
@@ -19070,7 +19103,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19136,7 +19169,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19202,7 +19235,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19242,9 +19275,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "en": "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "de": "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "fr": "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "en": "knife-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "de": "messer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "fr": "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
       },
       "id": "pemsa-843c3ee54b8d",
       "salaryMin": 60500,
@@ -19268,22 +19301,22 @@
           "mais-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "en": [
-          "knife-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "driver-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "de": [
-          "messer-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne"
         ],
         "fr": [
-          "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
+          "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
         "but-m1-m2-m3-m6-m7-pemsa-lausanne",
         "m1-m2-m3-m6-m7-pemsa-lausanne",
         "mais-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "knife-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "messer-m1-m2-m3-m6-m7-pemsa-lausanne",
-        "couteau-m1-m2-m3-m6-m7-pemsa-lausanne"
+        "driver-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "lokfuhrer-m1-m2-m3-m6-m7-pemsa-lausanne",
+        "machiniste-m1-m2-m3-m6-m7-pemsa-lausanne"
       ],
       "salarySource": "reported",
       "datePosted": "2026-06-29T09:22:33+02:00",
@@ -19292,7 +19325,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19358,7 +19391,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19424,7 +19457,7 @@
       "streetAddress": "Oron-la-Ville",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19490,7 +19523,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19514,7 +19547,7 @@
       "postedDate": "2026-04-07T11:26:44+02:00",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-12-14T09:27:04.805Z",
+      "validThrough": "2026-12-14T21:29:18.904Z",
       "description": "Impianti elettrici - Installatore elettrico\nMontatore elettrico – CFC\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nMontatore elettrico – CFC\n* indica i campi obbligatori\nVolete la libertà del temporaneo e la sicurezza del fisso?\nDa 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti.\nMa non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Montatore elettrico – CFC\nIl tuo ruolo:\n- Intervenire in cantieri sia di nuova costruzione che di ristrutturazione, dall’installazione alla messa in funzione di apparecchiature elettriche.\n- Posizionare e fissare condotti e guaine prima di versare lastre e installare tramezzi.\n- Tirare e organizzare i cavi con metodo e precisione.\n- Collegare prese, interruttori, quadri elettrici e altre apparecchiature terminali.\n- Installare e collegare apparecchi elettrici, sistemi di sicurezza e dispositivi di controllo e telecomando.\nAssicurare la stretta osservanza degli standard tecnici, dei regolamenti NIBT e delle norme di sicurezza in vigore.\n- Eseguire controlli, test e messa in servizio degli impianti.\n- Diagnosticare i guasti ed eseguire le riparazioni necessarie. Parliamo di te?\n- Titolare di un CFC in installazione elettrica o di una formazione equivalente riconosciuta in Svizzera.\n- Con almeno due anni di esperienza in Svizzera in un ruolo simile.\n- Autonomo, rigoroso e buon giocatore di squadra.\nForte senso di responsabilità e ottime capacità organizzative.\n- Ottima padronanza della lettura e dell’interpretazione di piani e schemi elettrici.\n- A proprio agio con gli strumenti informatici per il monitoraggio del lavoro e la stesura di rapporti.\n- È richiesta la patente di guida.\nIl candidato prescelto sarà in grado di lavorare in un ambiente di squadra\nSei interessato?\nAmi e padroneggi il tuo lavoro e vuoi mettere le tue competenze al servizio di progetti davvero importanti?\nAllora questo è il lavoro che fa per te.\nCon noi, la tua esperienza fa la differenza e contribuisce direttamente al successo dei nostri progetti.\nCosa offriamo:\n- Vari incarichi\n- Un’atmosfera motivante\n- Un team professionale e di supporto\n- Opportunità di formazione continua per sviluppare la tua carriera\n- Se questo lavoro corrisponde alle tue capacità e aspirazioni, inviaci il tuo CV oggi stesso.\n- E anche se questa posizione è occupata o non corrisponde perfettamente al tuo profilo, possiamo sempre offrirti altre opportunità.\nIl tuo contatto per questa posizione è Nunzio Munafò. Sarà in grado di supportarti, consigliarti e rispondere a qualsiasi domanda tu possa avere sul lavoro.\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.\nLuogo di lavoro\nLausanne\nTipo di lavoro\nA tempo pieno - Interinale",
       "titleByLocale": {
         "it": "Montatore elettrico – CFC",
@@ -19556,7 +19589,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19622,7 +19655,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19688,7 +19721,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19754,7 +19787,7 @@
       "streetAddress": "Gruyères",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -19780,7 +19813,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-12-14T09:27:04.805Z",
+      "validThrough": "2026-12-14T21:29:18.904Z",
       "description": "Candidatura spontanea - Settore Giardini\nCandidatura spontanea – Giardini\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nCandidatura spontanea – Giardini\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Candidatura spontanea – Giardini\nSiamo alla ricerca di :\nNell’ambito della nostra espansione, stiamo lanciando un invito a presentare candidature spontanee per posizioni nei seguenti settori:\n- Progettazione del paesaggio\n- Progettazione paesaggistica\n- Manutenzione e cura dei giardini\n- Orticoltura e arboricoltura\n- Muratura del paesaggio\n- Gestione di progetti paesaggistici\n- Potatura e abbattimento\n- Costruzione di terrazze e camminamenti\n- Irrigazione e gestione dell’acqua\nProfilo :\n- Diploma in ambito giardinaggio, orticoltura o discipline affini.\n- Esperienza professionale nel settore della paesaggistica (un’esperienza significativa costituisce un vantaggio).\n- Conoscenza delle tecniche e degli strumenti di giardinaggio e paesaggistica.\n- Capacità di lavorare in gruppo e di coordinarsi con i diversi mestieri.\n- Senso estetico, creatività e attenzione ai dettagli.\n- Ottime capacità di comunicazione e di risoluzione dei problemi.\n- Adattabilità e capacità di lavorare in un ambiente esterno dinamico.\nCome posso candidarmi?\nSe siete appassionati del settore edile e volete unirvi al nostro team, saremo lieti di sentirvi.\nLuogo di lavoro\nCadempino\nTipo di lavoro\nA tempo pieno - Interinale",
       "titleByLocale": {
         "it": "Candidatura spontanea – Giardini",
@@ -19831,7 +19864,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-14T09:27:04.805Z",
+      "crawledAt": "2026-11-14T21:29:18.904Z",
       "crawledAtSource": "slice-writer"
     }
   ]
