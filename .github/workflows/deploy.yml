@@ -1366,8 +1366,15 @@ jobs:
             fi
           } | tee -a "$GITHUB_STEP_SUMMARY"
 
+      # W0-G: every `node` that reads `dist` below carries an EXPLICIT heap limit.
+      # Run 43131340812 OOM-ed all four legs in `hreflang-index-manifest.mjs dist`
+      # because the process ran with Node's default heap. These readers use ~1.2 GB
+      # in healthy runs: 6144 MB leaves margin and, unlike raising it, does not
+      # compete with the swap. tests/deploy-node-heap-contract.test.ts pins it.
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/validate-critical-dist-pages.mjs
 
       - name: Verify build profile markers before upload
@@ -1498,6 +1505,8 @@ jobs:
       # write every locale. This removes the non-owned locale output the same
       # way deploy.yml copies only dist/<locale> to each shard repo.
       - name: Prune to locale shard
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       # Run artifact checks after removing other locales. The dotfile audit
@@ -1520,6 +1529,8 @@ jobs:
       - name: Hreflang index manifest (pre-barrier, no rewrite)
         id: hreflang-index-manifest-pre
         timeout-minutes: 30
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: |
           set -euo pipefail
           rm -rf .cache/hreflang-index-manifest
@@ -1596,10 +1607,14 @@ jobs:
         if: matrix.locale == 'it'
         id: hreflang-index-manifest
         timeout-minutes: 30
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests --reuse-prepass-cache .cache/hreflang-index-manifest/it.pages.jsonl
 
       - name: Refresh expired archive evidence after Hreflang rewrite
         if: matrix.locale == 'it'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/shard-content-manifest.mjs refresh-expired-archive-evidence --root dist --locale it --evidence-manifest dist/assets/expired-archive-evidence-it.json
 
       # Keep this source-side validation successful for the locale provenance
@@ -1607,6 +1622,8 @@ jobs:
       # after the deferred hreflang rewrite, before any shard side effects.
       - name: Validate locale shard output
         id: validate-locale-shard
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       # Owner decision 2026-10-24: an active job ALWAYS emits JobPosting.
@@ -1618,6 +1635,7 @@ jobs:
       - name: Assert active JobPosting coverage
         env:
           JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/assert-active-jobposting-coverage.mjs dist
 
       # The publisher has parallel locale jobs. Persist one compact exact Git
