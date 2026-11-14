@@ -1,5 +1,99 @@
 [
   {
+    "slug": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern",
+    "title": "Platform Engineer Continuous Integration (w/m/d)",
+    "titleByLocale": {
+      "it": "Platform Ingegnere Continuous Integration (w/m/d)",
+      "en": "Platform Engineer Continuous Integration (m/f/d)",
+      "de": "Platform Engineer Continuous Integration (w/m/d)",
+      "fr": "Platform Ingénieur Continuous Integration (w/m/d)"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Nel team dinamico, si gioca un ruolo chiave e supporta gli sviluppatori di software interni nei loro progetti. Si progettano servizi centrali e strumenti per lo sviluppo e la consegna del software – dal concepimento allo sviluppo al funzionamento. Con la vostra natura proattiva e il vostro spirito di squadra, assicuratevi che i nostri processi rimangano efficienti e sostenibili. In questo modo si contribuisce in modo importante all'ulteriore sviluppo di PostFinance.\n\nPuoi farlo.\n\n- Si gioca un ruolo chiave nell'ulteriore sviluppo e ottimizzazione di strumenti di integrazione continua / piattaforme / assistenza (ad esempio GitLab, SonarQube, Artifactory) per tutti gli sviluppatori PostFinance\n\n- Si lavora in team e continuamente sul miglioramento dell'esperienza dello sviluppatore e implementare l'automazione e gli aggiornamenti esigenti con zero downtime: rollout, aggiornamento, bugkeeping, self-healing e integrazione\n\n- Sviluppi soluzioni innovative per fornire agli utenti una trasparenza all'interno della piattaforma e degli strumenti in modo che possano svolgere i loro compiti in modo indipendente ed efficiente.\n\n- Contribuisci attivamente all'ulteriore sviluppo del self-service on-demand, che fornisce automaticamente tutte le risorse necessarie sulle nostre piattaforme (ad esempio strumenti, repository, autorizzazioni)\n\n- Costruisci la nostra osservabilità e assicurati che i problemi diventino visibili prima che escalate\n\n- Supporti i clienti interni nell'utilizzo delle nostre piattaforme e li aiuti a trovare soluzioni adeguate\n\nLo porti con te.\n\n- Enthusiasm per la risoluzione continua dei problemi, l'apprendimento e la condivisione delle conoscenze, nonché per i moderni concetti di integrazione automatizzata e la consegna del software\n\n- Godetevi la cura dei clienti interni e lavorare con loro per sviluppare soluzioni\n\n- Esperienza nel funzionamento di piattaforme business-critical con elevati requisiti di disponibilità\n\n- Ottima conoscenza di Linux, Shell, Osservabilità, Infrastructure-as-Code e Docker\n\n- Esperienza approfondita nello sviluppo del software con linguaggi come Go, React, TypeScript o Java\n\n- Buona conoscenza di almeno due dei seguenti strumenti e disponibilità a familiarizzare con gli altri: Grafana, Prometeo, Helm, Ansible e Git\n\n- Eccellente tedesco e inglese competenze",
+      "en": "In the dynamic team, you play a key role and support internal software developers in their projects. You design central services and tools for software development and delivery – from conception to development to operation. With your proactive nature and your team spirit, you ensure that our processes remain efficient and sustainable. So you make an important contribution to the further development of PostFinance.\n\nYou can do that.\n\n- You play a key role in the further development and optimization of Continuous Integration tools / platforms / assistance (e.g. GitLab, SonarQube, Artifactory) for all PostFinance developers\n\n- You work across teams and continuously on the improvement of the developer experience and implement demanding automations and updates with zero downtime: rollout, upgrade, bugkeeping, self-healing and integration\n\n- You develop innovative solutions to provide users with transparency within the platform and tools so that they can perform their tasks independently and efficiently.\n\n- You actively contribute to the further development of the on-demand self-service, which automatically provides all necessary resources on our platforms (e.g. tools, repositories, permissions)\n\n- You build our observability and make sure that problems become visible before they escalate\n\n- You support internal customers in using our platforms and help them find suitable solutions\n\nYou bring that with you\n\n- Enthusiasm for continuous problem solving, learning and knowledge sharing as well as for modern concepts of automated integration and software delivery\n\n- Enjoy looking after internal customers and working with them to develop solutions\n\n- Experience in the operation of business-critical platforms with high availability requirements\n\n- Very good knowledge of Linux, Shell, Observability, Infrastructure-as-Code and Docker\n\n- In-depth experience in software development with languages such as Go, React, TypeScript or Java\n\n- Good knowledge of at least two of the following tools and willingness to familiarize yourself with others: Grafana, Prometheus, Helm, Ansible and Git\n\n- Excellent German and English skills",
+      "de": "Im dynamischen Team übernimmst du eine Schlüsselrolle und unterstützt interne Softwareentwickler:innen bei ihren Projekten. Du gestaltest zentrale Services und Tools für die Softwareentwicklung und -auslieferung – von der Konzeption über die Entwicklung bis zum Betrieb. Mit deiner proaktiven Art und deinem Teamgeist stellst du sicher, dass unsere Prozesse effizient und zukunftsfähig bleiben. So leistest du einen wichtigen Beitrag zur Weiterentwicklung von PostFinance.\n\nDas kannst du bewirken\n\n- Du spielst eine massgebliche Rolle in der Weiterentwicklung und Optimierung der Continuous Integration Werkzeuge / Plattformen / Hilfestellungen (z.B. GitLab, SonarQube, Artifactory) für alle Developer der PostFinance\n\n- Du arbeitest teamübergreifend und kontinuierlich an der Verbesserung der Developer Experience und implementierst anspruchsvolle Automatisierungen sowie Updates mit zero Downtime: Rollout, Upgrade, Hosekeeping, Self-Healing und Integration\n\n- Du entwickelst innovative Lösungen, um den Anwender:innen der Plattform und Tools Transparenz zu bieten, sodass sie ihre Aufgaben eigenverantwortlich und effizient erledigen können\n\n- Du trägst aktiv zur Weiterentwicklung des On-Demand Self-Services bei, der automatisch alle erforderlichen Ressourcen auf unseren Plattformen bereitstellt (z.B. Tools, Repositories, Berechtigungen)\n\n- Du baust unsere Observability aus und sorgst dafür, dass Probleme sichtbar werden, bevor sie eskalieren\n\n- Du unterstützt interne Kund:innen bei der Nutzung unserer Plattformen und hilfst ihnen, passende Lösungen zu finden\n\nDas bringst du mit\n\n- Begeisterung für kontinuierliches Problemlösen, Lernen und die Weitergabe von Wissen sowie für moderne Konzepte der automatisierten Integration und Softwareauslieferung\n\n- Freude daran, interne Kund:innen zu betreuen und gemeinsam mit ihnen Lösungen zu erarbeiten\n\n- Erfahrung im Betrieb geschäftskritischer Plattformen mit hohen Verfügbarkeitsanforderungen\n\n- Sehr gute Kenntnisse in Linux, Shell, Observability, Infrastructure-as-Code und Docker\n\n- Fundierte Erfahrung in der Softwareentwicklung mit Sprachen wie Go, React, TypeScript oder Java\n\n- Gute Kenntnisse in mindestens zwei der folgenden Tools sowie Bereitschaft, dich in weitere einzuarbeiten: Grafana, Prometheus, Helm, Ansible und Git\n\n- Einwandfreie Deutsch- und gute Englischkenntnisse",
+      "fr": "Dans l'équipe dynamique, vous jouez un rôle clé et soutenez les développeurs de logiciels internes dans leurs projets. Vous concevez des services et des outils centraux pour le développement et la livraison de logiciels – de la conception au développement jusqu'à l'exploitation. Avec votre nature proactive et votre esprit d'équipe, vous veillez à ce que nos processus demeurent efficaces et durables. Vous contribuez donc grandement au développement de PostFinance.\n\nTu peux le faire.\n\n- Vous jouez un rôle clé dans le développement et l'optimisation des outils d'intégration continue / plateformes / assistance (par exemple GitLab, SonarQube, Artifactory) pour tous les développeurs PostFinance\n\n- Vous travaillez à travers les équipes et en continu sur l'amélioration de l'expérience du développeur et implémentez des automatisations et des mises à jour exigeantes avec zéro temps d'arrêt: déploiement, mise à niveau, bogue, auto-guérison et intégration\n\n- Vous développez des solutions innovantes pour fournir aux utilisateurs une transparence au sein de la plateforme et des outils afin qu'ils puissent accomplir leurs tâches de manière indépendante et efficace.\n\n- Vous contribuez activement au développement du libre-service à la demande, qui fournit automatiquement toutes les ressources nécessaires sur nos plateformes (p. ex. outils, dépôts, autorisations)\n\n- Vous construisez notre observabilité et assurez-vous que les problèmes deviennent visibles avant qu'ils ne s'aggravent\n\n- Vous aidez les clients internes à utiliser nos plateformes et les aidez à trouver des solutions adaptées\n\nApporte ça avec toi.\n\n- Enthousiasme pour la résolution continue de problèmes, l'apprentissage et le partage des connaissances ainsi que pour les concepts modernes d'intégration automatisée et de livraison de logiciels\n\n- Profitez de prendre soin des clients internes et de travailler avec eux pour développer des solutions\n\n- Expérience dans le fonctionnement de plates-formes critiques pour les entreprises avec des besoins de disponibilité élevés\n\n- Très bonne connaissance de Linux, Shell, Observabilité, Infrastructure comme code et Docker\n\n- Expérience approfondie dans le développement de logiciels avec des langages tels que Go, React, TypeScript ou Java\n\n- Bonne connaissance d'au moins deux des outils suivants et volonté de se familiariser avec les autres : Grafana, Prométhée, Helm, Ansible et Git\n\n- Excellentes compétences en allemand et en anglais"
+    },
+    "slugByLocale": {
+      "it": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern",
+      "en": "platform-engineer-continuous-integration-w-m-d-postfinance",
+      "de": "platform-engineer-continuous-integration-w-m-d-postfinance",
+      "fr": "platform-ingenieur-continuous-integration-w-m-d-postfinance-bern"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-11-14T21:48:06.257Z",
+    "previousSlugs": [
+      "platform-engineer-continuous-integration-w-m-d-postfinance"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "platform-engineer-continuous-integration-w-m-d-postfinance"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Bern",
+    "salaryMin": 73000,
+    "salaryMax": 124500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/platform-engineer-continuous-integration-%28wmd%29/74052-de_de",
+    "firstSeenAt": "2026-10-13T09:40:42.405Z"
+  },
+  {
+    "slug": "responsabile-cyber-defense-center-postfinance-bern",
+    "title": "Leiter:in Cyber Defense Center",
+    "titleByLocale": {
+      "it": "Responsabile Cyber Defense Center",
+      "en": "Head of Cyber Defense Center",
+      "de": "Leiter:in Cyber Defense Center",
+      "fr": "Responsable du centre de cyberdéfense"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Il Cyber Defense Center di PostFinance fa parte della sicurezza centralizzata e monitora l'intero panorama informatico. In un ambiente di minaccia in continua evoluzione, tu e il tuo team assicurate che le minacce informatiche vengano rilevate in anticipo, trattate professionalmente ed efficacemente riparate. Con la tua previsione strategica, l'esperienza di leadership e la comprensione tecnica, svilupperai continuamente il nostro Cyber Defense Center e formerai attivamente il panorama della sicurezza informatica di PostFinance. Per questo compito responsabile, stiamo cercando una personalità impegnata che ripensa la sicurezza e plasma il futuro del nostro Cyber Defense Center.\n\nPuoi farlo.\n\n- Si assume la responsabilità generale per il Cyber Defense Center e sviluppare continuamente la sua visione, strategia e prestazioni\n\n- Insieme al vostro team, assicurate il funzionamento del Cyber Defense Center – dal monitoraggio della sicurezza e dal triage degli eventi alla gestione degli incidenti e al controllo dell'operazione Pikett.\n\n- Coordinate la risposta degli incidenti in caso di incidenti critici per la sicurezza e lavorate a stretto contatto con gli specialisti IT e i responsabili della gestione delle emergenze.\n\n- Insieme al tuo team, svilupperai continuamente le capacità di rilevamento del Cyber Defense Center e identificherai le minacce nascoste all'inizio attraverso la caccia mirata alle minacce.\n\n- Sei responsabile dell'intelligenza delle minacce informatiche e assicurati che le informazioni sulle minacce attuali siano efficacemente integrate nei processi di rilevamento e risposta\n\n- Sei responsabile per le piattaforme di cyber-difesa e il loro sviluppo continuo e garantire la loro futura fattibilità in stretta collaborazione con l'ingegneria e il funzionamento.\n\n- È possibile gestire con report significativi e regolari, trasparenza sullo stato di sicurezza e l'efficacia del Cyber Defense Center\n\nLo porti con te.\n\n- Laurea in informatica, idealmente con un approfondimento nella sicurezza informatica, o istruzione comparabile\n\n- Diversi anni di esperienza di leadership e la capacità di sviluppare e guidare con successo i team in situazioni difficili\n\n- Diversi anni di esperienza pratica in un Security Operations Center o Cyber Defense Center e una comprensione approfondita delle moderne architetture di sicurezza informatica\n\n- Conoscenza dell'intelligenza della minaccia informatica, della caccia alle minacce o dell'ingegneria di rilevamento come un plus\n\n- Capacità calma, decisionale e sovranità in situazioni critiche\n\n- Forte capacità di comunicazione a diversi livelli gerarchici",
+      "en": "PostFinance’s Cyber Defense Center is part of centralized security and monitors the entire cyber landscape. In an ever-changing threat environment, you and your team ensure that cyber threats are detected early, treated professionally and effectively fended off. With your strategic foresight, leadership experience and technical understanding, you will continuously develop our Cyber Defense Center and actively shape the cyber security landscape of PostFinance. For this responsible task, we are looking for a committed personality who will rethink security and shape the future of our Cyber Defense Center.\n\nYou can do that.\n\n- You take overall responsibility for the Cyber Defense Center and continuously develop its vision, strategy and performance\n\n- Together with your team, you ensure the operation of the Cyber Defense Center – from security monitoring and event triage to incident handling and the control of the Pikett operation.\n\n- You coordinate incident response in the event of security-critical incidents and work closely with IT specialists and those responsible for emergency management.\n\n- Together with your team, you will continuously develop the detection capabilities of the Cyber Defense Center and identify hidden threats early on through targeted threat hunting.\n\n- You are responsible for cyber threat intelligence and ensure that current threat information is effectively integrated into the detection and response processes\n\n- You are responsible for the cyber defense platforms and their continuous development and ensure their future viability in close cooperation with engineering and operation.\n\n- You can manage with meaningful and regular reporting, transparency about the security status and the effectiveness of the Cyber Defense Center\n\nYou bring that with you\n\n- Graduate degree in computer science, ideally with a deepening in cyber security, or comparable education\n\n- Several years of leadership experience and the ability to successfully develop and lead teams in challenging situations\n\n- Several years of practical experience in a Security Operations Center or Cyber Defense Center as well as an in-depth understanding of modern cyber security architectures\n\n- Knowledge of cyber threat intelligence, threat hunting or detection engineering as a plus\n\n- Calm, decision-making ability and sovereignty in critical situations\n\n- Strong communication skills at different hierarchical levels",
+      "de": "Das Cyber Defense Center der PostFinance ist Teil der zentralisierten Security und überwacht die gesamte Cyberlandschaft. In einer sich laufend verändernden Bedrohungslage sorgst du gemeinsam mit deinem Team dafür, dass Cyberbedrohungen frühzeitig erkannt, professionell behandelt und wirksam abgewehrt werden. Mit deinem strategischen Weitblick, deiner Führungserfahrung und deinem technischen Verständnis entwickelst du unser Cyber Defense Center kontinuierlich weiter und prägst die Cyber-Security-Landschaft von PostFinance aktiv mit. Für diese verantwortungsvolle Aufgabe suchen wir eine engagierte Persönlichkeit, die Sicherheit neu denkt und die Zukunft unseres Cyber Defense Centers mitgestaltet.\n\nDas kannst du bewirken\n\n- Du übernimmst die Gesamtverantwortung für das Cyber Defense Center und entwickelst dessen Vision, Strategie und Leistungsfähigkeit kontinuierlich weiter\n\n- Du stellst gemeinsam mit deinem Team den Betrieb des Cyber Defense Center sicher – von Security Monitoring und Event Triage bis zu Incident Handling und der Steuerung des Pikett-Betriebs\n\n- Du koordinierst bei sicherheitskritischen Vorfällen die Incident Response und arbeitest eng mit Spezialist:innen der IT sowie den Verantwortlichen des Notfallmanagements zusammen\n\n- Du entwickelst gemeinsam mit deinem Team die Erkennungsfähigkeiten des Cyber Defense Centers kontinuierlich weiter und identifizierst durch gezieltes Threat Hunting versteckte Bedrohungen frühzeitig\n\n- Du verantwortest den Bereich Cyber Threat Intelligence und stellst sicher, dass aktuelle Bedrohungsinformationen wirksam in die Detection- und Response-Prozesse einfliessen\n\n- Du trägst die Verantwortung für die Cyber-Defense-Plattformen und deren kontinuierliche Weiterentwicklung und stellst in enger Zusammenarbeit mit Engineering und Betrieb deren Zukunftsfähigkeit sicher\n\n- Du schaffst mit aussagekräftigen und regelmässigen Reportings, Transparenz über den Sicherheitsstatus sowie die Wirksamkeit des Cyber Defense Centers\n\nDas bringst du mit\n\n- Hochschulabschluss in Informatik, idealerweise mit Vertiefung in Cyber Security, oder vergleichbare Ausbildung\n\n- Mehrjährige Führungserfahrung und die Fähigkeit zur erfolgreichen Entwicklung und Führung von Teams in anspruchsvolle Situationen\n\n- Mehrjährige Praxiserfahrung in einem Security Operations Center oder Cyber Defense Center sowie vertieftes Verständnis moderner Cyber-Security-Architekturen\n\n- Kenntnisse in Cyber Threat Intelligence, Threat Hunting oder Detection Engineering als Plus\n\n- Ruhe, Entscheidungsfähigkeit und Souveränität in kritischen Situationen\n\n- Ausgeprägte Kommunikationsfähigkeit auf unterschiedlichen Hierarchiestufen",
+      "fr": "Le Centre de Cyberdéfense PostFinance fait partie de la sécurité centralisée et surveille l'ensemble du cyberpaysage. Dans un environnement de menace en constante évolution, vous et votre équipe vous assurez que les cybermenaces sont détectées tôt, traitées professionnellement et efficacement. Avec votre prospective stratégique, votre expérience de leadership et votre compréhension technique, vous développerez continuellement notre Centre de cyberdéfense et façonnerez activement le paysage de cybersécurité de PostFinance. Pour cette tâche responsable, nous cherchons une personnalité engagée qui repensera la sécurité et façonnera l'avenir de notre Centre de cyberdéfense.\n\nTu peux le faire.\n\n- Vous assumez la responsabilité globale du Cyber Defense Center et développez continuellement sa vision, sa stratégie et ses performances\n\n- Avec votre équipe, vous assurez le fonctionnement du Cyber Defense Center – de la surveillance de sécurité et du triage des événements à la gestion des incidents et au contrôle de l'opération Pikett.\n\n- Vous coordonnez les interventions en cas d'incidents critiques pour la sécurité et travaillez en étroite collaboration avec les spécialistes des TI et les responsables de la gestion des urgences.\n\n- Avec votre équipe, vous développerez en permanence les capacités de détection du Cyber Defense Center et identifierez les menaces cachées dès le début grâce à la chasse ciblée.\n\n- Vous êtes responsable du renseignement sur les cybermenaces et vous assurez que l'information actuelle sur les menaces est intégrée efficacement aux processus de détection et d'intervention.\n\n- Vous êtes responsable des plateformes de cyberdéfense et de leur développement continu et assurez leur viabilité future en étroite collaboration avec l'ingénierie et l'exploitation.\n\n- Vous pouvez gérer avec des rapports significatifs et réguliers, la transparence sur le statut de sécurité et l'efficacité du Cyber Defense Center\n\nApporte ça avec toi.\n\n- Diplômé en informatique, idéalement avec un approfondissement en cybersécurité, ou une éducation comparable\n\n- Plusieurs années d'expérience en leadership et la capacité de former et de diriger des équipes dans des situations difficiles\n\n- Plusieurs années d'expérience pratique dans un centre d'opérations de sécurité ou un centre de cyberdéfense ainsi qu'une compréhension approfondie des architectures modernes de cybersécurité\n\n- Connaissance du renseignement sur les cybermenaces, de la chasse aux menaces ou de l'ingénierie de détection comme un plus\n\n- Calme, capacité de décision et souveraineté dans des situations critiques\n\n- Fortes compétences en communication à différents niveaux hiérarchiques"
+    },
+    "slugByLocale": {
+      "it": "responsabile-cyber-defense-center-postfinance-bern",
+      "en": "head-of-cyber-defense-center-postfinance-bern",
+      "de": "leiter-in-cyber-defense-center-postfinance",
+      "fr": "responsable-du-centre-de-cyberdefense-postfinance-bern"
+    },
+    "sector": "IT",
+    "expiredAt": "2026-11-14T21:48:06.257Z",
+    "previousSlugs": [
+      "leiter-in-cyber-defense-center-postfinance"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leiter-in-cyber-defense-center-postfinance"
+      ],
+      "en": [
+        "leiter-in-cyber-defense-center-postfinance"
+      ],
+      "fr": [
+        "leiter-in-cyber-defense-center-postfinance"
+      ]
+    },
+    "postalCode": "3004",
+    "streetAddress": "Bern",
+    "salaryMin": 113000,
+    "salaryMax": 192000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/leiterin-cyber-defense-center/74954-de_de",
+    "firstSeenAt": "2026-10-13T21:42:11.795Z"
+  },
+  {
     "slug": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
     "title": "Conseiller:ère clientèle en placement, Lausanne",
     "titleByLocale": {
@@ -39,201 +133,6 @@
       ]
     },
     "postalCode": "1003",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-    "title": "Conseiller:ère clientèle privée, Lausanne",
-    "titleByLocale": {
-      "it": "Conseiller:ère clientèle privée, Lausanne",
-      "en": "Advisor: Private Customer Service, Lausanne",
-      "de": "Berater: Privater Kundenservice, Lausanne",
-      "fr": "Conseiller:ère clientèle privée, Lausanne"
-    },
-    "company": "PostFinance",
-    "companyKey": "postfinance",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\nFais la différence\n\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\nCe que tu apportes\n\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée\n\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local\n\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\nPersonnalité indépendante avec une forte orientation client",
-      "en": "In the future, too, PostFinance must remain at the forefront of innovation in the Swiss financial centre. This includes providing competent advice to clients on all matters related to our financial services. Whether it's online, by phone or in person: as a private Customer Advisor you make money management as simple as possible thanks to your experience in selling and your sense of service. Make a difference You advise our customers on all financial matters via affiliate, telephone or online You are responsible for promoting PostFinance's services and products in the field of investments, foresight and mortgage market You share your enthusiasm for PostFinance services and products and easily organize your own appointments with customers Thanks to your dynamism and your great independence, you achieve the agreed sales and development goals and make a significant contribution to the success of PostFinance\n• What you bring Minimum 2 years of experience in the Swiss banking/insurance sector required You live in the Lausanne region and you have good knowledge of the local market Continuing training in banking (IAF, SAQ) Independent personality with strong customer orientation",
-      "de": "Auch in Zukunft muss PostFinance an der Spitze der Innovation am Schweizer Finanzplatz bleiben. Dazu gehört auch die kompetente Beratung der Kunden in allen Fragen im Zusammenhang mit unseren Finanzdienstleistungen. Ob online, telefonisch oder persönlich: Als privater Kundenberater machen Sie das Geldmanagement dank Ihrer Erfahrung im Verkauf und Ihrem Servicegefühl so einfach wie möglich. Machen Sie einen Unterschied Sie beraten unsere Kunden in allen finanziellen Angelegenheiten über Affiliate, Telefon oder online Sie sind verantwortlich für die Förderung der Dienstleistungen und Produkte von PostFinance im Bereich Investments, Foresight und Hypothekenmarkt Sie teilen Ihre Begeisterung für PostFinance Services und Produkte und organisieren ganz einfach Ihre eigenen Termine mit Kunden Dank Ihrer Dynamik und Ihrer großen Unabhängigkeit erreichen Sie die vereinbarten Vertriebs- und Entwicklungsziele und leisten einen wesentlichen Beitrag zum Erfolg von PostFinance Was du mitbringst Mindestens 2 Jahre Erfahrung im Schweizer Banken-/Versicherungssektor erforderlich Sie leben in der Region Lausanne und haben gute Kenntnisse des lokalen Marktes Weiterbildung im Bankwesen (IAF, SAQ) Unabhängige Persönlichkeit mit starker Kundenorientierung",
-      "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service. Fais la différence Tu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online Tu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire Tu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients Grâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance Ce que tu apportes Minimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée Tu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local Formation continue dans le domaine bancaire (IAF, SAQ) Personnalité indépendante avec une forte orientation client"
-    },
-    "slugByLocale": {
-      "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-      "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
-      "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
-      "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
-    },
-    "sector": "Servizi Finanziari",
-    "expiredAt": "2026-05-16",
-    "previousSlugs": [
-      "conseiller-ere-clientele-privee-lausanne-postfinance",
-      "advisor-private-clients-lausanne-postfinance-lausanne",
-      "consulente-servizio-clienti-privato-losanna-postfinance-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "en": [
-        "conseiller-ere-clientele-privee-lausanne-postfinance",
-        "advisor-private-clients-lausanne-postfinance-lausanne"
-      ],
-      "de": [
-        "conseiller-ere-clientele-privee-lausanne-postfinance"
-      ],
-      "it": [
-        "consulente-servizio-clienti-privato-losanna-postfinance-lausanne"
-      ]
-    },
-    "postalCode": "1003",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
-    "title": "Conseiller:ère clientèle privée, Carouge",
-    "titleByLocale": {
-      "it": "Conseiller:ère clientèle privée, Carouge",
-      "en": "Advisor: Private clients, Carouge",
-      "de": "Berater: Privatkunden, Carouge",
-      "fr": "Conseiller:ère clientèle privée, Carouge"
-    },
-    "company": "PostFinance",
-    "companyKey": "postfinance",
-    "location": "Carouge",
-    "addressLocality": "Carouge",
-    "descriptionByLocale": {
-      "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\nFais la différence\n\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\nCe que tu apportes\n\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée\n\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local\n\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA)\n\nPersonnalité indépendante avec une forte orientation client",
-      "en": "In the future, too, PostFinance must remain at the forefront of innovation in the Swiss financial centre. This includes providing competent advice to clients on all matters related to our financial services. Whether it's online, by phone or in person: as a private Customer Advisor you make money management as simple as possible thanks to your experience in selling and your sense of service. Make a difference You advise our customers on all financial matters via affiliate, telephone or online You are responsible for promoting PostFinance's services and products in the field of investments, foresight and mortgage market You share your enthusiasm for PostFinance services and products and easily organize your own appointments with customers Thanks to your dynamism and your great independence, you achieve the agreed sales and development goals and make a significant contribution to the success of PostFinance\n• What you bring Minimum 2 years of experience in the Swiss banking/insurance sector required You live in the Geneva region and you have good knowledge of the local market Continuing training in banking and/or insurance (IAF, SAQ, AFA) Independent personality with strong customer orientation",
-      "de": "Auch in Zukunft muss PostFinance im Schweizer Finanzzentrum an der Spitze der Innovation bleiben. Dazu gehört auch die kompetente Beratung der Kunden in allen Fragen rund um unsere Finanzdienstleistungen. Ob online, per Telefon oder persönlich: Als privater Kundenberater machen Sie dank Ihrer Erfahrung im Vertrieb und Ihrem Service so einfach wie möglich Geldmanagement. Machen Sie einen Unterschied Sie beraten unsere Kunden in allen finanziellen Angelegenheiten über Affiliate, Telefon oder online Sie sind verantwortlich für die Förderung von PostFinance-Dienstleistungen und -Produkten im Bereich der Investitionen, Voraussicht und Hypothekenmarkt Sie teilen Ihre Begeisterung für PostFinance-Services und Produkte und organisieren Ihre eigenen Termine einfach mit Kunden Dank Ihrer Dynamik und Ihrer großen Unabhängigkeit erreichen Sie die vereinbarten Vertriebs- und Entwicklungsziele und leisten einen wichtigen Beitrag zum Erfolg der PostFinance Was Sie mitbringen Mindestens 2 Jahre Erfahrung im Schweizer Banken- und Versicherungssektor erforderlich Sie leben in der Region Genf und Sie haben gute Kenntnisse auf dem lokalen Markt Weiterbildung im Bank- und/oder Versicherungswesen (IAF, SAQ, AFA) Unabhängige Persönlichkeit mit starker Kundenorientierung",
-      "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service. Fais la différence Tu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online Tu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire Tu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients Grâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance Ce que tu apportes Minimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée Tu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local Formation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) Personnalité indépendante avec une forte orientation client"
-    },
-    "slugByLocale": {
-      "it": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
-      "en": "advisor-private-clients-carouge-postfinance-carouge",
-      "de": "berater-privatkunden-carouge-postfinance-carouge",
-      "fr": "conseiller-ere-clientele-privee-carouge-postfinance"
-    },
-    "sector": "Servizi Finanziari",
-    "expiredAt": "2026-05-16",
-    "previousSlugs": [
-      "conseiller-ere-clientele-privee-carouge-postfinance",
-      "consulente-clienti-privati-carouge-postfinance-carouge"
-    ],
-    "previousSlugsByLocale": {
-      "en": [
-        "conseiller-ere-clientele-privee-carouge-postfinance"
-      ],
-      "de": [
-        "conseiller-ere-clientele-privee-carouge-postfinance"
-      ],
-      "it": [
-        "consulente-clienti-privati-carouge-postfinance-carouge"
-      ]
-    },
-    "postalCode": "1227",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
-    "title": "Kundenberater:in Privatkunden, Herisau",
-    "titleByLocale": {
-      "it": "Kundenberater:in Privatkunden, Herisau",
-      "en": "Customer advisor:in private customers, Herisau",
-      "de": "Kundenberater:in Privatkunden, Herisau",
-      "fr": "Conseiller Clientèle Particuliers, Herisau"
-    },
-    "company": "PostFinance",
-    "companyKey": "postfinance",
-    "location": "Herisau",
-    "addressLocality": "Herisau",
-    "descriptionByLocale": {
-      "it": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.\n\nDas kannst du bewirken\n\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren\n\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie\n\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\nDas bringst du mit\n\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
-      "en": "Mansioni - Responsabile per il proprio portoglio clienti e conduce conversazioni di consulenza completa su investimenti, previdenza e finanziamenti - Pianifica la propria giornata in modo autonomo, fissa appuntamenti con i clienti e gestisce il proprio lavoro con grande autonomia - Contribuisce con le proprie idee, esplora nuovi approcci alla consulenza e raggiunge obiettivi ambiziosi insieme al team - Sviluppa le proprie conoscenze, in particolare nei settori investimenti, previdenza e finanziamenti, e condivide attivamente le proprie competenze con il team - Disponibile a gestire i clienti 1-2 volte alla settimana presso la nostra sede principale a San Gallo\n• Requisiti - Formazione professionale completata (EFZ) nel settore commerciale o nel settore vendite, preferibilmente integrata da ulteriori formazione nel settore bancario o nella previdenza - Esperienza nella consulenza sulla previdenza e sui investimenti e passione per i temi finanziari - Un atteggiamento aperto e empatico che crea fiducia e mette i clienti al centro - Ottima conoscenza del tedesco, altre lingue sono un vantaggio Contatto [Contatto non specificato nel testo originale]",
-      "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung. Das kannst du bewirken Du übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren Du planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie Du bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele Du entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team Zudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen Das bringst du mit Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge Erfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen Ein offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt Sehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
-      "fr": "Mansioni - Responsabile per il proprio portoglio clienti e conduce conversazioni di consulenza completa su investitimenti, previdenza e finanziamenti - Pianifica la propria giornata in modo autonomo, fissa appuntamenti con i clienti e gestise il proprio lavoro con grande autonomia - Contribution au programme idee, esplora nuovi approcci alla consulenza e raggiunge obiettivi ambiziosi insieme al team - Sviluppa le proprie conoscenze, dans particolare nei settori investimenti, previdenza e finanziamenti, e condivide attivamente le proprie concurrente con il team - Disponibilité a gestire i clienti 1-2 volte alla settimana presso la nostra sede principale a San Gallo\n• Requisiti - Formazione professionale completata (EFZ) nel settore commerciale o nel settore vendite, preferibilite integrata da ulteriori formazione nel settore bancario o nella previdenza - Esperienza nella consulenza sulla previdenza e sui investisti e passione per i temi finanziari - Un atteggiamento aperto e empatico che crea fiducia e mette i clienti al centro - Ottima conoscenza del tedesco, altre lingue sono un vantaggio Contatto [Contatto non spécifique nel testo originale]"
-    },
-    "slugByLocale": {
-      "it": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
-      "en": "customer-advisor-in-private-customers-herisau-postfinance-herisau",
-      "de": "kundenberater-in-privatkunden-herisau-postfinance",
-      "fr": "conseiller-clientele-particuliers-herisau-postfinance-herisau"
-    },
-    "sector": "Consulenza",
-    "expiredAt": "2026-05-16",
-    "previousSlugs": [
-      "kundenberater-in-privatkunden-herisau-postfinance",
-      "private-banking-advisor-herisau-postfinance-herisau"
-    ],
-    "previousSlugsByLocale": {
-      "en": [
-        "kundenberater-in-privatkunden-herisau-postfinance",
-        "private-banking-advisor-herisau-postfinance-herisau"
-      ],
-      "fr": [
-        "kundenberater-in-privatkunden-herisau-postfinance"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-    "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
-    "titleByLocale": {
-      "it": "Collaborateur:trice Compliance Office Clientèle Commerciale",
-      "en": "Collaborator: Compliance Office Commercial Clientèle",
-      "de": "Compliance-Mitarbeiter:in Kundenservice Handel",
-      "fr": "Collaborateur:trice Compliance Office Clientèle Commerciale"
-    },
-    "company": "PostFinance",
-    "companyKey": "postfinance",
-    "location": "Bulle",
-    "addressLocality": "Bulle",
-    "descriptionByLocale": {
-      "it": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\nFais la différence\n\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\nCe que tu apportes\n\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\nAisance dans les contacts téléphoniques\n\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
-      "en": "Mansioni - Identificare i rischi legati ai casi complessi e proceduree alle chiarificazioni necessarie direttamente con i clienti, tenendo conto dei requiliiti legali e regolamentari - Valutare le relazioni commerciali e rewritere reporti in modo impeccabile e preciso - Guarantee it rispetto degli obblighi di diligenza e della tax compliance - Trovare soluzioni mirate e conformi alla compliance per i clienti, balance sheetiando tra diritto e finanza - Rispondere in modo competent alle domande e alle situazioni difficult dei diversi attori interni ed esterni Required - Formazione bancaria e/o maturità commercial/ginnasio e una formazione superiore in economia o in diritto - Esperienza e conoscenza dei mestieri della banca, in partcolare nel campo del Compliance - Nei contatti telefonici - Capacità di gestire più compiti contemporaneamente e buona gestione delle priorità - Personalità curiosa, affidabile, con un buon senso di iniziativa e una buona capacità di gestione dello stress - Perfetta padronanza del francese e buone conoscenze dell'italiano (min. B1) Contatto [Contatto non specificato nel testo original]",
-      "de": "Mansion - Identificare i rischi legati ai casi complessi e Proceduree alle chiarificazioni notcessarie direttamente con i clienti, tenendo conto dei requiliiti legali e regolamentari - Valutare le relazioni commerciali e rewritere reporti in modo impeccabile e preciso - Garantie it rispetto degli obblighi diligenza e della tax Compliance - Trovare soluzioni mirate e conformi alla Compliance per i clienti, balance Sheetiando tra diritto e finanza - Rispondere in modo kompetent alle domande e alle situazioni schwer dei diversi attori interni ed Esterni Erforderlich - Formazione bancaria e/o maturità commercial/ginnasio e una formazione superiore in economia o in diritto - Esperienza e conoscenza dei mestieri della banca, in partcolare nel campo del Compliance - Nei contatti telefonici - Capacità di gestire più compiti contemporaneamente e buona gestione delle priorità - Personalità Kuriosa, affidabile, con un buon senso di iniziativa e una buona capacità di gestione dello stress - Perfetta padronanza del francese e buone conoscenze dell'italiano (min. B1) Contattoo [Contatto non specificato nel testo original]",
-      "fr": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque. Fais la différence Tu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires Tu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise Tu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale Grâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients Ton aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes Ce que tu apportes Apprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit Expérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance Aisance dans les contacts téléphoniques Capacité à traiter plusieurs tâches en même temps et bonne gestion des priorités Personnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress Parfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)"
-    },
-    "slugByLocale": {
-      "it": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-      "en": "collaborator-compliance-office-commercial-clientele-postfinance-bulle",
-      "de": "compliance-mitarbeiter-in-kundenservice-handel-postfinance-bulle",
-      "fr": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
-    },
-    "sector": "Finanza",
-    "expiredAt": "2026-05-16",
-    "previousSlugs": [
-      "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
-      "compliance-officer-customer-commercial-postfinance-bulle",
-      "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle",
-      "collaboratore-compliance-office-commercial-clientele-postfinance-bulle"
-    ],
-    "previousSlugsByLocale": {
-      "en": [
-        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
-        "compliance-officer-customer-commercial-postfinance-bulle"
-      ],
-      "de": [
-        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
-        "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle"
-      ],
-      "it": [
-        "collaboratore-compliance-office-commercial-clientele-postfinance-bulle"
-      ]
-    },
-    "postalCode": "1630",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
@@ -320,6 +219,201 @@
       ]
     },
     "postalCode": "3001",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+    "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+    "titleByLocale": {
+      "it": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+      "en": "Collaborator: Compliance Office Commercial Clientèle",
+      "de": "Compliance-Mitarbeiter:in Kundenservice Handel",
+      "fr": "Collaborateur:trice Compliance Office Clientèle Commerciale"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bulle",
+    "addressLocality": "Bulle",
+    "descriptionByLocale": {
+      "it": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\nFais la différence\n\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\nCe que tu apportes\n\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\nAisance dans les contacts téléphoniques\n\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
+      "en": "Mansioni - Identificare i rischi legati ai casi complessi e proceduree alle chiarificazioni necessarie direttamente con i clienti, tenendo conto dei requiliiti legali e regolamentari - Valutare le relazioni commerciali e rewritere reporti in modo impeccabile e preciso - Guarantee it rispetto degli obblighi di diligenza e della tax compliance - Trovare soluzioni mirate e conformi alla compliance per i clienti, balance sheetiando tra diritto e finanza - Rispondere in modo competent alle domande e alle situazioni difficult dei diversi attori interni ed esterni Required - Formazione bancaria e/o maturità commercial/ginnasio e una formazione superiore in economia o in diritto - Esperienza e conoscenza dei mestieri della banca, in partcolare nel campo del Compliance - Nei contatti telefonici - Capacità di gestire più compiti contemporaneamente e buona gestione delle priorità - Personalità curiosa, affidabile, con un buon senso di iniziativa e una buona capacità di gestione dello stress - Perfetta padronanza del francese e buone conoscenze dell'italiano (min. B1) Contatto [Contatto non specificato nel testo original]",
+      "de": "Mansion - Identificare i rischi legati ai casi complessi e Proceduree alle chiarificazioni notcessarie direttamente con i clienti, tenendo conto dei requiliiti legali e regolamentari - Valutare le relazioni commerciali e rewritere reporti in modo impeccabile e preciso - Garantie it rispetto degli obblighi diligenza e della tax Compliance - Trovare soluzioni mirate e conformi alla Compliance per i clienti, balance Sheetiando tra diritto e finanza - Rispondere in modo kompetent alle domande e alle situazioni schwer dei diversi attori interni ed Esterni Erforderlich - Formazione bancaria e/o maturità commercial/ginnasio e una formazione superiore in economia o in diritto - Esperienza e conoscenza dei mestieri della banca, in partcolare nel campo del Compliance - Nei contatti telefonici - Capacità di gestire più compiti contemporaneamente e buona gestione delle priorità - Personalità Kuriosa, affidabile, con un buon senso di iniziativa e una buona capacità di gestione dello stress - Perfetta padronanza del francese e buone conoscenze dell'italiano (min. B1) Contattoo [Contatto non specificato nel testo original]",
+      "fr": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque. Fais la différence Tu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires Tu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise Tu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale Grâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients Ton aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes Ce que tu apportes Apprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit Expérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance Aisance dans les contacts téléphoniques Capacité à traiter plusieurs tâches en même temps et bonne gestion des priorités Personnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress Parfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)"
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "en": "collaborator-compliance-office-commercial-clientele-postfinance-bulle",
+      "de": "compliance-mitarbeiter-in-kundenservice-handel-postfinance-bulle",
+      "fr": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
+    },
+    "sector": "Finanza",
+    "expiredAt": "2026-05-16",
+    "previousSlugs": [
+      "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+      "compliance-officer-customer-commercial-postfinance-bulle",
+      "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle",
+      "collaboratore-compliance-office-commercial-clientele-postfinance-bulle"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+        "compliance-officer-customer-commercial-postfinance-bulle"
+      ],
+      "de": [
+        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+        "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle"
+      ],
+      "it": [
+        "collaboratore-compliance-office-commercial-clientele-postfinance-bulle"
+      ]
+    },
+    "postalCode": "1630",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+    "title": "Conseiller:ère clientèle privée, Carouge",
+    "titleByLocale": {
+      "it": "Conseiller:ère clientèle privée, Carouge",
+      "en": "Advisor: Private clients, Carouge",
+      "de": "Berater: Privatkunden, Carouge",
+      "fr": "Conseiller:ère clientèle privée, Carouge"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Carouge",
+    "addressLocality": "Carouge",
+    "descriptionByLocale": {
+      "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\nFais la différence\n\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\nCe que tu apportes\n\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée\n\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local\n\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA)\n\nPersonnalité indépendante avec une forte orientation client",
+      "en": "In the future, too, PostFinance must remain at the forefront of innovation in the Swiss financial centre. This includes providing competent advice to clients on all matters related to our financial services. Whether it's online, by phone or in person: as a private Customer Advisor you make money management as simple as possible thanks to your experience in selling and your sense of service. Make a difference You advise our customers on all financial matters via affiliate, telephone or online You are responsible for promoting PostFinance's services and products in the field of investments, foresight and mortgage market You share your enthusiasm for PostFinance services and products and easily organize your own appointments with customers Thanks to your dynamism and your great independence, you achieve the agreed sales and development goals and make a significant contribution to the success of PostFinance\n• What you bring Minimum 2 years of experience in the Swiss banking/insurance sector required You live in the Geneva region and you have good knowledge of the local market Continuing training in banking and/or insurance (IAF, SAQ, AFA) Independent personality with strong customer orientation",
+      "de": "Auch in Zukunft muss PostFinance im Schweizer Finanzzentrum an der Spitze der Innovation bleiben. Dazu gehört auch die kompetente Beratung der Kunden in allen Fragen rund um unsere Finanzdienstleistungen. Ob online, per Telefon oder persönlich: Als privater Kundenberater machen Sie dank Ihrer Erfahrung im Vertrieb und Ihrem Service so einfach wie möglich Geldmanagement. Machen Sie einen Unterschied Sie beraten unsere Kunden in allen finanziellen Angelegenheiten über Affiliate, Telefon oder online Sie sind verantwortlich für die Förderung von PostFinance-Dienstleistungen und -Produkten im Bereich der Investitionen, Voraussicht und Hypothekenmarkt Sie teilen Ihre Begeisterung für PostFinance-Services und Produkte und organisieren Ihre eigenen Termine einfach mit Kunden Dank Ihrer Dynamik und Ihrer großen Unabhängigkeit erreichen Sie die vereinbarten Vertriebs- und Entwicklungsziele und leisten einen wichtigen Beitrag zum Erfolg der PostFinance Was Sie mitbringen Mindestens 2 Jahre Erfahrung im Schweizer Banken- und Versicherungssektor erforderlich Sie leben in der Region Genf und Sie haben gute Kenntnisse auf dem lokalen Markt Weiterbildung im Bank- und/oder Versicherungswesen (IAF, SAQ, AFA) Unabhängige Persönlichkeit mit starker Kundenorientierung",
+      "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service. Fais la différence Tu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online Tu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire Tu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients Grâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance Ce que tu apportes Minimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée Tu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local Formation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) Personnalité indépendante avec une forte orientation client"
+    },
+    "slugByLocale": {
+      "it": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "en": "advisor-private-clients-carouge-postfinance-carouge",
+      "de": "berater-privatkunden-carouge-postfinance-carouge",
+      "fr": "conseiller-ere-clientele-privee-carouge-postfinance"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-05-16",
+    "previousSlugs": [
+      "conseiller-ere-clientele-privee-carouge-postfinance",
+      "consulente-clienti-privati-carouge-postfinance-carouge"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "conseiller-ere-clientele-privee-carouge-postfinance"
+      ],
+      "de": [
+        "conseiller-ere-clientele-privee-carouge-postfinance"
+      ],
+      "it": [
+        "consulente-clienti-privati-carouge-postfinance-carouge"
+      ]
+    },
+    "postalCode": "1227",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+    "title": "Conseiller:ère clientèle privée, Lausanne",
+    "titleByLocale": {
+      "it": "Conseiller:ère clientèle privée, Lausanne",
+      "en": "Advisor: Private Customer Service, Lausanne",
+      "de": "Berater: Privater Kundenservice, Lausanne",
+      "fr": "Conseiller:ère clientèle privée, Lausanne"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Lausanne",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\nFais la différence\n\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\nCe que tu apportes\n\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée\n\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local\n\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\nPersonnalité indépendante avec une forte orientation client",
+      "en": "In the future, too, PostFinance must remain at the forefront of innovation in the Swiss financial centre. This includes providing competent advice to clients on all matters related to our financial services. Whether it's online, by phone or in person: as a private Customer Advisor you make money management as simple as possible thanks to your experience in selling and your sense of service. Make a difference You advise our customers on all financial matters via affiliate, telephone or online You are responsible for promoting PostFinance's services and products in the field of investments, foresight and mortgage market You share your enthusiasm for PostFinance services and products and easily organize your own appointments with customers Thanks to your dynamism and your great independence, you achieve the agreed sales and development goals and make a significant contribution to the success of PostFinance\n• What you bring Minimum 2 years of experience in the Swiss banking/insurance sector required You live in the Lausanne region and you have good knowledge of the local market Continuing training in banking (IAF, SAQ) Independent personality with strong customer orientation",
+      "de": "Auch in Zukunft muss PostFinance an der Spitze der Innovation am Schweizer Finanzplatz bleiben. Dazu gehört auch die kompetente Beratung der Kunden in allen Fragen im Zusammenhang mit unseren Finanzdienstleistungen. Ob online, telefonisch oder persönlich: Als privater Kundenberater machen Sie das Geldmanagement dank Ihrer Erfahrung im Verkauf und Ihrem Servicegefühl so einfach wie möglich. Machen Sie einen Unterschied Sie beraten unsere Kunden in allen finanziellen Angelegenheiten über Affiliate, Telefon oder online Sie sind verantwortlich für die Förderung der Dienstleistungen und Produkte von PostFinance im Bereich Investments, Foresight und Hypothekenmarkt Sie teilen Ihre Begeisterung für PostFinance Services und Produkte und organisieren ganz einfach Ihre eigenen Termine mit Kunden Dank Ihrer Dynamik und Ihrer großen Unabhängigkeit erreichen Sie die vereinbarten Vertriebs- und Entwicklungsziele und leisten einen wesentlichen Beitrag zum Erfolg von PostFinance Was du mitbringst Mindestens 2 Jahre Erfahrung im Schweizer Banken-/Versicherungssektor erforderlich Sie leben in der Region Lausanne und haben gute Kenntnisse des lokalen Marktes Weiterbildung im Bankwesen (IAF, SAQ) Unabhängige Persönlichkeit mit starker Kundenorientierung",
+      "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service. Fais la différence Tu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online Tu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire Tu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients Grâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance Ce que tu apportes Minimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée Tu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local Formation continue dans le domaine bancaire (IAF, SAQ) Personnalité indépendante avec une forte orientation client"
+    },
+    "slugByLocale": {
+      "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
+      "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
+      "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
+    },
+    "sector": "Servizi Finanziari",
+    "expiredAt": "2026-05-16",
+    "previousSlugs": [
+      "conseiller-ere-clientele-privee-lausanne-postfinance",
+      "advisor-private-clients-lausanne-postfinance-lausanne",
+      "consulente-servizio-clienti-privato-losanna-postfinance-lausanne"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "advisor-private-clients-lausanne-postfinance-lausanne"
+      ],
+      "de": [
+        "conseiller-ere-clientele-privee-lausanne-postfinance"
+      ],
+      "it": [
+        "consulente-servizio-clienti-privato-losanna-postfinance-lausanne"
+      ]
+    },
+    "postalCode": "1003",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+    "title": "Kundenberater:in Privatkunden, Herisau",
+    "titleByLocale": {
+      "it": "Kundenberater:in Privatkunden, Herisau",
+      "en": "Customer advisor:in private customers, Herisau",
+      "de": "Kundenberater:in Privatkunden, Herisau",
+      "fr": "Conseiller Clientèle Particuliers, Herisau"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Herisau",
+    "addressLocality": "Herisau",
+    "descriptionByLocale": {
+      "it": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.\n\nDas kannst du bewirken\n\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren\n\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie\n\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\nDas bringst du mit\n\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+      "en": "Mansioni - Responsabile per il proprio portoglio clienti e conduce conversazioni di consulenza completa su investimenti, previdenza e finanziamenti - Pianifica la propria giornata in modo autonomo, fissa appuntamenti con i clienti e gestisce il proprio lavoro con grande autonomia - Contribuisce con le proprie idee, esplora nuovi approcci alla consulenza e raggiunge obiettivi ambiziosi insieme al team - Sviluppa le proprie conoscenze, in particolare nei settori investimenti, previdenza e finanziamenti, e condivide attivamente le proprie competenze con il team - Disponibile a gestire i clienti 1-2 volte alla settimana presso la nostra sede principale a San Gallo\n• Requisiti - Formazione professionale completata (EFZ) nel settore commerciale o nel settore vendite, preferibilmente integrata da ulteriori formazione nel settore bancario o nella previdenza - Esperienza nella consulenza sulla previdenza e sui investimenti e passione per i temi finanziari - Un atteggiamento aperto e empatico che crea fiducia e mette i clienti al centro - Ottima conoscenza del tedesco, altre lingue sono un vantaggio Contatto [Contatto non specificato nel testo originale]",
+      "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung. Das kannst du bewirken Du übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren Du planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie Du bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele Du entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team Zudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen Das bringst du mit Abgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge Erfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen Ein offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt Sehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+      "fr": "Mansioni - Responsabile per il proprio portoglio clienti e conduce conversazioni di consulenza completa su investitimenti, previdenza e finanziamenti - Pianifica la propria giornata in modo autonomo, fissa appuntamenti con i clienti e gestise il proprio lavoro con grande autonomia - Contribution au programme idee, esplora nuovi approcci alla consulenza e raggiunge obiettivi ambiziosi insieme al team - Sviluppa le proprie conoscenze, dans particolare nei settori investimenti, previdenza e finanziamenti, e condivide attivamente le proprie concurrente con il team - Disponibilité a gestire i clienti 1-2 volte alla settimana presso la nostra sede principale a San Gallo\n• Requisiti - Formazione professionale completata (EFZ) nel settore commerciale o nel settore vendite, preferibilite integrata da ulteriori formazione nel settore bancario o nella previdenza - Esperienza nella consulenza sulla previdenza e sui investisti e passione per i temi finanziari - Un atteggiamento aperto e empatico che crea fiducia e mette i clienti al centro - Ottima conoscenza del tedesco, altre lingue sono un vantaggio Contatto [Contatto non spécifique nel testo originale]"
+    },
+    "slugByLocale": {
+      "it": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+      "en": "customer-advisor-in-private-customers-herisau-postfinance-herisau",
+      "de": "kundenberater-in-privatkunden-herisau-postfinance",
+      "fr": "conseiller-clientele-particuliers-herisau-postfinance-herisau"
+    },
+    "sector": "Consulenza",
+    "expiredAt": "2026-05-16",
+    "previousSlugs": [
+      "kundenberater-in-privatkunden-herisau-postfinance",
+      "private-banking-advisor-herisau-postfinance-herisau"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "kundenberater-in-privatkunden-herisau-postfinance",
+        "private-banking-advisor-herisau-postfinance-herisau"
+      ],
+      "fr": [
+        "kundenberater-in-privatkunden-herisau-postfinance"
+      ]
+    },
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",

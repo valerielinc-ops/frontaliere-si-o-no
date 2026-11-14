@@ -1,11 +1,40 @@
 {
   "key": "rehaklinik-seewis",
   "label": "Kurhaus",
-  "generatedAt": "2026-11-13T21:54:39.796Z",
+  "generatedAt": "2026-11-14T21:47:27.062Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "rehaklinik-seewis",
+    "seedUrls": [
+      "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/"
+    ],
+    "phase": "detail",
+    "pages": 4,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2586325-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft"
+      },
+      {
+        "status": 200,
+        "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft"
+      },
+      {
+        "status": 200,
+        "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
@@ -17,63 +46,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6884,
-  "avgDurationMs": 6884,
+  "durationMs": 7066,
+  "avgDurationMs": 7066,
   "durationHistory": [
-    6884
+    7066
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "rehaklinik-seewis-250cf050995a",
-      "slug": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau-fb1b13d7a0",
-      "company": "Kurhaus",
-      "companyKey": "rehaklinik-seewis",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Psychologe / Psychologin (a) 80-100%",
-      "location": "Seewis im Prättigau",
-      "canton": "GR",
-      "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
-      "source": "Kurhaus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:37:41.465Z",
-      "addressLocality": "Seewis im Prättigau",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7212",
-      "streetAddress": "Seewis im Prättigau",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
-      "firstSeenAt": "2026-10-11T09:42:52.841Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:37:41.465Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "rehaklinik-seewis-3893d44b24a8",
@@ -87,7 +69,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:27.683Z",
+      "crawledAt": "2026-11-14T21:47:10.987Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -110,7 +92,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:54:27.683Z",
+      "validThrough": "2026-12-14T21:47:10.987Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -132,7 +114,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:27.682Z",
+      "crawledAt": "2026-11-14T21:47:10.986Z",
       "addressLocality": "Dussnang",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -155,7 +137,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:54:27.682Z",
+      "validThrough": "2026-12-14T21:47:10.986Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -177,7 +159,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2586325-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:27.679Z",
+      "crawledAt": "2026-11-14T21:47:10.984Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -195,13 +177,12 @@
       "postedDate": "2026-11-12",
       "postingDateSource": "reported",
       "applyUrl": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2586325-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-11T09:42:52.841Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:54:27.679Z",
+      "validThrough": "2027-02-10T21:47:10.984Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -212,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }
