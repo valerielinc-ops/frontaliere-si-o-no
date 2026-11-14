@@ -1,11 +1,40 @@
 {
   "key": "policelavaux-ch",
   "label": "Police Lavaux",
-  "generatedAt": "2026-11-14T09:53:59.689Z",
+  "generatedAt": "2026-11-14T21:37:52.188Z",
   "total": 2,
   "discovered": 3,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "policelavaux-ch",
+    "seedUrls": [
+      "https://www.policelavaux.ch/emplois/offres-demploi/"
+    ],
+    "phase": "detail",
+    "pages": 4,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.policelavaux.ch/emplois/offres-demploi/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.policelavaux.ch/emplois/offres-demploi/un-e-assistant-e-de-securite-publique/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -19,10 +48,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6657,
-  "avgDurationMs": 6657,
+  "durationMs": 6842,
+  "avgDurationMs": 6842,
   "durationHistory": [
-    6657
+    6842
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +69,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:53:45.425Z",
+      "crawledAt": "2026-11-14T21:37:36.082Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +93,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:53:45.425Z",
+      "validThrough": "2027-01-28T21:37:36.082Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +115,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:53:45.423Z",
+      "crawledAt": "2026-11-14T21:37:36.080Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +139,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:53:45.423Z",
+      "validThrough": "2027-01-28T21:37:36.080Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -121,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

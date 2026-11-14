@@ -1,11 +1,88 @@
 {
   "key": "michaelpage",
   "label": "Michael Page",
-  "generatedAt": "2026-11-14T09:46:04.944Z",
+  "generatedAt": "2026-11-14T21:40:40.187Z",
   "total": 13,
   "discovered": 15,
   "parsed": 13,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "michaelpage",
+    "seedUrls": [
+      "https://www.pageexecutive.com/jobs/switzerland"
+    ],
+    "phase": "detail",
+    "pages": 16,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/jobs/switzerland"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/head-private-banking-switzerland-benelux-markets/ref/jn-102026-7132672"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/deputy-head-branch-basel/ref/jn-112026-7139468"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/vp-strategic-ventures-ai/ref/jn-102026-7136619"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/directeurice-comptabilit%C3%A9-reporting-consolidation/ref/jn-052026-7014706"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ressources-humaines-ad-int%C3%A9rim-6-12-mois/ref/jn-102026-7132349"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/head-private-banking-zurich/ref/jn-102026-7126910"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/directeur-ou-directrice-des-soins/ref/jn-032026-6980934"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/director-rooms-luxury-5-star-hotel-lake-geneva-region/ref/jn-092026-7109181"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/food-beverage-director-luxury-alpine-resort/ref/jn-052026-7015573"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/chief-compliance-officer/ref/jn-092026-7107201"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/compliance-director/ref/jn-082026-7087874"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 13,
@@ -19,10 +96,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 21654,
-  "avgDurationMs": 21654,
+  "durationMs": 22255,
+  "avgDurationMs": 22255,
   "durationHistory": [
-    21654
+    22255
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +118,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:45:50.226Z",
+      "crawledAt": "2026-11-14T21:40:23.662Z",
       "addressLocality": "Vaud",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +141,7 @@
       "postalCode": "1003",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.226Z",
+      "validThrough": "2026-12-14T21:40:23.662Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -87,7 +164,7 @@
       "url": "https://www.pageexecutive.com/job-detail/compliance-director/ref/jn-082026-7087874",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.224Z",
+      "crawledAt": "2026-11-14T21:40:23.659Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,53 +187,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.224Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "michaelpage-5f0a8b0d61ab",
-      "slug": "directeur-finanza-administration-80-100-michael-page-geneve-5f0a8b0d",
-      "slugDisambiguator": "5f0a8b0d",
-      "company": "Michael Page",
-      "companyKey": "michaelpage",
-      "companyDomain": "pageexecutive.com",
-      "title": "Directeur Finance & Administration (80-100%)",
-      "location": "Genève, Geneva",
-      "canton": "GE",
-      "url": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408",
-      "source": "Michael Page Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:45:50.223Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-18",
-      "postedDate": "2026-09-18",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408",
-      "firstSeenAt": "2026-09-19T23:12:29.314Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:45:50.223Z",
+      "validThrough": "2026-12-14T21:40:23.659Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -179,7 +210,7 @@
       "url": "https://www.pageexecutive.com/job-detail/chief-compliance-officer/ref/jn-092026-7107201",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.223Z",
+      "crawledAt": "2026-11-14T21:40:23.658Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -202,7 +233,53 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:45:50.223Z",
+      "validThrough": "2026-12-17T21:40:23.658Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "michaelpage-5f0a8b0d61ab",
+      "slug": "directeur-finanza-administration-80-100-michael-page-geneve-5f0a8b0d",
+      "slugDisambiguator": "5f0a8b0d",
+      "company": "Michael Page",
+      "companyKey": "michaelpage",
+      "companyDomain": "pageexecutive.com",
+      "title": "Directeur Finance & Administration (80-100%)",
+      "location": "Genève, Geneva",
+      "canton": "GE",
+      "url": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408",
+      "source": "Michael Page Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-14T21:40:23.657Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-18",
+      "postedDate": "2026-09-18",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.pageexecutive.com/job-detail/directeur-finance-administration-80-100/ref/jn-092026-7106408",
+      "firstSeenAt": "2026-09-19T23:12:29.314Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T21:40:23.657Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -225,7 +302,7 @@
       "url": "https://www.pageexecutive.com/job-detail/food-beverage-director-luxury-alpine-resort/ref/jn-052026-7015573",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.222Z",
+      "crawledAt": "2026-11-14T21:40:23.656Z",
       "addressLocality": "Valais",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -249,7 +326,7 @@
       "postalCode": "1950",
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.222Z",
+      "validThrough": "2026-12-14T21:40:23.656Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -272,7 +349,7 @@
       "url": "https://www.pageexecutive.com/job-detail/director-rooms-luxury-5-star-hotel-lake-geneva-region/ref/jn-092026-7109181",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.221Z",
+      "crawledAt": "2026-11-14T21:40:23.655Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -295,7 +372,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:45:50.221Z",
+      "validThrough": "2026-12-24T21:40:23.655Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -318,7 +395,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeur-ou-directrice-des-soins/ref/jn-032026-6980934",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:45:50.221Z",
+      "crawledAt": "2026-11-14T21:40:23.654Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -342,7 +419,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.221Z",
+      "validThrough": "2026-12-14T21:40:23.654Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -365,7 +442,7 @@
       "url": "https://www.pageexecutive.com/job-detail/head-private-banking-zurich/ref/jn-102026-7126910",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.220Z",
+      "crawledAt": "2026-11-14T21:40:23.653Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -388,7 +465,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:45:50.220Z",
+      "validThrough": "2027-01-13T21:40:23.653Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -411,7 +488,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ressources-humaines-ad-int%C3%A9rim-6-12-mois/ref/jn-102026-7132349",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:45:50.219Z",
+      "crawledAt": "2026-11-14T21:40:23.652Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -434,7 +511,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:45:50.219Z",
+      "validThrough": "2027-01-21T21:40:23.652Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -457,7 +534,7 @@
       "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.219Z",
+      "crawledAt": "2026-11-14T21:40:23.652Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -480,7 +557,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.219Z",
+      "validThrough": "2026-12-14T21:40:23.652Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -503,7 +580,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeurice-comptabilit%C3%A9-reporting-consolidation/ref/jn-052026-7014706",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:45:50.218Z",
+      "crawledAt": "2026-11-14T21:40:23.651Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -526,7 +603,7 @@
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.218Z",
+      "validThrough": "2026-12-14T21:40:23.651Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -549,7 +626,7 @@
       "url": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.217Z",
+      "crawledAt": "2026-11-14T21:40:23.649Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -571,7 +648,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:45:50.217Z",
+      "validThrough": "2026-12-14T21:40:23.649Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -594,7 +671,7 @@
       "url": "https://www.pageexecutive.com/job-detail/vp-strategic-ventures-ai/ref/jn-102026-7136619",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:45:50.216Z",
+      "crawledAt": "2026-11-14T21:40:23.648Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -617,7 +694,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:45:50.216Z",
+      "validThrough": "2027-01-27T21:40:23.648Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -628,5 +705,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }
