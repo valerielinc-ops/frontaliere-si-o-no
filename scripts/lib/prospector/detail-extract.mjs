@@ -15,10 +15,17 @@
  */
 
 import { extractDetailFields, isSufficientVacancyDescription, textOf } from './extract.mjs';
-import { dedupeLocationCandidates } from './location-evidence.mjs';
+import {
+  dedupeLocationCandidates,
+  resolveSourceBackedSwissGeography,
+} from './location-evidence.mjs';
 import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
 import { readAttr } from '../html-attr.mjs';
+import {
+  resolveSwissPostalCodeCanton,
+  resolveSwissPostalCodePlace,
+} from '../swiss-locality-directory.mjs';
 import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
 import { parseYoustyApprenticeshipHtml } from '../yousty-job-parser.mjs';
 
@@ -140,6 +147,69 @@ function sourcePdfApplyUrl(html, spec) {
 }
 
 /**
+ * LIP Suisse's WordPress JobPosting schema currently shifts the workplace
+ * value into `postalCode`: some pages publish a numeric CAP, others publish a
+ * locality name, while the ordinary address slots are empty or contain the
+ * agency street address. The field is still source-owned, so recover it only
+ * for specs that explicitly declare this source contract and only through the
+ * official Swiss locality directory.
+ *
+ * @param {any} detail
+ * @param {{ detailPostalCodeLocation?: boolean }} spec
+ * @returns {any}
+ */
+function normalizeSourcePostalLocation(detail, spec) {
+  if (spec?.detailPostalCodeLocation !== true) return detail;
+  const candidates = Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [];
+  const candidate = candidates.find((entry) => String(entry?.postalCode || '').trim());
+  if (!candidate) return detail;
+  const rawPostalCode = String(candidate.postalCode || '').replace(/\s+/g, ' ').trim();
+  if (!rawPostalCode) return detail;
+
+  let normalized;
+  if (/^\d{4}$/.test(rawPostalCode)) {
+    const place = resolveSwissPostalCodePlace(rawPostalCode);
+    const canton = place?.canton || resolveSwissPostalCodeCanton(rawPostalCode);
+    if (!canton) return detail;
+    normalized = {
+      ...candidate,
+      // Keep a source-provided street/address string when the CAP is shared
+      // by several official localities; do not choose one municipality.
+      location: place?.locality || candidate.location || rawPostalCode,
+      addressLocality: place?.locality || '',
+      addressRegion: canton,
+      addressCountry: 'CH',
+      postalCode: rawPostalCode,
+    };
+  } else {
+    const geography = resolveSourceBackedSwissGeography({
+      location: rawPostalCode,
+      addressLocality: rawPostalCode,
+    });
+    if (!geography) return detail;
+    normalized = {
+      ...candidate,
+      location: geography.location,
+      addressLocality: rawPostalCode,
+      addressRegion: geography.canton,
+      addressCountry: 'CH',
+      postalCode: '',
+    };
+  }
+
+  return {
+    ...detail,
+    location: normalized.location,
+    addressLocality: normalized.addressLocality || '',
+    addressRegion: normalized.addressRegion || '',
+    addressCountry: normalized.addressCountry || '',
+    country: normalized.addressCountry || '',
+    locationCandidates: [normalized],
+    authoritativeLocationConflict: false,
+  };
+}
+
+/**
  * @param {{ platform?: string }} spec
  * @param {string} html
  * @param {string} url
@@ -153,10 +223,12 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
       ? extractPageExecutiveDetailFields
       : extractDetailFields);
   const recordTitle = normalizeDetailRecordTitle(spec, opts.recordTitle);
-  const detail = base(html, url, {
+  let detail = base(html, url, {
     recordUrl: opts.recordUrl,
     recordTitle,
+    allowPostalCodeOnly: spec?.detailPostalCodeLocation === true,
   });
+  detail = normalizeSourcePostalLocation(detail, spec);
   if (spec?.platform === 'yousty.ch') {
     const yousty = parseYoustyApprenticeshipHtml(html, url);
     if (isSufficientVacancyDescription(yousty.description)) {

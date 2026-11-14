@@ -14,6 +14,7 @@ import {
   readDeclaredListingTotal,
   templateToRegex,
 } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { extractRuntimeDetailFields } from '../scripts/lib/prospector/detail-extract.mjs';
 
 describe('LIP Suisse crawler parser', () => {
   // ── Constants ──
@@ -31,6 +32,7 @@ describe('LIP Suisse crawler parser', () => {
       'https://www.lipsuisse.ch/offres-emploi/?ajax_filter=true&per-page=100',
     ]);
     expect(spec.detailEnrichment).toBe(true);
+    expect(spec.detailPostalCodeLocation).toBe(true);
     expect(spec.pagination).toMatchObject({ maxPages: 1, minCoverage: 0.95 });
     expect(readDeclaredListingTotal(
       '<h2><span>30</span>&nbsp;<span>Offres d\'emploi trouvées</span></h2>',
@@ -45,6 +47,45 @@ describe('LIP Suisse crawler parser', () => {
     expect(detailTemplate.test('/offres-emploi/assistant-de-direction-batiment-h-f-3/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/carreleur-2/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/')).toBe(false);
+  });
+
+  it('normalizes the source-shifted JSON-LD workplace field through the official directory', () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const cases = [
+      {
+        address: {
+          streetAddress: 'avenue industrielle',
+          addressLocality: 'avenue industrielle',
+          addressRegion: '12',
+          addressCountry: '1227',
+          postalCode: '1227',
+        },
+        expected: { addressRegion: 'GE', addressCountry: 'CH', postalCode: '1227' },
+      },
+      {
+        address: { postalCode: '1700 ' },
+        expected: { location: 'Fribourg', addressLocality: 'Fribourg', addressRegion: 'FR', addressCountry: 'CH' },
+      },
+      {
+        address: { postalCode: 'Lausanne ' },
+        expected: { location: 'Lausanne', addressLocality: 'Lausanne', addressRegion: 'VD', addressCountry: 'CH' },
+      },
+    ];
+
+    for (const { address, expected } of cases) {
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Test vacancy',
+        description: 'A source-backed vacancy description with enough words for the detail extractor.',
+        jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', ...address } },
+      })}</script>`;
+      const detail = extractRuntimeDetailFields(
+        spec,
+        html,
+        'https://www.lipsuisse.ch/offres-emploi/test-vacancy/',
+      );
+      expect(detail).toMatchObject(expected);
+    }
   });
 
   it('extracts vacancy links from the index shape instead of the retired detail seed', async () => {
