@@ -48,6 +48,30 @@ describe('readJobsArrayStrict', () => {
     write('data/jobs.json', JSON.stringify([{ id: 'a' }, { id: 'b' }]));
     expect(readJobsArrayStrict(root, 'test')).toHaveLength(2);
   });
+  it('reads the { jobs: [...] } envelope as its inner array', () => {
+    write('data/jobs.json', JSON.stringify({ jobs: [{ id: 'a' }] }));
+    expect(readJobsArrayStrict(root, 'test')).toEqual([{ id: 'a' }]);
+  });
+  it.each([
+    ['an empty object', '{}', 'object without a `jobs` array'],
+    ['an object whose jobs is not an array', '{"jobs": 3}', 'object without a `jobs` array'],
+    ['null', 'null', 'null'],
+    ['a number', '42', 'number'],
+    ['a string', '"jobs"', 'string'],
+  ])('throws on a parsable but wrong-shaped dataset: %s (it used to read as 0 jobs)', (_name, body, shape) => {
+    write('data/jobs.json', body);
+    expect(() => readJobsArrayStrict(root, 'career-test')).toThrow(DatasetReadError);
+    expect(() => readJobsArrayStrict(root, 'career-test')).toThrow(
+      new RegExp(`\\[career-test\\] cannot read jobs\\.json: expected a JSON array or \\{ jobs: \\[\\.\\.\\.\\] \\}, got ${shape.replace(/[`.]/g, '\\$&')}`),
+    );
+  });
+  it('does not wrap the shape error twice', () => {
+    write('data/jobs.json', '{}');
+    try { readJobsArrayStrict(root, 'x'); } catch (e: any) {
+      expect(e.message.match(/cannot read/g)).toHaveLength(1);
+      expect((e.cause as Error).message).toMatch(/expected a JSON array/);
+    }
+  });
   it('keeps a MISSING dataset as an empty corpus (fixture roots, shallow checkouts)', () => {
     expect(readJobsArrayStrict(root, 'test')).toEqual([]);
   });
@@ -107,5 +131,18 @@ describe('the sibling plugins that used to log and carry on', () => {
     expect(() => loadReportJobPanel(root, 2026)).toThrow(/\[report-job-panel\] cannot read jobs\.json/);
     write('data/jobs.json', JSON.stringify([{ canton: 7 }]));
     expect(loadReportJobPanel(root, 2026)).toBeNull();
+  });
+});
+
+describe('a wrong-shaped jobs.json stops the plugins too, not just the shared reader', () => {
+  it('the aggregates and the plugins that read the dataset themselves throw on {}', async () => {
+    write('data/jobs.json', '{}');
+    fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+    expect(() => aggregateNursingJobs(root)).toThrow(/\[nursing-aggregate\] cannot read jobs\.json/);
+    expect(() => aggregateCareerLandings(root)).toThrow(/\[career-aggregate\] cannot read jobs\.json/);
+    expect(() => aggregateAllCities(root)).toThrow(/\[city-jobs-aggregate\] cannot read jobs\.json/);
+    await expect(runCloseBundle(jobRecencyPagesPlugin(root))).rejects.toThrow(/\[job-recency-pages\] cannot read jobs\.json: expected a JSON array/);
+    await expect(runCloseBundle(jobSectorPagesPlugin(root))).rejects.toThrow(/\[job-sector-pages\] cannot read jobs\.json: expected a JSON array/);
+    await expect(runCloseBundle(jobMarketSnapshotPlugin(root))).rejects.toThrow(/\[job-market-snapshot\] cannot read jobs\.json: expected a JSON array/);
   });
 });

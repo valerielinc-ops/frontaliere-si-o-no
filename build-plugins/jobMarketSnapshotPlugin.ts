@@ -43,7 +43,7 @@ import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
-import { DatasetReadError } from './shared/readJobsDatasetStrict';
+import { DatasetReadError, jobsFromParsedDataset } from './shared/readJobsDatasetStrict';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -3261,10 +3261,11 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       try {
         if (fs.existsSync(jobsPath)) {
           const parsed = readJsonFile(jobsPath);
-          if (Array.isArray(parsed)) jobs = parsed as JobRecord[];
+          jobs = jobsFromParsedDataset<JobRecord>(parsed, 'job-market-snapshot', jobsPath);
         }
       } catch (err) {
         // Fail closed: 0 jobs would publish an empty market snapshot as healthy.
+        if (err instanceof DatasetReadError) throw err;
         throw new DatasetReadError('job-market-snapshot', jobsPath, err);
       }
 

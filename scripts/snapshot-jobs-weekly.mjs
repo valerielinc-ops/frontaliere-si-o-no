@@ -58,7 +58,11 @@ function main() {
   if (existsSync(JOBS_PATH)) {
     try {
       const raw = readJsonFile(JOBS_PATH);
-      if (Array.isArray(raw)) jobs = raw;
+      if (!Array.isArray(raw)) {
+        // A wrong shape (`{}`, null) is not "no jobs": it would commit an empty snapshot.
+        throw new Error(`expected a JSON array, got ${raw === null ? 'null' : typeof raw}`);
+      }
+      jobs = raw;
     } catch (err) {
       // Fail closed: an empty snapshot would be committed as this week's history.
       throw new Error(`[snapshot-jobs-weekly] cannot read jobs.json: ${err?.message || err}`);

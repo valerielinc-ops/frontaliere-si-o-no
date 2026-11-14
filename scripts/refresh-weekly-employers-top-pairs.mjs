@@ -215,7 +215,8 @@ function loadJobs() {
     const raw = readJsonFile(JOBS_PATH);
     if (Array.isArray(raw)) return raw;
     if (raw && Array.isArray(raw.jobs)) return raw.jobs;
-    return [];
+    // Wrong shape (`{}`, null, a number) is an error, not "no pairs".
+    throw new Error(`expected a JSON array or { jobs: [...] }, got ${raw === null ? 'null' : typeof raw}`);
   } catch (err) {
     // Fail closed: an empty list would be committed as "no qualifying pairs".
     throw new Error(`[refresh-weekly-employers-top-pairs] cannot read jobs.json: ${err?.message || err}`);
