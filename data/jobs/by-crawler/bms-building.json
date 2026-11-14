@@ -1,32 +1,32 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-11-13T21:18:30.322Z",
-  "runId": "43507614378",
+  "assembledAt": "2026-11-14T09:16:15.581Z",
+  "runId": "43579063769",
   "jobs": [
     {
       "id": "bms-building-999f0a69490d",
-      "slug": "software-engineer-w-m-d-80-100-bms-building-ch",
+      "slug": "software-ingegnere-w-m-d-80-100-bms-building-materials-rumlang",
       "slugByLocale": {
-        "de": "software-engineer-w-m-d-80-100-bms-building-ch",
-        "it": "software-engineer-w-m-d-80-100-bms-building-ch",
+        "it": "software-ingegnere-w-m-d-80-100-bms-building-materials-rumlang",
         "en": "software-engineer-w-m-d-80-100-bms-building-ch",
-        "fr": "software-engineer-w-m-d-80-100-bms-building-ch"
+        "de": "software-engineer-w-m-d-80-100-bms-building-ch",
+        "fr": "software-ingenieur-w-m-d-80-100-bms-building-materials-rumlang"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
       "companyDomain": "bmsuisse.ch",
       "title": "Software Engineer (w/m/d) 80 – 100%",
       "titleByLocale": {
-        "de": "Software Engineer (w/m/d) 80 – 100%",
         "it": "Software Ingegnere (w/m/d) 80 – 100%",
         "en": "Software Engineer (m/f/d) 80 – 100%",
+        "de": "Software Engineer (w/m/d) 80 – 100%",
         "fr": "Software Ingénieur (w/m/d) 80 – 100%"
       },
       "description": "BMS Building Materials Suisse ist ein Grosshändler für Baumaterial im Rohbau und Innenausbau. Zu unserer Unternehmensgruppe gehören die namhaften Spezialisten Baubedarf, Richner, Gétaz Miauton und RegusciReco . Unsere erfahrenen Fachleute beraten, unterstützen und inspirieren mit grossem Engagement Kunden aus der Bauwirtschaft sowie Privatkunden an rund 110 Standorten in der ganzen Schweiz. Nahe am Baualltag sind wir der lokale und verlässliche Partner für jedes Bauprojekt. Schnell, einfach und kompetent.\n\nRümlang oder Buchs (AG), nach Vereinbarung\n\nDu möchtest nicht nur Code schreiben, sondern Applikationen entwickeln, die im Arbeitsalltag wirklich etwas bewegen? Bei uns gestaltest du datengetriebene Lösungen von der ersten Idee bis zum produktiven Einsatz für die gesamte Firma und entlang der ganzen Wertschöpfungskette. Du entwickelst eigene Applikationen, gestaltest ihre Architektur mit, arbeitest mit modernen Technologien und bringst deine Ideen direkt ein. Dabei hast du viel Gestaltungsspielraum und siehst unmittelbar, welchen Mehrwert deine Arbeit schafft.\n\nAufgabengebiet\n\n- Du entwickelst Features End-to-End: Datenmodell, API und Benutzeroberfläche.\n\n- Du entwirfst und entwickelst die Softwarearchitektur unserer Applikationen und Datenpipelines und achtest auf Wartbarkeit, Einfachheit und Skalierbarkeit.\n\n- Du arbeitest mit unserer Datenplattform (Databricks, Delta Lake) und machst aus Daten nutzbare Features.\n\n- Du integrierst bei Bedarf AI-Funktionen (z.B. Agents, MCP-Server, LLM-APIs) in unsere Applikationen, dort, wo sie echten Mehrwert bringen.\n\n- Du sprichst direkt mit den Fachbereichen, verstehst ihre Probleme und validierst Ideen schnell mit Prototypen, die du gemeinsam mit den Anwender*innen weiterentwickelst.\n\n- Du sorgst für sauberen Betrieb, gute Codequalität und die Einhaltung von Datenschutz-, Sicherheits- und Compliance-Vorgaben.\n\nUnser typischer Stack\nDamit du dir ein Bild machen kannst, woran wir arbeiten:\n\n- Backend: Python, FastAPI, Pydantic\n\n- Daten: PostgreSQL, Databricks, Delta Lake\n\n- Plattform: Azure, Infrastructure as Code (Bicep), CI/CD, modernes Tooling (uv, ruff, bun)\n\n- Frontend: React, TypeScript, TanStack\n\n- AI: Claude, MCP, AI-assisted Development mit Claude Code\n\nDu musst nicht jedes Tool schon kennen. Wichtig ist, dass du Software sauber aufbauen kannst und schnell Neues lernst.\n\nProfil\n\n- Du hast mehrere Jahre Erfahrung in der Softwareentwicklung und hast Applikationen von der Idee bis in den Betrieb gebracht.\n\n- Du bist stark in Python und kennst dich mit relationalen Datenbanken und SQL aus.\n\n- Du hast ein gutes Gespür für Softwarearchitektur und weisst, wie man Systeme einfach, robust und erweiterbar baut.\n\n- Du hast Erfahrung mit Azure und Cloud-Architekturen.\n\n- Frontend-Erfahrung ist von Vorteil. Wir nutzen React und TanStack, sind aber flexibel. AI ist heute gut genug, um dich im Frontend zu unterstützen.\n\n- Du entwickelst AI-gestützt und hast praktische Erfahrung mit Claude Code, Skills und MCP.\n\n- Du denkst business-orientiert: Du fragst zuerst, welches Problem gelöst werden soll, und dann, wie.\n\n- Du kannst mit vagen Anforderungen umgehen und erarbeitest zusammen mit den Stakeholdern Schritt für Schritt ein Produkt.\n\n- Du arbeitest gerne autonom und übernimmst Verantwortung für das, was du baust.\n\n- Du sprichst Deutsch oder Französisch und verfügst über gute Englischkenntnisse.\n\n- Von Vorteil: Erfahrung mit Databricks oder ML.\n\nDarauf kannst du dich freuen\n\n- Viel Gestaltungsspielraum und Verantwortung für eigene Applikationen\n\n- Moderne Technologien und Freiraum, eigene Lösungsansätze einzubringen\n\n- Direkter Austausch mit den Fachbereichen und kurze Entscheidungswege\n\n- Spannende Projekte mit echtem Mehrwert und sichtbaren Ergebnissen\n\n- Einblicke in unsere Open-Source-Projekte auf GitHub und im Fabricks-Framework\n\nWir bieten\n\n- eine herausfordernde, vielseitige und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem Wert auf aktive Zusammenarbeit und gleichzeitig Selbständigkeit gelegt wird\n\n- eine intensive Einarbeitung ist Programm, wobei unsere neuen Kollegen von Produkt- und Systemschulungen innerhalb der Firma profitieren können\n\n- Unterstützung unserer Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung\n\n- Homeoffice nach Reglement und Absprache möglich\n\n- 5 Wochen Ferien (6 Wochen ab 50. Altersjahr) und Ferieneinkauf bis max. 10 Tagen, Zusatzleistungen wie eine hervorragend finanzierte eigenständige Pensionskasse und Vergünstigungen auf unser komplettes Produktesortiment sowie externe Prämienvorteile\n\nWir freuen uns auf deine vollständigen Bewerbungsunterlagen in elektronischer Form.\n\nWillst du mehr über uns erfahren? Besuche jetzt unsere Karriere-Seite unter jobs.bmsuisse.ch .\n\nGerne beantworten wir deine Fragen zur Stelle unter jobs@bmsuisse.ch .\n\nJanti Hirtl – Rekruterin Deutschschweiz\n\nAus Datenschutzgründen werden Initiativbewerbungen sowie eBewerbungen via Email und/oder Postversand nicht weiter berücksichtigt.",
       "descriptionByLocale": {
-        "de": "BMS Building Materials Suisse ist ein Grosshändler für Baumaterial im Rohbau und Innenausbau. Zu unserer Unternehmensgruppe gehören die namhaften Spezialisten Baubedarf, Richner, Gétaz Miauton und RegusciReco . Unsere erfahrenen Fachleute beraten, unterstützen und inspirieren mit grossem Engagement Kunden aus der Bauwirtschaft sowie Privatkunden an rund 110 Standorten in der ganzen Schweiz. Nahe am Baualltag sind wir der lokale und verlässliche Partner für jedes Bauprojekt. Schnell, einfach und kompetent.\n\nRümlang oder Buchs (AG), nach Vereinbarung\n\nDu möchtest nicht nur Code schreiben, sondern Applikationen entwickeln, die im Arbeitsalltag wirklich etwas bewegen? Bei uns gestaltest du datengetriebene Lösungen von der ersten Idee bis zum produktiven Einsatz für die gesamte Firma und entlang der ganzen Wertschöpfungskette. Du entwickelst eigene Applikationen, gestaltest ihre Architektur mit, arbeitest mit modernen Technologien und bringst deine Ideen direkt ein. Dabei hast du viel Gestaltungsspielraum und siehst unmittelbar, welchen Mehrwert deine Arbeit schafft.\n\nAufgabengebiet\n\n- Du entwickelst Features End-to-End: Datenmodell, API und Benutzeroberfläche.\n\n- Du entwirfst und entwickelst die Softwarearchitektur unserer Applikationen und Datenpipelines und achtest auf Wartbarkeit, Einfachheit und Skalierbarkeit.\n\n- Du arbeitest mit unserer Datenplattform (Databricks, Delta Lake) und machst aus Daten nutzbare Features.\n\n- Du integrierst bei Bedarf AI-Funktionen (z.B. Agents, MCP-Server, LLM-APIs) in unsere Applikationen, dort, wo sie echten Mehrwert bringen.\n\n- Du sprichst direkt mit den Fachbereichen, verstehst ihre Probleme und validierst Ideen schnell mit Prototypen, die du gemeinsam mit den Anwender*innen weiterentwickelst.\n\n- Du sorgst für sauberen Betrieb, gute Codequalität und die Einhaltung von Datenschutz-, Sicherheits- und Compliance-Vorgaben.\n\nUnser typischer Stack\nDamit du dir ein Bild machen kannst, woran wir arbeiten:\n\n- Backend: Python, FastAPI, Pydantic\n\n- Daten: PostgreSQL, Databricks, Delta Lake\n\n- Plattform: Azure, Infrastructure as Code (Bicep), CI/CD, modernes Tooling (uv, ruff, bun)\n\n- Frontend: React, TypeScript, TanStack\n\n- AI: Claude, MCP, AI-assisted Development mit Claude Code\n\nDu musst nicht jedes Tool schon kennen. Wichtig ist, dass du Software sauber aufbauen kannst und schnell Neues lernst.\n\nProfil\n\n- Du hast mehrere Jahre Erfahrung in der Softwareentwicklung und hast Applikationen von der Idee bis in den Betrieb gebracht.\n\n- Du bist stark in Python und kennst dich mit relationalen Datenbanken und SQL aus.\n\n- Du hast ein gutes Gespür für Softwarearchitektur und weisst, wie man Systeme einfach, robust und erweiterbar baut.\n\n- Du hast Erfahrung mit Azure und Cloud-Architekturen.\n\n- Frontend-Erfahrung ist von Vorteil. Wir nutzen React und TanStack, sind aber flexibel. AI ist heute gut genug, um dich im Frontend zu unterstützen.\n\n- Du entwickelst AI-gestützt und hast praktische Erfahrung mit Claude Code, Skills und MCP.\n\n- Du denkst business-orientiert: Du fragst zuerst, welches Problem gelöst werden soll, und dann, wie.\n\n- Du kannst mit vagen Anforderungen umgehen und erarbeitest zusammen mit den Stakeholdern Schritt für Schritt ein Produkt.\n\n- Du arbeitest gerne autonom und übernimmst Verantwortung für das, was du baust.\n\n- Du sprichst Deutsch oder Französisch und verfügst über gute Englischkenntnisse.\n\n- Von Vorteil: Erfahrung mit Databricks oder ML.\n\nDarauf kannst du dich freuen\n\n- Viel Gestaltungsspielraum und Verantwortung für eigene Applikationen\n\n- Moderne Technologien und Freiraum, eigene Lösungsansätze einzubringen\n\n- Direkter Austausch mit den Fachbereichen und kurze Entscheidungswege\n\n- Spannende Projekte mit echtem Mehrwert und sichtbaren Ergebnissen\n\n- Einblicke in unsere Open-Source-Projekte auf GitHub und im Fabricks-Framework\n\nWir bieten\n\n- eine herausfordernde, vielseitige und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem Wert auf aktive Zusammenarbeit und gleichzeitig Selbständigkeit gelegt wird\n\n- eine intensive Einarbeitung ist Programm, wobei unsere neuen Kollegen von Produkt- und Systemschulungen innerhalb der Firma profitieren können\n\n- Unterstützung unserer Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung\n\n- Homeoffice nach Reglement und Absprache möglich\n\n- 5 Wochen Ferien (6 Wochen ab 50. Altersjahr) und Ferieneinkauf bis max. 10 Tagen, Zusatzleistungen wie eine hervorragend finanzierte eigenständige Pensionskasse und Vergünstigungen auf unser komplettes Produktesortiment sowie externe Prämienvorteile\n\nWir freuen uns auf deine vollständigen Bewerbungsunterlagen in elektronischer Form.\n\nWillst du mehr über uns erfahren? Besuche jetzt unsere Karriere-Seite unter jobs.bmsuisse.ch .\n\nGerne beantworten wir deine Fragen zur Stelle unter jobs@bmsuisse.ch .\n\nJanti Hirtl – Rekruterin Deutschschweiz\n\nAus Datenschutzgründen werden Initiativbewerbungen sowie eBewerbungen via Email und/oder Postversand nicht weiter berücksichtigt.",
         "it": "BMS Building Materials Suisse è un grossista di materiali da costruzione per la costruzione di conchiglie e interni. Il nostro gruppo di aziende comprende i rinomati specialisti Baubedarf, Richner, Gétaz Miauton e RegusciReco. I nostri esperti consigliano, supportano e ispirano i clienti del settore edile e i clienti privati in circa 110 sedi in tutta la Svizzera. Vicino alla costruzione quotidiana, siamo il partner locale e affidabile per ogni progetto di costruzione. Veloce, facile e competente.\n\nRümlang o Buchs (AG), d'accordo\n\nNon solo vuoi scrivere codice, ma anche sviluppare applicazioni che fanno davvero la differenza nel lavoro quotidiano? Con noi, progetta soluzioni data-driven dalla prima idea all'uso produttivo per l'intera azienda e lungo l'intera catena del valore. Sviluppi le tue applicazioni, modella la loro architettura, lavora con le tecnologie moderne e contribuisci direttamente alle tue idee. Hai un sacco di libertà creativa e vedere immediatamente quale valore aggiunto il tuo lavoro crea.\n\nSettore\n\n- Si sviluppano funzionalità end-to-end: modello di dati, API e interfaccia utente.\n\n- Progettare e sviluppare l'architettura software delle nostre applicazioni e datadotti, prestando attenzione alla manutenbilità, semplicità e scalabilità.\n\n- Lavora con la nostra piattaforma dati (Databricks, Delta Lake) e trasforma i dati in funzionalità utilizzabili.\n\n- Se necessario, è possibile integrare le funzioni AI (ad esempio agenti, server MCP, API LLM) nelle nostre applicazioni in cui portano valore aggiunto reale.\n\n- Si parla direttamente ai reparti, capire i loro problemi e convalidare rapidamente idee con prototipi, che si sviluppano insieme agli utenti.\n\n- Garantisci un funzionamento pulito, una buona qualità del codice e la conformità ai requisiti di protezione, sicurezza e conformità.\n\nIl nostro stack tipico\nIn modo da poter avere un'idea di cosa stiamo lavorando su:\n\n- Backend: Python, FastAPI, Pydantic\n\n- Dati: PostgreSQL, Databricks, Delta Lake\n\n- Piattaforma: Azure, Infrastrutture come Codice (Bicep), CI/CD, utensili moderni (uv, ruff, bun)\n\n- Frontend: React, TypeScript, TanStack\n\n- AI: Claude, MCP, sviluppo AI assistito con Claude Code\n\nNon è necessario conoscere già ogni strumento. È importante che si può costruire software pulito e imparare nuove cose rapidamente.\n\nProfilo\n\n- Hai diversi anni di esperienza nello sviluppo del software e hanno portato applicazioni da idea a funzionamento.\n\n- Sei forte in Python e familiare con database relazionali e SQL.\n\n- Hai un buon senso dell'architettura del software e sai come costruire sistemi semplicemente, robustamente ed espandibile.\n\n- Hai esperienza con le architetture Azure e cloud.\n\n- L'esperienza di fronte è benefica. Usiamo React e TanStack, ma siamo flessibili. L'intelligenza artificiale è abbastanza buona oggi per supportarti nel frontend.\n\n- Potrai sviluppare AI-supportato e avere esperienza pratica con Claude Code, Abilità e MCP.\n\n- Pensi orientato al business: chiedi in primo luogo quale problema risolvere, e poi come.\n\n- È possibile gestire i requisiti vaghi e sviluppare un prodotto passo dopo passo con gli stakeholder.\n\n- Ti piace lavorare autonomamente e prenderti la responsabilità di ciò che costruisci.\n\n- Parli tedesco o francese e hai una buona conoscenza dell'inglese.\n\n- Vantaggio: Esperienza con Databricks o ML.\n\nNon vedo l'ora.\n\n- Molto spazio di progettazione e responsabilità per le proprie applicazioni\n\n- Tecnologie moderne e libertà di contribuire alle proprie soluzioni\n\n- Scambio diretto con i dipartimenti e brevi percorsi decisionali\n\n- Progetti emozionanti con valore aggiunto reale e risultati visibili\n\n- Indagini sui nostri progetti open source su GitHub e nel framework Fabricks\n\nOffriamo\n\n- un'attività impegnativa, versatile e interessante in un buon ambiente di lavoro, dove l'accento è sulla cooperazione attiva e allo stesso tempo l'autooccupazione\n\n- formazione intensiva è un programma, per cui i nostri nuovi colleghi possono beneficiare della formazione del prodotto e del sistema all'interno dell'azienda\n\n- Sostenere i nostri dipendenti nel loro sviluppo professionale e personale\n\n- Ufficio domestico possibile secondo regolamenti e accordo\n\n- 5 settimane di vacanza (6 settimane da 50 anni) e shopping fino a max. 10 giorni, benefici aggiuntivi come un fondo pensione indipendente eccellentemente finanziato e sconti sulla nostra gamma completa di prodotti e benefici premium esterni\n\nAttendiamo con ansia i vostri documenti applicativi completi in forma elettronica.\n\nVuoi saperne di più su di noi? Ora visita la nostra pagina di carriera a job.bmsuisse.ch.\n\nSiamo lieti di rispondere alle vostre domande all'indirizzo job@bmsuisse.ch.\n\nJanti Hirtl – reclutatore Svizzera tedesca\n\nPer motivi di protezione dei dati, le applicazioni di iniziativa e le applicazioni via e-mail e/o posta non sono più considerate.",
         "en": "BMS Building Materials Suisse is a wholesaler of building materials for shell and interior construction. Our group of companies includes the renowned specialists Baubedarf, Richner, Gétaz Miauton and RegusciReco. Our experienced experts advise, support and inspire customers from the construction industry as well as private customers at around 110 locations throughout Switzerland. Close to everyday construction, we are the local and reliable partner for every construction project. Quick, easy and competent.\n\nRümlang or Buchs (AG), by agreement\n\nDo you not only want to write code, but also develop applications that really make a difference in everyday work? With us, you design data-driven solutions from the first idea to productive use for the entire company and along the entire value chain. You develop your own applications, shape their architecture, work with modern technologies and contribute your ideas directly. You have a lot of creative freedom and see immediately what added value your work creates.\n\nTask area\n\n- You develop end-to-end features: data model, API and user interface.\n\n- You design and develop the software architecture of our applications and data pipelines, paying attention to maintainability, simplicity and scalability.\n\n- You work with our data platform (Databricks, Delta Lake) and turn data into usable features.\n\n- If necessary, you can integrate AI functions (e.g. agents, MCP servers, LLM APIs) into our applications where they bring real added value.\n\n- You talk directly to the departments, understand their problems and quickly validate ideas with prototypes, which you develop together with the users.\n\n- You ensure clean operation, good code quality and compliance with data protection, security and compliance requirements.\n\nOur typical stack\nSo that you can get an idea of what we are working on:\n\n- Backend: Python, FastAPI, Pydantic\n\n- Data: PostgreSQL, Databricks, Delta Lake\n\n- Platform: Azure, Infrastructure as Code (Bicep), CI/CD, modern tooling (uv, ruff, bun)\n\n- Frontend: React, TypeScript, TanStack\n\n- AI: Claude, MCP, AI-assisted development with Claude Code\n\nYou don’t have to know every tool already. It is important that you can build software clean and learn new things quickly.\n\nProfile\n\n- You have several years of experience in software development and have brought applications from idea to operation.\n\n- You are strong in Python and familiar with relational databases and SQL.\n\n- You have a good sense of software architecture and know how to build systems simply, robustly and expandably.\n\n- You have experience with Azure and cloud architectures.\n\n- Frontend experience is beneficial. We use React and TanStack, but we are flexible. AI is good enough today to support you in the frontend.\n\n- You will develop AI-supported and have practical experience with Claude Code, Skills and MCP.\n\n- You think business-oriented: you ask first which problem to solve, and then how.\n\n- You can deal with vague requirements and develop a product step by step together with the stakeholders.\n\n- You like to work autonomously and take responsibility for what you build.\n\n- You speak German or French and have a good knowledge of English.\n\n- Advantage: Experience with Databricks or ML.\n\nYou can look forward to that.\n\n- A lot of design room and responsibility for your own applications\n\n- Modern technologies and freedom to contribute their own solutions\n\n- Direct exchange with the departments and short decision-making paths\n\n- Exciting projects with real added value and visible results\n\n- Insights into our open source projects on GitHub and in the Fabricks framework\n\nWe offer\n\n- a challenging, versatile and interesting activity in a good working environment, where the emphasis is on active cooperation and at the same time self-employment\n\n- intensive training is a program, whereby our new colleagues can benefit from product and system training within the company\n\n- Support our employees in their professional and personal development\n\n- Home office possible according to regulations and agreement\n\n- 5 weeks holiday (6 weeks from 50 years of age) and holiday shopping up to max. 10 days, additional benefits such as an excellently financed independent pension fund and discounts on our complete product range as well as external premium benefits\n\nWe look forward to your complete application documents in electronic form.\n\nWant to know more about us? Now visit our career page at jobs.bmsuisse.ch.\n\nWe are happy to answer your questions at jobs@bmsuisse.ch.\n\nJanti Hirtl – recruiter German-speaking Switzerland\n\nFor data protection reasons, initiative applications as well as e-applications via email and/or postal mail are no longer considered.",
+        "de": "BMS Building Materials Suisse ist ein Grosshändler für Baumaterial im Rohbau und Innenausbau. Zu unserer Unternehmensgruppe gehören die namhaften Spezialisten Baubedarf, Richner, Gétaz Miauton und RegusciReco . Unsere erfahrenen Fachleute beraten, unterstützen und inspirieren mit grossem Engagement Kunden aus der Bauwirtschaft sowie Privatkunden an rund 110 Standorten in der ganzen Schweiz. Nahe am Baualltag sind wir der lokale und verlässliche Partner für jedes Bauprojekt. Schnell, einfach und kompetent.\n\nRümlang oder Buchs (AG), nach Vereinbarung\n\nDu möchtest nicht nur Code schreiben, sondern Applikationen entwickeln, die im Arbeitsalltag wirklich etwas bewegen? Bei uns gestaltest du datengetriebene Lösungen von der ersten Idee bis zum produktiven Einsatz für die gesamte Firma und entlang der ganzen Wertschöpfungskette. Du entwickelst eigene Applikationen, gestaltest ihre Architektur mit, arbeitest mit modernen Technologien und bringst deine Ideen direkt ein. Dabei hast du viel Gestaltungsspielraum und siehst unmittelbar, welchen Mehrwert deine Arbeit schafft.\n\nAufgabengebiet\n\n- Du entwickelst Features End-to-End: Datenmodell, API und Benutzeroberfläche.\n\n- Du entwirfst und entwickelst die Softwarearchitektur unserer Applikationen und Datenpipelines und achtest auf Wartbarkeit, Einfachheit und Skalierbarkeit.\n\n- Du arbeitest mit unserer Datenplattform (Databricks, Delta Lake) und machst aus Daten nutzbare Features.\n\n- Du integrierst bei Bedarf AI-Funktionen (z.B. Agents, MCP-Server, LLM-APIs) in unsere Applikationen, dort, wo sie echten Mehrwert bringen.\n\n- Du sprichst direkt mit den Fachbereichen, verstehst ihre Probleme und validierst Ideen schnell mit Prototypen, die du gemeinsam mit den Anwender*innen weiterentwickelst.\n\n- Du sorgst für sauberen Betrieb, gute Codequalität und die Einhaltung von Datenschutz-, Sicherheits- und Compliance-Vorgaben.\n\nUnser typischer Stack\nDamit du dir ein Bild machen kannst, woran wir arbeiten:\n\n- Backend: Python, FastAPI, Pydantic\n\n- Daten: PostgreSQL, Databricks, Delta Lake\n\n- Plattform: Azure, Infrastructure as Code (Bicep), CI/CD, modernes Tooling (uv, ruff, bun)\n\n- Frontend: React, TypeScript, TanStack\n\n- AI: Claude, MCP, AI-assisted Development mit Claude Code\n\nDu musst nicht jedes Tool schon kennen. Wichtig ist, dass du Software sauber aufbauen kannst und schnell Neues lernst.\n\nProfil\n\n- Du hast mehrere Jahre Erfahrung in der Softwareentwicklung und hast Applikationen von der Idee bis in den Betrieb gebracht.\n\n- Du bist stark in Python und kennst dich mit relationalen Datenbanken und SQL aus.\n\n- Du hast ein gutes Gespür für Softwarearchitektur und weisst, wie man Systeme einfach, robust und erweiterbar baut.\n\n- Du hast Erfahrung mit Azure und Cloud-Architekturen.\n\n- Frontend-Erfahrung ist von Vorteil. Wir nutzen React und TanStack, sind aber flexibel. AI ist heute gut genug, um dich im Frontend zu unterstützen.\n\n- Du entwickelst AI-gestützt und hast praktische Erfahrung mit Claude Code, Skills und MCP.\n\n- Du denkst business-orientiert: Du fragst zuerst, welches Problem gelöst werden soll, und dann, wie.\n\n- Du kannst mit vagen Anforderungen umgehen und erarbeitest zusammen mit den Stakeholdern Schritt für Schritt ein Produkt.\n\n- Du arbeitest gerne autonom und übernimmst Verantwortung für das, was du baust.\n\n- Du sprichst Deutsch oder Französisch und verfügst über gute Englischkenntnisse.\n\n- Von Vorteil: Erfahrung mit Databricks oder ML.\n\nDarauf kannst du dich freuen\n\n- Viel Gestaltungsspielraum und Verantwortung für eigene Applikationen\n\n- Moderne Technologien und Freiraum, eigene Lösungsansätze einzubringen\n\n- Direkter Austausch mit den Fachbereichen und kurze Entscheidungswege\n\n- Spannende Projekte mit echtem Mehrwert und sichtbaren Ergebnissen\n\n- Einblicke in unsere Open-Source-Projekte auf GitHub und im Fabricks-Framework\n\nWir bieten\n\n- eine herausfordernde, vielseitige und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem Wert auf aktive Zusammenarbeit und gleichzeitig Selbständigkeit gelegt wird\n\n- eine intensive Einarbeitung ist Programm, wobei unsere neuen Kollegen von Produkt- und Systemschulungen innerhalb der Firma profitieren können\n\n- Unterstützung unserer Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung\n\n- Homeoffice nach Reglement und Absprache möglich\n\n- 5 Wochen Ferien (6 Wochen ab 50. Altersjahr) und Ferieneinkauf bis max. 10 Tagen, Zusatzleistungen wie eine hervorragend finanzierte eigenständige Pensionskasse und Vergünstigungen auf unser komplettes Produktesortiment sowie externe Prämienvorteile\n\nWir freuen uns auf deine vollständigen Bewerbungsunterlagen in elektronischer Form.\n\nWillst du mehr über uns erfahren? Besuche jetzt unsere Karriere-Seite unter jobs.bmsuisse.ch .\n\nGerne beantworten wir deine Fragen zur Stelle unter jobs@bmsuisse.ch .\n\nJanti Hirtl – Rekruterin Deutschschweiz\n\nAus Datenschutzgründen werden Initiativbewerbungen sowie eBewerbungen via Email und/oder Postversand nicht weiter berücksichtigt.",
         "fr": "BMS Building Materials Suisse est un grossiste de matériaux de construction pour la construction en coque et intérieure. Notre groupe d'entreprises comprend les spécialistes renommés Baubedarf, Richner, Gétaz Miauton et RegusciReco. Nos experts expérimentés conseillent, soutiennent et inspirent les clients de l'industrie de la construction ainsi que les clients privés dans environ 110 endroits en Suisse. Proche de la construction quotidienne, nous sommes le partenaire local et fiable pour chaque projet de construction. Rapide, facile et compétent.\n\nRümlang ou Buchs (AG), par accord\n\nVoulez-vous non seulement écrire du code, mais aussi développer des applications qui font vraiment une différence dans le travail quotidien? Avec nous, vous concevez des solutions basées sur les données de la première idée à une utilisation productive pour toute l'entreprise et tout au long de la chaîne de valeur. Vous développez vos propres applications, façonnez leur architecture, travaillez avec les technologies modernes et apportez vos idées directement. Vous avez beaucoup de liberté créative et voyez immédiatement quelle valeur ajoutée votre travail crée.\n\nDomaine d ' activité\n\n- Vous développez des fonctionnalités de bout en bout : modèle de données, API et interface utilisateur.\n\n- Vous concevez et développez l'architecture logicielle de nos applications et pipelines de données, en veillant à la maintenance, à la simplicité et à l'évolutivité.\n\n- Vous travaillez avec notre plateforme de données (Databricks, Delta Lake) et transformez les données en fonctionnalités utilisables.\n\n- Si nécessaire, vous pouvez intégrer des fonctions AI (par exemple agents, serveurs MCP, API LLM) dans nos applications où elles apportent une réelle valeur ajoutée.\n\n- Vous parlez directement aux départements, comprenez leurs problèmes et validez rapidement des idées avec des prototypes, que vous développez avec les utilisateurs.\n\n- Vous assurez un fonctionnement propre, une bonne qualité de code et le respect des exigences de protection des données, de sécurité et de conformité.\n\nNotre pile typique\nPour avoir une idée de ce sur quoi nous travaillons :\n\n- Dos: Python, FastAPI, Pydantic\n\n- Données : PostgreSQL, Databricks, Delta Lake\n\n- Plateforme : Azure, Infrastructure en tant que code (Bicep), CI/CD, outillage moderne (uv, ruff, bun)\n\n- Frontend: Réagir, TypeScript, TanStack\n\n- AI : Claude, MCP, développement assisté par AI avec Claude Code\n\nVous n'avez pas à connaître tous les outils déjà. Il est important que vous puissiez construire des logiciels propres et apprendre de nouvelles choses rapidement.\n\nProfil\n\n- Vous avez plusieurs années d'expérience dans le développement de logiciels et avez apporté des applications de l'idée au fonctionnement.\n\n- Vous êtes fort en Python et familier avec les bases de données relationnelles et SQL.\n\n- Vous avez un bon sens de l'architecture logicielle et savez comment construire des systèmes de manière simple, robuste et extensible.\n\n- Vous avez de l'expérience avec les architectures Azure et Cloud.\n\n- L'expérience de front est bénéfique. Nous utilisons React et TanStack, mais nous sommes flexibles. AI est assez bon aujourd'hui pour vous soutenir dans la façade.\n\n- Vous développerez l'IA et aurez une expérience pratique avec Claude Code, Skills et MCP.\n\n- Vous pensez orienté entreprise : vous demandez d'abord quel problème résoudre, puis comment.\n\n- Vous pouvez traiter avec des exigences vagues et développer un produit étape par étape avec les parties prenantes.\n\n- Vous aimez travailler de manière autonome et prendre la responsabilité de ce que vous construisez.\n\n- Vous parlez allemand ou français et vous avez une bonne connaissance de l'anglais.\n\n- Avantage: Expérience avec Databricks ou ML.\n\nVous pouvez attendre avec impatience.\n\n- Beaucoup de salle de design et de responsabilité pour vos propres applications\n\n- Les technologies modernes et la liberté de contribuer à leurs propres solutions\n\n- Échange direct avec les départements et courte prise de décision\n\n- Projets passionnants à valeur ajoutée réelle et résultats visibles\n\n- Regards sur nos projets open source sur GitHub et dans le cadre Fabricks\n\nNous offrons\n\n- une activité stimulante, polyvalente et intéressante dans un bon environnement de travail, où l'accent est mis sur la coopération active et en même temps sur le travail indépendant;\n\n- la formation intensive est un programme qui permet à nos nouveaux collègues de bénéficier de la formation produit et système au sein de l'entreprise\n\n- Soutenir nos employés dans leur développement professionnel et personnel\n\n- Cabinet possible selon les règlements et l'accord\n\n- 5 semaines de vacances (6 semaines à partir de 50 ans) et des achats de vacances jusqu'à max. 10 jours, des prestations supplémentaires telles qu'un fonds de pension indépendant financé par excellence et des rabais sur notre gamme complète de produits ainsi que des primes externes\n\nNous attendons avec intérêt vos documents de demande complets sous forme électronique.\n\nVous voulez en savoir plus sur nous ? Maintenant visitez notre page de carrière à jobs.bmsuisse.ch.\n\nNous sommes heureux de répondre à vos questions à jobs@bmsuisse.ch.\n\nJanti Hirtl – recruteur Suisse alémanique\n\nPour des raisons de protection des données, les demandes d'initiative ainsi que les demandes électroniques par courriel et/ou courrier postal ne sont plus prises en considération."
       },
       "location": "Rümlang",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/249-software-engineer-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:19.896Z",
+      "crawledAt": "2026-11-14T09:15:53.051Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,32 +78,28 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Du hast mehrere Jahre Erfahrung in der Softwareentwicklung und hast Applikationen von der Idee bis in den Betrieb gebracht.",
           "Du bist stark in Python und kennst dich mit relationalen Datenbanken und SQL aus.",
           "Du hast ein gutes Gespür für Softwarearchitektur und weisst, wie man Systeme einfach, robust und erweiterbar baut.",
           "Du hast Erfahrung mit Azure und Cloud-Architekturen.",
-          "Frontend-Erfahrung ist von Vorteil. Wir nutzen React und TanStack, sind aber flexibel. AI ist heute gut genug, um dich im Frontend zu unterstützen.",
           "Du entwickelst AI-gestützt und hast praktische Erfahrung mit Claude Code, Skills und MCP.",
           "Du denkst business-orientiert: Du fragst zuerst, welches Problem gelöst werden soll, und dann, wie.",
           "Du kannst mit vagen Anforderungen umgehen und erarbeitest zusammen mit den Stakeholdern Schritt für Schritt ein Produkt.",
           "Du arbeitest gerne autonom und übernimmst Verantwortung für das, was du baust.",
-          "Du sprichst Deutsch oder Französisch und verfügst über gute Englischkenntnisse.",
-          "Von Vorteil: Erfahrung mit Databricks oder ML.",
-          "Viel Gestaltungsspielraum und Verantwortung für eigene Applikationen",
-          "Moderne Technologien und Freiraum, eigene Lösungsansätze einzubringen",
-          "Direkter Austausch mit den Fachbereichen und kurze Entscheidungswege",
-          "Spannende Projekte mit echtem Mehrwert und sichtbaren Ergebnissen",
-          "Einblicke in unsere Open-Source-Projekte auf GitHub und im Fabricks-Framework",
-          "eine herausfordernde, vielseitige und interessante Tätigkeit in einem guten Arbeitsumfeld, in dem Wert auf aktive Zusammenarbeit und gleichzeitig Selbständigkeit gelegt wird",
-          "eine intensive Einarbeitung ist Programm, wobei unsere neuen Kollegen von Produkt- und Systemschulungen innerhalb der Firma profitieren können",
-          "Unterstützung unserer Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung",
-          "Homeoffice nach Reglement und Absprache möglich",
-          "5 Wochen Ferien (6 Wochen ab 50. Altersjahr) und Ferieneinkauf bis max. 10 Tagen, Zusatzleistungen wie eine hervorragend finanzierte eigenständige Pensionskasse und Vergünstigungen auf unser komplettes Produktesortiment sowie externe Prämienvorteile",
-          "Kontakt",
-          "Impressum",
-          "Datenschutz"
+          "Du sprichst Deutsch oder Französisch und verfügst über gute Englischkenntnisse."
         ]
       },
+      "firstSeenAt": "2026-11-13T21:18:19.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-w-m-d-80-100-bms-building-ch"
+        ],
+        "fr": [
+          "software-engineer-w-m-d-80-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-w-m-d-80-100-bms-building-ch"
+      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -120,9 +116,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Rümlang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:18:19.896Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:18:19.896Z"
+      "validThrough": "2027-02-12T09:15:53.051Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bms-building-fa6c7d1ee29d",
@@ -155,7 +150,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/248-conseiller-de-vente-shop-materiaux-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:18:18.708Z",
+      "crawledAt": "2026-11-14T09:15:51.767Z",
       "addressLocality": "Saint-Légier-La Chiésaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -232,7 +227,7 @@
       "addressRegion": "VD",
       "streetAddress": "Saint-Légier-La Chiésaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:18:18.708Z",
+      "validThrough": "2027-02-10T09:15:51.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -266,7 +261,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/247-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:18:17.636Z",
+      "crawledAt": "2026-11-14T09:15:50.672Z",
       "addressLocality": "Aigle",
       "addressCountry": "CH",
       "country": "CH",
@@ -343,7 +338,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aigle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:17.636Z",
+      "validThrough": "2026-12-14T09:15:50.672Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -377,7 +372,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/245-team-leader-shop-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:18:16.490Z",
+      "crawledAt": "2026-11-14T09:15:49.526Z",
       "addressLocality": "Sierre",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,7 +444,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:18:16.490Z",
+      "validThrough": "2027-02-08T09:15:49.526Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -483,7 +478,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/244-kundenberatung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:15.293Z",
+      "crawledAt": "2026-11-14T09:15:48.299Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -560,7 +555,7 @@
       "addressRegion": "GR",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:18:15.293Z",
+      "validThrough": "2027-02-01T09:15:48.299Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -594,7 +589,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/243-logistiker-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:12.981Z",
+      "crawledAt": "2026-11-14T09:15:47.122Z",
       "addressLocality": "Hunzenschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,7 +667,7 @@
       "addressRegion": "AG",
       "streetAddress": "Hunzenschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:12.981Z",
+      "validThrough": "2026-12-14T09:15:47.122Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -706,7 +701,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/242-logistik-/-maschinist-zuschnitt-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:11.840Z",
+      "crawledAt": "2026-11-14T09:15:46.047Z",
       "addressLocality": "Hunzenschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -780,7 +775,7 @@
       "addressRegion": "AG",
       "streetAddress": "Hunzenschwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:18:11.840Z",
+      "validThrough": "2027-02-01T09:15:46.047Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +809,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/241-mitarbeiter/in-hr-administration-deutsch-franzoesisch-w/m/d-60-80/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:10.694Z",
+      "crawledAt": "2026-11-14T09:15:44.803Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -887,7 +882,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Rümlang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:18:10.694Z",
+      "validThrough": "2027-02-01T09:15:44.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -921,7 +916,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/240-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:09.616Z",
+      "crawledAt": "2026-11-14T09:15:43.629Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1000,7 +995,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:18:09.616Z",
+      "validThrough": "2027-01-28T09:15:43.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1034,7 +1029,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/238-verkaufsstellenleitung-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:08.370Z",
+      "crawledAt": "2026-11-14T09:15:42.367Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1111,7 +1106,7 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:18:08.370Z",
+      "validThrough": "2027-01-27T09:15:42.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1145,7 +1140,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/237-conseiller-de-vente-interne-materiaux-genie-civil-a-100-h/f/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:18:07.181Z",
+      "crawledAt": "2026-11-14T09:15:41.062Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -1230,7 +1225,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:18:07.181Z",
+      "validThrough": "2027-01-04T09:15:41.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1264,7 +1259,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/236-transportfachfrau/-mann-mit-stv-disposition-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:06.089Z",
+      "crawledAt": "2026-11-14T09:15:39.971Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1345,7 +1340,7 @@
       "addressRegion": "SG",
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:18:06.089Z",
+      "validThrough": "2027-01-26T09:15:39.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1379,7 +1374,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/233-conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:18:04.808Z",
+      "crawledAt": "2026-11-14T09:15:38.840Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1455,7 +1450,7 @@
       "addressRegion": "VD",
       "streetAddress": "Bussigny-près-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:18:04.808Z",
+      "validThrough": "2027-01-25T09:15:38.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1489,7 +1484,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/231-verkaufsberater-innendienst-wand-und-bodenbelaege-100-m/w/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:03.685Z",
+      "crawledAt": "2026-11-14T09:15:37.569Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1566,7 +1561,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:18:03.685Z",
+      "validThrough": "2027-01-19T09:15:37.569Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1600,7 +1595,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/230-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:02.482Z",
+      "crawledAt": "2026-11-14T09:15:36.474Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1676,7 +1671,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:18:02.482Z",
+      "validThrough": "2026-12-14T09:15:36.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1710,7 +1705,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/228-key-account-management-innenausbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:18:01.227Z",
+      "crawledAt": "2026-11-14T09:15:35.378Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1788,7 +1783,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:18:01.227Z",
+      "validThrough": "2027-01-14T09:15:35.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1822,7 +1817,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/225-teamleitung-innendienst-sanitaer-m/w/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:58.863Z",
+      "crawledAt": "2026-11-14T09:15:32.890Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1899,7 +1894,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:58.863Z",
+      "validThrough": "2027-01-08T09:15:32.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1933,7 +1928,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/224-key-account-manager-second-oeuvre-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:57.710Z",
+      "crawledAt": "2026-11-14T09:15:31.629Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2009,7 +2004,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:57.710Z",
+      "validThrough": "2027-01-08T09:15:31.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2043,7 +2038,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/221-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:56.518Z",
+      "crawledAt": "2026-11-14T09:15:30.399Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2113,7 +2108,7 @@
       "addressRegion": "VD",
       "streetAddress": "Bussigny-près-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:56.518Z",
+      "validThrough": "2026-12-14T09:15:30.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2147,7 +2142,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/219-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:55.445Z",
+      "crawledAt": "2026-11-14T09:15:29.267Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -2217,7 +2212,7 @@
       "addressRegion": "VD",
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:55.445Z",
+      "validThrough": "2026-12-14T09:15:29.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2251,7 +2246,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/218-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:54.413Z",
+      "crawledAt": "2026-11-14T09:15:28.087Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -2328,7 +2323,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Rümlang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:17:54.413Z",
+      "validThrough": "2026-12-16T09:15:28.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2362,7 +2357,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/213-conseiller-de-vente-shop-materiaux-de-construction-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:53.229Z",
+      "crawledAt": "2026-11-14T09:15:26.822Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2435,7 +2430,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:53.229Z",
+      "validThrough": "2026-12-14T09:15:26.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2469,7 +2464,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/211-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:52.104Z",
+      "crawledAt": "2026-11-14T09:15:25.676Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2540,7 +2535,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:52.104Z",
+      "validThrough": "2026-12-14T09:15:25.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2574,7 +2569,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/209-product-data-specialist-sanitaer-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:51.022Z",
+      "crawledAt": "2026-11-14T09:15:24.544Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2655,7 +2650,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:51.022Z",
+      "validThrough": "2026-12-14T09:15:24.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2689,7 +2684,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/204-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:49.802Z",
+      "crawledAt": "2026-11-14T09:15:23.141Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2763,7 +2758,7 @@
       "addressRegion": "SO",
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:49.802Z",
+      "validThrough": "2026-12-14T09:15:23.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2797,7 +2792,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/203-product-manager-revetements-de-sol-portes-et-amenagement-exterieur-bois-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:48.738Z",
+      "crawledAt": "2026-11-14T09:15:21.931Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2888,7 +2883,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:48.738Z",
+      "validThrough": "2026-12-14T09:15:21.931Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2922,7 +2917,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/201-conseiller-de-vente-exposition-sanitaire-et-revetements-sols-murs-f/h/d-a-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:47.457Z",
+      "crawledAt": "2026-11-14T09:15:20.677Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -2995,7 +2990,7 @@
       "addressRegion": "FR",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:47.457Z",
+      "validThrough": "2026-12-14T09:15:20.677Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3029,7 +3024,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/198-logistiker-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:46.328Z",
+      "crawledAt": "2026-11-14T09:15:19.541Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -3122,7 +3117,7 @@
       "addressRegion": "GR",
       "streetAddress": "Fideris",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:46.328Z",
+      "validThrough": "2026-12-14T09:15:19.541Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3156,7 +3151,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/197-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:45.250Z",
+      "crawledAt": "2026-11-14T09:15:18.389Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3247,7 +3242,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:45.250Z",
+      "validThrough": "2026-12-14T09:15:18.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3281,7 +3276,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/195-representant-externe-pour-le-canton-de-vaud-departement-des-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:44.115Z",
+      "crawledAt": "2026-11-14T09:15:17.281Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -3356,7 +3351,7 @@
       "addressRegion": "VD",
       "streetAddress": "Etoy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:44.115Z",
+      "validThrough": "2026-12-14T09:15:17.281Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3390,7 +3385,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/190-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:43.014Z",
+      "crawledAt": "2026-11-14T09:15:16.183Z",
       "addressLocality": "Gebenstorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3470,7 +3465,7 @@
       "addressRegion": "AG",
       "streetAddress": "Gebenstorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:43.014Z",
+      "validThrough": "2026-12-14T09:15:16.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3504,7 +3499,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/188-consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-13T21:17:41.894Z",
+      "crawledAt": "2026-11-14T09:15:15.057Z",
       "addressLocality": "Bellinzona",
       "addressCountry": "CH",
       "country": "CH",
@@ -3567,7 +3562,7 @@
       "addressRegion": "TI",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:41.894Z",
+      "validThrough": "2026-12-14T09:15:15.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3601,7 +3596,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/184-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:40.785Z",
+      "crawledAt": "2026-11-14T09:15:13.957Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -3676,7 +3671,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Cham",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:40.785Z",
+      "validThrough": "2026-12-14T09:15:13.957Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3710,7 +3705,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/178-logistiker-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:39.449Z",
+      "crawledAt": "2026-11-14T09:15:12.611Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -3798,7 +3793,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Cham",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:39.449Z",
+      "validThrough": "2026-12-14T09:15:12.611Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3832,7 +3827,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/173-functional-application-manager-ai-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:38.312Z",
+      "crawledAt": "2026-11-14T09:15:11.501Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -3901,7 +3896,7 @@
       "addressRegion": "SG",
       "streetAddress": "Buchs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:38.312Z",
+      "validThrough": "2026-12-14T09:15:11.501Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3935,7 +3930,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/150-chauffeur-poids-lourd-grue-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:17:37.090Z",
+      "crawledAt": "2026-11-14T09:15:10.247Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -4012,7 +4007,7 @@
       "addressRegion": "FR",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:17:37.090Z",
+      "validThrough": "2027-01-18T09:15:10.247Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4046,7 +4041,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/116-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:36.002Z",
+      "crawledAt": "2026-11-14T09:15:09.166Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -4124,7 +4119,7 @@
       "addressRegion": "LU",
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:36.002Z",
+      "validThrough": "2026-12-14T09:15:09.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4158,7 +4153,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/81-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:34.887Z",
+      "crawledAt": "2026-11-14T09:15:08.031Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4238,7 +4233,7 @@
       "addressRegion": "SG",
       "streetAddress": "Schmerikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:34.887Z",
+      "validThrough": "2026-12-14T09:15:08.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4272,7 +4267,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/36-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:33.476Z",
+      "crawledAt": "2026-11-14T09:15:06.737Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -4345,7 +4340,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:17:33.476Z",
+      "validThrough": "2026-12-14T09:15:06.737Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4452,7 +4447,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T09:19:41.944Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
