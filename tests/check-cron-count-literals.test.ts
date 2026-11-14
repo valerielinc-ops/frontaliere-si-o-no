@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, describe, expect, it } from 'vitest';
 import {
   buildCronPathMatcher,
+  collectScheduledWorkflowWritePaths,
   scanRepository,
   scanTestSource,
 } from '../scripts/ci/check-cron-count-literals.mjs';
@@ -197,6 +198,51 @@ describe('buildCronPathMatcher', () => {
     const isCronPath = buildCronPathMatcher(syntheticRepo());
     expect(isCronPath('data/pharmacy-duties-geneva-sources.json')).toBe(false);
     expect(isCronPath('data/pharmacy-sources-registry.json')).toBe(true);
+  });
+
+  it('non classifica come writer un loop schedulato che valida soltanto i file', () => {
+    const root = syntheticRepo();
+    writeFile(root, '.github/workflows/loop-sources.yml', [
+      'name: loop sources',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 1 * * *'",
+      'jobs:',
+      '  validate:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: |',
+      '          for file in data/validated.json; do',
+      '            test -s "$file"',
+      '          done',
+      '          for file in data/staged.json; do',
+      '            git add "$file"',
+      '          done',
+      '',
+    ].join('\n'));
+    const isCronPath = buildCronPathMatcher(root);
+    expect(isCronPath('data/validated.json')).toBe(false);
+    expect(isCronPath('data/staged.json')).toBe(true);
+  });
+
+  it('classifica come writer un loop schedulato che usa sed in-place', () => {
+    const root = syntheticRepo();
+    writeFile(root, '.github/workflows/in-place.yml', [
+      'name: in-place',
+      'on:',
+      '  schedule:',
+      "    - cron: '0 2 * * *'",
+      'jobs:',
+      '  rewrite:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: |',
+      '          for file in data/x.json; do',
+      "            sed -i 's/a/b/' \"$file\"",
+      '          done',
+      '',
+    ].join('\n'));
+    expect(collectScheduledWorkflowWritePaths(root)).toContain('data/x.json');
   });
 });
 

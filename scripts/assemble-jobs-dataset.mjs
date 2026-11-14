@@ -53,6 +53,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { normalizeAbortKind, normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
+import { normalizeCrawlerFetchReceipt } from './lib/crawler-fetch-receipt.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
@@ -310,7 +311,7 @@ export function markCrawlerSummaryAbortKind(kind) {
  *
  * @param {string} key   - Crawler key (same as COMPANY_KEY)
  * @param {string} label - Human-readable label (company name)
- * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null, sourceBodyFailures?: object[]}|null} [counts] - Optional mutable
+ * @param {{discovered?: number|null, parsed?: number|null, lastFetchOutcome?: string|null, abortKind?: string|null, fetchReceipt?: object|null, sourceBodyFailures?: object[]}|null} [counts] - Optional mutable
  *   counter the crawler updates as it discovers candidates (issue #5945):
  *   `counts.discovered` set right after the pre-filter fetch lets an early
  *   return (e.g. "0 Swiss jobs after filtering") report a non-zero
@@ -341,6 +342,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       const sourceBodyFailures = Array.isArray(counts?.sourceBodyFailures)
         ? counts.sourceBodyFailures.slice(0, 100)
         : [];
+      const fetchReceipt = normalizeCrawlerFetchReceipt(counts?.fetchReceipt);
       writeSummaryCrawlerSlice({
         ...detailDropFields,
         key,
@@ -350,6 +352,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         discovered,
         parsed,
         lastFetchOutcome,
+        fetchReceipt,
         sourceBodyFailureCount: sourceBodyFailures.length,
         sourceBodyFailures,
         abortKind,
@@ -1058,7 +1061,7 @@ export function computeAssembleCacheKey({ withStats = false, withSummaries = tru
   };
 }
 
-function assembleCacheFileContract({ withStats = false, withSummaries = true, withExpired = true } = {}) {
+export function assembleCacheFileContract({ withStats = false, withSummaries = true, withExpired = true } = {}) {
   const requiredSnapshotFiles = ['jobs.json', 'jobs-meta.json'];
   if (withExpired) requiredSnapshotFiles.push('expired-jobs.json');
   if (withSummaries) requiredSnapshotFiles.push('jobs-crawler-summaries.json');

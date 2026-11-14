@@ -49,10 +49,26 @@ describe('paginationIndexPolicy', () => {
 
   it('reads the page number of every pagination segment the site emits', () => {
     expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/')).toBe(1);
-    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-6/')).toBe(6);
+    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-7/')).toBe(7);
     expect(paginationPageFromPath('/cerca-lavoro-zurigo/pagina-25/')).toBe(25);
     expect(paginationPageFromPath('/de/jobs-zuerich/seite-11')).toBe(11);
     // A slug that merely contains the word is not a page.
     expect(paginationPageFromPath('/articoli-frontaliere/page-turner-guide/')).toBe(1);
+  });
+
+  it('rejects non-canonical and unsafe pagination numbers without making them page 1', () => {
+    for (const path of [
+      '/x/page-0/',
+      '/x/page-01/',
+      '/x/pagina-01/',
+      '/x/seite-01/',
+      '/x/page-9007199254740992/',
+      '/x/pagina-9007199254740993/',
+      '/x/seite-9007199254740993/',
+    ]) {
+      const page = paginationPageFromPath(path);
+      expect(Number.isNaN(page), path).toBe(true);
+      expect(isPaginationSitemapEligible(page), path).toBe(false);
+    }
   });
 });

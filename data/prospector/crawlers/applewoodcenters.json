@@ -1,0 +1,25 @@
+{
+  "companyKey": "applewoodcenters",
+  "companyName": "Applewood Centers",
+  "companyHost": "applewoodcenters.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://applewoodcenters.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 30,
+  "sampleTitles": [
+    "Behavioral Health Respite Provider",
+    "Behavioral Health Respite Provider",
+    "Court Involved Therapist",
+    "In-Home Family Therapist",
+    "Intensive Home Based Family Therapist"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:41.956Z",
+  "candidateKey": "applewoodcenters@applytojob.com"
+}

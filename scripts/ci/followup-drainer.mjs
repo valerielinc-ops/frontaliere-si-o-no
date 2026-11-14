@@ -1710,6 +1710,10 @@ export function extractSubIssueNumbers(body) {
 // significhi ancora "più voci eterogenee".
 const BACKLOG_TITLE_RE = /^backlog\b|\bil residuo\b/i;
 const BACKLOG_MIN_ITEMS = 3;
+const RESIDUAL_FOLLOWUP_TITLE_RE = /^residual follow-up\b/i;
+const RESIDUAL_FOLLOWUP_HEADING_RE = /^##\s+Residui da scorporare\s*$/im;
+const RESIDUAL_FOLLOWUP_ITEM_RE =
+  /^\s*[-*]\s+FU-(\d{4}-\d{2}-\d{3})\s+—\s+target\s+((?:\.github\/workflows|scripts|build-plugins|services|components|packages|tests)\/[^\s;`]+)/gim;
 
 /**
  * Rimuove i blocchi markdown recintati prima dei conteggi strutturali.
@@ -1755,6 +1759,13 @@ function countProfessionCantonResidualItems(body) {
   ).size;
 }
 
+/** Conta gli item FU del contenitore residual follow-up emesso dal ciclo di verifica. */
+function countResidualFollowupItems(body) {
+  const section = markdownSection(body, RESIDUAL_FOLLOWUP_HEADING_RE);
+  if (!section) return 0;
+  return new Set([...section.matchAll(RESIDUAL_FOLLOWUP_ITEM_RE)].map((match) => match[1])).size;
+}
+
 /**
  * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`,
  * sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
@@ -1767,7 +1778,9 @@ export function countBacklogItems(body) {
   const b = stripFencedBlocks(body);
   const checkboxes = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
   const numberedSections = (b.match(/^##[ \t]*\d+\.[ \t]/gm) || []).length;
-  return checkboxes + numberedSections + countProfessionCantonResidualItems(b);
+  return checkboxes + numberedSections
+    + countProfessionCantonResidualItems(b)
+    + countResidualFollowupItems(b);
 }
 
 /**
@@ -1779,6 +1792,9 @@ export function countBacklogItems(body) {
  */
 export function detectBacklogTracker(title, body) {
   const titleText = String(title || '').trim();
+  if (RESIDUAL_FOLLOWUP_TITLE_RE.test(titleText)) {
+    return countResidualFollowupItems(body) >= BACKLOG_MIN_ITEMS;
+  }
   const residualSnapshotTitle = PROFESSION_CANTON_RESIDUAL_TITLE_RE.test(titleText);
   if (!BACKLOG_TITLE_RE.test(titleText) && !residualSnapshotTitle) return false;
   return countBacklogItems(body) >= BACKLOG_MIN_ITEMS;

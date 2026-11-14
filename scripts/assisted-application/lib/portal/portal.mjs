@@ -28,7 +28,7 @@ import '../../extension/apply-control.js';
 
 import path from 'node:path';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
@@ -770,6 +770,17 @@ function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
       || posting.suffix === 'apply' || posting.suffix === 'manual');
 }
 
+function workdayPostingRouteMatchesCurrent(currentUrl, applyUrl, postingUrl = '') {
+  const apply = workdayJobRoute(applyUrl);
+  const current = workdayJobRoute(currentUrl);
+  if (!sameWorkdayJobRoute(apply, current)) return false;
+  // A Job-Room source can remain in context while the browser is already on
+  // the selected Workday requisition. Only another Workday URL is competing
+  // route evidence that must bind to the same requisition.
+  if (!isWorkdayTenantUrl(postingUrl)) return true;
+  return sameWorkdayJobRoute(apply, workdayJobRoute(postingUrl));
+}
+
 function workdayManualApplyEntry(control, snapshot, context = {}) {
   const current = workdayJobRoute(snapshot?.url);
   const expected = workdayJobRoute(context.applyUrl);
@@ -1033,15 +1044,17 @@ function isStadtZurichPostingRoute({ pageUrl, postingUrl } = {}) {
   try {
     const page = new URL(String(pageUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    const routeAddress = (url) => {
-      const copy = new URL(url.href);
-      copy.hash = '';
-      return copy.href;
-    };
+    const pageRoute = new URL(page.href);
+    const postingRoute = new URL(posting.href);
+    // A fragment can identify a shell state on the selected Jobs2Web route.
+    // Validate the route shape without it, then require the original addresses
+    // (including the fragment) to match exactly below.
+    pageRoute.hash = '';
+    postingRoute.hash = '';
     return page.hostname === 'jobs.stadt-zuerich.ch'
       && posting.hostname === page.hostname
-      && isStadtZurichPublicJobDetailRoute(routeAddress(page))
-      && isStadtZurichPublicJobDetailRoute(routeAddress(posting))
+      && isStadtZurichPublicJobDetailRoute(pageRoute.href)
+      && isStadtZurichPublicJobDetailRoute(postingRoute.href)
       && samePostingAddress(page.href, posting.href);
   } catch {
     return false;
@@ -1891,6 +1904,25 @@ function samePortalRoute(one, other, base = '') {
     && left.pathname === right.pathname && left.search === right.search);
 }
 
+const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
+
+/** BrassRing may canonicalize only the case of its fieldless detail route. */
+function sameBrassRingPostingAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    return first.protocol === 'https:' && second.protocol === 'https:'
+      && first.origin === 'https://jobs.ubs.com' && second.origin === first.origin
+      && !first.username && !first.password && !second.username && !second.password
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
+      && first.pathname.replace(/\/+$/u, '').toLowerCase() === second.pathname.replace(/\/+$/u, '').toLowerCase()
+      && first.search === second.search;
+  } catch {
+    return false;
+  }
+}
+
 const POSTING_ID_FIELDS = [
   'postingId', 'postingKey', 'jobId', 'jobKey', 'requisitionId', 'requisitionKey', 'careerJobReqId',
   'dataPostingId', 'dataJobId', 'dataRequisitionId', 'dataCareerJobReqId',
@@ -1944,6 +1976,9 @@ function applicationEntryBelongsToPosting(control, {
   sourceProtocol = null,
   job = {},
 } = {}) {
+  const identity = controlPostingIdentity(control);
+  const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
+  if (identity === null || (identity && identity !== expectedIdentity)) return false;
   const href = String(control?.href || '').trim();
   if (href && samePortalRoute(href, applyUrl, applyUrl)) return true;
   if (href && samePortalRoute(href, postingUrl, postingUrl)) return true;
@@ -1954,7 +1989,6 @@ function applicationEntryBelongsToPosting(control, {
   // or explicit section must contain the selected role and a unique posting
   // identity; a title alone can be shared by distinct neighbouring cards.
   const localContext = [control?.section, control?.context].filter(Boolean).join(' ');
-  const expectedIdentity = expectedPostingIdentity({ applyUrl, postingUrl, sourceProtocol, job });
   return Boolean(expectedIdentity && controlPostingIdentity(control) === expectedIdentity
     && localContext && jobTitleCandidates(job).length
     && postingMatch(localContext, job, postingUrl) === 'match');
@@ -1984,6 +2018,9 @@ function applicationEntryContextText(control) {
 }
 
 function applicationEntryContextMatchesPosting(control, context = {}) {
+  const identity = controlPostingIdentity(control);
+  const expectedIdentity = expectedPostingIdentity(context);
+  if (identity === null || (identity && identity !== expectedIdentity)) return false;
   const localContext = applicationEntryContextText(control);
   const job = context.job || {};
   return Boolean(localContext && jobTitleCandidates(job).length
@@ -2012,7 +2049,7 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
 // (any other one, or an ambiguous pair, rejects the control), the heading
 // must name no other employer, and it must pass the posting match on the
 // role.
-function disclosureEntryContextMatchesPosting(control, context = {}) {
+function disclosureEntryContextMatchesPosting(control, context = {}, snapshot = {}) {
   const identity = controlPostingIdentity(control);
   if (identity === null) return false;
   if (identity !== '' && identity !== expectedPostingIdentity(context)) return false;
@@ -2027,14 +2064,17 @@ function disclosureEntryContextMatchesPosting(control, context = {}) {
     .replace(/\s+/g, ' ')
     .trim();
   const job = context.job || {};
-  if (!localContext || !jobTitleCandidates(job).length) return true;
-  if (!titleMatchesJob(localContext, job)) return false;
-  if (namesAnotherEmployer(localContext, job)) return false;
-  // The DOM extractor supplies vacancyContext for a real menu entry. Keep a
-  // synthetic/context-free menu unresolved so the navigation agent can inspect
-  // it instead of selecting a role-only item without local ownership proof.
-  if (control?.menuItem !== true) return context?.postingEntry !== false;
-  return Boolean(String(control?.vacancyContext || '').trim());
+  const hasJobTitle = jobTitleCandidates(job).length > 0;
+  if (!hasJobTitle) return false;
+  if (localContext && namesAnotherEmployer(localContext, job)) return false;
+  if (localContext && postingMatch(localContext, job, context.postingUrl) === 'match') return true;
+  // A Career Site Builder Apply menu sits on the paid detail route, where the
+  // local heading often names only the role. Permit that heading to bind the
+  // menu only on the exact posting route; a same-title menu on another page
+  // still needs employer or requisition evidence in its own context.
+  const samePaidPostingRoute = samePortalRoute(snapshot?.url, context.postingUrl, context.postingUrl);
+  const roleContext = localContext || `${snapshot?.title || ''}\n${snapshot?.text || ''}\n${context.pageTitle || ''}`;
+  return samePaidPostingRoute && titleMatchesJob(roleContext, job);
 }
 
 // A few legacy employer pages render the only application opener as a native
@@ -2180,16 +2220,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !(control?.menuItem === true && socialApplicationEntry(control))
     // An opened menu item usually links to `#`, which matches the posting
     // route by construction: it must also carry this posting's context.
-    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context))
+    && !(control?.menuItem === true && !disclosureEntryContextMatchesPosting(control, context, snapshot))
     && applicationEntryBelongsToPosting(control, context));
   const workdayManualEntries = controls.filter((control) => workdayManualApplyEntry(control, snapshot, context));
   if (workdayManualEntries.length === 1) return workdayManualEntries;
   if (workdayManualEntries.length > 1) return [];
-  const workdayRoutePair = [context.applyUrl, context.postingUrl, snapshot.url].map(workdayJobRoute);
-  const [workdayApply, workdayPosting, workdayCurrent] = workdayRoutePair;
-  const workdayRouteBound = workdayApply && workdayPosting && workdayCurrent
-    && sameWorkdayJobRoute(workdayApply, workdayPosting)
-    && sameWorkdayJobRoute(workdayCurrent, workdayPosting);
+  const workdayRouteBound = workdayPostingRouteMatchesCurrent(
+    snapshot.url, context.applyUrl, context.postingUrl,
+  );
   const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label));
   const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
@@ -2223,7 +2261,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
   const apply = comparablePortalRoute(context.applyUrl);
-  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '');
+  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '')
+    // BrassRing/Taleo keeps the selected vacancy and its sole script CTA on
+    // the query-bound HomeWithPreLoad route (jobs.ubs.com). The explicit
+    // jobid plus the exact same-route checks below bind this exception to the
+    // selected vacancy; an arbitrary search shell remains unresolved.
+    || (posting?.origin === 'https://jobs.ubs.com'
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(posting.pathname || '')
+      && Boolean(portalJobKey(context.postingUrl, context.sourceProtocol)));
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
@@ -2233,16 +2278,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
   const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
     && !socialApplicationEntry(control));
+  const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
+    || sameBrassRingPostingAddress(firstUrl, secondUrl);
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true
-    && samePostingAddress(context.applyUrl, context.postingUrl)
-    && samePostingAddress(snapshot.url, context.postingUrl)
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
   if (context.allowSingleExternalApplicationEntry === true
     && verifiedFieldlessJobRoute
     && apply && posting && current
-    && apply.origin === posting.origin && apply.pathname === posting.pathname && apply.search === posting.search
-    && current.origin === posting.origin && current.pathname === posting.pathname && current.search === posting.search
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && genericScriptEntries.length === 1 && allEntries.length === 1) return genericScriptEntries;
   // The official Stadt Zürich detail page is selected by its unique role link
@@ -2257,6 +2304,20 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && current.pathname === posting.pathname
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && allEntries.length === 1 && publicDetailEntries.length === 1) return publicDetailEntries;
+  // On an exact, paid job detail route with no form fields, one script-only
+  // Apply control is the posting's entry even when the portal exposes no local
+  // requisition marker or vacancy text on the control. Keep this proof scoped
+  // to the immutable posting URL and a sole non-social CTA; final submission
+  // still requires the runner's separate binding and click guard.
+  if (context.allowSingleExternalApplicationEntry === true
+    && posting && current
+    && current.origin === posting.origin
+    && current.pathname === posting.pathname
+    && current.search === posting.search
+    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && scriptEntries.length === 1 && allEntries.length === 1
+    && publicDetailEntries.length === 1) return scriptEntries;
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
@@ -2278,7 +2339,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const disclosureEntries = ownEntries.filter((control) => (control.popup === true || control.menuItem === true)
     && !control.formId && (Number(control.frame) || 0) === 0
     && (!control.href || samePortalRoute(control.href, context.postingUrl, context.postingUrl))
-    && disclosureEntryContextMatchesPosting(control, context));
+    && disclosureEntryContextMatchesPosting(control, context, snapshot));
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
     && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
@@ -2327,6 +2388,54 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
       return `${target.origin}${target.pathname}${target.search}`;
     })).size === 1) return unbound.slice(0, 1);
   return [];
+}
+
+function normalizedApplicationEntryLabel(value) {
+  return String(value || '').normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase();
+}
+
+/** Require the agent's selected Apply control itself to be one of the posting-owned entries. */
+export function applicationEntryControlMatchesSelectedPosting(actionInfo = {}, entries = [], snapshot = {}, context = {}) {
+  const actionLabel = normalizedApplicationEntryLabel(actionInfo.name || actionInfo.label);
+  if (!actionLabel || !Array.isArray(entries) || !entries.length) return false;
+  const actionHref = String(actionInfo.href || '').trim();
+  const candidates = entries.filter((entry) => {
+    const entryLabel = normalizedApplicationEntryLabel(entry.text || entry.label || entry.ariaLabel || entry.title);
+    if (!entryLabel || entryLabel !== actionLabel) return false;
+    const entryHref = String(entry.href || '').trim();
+    if (Boolean(actionHref) !== Boolean(entryHref)) return false;
+    return !actionHref || samePortalRoute(actionHref, entryHref, snapshot?.url);
+  });
+  if (candidates.length !== 1) return false;
+  if (actionHref && candidates[0].href) {
+    const targetRoute = comparablePortalRoute(actionHref, snapshot?.url);
+    const sourceRoute = comparablePortalRoute(snapshot?.url);
+    if (targetRoute && sourceRoute && (targetRoute.origin !== sourceRoute.origin
+      || targetRoute.pathname !== sourceRoute.pathname || targetRoute.search !== sourceRoute.search)) return true;
+  }
+
+  const actionContext = [actionInfo.vacancyContext, actionInfo.formContext, actionInfo.context]
+    .filter(Boolean).join(' ').trim();
+  if (actionContext && applicationEntryContextMatchesPosting({
+    ...candidates[0],
+    vacancyContext: actionContext,
+  }, context)) return true;
+
+  // A lone Apply on the exact paid detail route is attributable to that
+  // posting only when no other application control can be its sibling.
+  const controls = [...(snapshot?.buttons || []), ...(snapshot?.links || [])]
+    .filter((control) => !control?.disabled && !control?.chrome
+      && (startsApplication(control?.text || control?.label) || isJobRoomExternalApplicationLabel(control)));
+  return samePostingAddress(snapshot?.url, context.postingUrl)
+    && entries.length === 1 && controls.length === 1;
+}
+
+/** Carry posting proof through a runner-owned route transition only from the currently bound application page. */
+export function applicationEntryUrlAfterTransition({ applicationEntryUrl = '', sourceUrl = '', targetUrl = '', diversionHint = '' } = {}) {
+  if (!applicationEntryUrl || sourceUrl !== applicationEntryUrl || !targetUrl || targetUrl === sourceUrl || diversionHint) {
+    return applicationEntryUrl;
+  }
+  return targetUrl;
 }
 
 // A posting may show an informational region notice and still expose its own
@@ -3641,6 +3750,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // The caller still needs a matching posting before this flag can authorize
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
+  let applicationEntryUrl = '';
   let workdayApplicationEntryProven = stageContext?.workdayApplicationEntryProven === true
     || isWorkdayApplicationRouteBound(page.url(), stageContext?.applyUrl);
   let resolvedPostingUrl = '';
@@ -3652,11 +3762,19 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     page,
     snapshot,
     enteredThroughApplicationEntry,
+    applicationEntryUrl,
     workdayApplicationEntryProven,
     ...(resolvedPostingUrl ? { resolvedPostingUrl } : {}),
     ...(resolvedApplicationUrl ? { resolvedApplicationUrl } : {}),
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
+  });
+  const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
+    ...current,
+    title: await page.title().catch(() => ''),
+    url: page.url(),
+    pageHeadings: await postingMainHeadings(page),
+    text: await pageText(page).catch(() => String(current?.text || '')),
   });
   const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
     if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
@@ -3822,6 +3940,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       entryResolution,
       selectedControlKind, linkVisible,
     });
+    let followedApplicationEntryThisHop = false;
     if (!manual && !apply && !linkVisible) {
       // Some Jobs2Web postings render an empty shell (often only the language
       // selector) while their same-ID apply route is ready. Warm the posting
@@ -3847,6 +3966,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           })) {
             return result({ handoff: 'posting_mismatch' });
           }
+          if (!await currentApplicationDiversion(snapshot)) {
+            enteredThroughApplicationEntry = true;
+            applicationEntryUrl = page.url();
+          }
           continue;
         }
       }
@@ -3858,6 +3981,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         await settle(page);
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
+        if (!await currentApplicationDiversion(snapshot)) {
+          enteredThroughApplicationEntry = true;
+          applicationEntryUrl = page.url();
+        }
         reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
         continue;
       }
@@ -3865,6 +3992,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
+      followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       const workdayManualTarget = manual
         ? workdayManualApplicationTarget(page.url(), stageContext?.applyUrl, manual)
@@ -3882,12 +4010,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     } else {
       enteredThroughApplicationEntry = true;
+      followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
+    if (followedApplicationEntryThisHop && !await currentApplicationDiversion(snapshot)) applicationEntryUrl = page.url();
     if (customSuccessFactorsEntry
       && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {
       return result({ handoff: 'posting_mismatch' });
@@ -3956,6 +4086,35 @@ function titleMatchesJob(pageText, job) {
   return jobTitleCandidates(job).some(title => titleMatches(pageText, title));
 }
 
+// Public names already recognized as one employer by the workspace's source
+// parsers. Keep this as exact identity data shared across ATS hosts; never
+// infer a translation from initials or requisition IDs.
+const EMPLOYER_NAME_EQUIVALENT_GROUPS = [
+  ['Ferrovia Retica', 'Rhätische Bahn', 'Rhaetische Bahn'],
+];
+
+function employerNameEquivalentPhrases(company = '') {
+  const raw = String(company || '');
+  const sourcePhrases = [
+    nameWords(raw).join(' '),
+    nameWords(raw.replace(/\([^)]*\)/g, ' ')).join(' '),
+    ...companyShortForms(raw).map((words) => words.join(' ')),
+  ].filter(Boolean);
+  const group = EMPLOYER_NAME_EQUIVALENT_GROUPS.find((aliases) => aliases.some((alias) =>
+    sourcePhrases.includes(nameWords(alias).join(' '))));
+  return group ? group.map((alias) => nameWords(alias)).filter((words) => words.length > 0) : [];
+}
+
+function alternateEmployerNamePhrases(company = '') {
+  const raw = String(company || '');
+  const sourcePhrases = new Set([
+    nameWords(raw).join(' '),
+    nameWords(raw.replace(/\([^)]*\)/g, ' ')).join(' '),
+    ...companyShortForms(raw).map((words) => words.join(' ')),
+  ].filter(Boolean));
+  return employerNameEquivalentPhrases(raw).filter((words) => !sourcePhrases.has(words.join(' ')));
+}
+
 function titleMatches(pageText, title) {
   const words = normalizeWords(pageText).split(' ').filter(Boolean);
   const titleWords = nameWords(title).filter((word) => word.length >= 4);
@@ -3991,6 +4150,37 @@ function talentSoftEmployerAliasMatches(pageText, job = {}, pageUrl = '') {
   });
 }
 
+function talentSoftPostingIdentity(value) {
+  try {
+    const url = new URL(String(value || ''));
+    if (url.protocol !== 'https:' || url.username || url.password || !TALENTSOFT_HOST_RE.test(url.hostname)) return null;
+    const id = url.pathname.match(/_(\d+)\.aspx(?:\/|$)/i)?.[1] || '';
+    return id ? { origin: url.origin, id } : null;
+  } catch {
+    return null;
+  }
+}
+
+function sameTalentSoftPostingRoute(pageUrl, postingUrl) {
+  const page = talentSoftPostingIdentity(pageUrl);
+  const posting = talentSoftPostingIdentity(postingUrl);
+  return Boolean(page && posting && page.origin === posting.origin && page.id === posting.id);
+}
+
+function hasEquivalentEmployerNameHeading(formText, job = {}, pageHeadings = []) {
+  const alternateNames = alternateEmployerNamePhrases(job.company);
+  if (!alternateNames.length) return false;
+  const titleLine = String(formText || '').split(/\r?\n/).map((line) => line.trim())
+    .find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || '';
+  const headings = Array.isArray(pageHeadings) ? pageHeadings : [pageHeadings];
+  return [...new Set([...headings, titleLine].map((line) => String(line || '').trim()).filter(Boolean))].some((line) =>
+    line.split(PHRASE_END_RE).some((segment) => {
+      const words = nameWords(segment);
+      return alternateNames.some((alias) => words.length === alias.length
+        && alias.every((word, index) => words[index] === word));
+    }));
+}
+
 /**
  * Is this form the posting's (career-ops apply.md: company and role on the
  * form match the posting, or stop)? The company's WHOLE name as whole words
@@ -4023,6 +4213,12 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
   'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  // Once a generic stage heading is removed, the first visible control labels
+  // can become the page's first line. These labels describe form fields, not a
+  // second employer («Vorname», «Nachname», «E-Mail-Adresse», «Weiter»).
+  'vorname', 'nachname', 'email', 'adresse', 'weiter',
+  'mein', 'meine', 'meiner', 'meines', 'mon', 'ma', 'mes', 'mio', 'mia', 'miei', 'mie',
+  'absenden', 'abschicken', 'einreichen', 'submit', 'submitted', 'send', 'sent', 'envoyer', 'envoyez', 'soumettre', 'soumettez', 'invia', 'inviare', 'invio',
   'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
@@ -4064,6 +4260,10 @@ const POSTING_LOCATION_LABEL_WORDS = new Set([
   'region', 'regione', 'location', 'standort', 'sede', 'lieu',
   'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville',
   'canton', 'kanton', 'cantone', 'province', 'provincia',
+]);
+const FORM_TITLE_FIELD_WORDS = new Set([
+  'first', 'given', 'name', 'last', 'family', 'surname', 'email', 'mail', 'address', 'adresse', 'phone', 'telephone',
+  'vorname', 'nachname', 'nome', 'cognome', 'birth', 'date', 'weiter',
 ]);
 
 /**
@@ -4122,6 +4322,33 @@ const FILLER_WORDS = new Set([
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
 const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+const GENERIC_APPLICATION_HEADING_WORDS = new Set([
+  'additional', 'applicant', 'application', 'background', 'candidate', 'certification', 'certifications', 'contact',
+  'data', 'detail', 'details', 'disclosure', 'disclosures', 'document', 'documents', 'education', 'educational', 'employment',
+  'experience', 'history', 'information', 'informations', 'informationen', 'informazioni', 'personal', 'profile', 'professional',
+  'question', 'questions', 'review', 'skill', 'skills', 'submit', 'training', 'voluntary', 'work', 'your', 'my', 'me',
+  'mein', 'meine', 'meiner', 'meines', 'mon', 'ma', 'mes', 'mio', 'mia', 'miei', 'mie',
+  'ausbildung', 'ausbildungsweg', 'berufserfahrung', 'bewerbungsfragen', 'bewerbung', 'dokument', 'dokumente', 'erfahrung',
+  'freiwillige', 'angaben', 'informationen', 'profil', 'prufen', 'qualifikationen', 'zertifikate',
+  'coordonnees', 'declarations', 'etudes', 'experience', 'formation', 'formations', 'informations', 'personnelle', 'personnelles',
+  'professionnelle', 'professionnelles', 'questions', 'verifier',
+  'candidatura', 'dettagli', 'dichiarazioni', 'esperienza', 'formazione', 'istruzione', 'lavoro', 'profilo',
+  'la', 'le', 'il', 'i',
+]);
+const AMBIGUOUS_APPLICATION_HEADING_SEGMENTS = new Set(['about you']);
+function employerIdentityHeadingText(value, { allowAmbiguous = false } = {}) {
+  return String(value || '').split(PHRASE_END_RE)
+    .filter((segment) => {
+      const normalized = normalizeWords(segment);
+      const words = normalized.split(' ').filter(Boolean);
+      const genericStageHeading = (allowAmbiguous && AMBIGUOUS_APPLICATION_HEADING_SEGMENTS.has(normalized))
+        || (words.length > 0 && words.every((word) => GENERIC_APPLICATION_HEADING_WORDS.has(word)
+          || FORM_VOCABULARY.has(word) || FILLER_WORDS.has(word)));
+      return !genericStageHeading;
+    })
+    .join(' ')
+    .trim();
+}
 // `one` is neutral only as the second token of the UI placeholder «Select one».
 // Keep it significant elsewhere because it can be part of an employer name («Coop One»).
 const isSelectOneLabelToken = (words, index) => (words[index] === 'select' && words[index + 1] === 'one')
@@ -4176,10 +4403,21 @@ function postingLocationSuffixWords(formText, ours, locationWords) {
 }
 
 const NAVIGATION_TITLE_LINE_RE = /^(?:(?:open|close)(?: main)? navigation(?: menu)?|(?:open|close) menu|(?:main )?menu|navigation menu|skip(?: to)? (?:main )?(?:content|navigation)|jump to (?:main )?content|(?:salta|vai) al contenuto(?: (?:principale|generale))?|(?:weiter )?zum (?:haupt)?inhalt(?: springen)?|(?:springe|springen) zum (?:haupt)?inhalt|(?:aller|passer) au contenu(?: principal)?|accéder au contenu(?: principal)?)[.!…:]*$/i;
+// Split compact title lines only on visual title separators. Commas and full
+// stops also occur in ordinary prose («Bank Cler, giovane affiliata…») and
+// must not turn the words around the selected employer into another company.
+const EMPLOYER_TITLE_SEPARATOR_RE = /[\n\r—–|·•]|\s-\s/;
 
 export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation = false } = {}) {
   // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
-  const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
+  const equivalentEmployerPhrases = alternateEmployerNamePhrases(job.company);
+  const isEquivalentEmployerPhrase = (words) => {
+    const identityWords = words.filter((word) => !NOT_A_NAME.has(word));
+    return equivalentEmployerPhrases.some((alias) => alias.length === identityWords.length
+      && alias.every((word, index) => word === identityWords[index]));
+  };
+  const ours = new Set([...nameWords(job.company),
+    ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
@@ -4209,12 +4447,14 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     .filter((words) => words.length > 0);
   const titleNamesOwnEmployer = (line) => {
     const words = normalizeWords(line).split(' ').filter(Boolean);
-    return identities.some((identity) => words.some((_, start) => identity.every((word, offset) => {
+    const directIdentity = identities.some((identity) => words.some((_, start) => identity.every((word, offset) => {
       const seen = words[start + offset];
       if (!seen) return false;
       const expectedKind = EMPLOYER_KIND_CLASS.get(word);
       return expectedKind ? EMPLOYER_KIND_CLASS.get(seen) === expectedKind : seen === word;
     })));
+    return directIdentity || line.split(PHRASE_END_RE).some((segment) =>
+      isEquivalentEmployerPhrase(normalizeWords(segment).split(' ').filter(Boolean)));
   };
   const lines = text.split(/\r?\n/).map((line) => line.trim());
   // `formText` starts with the document title when one was observed. A blank
@@ -4223,14 +4463,15 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
-  // A title can put the selected employer and a differently named employer
-  // with the same translated kind on one line («Banca Cler — Bank Riviera»).
-  // Compare the non-kind words against the selected identity before the
-  // ordinary neighbour scan lets the selected employer neutralize the line.
+  // A title can put the selected employer and a different employer-like phrase
+  // on the same line («Grand Hotel — Other Resort»). Compare the non-kind
+  // words before the ordinary neighbour scan lets the selected employer
+  // neutralize the line as a whole; the segment check also covers an employer
+  // and another organization separated by a dash.
   if (titleNamesOwnEmployer(titleLine)) {
-    const titleSegments = titleLine.split(PHRASE_END_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
-    if (titleSegments.slice(1).some((words) => words.some((word) => EMPLOYER_KIND_WORDS.has(word))
-      && words.some((word) => !neutral.has(word) && !EMPLOYER_KIND_WORDS.has(word) && !filler(word)))) return true;
+    const titleSegments = titleLine.split(EMPLOYER_TITLE_SEPARATOR_RE).map((segment) => normalizeWords(segment).split(' ').filter(Boolean));
+    if (titleSegments.some((words) => !titleNamesOwnEmployer(words.join(' '))
+      && words.some((word) => !neutral.has(word) && !filler(word)))) return true;
   }
   // Page chrome may precede the posting's own heading. Ignore only known
   // navigation labels as a title candidate; the employer check below still
@@ -4238,6 +4479,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
     && title.some((word, index) => !filler(word) && !neutral.has(word)
+    && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
@@ -4297,6 +4539,56 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
           && !isSelectOneLabelToken(words, at)) return true;
       }
     }
+  }
+  return false;
+}
+
+const EMPLOYER_HEADING_DESCRIPTION_PATTERNS = [
+  /^giovane affiliata(?: (?:della|del|di|da) .+)?$/,
+  /^societa affiliata(?: (?:della|del|di|da) .+)?$/,
+  /^young (?:affiliate|subsidiary)(?: of .+)?$/,
+  /^junge tochtergesellschaft(?: (?:der|des|von) .+)?$/,
+  /^jeune filiale(?: (?:de|du|des) .+)?$/,
+];
+
+/**
+ * A comma in a short H1 can separate two title-like identities («Acme, other
+ * resort»), while a bounded subsidiary phrase can describe the selected
+ * employer («Acme, young affiliate of Example Group»). Allow only those
+ * recognized descriptions with the selected employer on the left; return
+ * unknown for an unexplained or differently bound segment.
+ */
+function hasUnexplainedEmployerCommaHeading(value, job = {}) {
+  const employerTokens = [
+    ...nameWords(job.company), ...companyLongFormWords(job.company), ...companyShortForms(job.company).flat(),
+    ...alternateEmployerNamePhrases(job.company).flat(),
+  ].filter((word) => word.length >= 3 && !EMPLOYER_KIND_WORDS.has(word) && !NOT_A_NAME.has(word));
+  if (!employerTokens.length) return false;
+  const segments = String(value || '').split(/[,;]/).map((segment) => segment.trim());
+  if (segments.length < 2) return false;
+  const containsSelectedEmployer = (before) => {
+    const words = new Set(nameWords(before));
+    return employerTokens.some((word) => words.has(word));
+  };
+  for (let index = 1; index < segments.length; index += 1) {
+    const left = segments.slice(0, index).join(' ');
+    const selectedEmployerBefore = containsSelectedEmployer(left);
+    const selectedEmployerAfter = segments.slice(index).some(containsSelectedEmployer);
+    if (!selectedEmployerBefore) {
+      const leftWords = nameWords(left);
+      const unrelatedLeftIdentity = leftWords.some((word) => !FORM_VOCABULARY.has(word)
+        && !FILLER_WORDS.has(word) && !nameWords(job.title).includes(word));
+      if (selectedEmployerAfter && unrelatedLeftIdentity) return true;
+      continue;
+    }
+    const segment = segments[index];
+    const normalized = normalizeWords(segment);
+    const words = normalized.split(' ').filter(Boolean);
+    if (!words.length || EMPLOYER_HEADING_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(normalized))) continue;
+    const titleWords = new Set(nameWords(job.title));
+    const relevant = words.filter((word) => !FORM_VOCABULARY.has(word)
+      && !FILLER_WORDS.has(word) && !titleWords.has(word));
+    if (relevant.length) return true;
   }
   return false;
 }
@@ -4371,6 +4663,19 @@ export function hasVacancySpecificPostingEvidence(pageText, job = {}, {
   const sourceIdentityMatched = matchesCurrentIdentity(pageTitle)
     || contexts.some(matchesCurrentIdentity);
   return titleMatched && sourceIdentityMatched;
+}
+
+/** Permit the agent to open an Apply control only on the selected posting. */
+export function applicationEntryMatchesSelectedPosting({
+  pageText = '', pageTitle = '', pageHeading = '', pageUrl = '', postingUrl = '', postingRouteProof = null,
+  vacancyIdentityContexts = [], uniqueApplicationEntryProven = false, job = {}, applyUrl = '',
+} = {}) {
+  return hasVacancySpecificPostingEvidence(pageText, job, {
+    pageUrl, pageTitle, pageHeading, postingUrl, postingRouteProof,
+    vacancyIdentityContexts, uniqueApplicationEntryProven,
+  })
+    || (isWorkdayTenantUrl(applyUrl) && sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(applyUrl)))
+    || successFactorsRequisitionShown(`${pageTitle}\n${pageText}\n${pageUrl}`, job, { pageUrl, applyUrl });
 }
 
 /** Prefer the saved posting address; keep the open source when legacy context omitted it. */
@@ -4635,8 +4940,8 @@ export function isRoleHeading(heading, title) {
     && seen.every(word => wanted.has(word) || TITLE_GENDER_MARKERS.has(word)));
 }
 
-/** The single main heading, '' when absent, or null when unavailable/ambiguous. */
-export async function postingMainHeading(page) {
+/** The visible main headings, null when unavailable or too many to inspect safely. */
+async function postingMainHeadings(page) {
   if (typeof page?.evaluate !== 'function') return null;
   const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
     .filter((node) => {
@@ -4650,7 +4955,13 @@ export async function postingMainHeading(page) {
   // Distinct across every visible main heading: a different one after ten copies of the role still counts. A page
   // with more main headings than that is no single-heading posting.
   if (!Array.isArray(headings) || headings.length > 200) return null;
-  const distinct = [...new Set(headings)];
+  return [...new Set(headings)];
+}
+
+/** The single main heading, '' when absent, or null when unavailable/ambiguous. */
+export async function postingMainHeading(page) {
+  const distinct = await postingMainHeadings(page);
+  if (!Array.isArray(distinct)) return null;
   if (distinct.length > 1) return null;
   // The whole heading: isRoleHeading refuses one longer than a title, never a cut that hides «… at Other Employer».
   return distinct[0] || '';
@@ -4666,7 +4977,10 @@ function normalizeFormRoleTitle(value) {
     .replace(/\/\s*-?\s*(?:in|e|innen)(?=\b)/giu, ' ')
     .replace(/^(?:opportunit(?:é|e|à|a)s?\s+de\s+carri(?:è|e)re|opportunit(?:à|a)\s+di\s+carriera|career\s+opportunities|karrierechancen)\s*[-–—|:]\s*/iu, ' ')
     .replace(/\(\s*\d{1,20}\s*\)/g, ' ');
-  return text.split(PHRASE_END_RE).map((segment) => segment.trim())
+  return text
+    .replace(/(?:\s*[-–—|:]\s*|\s+)(?:(?:hotel|hospital|hotellerie|ospedale|hopital|clinica|clinique|resort)\s+)?(?:bewerbung(?:sformular)?|application|candidatura|candidature|postulation)\b[\s\S]*$/iu, ' ')
+    .replace(/\s*[-–—|:]?\s*(?:career\s+portal|careerportal|karriereportal|jobportal)\s*$/iu, ' ')
+    .split(PHRASE_END_RE).map((segment) => segment.trim())
     .filter((segment) => segment && !isGenericFormChromeSegment(segment))
     .join(' ').replace(/\s+/g, ' ').trim();
 }
@@ -4686,8 +5000,10 @@ function titleWordsOnly(line, title) {
 const FORM_HEADING_VOCABULARY = new Set([
   ...FORM_VOCABULARY,
   ...FILLER_WORDS,
+  ...JOINING_WORDS,
   'account', 'create', 'profile', 'careers',
-  'personal', 'information', 'informationen', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
+  'personal', 'personale', 'personali', 'information', 'informationen', 'informazioni', 'first', 'name', 'last', 'email', 'mail', 'adresse', 'address', 'phone', 'cell', 'mobile',
+  'data', 'dati', 'compilazione', 'campi', 'contrassegnati', 'obbligatori', 'tipo', 'di', 'i', 'sulla', 'sul', 'sui', 'sono', 'rapporto', 'lavoro', 'con',
   'birth', 'date', 'upload', 'your', 'cv', 'resume', 'motivation', 'letter', 'degree', 'comment', 'send', 'submit',
   'final', 'photo', 'password', 'cover', 'other', 'documents', 'document', 'press', 'enter', 'key', 'how', 'did',
   'hear', 'about', 'us', 'current', 'employee', 'worked', 'before', 'agree', 'privacy', 'policy', 'statement',
@@ -4697,6 +5013,7 @@ const FORM_HEADING_VOCABULARY = new Set([
   'stellenspezifische', 'bewerbungsprofil', 'anzeigen', 'sprache', 'speichern', 'bewerben', 'avanti', 'weiter', 'suchen',
   'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
+  'lettera', 'presentazione', 'curriculum', 'vitae',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
@@ -4734,6 +5051,15 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
+  const knownTitleLanguages = new Set(candidates.flatMap((candidate) => {
+    const detected = detectLanguageWithConfidence(candidate);
+    return detected.confidence > 0.6 ? [detected.lang] : [];
+  }));
+  const declaredSourceLanguage = String(job.sourceLang || job.sourceLanguage || job.postingLanguage || '')
+    .trim().toLowerCase().split(/[-_]/u)[0];
+  if (['de', 'en', 'fr', 'it'].includes(declaredSourceLanguage)) {
+    knownTitleLanguages.add(declaredSourceLanguage);
+  }
   let formSurfaceStarted = false;
   for (const line of lines) {
     if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
@@ -4741,12 +5067,61 @@ function formRoleHeadingStatus(formText, job = {}) {
     if (formSurfaceStarted) continue;
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
+    // Some portals put the selected employer's descriptive heading before the
+    // actual role («Acme, young affiliate of Example Group»). It is positive
+    // posting evidence, but it is not a role heading; let the next substantive
+    // line provide the role instead of rejecting the bound form as another role.
+    if (postingMatch(line, job) === 'match' && !namesAnotherEmployer(line, job)) continue;
     if (titleWordsOnly(heading, candidates)) return 'match';
-    const words = normalizeWords(heading).split(' ').filter(Boolean);
-    if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
-    return 'mismatch';
+    const normalizedHeading = normalizeWords(heading);
+    const words = normalizedHeading.split(' ').filter(Boolean);
+    if (normalizedHeading === 'about you'
+      || words.every(word => neutral.has(word)
+        || GENERIC_APPLICATION_HEADING_WORDS.has(word)
+        || /^\d+$/.test(word))) continue;
+    const detected = detectLanguageWithConfidence(heading);
+    // A different-language ATS heading is not proof of a different vacancy.
+    // Keep uncertain evidence unknown unless the heading and source title
+    // share a confidently detected language.
+    return detected.confidence > 0.6 && knownTitleLanguages.has(detected.lang)
+      ? 'mismatch'
+      : 'unknown';
   }
   return 'unknown';
+}
+
+// A role heading in another language can be intentionally uncertain to the
+// detector. Keep that uncertainty for a generic shell, but do not let a
+// concrete non-chrome heading override contrary raw-document evidence when a
+// posting route or a stale heading would otherwise make the form look bound.
+function hasExplicitFormRoleHeading(formText, job = {}) {
+  const companyWords = new Set([
+    ...nameWords(job.company),
+    ...nameWords(job.organization),
+  ]);
+  const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
+    .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);
+  const roleMarker = /(?:\(\s*(?:m\s*\/\s*w\s*\/\s*d|m\s*\/\s*f\s*\/\s*d|h\s*\/\s*f|f\s*\/\s*h|w\s*\/\s*m)\s*\)|\b\d{1,3}(?:\s*[-–]\s*\d{1,3})?\s*%\b)/iu;
+  let formSurfaceStarted = false;
+  let firstHeadingSeen = false;
+  for (const line of lines) {
+    if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
+    if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) {
+      formSurfaceStarted = true;
+      continue;
+    }
+    if (formSurfaceStarted) continue;
+    const heading = normalizeFormRoleTitle(line);
+    if (!heading) continue;
+    const isFirstHeading = !firstHeadingSeen;
+    if (firstHeadingSeen && !roleMarker.test(line)) continue;
+    firstHeadingSeen = true;
+    const words = normalizeWords(heading).split(' ').filter(Boolean);
+    const meaningfulWords = words.filter(word => !FORM_CHROME_WORDS.has(word)
+      && !companyWords.has(word) && !/^\d+$/u.test(word));
+    if (meaningfulWords.length && (isFirstHeading || roleMarker.test(line))) return true;
+  }
+  return false;
 }
 
 // Umantis titles append the application surface to the portal's own role
@@ -4768,7 +5143,14 @@ function isUmantisApplicationChrome(segment, job = {}) {
 function umantisApplicationHeadingConflict(heading, job = {}) {
   const text = String(heading || '').replace(/\s+/g, ' ').trim();
   if (!text || isStandaloneNextLabel(text)) return false;
-  const segments = text.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean);
+  // The ATS suffix may contain a dotted legal name («eRecruiting Kanton
+  // St.Gallen»). Split the application heading before that suffix so the
+  // period inside the selected employer is not treated as a second title.
+  const atsSuffix = /(?:^|[|])\s*e-?recruiting\s+(.+)$/iu.exec(text);
+  const atsSuffixOwned = Boolean(atsSuffix && !namesAnotherEmployer(atsSuffix[1], job));
+  const headingWithoutAtsSuffix = atsSuffixOwned ? text.slice(0, atsSuffix.index).trim() : text;
+  if (atsSuffixOwned && !headingWithoutAtsSuffix) return false;
+  const segments = headingWithoutAtsSuffix.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean);
   const applicationIndex = segments.findIndex((segment) => UMANTIS_APPLICATION_HEADING_SEGMENT_RE.test(segment));
   if (applicationIndex < 0) return namesAnotherEmployer(text, job);
   // «Other Hotel - Bewerbung» is still an explicit mismatch even though the
@@ -4782,59 +5164,175 @@ function umantisApplicationHeadingConflict(heading, job = {}) {
     .some((segment) => namesAnotherEmployer(segment, job));
 }
 
-function formUrlCarriesEmployerHost(formText, job = {}) {
+const MULTI_LABEL_PUBLIC_SUFFIXES = new Set([
+  'ac.jp', 'co.in', 'co.jp', 'co.kr', 'co.nz', 'co.uk', 'com.ar', 'com.au', 'com.br', 'com.cn', 'com.co', 'com.eg',
+  'com.hk', 'com.in', 'com.mx', 'com.my', 'com.ng', 'com.ph', 'com.pk', 'com.pl', 'com.sa', 'com.sg', 'com.tr',
+  'com.tw', 'com.ua', 'com.vn', 'co.za', 'edu.au', 'firm.in', 'gov.au', 'gov.uk', 'net.au', 'net.br', 'net.cn',
+  'net.hk', 'net.in', 'net.nz', 'net.uk', 'net.za', 'org.au', 'org.br', 'org.cn', 'org.hk', 'org.in', 'org.nz',
+  'org.uk', 'org.za',
+]);
+
+function registrableHostLabels(hostname) {
+  const labels = String(hostname || '').toLowerCase().split('.').filter(Boolean);
+  const lastTwo = labels.slice(-2).join('.');
+  const suffixLength = MULTI_LABEL_PUBLIC_SUFFIXES.has(lastTwo) ? 2 : 1;
+  const registrableIndex = labels.length - suffixLength - 1;
+  return registrableIndex >= 0 ? labels.slice(registrableIndex) : [];
+}
+
+function hostnameCarriesEmployerHost(hostname, job = {}) {
   const employerWords = nameWords(job.company)
     .filter(word => word.length >= 3
       && !EMPLOYER_KIND_WORDS.has(word)
       && !FORM_VOCABULARY.has(word)
       && !BRANCH_WORDS.has(word));
   if (!employerWords.length) return false;
+  const labels = registrableHostLabels(hostname);
+  const hostWords = labels.flatMap(label => label.split('-').filter(Boolean));
+  return employerWords.some(word => hostWords.includes(word));
+}
+
+function currentFormUrlCarriesEmployerHost(pageUrl, job = {}) {
+  try {
+    return hostnameCarriesEmployerHost(new URL(String(pageUrl || '')).hostname, job);
+  } catch {
+    return false;
+  }
+}
+
+function formTextMentionsEmployerHost(formText, job = {}) {
   return (String(formText || '').match(/\bhttps?:\/\/[^\s"'<>]+/giu) || []).some((raw) => {
     try {
-      const hostname = new URL(raw.replace(/[),.;]+$/u, '')).hostname.toLowerCase();
-      return employerWords.some(word => hostname.split(/[.-]+/u).includes(word) || hostname.includes(word));
+      const hostname = new URL(raw.replace(/[),.;]+$/u, '')).hostname;
+      return hostnameCarriesEmployerHost(hostname, job);
     } catch {
       return false;
     }
   });
 }
 
+function formIdentityTextWithoutUrls(formText) {
+  return String(formText || '').replace(/\bhttps?:\/\/[^\s"'<>]+/giu, '');
+}
+
 export function formPostingMatch(formText, job = {}, {
   postingMatched = false,
   postingEntry = false,
   applicationEntry = false,
+  applicationEntryUrl = '',
   pageUrl = '',
   postingUrl = '',
+  paidPostingUrl = '',
+  pageHeading = '',
+  pageHeadings = undefined,
   postingRouteProof = null,
   applyUrl = '',
 } = {}) {
-  const direct = postingMatch(formText, job, pageUrl);
+  const headingCandidates = [...new Set([
+    pageHeading,
+    ...(Array.isArray(pageHeadings) ? pageHeadings : []),
+  ].map((line) => String(line || '').trim()).filter(Boolean))];
   const roleHeading = formRoleHeadingStatus(formText, job);
-  const formApplicationUrl = isUmantisApplicationRoute(pageUrl)
-    ? pageUrl
-    : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
+  const currentPageUrl = String(pageUrl || '').trim();
+  const formApplicationUrl = isUmantisApplicationRoute(currentPageUrl)
+    ? currentPageUrl
+    : currentPageUrl ? '' : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
-  const talentSoftAlias = talentSoftEmployerAliasMatches(formText, job, pageUrl);
-  const heading = String(formText || '').split(/\r?\n/, 1)[0];
+  const talentSoftPageIdentity = talentSoftPostingIdentity(pageUrl);
+  const paidTalentSoftPostingBound = sameTalentSoftPostingRoute(pageUrl, paidPostingUrl);
+  // A final TalentSoft page that exposes a requisition ID is bound to the paid
+  // posting only when both routes carry that exact origin and ID. Entry-path
+  // provenance cannot authorize a different requisition, even on a generic
+  // account/application page that names no employer or role.
+  if (talentSoftPageIdentity && !paidTalentSoftPostingBound) return 'mismatch';
+  // An application-entry witness remains valid only while the browser is on
+  // the exact route that was entered. A later generic form can otherwise
+  // inherit the old posting match after a diversion.
+  const applicationEntryRouteBound = !applicationEntry
+    || (Boolean(String(applicationEntryUrl || '').trim())
+      && samePostingAddress(pageUrl, applicationEntryUrl));
+  const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
+  const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
+  const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
+    && samePostingAddress(pageUrl, applicationEntryUrl);
+  const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
+    && Boolean(String(pageUrl || '').trim() && String(postingUrl || paidPostingUrl || '').trim())
+    && currentFormUrlCarriesEmployerHost(pageUrl, job);
+  const identityFormText = formIdentityTextWithoutUrls(formText);
+  const rawFormTitleLine = identityFormText.split(/\r?\n/, 1)[0];
+  if ([...headingCandidates, rawFormTitleLine].some((heading) => hasUnexplainedEmployerCommaHeading(heading, job))) return 'unknown';
+  const ambiguousBrandHeading = [...headingCandidates, rawFormTitleLine]
+    .some((heading) => heading.split(PHRASE_END_RE).some((segment) => {
+      const normalized = normalizeWords(segment);
+      return AMBIGUOUS_APPLICATION_HEADING_SEGMENTS.has(normalized)
+        && postingMatch(segment, { company: job.company }, pageUrl) !== 'match';
+    }));
+  const verifiedFormBinding = verifiedEntry || bound || paidTalentSoftPostingBound;
+  const allowAmbiguousStageHeading = Boolean(verifiedFormBinding);
+  const employerHeadingCandidates = headingCandidates
+    .map((heading) => employerIdentityHeadingText(heading, { allowAmbiguous: allowAmbiguousStageHeading }))
+    .filter(Boolean);
+  const formIdentityText = headingCandidates.reduce((text, heading) => {
+    const employerHeading = employerIdentityHeadingText(heading, { allowAmbiguous: allowAmbiguousStageHeading });
+    return employerHeading === heading ? text : text.split(heading).join(employerHeading);
+  }, identityFormText.split(/\r?\n/).map((line, index) =>
+    index === 0 ? employerIdentityHeadingText(line, { allowAmbiguous: allowAmbiguousStageHeading }) : line).join('\n'));
+  const employerText = [...employerHeadingCandidates, formIdentityText].filter(Boolean).join('\n');
+  const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
+  const direct = postingMatch(postingEvidenceText, job, pageUrl);
+  const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
+  const formTitleLine = formIdentityText.split(/\r?\n/, 1)[0];
+  const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
+    .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: bound }));
+  const talentSoftAlias = talentSoftEmployerAliasMatches(identityFormText, job, pageUrl);
+  const heading = rawFormTitleLine;
   const umantisPostingPair = isUmantisPostingEntry({
     applyUrl: formApplicationUrl,
     postingUrl: umantisPairPostingUrl,
     postingRouteProof,
   });
+  const umantisEntryMatchesPosting = umantisPostingPair || isUmantisPostingEntry({
+    applyUrl: formApplicationUrl,
+    postingUrl,
+  }) || applicationEntryCarriesPostingId(formApplicationUrl, postingUrl);
   const boundUmantisApplication = bound && isUmantisApplicationRoute(pageUrl)
-    && umantisPostingPair;
+    && umantisPostingPair && umantisEntryMatchesPosting;
   const boundUmantisApplicationInText = postingMatched && postingEntry
-    && isUmantisApplicationRoute(formApplicationUrl) && umantisPostingPair;
+    && isUmantisApplicationRoute(formApplicationUrl) && umantisPostingPair && umantisEntryMatchesPosting;
   const trustedUmantisApplication = boundUmantisApplication || boundUmantisApplicationInText;
   const umantisHeadingConflict = trustedUmantisApplication
     ? umantisApplicationHeadingConflict(heading, job)
     : null;
+  const explicitRoleConflict = roleHeading === 'unknown'
+    && rawDirect === 'mismatch'
+    && hasExplicitFormRoleHeading(formText, job);
+  if (explicitRoleConflict && !trustedUmantisApplication
+    && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
+  if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
+  const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
+  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
+  if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : namesAnotherEmployer(formText, job, { allowPostingLocation: bound }))) return 'mismatch';
+      : (headingConflict || namesAnotherEmployer(employerText, job, { allowPostingLocation: bound })))) return 'mismatch';
+  // If the browser cannot return a bounded heading set on a TalentSoft form,
+  // the tenant alias and title alone do not resolve who owns the final page.
+  let isTalentSoftHost = false;
+  try {
+    isTalentSoftHost = TALENTSOFT_HOST_RE.test(new URL(String(pageUrl || '')).hostname);
+  } catch {
+    // A malformed URL cannot provide a TalentSoft host identity.
+  }
+  if (direct === 'match' && pageHeadings === null && isTalentSoftHost) return 'unknown';
+  // A known alternate employer name must still be tied to the paid TalentSoft
+  // requisition when the page has no requisition ID. Mutable `postingUrl` is
+  // never proof.
+  if (direct === 'match' && hasEquivalentEmployerNameHeading(identityFormText, job, headingCandidates)) {
+    if (!talentSoftPageIdentity && !verifiedEntry && !paidTalentSoftPostingBound) return 'mismatch';
+  }
   // A source-backed SuccessFactors module must still carry the requisition
   // captured from that posting. Do not let its employer query alone turn a
   // different or incomplete `/career` route into a generic form match.
@@ -4850,10 +5348,11 @@ export function formPostingMatch(formText, job = {}, {
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
-  // generic; keep the other-employer guard on that heading, not on native field
-  // labels that describe the application itself.
+  // generic; keep mismatch guards on that heading, not native field labels
+  // that describe the application itself. A bound route cannot make an
+  // explicitly different role belong to the selected vacancy.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict) return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
@@ -4861,7 +5360,7 @@ export function formPostingMatch(formText, job = {}, {
   // caller did not separately pass pageUrl.
   if (postingMatched && postingEntry && isUmantisApplicationRoute(formApplicationUrl)) {
     const unpairedHeadingConflict = umantisHeadingConflict ?? namesAnotherEmployer(heading, job);
-    if (unpairedHeadingConflict) return 'mismatch';
+    if (unpairedHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // The selected detail route is authoritative even when its dynamic shell
@@ -4869,21 +5368,35 @@ export function formPostingMatch(formText, job = {}, {
   // Do not apply this to another page on the same host: route identity must be
   // exact, and an apply route still goes through the employer-conflict guard.
   if (bound && samePostingAddress(pageUrl, formPostingUrl)) {
-    if (namesAnotherEmployer(boundPostingConflictText(formText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
+    if (roleHeading === 'mismatch') return 'mismatch';
+    if (namesAnotherEmployer(boundPostingConflictText(employerText, job, { pageUrl, postingUrl: formPostingUrl }), job, { allowPostingLocation: true })) return 'mismatch';
     return 'match';
   }
   // Talentsoft tenants may expose the employer under a localized name in the
   // form title (Rhätische Bahn) while the order stores the legal name and its
   // short host alias (Ferrovia Retica (RhB)). The alias plus the matching role
   // is stronger evidence than the localized title line being unfamiliar.
-  const talentSoftAliasForm = direct === 'match' && talentSoftEmployerAliasMatches(formText, job, pageUrl);
+  const talentSoftAliasForm = direct === 'match' && talentSoftEmployerAliasMatches(identityFormText, job, pageUrl);
   if (talentSoftAliasForm) return 'match';
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
-  if (successFactorsRequisitionShown(formText, job, { pageUrl, applyUrl })) return 'match';
-  if (namesAnotherEmployer(formText, job)) return 'mismatch';
+  if (successFactorsBound) return 'match';
+  if (namesAnotherEmployer(employerText, job)
+    || (/\bhttps?:\/\//iu.test(formText)
+      && !formTextMentionsEmployerHost(formText, job)
+      && namesAnotherEmployer(formText, job))) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
-  if (direct === 'match' || (roleHeading === 'match' && (postingMatched || postingEntry || applicationEntry))) return 'match';
+  // A verified posting can expose a generic application shell whose heading
+  // normalizer deliberately remains uncertain (for example across languages),
+  // while the raw document still names a different role. Keep that conflict
+  // fail-closed without promoting the shell to a verified application entry.
+  if (direct === 'unknown' && roleOnlyPostingBound && rawDirect === 'mismatch') return 'mismatch';
+  // A paid posting can link to a generic form hosted on the employer's own
+  // secondary domain (for example, an ECAM DocuWare form). Preserve the
+  // posting's entry proof when the form URL names that employer, while the
+  // generic form with no link/URL evidence remains unknown.
+  if (verifiedEmployerFormRoute) return 'match';
+  if (direct === 'match' || (roleHeading === 'match' && roleOnlyPostingBound)) return 'match';
   // A verified SuccessFactors module is a bound application surface even when
   // its account page contains no requisition or role text of its own.
   if (postingEntry && postingRouteProof?.via === 'successfactors' && bound) return 'match';
@@ -4892,7 +5405,7 @@ export function formPostingMatch(formText, job = {}, {
   // without the verified entry is not enough provenance and preserves the
   // conservative mismatch (for example ALTEN's generic form).
   if (postingEntry || applicationEntry
-    || (postingMatched && !formUrlCarriesEmployerHost(formText, job))) return 'unknown';
+    || (postingMatched && !formTextMentionsEmployerHost(formText, job))) return 'unknown';
   return direct;
 }
 
@@ -9817,14 +10330,20 @@ export async function readPortalRequirements(ctx) {
       // Contenuto principale»); flattening it into the first line makes the
       // employer-conflict guard mistake that chrome for another employer.
       const pageTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+      const pageHeadings = await postingMainHeadings(page);
+      const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
       const formText = `${pageTitle}\n${snapshot.text || ''}\n${page.url()}`;
       const applicationEntry = sourcePostingMatched && opened.enteredThroughApplicationEntry === true;
       const formMatch = formPostingMatch(formText, portalJob, {
         postingMatched: verifiedPostingEntry || applicationEntry,
         postingEntry: verifiedPostingEntry || jobRoomExternalAdFollowed,
         applicationEntry,
+        applicationEntryUrl: opened.applicationEntryUrl,
         pageUrl: page.url(),
         postingUrl: formPostingUrl,
+        paidPostingUrl: ctx.postingUrl || '',
+        pageHeading,
+        pageHeadings,
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -10377,7 +10896,7 @@ export async function submitViaPortal(ctx) {
     // bound to it, the route is vacancy evidence even if the page omits the
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
-      && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
+      && workdayPostingRouteMatchesCurrent(page.url(), ctx.applyUrl, postingUrl);
     let postingVacancyMatched = enteredFromMatchingPosting || jobRoomExternalAdFollowed || postingDocumentHost
       || workdayRouteEntryProven || initialJobRoomEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, portalJob, {
@@ -10439,6 +10958,7 @@ export async function submitViaPortal(ctx) {
       startupNavigationHint = '';
     }
     let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
+    let applicationEntryUrl = opened.applicationEntryUrl || '';
     if (opened.handoff) startupNavigationHint = opened.handoff;
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;
@@ -10450,13 +10970,19 @@ export async function submitViaPortal(ctx) {
     // she looked at the screenshot, goes on.
     const formMatch = async () => {
       const pageUrl = page.url();
+      const pageHeadings = await postingMainHeadings(page);
+      const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
       const result = formPostingMatch(seen, portalJob, {
         postingMatched: enteredFromMatchingPosting || (postingVacancyMatched && page.url() !== postingUrl),
         postingEntry: enteredFromMatchingPosting,
         applicationEntry: postingVacancyMatched && enteredThroughApplicationEntry,
+        applicationEntryUrl,
         pageUrl,
         postingUrl,
+        paidPostingUrl: ctx.postingUrl || '',
+        pageHeading,
+        pageHeadings,
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -10466,6 +10992,19 @@ export async function submitViaPortal(ctx) {
           : namedByItsData ? 'posting_data' : 'posting_page';
       }
       return result;
+    };
+    const refreshApplicationEntryAfterTransition = async (sourceUrl, current = snapshot, { requireSignedInForm = false } = {}) => {
+      const targetUrl = page.url();
+      if (!applicationEntryUrl || sourceUrl !== applicationEntryUrl || !targetUrl || targetUrl === sourceUrl) return;
+      if (requireSignedInForm && !signedInApplicationSurface(current)) return;
+      const title = await page.title().catch(() => '');
+      const text = await pageText(page).catch(() => '');
+      const diversionHint = applicationDestinationDiversionHint({
+        ...current, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
+      });
+      applicationEntryUrl = applicationEntryUrlAfterTransition({
+        applicationEntryUrl, sourceUrl, targetUrl, diversionHint,
+      });
     };
     const pendingOtpAccount = async (current) => {
       if (!ctx.accounts || !codeField(current)) return null;
@@ -10478,24 +11017,36 @@ export async function submitViaPortal(ctx) {
       const account = await ctx.accounts.load(host);
       return isOtpVerificationPage(current, host, account) ? { host, account } : null;
     };
-    const MAX_WORKDAY_AUTH_RETURN_HOPS = 1;
-    let workdayAuthReturnHops = 0;
+    let workdayDeterministicRestoreAttempted = false;
     const restoreWorkdayApplication = async () => {
-      if (!workdayApplicationEntryProven) return await handoff('posting_mismatch');
+      const recoverWithAgent = async () => {
+        if (!autonomousNavigation) return await handoff('posting_mismatch');
+        const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
+        if (recovery.result) return recovery.result;
+        snapshot = recovery.snapshot;
+        if (recovery.status === 'READY_TO_SUBMIT') retainedAgentSubmitRef = recovery.submitRef;
+        return null;
+      };
       const currentRoute = workdayJobRoute(page.url());
       const currentApplicationSurface = hasApplicationForm(snapshot)
         || Boolean(findButton(snapshot.buttons, NEXT_RE))
         || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
-      if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
-        || (currentRoute?.suffix === 'manual' && !currentApplicationSurface)) {
-        if (workdayAuthReturnHops >= MAX_WORKDAY_AUTH_RETURN_HOPS) return await handoff('posting_mismatch');
-        const target = workdayManualApplicationUrl(ctx.applyUrl);
-        if (!target) return await handoff('posting_mismatch');
-        workdayAuthReturnHops += 1;
-        await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await settle(page);
-        snapshot = await extractFields(page, NAVIGATION);
-        if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)) return await handoff('posting_mismatch');
+      const needsManualRestore = !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
+        || (currentRoute?.suffix === 'manual' && !currentApplicationSurface);
+      if (needsManualRestore) {
+        const target = workdayApplicationEntryProven && !workdayDeterministicRestoreAttempted
+          ? workdayManualApplicationUrl(ctx.applyUrl) : '';
+        if (target) {
+          workdayDeterministicRestoreAttempted = true;
+          await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 }).catch(() => {});
+          await settle(page).catch(() => {});
+          snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+        }
+        if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
+          || (workdayJobRoute(page.url())?.suffix === 'manual' && !hasApplicationForm(snapshot)
+            && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE))) {
+          return await recoverWithAgent();
+        }
       }
       if (workdayJobRoute(page.url())?.suffix !== 'manual') {
         const reopened = await openApplicationForm(context, page, snapshot, {
@@ -10510,8 +11061,10 @@ export async function submitViaPortal(ctx) {
         ({ page, snapshot } = reopened);
         workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
         enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
+        if (reopened.applicationEntryUrl) applicationEntryUrl = reopened.applicationEntryUrl;
+        if (reopened.handoff && reopened.handoff !== 'posting_mismatch') return await handoff(reopened.handoff);
         if (reopened.handoff || !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)) {
-          return await handoff(reopened.handoff || 'posting_mismatch');
+          return await recoverWithAgent();
         }
       } else {
         snapshot = await awaitFields(page, snapshot);
@@ -10715,18 +11268,36 @@ export async function submitViaPortal(ctx) {
       try {
         const agentStartPage = page;
         const agentStartUrl = page.url();
-        const canOpenApplicationEntry = async (targetPage, action) => {
+        const canOpenApplicationEntry = async (targetPage, action, actionInfo = null) => {
           if (!autonomousNavigation || !['click', 'goto'].includes(action.action)) return false;
           const targetUrl = targetPage.url();
           const targetSnapshot = targetPage === agentStartPage && targetUrl === agentStartUrl
             ? current
             : await extractFields(targetPage, NAVIGATION).catch(() => current);
-          const targetText = `${await targetPage.title().catch(() => '')}\n${await pageText(targetPage).catch(() => '')}\n${targetUrl}`;
-          const targetPostingMatch = postingMatch(targetText, ctx.job, targetUrl);
-          const targetMatchesPosting = targetPostingMatch === 'match'
-            || (targetPostingMatch === 'unknown' && samePostingAddress(targetUrl, postingUrl))
-            || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(targetUrl), workdayJobRoute(ctx.applyUrl)))
-            || successFactorsRequisitionShown(targetText, ctx.job, { pageUrl: targetUrl, applyUrl: ctx.applyUrl });
+          const targetPageTitle = await targetPage.title().catch(() => '');
+          const targetText = `${targetPageTitle}\n${await pageText(targetPage).catch(() => '')}\n${targetUrl}`;
+          const entryContext = {
+            applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingRouteProof: ctx.postingRouteProof,
+            job: ctx.job, allowSingleExternalApplicationEntry: postingVacancyMatched,
+          };
+          const ownedEntries = applicationEntryControls(targetSnapshot, entryContext);
+          const selectedEntryMatches = applicationEntryControlMatchesSelectedPosting(
+            actionInfo || {}, ownedEntries, targetSnapshot, entryContext,
+          );
+          const targetMatchesPosting = applicationEntryMatchesSelectedPosting({
+            pageText: targetText,
+            job: ctx.job,
+            pageUrl: targetUrl,
+            pageTitle: targetPageTitle,
+            pageHeading: await postingMainHeading(targetPage),
+            postingUrl,
+            postingRouteProof: ctx.postingRouteProof,
+            vacancyIdentityContexts: currentVacancyIdentityContexts(targetSnapshot),
+            uniqueApplicationEntryProven: selectedEntryMatches,
+            applyUrl: ctx.applyUrl,
+          });
+          const targetEntryBound = selectedEntryMatches
+            && (samePostingAddress(targetUrl, postingUrl) || targetMatchesPosting);
           const targetStage = applicationStage({ ...targetSnapshot, text: targetText }, {
             applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: targetUrl,
           });
@@ -10734,12 +11305,7 @@ export async function submitViaPortal(ctx) {
             && !['hidden', 'submit', 'button'].includes(String(field.inputType || '').toLowerCase())
             && field.chrome !== true
             && isApplicationOwnedPortalField(field));
-          const targetEntryBound = samePostingAddress(targetUrl, postingUrl)
-            && applicationEntryControls(targetSnapshot, {
-              applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingRouteProof: ctx.postingRouteProof,
-              job: ctx.job, allowSingleExternalApplicationEntry: postingVacancyMatched,
-            }).length === 1;
-          return (targetMatchesPosting || targetEntryBound)
+          return targetEntryBound
             && !targetHasApplicationFields
             && !targetStage.prefinal
             && (targetEntryBound || !['receipt', 'review_navigation', 'final_review', 'posting_mismatch'].includes(targetStage.kind));
@@ -10781,6 +11347,7 @@ export async function submitViaPortal(ctx) {
     (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, calls: agent.calls || 0, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
       agent.navigationOccurred = page !== previousPage;
       if (agent.enteredApplicationEntry) enteredThroughApplicationEntry = true;
+      if (agent.enteredApplicationEntryUrl) applicationEntryUrl = agent.enteredApplicationEntryUrl;
       const currentPostingText = `${await page.title().catch(() => '')}\n${await pageText(page).catch(() => '')}\n${page.url()}`;
       if (postingMatch(currentPostingText, ctx.job, page.url()) === 'match'
         || sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl))
@@ -10894,10 +11461,11 @@ export async function submitViaPortal(ctx) {
         return { status: agent.status };
       }
       const auth = await handleAuth({ page, snapshot: stable.snapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
+      if (!auth.handoff) await refreshApplicationEntryAfterTransition(startUrl, auth.snapshot, { requireSignedInForm: true });
       return { status: agent.status, auth };
     };
 
-    const runNavigationRecovery = async (current, hint, existingAgent = null) => {
+    const runNavigationRecovery = async (current, hint, existingAgent = null, { diversionRetry = false } = {}) => {
       const sourcePage = page;
       const sourceUrl = page.url();
       const agent = existingAgent || await runAgent(current, hint);
@@ -10905,6 +11473,20 @@ export async function submitViaPortal(ctx) {
       const receipt = await confirmedReceipt(currentSnapshot);
       if (receipt) return { result: receipt };
       if (currentSnapshot.captcha) return { result: await handoff('captcha') };
+      const destinationDiversion = applicationDestinationDiversionHint({
+        ...currentSnapshot,
+        title: await page.title().catch(() => ''),
+        url: page.url(),
+        pageHeadings: await postingMainHeadings(page),
+        text: await pageText(page).catch(() => ''),
+      });
+      if (destinationDiversion) {
+        if (diversionRetry) return { result: await handoff('posting_unbound') };
+        const retryHint = hint === 'posting_mismatch' ? 'application_stage_unknown' : 'posting_mismatch';
+        const retryAgent = await runAgent(currentSnapshot, retryHint);
+        if (!retryAgent) return { result: await handoff('posting_unbound') };
+        return await runNavigationRecovery(currentSnapshot, retryHint, retryAgent, { diversionRetry: true });
+      }
       if (!agent) return { result: await handoff(hint) };
       if (agent.status === 'NEEDS_CANDIDATE') {
         if (hint === 'posting_unbound') return { result: await handoff('posting_unbound') };
@@ -10924,11 +11506,13 @@ export async function submitViaPortal(ctx) {
             accountFailure: accountFailure('auth_steps_exhausted', otpAccount ? 'verification' : authPageKind(authSnapshot)),
           }) };
         }
+        const authSourceUrl = page.url();
         const auth = otpAccount
           ? await verifyAccount({
             page, host: otpAccount.host, sinceMs: otpAccount.account.createdAt || 0, ctx, snapshot: authSnapshot,
           })
           : await handleAuth({ page, snapshot: authSnapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
+        if (!auth.handoff) await refreshApplicationEntryAfterTransition(authSourceUrl, auth.snapshot, { requireSignedInForm: true });
         evidence.steps.at(-1).auth = { kind: otpAccount ? 'otp_verification' : authPageKind(authSnapshot), outcome: auth.handoff || 'ok' };
         if (auth.handoff) return { result: await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes }) };
         snapshot = auth.snapshot;
@@ -10970,12 +11554,20 @@ export async function submitViaPortal(ctx) {
       agentSubmitRefForPage = retainedAgentSubmitRef;
       const currentText = await pageText(page);
       const diversionHint = applicationDiversionHint({ ...snapshot, text: currentText });
+      const destinationDiversionHint = applicationDestinationDiversionHint({
+        ...snapshot,
+        title: await page.title().catch(() => ''),
+        url: page.url(),
+        pageHeadings: await postingMainHeadings(page),
+        text: currentText,
+      });
       const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
-      const needsAutonomousNavigation = !currentAccountSurface && (Boolean(startupNavigationHint)
+      const needsAutonomousNavigation = Boolean(destinationDiversionHint) || (!currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
-        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck));
+        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck)));
       if (needsAutonomousNavigation) {
-        const navigationHint = startupNavigationHint || (diversionHint ? 'application_stage_unknown'
+        const navigationHint = startupNavigationHint || (destinationDiversionHint ? 'posting_mismatch'
+          : diversionHint ? 'application_stage_unknown'
           : currentStage.kind === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
         startupNavigationHint = '';
         if (!autonomousNavigation) return await handoff(navigationHint === 'posting_mismatch' ? 'posting_mismatch' : 'application_stage_unknown');
@@ -11005,6 +11597,7 @@ export async function submitViaPortal(ctx) {
       const otpAccount = await pendingOtpAccount(snapshot);
       if (otpAccount) {
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification', { accountFailure: accountFailure('auth_steps_exhausted', 'verification') });
+        const authSourceUrl = page.url();
         const auth = await verifyAccount({
           page,
           host: otpAccount.host,
@@ -11018,6 +11611,7 @@ export async function submitViaPortal(ctx) {
         };
         if (auth.handoff) return await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes });
         snapshot = auth.snapshot;
+        await refreshApplicationEntryAfterTransition(authSourceUrl, snapshot, { requireSignedInForm: true });
         if (auth.reopen && isWorkdayTenantUrl(ctx.applyUrl)
           && authPageKind(snapshot) === 'none' && !codeField(snapshot)) {
           const restored = await restoreWorkdayApplication();
@@ -11043,6 +11637,7 @@ export async function submitViaPortal(ctx) {
             postingVacancyMatched = true;
           }
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
+          if (reopened.applicationEntryUrl) applicationEntryUrl = reopened.applicationEntryUrl;
           if (reopened.handoff) {
             if (reopened.handoff !== 'posting_mismatch' || !autonomousNavigation) return await handoff(reopened.handoff);
             const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
@@ -11148,6 +11743,7 @@ export async function submitViaPortal(ctx) {
         if (++authSteps > MAX_AUTH_STEPS) return await handoff('account', { accountFailure: accountFailure('auth_steps_exhausted', 'login') });
         let auth;
         let agentRecovery = null;
+        const authSourceUrl = page.url();
         const authHost = new URL(page.url()).hostname;
         const storedAccount = typeof ctx.accounts?.load === 'function'
           ? await ctx.accounts.load(authHost).catch(() => null)
@@ -11211,6 +11807,7 @@ export async function submitViaPortal(ctx) {
         }
         if (auth.accountRecovered || storedAccount?.recoveryApplicationCheckRequired === true) accountRecoveryUsed = true;
         snapshot = auth.snapshot;
+        await refreshApplicationEntryAfterTransition(authSourceUrl, snapshot, { requireSignedInForm: true });
         // The page a sign-in lands on may be the portal's «refresh the page» (see REFRESH_ASKED_RE): loaded
         // again here, before it is taken for a home page and left for the posting.
         const signedInPage = await refreshed(snapshot);
@@ -11247,6 +11844,7 @@ export async function submitViaPortal(ctx) {
             postingVacancyMatched = true;
           }
           enteredThroughApplicationEntry = enteredThroughApplicationEntry || reopened.enteredThroughApplicationEntry === true;
+          if (reopened.applicationEntryUrl) applicationEntryUrl = reopened.applicationEntryUrl;
           if (reopened.handoff) return await handoff(reopened.handoff);
           snapshot = await extractFields(page);
         }
@@ -11828,6 +12426,7 @@ export async function submitViaPortal(ctx) {
         }
       }
       if ((next || advance) && !submit) {
+        const transitionSourceUrl = page.url();
         const before = pageSignature(page, after);
         const beforePageMarker = String(after.pageMarker || '');
         if (stage?.kind === 'review_navigation') {
@@ -11853,6 +12452,7 @@ export async function submitViaPortal(ctx) {
             && current.fields.map((field) => field.label).join('|') === labelsBefore;
           return pageSignature(page, current) === before || (sameMarker && sameLabels);
         });
+        await refreshApplicationEntryAfterTransition(transitionSourceUrl, snapshot);
         const movedToNextPage = pageSignature(page, snapshot) !== before;
         if (movedToNextPage) pageEpoch += 1;
         // Still the same page: the form refused a value. A correction by the
@@ -11937,8 +12537,11 @@ export async function submitViaPortal(ctx) {
         || Boolean(expectedJobKey && currentJobKey && expectedJobKey === currentJobKey)
         || (isWorkdayTenantUrl(ctx.applyUrl) && sameWorkdayJobRoute(workdayJobRoute(page.url()), workdayJobRoute(ctx.applyUrl)))
         || successFactorsBound;
-      const finalDiversionHint = hasPostingBinding ? '' : applicationDiversionHint({
+      const finalDiversionHint = applicationDestinationDiversionHint({
+        ...after,
         title: await page.title().catch(() => ''),
+        url: page.url(),
+        pageHeadings: await postingMainHeadings(page),
         text: finalText,
       });
       const finalBindingValid = workdayBound && !jobKeyConflict && finalStage.kind !== 'posting_mismatch'

@@ -1,0 +1,27 @@
+{
+  "companyKey": "okjob-ch",
+  "companyName": "OK Job SA Nyon",
+  "companyHost": "okjob.ch",
+  "verifiedEmployerDomain": "okjob.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.okjob.ch/offres-demplois/"
+  ],
+  "detailTemplate": "/offres-demplois/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "14.11.2026 / 41364 La Chaux-de-Fonds / Fixe Décorateur/Angleur OKJOB recrute un(e) Décorateur / Angleur (F/H/D) Canton de Neuchâtel Type de travail : CDI - Temp",
+    "14.11.2026 / 43181 La Chaux-de-Fonds / Fixe Opérateur Fraisage Une entreprise technique et à taille humaine recherche un Opérateur Fraisage motivé, prêt à évolu",
+    "14.11.2026 / 43186 Yverdon-les-Bains / Fixe Mécanicien en maintenance d'automobiles CFC Afin de renforcer nos équipes, nous recherchons un mécanicien en mainten",
+    "14.11.2026 / 43187 Yverdon-les-Bains / Fixe Calculateur technique expérimenté (H/F) Afin de renforcer nos équipes, nous recherchons un calculateur technique exp",
+    "14.11.2026 / 43192 Le Sentier / Fixe Coordinateur marchés internationaux (H/F) Afin de renforcer nos équipes, nous sommes à la recherche d'un coordinateur march"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-14T13:07:16.282Z",
+  "candidateKey": "ok-job-nyon@nyon"
+}

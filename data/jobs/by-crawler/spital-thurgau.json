@@ -2882,9 +2882,9 @@
       "slug": "sostanze-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "sostanze-spital-thurgau-stgag-diessenhofen",
-        "en": "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "en": "unterassistent-in-stgag-ch",
         "de": "unterassistent-in-spital-thurgau-stgag-diessenhofen",
-        "fr": "sous-assistant-spital-thurgau-stgag-diessenhofen"
+        "fr": "unterassistent-in-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -2938,17 +2938,19 @@
         ],
         "en": [
           "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sub-assistant-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
           "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
-          "unterassistent-in-stgag-ch"
+          "sous-assistant-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-stgag-ch",
         "sub-assistant-in-spital-thurgau-stgag-diessenhofen",
-        "sous-assistant-in-spital-thurgau-stgag-diessenhofen"
+        "sous-assistant-in-spital-thurgau-stgag-diessenhofen",
+        "sub-assistant-spital-thurgau-stgag-diessenhofen",
+        "sous-assistant-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
       "salaryMin": 57500,
@@ -4984,9 +4986,9 @@
       "slug": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "en": "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "en": "praktikant-in-langzeitpflege-stgag-ch",
         "de": "praktikant-in-langzeitpflege-spital-thurgau-stgag-diessenhofen",
-        "fr": "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
+        "fr": "praktikant-in-langzeitpflege-stgag-ch"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5042,10 +5044,10 @@
         ],
         "en": [
           "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "internship-long-term-care-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
-          "praktikant-in-langzeitpflege-stgag-ch"
+          "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
@@ -5058,7 +5060,9 @@
         "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen",
         "fachmann-frau-gesundheit-stgag-ch",
         "praktikant-in-langzeitpflege-stgag-munsterlingen",
-        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen"
+        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "internship-long-term-care-spital-thurgau-stgag-diessenhofen",
+        "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 73000,
@@ -7352,7 +7356,6 @@
           "arztsekretar-in-urologie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:00:23.948Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -7873,7 +7876,6 @@
           "restaurationsfachmann-frau-efz-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:05.708Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -8242,9 +8244,9 @@
       "slug": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "neuropsicologi-spital-thurgau-stgag-munsterlingen",
-        "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "en": "neuropsychologists-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
-        "fr": "neuropsychologue-spital-thurgau-stgag-munsterlingen"
+        "fr": "neuropsychologues-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -8292,8 +8294,8 @@
       "previousSlugs": [
         "neuropsychologen-in-stgag-ch",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologists-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+        "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "neuropsychologue-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8301,11 +8303,11 @@
         ],
         "en": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologists-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologist-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologues-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologue-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
@@ -8418,7 +8420,7 @@
       "slug": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ambulateurium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
@@ -8468,7 +8470,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8477,7 +8479,7 @@
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
-          "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch"
@@ -8562,7 +8564,6 @@
           "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:05.708Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8828,7 +8829,6 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T22:38:11.533Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12456,7 +12456,6 @@
           "med-praxisassistenten-in-frauenklinik-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-29T21:19:39.496Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13796,7 +13795,6 @@
           "arztsekretar-in-oder-med-praxisassistent-in-onkologisches-ambulatorium-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -14055,7 +14053,6 @@
           "ergotherapeut-in-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-10T09:17:25.725Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14228,7 +14225,6 @@
           "med-praxisassistenten-in-spital-thurgau-stgag-stein-am-rhein"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-11T09:26:16.030Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14255,7 +14251,7 @@
         "it": "tirocinante-fisioterapista-ergoterapista-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "pre-practical-in-physio-occupational-therapy-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "vorpraktikant-in-physio-ergotherapie-stgag-ch",
-        "fr": "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "fr": "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14311,7 +14307,7 @@
         "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "stv-capo-medico-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "praktikant-in-psychosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14335,7 +14331,7 @@
         "fr": [
           "vorpraktikant-in-physio-ergotherapie-stgag-ch",
           "stage-en-psychosomatique-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.131Z",
@@ -14423,7 +14419,6 @@
           "junior-hr-applikationsverantwortliche-n-support-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T21:26:42.041Z",
       "salaryMin": 48000,
       "salaryMax": 73000,

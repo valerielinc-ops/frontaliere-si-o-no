@@ -4,11 +4,28 @@
   "detailRejected": 0,
   "key": "lipsuisse-ch-lipsuisse-ch",
   "label": "LIP Suisse",
-  "generatedAt": "2026-11-14T09:44:05.093Z",
+  "generatedAt": "2026-11-14T16:47:40.423Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "lipsuisse-ch-lipsuisse-ch",
+    "seedUrls": [
+      "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2/"
+    ],
+    "phase": "listing",
+    "pages": 1,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.lipsuisse.ch/offres-emploi/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "no-jobs-parsed",
@@ -23,5 +40,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  applicationEntryMatchesSelectedPosting,
+  applicationEntryControlMatchesSelectedPosting,
+  applicationEntryUrlAfterTransition,
   applicationEntryCarriesPostingId,
   applicationEntryControls,
   formPostingMatch,
@@ -129,6 +132,79 @@ describe('Bank Cler posting (8BhQom09): the role heading and the employer in its
   });
 });
 
+describe('autonomous application-entry posting binding', () => {
+  const job = { company: 'Muster AG', title: 'Application Manager' };
+  const listingUrl = 'https://careers.example.ch/jobs';
+  const postingUrl = 'https://careers.example.ch/jobs/application-manager-42';
+
+  it('rejects company-only careers pages but accepts the selected role and employer together', () => {
+    expect(applicationEntryMatchesSelectedPosting({
+      pageText: 'Muster AG Karriere', pageTitle: 'Muster AG Karriere',
+      pageUrl: listingUrl, postingUrl, job,
+    })).toBe(false);
+    expect(applicationEntryMatchesSelectedPosting({
+      pageText: 'Application Manager — Muster AG', pageTitle: 'Application Manager | Muster AG',
+      pageUrl: listingUrl, postingUrl, job,
+    })).toBe(true);
+  });
+
+  it('requires the Apply control clicked by the agent to match a selected posting-owned entry', () => {
+    const snapshot = {
+      url: postingUrl,
+      buttons: [
+        { text: 'Apply', href: 'https://careers.example.ch/jobs/application-manager-42/apply' },
+        { text: 'Apply', href: 'https://careers.example.ch/jobs/other-role/apply' },
+      ],
+      links: [],
+    };
+    const selected = [{ text: 'Apply', href: 'https://careers.example.ch/jobs/application-manager-42/apply' }];
+    const context = { postingUrl, job };
+    expect(applicationEntryControlMatchesSelectedPosting({
+      name: 'Apply', href: 'https://careers.example.ch/jobs/application-manager-42/apply',
+    }, selected, snapshot, context)).toBe(true);
+    expect(applicationEntryControlMatchesSelectedPosting({
+      name: 'Apply', href: 'https://careers.example.ch/jobs/other-role/apply',
+    }, selected, snapshot, context)).toBe(false);
+    expect(applicationEntryControlMatchesSelectedPosting({ name: 'Apply' }, selected, snapshot, context)).toBe(false);
+  });
+
+  it('rejects an external Apply card whose requisition id conflicts with the paid posting', () => {
+    const jobWithReq = { ...job, requirementId: 'REQ-42' };
+    const snapshot = {
+      url: 'https://board.example.ch/job/REQ-42',
+      buttons: [],
+      links: [{
+        text: 'Apply',
+        href: 'https://ats.example/apply',
+        vacancyContext: 'Application Manager · Muster AG · Requisition ID: REQ-99',
+      }],
+    };
+    expect(applicationEntryControls(snapshot, {
+      applyUrl: 'https://ats.example/apply',
+      postingUrl: snapshot.url,
+      job: jobWithReq,
+    })).toEqual([]);
+  });
+
+  it('carries entry proof to a next page only from the current bound route and without diversion evidence', () => {
+    const entry = 'https://forms.example.ch/apply/req-42';
+    expect(applicationEntryUrlAfterTransition({
+      applicationEntryUrl: entry, sourceUrl: entry, targetUrl: `${entry}/step-2`,
+    })).toBe(`${entry}/step-2`);
+    const login = 'https://forms.example.ch/sign-in';
+    expect(applicationEntryUrlAfterTransition({
+      applicationEntryUrl: login, sourceUrl: login, targetUrl: `${entry}/step-2`,
+    })).toBe(`${entry}/step-2`);
+    expect(applicationEntryUrlAfterTransition({
+      applicationEntryUrl: entry, sourceUrl: entry, targetUrl: 'https://forms.example.ch/spontaneous-application',
+      diversionHint: 'talent_pool_or_job_alert',
+    })).toBe(entry);
+    expect(applicationEntryUrlAfterTransition({
+      applicationEntryUrl: entry, sourceUrl: 'https://forms.example.ch/sign-in', targetUrl: `${entry}/step-2`,
+    })).toBe(entry);
+  });
+});
+
 describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
   const title = 'Concorso generale permanente 2026';
   const job = { company: 'Ente Case Anziani Mendrisiotto (ECAM)', title };
@@ -239,8 +315,13 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
       formHref,
     ].join('\n');
     expect(namesAnotherEmployer(formText, job)).toBe(false);
-    const options = { postingMatched: true, applicationEntry: true, pageUrl: formHref, postingUrl: career };
-    expect(formPostingMatch(formText, job, options)).toBe('unknown');
+    const options = {
+      postingMatched: true, applicationEntry: true, applicationEntryUrl: formHref, pageUrl: formHref, postingUrl: career,
+    };
+    expect(formPostingMatch(formText, job, options)).toBe('match');
+    expect(formPostingMatch(formText, job, {
+      postingMatched: true, applicationEntry: true, pageUrl: formHref, postingUrl: career,
+    })).toBe('unknown');
     // Generic and not reached from the bound page: a stop, as before.
     expect(formPostingMatch(formText, job, { pageUrl: formHref, postingUrl: career })).toBe('mismatch');
     // A form that names another employer next to the short form, or in its title, stops.

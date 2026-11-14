@@ -1,11 +1,12 @@
 {
   "key": "klinik-schoenberg",
   "label": "Klinik Schönberg AG",
-  "generatedAt": "2026-11-14T09:24:00.901Z",
+  "generatedAt": "2026-11-14T17:02:32.545Z",
   "total": 11,
   "discovered": null,
   "parsed": 11,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 11,
@@ -16,10 +17,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 10081,
-  "avgDurationMs": 10081,
+  "durationMs": 9149,
+  "avgDurationMs": 9149,
   "durationHistory": [
-    10081
+    9149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +36,7 @@
       "url": "https://my.jobalino.ch/job/7f8c93ff068084dedcfa539b92bc4521/assistent-in-gesundheit-und-soziales-ags-oder-pflegehelfer-in-w-m-d_4915",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:41.408Z",
+      "crawledAt": "2026-11-14T17:02:13.934Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -71,7 +72,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:41.408Z",
+      "validThrough": "2026-12-14T17:02:13.934Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,7 +98,7 @@
       "url": "https://my.jobalino.ch/job/a16ce66f550cacf4f12a8e90df158121/berufswahl-schnupperpraktikant-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:45.025Z",
+      "crawledAt": "2026-11-14T17:02:17.126Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -132,7 +133,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:45.025Z",
+      "validThrough": "2026-12-14T17:02:17.126Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -154,7 +155,7 @@
       "url": "https://my.jobalino.ch/job/5e090767e44850d6090241204609188f/diaetkoch-diaetkoechin-w-m-d_1615",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:44.586Z",
+      "crawledAt": "2026-11-14T17:02:16.720Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,7 +191,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:44.586Z",
+      "validThrough": "2026-12-14T17:02:16.720Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -212,7 +213,7 @@
       "url": "https://my.jobalino.ch/job/6cedfaf9d1f127606f659865988e923a/office-mitarbeiter-in-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:43.995Z",
+      "crawledAt": "2026-11-14T17:02:16.228Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:43.995Z",
+      "validThrough": "2026-12-14T17:02:16.228Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -270,7 +271,7 @@
       "url": "https://my.jobalino.ch/job/80e424e55beb9566fa7b9d166549929e/dipl-pflegefachperson-hf-fh-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:43.562Z",
+      "crawledAt": "2026-11-14T17:02:15.825Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,7 +307,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:43.562Z",
+      "validThrough": "2026-12-14T17:02:15.825Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -329,7 +330,7 @@
       "url": "https://my.jobalino.ch/job/e7485250903f75718f577817aa1a483a/fachperson-gesundheit-fage-w-m-d_227",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:42.987Z",
+      "crawledAt": "2026-11-14T17:02:15.321Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,7 +366,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:42.987Z",
+      "validThrough": "2026-12-14T17:02:15.321Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -388,7 +389,7 @@
       "url": "https://my.jobalino.ch/job/78552fe65af10c48ef99344fceaae9bf/sachbearbeiter-in-patientenaufnahme-w-m-d",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:42.417Z",
+      "crawledAt": "2026-11-14T17:02:14.829Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,7 +425,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T09:23:42.417Z",
+      "validThrough": "2026-12-21T17:02:14.829Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -446,7 +447,7 @@
       "url": "https://my.jobalino.ch/job/d377ec5e3dcd50e041dee7135160a127/medizinische-r-masseur-in-w-m-d_316",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:41.842Z",
+      "crawledAt": "2026-11-14T17:02:14.336Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -482,7 +483,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T09:23:41.842Z",
+      "validThrough": "2026-12-27T17:02:14.336Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -505,7 +506,7 @@
       "url": "https://my.jobalino.ch/job/ad9827b92dcdcf1fdd96bf6bb8cc6c02/lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:40.838Z",
+      "crawledAt": "2026-11-14T17:02:13.445Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -541,7 +542,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:40.838Z",
+      "validThrough": "2026-12-14T17:02:13.445Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -563,7 +564,7 @@
       "url": "https://my.jobalino.ch/job/73659d11d66726d34baa1203b951e13a/lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:40.266Z",
+      "crawledAt": "2026-11-14T17:02:12.950Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -599,7 +600,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:23:40.266Z",
+      "validThrough": "2026-12-14T17:02:12.950Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -622,7 +623,7 @@
       "url": "https://my.jobalino.ch/job/66044f221fc8f7b68add93ac30e24eb1/sachbearbeiter-in-hr-administration-w-m-d_7074",
       "source": "Klinik Schönberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:23:39.679Z",
+      "crawledAt": "2026-11-14T17:02:12.438Z",
       "addressLocality": "Gunten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -658,7 +659,7 @@
       },
       "streetAddress": "Schönbergstrasse 40",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:23:39.679Z",
+      "validThrough": "2027-02-01T17:02:12.438Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -669,5 +670,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

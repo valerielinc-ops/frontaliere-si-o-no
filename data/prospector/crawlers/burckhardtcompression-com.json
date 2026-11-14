@@ -1,0 +1,27 @@
+{
+  "companyKey": "burckhardtcompression-com",
+  "companyName": "Burckhardt Compression AG",
+  "companyHost": "careers.burckhardtcompression.com",
+  "verifiedEmployerDomain": "burckhardtcompression.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.burckhardtcompression.com/search/?"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Product Cost Engineer",
+    "Compressor Value Engineering Project Manager",
+    "Sales Manager",
+    "Administrative Assistant",
+    "Field Service Representative"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:17:35.510Z",
+  "candidateKey": "burckhardt-compression@winterthur"
+}

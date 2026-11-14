@@ -149,7 +149,7 @@ jobs:
             [ "$common_git_dir" = "$git_dir" ] && common_git_dir=""
             while IFS= read -r -d "" lock_file; do
               rm -f -- "$lock_file"
-            done < <(find "$git_dir" -type f -name "*.lock" -print0; [ -z "$common_git_dir" ] || find "$common_git_dir" -type f -name "*.lock" -print0)
+            done < <(find "$git_dir" -path "$git_dir/worktrees" -prune -o -type f -name "*.lock" -print0; [ -z "$common_git_dir" ] || find "$common_git_dir" -path "$common_git_dir/worktrees" -prune -o -type f -name "*.lock" -print0)
             if ! git -C "$workspace" rev-parse --verify HEAD >/dev/null 2>&1; then
               rm -rf -- "$workspace/.git"
               echo "Discarded incomplete Git metadata; the retry will initialize a clean sparse checkout"

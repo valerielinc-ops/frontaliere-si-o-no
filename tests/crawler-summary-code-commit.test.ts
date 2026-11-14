@@ -89,7 +89,18 @@ describe('summary slice dei crawler', () => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.stubEnv('GITHUB_STEP_SUMMARY', '');
 
-    registerCrawlerSummaryGuard('code-commit-guard-fixture', 'Fixture');
+    registerCrawlerSummaryGuard('code-commit-guard-fixture', 'Fixture', {
+      fetchReceipt: {
+        specKey: 'code-commit-guard-fixture',
+        seedUrls: ['https://example.com/jobs/'],
+        phase: 'listing',
+        pages: 1,
+        httpStatuses: [{ status: 200, url: 'https://example.com/jobs/' }],
+        proxiedBy: [],
+        fetchOutcome: null,
+        fetchDetail: null,
+      },
+    });
     expect(listeners).toHaveLength(1);
     listeners[0](0);
     vi.unstubAllEnvs();
@@ -100,6 +111,12 @@ describe('summary slice dei crawler', () => {
       key: 'code-commit-guard-fixture',
       earlyExit: true,
       codeCommit: HEAD,
+      fetchReceipt: {
+        specKey: 'code-commit-guard-fixture',
+        phase: 'listing',
+        pages: 1,
+        httpStatuses: [{ status: 200, url: 'https://example.com/jobs/' }],
+      },
     });
   });
 

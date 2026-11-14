@@ -47,7 +47,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 // NCore's listing/detail markup is shared with the Sintetica runner. Keep the
 // platform parser in one place while CSC-specific discovery and trust rules
@@ -449,12 +449,17 @@ async function waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs) {
  * trusted seed without the same parser and detail verification below.
  */
 export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = {}) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const context = await browser.newContext({
-      userAgent: CSC_NCORE_BROWSER_UA,
-      viewport: { width: 1280, height: 720 },
-    });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: CSC_NCORE_BROWSER_UA,
+          viewport: { width: 1280, height: 720 },
+        });
     const page = await context.newPage();
     const responseUrlMarkups = [];
     const responseCaptureState = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
@@ -512,12 +517,17 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
  * browser response alone never promotes an unverified seed.
  */
 export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } = {}) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const context = await browser.newContext({
-      userAgent: CSC_NCORE_BROWSER_UA,
-      viewport: { width: 1280, height: 720 },
-    });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: CSC_NCORE_BROWSER_UA,
+          viewport: { width: 1280, height: 720 },
+        });
     const page = await context.newPage();
     const response = await page.goto(detailUrl, {
       waitUntil: 'domcontentloaded',

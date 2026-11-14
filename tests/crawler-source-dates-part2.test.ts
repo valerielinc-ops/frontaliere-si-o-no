@@ -39,6 +39,34 @@ function expectUnknown(job: Job) {
 }
 
 describe('crawler publication evidence at source and merge boundaries', () => {
+  it('Delvitech target matching binds URL ownership to the hostname boundary', () => {
+    const normalizeKey = (value = '') => String(value || '')
+      .trim()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    const normalize = (value = '') => String(value || '').trim().toLowerCase();
+    const isTrustedDomain = (rawUrl = '') => {
+      try {
+        const host = new URL(rawUrl).hostname.toLowerCase();
+        return host === 'legacy.delvi.tech' || host.endsWith('.delvi.tech') || host === 'delvi.tech';
+      } catch {
+        return false;
+      }
+    };
+    const isTargetJob = isolatedFunction<(job: Job) => boolean>('update-delvitech-jobs.mjs', 'isTargetJob', {
+      normalizeKey,
+      normalize,
+      isTrustedDomain,
+      COMPANY_KEY: 'delvitech-sa',
+    });
+
+    expect(isTargetJob({ company: 'Other', url: 'https://notdelvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ company: 'Other', url: 'https://jobs.delvi.tech/careers/role/' })).toBe(true);
+  });
+
   it('does not turn absent parser timestamps or modification time into publication', () => {
     expect(parseHitachiEnergyListingJson({ items: [{ title: 'Engineer', url: '/details/JID3-123' }] })[0].publicationDate).toBe('');
     expect(parseEngelvoelkersDetailPage('<h1>Sales consultant</h1>').datePosted).toBe('');

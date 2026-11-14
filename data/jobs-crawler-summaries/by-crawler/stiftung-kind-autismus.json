@@ -1,11 +1,12 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-11-14T09:31:48.234Z",
+  "generatedAt": "2026-11-14T16:44:58.549Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4891,
-  "avgDurationMs": 4891,
+  "durationMs": 4239,
+  "avgDurationMs": 4239,
   "durationHistory": [
-    4891
+    4239
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:26.129Z",
+      "crawledAt": "2026-11-14T16:44:38.919Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +76,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:31:26.129Z",
+      "validThrough": "2026-12-29T16:44:38.919Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,7 +98,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:31:25.626Z",
+      "crawledAt": "2026-11-14T16:44:38.339Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +136,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:31:25.626Z",
+      "validThrough": "2026-12-14T16:44:38.339Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -146,5 +147,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

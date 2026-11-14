@@ -43,7 +43,9 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     evaluate: async (fn: Function) => {
       const source = String(fn);
       if (source.includes('navigator.userAgent')) return 'Chrome';
-      if (source.includes("querySelectorAll('h1, [role=\"heading\"][aria-level=\"1\"]')")) {
+      if (source.includes("querySelectorAll('h1,")) {
+        if (Object.prototype.hasOwnProperty.call(options, 'pageHeadings')) return options.pageHeadings;
+        if (options.pageHeading) return [options.pageHeading];
         return state.snapshot.heading ? [state.snapshot.heading] : [];
       }
       if (source.includes("script#__NEXT_DATA__")) return options.embeddedHtml || '';
@@ -358,7 +360,10 @@ describe('runner final guard across three application stages', () => {
 
     expect(pressed.slice(0, 2)).toEqual(['toggle-top', 'manual']);
     expect(pressed).not.toContain('linkedin');
-    expect(f.codex).toHaveBeenCalledTimes(3);
+    // The paid listing and its single manual menu item are resolved by the
+    // deterministic entry path. The missing account credentials are handed to
+    // the existing auth flow without asking the model to invent them.
+    expect(f.codex).not.toHaveBeenCalled();
     expect(result.event.type).toBe('submit_handoff');
     expect(state.snapshot.url).toBe(signInUrl);
     expect(f.guard).not.toHaveBeenCalled();
@@ -436,6 +441,83 @@ describe('runner final guard across three application stages', () => {
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
     expect(f.openClick).not.toHaveBeenCalled();
+  });
+
+  it('binds a localized TalentSoft heading to the paid posting URL, not the mutable application URL', async () => {
+    const role = 'Gesamtverantwortliche/r Kundeninformation (60-100%)';
+    const applyUrl = 'https://rhb-career.talent-soft.com/mein-portal/mein-lebenslauf-fuer-meine-bewerbung-fuer-gesamtverantwortliche-r-kundeninformation-60-100-_2233.aspx?ApplicationType=OfferApplication';
+    const paidPostingUrl = applyUrl.replace('_2233.aspx', '_2234.aspx').replace('?ApplicationType=OfferApplication', '?source=paid-posting');
+    const form = {
+      ...snapshot(applyUrl, `Rhätische Bahn - Meine Bewerbung absenden\n${role}\nSie können nun Ihren Lebenslauf hochladen.`, [
+        { id: 'next', text: 'Weiter' },
+      ]),
+      title: 'My application',
+      fields: [{ id: 'cv', label: 'Lebenslauf', kind: 'file', inputType: 'file', required: true }],
+    };
+    const f = fixture(form, form, review, null, {
+      applyUrl,
+      postingUrl: paidPostingUrl,
+      pageHeading: 'Rhätische Bahn - Meine Bewerbung absenden',
+      job: { company: 'Ferrovia Retica (RhB)', title: role },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('rejects an ambiguous TalentSoft heading set before arming the final submit', async () => {
+    const role = 'Senior Engineer';
+    const applyUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx';
+    const form = {
+      ...snapshot(applyUrl, `${role}\nPlease complete your application.`, [
+        { id: 'next', text: 'Continue' },
+      ]),
+      title: 'My application',
+      fields: [{ id: 'cv', label: 'CV', kind: 'file', inputType: 'file', required: true }],
+    };
+    const f = fixture(form, form, review, null, {
+      applyUrl,
+      postingUrl: applyUrl,
+      pageHeadings: ['Rhätische Bahn - My application', 'Other Resort - My application'],
+      job: { company: 'Ferrovia Retica (RhB)', title: role },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('rejects a generic TalentSoft form whose requisition ID differs from the paid posting', async () => {
+    const role = 'Senior Engineer';
+    const paidPostingUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx';
+    const applyUrl = paidPostingUrl.replace('_2233.aspx', '_2234.aspx');
+    const form = {
+      ...snapshot(applyUrl, `${role}\nPlease complete your application.`, [
+        { id: 'next', text: 'Continue' },
+      ]),
+      title: 'My application',
+      fields: [{ id: 'cv', label: 'CV', kind: 'file', inputType: 'file', required: true }],
+    };
+    const f = fixture(form, form, review, null, {
+      applyUrl,
+      postingUrl: paidPostingUrl,
+      pageHeadings: [],
+      job: { company: 'Ferrovia Retica (RhB)', title: role },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.evidence.postingMatch).toBe('mismatch');
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('hands off the issue 17251 language-only shell without asking the candidate or guessing an apply URL', async () => {
@@ -684,7 +766,7 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
 
     expect(f.openClick).toHaveBeenCalledOnce();
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_unbound' });
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();

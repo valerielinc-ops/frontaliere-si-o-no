@@ -31,7 +31,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGolineOpportunitiesPage, buildGolineLocalizedContent } from './lib/goline-job-parser.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -143,9 +143,14 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
           console.log(`  ⚠️  egress proxy failed (${proxyErr.message}), trying Playwright fallback...`);
         }
         try {
-          const browser = await launchChromium({ headless: true });
+          const browser = await launchStealthOrChromium({
+            purpose: 'crawler',
+            fallbackOptions: { headless: true },
+          });
           try {
-            const page = await browser.newPage({ userAgent: USER_AGENTS[0] });
+            const page = isStealthBrowser(browser)
+              ? await browser.newPage({ viewport: null })
+              : await browser.newPage({ userAgent: USER_AGENTS[0] });
             await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
             await page.waitForSelector('h2.wp-block-heading', { timeout: 10000 }).catch(() => {});
             return await page.content();
