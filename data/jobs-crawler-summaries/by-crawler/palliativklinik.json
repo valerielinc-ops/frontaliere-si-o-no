@@ -1,7 +1,7 @@
 {
   "key": "palliativklinik",
   "label": "Palliativklinik im Park",
-  "generatedAt": "2026-11-13T21:17:22.273Z",
+  "generatedAt": "2026-11-14T09:22:41.065Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8543,
-  "avgDurationMs": 8543,
+  "durationMs": 8283,
+  "avgDurationMs": 8283,
   "durationHistory": [
-    8543
+    8283
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_Medizinstudenten_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:04.978Z",
+      "crawledAt": "2026-11-14T09:22:27.804Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:17:04.978Z",
+      "validThrough": "2026-12-14T09:22:27.804Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflege_FAGE-fach_Nov25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:04.002Z",
+      "crawledAt": "2026-11-14T09:22:26.768Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:17:04.002Z",
+      "validThrough": "2026-12-14T09:22:26.768Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -151,7 +151,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/11/PKiP_Pflegefach_Nov25-1.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:03.010Z",
+      "crawledAt": "2026-11-14T09:22:25.724Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:17:03.010Z",
+      "validThrough": "2026-12-14T09:22:25.724Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -208,7 +208,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2026/04/PKiP_Spitalarzt_April-26.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:02.019Z",
+      "crawledAt": "2026-11-14T09:22:24.678Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:17:02.019Z",
+      "validThrough": "2026-12-14T09:22:24.678Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://palliativklinik.ch/wordpress/wp-content/uploads/2025/12/PKiP_AerztIn_Dez25.pdf",
       "source": "Palliativklinik im Park Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:01.016Z",
+      "crawledAt": "2026-11-14T09:22:23.623Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -298,7 +298,7 @@
       },
       "streetAddress": "Stollenrain 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:17:01.016Z",
+      "validThrough": "2026-12-14T09:22:23.623Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -309,5 +309,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }

@@ -1,7 +1,7 @@
 {
   "key": "wokin",
   "label": "WOKIN GmbH",
-  "generatedAt": "2026-11-13T21:51:40.184Z",
+  "generatedAt": "2026-11-14T09:34:45.944Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4178,
-  "avgDurationMs": 4178,
+  "durationMs": 4119,
+  "avgDurationMs": 4119,
   "durationHistory": [
-    4178
+    4119
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -44,7 +44,7 @@
       "applyUrl": "https://wokin.ch/stellen/",
       "source": "WOKIN Dedicated Parser (official Stellen and employer context)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:23.563Z",
+      "crawledAt": "2026-11-14T09:34:30.731Z",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
@@ -75,7 +75,7 @@
         "checkedAt": "2026-11-09T15:43:22.005Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:51:23.563Z",
+      "validThrough": "2027-01-14T09:34:30.731Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -86,5 +86,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
