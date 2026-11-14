@@ -67,6 +67,9 @@ jobs:
         id: prepare_snapshot
         env:
           ASSEMBLE_TEST_SNAPSHOT_SOURCE_AT: ${{ steps.snapshot_source_time.outputs.captured_at }}
+          # Assembly may update local auxiliary inputs after hashing them. Keep
+          # the snapshot tied to the exact pre-assemble key used for its output.
+          ASSEMBLE_TEST_SNAPSHOT_SOURCE_CACHE_KEY: ${{ steps.assemble_cache_key.outputs.key }}
         run: node scripts/ci/assemble-test-snapshot.mjs prepare
 
       - name: Compute snapshot compatibility fingerprint
