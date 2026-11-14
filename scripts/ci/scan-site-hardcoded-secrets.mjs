@@ -82,12 +82,9 @@ export function scannedFiles(root = ROOT) {
   return output.split('\0').filter(Boolean).filter(isScanned);
 }
 
-export function scanRepo(root = ROOT) {
-  const files = scannedFiles(root);
-  if (files.length < MIN_SCANNED_FILES) {
-    throw new Error(`scansione troppo stretta: ${files.length} file, minimo ${MIN_SCANNED_FILES}`);
-  }
-
+/** Scan only the tracked paths changed by a related PR selection. */
+export function scanPaths(paths, root = ROOT) {
+  const files = [...new Set(paths)].filter(isScanned);
   const findings = [];
   let scanned = 0;
   for (const relativePath of files) {
@@ -103,6 +100,14 @@ export function scanRepo(root = ROOT) {
     findings.push(...scanText(fs.readFileSync(absolutePath, 'utf8'), relativePath));
   }
   return { findings, scanned };
+}
+
+export function scanRepo(root = ROOT) {
+  const files = scannedFiles(root);
+  if (files.length < MIN_SCANNED_FILES) {
+    throw new Error(`scansione troppo stretta: ${files.length} file, minimo ${MIN_SCANNED_FILES}`);
+  }
+  return scanPaths(files, root);
 }
 
 if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
