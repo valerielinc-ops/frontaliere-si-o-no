@@ -1,0 +1,13 @@
+name: needs suffix
+on: [push]
+jobs:
+  validate-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ready
+  report:
+    needs: validate-inputs
+    if: ${{ needs.validate-inputs.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo report

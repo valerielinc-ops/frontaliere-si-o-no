@@ -44,6 +44,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { workflowInputReferences } from './lib/workflow-input-references.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -51,9 +52,6 @@ const ROOT = path.resolve(__dirname, '..', '..');
 /** Does the expression read a workflow input at all? */
 const READS_INPUT_RE = /\b(?:inputs|github\.event\.inputs)\s*[.[]/;
 /** Every input reference in a chunk of text — used both to classify and to audit. */
-const INPUT_REF_RE = /(?:github\.event\.)?inputs\.[A-Za-z0-9_-]+/g;
-/** First input name mentioned, used to look up the declared type. */
-const INPUT_NAME_RE = /(?:inputs|github\.event\.inputs)\.([A-Za-z0-9_-]+)/;
 /** Types the Actions runtime constrains to a finite, metacharacter-free set. */
 const CONSTRAINED_TYPES = new Set(['boolean', 'choice', 'number']);
 /**
@@ -99,8 +97,7 @@ export function actionsExpressions(script) {
 
 /** Count of input references in a string. */
 function countInputRefs(text) {
-  INPUT_REF_RE.lastIndex = 0;
-  return (String(text || '').match(INPUT_REF_RE) || []).length;
+  return workflowInputReferences(text).length;
 }
 
 /**
@@ -184,7 +181,7 @@ export function scanWorkflows(dir) {
         if (!READS_INPUT_RE.test(body)) continue;
         if (seen.has(whole)) continue;
         seen.add(whole);
-        const name = (body.match(INPUT_NAME_RE) || [])[1] || '';
+        const name = workflowInputReferences(body)[0]?.[1] || '';
         const spec = inputs.get(name);
         if (spec && CONSTRAINED_TYPES.has(spec.type)) continue;
         violations.push({

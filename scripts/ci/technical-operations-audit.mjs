@@ -33,6 +33,7 @@ import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creato
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 import { lineAt } from './line-at.mjs';
+import { workflowInputReferences } from './lib/workflow-input-references.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -2222,7 +2223,7 @@ function validateInputs(triggers, file, source, findings) {
 
   for (const expression of expressions(source)) {
     const line = lineFor(source, source.slice(expression.offset));
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expression.text.trim()));
       }
@@ -2358,7 +2359,7 @@ function validateExpressionText(source, file, text, {
         findings.push(finding(file, 'workflow.secret-reference', 'error', `secret non dichiarata in workflow_call: ${match[1]}`, line, expressionText));
       }
     }
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expressionText));
       }
