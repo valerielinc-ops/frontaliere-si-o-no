@@ -1838,7 +1838,6 @@
       "validThrough": "2027-01-13T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2328,7 +2327,6 @@
       "validThrough": "2026-12-14T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2733,7 +2731,6 @@
       "validThrough": "2026-12-14T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lagermitarbeiter-und-prufer-80-100-w-m-d-hamilton-ag-domat-ems-b716158a"
@@ -2814,16 +2811,14 @@
       "validThrough": "2026-12-14T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-approvisionnement-energie-energy-procurement-manager-inera-sa-b7d18018"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-approvisionnement-energie-energy-procurement-manager-inera-sa-b7d18018"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-14T16:43:10.331Z",
+      "previousSlugs": [
+        "responsable-approvisionnement-energie-energy-procurement-manager-inera-sa-b7d18018"
+      ],
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2839,7 +2834,8 @@
       },
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-14T16:43:10.331Z"
     },
     {
       "id": "seco-jobroom-b94f7d2d-3be3-478b-a126-0c7edd43c4b5",
@@ -9058,7 +9054,7 @@
       "id": "seco-jobroom-dc8044b7-3475-4701-a336-575b3f2888d4",
       "slug": "gartner-m-w-d-tschuggen-collection-ag-ascona",
       "slugByLocale": {
-        "it": "gartner-m-w-d-tschuggen-collection-ag-ascona",
+        "it": "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7",
         "en": "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
         "de": "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
         "fr": "gartner-m-w-d-tschuggen-collection-ag-ascona"
@@ -9109,11 +9105,6 @@
       "validThrough": "2027-01-12T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7",
@@ -9123,6 +9114,11 @@
           "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7"
         ]
       },
+      "previousSlugs": [
+        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
+        "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7",
+        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7"
+      ],
       "firstSeenAt": "2026-11-13T21:49:25.964Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -16470,7 +16466,6 @@
           "elektromonteur-m-w-collardi-chur-f91655e1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-14T09:45:18.293Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -25078,7 +25073,6 @@
       "validThrough": "2027-01-09T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-11T09:50:36.624Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -27689,22 +27683,22 @@
       "validThrough": "2026-12-10T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
-        "bauherrenvertreter-con-option-per-la-standortleitung-90-100-m-w-d-progress-personal-ag-st-moritz"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277"
+        ],
         "it": [
           "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
           "bauherrenvertreter-con-option-per-la-standortleitung-90-100-m-w-d-progress-personal-ag-st-moritz"
         ],
         "en": [
           "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277"
-        ],
-        "fr": [
-          "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277"
         ]
       },
+      "previousSlugs": [
+        "bauherrenvertreter-mit-option-fur-die-standortleitung-90-100-m-w-d-progress-787d9277",
+        "bauherrenvertreter-con-option-per-la-standortleitung-90-100-m-w-d-progress-personal-ag-st-moritz"
+      ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 70000,
       "salaryMax": 89000,
@@ -39419,7 +39413,6 @@
       "validThrough": "2027-01-06T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -40176,7 +40169,6 @@
           "zusteller-in-briefe-und-pakete-steg-wiler-post-ch-ag-steg-64b9f370"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -40683,7 +40675,6 @@
       "validThrough": "2027-01-06T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -41351,7 +41342,6 @@
           "leiter-in-marktmanagement-region-sud-post-ch-ag-bellinzona-eac34c80"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -42892,7 +42882,6 @@
       "validThrough": "2027-01-05T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -43895,7 +43884,6 @@
           "elektromonteur-m-w-collardi-st-moritz-3cb6a825"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -45054,7 +45042,6 @@
       "validThrough": "2027-01-05T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -49232,7 +49219,6 @@
       "validThrough": "2027-01-05T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -54570,7 +54556,6 @@
       "validThrough": "2027-01-04T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-06T22:04:33.674Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -61905,7 +61890,7 @@
       "slugByLocale": {
         "it": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50",
         "en": "orologiaio-di-production-multitime-quartz-sa-losone-240a1e50",
-        "de": "orologiaio-di-produzione-multitime-quartz-sa-losone",
+        "de": "produktionsuhr-multitime-quartz-sa-losone-240a1e50",
         "fr": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50"
       },
       "slugDisambiguator": "240a1e50",
@@ -61953,14 +61938,6 @@
       "validThrough": "2027-01-04T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
-        ]
-      },
       "firstSeenAt": "2026-11-12T09:35:51.012Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -61977,7 +61954,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldReleasedAt": "2026-11-12T15:04:54.482Z"
+      "translationHoldReleasedAt": "2026-11-12T15:04:54.482Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "orologiaio-di-produzione-multitime-quartz-sa-losone"
+        ]
+      },
+      "previousSlugs": [
+        "orologiaio-di-produzione-multitime-quartz-sa-losone"
+      ]
     },
     {
       "id": "seco-jobroom-259eb0a3-8c1e-43ac-988a-6cb336f71099",
@@ -67108,9 +67093,9 @@
       "slug": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "en": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "de": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "fr": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+        "en": "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "de": "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "fr": "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
       },
       "slugDisambiguator": "b08e3218",
       "company": "Edilservizi Swiss Sagl",
@@ -67157,22 +67142,20 @@
       "validThrough": "2027-01-04T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
-      ],
       "previousSlugsByLocale": {
-        "en": [
-          "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218"
-        ],
         "de": [
-          "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+        ],
+        "en": [
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "fr": [
-          "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ]
       },
+      "previousSlugs": [
+        "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+      ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -81834,9 +81817,9 @@
       "slug": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
       "slugByLocale": {
         "it": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "en": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
+        "en": "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270",
         "de": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "fr": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+        "fr": "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270"
       },
       "slugDisambiguator": "28955270",
       "company": "Prim'frais Valais SA",
@@ -81883,14 +81866,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
-        "un-a-collaboratore-trice-stagionale-all-80-prim-frais-valais-sa-zermatt-28955270",
-        "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-        "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+        ],
         "it": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
           "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
@@ -81898,13 +81878,15 @@
         ],
         "en": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-          "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
-        ],
-        "fr": [
-          "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ]
       },
+      "previousSlugs": [
+        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
+        "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
+        "un-a-collaboratore-trice-stagionale-all-80-prim-frais-valais-sa-zermatt-28955270",
+        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+      ],
       "firstSeenAt": "2026-11-02T11:10:41.077Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -83799,7 +83781,7 @@
       "slugByLocale": {
         "it": "impiegato-di-pulizie-il-team-sa-locarno-56ea34a6",
         "en": "employee-di-pulizie-il-team-sa-locarno-56ea34a6",
-        "de": "impiegato-di-pulizie-il-team-sa-locarno",
+        "de": "reinigungspersonal-il-team-sa-locarno-56ea34a6",
         "fr": "employe-di-pulizie-il-team-sa-locarno-56ea34a6"
       },
       "slugDisambiguator": "56ea34a6",
@@ -83847,14 +83829,6 @@
       "validThrough": "2027-01-01T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "reinigungspersonal-il-team-sa-locarno-56ea34a6"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "reinigungspersonal-il-team-sa-locarno-56ea34a6"
-        ]
-      },
       "firstSeenAt": "2026-11-10T09:36:06.423Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -83885,7 +83859,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldReleasedAt": "2026-11-10T15:19:23.627Z"
+      "translationHoldReleasedAt": "2026-11-10T15:19:23.627Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "impiegato-di-pulizie-il-team-sa-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-di-pulizie-il-team-sa-locarno"
+      ]
     },
     {
       "id": "seco-jobroom-59d039fd-1bbe-4135-a57c-223ff4a4b75c",
@@ -86922,9 +86904,9 @@
       "slug": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
       "slugByLocale": {
         "it": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
-        "en": "pittore-cappottista-das-team-ag-ligornetto",
-        "de": "pittore-cappottista-das-team-ag-ligornetto",
-        "fr": "pittore-cappottista-das-team-ag-ligornetto"
+        "en": "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
+        "de": "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
+        "fr": "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
       },
       "slugDisambiguator": "acb3823c",
       "company": "das team ag",
@@ -86970,22 +86952,20 @@
       "validThrough": "2027-01-01T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
-        "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
-        "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
-      ],
       "previousSlugsByLocale": {
-        "en": [
-          "external-insulation-painter-das-team-ag-ligornetto-acb3823c"
-        ],
         "de": [
-          "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
+        ],
+        "en": [
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "fr": [
-          "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ]
       },
+      "previousSlugs": [
+        "pittore-cappottista-das-team-ag-ligornetto"
+      ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -95843,9 +95823,9 @@
       "slug": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
       "slugByLocale": {
         "it": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "en": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "de": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "fr": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+        "en": "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "de": "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "fr": "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
       },
       "slugDisambiguator": "1aa6bc44",
       "company": "il team sa",
@@ -95891,22 +95871,20 @@
       "validThrough": "2026-12-29T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
-      ],
       "previousSlugsByLocale": {
-        "en": [
-          "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44"
-        ],
         "de": [
-          "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+        ],
+        "en": [
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "fr": [
-          "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ]
       },
+      "previousSlugs": [
+        "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+      ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -96096,9 +96074,9 @@
       "slug": "pittore-il-team-sa-bellinzona-23db02a3",
       "slugByLocale": {
         "it": "pittore-il-team-sa-bellinzona-23db02a3",
-        "en": "pittore-il-team-sa-bellinzona",
-        "de": "pittore-il-team-sa-bellinzona",
-        "fr": "pittore-il-team-sa-bellinzona"
+        "en": "painter-il-team-sa-bellinzona-23db02a3",
+        "de": "maler-il-team-sa-bellinzona-23db02a3",
+        "fr": "peintre-il-team-sa-bellinzona-23db02a3"
       },
       "slugDisambiguator": "23db02a3",
       "company": "il team sa",
@@ -96147,19 +96125,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "en": [
-          "painter-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "fr": [
-          "peintre-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-bellinzona-23db02a3",
-        "painter-il-team-sa-bellinzona-23db02a3",
-        "peintre-il-team-sa-bellinzona-23db02a3"
+        "pittore-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -98835,7 +98811,7 @@
       "slugByLocale": {
         "it": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
         "en": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
-        "de": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona",
+        "de": "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1",
         "fr": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1"
       },
       "slugDisambiguator": "70e2e8c1",
@@ -98883,14 +98859,14 @@
       "validThrough": "2026-12-29T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
-      ],
       "previousSlugsByLocale": {
         "de": [
-          "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+          "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
         ]
       },
+      "previousSlugs": [
+        "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
+      ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -99327,9 +99303,9 @@
       "slug": "aiuto-pittore-il-team-sa-grancia-8178d34c",
       "slugByLocale": {
         "it": "aiuto-pittore-il-team-sa-grancia-8178d34c",
-        "en": "aiuto-pittore-il-team-sa-grancia",
-        "de": "aiuto-pittore-il-team-sa-grancia",
-        "fr": "aiuto-pittore-il-team-sa-grancia"
+        "en": "help-painter-il-team-sa-grancia-8178d34c",
+        "de": "malerhilfe-il-team-sa-grancia-8178d34c",
+        "fr": "aide-peintre-il-team-sa-grancia-8178d34c"
       },
       "slugDisambiguator": "8178d34c",
       "company": "il team sa",
@@ -99375,22 +99351,20 @@
       "validThrough": "2026-12-29T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerhilfe-il-team-sa-grancia-8178d34c",
-        "help-painter-il-team-sa-grancia-8178d34c",
-        "aide-peintre-il-team-sa-grancia-8178d34c"
-      ],
       "previousSlugsByLocale": {
-        "en": [
-          "help-painter-il-team-sa-grancia-8178d34c"
-        ],
         "de": [
-          "malerhilfe-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
+        ],
+        "en": [
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "fr": [
-          "aide-peintre-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ]
       },
+      "previousSlugs": [
+        "aiuto-pittore-il-team-sa-grancia"
+      ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -111461,7 +111435,6 @@
       "validThrough": "2026-12-28T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -116396,9 +116369,9 @@
       "slug": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
-        "en": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "de": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "fr": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+        "en": "construction-worker-il-team-sa-bellinzona-7f00910d",
+        "de": "bauarbeiter-il-team-sa-bellinzona-7f00910d",
+        "fr": "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
       },
       "slugDisambiguator": "7f00910d",
       "company": "il team sa",
@@ -116445,22 +116418,20 @@
       "validThrough": "2026-12-28T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bauarbeiter-il-team-sa-bellinzona-7f00910d",
-        "construction-worker-il-team-sa-bellinzona-7f00910d",
-        "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
-      ],
       "previousSlugsByLocale": {
-        "en": [
-          "construction-worker-il-team-sa-bellinzona-7f00910d"
-        ],
         "de": [
-          "bauarbeiter-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+        ],
+        "en": [
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "fr": [
-          "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ]
       },
+      "previousSlugs": [
+        "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+      ],
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -127264,9 +127235,9 @@
       "slug": "pittore-il-team-sa-solduno-d6cbdc66",
       "slugByLocale": {
         "it": "pittore-il-team-sa-solduno-d6cbdc66",
-        "en": "pittore-il-team-sa-solduno",
-        "de": "pittore-il-team-sa-solduno",
-        "fr": "pittore-il-team-sa-solduno"
+        "en": "painter-il-team-sa-solduno-d6cbdc66",
+        "de": "maler-il-team-sa-solduno-d6cbdc66",
+        "fr": "peintre-il-team-sa-solduno-d6cbdc66"
       },
       "slugDisambiguator": "d6cbdc66",
       "company": "il team sa",
@@ -127314,19 +127285,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "en": [
-          "painter-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "fr": [
-          "peintre-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-solduno-d6cbdc66",
-        "painter-il-team-sa-solduno-d6cbdc66",
-        "peintre-il-team-sa-solduno-d6cbdc66"
+        "pittore-il-team-sa-solduno"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -139206,9 +139175,9 @@
       "slug": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
       "slugByLocale": {
         "it": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
-        "en": "lagermitarbeiter-conforama-suisse-sa-chur",
+        "en": "warehouse-employees-conforama-suisse-sa-chur-6d96af81",
         "de": "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "fr": "lagermitarbeiter-conforama-suisse-sa-chur"
+        "fr": "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81"
       },
       "slugDisambiguator": "6d96af81",
       "company": "Conforama Suisse SA",
@@ -139254,26 +139223,24 @@
       "validThrough": "2026-12-23T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "lagermitarbeiter-conforama-suisse-sa-chur",
-        "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-        "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
+          "lagermitarbeiter-conforama-suisse-sa-chur"
+        ],
         "it": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
           "lagermitarbeiter-conforama-suisse-sa-chur"
         ],
         "en": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-          "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
-        ],
-        "fr": [
-          "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ]
       },
+      "previousSlugs": [
+        "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
+        "lagermitarbeiter-conforama-suisse-sa-chur"
+      ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -173802,7 +173769,6 @@
       "validThrough": "2026-12-08T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T09:36:50.440Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
