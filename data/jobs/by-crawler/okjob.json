@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-f94bf167c463",
-      "slug": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+      "slug": "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
       "slugByLocale": {
         "fr": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
-        "it": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+        "it": "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
         "en": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
-        "de": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+        "de": "maurer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
       },
       "slugDisambiguator": "f94bf167",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,7 +73,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T16:46:33.785Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T16:46:33.785Z"
+      "firstSeenAt": "2026-11-14T16:46:33.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+        ],
+        "de": [
+          "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+        ]
+      },
+      "previousSlugs": [
+        "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+      ]
     },
     {
       "id": "okjob-805d2fab2921",
@@ -149,12 +160,12 @@
     },
     {
       "id": "okjob-044f3c12e823",
-      "slug": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+      "slug": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
       "slugByLocale": {
         "fr": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "it": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "en": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "de": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        "it": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+        "en": "road-builder-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+        "de": "stra-enbauer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
       },
       "slugDisambiguator": "044f3c12",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -217,7 +228,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T16:46:33.781Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T16:46:33.781Z"
+      "firstSeenAt": "2026-11-14T16:46:33.781Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        ],
+        "en": [
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        ],
+        "de": [
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+      ]
     },
     {
       "id": "okjob-936c22cd484d",

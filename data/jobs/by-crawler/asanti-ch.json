@@ -88,12 +88,12 @@
     },
     {
       "id": "asanti-ch-133a914c12f0",
-      "slug": "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich",
+      "slug": "responsabile-dell-amministrazione-con-buone-conoscenze-dell-italiano-100-asanti-ag-region-zurich",
       "slugByLocale": {
-        "it": "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich",
-        "en": "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-zurich",
         "de": "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
-        "fr": "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-zurich"
+        "it": "responsabile-dell-amministrazione-con-buone-conoscenze-dell-italiano-100-asanti-ag-region-zurich",
+        "en": "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-region-zurich",
+        "fr": "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-region-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -137,17 +137,23 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
+          "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich"
         ],
         "en": [
-          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
+          "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-zurich"
         ],
         "fr": [
-          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+          "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
+          "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch"
+        "leiter-in-administration-mit-guten-italienischkenntnissen-100-region-zurich-asanti-ch-ch",
+        "leiter-in-administration-con-guten-italienischkenntnissen-100-asanti-ag-zurich",
+        "head-of-administration-with-good-knowledge-of-italian-100-asanti-ag-zurich",
+        "responsable-de-l-administration-avec-de-bonnes-connaissances-en-italien-100-asanti-ag-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
