@@ -3380,7 +3380,9 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(retryPreparation.run).toContain(
         '[ "$common_git_dir" = "$git_dir" ] && common_git_dir=""',
       );
-      expect(retryPreparation.run).toContain('find "$common_git_dir" -type f -name "*.lock" -print0');
+      expect(retryPreparation.run).toContain(
+        'find "$common_git_dir" -path "$common_git_dir/worktrees" -prune -o -type f -name "*.lock" -print0',
+      );
       expect(retryPreparation.run).toContain('cat "$git_dir/gitdir"');
       expect(retryPreparation.run).not.toContain(
         'if [ -L "$workspace/.git" ] || [ "$git_dir" != "$workspace/.git" ]; then',
