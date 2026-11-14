@@ -242,19 +242,22 @@ describe('which content is forwarded to the candidate', () => {
     ['an assessment', 'Your application', 'Please complete your application by completing the online test within five days.', { category: 'assessment' }, true],
     ['a question for the candidate', 'Your application', 'Your application is incomplete. Are you available for a call next week?', {}, true],
     ['a request to call back', 'Ihre Bewerbung', 'Ihre Bewerbung ist noch unvollständig. Bitte rufen Sie mich zurück.\n\nErika Beispiel', {}, true],
-    ['a redirect to the employer’s portal', 'Your application', 'Thank you for your interest. Please submit your application through our online portal.', {}, true],
+    ['a redirect to the employer’s portal', 'Your application', 'Thank you for your interest. Please submit your application through our online portal.', {}, 'employer_platform_redirect'],
     ['a general rule about incomplete applications', 'Hinweis', 'Unvollständige Bewerbungen werden nicht berücksichtigt.', { needsReply: false }, false],
     ['a human receipt without a candidate action', 'Ihre Bewerbung', 'Vielen Dank für Ihre Bewerbung. Wir haben Ihre Bewerbung erhalten.', { category: 'auto_acknowledgement', needsReply: false }, false],
-  ])('%s', async (_name, subject, text, model, shouldForward) => {
+  ])('%s', async (_name, subject, text, model, expected) => {
     expect(remindsOf(mail({ subject, text }), answer(model))).toBe(false);
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject, text }), model: answer(model) });
     expect(inbox.portalApplicationReminder).toBeUndefined();
-    if (shouldForward) {
+    if (expected === true) {
       expect(inbox.forwarded).toMatchObject({ status: 'sent' });
       expect(sendCascade).toHaveBeenCalledTimes(1);
     } else {
-      expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'not_candidate_action' });
+      expect(inbox.forwarded).toMatchObject({
+        status: 'skipped',
+        reason: expected === 'employer_platform_redirect' ? expected : 'not_candidate_action',
+      });
       expect(sendCascade).not.toHaveBeenCalled();
     }
     expect(events(store)).toEqual([]);

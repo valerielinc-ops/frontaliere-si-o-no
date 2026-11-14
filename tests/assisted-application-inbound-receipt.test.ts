@@ -253,7 +253,10 @@ describe('what still reaches the candidate', () => {
     expect(receiptOf(mail(), answer({ category: 'other' }))).toBe(false);
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), model: answer({ category: 'other' }) });
-    expect(inbox).toMatchObject({ category: 'other', correlationStatus: 'unknown', ownerReviewRequired: true, forwarded: { status: 'skipped', reason: 'owner_review' } });
+    expect(inbox).toMatchObject({
+      category: 'other', correlationStatus: 'unknown', portalNoticeKind: 'automatic_application_receipt', portalNoticeHeld: true,
+      forwarded: { status: 'skipped', reason: 'application_receipt' },
+    });
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
