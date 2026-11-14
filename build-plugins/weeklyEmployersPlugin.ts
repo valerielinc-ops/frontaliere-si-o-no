@@ -38,6 +38,7 @@ import {
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -134,6 +135,7 @@ import {
   slugifyEmployer,
 } from './shared/employerLinks';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import {
   renderEmployerCardListHtml,
@@ -4101,14 +4103,12 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   const mainPath = np.join(dataDir, 'jobs.json');
   if (fs.existsSync(mainPath)) {
     try {
-      const raw = JSON.parse(fs.readFileSync(mainPath, 'utf-8'));
-      if (Array.isArray(raw)) {
-        for (const j of raw) {
-          const key = String(j?.slug || j?.id || '');
-          if (key && !seen.has(key)) {
-            seen.add(key);
-            out.push(j as WeeklyCountableJob);
-          }
+      for (const value of iterateJsonArrayFile(mainPath)) {
+        const j = value as WeeklyCountableJob;
+        const key = String(j?.slug || j?.id || '');
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          out.push(j);
         }
       }
     } catch (err) {
@@ -4120,10 +4120,11 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
   if (fs.existsSync(sliceDir)) {
     for (const file of listSliceFileNames(sliceDir)) {
       try {
-        const raw = JSON.parse(fs.readFileSync(np.join(sliceDir, file), 'utf-8'));
-        const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;
-        if (!Array.isArray(jobs)) continue;
-        for (const j of jobs as WeeklyCountableJob[]) {
+        // Slices grow independently of the assembled corpus. Keep this
+        // reader item-wise too so one large employer slice cannot create a
+        // second full string + array copy during the SEO build.
+        for (const value of iterateJsonArrayFile(np.join(sliceDir, file))) {
+          const j = value as WeeklyCountableJob;
           // Held out of publication for translation (agency admission
           // threshold): not on the site, so not in its counts either.
           if (isHeldFromPublication(j)) continue;

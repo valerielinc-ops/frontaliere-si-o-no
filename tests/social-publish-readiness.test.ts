@@ -21,6 +21,9 @@ import {
   isExternalWait,
   isActionable,
   formatVerdictTable,
+  latestConfirmedPostMs,
+  readyChannelsNeedingActivation,
+  READY_POST_MAX_AGE_HOURS,
   READY,
   ACTION_REQUIRED,
   AWAITING_EXTERNAL_APPROVAL,
@@ -298,5 +301,40 @@ describe('classifyAll / actionableChannels', () => {
     const lines = formatVerdictTable(classifyAll({ env: {}, probes: {} })).split('\n');
     expect(lines).toHaveLength(3);
     expect(lines.every((l) => /\S/.test(l))).toBe(true);
+  });
+
+  it('does not reopen activation for a ready channel with a recent confirmed ledger post', () => {
+    const now = Date.now();
+    const verdicts = classifyAll({
+      env: {
+        SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+        SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+      },
+    });
+    const recent = new Date(now - 12 * 60 * 60 * 1000).toISOString();
+    const ledgers = {
+      instagram: { posted: [{ id: 'ig-post', ts: recent }] },
+      tiktok: { posted: [{ id: 'tt-post', ts: recent }] },
+    };
+
+    expect(latestConfirmedPostMs(ledgers.instagram)).toBe(Date.parse(recent));
+    expect(readyChannelsNeedingActivation(verdicts, ledgers, { now })).toEqual([]);
+  });
+
+  it('keeps the activation alert fail-closed for a missing, stale, or timestamp-less ledger', () => {
+    const now = Date.now();
+    const verdicts = classifyAll({
+      env: {
+        SOCIAL_ROBOT_INSTAGRAM_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+        SOCIAL_ROBOT_TIKTOK_BROWSER_PUBLISHING_OWNER_APPROVED: 'true',
+      },
+    });
+    const stale = new Date(now - (READY_POST_MAX_AGE_HOURS + 1) * 60 * 60 * 1000).toISOString();
+    const pending = readyChannelsNeedingActivation(verdicts, {
+      instagram: { posted: [{ id: 'stale', ts: stale }] },
+      tiktok: { posted: [{ id: 'legacy-no-time' }] },
+    }, { now });
+
+    expect(pending.map((v) => v.channel)).toEqual(['instagram', 'tiktok']);
   });
 });
