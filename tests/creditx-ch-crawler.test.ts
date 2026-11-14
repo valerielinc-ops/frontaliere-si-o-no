@@ -6,12 +6,21 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/creditx-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('CreditX Sàrl crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(CREDITX_CH_KEY).toBe('creditx-ch');
     expect(CREDITX_CH_COMPANY_NAME).toBe('CreditX Sàrl');
+  });
+
+  it('uses the active French careers seed while retaining canonical detail links', () => {
+    const spec = loadSpec(CREDITX_CH_KEY);
+
+    expect(spec.seedUrls).toEqual(['https://creditx.ch/fr/careers/']);
+    expect(spec.sourceLang).toBe('fr');
+    expect(templateToRegex(spec.detailTemplate).test('/careers/relationship-manager-junior-sion')).toBe(true);
   });
 
   // ── isCompanyJob ──
