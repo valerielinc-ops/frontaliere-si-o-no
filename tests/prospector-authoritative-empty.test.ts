@@ -4,8 +4,8 @@ import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 const SEED_URL = 'https://eqe.example/unternehmen-2/karriere';
-const EMPTY_MARKER = 'Im Moment haben wir keine offenen Stellen.';
-const EMPTY_HTML = `<html><body><h1>Current Vacancies</h1><p>${EMPTY_MARKER}</p></body></html>`;
+const EMPTY_MARKER = "We don't have any open positions at the moment";
+const EMPTY_HTML = `<html><body><h1>Current Vacancies</h1><p>${EMPTY_MARKER.replace("'", '&#x27;')}</p></body></html>`;
 
 function response(url: string, body: string) {
   return {

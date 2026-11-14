@@ -493,7 +493,7 @@ function configuredEmptyListingOutcome(spec) {
 function matchesConfiguredAuthoritativeEmptyText(spec, html) {
   const marker = String(spec?.authoritativeEmptyText || '').replace(/\s+/g, ' ').trim().toLowerCase();
   if (!marker) return false;
-  const sourceText = textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
+  const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
   return sourceText.includes(marker);
 }
 
