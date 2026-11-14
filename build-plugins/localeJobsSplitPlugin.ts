@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import {
  buildLocaleJob,
@@ -14,6 +14,7 @@ import {
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
+import { setJobCanonOrderingFields } from './shared/jobCanonInputs';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -96,13 +97,27 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
 
- const rawJobs: JobEntry[] = readJsonFile(dataJobsPath);
- if (!Array.isArray(rawJobs)) return 0;
-
  // Strip fixture-data records (e.g. "Fixture Corp SA" seed) so they cannot
  // leak into dist/data/jobs-*.json or dist/data/job-detail/*.json.
- const jobs = rawJobs.filter((j) => !isFixtureJobEntry(j) && isListingInventoryJob(j)).map(normalizeListingIdentity);
- const dropped = rawJobs.length - jobs.length;
+ // Keep only the normalized records needed by the downstream projections:
+ // the source array itself is never retained alongside this build state.
+ const jobs: JobEntry[] = [];
+ let dropped = 0;
+ for (const value of iterateJsonArrayFile(dataJobsPath)) {
+   if (!value || typeof value !== 'object') {
+     dropped += 1;
+     continue;
+   }
+   const job = value as JobEntry;
+   if (isFixtureJobEntry(job) || !isListingInventoryJob(job)) {
+     dropped += 1;
+     continue;
+   }
+   jobs.push(normalizeListingIdentity(job));
+ }
+ // The /job-canon plugin runs later in this Vite process. Keep only the stable
+ // sort fields it needs; datePosted/firstSeenAt stay out of the public slug map.
+ setJobCanonOrderingFields(jobs);
  if (dropped > 0) {
  console.log(`[locale-jobs-split] Filtered ${dropped} fixture or ineligible listing job(s) before locale split`);
  }

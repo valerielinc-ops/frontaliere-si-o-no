@@ -39,7 +39,7 @@ export function paginationRobots(page: number): 'index,follow' | 'noindex,follow
 
 /** Only the first page of a listing may appear in a sitemap. */
 export function isPaginationSitemapEligible(page: number): boolean {
-  return !(Number.isFinite(page) && page >= 2);
+  return Number.isInteger(page) && page === 1;
 }
 
 /**

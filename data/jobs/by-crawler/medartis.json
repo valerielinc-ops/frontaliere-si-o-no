@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-13T09:37:51.127Z",
-  "runId": "43400567795",
+  "assembledAt": "2026-11-13T21:44:43.949Z",
+  "runId": "43509898687",
   "jobs": [
     {
       "id": "medartis-4bb51ef9dc30",
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:37:44.474Z",
+      "crawledAt": "2026-11-13T21:44:33.150Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:37:44.474Z",
+      "validThrough": "2027-02-08T21:44:33.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:37:43.638Z",
+      "crawledAt": "2026-11-13T21:44:35.587Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -158,7 +158,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:37:43.638Z",
+      "validThrough": "2026-12-18T21:44:35.587Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -166,7 +166,7 @@
       "slug": "fp-a-and-digitalization-manager-medartis-basel",
       "slugByLocale": {
         "it": "fp-a-and-digitalization-manager-medartis-basel",
-        "en": "fp-a-and-digitalization-manager-medartis-basel",
+        "en": "fp-a-and-digitalisation-manager-medartis-basel",
         "de": "fp-a-and-digitalization-manager-medartis-basel",
         "fr": "gestionnaire-des-fp-a-et-de-la-numerisation-medartis-basel"
       },
@@ -229,7 +229,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:37:42.457Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

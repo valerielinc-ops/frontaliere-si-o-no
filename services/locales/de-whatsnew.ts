@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+  'whatsNew.v31022.title': 'Mehr Kontrolle über Bewerbungs-E-Mails',
+  'whatsNew.v31022.inbound-forward.title': 'Nachrichten bei nötiger Aktion weiterleiten',
+  'whatsNew.v31022.inbound-forward.desc': 'Automatische Eingangsbestätigungen und Portalhinweise bleiben in Application Concierge. Nachrichten, die eine Aktion des Kandidaten erfordern, werden weitergeleitet; unklare automatische Mitteilungen werden vor dem Versand geprüft.',
   'whatsNew.v31021.title': 'Lebenslauf-Kompetenzen für weitere Stellen nutzen',
   'whatsNew.v31021.cv-affinity.title': 'Lebenslauf hochladen und Kompetenzen vergleichen',
   'whatsNew.v31021.cv-affinity.desc': 'Dein Lebenslauf bleibt in deinem privaten Profil. Du kannst extrahierte Kompetenzen prüfen und bearbeiten, bei weiteren Stellen verwenden und sie auf Wunsch zur besseren Sortierung deiner Job Alerts freigeben.',

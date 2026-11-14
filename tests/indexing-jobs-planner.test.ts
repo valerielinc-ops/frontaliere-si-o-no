@@ -72,7 +72,7 @@ describe('sitemap parsing', () => {
     ]);
   });
   it('keeps the job sitemap family from the index, never the expired one', () => {
-    const idx = ['sitemap-blog.xml', 'sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-expired.xml', 'sitemap-job-market.xml']
+    const idx = ['sitemap-blog.xml', 'sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-expired.xml', 'sitemap-jobs-expired-001.xml', 'sitemap-job-market.xml']
       .map((f) => `<sitemap><loc>${S}/${f}</loc></sitemap>`).join('');
     expect(parseJobSitemapIndex(idx)).toEqual([`${S}/sitemap-jobs.xml`, `${S}/sitemap-jobs-ticino.xml`]);
   });

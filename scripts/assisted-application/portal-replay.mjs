@@ -83,14 +83,55 @@ const PORTAL_REPLAY_OTHER_ALLOWED_PATHS = Object.freeze([
   'scripts/assisted-application/nopecha-e2e.mjs',
   'scripts/assisted-application/install-nopecha.sh',
   'scripts/assisted-application/portal-replay.mjs',
-  'functions/src/lib/',
-  'packages/',
+  // Keep generic shared directories closed: only modules in the replay import
+  // cone may admit the expensive portal matrix.
+  'scripts/lib/ai-models.mjs',
+  'scripts/lib/bounded-response-body.mjs',
+  'scripts/lib/codex-fallback-contract.mjs',
+  'scripts/lib/detect-language.mjs',
+  'scripts/lib/ensure-chromium.mjs',
+  'scripts/lib/gh-models-endpoint.mjs',
+  'scripts/lib/jina-proxy.mjs',
+  'scripts/lib/pdf-job-content.mjs',
+  'scripts/lib/source-body-failure.mjs',
+  'scripts/lib/source-body-floor.mjs',
+  'scripts/lib/transient-fetch.mjs',
+  'functions/src/assistedApplicationAiJob.js',
+  'functions/src/applicationConciergeConstants.js',
+  'functions/src/emailWorkerName.js',
+  'functions/src/remoteConfigSecrets.js',
+  'functions/src/lib/addressContextContract.js',
+  'functions/src/lib/answerRules.js',
+  'functions/src/lib/applicationConsent.js',
+  'functions/src/lib/assistedApplicationDocumentKind.js',
+  'functions/src/lib/assistedApplicationQuestionConstraints.js',
+  'functions/src/lib/candidateAnswerFacts.js',
+  'functions/src/lib/cvPeriod.js',
+  'functions/src/lib/documentQuestions.js',
+  'functions/src/lib/employerFacts.js',
+  'functions/src/lib/evidenceCrypto.js',
+  'functions/src/lib/honestGap.js',
+  'functions/src/lib/identityEmail.js',
+  'functions/src/lib/languageFacts.js',
+  'functions/src/lib/numberDateMentions.js',
+  'functions/src/lib/permitLabels.js',
+  'functions/src/lib/permitStatus.js',
+  'functions/src/lib/personalFacts.js',
+  'functions/src/lib/phoneNormalization.js',
+  'functions/src/lib/portalNativeContract.js',
+  'functions/src/lib/portalQuestionMapping.js',
+  'functions/src/lib/portalQuestionText.js',
+  'functions/src/lib/postingGuard.js',
+  'functions/src/lib/submissionReceiptContract.js',
+  'functions/src/lib/toolVocabulary.js',
+  'functions/src/lib/unknownAnswer.js',
+  'functions/src/lib/workHistoryContext.js',
+  'functions/src/lib/workloadQuestion.js',
   'package.json',
   'package-lock.json',
   '.github/workflows/assisted-application-portal-e2e.yml',
   '.github/workflows/assisted-application-portal-recovery.yml',
   '.github/workflows/assisted-application-portal-replay.yml',
-  'functions/src/lib/applicationConsent.js',
 ]);
 export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   ...PORTAL_REPLAY_OTHER_ALLOWED_PATHS,
@@ -234,13 +275,14 @@ export function affectedPortalReplayFamilies(pathsOrDiff) {
   const families = new Set();
   let sharedRunnerPathChanged = false;
   for (const value of paths) {
-    const file = normalizedPortalReplayPath(value).toLowerCase();
+    const originalFile = String(value || '').replace(/^\//u, '');
+    const file = originalFile.toLowerCase();
     const matchedFamilies = Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)
       .filter(([, hints]) => hints.some((hint) => file.includes(hint)))
       .map(([family]) => family);
     if (matchedFamilies.length) {
       for (const family of matchedFamilies) families.add(family);
-    } else if (portalReplayPathScope(file)) {
+    } else if (isPortalReplayAffectedPath(originalFile)) {
       sharedRunnerPathChanged = true;
     }
   }

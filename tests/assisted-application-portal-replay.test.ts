@@ -14,6 +14,7 @@ import {
   aggregatePortalReplayGate,
   comparePortalReplayFamily,
   extractPortalStopHosts,
+  PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
   portalReplayPathScope,
   sanitizePortalReplayReport,
@@ -383,7 +384,6 @@ describe('portal replay corpus', () => {
       'functions/src/assistedApplicationAnswerEvidence.js',
       'functions/src/lib/permitStatus.js',
       'package-lock.json',
-      'packages/portal-runner/index.mjs',
       'scripts/assisted-application/agent.mjs',
       'scripts/assisted-application/lib/liveness.mjs',
       'scripts/assisted-application/lib/portal/agent.mjs',
@@ -395,9 +395,20 @@ describe('portal replay corpus', () => {
       'scripts/assisted-application/lib/submit.mjs',
     ]);
     expect(affectedPortalReplayPaths('scripts/lib/molecular-partners-job-parser.mjs')).toEqual([]);
+
+    const unrelatedSharedDirectories = [
+      'diff --git a/.github/workflows/social-publish-readiness-watch.yml b/.github/workflows/social-publish-readiness-watch.yml',
+      'diff --git a/scripts/check-social-publish-readiness.mjs b/scripts/check-social-publish-readiness.mjs',
+      'diff --git a/scripts/lib/social-readiness.mjs b/scripts/lib/social-readiness.mjs',
+      'diff --git a/functions/src/lib/unrelated-site-helper.js b/functions/src/lib/unrelated-site-helper.js',
+      'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
+      'diff --git a/tests/social-publish-readiness.test.ts b/tests/social-publish-readiness.test.ts',
+    ].join('\n');
+    expect(affectedPortalReplayPaths(unrelatedSharedDirectories)).toEqual([]);
   });
 
   it('limits family replay to family-specific paths and expands shared paths to all families', () => {
+    expect(PORTAL_REPLAY_ALLOWED_PATHS).toContain('functions/src/assistedApplicationAiJob.js');
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/workday-route.mjs'])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/successfactors-route.mjs'])).toEqual(['successfactors']);
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/lib/portal/portal.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
@@ -408,6 +419,11 @@ describe('portal replay corpus', () => {
     ])).toEqual(['workday']);
     expect(affectedPortalReplayFamilies(['scripts/lib/ats-adapters/index.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/lib/ensure-chromium.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies([
+      'functions/src/assistedApplicationAiJob.js',
+      'functions/src/lib/permitStatus.js',
+      'functions/src/assistedApplicationAnswerEvidence.js',
+    ])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
     expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 
