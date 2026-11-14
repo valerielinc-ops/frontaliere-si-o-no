@@ -201,6 +201,7 @@ async function main() {
   const indexStore = createJobFeatureStore();
   const legacyMs = [];
   const indexMs = [];
+  const indexSteadyMs = [];
   const legacyRows = [];
   const indexRows = [];
   const strategies = {};
@@ -232,6 +233,7 @@ async function main() {
       recentJobs: selector(windowOptions).jobs,
     });
     const legacyElapsed = performance.now() - started;
+    const vocabularyBefore = index.stats().searchVocabularyBuildMs;
     started = performance.now();
     const indexed = planAlertMatch(alert, {
       ...context,
@@ -240,16 +242,23 @@ async function main() {
       candidateCursorMs: cursor.cursorMs,
     });
     const indexElapsed = performance.now() - started;
+    // Il vocabolario di prefissi della ricerca si costruisce UNA volta per locale
+    // alla prima ricerca: lo si separa, perche' una run vera lo ammortizza su
+    // migliaia di alert e il bench ne ha poche centinaia.
+    const vocabularyDelta = index.stats().searchVocabularyBuildMs - vocabularyBefore;
+    const indexSteadyElapsed = indexElapsed - vocabularyDelta;
+    indexSteadyMs.push(indexSteadyElapsed);
     legacyMs.push(legacyElapsed);
     indexMs.push(indexElapsed);
     legacyRows.push(legacy ? legacy.scoredRows : 0);
     indexRows.push(indexed.scoredRows);
     const strategy = indexed.indexStrategy || 'n/a';
     strategies[strategy] = (strategies[strategy] || 0) + 1;
-    const bucket = (byStrategy[strategy] ||= { alerts: 0, legacyMs: 0, indexMs: 0, legacyRows: 0, indexRows: 0 });
+    const bucket = (byStrategy[strategy] ||= { alerts: 0, legacyMs: 0, indexMs: 0, indexSteadyMs: 0, legacyRows: 0, indexRows: 0 });
     bucket.alerts += 1;
     bucket.legacyMs += legacyElapsed;
     bucket.indexMs += indexElapsed;
+    bucket.indexSteadyMs += indexSteadyElapsed;
     bucket.legacyRows += legacy ? legacy.scoredRows : 0;
     bucket.indexRows += indexed.scoredRows;
     legacySeconds += legacyElapsed / 1000;
@@ -280,6 +289,7 @@ async function main() {
       alerts: b.alerts,
       legacyMsPerAlert: Number((b.legacyMs / b.alerts).toFixed(1)),
       indexMsPerAlert: Number((b.indexMs / b.alerts).toFixed(1)),
+      indexSteadyMsPerAlert: Number((b.indexSteadyMs / b.alerts).toFixed(1)),
       legacyRowsPerAlert: Math.round(b.legacyRows / b.alerts),
       indexRowsPerAlert: Math.round(b.indexRows / b.alerts),
     }])),
@@ -295,9 +305,13 @@ async function main() {
     console.log(`  accelerazione totale ${result.speedup}x (costruzione compresa), righe valutate -${result.rowsReductionPct}%`);
     console.log(`  strategie: ${JSON.stringify(strategies)}`);
     for (const [name, b] of Object.entries(result.byStrategy)) {
-      console.log(`    ${name.padEnd(13)} ${String(b.alerts).padStart(4)} alert · legacy ${b.legacyMsPerAlert} ms (${b.legacyRowsPerAlert} righe) → indice ${b.indexMsPerAlert} ms (${b.indexRowsPerAlert} righe)`);
+      console.log(`    ${name.padEnd(13)} ${String(b.alerts).padStart(4)} alert · legacy ${b.legacyMsPerAlert} ms (${b.legacyRowsPerAlert} righe) → indice ${b.indexMsPerAlert} ms, ${b.indexSteadyMsPerAlert} ms al netto del vocabolario (${b.indexRowsPerAlert} righe)`);
     }
-    console.log(`  bitset: ${JSON.stringify(result.bitsets)}`);
+    const { searchVocabulary, ...bitsetStats } = result.bitsets;
+    console.log(`  bitset: ${JSON.stringify(bitsetStats)}`);
+    for (const [locale, v] of Object.entries(searchVocabulary || {})) {
+      console.log(`  vocabolario ricerca [${locale}]: ${v.words} parole, ${v.postings} posting, ${(v.typed / 1048576).toFixed(2)} MiB tipizzati + ~${((v.total - v.typed) / 1048576).toFixed(2)} MiB di stringhe = ~${(v.total / 1048576).toFixed(2)} MiB, costruito in ${v.buildMs} ms (una volta per run)`);
+    }
     console.log(`  piani diversi: ${mismatches}`);
   }
   if (mismatches > 0) process.exit(1);

@@ -909,7 +909,7 @@ export function keywordInTextParts(titleText, descriptionText, keyword) {
     || keywordAcrossTextJoin(titleText, descriptionText, keyword);
 }
 
-function searchHaystack(job, features, locale) {
+export function searchHaystack(job, features, locale) {
   const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
   const cantonNames = cantonSearchTokens(job.canton);
   const title = job.titleByLocale?.[locale] || job.title;

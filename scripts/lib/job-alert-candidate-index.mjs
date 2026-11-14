@@ -47,6 +47,7 @@ import {
   paddedLocHaystack,
   paddedLocNeedles,
   pinnedCompanyIdentityKeys,
+  searchHaystack,
 } from '../../services/jobAlertMatching.mjs';
 import { isOpenJobAlertJob, jobInventoryTimestampMs } from './job-alert-newness.mjs';
 import { isCanaryJob } from './canaryAd.mjs';
@@ -205,6 +206,112 @@ function createBitsetCache(budgetBytes) {
       }
       return built;
     },
+  };
+}
+
+// ── Vocabolario di prefissi per la ricerca ──────────────────────────────
+
+/**
+ * Primo indice `i` di `sorted` con `sorted[i] >= value` (confronto per unità di
+ * codice UTF-16, lo stesso ordine di `Array.prototype.sort()` senza comparatore).
+ */
+function lowerBoundString(sorted, value) {
+  let lo = 0;
+  let hi = sorted.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >>> 1;
+    if (sorted[mid] < value) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
+}
+
+/**
+ * Vocabolario ordinato `parola → righe` dell'haystack di ricerca di OGNI riga.
+ *
+ * ESATTEZZA. `matchesSearchQuery` con token vale
+ *   `compiled.tokens.every((t) => haystack.includes(' ' + t))`
+ * e l'haystack è `' w1 w2 … '`: le parole stemmate di `buildStemmedHaystack`,
+ * separate da UNO spazio e con spazio iniziale e finale; nessuna parola contiene
+ * uno spazio (si ottengono con `split(' ')`). Un token `t` stemmato non ha spazi
+ * (esce da `normalizeSearchText(query).split(' ')`) e non è vuoto (verificato dal
+ * chiamante). `haystack.includes(' ' + t)` richiede quindi che esista una
+ * posizione in cui compare uno spazio seguito da `t`: lo spazio è un
+ * separatore (o quello iniziale), perciò `t` coincide con l'INIZIO di una parola
+ * e, non contenendo spazi, sta tutto dentro quella parola. Equivale a «esiste
+ * una parola dell'haystack che inizia con `t`». Le parole che iniziano con `t`
+ * sono contigue in un elenco ordinato (stesso ordine di `<` fra stringhe): le
+ * trova una ricerca binaria del lower bound di `t`, poi si avanza finché
+ * `startsWith(t)`. Una query è l'AND dei suoi token.
+ *
+ * L'haystack di riga è calcolato con la STESSA `searchHaystack(job,
+ * jobMatchFeatures(job, locale), locale)` dello scorer, non con una copia: se
+ * cambia la composizione del testo cambia anche qui. Le stringhe dell'haystack
+ * sono scartate riga per riga; restano le parole uniche (ordinate), un array di
+ * offset (`Int32Array`, V+1 valori) e le righe per parola (`Int32Array`, in
+ * ordine crescente di riga perché le righe si visitano in ordine).
+ *
+ * @returns {{words: string[], offsets: Int32Array, postings: Int32Array, buildMs: number, bytes: {words: number, wordChars: number, postings: number, typed: number, total: number}}}
+ */
+export function buildSearchVocabulary(rows, locale, haystackOf = searchHaystack) {
+  const startedAt = performance.now();
+  const ids = new Map();
+  let pairWord = new Int32Array(1 << 16);
+  let pairRow = new Int32Array(1 << 16);
+  let pairs = 0;
+  let lastRowOfWord = [];
+  for (let i = 0; i < rows.length; i++) {
+    const job = rows[i];
+    const haystack = haystackOf(job, jobMatchFeatures(job, locale), locale);
+    let start = 0;
+    const length = haystack.length;
+    while (start < length) {
+      let end = haystack.indexOf(' ', start);
+      if (end === -1) end = length;
+      if (end > start) {
+        const word = haystack.slice(start, end);
+        let id = ids.get(word);
+        if (id === undefined) { id = ids.size; ids.set(word, id); lastRowOfWord.push(-1); }
+        if (lastRowOfWord[id] !== i) {
+          lastRowOfWord[id] = i;
+          if (pairs === pairWord.length) {
+            const grownWord = new Int32Array(pairs * 2); grownWord.set(pairWord); pairWord = grownWord;
+            const grownRow = new Int32Array(pairs * 2); grownRow.set(pairRow); pairRow = grownRow;
+          }
+          pairWord[pairs] = id;
+          pairRow[pairs] = i;
+          pairs += 1;
+        }
+      }
+      start = end + 1;
+    }
+  }
+  lastRowOfWord = null;
+
+  const sortedWords = [...ids.keys()].sort();
+  const rankOf = new Int32Array(sortedWords.length);
+  for (let rank = 0; rank < sortedWords.length; rank++) rankOf[ids.get(sortedWords[rank])] = rank;
+  ids.clear();
+
+  const offsets = new Int32Array(sortedWords.length + 1);
+  for (let k = 0; k < pairs; k++) offsets[rankOf[pairWord[k]] + 1] += 1;
+  for (let rank = 0; rank < sortedWords.length; rank++) offsets[rank + 1] += offsets[rank];
+  const cursor = offsets.slice(0, sortedWords.length);
+  const postings = new Int32Array(pairs);
+  for (let k = 0; k < pairs; k++) postings[cursor[rankOf[pairWord[k]]]++] = pairRow[k];
+
+  let wordChars = 0;
+  for (const word of sortedWords) wordChars += word.length;
+  // Stima: ~1 byte/carattere (stringhe a un byte di V8) + ~24 byte di intestazione
+  // e puntatore per parola. I tipizzati sono esatti.
+  const wordBytes = wordChars + sortedWords.length * 24;
+  const typed = offsets.byteLength + postings.byteLength;
+  return {
+    words: sortedWords,
+    offsets,
+    postings,
+    bytes: { words: sortedWords.length, wordChars, postings: pairs, typed, total: typed + wordBytes },
+    buildMs: Math.round(performance.now() - startedAt),
   };
 }
 
@@ -465,20 +572,50 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
   });
 
   /**
-   * Ricerca (`matchesSearchQuery`): costosa (haystack stemmed per riga), quindi
-   * tri-stato e PIGRA. `known` dice quali righe sono state valutate, `hit` il
-   * risultato. Si valutano solo le righe di `need` non ancora note, perché il
-   * chiamante restringe `need` a ciò che altri predicati non hanno già deciso.
-   * Il risultato è valido solo sulle righe di `need`.
+   * Ricerca (`matchesSearchQuery`). L'haystack stemmato di una riga NON dipende
+   * dalla query, quindi non si ricostruisce per ogni coppia (query, riga): alla
+   * prima ricerca di un locale si costruisce UNA volta il vocabolario di prefissi
+   * (`buildSearchVocabulary`, dove sta la dimostrazione di esattezza) e ogni
+   * token diventa l'OR delle posting delle parole con quel prefisso, memoizzato
+   * per tutta la run nella LRU; la query è l'AND dei token.
+   *
+   * Tre casi restano sul percorso per-riga, identico a `matchesSearchQuery`:
+   *  - `tokens.length === 0` (alfabeto non supportato): non è un AND vuoto, è
+   *    `keywordInTextParts` sulla query → `keywordMask`, già esatto;
+   *  - un token vuoto o con uno spazio (non prodotto da `compileSearchQuery`, ma
+   *    non si assume): per-riga, tri-stato e pigro sulle righe di `need`.
+   *
+   * Il risultato del percorso a vocabolario è valido su TUTTE le righe; quello
+   * per-riga solo su `need`. Il chiamante interseca sempre con `need`.
    */
   const compiledQueries = new Map();
+  const searchVocabulary = (locale) => once(`vocab:${locale || ''}`, () => buildSearchVocabulary(rows, locale));
+  const prefixTokenMask = (locale, token) => cache.getOrBuild(`stok:${locale || ''}:${token}`, () => {
+    const vocabulary = searchVocabulary(locale);
+    const bitset = newBitset(words);
+    const { words: vocabularyWords, offsets, postings } = vocabulary;
+    for (let k = lowerBoundString(vocabularyWords, token); k < vocabularyWords.length && vocabularyWords[k].startsWith(token); k++) {
+      for (let p = offsets[k]; p < offsets[k + 1]; p++) setBit(bitset, postings[p]);
+    }
+    return bitset;
+  });
   const searchMask = (locale, query, need) => {
     let compiled = compiledQueries.get(query);
     if (!compiled) { compiled = compileSearchQuery(query); compiledQueries.set(query, compiled); }
-    return lazyMask(`search:${locale || ''}:${query}`, need, (i) => {
-      const job = rows[i];
-      return matchesSearchQuery(compiled, job, jobMatchFeatures(job, locale), locale);
-    });
+    if (compiled.tokens.length === 0) return keywordMask(locale, compiled.query, need);
+    if (compiled.tokens.some((token) => token === '' || token.includes(' '))) {
+      return lazyMask(`search:${locale || ''}:${query}`, need, (i) => {
+        const job = rows[i];
+        return matchesSearchQuery(compiled, job, jobMatchFeatures(job, locale), locale);
+      });
+    }
+    let result = null;
+    for (const token of compiled.tokens) {
+      const mask = prefixTokenMask(locale, token);
+      result = result ? bitsetAnd(result, mask) : mask;
+      if (bitsetIsEmpty(result)) break;
+    }
+    return result;
   };
 
   // ── composizione per alert ──
@@ -657,6 +794,8 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
     select,
     /** Solo per i test: la riga all'indice dato. */
     rowAt: (i) => rows[i],
+    /** Solo per i test: la maschera di `searchMask` su TUTTE le righe. */
+    searchMaskForTest: (locale, query) => searchMask(locale, query, allRows),
     hasBit,
     stats() {
       return {
@@ -667,6 +806,12 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
         bitsetBuilds: cache.stats.builds,
         bitsetHits: cache.stats.hits,
         bitsetEvictions: cache.stats.evictions,
+        searchVocabulary: Object.fromEntries([...lazy.entries()]
+          .filter(([key]) => key.startsWith('vocab:'))
+          .map(([key, value]) => [key.slice(6) || 'base', { ...value.bytes, buildMs: value.buildMs }])),
+        searchVocabularyBuildMs: [...lazy.entries()]
+          .filter(([key]) => key.startsWith('vocab:'))
+          .reduce((sum, [, value]) => sum + value.buildMs, 0),
       };
     },
   };
