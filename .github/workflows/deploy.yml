@@ -2612,19 +2612,9 @@ jobs:
           retention-days: 8
           if-no-files-found: error
 
-      # Save the current shadow snapshot only after the report and history row:
-      # the run-specific key is unique, while restore-keys above picks the
-      # newest prior snapshot on the next run for this locale. Keep this as the
-      # final step in the job: provenance has already captured every
-      # publish-critical outcome, while this cache is only a later-run hint.
-      - name: Save incremental manifest cache
-        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
-        uses: actions/cache/save@v6
-        with:
-          path: .cache/incremental-manifest
-          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
-
-      # Telemetry only, after the cache saves so this run's own entries count.
+      # Telemetry only. It sits just BEFORE the incremental-manifest save, which must
+      # stay the final step of the job (tests/deploy-workflow.test.ts), so the figure
+      # excludes this leg's own new manifest entry (a few MB).
       # The 10 GiB pool evicts the least recently used entry, and on 2026-11-14
       # (9.73 GB in 93 entries) that regularly removed `incremental-manifest-*`,
       # `og-jobs-*` and `deploy-content-manifest-*` before the next build. Without
@@ -2666,6 +2656,18 @@ jobs:
           if awk -v b="$used_bytes" 'BEGIN { exit !(b / 1073741824 >= 9.0) }'; then
             echo "::warning title=Cache pool near the 10 GiB ceiling (${{ matrix.locale }})::${used_gib} GiB in ${count} entries: least recently used entries (incremental-manifest-*, og-jobs-*) are about to be evicted."
           fi
+
+      # Save the current shadow snapshot only after the report and history row:
+      # the run-specific key is unique, while restore-keys above picks the
+      # newest prior snapshot on the next run for this locale. Keep this as the
+      # final step in the job: provenance has already captured every
+      # publish-critical outcome, while this cache is only a later-run hint.
+      - name: Save incremental manifest cache
+        if: always() && hashFiles(format('.cache/incremental-manifest/{0}.jsonl', matrix.locale)) != ''
+        uses: actions/cache/save@v6
+        with:
+          path: .cache/incremental-manifest
+          key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
 
   # ───────────────────────────────────────────────────────────────────────
   # build-history-commit: l'UNICO scrittore di

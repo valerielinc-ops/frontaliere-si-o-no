@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyDeployFailure,
   extractFailurePaths,
+  failedStepKeys,
   failureKey,
   FAILURE_RULES,
   normalizeFailureText,
@@ -118,6 +119,52 @@ describe('classifyDeployFailure', () => {
     expect(classifyDeployFailure({ jobs: undefined as any }).classification).toBe('unknown');
     expect(classifyDeployFailure({ jobs: [null as any] }).classification).toBe('unknown');
     expect(classifyDeployFailure(undefined as any).signature).toBe('no-failed-job');
+  });
+});
+
+describe('several failed jobs', () => {
+  const leg = (id: number, loc: string, step: string, conclusion = 'failure') => ({
+    id, name: `build-locale (${loc})`, status: 'completed', conclusion,
+    steps: [{ name: step, conclusion }],
+  });
+
+  it('describes the run by the leg that died of memory, not by siblings aborted at the barrier', () => {
+    const result = classifyDeployFailure({
+      jobs: [
+        leg(1, 'de', 'Exchange hreflang manifests'),
+        leg(2, 'it', 'Build (BUILD_LOCALE=it)'),
+      ],
+      annotationsByJob: {
+        1: [note('Sibling build-locale (it) failed; aborting the barrier')],
+        2: [note('Process completed with exit code 134.')],
+      },
+    });
+    expect(result.classification).toBe('deterministic');
+    expect(result.step).toBe('Build (BUILD_LOCALE=*)');
+  });
+
+  it('keeps a lost runner as infra over barrier noise', () => {
+    const result = classifyDeployFailure({
+      jobs: [leg(1, 'de', 'Exchange hreflang manifests'), leg(2, 'it', 'Build (BUILD_LOCALE=it)')],
+      annotationsByJob: { 1: [note('barrier aborted')], 2: [note('The hosted runner lost communication with the server.')] },
+    });
+    expect(result.classification).toBe('infra');
+  });
+
+  it('a deterministic defect outranks infra noise in another job', () => {
+    const result = classifyDeployFailure({
+      jobs: [leg(1, 'de', 'Upload artifact'), leg(2, 'it', 'Build (BUILD_LOCALE=it)')],
+      annotationsByJob: { 1: [note('Failed to CreateArtifact')], 2: [note('ERR_STRING_TOO_LONG')] },
+    });
+    expect(result.classification).toBe('deterministic');
+  });
+
+  it('failedStepKeys lists job::step of every failed job from the job list alone', () => {
+    expect(failedStepKeys([
+      leg(1, 'de', 'Exchange hreflang manifests'),
+      leg(2, 'it', 'Build (BUILD_LOCALE=it)'),
+      { id: 3, name: 'prep', status: 'completed', conclusion: 'success', steps: [] },
+    ])).toEqual(['build-locale (*)::Exchange hreflang manifests', 'build-locale (*)::Build (BUILD_LOCALE=*)']);
   });
 });
 

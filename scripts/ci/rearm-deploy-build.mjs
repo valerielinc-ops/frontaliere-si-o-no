@@ -82,6 +82,7 @@ import {
 import {
   classifyDeployFailure,
   extractFailurePaths,
+  failedStepKeys,
   failureKey,
 } from './deploy-failure-classifier.mjs';
 
@@ -822,8 +823,7 @@ function inspectFailureStreak({ repo, workflow, branch, runs, selfRunId, selfCon
     let streak = 1;
     for (const earlier of sequence.slice(1, FAILURE_HISTORY_MAX_RUNS)) {
       if (!earlier.failed) break;
-      const earlierClass = classifyDeployFailure({ jobs: readRunJobs(repo, earlier.id), annotationsByJob: {} });
-      if (failureKey(earlierClass.signature) !== key) break;
+      if (!failedStepKeys(readRunJobs(repo, earlier.id)).includes(key)) break;
       streak += 1;
     }
     return {

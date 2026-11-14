@@ -198,6 +198,39 @@ function matchRule(text, stepName) {
   return null;
 }
 
+function describeJob(job, annotations) {
+  const steps = Array.isArray(job.steps) ? job.steps : [];
+  const failedStep = steps.find((s) => s?.conclusion === 'failure')
+    || steps.find((s) => s?.conclusion === 'timed_out')
+    || null;
+  const hostKill = detectHostKill({ ...job, status: 'completed' }, Number.POSITIVE_INFINITY, 0);
+  const stepName = String((failedStep?.name) || (hostKill?.stuck?.[0]?.name) || '');
+  let firstError = pickFirstError(annotations);
+  if (!firstError && hostKill) firstError = `${HOST_LOSS_MARKER}: ${stepName}`;
+  const timeout = findTimeoutAnnotation(annotations);
+  if (timeout && !firstError) firstError = annotationText(timeout).replace(/\s+/g, ' ').slice(0, MAX_FIRST_ERROR);
+
+  const jobName = stripMatrixIdentity(job.name);
+  const stepKey = stripMatrixIdentity(stepName);
+  const haystack = [firstError, annotations.map(annotationText).join('\n'), stepName, job.name].join('\n');
+  const rule = matchRule(haystack, stepName);
+  const message = normalizeFailureText(firstError).slice(0, MAX_SIGNATURE_PART);
+  return {
+    signature: `${jobName}::${stepKey}::${message}`,
+    classification: rule ? rule.classification : 'unknown',
+    job: jobName,
+    step: stepKey,
+    firstError,
+  };
+}
+
+// When several jobs failed, the run is described by the most informative one: a
+// leg killed by OOM or a lost runner makes its siblings abort at the hreflang
+// barrier with a message that says nothing about the cause. A deterministic
+// defect outranks infra (rerunning would fail the same way), infra outranks
+// unknown; ties keep the API order.
+const CLASSIFICATION_RANK = { deterministic: 0, infra: 1, unknown: 2 };
+
 /**
  * Classify the failure of one deploy run.
  *
@@ -213,38 +246,14 @@ export function classifyDeployFailure({ jobs, annotationsByJob = {} } = {}) {
     // A timed-out/cancelled leg is also a failure verdict for the run.
     const timedOut = list.filter((job) => job?.status === 'completed' && job?.conclusion === 'cancelled'
       && findTimeoutAnnotation(annotationsFor(annotationsByJob, job.id)));
-    // `prep` and the validation jobs are the earliest evidence; keep API order.
-    const job = failed[0] || timedOut[0] || null;
-    if (!job) {
+    const candidates = (failed.length > 0 ? failed : timedOut)
+      .map((job) => describeJob(job, annotationsFor(annotationsByJob, job.id)));
+    if (candidates.length === 0) {
       return { signature: 'no-failed-job', classification: 'unknown', job: '', step: '', firstError: '' };
     }
-
-    const annotations = annotationsFor(annotationsByJob, job.id);
-    const steps = Array.isArray(job.steps) ? job.steps : [];
-    const failedStep = steps.find((s) => s?.conclusion === 'failure')
-      || steps.find((s) => s?.conclusion === 'timed_out')
-      || null;
-    const hostKill = detectHostKill({ ...job, status: 'completed' }, Number.POSITIVE_INFINITY, 0);
-    const stepName = String((failedStep?.name) || (hostKill?.stuck?.[0]?.name) || '');
-    let firstError = pickFirstError(annotations);
-    if (!firstError && hostKill) firstError = `${HOST_LOSS_MARKER}: ${stepName}`;
-    const timeout = findTimeoutAnnotation(annotations);
-    if (timeout && !firstError) firstError = annotationText(timeout).replace(/\s+/g, ' ').slice(0, MAX_FIRST_ERROR);
-
-    const jobName = stripMatrixIdentity(job.name);
-    const stepKey = stripMatrixIdentity(stepName);
-    const haystack = [firstError, annotations.map(annotationText).join('\n'), stepName, job.name].join('\n');
-    const rule = matchRule(haystack, stepName);
-    const classification = rule ? rule.classification : 'unknown';
-
-    const message = normalizeFailureText(firstError).slice(0, MAX_SIGNATURE_PART);
-    return {
-      signature: `${jobName}::${stepKey}::${message}`,
-      classification,
-      job: jobName,
-      step: stepKey,
-      firstError,
-    };
+    return candidates.reduce((best, next) => (
+      CLASSIFICATION_RANK[next.classification] < CLASSIFICATION_RANK[best.classification] ? next : best
+    ));
   } catch {
     // Never throw into the re-arm: an unreadable shape is simply `unknown`.
     return { signature: 'unreadable', classification: 'unknown', job: '', step: '', firstError: '' };
@@ -254,4 +263,24 @@ export function classifyDeployFailure({ jobs, annotationsByJob = {} } = {}) {
 /** `job::step` — the part of a signature that can be known without annotations. */
 export function failureKey(signature) {
   return String(signature || '').split('::').slice(0, 2).join('::');
+}
+
+/**
+ * `job::step` of EVERY failed job of a run, from the job list alone (no
+ * annotations, so one API read per run). A run matches an earlier streak when
+ * the key of its best-described failure is among them: the sibling legs that
+ * abort at the hreflang barrier must not break a streak whose cause is another
+ * leg.
+ */
+export function failedStepKeys(jobs) {
+  try {
+    return (Array.isArray(jobs) ? jobs : [])
+      .filter((job) => job?.status === 'completed' && FAILED_CONCLUSIONS.has(String(job?.conclusion || '')))
+      .map((job) => {
+        const described = describeJob(job, []);
+        return `${described.job}::${described.step}`;
+      });
+  } catch {
+    return [];
+  }
 }
