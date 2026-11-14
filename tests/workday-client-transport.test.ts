@@ -74,4 +74,28 @@ describe('Workday JSON transport', () => {
     await expect(iterator.next()).rejects.toBeInstanceOf(WorkdayApiError);
     expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
   });
+
+  it('aborts a stalled browser fallback at the request timeout', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+    const { page } = browserTransport({});
+    const originalFetch = globalThis.fetch;
+    page.evaluate.mockImplementation(async (evaluate, args) => {
+      const browserFetch = vi.fn().mockImplementation((_url, options) => new Promise((_resolve, reject) => {
+        options.signal.addEventListener('abort', () => reject(new DOMException('aborted', 'AbortError')), { once: true });
+      }));
+      vi.stubGlobal('fetch', browserFetch);
+      try {
+        return await evaluate(args);
+      } finally {
+        vi.stubGlobal('fetch', originalFetch);
+      }
+    });
+
+    const startedAt = Date.now();
+    const iterator = fetchWorkdayJobs(API_BASE, { minDelayMs: 0, timeoutMs: 50 });
+    await expect(iterator.next()).rejects.toMatchObject({ statusCode: 0 });
+    expect(Date.now() - startedAt).toBeLessThan(1000);
+    expect(page.evaluate).toHaveBeenCalledWith(expect.any(Function), expect.objectContaining({ requestTimeoutMs: 50 }));
+  });
 });

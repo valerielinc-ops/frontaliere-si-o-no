@@ -153,25 +153,33 @@ function createWorkdayBrowserJsonFallback(apiBase) {
     }
   };
 
-  const request = async ({ url, method, body }) => {
+  const request = async ({ url, method, body, timeoutMs }) => {
     if (closed) throw new Error('Workday browser transport is already closed');
     sessionPromise ||= open();
     const { page } = await sessionPromise;
-    const result = await page.evaluate(async ({ requestUrl, requestMethod, requestBody }) => {
-      const response = await fetch(requestUrl, {
-        method: requestMethod,
-        body: requestBody,
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
-        },
-      });
-      return { status: response.status, body: await response.text() };
+    const result = await page.evaluate(async ({ requestUrl, requestMethod, requestBody, requestTimeoutMs }) => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), Math.max(1, Number(requestTimeoutMs) || 20000));
+      try {
+        const response = await fetch(requestUrl, {
+          method: requestMethod,
+          body: requestBody,
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+          },
+        });
+        return { status: response.status, body: await response.text() };
+      } finally {
+        clearTimeout(timer);
+      }
     }, {
       requestUrl: url,
       requestMethod: method,
       requestBody: body,
+      requestTimeoutMs: timeoutMs,
     });
 
     if (result.status === 401 || result.status === 403) {
