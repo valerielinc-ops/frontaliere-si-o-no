@@ -4037,7 +4037,7 @@ const FORM_VOCABULARY = new Set([
   'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
   'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
-const FORM_DATE_FIELD_LABEL_RE = /^(?:data di compilazione|date (?:of )?(?:compilation|completion|application)|date de candidature|datum (?:der )?(?:bewerbung|erfassung))$/u;
+const FORM_DATE_FIELD_LABEL_RE = /^(?:data di (?:compilazione|nascita)|date (?:of )?(?:birth|compilation|completion|application)|date de (?:candidature|naissance)|(?:birth date|geburtsdatum)|datum (?:der )?(?:bewerbung|erfassung|geburt))$/u;
 const isFormDateFieldLabel = value => FORM_DATE_FIELD_LABEL_RE.test(
   normalizeWords(String(value || '').replace(/[*:]+$/u, '').trim()),
 );
@@ -4738,10 +4738,10 @@ function formRoleHeadingStatus(formText, job = {}) {
   for (const line of lines) {
     if (/^(?:powered|provided|developed|hosted)\s+by\b/iu.test(line) || /^https?:\/\//iu.test(line)) continue;
     if (FORM_SURFACE_START_RE.test(normalizeWords(line)) || /(?:\*|:)\s*$/u.test(line)) formSurfaceStarted = true;
+    if (formSurfaceStarted) continue;
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
     if (titleWordsOnly(heading, candidates)) return 'match';
-    if (formSurfaceStarted) continue;
     const words = normalizeWords(heading).split(' ').filter(Boolean);
     if (words.every(word => neutral.has(word) || /^\d+$/.test(word))) continue;
     return 'mismatch';
