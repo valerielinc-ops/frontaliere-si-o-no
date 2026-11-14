@@ -116,7 +116,7 @@ describe('production-canary-admission', () => {
       token: 'test-token',
       fetchImpl,
     })).resolves.toEqual([]);
-    expect(pageRequests).toBe(PRODUCTION_WRITERS.length);
+    expect(pageRequests).toBe(PRODUCTION_WRITERS.length + 1);
   });
 
   it('retries a short page that advertises another page before accepting it', async () => {
@@ -146,7 +146,7 @@ describe('production-canary-admission', () => {
     expect(deployPageRequests).toBe(2);
   });
 
-  it('follows a non-empty writer page before deciding that no active run exists', async () => {
+  it('does not paginate terminal history after reading the current writer head', async () => {
     const requests: string[] = [];
     const fetchImpl = async (url: string) => {
       requests.push(url);
@@ -176,8 +176,9 @@ describe('production-canary-admission', () => {
       repository: 'example/repo',
       token: 'test-token',
       fetchImpl,
-    })).resolves.toEqual([expect.objectContaining({ id: 321, status: 'waiting' })]);
-    expect(requests.filter((url) => new URL(url).pathname.endsWith('/deploy.yml/runs'))).toHaveLength(2);
+    })).resolves.toEqual([]);
+    expect(requests.filter((url) => new URL(url).pathname.endsWith('/deploy.yml/runs'))).toHaveLength(1);
+    expect(requests.every((url) => new URL(url).searchParams.get('page') === '1')).toBe(true);
   });
 
   it('rejects an unreadable GitHub API response instead of admitting the probe', async () => {
