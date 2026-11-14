@@ -17,7 +17,9 @@ permissions:
 
 concurrency:
   group: assisted-application-portal-replay-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  # Keep an active replay tied to its immutable event merge commit; a newer
+  # synchronization may queue a replacement without invalidating the run.
+  cancel-in-progress: false
 
 jobs:
   detect:
@@ -44,11 +46,15 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch PR diff
+      - name: Fetch immutable PR merge diff
         env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -euo pipefail
+          merge_ref=FETCH_HEAD
+          git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"
+          git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Detect whether the runner needs replay
         id: detect
@@ -94,11 +100,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'in:title portal-stop' --limit 1000 --json title > "$RUNNER_TEMP/portal-stop-titles.json"
 
-      - name: Fetch PR diff
+      - name: Fetch immutable PR merge diff
         env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: gh pr diff "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" > "$RUNNER_TEMP/portal-replay-paths.patch"
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -euo pipefail
+          merge_ref=FETCH_HEAD
+          git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"
+          git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref" > "$RUNNER_TEMP/portal-replay-paths.patch"
 
       - name: Select a deterministic corpus
         id: prepare
@@ -128,8 +138,9 @@ jobs:
       - name: Checkout PR runner
         uses: actions/checkout@v7
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.sha }}
+          # Keep the runner tree equal to the immutable diff used by detect and
+          # prepare, even if main advances while this queued run is executing.
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |
@@ -245,7 +256,7 @@ jobs:
           run_group() {
             set -euo pipefail
             mkdir -p "$PORTAL_REPLAY_REPORT_DIR" "$PORTAL_REPLAY_LOG_DIR"
-            portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
+            portal_replay_cli=scripts/assisted-application/portal-replay.mjs
             test -f "$portal_replay_cli"
             PORTAL_REPLAY_FAMILIES="$PORTAL_REPLAY_FAMILIES" node --input-type=module -e '
               const families = JSON.parse(process.env.PORTAL_REPLAY_FAMILIES || "[]");
@@ -304,11 +315,13 @@ jobs:
               return 1
             fi
           }
-          export -f run_group
+          group_script="$RUNNER_TEMP/portal-replay-group.sh"
+          declare -f run_group > "$group_script"
+          printf '\nrun_group\n' >> "$group_script"
           if command -v xvfb-run >/dev/null 2>&1; then
-            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash -c 'run_group'
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" bash "$group_script"
           else
-            run_group
+            bash "$group_script"
           fi
 
       - name: Upload sanitized family reports

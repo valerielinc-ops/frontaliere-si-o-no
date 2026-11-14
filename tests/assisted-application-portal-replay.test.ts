@@ -468,6 +468,8 @@ describe('portal replay workflow wiring', () => {
     const codex = workflow.indexOf('uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback');
     const brokerGuard = workflow.indexOf('      - name: Require trusted Codex broker\n');
     const replay = workflow.indexOf('Replay portal families in parallel inside this worker');
+    const replayGate = workflow.indexOf('\n  portal-replay-gate:');
+    const replayBlock = workflow.slice(replay, replayGate);
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
@@ -478,8 +480,13 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
+    expect(workflow).toContain('cancel-in-progress: false');
+    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
+    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
+    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
+    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });
 
   it('does shared setup once and runs the family group inside one worker', () => {
@@ -489,6 +496,9 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('wait_for_wave');
+    expect(workflow).toContain('group_script="$RUNNER_TEMP/portal-replay-group.sh"');
+    expect(workflow).toContain('declare -f run_group > "$group_script"');
+    expect(workflow).not.toContain("bash -c 'run_group'");
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
     expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
     expect(workflow).not.toContain('max-parallel: 6');
