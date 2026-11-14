@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Mikron Group crawler runner.
  *
@@ -262,7 +263,7 @@ async function main() {
   const discoveredJobs = await fetchMikronJobs();
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Mikron Swiss jobs discovered. Keeping existing.');
-    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isMikronJob)) : new Map();
+    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((readJsonFile(DATA_JOBS) || []).filter(isMikronJob)) : new Map();
     printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
     writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Mikron');
     return;
@@ -284,7 +285,7 @@ async function main() {
 
   // Post-process
   if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const jobs = readJsonFile(DATA_JOBS);
     let fixed = 0;
     for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isMikronJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = DEFAULT_CANTON; fixed++; } if (!j.location) { j.location = 'Agno'; fixed++; } }
     if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }

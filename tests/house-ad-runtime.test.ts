@@ -7,13 +7,14 @@ import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engi
 
 let dom: JSDOM;
 let w: any;
+let testHouseBlock: HTMLElement;
 const emit = vi.fn();
 const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS };
-function frame(state: string, placement = 'article-inline') {
+function frame(state: string, placement = 'article-inline', block: HTMLElement = testHouseBlock) {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
   const host = w.document.createElement('div'); host.dataset.ftHouseHost = '';
-  el.append(google, host); w.document.body.append(el); return { el, google, host };
+  el.append(google, host); block.append(el); return { el, google, host };
 }
 function blockerOnlyFrame(placement = 'article-atf') {
   const el = w.document.createElement('div'); el.dataset.house = placement;
@@ -31,6 +32,7 @@ beforeEach(() => {
   vi.useFakeTimers(); emit.mockClear();
   dom = new JSDOM('<!doctype html><html lang="it"><head></head><body></body></html>', { url: 'https://frontaliereticino.ch/articoli-frontaliere/esempio/', runScripts: 'outside-only', pretendToBeVisual: true });
   w = dom.window; w.Date = Date; w.setTimeout = setTimeout; w.clearTimeout = clearTimeout;
+  testHouseBlock = w.document.createElement('div'); testHouseBlock.dataset.ftHouseBlock = 'test-article-block'; w.document.body.append(testHouseBlock);
   Object.defineProperty(w.crypto, 'randomUUID', { configurable: true, value: () => '123e4567-e89b-42d3-a456-426614174000' });
   w.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default' }) });
   w.matchMedia = () => ({ matches: true });
@@ -350,6 +352,47 @@ describe('per-slot first-party creative delivery', () => {
       variant: 'subscription', touchpoint: 'exposure', enrolled: true,
     });
   });
+  it('keeps a lone fallback slot on the job creative when no contiguous ad block exists', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const single = frame('unfilled');
+    await start();
+    expect(single.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(0);
+  });
+  it('does not combine isolated fallback slots from separate ad blocks', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const firstBlock = w.document.createElement('div'); firstBlock.dataset.ftHouseBlock = 'first'; w.document.body.append(firstBlock);
+    const secondBlock = w.document.createElement('div'); secondBlock.dataset.ftHouseBlock = 'second'; w.document.body.append(secondBlock);
+    const first = frame('unfilled', 'article-inline', firstBlock);
+    const second = frame('unfilled', 'article-end', secondBlock);
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
+  it('does not treat all article placements as a contiguous ad block', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const articleBody = w.document.createElement('div'); articleBody.dataset.ftArticleBody = 'true'; w.document.body.append(articleBody);
+    const first = frame('unfilled', 'article-inline', articleBody);
+    const second = frame('unfilled', 'article-end', articleBody);
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
   it('measures one matched control slot impression and click for the subscription experiment', async () => {
     w.__ftAdsAuthState = 'anonymous';
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
@@ -377,7 +420,7 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
       readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const empty = frame('unfilled'); frame('unfilled', 'article-end'); await start();
     expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
   });
   it('keeps a viewable subscription impression stable and stores click attribution separately from job-search clicks', async () => {
@@ -387,7 +430,7 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
       readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const empty = frame('unfilled'); frame('unfilled', 'article-end'); await start();
     const creative = empty.host.querySelector('a');
     expect(creative.dataset.houseCampaign).toBe('reader_subscription');
     creative.click();
