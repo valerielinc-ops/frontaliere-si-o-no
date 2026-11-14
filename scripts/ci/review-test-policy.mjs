@@ -250,6 +250,10 @@ export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|s
 export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
 const NON_RUNTIME_CODE_DIRECTORY_RE = /^(?:data|public|reports|_newsletter_variants|docs|tests|__tests__)\//u;
+// Locale dictionaries are generated/content-only inputs. Keep the directory
+// boundary explicit: `services/i18n.ts` and the SEO translation helpers remain
+// runtime code and must keep the ordinary test/review path.
+const NON_RUNTIME_CODE_TRANSLATION_RE = /^services\/locales\//u;
 const NON_RUNTIME_CODE_GENERATED_CONTENT_RE = /^packages\/articles\/content\/(?:blog-body(?:-ch)?\/|image-credits\/|seo\/seo-blog(?:-[^/]+)?\.ts$|(?:article-index-exclusions|swiss-article-canonical-overrides)\.json$|(?:blog-articles-data|blogArticleIds|blog-meta(?:-ch)?-(?:de|en|fr|it)|routerBlogData|routerSwissData|swiss-articles-data)\.ts$)/u;
 const NON_RUNTIME_CODE_ASSET_RE = /\.(?:snap|avif|bmp|jpe?g|png|webp|gif|svg|ico|tiff?|woff2?|xml|csv|tsv|jsonl|ndjson)$/u;
 const NON_RUNTIME_CODE_EXACT_PATHS = new Set([
@@ -263,6 +267,7 @@ const NON_RUNTIME_CODE_EXACT_PATH_RE = new RegExp(
 );
 export const NON_RUNTIME_CODE_FINGERPRINT_RE = new RegExp([
   NON_RUNTIME_CODE_DIRECTORY_RE.source,
+  NON_RUNTIME_CODE_TRANSLATION_RE.source,
   NON_RUNTIME_CODE_GENERATED_CONTENT_RE.source,
   NON_RUNTIME_CODE_ASSET_RE.source,
   NON_RUNTIME_CODE_EXACT_PATH_RE.source,
@@ -286,6 +291,27 @@ export function isNonRuntimeCodeSnapshot(snapshot) {
     && snapshot.files.length > 0
     && new Set(snapshot.files).size === snapshot.files.length
     && snapshot.files.every(isNonRuntimeCodePath);
+}
+
+// Only trusted in-repository producers may use the direct, required-check
+// bypass. A safe path alone is not sufficient: a human PR must still receive
+// the normal required checks, while the automation producer (or its dedicated
+// PAT fallback branch) can be merged by the trusted App without waiting for PR
+// workflows.
+const TRUSTED_NON_RUNTIME_CODE_PRODUCERS = new Set([
+  'frontaliere-automation[bot]',
+  'github-actions[bot]',
+]);
+const TRUSTED_NON_RUNTIME_CODE_PAT_OWNER = 'valerielinc-ops';
+const TRUSTED_NON_RUNTIME_CODE_PAT_BRANCH = 'automation/reattest-crawler-contract';
+
+export function isTrustedNonRuntimeCodeProducer(pr, repo) {
+  if (pr?.head?.repo?.full_name !== repo) return false;
+  const login = String(pr?.user?.login || '');
+  return (pr?.user?.type === 'Bot' && TRUSTED_NON_RUNTIME_CODE_PRODUCERS.has(login))
+    || (pr?.user?.type === 'User'
+      && login === TRUSTED_NON_RUNTIME_CODE_PAT_OWNER
+      && pr?.head?.ref === TRUSTED_NON_RUNTIME_CODE_PAT_BRANCH);
 }
 
 function trustedGhBin() {
@@ -334,6 +360,26 @@ export function verifyTestOnlyHead(ghFn, repo, pr, head) {
     && after.base?.ref === 'main' && before.base?.sha === after.base?.sha
     && after.body === before.body && after.title === before.title;
 }
+
+/**
+ * Verify the stronger admission used by the immediate merge lane.
+ *
+ * `verifyTestOnlyHead` is intentionally reusable for the ordinary fast path,
+ * including human test-only PRs. Directly bypassing required checks is a
+ * different capability, so it additionally requires a trusted producer and a
+ * complete PR-body contract before repeating the exact-head/file-list fence.
+ */
+export function verifyImmediateNonRuntimeCodeHead(ghFn, repo, pr, head) {
+  const current = ghFn(['api', `repos/${repo}/pulls/${pr}`]);
+  if (!isTrustedNonRuntimeCodeProducer(current, repo) || !isReviewBodyComplete(current.body)) return false;
+  if (!verifyTestOnlyHead(ghFn, repo, pr, head)) return false;
+  // `verifyTestOnlyHead` already fences the body against edits between its
+  // before/after reads; repeat the body contract after that fence so an edit
+  // racing the initial producer read cannot turn a malformed body into an
+  // admin merge authorization.
+  const final = ghFn(['api', `repos/${repo}/pulls/${pr}`]);
+  return isTrustedNonRuntimeCodeProducer(final, repo) && isReviewBodyComplete(final.body);
+}
 export function findTestOnlyApproval(
   reviews,
   head,
@@ -380,6 +426,7 @@ export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }
 // Descriptive aliases for the generic fast path. Keep the historical names
 // above because the native auto-merge consumer and existing tests use them.
 export const verifyNonRuntimeCodeHead = verifyTestOnlyHead;
+export const verifyTrustedNonRuntimeCodeMergeHead = verifyImmediateNonRuntimeCodeHead;
 export const findNonRuntimeCodeApproval = findTestOnlyApproval;
 export const postNonRuntimeCodeReview = postTestOnlyReview;
 
@@ -748,6 +795,15 @@ if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(r
     );
     process.stdout.write(`non-runtime-code-fast-path: ${eligible ? 'eligible' : 'not-eligible'}\n`);
     if (!eligible) process.exitCode = 10;
+  } else if (process.argv[2] === 'non-code-merge-check') {
+    const eligible = verifyTrustedNonRuntimeCodeMergeHead(
+      gh,
+      process.env.REPO || process.env.GITHUB_REPOSITORY,
+      process.env.PR_NUMBER,
+      process.env.HEAD_SHA,
+    );
+    process.stdout.write(`non-runtime-code-immediate-merge: ${eligible ? 'eligible' : 'not-eligible'}\n`);
+    if (!eligible) process.exitCode = 1;
   } else if (process.argv[2] === 'non-code-post') {
     postNonRuntimeCodeReview({
       repo: process.env.REPO || process.env.GITHUB_REPOSITORY,
@@ -768,5 +824,5 @@ if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(r
     if (!result.ok) process.exitCode = result.kind === 'not-ledger-only' ? 10 : 1;
   } else if (process.argv[2] === 'ledger-post') {
     postLedgerOnlyReview({ repo: process.env.REPO || process.env.GITHUB_REPOSITORY, pr: process.env.PR_NUMBER, head: process.env.HEAD_SHA });
-  } else throw new Error('Usage: review-test-policy.mjs filter|only|check|post|non-code-check|non-code-post|ledger-check|ledger-post');
+  } else throw new Error('Usage: review-test-policy.mjs filter|only|check|post|non-code-check|non-code-merge-check|non-code-post|ledger-check|ledger-post');
 }

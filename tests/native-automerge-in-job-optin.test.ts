@@ -291,7 +291,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(postReview?.if).toContain("needs.vitest.outputs.automerge == 'true'");
     expect(String(optIn?.if ?? '')).toContain("needs.vitest.outputs.automerge == 'true'");
     expect(parsed.jobs?.vitest?.outputs?.automerge).toBe(
-      '${{ steps.post_review.outputs.automerge || steps.non_code_review.outputs.automerge }}',
+      "${{ steps.post_review.outputs.automerge || (steps.non_code_review.outputs.automerge == 'true' && steps.immediate_non_code_merge.outputs.merged != 'true') }}",
     );
     const automerge = String(decision?.env?.AUTOMERGE ?? '');
     expect(automerge).toContain("job.status == 'success'");

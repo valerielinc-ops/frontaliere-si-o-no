@@ -8,6 +8,8 @@ import {
   isTestOnlySnapshot,
   isNonRuntimeCodePath,
   isNonRuntimeCodeSnapshot,
+  isTrustedNonRuntimeCodeProducer,
+  verifyImmediateNonRuntimeCodeHead,
   postTestOnlyReview,
   postNonRuntimeCodeReview,
   findTestOnlyApproval,
@@ -83,6 +85,8 @@ function fixture({
   baseRef = 'main',
   baseSha = 'b'.repeat(40),
   headRepoFullName = 'owner/repo',
+  authorType = 'Bot',
+  authorLogin = 'frontaliere-automation[bot]',
   labels = [] as any[],
 } = {}) {
   const posts: any[] = [];
@@ -100,6 +104,7 @@ function fixture({
       draft,
       title,
       body,
+      user: { type: authorType, login: authorLogin },
       head: {
         sha: ++reads > 1 && changedHead ? 'b'.repeat(40) : head,
         repo: { full_name: headRepoFullName },
@@ -313,6 +318,9 @@ describe('owner policy excluding test files from review', () => {
       'packages/articles/content/seo/seo-blog-5.ts',
       'packages/articles/content/article-index-exclusions.json',
       'packages/articles/content/swiss-article-canonical-overrides.json',
+      'services/locales/it-core.ts',
+      'services/locales/blog-body/it/frontalieri-disoccupati.ts',
+      'services/locales/blog-body-ch/de/frontalieri-disoccupati.ts',
       'assets/cover.webp',
       'feeds/sitemap.xml',
       'datasets/articles.jsonl',
@@ -328,6 +336,9 @@ describe('owner policy excluding test files from review', () => {
       'packages/articles/content/seo/seoMetadataType.ts',
       'packages/articles/content/not-generated.ts',
       'packages/articles/engine/articleReaders.ts',
+      'services/i18n.ts',
+      'services/seo/article-translations.ts',
+      'services/locales.ts',
       '../tests/a.test.ts',
       'tests/../src/production.ts',
     ]) expect(isNonRuntimeCodePath(path), path).toBe(false);
@@ -344,6 +355,55 @@ describe('owner policy excluding test files from review', () => {
       { complete: true, files: ['firestore.indexes.json', 'src/production.ts'] },
       { complete: true, files: ['firestore.indexes.json', 'firestore.indexes.json'] },
     ]) expect(isNonRuntimeCodeSnapshot(value)).toBe(false);
+  });
+  it('admits the immediate merge lane only for trusted same-repository producers', () => {
+    const trusted = {
+      user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      head: { repo: { full_name: 'owner/repo' } },
+    };
+    expect(isTrustedNonRuntimeCodeProducer(trusted, 'owner/repo')).toBe(true);
+    expect(isTrustedNonRuntimeCodeProducer({
+      ...trusted,
+      head: { repo: { full_name: 'fork/repo' } },
+    }, 'owner/repo')).toBe(false);
+    expect(isTrustedNonRuntimeCodeProducer({
+      ...trusted,
+      user: { type: 'User', login: 'someone-else' },
+    }, 'owner/repo')).toBe(false);
+    expect(isTrustedNonRuntimeCodeProducer({
+      ...trusted,
+      user: { type: 'User', login: 'valerielinc-ops' },
+    }, 'owner/repo')).toBe(false);
+    expect(isTrustedNonRuntimeCodeProducer({
+      ...trusted,
+      user: { type: 'User', login: 'valerielinc-ops' },
+      head: { repo: { full_name: 'owner/repo' }, ref: 'automation/reattest-crawler-contract' },
+    }, 'owner/repo')).toBe(true);
+    expect(isTrustedNonRuntimeCodeProducer({
+      ...trusted,
+      user: { type: 'User', login: 'valerielinc-ops' },
+      head: { repo: { full_name: 'owner/repo' }, ref: 'other-branch' },
+    }, 'owner/repo')).toBe(false);
+  });
+  it('rechecks the body and complete file-list before admitting an immediate merge', () => {
+    expect(verifyImmediateNonRuntimeCodeHead(
+      fixture({ files: ['services/locales/it-core.ts'] }).ghFn,
+      'owner/repo',
+      1,
+      head,
+    )).toBe(true);
+    expect(verifyImmediateNonRuntimeCodeHead(
+      fixture({ files: ['services/locales/it-core.ts'], authorType: 'User', authorLogin: 'someone' }).ghFn,
+      'owner/repo',
+      1,
+      head,
+    )).toBe(false);
+    expect(verifyImmediateNonRuntimeCodeHead(
+      fixture({ files: ['services/locales/it-core.ts'], body: 'not a PR body' }).ghFn,
+      'owner/repo',
+      1,
+      head,
+    )).toBe(false);
   });
   it('posts the generic automatic LGTM for an allowlisted mixed non-runtime-code PR', () => {
     const f = fixture({ files: ['firestore.indexes.json', 'tests/firestore-indexes-field-overrides.test.ts'] });
@@ -730,6 +790,7 @@ describe('owner policy excluding test files from review', () => {
       'assets/cover.webp',
       'feeds/sitemap.xml',
     ]) expect(nonCodeRe.test(path), path).toBe(true);
+    expect(nonCodeRe.test('services/locales/blog-body/it/article.ts')).toBe(true);
     expect(nonCodeRe.test('packages/articles/content/blogImageCdnMirror.ts')).toBe(false);
     expect(nonCodeRe.test('package-lock.json')).toBe(true);
     // `edited` rimosso: l'HEAD non cambia, quindi la run rimisurava codice
@@ -800,6 +861,11 @@ describe('owner policy excluding test files from review', () => {
     const nonCodeReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'non_code_review');
     expect(nonCodeReview.if).toContain("steps.ledger_scope.outputs.ledger_status == 'non-runtime-code'");
     expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'non_code_review')).toBeLessThan(checkoutIndex);
+    const immediateMerge = workflow.jobs.vitest.steps.find((step: any) => step.id === 'immediate_non_code_merge');
+    expect(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'immediate_non_code_merge')).toBeLessThan(workflow.jobs.vitest.steps.findIndex((step: any) => step.id === 'non_code_review'));
+    expect(immediateMerge['continue-on-error']).toBe(true);
+    expect(immediateMerge.run).toContain('--admin --squash --delete-branch --match-head-commit');
+    expect(nonCodeReview.if).toContain("steps.immediate_non_code_merge.outcome != 'success'");
     const ledgerReview = workflow.jobs.vitest.steps.find((step: any) => step.id === 'ledger_review');
     expect(ledgerReview['continue-on-error']).toBeUndefined();
     expect(ledgerReview.run).toContain('APP_TOKEN');

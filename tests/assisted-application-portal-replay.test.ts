@@ -402,6 +402,7 @@ describe('portal replay corpus', () => {
       'diff --git a/scripts/lib/social-readiness.mjs b/scripts/lib/social-readiness.mjs',
       'diff --git a/functions/src/lib/unrelated-site-helper.js b/functions/src/lib/unrelated-site-helper.js',
       'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
+      'diff --git a/services/locales/it-core.ts b/services/locales/it-core.ts',
       'diff --git a/tests/social-publish-readiness.test.ts b/tests/social-publish-readiness.test.ts',
     ].join('\n');
     expect(affectedPortalReplayPaths(unrelatedSharedDirectories)).toEqual([]);
