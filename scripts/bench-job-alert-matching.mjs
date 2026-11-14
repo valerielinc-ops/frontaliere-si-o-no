@@ -26,6 +26,10 @@
  *        [--seed 42] [--jobs data/jobs.json --rebase-now] [--json]
  *        [--max-legacy-seconds 600] [--no-search] [--index-only] [--production-mix]
  *
+ * Con `node --expose-gc` il bench misura anche la memoria VIVA (heap + buffer
+ * esterni dopo un GC forzato ogni 25 alert): `heapUsed` senza GC include i rifiuti
+ * non ancora raccolti e non dice quanto resta davvero referenziato.
+ *
  * `--no-search` toglie gli alert con ricerca testuale (`job_search_query`):
  * la ricerca stemmed costa lo stesso nei due percorsi (haystack per riga) e,
  * con pochi alert, nasconde il guadagno degli altri rami.
@@ -230,6 +234,9 @@ async function main() {
   const legacyRows = [];
   const indexRows = [];
   const strategies = {};
+  const live = { baselineMiB: null, peakMiB: 0, samples: [] };
+  const liveMiB = () => { global.gc(); global.gc(); const u = process.memoryUsage(); return Math.round((u.heapUsed + u.external + u.arrayBuffers) / 1048576); };
+  if (typeof global.gc === 'function') live.baselineMiB = liveMiB();
   const byStrategy = {};
   let mismatches = 0;
   let legacySeconds = 0;
@@ -288,6 +295,7 @@ async function main() {
     bucket.indexRows += indexed.scoredRows;
     legacySeconds += legacyElapsed / 1000;
     evaluated += 1;
+    if (typeof global.gc === 'function' && evaluated % 25 === 0) { const mib = liveMiB(); live.peakMiB = Math.max(live.peakMiB, mib); live.samples.push(mib); }
     const verdict = legacy ? comparePlanOutcomes(legacy, indexed) : { equal: true };
     if (!verdict.equal) {
       mismatches += 1;
@@ -320,6 +328,7 @@ async function main() {
     }])),
     bitsets: index.stats(),
     mismatches,
+    liveMemory: typeof global.gc === 'function' ? { baselineAfterIndexBuildMiB: live.baselineMiB, peakAfterGcMiB: live.peakMiB, samplesMiB: live.samples } : null,
     heapUsedMiB: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
   };
   if (args.json) console.log(JSON.stringify(result, null, 2));
@@ -332,6 +341,7 @@ async function main() {
     for (const [name, b] of Object.entries(result.byStrategy)) {
       console.log(`    ${name.padEnd(13)} ${String(b.alerts).padStart(4)} alert · legacy ${b.legacyMsPerAlert} ms (${b.legacyRowsPerAlert} righe) → indice ${b.indexMsPerAlert} ms, ${b.indexSteadyMsPerAlert} ms al netto del vocabolario (${b.indexRowsPerAlert} righe)`);
     }
+    if (result.liveMemory) console.log(`  memoria viva (dopo GC): ${result.liveMemory.baselineAfterIndexBuildMiB} MiB dopo la costruzione dell'indice, picco ${result.liveMemory.peakAfterGcMiB} MiB (heap + buffer esterni), campioni ${result.liveMemory.samplesMiB.join(' ')}`);
     const { searchVocabulary, ...bitsetStats } = result.bitsets;
     console.log(`  bitset: ${JSON.stringify(bitsetStats)}`);
     for (const [locale, v] of Object.entries(searchVocabulary || {})) {

@@ -193,3 +193,45 @@ describe('vocabolario di prefissi — struttura', () => {
     expect(Array.from(vocabulary.postings)).toEqual([0, 1, 0, 1]);
   });
 });
+
+describe('ramo hard-search (dominante in produzione): AND delle query dure sul vocabolario', () => {
+  const profileWith = (queries: string[]) => ({
+    hardKeywords: new Set(queries),
+    hardCategoryKeys: new Set<string>(),
+    hardTaxonomyValues: new Set<string>(),
+    hardSearchQueries: queries,
+    softTokens: new Set<string>(),
+    softSearchQueries: [] as string[],
+    company: '',
+    locations: [] as string[],
+    alertLocations: [] as string[],
+    cantons: [] as string[],
+    sectors: [] as string[],
+    contractTypes: [] as string[],
+    specificJobIds: [] as string[],
+    specificCompanyKey: '',
+    preferredLocations: [] as string[],
+    preferredCantons: [] as string[],
+  });
+
+  it('select() con una o piu query dure restituisce esattamente le righe per cui ogni matchesSearchQuery e\' vero, e usa il vocabolario', () => {
+    for (const locale of LOCALES) {
+      const index = createJobAlertCandidateIndex(INVENTORY, { nowMs: NOW });
+      for (const queries of [['infermiere'], ['infermiere', 'lugano'], ['software engineer', 'java'], ['chef', 'projet'], ['zzzz'], ['cuoco cucina', 'ristorante']]) {
+        const selected = index.select(profileWith(queries), { locale, ownerAlert: true, cursorMs: 0 });
+        expect(selected.strategy).toBe('hard-search');
+        const expected = INVENTORY
+          .filter((row) => queries.every((query) => {
+            const compiled = compileSearchQuery(query);
+            return matchesSearchQuery(compiled, row, jobMatchFeatures(row, locale), locale);
+          }))
+          .map((row) => row.id);
+        // Solo le righe che l'indice conosce (le aperte).
+        const known = new Set(Array.from({ length: index.rowCount }, (_, i) => index.rowAt(i).id));
+        expect(selected.rows.map((row: any) => row.id).sort()).toEqual(expected.filter((id) => known.has(id)).sort());
+      }
+      // Il vocabolario del locale e' stato costruito (e non il percorso per-riga).
+      expect(Object.keys(index.stats().searchVocabulary)).toContain(locale);
+    }
+  });
+});
