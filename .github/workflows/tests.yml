@@ -2727,9 +2727,10 @@ jobs:
             echo 'required=true' >> "$GITHUB_OUTPUT"
           fi
 
-      # PRs can share the latest successful hourly main snapshot. Its key is
-      # exact and includes the snapshot run id; the manifest independently
-      # checks compatibility and a strict 60-minute age before restoring data.
+      # PRs share a content-addressed snapshot key. The latest successful
+      # snapshot run publishes its source key and capture time as a small
+      # artifact; the cache key then stays stable for identical assembler
+      # inputs while a changed input fingerprint gets a new immutable key.
       - name: Compute hourly assemble snapshot compatibility
         id: hourly_snapshot_fingerprint
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
@@ -2788,20 +2789,43 @@ jobs:
               core.warning(`Could not discover hourly assemble snapshot: ${error.message}`);
             }
 
+      - name: Download latest hourly snapshot manifest
+        id: latest_hourly_snapshot_manifest
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' }}
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: assemble-test-snapshot-manifest
+          path: .cache/assemble-jobs-test-snapshot-metadata
+          run-id: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Select stable hourly assemble snapshot cache key
+        id: hourly_snapshot_key
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        continue-on-error: true
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: .cache/assemble-jobs-test-snapshot-metadata/test-snapshot.json
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+          ASSEMBLE_TEST_SNAPSHOT_COMPATIBILITY_FINGERPRINT: ${{ steps.hourly_snapshot_fingerprint.outputs.fingerprint }}
+        run: node scripts/ci/assemble-test-snapshot.mjs cache-key
+
       - name: Restore exact hourly assemble snapshot
         id: hourly_snapshot_cache
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_key.outputs.key != '' }}
         continue-on-error: true
         uses: actions/cache/restore@v6
         with:
           path: .cache/assemble-jobs-test-snapshot
-          key: assemble-jobs-test-snapshot-${{ runner.os }}-${{ steps.hourly_snapshot_fingerprint.outputs.fingerprint }}-${{ steps.latest_hourly_snapshot.outputs.run_id }}-${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+          key: ${{ steps.hourly_snapshot_key.outputs.key }}
 
       - name: Validate and restore hourly assemble snapshot
         id: hourly_snapshot_restore
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.hourly_snapshot_cache.outputs.cache-hit == 'true' }}
         continue-on-error: true
         env:
+          ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: .cache/assemble-jobs-test-snapshot-metadata/test-snapshot.json
           ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
           ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
         run: node scripts/ci/assemble-test-snapshot.mjs restore
