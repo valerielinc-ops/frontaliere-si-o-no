@@ -52,7 +52,25 @@ const PORTAL_REPLAY_FAMILY_PATH_HINTS = Object.freeze({
   workday: Object.freeze(['workday']),
   successfactors: Object.freeze(['successfactors', 'success-factors', 'sapsf']),
 });
-export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
+/**
+ * Keep the two kinds of shared scripts/lib dependencies explicit. The ATS
+ * adapters shape the sampled corpus, while these exact runtime modules are
+ * imported by the portal runner or by this replay harness. A crawler-only
+ * parser (for example molecular-partners-job-parser.mjs) is not replay scope.
+ * A file outside these explicit scopes remains fail-closed below.
+ */
+export const PORTAL_REPLAY_PARSER_PATHS = Object.freeze([
+  'scripts/lib/ats-adapters/',
+]);
+export const PORTAL_REPLAY_RUNTIME_PATHS = Object.freeze([
+  'scripts/lib/ai-models.mjs',
+  'scripts/lib/bounded-response-body.mjs',
+  'scripts/lib/detect-language.mjs',
+  'scripts/lib/ensure-chromium.mjs',
+  'scripts/lib/pdf-job-content.mjs',
+  'scripts/lib/prospector/public-fetch-policy.mjs',
+]);
+const PORTAL_REPLAY_OTHER_ALLOWED_PATHS = Object.freeze([
   // The portal runner also imports shared helpers from lib/ outside portal/.
   'scripts/assisted-application/lib/',
   'scripts/assisted-application/agent.mjs',
@@ -114,6 +132,11 @@ export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
   '.github/workflows/assisted-application-portal-e2e.yml',
   '.github/workflows/assisted-application-portal-recovery.yml',
   '.github/workflows/assisted-application-portal-replay.yml',
+]);
+export const PORTAL_REPLAY_ALLOWED_PATHS = Object.freeze([
+  ...PORTAL_REPLAY_OTHER_ALLOWED_PATHS,
+  ...PORTAL_REPLAY_PARSER_PATHS,
+  ...PORTAL_REPLAY_RUNTIME_PATHS,
 ]);
 
 const STAGE_RANK = Object.freeze({
@@ -222,10 +245,26 @@ function extractPathsFromDiff(diff) {
   return [...paths];
 }
 
+function normalizedPortalReplayPath(value) {
+  return String(value || '').replace(/^\//u, '');
+}
+
+function matchesPortalReplayPath(file, entry) {
+  const normalizedEntry = entry.toLowerCase();
+  return normalizedEntry.endsWith('/') ? file.startsWith(normalizedEntry) : file === normalizedEntry;
+}
+
+export function portalReplayPathScope(value) {
+  const file = normalizedPortalReplayPath(value).toLowerCase();
+  if (PORTAL_REPLAY_PARSER_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'parser';
+  if (PORTAL_REPLAY_RUNTIME_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'runtime';
+  if (PORTAL_REPLAY_OTHER_ALLOWED_PATHS.some((entry) => matchesPortalReplayPath(file, entry))) return 'shared';
+  if (/^functions\/src\/assistedapplication[^/]*\.js$/u.test(file)) return 'shared';
+  return null;
+}
+
 export function isPortalReplayAffectedPath(value) {
-  const file = String(value || '').replace(/^\//u, '');
-  if (PORTAL_REPLAY_ALLOWED_PATHS.some((entry) => entry.endsWith('/') ? file.startsWith(entry) : file === entry)) return true;
-  return /^functions\/src\/assistedApplication[^/]*\.js$/u.test(file);
+  return portalReplayPathScope(value) !== null;
 }
 
 export function affectedPortalReplayPaths(diff) {
