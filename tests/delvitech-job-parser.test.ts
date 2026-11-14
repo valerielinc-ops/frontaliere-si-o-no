@@ -140,6 +140,16 @@ describe('Delvitech job parser', () => {
   it('rejects a publication date from an unrelated WebPage node', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({ '@type': 'WebPage', url: 'https://legacy.delvi.tech/other/', datePublished: '2025-04-17' })}</script><div class="post-content"><h1>Application Engineer</h1></div>`;
     expect(parseDelvitechJobDetail(html, 'https://legacy.delvi.tech/application-engineer-2/').datePublished).toBe('');
+    const ambiguousHtml = `<script type="application/ld+json">${JSON.stringify([
+      { '@type': 'JobPosting', title: 'First role', description: '<p>First</p>' },
+      { '@type': 'JobPosting', title: 'Second role', description: '<p>Second</p>' },
+    ])}</script><main></main>`;
+    expect(parseDelvitechJobDetail(ambiguousHtml, 'https://delvi.tech/unknown-role/')).toMatchObject({
+      title: '',
+      location: '',
+      description: '',
+      datePublished: '',
+    });
   });
 
   it('falls back to canonical JobPosting metadata on a redesigned detail page', () => {
@@ -161,19 +171,6 @@ describe('Delvitech job parser', () => {
       datePublished: '2026-11-01',
     });
     expect(detail.description).toContain('Build and maintain automated tests.');
-  });
-
-  it('keeps ambiguous JobPosting detail metadata unknown', () => {
-    const html = `<script type="application/ld+json">${JSON.stringify([
-      { '@type': 'JobPosting', title: 'First role', description: '<p>First</p>' },
-      { '@type': 'JobPosting', title: 'Second role', description: '<p>Second</p>' },
-    ])}</script><main></main>`;
-    expect(parseDelvitechJobDetail(html, 'https://delvi.tech/unknown-role/')).toMatchObject({
-      title: '',
-      location: '',
-      description: '',
-      datePublished: '',
-    });
   });
 
   it('filters out the explicit Germany role', () => {
