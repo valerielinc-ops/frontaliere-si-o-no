@@ -1,16 +1,16 @@
 {
   "crawlerKey": "okjob",
-  "assembledAt": "2026-11-14T16:46:40.533Z",
-  "runId": "43616250529",
+  "assembledAt": "2026-11-14T21:40:24.812Z",
+  "runId": "43642471738",
   "jobs": [
     {
       "id": "okjob-f94bf167c463",
-      "slug": "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+      "slug": "mason-ok-job-sa-succursale-di-mendrisio-fribourg-f94bf167",
       "slugByLocale": {
         "fr": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
-        "it": "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
-        "en": "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
-        "de": "maurer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+        "it": "mason-ok-job-sa-succursale-di-mendrisio-fribourg-f94bf167",
+        "en": "mason-ok-job-sa-succursale-di-mendrisio-fribourg-f94bf167",
+        "de": "maurer-ok-job-sa-succursale-di-mendrisio-fribourg-f94bf167"
       },
       "slugDisambiguator": "f94bf167",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -76,15 +76,23 @@
       "firstSeenAt": "2026-11-14T16:46:33.785Z",
       "previousSlugsByLocale": {
         "it": [
-          "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+          "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+          "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
         ],
         "de": [
+          "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+          "maurer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+        ],
+        "en": [
           "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
         ]
       },
       "previousSlugs": [
-        "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
-      ]
+        "macon-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+        "mason-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167",
+        "maurer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f94bf167"
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "okjob-805d2fab2921",
@@ -156,16 +164,17 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T16:46:33.784Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T16:46:33.784Z"
+      "firstSeenAt": "2026-11-14T16:46:33.784Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "okjob-044f3c12e823",
-      "slug": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+      "slug": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-fribourg-044f3c12",
       "slugByLocale": {
         "fr": "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "it": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "en": "road-builder-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
-        "de": "stra-enbauer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        "it": "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-fribourg-044f3c12",
+        "en": "road-builder-ok-job-sa-succursale-di-mendrisio-fribourg-044f3c12",
+        "de": "stra-enbauer-ok-job-sa-succursale-di-mendrisio-fribourg-044f3c12"
       },
       "slugDisambiguator": "044f3c12",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -190,7 +199,7 @@
       "url": "https://www.okjob.ch/offres-demplois/constructeur-de-routes-fribourg/?ref=43255",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.781Z",
+      "crawledAt": "2026-11-14T21:40:07.381Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -208,9 +217,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.okjob.ch/offres-demplois/constructeur-de-routes-fribourg/?ref=43255",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -226,22 +233,28 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T16:46:33.781Z",
+      "validThrough": "2027-02-12T21:40:07.381Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T16:46:33.781Z",
       "previousSlugsByLocale": {
         "it": [
-          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+          "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
         ],
         "en": [
-          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+          "road-builder-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
         ],
         "de": [
-          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+          "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+          "stra-enbauer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
         ]
       },
       "previousSlugs": [
-        "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
+        "constructeur-de-routes-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+        "costruttore-stradale-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+        "road-builder-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12",
+        "stra-enbauer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-044f3c12"
       ]
     },
     {
@@ -276,7 +289,7 @@
       "url": "https://www.okjob.ch/offres-demplois/logisticien-h-f-le-sentier/?ref=43233",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.780Z",
+      "crawledAt": "2026-11-14T21:40:07.376Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -325,7 +338,7 @@
       },
       "streetAddress": "Le Sentier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T16:46:33.780Z",
+      "validThrough": "2027-02-12T21:40:07.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +373,7 @@
       "url": "https://www.okjob.ch/offres-demplois/conseiller-en-personnel-h-f-yverdon-les-bains/?ref=43232",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.760Z",
+      "crawledAt": "2026-11-14T21:40:07.378Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -409,7 +422,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T16:46:33.760Z",
+      "validThrough": "2027-02-12T21:40:07.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -444,7 +457,7 @@
       "url": "https://www.okjob.ch/offres-demplois/menuisier-poseur-cfc-h-f-yverdon-les-bains/?ref=43227",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.758Z",
+      "crawledAt": "2026-11-14T21:40:07.355Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -493,7 +506,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T16:46:33.758Z",
+      "validThrough": "2027-02-10T21:40:07.355Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -528,7 +541,7 @@
       "url": "https://www.okjob.ch/offres-demplois/responsable-projets-si-orientation-applications-h-f-yverdon-les-bains/?ref=43226",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.757Z",
+      "crawledAt": "2026-11-14T21:40:07.354Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -577,7 +590,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T16:46:33.757Z",
+      "validThrough": "2027-02-12T21:40:07.354Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -612,7 +625,7 @@
       "url": "https://www.okjob.ch/offres-demplois/dessinateur-en-construction-microtechnique-yverdon-les-bains/?ref=43225",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.756Z",
+      "crawledAt": "2026-11-14T21:40:07.353Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -661,7 +674,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T16:46:33.756Z",
+      "validThrough": "2027-02-12T21:40:07.353Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -696,7 +709,7 @@
       "url": "https://www.okjob.ch/offres-demplois/polymecanicien-h-f-yverdon-les-bains/?ref=43223",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.755Z",
+      "crawledAt": "2026-11-14T21:40:07.377Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -745,7 +758,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T16:46:33.755Z",
+      "validThrough": "2027-02-10T21:40:07.377Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -780,7 +793,7 @@
       "url": "https://www.okjob.ch/de/jobangebote/anlagen-und-maschinenfuehrer-m-w-d-basel/?ref=43220",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T16:46:33.754Z",
+      "crawledAt": "2026-11-14T21:40:07.351Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -831,7 +844,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T16:46:33.754Z",
+      "validThrough": "2027-02-11T21:40:07.351Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -866,7 +879,7 @@
       "url": "https://www.okjob.ch/offres-demplois/coordinateur-marches-internationaux-h-f-le-sentier/?ref=43192",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.753Z",
+      "crawledAt": "2026-11-14T21:40:07.341Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -915,7 +928,7 @@
       },
       "streetAddress": "Le Sentier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T16:46:33.753Z",
+      "validThrough": "2027-02-07T21:40:07.341Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -950,7 +963,7 @@
       "url": "https://www.okjob.ch/offres-demplois/specialiste-en-planification-et-exploitation-routiere-h-f-yverdon-les-bains/?ref=43190",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.727Z",
+      "crawledAt": "2026-11-14T21:40:07.349Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -999,7 +1012,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T16:46:33.727Z",
+      "validThrough": "2027-02-07T21:40:07.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1034,7 +1047,7 @@
       "url": "https://www.okjob.ch/offres-demplois/coordinateur-marches-internationaux-h-f-yverdon-les-bains/?ref=43189",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.725Z",
+      "crawledAt": "2026-11-14T21:40:07.348Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1083,7 +1096,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T16:46:33.725Z",
+      "validThrough": "2027-02-09T21:40:07.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1118,7 +1131,7 @@
       "url": "https://www.okjob.ch/offres-demplois/calculateur-technique-experimente-h-f-yverdon-les-bains/?ref=43187",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.724Z",
+      "crawledAt": "2026-11-14T21:40:07.308Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1167,7 +1180,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T16:46:33.724Z",
+      "validThrough": "2027-02-07T21:40:07.308Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1202,7 +1215,7 @@
       "url": "https://www.okjob.ch/offres-demplois/mecanicien-en-maintenance-dautomobiles-cfc-yverdon-les-bains/?ref=43186",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.722Z",
+      "crawledAt": "2026-11-14T21:40:07.306Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1251,7 +1264,7 @@
       },
       "streetAddress": "Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T16:46:33.722Z",
+      "validThrough": "2027-02-07T21:40:07.306Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1286,7 +1299,7 @@
       "url": "https://www.okjob.ch/offres-demplois/operateur-fraisage-la-chaux-de-fonds/?ref=43181",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T16:46:33.721Z",
+      "crawledAt": "2026-11-14T21:40:07.303Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1335,7 +1348,7 @@
       },
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T16:46:33.721Z",
+      "validThrough": "2027-02-07T21:40:07.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1370,7 +1383,7 @@
       "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-fage-efz-60-100-basel/?ref=43174",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T16:46:33.718Z",
+      "crawledAt": "2026-11-14T21:40:07.346Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1416,7 +1429,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T16:46:33.718Z",
+      "validThrough": "2027-02-09T21:40:07.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1451,7 +1464,7 @@
       "url": "https://www.okjob.ch/de/jobangebote/fachperson-gesundheit-mit-berufsbildneraufgabe-m-wd-basel/?ref=43173",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T16:46:33.716Z",
+      "crawledAt": "2026-11-14T21:40:07.344Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1500,17 +1513,17 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T16:46:33.716Z",
+      "validThrough": "2027-02-09T21:40:07.344Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "okjob-07380951b005",
       "slug": "ingegnere-di-costruzione-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
       "slugByLocale": {
-        "fr": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
         "it": "ingegnere-di-costruzione-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
         "en": "construction-engineer-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
-        "de": "bauingenieur-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        "de": "bauingenieur-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951",
+        "fr": "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
       },
       "slugDisambiguator": "07380951",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1518,24 +1531,24 @@
       "companyDomain": "okjob.ch",
       "title": "Machiniste de chantier",
       "titleByLocale": {
-        "fr": "Machiniste de chantier",
         "it": "Ingegnere di costruzione",
         "en": "Construction engineer",
-        "de": "Bauingenieur"
+        "de": "Bauingenieur",
+        "fr": "Machiniste de chantier"
       },
       "description": "Machiniste de chantier\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nMachiniste de chantier\n-Conduite des divers engins de chantier\n-Travaux de déblaiement, nivellement, terrassement\n-Entretien des machines\n-Programmation et approvisionnement des machines\nProfil\nNe sera répondu qu'aux postulations correspondant à l'annonce\n-Vous possédez un permis de machines de chantier valable en Suisse\n-Expérience en tant que machiniste\n-Vous êtes autonome et disponible\n-Vous travaillez avec précision\n-Vous connaissez et respecter les normes de sécurité\n-Maîtrise du français/ou portugais\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nMachiniste de chantier / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43247\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
       "descriptionByLocale": {
-        "fr": "Machiniste de chantier\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nMachiniste de chantier\n-Conduite des divers engins de chantier\n-Travaux de déblaiement, nivellement, terrassement\n-Entretien des machines\n-Programmation et approvisionnement des machines\nProfil\nNe sera répondu qu'aux postulations correspondant à l'annonce\n-Vous possédez un permis de machines de chantier valable en Suisse\n-Expérience en tant que machiniste\n-Vous êtes autonome et disponible\n-Vous travaillez avec précision\n-Vous connaissez et respecter les normes de sécurité\n-Maîtrise du français/ou portugais\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nMachiniste de chantier / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43247\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
         "it": "Ingegnere di costruzione\ntorna alla lista\nPer uno dei nostri clienti nella regione di Fribourg, ne stiamo cercando uno:\nDescrizione del lavoro\nIngegnere di costruzione\n-Conduce varie attrezzature di costruzione\n-Drafting, livellamento, messa a terra\n- Manutenzione di macchine\n-Programmazione e fornitura di macchine\nProfilo\nSarà solo risposto alle postulazioni corrispondenti all'annuncio\n- Hai un permesso di lavoro valido in Svizzera\n-Esperienza come macchinista\n-Sei autonomo e disponibile\n- Lavori con precisione\n-Sai e rispetta gli standard di sicurezza\n-Maestro francese/portoghese\nSe non ricevi una risposta entro 10 giorni dalla tua domanda, ti preghiamo di considerare la tua candidatura come non riuscita.\nNon esitate a inviare il vostro file a:\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tel. 026 347 47 00 Eduardo Pires - eduro.pires@okjob.ch\nWorksite Machinist / Prova e noleggio\n- Località\nFriburgo\nDisponibilità\nImmediatamente\nTipo\nProva e noleggio\nRiferimento\n43247\nPubblicato il\n14/11/2026\nAgenzia responsabile\nFriburgo\nEduardo Pires\n026 347 47 00\neduro.pires@okjob.ch\nRue de Lausanne 91\n1700 Friburgo\nTel. +41 26 347 47 00\nLa tua agenzia di lavoro a Fribourg\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
         "en": "Construction engineer\nback to list\nFor one of our clients in the Fribourg region, we are looking for one:\nJob description\nConstruction engineer\n-Conducts various construction equipment\n-Drafting, levelling, earthing\n- Maintenance of machines\n-Programming and supply of machines\nProfile\nWill only be answered to postulations corresponding to the announcement\n-You have a work permit valid in Switzerland\n-Experience as a machinist\n-You are autonomous and available\n- You work with precision\n-You know and respect safety standards\n-Mastery of French/Portuguese\nIf you do not receive a response within 10 days of your application, please consider your application as unsuccessful.\nDo not hesitate to send your file to:\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tel. 026 347 47 00 Eduardo Pires - eduro.pires@okjob.ch\nWorksite Machinist / Try & Hire\n- Locality\nFribourg\nAvailability\nImmediately\nTipo\nTry and Hire\nReference\n43247\nPublished on\n14/11/2026\nAgency in charge\nFribourg\nEduardo Pires\n026 347 47 00\neduro.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTel. +41 26 347 47 00\nYour employment agency in Fribourg\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Bauingenieur\nZurück zur Liste\nFür einen unserer Kunden in der Region Freiburg suchen wir einen:\nStellenbeschreibung\nBauingenieur\nLeitet verschiedene Baumaschinen\n-Entwurf, Planierung, Erdung\n- Wartung von Maschinen\nProgrammierung und Lieferung von Maschinen\nProfil\nWird nur auf Postulate beantwortet, die der Ankündigung entsprechen\n-Sie haben eine in der Schweiz gültige Arbeitserlaubnis\nErfahrung als Maschinist\n-Sie sind autonom und verfügbar\n- Sie arbeiten mit Präzision\nSie kennen und respektieren die Sicherheitsstandards\nBeherrschung von Französisch/Portugiesisch\nWenn Sie innerhalb von 10 Tagen nach Ihrer Bewerbung keine Antwort erhalten, betrachten Sie Ihre Bewerbung bitte als erfolglos.\nZögern Sie nicht, Ihre Datei an:\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tel. 026 347 47 00 Eduardo Pires - eduro.pires@okjob.ch\nArbeitsplatz-Maschinist / Try & Hire\n- Ort\nFreiburg\nVerfügbarkeit\nSofort\nTipo\nVersuchen und mieten\nReferenznummer\n43247\nVeröffentlicht am\n14/11/2026\nZuständige Agentur\nFreiburg\nEduardo Pires\n026 347 47 00\neduro.pires@okjob.ch\nRue de Lausanne 91\n1700 Freiburg\nTel. +41 26 347 47 00\nIhre Arbeitsagentur in Freiburg\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diese Stelle bewerben."
+        "de": "Bauingenieur\nZurück zur Liste\nFür einen unserer Kunden in der Region Freiburg suchen wir einen:\nStellenbeschreibung\nBauingenieur\nLeitet verschiedene Baumaschinen\n-Entwurf, Planierung, Erdung\n- Wartung von Maschinen\nProgrammierung und Lieferung von Maschinen\nProfil\nWird nur auf Postulate beantwortet, die der Ankündigung entsprechen\n-Sie haben eine in der Schweiz gültige Arbeitserlaubnis\nErfahrung als Maschinist\n-Sie sind autonom und verfügbar\n- Sie arbeiten mit Präzision\nSie kennen und respektieren die Sicherheitsstandards\nBeherrschung von Französisch/Portugiesisch\nWenn Sie innerhalb von 10 Tagen nach Ihrer Bewerbung keine Antwort erhalten, betrachten Sie Ihre Bewerbung bitte als erfolglos.\nZögern Sie nicht, Ihre Datei an:\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tel. 026 347 47 00 Eduardo Pires - eduro.pires@okjob.ch\nArbeitsplatz-Maschinist / Try & Hire\n- Ort\nFreiburg\nVerfügbarkeit\nSofort\nTipo\nVersuchen und mieten\nReferenznummer\n43247\nVeröffentlicht am\n14/11/2026\nZuständige Agentur\nFreiburg\nEduardo Pires\n026 347 47 00\neduro.pires@okjob.ch\nRue de Lausanne 91\n1700 Freiburg\nTel. +41 26 347 47 00\nIhre Arbeitsagentur in Freiburg\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diese Stelle bewerben.",
+        "fr": "Machiniste de chantier\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nMachiniste de chantier\n-Conduite des divers engins de chantier\n-Travaux de déblaiement, nivellement, terrassement\n-Entretien des machines\n-Programmation et approvisionnement des machines\nProfil\nNe sera répondu qu'aux postulations correspondant à l'annonce\n-Vous possédez un permis de machines de chantier valable en Suisse\n-Expérience en tant que machiniste\n-Vous êtes autonome et disponible\n-Vous travaillez avec précision\n-Vous connaissez et respecter les normes de sécurité\n-Maîtrise du français/ou portugais\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nMachiniste de chantier / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43247\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
       },
       "location": "1700 Fribourg",
       "canton": "FR",
       "url": "https://www.okjob.ch/offres-demplois/machiniste-de-chantier-fribourg/?ref=43247",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:34:43.476Z",
+      "crawledAt": "2026-11-14T21:40:07.379Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1553,9 +1566,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.okjob.ch/offres-demplois/machiniste-de-chantier-fribourg/?ref=43247",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ],
+        "en": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ],
+        "de": [
+          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
+        ]
       },
+      "firstSeenAt": "2026-11-14T09:34:43.476Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1571,24 +1597,8 @@
       },
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:34:43.476Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:34:43.476Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
-        ],
-        "en": [
-          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
-        ],
-        "de": [
-          "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
-        ]
-      },
-      "previousSlugs": [
-        "machiniste-de-chantier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-07380951"
-      ],
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-12T21:40:07.379Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "okjob-1c757e357207",
@@ -1675,7 +1685,7 @@
       "previousSlugs": [
         "paysagiste-h-f-ok-job-sa-succursale-di-mendrisio-1700-fribourg-1c757e35"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "okjob-ca306ade268d",
@@ -1762,7 +1772,7 @@
       "previousSlugs": [
         "chef-d-equipe-batiment-gros-oeuvre-ok-job-sa-succursale-di-mendrisio-1700-fribourg-ca306ade"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "okjob-3353ea817050",
@@ -1796,7 +1806,7 @@
       "url": "https://www.okjob.ch/offres-demplois/decorateur-angleur-la-chaux-de-fonds/?ref=41364",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:34:43.317Z",
+      "crawledAt": "2026-11-14T21:40:07.296Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1845,303 +1855,47 @@
       },
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:34:43.317Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-07T21:40:07.296Z",
+      "validThroughSource": "last-observed-window"
     },
     {
-      "id": "okjob-af4e05695ffd",
-      "slug": "cassetto-cavo-esperto-rete-stradale-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
+      "id": "okjob-bdab54a4c985",
+      "slug": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
       "slugByLocale": {
-        "it": "cassetto-cavo-esperto-rete-stradale-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "en": "experienced-cable-drawer-road-network-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "de": "erfahrene-kabelschublade-stra-ennetz-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569",
-        "fr": "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
+        "fr": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+        "it": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+        "en": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+        "de": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
       },
-      "slugDisambiguator": "af4e0569",
+      "slugDisambiguator": "bdab54a4",
       "company": "OK Job SA, succursale di Mendrisio",
       "companyKey": "okjob",
       "companyDomain": "okjob.ch",
-      "title": "Tireur de câbles expérimenté ? Réseau routier (H/F)",
+      "title": "Chef d'équipe en génie civil",
       "titleByLocale": {
-        "it": "Cassetto cavo esperto? Rete stradale (M/F)",
-        "en": "Experienced cable drawer? Road network (M/F)",
-        "de": "Erfahrene Kabelschublade? Straßennetz (M/W)",
-        "fr": "Tireur de câbles expérimenté ? Réseau routier (H/F)"
+        "fr": "Chef d'équipe en génie civil",
+        "it": "Chef d'équipe en génie civil",
+        "en": "Chef d'équipe en génie civil",
+        "de": "Chef d'équipe en génie civil"
       },
-      "description": "Tireur de câbles expérimenté ? Réseau routier (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients spécialisé dans les infrastructures de télécommunication,\nun Tireur de câbles expérimenté (H/F) pour intervenir principalement sur des chantiers liés au réseau routier.\nDescription du job\nTirage et déroulage de câbles\nManutention et mise en place des câbles\nIntervention sur différents chantiers, notamment sur le réseau routier\nRespect strict des consignes de sécurité et du balisage\nTravail en équipe sur chantier\nProfil\nExpérience confirmée et obligatoire en tirage de câbles\nExpérience sur le réseau routier fortement appréciée\nBonne condition physique et habitué au travail en extérieur\nPersonne sérieuse, autonome et respectueuse des consignes de sécurité\nTenue haute visibilité orange complète obligatoire\nPermis B obligatoire\nPermis BE (voiture avec remorque) obligatoire\nDisponible et mobile pour des déplacements à la semaine\nNous vous proposons :\nUne mission auprès d?une entreprise spécialisée\nDes chantiers variés\nDes déplacements possibles à la semaine\nUne mission adaptée à un profil expérimenté et autonome\nIntéressé(e) ?\nMerci de nous transmettre votre CV à jour.\nLieu du poste : En présentiel\nTireur de câbles expérimenté ? Réseau routier (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43166\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+      "description": "Chef d'équipe en génie civil\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nChef/e d'équipe en génie civil\n-Gestion des équipes sur les chantiers\n-Respect du planning et de la réglementation en vigueur\n-Planification et suivi du chantier\n-Gestion du matériel\n-Relations avec les fournisseurs et partenaires\n-Coordination des interventions et attribution des tâches\n-Etablissement des rapports journaliers\n-Respect des règles de sécurité\nProfil\nNous vous proposons un poste à responsabilités à but d'engagement FIXE !\n-Formation équivalente\n-Expérience de plusieurs années dans la gestion de chantiers\n-Vous avez le sens des responsabilités et de l'organisation\n-Vous savez gérer une équipe\n-Vous avez un bon relationnel\n-Langue maternelle français\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nChef d'équipe en génie civil / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43254\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
       "descriptionByLocale": {
-        "it": "Cassetto cavo esperto? Rete stradale (M/F)\ntorna alla lista\nStiamo cercando uno dei nostri clienti specializzati in infrastrutture di telecomunicazione,\nun cassetto di cavi (M/F) esperto per intervenire principalmente su siti collegati alla rete stradale.\nDescrizione del lavoro\nCavi di traino e derailing\nGestione cavi e installazione\nIntervento su vari cantieri, in particolare sulla rete stradale\nRigoroso rispetto delle istruzioni di sicurezza e marcatura\nLavoro di squadra sul posto\nProfilo\nEsperienza di disegno del cavo confermata e obbligatoria\nEsperienza sulla rete stradale molto apprezzata\nBuone condizioni fisiche e utilizzate per il lavoro all'aperto\nSerious, autosufficiente e sicuro\nArancio pieno alta visibilità tenere obbligatoria\nPermesso B obbligatorio\nPermesso di soggiorno (auto con rimorchio) obbligatorio\nDisponibile e mobile per gite settimanali\nVi offriamo:\nUna missione per una società specializzata\nVari progetti\nPossibili viaggi settimanali\nUna missione adattata a un profilo esperto e autonomo\nInteressante?\nInviaci il tuo CV aggiornato.\nPosizione: Presente\nCassetto cavo esperto? Rete stradale (M/F) / Temporary\n- Località\nGinevra\nDisponibilità\nImmediatamente\nTipo\nTemporaneo\nRiferimento\n43166\nPubblicato il\n12/11/2026\nAgenzia responsabile\nGinevra\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Ginevra\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nLa vostra agenzia di collocamento a Ginevra\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
-        "en": "Experienced cable drawer? Road network (M/F)\nback to list\nWe are looking for one of our customers specialized in telecommunications infrastructure,\nan experienced (M/F) cable drawer to intervene mainly on road network related sites.\nJob description\nPulling and derailing cables\nCable handling and installation\nIntervention on various construction sites, particularly on the road network\nStrict compliance with safety instructions and marking\nTeamwork on site\nProfile\nConfirmed and mandatory cable drawing experience\nExperience on the highly appreciated road network\nGood physical condition and used to outdoor work\nSerious, self-sustaining and safe\nFull orange high visibility hold mandatory\nPermit B compulsory\nBE permit (car with trailer) mandatory\nAvailable and mobile for weekly trips\nWe offer you:\nA mission to a specialized company\nVarious projects\nPossible weekly trips\nA mission adapted to an experienced and autonomous profile\nInterested?\nPlease send us your updated CV.\nPosition Location: Present\nExperienced cable drawer? Road network (M/F) / Temporary\n- Locality\nGeneva\nAvailability\nImmediately\nTipo\nTemporary\nReference\n43166\nPublished on\n12/11/2026\nAgency in charge\nGeneva\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Geneva\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nYour placement agency in Geneva\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Erfahrene Kabelschublade? Straßennetz (M/W)\nZurück zur Liste\nWir suchen einen unserer Kunden, spezialisiert auf Telekommunikationsinfrastruktur,\neine erfahrene (M/W)-Kabelschublade, um hauptsächlich an Straßennetzstandorten einzugreifen.\nStellenbeschreibung\nZug- und Entgleisungskabel\nKabelhandling und -installation\nEingriffe auf verschiedenen Baustellen, insbesondere im Straßennetz\nStrenge Einhaltung der Sicherheitsanweisungen und Kennzeichnung\nTeamwork vor Ort\nProfil\nBestätigte und obligatorische Kabelzieherfahrung\nErfahrung auf dem hoch geschätzten Straßennetz\nGute körperliche Verfassung und gewöhnt an Outdoor-Arbeit\nSeriös, selbsttragend und sicher\nVolle orangefarbene Sichtweite vorgeschrieben\nGenehmigung B obligatorisch\nBE Genehmigung (Auto mit Anhänger) obligatorisch\nVerfügbar und mobil für wöchentliche Reisen\nWir bieten Ihnen:\nEine Mission zu einem spezialisierten Unternehmen\nVerschiedene Projekte\nMögliche wöchentliche Reisen\nEine Mission, die an ein erfahrenes und autonomes Profil angepasst ist\nInteressiert?\nBitte senden Sie uns Ihren aktualisierten Lebenslauf.\nPosition Lage: Gegenwart\nErfahrene Kabelschublade? Straßennetz (M/W) / Vorübergehend\n- Ort\nGenf\nVerfügbarkeit\nSofort\nTipo\nVorübergehend\nReferenznummer\n43166\nVeröffentlicht am\n12/11/2026\nZuständige Agentur\nGenf\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genf\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nIhre Vermittlungsagentur in Genf\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diesen Job bewerben.",
-        "fr": "Tireur de câbles expérimenté ? Réseau routier (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients spécialisé dans les infrastructures de télécommunication,\nun Tireur de câbles expérimenté (H/F) pour intervenir principalement sur des chantiers liés au réseau routier.\nDescription du job\nTirage et déroulage de câbles\nManutention et mise en place des câbles\nIntervention sur différents chantiers, notamment sur le réseau routier\nRespect strict des consignes de sécurité et du balisage\nTravail en équipe sur chantier\nProfil\nExpérience confirmée et obligatoire en tirage de câbles\nExpérience sur le réseau routier fortement appréciée\nBonne condition physique et habitué au travail en extérieur\nPersonne sérieuse, autonome et respectueuse des consignes de sécurité\nTenue haute visibilité orange complète obligatoire\nPermis B obligatoire\nPermis BE (voiture avec remorque) obligatoire\nDisponible et mobile pour des déplacements à la semaine\nNous vous proposons :\nUne mission auprès d?une entreprise spécialisée\nDes chantiers variés\nDes déplacements possibles à la semaine\nUne mission adaptée à un profil expérimenté et autonome\nIntéressé(e) ?\nMerci de nous transmettre votre CV à jour.\nLieu du poste : En présentiel\nTireur de câbles expérimenté ? Réseau routier (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43166\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
+        "fr": "Chef d'équipe en génie civil\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nChef/e d'équipe en génie civil\n-Gestion des équipes sur les chantiers\n-Respect du planning et de la réglementation en vigueur\n-Planification et suivi du chantier\n-Gestion du matériel\n-Relations avec les fournisseurs et partenaires\n-Coordination des interventions et attribution des tâches\n-Etablissement des rapports journaliers\n-Respect des règles de sécurité\nProfil\nNous vous proposons un poste à responsabilités à but d'engagement FIXE !\n-Formation équivalente\n-Expérience de plusieurs années dans la gestion de chantiers\n-Vous avez le sens des responsabilités et de l'organisation\n-Vous savez gérer une équipe\n-Vous avez un bon relationnel\n-Langue maternelle français\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nChef d'équipe en génie civil / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43254\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "it": "Chef d'équipe en génie civil\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nChef/e d'équipe en génie civil\n-Gestion des équipes sur les chantiers\n-Respect du planning et de la réglementation en vigueur\n-Planification et suivi du chantier\n-Gestion du matériel\n-Relations avec les fournisseurs et partenaires\n-Coordination des interventions et attribution des tâches\n-Etablissement des rapports journaliers\n-Respect des règles de sécurité\nProfil\nNous vous proposons un poste à responsabilités à but d'engagement FIXE !\n-Formation équivalente\n-Expérience de plusieurs années dans la gestion de chantiers\n-Vous avez le sens des responsabilités et de l'organisation\n-Vous savez gérer une équipe\n-Vous avez un bon relationnel\n-Langue maternelle français\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nChef d'équipe en génie civil / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43254\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "en": "Chef d'équipe en génie civil\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nChef/e d'équipe en génie civil\n-Gestion des équipes sur les chantiers\n-Respect du planning et de la réglementation en vigueur\n-Planification et suivi du chantier\n-Gestion du matériel\n-Relations avec les fournisseurs et partenaires\n-Coordination des interventions et attribution des tâches\n-Etablissement des rapports journaliers\n-Respect des règles de sécurité\nProfil\nNous vous proposons un poste à responsabilités à but d'engagement FIXE !\n-Formation équivalente\n-Expérience de plusieurs années dans la gestion de chantiers\n-Vous avez le sens des responsabilités et de l'organisation\n-Vous savez gérer une équipe\n-Vous avez un bon relationnel\n-Langue maternelle français\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nChef d'équipe en génie civil / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43254\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "de": "Chef d'équipe en génie civil\nretour à la liste\nPour l'un de nos clients de la région de Fribourg, nous cherchons un/e :\nDescription du job\nChef/e d'équipe en génie civil\n-Gestion des équipes sur les chantiers\n-Respect du planning et de la réglementation en vigueur\n-Planification et suivi du chantier\n-Gestion du matériel\n-Relations avec les fournisseurs et partenaires\n-Coordination des interventions et attribution des tâches\n-Etablissement des rapports journaliers\n-Respect des règles de sécurité\nProfil\nNous vous proposons un poste à responsabilités à but d'engagement FIXE !\n-Formation équivalente\n-Expérience de plusieurs années dans la gestion de chantiers\n-Vous avez le sens des responsabilités et de l'organisation\n-Vous savez gérer une équipe\n-Vous avez un bon relationnel\n-Langue maternelle français\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nChef d'équipe en génie civil / Try & Hire\n- Localité\nFribourg\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43254\nPublié le\n14/11/2026\nAgence en charge\nFribourg\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nRue de Lausanne 91\n1700 Fribourg\nTéléphone +41 26 347 47 00\nVotre agence de placement à Fribourg\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
       },
-      "location": "1201 Genève",
-      "canton": "GE",
-      "url": "https://www.okjob.ch/offres-demplois/tireur-de-cables-experimente-reseau-routier-h-f-geneve/?ref=43166",
+      "location": "1700 Fribourg",
+      "canton": "FR",
+      "url": "https://www.okjob.ch/offres-demplois/chef-dequipe-en-genie-civil-fribourg/?ref=43254",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:43:09.865Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
+      "crawledAt": "2026-11-14T21:40:07.381Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1201",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/tireur-de-cables-experimente-reseau-routier-h-f-geneve/?ref=43166",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
-        ],
-        "en": [
-          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
-        ],
-        "de": [
-          "tireur-de-cables-experimente-reseau-routier-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-af4e0569"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:44:28.326Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.865Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "okjob-31d2555a2ce1",
-      "slug": "driver-motore-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-      "slugByLocale": {
-        "it": "driver-motore-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "en": "engine-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "de": "triebwerksfuhrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a",
-        "fr": "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
-      },
-      "slugDisambiguator": "31d2555a",
-      "company": "OK Job SA, succursale di Mendrisio",
-      "companyKey": "okjob",
-      "companyDomain": "okjob.ch",
-      "title": "Conducteur d'engins",
-      "titleByLocale": {
-        "it": "Driver motore",
-        "en": "Engine driver",
-        "de": "Triebwerksführer",
-        "fr": "Conducteur d'engins"
-      },
-      "description": "Conducteur d'engins\nretour à la liste\nNous recherchons pour un de nos clients, un conducteur d'engins polyvalent dans le secteur du déchet\nDescription du job\nDans le cadre de nos activités liées à la gestion et au traitement des déchets, nous recherchons\nun(e) Conducteur d'engins (H/F) pour intervenir sur notre plateforme de tri et de valorisation des déchets.\nAu sein de l'équipe d'exploitation, vous serez chargé(e) de :\n- Conduire différents engins de chantier (pelle à pneus avec grappin, chargeuse, pelle hydraulique...) pour assurer les opérations de manutention des déchets.\n- Réceptionner, déplacer et alimenter les installations de tri et de valorisation.\n- Trier et orienter les différentes matières ...\n- Veiller au bon fonctionnement des engins et réaliser les contrôles quotidiens (graissage, niveaux, nettoyage, vérification des organes de sécurité).\n- Signaler toute anomalie ou dysfonctionnement\n- Respecter les procédures d'exploitation ainsi que les règles de sécurité, de qualité et de protection de l'environnement.\nProfil\nVous possédez une expérience en conduite d'engins dans les secteurs de l'environnement, du déchets, des travaux publics, des carrières ou de l'industrie.\nVous maîtrisez la conduite d'une pelle à grappin et/ou d'une chargeuse.\nVous êtes titulaire des CACES engins de chantier en cours de validité.\nVous êtes autonome, rigoureux(se) et appréciez le travail en équipe.\nVous êtes sensible aux enjeux liés au recyclage et à la préservation de l'environnement.\nConducteur d'engins / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43155\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
-      "descriptionByLocale": {
-        "it": "Driver motore\ntorna alla lista\nSiamo alla ricerca di uno dei nostri clienti, un versatile motoriduttore nel settore dei rifiuti\nDescrizione del lavoro\nNell'ambito delle nostre attività di gestione e trattamento dei rifiuti, stiamo cercando\nun driver di ingranaggi (M/F) per intervenire sulla nostra piattaforma di smistamento e recupero rifiuti.\nAll'interno del team operativo, sarai responsabile di:\n- Guidare varie attrezzature di costruzione (rullo pneumatico con grapple, caricatore, pala idraulica...) per garantire la movimentazione dei rifiuti.\n- Ricevere, spostare e ordinare la potenza e le strutture di recupero.\n- Ordinare e orientare i diversi materiali...\n- Assicurare il corretto funzionamento dell'apparecchiatura e effettuare controlli giornalieri (grasso, livelli, pulizia, controllo dei componenti di sicurezza).\n- Segnala eventuali anomalie o malfunzionamenti\n- Rispetta le procedure operative, la sicurezza, la qualità e le norme di protezione ambientale.\nProfilo\nAvete esperienza nel settore ambientale, rifiuti, lavori pubblici, cave o settori industriali.\nSi controlla la condotta di una pala di grapple e/o loader.\nSiete il titolare dell'attrezzatura di costruzione CACES valida.\nSiete autonomi, rigorosi e apprezzate il lavoro di squadra.\nSei sensibile al riciclaggio e alle questioni ambientali.\nDriver per il dispositivo\n- Località\nGinevra\nDisponibilità\nImmediatamente\nTipo\nTemporaneo\nRiferimento\n43155\nPubblicato il\n12/11/2026\nAgenzia responsabile\nGinevra\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Ginevra\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nLa vostra agenzia di collocamento a Ginevra\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
-        "en": "Engine driver\nback to list\nWe are looking for one of our customers, a versatile gear driver in the waste sector\nJob description\nAs part of our waste management and treatment activities, we are seeking\na (M/F) gear driver to intervene on our waste sorting and recovery platform.\nWithin the operating team, you will be responsible for:\n- Drive various construction equipment (pneumatic roller with grapple, loader, hydraulic shovel...) to ensure the handling of waste.\n- Receive, move and power sorting and recovery facilities.\n- Sort and orient the different materials...\n- Ensure the proper functioning of the equipment and carry out daily checks (greasing, levels, cleaning, checking of safety components).\n- Report any anomalies or malfunctions\n- Respect operating procedures, safety, quality and environmental protection rules.\nProfile\nYou have experience driving machinery in the environmental, waste, public works, quarries or industry sectors.\nYou control the conduct of a grapple shovel and/or loader.\nYou are the holder of the valid CACES construction equipment.\nYou are autonomous, rigorous and appreciate teamwork.\nYou are sensitive to recycling and environmental issues.\nGear Driver / Temporary\n- Locality\nGeneva\nAvailability\nImmediately\nTipo\nTemporary\nReference\n43155\nPublished on\n12/11/2026\nAgency in charge\nGeneva\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Geneva\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nYour placement agency in Geneva\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Triebwerksführer\nZurück zur Liste\nWir suchen einen unserer Kunden, einen vielseitigen Getriebetreiber im Abfallbereich\nStellenbeschreibung\nIm Rahmen unserer Abfallwirtschaft und -behandlung suchen wir\nein (M/W)-Fahrer, um auf unserer Abfallsortierungs- und Verwertungsplattform einzugreifen.\nInnerhalb des Betriebsteams sind Sie verantwortlich für:\n- Antrieb verschiedener Baugeräte (pneumatische Rolle mit Greifer, Lader, hydraulische Schaufel...), um den Umgang mit Abfällen zu gewährleisten.\n- Empfangs-, Bewegungs- und Energiesortier- und -rückgewinnungseinrichtungen.\n- Sortieren und orientieren Sie die verschiedenen Materialien...\n- Gewährleistung des ordnungsgemäßen Funktionierens der Ausrüstung und Durchführung täglicher Kontrollen (Fetten, Füllstand, Reinigung, Überprüfung von Sicherheitsbauteilen).\n- Meldung etwaiger Anomalien oder Funktionsstörungen\n- Einhaltung der Betriebsverfahren, der Sicherheits-, Qualitäts- und Umweltschutzvorschriften.\nProfil\nSie haben Erfahrung mit dem Fahren von Maschinen in den Bereichen Umwelt, Abfall, öffentliche Arbeiten, Steinbrüche oder Industrie.\nSie steuern das Verhalten einer Greiferschaufel und / oder eines Laders.\nSie sind Inhaber der gültigen CACES Baumaschinen.\nSie sind autonom, streng und schätzen Teamarbeit.\nSie sind sensibel für Recycling und Umweltfragen.\nGear Driver / Temporary\n- Ort\nGenf\nVerfügbarkeit\nSofort\nTipo\nVorübergehend\nReferenznummer\n43155\nVeröffentlicht am\n12/11/2026\nZuständige Agentur\nGenf\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genf\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nIhre Vermittlungsagentur in Genf\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diesen Job bewerben.",
-        "fr": "Conducteur d'engins\nretour à la liste\nNous recherchons pour un de nos clients, un conducteur d'engins polyvalent dans le secteur du déchet\nDescription du job\nDans le cadre de nos activités liées à la gestion et au traitement des déchets, nous recherchons\nun(e) Conducteur d'engins (H/F) pour intervenir sur notre plateforme de tri et de valorisation des déchets.\nAu sein de l'équipe d'exploitation, vous serez chargé(e) de :\n- Conduire différents engins de chantier (pelle à pneus avec grappin, chargeuse, pelle hydraulique...) pour assurer les opérations de manutention des déchets.\n- Réceptionner, déplacer et alimenter les installations de tri et de valorisation.\n- Trier et orienter les différentes matières ...\n- Veiller au bon fonctionnement des engins et réaliser les contrôles quotidiens (graissage, niveaux, nettoyage, vérification des organes de sécurité).\n- Signaler toute anomalie ou dysfonctionnement\n- Respecter les procédures d'exploitation ainsi que les règles de sécurité, de qualité et de protection de l'environnement.\nProfil\nVous possédez une expérience en conduite d'engins dans les secteurs de l'environnement, du déchets, des travaux publics, des carrières ou de l'industrie.\nVous maîtrisez la conduite d'une pelle à grappin et/ou d'une chargeuse.\nVous êtes titulaire des CACES engins de chantier en cours de validité.\nVous êtes autonome, rigoureux(se) et appréciez le travail en équipe.\nVous êtes sensible aux enjeux liés au recyclage et à la préservation de l'environnement.\nConducteur d'engins / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43155\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
-      },
-      "location": "1201 Genève",
-      "canton": "GE",
-      "url": "https://www.okjob.ch/offres-demplois/conducteur-dengins-geneve/?ref=43155",
-      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:43:09.863Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/conducteur-dengins-geneve/?ref=43155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
-        ],
-        "en": [
-          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
-        ],
-        "de": [
-          "conducteur-d-engins-ok-job-sa-succursale-di-mendrisio-1201-geneve-31d2555a"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:44:28.320Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.863Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "okjob-a206bf601921",
-      "slug": "connettore-ottico-fibrato-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-      "slugByLocale": {
-        "it": "connettore-ottico-fibrato-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "en": "experienced-fiber-optical-connector-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "de": "erfahrener-fiber-optical-connector-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60",
-        "fr": "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
-      },
-      "slugDisambiguator": "a206bf60",
-      "company": "OK Job SA, succursale di Mendrisio",
-      "companyKey": "okjob",
-      "companyDomain": "okjob.ch",
-      "title": "Raccordeur Fibre Optique expérimenté (H/F)",
-      "titleByLocale": {
-        "it": "Connettore ottico fibrato esperto (M/F)",
-        "en": "Experienced Fiber Optical Connector (M/F)",
-        "de": "Erfahrener Fiber Optical Connector (M/W)",
-        "fr": "Raccordeur Fibre Optique expérimenté (H/F)"
-      },
-      "description": "Raccordeur Fibre Optique expérimenté (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients spécialisé dans les infrastructures de télécommunication, plusieurs Raccordeurs Fibre Optique (H/F) afin de renforcer ses équipes.\nDescription du job\nPréparation et raccordement de câbles fibre optique\nRéalisation de soudures de fibres optiques\nPréparation des boîtes et coffrets de raccordement\nContrôle de la qualité des raccordements\nLecture et compréhension des plans et schémas techniques\nIntervention sur différents chantiers\nRespect strict des règles de sécurité\nProfil\nExpérience confirmée dans le raccordement de fibre optique\nMaîtrise de la soudure fibre optique\nÀ l'aise avec les outils et équipements spécifiques au raccordement\nCapable de travailler de manière autonome et précise\nSérieux, organisé et respectueux des consignes de sécurité\nPermis B souhaité\nDisponibilité pour des déplacements à la semaine selon les chantiers\nUne expérience sur des chantiers liés au réseau routier constitue un réel atout\nNous vous proposons\nUne mission au sein d'une entreprise spécialisée dans les infrastructures de télécommunication\nDes chantiers variés\nUne mission pour des profils qualifiés et expérimentés\nIntéressé(e) ?\nMerci de nous transmettre votre CV à jour.\nRaccordeur Fibre Optique expérimenté (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43171\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
-      "descriptionByLocale": {
-        "it": "Connettore ottico fibrato esperto (M/F)\ntorna alla lista\nStiamo cercando uno dei nostri clienti di infrastrutture di telecomunicazione, diversi connettori ottici fibra (M/F) per rafforzare i nostri team.\nDescrizione del lavoro\nPreparazione e collegamento di cavi in fibra ottica\nFabbricazione di saldatura a fibre ottiche\nPreparazione di scatole di connessione e scatole\nControllo qualità delle connessioni\nLettura e comprensione dei piani e dei diagrammi tecnici\nIntervento su vari progetti\nRigoroso rispetto delle regole di sicurezza\nProfilo\nEsperienza confermata nel collegamento in fibra ottica\nControllo della saldatura a fibra ottica\nConfortevole con strumenti e attrezzature specifiche per il collegamento\nCapacità di lavorare in modo indipendente e preciso\nSerious, organizzato e sicuro\nPermettere B desiderato\nDisponibilità per viaggi settimanali in cantiere\nEsperienza sui siti di rete stradale è un vero e proprio asset\nVi offriamo\nUna missione all'interno di una società di infrastrutture di telecomunicazione\nVari progetti\nUna missione per profili qualificati ed esperti\nInteressante?\nInviaci il tuo CV aggiornato.\nConnettore ottico fibrato esperto (M/F) / Temporary\n- Località\nGinevra\nDisponibilità\nImmediatamente\nTipo\nTemporaneo\nRiferimento\n43171\nPubblicato il\n12/11/2026\nAgenzia responsabile\nGinevra\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Ginevra\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nLa vostra agenzia di collocamento a Ginevra\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
-        "en": "Experienced Fiber Optical Connector (M/F)\nback to list\nWe are looking for one of our telecommunications infrastructure customers, several (M/F) Fiber Optical Connectors to strengthen our teams.\nJob description\nPreparation and connection of fibre optic cables\nManufacture of fibre optic welding\nPreparation of connection boxes and boxes\nQuality control of connections\nReading and understanding technical plans and diagrams\nIntervention on various projects\nStrict compliance with safety rules\nProfile\nConfirmed experience in fibre optic connection\nControl of fibre-optic welding\nComfortable with tools and equipment specific to connection\nAbility to work independently and accurately\nSerious, organized and safe\nPermit B desired\nAvailability for weekly trips by construction site\nExperience on road network sites is a real asset\nWe offer you\nA mission within a telecommunications infrastructure company\nVarious projects\nA mission for qualified and experienced profiles\nInterested?\nPlease send us your updated CV.\nExperienced Fiber Optical Connector (M/F) / Temporary\n- Locality\nGeneva\nAvailability\nImmediately\nTipo\nTemporary\nReference\n43171\nPublished on\n12/11/2026\nAgency in charge\nGeneva\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Geneva\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nYour placement agency in Geneva\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Erfahrener Fiber Optical Connector (M/W)\nZurück zur Liste\nWir suchen einen unserer Telekommunikationsinfrastrukturkunden, mehrere (M/W) Fiber Optical Connectors, um unsere Teams zu stärken.\nStellenbeschreibung\nVorbereitung und Anschluss von Glasfaserkabeln\nHerstellung von Glasfaserschweißen\nVorbereitung von Anschlussboxen und -boxen\nQualitätskontrolle der Anschlüsse\nLesen und Verstehen von technischen Plänen und Diagrammen\nIntervention zu verschiedenen Projekten\nStrenge Einhaltung der Sicherheitsvorschriften\nProfil\nBestätigte Erfahrung in der Glasfaserverbindung\nSteuerung des faseroptischen Schweißens\nKomfortabel mit verbindungsspezifischen Werkzeugen und Geräten\nFähigkeit, unabhängig und präzise zu arbeiten\nSeriös, organisiert und sicher\nGenehmigung B gewünscht\nVerfügbarkeit für wöchentliche Fahrten auf der Baustelle\nErfahrung auf Straßennetzen ist eine echte Bereicherung\nWir bieten Ihnen\nEine Mission innerhalb eines Telekommunikationsinfrastrukturunternehmens\nVerschiedene Projekte\nEine Mission für qualifizierte und erfahrene Profile\nInteressiert?\nBitte senden Sie uns Ihren aktualisierten Lebenslauf.\nErfahrener Fiber Optical Connector (M/W) / Temporär\n- Ort\nGenf\nVerfügbarkeit\nSofort\nTipo\nVorübergehend\nReferenznummer\n43171\nVeröffentlicht am\n12/11/2026\nZuständige Agentur\nGenf\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genf\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nIhre Vermittlungsagentur in Genf\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diesen Job bewerben.",
-        "fr": "Raccordeur Fibre Optique expérimenté (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients spécialisé dans les infrastructures de télécommunication, plusieurs Raccordeurs Fibre Optique (H/F) afin de renforcer ses équipes.\nDescription du job\nPréparation et raccordement de câbles fibre optique\nRéalisation de soudures de fibres optiques\nPréparation des boîtes et coffrets de raccordement\nContrôle de la qualité des raccordements\nLecture et compréhension des plans et schémas techniques\nIntervention sur différents chantiers\nRespect strict des règles de sécurité\nProfil\nExpérience confirmée dans le raccordement de fibre optique\nMaîtrise de la soudure fibre optique\nÀ l'aise avec les outils et équipements spécifiques au raccordement\nCapable de travailler de manière autonome et précise\nSérieux, organisé et respectueux des consignes de sécurité\nPermis B souhaité\nDisponibilité pour des déplacements à la semaine selon les chantiers\nUne expérience sur des chantiers liés au réseau routier constitue un réel atout\nNous vous proposons\nUne mission au sein d'une entreprise spécialisée dans les infrastructures de télécommunication\nDes chantiers variés\nUne mission pour des profils qualifiés et expérimentés\nIntéressé(e) ?\nMerci de nous transmettre votre CV à jour.\nRaccordeur Fibre Optique expérimenté (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43171\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
-      },
-      "location": "1201 Genève",
-      "canton": "GE",
-      "url": "https://www.okjob.ch/offres-demplois/raccordeur-fibre-optique-experimente-h-f-geneve/?ref=43171",
-      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:43:09.861Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/raccordeur-fibre-optique-experimente-h-f-geneve/?ref=43171",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
-        ],
-        "en": [
-          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
-        ],
-        "de": [
-          "raccordeur-fibre-optique-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-a206bf60"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:44:28.318Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.861Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "okjob-eeb512917bac",
-      "slug": "capo-di-grado-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-      "slugByLocale": {
-        "it": "capo-di-grado-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-        "en": "chef-de-rang-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-        "de": "chef-de-rang-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-        "fr": "chef-de-rang-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291"
-      },
-      "slugDisambiguator": "eeb51291",
-      "company": "OK Job SA, succursale di Mendrisio",
-      "companyKey": "okjob",
-      "companyDomain": "okjob.ch",
-      "title": "Chef de Rang",
-      "titleByLocale": {
-        "it": "Capo di grado",
-        "en": "Chef de Rang (Head Waiter)",
-        "de": "Chef de Rang",
-        "fr": "Chef de Rang"
-      },
-      "description": "Chef de Rang\nzurück zur Liste\nFür unsere Auftraggeberin, ein renommiertes Gourmetrestaurant in Basel mit ausgezeichneter Küche und höchsten Ansprüchen an Servicequalität, suchen wir eine erfahrene und gastorientierte Persönlichkeit als Restaurantleiter/in (m/w/d).\nArbeitsbeschreibung\nSie leben Gastfreundschaft auf höchstem Niveau, führen Ihr Team mit Leidenschaft und möchten Ihren Gästen unvergessliche kulinarische Erlebnisse bieten? Dann freuen wir uns darauf, Sie kennenzulernen.\nIhre Aufgaben\nIn dieser verantwortungsvollen Funktion übernehmen Sie die operative Leitung des Restaurants und stellen gemeinsam mit Ihrem Team einen erstklassigen Service sicher.\n- Führung und Koordination des Restaurantbetriebs\n- Professioneller und herzlicher Empfang sowie Betreuung der Gäste\n- Sicherstellung eines reibungslosen Serviceablaufs auf höchstem Niveau\n- Führung, Motivation und Unterstützung des Serviceteams\n- Enge Zusammenarbeit mit Küche und Management\n- Mitverantwortung für die Einhaltung der Qualitäts- und Servicestandards\n- Aktive Mitarbeit im operativen Tagesgeschäft\n- Sicherstellung eines gepflegten und repräsentativen Erscheinungsbildes des Restaurant\nProfil\n- Mehrjährige Berufserfahrung in einer vergleichbaren Führungsfunktion in der gehobenen Gastronomie\n- Erfahrung in der Gourmet- oder Fine-Dining-Gastronomie\n- Sehr gute Deutsch-, Französisch- und Englischkenntnisse\n- Sicheres und gepflegtes Auftreten mit ausgeprägter Gastgebermentalität\n- Hohe Serviceorientierung und Leidenschaft für die gehobene Gastronomie\n- Verantwortungsbewusste, strukturierte und selbstständige Arbeitsweise\n- Führungskompetenz sowie die Fähigkeit, Mitarbeitende zu motivieren und weiterzuentwickeln\n- Teamgeist, Engagement und ein hoher Qualitätsanspruch\nDas dürfen Sie erwarten:\n- Fixe Arbeitstage von Dienstag bis Samstag\n- Ausschliesslich Abenddienst\n- Sonntag und Montag frei\n- Keine Zimmerstunden und keine geteilten Dienste\n- Professionelles und wertschätzendes Arbeitsumfeld\n- Möglichkeit, in einem gastronomischen Spitzenbetrieb mitzuwirken\n- Zeit und Raum für Qualität, Persönlichkeit und erstklassigen Service\n- Anstellungsbedingungen gemäss L-GAV\nInteressiert?\nSie bringen Erfahrung in der gehobenen Gastronomie mit, sind eine authentische Gastgeberpersönlichkeit und möchten gemeinsam mit einem engagierten Team gastronomische Spitzenleistungen erbringen?\nDann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\nRaffinierte Küche. Persönlicher Service. Leidenschaft für den Gast.\nChef de Rang / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n43170\nVeröffentlicht am\n13/11/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
-      "descriptionByLocale": {
-        "it": "Chef de Rang\nTorna alla lista\nPer il nostro cliente, un rinomato ristorante gastronomico di Basilea con ottima cucina e elevati standard di qualità del servizio, stiamo cercando una personalità esperta e orientata agli ospiti come direttore del ristorante.\nDescrizione del lavoro\nVivete l'ospitalità al massimo livello, guidate il vostro team con passione e desiderate offrire ai vostri ospiti esperienze culinarie indimenticabili? Allora non vediamo l'ora di incontrarti.\nI loro compiti\nIn questo ruolo responsabile, si prende il controllo della gestione operativa del ristorante e insieme al vostro team garantire il servizio di prima classe.\n- Gestione e coordinamento delle operazioni di ristorazione\n- Accoglienza professionale e calorosa e cura degli ospiti\n- Garantire un flusso di servizio fluido al massimo livello\n- Leadership, motivazione e supporto del team di assistenza\n- stretta collaborazione con cucina e gestione\n- Co-responsabilità per il rispetto delle norme di qualità e di servizio\n- Partecipazione attiva alle operazioni quotidiane\n- Assicurare un aspetto ben curato e rappresentativo del ristorante\nProfilo\n- Diversi anni di esperienza professionale in una funzione di gestione comparabile nella gastronomia di lusso\n- Esperienza nella gastronomia gastronomica o raffinata\n- Conoscenza molto buona di tedesco, francese e inglese\n- Aspetto sicuro e curato con una spiccata mentalità ospite\n- Alto orientamento al servizio e passione per la gastronomia di lusso\n- Metodi di lavoro responsabili, strutturati e indipendenti\n- Capacità di leadership e capacità di motivare e sviluppare i dipendenti\n- Spirito di squadra, impegno e standard di alta qualità\nQuesto è ciò che ci si può aspettare:\n- Giorni lavorativi fissi da martedì a sabato\n- Solo servizio serale\n- Domenica e lunedì gratis\n- Nessuna ora di camera e nessun servizio condiviso\n- Ambiente di lavoro professionale e rispettoso\n- Possibilità di partecipare a un'attività gastronomica\n- Tempo e spazio per qualità, personalità e servizio di prima classe\n- Condizioni di lavoro secondo L-GAV\nInteressante?\nHai esperienza nella gastronomia di alto livello, sei una personalità ospitante autentica e vorresti fare l'eccellenza gastronomica insieme a un team dedicato?\nAllora non vediamo l'ora dei vostri documenti di applicazione completi.\ncucina raffinata. Servizio personale. Passione per l'ospite.\nChef de Rang / Fest\n- Posizione\nBâle\nDisponibilità\nDe suite\nTipo\nPersonale permanente\nRiferimento\n43170\nPubblicato il\n12/11/2026\nAgenzia responsabile\nBasilea\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefono 0612603500\nLa tua agenzia di collocamento a Basilea\nÈ necessario contrassegnare il tuo profilo come \"full\" nella sezione Account My prima di richiedere questo lavoro.",
-        "en": "Chef de Rang\nBack to the list\nFor our client, a renowned gourmet restaurant in Basel with excellent cuisine and highest standards of service quality, we are looking for an experienced and guest-oriented personality as a restaurant manager.\nJob description\nYou live hospitality at the highest level, lead your team with passion and want to offer your guests unforgettable culinary experiences? Then we look forward to meeting you.\nTheir tasks\nIn this responsible role, you take over the operational management of the restaurant and together with your team ensure first-class service.\n- Management and coordination of restaurant operations\n- Professional and warm welcome as well as care of the guests\n- Ensuring a smooth service flow at the highest level\n- Leadership, motivation and support of the service team\n- Close cooperation with kitchen and management\n- Co-responsibility for compliance with quality and service standards\n- Active participation in day-to-day operations\n- Ensuring a well-kept and representative appearance of the restaurant\nProfile\n- Several years of professional experience in a comparable management function in the upscale gastronomy\n- Experience in gourmet or fine dining gastronomy\n- Very good knowledge of German, French and English\n- Safe and well-groomed appearance with a pronounced host mentality\n- High service orientation and passion for upscale gastronomy\n- Responsible, structured and independent working methods\n- Leadership skills and the ability to motivate and develop employees\n- Team spirit, commitment and high quality standards\nThis is what you can expect:\n- Fixed working days from Tuesday to Saturday\n- Only evening service\n- Sunday and Monday free\n- No room hours and no shared services\n- Professional and respectful working environment\n- Possibility to participate in a gastronomic business\n- Time and space for quality, personality and first-class service\n- Conditions of employment according to L-GAV\nInterested?\nDo you have experience in upscale gastronomy, are you an authentic host personality and would like to perform gastronomic excellence together with a dedicated team?\nThen we look forward to your complete application documents.\nrefined cuisine. Personal service. Passion for the guest.\nChef de Rang / Fest\n- Position\nBâle\nAvailability\nDe suite\nType\nPermanent staff\nReference\n43170\nPublished on\n12/11/2026\nResponsible Agency\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelephone 0612603500\nYour placement agency in Basel\nYou must mark your profile as \"full\" in the My Account section before applying for this job.",
-        "de": "Chef de Rang\nzurück zur Liste\nFür unsere Auftraggeberin, ein renommiertes Gourmetrestaurant in Basel mit ausgezeichneter Küche und höchsten Ansprüchen an Servicequalität, suchen wir eine erfahrene und gastorientierte Persönlichkeit als Restaurantleiter/in (m/w/d).\nArbeitsbeschreibung\nSie leben Gastfreundschaft auf höchstem Niveau, führen Ihr Team mit Leidenschaft und möchten Ihren Gästen unvergessliche kulinarische Erlebnisse bieten? Dann freuen wir uns darauf, Sie kennenzulernen.\nIhre Aufgaben\nIn dieser verantwortungsvollen Funktion übernehmen Sie die operative Leitung des Restaurants und stellen gemeinsam mit Ihrem Team einen erstklassigen Service sicher.\n- Führung und Koordination des Restaurantbetriebs\n- Professioneller und herzlicher Empfang sowie Betreuung der Gäste\n- Sicherstellung eines reibungslosen Serviceablaufs auf höchstem Niveau\n- Führung, Motivation und Unterstützung des Serviceteams\n- Enge Zusammenarbeit mit Küche und Management\n- Mitverantwortung für die Einhaltung der Qualitäts- und Servicestandards\n- Aktive Mitarbeit im operativen Tagesgeschäft\n- Sicherstellung eines gepflegten und repräsentativen Erscheinungsbildes des Restaurant\nProfil\n- Mehrjährige Berufserfahrung in einer vergleichbaren Führungsfunktion in der gehobenen Gastronomie\n- Erfahrung in der Gourmet- oder Fine-Dining-Gastronomie\n- Sehr gute Deutsch-, Französisch- und Englischkenntnisse\n- Sicheres und gepflegtes Auftreten mit ausgeprägter Gastgebermentalität\n- Hohe Serviceorientierung und Leidenschaft für die gehobene Gastronomie\n- Verantwortungsbewusste, strukturierte und selbstständige Arbeitsweise\n- Führungskompetenz sowie die Fähigkeit, Mitarbeitende zu motivieren und weiterzuentwickeln\n- Teamgeist, Engagement und ein hoher Qualitätsanspruch\nDas dürfen Sie erwarten:\n- Fixe Arbeitstage von Dienstag bis Samstag\n- Ausschliesslich Abenddienst\n- Sonntag und Montag frei\n- Keine Zimmerstunden und keine geteilten Dienste\n- Professionelles und wertschätzendes Arbeitsumfeld\n- Möglichkeit, in einem gastronomischen Spitzenbetrieb mitzuwirken\n- Zeit und Raum für Qualität, Persönlichkeit und erstklassigen Service\n- Anstellungsbedingungen gemäss L-GAV\nInteressiert?\nSie bringen Erfahrung in der gehobenen Gastronomie mit, sind eine authentische Gastgeberpersönlichkeit und möchten gemeinsam mit einem engagierten Team gastronomische Spitzenleistungen erbringen?\nDann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\nRaffinierte Küche. Persönlicher Service. Leidenschaft für den Gast.\nChef de Rang / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n43170\nVeröffentlicht am\n13/11/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
-        "fr": "Chef de Rang\nRetour à la liste\nPour notre client, un restaurant gastronomique réputé à Bâle avec une excellente cuisine et des normes de qualité de service élevées, nous recherchons une personnalité expérimentée et orientée vers les clients en tant que directeur de restaurant.\nDescription du poste\nVous vivez l'hospitalité au plus haut niveau, dirigez votre équipe avec passion et souhaitez offrir à vos invités des expériences culinaires inoubliables? Alors nous avons hâte de vous rencontrer.\nLeurs tâches\nDans ce rôle responsable, vous prenez en charge la gestion opérationnelle du restaurant et avec votre équipe assurer un service de première classe.\n- Gestion et coordination des opérations de restauration\n- Accueil professionnel et chaleureux ainsi que soin des hôtes\n- Assurer un flux de service en douceur au plus haut niveau\n- Leadership, motivation et soutien de l'équipe de services\n- Coopération étroite avec la cuisine et la gestion\n- Coresponsabilité en matière de conformité avec les normes de qualité et de service\n- Participation active aux opérations quotidiennes\n- Assurer une apparence bien gardée et représentative du restaurant\nProfil\n- Plusieurs années d'expérience professionnelle dans une fonction de gestion comparable dans la gastronomie haut de gamme\n- Expérience en gastronomie gastronomique ou gastronomique\n- Bonne connaissance de l'allemand, du français et de l'anglais\n- Aspect sûr et soigné avec une mentalité d'hôte prononcée\n- Orientation et passion pour la gastronomie haut de gamme\n- Méthodes de travail responsables, structurées et indépendantes\n- Compétences en leadership et capacité de motiver et de développer les employés\n- Esprit d'équipe, engagement et normes de qualité élevées\nC'est ce que vous pouvez vous attendre:\n- Jours ouvrables fixes du mardi au samedi\n- Uniquement en soirée\n- Dimanche et lundi gratuits\n- Aucune heure de chambre et aucun service partagé\n- Un environnement de travail professionnel et respectueux\n- Possibilité de participer à une activité gastronomique\n- Temps et espace pour la qualité, la personnalité et le service de première classe\n- Conditions d'emploi selon L-GAV\nIntéressé ?\nAvez-vous de l'expérience dans la gastronomie haut de gamme, êtes-vous une personnalité d'accueil authentique et souhaitez effectuer l'excellence gastronomique avec une équipe dédiée?\nEnsuite, nous attendons avec impatience vos documents de candidature complets.\ncuisine raffinée. Service personnel. Passion pour l'invité.\nChef de Rang / Fête\n- Fonction\nBâle\nDisponibilité\nDe suite\nType\nPersonnel permanent\nRéférence\n43170\nPublié le\n12/11/2026\nOrganisme responsable\nBâle\nStephan Schuh\n+41 61 260 35 00\nStephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTéléphone 0612603500\nVotre agence de placement à Bâle\nVous devez marquer votre profil comme « complet » dans la section Mon dossier avant de postuler pour ce poste."
-      },
-      "location": "4051 Basel",
-      "canton": "BS",
-      "url": "https://www.okjob.ch/de/jobangebote/chef-de-rang-basel/?ref=43170",
-      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:43:09.860Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
+      "postalCode": "1700",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -2152,158 +1906,64 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/de/jobangebote/chef-de-rang-basel/?ref=43170",
+      "applyUrl": "https://www.okjob.ch/offres-demplois/chef-dequipe-en-genie-civil-fribourg/?ref=43254",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "fr": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-11-09T09:44:28.316Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Basel",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.860Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-rang-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-          "capo-di-grado-ok-job-sa-succursale-di-mendrisio-basel-eeb51291"
-        ]
-      },
-      "previousSlugs": [
-        "chef-de-rang-ok-job-sa-succursale-di-mendrisio-4051-basel-eeb51291",
-        "capo-di-grado-ok-job-sa-succursale-di-mendrisio-basel-eeb51291"
-      ]
-    },
-    {
-      "id": "okjob-63416b7e423a",
-      "slug": "parquettore-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-      "slugByLocale": {
-        "it": "parquettore-esperto-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "en": "experienced-parqueter-m-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "de": "erfahrener-parketter-m-w-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e",
-        "fr": "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
-      },
-      "slugDisambiguator": "63416b7e",
-      "company": "OK Job SA, succursale di Mendrisio",
-      "companyKey": "okjob",
-      "companyDomain": "okjob.ch",
-      "title": "Parqueteur expérimenté (H/F)",
-      "titleByLocale": {
-        "it": "Parquettore esperto (M/F)",
-        "en": "Experienced parqueter (M/F)",
-        "de": "Erfahrener Parketter (M/W)",
-        "fr": "Parqueteur expérimenté (H/F)"
-      },
-      "description": "Parqueteur expérimenté (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients actif sur le canton de Genève,\nUn parqueteur expérimenté (H/F) pour renforcer ses équipes.\nDescription du job\nPréparation des supports avant la pose\nPose de parquet massif, contrecollé et stratifié\nPose collée, flottante et clouée\nDécoupe et ajustement des éléments\nPose de plinthes et réalisation des finitions\nPonçage et rénovation de parquets selon les chantiers\nRespect des règles de sécurité et maintien d?un chantier propre\nProfil\nExpérience confirmée en tant que parqueteur\nAutonome dans la pose et les finitions\nBonne maîtrise des différents types de parquet\nTravail précis et soigné\nCapable de travailler seul comme en équipe\nOutillé, un plus\nPermis B apprécié\nDisponible sur Genève et ses environs\nNous vous proposons :\nUne mission auprès d?une entreprise genevoise\nDes chantiers variés en neuf et rénovation\nConditions selon profil et expérience\nLieu : Genève\nEntrée : à convenir\nMerci de nous transmettre votre CV à jour.\nLieu du poste : En présentiel\nParqueteur expérimenté (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43169\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
-      "descriptionByLocale": {
-        "it": "Parquettore esperto (M/F)\ntorna alla lista\nStiamo cercando uno dei nostri clienti attivi nel Cantone di Ginevra,\nUn produttore di parquet (M/F) esperto per rafforzare i suoi team.\nDescrizione del lavoro\nPreparazione dei supporti prima della posa\nPavimenti in parquet massiccio, laminato e laminato\nLuogo incollato, galleggiante e inchiodato\nElementi di taglio e vestibilità\nPlaccatura di plinti e finiture\nSabbiatura e ristrutturazione di pavimenti in parquet per cantiere\nRispetto delle regole di sicurezza e manutenzione di un sito pulito\nProfilo\nEsperienza confermata come pubblico ministero\nAutonomo nella posa e finitura\nBuon controllo di diversi tipi di parquet\nLavoro preciso e attento\nCapacità di lavorare da solo come squadra\nAttrezzato, un plus\nLicenza B apprezzata\nDisponibile a Ginevra e dintorni\nVi offriamo:\nUna missione per una società di Ginevra\nVari nuovi cantieri e ristrutturazioni\nCondizioni secondo profilo ed esperienza\nSede: Ginevra\nEntrata: da concordare\nInviaci il tuo CV aggiornato.\nPosizione: Presente\nparquet (M/F) esperto / Temporary\n- Località\nGinevra\nDisponibilità\nImmediatamente\nTipo\nTemporaneo\nRiferimento\n43169\nPubblicato il\n12/11/2026\nAgenzia responsabile\nGinevra\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Ginevra\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nLa vostra agenzia di collocamento a Ginevra\nDevi definire il tuo profilo come \"pieno\" nella sezione \"Il mio account\" prima di richiedere questo lavoro.",
-        "en": "Experienced parqueter (M/F)\nback to list\nWe are looking for one of our active clients in the Canton of Geneva,\nAn experienced (M/F) parquet manufacturer to strengthen its teams.\nJob description\nPreparation of supports before laying\nSolid, laminated and laminated parquet flooring\nPlace glued, floating and nailed\nCut and fit elements\nPlating of plinths and finishing\nSanding and renovation of parquet floors by construction site\nCompliance with safety rules and maintenance of a clean site\nProfile\nExperience confirmed as a public prosecutor\nAutonomous in laying and finishing\nGood control of different types of parquet\nPrecise and careful work\nAbility to work alone as a team\nTooled, a plus\nLicense B appreciated\nAvailable in Geneva and its environs\nWe offer you:\nA mission to a Genevan company\nVarious new construction sites and renovations\nConditions according to profile and experience\nVenue: Geneva\nEntry: to be agreed\nPlease send us your updated CV.\nPosition Location: Present\nexperienced (M/F) parqueter / Temporary\n- Locality\nGeneva\nAvailability\nImmediately\nTipo\nTemporary\nReference\n43169\nPublished on\n12/11/2026\nAgency in charge\nGeneva\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Geneva\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nYour placement agency in Geneva\nYou must define your profile as \"full\" in the \"My Account\" section before applying for this job.",
-        "de": "Erfahrener Parketter (M/W)\nZurück zur Liste\nWir suchen einen unserer aktiven Kunden im Kanton Genf,\nEin erfahrener (M/W) Parketthersteller, um seine Teams zu stärken.\nStellenbeschreibung\nVorbereitung der Träger vor dem Legen\nFeste Parkett-, Verbund- und Verbundparkettböden\nPlatz geklebt, schwimmend und genagelt\nSchnitt- und Passelemente\nPlating von Sockeln und Veredelung\nSandbearbeitung und Renovierung von Parkettböden auf der Baustelle\nEinhaltung der Sicherheitsvorschriften und Instandhaltung eines sauberen Standorts\nProfil\nErfahrung als Staatsanwalt bestätigt\nAutonomes Verlegen und Verarbeiten\nGute Kontrolle über verschiedene Arten von Parkett\nPräzise und sorgfältige Arbeit\nFähigkeit, alleine als Team zu arbeiten\nBestückt, ein Plus\nLizenz B geschätzt\nErhältlich in Genf und Umgebung\nWir bieten Ihnen:\nEine Mission zu einem Genfer Unternehmen\nVerschiedene neue Baustellen und Renovierungen\nBedingungen nach Profil und Erfahrung\nOrt: Genf\nEintrag: noch zu vereinbaren\nBitte senden Sie uns Ihren aktualisierten Lebenslauf.\nPosition Lage: Gegenwart\nerfahrener (M/W) Parkett / Temporär\n- Ort\nGenf\nVerfügbarkeit\nSofort\nTipo\nVorübergehend\nReferenznummer\n43169\nVeröffentlicht am\n12/11/2026\nZuständige Agentur\nGenf\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genf\nTel. +41 22 318 86 86\nFax +41 22 318 86 80\nIhre Vermittlungsagentur in Genf\nSie müssen Ihr Profil im Abschnitt \"Mein Konto\" als \"vollständig\" definieren, bevor Sie sich für diesen Job bewerben.",
-        "fr": "Parqueteur expérimenté (H/F)\nretour à la liste\nNous recherchons pour l'un de nos clients actif sur le canton de Genève,\nUn parqueteur expérimenté (H/F) pour renforcer ses équipes.\nDescription du job\nPréparation des supports avant la pose\nPose de parquet massif, contrecollé et stratifié\nPose collée, flottante et clouée\nDécoupe et ajustement des éléments\nPose de plinthes et réalisation des finitions\nPonçage et rénovation de parquets selon les chantiers\nRespect des règles de sécurité et maintien d?un chantier propre\nProfil\nExpérience confirmée en tant que parqueteur\nAutonome dans la pose et les finitions\nBonne maîtrise des différents types de parquet\nTravail précis et soigné\nCapable de travailler seul comme en équipe\nOutillé, un plus\nPermis B apprécié\nDisponible sur Genève et ses environs\nNous vous proposons :\nUne mission auprès d?une entreprise genevoise\nDes chantiers variés en neuf et rénovation\nConditions selon profil et expérience\nLieu : Genève\nEntrée : à convenir\nMerci de nous transmettre votre CV à jour.\nLieu du poste : En présentiel\nParqueteur expérimenté (H/F) / Temporaire\n- Localité\nGenève\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43169\nPublié le\n13/11/2026\nAgence en charge\nGenève\nFanny Nugier\n022 318 86 86\nfanny.nugier@okjob.ch\nRue Michel-Roset 2\n1201 Genève\nTéléphone +41 22 318 86 86\nFax +41 22 318 86 80\nVotre agence de placement à Genève\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
-      },
-      "location": "1201 Genève",
-      "canton": "GE",
-      "url": "https://www.okjob.ch/offres-demplois/parqueteur-experimente-h-f-geneve/?ref=43169",
-      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:43:09.858Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/parqueteur-experimente-h-f-geneve/?ref=43169",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
-        ],
-        "en": [
-          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
-        ],
-        "de": [
-          "parqueteur-experimente-h-f-ok-job-sa-succursale-di-mendrisio-1201-geneve-63416b7e"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:44:28.314Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Genève",
+      "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.858Z",
+      "validThrough": "2027-02-12T21:40:07.381Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-11-14T21:40:07.381Z"
     },
     {
-      "id": "okjob-a8d4671d78a5",
-      "slug": "construzione-di-accordo-prefabrico-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
+      "id": "okjob-35b6ef4571c6",
+      "slug": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
       "slugByLocale": {
-        "it": "construzione-di-accordo-prefabrico-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "en": "prefabrical-element-constructor-m-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "de": "prefabrical-element-constructor-m-w-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "fr": "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
+        "fr": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+        "it": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+        "en": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+        "de": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
       },
-      "slugDisambiguator": "a8d4671d",
+      "slugDisambiguator": "35b6ef45",
       "company": "OK Job SA, succursale di Mendrisio",
       "companyKey": "okjob",
       "companyDomain": "okjob.ch",
-      "title": "CONSTRUCTEUR ELEMENT PREFABRIQUE - H/F",
+      "title": "Isoleur coupe-feu",
       "titleByLocale": {
-        "it": "CONSTRUZIONE DI ACCORDO PREFABRICO - M/F",
-        "en": "PREFABRICAL ELEMENT CONSTRUCTOR - M/F",
-        "de": "PREFABRICAL ELEMENT CONSTRUCTOR - M/W",
-        "fr": "CONSTRUCTEUR ELEMENT PREFABRIQUE - H/F"
+        "fr": "Isoleur coupe-feu",
+        "it": "Isoleur coupe-feu",
+        "en": "Isoleur coupe-feu",
+        "de": "Isoleur coupe-feu"
       },
-      "description": "CONSTRUCTEUR ELEMENT PREFABRIQUE - H/F\nretour à la liste\nPour l'un de nos clients de la région, actif dans le domaine de la construction d'éléments en béton, nous recherchons un(e) constructeur(trice) en éléments préfabriqués.Vous appréciez le travail manuel, êtes à l'aise dans un environnement de production et souhaitez intégrer une équipe dynamique ? No\nDescription du job\nPréparation des moules et coffrages bois\nMise en place des armatures\nCoulage et vibration du béton\nFabrication d'éléments préfabriqués en béton\nDécoffrage et contrôle des éléments produits\nTravaux de finition et petites retouches\nLecture de plans et respect des mesures\nUtilisation des machines et outils de production\nRespect des consignes de sécurité et de qualité\nManutention des différents éléments\nProfil\nExpérience dans la préfabrication béton, le coffrage ou la construction\nBonne maîtrise des travaux manuels\nCapacité à lire et comprendre des plans\nBonne condition physique\nPersonne précise, fiable et consciencieuse\nÀ l'aise dans le travail en équipe\nRespect des règles de sécurité\nPermis de conduire et véhicule\nCONSTRUCTEUR ELEMENT PREFABRIQUE - H/F / Try & Hire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43160\nPublié le\n13/11/2026\nAgence en charge\nBulle\nOphélie Debelle\n026 916 36 36\nophelie.debelle@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+      "description": "Isoleur coupe-feu\nretour à la liste\nNous recherchons en permanence des isoleurs coupe-feu expérimentés pour rejoindre notre équipe dans la région de Bulle. Si vous êtes autonome avec de l'expérience dans la pose d'isolation, la peinture intumescente et si vous maîtrisez les différentes tâches mentionnées ci-dessous, nous serions heure\nDescription du job\n- Poseur d'isolation coupe-feu\n- Réaliser les obturations\n- Effectuer des travaux neufs ou de rénovation\n- Pose de mastic, peinture intumescente et mousse anti-feu\n- Chemin de câble coupe-feu\n- Pose de panneaux, laine de pierre, laine de verre\nProfil\n- Personne expérimentés\n- Personne motivée et dynamique\n- Connaissances des normes incendies\n- Un sens prononcé des responsabilités\n- Vous êtes minutieux et rigoureux\n- Respect des directives de sécurité\n- Autonomie, flexibilité et sens de l'organisation\n- Permis de conduire un atout\n- Formation coupe-feu suisse\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nIsoleur coupe-feu / Temporaire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43250\nPublié le\n14/11/2026\nAgence en charge\nBulle\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
       "descriptionByLocale": {
-        "it": "13.11.2026 / 43630\n• Bulle / Prova a noleggio\n• CONSTRUZIONE DI ACCORDO PREFABRICO - M/F\nPer uno dei nostri clienti nella regione, attivo nella costruzione di elementi in cemento, stiamo cercando un produttore di elementi prefabbricati. Apprezzi il lavoro manuale, sei comodo in un ambiente di produzione e vuoi integrare un team dinamico? No.\n• Preparazione di stampi e forme di legno\n• Impostazione dei rinforzi\n• Concrete colata e vibrazioni\n• Fabbricazione di elementi di cemento prefabbricati\n• Forma e controllo degli elementi di prodotto\n• Finitura e piccole alterazioni\n• Piani di lettura e conformità\n• Utilizzo di macchine e strumenti di produzione\n• Rispetto dei requisiti di sicurezza e qualità\n• Gestione dei vari elementi\n• Esperienza in calcestruzzo prefabbricato, casseforme o costruzione\n• Buon controllo del lavoro manuale\n• Capacità di leggere e comprendere i piani\n• Buone condizioni fisiche\n• Persona accurata, affidabile e coscienziosa\n• Confortevole nel lavoro di squadra\n• Rispetto delle regole di sicurezza\n• Patenti di guida e veicoli\n• CONSTRUZIONE PREFABRICA - M/F / Prova e noleggio",
-        "en": "13.11.2026 / 43630\n• Bulle / Try and Hire\n• PREFABRICAL ELEMENT CONSTRUCTOR - M/F\nFor one of our customers in the region, active in the construction of concrete elements, we are looking for a manufacturer of prefabricated elements.You appreciate manual work, are comfortable in a production environment and want to integrate a dynamic team? No\n• Preparation of moulds and wood forms\n• Setting up of reinforcements\n• Concrete casting and vibration\n• Manufacture of prefabricated concrete elements\n• Forming and control of product elements\n• Finishing and small alterations\n• Reading plans and compliance\n• Use of machinery and production tools\n• Compliance with safety and quality requirements\n• Handling of the various elements\n• Experience in prefabrication concrete, formwork or construction\n• Good control of manual work\n• Ability to read and understand plans\n• Good physical condition\n• Accurate, reliable and conscientious person\n• Comfortable in teamwork\n• Compliance with safety rules\n• Driving licences and vehicles\n• PREFABRICAL ELEMENT CONSTRUCTOR - M/F / Try & Hire",
-        "de": "13.11.2026 / 43630\n• Bulle / Try and Hire\n• PREFABRICAL ELEMENT CONSTRUCTOR - M/W\nFür einen unserer Kunden in der Region, der im Bau von Betonelementen tätig ist, suchen wir einen Hersteller von vorgefertigten Elementen. Sie schätzen die manuelle Arbeit, sind komfortabel in einer Produktionsumgebung und möchten ein dynamisches Team integrieren? Nein\n• Zubereitung von Formen und Holzformen\n• Einrichtung von Verstärkungen\n• Betonguss und Vibration\n• Herstellung von Betonfertigteilen\n• Bildung und Kontrolle von Produktelementen\n• Finishing und kleine Änderungen\n• Lesepläne und Compliance\n• Verwendung von Maschinen und Produktionswerkzeugen\n• Einhaltung der Sicherheits- und Qualitätsanforderungen\n• Handhabung der verschiedenen Elemente\n• Erfahrung in der Vorfertigung Beton, Schalung oder Konstruktion\n• Gute Kontrolle der manuellen Arbeit\n• Fähigkeit, Pläne zu lesen und zu verstehen\n• Gute körperliche Verfassung\n• Genaue, zuverlässige und gewissenhafte Person\n• Komfortabel im Teamwork\n• Einhaltung der Sicherheitsvorschriften\n• Führerscheine und Fahrzeuge\n• PREFABRICAL ELEMENT CONSTRUCTOR - M/W / Try & Hire",
-        "fr": "CONSTRUCTEUR ELEMENT PREFABRIQUE - H/F\nretour à la liste\nPour l'un de nos clients de la région, actif dans le domaine de la construction d'éléments en béton, nous recherchons un(e) constructeur(trice) en éléments préfabriqués.Vous appréciez le travail manuel, êtes à l'aise dans un environnement de production et souhaitez intégrer une équipe dynamique ? No\nDescription du job\nPréparation des moules et coffrages bois\nMise en place des armatures\nCoulage et vibration du béton\nFabrication d'éléments préfabriqués en béton\nDécoffrage et contrôle des éléments produits\nTravaux de finition et petites retouches\nLecture de plans et respect des mesures\nUtilisation des machines et outils de production\nRespect des consignes de sécurité et de qualité\nManutention des différents éléments\nProfil\nExpérience dans la préfabrication béton, le coffrage ou la construction\nBonne maîtrise des travaux manuels\nCapacité à lire et comprendre des plans\nBonne condition physique\nPersonne précise, fiable et consciencieuse\nÀ l'aise dans le travail en équipe\nRespect des règles de sécurité\nPermis de conduire et véhicule\nCONSTRUCTEUR ELEMENT PREFABRIQUE - H/F / Try & Hire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTry and Hire\nRéférence\n43160\nPublié le\n13/11/2026\nAgence en charge\nBulle\nOphélie Debelle\n026 916 36 36\nophelie.debelle@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
+        "fr": "Isoleur coupe-feu\nretour à la liste\nNous recherchons en permanence des isoleurs coupe-feu expérimentés pour rejoindre notre équipe dans la région de Bulle. Si vous êtes autonome avec de l'expérience dans la pose d'isolation, la peinture intumescente et si vous maîtrisez les différentes tâches mentionnées ci-dessous, nous serions heure\nDescription du job\n- Poseur d'isolation coupe-feu\n- Réaliser les obturations\n- Effectuer des travaux neufs ou de rénovation\n- Pose de mastic, peinture intumescente et mousse anti-feu\n- Chemin de câble coupe-feu\n- Pose de panneaux, laine de pierre, laine de verre\nProfil\n- Personne expérimentés\n- Personne motivée et dynamique\n- Connaissances des normes incendies\n- Un sens prononcé des responsabilités\n- Vous êtes minutieux et rigoureux\n- Respect des directives de sécurité\n- Autonomie, flexibilité et sens de l'organisation\n- Permis de conduire un atout\n- Formation coupe-feu suisse\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nIsoleur coupe-feu / Temporaire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43250\nPublié le\n14/11/2026\nAgence en charge\nBulle\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "it": "Isoleur coupe-feu\nretour à la liste\nNous recherchons en permanence des isoleurs coupe-feu expérimentés pour rejoindre notre équipe dans la région de Bulle. Si vous êtes autonome avec de l'expérience dans la pose d'isolation, la peinture intumescente et si vous maîtrisez les différentes tâches mentionnées ci-dessous, nous serions heure\nDescription du job\n- Poseur d'isolation coupe-feu\n- Réaliser les obturations\n- Effectuer des travaux neufs ou de rénovation\n- Pose de mastic, peinture intumescente et mousse anti-feu\n- Chemin de câble coupe-feu\n- Pose de panneaux, laine de pierre, laine de verre\nProfil\n- Personne expérimentés\n- Personne motivée et dynamique\n- Connaissances des normes incendies\n- Un sens prononcé des responsabilités\n- Vous êtes minutieux et rigoureux\n- Respect des directives de sécurité\n- Autonomie, flexibilité et sens de l'organisation\n- Permis de conduire un atout\n- Formation coupe-feu suisse\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nIsoleur coupe-feu / Temporaire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43250\nPublié le\n14/11/2026\nAgence en charge\nBulle\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "en": "Isoleur coupe-feu\nretour à la liste\nNous recherchons en permanence des isoleurs coupe-feu expérimentés pour rejoindre notre équipe dans la région de Bulle. Si vous êtes autonome avec de l'expérience dans la pose d'isolation, la peinture intumescente et si vous maîtrisez les différentes tâches mentionnées ci-dessous, nous serions heure\nDescription du job\n- Poseur d'isolation coupe-feu\n- Réaliser les obturations\n- Effectuer des travaux neufs ou de rénovation\n- Pose de mastic, peinture intumescente et mousse anti-feu\n- Chemin de câble coupe-feu\n- Pose de panneaux, laine de pierre, laine de verre\nProfil\n- Personne expérimentés\n- Personne motivée et dynamique\n- Connaissances des normes incendies\n- Un sens prononcé des responsabilités\n- Vous êtes minutieux et rigoureux\n- Respect des directives de sécurité\n- Autonomie, flexibilité et sens de l'organisation\n- Permis de conduire un atout\n- Formation coupe-feu suisse\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nIsoleur coupe-feu / Temporaire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43250\nPublié le\n14/11/2026\nAgence en charge\nBulle\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi.",
+        "de": "Isoleur coupe-feu\nretour à la liste\nNous recherchons en permanence des isoleurs coupe-feu expérimentés pour rejoindre notre équipe dans la région de Bulle. Si vous êtes autonome avec de l'expérience dans la pose d'isolation, la peinture intumescente et si vous maîtrisez les différentes tâches mentionnées ci-dessous, nous serions heure\nDescription du job\n- Poseur d'isolation coupe-feu\n- Réaliser les obturations\n- Effectuer des travaux neufs ou de rénovation\n- Pose de mastic, peinture intumescente et mousse anti-feu\n- Chemin de câble coupe-feu\n- Pose de panneaux, laine de pierre, laine de verre\nProfil\n- Personne expérimentés\n- Personne motivée et dynamique\n- Connaissances des normes incendies\n- Un sens prononcé des responsabilités\n- Vous êtes minutieux et rigoureux\n- Respect des directives de sécurité\n- Autonomie, flexibilité et sens de l'organisation\n- Permis de conduire un atout\n- Formation coupe-feu suisse\nSi vous ne recevez aucune réponse dans un délais de 10 jours après votre postulation, merci de considérer votre candidature comme non retenue.\nN'hésitez pas à faire parvenir votre dossier à :\nOK JOB SA - Rue de Lausanne 91 - 1700 Fribourg - Tél. 026 347 47 00 Eduardo Pires - eduardo.pires@okjob.ch\nIsoleur coupe-feu / Temporaire\n- Localité\nBulle\nDisponibilité\nDe suite\nTipo\nTemporaire\nRéférence\n43250\nPublié le\n14/11/2026\nAgence en charge\nBulle\nEduardo Pires\n026 347 47 00\neduardo.pires@okjob.ch\nAvenue de la Gare 21\n1630 Bulle\nTéléphone +41 26 916 36 36\nFax +41 26 916 36 99\nVotre agence de placement à Bulle\nVous devez définir votre profil comme \"complet\" dans la section \"Mon compte\" avant de postuler à cet emploi."
       },
       "location": "1630 Bulle",
       "canton": "FR",
-      "url": "https://www.okjob.ch/offres-demplois/constructeur-element-prefabrique-h-f-bulle/?ref=43160",
+      "url": "https://www.okjob.ch/offres-demplois/isoleur-coupe-feu-bulle/?ref=43250",
       "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:43:09.856Z",
+      "crawledAt": "2026-11-14T21:40:07.380Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2319,26 +1979,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/offres-demplois/constructeur-element-prefabrique-h-f-bulle/?ref=43160",
+      "applyUrl": "https://www.okjob.ch/offres-demplois/isoleur-coupe-feu-bulle/?ref=43250",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-        "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-bulle-a8d4671d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d",
-          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-bulle-a8d4671d"
-        ],
-        "en": [
-          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
-        ],
-        "de": [
-          "constructeur-element-prefabrique-h-f-ok-job-sa-succursale-di-mendrisio-1630-bulle-a8d4671d"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-11-09T09:44:28.313Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2354,91 +2000,9 @@
       },
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.856Z",
+      "validThrough": "2027-02-12T21:40:07.380Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "okjob-100b401dd9c7",
-      "slug": "risorse-umane-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-      "slugByLocale": {
-        "it": "risorse-umane-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-        "en": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-        "de": "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d",
-        "fr": "ressources-humaines-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
-      },
-      "slugDisambiguator": "100b401d",
-      "company": "OK Job SA, succursale di Mendrisio",
-      "companyKey": "okjob",
-      "companyDomain": "okjob.ch",
-      "title": "Human Resources Leitung 100% /m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile delle risorse umane 100% /m/f/d)",
-        "en": "Human Resources management 100% /m/f/d",
-        "de": "Human Resources Leitung 100% /m/w/d)",
-        "fr": "Direction des ressources humaines 100% /h/f/d)"
-      },
-      "description": "Human Resources Leitung 100% /m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nFür unseren Kunden im Raum Luzern suchen wir eine HR Leitung 100% (m/w/d).\nArbeitsbeschreibung\n- Operative und strategische Führung des HR-Bereichs\n- Führung und Weiterentwicklung des HR-Teams\n- Beratung von Geschäftsleitung und Führungskräften in HR- und arbeitsrechtlichen Themen\n- Verantwortung für den gesamten Employee Lifecycle\n- Weiterentwicklung der HR-Strategie sowie Umsetzung von HR-Projekten\n- Optimierung und Digitalisierung von HR-Prozessen\n- Analyse von HR-Kennzahlen und Ableitung von Massnahmen\n- Förderung einer attraktiven und modernen Arbeitgebermarke\nProfil\n- Grundausbildung mit Weiterbildung im Human Resources Management (mindestens HR-Fachausweis)\n- Mehrjährige Erfahrung in operativen und strategischen HR-Funktionen\n- Sehr gute Kenntnisse in Payroll, Sozialversicherungen, Arbeitsrecht und Zeitwirtschaft\n- Erfahrung in der Weiterentwicklung von HR-Prozessen und HR-Systemen\n- Kenntnisse des L-GAV zwingend\n- Unternehmerische und lösungsorientierte Denkweise\n- Empathische, durchsetzungsstarke und verantwortungsbewusste Persönlichkeit\n- Erfahrung in der Führung von Mitarbeitenden\nDas erwartet Sie\n- Verantwortungsvolle Kaderfunktion mit Gestaltungsspielraum\n- Direkte Zusammenarbeit mit Geschäftsleitung und Führungskräften\n- Möglichkeit zur aktiven Mitgestaltung von HR-Prozessen und Unternehmensentwicklung\n- Weiterbildungs- und Entwicklungsmöglichkeiten\n- Attraktive Erfolgsbeteiligung\n- Kostenloses SBB-Generalabonnement 1. Klasse\n- Moderne Arbeitsbedingungen und langfristige Perspektiven\nHuman Resources Leitung 100% /m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n43152\nVeröffentlicht am\n13/11/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
-      "descriptionByLocale": {
-        "it": "Gestione delle risorse umane 100% /m/f/d\nTorna alla lista\nOK JOB SA è una società svizzera per l'occupazione e l'occupazione temporanea fondata nel 2012. Certificato secondo ISO 9001, ISO 14001 e ISO 45001.\nPer il nostro cliente nella zona di Lucerne stiamo cercando una linea HR 100% (m/f/d).\nDescrizione del lavoro\n- Gestione operativa e strategica delle risorse umane\n- Leadership e ulteriore sviluppo del team HR\n- Consultare la gestione e gli esecutivi sulle questioni HR e diritto del lavoro\n- Responsabilità per l'intero ciclo di vita dei dipendenti\n- Ulteriore sviluppo della strategia HR e realizzazione di progetti HR\n- Ottimizzazione e digitalizzazione dei processi HR\n- Analisi degli indicatori HR e derivazione delle misure\n- Promuovere un marchio di datore di lavoro attraente e moderno\nProfilo\n- Formazione di base con ulteriore formazione nella gestione delle risorse umane (almeno certificato HR)\n- Diversi anni di esperienza nelle funzioni HR operative e strategiche\n- Molto buona conoscenza del libro paga, assicurazione sociale, diritto del lavoro e gestione del tempo\n- Esperienza nell'ulteriore sviluppo dei processi HR e dei sistemi HR\n- Conoscenza dell'obbligo L-GAV\n- pensiero imprenditoriale e orientato alla soluzione\n- personalità empatica, assertiva e responsabile\n- Esperienza nella gestione dei dipendenti\nQuesto è ciò che vi aspetta\n- Funzione cadre responsabile con lo scopo di progettazione\n- Cooperazione diretta con management e manager\n- Opportunità per la partecipazione attiva ai processi HR e allo sviluppo aziendale\n- Opportunità di formazione e sviluppo\n- Partecipazione attraente al successo\n- Free SBB abbonamento generale 1a classe\n- Condizioni di lavoro moderne e prospettive a lungo termine\nGestione delle risorse umane 100% /m/f/d) / Fest\n- Posizione\nBâle\nDisponibilità\nDe suite\nTipo\nPersonale permanente\nRiferimento\n43152\nPubblicato il\n12/11/2026\nAgenzia responsabile\nBasilea\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefono 0612603500\nLa tua agenzia di collocamento a Basilea\nÈ necessario contrassegnare il tuo profilo come \"full\" nella sezione Account My prima di richiedere questo lavoro.",
-        "en": "Human Resources management 100% /m/f/d\nBack to the list\nOK JOB SA is a Swiss HR and temporary employment company founded in 2012. Certified according to ISO 9001, ISO 14001 and ISO 45001.\nFor our customer in the Lucerne area we are looking for an HR line 100% (m/f/d).\nJob description\n- Operational and strategic management of HR\n- Leadership and further development of the HR team\n- Advising management and executives on HR and labour law issues\n- Responsibility for the entire Employee Lifecycle\n- Further development of the HR strategy and implementation of HR projects\n- Optimization and digitalization of HR processes\n- Analysis of HR indicators and derivation of measures\n- Promoting an attractive and modern employer brand\nProfile\n- Basic training with further training in Human Resources Management (at least HR certificate)\n- Several years of experience in operational and strategic HR functions\n- Very good knowledge of payroll, social insurance, employment law and time management\n- Experience in the further development of HR processes and HR systems\n- Knowledge of the L-GAV mandatory\n- Entrepreneurial and solution-oriented thinking\n- Empathetic, assertive and responsible personality\n- Experience in managing employees\nThis is what awaits you\n- Responsible cadre function with scope for design\n- Direct cooperation with management and managers\n- Opportunity for active participation in HR processes and corporate development\n- Training and development opportunities\n- Attractive participation in success\n- Free SBB general subscription 1st class\n- Modern working conditions and long-term perspectives\nHuman Resources Management 100% /m/f/d) / Fest\n- Position\nBâle\nAvailability\nDe suite\nType\nPermanent staff\nReference\n43152\nPublished on\n12/11/2026\nResponsible Agency\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelephone 0612603500\nYour placement agency in Basel\nYou must mark your profile as \"full\" in the My Account section before applying for this job.",
-        "de": "Human Resources Leitung 100% /m/w/d)\nzurück zur Liste\nOK JOB SA ist ein 2012 gegründetes Schweizer Personal- und Zeitarbeitsunternehmen. Zertifiziert nach ISO 9001, ISO 14001 und ISO 45001.\nFür unseren Kunden im Raum Luzern suchen wir eine HR Leitung 100% (m/w/d).\nArbeitsbeschreibung\n- Operative und strategische Führung des HR-Bereichs\n- Führung und Weiterentwicklung des HR-Teams\n- Beratung von Geschäftsleitung und Führungskräften in HR- und arbeitsrechtlichen Themen\n- Verantwortung für den gesamten Employee Lifecycle\n- Weiterentwicklung der HR-Strategie sowie Umsetzung von HR-Projekten\n- Optimierung und Digitalisierung von HR-Prozessen\n- Analyse von HR-Kennzahlen und Ableitung von Massnahmen\n- Förderung einer attraktiven und modernen Arbeitgebermarke\nProfil\n- Grundausbildung mit Weiterbildung im Human Resources Management (mindestens HR-Fachausweis)\n- Mehrjährige Erfahrung in operativen und strategischen HR-Funktionen\n- Sehr gute Kenntnisse in Payroll, Sozialversicherungen, Arbeitsrecht und Zeitwirtschaft\n- Erfahrung in der Weiterentwicklung von HR-Prozessen und HR-Systemen\n- Kenntnisse des L-GAV zwingend\n- Unternehmerische und lösungsorientierte Denkweise\n- Empathische, durchsetzungsstarke und verantwortungsbewusste Persönlichkeit\n- Erfahrung in der Führung von Mitarbeitenden\nDas erwartet Sie\n- Verantwortungsvolle Kaderfunktion mit Gestaltungsspielraum\n- Direkte Zusammenarbeit mit Geschäftsleitung und Führungskräften\n- Möglichkeit zur aktiven Mitgestaltung von HR-Prozessen und Unternehmensentwicklung\n- Weiterbildungs- und Entwicklungsmöglichkeiten\n- Attraktive Erfolgsbeteiligung\n- Kostenloses SBB-Generalabonnement 1. Klasse\n- Moderne Arbeitsbedingungen und langfristige Perspektiven\nHuman Resources Leitung 100% /m/w/d) / Fest\n- Lage\nBâle\nVerfügbarkeit\nDe suite\nType\nDauerstellen\nReferenz\n43152\nVeröffentlicht am\n13/11/2026\nVerantwortliche Agentur\nBasel\nStephan Schuh\n+41 61 260 35 00\nstephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTelefon 0612603500\nIhre Vermittlungsagentur in Basel\nSie müssen Ihr Profil im Bereich \"Mein Konto\" als \"vollständig\" kennzeichnen, bevor Sie sich für diese Stelle bewerben.",
-        "fr": "Gestion des ressources humaines 100% /h/f/d\nRetour à la liste\nOK JOB SA est une société suisse de RH et d'emploi temporaire fondée en 2012. Certification ISO 9001, ISO 14001 et ISO 45001.\nPour notre client dans la région de Lucerne, nous recherchons une ligne HR 100% (h/f/d).\nDescription du poste\n- Gestion opérationnelle et stratégique des ressources humaines\n- Leadership et perfectionnement de l'équipe des RH\n- Conseiller les cadres et les cadres sur les questions de RH et de droit du travail\n- Responsabilité de l'ensemble du cycle de vie des employés\n- Poursuite de l ' élaboration de la stratégie des ressources humaines et de la mise en œuvre des projets relatifs aux ressources humaines\n- Optimisation et numérisation des processus RH\n- Analyse des indicateurs des ressources humaines et dérivation des mesures\n- Promouvoir une marque employeur attrayante et moderne\nProfil\n- Formation de base en gestion des ressources humaines (au moins certificat RH)\n- Plusieurs années d'expérience dans les fonctions opérationnelles et stratégiques des RH\n- Très bonne connaissance de la paie, de l'assurance sociale, du droit du travail et de la gestion du temps\n- Expérience de la poursuite du développement des processus et des systèmes de RH\n- Connaissance du L-GAV obligatoire\n- Pensée entrepreneuriale et axée sur la solution\n- Personnalité empathique, affirmée et responsable\n- Expérience dans la gestion des employés\nC'est ce qui vous attend\n- Fonction cadre responsable avec possibilité de conception\n- Coopération directe avec la direction et les gestionnaires\n- Possibilité de participation active aux processus de RH et de développement institutionnel\n- Possibilités de formation et de perfectionnement\n- Participation attractive au succès\n- Abonnement général CFF gratuit 1ère classe\n- Conditions de travail modernes et perspectives à long terme\nGestion des ressources humaines 100% /h/f/d) / Fest\n- Fonction\nBâle\nDisponibilité\nDe suite\nType\nPersonnel permanent\nRéférence\n43152\nPublié le\n12/11/2026\nOrganisme responsable\nBâle\nStephan Schuh\n+41 61 260 35 00\nStephan.schuh@okjob.ch\nEisengasse 6\n4051 Bâle\nTéléphone 0612603500\nVotre agence de placement à Bâle\nVous devez marquer votre profil comme « complet » dans la section Mon dossier avant de postuler pour ce poste."
-      },
-      "location": "4051 Basel",
-      "canton": "BS",
-      "url": "https://www.okjob.ch/de/jobangebote/human-resources-leitung-100-m-w-d-basel/?ref=43152",
-      "source": "OK Job SA, succursale di Mendrisio Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:43:09.852Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.okjob.ch/de/jobangebote/human-resources-leitung-100-m-w-d-basel/?ref=43152",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
-        ],
-        "fr": [
-          "human-resources-leitung-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-100b401d"
-        ]
-      },
-      "firstSeenAt": "2026-11-09T09:44:28.307Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Basel",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:09.852Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-11-14T21:40:07.380Z"
     }
   ]
 }
