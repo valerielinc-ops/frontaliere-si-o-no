@@ -4364,12 +4364,12 @@
     },
     {
       "id": "hib-broye-fb4a0ec63c1f",
-      "slug": "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac",
+      "slug": "100-infermiera-di-stage-cdd-6-mesi-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
         "fr": "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac",
-        "it": "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac",
-        "en": "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac",
-        "de": "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac"
+        "it": "100-infermiera-di-stage-cdd-6-mesi-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "100-internship-nurse-cdd-6-months-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "100-praktikum-krankenschwester-cdd-6-monate-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -4431,7 +4431,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:14:40.676Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:14:40.676Z"
+      "firstSeenAt": "2026-11-14T09:14:40.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "aide-infirmier-ere-stagiaire-a-100-cdd-de-6-mois-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-d1834c185bee",
