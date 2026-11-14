@@ -101,6 +101,68 @@ afterEach(() => {
 });
 
 describe('run-related-tests selection contract', () => {
+  const sourceTreeLintFiles = [
+    'tests/gh-slurp-jq-guard.test.ts',
+    'tests/no-hardcoded-secrets.test.ts',
+    'tests/run-listing-created-window.test.ts',
+    'tests/workflow-app-token-capability.test.ts',
+    'tests/crawler-generation-observer-workflow.test.ts',
+    'tests/housekeeping-sparse-paths.test.ts',
+    'tests/score-ledger-persistence.test.ts',
+    'tests/undici-dispatcher-fetch-pairing.test.ts',
+    'tests/is-invoked-directly.test.ts',
+    'tests/entrypoint-guard-identity.test.ts',
+    'tests/translation-protected-tokens.test.ts',
+    'tests/myswitzerland-browser-ua-confinement.test.ts',
+    'tests/slug-write-encapsulation.test.ts',
+    'tests/resolve-issue-by-title-ratchet.test.ts',
+    'tests/gh-exec-buffer-census.test.ts',
+    'tests/seo/bing-seo-loop-sparse-closure.test.ts',
+    'tests/vite-config-import-graph.test.ts',
+    'tests/vite-config-graph-no-alias.test.ts',
+    'tests/checkout-sparse-profiles.test.ts',
+  ];
+
+  it('does not fan out source-tree lints for an unrelated scripts file', () => {
+    const root = fixture({
+      'scripts/assisted-application/portal-replay.mjs': 'export const replay = true;\n',
+      'tests/portal-replay-direct.test.ts': "import '../scripts/assisted-application/portal-replay.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/assisted-application/portal-replay.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    for (const file of sourceTreeLintFiles) expect(result.stdout).not.toContain(file);
+  });
+
+  it('keeps a source-tree lint tied to the construct it guards', () => {
+    const root = fixture({
+      'scripts/ci/gh-query.mjs': "export const query = 'gh api --paginate --slurp --jq \\\".items[]\\\"';\n",
+      'tests/gh-query.test.ts': "import '../scripts/ci/gh-query.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/ci/gh-query.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/gh-query.test.ts');
+    expect(result.stdout).toContain('tests/gh-slurp-jq-guard.test.ts');
+    for (const file of sourceTreeLintFiles.filter((file) => file !== 'tests/gh-slurp-jq-guard.test.ts')) {
+      expect(result.stdout).not.toContain(file);
+    }
+  });
+
+  it('keeps direct-invocation guards local instead of treating them as every scripts lint', () => {
+    const root = fixture({
+      'scripts/assisted-application/portal-replay.mjs': "if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();\n",
+      'tests/portal-replay-direct.test.ts': "import '../scripts/assisted-application/portal-replay.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/assisted-application/portal-replay.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/is-invoked-directly.test.ts');
+    expect(result.stdout).toContain('tests/entrypoint-guard-identity.test.ts');
+    expect(result.stdout).not.toContain('tests/gh-slurp-jq-guard.test.ts');
+    expect(result.stdout).not.toContain('tests/checkout-sparse-profiles.test.ts');
+  });
+
   it('selects pruner subprocess safety tests for a pruner-only change, not unrelated scripts', () => {
     const prunerTests = [
       'tests/pruner-isolation.test.ts',
