@@ -26,6 +26,7 @@ import {
   dedicatedPostOwner,
   isCantonTicinoOscPosting,
 } from './lib/crawler-company-ownership.mjs';
+import { isLegacyRouteCapRefusal } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -203,7 +204,8 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   const routeRepair = repairExpiredRoutesWithinArchive(normalized, {
     source: `${canonicalKey}.archive-route-repair`,
   });
-  const repairedRoutes = routeRepair.repairedRoutes;
+  let repairedRoutes = routeRepair.repairedRoutes;
+  let capRefused = 0;
 
   const rebuildRouteOwners = () => {
     routeOwners = new Map();
@@ -232,16 +234,52 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     // onto the most recently expired payload, then rebuild the route index.
     const component = [...owners, normalized];
     component.sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
-    const survivor = component[0];
-    out = out.filter((entry) => !owners.has(entry));
-    for (const removed of component.slice(1)) {
-      slugsTransferred += transferSlugHistory(survivor, removed);
+    // Transfer on a clone. A legacy archive can have more route history than
+    // the flat compatibility field can hold; the shared archive writer treats
+    // that cap as an expected, non-destructive refusal. The reconciliation
+    // path must do the same instead of leaving a partially-mutated survivor
+    // behind or aborting the whole ownership pass.
+    const survivor = structuredClone(component[0]);
+    let merged = true;
+    let transferred = 0;
+    try {
+      for (const removed of component.slice(1)) {
+        transferred += transferSlugHistory(survivor, removed);
+      }
+    } catch (error) {
+      if (!isLegacyRouteCapRefusal(error)) throw error;
+      merged = false;
+      capRefused += 1;
     }
+    if (!merged) {
+      // Keep the ambiguous component separate. A final route-repair pass below
+      // gives each remaining owner a deterministic route without guessing
+      // which legacy record should inherit the other one's history.
+      out.push(normalized);
+      rebuildRouteOwners();
+      continue;
+    }
+    out = out.filter((entry) => !owners.has(entry));
+    slugsTransferred += transferred;
     out.push(survivor);
     collapsed += retired ? 1 : 0;
     canonicalCollapsed += owners.size - (retired ? 1 : 0);
     rebuildRouteOwners();
   }
+
+  // History transfer can widen a survivor with a route held by a third entry,
+  // and a cap-refused component is intentionally still split. Re-run the
+  // shared repair after the merge pass. The explicit reconciliation context is
+  // enough to repair an unproven duplicate without merging either posting:
+  // the original route remains on one owner and only the other occurrence gets
+  // a deterministic suffix. This preserves the route union and the
+  // route-unique archive invariant while keeping ambiguous source identity
+  // unknown.
+  const finalRouteRepair = repairExpiredRoutesWithinArchive(out, {
+    source: `${canonicalKey}.archive-route-repair-final`,
+    repairUnprovenCollisions: true,
+  });
+  repairedRoutes += finalRouteRepair.repairedRoutes;
 
   const routesBefore = assertRoutesPreserved(
     [...canonicalJobs, ...retiredJobs],
@@ -255,6 +293,7 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     rehomed,
     slugsTransferred,
     repairedRoutes,
+    capRefused,
     routesBefore,
   };
 }
