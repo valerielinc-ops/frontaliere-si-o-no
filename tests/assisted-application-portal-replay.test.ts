@@ -731,6 +731,21 @@ describe('portal replay DNS capability', () => {
     expect(result).toEqual([{ status: 0, blockedMutationGet: true }]);
     expect(probes).toBe(0);
   });
+
+  it('runs each family in a bounded matrix job', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+    expect(workflow).toContain('name: replay ${{ matrix.family }}');
+    expect(workflow).toContain('timeout-minutes: 20');
+    expect(workflow).toContain('max-parallel: 6');
+    expect(workflow).toContain('family: ${{ fromJSON(needs.prepare.outputs.families) }}');
+    expect(workflow).toContain('PORTAL_REPLAY_FAMILY: ${{ matrix.family }}');
+    expect(workflow).toContain('node "$portal_replay_cli" compare');
+    expect(workflow).toContain('--family "$PORTAL_REPLAY_FAMILY"');
+    expect(workflow).toContain('assisted-application-portal-replay-report-${{ matrix.family }}-${{ github.run_id }}');
+    expect(workflow).not.toContain('max_parallel=13');
+    expect(workflow).not.toContain('timeout-minutes: 30');
+  });
+
 });
 
 describe('portal replay base/head gate', () => {
