@@ -73,7 +73,7 @@ import { extractMigrosStructuredData, cleanDescription } from './migros-job-pars
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
-import { launchChromium } from './ensure-chromium.mjs';
+import { launchStealthOrChromium } from './stealth-browser.mjs';
 import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -316,9 +316,12 @@ export async function fetchMigrolinoListingHrefs() {
   const paginationStallPolls = Math.max(1, Number(process.env.JOBS_MIGROLINO_PAGINATION_STALL_POLLS) || 4);
   const maxPages = Number(process.env.JOBS_MIGROLINO_MAX_PAGES) || 200;
 
-  const browser = await launchChromium({
+  const args = ['--disable-blink-features=AutomationControlled'];
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
     headless,
-    args: ['--disable-blink-features=AutomationControlled'],
+    args,
+    fallbackOptions: { headless, args },
   });
 
   try {

@@ -34,7 +34,7 @@ import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -429,17 +429,26 @@ export async function fetchMigrosJobDetailUrls() {
   // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
   const maxPages = positiveIntFromEnv('JOBS_MIGROS_MAX_PAGES', 1000);
 
-  const browser = await launchChromium({
+  const args = ['--disable-blink-features=AutomationControlled'];
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
     headless,
-    args: ['--disable-blink-features=AutomationControlled'],
-  });
-  const context = await browser.newContext({
-    userAgent:
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     locale: 'it-CH',
-    viewport: { width: 1400, height: 900 },
-    extraHTTPHeaders: { 'Accept-Language': 'it-CH,it;q=0.9' },
+    args,
+    fallbackOptions: { headless, args },
   });
+  const context = await browser.newContext(isStealthBrowser(browser)
+    ? {
+        viewport: null,
+        extraHTTPHeaders: { 'Accept-Language': 'it-CH,it;q=0.9' },
+      }
+    : {
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        locale: 'it-CH',
+        viewport: { width: 1400, height: 900 },
+        extraHTTPHeaders: { 'Accept-Language': 'it-CH,it;q=0.9' },
+      });
   const page = await context.newPage();
 
   const allUrls = new Set();
