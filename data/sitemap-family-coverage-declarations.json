@@ -1,4 +1,11 @@
 {
   "version": 1,
-  "decreases": []
+  "decreases": [
+    {
+      "family": "fuel-italian-stations",
+      "previousCount": 4116,
+      "currentCount": 4112,
+      "reason": "Four Italian station URLs without a current fuel price are intentionally emitted as noindex bridges instead of indexable sitemap entries."
+    }
+  ]
 }

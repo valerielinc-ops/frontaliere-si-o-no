@@ -770,6 +770,17 @@ function isWorkdayPostingEntry({ applyUrl, postingUrl } = {}) {
       || posting.suffix === 'apply' || posting.suffix === 'manual');
 }
 
+function workdayPostingRouteMatchesCurrent(currentUrl, applyUrl, postingUrl = '') {
+  const apply = workdayJobRoute(applyUrl);
+  const current = workdayJobRoute(currentUrl);
+  if (!sameWorkdayJobRoute(apply, current)) return false;
+  // A Job-Room source can remain in context while the browser is already on
+  // the selected Workday requisition. Only another Workday URL is competing
+  // route evidence that must bind to the same requisition.
+  if (!isWorkdayTenantUrl(postingUrl)) return true;
+  return sameWorkdayJobRoute(apply, workdayJobRoute(postingUrl));
+}
+
 function workdayManualApplyEntry(control, snapshot, context = {}) {
   const current = workdayJobRoute(snapshot?.url);
   const expected = workdayJobRoute(context.applyUrl);
@@ -2195,11 +2206,9 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const workdayManualEntries = controls.filter((control) => workdayManualApplyEntry(control, snapshot, context));
   if (workdayManualEntries.length === 1) return workdayManualEntries;
   if (workdayManualEntries.length > 1) return [];
-  const workdayRoutePair = [context.applyUrl, context.postingUrl, snapshot.url].map(workdayJobRoute);
-  const [workdayApply, workdayPosting, workdayCurrent] = workdayRoutePair;
-  const workdayRouteBound = workdayApply && workdayPosting && workdayCurrent
-    && sameWorkdayJobRoute(workdayApply, workdayPosting)
-    && sameWorkdayJobRoute(workdayCurrent, workdayPosting);
+  const workdayRouteBound = workdayPostingRouteMatchesCurrent(
+    snapshot.url, context.applyUrl, context.postingUrl,
+  );
   const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
     && startsApplication(control?.text || control?.label));
   const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
@@ -10811,7 +10820,7 @@ export async function submitViaPortal(ctx) {
     // bound to it, the route is vacancy evidence even if the page omits the
     // employer and uses a localized role title.
     const workdayRouteEntryProven = initialApplicationEntryProven
-      && sameWorkdayJobRoute(workdayJobRoute(ctx.applyUrl), workdayJobRoute(postingUrl));
+      && workdayPostingRouteMatchesCurrent(page.url(), ctx.applyUrl, postingUrl);
     let postingVacancyMatched = enteredFromMatchingPosting || jobRoomExternalAdFollowed || postingDocumentHost
       || workdayRouteEntryProven || initialJobRoomEntryProven
       || hasVacancySpecificPostingEvidence(initialPageText, portalJob, {
