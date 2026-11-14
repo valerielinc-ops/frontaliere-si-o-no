@@ -47,6 +47,15 @@ jobs:
           sparse-checkout-cone-mode: true
         timeout-minutes: 18
 
+      # Cone mode selects directories, so materialize these leaf-file
+      # dependencies directly instead of checking out the complete data tree.
+      - name: Materialize observer file dependencies
+        run: |
+          mkdir -p build-plugins/shared data
+          git show "HEAD:build-plugins/shared/cantonResolvers.mjs" > build-plugins/shared/cantonResolvers.mjs
+          git show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json
+          git show "HEAD:data/canton-municipalities.json" > data/canton-municipalities.json
+
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
@@ -76,18 +85,46 @@ jobs:
             { echo '### Retired-job archive coverage'; echo '```'; cat "$RUNNER_TEMP/retired-jobs-archive.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Prepare failure issue description
+        if: failure()
+        id: issue-description
+        env:
+          OBSERVER_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          let description;
+          try {
+            const report = JSON.parse(fs.readFileSync(
+              `${process.env.RUNNER_TEMP}/retired-jobs-archive.json`,
+              'utf8',
+            ));
+            const { buildFailureIssueDescription } = await import('./scripts/ci/check-retired-jobs-archived.mjs');
+            description = buildFailureIssueDescription(report, process.env.OBSERVER_RUN_URL);
+          } catch {
+            description = [
+              '## Retired-job archive observer failure',
+              'The observer did not produce a readable findings report. Inspect the run log.',
+              `**Run:** ${process.env.OBSERVER_RUN_URL}`,
+            ].join('\n');
+          }
+
+          const delimiter = 'ISSUE_DESCRIPTION_EOF';
+          fs.appendFileSync(
+            process.env.GITHUB_OUTPUT,
+            `description<<${delimiter}\n${description}\n${delimiter}\n`,
+          );
+          NODE
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Multi-line body passed through the environment and quoted once, so
-          # it reaches github-issue-creator.mjs intact.
-          ISSUE_DESCRIPTION: |
-            ## Job URLs left the active set without a titled expired record
-            The build serves them as noindex «Offerta non verificata» stubs.
-            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            Recovery: dispatch backfill-expired-from-history.yml with dry_run=false for the crawlers listed in the run summary.
+          # Generated description passed through the environment and quoted
+          # once, so it reaches github-issue-creator.mjs intact.
+          ISSUE_DESCRIPTION: ${{ steps.issue-description.outputs.description }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
