@@ -1,11 +1,12 @@
 {
   "key": "ocst",
   "label": "OCST",
-  "generatedAt": "2026-11-14T09:43:34.312Z",
+  "generatedAt": "2026-11-14T16:46:03.168Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1930,
-  "avgDurationMs": 1930,
+  "durationMs": 2071,
+  "avgDurationMs": 2071,
   "durationHistory": [
-    1930
+    2071
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

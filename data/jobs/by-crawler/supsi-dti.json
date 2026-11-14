@@ -1,7 +1,7 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-11-14T09:48:47.512Z",
-  "runId": "43580350998",
+  "assembledAt": "2026-11-14T16:44:35.985Z",
+  "runId": "43614957127",
   "jobs": [
     {
       "id": "company-l4ti2z",
@@ -35,7 +35,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -140,7 +140,7 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:48:22.341Z",
+      "validThrough": "2026-12-14T16:44:11.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -173,7 +173,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -189,9 +189,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -240,6 +240,15 @@
           "stagist-52-weeks-supsi-dti-manno",
           "stagist-52-wochen-supsi-dti-manno",
           "stagiaire-52-semaines-supsi-dti-manno"
+        ],
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -248,7 +257,7 @@
         "stagiaire-52-semaines-supsi-dti-manno"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T09:48:22.341Z",
+      "validThrough": "2027-01-03T16:44:11.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +298,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "titleByLocale": {
         "it": "Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
@@ -393,7 +402,7 @@
       "needsRetranslation": true,
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:48:22.341Z",
+      "validThrough": "2027-01-25T16:44:11.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -437,7 +446,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-10-27T22:00:22.154Z",
       "titleByLocale": {
         "it": "Assistente con Master in Robotica",
@@ -552,7 +561,7 @@
         "assistente-con-master-in-robotica-supsi-manno"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:48:22.341Z",
+      "validThrough": "2027-01-26T16:44:11.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -596,7 +605,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-10-28T09:37:15.628Z",
       "titleByLocale": {
         "it": "Dottoranda / Dottorando in Intelligenza Artificiale – Modellazione causale e sistemi multi-agente",
@@ -613,7 +622,7 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "en": "phd-student-in-artificial-intelligence-causal-modelling-and-multi-agent-systems-supsi-dti-manno",
-        "de": "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
+        "de": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "fr": "phd-phd-en-intelligence-artificielle-modelisation-causale-et-systemes-multi-agents-supsi-dti-manno"
       },
       "requirementsByLocale": {
@@ -703,10 +712,13 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:48:22.341Z",
+      "validThrough": "2027-01-26T16:44:11.589Z",
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
+          "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
+        ],
+        "de": [
           "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
         ]
       },
@@ -749,7 +761,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-11-05T09:41:40.749Z",
       "titleByLocale": {
         "it": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
@@ -767,7 +779,7 @@
         "it": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno",
         "en": "assistant-with-bachelor-or-master-degree-in-architecture-supsi-dti-manno",
         "de": "assistent-mit-bachelor-oder-master-abschluss-in-architektur-supsi-dti-manno",
-        "fr": "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
+        "fr": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -832,8 +844,16 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:48:22.341Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T16:44:11.589Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
+      ]
     },
     {
       "id": "company-l4rl5g",
@@ -873,7 +893,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-11-13T21:35:50.748Z",
       "titleByLocale": {
         "it": "Docente-ricercatore / Docente-ricercatrice in conservazione e restauro delle pitture murali",
@@ -890,8 +910,8 @@
       "slugByLocale": {
         "it": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio",
         "en": "lecturer-researcher-in-wall-paintings-conservation-supsi-dti-mendrisio",
-        "de": "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio",
-        "fr": "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
+        "de": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio",
+        "fr": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
       },
       "requirementsByLocale": {
         "it": [
@@ -968,8 +988,20 @@
       "postalCode": "6850",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:48:22.341Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T16:44:11.589Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "de": [
+          "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio"
+        ],
+        "fr": [
+          "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio",
+        "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
+      ]
     },
     {
       "id": "company-l4u564",
@@ -1020,7 +1052,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-11-14T09:48:22.341Z",
+      "crawledAt": "2026-11-14T16:44:11.589Z",
       "firstSeenAt": "2026-11-11T21:39:21.064Z",
       "titleByLocale": {
         "it": "Professore / Professoressa SUPSI Open Rank (ordinario/a o associato/a) presso l’Istituto sistemi e elettronica applicata",
@@ -1158,7 +1190,7 @@
       "postalCode": "6900",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:48:22.341Z",
+      "validThrough": "2027-02-10T16:44:11.589Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1213,7 +1245,7 @@
         "it": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
         "en": "assistant-with-bachelor-of-science-in-visual-communication-supsi-dti-manno",
         "de": "assistent-mit-bachelor-of-science-in-visual-communication-supsi-dti-manno",
-        "fr": "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+        "fr": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -1276,6 +1308,9 @@
       "previousSlugsByLocale": {
         "it": [
           "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+        ],
+        "fr": [
+          "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
@@ -1284,7 +1319,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-25T21:35:50.748Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
