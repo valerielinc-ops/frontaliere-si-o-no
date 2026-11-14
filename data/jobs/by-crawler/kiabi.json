@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kiabi",
-  "assembledAt": "2026-11-13T21:19:51.762Z",
-  "runId": "43508445090",
+  "assembledAt": "2026-11-14T09:24:16.838Z",
+  "runId": "43579497705",
   "jobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:44.770Z",
+      "crawledAt": "2026-11-14T09:24:10.591Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:19:44.770Z",
+      "validThrough": "2026-12-14T09:24:10.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-13T21:19:44.764Z",
+      "crawledAt": "2026-11-14T09:24:10.587Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:19:44.764Z",
+      "validThrough": "2027-02-10T09:24:10.587Z",
       "validThroughSource": "last-observed-window"
     }
   ]
