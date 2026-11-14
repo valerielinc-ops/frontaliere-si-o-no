@@ -1,11 +1,12 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-11-14T09:20:00.552Z",
+  "generatedAt": "2026-11-14T21:20:08.207Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1618,
-  "avgDurationMs": 1618,
+  "durationMs": 1918,
+  "avgDurationMs": 1918,
   "durationHistory": [
-    1618
+    1918
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }
