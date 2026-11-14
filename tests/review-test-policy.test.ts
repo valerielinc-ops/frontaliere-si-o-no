@@ -318,9 +318,6 @@ describe('owner policy excluding test files from review', () => {
       'packages/articles/content/seo/seo-blog-5.ts',
       'packages/articles/content/article-index-exclusions.json',
       'packages/articles/content/swiss-article-canonical-overrides.json',
-      'services/locales/it-core.ts',
-      'services/locales/blog-body/it/frontalieri-disoccupati.ts',
-      'services/locales/blog-body-ch/de/frontalieri-disoccupati.ts',
       'assets/cover.webp',
       'feeds/sitemap.xml',
       'datasets/articles.jsonl',
@@ -338,6 +335,9 @@ describe('owner policy excluding test files from review', () => {
       'packages/articles/engine/articleReaders.ts',
       'services/i18n.ts',
       'services/seo/article-translations.ts',
+      'services/locales/it-core.ts',
+      'services/locales/blog-body/it/frontalieri-disoccupati.ts',
+      'services/locales/blog-body-ch/de/frontalieri-disoccupati.ts',
       'services/locales.ts',
       '../tests/a.test.ts',
       'tests/../src/production.ts',
@@ -387,19 +387,19 @@ describe('owner policy excluding test files from review', () => {
   });
   it('rechecks the body and complete file-list before admitting an immediate merge', () => {
     expect(verifyImmediateNonRuntimeCodeHead(
-      fixture({ files: ['services/locales/it-core.ts'] }).ghFn,
+      fixture({ files: ['packages/articles/content/blog-body/it/frontalieri-disoccupati.ts'] }).ghFn,
       'owner/repo',
       1,
       head,
     )).toBe(true);
     expect(verifyImmediateNonRuntimeCodeHead(
-      fixture({ files: ['services/locales/it-core.ts'], authorType: 'User', authorLogin: 'someone' }).ghFn,
+      fixture({ files: ['packages/articles/content/blog-body/it/frontalieri-disoccupati.ts'], authorType: 'User', authorLogin: 'someone' }).ghFn,
       'owner/repo',
       1,
       head,
     )).toBe(false);
     expect(verifyImmediateNonRuntimeCodeHead(
-      fixture({ files: ['services/locales/it-core.ts'], body: 'not a PR body' }).ghFn,
+      fixture({ files: ['packages/articles/content/blog-body/it/frontalieri-disoccupati.ts'], body: 'not a PR body' }).ghFn,
       'owner/repo',
       1,
       head,
@@ -790,7 +790,7 @@ describe('owner policy excluding test files from review', () => {
       'assets/cover.webp',
       'feeds/sitemap.xml',
     ]) expect(nonCodeRe.test(path), path).toBe(true);
-    expect(nonCodeRe.test('services/locales/blog-body/it/article.ts')).toBe(true);
+    expect(nonCodeRe.test('services/locales/blog-body/it/article.ts')).toBe(false);
     expect(nonCodeRe.test('packages/articles/content/blogImageCdnMirror.ts')).toBe(false);
     expect(nonCodeRe.test('package-lock.json')).toBe(true);
     // `edited` rimosso: l'HEAD non cambia, quindi la run rimisurava codice

@@ -250,10 +250,10 @@ export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|s
 export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
 const NON_RUNTIME_CODE_DIRECTORY_RE = /^(?:data|public|reports|_newsletter_variants|docs|tests|__tests__)\//u;
-// Locale dictionaries are generated/content-only inputs. Keep the directory
-// boundary explicit: `services/i18n.ts` and the SEO translation helpers remain
-// runtime code and must keep the ordinary test/review path.
-const NON_RUNTIME_CODE_TRANSLATION_RE = /^services\/locales\//u;
+// Runtime locale modules, including the article symlink facade under
+// `services/locales/`, stay on the ordinary test/review path. Generated article
+// translations are admitted through their canonical `packages/articles/content`
+// paths below, where the repository already treats them as content inputs.
 const NON_RUNTIME_CODE_GENERATED_CONTENT_RE = /^packages\/articles\/content\/(?:blog-body(?:-ch)?\/|image-credits\/|seo\/seo-blog(?:-[^/]+)?\.ts$|(?:article-index-exclusions|swiss-article-canonical-overrides)\.json$|(?:blog-articles-data|blogArticleIds|blog-meta(?:-ch)?-(?:de|en|fr|it)|routerBlogData|routerSwissData|swiss-articles-data)\.ts$)/u;
 const NON_RUNTIME_CODE_ASSET_RE = /\.(?:snap|avif|bmp|jpe?g|png|webp|gif|svg|ico|tiff?|woff2?|xml|csv|tsv|jsonl|ndjson)$/u;
 const NON_RUNTIME_CODE_EXACT_PATHS = new Set([
@@ -267,7 +267,6 @@ const NON_RUNTIME_CODE_EXACT_PATH_RE = new RegExp(
 );
 export const NON_RUNTIME_CODE_FINGERPRINT_RE = new RegExp([
   NON_RUNTIME_CODE_DIRECTORY_RE.source,
-  NON_RUNTIME_CODE_TRANSLATION_RE.source,
   NON_RUNTIME_CODE_GENERATED_CONTENT_RE.source,
   NON_RUNTIME_CODE_ASSET_RE.source,
   NON_RUNTIME_CODE_EXACT_PATH_RE.source,
