@@ -13878,12 +13878,9 @@ ${staticAnalyticsHtml}
  // raccoglieva anche i companion `-locale-cache` e gli orfani `.cleanup-tmp`.
  function* expiredSliceJobs(): Generator<any> {
  for (const sliceFile of listJobsSeoExpiredSliceFiles(expiredSlicesDir)) {
- let sliceArr: any[];
  try {
- sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
+ yield* iterateJsonArrayFile(np.resolve(expiredSlicesDir, sliceFile));
  } catch { continue; }
- if (!Array.isArray(sliceArr)) continue;
- yield* sliceArr;
  }
  }
  const sliceAugmented = augmentExpiredSliceIndex(
