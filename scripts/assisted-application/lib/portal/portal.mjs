@@ -5021,6 +5021,11 @@ function formRoleHeadingStatus(formText, job = {}) {
     if (formSurfaceStarted) continue;
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
+    // Some portals put the selected employer's descriptive heading before the
+    // actual role («Acme, young affiliate of Example Group»). It is positive
+    // posting evidence, but it is not a role heading; let the next substantive
+    // line provide the role instead of rejecting the bound form as another role.
+    if (postingMatch(line, job) === 'match' && !namesAnotherEmployer(line, job)) continue;
     if (titleWordsOnly(heading, candidates)) return 'match';
     const normalizedHeading = normalizeWords(heading);
     const words = normalizedHeading.split(' ').filter(Boolean);
