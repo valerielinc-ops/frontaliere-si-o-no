@@ -4,10 +4,14 @@
  * Tre rischi, ognuno trasformato in un rosso di CI invece che in un job di
  * produzione fallito (o, peggio, in un invio degradato in silenzio):
  *
- *  1. CHECKOUT SPARSE. Il job porta solo cio' che usa: tutto tranne `public/images/`
- *     (4,4 GB) meno i loghi dei brand. Se il sender, il cascade o l'assemble
- *     cominciano a LEGGERE un altro percorso di `public/images/`, o se un file
- *     di codice della loro catena di importazione esce dal perimetro, il test fallisce.
+ *  1. CHECKOUT. Resta PIENO, per misura: togliere `public/images/` (4,4 GB)
+ *     lascerebbe ~2,2 GB di dati letti dall'assemble, sopra la soglia oltre cui lo
+ *     sparse con `filter: blob:none` e' piu' lento del fetch unico (vedi
+ *     `tests/checkout-sparse-profiles.test.ts`). Il test tiene vere due cose: che
+ *     il workflow non abbia un profilo sparse non generato, e la PRECONDIZIONE per
+ *     un futuro profilo: il codice del job legge UN solo percorso di
+ *     `public/images/`, `brands/`. Se qualcuno ne legge un altro, il test fallisce
+ *     prima che serva scoprirlo con un ENOENT in produzione.
  *  2. SEGRETI. Lo step di Remote Config riceve solo le chiavi che il codice legge
  *     davvero da `process.env`. Una chiave nuova letta e non elencata fallisce qui.
  *  3. CACHE di `node_modules`, chiave sul lockfile e sulla major di Node.
@@ -22,7 +26,6 @@ import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { importSpecifiers } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 import { stripSourceComments } from '../scripts/lib/source-comments.mjs';
-import { sparseIncludesPath } from '../scripts/ci/apply-checkout-profiles.mjs';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -92,46 +95,21 @@ const stripped = (rel: string) => {
   return code;
 };
 const SLOW = 120_000;
-const sparseStep = steps.find((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
-const sparseRaw: string = String(sparseStep?.with?.['sparse-checkout'] ?? '');
+const checkoutStep = steps.find((step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
 
-describe('checkout sparse e parziale', () => {
-  it('e un clone parziale con sparse-checkout non-cone, e il profilo e quello generato', () => {
-    expect(sparseStep?.with?.filter).toBe('blob:none');
-    expect(sparseStep?.with?.['sparse-checkout-cone-mode']).toBe(false);
-    const lines = sparseRaw.split('\n').map((l) => l.trim()).filter(Boolean);
-    expect(lines[0]).toBe('/*');
-    expect(lines).toContain('!/public/images/');
-    // I loghi tornano dopo l'esclusione: la riga che reincludere viene DOPO quella che esclude.
-    expect(lines.indexOf('/public/images/brands/')).toBeGreaterThan(lines.indexOf('!/public/images/'));
+describe('checkout', () => {
+  it('e pieno e senza un profilo sparse non generato (decisione misurata, documentata nel workflow)', () => {
+    expect(checkoutStep?.with?.['sparse-checkout']).toBeUndefined();
+    expect(checkoutStep?.with?.filter).toBeUndefined();
+    expect(checkoutStep?.with?.['fetch-depth']).toBe(1);
   });
 
-  it('ogni file di codice della catena di importazione e materializzato', () => {
+  it('la catena di importazione e completa: nessun import relativo non risolto', () => {
     expect(closure.missing).toEqual([]);
     expect(closure.files.size).toBeGreaterThan(300);
-    const outside = [...closure.files.keys()].filter((rel) => !sparseIncludesPath(sparseRaw, rel));
-    expect(outside, `file di codice fuori dal perimetro: ${outside.join(', ')}`).toEqual([]);
   });
 
-  it('i dati letti dal sender in produzione sono materializzati', () => {
-    const runtimeInputs = [
-      'data/canton-url-slugs.json',
-      'data/canton-municipalities.json',
-      'public/images/brands/',
-      'package.json',
-      'package-lock.json',
-      '.github/actions/assemble-jobs-cache-key/action.yml',
-    ];
-    for (const rel of runtimeInputs) {
-      const probe = rel.endsWith('/') ? `${rel}placeholder.png` : rel;
-      expect(sparseIncludesPath(sparseRaw, probe), rel).toBe(true);
-    }
-    // E i dati del dataset che l'assemble scrive e il sender legge stanno in cartelle incluse.
-    expect(sparseIncludesPath(sparseRaw, 'data/jobs/by-crawler/example.json')).toBe(true);
-    expect(sparseIncludesPath(sparseRaw, 'public/data/jobs.json')).toBe(true);
-  });
-
-  it('nessun percorso di public/images/ diverso da brands/ e letto dal codice eseguibile del job', () => {
+  it('PRECONDIZIONE per un futuro sparse: nessun percorso di public/images/ diverso da brands/ e letto dal codice eseguibile del job', () => {
     const offenders: string[] = [];
     for (const rel of closure.files.keys()) {
       if (!/\.(m?js|ts|tsx)$/.test(rel)) continue;

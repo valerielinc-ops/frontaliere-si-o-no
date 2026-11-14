@@ -148,26 +148,17 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          # Clone PARZIALE (perf-plan PR 7): con lo sparse-checkout qui sotto i blob
-          # dei percorsi esclusi (public/images/, 4,4 GB e 14.017 file, tranne i
-          # loghi dei brand) non vengono scaricati. Misurato prima: Checkout 2m15s
-          # sul repo intero. Il profilo e' generato da
-          # scripts/ci/apply-checkout-profiles.mjs e verificato da
-          # tests/checkout-sparse-profiles.test.ts; tests/send-job-alerts-workflow-perimeter.test.ts
-          # fallisce se il sender legge un percorso fuori da questo perimetro.
-          # Revert-trigger: se il prossimo run non scende sotto 60 s di Checkout,
-          # o fallisce con ENOENT su un percorso escluso, si torna al checkout pieno.
-          filter: blob:none
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-snapshots-history/
-            !/data/evidence-index.json
-            /public/images/brands/
-          sparse-checkout-cone-mode: false
+          # CHECKOUT PIENO, per misura del repo e non per dimenticanza (perf-plan
+          # PR 7). Togliere public/images/ (4,4 GB; il sender legge solo brands/)
+          # con uno sparse-checkout e `filter: blob:none` lascerebbe comunque ~2,2 GB
+          # di dati che l'assemble legge (data/jobs/ da solo e' 702 MB). Oltre ~1 GB
+          # residui il profilo e' piu' LENTO del fetch unico, perche' i blob si
+          # spostano su una seconda richiesta pigra (CROSSOVER_MB in
+          # scripts/ci/checkout-profile-analyzer.mjs; test `nessun job resta sparse
+          # sopra la soglia di convenienza`). Il test del perimetro di questo job
+          # (tests/send-job-alerts-workflow-perimeter.test.ts) tiene vera la
+          # PRECONDIZIONE per un futuro profilo: il codice legge solo
+          # public/images/brands/.
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

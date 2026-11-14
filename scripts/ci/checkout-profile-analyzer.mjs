@@ -596,34 +596,12 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     // docs bucket in `needs`.
     if (exactDocInputsPresent && !docsEnumerated) needs.delete('docs/');
   }
-  // Il sender dei job alert legge UNA sola cartella di `public/images/`: i loghi
-  // dei brand (`BRAND_LOGOS_DIR`). Il bucket intero sono 4,4 GB e 14.017 file:
-  // portarli per leggerne ~70 e' la parte maggiore dei 2m15s di checkout. Il
-  // restringimento e' ammesso SOLO se OGNI riferimento a `public/images` nel
-  // codice eseguibile del job (commenti esclusi) e' `public/images/brands`: un
-  // riferimento nuovo a un'altra sottocartella lo spegne da solo e il bucket
-  // torna in `needs`. Il workflow reincludere `/public/images/brands/`
-  // (apply-checkout-profiles.mjs, SEND_JOB_ALERTS_REQUIRED_SPARSE_PATHS).
-  if (workflowFile === 'send-job-alerts.yml' && jobId === 'send-alerts' && needs.has('public/images/') && !opaqueBy.length) {
-    const executableCode = normalizeJoins(bucketResolved.map((r) => stripSourceComments(r.src)).join('\n'));
-    const imageRefs = [...executableCode.matchAll(/public\/images(?:\/[\w.-]*)?/g)].map((m) => m[0]);
-    if (imageRefs.length > 0 && imageRefs.every((ref) => ref === 'public/images/brands')) needs.delete('public/images/');
-  }
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
   // Se anche escludendo tutto il possibile resta piu' di CROSSOVER_MB, lo sparse
   // e' controproducente: meglio un fetch unico. Il job resta a checkout pieno.
   const residual = TREE_MB - exclude.reduce((a, b) => a + b.mb, 0);
-  // La soglia di convenienza presuppone un fetch che scarica comunque tutti i
-  // blob: lo sparse risparmia solo la scrittura. Il checkout del sender dei job
-  // alert e' un clone PARZIALE (`filter: blob:none`): scarica solo i blob dei
-  // percorsi che tiene, quindi la soglia non si applica. Esente per chiave, non
-  // per proprieta' generale: gli altri workflow con `blob:none` mantengono il
-  // calcolo di prima (perf-plan PR 7).
-  const partialCloneExempt = workflowFile === 'send-job-alerts.yml' && jobId === 'send-alerts'
-    && (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')
-      && st?.with?.filter === 'blob:none');
-  if (residual > CROSSOVER_MB && !partialCloneExempt) {
+  if (residual > CROSSOVER_MB) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
       opaqueBy, entries, inlineEntries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
