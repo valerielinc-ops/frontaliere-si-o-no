@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -1145,7 +1146,7 @@ function runBaseCrawler() {
 export function postProcessPostFinanceJobs(jobsOverride = null) {
   if (jobsOverride === null && !fs.existsSync(DATA_JOBS)) return;
   const raw = jobsOverride === null
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    ? readJsonFile(DATA_JOBS)
     : jobsOverride;
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
@@ -1219,7 +1220,7 @@ function logPostFinanceJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const pfJobs = allJobs.filter(isPostFinanceJob);
 
@@ -1360,7 +1361,7 @@ async function main() {
 
   // 8. Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isPostFinanceJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
