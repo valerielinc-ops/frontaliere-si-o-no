@@ -26,6 +26,7 @@ import { isSwissLocationText } from '../target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { normalizeDescriptionBullets } from '../crawler-template.mjs';
+import { chromeUserAgent, isStealthBrowser, launchStealthOrChromium } from '../stealth-browser.mjs';
 import {
   FOREIGN_COUNTRY_NAME_LABELS,
   ISO_ALPHA2_COUNTRY_CODES,
@@ -83,6 +84,138 @@ const DEFAULT_TIMEOUT_MS = 20000;
 // `Luxembourg-Ville`. Only the explicitly spaced form is unambiguous there.
 const AMBIGUOUS_COMPACT_LOCATION_MARKERS = new Set(['st', 'luxembourg']);
 
+/**
+ * Derive the public Workday career page from a CXS API base. The browser
+ * fallback needs a same-origin page so its `fetch()` keeps the browser's
+ * cookies, TLS stack and user-agent while posting to the JSON API.
+ *
+ * @param {string} apiBase
+ * @returns {string}
+ */
+function workdayPublicUrlFromApiBase(apiBase) {
+  const parsed = new URL(apiBase);
+  const segments = parsed.pathname.split('/').filter(Boolean);
+  const cxsIndex = segments.indexOf('cxs');
+  const sitePath = cxsIndex >= 0 ? segments.slice(cxsIndex + 2).join('/') : '';
+  if (!sitePath) throw new Error(`Workday API base has no career-site path: ${apiBase}`);
+  return `${parsed.origin}/en-US/${sitePath}`;
+}
+
+/**
+ * Build a lazy browser transport for a Workday tenant. It is intentionally
+ * opened only after the direct JSON fetch exhausts its connection-level retry;
+ * healthy crawls keep the cheap direct path. The caller owns the session and
+ * closes it after the listing/summary operation.
+ *
+ * @param {string} apiBase
+ * @returns {{request: (args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>, close: () => Promise<void>}}
+ */
+function createWorkdayBrowserJsonFallback(apiBase) {
+  let sessionPromise;
+  let closed = false;
+
+  const open = async () => {
+    const browser = await launchStealthOrChromium({
+      purpose: 'crawler',
+      headless: true,
+      locale: 'en-US',
+      timezone: 'Europe/Zurich',
+      fallbackOptions: { headless: true },
+    });
+    let context;
+    let page;
+    try {
+      const stealth = isStealthBrowser(browser);
+      context = await browser.newContext(stealth
+        ? { viewport: null }
+        : {
+            userAgent: chromeUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
+            viewport: { width: 1280, height: 720 },
+            locale: 'en-US',
+            timezoneId: 'Europe/Zurich',
+          });
+      page = await context.newPage();
+      await page.goto(workdayPublicUrlFromApiBase(apiBase), {
+        waitUntil: 'domcontentloaded',
+        timeout: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS,
+      });
+      return { browser, context, page };
+    } catch (err) {
+      await page?.close().catch(() => {});
+      await context?.close().catch(() => {});
+      await browser.close().catch(() => {});
+      throw err;
+    }
+  };
+
+  const request = async ({ url, method, body }) => {
+    if (closed) throw new Error('Workday browser transport is already closed');
+    sessionPromise ||= open();
+    const { page } = await sessionPromise;
+    const result = await page.evaluate(async ({ requestUrl, requestMethod, requestBody }) => {
+      const response = await fetch(requestUrl, {
+        method: requestMethod,
+        body: requestBody,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+        },
+      });
+      return { status: response.status, body: await response.text() };
+    }, {
+      requestUrl: url,
+      requestMethod: method,
+      requestBody: body,
+    });
+
+    if (result.status === 401 || result.status === 403) {
+      throw new WorkdayAuthError(
+        `Workday browser auth/anti-bot block (HTTP ${result.status}) for ${url}`,
+        result.status,
+        url,
+      );
+    }
+    if (result.status < 200 || result.status >= 300) {
+      const err = new WorkdayApiError(
+        `Workday browser API error HTTP ${result.status} for ${url}`,
+        result.status,
+        url,
+      );
+      err.status = result.status;
+      err.retryable = RETRYABLE_STATUS.has(result.status);
+      throw err;
+    }
+    try {
+      return JSON.parse(result.body);
+    } catch (parseErr) {
+      const err = new WorkdayApiError(
+        `Workday browser API returned non-JSON body for ${url}: ${parseErr?.message || parseErr}`,
+        result.status,
+        url,
+      );
+      err.retryable = true;
+      throw err;
+    }
+  };
+
+  const close = async () => {
+    closed = true;
+    if (!sessionPromise) return;
+    let session;
+    try {
+      session = await sessionPromise;
+    } catch {
+      return;
+    }
+    await session.page?.close().catch(() => {});
+    await session.context?.close().catch(() => {});
+    await session.browser?.close().catch(() => {});
+  };
+
+  return { request, close };
+}
+
 /* ── URL building ──────────────────────────────────────────────────────── */
 
 /**
@@ -139,6 +272,7 @@ async function fetchJsonWithRetry(url, options = {}) {
     userAgent = DEFAULT_USER_AGENT,
     timeoutMs = DEFAULT_TIMEOUT_MS,
     retries = 1,
+    browserFallback = null,
   } = options;
 
   // Route through the shared transient-fetch retry/backoff. Only TRANSIENT
@@ -216,6 +350,23 @@ async function fetchJsonWithRetry(url, options = {}) {
       },
     );
   } catch (err) {
+    const connectionLevelFailure = err instanceof WorkdayApiError
+      ? err.statusCode === 0
+      : !Number.isFinite(err?.status) && isTransientFetchError(err);
+    if (browserFallback && connectionLevelFailure) {
+      try {
+        return await browserFallback({ url, method, body, userAgent, timeoutMs });
+      } catch (fallbackErr) {
+        // A browser response is stronger evidence than the original socket
+        // failure: preserve an observed HTTP/auth failure. If the browser
+        // transport also cannot connect, keep the original connection-level
+        // error so the crawler's soft-exit and health receipt remain intact.
+        if (fallbackErr instanceof WorkdayApiError && fallbackErr.statusCode !== 0) {
+          throw fallbackErr;
+        }
+        console.warn(`⚠️ Workday browser transport fallback failed for ${url}: ${fallbackErr?.message || fallbackErr}`);
+      }
+    }
     if (err instanceof WorkdayApiError) throw err; // includes WorkdayAuthError
     throw new WorkdayApiError(
       `Workday fetch failed for ${url}: ${err?.message || err}`,
@@ -249,6 +400,7 @@ async function fetchJsonWithRetry(url, options = {}) {
  * @property {string} [userAgent] Override User-Agent header.
  * @property {number} [minDelayMs] Polite delay between paginated calls (default 2000ms).
  * @property {number} [timeoutMs] Per-request timeout (default 20000ms).
+ * @property {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [browserFallback] Test or caller-supplied browser transport for connection-level failures. `null` disables the default browser transport.
  * @property {WorkdayFetchStats} [stats] Optional mutable object the iterator
  *   fills with how pagination ended. Read-only signal: passing it never changes
  *   what is fetched or yielded.
@@ -310,6 +462,12 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     : {};
 
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
+  const browserSession = options.browserFallback === undefined
+    ? createWorkdayBrowserJsonFallback(apiBase)
+    : null;
+  const browserFallback = options.browserFallback === undefined
+    ? browserSession.request
+    : options.browserFallback;
 
   let offset = 0;
   let yielded = 0;
@@ -324,73 +482,78 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     if (stats) stats.endReason = reason;
   };
 
-  for (let page = 0; page < maxPages; page += 1) {
-    const body = JSON.stringify({
-      appliedFacets: facets,
-      limit: pageSize,
-      offset,
-      searchText,
-    });
-
-    let data;
-    try {
-      data = await fetchJsonWithRetry(endpoint, {
-        method: 'POST',
-        body,
-        userAgent,
-        timeoutMs,
-        retries: 1,
+  try {
+    for (let page = 0; page < maxPages; page += 1) {
+      const body = JSON.stringify({
+        appliedFacets: facets,
+        limit: pageSize,
+        offset,
+        searchText,
       });
-    } catch (err) {
-      // Surface auth errors verbatim; for other failures on the first page,
-      // re-throw so the caller knows nothing was fetched. On later pages, stop
-      // gracefully (we already returned partial results).
-      if (err instanceof WorkdayAuthError) throw err;
-      if (page === 0) throw err;
-      end('page-error');
-      return;
-    }
 
-    const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
-    // Some Workday tenants (e.g. logitech.wd5) return `total: 0` on every
-    // page after the first — and an unfiltered query can even report total:0
-    // on page 0 alongside a full page of postings. Trust only the first page's
-    // total, and use it as a positive upper bound: rely on
-    // `postings.length < pageSize` / empty payload to detect the genuine end of
-    // pagination so a degenerate total:0 never short-circuits after page 1.
-    if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
-      total = data.total;
-      if (stats) stats.firstPageTotal = data.total;
-    }
+      let data;
+      try {
+        data = await fetchJsonWithRetry(endpoint, {
+          method: 'POST',
+          body,
+          userAgent,
+          timeoutMs,
+          retries: 1,
+          browserFallback,
+        });
+      } catch (err) {
+        // Surface auth errors verbatim; for other failures on the first page,
+        // re-throw so the caller knows nothing was fetched. On later pages, stop
+        // gracefully (we already returned partial results).
+        if (err instanceof WorkdayAuthError) throw err;
+        if (page === 0) throw err;
+        end('page-error');
+        return;
+      }
 
-    if (postings.length === 0) {
-      end('empty-page');
-      return;
-    }
+      const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
+      // Some Workday tenants (e.g. logitech.wd5) return `total: 0` on every
+      // page after the first — and an unfiltered query can even report total:0
+      // on page 0 alongside a full page of postings. Trust only the first page's
+      // total, and use it as a positive upper bound: rely on
+      // `postings.length < pageSize` / empty payload to detect the genuine end of
+      // pagination so a degenerate total:0 never short-circuits after page 1.
+      if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
+        total = data.total;
+        if (stats) stats.firstPageTotal = data.total;
+      }
 
-    for (const posting of postings) {
-      yield posting;
-      yielded += 1;
-      if (stats) stats.yielded = yielded;
-    }
+      if (postings.length === 0) {
+        end('empty-page');
+        return;
+      }
 
-    if (total > 0 && yielded >= total) {
-      end('total-reached');
-      return;
-    }
-    if (postings.length < pageSize) {
-      end('short-page');
-      return;
-    }
+      for (const posting of postings) {
+        yield posting;
+        yielded += 1;
+        if (stats) stats.yielded = yielded;
+      }
 
-    offset += pageSize;
+      if (total > 0 && yielded >= total) {
+        end('total-reached');
+        return;
+      }
+      if (postings.length < pageSize) {
+        end('short-page');
+        return;
+      }
 
-    // Polite delay before the next paginated call.
-    if (page < maxPages - 1 && minDelayMs > 0) {
-      await new Promise((r) => setTimeout(r, minDelayMs));
+      offset += pageSize;
+
+      // Polite delay before the next paginated call.
+      if (page < maxPages - 1 && minDelayMs > 0) {
+        await new Promise((r) => setTimeout(r, minDelayMs));
+      }
     }
+    end('max-pages');
+  } finally {
+    await browserSession?.close();
   }
-  end('max-pages');
 }
 
 /* ── Board summary (total + facets) ───────────────────────────────────── */
@@ -414,7 +577,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
  * errors (404 for a renamed or retired site) → `WorkdayApiError`.
  *
  * @param {string} apiBase Output of `buildWorkdayApiBase`.
- * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number }} [options]
+ * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number, browserFallback?: Function|null }} [options]
  * @returns {Promise<WorkdayBoardSummary>}
  */
 export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
@@ -425,19 +588,30 @@ export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
     timeoutMs = DEFAULT_TIMEOUT_MS,
   } = options;
   const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
-  const data = await fetchJsonWithRetry(endpoint, {
-    method: 'POST',
-    body: JSON.stringify({ appliedFacets, limit: DEFAULT_PAGE_SIZE, offset: 0, searchText: '' }),
-    userAgent,
-    timeoutMs,
-    retries: 1,
-  });
-  const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
-  return {
-    total: typeof data?.total === 'number' && Number.isFinite(data.total) ? data.total : null,
-    postingCount: postings.length,
-    facets: Array.isArray(data?.facets) ? data.facets : [],
-  };
+  const browserSession = options.browserFallback === undefined
+    ? createWorkdayBrowserJsonFallback(apiBase)
+    : null;
+  const browserFallback = options.browserFallback === undefined
+    ? browserSession.request
+    : options.browserFallback;
+  try {
+    const data = await fetchJsonWithRetry(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ appliedFacets, limit: DEFAULT_PAGE_SIZE, offset: 0, searchText: '' }),
+      userAgent,
+      timeoutMs,
+      retries: 1,
+      browserFallback,
+    });
+    const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
+    return {
+      total: typeof data?.total === 'number' && Number.isFinite(data.total) ? data.total : null,
+      postingCount: postings.length,
+      facets: Array.isArray(data?.facets) ? data.facets : [],
+    };
+  } finally {
+    await browserSession?.close();
+  }
 }
 
 /**
