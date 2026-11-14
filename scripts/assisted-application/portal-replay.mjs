@@ -157,9 +157,12 @@ const STAGE_RANK = Object.freeze({
 });
 const NEUTRAL_STAGES = new Set(['http_5xx', 'posting_closed', 'captcha', 'region_blocked']);
 const SUCCESS_STAGES = new Set(['dry_run_ready', 'account_gate']);
+const FORM_REACHED_STAGES = new Set(['form', 'account_gate', 'dry_run_ready']);
 const SAFE_REPORT_CODES = new Set([
   ...PORTAL_REPLAY_FAMILIES,
   ...Object.keys(STAGE_RANK),
+  'sample_missing', 'final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool',
+  'sample_count_out_of_range', 'replay_unmeasured', 'stage_regression', 'family_ready_rate_decreased',
   'account', 'account_gate', 'account_verification', 'candidate_required', 'captcha', 'dry_run_ready', 'http_5xx', 'measured', 'neutral', 'pass', 'fail',
   'account_application_already_applied', 'account_application_history_uncertain', 'application_region_unsupported',
   'application_stage_unknown', 'cookie_preferences_unresolved', 'cv_upload_failed', 'portal_choice_not_registered',
@@ -181,7 +184,9 @@ const SAFE_FINDING_CODES = new Set([
 const SECURITY_FINDING_CODES = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
 const SAFE_LINK_STATES = new Set(['yes', 'no', 'unknown']);
 const SAFE_STATUSES = new Set(['measured', 'neutral', 'error', 'fail', 'pass']);
-const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, maxPerFamily: 5, retries: 1, delayMs: 700 });
+/** One bounded retry for neutral or timed-out read-only portal replays. */
+export const PORTAL_REPLAY_MAX_RETRIES = 1;
+const REPLAY_LIMITS = Object.freeze({ minPerFamily: 3, base: 3, hardCases: 2, maxPerFamily: 5, retries: PORTAL_REPLAY_MAX_RETRIES, delayMs: 700 });
 
 const stableHash = (value) => createHash('sha256').update(String(value)).digest('hex');
 const safeCode = (value, fallback = 'unknown') => SAFE_REPORT_CODES.has(String(value || '')) ? String(value) : fallback;
@@ -433,8 +438,9 @@ function runStage({ event, evidence }) {
   return 'stopped';
 }
 
-function retryClass(stage, navigation5xx = 0) {
+export function retryClass(stage, navigation5xx = 0, stopCode = '') {
   if (navigation5xx > 0 || stage === 'http_5xx') return 'http_5xx';
+  if (stopCode === 'portal_replay_timeout') return 'portal_replay_timeout';
   return NEUTRAL_STAGES.has(stage) ? stage : '';
 }
 
@@ -540,12 +546,14 @@ function locationFrom(record, evidence, portalApi) {
   };
 }
 
-function violationsFor({ event, evidence, metrics }) {
+export function violationsFor({ event, evidence, metrics, stage = runStage({ event, evidence }) }) {
   const codes = [];
   if ((Number(metrics?.finalClickAttempts) || 0) > 0) codes.push('final_click_attempt');
   if ((Number(metrics?.unexpectedNonGetPassed) || 0) > 0) codes.push('non_get_passed');
   if ((Number(metrics?.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
-  if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') codes.push('wrong_posting_or_talent_pool');
+  const mismatchEvidence = evidence?.postingMatch === 'mismatch'
+    || (event?.reason === 'posting_mismatch' && evidence?.postingMatch !== 'match');
+  if (FORM_REACHED_STAGES.has(stage) && mismatchEvidence) codes.push('wrong_posting_or_talent_pool');
   if (event?.type === 'submit_succeeded') codes.push('submission_attempted');
   return [...new Set(codes)];
 }
@@ -555,7 +563,9 @@ function submissionAttemptedFor(record) {
     || (Array.isArray(record?.securityViolations) && record.securityViolations.includes('submission_attempted'));
 }
 
-function postingLinkStatus(event, evidence) {
+export function postingLinkStatus(event, evidence, stage = runStage({ event, evidence })) {
+  if (!FORM_REACHED_STAGES.has(stage)) return 'unknown';
+  if (event?.reason === 'posting_mismatch' && evidence?.postingMatch === 'match') return 'unknown';
   if (evidence?.postingMatch === 'match') return 'yes';
   if (evidence?.postingMatch === 'mismatch' || event?.reason === 'posting_mismatch') return 'no';
   return 'unknown';
@@ -567,7 +577,7 @@ function securityViolationsFor(record) {
   if ((Number(record?.finalClickAttempts) || 0) > 0) codes.add('final_click_attempt');
   if ((Number(record?.unexpectedNonGetPassed) || 0) > 0) codes.add('non_get_passed');
   if ((Number(record?.nodeEgressBlocked) || 0) > 0) codes.add('node_egress_attempt');
-  if (record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
+  if (FORM_REACHED_STAGES.has(record?.stage) && record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
   if (record?.submissionAttempted === true) codes.add('submission_attempted');
   return [...codes].sort();
 }
@@ -587,7 +597,9 @@ function sanitizeOutcomeRecord(record) {
     nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
     submissionAttempted: record.submissionAttempted === true,
-    formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
+    formLinkedToPosting: FORM_REACHED_STAGES.has(stage) && SAFE_LINK_STATES.has(record.formLinkedToPosting)
+      ? record.formLinkedToPosting
+      : 'unknown',
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
     securityViolations: securityViolationsFor(record),
   };
@@ -777,7 +789,7 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
   const inferredStage = timedOut ? 'stopped' : runStage({ event, evidence });
   const stage = metrics.navigation5xx > 0 ? 'http_5xx' : inferredStage;
   const stopCode = timedOut ? 'portal_replay_timeout' : safeOutcomeCode(event, failure);
-  const violations = violationsFor({ event, evidence, metrics });
+  const violations = violationsFor({ event, evidence, metrics, stage });
   const measuredEvents = new Set(['submit_handoff', 'submit_needs_candidate', 'dry_run_ready', 'posting_closed', 'submit_succeeded', 'submit_failed']);
   const status = violations.length ? 'fail'
     : NEUTRAL_STAGES.has(stage) ? 'neutral'
@@ -788,12 +800,12 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     stage,
     stopCode,
     status,
-    retryClass: retryClass(stage, metrics.navigation5xx),
+    retryClass: retryClass(stage, metrics.navigation5xx, stopCode),
     retryCount: preflightRetryCount,
     agentCalls,
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
-    formLinkedToPosting: postingLinkStatus(event, evidence),
+    formLinkedToPosting: postingLinkStatus(event, evidence, stage),
     submissionAttempted: event?.type === 'submit_succeeded',
     securityViolations: violations,
   };
@@ -957,7 +969,7 @@ export function aggregatePortalReplayGate({ prepareRun = false, prepareResult = 
   return { status: 'pass', code: 'portal_replay_passed', reportCount: reports.length };
 }
 
-function markdownForAggregate(verdict, reports, prepareRun) {
+export function markdownForAggregate(verdict, reports, prepareRun) {
   const lines = ['## Assisted application portal replay', ''];
   if (!prepareRun && verdict.status === 'pass') return [...lines, '- Esito: PASS (`no_runner_paths_changed`)', '- La PR non modifica i percorsi del runner che richiedono replay.'].join('\n');
   if (!prepareRun) return [...lines, `- Esito: ${verdict.status.toUpperCase()} (${safeCode(verdict.code)})`, '- Il replay non ha potuto determinare i path del runner interessati.'].join('\n');

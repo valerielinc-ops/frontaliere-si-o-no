@@ -16,13 +16,18 @@ import {
   bestEffortPortalReplayPreflight,
   comparePortalReplayFamily,
   extractPortalStopHosts,
+  markdownForAggregate,
   PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
+  PORTAL_REPLAY_MAX_RETRIES,
   portalReplayPathScope,
+  postingLinkStatus,
+  retryClass,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
   mergePortalReplayRetryEvidence,
+  violationsFor,
 } from '../scripts/assisted-application/portal-replay.mjs';
 
 const tempDirs: string[] = [];
@@ -513,9 +518,10 @@ describe('portal replay workflow wiring', () => {
     // the job budget covers a worst-case bound derived from the largest family
     // (a family holds a slot for its whole workload), not from an average
     const cli = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
-    const limits = /minPerFamily: (\d+), base: (\d+), hardCases: (\d+), maxPerFamily: (\d+), retries: (\d+)/u.exec(cli);
+    const limits = /minPerFamily: (\d+), base: (\d+), hardCases: (\d+), maxPerFamily: (\d+), retries: (\d+|PORTAL_REPLAY_MAX_RETRIES)/u.exec(cli);
     expect(limits).not.toBeNull();
-    const [maxPerFamily, retries] = [Number(limits?.[4]), Number(limits?.[5])];
+    const maxPerFamily = Number(limits?.[4]);
+    const retries = limits?.[5] === 'PORTAL_REPLAY_MAX_RETRIES' ? PORTAL_REPLAY_MAX_RETRIES : Number(limits?.[5]);
     const minPerFamily = Number(limits?.[1]);
     const listingMs = Number(/--timeout-ms (\d+)/u.exec(workflow)?.[1]);
     expect(listingMs).toBe(75_000);
@@ -580,6 +586,12 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.familyRates.comparable).toBe(0);
+  });
+
+  it('retries a read-only replay timeout once', () => {
+    expect(PORTAL_REPLAY_MAX_RETRIES).toBe(1);
+    expect(retryClass('stopped', 0, 'portal_replay_timeout')).toBe('portal_replay_timeout');
+    expect(retryClass('stopped')).toBe('');
   });
 
   it('does not block on a posting mismatch already present on the base', () => {
@@ -653,6 +665,36 @@ describe('portal replay base/head gate', () => {
     expect(result.findingCodes).toContain('replay_unmeasured');
   });
 
+  it('keeps a pre-form mismatch stop from becoming a wrong-module finding', () => {
+    const comparison = comparePortalReplayFamily({
+      family: 'manatal',
+      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'ad_opened', {
+        stopCode: 'posting_mismatch', formLinkedToPosting: 'no',
+      })),
+      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'ad_opened', {
+        stopCode: 'posting_mismatch', formLinkedToPosting: 'no',
+      })),
+    });
+    const report = sanitizePortalReplayReport(comparison);
+
+    expect(report.status).toBe('pass');
+    expect(report.findingCodes).not.toContain('wrong_posting_or_talent_pool');
+    expect(report.cases[0].head.formLinkedToPosting).toBe('unknown');
+  });
+
+  it('keeps contradictory posting-match evidence unknown and flags explicit form mismatch', () => {
+    const mismatchEvent = { type: 'submit_handoff', reason: 'posting_mismatch' };
+    const matchingEvidence = { formReady: true, postingMatch: 'match' };
+    const mismatchingEvidence = { formReady: true, postingMatch: 'mismatch' };
+
+    expect(postingLinkStatus(mismatchEvent, matchingEvidence, 'form')).toBe('unknown');
+    expect(violationsFor({ event: mismatchEvent, evidence: matchingEvidence, metrics: {}, stage: 'form' }))
+      .not.toContain('wrong_posting_or_talent_pool');
+    expect(postingLinkStatus(mismatchEvent, mismatchingEvidence, 'form')).toBe('no');
+    expect(violationsFor({ event: mismatchEvent, evidence: mismatchingEvidence, metrics: {}, stage: 'form' }))
+      .toContain('wrong_posting_or_talent_pool');
+  });
+
   it('fails every security violation, including a final click, a passed mutation, or a wrong posting', () => {
     const result = comparePortalReplayFamily({
       family: 'workday',
@@ -700,6 +742,26 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('pass');
     expect(result.cases[0].head.formLinkedToPosting).toBe('unknown');
+  });
+
+  it('prints only sanitized replay finding codes in the aggregate report', () => {
+    const summary = markdownForAggregate({
+      status: 'fail', code: 'matrix_incomplete_or_failed', failedFamilies: ['manatal'], reportCount: 1,
+    }, [{
+      family: 'manatal',
+      familyRates: { baseReady: 0, headReady: 0, comparable: 1 },
+      cases: [{
+        host: 'careers.example.test', path: '/jobs/*', findingCodes: ['wrong_posting_or_talent_pool', 'replay_unmeasured'],
+        base: { stage: 'ad_opened' },
+        head: {
+          stage: 'form', stopCode: 'posting_mismatch', agentCalls: 0, blockedNonGet: 0,
+          nodeEgressBlocked: 0, finalClickAttempts: 0, formLinkedToPosting: 'unknown',
+        },
+      }],
+    }], true);
+
+    expect(summary).toContain('wrong_posting_or_talent_pool, replay_unmeasured');
+    expect(summary).not.toContain('https://');
   });
 
   it('removes case identifiers and unexpected fields from the public replay report', () => {
