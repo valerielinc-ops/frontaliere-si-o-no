@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-11-14T09:19:10.794Z",
-  "runId": "43579063769",
+  "assembledAt": "2026-11-14T21:16:49.174Z",
+  "runId": "43641122472",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=2c54b20f-7155-43ef-833d-21c92b6aaa78",
@@ -28,16 +28,16 @@
       "slug": "apprendisti-afc-impiegati-di-commercio-mendrisio",
       "slugByLocale": {
         "it": "apprendisti-afc-impiegati-di-commercio-mendrisio",
-        "en": "afc-businesses-citta-di-mendrisio-mendrisio",
-        "de": "afc-unternehmen-citta-di-mendrisio-mendrisio",
-        "fr": "entreprises-afc-citta-di-mendrisio-mendrisio"
+        "en": "apprendisti-afc-impiegati-di-commercio-mendrisio",
+        "de": "apprendisti-afc-impiegati-di-commercio-mendrisio",
+        "fr": "apprendisti-afc-impiegati-di-commercio-mendrisio"
       },
       "sourceLang": "it",
       "category": "apprenticeship",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:53.085Z",
+      "crawledAt": "2026-11-14T21:16:32.117Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -68,7 +68,106 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-10-30T09:49:10.582Z",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "en": [
+          "afc-businesses-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "afc-unternehmen-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "entreprises-afc-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "afc-businesses-citta-di-mendrisio-mendrisio",
+        "afc-unternehmen-citta-di-mendrisio-mendrisio",
+        "entreprises-afc-citta-di-mendrisio-mendrisio"
+      ]
+    },
+    {
+      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=e1621104-771a-475a-be31-d834c7ff772b",
+      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=e1621104-771a-475a-be31-d834c7ff772b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "title": "Apprendista AFC informatico in gestione infrastrutture",
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti informatici o apprendiste informatiche presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 1 apprendista AFC informatico di gestione infrastrutture presso il Centro\n\nElaborazione Dati;\n\n- 1 apprendista AFC operatore informatico presso il Centro Elaborazione Dati\n\nL’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro venerdì 26 febbraio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Città di Mendrisio Concorso Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
+      "descriptionByLocale": {
+        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti informatici o apprendiste informatiche presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 1 apprendista AFC informatico di gestione infrastrutture presso il Centro\n\nElaborazione Dati;\n\n- 1 apprendista AFC operatore informatico presso il Centro Elaborazione Dati\n\nL’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro venerdì 26 febbraio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Città di Mendrisio Concorso Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
+        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 5998 of 20 October 2026 30 October 2026 Competition for recruiting 2 computer apprentices or computer apprentices at the Municipal Administration of the City of Mendrisio for the school year.\n\nThe Town Hall of Mendrisio opens the competition for recruiting:\n\n- 1 AFC apprentice IT infrastructure management at the Centre\n\nData processing;\n\n- 1 apprentice AFC computer operator at the Data Processing Centre\n\nThe entry into operation will be to be agreed with the relevant service. The school office will be defined by the Vocational Training Division. Expiry of the competition The job offers must be obtained through the application form online by Friday 26 February 2027 at 23:59, accompanied by the following documents: ▪ letter of application; ▪ curriculum vitae; ▪ intermediate school statement for companies (from requesting to the secretariat of their school office); ▪ final school results of the eighth year of schooling (third average) for those who had not yet finished the school Applications submitted in another form will not be considered. This notice of competition and its application form are also available on www.mendrisio.ch/concourses. The Human Resources section remains courteous (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) through which to send their application. It is the right of the City Hall to immediately proceed to the examination of the applications received and to call to an interview the candidates pre-selected without waiting for the expiry of the contest. The City Hall reserves the right not to proceed in the absence of candidates eligible for the function. City of Mendrisio Competition Legal remedies Against the notice of competition is the right to appeal to the Lodevole State Council within 30 days of the date of publication. Detailed information may be requested from the Human Resources Section of the City of Mendrisio, tel. 058 688 33 10, or by consulting the website: www.orient.ch. The Town Hall",
+        "de": "Dikasterium Institutionen und Ressourcen Verwaltungsabteilung Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationär@mendrisio.ch Ris. mun. 5998 vom 20. Oktober 2026 30. Oktober 2026 Wettbewerb für die Rekrutierung von 2 Computerlehrlingen oder Computerlehrlingen bei der Gemeindeverwaltung der Stadt Mendrisio für das Schuljahr.\n\nDas Rathaus von Mendrisio eröffnet den Wettbewerb für die Rekrutierung:\n\n- 1 AFC Lehrling IT Infrastrukturmanagement im Zentrum\n\nDatenverarbeitung;\n\n- 1 Auszubildender AFC-Computerbetreiber im Datenverarbeitungszentrum\n\nDie Inbetriebnahme wird mit dem betreffenden Dienst vereinbart. Das Schulbüro wird von der Berufsbildungsabteilung definiert. Ablauf des Wettbewerbs Die Stellenangebote müssen bis Freitag, den 26. Februar 2027 um 23:59 Uhr online über das Bewerbungsformular eingeholt werden, zusammen mit den folgenden Dokumenten: ▪ Bewerbungsschreiben; ▪ Lebenslauf; ▪ Zwischenschulerklärung für Unternehmen (von der Anfrage an das Sekretariat ihres Schulbüros); ▪ Abschlussschulergebnisse des achten Schuljahres (dritter Durchschnitt) für diejenigen, die die Schulanträge noch nicht abgeschlossen haben In einem anderen Formular eingereicht werden nicht berücksichtigt. Diese Wettbewerbsbekanntmachung und ihr Bewerbungsformular sind auch auf www.mendrisio.ch/concourses verfügbar. Die Personalabteilung bleibt höflich (Tel. +41 58 688 33 10) derjenigen, die kein Gerät (PC, Tablet, Smartphone, Scanner usw.) haben, über das sie ihre Bewerbung senden können. Es ist das Recht des Rathauses, sofort mit der Prüfung der eingegangenen Bewerbungen fortzufahren und die vorgewählten Kandidaten zu einem Interview aufzurufen, ohne auf den Ablauf des Wettbewerbs zu warten. Das Rathaus behält sich das Recht vor, in Abwesenheit von Kandidaten, die für die Funktion in Frage kommen, nicht vorzugehen. Stadt Mendrisio Wettbewerb Rechtsmittel Gegen die Bekanntmachung des Wettbewerbs ist das Recht, innerhalb von 30 Tagen nach dem Datum der Veröffentlichung an den Staatsrat von Lodevole zu appellieren. Detaillierte Informationen können bei der Personalabteilung der Stadt Mendrisio, Tel. 058 688 33 10, oder auf der Website www.orient.ch angefordert werden. Das Rathaus",
+        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 5998 du 20 octobre 2026 30 octobre 2026 Concours de recrutement de 2 apprentis en informatique ou en informatique à l'administration municipale de la ville de Mendrisio pour l'année scolaire.\n\nLa mairie de Mendrisio ouvre le concours de recrutement :\n\n- 1 apprenti AFC gestion de l'infrastructure informatique au Centre\n\nTraitement des données;\n\n- 1 apprenti opérateur d'ordinateur AFC au Centre de traitement des données\n\nLa mise en service sera convenue avec le service concerné. Le bureau scolaire sera défini par la Division de la formation professionnelle. Expiration du concours Les offres d'emploi doivent être obtenues au moyen du formulaire de demande en ligne au plus tard le vendredi 26 février 2027 à 23h59, accompagné des documents suivants: ▪ lettre de demande; ▪ curriculum vitae; ▪ déclaration scolaire intermédiaire pour les entreprises (de la demande au secrétariat de leur bureau scolaire); ▪ résultats scolaires finals de la huitième année de scolarité (troisième moyenne) pour ceux qui n'avaient pas encore terminé l'école Les demandes présentées sous une autre forme ne seront pas prises en considération. Cet avis de concours et son formulaire de candidature sont également disponibles sur le site www.mendrisio.ch/courses. La section Ressources humaines reste courtoise (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour envoyer leur application. L'hôtel de ville a le droit de procéder immédiatement à l'examen des candidatures reçues et d'appeler à une entrevue les candidats présélectionnés sans attendre l'expiration du concours. L'hôtel de ville se réserve le droit de ne pas procéder en l'absence de candidats admissibles à la fonction. Ville de Mendrisio Concurrence Recours juridiques Contre l'avis de concours est le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être demandées à la Section des ressources humaines de la ville de Mendrisio, tél. 058 688 33 10, ou en consultant le site Web : www.orient.ch. La mairie"
+      },
+      "titleByLocale": {
+        "it": "Apprendista AFC informatico in gestione infrastrutture",
+        "en": "Apprentice AFC informatico in Management infrastrutture",
+        "de": "Lernende/r AFC informatico in Verwaltung infrastrutture",
+        "fr": "Apprenti/e AFC informatico in Gestion infrastrutture"
+      },
+      "slug": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
+      "slugByLocale": {
+        "it": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
+        "en": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
+        "de": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
+        "fr": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio"
+      },
+      "sourceLang": "it",
+      "category": "apprenticeship",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-14T21:16:32.025Z",
+      "validThrough": "2027-02-26T23:59:59.999Z",
+      "source": "mendrisio-concorsi-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Amministrazione pubblica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "citta-di-mendrisio-a6a21476b676",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Municipio 13",
+      "postalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-10-30T09:49:10.545Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "previousSlugsByLocale": {
+        "en": [
+          "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio",
+        "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio",
+        "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
+      ]
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=c0f7e46e-5597-4f4e-98fb-813ff4249354",
@@ -104,7 +203,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.899Z",
+      "crawledAt": "2026-11-14T21:16:32.008Z",
       "validThrough": "2027-02-26T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -155,215 +254,6 @@
       ]
     },
     {
-      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=e1621104-771a-475a-be31-d834c7ff772b",
-      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=e1621104-771a-475a-be31-d834c7ff772b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "title": "Apprendista AFC informatico in gestione infrastrutture",
-      "company": "Città di Mendrisio",
-      "companyKey": "citta-di-mendrisio",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti informatici o apprendiste informatiche presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 1 apprendista AFC informatico di gestione infrastrutture presso il Centro\n\nElaborazione Dati;\n\n- 1 apprendista AFC operatore informatico presso il Centro Elaborazione Dati\n\nL’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro venerdì 26 febbraio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Città di Mendrisio Concorso Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
-      "descriptionByLocale": {
-        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti informatici o apprendiste informatiche presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 1 apprendista AFC informatico di gestione infrastrutture presso il Centro\n\nElaborazione Dati;\n\n- 1 apprendista AFC operatore informatico presso il Centro Elaborazione Dati\n\nL’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro venerdì 26 febbraio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Città di Mendrisio Concorso Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
-        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 5998 of 20 October 2026 30 October 2026 Competition for recruiting 2 computer apprentices or computer apprentices at the Municipal Administration of the City of Mendrisio for the school year.\n\nThe Town Hall of Mendrisio opens the competition for recruiting:\n\n- 1 AFC apprentice IT infrastructure management at the Centre\n\nData processing;\n\n- 1 apprentice AFC computer operator at the Data Processing Centre\n\nThe entry into operation will be to be agreed with the relevant service. The school office will be defined by the Vocational Training Division. Expiry of the competition The job offers must be obtained through the application form online by Friday 26 February 2027 at 23:59, accompanied by the following documents: ▪ letter of application; ▪ curriculum vitae; ▪ intermediate school statement for companies (from requesting to the secretariat of their school office); ▪ final school results of the eighth year of schooling (third average) for those who had not yet finished the school Applications submitted in another form will not be considered. This notice of competition and its application form are also available on www.mendrisio.ch/concourses. The Human Resources section remains courteous (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) through which to send their application. It is the right of the City Hall to immediately proceed to the examination of the applications received and to call to an interview the candidates pre-selected without waiting for the expiry of the contest. The City Hall reserves the right not to proceed in the absence of candidates eligible for the function. City of Mendrisio Competition Legal remedies Against the notice of competition is the right to appeal to the Lodevole State Council within 30 days of the date of publication. Detailed information may be requested from the Human Resources Section of the City of Mendrisio, tel. 058 688 33 10, or by consulting the website: www.orient.ch. The Town Hall",
-        "de": "Dikasterium Institutionen und Ressourcen Verwaltungsabteilung Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationär@mendrisio.ch Ris. mun. 5998 vom 20. Oktober 2026 30. Oktober 2026 Wettbewerb für die Rekrutierung von 2 Computerlehrlingen oder Computerlehrlingen bei der Gemeindeverwaltung der Stadt Mendrisio für das Schuljahr.\n\nDas Rathaus von Mendrisio eröffnet den Wettbewerb für die Rekrutierung:\n\n- 1 AFC Lehrling IT Infrastrukturmanagement im Zentrum\n\nDatenverarbeitung;\n\n- 1 Auszubildender AFC-Computerbetreiber im Datenverarbeitungszentrum\n\nDie Inbetriebnahme wird mit dem betreffenden Dienst vereinbart. Das Schulbüro wird von der Berufsbildungsabteilung definiert. Ablauf des Wettbewerbs Die Stellenangebote müssen bis Freitag, den 26. Februar 2027 um 23:59 Uhr online über das Bewerbungsformular eingeholt werden, zusammen mit den folgenden Dokumenten: ▪ Bewerbungsschreiben; ▪ Lebenslauf; ▪ Zwischenschulerklärung für Unternehmen (von der Anfrage an das Sekretariat ihres Schulbüros); ▪ Abschlussschulergebnisse des achten Schuljahres (dritter Durchschnitt) für diejenigen, die die Schulanträge noch nicht abgeschlossen haben In einem anderen Formular eingereicht werden nicht berücksichtigt. Diese Wettbewerbsbekanntmachung und ihr Bewerbungsformular sind auch auf www.mendrisio.ch/concourses verfügbar. Die Personalabteilung bleibt höflich (Tel. +41 58 688 33 10) derjenigen, die kein Gerät (PC, Tablet, Smartphone, Scanner usw.) haben, über das sie ihre Bewerbung senden können. Es ist das Recht des Rathauses, sofort mit der Prüfung der eingegangenen Bewerbungen fortzufahren und die vorgewählten Kandidaten zu einem Interview aufzurufen, ohne auf den Ablauf des Wettbewerbs zu warten. Das Rathaus behält sich das Recht vor, in Abwesenheit von Kandidaten, die für die Funktion in Frage kommen, nicht vorzugehen. Stadt Mendrisio Wettbewerb Rechtsmittel Gegen die Bekanntmachung des Wettbewerbs ist das Recht, innerhalb von 30 Tagen nach dem Datum der Veröffentlichung an den Staatsrat von Lodevole zu appellieren. Detaillierte Informationen können bei der Personalabteilung der Stadt Mendrisio, Tel. 058 688 33 10, oder auf der Website www.orient.ch angefordert werden. Das Rathaus",
-        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 5998 du 20 octobre 2026 30 octobre 2026 Concours de recrutement de 2 apprentis en informatique ou en informatique à l'administration municipale de la ville de Mendrisio pour l'année scolaire.\n\nLa mairie de Mendrisio ouvre le concours de recrutement :\n\n- 1 apprenti AFC gestion de l'infrastructure informatique au Centre\n\nTraitement des données;\n\n- 1 apprenti opérateur d'ordinateur AFC au Centre de traitement des données\n\nLa mise en service sera convenue avec le service concerné. Le bureau scolaire sera défini par la Division de la formation professionnelle. Expiration du concours Les offres d'emploi doivent être obtenues au moyen du formulaire de demande en ligne au plus tard le vendredi 26 février 2027 à 23h59, accompagné des documents suivants: ▪ lettre de demande; ▪ curriculum vitae; ▪ déclaration scolaire intermédiaire pour les entreprises (de la demande au secrétariat de leur bureau scolaire); ▪ résultats scolaires finals de la huitième année de scolarité (troisième moyenne) pour ceux qui n'avaient pas encore terminé l'école Les demandes présentées sous une autre forme ne seront pas prises en considération. Cet avis de concours et son formulaire de candidature sont également disponibles sur le site www.mendrisio.ch/courses. La section Ressources humaines reste courtoise (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour envoyer leur application. L'hôtel de ville a le droit de procéder immédiatement à l'examen des candidatures reçues et d'appeler à une entrevue les candidats présélectionnés sans attendre l'expiration du concours. L'hôtel de ville se réserve le droit de ne pas procéder en l'absence de candidats admissibles à la fonction. Ville de Mendrisio Concurrence Recours juridiques Contre l'avis de concours est le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être demandées à la Section des ressources humaines de la ville de Mendrisio, tél. 058 688 33 10, ou en consultant le site Web : www.orient.ch. La mairie"
-      },
-      "titleByLocale": {
-        "it": "Apprendista AFC informatico in gestione infrastrutture",
-        "en": "Apprentice AFC informatico in Management infrastrutture",
-        "de": "Lernende/r AFC informatico in Verwaltung infrastrutture",
-        "fr": "Apprenti/e AFC informatico in Gestion infrastrutture"
-      },
-      "slug": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
-      "slugByLocale": {
-        "it": "apprendista-afc-informatico-in-gestione-infrastrutture-mendrisio",
-        "en": "apprentice-afc-informatico-in-management-infrastrutture-citta-di-mendrisio-mendrisio",
-        "de": "lernende-r-afc-informatico-in-verwaltung-infrastrutture-citta-di-mendrisio-mendrisio",
-        "fr": "apprenti-e-afc-informatico-in-gestion-infrastrutture-citta-di-mendrisio-mendrisio"
-      },
-      "sourceLang": "it",
-      "category": "apprenticeship",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.862Z",
-      "validThrough": "2027-02-26T23:59:59.999Z",
-      "source": "mendrisio-concorsi-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Amministrazione pubblica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "citta-di-mendrisio-a6a21476b676",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Municipio 13",
-      "postalCode": "6850",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-10-30T09:49:10.545Z",
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
-    },
-    {
-      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=49cd1af3-6129-49e1-a5a4-505bb8c33fee",
-      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=49cd1af3-6129-49e1-a5a4-505bb8c33fee,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "title": "Cuoco o cuoca al 65%",
-      "company": "Città di Mendrisio",
-      "companyKey": "citta-di-mendrisio",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 6049 del 27 ottobre 2206 2 novembre 2026 Concorso per l’assunzione di un cuoco o una cuoca al 65% presso Casa al Mulino di Airolo Il Municipio di Mendrisio apre il concorso per l’assunzione di un cuoco o una cuoca al 65% a tempo indeterminato, presso Casa al Mulino di Airolo, alle condizioni del vigente Regolamento organico dei dipendenti della Città di Mendrisio (ROD). Condizioni\n\nMansioni:\n\nProvvedere alla preparazione dei pasti, alla tenuta e all’aggiornamento della dispensa, e al contatto con i fornitori (v. anche capitolato d’oneri).\n\nInoltre:\n\n• Possono essergli o esserle conferiti altri incarichi di lavoro compatibili con la sua\n\nfunzione e le sue competenze;\n\nRequisiti:\n\n• AFC di cuoco/a;\n\n• esperienze analoghe nel settore o l’aver già lavorato in ambito scolastico possono\n\ncostituire requisito preferenziale;\n\n• attitudine al dialogo con i/le docenti e con i bambini;\n\n• capacità organizzative e relazionali.\n\nStipendio annuo (tredicesima mensilità inclusa e scala stipendi aggiornata al 01.01.2026:\n\n• Classi (4*) 5 – 7 ROD (funzione cuoco/a);\n\n• Minimo: CHF 62’022.-- annui al 100%, (*CHF 58’371.-- al 100%);\n\n• Massimo: CHF 85’327.-- annui al 100%;\n\n• In aggiunta allo stipendio, agli/alle aventi diritto, vengono versati gli assegni per figli\n\nsecondo LAFam;\n\n• Vitto e alloggio sono conteggiati come salario in natura ai sensi della LAVS.\n\n* In caso di assunzione di dipendenti con scarsa esperienza o per i quali è ragionevolmente necessario\n\nprevedere un periodo di introduzione, il Municipio può stabilire uno stipendio iniziale inferiore di una classe rispetto alla classe minima d’entrata. Nell'ambito delle anzidette possibilità di retribuzione, il Municipio può riconoscere l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio ai sensi dell'art. 29 cpv. 2 ROD.\n\nSettimana lavorativa:\n\n40 ore (al 100%) Città di Mendrisio Concorso\n\nGrado di occupazione:\n\n65%\n\nInizio attività:\n\n• Il prima possibile, preferibilmente a partire dal 01.01.2027 ma al massimo il 01.02.2027.\n\n• Il primo anno di servizio è considerato quale anno di prova.\n\nScadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 16 novembre 2026 alle ore 23:59, corredate dai seguenti documenti:\n\n• Lettera di motivazione;\n\n• Curriculum vitae con foto;\n\n• Copia certificati di studio, lavoro e perfezionamento;\n\n• Autocertificazione sulla buona condotta (scaricabile dal sito dell’Amministrazione\n\ncomunale di Mendrisio);\n\n• Questionario sullo stato di salute per l’assunzione di personale alle dipendenze della\n\nCittà di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito https://www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) per mettere a loro disposizione gli strumenti necessari affinché venga inviata la propria candidatura tramite il prescritto modulo di candidatura. Oltre ai documenti da allegare alla candidatura, in un secondo momento potrà essere richiesto di presentare l’estratto del casellario giudiziale e l’estratto del registro delle esecuzioni (validità 6 mesi). Il Municipio si riserva la facoltà di modificare in ogni tempo le mansioni, in relazione ad eventuali modifiche dei regolamenti e disposizioni di servizio vigenti. È facoltà del Municipio procedere a una preselezione dei candidati e delle candidate per la convocazione alle audizioni. Il Municipio si riserva il diritto di non procedere all’assunzione, in assenza di candidate o candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Ulteriori informazioni Informazioni dettagliate si possono ottenere presso la Direzione dell’Istituto scolastico della Città di Mendrisio, tel. 058 688 35 60. Il Municipio",
-      "descriptionByLocale": {
-        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 6049 del 27 ottobre 2206 2 novembre 2026 Concorso per l’assunzione di un cuoco o una cuoca al 65% presso Casa al Mulino di Airolo Il Municipio di Mendrisio apre il concorso per l’assunzione di un cuoco o una cuoca al 65% a tempo indeterminato, presso Casa al Mulino di Airolo, alle condizioni del vigente Regolamento organico dei dipendenti della Città di Mendrisio (ROD). Condizioni\n\nMansioni:\n\nProvvedere alla preparazione dei pasti, alla tenuta e all’aggiornamento della dispensa, e al contatto con i fornitori (v. anche capitolato d’oneri).\n\nInoltre:\n\n• Possono essergli o esserle conferiti altri incarichi di lavoro compatibili con la sua\n\nfunzione e le sue competenze;\n\nRequisiti:\n\n• AFC di cuoco/a;\n\n• esperienze analoghe nel settore o l’aver già lavorato in ambito scolastico possono\n\ncostituire requisito preferenziale;\n\n• attitudine al dialogo con i/le docenti e con i bambini;\n\n• capacità organizzative e relazionali.\n\nStipendio annuo (tredicesima mensilità inclusa e scala stipendi aggiornata al 01.01.2026:\n\n• Classi (4*) 5 – 7 ROD (funzione cuoco/a);\n\n• Minimo: CHF 62’022.-- annui al 100%, (*CHF 58’371.-- al 100%);\n\n• Massimo: CHF 85’327.-- annui al 100%;\n\n• In aggiunta allo stipendio, agli/alle aventi diritto, vengono versati gli assegni per figli\n\nsecondo LAFam;\n\n• Vitto e alloggio sono conteggiati come salario in natura ai sensi della LAVS.\n\n* In caso di assunzione di dipendenti con scarsa esperienza o per i quali è ragionevolmente necessario\n\nprevedere un periodo di introduzione, il Municipio può stabilire uno stipendio iniziale inferiore di una classe rispetto alla classe minima d’entrata. Nell'ambito delle anzidette possibilità di retribuzione, il Municipio può riconoscere l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio ai sensi dell'art. 29 cpv. 2 ROD.\n\nSettimana lavorativa:\n\n40 ore (al 100%) Città di Mendrisio Concorso\n\nGrado di occupazione:\n\n65%\n\nInizio attività:\n\n• Il prima possibile, preferibilmente a partire dal 01.01.2027 ma al massimo il 01.02.2027.\n\n• Il primo anno di servizio è considerato quale anno di prova.\n\nScadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 16 novembre 2026 alle ore 23:59, corredate dai seguenti documenti:\n\n• Lettera di motivazione;\n\n• Curriculum vitae con foto;\n\n• Copia certificati di studio, lavoro e perfezionamento;\n\n• Autocertificazione sulla buona condotta (scaricabile dal sito dell’Amministrazione\n\ncomunale di Mendrisio);\n\n• Questionario sullo stato di salute per l’assunzione di personale alle dipendenze della\n\nCittà di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito https://www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) per mettere a loro disposizione gli strumenti necessari affinché venga inviata la propria candidatura tramite il prescritto modulo di candidatura. Oltre ai documenti da allegare alla candidatura, in un secondo momento potrà essere richiesto di presentare l’estratto del casellario giudiziale e l’estratto del registro delle esecuzioni (validità 6 mesi). Il Municipio si riserva la facoltà di modificare in ogni tempo le mansioni, in relazione ad eventuali modifiche dei regolamenti e disposizioni di servizio vigenti. È facoltà del Municipio procedere a una preselezione dei candidati e delle candidate per la convocazione alle audizioni. Il Municipio si riserva il diritto di non procedere all’assunzione, in assenza di candidate o candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Ulteriori informazioni Informazioni dettagliate si possono ottenere presso la Direzione dell’Istituto scolastico della Città di Mendrisio, tel. 058 688 35 60. Il Municipio",
-        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 6049 of 27 October 2206 2 November 2026 Competition for the recruitment of a cook or a cook at 65% at Casa al Mulino di Airolo Conditions\n\nMansions:\n\nTo prepare meals, to hold and update the pantry, and to contact with suppliers (see also specifications).\n\nIn addition:\n\n• Other work assignments compatible with its\n\nfunction and its skills;\n\nRequirements:\n\n• AFC cook/a;\n\n• similar experiences in the field or having already worked in the school sector can\n\nconstitute preferential requirement;\n\n• aptitude for dialogue with teachers and children;\n\n• organizational and relational skills.\n\nYearly wage (threeteenth monthly and salary scale updated on 01.01.2026:\n\n• Classes (4*) 5 – 7 ROD (cook/a function);\n\n• Minimum: CHF 62’022.-- 100% annual, (*CHF 58’371.-- 100%);\n\n• Maximum: CHF 85’327.-- 100% annual;\n\n• In addition to the salary, children's allowances are paid\n\naccording to LAFam;\n\n• Food and accommodation are counted as a salary in nature under the LAVS.\n\n* In case of intake of employees with little experience or for which it is reasonably necessary\n\nforesee a period of introduction, the City Hall can establish a lower initial salary of a class than the minimum entry class. Within the framework of the above-mentioned possibilities of pay, the City Hall can recognize the activity carried out previously, if conformed to this Chapter, assigning one or more year of service pursuant to art. 29 cpv. 2 ROD.\n\nWorking week:\n\n40 hours (to 100%) City of Mendrisio Competition\n\nDegree of employment:\n\n65%\n\nStart of activities:\n\n• As soon as possible, preferably from 01.01.2027 but at most 01.02.2027.\n\n• The first year of service is considered as a test year.\n\nExpiry of the competition The applications must be submitted via the application form online by Monday, November 16, 2026 at 23:59, accompanied by the following documents:\n\n• Letter of motivation;\n\n• Curriculum vitae with photos;\n\n• Copy certificates of study, work and refinement;\n\n• Self-certification on good conduct (available from the Administration website\n\nmunicipal of Mendrisio);\n\n• Questionnaire on the state of health for staff recruitment to dependencies\n\nCity of Mendrisio (available from the site of the Municipal Administration of Mendrisio). Applications submitted in another form will not be considered. This notice of competition and its application form are also available on the https://www.mendrisio.ch/concourses. The Human Resources section remains at the courteous disposal (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) to provide them with the necessary tools to send their application through the prescribed application form. In addition to the documents to be attached to the application, at a later time may be required to present the extract of the judicial box and the extract of the execution register (validity 6 months). The City Hall reserves the right to change the tasks at any time, in relation to any changes in the regulations and provisions of service in force. It is the faculty of the City Hall to proceed with a pre-selection of candidates and candidates for the call to hearings. The Town Hall reserves the right not to proceed with recruitment, in the absence of candidates or candidates eligible for the function. Legal remedies Against the notice of competition shall be the right to appeal to the Lodevole Council of State within 30 days of the date of publication. Detailed information can be obtained from the Management of the School Institute of the City of Mendrisio, Tel. 058 688 35 60. The Town Hall",
-        "de": "Departement Institutionen und Ressourcen Verwaltungsabteilung Kanzlei Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Gemeinderatsbeschluss 6049 vom 27. Oktober 2206 2. November 2026 Ausschreibung für die Anstellung eines Kochs oder einer Köchin mit einem Beschäftigungsgrad von 65% bei Casa al Mulino di Airolo Der Gemeinderat von Mendrisio eröffnet die Ausschreibung für die unbefristete Anstellung eines Kochs oder einer Köchin mit einem Beschäftigungsgrad von 65% bei Casa al Mulino di Airolo zu den Bedingungen des geltenden Organisationsreglements für die Angestellten der Stadt Mendrisio (ROD). Bedingungen\n\nAufgaben:\n\nFür die Zubereitung der Mahlzeiten, die Bewirtschaftung und Aktualisierung des Vorratslagers sowie den Kontakt mit den Lieferanten sorgen (siehe auch Pflichtenheft).\n\nAusserdem:\n\n• Es können Ihnen weitere mit Ihrer\n\nFunktion und Ihren Kompetenzen vereinbare Arbeitsaufträge übertragen werden;\n\nAnforderungen:\n\n• EFZ als Koch/Köchin;\n\n• einschlägige Erfahrungen in diesem Bereich oder eine bereits ausgeübte Tätigkeit im schulischen Umfeld können\n\nals bevorzugtes Kriterium gelten;\n\n• Bereitschaft zum Dialog mit den Lehrpersonen und den Kindern;\n\n• organisatorische Fähigkeiten und Sozialkompetenz.\n\nJahresgehalt (inklusive 13. Monatslohn und aktualisierter Lohnskala per 01.01.2026:\n\n• Klassen (4*) 5 – 7 ROD (Funktion Koch/Köchin);\n\n• Minimum: CHF 62’022.-- jährlich bei 100%, (*CHF 58’371.-- bei 100%);\n\n• Maximum: CHF 85’327.-- jährlich bei 100%;\n\n• Zusätzlich zum Gehalt werden den Anspruchsberechtigten Kinderzulagen ausbezahlt\n\ngemäss LAFam;\n\n• Kost und Logis werden gemäss AHVG als Naturallohn angerechnet.\n\n* Bei der Anstellung von Mitarbeitenden mit wenig Erfahrung oder bei denen es vernünftigerweise erforderlich ist\n\nFür eine Einführungszeit kann der Gemeinderat ein Anfangsgehalt festlegen, das eine Klasse unter der niedrigsten Eintrittsklasse liegt. Im Rahmen der vorgenannten Vergütungsmöglichkeiten kann der Gemeinderat die zuvor ausgeübte Tätigkeit anerkennen, sofern sie dem vorliegenden Reglement entspricht, indem er eine oder mehrere Dienstaltersstufen im Sinne von Art. 29 Abs. 2 ROD anrechnet.\n\nArbeitswoche:\n\n40 Stunden (bei 100%) Città di Mendrisio Ausschreibung\n\nBeschäftigungsgrad:\n\n65%\n\nBeginn der Tätigkeit:\n\n• So bald wie möglich, vorzugsweise ab dem 1. Januar 2027, spätestens jedoch ab dem 1. Februar 2027.\n\n• Das erste Dienstjahr gilt als Probejahr.\n\nFrist für die Ausschreibung Die Stellenangebote müssen bis Montag, 16. November 2026, um 23:59 Uhr über das Online-Bewerbungsformular eingereicht werden, versehen mit den folgenden Unterlagen:\n\n• Motivationsschreiben;\n\n• Lebenslauf mit Foto;\n\n• Kopie der Ausbildungs-, Arbeits- und Weiterbildungsnachweise;\n\n• Selbstbescheinigung über einen guten Leumund (herunterladbar von der Website der Gemeindeverwaltung\n\nvon Mendrisio);\n\n• Gesundheitsfragebogen für die Anstellung von Personal im Dienst der\n\nStadt Mendrisio (herunterladbar auf der Website der Gemeindeverwaltung von Mendrisio). Bewerbungen, die in einer anderen Form eingereicht werden, werden nicht berücksichtigt. Die vorliegende Ausschreibung und das dazugehörige Bewerbungsformular sind ebenfalls auf der Website https://www.mendrisio.ch/concorsi verfügbar. Die Abteilung Human Resources steht Ihnen gerne zur Verfügung (Tel. +41 58 688 33 10) von Personen, die über kein Gerät (PC, Tablet, Smartphone, Scanner usw.) verfügen, um ihnen die erforderlichen Hilfsmittel zur Verfügung zu stellen, damit ihre Bewerbung über das vorgeschriebene Bewerbungsformular eingereicht werden kann. Zusätzlich zu den der Bewerbung beizulegenden Dokumenten kann zu einem späteren Zeitpunkt die Vorlage des Strafregisterauszugs und des Betreibungsregisterauszugs (Gültigkeit 6 Monate) verlangt werden. Der Gemeinderat behält sich das Recht vor, die Aufgaben jederzeit aufgrund allfälliger Änderungen der geltenden Reglemente und Dienstvorschriften zu ändern. Der Gemeinderat kann eine Vorauswahl der Bewerberinnen und Bewerber für die Einladung zu den Anhörungen vornehmen. Der Gemeinderat behält sich das Recht vor, keine Anstellung vorzunehmen, falls keine für die Funktion geeigneten Bewerberinnen oder Bewerber vorhanden sind. Rechtsmittel Gegen die Ausschreibung kann beim Hochgeschätzten Staatsrat innerhalb einer Frist von 30 Tagen ab dem Veröffentlichungsdatum Beschwerde eingereicht werden. Weitere Informationen Detaillierte Informationen sind bei der Direktion des Schulinstituts der Stadt Mendrisio erhältlich, Tel. 058 688 35 60. Das Rathaus",
-        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 6049 du 27 octobre 2206 2 novembre 2026 Concours pour le recrutement d'un cuisinier ou d'un cuisinier à 65% à Casa al Mulino di Airolo Conditions\n\nMansions:\n\nPréparer les repas, tenir et mettre à jour le garde-manger et contacter les fournisseurs (voir aussi les spécifications).\n\nEn outre:\n\n• Autres tâches compatibles avec ses\n\nfonction et ses compétences;\n\nExigences:\n\n• Cuisinière AFC/a;\n\n• des expériences similaires dans le domaine ou ayant déjà travaillé dans le secteur scolaire\n\nconstituer une exigence préférentielle;\n\n• aptitude au dialogue avec les enseignants et les enfants;\n\n• compétences organisationnelles et relationnelles.\n\nSalaire annuel (treizième mensuel et barème des traitements actualisé le 01.01.2026:\n\n• Classes (4*) 5 – 7 ROD (cuisson/une fonction);\n\n• Minimum: CHF 62=022.-- 100% annuel, (*CHF 58=371.-- 100%);\n\n• Maximum: CHF 85.-- 100% annuel;\n\n• Outre le salaire, des allocations pour enfants sont versées\n\nselon la LAFam;\n\n• La nourriture et l'hébergement sont comptés comme un salaire de nature dans le SAVL.\n\n* En cas d'admission d'employés peu expérimentés ou pour lesquels elle est raisonnablement nécessaire\n\nprévoir une période d'introduction, l'hôtel de ville peut établir un salaire initial inférieur d'une classe à la classe minimale d'entrée. Dans le cadre des possibilités de rémunération mentionnées ci-dessus, l'Hôtel de Ville peut reconnaître l'activité effectuée antérieurement, si elle est conforme au présent chapitre, en attribuant une ou plusieurs années de service conformément à l'article 29 cpv. 2 ROD.\n\nSemaine de travail:\n\n40 heures (à 100%) Concours Ville de Mendrisio\n\nDegré d'emploi:\n\n65%\n\nDébut des activités:\n\n• Dès que possible, de préférence à partir du 01.01.2027 mais au plus le 01.02.2027.\n\n• La première année de service est considérée comme une année d'essai.\n\nExpiration du concours Les demandes doivent être présentées via le formulaire de demande en ligne au plus tard le lundi 16 novembre 2026 à 23h59, accompagné des documents suivants:\n\n• Lettre de motivation;\n\n• Curriculum vitae avec photos;\n\n• Copier les certificats d'étude, de travail et de raffinement;\n\n• Autocertification de bonne conduite (disponible sur le site Web de l'Administration)\n\nla municipalité de Mendrisio);\n\n• Questionnaire sur l ' état de santé du personnel recruté pour des raisons de dépendance\n\nVille de Mendrisio (disponible sur le site de l'administration municipale de Mendrisio). Les demandes présentées sous une autre forme ne seront pas prises en considération. Le présent avis de concours et son formulaire de candidature sont également disponibles à l'adresse https://www.mendrisio.ch/courses. La section Ressources humaines reste à la disposition (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour leur fournir les outils nécessaires pour envoyer leur demande au moyen du formulaire de demande prescrit. Outre les documents à joindre à la demande, il peut être demandé ultérieurement de présenter l'extrait de la case judiciaire et l'extrait du registre d'exécution (validité 6 mois). L'hôtel de ville se réserve le droit de modifier les tâches à tout moment, en ce qui concerne tout changement apporté aux règlements et aux dispositions de service en vigueur. C'est la faculté de l'hôtel de ville de procéder à une présélection des candidats et des candidats à l'appel aux audiences. La mairie se réserve le droit de ne pas procéder au recrutement, en l'absence de candidats ou de candidats admissibles à la fonction. Les recours juridiques contre l'avis de concours sont le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être obtenues auprès de la Direction de l'Institut scolaire de la Ville de Mendrisio, tél. 058 688 35 60. La mairie"
-      },
-      "titleByLocale": {
-        "it": "Cuoco o cuoca al 65%",
-        "en": "Cook or cook at 65%",
-        "de": "Kochen oder Kochen bei 65%",
-        "fr": "Cuire ou cuire à 65%"
-      },
-      "slug": "cuoco-o-cuoca-al-65-mendrisio",
-      "slugByLocale": {
-        "it": "cuoco-o-cuoca-al-65-mendrisio",
-        "en": "cook-or-cook-at-65-citta-di-mendrisio-mendrisio",
-        "de": "kochen-oder-kochen-bei-65-citta-di-mendrisio-mendrisio",
-        "fr": "cuire-ou-cuire-a-65-citta-di-mendrisio-mendrisio"
-      },
-      "sourceLang": "it",
-      "category": "general",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.819Z",
-      "validThrough": "2026-11-16T23:59:59.999Z",
-      "source": "mendrisio-concorsi-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Amministrazione pubblica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "citta-di-mendrisio-8529992b3fb7",
-      "salaryMin": 32200,
-      "salaryMax": 48800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 32200,
-          "maxValue": 48800,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Municipio 13",
-      "postalCode": "6850",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-02T09:45:27.036Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cuoco-o-cuoca-al-65-citta-di-mendrisio-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "cuoco-o-cuoca-al-65-citta-di-mendrisio-mendrisio"
-      ]
-    },
-    {
-      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=95457070-9745-4dcf-9ebc-01be0cdc7d60",
-      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=95457070-9745-4dcf-9ebc-01be0cdc7d60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "title": "Apprendista CFP giardiniere/a paesaggista",
-      "company": "Città di Mendrisio",
-      "companyKey": "citta-di-mendrisio",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti impiegati o apprendiste impiegate di commercio, 2 giardinieri o giardiniere paesaggiste e 1 stagista 52 settimane presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 2 apprendisti AFC impiegati di commercio presso l’Amministrazione comunale della\n\nCittà di Mendrisio. Costituiscono titolo preferenziale i profili con maturità;\n\n- 1 apprendista AFC giardiniere paesaggista presso la Divisione Ambiente e\n\ninfrastrutture;\n\n- 1 apprendista CFP giardiniere paesaggista presso la Divisione Ambiente e\n\n- 1 stagista 52 settimane per il conseguimento della maturità professionale come\n\nimpiegato di commercio presso il Dicastero Pianificazione e spazi pubblici e la Divisione Ambiente Infrastrutture. L’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 4 gennaio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. Città di Mendrisio Concorso La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
-      "descriptionByLocale": {
-        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti impiegati o apprendiste impiegate di commercio, 2 giardinieri o giardiniere paesaggiste e 1 stagista 52 settimane presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 2 apprendisti AFC impiegati di commercio presso l’Amministrazione comunale della\n\nCittà di Mendrisio. Costituiscono titolo preferenziale i profili con maturità;\n\n- 1 apprendista AFC giardiniere paesaggista presso la Divisione Ambiente e\n\ninfrastrutture;\n\n- 1 apprendista CFP giardiniere paesaggista presso la Divisione Ambiente e\n\n- 1 stagista 52 settimane per il conseguimento della maturità professionale come\n\nimpiegato di commercio presso il Dicastero Pianificazione e spazi pubblici e la Divisione Ambiente Infrastrutture. L’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 4 gennaio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. Città di Mendrisio Concorso La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
-        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 5998 of 20 October 2026 30 October 2026 Competition for recruitment of 2 apprentices employed or apprentices employed by trade, 2 gardeners or landscape gardeners and 1 stagist of the municipal administration 52 weeks\n\nThe Town Hall of Mendrisio opens the competition for recruiting:\n\n- 2 AFC apprentices employed at the municipal administration of the\n\nCity of Mendrisio. They constitute preferential title the profiles with maturity;\n\n- 1 AFC apprentice landscape gardener at the Environment Division and\n\ninfrastructure;\n\n- 1 apprentice CFP landscape gardener at the Environment Division and\n\n- 1 intern 52 weeks for the attainment of professional maturity as\n\nemployed by trade at the Dicastery Planning and public spaces and the Division Environment Infrastructures. The entry into operation will be to be agreed with the relevant service. The school office will be defined by the Vocational Training Division. Expiry of the competition The employment offers must be obtained through the application form online by Monday, January 4, 2027 at 23:59, accompanied by the following documents: ▪ letter of application; ▪ curriculum vitae; ▪ intermediate school statement for companies (from requesting to the secretariat of their school office); ▪ final school results of the eighth year of school (average) for those who had not yet finished the school Applications submitted in another form will not be considered. This notice of competition and its application form are also available on www.mendrisio.ch/concourses. City of Mendrisio Competition The Human Resources Section remains at courteous disposal (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) through which to send their application. It is the right of the City Hall to immediately proceed to the examination of the applications received and to call to an interview the candidates pre-selected without waiting for the expiry of the contest. The City Hall reserves the right not to proceed in the absence of candidates eligible for the function. Legal remedies Against the notice of competition shall be the right to appeal to the Lodevole Council of State within 30 days of the date of publication. Detailed information may be requested from the Human Resources Section of the City of Mendrisio, tel. 058 688 33 10, or by consulting the website: www.orient.ch. The Town Hall",
-        "de": "Dikasterium Institutionen und Ressourcen Verwaltungsabteilung Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationär@mendrisio.ch Ris. mun. 5998 vom 20. Oktober 2026 30. Oktober 2026 Wettbewerb um die Einstellung von 2 Auszubildenden oder Auszubildenden im Handel, 2 Gärtnern oder Landschaftsgärtnern und 1 Standist der Gemeindeverwaltung 52 Wochen\n\nDas Rathaus von Mendrisio eröffnet den Wettbewerb für die Rekrutierung:\n\n- 2 AFC-Auszubildende, die bei der Gemeindeverwaltung des\n\nStadt Mendrisio. Sie stellen eine bevorzugte Bezeichnung der Profile mit Laufzeit dar;\n\n- 1 AFC-Lehrling Landschaftsgärtner bei der Division Umwelt und\n\nInfrastruktur;\n\n- 1 Lehrling CFP Landschaftsgärtner bei der Division Umwelt und\n\n- 1 Praktikant 52 Wochen für die Erlangung der beruflichen Reife als\n\ndurch den Handel an der Dikasterium Planung und öffentlichen Räumen und der Division Umwelt Infrastrukturen eingesetzt. Die Inbetriebnahme wird mit dem betreffenden Dienst vereinbart. Das Schulbüro wird von der Berufsbildungsabteilung definiert. Ablauf des Wettbewerbs Die Beschäftigungsangebote müssen bis Montag, 4. Januar 2027 um 23:59 Uhr online über das Bewerbungsformular eingeholt werden, zusammen mit den folgenden Dokumenten: ▪ Bewerbungsschreiben; ▪ Lebenslauf; ▪ Zwischenschulerklärung für Unternehmen (von der Anfrage an das Sekretariat ihres Schulbüros); ▪ Abschlussschulergebnisse des achten Schuljahres (Durchschnitt) für diejenigen, die die Schulanträge noch nicht abgeschlossen haben In einem anderen Formular eingereicht werden nicht berücksichtigt. Diese Wettbewerbsbekanntmachung und ihr Bewerbungsformular sind auch auf www.mendrisio.ch/concourses verfügbar. Die Personalabteilung steht weiterhin denjenigen zur Verfügung (Tel. +41 58 688 33 10), die kein Gerät (PC, Tablet, Smartphone, Scanner usw.) haben, über das sie ihre Bewerbung senden können. Es ist das Recht des Rathauses, sofort mit der Prüfung der eingegangenen Bewerbungen fortzufahren und die vorgewählten Kandidaten zu einem Interview aufzurufen, ohne auf den Ablauf des Wettbewerbs zu warten. Das Rathaus behält sich das Recht vor, in Abwesenheit von Kandidaten, die für die Funktion in Frage kommen, nicht vorzugehen. Rechtsbehelfe gegen die Bekanntmachung des Wettbewerbs sind berechtigt, innerhalb von 30 Tagen nach Veröffentlichung beim Staatsrat von Lodevole Berufung einzulegen. Detaillierte Informationen können bei der Personalabteilung der Stadt Mendrisio, Tel. 058 688 33 10, oder auf der Website www.orient.ch angefordert werden. Das Rathaus",
-        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 5998 du 20 octobre 2026 30 octobre 2026 Concours de recrutement de 2 apprentis employés ou apprentis employés par le métier, 2 jardiniers ou jardiniers paysagistes et 1 stagiste de l'administration municipale 52 semaines\n\nLa mairie de Mendrisio ouvre le concours de recrutement :\n\n- 2 apprentis AFC employés à l'administration municipale\n\nVille de Mendrisio. Ils constituent un titre préférentiel les profils à maturité;\n\n- 1 apprenti jardinier paysage AFC à la Division de l'environnement et\n\nles infrastructures;\n\n- 1 apprenti jardinier à la Division de l'environnement et\n\n- 1 stagiaire 52 semaines pour l'obtention de la maturité professionnelle\n\nles travaux de la Division des infrastructures environnementales. La mise en service sera convenue avec le service concerné. Le bureau scolaire sera défini par la Division de la formation professionnelle. Expiration du concours Les offres d'emploi doivent être obtenues par le biais du formulaire de demande en ligne au plus tard le lundi 4 janvier 2027 à 23:59, accompagné des documents suivants: ▪ lettre de demande; ▪ curriculum vitae; ▪ déclaration scolaire intermédiaire pour les entreprises (de la demande au secrétariat de leur bureau scolaire); ▪ les résultats scolaires définitifs de la huitième année d'études (moyenne) pour ceux qui n'avaient pas encore terminé l'école Les demandes présentées sous une autre forme ne seront pas prises en considération. Cet avis de concours et son formulaire de candidature sont également disponibles sur le site www.mendrisio.ch/courses. Concours Ville de Mendrisio La Section des ressources humaines reste à la disposition (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour envoyer leur demande. L'hôtel de ville a le droit de procéder immédiatement à l'examen des candidatures reçues et d'appeler à une entrevue les candidats présélectionnés sans attendre l'expiration du concours. L'hôtel de ville se réserve le droit de ne pas procéder en l'absence de candidats admissibles à la fonction. Les recours juridiques contre l'avis de concours sont le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être demandées à la Section des ressources humaines de la ville de Mendrisio, tél. 058 688 33 10, ou en consultant le site Web : www.orient.ch. La mairie"
-      },
-      "titleByLocale": {
-        "it": "Apprendista CFP giardiniere/a paesaggista",
-        "en": "Apprentice CFP giardiniere/a paesaggista",
-        "de": "Lernende/r CFP giardiniere/a paesaggista",
-        "fr": "Apprenti/e CFP giardiniere/a paesaggista"
-      },
-      "slug": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
-      "slugByLocale": {
-        "it": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
-        "en": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
-        "de": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
-        "fr": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio"
-      },
-      "sourceLang": "it",
-      "category": "apprenticeship",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.798Z",
-      "validThrough": "2027-01-04T23:59:59.999Z",
-      "source": "mendrisio-concorsi-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Amministrazione pubblica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "citta-di-mendrisio-91677dd61d74",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Municipio 13",
-      "postalCode": "6850",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-10-30T09:49:09.918Z",
-      "streetAddressSource": "listing-source",
-      "validThroughSource": "source"
-    },
-    {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=c7309ca1-2c66-4d29-8a82-cfb8bd9916bb",
       "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=c7309ca1-2c66-4d29-8a82-cfb8bd9916bb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "title": "Stagista 52 settimane",
@@ -388,16 +278,16 @@
       "slug": "stagista-52-settimane-mendrisio",
       "slugByLocale": {
         "it": "stagista-52-settimane-mendrisio",
-        "en": "stagist-52-weeks-citta-di-mendrisio-mendrisio",
-        "de": "stagist-52-wochen-citta-di-mendrisio-mendrisio",
-        "fr": "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
+        "en": "stagista-52-settimane-mendrisio",
+        "de": "stagista-52-settimane-mendrisio",
+        "fr": "stagista-52-settimane-mendrisio"
       },
       "sourceLang": "it",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.788Z",
+      "crawledAt": "2026-11-14T21:16:31.968Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -432,10 +322,22 @@
       "previousSlugsByLocale": {
         "it": [
           "stagista-52-settimane-citta-di-mendrisio-mendrisio"
+        ],
+        "en": [
+          "stagist-52-weeks-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "stagist-52-wochen-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
         ]
       },
       "previousSlugs": [
-        "stagista-52-settimane-citta-di-mendrisio-mendrisio"
+        "stagista-52-settimane-citta-di-mendrisio-mendrisio",
+        "stagist-52-weeks-citta-di-mendrisio-mendrisio",
+        "stagist-52-wochen-citta-di-mendrisio-mendrisio",
+        "stagiaire-52-semaines-citta-di-mendrisio-mendrisio"
       ]
     },
     {
@@ -472,7 +374,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.718Z",
+      "crawledAt": "2026-11-14T21:16:31.940Z",
       "validThrough": "2027-01-04T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "FULL_TIME",
@@ -523,6 +425,160 @@
       ]
     },
     {
+      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=95457070-9745-4dcf-9ebc-01be0cdc7d60",
+      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=95457070-9745-4dcf-9ebc-01be0cdc7d60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "title": "Apprendista CFP giardiniere/a paesaggista",
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti impiegati o apprendiste impiegate di commercio, 2 giardinieri o giardiniere paesaggiste e 1 stagista 52 settimane presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 2 apprendisti AFC impiegati di commercio presso l’Amministrazione comunale della\n\nCittà di Mendrisio. Costituiscono titolo preferenziale i profili con maturità;\n\n- 1 apprendista AFC giardiniere paesaggista presso la Divisione Ambiente e\n\ninfrastrutture;\n\n- 1 apprendista CFP giardiniere paesaggista presso la Divisione Ambiente e\n\n- 1 stagista 52 settimane per il conseguimento della maturità professionale come\n\nimpiegato di commercio presso il Dicastero Pianificazione e spazi pubblici e la Divisione Ambiente Infrastrutture. L’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 4 gennaio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. Città di Mendrisio Concorso La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
+      "descriptionByLocale": {
+        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 5998 del 20 ottobre 2026 30 ottobre 2026 Concorso per l’assunzione di 2 apprendisti impiegati o apprendiste impiegate di commercio, 2 giardinieri o giardiniere paesaggiste e 1 stagista 52 settimane presso l’Amministrazione comunale della Città di Mendrisio per l’anno scolastico Il genere maschile è usato per designare persone, denominazioni professionali e funzioni indipendentemente dal genere.\n\nIl Municipio di Mendrisio apre il concorso per l’assunzione di:\n\n- 2 apprendisti AFC impiegati di commercio presso l’Amministrazione comunale della\n\nCittà di Mendrisio. Costituiscono titolo preferenziale i profili con maturità;\n\n- 1 apprendista AFC giardiniere paesaggista presso la Divisione Ambiente e\n\ninfrastrutture;\n\n- 1 apprendista CFP giardiniere paesaggista presso la Divisione Ambiente e\n\n- 1 stagista 52 settimane per il conseguimento della maturità professionale come\n\nimpiegato di commercio presso il Dicastero Pianificazione e spazi pubblici e la Divisione Ambiente Infrastrutture. L’entrata in funzione sarà da concordare con il servizio di pertinenza. La sede scolastica sarà definita dalla Divisione della formazione professionale. Scadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 4 gennaio 2027 alle ore 23:59, corredate dai seguenti documenti: ▪ lettera di candidatura; ▪ curriculum vitae; ▪ dichiarazione scolastica intermedia per le aziende (da richiedere alla segreteria della propria sede di scuola media); ▪ risultati scolastici finali dell’ottavo anno di scolarità (terza media) per chi non avesse ancora terminato la scuola dell’obbligo; ▪ risultati scolastici finali del nono anno di scolarità (quarta media) per chi avesse già terminato la scuola dell’obbligo; ▪ questionario sullo stato di salute per l’assunzione di personale alle dipendenze della Città di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito www.mendrisio.ch/concorsi. Città di Mendrisio Concorso La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) tramite il quale far pervenire la propria candidatura. È facoltà del Municipio procedere immediatamente all’esame delle candidature pervenute e convocare ad un colloquio i candidati preselezionati senza attendere la scadenza del concorso. Il Municipio si riserva il diritto di non procedere all’assunzione in assenza di candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Informazioni dettagliate possono essere richieste alla Sezione Risorse umane della Città di Mendrisio, tel. 058 688 33 10, oppure consultando il sito internet: www.orientamento.ch. Il Municipio",
+        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 5998 of 20 October 2026 30 October 2026 Competition for recruitment of 2 apprentices employed or apprentices employed by trade, 2 gardeners or landscape gardeners and 1 stagist of the municipal administration 52 weeks\n\nThe Town Hall of Mendrisio opens the competition for recruiting:\n\n- 2 AFC apprentices employed at the municipal administration of the\n\nCity of Mendrisio. They constitute preferential title the profiles with maturity;\n\n- 1 AFC apprentice landscape gardener at the Environment Division and\n\ninfrastructure;\n\n- 1 apprentice CFP landscape gardener at the Environment Division and\n\n- 1 intern 52 weeks for the attainment of professional maturity as\n\nemployed by trade at the Dicastery Planning and public spaces and the Division Environment Infrastructures. The entry into operation will be to be agreed with the relevant service. The school office will be defined by the Vocational Training Division. Expiry of the competition The employment offers must be obtained through the application form online by Monday, January 4, 2027 at 23:59, accompanied by the following documents: ▪ letter of application; ▪ curriculum vitae; ▪ intermediate school statement for companies (from requesting to the secretariat of their school office); ▪ final school results of the eighth year of school (average) for those who had not yet finished the school Applications submitted in another form will not be considered. This notice of competition and its application form are also available on www.mendrisio.ch/concourses. City of Mendrisio Competition The Human Resources Section remains at courteous disposal (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) through which to send their application. It is the right of the City Hall to immediately proceed to the examination of the applications received and to call to an interview the candidates pre-selected without waiting for the expiry of the contest. The City Hall reserves the right not to proceed in the absence of candidates eligible for the function. Legal remedies Against the notice of competition shall be the right to appeal to the Lodevole Council of State within 30 days of the date of publication. Detailed information may be requested from the Human Resources Section of the City of Mendrisio, tel. 058 688 33 10, or by consulting the website: www.orient.ch. The Town Hall",
+        "de": "Dikasterium Institutionen und Ressourcen Verwaltungsabteilung Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationär@mendrisio.ch Ris. mun. 5998 vom 20. Oktober 2026 30. Oktober 2026 Wettbewerb um die Einstellung von 2 Auszubildenden oder Auszubildenden im Handel, 2 Gärtnern oder Landschaftsgärtnern und 1 Standist der Gemeindeverwaltung 52 Wochen\n\nDas Rathaus von Mendrisio eröffnet den Wettbewerb für die Rekrutierung:\n\n- 2 AFC-Auszubildende, die bei der Gemeindeverwaltung des\n\nStadt Mendrisio. Sie stellen eine bevorzugte Bezeichnung der Profile mit Laufzeit dar;\n\n- 1 AFC-Lehrling Landschaftsgärtner bei der Division Umwelt und\n\nInfrastruktur;\n\n- 1 Lehrling CFP Landschaftsgärtner bei der Division Umwelt und\n\n- 1 Praktikant 52 Wochen für die Erlangung der beruflichen Reife als\n\ndurch den Handel an der Dikasterium Planung und öffentlichen Räumen und der Division Umwelt Infrastrukturen eingesetzt. Die Inbetriebnahme wird mit dem betreffenden Dienst vereinbart. Das Schulbüro wird von der Berufsbildungsabteilung definiert. Ablauf des Wettbewerbs Die Beschäftigungsangebote müssen bis Montag, 4. Januar 2027 um 23:59 Uhr online über das Bewerbungsformular eingeholt werden, zusammen mit den folgenden Dokumenten: ▪ Bewerbungsschreiben; ▪ Lebenslauf; ▪ Zwischenschulerklärung für Unternehmen (von der Anfrage an das Sekretariat ihres Schulbüros); ▪ Abschlussschulergebnisse des achten Schuljahres (Durchschnitt) für diejenigen, die die Schulanträge noch nicht abgeschlossen haben In einem anderen Formular eingereicht werden nicht berücksichtigt. Diese Wettbewerbsbekanntmachung und ihr Bewerbungsformular sind auch auf www.mendrisio.ch/concourses verfügbar. Die Personalabteilung steht weiterhin denjenigen zur Verfügung (Tel. +41 58 688 33 10), die kein Gerät (PC, Tablet, Smartphone, Scanner usw.) haben, über das sie ihre Bewerbung senden können. Es ist das Recht des Rathauses, sofort mit der Prüfung der eingegangenen Bewerbungen fortzufahren und die vorgewählten Kandidaten zu einem Interview aufzurufen, ohne auf den Ablauf des Wettbewerbs zu warten. Das Rathaus behält sich das Recht vor, in Abwesenheit von Kandidaten, die für die Funktion in Frage kommen, nicht vorzugehen. Rechtsbehelfe gegen die Bekanntmachung des Wettbewerbs sind berechtigt, innerhalb von 30 Tagen nach Veröffentlichung beim Staatsrat von Lodevole Berufung einzulegen. Detaillierte Informationen können bei der Personalabteilung der Stadt Mendrisio, Tel. 058 688 33 10, oder auf der Website www.orient.ch angefordert werden. Das Rathaus",
+        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 5998 du 20 octobre 2026 30 octobre 2026 Concours de recrutement de 2 apprentis employés ou apprentis employés par le métier, 2 jardiniers ou jardiniers paysagistes et 1 stagiste de l'administration municipale 52 semaines\n\nLa mairie de Mendrisio ouvre le concours de recrutement :\n\n- 2 apprentis AFC employés à l'administration municipale\n\nVille de Mendrisio. Ils constituent un titre préférentiel les profils à maturité;\n\n- 1 apprenti jardinier paysage AFC à la Division de l'environnement et\n\nles infrastructures;\n\n- 1 apprenti jardinier à la Division de l'environnement et\n\n- 1 stagiaire 52 semaines pour l'obtention de la maturité professionnelle\n\nles travaux de la Division des infrastructures environnementales. La mise en service sera convenue avec le service concerné. Le bureau scolaire sera défini par la Division de la formation professionnelle. Expiration du concours Les offres d'emploi doivent être obtenues par le biais du formulaire de demande en ligne au plus tard le lundi 4 janvier 2027 à 23:59, accompagné des documents suivants: ▪ lettre de demande; ▪ curriculum vitae; ▪ déclaration scolaire intermédiaire pour les entreprises (de la demande au secrétariat de leur bureau scolaire); ▪ les résultats scolaires définitifs de la huitième année d'études (moyenne) pour ceux qui n'avaient pas encore terminé l'école Les demandes présentées sous une autre forme ne seront pas prises en considération. Cet avis de concours et son formulaire de candidature sont également disponibles sur le site www.mendrisio.ch/courses. Concours Ville de Mendrisio La Section des ressources humaines reste à la disposition (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour envoyer leur demande. L'hôtel de ville a le droit de procéder immédiatement à l'examen des candidatures reçues et d'appeler à une entrevue les candidats présélectionnés sans attendre l'expiration du concours. L'hôtel de ville se réserve le droit de ne pas procéder en l'absence de candidats admissibles à la fonction. Les recours juridiques contre l'avis de concours sont le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être demandées à la Section des ressources humaines de la ville de Mendrisio, tél. 058 688 33 10, ou en consultant le site Web : www.orient.ch. La mairie"
+      },
+      "titleByLocale": {
+        "it": "Apprendista CFP giardiniere/a paesaggista",
+        "en": "Apprentice CFP giardiniere/a paesaggista",
+        "de": "Lernende/r CFP giardiniere/a paesaggista",
+        "fr": "Apprenti/e CFP giardiniere/a paesaggista"
+      },
+      "slug": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
+      "slugByLocale": {
+        "it": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
+        "en": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
+        "de": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio",
+        "fr": "apprendista-cfp-giardiniere-a-paesaggista-mendrisio"
+      },
+      "sourceLang": "it",
+      "category": "apprenticeship",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-14T21:16:31.878Z",
+      "validThrough": "2027-01-04T23:59:59.999Z",
+      "source": "mendrisio-concorsi-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Amministrazione pubblica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "citta-di-mendrisio-91677dd61d74",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Municipio 13",
+      "postalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-10-30T09:49:09.918Z",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source"
+    },
+    {
+      "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=49cd1af3-6129-49e1-a5a4-505bb8c33fee",
+      "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=49cd1af3-6129-49e1-a5a4-505bb8c33fee,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "title": "Cuoco o cuoca al 65%",
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 6049 del 27 ottobre 2206 2 novembre 2026 Concorso per l’assunzione di un cuoco o una cuoca al 65% presso Casa al Mulino di Airolo Il Municipio di Mendrisio apre il concorso per l’assunzione di un cuoco o una cuoca al 65% a tempo indeterminato, presso Casa al Mulino di Airolo, alle condizioni del vigente Regolamento organico dei dipendenti della Città di Mendrisio (ROD). Condizioni\n\nMansioni:\n\nProvvedere alla preparazione dei pasti, alla tenuta e all’aggiornamento della dispensa, e al contatto con i fornitori (v. anche capitolato d’oneri).\n\nInoltre:\n\n• Possono essergli o esserle conferiti altri incarichi di lavoro compatibili con la sua\n\nfunzione e le sue competenze;\n\nRequisiti:\n\n• AFC di cuoco/a;\n\n• esperienze analoghe nel settore o l’aver già lavorato in ambito scolastico possono\n\ncostituire requisito preferenziale;\n\n• attitudine al dialogo con i/le docenti e con i bambini;\n\n• capacità organizzative e relazionali.\n\nStipendio annuo (tredicesima mensilità inclusa e scala stipendi aggiornata al 01.01.2026:\n\n• Classi (4*) 5 – 7 ROD (funzione cuoco/a);\n\n• Minimo: CHF 62’022.-- annui al 100%, (*CHF 58’371.-- al 100%);\n\n• Massimo: CHF 85’327.-- annui al 100%;\n\n• In aggiunta allo stipendio, agli/alle aventi diritto, vengono versati gli assegni per figli\n\nsecondo LAFam;\n\n• Vitto e alloggio sono conteggiati come salario in natura ai sensi della LAVS.\n\n* In caso di assunzione di dipendenti con scarsa esperienza o per i quali è ragionevolmente necessario\n\nprevedere un periodo di introduzione, il Municipio può stabilire uno stipendio iniziale inferiore di una classe rispetto alla classe minima d’entrata. Nell'ambito delle anzidette possibilità di retribuzione, il Municipio può riconoscere l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio ai sensi dell'art. 29 cpv. 2 ROD.\n\nSettimana lavorativa:\n\n40 ore (al 100%) Città di Mendrisio Concorso\n\nGrado di occupazione:\n\n65%\n\nInizio attività:\n\n• Il prima possibile, preferibilmente a partire dal 01.01.2027 ma al massimo il 01.02.2027.\n\n• Il primo anno di servizio è considerato quale anno di prova.\n\nScadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 16 novembre 2026 alle ore 23:59, corredate dai seguenti documenti:\n\n• Lettera di motivazione;\n\n• Curriculum vitae con foto;\n\n• Copia certificati di studio, lavoro e perfezionamento;\n\n• Autocertificazione sulla buona condotta (scaricabile dal sito dell’Amministrazione\n\ncomunale di Mendrisio);\n\n• Questionario sullo stato di salute per l’assunzione di personale alle dipendenze della\n\nCittà di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito https://www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) per mettere a loro disposizione gli strumenti necessari affinché venga inviata la propria candidatura tramite il prescritto modulo di candidatura. Oltre ai documenti da allegare alla candidatura, in un secondo momento potrà essere richiesto di presentare l’estratto del casellario giudiziale e l’estratto del registro delle esecuzioni (validità 6 mesi). Il Municipio si riserva la facoltà di modificare in ogni tempo le mansioni, in relazione ad eventuali modifiche dei regolamenti e disposizioni di servizio vigenti. È facoltà del Municipio procedere a una preselezione dei candidati e delle candidate per la convocazione alle audizioni. Il Municipio si riserva il diritto di non procedere all’assunzione, in assenza di candidate o candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Ulteriori informazioni Informazioni dettagliate si possono ottenere presso la Direzione dell’Istituto scolastico della Città di Mendrisio, tel. 058 688 35 60. Il Municipio",
+      "descriptionByLocale": {
+        "it": "Dicastero Istituzioni e risorse Sezione Amministrativa Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Ris. mun. 6049 del 27 ottobre 2206 2 novembre 2026 Concorso per l’assunzione di un cuoco o una cuoca al 65% presso Casa al Mulino di Airolo Il Municipio di Mendrisio apre il concorso per l’assunzione di un cuoco o una cuoca al 65% a tempo indeterminato, presso Casa al Mulino di Airolo, alle condizioni del vigente Regolamento organico dei dipendenti della Città di Mendrisio (ROD). Condizioni\n\nMansioni:\n\nProvvedere alla preparazione dei pasti, alla tenuta e all’aggiornamento della dispensa, e al contatto con i fornitori (v. anche capitolato d’oneri).\n\nInoltre:\n\n• Possono essergli o esserle conferiti altri incarichi di lavoro compatibili con la sua\n\nfunzione e le sue competenze;\n\nRequisiti:\n\n• AFC di cuoco/a;\n\n• esperienze analoghe nel settore o l’aver già lavorato in ambito scolastico possono\n\ncostituire requisito preferenziale;\n\n• attitudine al dialogo con i/le docenti e con i bambini;\n\n• capacità organizzative e relazionali.\n\nStipendio annuo (tredicesima mensilità inclusa e scala stipendi aggiornata al 01.01.2026:\n\n• Classi (4*) 5 – 7 ROD (funzione cuoco/a);\n\n• Minimo: CHF 62’022.-- annui al 100%, (*CHF 58’371.-- al 100%);\n\n• Massimo: CHF 85’327.-- annui al 100%;\n\n• In aggiunta allo stipendio, agli/alle aventi diritto, vengono versati gli assegni per figli\n\nsecondo LAFam;\n\n• Vitto e alloggio sono conteggiati come salario in natura ai sensi della LAVS.\n\n* In caso di assunzione di dipendenti con scarsa esperienza o per i quali è ragionevolmente necessario\n\nprevedere un periodo di introduzione, il Municipio può stabilire uno stipendio iniziale inferiore di una classe rispetto alla classe minima d’entrata. Nell'ambito delle anzidette possibilità di retribuzione, il Municipio può riconoscere l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio ai sensi dell'art. 29 cpv. 2 ROD.\n\nSettimana lavorativa:\n\n40 ore (al 100%) Città di Mendrisio Concorso\n\nGrado di occupazione:\n\n65%\n\nInizio attività:\n\n• Il prima possibile, preferibilmente a partire dal 01.01.2027 ma al massimo il 01.02.2027.\n\n• Il primo anno di servizio è considerato quale anno di prova.\n\nScadenza del concorso Le offerte d’impiego devono pervenire tramite il modulo di candidatura online entro lunedì 16 novembre 2026 alle ore 23:59, corredate dai seguenti documenti:\n\n• Lettera di motivazione;\n\n• Curriculum vitae con foto;\n\n• Copia certificati di studio, lavoro e perfezionamento;\n\n• Autocertificazione sulla buona condotta (scaricabile dal sito dell’Amministrazione\n\ncomunale di Mendrisio);\n\n• Questionario sullo stato di salute per l’assunzione di personale alle dipendenze della\n\nCittà di Mendrisio (scaricabile dal sito dell’Amministrazione comunale di Mendrisio). Le candidature presentate in altra forma non saranno tenute in considerazione. Il presente bando di concorso, e il relativo modulo di candidatura, sono anche disponibili sul sito https://www.mendrisio.ch/concorsi. La Sezione Risorse umane resta a cortese disposizione (tel. +41 58 688 33 10) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, scanner, ecc.) per mettere a loro disposizione gli strumenti necessari affinché venga inviata la propria candidatura tramite il prescritto modulo di candidatura. Oltre ai documenti da allegare alla candidatura, in un secondo momento potrà essere richiesto di presentare l’estratto del casellario giudiziale e l’estratto del registro delle esecuzioni (validità 6 mesi). Il Municipio si riserva la facoltà di modificare in ogni tempo le mansioni, in relazione ad eventuali modifiche dei regolamenti e disposizioni di servizio vigenti. È facoltà del Municipio procedere a una preselezione dei candidati e delle candidate per la convocazione alle audizioni. Il Municipio si riserva il diritto di non procedere all’assunzione, in assenza di candidate o candidati idonei alla funzione. Rimedi giuridici Contro il bando di concorso è data facoltà di ricorso al Lodevole Consiglio di Stato entro il termine di 30 giorni dalla data di pubblicazione. Ulteriori informazioni Informazioni dettagliate si possono ottenere presso la Direzione dell’Istituto scolastico della Città di Mendrisio, tel. 058 688 35 60. Il Municipio",
+        "en": "Dicastery Institutions and resources Administrative Section Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 stationary@mendrisio.ch Ris. mun. 6049 of 27 October 2206 2 November 2026 Competition for the recruitment of a cook or a cook at 65% at Casa al Mulino di Airolo Conditions\n\nMansions:\n\nTo prepare meals, to hold and update the pantry, and to contact with suppliers (see also specifications).\n\nIn addition:\n\n• Other work assignments compatible with its\n\nfunction and its skills;\n\nRequirements:\n\n• AFC cook/a;\n\n• similar experiences in the field or having already worked in the school sector can\n\nconstitute preferential requirement;\n\n• aptitude for dialogue with teachers and children;\n\n• organizational and relational skills.\n\nYearly wage (threeteenth monthly and salary scale updated on 01.01.2026:\n\n• Classes (4*) 5 – 7 ROD (cook/a function);\n\n• Minimum: CHF 62’022.-- 100% annual, (*CHF 58’371.-- 100%);\n\n• Maximum: CHF 85’327.-- 100% annual;\n\n• In addition to the salary, children's allowances are paid\n\naccording to LAFam;\n\n• Food and accommodation are counted as a salary in nature under the LAVS.\n\n* In case of intake of employees with little experience or for which it is reasonably necessary\n\nforesee a period of introduction, the City Hall can establish a lower initial salary of a class than the minimum entry class. Within the framework of the above-mentioned possibilities of pay, the City Hall can recognize the activity carried out previously, if conformed to this Chapter, assigning one or more year of service pursuant to art. 29 cpv. 2 ROD.\n\nWorking week:\n\n40 hours (to 100%) City of Mendrisio Competition\n\nDegree of employment:\n\n65%\n\nStart of activities:\n\n• As soon as possible, preferably from 01.01.2027 but at most 01.02.2027.\n\n• The first year of service is considered as a test year.\n\nExpiry of the competition The applications must be submitted via the application form online by Monday, November 16, 2026 at 23:59, accompanied by the following documents:\n\n• Letter of motivation;\n\n• Curriculum vitae with photos;\n\n• Copy certificates of study, work and refinement;\n\n• Self-certification on good conduct (available from the Administration website\n\nmunicipal of Mendrisio);\n\n• Questionnaire on the state of health for staff recruitment to dependencies\n\nCity of Mendrisio (available from the site of the Municipal Administration of Mendrisio). Applications submitted in another form will not be considered. This notice of competition and its application form are also available on the https://www.mendrisio.ch/concourses. The Human Resources section remains at the courteous disposal (tel. +41 58 688 33 10) of those who do not have a device (PC, tablet, smartphone, scanner, etc.) to provide them with the necessary tools to send their application through the prescribed application form. In addition to the documents to be attached to the application, at a later time may be required to present the extract of the judicial box and the extract of the execution register (validity 6 months). The City Hall reserves the right to change the tasks at any time, in relation to any changes in the regulations and provisions of service in force. It is the faculty of the City Hall to proceed with a pre-selection of candidates and candidates for the call to hearings. The Town Hall reserves the right not to proceed with recruitment, in the absence of candidates or candidates eligible for the function. Legal remedies Against the notice of competition shall be the right to appeal to the Lodevole Council of State within 30 days of the date of publication. Detailed information can be obtained from the Management of the School Institute of the City of Mendrisio, Tel. 058 688 35 60. The Town Hall",
+        "de": "Departement Institutionen und Ressourcen Verwaltungsabteilung Kanzlei Via Municipio 13 6850 Mendrisio 058 688 31 10 cancelleria@mendrisio.ch Gemeinderatsbeschluss 6049 vom 27. Oktober 2206 2. November 2026 Ausschreibung für die Anstellung eines Kochs oder einer Köchin mit einem Beschäftigungsgrad von 65% bei Casa al Mulino di Airolo Der Gemeinderat von Mendrisio eröffnet die Ausschreibung für die unbefristete Anstellung eines Kochs oder einer Köchin mit einem Beschäftigungsgrad von 65% bei Casa al Mulino di Airolo zu den Bedingungen des geltenden Organisationsreglements für die Angestellten der Stadt Mendrisio (ROD). Bedingungen\n\nAufgaben:\n\nFür die Zubereitung der Mahlzeiten, die Bewirtschaftung und Aktualisierung des Vorratslagers sowie den Kontakt mit den Lieferanten sorgen (siehe auch Pflichtenheft).\n\nAusserdem:\n\n• Es können Ihnen weitere mit Ihrer\n\nFunktion und Ihren Kompetenzen vereinbare Arbeitsaufträge übertragen werden;\n\nAnforderungen:\n\n• EFZ als Koch/Köchin;\n\n• einschlägige Erfahrungen in diesem Bereich oder eine bereits ausgeübte Tätigkeit im schulischen Umfeld können\n\nals bevorzugtes Kriterium gelten;\n\n• Bereitschaft zum Dialog mit den Lehrpersonen und den Kindern;\n\n• organisatorische Fähigkeiten und Sozialkompetenz.\n\nJahresgehalt (inklusive 13. Monatslohn und aktualisierter Lohnskala per 01.01.2026:\n\n• Klassen (4*) 5 – 7 ROD (Funktion Koch/Köchin);\n\n• Minimum: CHF 62’022.-- jährlich bei 100%, (*CHF 58’371.-- bei 100%);\n\n• Maximum: CHF 85’327.-- jährlich bei 100%;\n\n• Zusätzlich zum Gehalt werden den Anspruchsberechtigten Kinderzulagen ausbezahlt\n\ngemäss LAFam;\n\n• Kost und Logis werden gemäss AHVG als Naturallohn angerechnet.\n\n* Bei der Anstellung von Mitarbeitenden mit wenig Erfahrung oder bei denen es vernünftigerweise erforderlich ist\n\nFür eine Einführungszeit kann der Gemeinderat ein Anfangsgehalt festlegen, das eine Klasse unter der niedrigsten Eintrittsklasse liegt. Im Rahmen der vorgenannten Vergütungsmöglichkeiten kann der Gemeinderat die zuvor ausgeübte Tätigkeit anerkennen, sofern sie dem vorliegenden Reglement entspricht, indem er eine oder mehrere Dienstaltersstufen im Sinne von Art. 29 Abs. 2 ROD anrechnet.\n\nArbeitswoche:\n\n40 Stunden (bei 100%) Città di Mendrisio Ausschreibung\n\nBeschäftigungsgrad:\n\n65%\n\nBeginn der Tätigkeit:\n\n• So bald wie möglich, vorzugsweise ab dem 1. Januar 2027, spätestens jedoch ab dem 1. Februar 2027.\n\n• Das erste Dienstjahr gilt als Probejahr.\n\nFrist für die Ausschreibung Die Stellenangebote müssen bis Montag, 16. November 2026, um 23:59 Uhr über das Online-Bewerbungsformular eingereicht werden, versehen mit den folgenden Unterlagen:\n\n• Motivationsschreiben;\n\n• Lebenslauf mit Foto;\n\n• Kopie der Ausbildungs-, Arbeits- und Weiterbildungsnachweise;\n\n• Selbstbescheinigung über einen guten Leumund (herunterladbar von der Website der Gemeindeverwaltung\n\nvon Mendrisio);\n\n• Gesundheitsfragebogen für die Anstellung von Personal im Dienst der\n\nStadt Mendrisio (herunterladbar auf der Website der Gemeindeverwaltung von Mendrisio). Bewerbungen, die in einer anderen Form eingereicht werden, werden nicht berücksichtigt. Die vorliegende Ausschreibung und das dazugehörige Bewerbungsformular sind ebenfalls auf der Website https://www.mendrisio.ch/concorsi verfügbar. Die Abteilung Human Resources steht Ihnen gerne zur Verfügung (Tel. +41 58 688 33 10) von Personen, die über kein Gerät (PC, Tablet, Smartphone, Scanner usw.) verfügen, um ihnen die erforderlichen Hilfsmittel zur Verfügung zu stellen, damit ihre Bewerbung über das vorgeschriebene Bewerbungsformular eingereicht werden kann. Zusätzlich zu den der Bewerbung beizulegenden Dokumenten kann zu einem späteren Zeitpunkt die Vorlage des Strafregisterauszugs und des Betreibungsregisterauszugs (Gültigkeit 6 Monate) verlangt werden. Der Gemeinderat behält sich das Recht vor, die Aufgaben jederzeit aufgrund allfälliger Änderungen der geltenden Reglemente und Dienstvorschriften zu ändern. Der Gemeinderat kann eine Vorauswahl der Bewerberinnen und Bewerber für die Einladung zu den Anhörungen vornehmen. Der Gemeinderat behält sich das Recht vor, keine Anstellung vorzunehmen, falls keine für die Funktion geeigneten Bewerberinnen oder Bewerber vorhanden sind. Rechtsmittel Gegen die Ausschreibung kann beim Hochgeschätzten Staatsrat innerhalb einer Frist von 30 Tagen ab dem Veröffentlichungsdatum Beschwerde eingereicht werden. Weitere Informationen Detaillierte Informationen sind bei der Direktion des Schulinstituts der Stadt Mendrisio erhältlich, Tel. 058 688 35 60. Das Rathaus",
+        "fr": "Dicastère Institutions et ressources Section administrative Cancelleria Via Municipio 13 6850 Mendrisio 058 688 31 10 statuly@mendrisio.ch Ris. mun. 6049 du 27 octobre 2206 2 novembre 2026 Concours pour le recrutement d'un cuisinier ou d'un cuisinier à 65% à Casa al Mulino di Airolo Conditions\n\nMansions:\n\nPréparer les repas, tenir et mettre à jour le garde-manger et contacter les fournisseurs (voir aussi les spécifications).\n\nEn outre:\n\n• Autres tâches compatibles avec ses\n\nfonction et ses compétences;\n\nExigences:\n\n• Cuisinière AFC/a;\n\n• des expériences similaires dans le domaine ou ayant déjà travaillé dans le secteur scolaire\n\nconstituer une exigence préférentielle;\n\n• aptitude au dialogue avec les enseignants et les enfants;\n\n• compétences organisationnelles et relationnelles.\n\nSalaire annuel (treizième mensuel et barème des traitements actualisé le 01.01.2026:\n\n• Classes (4*) 5 – 7 ROD (cuisson/une fonction);\n\n• Minimum: CHF 62=022.-- 100% annuel, (*CHF 58=371.-- 100%);\n\n• Maximum: CHF 85.-- 100% annuel;\n\n• Outre le salaire, des allocations pour enfants sont versées\n\nselon la LAFam;\n\n• La nourriture et l'hébergement sont comptés comme un salaire de nature dans le SAVL.\n\n* En cas d'admission d'employés peu expérimentés ou pour lesquels elle est raisonnablement nécessaire\n\nprévoir une période d'introduction, l'hôtel de ville peut établir un salaire initial inférieur d'une classe à la classe minimale d'entrée. Dans le cadre des possibilités de rémunération mentionnées ci-dessus, l'Hôtel de Ville peut reconnaître l'activité effectuée antérieurement, si elle est conforme au présent chapitre, en attribuant une ou plusieurs années de service conformément à l'article 29 cpv. 2 ROD.\n\nSemaine de travail:\n\n40 heures (à 100%) Concours Ville de Mendrisio\n\nDegré d'emploi:\n\n65%\n\nDébut des activités:\n\n• Dès que possible, de préférence à partir du 01.01.2027 mais au plus le 01.02.2027.\n\n• La première année de service est considérée comme une année d'essai.\n\nExpiration du concours Les demandes doivent être présentées via le formulaire de demande en ligne au plus tard le lundi 16 novembre 2026 à 23h59, accompagné des documents suivants:\n\n• Lettre de motivation;\n\n• Curriculum vitae avec photos;\n\n• Copier les certificats d'étude, de travail et de raffinement;\n\n• Autocertification de bonne conduite (disponible sur le site Web de l'Administration)\n\nla municipalité de Mendrisio);\n\n• Questionnaire sur l ' état de santé du personnel recruté pour des raisons de dépendance\n\nVille de Mendrisio (disponible sur le site de l'administration municipale de Mendrisio). Les demandes présentées sous une autre forme ne seront pas prises en considération. Le présent avis de concours et son formulaire de candidature sont également disponibles à l'adresse https://www.mendrisio.ch/courses. La section Ressources humaines reste à la disposition (tél. +41 58 688 33 10) de ceux qui n'ont pas d'appareil (PC, tablette, smartphone, scanner, etc.) pour leur fournir les outils nécessaires pour envoyer leur demande au moyen du formulaire de demande prescrit. Outre les documents à joindre à la demande, il peut être demandé ultérieurement de présenter l'extrait de la case judiciaire et l'extrait du registre d'exécution (validité 6 mois). L'hôtel de ville se réserve le droit de modifier les tâches à tout moment, en ce qui concerne tout changement apporté aux règlements et aux dispositions de service en vigueur. C'est la faculté de l'hôtel de ville de procéder à une présélection des candidats et des candidats à l'appel aux audiences. La mairie se réserve le droit de ne pas procéder au recrutement, en l'absence de candidats ou de candidats admissibles à la fonction. Les recours juridiques contre l'avis de concours sont le droit de faire appel auprès du Conseil d'État de Lodevole dans les 30 jours suivant la date de publication. Des informations détaillées peuvent être obtenues auprès de la Direction de l'Institut scolaire de la Ville de Mendrisio, tél. 058 688 35 60. La mairie"
+      },
+      "titleByLocale": {
+        "it": "Cuoco o cuoca al 65%",
+        "en": "Cook or cook at 65%",
+        "de": "Kochen oder Kochen bei 65%",
+        "fr": "Cuire ou cuire à 65%"
+      },
+      "slug": "cuoco-o-cuoca-al-65-mendrisio",
+      "slugByLocale": {
+        "it": "cuoco-o-cuoca-al-65-mendrisio",
+        "en": "cuoco-o-cuoca-al-65-mendrisio",
+        "de": "cuoco-o-cuoca-al-65-mendrisio",
+        "fr": "cuoco-o-cuoca-al-65-mendrisio"
+      },
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-14T21:16:31.824Z",
+      "validThrough": "2026-11-16T23:59:59.999Z",
+      "source": "mendrisio-concorsi-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Amministrazione pubblica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "citta-di-mendrisio-8529992b3fb7",
+      "salaryMin": 32200,
+      "salaryMax": 48800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 32200,
+          "maxValue": 48800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Municipio 13",
+      "postalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "streetAddressSource": "listing-source",
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-02T09:45:27.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuoco-o-cuoca-al-65-citta-di-mendrisio-mendrisio"
+        ],
+        "en": [
+          "cook-or-cook-at-65-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "kochen-oder-kochen-bei-65-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "cuire-ou-cuire-a-65-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "cuoco-o-cuoca-al-65-citta-di-mendrisio-mendrisio",
+        "cook-or-cook-at-65-citta-di-mendrisio-mendrisio",
+        "kochen-oder-kochen-bei-65-citta-di-mendrisio-mendrisio",
+        "cuire-ou-cuire-a-65-citta-di-mendrisio-mendrisio"
+      ]
+    },
+    {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=2822f311-1bfc-46d9-8318-c22bb19d2399",
       "applyUrl": "https://cittamen.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=IS#position,id=2822f311-1bfc-46d9-8318-c22bb19d2399,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "title": "Assistente sociale a tempo determinato all'80%",
@@ -547,16 +603,16 @@
       "slug": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
       "slugByLocale": {
         "it": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
-        "en": "social-worker-at-80-citta-di-mendrisio-mendrisio",
-        "de": "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio",
-        "fr": "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
+        "en": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
+        "de": "assistente-sociale-a-tempo-determinato-all-80-mendrisio",
+        "fr": "assistente-sociale-a-tempo-determinato-all-80-mendrisio"
       },
       "sourceLang": "it",
       "category": "social",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-14T09:18:52.464Z",
+      "crawledAt": "2026-11-14T21:16:31.595Z",
       "validThrough": "2026-11-30T23:59:59.999Z",
       "source": "mendrisio-concorsi-crawler",
       "employmentType": "CONTRACTOR",
@@ -587,7 +643,23 @@
       "addressRegion": "TI",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-13T21:16:43.409Z"
+      "firstSeenAt": "2026-11-13T21:16:43.409Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "social-worker-at-80-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "social-worker-at-80-citta-di-mendrisio-mendrisio",
+        "sozialarbeiter-bei-80-citta-di-mendrisio-mendrisio",
+        "travailleurs-sociaux-a-80-citta-di-mendrisio-mendrisio"
+      ]
     }
   ]
 }
