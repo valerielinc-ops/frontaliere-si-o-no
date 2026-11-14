@@ -1,11 +1,12 @@
 {
   "key": "suchtfachstelle-zuerich",
   "label": "Suchtfachstelle Zürich",
-  "generatedAt": "2026-11-14T09:33:50.555Z",
+  "generatedAt": "2026-11-14T16:49:36.565Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1968,
-  "avgDurationMs": 1968,
+  "durationMs": 2401,
+  "avgDurationMs": 2401,
   "durationHistory": [
-    1968
+    2401
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }
