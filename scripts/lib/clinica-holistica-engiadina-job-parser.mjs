@@ -25,7 +25,7 @@ import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import { launchChromium } from './ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './stealth-browser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -52,22 +52,33 @@ const PW_USER_AGENT =
 /* ── Helpers ───────────────────────────────────────────────── */
 
 async function createStealthContext(browser) {
-  const ctx = await browser.newContext({
-    userAgent: PW_USER_AGENT,
-    viewport: { width: 1280, height: 800 },
-    locale: 'de-CH',
-    timezoneId: 'Europe/Zurich',
-    extraHTTPHeaders: {
-      'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-      Accept:
-        'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    },
-  });
+  const ctx = await browser.newContext(isStealthBrowser(browser)
+    ? {
+        viewport: null,
+        extraHTTPHeaders: {
+          'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+          Accept:
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        },
+      }
+    : {
+        userAgent: PW_USER_AGENT,
+        viewport: { width: 1280, height: 800 },
+        locale: 'de-CH',
+        timezoneId: 'Europe/Zurich',
+        extraHTTPHeaders: {
+          'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+          Accept:
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        },
+      });
   ctx.setDefaultNavigationTimeout(60_000);
-  await ctx.addInitScript(() => {
-    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-    Object.defineProperty(navigator, 'languages', { get: () => ['de-CH', 'de', 'en'] });
-  });
+  if (!isStealthBrowser(browser)) {
+    await ctx.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      Object.defineProperty(navigator, 'languages', { get: () => ['de-CH', 'de', 'en'] });
+    });
+  }
   return ctx;
 }
 
@@ -324,7 +335,14 @@ export async function fetchAllClinicaHolisticaJobs() {
 
   let browser;
   try {
-    browser = await launchChromium({ headless: true, args: PW_LAUNCH_ARGS });
+    browser = await launchStealthOrChromium({
+      purpose: 'crawler',
+      headless: true,
+      locale: 'de-CH',
+      timezone: 'Europe/Zurich',
+      args: PW_LAUNCH_ARGS,
+      fallbackOptions: { headless: true, args: PW_LAUNCH_ARGS },
+    });
   } catch (err) {
     console.warn(`⚠️ chromium launch failed: ${err?.message || err}`);
     return [];

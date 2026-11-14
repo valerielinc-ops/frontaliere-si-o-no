@@ -47,9 +47,10 @@ describe('emitSeoHubs — EN/DE/FR hub locales get reciprocal sitemap entries (#
     // on a heavily-loaded CI shard (full-suite runs measured at ~360s wall) this
     // legitimately exceeds vitest's default 10s hookTimeout, intermittently
     // reddening main on a green diff (observed runs 29348408768, 29351211797).
-    // Raise the hook budget so real work under load isn't misread as a failure —
-    // the test body assertions are unchanged.
-  }, 60000);
+    // Run 43595029994 spent 82s in this hook before the 60s budget expired;
+    // keep the full-emitter budget aligned with job-board-hub-output.test.ts.
+    // The sitemap assertions remain unchanged.
+  }, 300000);
 
   afterAll(() => {
     fs.rmSync(distDir, { recursive: true, force: true });

@@ -392,14 +392,18 @@ function jobPostingBodyText(node) {
  * @param {string} pageUrl
  * @returns {Vacancy[]}
  */
-export function extractJsonLd(html, pageUrl) {
+export function extractJsonLd(html, pageUrl, options = {}) {
   /** @type {Vacancy[]} */
   const out = [];
   const allowStreetOnlyAddress = isSuccessFactorsSourceContext(html, pageUrl);
+  const allowPostalCodeOnly = options.allowPostalCodeOnly === true;
   const postingNodes = jsonLdBlocks(html).filter(isJobPostingNode);
   const urlLessPostingCount = postingNodes.filter((node) => !firstString(node.url) && !firstString(node.sameAs)).length;
   for (const node of postingNodes) {
-    const locationCandidates = schemaJobLocationCandidates(node.jobLocation, { allowStreetOnlyAddress });
+    const locationCandidates = schemaJobLocationCandidates(node.jobLocation, {
+      allowStreetOnlyAddress,
+      allowPostalCodeOnly,
+    });
     const primaryLocation = locationCandidates[0] || { location: '', addressCountry: '' };
     const rawExplicitUrl = firstString(node.url) || firstString(node.sameAs);
     let explicitUrl = rawExplicitUrl;
@@ -1214,7 +1218,7 @@ function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @param {{ recordUrl?: string }} [opts]
+ * @param {{ recordUrl?: string, recordTitle?: string, allowPostalCodeOnly?: boolean }} [opts]
  * @returns {{
  *   title: string,
  *   company: string,
@@ -1242,8 +1246,8 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // authoritative foreign evidence cannot disappear merely because the other
   // format (or rendered text) names a Swiss homonym.
   const allStructuredRecords = /** @type {Partial<Vacancy>[]} */ ([
-    ...extractJsonLd(html, pageUrl),
-    ...extractMicrodata(html, pageUrl),
+    ...extractJsonLd(html, pageUrl, { allowPostalCodeOnly: opts.allowPostalCodeOnly === true }),
+    ...extractMicrodata(html, pageUrl, { allowPostalCodeOnly: opts.allowPostalCodeOnly === true }),
   ]);
   const renderedTitle = textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
   const structuredRecords = selectDetailStructuredRecords(
@@ -2071,13 +2075,14 @@ function readItempropContainers(block, property, index) {
 /**
  * @param {string} html
  * @param {string} pageUrl
- * @param {{onIndex?: (metrics: {sourceLength: number, tagCount: number}) => void}} [diagnostics]
+ * @param {{onIndex?: (metrics: {sourceLength: number, tagCount: number}) => void, allowPostalCodeOnly?: boolean}} [diagnostics]
  * @returns {Vacancy[]}
  */
 export function extractMicrodata(html, pageUrl, diagnostics = {}) {
   /** @type {Vacancy[]} */
   const out = [];
   const allowStreetOnlyAddress = isSuccessFactorsSourceContext(html, pageUrl);
+  const allowPostalCodeOnly = diagnostics.allowPostalCodeOnly === true;
   /** @type {Map<string, HtmlTagIndex>} */
   const indexCache = new Map();
   /** @param {string} source @returns {HtmlTagIndex} */
@@ -2139,7 +2144,8 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
           ...(streetAddress ? { streetAddress } : {}),
         };
       })
-      .filter((candidate) => candidate.location || candidate.addressCountry);
+      .filter((candidate) => candidate.location || candidate.addressCountry
+        || (allowPostalCodeOnly && candidate.postalCode));
     if (!locationCandidates.length) {
       const location = [prop('addressLocality') || prop('jobLocation'), prop('addressRegion')]
         .filter(Boolean)
@@ -2155,7 +2161,7 @@ export function extractMicrodata(html, pageUrl, diagnostics = {}) {
         })
         : null;
       if (streetOnly) locationCandidates.push(streetOnly);
-      else if (location || addressCountry) locationCandidates.push({
+      else if (location || addressCountry || (allowPostalCodeOnly && postalCode)) locationCandidates.push({
         location,
         addressCountry,
         ...(addressLocality ? { addressLocality } : {}),

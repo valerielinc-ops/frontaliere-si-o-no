@@ -201,6 +201,13 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'growth-report.yml :: report :: Run Codex Luna Max growth report': { reason: 'agent-bridge', why: 'corsia agente del report' },
   'issue-decompose.yml :: decompose :: Run Codex Luna Max decompose': { reason: 'agent-bridge', why: 'corsia agente che scompone issue' },
   'issue-fix.yml :: fix :: Run Codex Luna Max fix': { reason: 'agent-bridge', why: 'corsia agente del fixer' },
+  // `check-quota-backoff.mjs` reads and mutates only the quota ledger's issue
+  // comments through `quota-floor-lease.mjs` (POST/DELETE on
+  // /issues/comments); it never pushes refs, opens PRs, or writes repository
+  // content, so both APP_TOKEN consumers remain in the documented no-publish
+  // category.
+  'issue-fix.yml :: fix :: Pre-flight — Codex lane quota telemetry (pre-npm)': { reason: 'no-publish', why: 'legge e riserva solo commenti del ledger quota' },
+  'issue-fix.yml :: fix :: Release issue-fix quota-floor lease (zero-Claude)': { reason: 'no-publish', why: 'rilascia solo il commento del ledger quota' },
   'issue-fix.yml :: fix :: Mark autonomous PR provenance (zero-Claude)': { reason: 'no-publish', why: 'aggiunge una label alla PR' },
   'issue-fix.yml :: fix :: Close the PR a conflict hand-off supersedes (zero-Claude)': { reason: 'no-publish', why: 'chiude la PR superata con un commento' },
   'issue-triage.yml :: triage :: Classify and route (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta la issue' },

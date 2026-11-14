@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-14T09:31:09.412Z",
-  "runId": "43580267466",
+  "assembledAt": "2026-11-14T16:47:38.326Z",
+  "runId": "43616250529",
   "jobs": [
     {
       "id": "medartis-62427cab689e",
@@ -34,7 +34,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:30:58.846Z",
+      "crawledAt": "2026-11-14T16:47:31.019Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:30:58.846Z",
+      "validThrough": "2026-12-18T16:47:31.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:30:56.857Z",
+      "crawledAt": "2026-11-14T16:47:28.330Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -158,79 +158,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:30:56.857Z",
+      "validThrough": "2027-02-08T16:47:28.330Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "medartis-f0503aa998a4",
-      "slug": "fp-a-and-digitalization-manager-medartis-basel",
-      "slugByLocale": {
-        "it": "fp-a-and-digitalization-manager-medartis-basel",
-        "en": "fp-a-and-digitalisation-manager-medartis-basel",
-        "de": "fp-a-and-digitalization-manager-medartis-basel",
-        "fr": "gestionnaire-des-fp-a-et-de-la-numerisation-medartis-basel"
-      },
-      "company": "Medartis",
-      "companyKey": "medartis",
-      "companyDomain": "medartis.com",
-      "title": "FP&A and Digitalization Manager",
-      "titleByLocale": {
-        "it": "FP&A e Digitalization Manager",
-        "en": "FP&A and Digitalisation Manager",
-        "de": "FP&A and Digitalization Manager",
-        "fr": "Gestionnaire des FP&A et de la numérisation"
-      },
-      "description": "To strengthen our Controlling team in Basel, we are looking for an analytical and hands-on personality as FP&A and Digitalization Manager.\nIn this role, you shape the Group's financial planning - from 5-year strategic planning through annual budgeting to rolling forecasts - and own the digital tools that make it work. Sitting at the intersection of finance and technology, you build the templates, data structures and dashboards that allow the entire group to contribute, challenge and align on financial outcomes, working closely with Business Units, subsidiaries and Management Reporting.\nSounds like you? Then we look forward to receiving your application\n\nFP&A and Digitalization Manager\n\nIhr Aufgabengebiet\n\n• You lead the Group's 5-year strategic planning, annual budgeting and rolling forecasts, including the group-wide planning calendar.\n\n• You provide the platform for group-wide input, consolidate feedback and challenge outcomes together with Business Units and subsidiaries.\n\n• You design templates and data structures that enable multidimensional P&L analysis by Business Unit, Brand or entity.\n\n• You automate the consolidation process and build Power BI dashboards that make results transparent.\n\n• You turn consolidated financial data into insights and analyses that support management decisions.\n\n• You maintain and continuously improve our planning and reporting tools, ensuring data quality and alignment with SAP/ERP master data.\n\n• You document planning processes, templates and data models and guide planning contributors across the Group.\n\n• You support business cases for acquisitions, new product development and strategic scenarios with investment and ROI analyses.\n\nIhre Qualifikationen\n\n• Master's degree in Management with a focus on Finance and Accounting, or equivalent.\n\n• 3–5 years of experience in Controlling, Finance Analysis and/or FP&A, including budgeting, forecasting and strategic planning.\n\n• Experience in financial modelling and group consolidation in a multi-entity environment, based on solid accounting fundamentals.\n\n• Experience in process automation or digitalization projects in finance.\n\n• Very good knowledge of SAP FICO and ERP systems as well as advanced Excel and Power Query skills.\n\n• Strong Power BI skills (data modelling, DAX, dashboarding), Python scripting and an affinity for AI; experience with VBA and planning software such as Anaplan, Jedox or Vena is an advantage.\n\n• Analytical, hands-on personality with an automation mindset, attention to detail and strong ownership, able to communicate complex data clearly and influence stakeholders in an international group.\n\n• Fluent English, written and spoken; German is an advantage.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team di controllo a Basilea, stiamo cercando una personalità analitica e pratica come FP&A e Digitalization Manager.\nIn questo ruolo, si forma la pianificazione finanziaria del Gruppo - dalla pianificazione strategica di 5 anni attraverso il bilancio annuale alle previsioni di rotolamento - e possedere gli strumenti digitali che lo rendono lavorare. Seduto all'incrocio tra finanza e tecnologia, si costruisce i modelli, strutture di dati e dashboard che permettono all'intero gruppo di contribuire, sfidare e allineare sui risultati finanziari, lavorando a stretto contatto con unità aziendali, filiali e reporting gestionale.\nTi sembra? Allora non vediamo l'ora di ricevere la vostra applicazione\n\nFP&A e Digitalization Manager\n\nLe tue responsabilità\n\n• Lei guida la pianificazione strategica di 5 anni del Gruppo, le previsioni annuali di bilancio e di rotolamento, incluso il calendario di pianificazione a livello di Gruppo.\n\n• Fornite la piattaforma di input a livello di gruppo, consolidate i risultati delle risposte e delle sfide insieme a Business Units e controllate.\n\n• Progetta modelli e strutture dati che consentono l'analisi P&L multidimensionale da Business Unit, Brand o entità.\n\n• Si automatizza il processo di consolidamento e costruire dashboard Power BI che rendono i risultati trasparenti.\n\n• Trasforma i dati finanziari consolidati in approfondimenti e analisi che supportano le decisioni di gestione.\n\n• Mantenete e migliorate continuamente i nostri strumenti di pianificazione e reporting, garantendo qualità e allineamento dei dati con i dati master SAP/ERP.\n\n• Documenti processi di pianificazione, modelli e modelli di dati e contributi di pianificazione guida in tutto il Gruppo.\n\n• Supporti casi di business per acquisizioni, nuovi sviluppi del prodotto e scenari strategici con analisi di investimento e ROI.\n\nLe tue qualifiche\n\n• Laurea magistrale in Management con un focus su Finanza e Contabilità, o equivalente.\n\n• 3-5 anni di esperienza nel controllo, analisi delle finanze e/o FP&A, inclusi budget, previsioni e pianificazione strategica.\n\n• Esperienza nella modellazione finanziaria e consolidamento di gruppo in un ambiente multi-unità, basato su solide basi contabili.\n\n• Esperienza in processi di automazione o digitalizzazione progetti in finanza.\n\n• Ottima conoscenza dei sistemi SAP FICO e ERP, nonché delle competenze avanzate di Excel e Power Query.\n\n• Forti Power BI competenze (modello dati, DAX, dashboard), Python scripting e un'affinità per AI; esperienza con VBA e software di pianificazione come Anaplan, Jedox o Vena è un vantaggio.\n\n• Personalità analitica, pratica con una mentalità di automazione, attenzione ai dettagli e forte proprietà, in grado di comunicare i dati complessi con chiarezza e influenzare gli stakeholder in un gruppo internazionale.\n\n• Inglese fluente, scritto e parlato; tedesco è un vantaggio.\n\nInformazioni su Medartis\n\nMedartis è uno dei principali produttori di prodotti medici per l'osteosisi nella zona del cranio e delle estremità del viso. A beneficio del paziente, Medartis si impegna a fornire chirurghi e personale chirurgico con i più innovativi impianti e strumenti di titanio e fornire il miglior servizio.\n\nVi offriamo un'attività responsabile e diversificata con requisiti di alta qualità in una società in crescita, internazionale con benefici sociali progressivi.\n\nAttendiamo con ansia la vostra applicazione online completa.\nMedartis\n\nRisorse umane\n\nT +41 61 633 34\n\nwww.medartis.com",
-        "en": "To strengthen our Controlling team in Basel, we are looking for an analytical and hands-on personality as FP&A and Digitalization Manager.\nIn this role, you shape the Group's financial planning - from 5-year strategic planning through annual budgeting to rolling forecasts - and own the digital tools that make it work. Sitting at the intersection of finance and technology, you build the templates, data structures and dashboards that allow the entire group to contribute, challenge and align on financial outcomes, working closely with business units, subsidiaries and management reporting.\nSounds like you? Then we look forward to receiving your application\n\nFP&A and Digitalization Manager\n\nYour responsibilities\n\n• You lead the Group's 5-year strategic planning, annual budgeting and rolling forecasts, including the Group-wide planning calendar.\n\n• You provide the platform for group-wide input, consolidate feedback and challenge outcomes together with Business Units and subsidiaries.\n\n• You design templates and data structures that enable multidimensional P&L analysis by Business Unit, Brand or entity.\n\n• You automate the consolidation process and build Power BI dashboards that make results transparent.\n\n• You turn consolidated financial data into insights and analyses that support management decisions.\n\n• You maintain and continuously improve our planning and reporting tools, ensuring data quality and alignment with SAP/ERP master data.\n\n• You document planning processes, templates and data models and guide planning contributors across the Group.\n\n• You support business cases for acquisitions, new product development and strategic scenarios with investment and ROI analyses.\n\nYour qualifications\n\n• Master's degree in Management with a focus on Finance and Accounting, or equivalent.\n\n• 3–5 years of experience in Controlling, Finance Analysis and/or FP&A, including budgeting, forecasting and strategic planning.\n\n• Experience in financial modelling and group consolidation in a multi-entity environment, based on solid accounting fundamentals.\n\n• Experience in process automation or digitalization projects in finance.\n\n• Very good knowledge of SAP FICO and ERP systems as well as advanced Excel and Power Query skills.\n\n• Strong Power BI skills (data modelling, DAX, dashboarding), Python scripting and an affinity for AI; experience with VBA and planning software such as Anaplan, Jedox or Vena is an advantage.\n\n• Analytical, hands-on personality with an automation mindset, attention to detail and strong ownership, able to communicate complex data clearly and influence stakeholders in an international group.\n\n• Fluent English, written and spoken; German is an advantage.\n\nAbout Medartis\n\nMedartis is one of the leading manufacturers of medical products for osteosynthesis in the area of the facial skull and extremities. For the benefit of the patient, Medartis is committed to providing surgeons and surgical staff with the most innovative titanium implants and instruments and providing the best service.\n\nWe offer you a responsible and varied activity with high quality requirements in a growing, international company with progressive social benefits.\n\nWe look forward to your complete online application.\nMedartis\n\nHuman resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-        "de": "To strengthen our Controlling team in Basel, we are looking for an analytical and hands-on personality as FP&A and Digitalization Manager.\nIn this role, you shape the Group's financial planning - from 5-year strategic planning through annual budgeting to rolling forecasts - and own the digital tools that make it work. Sitting at the intersection of finance and technology, you build the templates, data structures and dashboards that allow the entire group to contribute, challenge and align on financial outcomes, working closely with Business Units, subsidiaries and Management Reporting.\nSounds like you? Then we look forward to receiving your application\n\nFP&A and Digitalization Manager\n\nIhr Aufgabengebiet\n\n• You lead the Group's 5-year strategic planning, annual budgeting and rolling forecasts, including the group-wide planning calendar.\n\n• You provide the platform for group-wide input, consolidate feedback and challenge outcomes together with Business Units and subsidiaries.\n\n• You design templates and data structures that enable multidimensional P&L analysis by Business Unit, Brand or entity.\n\n• You automate the consolidation process and build Power BI dashboards that make results transparent.\n\n• You turn consolidated financial data into insights and analyses that support management decisions.\n\n• You maintain and continuously improve our planning and reporting tools, ensuring data quality and alignment with SAP/ERP master data.\n\n• You document planning processes, templates and data models and guide planning contributors across the Group.\n\n• You support business cases for acquisitions, new product development and strategic scenarios with investment and ROI analyses.\n\nIhre Qualifikationen\n\n• Master's degree in Management with a focus on Finance and Accounting, or equivalent.\n\n• 3–5 years of experience in Controlling, Finance Analysis and/or FP&A, including budgeting, forecasting and strategic planning.\n\n• Experience in financial modelling and group consolidation in a multi-entity environment, based on solid accounting fundamentals.\n\n• Experience in process automation or digitalization projects in finance.\n\n• Very good knowledge of SAP FICO and ERP systems as well as advanced Excel and Power Query skills.\n\n• Strong Power BI skills (data modelling, DAX, dashboarding), Python scripting and an affinity for AI; experience with VBA and planning software such as Anaplan, Jedox or Vena is an advantage.\n\n• Analytical, hands-on personality with an automation mindset, attention to detail and strong ownership, able to communicate complex data clearly and influence stakeholders in an international group.\n\n• Fluent English, written and spoken; German is an advantage.\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\nMedartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
-        "fr": "Pour renforcer notre équipe de contrôle à Bâle, nous recherchons une personnalité analytique et pratique en tant que gestionnaire de FP&A et Digitalisation.\nDans ce rôle, vous façonnez la planification financière du Groupe - de la planification stratégique quinquennale à la budgétisation annuelle en passant par les prévisions mobiles - et vous possédez les outils numériques qui la rendent efficace. Si vous êtes à l'intersection de la finance et de la technologie, vous construisez les modèles, les structures de données et les tableaux de bord qui permettent à l'ensemble du groupe de contribuer, de défier et de s'aligner sur les résultats financiers, en travaillant en étroite collaboration avec les unités commerciales, les filiales et les rapports de gestion.\nVous ressemblez ? Ensuite, nous nous réjouissons de recevoir votre demande\n\nGestionnaire des FP&A et de la numérisation\n\nVos responsabilités\n\n• Vous dirigez la planification stratégique quinquennale, la budgétisation annuelle et les prévisions glissantes, y compris le calendrier de planification à l'échelle du Groupe.\n\n• Vous fournissez la plate-forme pour les commentaires à l'échelle du groupe, consolidez les commentaires et les résultats des défis avec les unités d'affaires et les filiales.\n\n• Vous concevez des modèles et des structures de données qui permettent une analyse multidimensionnelle des P et L par unité commerciale, marque ou entité.\n\n• Vous automatisez le processus de consolidation et créez des tableaux de bord Power BI qui rendent les résultats transparents.\n\n• Vous transformez les données financières consolidées en idées et analyses qui appuient les décisions de gestion.\n\n• Vous maintenez et améliorez continuellement nos outils de planification et de rapport, assurant la qualité des données et leur alignement sur les données de gestion SAP/ERP.\n\n• Vous documentez les processus de planification, les modèles et les modèles de données et guidez les contributeurs à la planification dans l'ensemble du Groupe.\n\n• Vous soutenez des analyses de rentabilisation pour les acquisitions, le développement de nouveaux produits et les scénarios stratégiques avec des analyses d'investissement et de ROI.\n\nVos qualifications\n\n• Maîtrise en gestion axée sur les finances et la comptabilité, ou équivalent.\n\n• 3 à 5 ans d'expérience en contrôle, analyse financière et/ou FP&A, y compris la budgétisation, les prévisions et la planification stratégique.\n\n• Expérience de la modélisation financière et de la consolidation de groupe dans un environnement multi-entités, basée sur des fondamentaux comptables solides.\n\n• Expérience des projets d'automatisation des processus ou de numérisation en finance.\n\n• Très bonne connaissance des systèmes SAP FICO et ERP ainsi que des compétences avancées Excel et Power Query.\n\n• Fortes compétences en BI de puissance (modèle de données, DAX, tableau de bord), script Python et une affinité pour l'IA; expérience avec VBA et logiciel de planification tels qu'Anaplan, Jedox ou Vena est un avantage.\n\n• Personnalité analytique et pratique avec un état d'esprit d'automatisation, attention au détail et forte appropriation, capable de communiquer clairement des données complexes et d'influencer les parties prenantes d'un groupe international.\n\n• Anglais, écrit et parlé; l'allemand est un avantage.\n\nÀ propos de Medartis\n\nMedartis est l'un des principaux fabricants de produits médicaux pour l'ostéosynthèse dans la zone du crâne et des extrémités du visage. Pour le bénéfice du patient, Medartis s'engage à fournir aux chirurgiens et au personnel chirurgical les implants et instruments de titane les plus innovants et à offrir le meilleur service.\n\nNous vous offrons une activité responsable et variée avec des exigences de haute qualité dans une entreprise internationale en croissance avec des avantages sociaux progressifs.\n\nNous attendons avec impatience votre candidature en ligne complète.\nMedartis\n\nRessources humaines\n\nT +41 61 633 34 34\n\nLe site www.medartis.com"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://careers.medartis.com/job/FP&A-and-Digitalization-Manager/1455279733/",
-      "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:37:42.457Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T00:00:00Z",
-      "postedDate": "2026-11-06T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1455279733/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-06T22:07:51.062Z",
-      "salaryMin": 99500,
-      "salaryMax": 151000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 151000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Basel",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:37:42.457Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

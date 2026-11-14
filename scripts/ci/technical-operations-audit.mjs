@@ -33,6 +33,7 @@ import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creato
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 import { lineAt } from './line-at.mjs';
+import { workflowInputReferences } from './lib/workflow-input-references.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -164,19 +165,32 @@ function inputDefinitions(triggers) {
   return inputs;
 }
 
-function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs.existsSync) {
+function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs.existsSync, checkoutPaths = []) {
   if (rawPath.includes('${{')) return true;
   const cleanPath = rawPath.replace(/[),;:'"`]+$/g, '');
   const base = path.resolve(root, workingDirectory);
-  if (cleanPath.startsWith('./.github/workflows/')) {
-    return exists(path.resolve(base, cleanPath.slice(2)));
+  const isActionReference = /(?:^|\/)\.github\/actions\//u.test(cleanPath);
+  const referenceExists = (candidate) => {
+    if (!isActionReference) return exists(candidate);
+    return exists(path.join(candidate, 'action.yml'))
+      || exists(path.join(candidate, 'action.yaml'));
+  };
+  const candidate = path.resolve(base, cleanPath);
+  if (referenceExists(candidate)) return true;
+
+  // A workflow may deliberately use an action from a repository checked out
+  // into a runtime subdirectory (for example `./.portal-base/.github/...`).
+  // The static audit cannot see that checkout tree, but it can verify the
+  // same relative path in the repository source. Do not apply this fallback
+  // to an undeclared checkout: a path that appears before its checkout step
+  // must still fail closed.
+  for (const checkoutPath of checkoutPaths) {
+    const checkoutRoot = path.resolve(base, checkoutPath);
+    const relative = path.relative(checkoutRoot, candidate);
+    if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) continue;
+    if (referenceExists(path.resolve(root, relative))) return true;
   }
-  if (cleanPath.startsWith('./.github/actions/')) {
-    const actionRoot = path.resolve(base, cleanPath.slice(2));
-    return exists(path.join(actionRoot, 'action.yml'))
-      || exists(path.join(actionRoot, 'action.yaml'));
-  }
-  return exists(path.resolve(base, cleanPath));
+  return false;
 }
 
 function staticWorkingDirectory(root, rawWorkingDirectory) {
@@ -403,12 +417,49 @@ function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
   return true;
 }
 
-function extractDataWritePaths(run, operationalRun) {
+function isSafeRelativePath(value) {
+  return /^[A-Za-z0-9._/-]+$/u.test(value)
+    && !value.startsWith('/')
+    && value.split('/').every((part) => part && part !== '.' && part !== '..');
+}
+
+/**
+ * Identify only the redirection command that is directly fed by its matching
+ * `git show "HEAD:path"` command. A path set would also exempt an unrelated
+ * later `> path`, which is a real rewrite.
+ *
+ * @param {string} source
+ * @returns {Set<number>}
+ */
+function materializedHeadTargetStarts(source) {
+  const { commands } = parseShellCommands(source);
+  const starts = new Set();
+  for (let index = 0; index < commands.length - 1; index += 1) {
+    const producer = commands[index];
+    const target = commands[index + 1];
+    if (producer.name !== 'git'
+      || producer.operatorAfter !== '>'
+      || target.operatorBefore !== '>'
+      || target.args.length > 0
+      || producer.args.length !== 2
+      || producer.args[0].value !== 'show') continue;
+    const sourceReference = producer.args[1].value;
+    if (!sourceReference.startsWith('HEAD:')) continue;
+    const sourcePath = sourceReference.slice('HEAD:'.length);
+    if (sourcePath && sourcePath === target.name && isSafeRelativePath(sourcePath)) {
+      starts.add(target.start);
+    }
+  }
+  return starts;
+}
+
+export function extractDataWritePaths(run, operationalRun) {
   const dataPaths = extractDataPaths(operationalRun);
   if (dataPaths.length === 0 || !/(?:\bgit\s+(?:add|commit)\b|(?:>>?|>\|))/i.test(operationalRun)) return [];
 
   const assignments = shellDataPathAssignments(run);
   const { commands } = parseShellCommands(operationalRun);
+  const materializedHeadTargets = materializedHeadTargetStarts(run);
   const written = new Set();
   const staged = new Set();
   let broadStage = false;
@@ -418,6 +469,16 @@ function extractDataWritePaths(run, operationalRun) {
   for (const command of commands) {
     if (['>', '>>', '>|'].includes(command.operatorBefore)) {
       const target = resolveShellDataPath(command.name, assignments);
+      // `git show "HEAD:path" > path` only materializes a tracked blob that
+      // sparse checkout intentionally omitted. It is not a generated-data
+      // write and cannot publish a value without a later explicit stage or
+      // commit, so do not make the data-write guard demand a schema check for
+      // this read-only checkout repair.
+      const isHeadMaterialization = command.operatorBefore === '>'
+        && command.args.length === 0
+        && target
+        && materializedHeadTargets.has(command.start);
+      if (isHeadMaterialization) continue;
       if (target) written.add(target);
       else if (!isKnownNonDataShellTarget(command.name, assignments)
         && (/\$|(?:^|\/)data\//.test(command.name) || /\$|(?:^|\/)data\//.test(command.args.map((token) => token.value).join(' ')))) {
@@ -597,7 +658,10 @@ function parseShellCommands(source) {
   let operatorBefore = null;
 
   const flush = (operatorAfter = null) => {
-    if (segment.length === 0) return;
+    if (segment.length === 0) {
+      operatorBefore = operatorAfter;
+      return;
+    }
     const prefixKeywords = [];
     let commandIndex = -1;
     for (let index = 0; index < segment.length; index += 1) {
@@ -2222,7 +2286,7 @@ function validateInputs(triggers, file, source, findings) {
 
   for (const expression of expressions(source)) {
     const line = lineFor(source, source.slice(expression.offset));
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expression.text.trim()));
       }
@@ -2358,7 +2422,7 @@ function validateExpressionText(source, file, text, {
         findings.push(finding(file, 'workflow.secret-reference', 'error', `secret non dichiarata in workflow_call: ${match[1]}`, line, expressionText));
       }
     }
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expressionText));
       }
@@ -2477,7 +2541,7 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
         }
       }
       if (hasRun === hasUses) findings.push(finding(file, 'workflow.step-executor', 'error', `step ${jobName}#${index + 1} deve avere esattamente uno tra run e uses`, stepLine));
-      if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
+      if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists, checkoutPaths)) {
         findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
       }
       let outputKeys = new Set();

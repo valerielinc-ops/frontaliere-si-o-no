@@ -34,7 +34,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
-import { launchChromium } from './ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './stealth-browser.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
@@ -95,12 +95,21 @@ export function looksLikeJsonFeedBody(text) {
 async function fetchFeedViaPlaywright(url) {
   let browser;
   try {
-    browser = await launchChromium({ headless: true });
-    const context = await browser.newContext({
-      userAgent: BROWSER_USER_AGENTS[0],
+    browser = await launchStealthOrChromium({
+      purpose: 'crawler',
       locale: 'fr-CH',
-      extraHTTPHeaders: { Referer: 'https://www.jobup.ch/' },
+      fallbackOptions: { headless: true },
     });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? {
+          viewport: null,
+          extraHTTPHeaders: { Referer: 'https://www.jobup.ch/' },
+        }
+      : {
+          userAgent: BROWSER_USER_AGENTS[0],
+          locale: 'fr-CH',
+          extraHTTPHeaders: { Referer: 'https://www.jobup.ch/' },
+        });
     const page = await context.newPage();
     const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     if (!resp || !resp.ok()) return null;

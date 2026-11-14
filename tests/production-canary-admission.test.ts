@@ -35,15 +35,15 @@ describe('production-canary-admission', () => {
     expect(() => selectActiveProductionWriters([run({ id: '', path: '.github/workflows/deploy.yml' })])).toThrow(/missing its id/);
   });
 
-  it('reads every active status and deduplicates a run observed during a status transition', async () => {
+  it('reads each writer collection and deduplicates a run observed during a status transition', async () => {
     const requests: string[] = [];
     const fetchImpl = async (url: string) => {
       requests.push(url);
       const parsed = new URL(url);
-      const status = parsed.searchParams.get('status');
+      if (parsed.searchParams.has('status')) return new Response('status filter is forbidden', { status: 403 });
       const workflow = parsed.pathname.split('/').at(-2);
-      const body = workflow === 'deploy.yml' && (status === 'in_progress' || status === 'queued')
-        ? { total_count: 1, workflow_runs: [run({ id: 321, status })] }
+      const body = workflow === 'deploy.yml'
+        ? { total_count: 2, workflow_runs: [run({ id: 321, status: 'in_progress' }), run({ id: 321, status: 'queued' })] }
         : { total_count: 0, workflow_runs: [] };
       return new Response(JSON.stringify(body), { status: 200 });
     };
@@ -54,27 +54,32 @@ describe('production-canary-admission', () => {
       fetchImpl,
     });
 
-    expect(requests).toHaveLength(PRODUCTION_WRITERS.length * 5);
+    expect(requests).toHaveLength(PRODUCTION_WRITERS.length);
     expect(new Set(requests.map((url) => new URL(url).pathname))).toEqual(
       new Set(PRODUCTION_WRITERS.map(({ path }) => `/repos/example/repo/actions/workflows/${path.split('/').at(-1)}/runs`)),
     );
-    expect(requests.every((url) => new URL(url).searchParams.get('per_page') === '1')).toBe(true);
+    expect(requests.every((url) => {
+      const parsed = new URL(url);
+      return parsed.searchParams.get('per_page') === '100'
+        && parsed.searchParams.get('page') === '1'
+        && !parsed.searchParams.has('status');
+    })).toBe(true);
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
   });
 
-  it('queries each writer workflow directly instead of paginating the global run list', async () => {
+  it('queries each writer workflow directly and keeps waiting runs visible without a status filter', async () => {
     const requests: string[] = [];
     const fetchImpl = async (url: string) => {
       requests.push(url);
       const parsed = new URL(url);
-      const status = parsed.searchParams.get('status');
+      if (parsed.searchParams.has('status')) return new Response('status filter is forbidden', { status: 403 });
       const workflow = parsed.pathname.split('/').at(-2);
-      if (workflow === 'deploy-publish.yml' && status === 'queued') {
+      if (workflow === 'deploy-publish.yml') {
         return new Response(JSON.stringify({
           total_count: 1,
           workflow_runs: [run({
             id: 321,
-            status,
+            status: 'waiting',
             path: '.github/workflows/deploy-publish.yml',
             name: 'Publish to GitHub Pages (deploy + validate)',
           })],
@@ -89,22 +94,19 @@ describe('production-canary-admission', () => {
       fetchImpl,
     });
 
-    expect(requests).toHaveLength(PRODUCTION_WRITERS.length * 5);
+    expect(requests).toHaveLength(PRODUCTION_WRITERS.length);
     expect(requests.every((url) => new URL(url).pathname.includes('/actions/workflows/'))).toBe(true);
+    expect(requests.every((url) => !new URL(url).searchParams.has('status'))).toBe(true);
     expect(requests.some((url) => new URL(url).pathname.endsWith('/actions/runs'))).toBe(false);
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
   });
 
   it('accepts a terminal page when total_count is stale during a run transition', async () => {
-    let queuedRequests = 0;
+    let pageRequests = 0;
     const fetchImpl = async (url: string) => {
-      const parsed = new URL(url);
-      const status = parsed.searchParams.get('status');
-      if (status === 'queued') {
-        queuedRequests += 1;
-        if (queuedRequests === 1) {
-          return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), { status: 200 });
-        }
+      pageRequests += 1;
+      if (new URL(url).pathname.endsWith('/deploy.yml/runs') && pageRequests === 1) {
+        return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), { status: 200 });
       }
       return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
     };
@@ -114,22 +116,21 @@ describe('production-canary-admission', () => {
       token: 'test-token',
       fetchImpl,
     })).resolves.toEqual([]);
-    expect(queuedRequests).toBe(PRODUCTION_WRITERS.length);
+    expect(pageRequests).toBe(PRODUCTION_WRITERS.length + 1);
   });
 
   it('retries a short page that advertises another page before accepting it', async () => {
-    let deployQueuedRequests = 0;
+    let deployPageRequests = 0;
     const fetchImpl = async (url: string) => {
       const parsed = new URL(url);
-      const status = parsed.searchParams.get('status');
       const workflow = parsed.pathname.split('/').at(-2);
-      if (workflow === 'deploy.yml' && status === 'queued') {
-        deployQueuedRequests += 1;
-        if (deployQueuedRequests === 1) {
+      if (workflow === 'deploy.yml' && parsed.searchParams.get('page') === '1') {
+        deployPageRequests += 1;
+        if (deployPageRequests === 1) {
           return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), {
             status: 200,
             headers: {
-              Link: '<https://api.github.com/repos/example/repo/actions/workflows/deploy.yml/runs?status=queued&per_page=1&page=2>; rel="next"',
+              Link: '<https://api.github.com/repos/example/repo/actions/workflows/deploy.yml/runs?per_page=100&page=2>; rel="next"',
             },
           });
         }
@@ -142,7 +143,42 @@ describe('production-canary-admission', () => {
       token: 'test-token',
       fetchImpl,
     })).resolves.toEqual([]);
-    expect(deployQueuedRequests).toBe(2);
+    expect(deployPageRequests).toBe(2);
+  });
+
+  it('does not paginate terminal history after reading the current writer head', async () => {
+    const requests: string[] = [];
+    const fetchImpl = async (url: string) => {
+      requests.push(url);
+      const parsed = new URL(url);
+      const workflow = parsed.pathname.split('/').at(-2);
+      if (workflow === 'deploy.yml' && parsed.searchParams.get('page') === '1') {
+        return new Response(JSON.stringify({
+          total_count: 2,
+          workflow_runs: [run({ id: 320, status: 'completed' })],
+        }), {
+          status: 200,
+          headers: {
+            Link: '<https://api.github.com/repos/example/repo/actions/workflows/deploy.yml/runs?per_page=100&page=2>; rel="next"',
+          },
+        });
+      }
+      if (workflow === 'deploy.yml' && parsed.searchParams.get('page') === '2') {
+        return new Response(JSON.stringify({
+          total_count: 2,
+          workflow_runs: [run({ id: 321, status: 'waiting' })],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
+    };
+
+    await expect(readActiveProductionWriters({
+      repository: 'example/repo',
+      token: 'test-token',
+      fetchImpl,
+    })).resolves.toEqual([]);
+    expect(requests.filter((url) => new URL(url).pathname.endsWith('/deploy.yml/runs'))).toHaveLength(1);
+    expect(requests.every((url) => new URL(url).searchParams.get('page') === '1')).toBe(true);
   });
 
   it('rejects an unreadable GitHub API response instead of admitting the probe', async () => {

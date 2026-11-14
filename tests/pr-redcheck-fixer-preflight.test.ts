@@ -62,12 +62,14 @@ function runPreflight(
     runId = '456',
     latestMode = mode,
     runHeadSha,
+    runPrHeadSha,
     runStatus = 'completed',
     runConclusion = 'failure',
-  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode; runHeadSha?: string; runStatus?: string; runConclusion?: string | null } = {},
+  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode; runHeadSha?: string; runPrHeadSha?: string; runStatus?: string; runConclusion?: string | null } = {},
 ) {
   const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
   const selectedRunHeadSha = runHeadSha ?? prHead;
+  const selectedRunPrHeadSha = runPrHeadSha ?? prHead;
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
   const bin = path.join(root, 'bin');
   const output = path.join(root, 'github-output');
@@ -128,12 +130,12 @@ if [ "\${1:-}" = api ]; then
     *"/actions/runs/456")
       run_conclusion_json='"failure"'
       if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_HEAD_SHA}"'"}}]}'
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_PR_HEAD_SHA}"'"}}]}'
       ;;
     *"/actions/runs/123")
       run_conclusion_json='"failure"'
       if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_HEAD_SHA}"'"}}]}'
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_PR_HEAD_SHA}"'"}}]}'
       ;;
     *)
       exit 1
@@ -172,6 +174,7 @@ exit 1
       DISPATCH_RUN_ID: runId,
       PR_HEAD_SHA: prHead,
       RUN_HEAD_SHA: selectedRunHeadSha,
+      RUN_PR_HEAD_SHA: selectedRunPrHeadSha,
       RUN_PR_NUMBER: mode === 'foreign-run' ? '99' : '42',
       RUN_STATUS: runStatus,
       RUN_CONCLUSION: runConclusion ?? 'null',
@@ -248,9 +251,10 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
     expect(githubOutput).not.toContain('actionable=true');
   });
 
-  it('tratta una run valida ma stantia rispetto alla PR come no-op verde', () => {
+  it('tratta una run stantia come no-op verde anche se GitHub associa la HEAD live della PR', () => {
     const { result, githubOutput } = runPreflight('stale-run', {
       runHeadSha: 'fedcba9876543210fedcba9876543210fedcba98',
+      runPrHeadSha: DISPATCH_HEAD,
     });
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
     expect(result.stdout).toContain('stantia');
