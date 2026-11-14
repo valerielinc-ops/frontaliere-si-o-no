@@ -6,11 +6,22 @@
  * title must not vanish. Either gap is a job URL the build turns into the
  * noindex «Offerta non verificata» stub.
  */
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { measureRetiredArchiveCoverage } from '../../scripts/ci/check-retired-jobs-archived.mjs';
+import YAML from 'yaml';
+import {
+  buildFailureIssueDescription,
+  measureRetiredArchiveCoverage,
+} from '../../scripts/ci/check-retired-jobs-archived.mjs';
 
 type Row = Record<string, any>;
-const job = (slug: string, extra: Row = {}): Row => ({ slug, slugByLocale: { it: slug }, title: `T ${slug}`, ...extra });
+const job = (slug: string, extra: Row = {}): Row => ({
+  slug,
+  slugByLocale: { it: slug },
+  title: `T ${slug}`,
+  canton: 'TI',
+  ...extra,
+});
 const map = (entries: Record<string, Row[]>) => new Map(Object.entries(entries));
 
 describe('measureRetiredArchiveCoverage()', () => {
@@ -86,6 +97,190 @@ describe('measureRetiredArchiveCoverage()', () => {
     expect(result.retired).toBe(0);
     expect(result.retiredUnarchived).toEqual([]);
   });
+
+  it('reports lost explicit it/de paths while the base row remains active', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [job('canonical', { slugByLocale: { it: 'old-it', de: 'old-de' } })] }),
+      baseExpired: map({}),
+      headActive: map({ a: [job('canonical', { slugByLocale: { it: 'new-it', de: 'new-de' } })] }),
+      headExpired: map({}),
+    });
+
+    expect(result.retired).toBe(0);
+    expect(result.activeLocaleSlugLost.map(({ locale, slug }) => [locale, slug])).toEqual([
+      ['it', 'old-it'],
+      ['de', 'old-de'],
+    ]);
+    expect(result.activeLocaleSlugLostByCrawler).toEqual({ a: 2 });
+    expect(result.activeLocaleSlugLost.find(({ locale }) => locale === 'de')).toMatchObject({
+      crawlerKey: 'a',
+      baseIdentifier: 'canonical',
+      baseSlug: 'canonical',
+      path: expect.stringContaining('/de/'),
+    });
+  });
+
+  it('uses the canonical slug fallback for head coverage and ignores locales absent at base', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [job('fallback-de', { slugByLocale: { it: 'it-route', de: 'fallback-de' } })] }),
+      baseExpired: map({}),
+      headActive: map({ a: [job('fallback-de', { slugByLocale: { it: 'it-route' } })] }),
+      headExpired: map({}),
+    });
+
+    expect(result.activeLocaleSlugLost).toEqual([]);
+  });
+
+  it('covers locale-specific history only in its locale and flat legacy history in every locale', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({
+        a: [job('canonical', {
+          slugByLocale: { it: 'current-it', de: 'old-de', en: 'legacy-flat', fr: 'old-de' },
+        })],
+      }),
+      baseExpired: map({}),
+      headActive: map({
+        a: [job('canonical', {
+          slugByLocale: { it: 'current-it', de: 'new-de' },
+          previousSlugsByLocale: { de: ['old-de'] },
+          previousSlugs: ['legacy-flat'],
+        })],
+      }),
+      headExpired: map({}),
+    });
+
+    expect(result.activeLocaleSlugLost.map(({ locale, slug }) => [locale, slug])).toEqual([
+      ['fr', 'old-de'],
+    ]);
+  });
+
+  it('does not let an expired locale slug cover the same slug in another locale', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [{ canton: 'TI', slugByLocale: { it: 'lost-it' } }] }),
+      baseExpired: map({}),
+      headActive: map({ a: [] }),
+      headExpired: map({ a: [{ canton: 'TI', slugByLocale: { en: 'lost-it' }, title: 'Archived' }] }),
+    });
+
+    expect(result.activeLocaleSlugLost).toHaveLength(1);
+    expect(result.activeLocaleSlugLost[0]).toMatchObject({
+      crawlerKey: 'a',
+      locale: 'it',
+      slug: 'lost-it',
+    });
+  });
+
+  it('keeps expired locale history local and shares only unclaimed flat legacy history', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({
+        a: [{
+          slug: 'base-canonical',
+          slugByLocale: {
+            it: 'it-old',
+            en: 'legacy-shared',
+            de: 'legacy-shared',
+            fr: 'de-old',
+          },
+          canton: 'TI',
+        }],
+      }),
+      baseExpired: map({}),
+      headActive: map({ a: [] }),
+      headExpired: map({
+        a: [{
+          slug: 'current-canonical',
+          slugByLocale: { en: 'current-en' },
+          previousSlugsByLocale: { it: ['it-old'], de: ['de-old'] },
+          previousSlugs: ['de-old', 'legacy-shared'],
+          title: 'Archived',
+          canton: 'TI',
+        }],
+      }),
+    });
+
+    expect(result.activeLocaleSlugLost.map(({ locale, slug }) => [locale, slug])).toEqual([
+      ['fr', 'de-old'],
+    ]);
+  });
+
+  it('covers an equal route owned by another row and a titled expired entry, but not another canton', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({
+        a: [
+          job('row-one', { slugByLocale: { de: 'shared-route' }, canton: 'TI' }),
+          job('row-two', { slugByLocale: { de: 'shared-route' }, canton: 'ZH' }),
+          job('row-three', { slugByLocale: { fr: 'expired-route' }, canton: 'ZH' }),
+        ],
+      }),
+      baseExpired: map({}),
+      headActive: map({ b: [job('different-id', { slugByLocale: { de: 'shared-route' }, canton: 'TI' })] }),
+      headExpired: map({ c: [job('archived', { slugByLocale: { fr: 'expired-route' }, canton: 'ZH' })] }),
+    });
+
+    expect(result.activeLocaleSlugLost.map(({ baseSlug, locale, slug }) => [baseSlug, locale, slug])).toEqual([
+      ['row-two', 'de', 'shared-route'],
+    ]);
+  });
+
+  it('ignores held base rows for locale-slug loss', () => {
+    const result = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [job('held-base', { slugByLocale: { it: 'it', de: 'held-de' }, heldFromPublication: true })] }),
+      baseExpired: map({}),
+      headActive: map({ a: [] }),
+      headExpired: map({}),
+    });
+
+    expect(result.activeLocaleSlugLost).toEqual([]);
+  });
+
+  it('deduplicates identical paths deterministically without merging locales', () => {
+    const row = (id: string) => job('canonical', { id, slugByLocale: { it: 'same-route', de: 'same-route' } });
+    const first = measureRetiredArchiveCoverage({
+      baseActive: map({ z: [row('row-z')], a: [row('row-a')] }),
+      baseExpired: map({}),
+      headActive: map({}),
+      headExpired: map({}),
+    });
+    const reversed = measureRetiredArchiveCoverage({
+      baseActive: map({ a: [row('row-a')], z: [row('row-z')] }),
+      baseExpired: map({}),
+      headActive: map({}),
+      headExpired: map({}),
+    });
+
+    expect(first.activeLocaleSlugLost).toHaveLength(2);
+    expect(first.activeLocaleSlugLost.map(({ locale }) => locale).sort()).toEqual(['de', 'it']);
+    expect(first.activeLocaleSlugLost).toEqual(reversed.activeLocaleSlugLost);
+    expect(first.activeLocaleSlugLost.every(({ crawlerKey, baseIdentifier }) => crawlerKey === 'a' && baseIdentifier === 'row-a')).toBe(true);
+  });
+});
+
+describe('buildFailureIssueDescription()', () => {
+  it('describes an active locale route loss without expired-backfill-only guidance', () => {
+    const description = buildFailureIssueDescription({
+      retiredUnarchived: 0,
+      archiveLost: 0,
+      activeLocaleSlugLost: 1,
+    }, 'https://example.invalid/actions/runs/123/');
+
+    expect(description).toContain('1 locale route(s) were lost while the offer remains active');
+    expect(description).toContain('preserve or restore the affected locale slugs on the active posting');
+    expect(description).not.toContain('backfill-expired-from-history.yml');
+  });
+
+  it('includes separate expired and active recovery guidance when categories coexist', () => {
+    const description = buildFailureIssueDescription({
+      retiredUnarchived: 2,
+      archiveLost: 3,
+      activeLocaleSlugLost: 1,
+    }, 'https://example.invalid/actions/runs/123/');
+
+    expect(description).toContain('2 retired posting(s) left the active set');
+    expect(description).toContain('3 titled expired archive record(s) disappeared');
+    expect(description).toContain('1 locale route(s) were lost while the offer remains active');
+    expect(description.match(/backfill-expired-from-history\.yml/g)).toHaveLength(2);
+    expect(description).toContain('preserve or restore the affected locale slugs on the active posting');
+  });
 });
 
 // ── CLI on a real (temporary) git history ─────────────────────────────────
@@ -102,6 +297,7 @@ import { afterAll, beforeAll } from 'vitest';
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SCRIPT = 'scripts/ci/check-retired-jobs-archived.mjs';
 let repo = '';
+let reportDir = '';
 
 function copyClosure(rel: string, seen = new Set<string>()) {
   if (seen.has(rel)) return;
@@ -121,6 +317,14 @@ function git(...args: string[]) {
   return result.stdout.trim();
 }
 
+function copyRouteResolverData() {
+  for (const rel of ['data/canton-url-slugs.json', 'data/canton-municipalities.json']) {
+    const destination = path.join(repo, rel);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.copyFileSync(path.join(REPO_ROOT, rel), destination);
+  }
+}
+
 function commitSlices(active: unknown, expired: unknown, message: string) {
   fs.mkdirSync(path.join(repo, 'data/jobs/by-crawler'), { recursive: true });
   fs.mkdirSync(path.join(repo, 'data/jobs/expired/by-crawler'), { recursive: true });
@@ -131,8 +335,8 @@ function commitSlices(active: unknown, expired: unknown, message: string) {
   return git('rev-parse', 'HEAD');
 }
 
-function observe(base: string, head: string) {
-  return spawnSync(process.execPath, [SCRIPT, '--base', base, '--head', head], { cwd: repo, encoding: 'utf8' });
+function observe(base: string, head: string, extraArgs: string[] = []) {
+  return spawnSync(process.execPath, [SCRIPT, '--base', base, '--head', head, ...extraArgs], { cwd: repo, encoding: 'utf8' });
 }
 
 beforeAll(() => {
@@ -141,11 +345,13 @@ beforeAll(() => {
   git('config', 'user.name', 'Test Runner');
   git('config', 'user.email', 'test@example.invalid');
   copyClosure(SCRIPT);
+  copyRouteResolverData();
   fs.writeFileSync(path.join(repo, 'package.json'), JSON.stringify({ type: 'module' }));
 });
 
 afterAll(() => {
   if (repo) fs.rmSync(repo, { recursive: true, force: true });
+  if (reportDir) fs.rmSync(reportDir, { recursive: true, force: true });
 });
 
 describe('check-retired-jobs-archived CLI', () => {
@@ -163,6 +369,26 @@ describe('check-retired-jobs-archived CLI', () => {
     const result = observe(base, head);
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('retired acme: gone');
+  });
+
+  it('reports locale-slug findings as JSON and fails at the default zero threshold', () => {
+    const base = commitSlices({ jobs: [job('canonical', { slugByLocale: { it: 'it-route', de: 'lost-de' }, canton: 'ZH' })] }, [], 'locale base');
+    const head = commitSlices({ jobs: [job('canonical', { slugByLocale: { it: 'it-route', de: 'new-de' }, canton: 'ZH' })] }, [], 'locale changed');
+    reportDir = fs.mkdtempSync(path.join(os.tmpdir(), 'retired-observer-report-'));
+    const reportPath = path.join(reportDir, 'report.json');
+    const failed = observe(base, head, ['--json', reportPath]);
+
+    expect(failed.status).toBe(1);
+    expect(failed.stdout).toContain('active locale slugs lost: 1 (max 0)');
+    expect(JSON.parse(fs.readFileSync(reportPath, 'utf8'))).toMatchObject({
+      activeLocaleSlugLost: 1,
+      activeLocaleSlugLostByCrawler: { acme: 1 },
+      thresholds: { activeLocaleSlugLost: 0 },
+      activeLocaleSlugLostSample: [{ crawlerKey: 'acme', locale: 'de', slug: 'lost-de' }],
+    });
+
+    const allowed = observe(base, head, ['--max-active-locale-slug-lost', '1']);
+    expect(allowed.status, allowed.stderr).toBe(0);
   });
 
   it('reads an archive split into `<key>.shard-NNN.json` as the archive of `<key>`', () => {
@@ -186,5 +412,46 @@ describe('check-retired-jobs-archived CLI', () => {
     const result = observe(base, head);
     expect(result.status).toBe(2);
     expect(result.stderr).toMatch(/cannot read acme\.json .*unsupported slice root/);
+  });
+});
+
+describe('retired jobs archive observer workflow checkout', () => {
+  it('keeps cone mode narrow and materializes exactly the observer file dependencies', () => {
+    const workflow = YAML.parse(readFileSync(
+      new URL('../../.github/workflows/retired-jobs-archive-observer.yml', import.meta.url),
+      'utf8',
+    ));
+    const steps = workflow.jobs.observe.steps as Array<Record<string, any>>;
+    const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
+    if (!checkout) throw new Error('Observer checkout step is missing');
+    const sparsePaths = checkout.with['sparse-checkout']
+      .split('\n')
+      .map((value: string) => value.trim())
+      .filter(Boolean);
+    expect(sparsePaths).toEqual(['scripts']);
+    expect(checkout.with['sparse-checkout-cone-mode']).toBe(true);
+
+    const materialize = steps.find((step) => step.name === 'Materialize observer file dependencies');
+    if (!materialize) throw new Error('Observer dependency materialization step is missing');
+    const materializedFiles = [...materialize.run.matchAll(/git show "HEAD:([^"]+)" > ([^\s]+)/g)]
+      .map((match) => [match[1], match[2]]);
+    expect(materializedFiles).toEqual([
+      ['build-plugins/shared/cantonResolvers.mjs', 'build-plugins/shared/cantonResolvers.mjs'],
+      ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
+      ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
+    ]);
+
+    const prepareDescription = steps.find((step) => step.id === 'issue-description');
+    expect(prepareDescription?.if).toBe('failure()');
+    expect(prepareDescription?.run).toContain('buildFailureIssueDescription');
+    expect(prepareDescription?.run).toContain('retired-jobs-archive.json');
+    expect(prepareDescription?.run).toContain('GITHUB_OUTPUT');
+
+    const reportIssue = steps.find((step) => step.name === 'Report failure to GitHub Issues');
+    expect(reportIssue?.if).toBe('failure()');
+    expect(reportIssue?.['continue-on-error']).toBe(true);
+    expect(reportIssue?.env?.ISSUE_DESCRIPTION).toBe('${{ steps.issue-description.outputs.description }}');
+    expect(reportIssue?.run).toContain('node scripts/lib/github-issue-creator.mjs');
+    expect(reportIssue?.run).toContain('--description "$ISSUE_DESCRIPTION"');
   });
 });
