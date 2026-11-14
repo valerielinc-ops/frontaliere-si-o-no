@@ -21,7 +21,7 @@ import {
   expectedItGroupDigests,
   itShardGroupPlanDigest,
   validateItShardGroupPlan,
-} from './it-shard-group-plan.mjs';
+} from './it-shard-group-contract.mjs';
 
 export const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const PAGES_RECEIPT_PREFIX = 'frontaliere/pages-deployed';

@@ -380,7 +380,7 @@ jobs:
           ref: ${{ github.sha }}
           sparse-checkout: |
             /scripts/ci/publish-receipts.mjs
-            /scripts/ci/it-shard-group-plan.mjs
+            /scripts/ci/it-shard-group-contract.mjs
           sparse-checkout-cone-mode: false
 
       # The plan carries the digest each group receipt must match. It is read
@@ -1607,7 +1607,7 @@ jobs:
           path: receipt-resolver
           sparse-checkout: |
             /scripts/ci/publish-receipts.mjs
-            /scripts/ci/it-shard-group-plan.mjs
+            /scripts/ci/it-shard-group-contract.mjs
           sparse-checkout-cone-mode: false
 
       # The source checkout above is intentionally pinned to the build SHA so
@@ -3216,7 +3216,7 @@ jobs:
             scripts/ci/locale-publish-provenance.mjs
             scripts/ci/resolve-nonit-publish-plan.mjs
             scripts/ci/publish-receipts.mjs
-            scripts/ci/it-shard-group-plan.mjs
+            scripts/ci/it-shard-group-contract.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
