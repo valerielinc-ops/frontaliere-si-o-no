@@ -84,8 +84,7 @@ jobs:
             ).href);
             const recoveryToken = process.env.GITHUB_PAT;
             if (!recoveryToken) {
-              core.setFailed('GITHUB_PAT was not loaded from Remote Config; refusing recovery.');
-              return;
+              throw new Error('GITHUB_PAT was not loaded from Remote Config; refusing recovery.');
             }
             // The ambient GITHUB_TOKEN is an installation token shared by the
             // repository's concurrent workflows. Use the long-lived PAT for
