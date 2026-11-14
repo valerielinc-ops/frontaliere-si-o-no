@@ -29,7 +29,9 @@ import {
   mergeAlertSubscriberSignals,
 } from '../services/jobAlertMatching.mjs';
 import {
+  alertDiagnosticId,
   alertSampleFraction,
+  alertSampleKey,
   comparePlanOutcomes,
   createJobAlertCandidateIndex,
   isAlertSampledForIndexCheck,
@@ -477,6 +479,7 @@ describe('rollout — planAlertForRun', () => {
     expect(normalizePlan(result.plan)).toEqual(normalizePlan(legacy.plan));
     expect(result.counters.indexMismatch).toBe(1);
     expect(result.warnings.join('\n')).toContain('rollout-1');
+    expect(result.warnings.join('\n')).toMatch(/\[[0-9a-f]{12}\]/);
     expect(result.warnings.join('\n')).not.toContain('@');
   });
 
@@ -533,6 +536,73 @@ describe('rollout — configurazione e campionamento', () => {
     expect(isAlertSampledForIndexCheck('x', 0)).toBe(false);
     expect(isAlertSampledForIndexCheck('x', 1)).toBe(true);
     expect(alertSampleFraction('x')).toBe(alertSampleFraction('x'));
+  });
+
+  // Dry-run di produzione: gli alert del backfill hanno TUTTI l'id `backfill-newsletter`
+  // (in sottocollezioni di email diverse). Campionare sul solo id rendeva il campione
+  // «tutti o nessuno»: 14 alert verificati su ~117 attesi.
+  describe('campionamento sul percorso completo del documento', () => {
+    const backfillAlerts = Array.from({ length: 1000 }, (_, i) => ({
+      id: 'backfill-newsletter',
+      email: `person${i}@example.test`,
+      ref: { path: `job_alert_subscribers/person${i}@example.test/alerts/backfill-newsletter` },
+    }));
+
+    it('1.000 alert con lo stesso id e percorsi diversi: la frazione campionata e\' quella richiesta (±3 punti)', () => {
+      for (const rate of [0.02, 0.1, 0.5]) {
+        const sampled = backfillAlerts.filter((alert) => isAlertSampledForIndexCheck(alertSampleKey(alert), rate)).length;
+        expect(Math.abs(sampled / backfillAlerts.length - rate)).toBeLessThanOrEqual(0.03);
+      }
+    });
+
+    it('il campione sul solo id era degenere: tutti o nessuno (la regressione che il test difende)', () => {
+      const byId = backfillAlerts.filter((alert) => isAlertSampledForIndexCheck(alert.id, 0.1)).length;
+      expect([0, backfillAlerts.length]).toContain(byId);
+    });
+
+    it('senza riferimento la chiave e\' email minuscola + id, e distingue due email con lo stesso id', () => {
+      const a = { id: 'backfill-newsletter', email: 'Persona@Example.test' };
+      const b = { id: 'backfill-newsletter', email: 'altra@example.test' };
+      expect(alertSampleKey(a)).toBe('persona@example.test\u0000backfill-newsletter');
+      expect(alertSampleKey(a)).not.toBe(alertSampleKey(b));
+    });
+
+    it('l identificatore diagnostico e\' di 12 esadecimali, univoco per percorso e senza traccia dell email', () => {
+      const ids = new Set(backfillAlerts.map((alert) => alertDiagnosticId(alert)));
+      expect(ids.size).toBe(backfillAlerts.length);
+      for (const id of ids) {
+        expect(id).toMatch(/^[0-9a-f]{12}$/);
+        expect(id).not.toContain('person');
+      }
+    });
+
+    it('planAlertForRun in `on` con alert dallo stesso id: verifica la frazione richiesta e il log di divergenza porta id + identificatore, mai l email', () => {
+      const logs: string[] = [];
+      const metrics = createJobAlertMetrics();
+      const rows = INVENTORY.slice(0, 30);
+      const index = createJobAlertCandidateIndex(rows, { nowMs: NOW });
+      const context = (_alert: any) => ({
+        behaviorProfiles: new Map(), lastClickedUrlByEmail: new Map(), locationIndex: new Map(), cityToCanton: new Map(),
+        subscriberProfiles: new Map(), now: NOW, featureCache: createJobFeatureCache(), compactMatches: true, allowDiscovery: false,
+      });
+      const cursor = { cursorMs: 0 };
+      const sample = backfillAlerts.slice(0, 300).map((alert) => ({ ...alert, active: true, keywords: ['infermiere'] }));
+      for (const alert of sample) {
+        planAlertForRun(alert, context(alert), {
+          cursor,
+          selectLegacyWindow: () => rows,
+          candidateIndex: index,
+          indexMode: 'on',
+          sampleRate: 0.1,
+          metrics,
+          warn: (line: string) => logs.push(line),
+        });
+      }
+      const counters = metrics.snapshot().counters;
+      expect(counters.indexSampled / sample.length).toBeGreaterThan(0.05);
+      expect(counters.indexSampled / sample.length).toBeLessThan(0.15);
+      expect(logs.join('\n')).not.toMatch(/@example\.test/);
+    });
   });
 });
 

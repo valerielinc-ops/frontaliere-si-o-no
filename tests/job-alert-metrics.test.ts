@@ -124,6 +124,20 @@ describe('metriche per fase', () => {
     expect(markdown).toContain('indexMismatch');
     expect(markdown).not.toMatch(/@/);
   });
+
+  it('il Job Summary riporta il tempo per strategia e la costruzione una tantum di indice e vocabolari', () => {
+    const metrics = createJobAlertMetrics({ now: () => 0, memory: () => ({ heapUsed: 1, rss: 1 }) });
+    metrics.enter('planning');
+    metrics.count('planMs.hard-search', 1000); metrics.count('planAlerts.hard-search', 4);
+    metrics.count('planMs.hard-keyword', 300); metrics.count('planAlerts.hard-keyword', 3);
+    metrics.set('indexBuildMs', 120);
+    metrics.set('vocabularyBuildMs.it', 22_000); metrics.set('vocabularyWords.it', 65_000); metrics.set('vocabularyBytes.it', 21 * 1024 * 1024);
+    const markdown = formatJobAlertMetricsMarkdown(metrics.snapshot());
+    expect(markdown).toMatch(/\| hard-search \| 4 \| 1\.?000 \| 250 \|/);
+    expect(markdown.indexOf('hard-search')).toBeLessThan(markdown.indexOf('hard-keyword'));
+    expect(markdown).toMatch(/indice dei candidati \| 120 ms/);
+    expect(markdown).toMatch(/vocabolario ricerca \[it\] \| 22\.000 ms, 65\.000 parole, 21 MiB/);
+  });
 });
 
 describe('contatore delle operazioni Firestore', () => {

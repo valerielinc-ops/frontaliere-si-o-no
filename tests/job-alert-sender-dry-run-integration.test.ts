@@ -226,6 +226,15 @@ describe('sender in dry-run, end to end', () => {
   });
 
   it('PR 5: live-link dal manifest, una sola richiesta HTTP, nessun fail-open, gli annunci non pubblicati sono esclusi', () => {
+    // Telemetria dell'indice (dry-run di produzione #1: senza questi dati non si vede dove va il tempo).
+    const strategyKeys = Object.keys(metrics.counters).filter((key) => key.startsWith('planMs.'));
+    expect(strategyKeys.length).toBeGreaterThan(0);
+    for (const key of strategyKeys) {
+      expect(Number.isFinite(metrics.counters[key])).toBe(true);
+      expect(metrics.counters[`planAlerts.${key.slice('planMs.'.length)}`]).toBeGreaterThan(0);
+    }
+    expect(Number.isFinite(metrics.counters.indexBuildMs)).toBe(true);
+    expect(metrics.counters.indexBitsetBytes).toBeGreaterThanOrEqual(0);
     expect(metrics.counters.liveLinkSource).toBe('manifest');
     expect(metrics.counters.liveLinkHttpRequests).toBe(1);
     expect(metrics.counters.liveLinkFailOpen ?? 0).toBe(0);

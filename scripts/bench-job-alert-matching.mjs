@@ -24,11 +24,17 @@
  * Uso:
  *   node scripts/bench-job-alert-matching.mjs [--rows 35000] [--alerts 60]
  *        [--seed 42] [--jobs data/jobs.json --rebase-now] [--json]
- *        [--max-legacy-seconds 600] [--no-search] [--index-only]
+ *        [--max-legacy-seconds 600] [--no-search] [--index-only] [--production-mix]
  *
  * `--no-search` toglie gli alert con ricerca testuale (`job_search_query`):
  * la ricerca stemmed costa lo stesso nei due percorsi (haystack per riga) e,
  * con pochi alert, nasconde il guadagno degli altri rami.
+ *
+ * `--production-mix` usa la distribuzione delle strategie misurata dal dry-run di
+ * produzione (1.171 alert eleggibili): ricerca dura (`hard-search`) 32%, nessun
+ * criterio (`never`) 43%, keyword dure 20%, intento legacy (`soft-legacy`) 2,5%,
+ * geo senza risultati 1,6%, annuncio fisso 0,5%. Gli alert di ricerca dura sono
+ * quelli nati dal backfill (`backfilled_from`) con `job_search_query`.
  */
 import fs from 'node:fs';
 import { performance } from 'node:perf_hooks';
@@ -47,7 +53,7 @@ import { nlNormLocale } from '../services/newsletter-template.mjs';
 const DAY = 24 * 60 * 60 * 1000;
 
 function parseArgs(argv) {
-  const args = { rows: 35_000, alerts: 60, seed: 42, jobs: null, rebaseNow: false, json: false, maxLegacySeconds: 600, search: true, indexOnly: false };
+  const args = { rows: 35_000, alerts: 60, seed: 42, jobs: null, rebaseNow: false, json: false, maxLegacySeconds: 600, search: true, indexOnly: false, productionMix: false };
   for (let i = 0; i < argv.length; i++) {
     const [key, inline] = argv[i].split('=');
     const next = () => (inline !== undefined ? inline : argv[++i]);
@@ -61,6 +67,7 @@ function parseArgs(argv) {
       case '--max-legacy-seconds': args.maxLegacySeconds = Number(next()); break;
       case '--no-search': args.search = false; break;
       case '--index-only': args.indexOnly = true; break;
+      case '--production-mix': args.productionMix = true; break;
       default: throw new Error(`argomento sconosciuto: ${key}`);
     }
   }
@@ -145,7 +152,7 @@ function loadRealInventory(path, rebaseNow, nowMs) {
 }
 
 /** Alert sintetici con la distribuzione dei criteri dei job alert reali (stime, non dati di subscriber). */
-function syntheticAlerts(count, rand, jobs, { search = true } = {}) {
+function syntheticAlerts(count, rand, jobs, { search = true, productionMix = false } = {}) {
   const pick = (list) => list[Math.floor(rand() * list.length)];
   const words = [...new Set(jobs.slice(0, 2000).flatMap((job) => String(job.title || '').toLowerCase().split(/[^a-zà-ü]+/)).filter((w) => w.length >= 5))];
   const cities = [...new Set(jobs.slice(0, 2000).map((job) => job.location).filter(Boolean))];
@@ -156,6 +163,24 @@ function syntheticAlerts(count, rand, jobs, { search = true } = {}) {
     const alert = { id: `bench-alert-${i}`, email, locale: pick(['it', 'it', 'it', 'de', 'fr', 'en']) };
     const subscriber = {};
     const roll = rand();
+    if (productionMix) {
+      // Distribuzione del dry-run di produzione (vedi l'intestazione).
+      if (roll < 0.32) {
+        const query = `${pick(words)} ${rand() < 0.5 ? pick(words) : pick(['lugano', 'zurich', 'ticino'])}`;
+        alert.backfilled_from = 'newsletter_subscribers:job_gate';
+        alert.keywords = [query];
+        subscriber.job_search_query = query;
+      } else if (roll < 0.75) { /* never: nessun criterio */ }
+      else if (roll < 0.95) {
+        alert.keywords = [pick(words), ...(rand() < 0.4 ? [pick(words)] : [])];
+        if (rand() < 0.4) alert.locations = [pick(cities)];
+      } else if (roll < 0.975) { alert.sourceJobTitle = `${pick(TITLE_WORDS)} ${pick(QUALIFIERS)}`; subscriber.job_company = pick(COMPANIES.filter(Boolean)); }
+      else if (roll < 0.991) alert.locations = ['Nowhereville'];
+      else alert.specificJobId = pick(jobs).id;
+      alerts.push(alert);
+      subscribers.set(email, subscriber);
+      continue;
+    }
     if (roll < 0.04) alert.specificJobId = pick(jobs).id;
     else if (roll < 0.07) alert.specificCompanyKey = 'eoc';
     else if (roll < 0.52) { // keyword dure (le più comuni)
@@ -189,7 +214,7 @@ async function main() {
     ? loadRealInventory(args.jobs, args.rebaseNow, nowMs)
     : syntheticInventory(args.rows, rand, nowMs);
   const source = args.jobs ? `real:${args.jobs}` : 'synthetic';
-  const { alerts, subscribers } = syntheticAlerts(args.alerts, rand, jobs, { search: args.search });
+  const { alerts, subscribers } = syntheticAlerts(args.alerts, rand, jobs, { search: args.search, productionMix: args.productionMix });
 
   const selector = createJobAlertCandidateSelector(jobs, { nowMs });
   const buildStarted = performance.now();

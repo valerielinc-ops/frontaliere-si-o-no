@@ -93,14 +93,38 @@ export function resolveCandidateIndexConfig(env = process.env, { dryRun = false 
   return { mode, sampleRate, budgetBytes, invalidMode };
 }
 
-/** Frazione deterministica in [0, 1) dell'id di un alert: mai l'email. */
-export function alertSampleFraction(alertId) {
-  const digest = createHash('sha256').update(`job-alert-candidate-index:${String(alertId ?? '')}`).digest();
+/**
+ * Chiave di campionamento di un alert: il PERCORSO completo del documento
+ * (`job_alert_subscribers/{email}/alerts/{id}`) o, senza riferimento, email
+ * minuscola + NUL + id. L'id da solo NON basta: tutti gli alert nati dal backfill
+ * si chiamano `backfill-newsletter` (sottocollezioni di email diverse), quindi
+ * l'hash dell'id e' identico per migliaia di alert e il campione sarebbe «tutti o
+ * nessuno» (dry-run di produzione: 14 alert verificati su ~117 attesi). La chiave
+ * entra solo nell'hash e non viene mai stampata.
+ */
+export function alertSampleKey(alert) {
+  const path = String(alert?.ref?.path || '').trim();
+  if (path) return path;
+  return `${String(alert?.email || '').trim().toLowerCase()}\u0000${String(alert?.id ?? '')}`;
+}
+
+/**
+ * Identificatore NON personale e univoco per i log: i primi 12 caratteri esadecimali
+ * dello sha256 della chiave. Non e' reversibile ne' contiene l'email.
+ */
+export function alertDiagnosticId(alert) {
+  return createHash('sha256').update(`job-alert-diagnostic:${alertSampleKey(alert)}`).digest('hex').slice(0, 12);
+}
+
+/** Frazione deterministica in [0, 1) di una chiave di campionamento (mai l'email in chiaro nei log). */
+export function alertSampleFraction(key) {
+  const digest = createHash('sha256').update(`job-alert-candidate-index:${String(key ?? '')}`).digest();
   return digest.readUInt32BE(0) / 0x1_0000_0000;
 }
 
-export function isAlertSampledForIndexCheck(alertId, sampleRate) {
-  return sampleRate > 0 && alertSampleFraction(alertId) < sampleRate;
+/** `key` e' la chiave di `alertSampleKey(alert)`. */
+export function isAlertSampledForIndexCheck(key, sampleRate) {
+  return sampleRate > 0 && alertSampleFraction(key) < sampleRate;
 }
 
 // ── Bitset ──────────────────────────────────────────────────────────────
@@ -784,6 +808,10 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       return sorted.length - upperBound(sorted, cursorMs);
     },
     select,
+    /** Millisecondi cumulati di costruzione dei vocabolari di ricerca (per la telemetria). */
+    searchVocabularyBuildMs: () => [...lazy.entries()]
+      .filter(([key]) => key.startsWith('vocab:'))
+      .reduce((sum, [, value]) => sum + value.buildMs, 0),
     /** Solo per i test: la riga all'indice dato. */
     rowAt: (i) => rows[i],
     /** Solo per i test: la maschera di `searchMask` su TUTTE le righe. */

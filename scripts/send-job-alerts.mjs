@@ -171,6 +171,8 @@ import {
 import {
   comparePlanOutcomes,
   createJobAlertCandidateIndex,
+  alertDiagnosticId,
+  alertSampleKey,
   isAlertSampledForIndexCheck,
   resolveCandidateIndexConfig,
 } from './lib/job-alert-candidate-index.mjs';
@@ -3068,9 +3070,12 @@ function planAlertMatch(alert, {
  *    score), si usa il piano LEGACY per quell'alert e si conta `indexMismatch`.
  *    Un'eccezione dell'indice vale come divergenza: il run non si ferma.
  *
- * Nei log compare solo l'id dell'alert, mai l'email. Esportata per i test.
+ * Il campione si decide sull'hash del PERCORSO del documento (`alertSampleKey`), non
+ * sul solo id: gli alert del backfill hanno tutti lo stesso id. Nei log compaiono
+ * l'id e un identificatore non personale (12 esadecimali di sha256), mai l'email.
+ * Esportata per i test.
  *
- * @returns {{plan: object, windowRows: number, usedIndex: boolean}}
+ * @returns {{plan: object, windowRows: number, usedIndex: boolean, sampled: boolean}}
  */
 export function planAlertForRun(alert, context, {
   cursor,
@@ -3082,6 +3087,7 @@ export function planAlertForRun(alert, context, {
   warn = console.warn,
 } = {}) {
   let legacyWindowRows = null;
+  let sampled = false;
   const legacyPlan = () => {
     const jobs = selectLegacyWindow();
     legacyWindowRows = jobs.length;
@@ -3095,15 +3101,15 @@ export function planAlertForRun(alert, context, {
   const windowRowsOf = () => (candidateIndex ? candidateIndex.windowRowCount(cursor.cursorMs) : legacyWindowRows);
   const recordMismatch = (field) => {
     metrics.count('indexMismatch');
-    warn(`   ⚠️  candidate-index mismatch on alert ${alert.id} (${field}) — ${indexMode === 'on' ? 'using the legacy plan' : 'legacy decided'}`);
+    warn(`   ⚠️  candidate-index mismatch on alert ${alert.id} [${alertDiagnosticId(alert)}] (${field}) — ${indexMode === 'on' ? 'using the legacy plan' : 'legacy decided'}`);
   };
 
   if (!candidateIndex || indexMode === 'off') {
     const plan = legacyPlan();
-    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+    return { plan, windowRows: legacyWindowRows, usedIndex: false, sampled };
   }
 
-  const sampled = isAlertSampledForIndexCheck(alert.id, sampleRate);
+  sampled = isAlertSampledForIndexCheck(alertSampleKey(alert), sampleRate);
   if (indexMode === 'shadow') {
     const plan = legacyPlan();
     if (sampled) {
@@ -3116,7 +3122,7 @@ export function planAlertForRun(alert, context, {
         recordMismatch(`error ${error?.name || 'Error'}`);
       }
     }
-    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+    return { plan, windowRows: legacyWindowRows, usedIndex: false, sampled };
   }
 
   // indexMode === 'on'
@@ -3127,7 +3133,7 @@ export function planAlertForRun(alert, context, {
     metrics.count('indexErrors');
     recordMismatch(`error ${error?.name || 'Error'}`);
     const plan = legacyPlan();
-    return { plan, windowRows: legacyWindowRows, usedIndex: false };
+    return { plan, windowRows: legacyWindowRows, usedIndex: false, sampled };
   }
   if (sampled) {
     metrics.count('indexSampled');
@@ -3135,12 +3141,29 @@ export function planAlertForRun(alert, context, {
     const verdict = comparePlanOutcomes(plan, indexed);
     if (!verdict.equal) {
       recordMismatch(verdict.field);
-      return { plan, windowRows: legacyWindowRows, usedIndex: false };
+      return { plan, windowRows: legacyWindowRows, usedIndex: false, sampled };
     }
   }
   metrics.count('indexedAlerts');
   if (indexed.indexStrategy) metrics.count(`strategy:${indexed.indexStrategy}`);
-  return { plan: indexed, windowRows: windowRowsOf(), usedIndex: true };
+  return { plan: indexed, windowRows: windowRowsOf(), usedIndex: true, sampled };
+}
+
+/**
+ * Telemetria dell'indice nella riga METRICS: tempo di costruzione dell'indice e,
+ * per locale, il vocabolario della ricerca (parole, byte, ms). Senza questi dati un
+ * dry-run non dice dove va il tempo residuo del planning.
+ */
+export function recordCandidateIndexTelemetry(candidateIndex, metrics = jobAlertMetrics) {
+  if (!candidateIndex) return;
+  const stats = candidateIndex.stats();
+  metrics.set('indexBuildMs', stats.buildMs);
+  metrics.set('indexBitsetBytes', stats.bitsetBytes);
+  for (const [locale, vocabulary] of Object.entries(stats.searchVocabulary || {})) {
+    metrics.set(`vocabularyBuildMs.${locale}`, vocabulary.buildMs);
+    metrics.set(`vocabularyBytes.${locale}`, vocabulary.total);
+    metrics.set(`vocabularyWords.${locale}`, vocabulary.words);
+  }
 }
 
 /**
@@ -4243,7 +4266,9 @@ async function main() {
       // l'indice la finestra non si materializza, serve solo il limite.
       const cursor = resolveJobAlertCursor({ ...windowOptions, nowMs: now });
       cursorReasons[cursor.reason] = (cursorReasons[cursor.reason] || 0) + 1;
-      const { plan, windowRows } = planAlertForRun(alert, {
+      const planStartedAt = performance.now();
+      const vocabularyBefore = candidateIndex ? candidateIndex.searchVocabularyBuildMs() : 0;
+      const { plan, windowRows, sampled: verifiedAgainstLegacy } = planAlertForRun(alert, {
         behaviorProfiles,
         lastClickedUrlByEmail,
         locationIndex,
@@ -4268,6 +4293,15 @@ async function main() {
         indexMode: indexConfig.mode,
         sampleRate: indexConfig.sampleRate,
       });
+      // Tempo per strategia, al netto della costruzione una tantum del vocabolario
+      // (riportata a parte per locale); gli alert verificati col legacy hanno una
+      // chiave a se', cosi' il costo della verifica non si confonde con la strategia.
+      {
+        const vocabularyDelta = candidateIndex ? candidateIndex.searchVocabularyBuildMs() - vocabularyBefore : 0;
+        const strategyKey = `${plan.indexStrategy || 'legacy'}${verifiedAgainstLegacy ? '+verify' : ''}`;
+        jobAlertMetrics.count(`planMs.${strategyKey}`, Math.round(Math.max(0, performance.now() - planStartedAt - vocabularyDelta)));
+        jobAlertMetrics.count(`planAlerts.${strategyKey}`);
+      }
       cursorCandidateCount += windowRows;
       jobAlertMetrics.count('windowRows', windowRows);
       jobAlertMetrics.count('scoredRows', plan.scoredRows ?? 0);
@@ -4307,6 +4341,7 @@ async function main() {
       sampleBatchMemory();
       await new Promise((resolve) => setImmediate(resolve));
     }
+    recordCandidateIndexTelemetry(candidateIndex);
     planningMs += Date.now() - batchPlanningStartedAt;
 
     const batchDrainStartedAt = Date.now();

@@ -205,5 +205,27 @@ export function formatJobAlertMetricsMarkdown(snapshot) {
   ];
   for (const [label, value] of rows) out.push(`| ${label} | ${value} |`);
   out.push('');
+  // Tempo di planning per strategia (ms totali, al netto del vocabolario) e
+  // costruzione una tantum di indice e vocabolari: dove va il tempo residuo.
+  const strategies = Object.keys(c).filter((key) => key.startsWith('planMs.')).sort((a, b) => c[b] - c[a]);
+  if (strategies.length > 0) {
+    out.push('| Strategia di planning | Alert | ms totali | ms per alert |', '| --- | ---: | ---: | ---: |');
+    for (const key of strategies) {
+      const name = key.slice('planMs.'.length);
+      const alerts = c[`planAlerts.${name}`] || 0;
+      out.push(`| ${name} | ${fmt(alerts)} | ${fmt(c[key])} | ${alerts > 0 ? fmt(c[key] / alerts) : '—'} |`);
+    }
+    out.push('');
+  }
+  const vocabularies = Object.keys(c).filter((key) => key.startsWith('vocabularyBuildMs.')).sort();
+  if (Number.isFinite(c.indexBuildMs) || vocabularies.length > 0) {
+    out.push('| Costruzione una tantum | Valore |', '| --- | ---: |');
+    if (Number.isFinite(c.indexBuildMs)) out.push(`| indice dei candidati | ${fmt(c.indexBuildMs)} ms |`);
+    for (const key of vocabularies) {
+      const locale = key.slice('vocabularyBuildMs.'.length);
+      out.push(`| vocabolario ricerca [${locale}] | ${fmt(c[key])} ms, ${fmt(c[`vocabularyWords.${locale}`])} parole, ${mib(c[`vocabularyBytes.${locale}`])} |`);
+    }
+    out.push('');
+  }
   return out.join('\n');
 }
