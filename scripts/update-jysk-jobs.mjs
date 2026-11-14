@@ -307,9 +307,7 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    if (summaryCounts.parsed === 0) {
-      summaryCounts.abortKind = 'no-jobs-parsed';
-    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
     console.log('⚠️ No JYSK jobs found after a non-empty discovery; preserving the existing slice and recording the fail-closed result.');
     return;
   }
