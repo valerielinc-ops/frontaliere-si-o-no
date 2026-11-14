@@ -113,6 +113,7 @@ function careerLinksFromPage(body, baseUrl) {
  *   before enrichment. Neither a missing detail marker nor absent target text
  *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {boolean} [listingTitleFromUrl] Use a known detail URL slug as a provisional listing title when the source anchor is untitled
  * @property {boolean} [employerSiteLocationFallback] Allow the single-site official address proof after offer-specific location evidence is absent
  * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
  *   Reviewed exact Umantis listing postcode/locality pairs used only to

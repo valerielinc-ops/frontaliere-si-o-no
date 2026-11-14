@@ -88,6 +88,47 @@ describe('LIP Suisse crawler parser', () => {
     }
   });
 
+  it('keeps template-matched vacancies when the source uses untitled overlay anchors', async () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const listingUrl = spec.seedUrls[0];
+    const vacancyUrls = [
+      'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
+      'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
+      ...Array.from({ length: 28 }, (_, index) => (
+        `https://www.lipsuisse.ch/offres-emploi/offre-${index + 1}/`
+      )),
+    ];
+    const html = `<h2>30&nbsp;Offres d'emploi trouvées</h2><main>${vacancyUrls.map((url) => (
+      `<a href="${url}" aria-hidden="true"></a>`
+    )).join('')}</main>`;
+    const fetchImpl = async (url: string) => {
+      if (url === 'https://www.lipsuisse.ch/robots.txt') {
+        return new Response('User-agent: *\nAllow: /', { status: 200 });
+      }
+      expect(url).toBe(listingUrl);
+      return new Response(html, { status: 200 });
+    };
+    const policy = createSpecUrlPolicy(spec, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      const rows = await collectSpecListingRows(spec, {
+        fetchImpl,
+        sleepImpl: async () => {},
+        retries: 0,
+        disableWafProxy: true,
+      }, policy);
+      expect(rows).toHaveLength(30);
+      expect(rows.slice(0, 2).map((row) => row.title)).toEqual([
+        'assistant de direction batiment h f 3',
+        'carreleur 2',
+      ]);
+    } finally {
+      await policy.dispatcher.close();
+    }
+  });
+
   it('fails closed if the source ignores the enlarged page-size request', async () => {
     const spec = loadSpec(LIPSUISSE_CH_KEY);
     const listingUrl = spec.seedUrls[0];
