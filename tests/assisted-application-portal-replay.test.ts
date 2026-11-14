@@ -448,6 +448,7 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('node "$portal_replay_cli" compare');
     expect(workflow).toContain('run_family "$family" &');
     expect(workflow).toContain('wait_for_wave');
+    expect(workflow).toContain('bash -c "$(declare -f run_group); run_group"');
     expect(workflow).toContain('PORTAL_REPLAY_REPORT_DIR');
     expect(workflow).toContain('name: assisted-application-portal-replay-reports-${{ github.run_id }}');
     expect(workflow).not.toContain('max-parallel: 6');
