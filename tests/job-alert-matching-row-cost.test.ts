@@ -319,6 +319,34 @@ describe('scorer oracle (#9314): same score as the pre-#9314 scoreJobForAlert', 
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
   });
+
+  it('rejects hard-geo misses before building full job features', () => {
+    const alert = ALERTS.find((candidate) => candidate.id === 'kw-geo')!;
+    const profile = profileOf(alert);
+    const store = createJobFeatureStore();
+    const originalBase = store.base;
+    let baseBuilds = 0;
+    store.base = (job: object) => {
+      baseBuilds++;
+      return originalBase(job);
+    };
+    const cache = createJobFeatureCache(store);
+    const scorer = createAlertScorer(profile, 'de', cache);
+    const job = {
+      ...fixtureJobs()[1],
+      title: 'Senior Software Engineer (Java)',
+      titleByLocale: { de: 'Senior Software Engineer (Java)' },
+      location: 'Genève',
+      canton: 'GE',
+    };
+
+    expect(scorer(job)).toBe(0);
+    expect(baseBuilds).toBe(0);
+
+    const inScopeJob = { ...job, location: 'Zürich', canton: 'ZH' };
+    expect(scorer(inScopeJob)).toBe(oracleScore(inScopeJob, profile, 'de'));
+    expect(baseBuilds).toBe(1);
+  });
 });
 
 describe('partitionByGeoPreference (#9314): needles normalized once, same split', () => {

@@ -781,7 +781,11 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
 }
 
 /** Small locale-independent values retained between alert batches. */
-function jobMatchBaseFeatures(job) {
+function jobMatchBaseFeatures(job, geo = null) {
+  const location = geo || {
+    jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
+    jobCanton: String(job.canton || '').toLowerCase(),
+  };
   return {
     // Descriptions are identical across recipient locales. Keep the normalized
     // copy once per job; the full locale-specific text is assembled lazily.
@@ -790,8 +794,8 @@ function jobMatchBaseFeatures(job) {
     // never retain a locale's concatenated description here.
     localeFeatures: new Map(),
     jobCompany: normalizeCompanyToken(job.company),
-    jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
-    jobCanton: String(job.canton || '').toLowerCase(),
+    jobLoc: location.jobLoc,
+    jobCanton: location.jobCanton,
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
     jobCategoryKeys: jobCategoryKeys(job),
     jobTaxonomyValues: jobTaxonomyValues(job),
@@ -1071,7 +1075,9 @@ function memoKeywordInFullText(entry, localeMemo, featureStore, keyword) {
  * Run-scoped compact job data. Locale-independent base features, compact
  * per-locale title/token features, and a capped set of description keyword
  * bitmaps are shared. Search haystacks and per-batch bitmaps stay in the
- * shorter-lived cache returned by {@link createJobFeatureCache}.
+ * shorter-lived cache returned by {@link createJobFeatureCache}. A hard-geo
+ * miss can be rejected from the smaller geo record before the base builds the
+ * description, taxonomy sets, or locale tokens.
  *
  * A caller that mutates a job between scores must not reuse this store. The
  * default (no cache) recomputes exactly as before.
@@ -1080,15 +1086,27 @@ export function createJobFeatureStore() {
   const byJob = new WeakMap();
   const pinnedKeysByJob = new WeakMap();
   const jobIndexByJob = new WeakMap();
+  const geoByJob = new WeakMap();
   let jobCount = 0;
   const descriptionMemos = new Map();
   // Only built below the existing 65,536-job ceiling: at 512 bytes each,
   // description Bloom payload is capped at 32 MiB per run-scoped store.
   const descriptionBloomsByFeatures = new WeakMap();
+  const geo = (job) => {
+    let found = geoByJob.get(job);
+    if (!found) {
+      found = {
+        jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
+        jobCanton: String(job.canton || '').toLowerCase(),
+      };
+      geoByJob.set(job, found);
+    }
+    return found;
+  };
   const base = (job) => {
     let found = byJob.get(job);
     if (!found) {
-      found = jobMatchBaseFeatures(job);
+      found = jobMatchBaseFeatures(job, geo(job));
       byJob.set(job, found);
     }
     return found;
@@ -1145,6 +1163,7 @@ export function createJobFeatureStore() {
       return jobMatchFeaturesWithBase(job, locale, base(job));
     },
     base,
+    geo,
     jobIndex,
     descriptionContains,
     pinnedKeys(job) {
@@ -1166,6 +1185,7 @@ export function createJobFeatureStore() {
  */
 export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
   const byJob = new WeakMap();
+  const paddedLocByJob = new WeakMap();
   /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>, searchMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
   const spaces = new Map();
   const spaceFor = (key) => {
@@ -1199,10 +1219,22 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
     }
     return found;
   };
+  const paddedLoc = (job) => {
+    let found = paddedLocByJob.get(job);
+    if (found === undefined) {
+      found = paddedLocHaystack(featureStore.geo(job).jobLoc);
+      paddedLocByJob.set(job, found);
+    }
+    return found;
+  };
   return {
     get(job, locale) {
       return entry(job, locale).features;
     },
+    geo(job) {
+      return featureStore.geo(job);
+    },
+    paddedLoc,
     /**
      * Internal to {@link createAlertScorer}: the cache entry of `job` in
      * `locale` — its features, its index in that locale's keyword bitmaps and
@@ -1338,6 +1370,15 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
 
   return (job) => {
     if (!job || neverMatches) return 0;
+    let geoMatched = false;
+    if (hasGeoScope && featureCache) {
+      // Decide a hard-geo miss before entry() materializes description/token features.
+      const geo = featureCache.geo(job);
+      const geoHaystack = alertLocationNeedles.length > 0 ? featureCache.paddedLoc(job) : '';
+      geoMatched = includesAny(geoHaystack, alertLocationNeedles)
+        || (cantons.length > 0 && geo.jobCanton && cantons.includes(geo.jobCanton));
+      if (!geoMatched) return 0;
+    }
     const cached = featureCache ? featureCache.entry(job, locale) : null;
     const features = cached ? cached.features : jobMatchFeatures(job, locale);
     const {
@@ -1348,7 +1389,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     let locHaystack = '';
     if (needsLocation) {
       if (cached) {
-        if (cached.locHaystack === null) cached.locHaystack = paddedLocHaystack(jobLoc);
+        if (cached.locHaystack === null) cached.locHaystack = featureCache.paddedLoc(job);
         locHaystack = cached.locHaystack;
       } else {
         locHaystack = paddedLocHaystack(jobLoc);
@@ -1361,7 +1402,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
     // whose title matched the keyword. Only the alert's OWN locations/cantons are
     // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
-    if (hasGeoScope) {
+    if (hasGeoScope && !geoMatched) {
       const geoHit = includesAny(locHaystack, alertLocationNeedles)
         || (cantons.length > 0 && jobCanton && cantons.includes(jobCanton));
       if (!geoHit) return 0;
