@@ -22,13 +22,8 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
-import { classifyApplicationChannel } from '../../functions/src/assistedApplicationAiJob.js';
 
 const nodeRequire = createRequire(import.meta.url);
-const trustedNet = nodeRequire('node:net');
-const trustedSocketConnect = trustedNet.Socket.prototype.connect;
-const trustedDnsLookup = nodeRequire('node:dns/promises').lookup;
-const trustedNetConnect = (options) => trustedSocketConnect.call(new trustedNet.Socket(), { ...options, lookup: trustedDnsLookup });
 let sharedReplayBrowser = null;
 let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
@@ -275,7 +270,10 @@ function replayCaseFrom(job, assembledAt, family) {
 
 /** Deterministic latest-first selection with up to two open-stop host cases. */
 export function selectPortalReplayCorpus({ jobsByCrawler, stopIssues = [], stopHosts: suppliedStopHosts = [], seed = PORTAL_REPLAY_SEED, nowMs = Date.now(),
-  classify = classifyApplicationChannel, families: requestedFamilies = null } = {}) {
+  classify, families: requestedFamilies = null } = {}) {
+  if (typeof classify !== 'function') {
+    throw Object.assign(new Error('portal_replay_classifier_unavailable'), { code: 'portal_replay_classifier_unavailable' });
+  }
   const replayFamilies = requestedFamilies == null
     ? PORTAL_REPLAY_FAMILIES
     : new Set([...requestedFamilies].filter((family) => PORTAL_REPLAY_FAMILIES.has(family)));
@@ -448,6 +446,109 @@ export function classifyPortalReplayPostingEvidence(evidence = {}) {
   return { formLinkedToPosting, wrongPosting: formLinkedToPosting === 'no' };
 }
 
+/**
+ * Keep DNS lookup inside the trusted replay harness. The PR-owned portal
+ * runner receives only these guarded functions: a listing/apply hostname from
+ * the corpus, or a public hostname visible in the current page or an observed
+ * redirect. The raw lookup capability never crosses the runner boundary.
+ */
+export function createPortalReplayPublicHostResolverFactory({ trustedNetwork, lookup } = {}) {
+  if (typeof trustedNetwork?.isFetchablePublicUrl !== 'function'
+    || typeof trustedNetwork?.isPrivateAddress !== 'function'
+    || typeof lookup !== 'function') {
+    throw Object.assign(new Error('portal_replay_resolver_unavailable'), { code: 'portal_replay_resolver_unavailable' });
+  }
+
+  return ({ record, context } = {}) => {
+    const approvedHosts = new Set([record?.postingUrl, record?.applyUrl].map(hostnameOf).filter(Boolean));
+    const addressCache = new Map();
+    const normalizeDnsHost = (value) => {
+      const raw = String(value || '').trim().toLowerCase().replace(/\.$/u, '');
+      if (!raw || /[\s/:@?#%\\[\]]/u.test(raw)) return '';
+      try {
+        const url = new URL(`https://${raw}/`);
+        const host = url.hostname.toLowerCase().replace(/\.$/u, '');
+        if (url.username || url.password || url.port || url.pathname !== '/' || url.search || url.hash
+          || !host.split('.').every((label) => /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/u.test(label))
+          || !trustedNetwork.isFetchablePublicUrl(`https://${host}/`)) return '';
+        return host;
+      } catch { return ''; }
+    };
+    const visibleHosts = async () => {
+      const found = new Set();
+      const activeContext = typeof context === 'function' ? context() : context;
+      for (const page of activeContext?.pages?.() || []) {
+        try {
+          const values = await page.evaluate(() => [...document.querySelectorAll('[href], [src]')]
+            .flatMap((node) => [node.getAttribute('href'), node.getAttribute('src')]).filter(Boolean));
+          for (const value of Array.isArray(values) ? values : []) {
+            const host = hostnameOf(new URL(String(value), page.url()).href);
+            if (host && trustedNetwork.isFetchablePublicUrl(`https://${host}/`)) found.add(host);
+          }
+        } catch { /* inaccessible pages do not expand the host allowlist */ }
+      }
+      return found;
+    };
+    const isApprovedHost = async (value) => {
+      const host = normalizeDnsHost(value);
+      if (!host) return false;
+      if (approvedHosts.has(host)) return true;
+      return (await visibleHosts()).has(host);
+    };
+    const resolve = async (value, options = {}) => {
+      const host = normalizeDnsHost(value);
+      if (!await isApprovedHost(host)) {
+        throw Object.assign(new Error('portal_replay_dns_host_not_allowed'), { code: 'portal_replay_dns_host_not_allowed' });
+      }
+      let addresses = addressCache.get(host);
+      if (!addresses) {
+        const result = await lookup(host, { all: true, verbatim: true });
+        if (!Array.isArray(result) || result.length === 0
+          || result.some((entry) => !entry?.address || trustedNetwork.isPrivateAddress(entry.address))) {
+          throw Object.assign(new Error('portal_replay_dns_unsafe'), { code: 'portal_replay_dns_unsafe' });
+        }
+        addresses = result.map((entry) => ({ address: String(entry.address), family: Number(entry.family) }));
+        addressCache.set(host, addresses);
+      }
+      return options?.all === false ? addresses[0] : addresses;
+    };
+    const resolvePublicHost = async (value) => {
+      if (!validPublicHttpsUrl(value) || !trustedNetwork.isFetchablePublicUrl(value)) return false;
+      const host = hostnameOf(value);
+      if (!host || !await isApprovedHost(host)) return false;
+      try {
+        const addresses = await resolve(host, { all: true });
+        return addresses.length > 0 && addresses.every((entry) => !trustedNetwork.isPrivateAddress(entry.address));
+      } catch {
+        return false;
+      }
+    };
+    const observeResponse = async (response) => {
+      try {
+        const source = String(response.url());
+        if (!await resolvePublicHost(source) || ![301, 302, 303, 307, 308].includes(Number(response.status()))) return;
+        const location = response.headers()?.location;
+        if (!location) return;
+        const target = new URL(location, source).href;
+        if (validPublicHttpsUrl(target) && trustedNetwork.isFetchablePublicUrl(target)) {
+          approvedHosts.add(hostnameOf(target));
+        }
+      } catch { /* malformed redirects do not expand the host allowlist */ }
+    };
+    return Object.freeze({ resolve, resolvePublicHost, observeResponse });
+  };
+}
+
+/** Capture Node's original socket connector for the trusted pinned proxy only. */
+export function captureTrustedPortalReplayProxyConnector(net = nodeRequire('node:net')) {
+  const Socket = net?.Socket;
+  const connect = Socket?.prototype?.connect;
+  if (typeof Socket !== 'function' || typeof connect !== 'function') {
+    throw Object.assign(new Error('portal_replay_proxy_connector_unavailable'), { code: 'portal_replay_proxy_connector_unavailable' });
+  }
+  return (options) => connect.call(new Socket(), options);
+}
+
 function violationsFor({ event, evidence, metrics }) {
   const codes = [];
   if ((Number(metrics?.finalClickAttempts) || 0) > 0) codes.push('final_click_attempt');
@@ -547,15 +648,45 @@ async function runOnePortalReplay(options) {
   return replayMetricsContext.run(metrics, () => runOnePortalReplayMeasured({ ...options, metrics }));
 }
 
-async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, trustedNetwork, allowedPostingQueryParams, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
+export async function installPortalReplayFenceWithHeadClickCapture(context, {
+  trustedFenceApi,
+  captureFenceApi,
+  ...options
+} = {}) {
+  if (typeof trustedFenceApi?.installPortalReplayFence !== 'function'
+    || typeof trustedFenceApi?.capturePortalReplayFinalClicksInPage !== 'function'
+    || typeof captureFenceApi?.capturePortalReplayFinalClicksInPage !== 'function'
+    || typeof context?.addInitScript !== 'function') {
+    throw Object.assign(new Error('portal_replay_fence_unavailable'), { code: 'portal_replay_fence_unavailable' });
+  }
+  const trustedRequestFenceContext = new Proxy(context, {
+    get(target, property) {
+      if (property === 'addInitScript') {
+        return async (script, ...args) => {
+          if (script === trustedFenceApi.capturePortalReplayFinalClicksInPage) return undefined;
+          return target.addInitScript(script, ...args);
+        };
+      }
+      const value = Reflect.get(target, property, target);
+      return typeof value === 'function' ? value.bind(target) : value;
+    },
+  });
+  const metrics = await trustedFenceApi.installPortalReplayFence(trustedRequestFenceContext, options);
+  await context.addInitScript(captureFenceApi.capturePortalReplayFinalClicksInPage);
+  return metrics;
+}
+
+async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, timeoutMs, fenceApi, captureFenceApi = fenceApi, trustedNetwork, createPublicHostResolver, replayDnsLookup, replayProxyConnect, allowedPostingQueryParams, preflight = [], preflightRetryCount = 0, metrics, runtimeBrowser }) {
   let agentCalls = 0;
   let activeContext = null;
   let activeProxy = null;
+  let publicHostResolver = null;
   let timedOut = false;
   let eventResult;
   let failure = null;
 
   try {
+    publicHostResolver = createPublicHostResolver({ record, context: () => activeContext });
     if (preflight.some((response) => response.status >= 500 && response.status < 600)) {
       return {
         caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
@@ -570,8 +701,10 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return requestCodex(request);
     };
     activeProxy = await fenceApi.createPinnedPublicHttpsProxy({
-      resolve: trustedDnsLookup,
-      connect: trustedNetConnect,
+      // This raw resolver is consumed only by the trusted pinned proxy.
+      // The PR runner receives the per-context allowlisted resolver below.
+      resolve: replayDnsLookup,
+      connect: replayProxyConnect,
       isPublicUrl: trustedNetwork.isFetchablePublicUrl,
       isPrivate: trustedNetwork.isPrivateAddress,
       onBlocked: ({ reason } = {}) => { if (reason === 'unsafe_host') metrics.blockedUnsafeHosts += 1; },
@@ -587,12 +720,17 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
             proxy: { server: activeProxy.server },
           });
           activeContext = context;
-          const fenceMetrics = await fenceApi.installPortalReplayFence(context, {
-            isPublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
+          // Keep request routing and transport shutdown from the trusted base,
+          // while measuring final clicks with the PR detector under test.
+          const fenceMetrics = await installPortalReplayFenceWithHeadClickCapture(context, {
+            trustedFenceApi: fenceApi,
+            captureFenceApi,
+            isPublicHost: publicHostResolver.resolvePublicHost,
             onBlocked: ({ reason } = {}) => { if (reason === 'unsafe_host') metrics.blockedUnsafeHosts += 1; },
             allowedPostingQueryParams,
           });
           const responseListener = (response) => {
+            void publicHostResolver.observeResponse(response);
             try {
               if (response.request().isNavigationRequest() && response.status() >= 500 && response.status() < 600) metrics.navigation5xx += 1;
             } catch { /* no page or URL details leave this callback */ }
@@ -631,8 +769,8 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       accounts: null,
       knowledge: null,
       codex,
-      resolve: trustedDnsLookup,
-      resolvePublicHost: (url) => trustedNetwork.resolvesToPublicHost(url, trustedDnsLookup),
+      resolve: (...args) => publicHostResolver?.resolve(...args) ?? Promise.reject(new Error('portal_replay_resolver_unavailable')),
+      resolvePublicHost: (url) => publicHostResolver?.resolvePublicHost(url) ?? Promise.resolve(false),
       dryRun: true,
       portalReplay: true,
       portalReplayFenceInstalled: true,
@@ -923,6 +1061,7 @@ async function compareMode(values) {
   const baseRecords = [];
   const headRecords = [];
   let nodeEgressFence = null;
+  let captureFenceApi;
   const trustedRoot = trustedPortalReplayFenceRoot(values['base-root']);
   const headRoot = path.resolve(values['head-root']);
   const [fenceApi, trustedNetwork, trustedBrowser] = await Promise.all([
@@ -930,6 +1069,15 @@ async function compareMode(values) {
     importFrom(trustedRoot, 'functions/src/assistedApplicationAiJob.js'),
     importFrom(trustedRoot, 'scripts/lib/ensure-chromium.mjs'),
   ]);
+  const replayDnsLookup = nodeRequire('node:dns/promises').lookup;
+  const replayProxyConnect = captureTrustedPortalReplayProxyConnector();
+  const createPublicHostResolver = createPortalReplayPublicHostResolverFactory({
+    trustedNetwork,
+    // Capture the lookup function in the trusted harness before the Node
+    // egress fence is installed. Only guarded wrappers reach the PR runner.
+    lookup: replayDnsLookup,
+  });
+  captureFenceApi = fenceApi;
   const trustedDiagnostics = await importFrom(trustedRoot, 'scripts/assisted-application/lib/portal/diagnostics.mjs');
   await warmPortalDiagnosticsModule(trustedDiagnostics);
   const preflightByKey = new Map();
@@ -959,6 +1107,9 @@ async function compareMode(values) {
         if (metrics) metrics.nodeEgressBlocked += 1;
       },
     });
+    // Load only the PR-owned click classifier after the trusted Node egress
+    // fence is active; all request routing continues to use the base fence.
+    captureFenceApi = await importFrom(headRoot, 'scripts/assisted-application/lib/portal/replay-fence.mjs');
   }
   // The PR's portal module (and its diagnostics dependency) is imported only
   // by runOnePortalReplayMeasured, after the Node fence is active. The trusted
@@ -966,7 +1117,7 @@ async function compareMode(values) {
   try {
     for (const record of records) {
       const shared = {
-        trustedRoot, record, timeoutMs, fenceApi, trustedNetwork,
+        trustedRoot, record, timeoutMs, fenceApi, captureFenceApi, trustedNetwork, replayDnsLookup, replayProxyConnect, createPublicHostResolver,
         allowedPostingQueryParams: preflightByKey.get(record.key)?.allowedPostingQueryParams || new Set(),
         preflight: preflightByKey.get(record.key)?.responses || [],
         preflightRetryCount: preflightByKey.get(record.key)?.retryCount || 0,

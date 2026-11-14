@@ -13,9 +13,12 @@ import {
   affectedPortalReplayFamilies,
   affectedPortalReplayPaths,
   aggregatePortalReplayGate,
+  captureTrustedPortalReplayProxyConnector,
   classifyPortalReplayPostingEvidence,
   comparePortalReplayFamily,
+  createPortalReplayPublicHostResolverFactory,
   extractPortalStopHosts,
+  installPortalReplayFenceWithHeadClickCapture,
   PORTAL_REPLAY_FAMILIES,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
@@ -69,6 +72,22 @@ async function runRequest(context: any, { method, url, navigation = false }: { m
 }
 
 describe('portal replay read-only fence', () => {
+  it('keeps trusted request routing while using the PR click detector', async () => {
+    const context = fakeContext();
+    const prCapture = () => {};
+    const metrics = await installPortalReplayFenceWithHeadClickCapture(context, {
+      trustedFenceApi: { installPortalReplayFence, capturePortalReplayFinalClicksInPage },
+      captureFenceApi: { capturePortalReplayFinalClicksInPage: prCapture },
+      isPublicHost: async () => true,
+    });
+
+    expect(context.initScripts).not.toContain(capturePortalReplayFinalClicksInPage);
+    expect(context.initScripts).toContain(prCapture);
+    expect(await runRequest(context, { method: 'GET', url: 'https://ats.example.test/jobs/synthetic-role', navigation: true })).toBe('continue');
+    expect(await runRequest(context, { method: 'POST', url: 'https://ats.example.test/application/submit' })).toBe('abort');
+    expect(metrics.blockedNonGet).toBe(1);
+  });
+
   it('blocks POST/PUT/DELETE, beacon POST, WebSocket and mutation GETs while allowing cross-origin GET navigation', async () => {
     const context = fakeContext();
     const allowedPostingQueryParams = portalReplayQueryAllowlist([
@@ -490,6 +509,25 @@ describe('portal replay corpus', () => {
 });
 
 describe('portal replay workflow wiring', () => {
+  it('keeps PR CLI imports side-effect free and never gives raw DNS lookup to the runner', () => {
+    const cli = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
+    const imports = [...cli.matchAll(/^\s*import\s+.+?from\s+['"]([^'"]+)['"];?$/gmu)].map((match) => match[1]);
+    const runnerStart = cli.indexOf('const runnerPromise = portalApi.submitViaPortal({');
+    const runnerEnd = cli.indexOf('}).then((value)', runnerStart);
+    const runner = cli.slice(runnerStart, runnerEnd);
+
+    expect(imports.length).toBeGreaterThan(0);
+    expect(imports.every((specifier) => specifier.startsWith('node:'))).toBe(true);
+    expect(cli).toContain('createPortalReplayPublicHostResolverFactory');
+    expect(cli).toContain('captureTrustedPortalReplayProxyConnector');
+    expect(runner).toContain('publicHostResolver?.resolve(...args)');
+    expect(runner).toContain('publicHostResolver?.resolvePublicHost(url)');
+    expect(runner).not.toMatch(/node:dns\/promises|replayDnsLookup|trustedDnsLookup|replayProxyConnect|Socket\.prototype\.connect|trustedNetConnect/u);
+    const proxyStart = cli.indexOf('activeProxy = await fenceApi.createPinnedPublicHttpsProxy({');
+    const proxyEnd = cli.indexOf('});', proxyStart);
+    expect(cli.slice(proxyStart, proxyEnd)).toContain('connect: replayProxyConnect');
+  });
+
   it('materializes the trusted sandbox action and fails before replay without a broker socket', () => {
     const workflow = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
     const materialize = workflow.indexOf('Materialize trusted Codex sandbox action');
@@ -513,8 +551,87 @@ describe('portal replay workflow wiring', () => {
     expect(workflow).toContain('            scripts/ci');
     expect(workflow).toContain('            services/seo');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
-    expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    const replayBlock = workflow.slice(replay, workflow.indexOf('Upload sanitized family report', replay));
+    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(replayBlock).toContain('--base-root .portal-base');
+    expect(replayBlock).not.toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+  });
+});
+
+describe('portal replay DNS capability', () => {
+  it('keeps the raw socket connector bound to the pinned proxy after Node egress fencing', () => {
+    class FakeSocket {
+      connect(options: unknown) { return { options }; }
+    }
+    const originalConnect = FakeSocket.prototype.connect;
+    const connect = captureTrustedPortalReplayProxyConnector({ Socket: FakeSocket });
+    FakeSocket.prototype.connect = () => { throw new Error('patched connector must not run'); };
+
+    expect(connect({ host: '8.8.8.8', port: 443 })).toEqual({ options: { host: '8.8.8.8', port: 443 } });
+    FakeSocket.prototype.connect = originalConnect;
+  });
+
+  it('resolves only corpus hosts, visible public links, and public redirect targets', async () => {
+    const queriedHosts: string[] = [];
+    const trustedNetwork = {
+      isFetchablePublicUrl: (value: string) => {
+        try {
+          const url = new URL(value);
+          return url.protocol === 'https:' && !url.username && !url.password && url.hostname.endsWith('.test');
+        } catch { return false; }
+      },
+      isPrivateAddress: (value: string) => value === '127.0.0.1' || value.startsWith('10.'),
+    };
+    const page = {
+      url: () => 'https://careers.example.test/jobs/123',
+      evaluate: async () => ['https://login.example.test/sign-in', 'https://assets.example.test/portal.js'],
+    };
+    const createResolver = createPortalReplayPublicHostResolverFactory({
+      trustedNetwork,
+      lookup: async (host: string) => {
+        queriedHosts.push(host);
+        return [{ address: '8.8.8.8', family: 4 }];
+      },
+    });
+    const resolver = createResolver({
+      record: {
+        postingUrl: 'https://careers.example.test/jobs/123',
+        applyUrl: 'https://ats.example.test/apply/123',
+      },
+      context: { pages: () => [page] },
+    });
+
+    expect(await resolver.resolvePublicHost('https://ats.example.test/apply/123')).toBe(true);
+    expect(await resolver.resolvePublicHost('https://login.example.test/sign-in')).toBe(true);
+    expect(await resolver.resolvePublicHost('https://unlisted.example.test/')).toBe(false);
+    await expect(resolver.resolve('unlisted.example.test', { all: true })).rejects.toMatchObject({
+      code: 'portal_replay_dns_host_not_allowed',
+    });
+    await resolver.observeResponse({
+      url: () => 'https://ats.example.test/redirect',
+      status: () => 302,
+      headers: () => ({ location: 'https://auth.example.test/login' }),
+    });
+    expect(await resolver.resolvePublicHost('https://auth.example.test/login')).toBe(true);
+    expect(queriedHosts).toEqual(['ats.example.test', 'login.example.test', 'auth.example.test']);
+  });
+
+  it('rejects a visible hostname when DNS returns any private address', async () => {
+    const resolver = createPortalReplayPublicHostResolverFactory({
+      trustedNetwork: {
+        isFetchablePublicUrl: (value: string) => value.startsWith('https://'),
+        isPrivateAddress: (value: string) => value === '127.0.0.1',
+      },
+      lookup: async () => [{ address: '8.8.8.8', family: 4 }, { address: '127.0.0.1', family: 4 }],
+    })({
+      record: { postingUrl: 'https://careers.example.test/jobs/123', applyUrl: 'https://ats.example.test/apply/123' },
+      context: { pages: () => [] },
+    });
+
+    expect(await resolver.resolvePublicHost('https://ats.example.test/apply/123')).toBe(false);
+    await expect(resolver.resolve('ats.example.test', { all: true })).rejects.toMatchObject({
+      code: 'portal_replay_dns_unsafe',
+    });
   });
 });
 
