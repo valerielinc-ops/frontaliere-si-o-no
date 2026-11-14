@@ -7,7 +7,7 @@ import { settledWindow } from '../lib/analytics-settled-window.mjs';
 import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../../functions/src/houseAdAttribution.js';
 
 export function summarizeHouseTraffic(response) {
-  if (Number(response?.rowCount || 0) > (response?.rows || []).length) throw new Error('GA4 report truncated; no partial totals');
+  assertCompleteGa4Report(response);
   const groups = new Map();
   for (const row of response?.rows || []) {
     const [event, component, surface, device] = row.dimensionValues.map(v => v.value);
@@ -16,11 +16,39 @@ export function summarizeHouseTraffic(response) {
     const experimentId = match[1] || 'house_creatives_v1';
     const [format, ...placement] = surface.split('.');
     const key = JSON.stringify([experimentId, match[2], match[3], match[4], format, placement.join('.'), device]);
-    const group = groups.get(key) || { experimentId, variant: match[2], enrolled: match[3] === 'test', locale: match[4], format, placement: placement.join('.'), device, impressions: 0, clicks: 0, landings: 0 };
-    group[event === 'house_ad_click' ? 'clicks' : event === 'house_ad_landing' ? 'landings' : 'impressions'] += Number(row.metricValues[0]?.value || 0);
+    const group = groups.get(key) || {
+      experimentId, variant: match[2], enrolled: match[3] === 'test', locale: match[4], format,
+      placement: placement.join('.'), device, impressions: 0, clicks: 0, landings: 0,
+      uniqueImpressionUsers: 0, uniqueClickUsers: 0, uniqueLandingUsers: 0,
+    };
+    const metric = event === 'house_ad_click' ? 'clicks' : event === 'house_ad_landing' ? 'landings' : 'impressions';
+    group[metric] += Number(row.metricValues[0]?.value || 0);
+    const userMetric = event === 'house_ad_click' ? 'uniqueClickUsers'
+      : event === 'house_ad_landing' ? 'uniqueLandingUsers' : 'uniqueImpressionUsers';
+    group[userMetric] += Number(row.metricValues[1]?.value || 0);
     groups.set(key, group);
   }
   return [...groups.values()].map(g => ({ ...g, ctr: g.impressions > 0 ? g.clicks / g.impressions : null }));
+}
+
+function assertCompleteGa4Report(response) {
+  if (Number(response?.rowCount || 0) > (response?.rows || []).length) throw new Error('GA4 report truncated; no partial totals');
+  if (response?.metadata?.dataLossFromOtherRow === true) throw new Error('GA4 report has Other-row data loss; no partial totals');
+  if (response?.metadata?.subjectToThresholding === true) throw new Error('GA4 report subject to thresholding; no unique-user totals');
+}
+
+export function summarizeHouseTrafficTotals(response) {
+  assertCompleteGa4Report(response);
+  const totals = {};
+  for (const row of response?.rows || []) {
+    const event = row.dimensionValues?.[0]?.value;
+    if (!event) continue;
+    totals[event] = {
+      events: Number(row.metricValues?.[0]?.value || 0),
+      uniqueUsers: Number(row.metricValues?.[1]?.value || 0),
+    };
+  }
+  return totals;
 }
 
 export function summarizeHouseOrders(services, startMs, endMs) {
@@ -43,7 +71,7 @@ export function summarizeHouseOrders(services, startMs, endMs) {
 }
 
 export function summarizeReaderSubscriptionTraffic(response) {
-  if (Number(response?.rowCount || 0) > (response?.rows || []).length) throw new Error('GA4 report truncated; no partial totals');
+  assertCompleteGa4Report(response);
   const groups = new Map();
   for (const row of response?.rows || []) {
     const [event, component, surface, device] = row.dimensionValues.map(v => v.value);
@@ -60,14 +88,17 @@ export function summarizeReaderSubscriptionTraffic(response) {
       format, placement: placement.join('.'), device,
       exposures: 0, impressions: 0, clicks: 0, subscriptionCardImpressions: 0,
       subscriptionCardClicks: 0, landings: 0,
+      uniqueExposureUsers: 0, uniqueImpressionUsers: 0, uniqueClickUsers: 0,
+      uniqueSubscriptionCardImpressionUsers: 0, uniqueSubscriptionCardClickUsers: 0, uniqueLandingUsers: 0,
     };
     const metric = Number(row.metricValues[0]?.value || 0);
-    if (event === 'reader_subscription_experiment_exposure') group.exposures += metric;
-    else if (event === 'reader_subscription_experiment_impression') group.impressions += metric;
-    else if (event === 'reader_subscription_experiment_click') group.clicks += metric;
-    else if (event === 'reader_subscription_ad_impression') group.subscriptionCardImpressions += metric;
-    else if (event === 'reader_subscription_ad_click') group.subscriptionCardClicks += metric;
-    else group.landings += metric;
+    const users = Number(row.metricValues[1]?.value || 0);
+    if (event === 'reader_subscription_experiment_exposure') { group.exposures += metric; group.uniqueExposureUsers += users; }
+    else if (event === 'reader_subscription_experiment_impression') { group.impressions += metric; group.uniqueImpressionUsers += users; }
+    else if (event === 'reader_subscription_experiment_click') { group.clicks += metric; group.uniqueClickUsers += users; }
+    else if (event === 'reader_subscription_ad_impression') { group.subscriptionCardImpressions += metric; group.uniqueSubscriptionCardImpressionUsers += users; }
+    else if (event === 'reader_subscription_ad_click') { group.subscriptionCardClicks += metric; group.uniqueSubscriptionCardClickUsers += users; }
+    else { group.landings += metric; group.uniqueLandingUsers += users; }
     groups.set(key, group);
   }
   return [...groups.values()].map(group => ({
@@ -107,6 +138,8 @@ export function summarizeReaderSubscriptionResults(traffic, purchases) {
       ...row, exposures: 0, impressions: 0, clicks: 0,
       subscriptionCardImpressions: 0, subscriptionCardClicks: 0,
       landings: 0, ctr: null, subscriptionCardCtr: null,
+      uniqueExposureUsers: 0, uniqueImpressionUsers: 0, uniqueClickUsers: 0,
+      uniqueSubscriptionCardImpressionUsers: 0, uniqueSubscriptionCardClickUsers: 0, uniqueLandingUsers: 0,
     };
     group.confirmedPaidSubscriptions += row.confirmedPaidSubscriptions;
     groups.set(key, group);
@@ -132,7 +165,7 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
   const traffic = await runGa4Report({ token, body: {
     dateRanges: [{ startDate: window.start, endDate: window.end }],
     dimensions: [{ name: 'eventName' }, { name: 'customEvent:component' }, { name: 'customEvent:cta_surface' }, { name: 'deviceCategory' }],
-    metrics: [{ name: 'eventCount' }],
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
     dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
       'house_ad_impression', 'house_ad_click', 'house_ad_landing',
       'reader_subscription_experiment_exposure', 'reader_subscription_experiment_impression',
@@ -140,6 +173,18 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
       'reader_subscription_ad_click', 'reader_subscription_ad_landing',
     ] } } },
     limit: 10000,
+  } });
+  const trafficTotals = await runGa4Report({ token, body: {
+    dateRanges: [{ startDate: window.start, endDate: window.end }],
+    dimensions: [{ name: 'eventName' }],
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
+      'house_ad_impression', 'house_ad_click', 'house_ad_landing',
+      'reader_subscription_experiment_exposure', 'reader_subscription_experiment_impression',
+      'reader_subscription_experiment_click', 'reader_subscription_ad_impression',
+      'reader_subscription_ad_click', 'reader_subscription_ad_landing',
+    ] } } },
+    limit: 100,
   } });
   const { initializeApp, applicationDefault, deleteApp } = await import('firebase-admin/app');
   const { getFirestore, Timestamp } = await import('firebase-admin/firestore');
@@ -168,9 +213,9 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     const readerSubscriptionTraffic = summarizeReaderSubscriptionTraffic(traffic);
     const readerSubscriptionPurchases = summarizeReaderSubscriptionPurchases(readerSubscriptions, startMs, endMs);
     console.log(JSON.stringify({ currentExperimentId: 'house_creatives_v2', readerSubscriptionExperimentId: 'reader_subscription_house_v1', window, observedAt: new Date().toISOString(),
-      traffic: summarizeHouseTraffic(traffic), orderCohorts: summarizeHouseOrders(services, startMs, endMs),
+      trafficTotals: summarizeHouseTrafficTotals(trafficTotals), traffic: summarizeHouseTraffic(traffic), orderCohorts: summarizeHouseOrders(services, startMs, endMs),
       readerSubscriptionResults: summarizeReaderSubscriptionResults(readerSubscriptionTraffic, readerSubscriptionPurchases),
-      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 events and can be incomplete when telemetry is blocked.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposures are observed GA4 sessions, not unique people, so compare cohorts directionally and do not declare statistical winners from short samples.'],
+      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 event counts; unique user fields use GA4 totalUsers and include only users whose Analytics measurement is available.', 'The report fails closed when GA4 marks rows truncated, merged into Other, or subject to thresholding.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposure event counts approximate observed sessions, while unique users are reported separately. Do not declare statistical winners from short samples.'],
     }, null, 2));
   } finally { await deleteApp(app); }
 }
