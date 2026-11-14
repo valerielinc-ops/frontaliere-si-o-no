@@ -21,6 +21,7 @@ import {
   installPortalReplayFenceWithHeadClickCapture,
   PORTAL_REPLAY_FAMILIES,
   publicPortalReplayPreflight,
+  portalReplayQueryAllowlistForTrustedFence,
   safeCompareFailureCode,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
@@ -565,6 +566,14 @@ describe('portal replay DNS capability', () => {
     expect(safeCompareFailureCode(Object.assign(new Error('private path'), { code: 'ERR_MODULE_NOT_FOUND' }))).toBe('module_not_found');
     expect(safeCompareFailureCode(Object.assign(new Error('private path'), { code: 'PRIVATE_VALUE' }))).toBe('unknown');
     expect(safeCompareFailureCode(new Error('private detail'))).toBe('unknown');
+  });
+
+  it('uses an empty query allowlist when the trusted base fence predates the API', () => {
+    const urls = ['https://careers.example.test/jobs/123'];
+
+    expect(portalReplayQueryAllowlistForTrustedFence({}, urls)).toEqual(new Set());
+    expect(portalReplayQueryAllowlistForTrustedFence({ portalReplayQueryAllowlist: () => new Set(['trusted']) }, urls))
+      .toEqual(new Set(['trusted']));
   });
 
   it('keeps the raw socket connector bound to the pinned proxy after Node egress fencing', () => {

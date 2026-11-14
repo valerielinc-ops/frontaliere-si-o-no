@@ -459,6 +459,13 @@ export async function publicPortalReplayPreflight({ record, isMutatingGetUrl, al
   }
 }
 
+export function portalReplayQueryAllowlistForTrustedFence(fenceApi, urls) {
+  // The trusted base fence may predate URL-scoped posting-query support. In
+  // that case an empty allowlist preserves its stricter default behavior.
+  if (typeof fenceApi?.portalReplayQueryAllowlist !== 'function') return new Set();
+  return fenceApi.portalReplayQueryAllowlist(urls);
+}
+
 function locationFrom(record, evidence, portalApi) {
   const value = evidence?.finalUrl || evidence?.steps?.at(-1)?.url || record.applyUrl;
   return {
@@ -1128,7 +1135,7 @@ async function compareMode(values) {
   const preflightByKey = new Map();
   for (const record of records) {
     compareFailurePhase = 'public_preflight_check';
-    const allowedPostingQueryParams = fenceApi.portalReplayQueryAllowlist([record.postingUrl, record.applyUrl]);
+    const allowedPostingQueryParams = portalReplayQueryAllowlistForTrustedFence(fenceApi, [record.postingUrl, record.applyUrl]);
     let responses = await publicPortalReplayPreflight({ record, isMutatingGetUrl: fenceApi.isMutatingGetUrl, allowedPostingQueryParams, publicContractGet });
     let retryCount = 0;
     if (responses.some((response) => response.status >= 500 && response.status < 600)) {
