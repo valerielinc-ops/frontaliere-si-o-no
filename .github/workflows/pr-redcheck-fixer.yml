@@ -582,6 +582,35 @@ jobs:
         if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
 
+      # Subito dopo il claim, PRIMA di npm ci e Remote Config: il checkout puo'
+      # durare minuti e la HEAD avanza nel frattempo (10 claim su 20 rilasciati
+      # "HEAD cambiata dopo il claim" dopo ~7 min di setup). Una HEAD diversa o
+      # una PR chiusa ferma qui il job: gli step di setup e il guard (quindi
+      # ogni step a valle, gattato su `guard.outputs.proceed`) restano saltati,
+      # e il finalize rilascia il claim (`proceed` vuoto → `released`).
+      - name: Recheck PR HEAD right after the claim (before npm ci / Remote Config)
+        id: head_early
+        if: steps.claim.outputs.claim_allowed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          CLAIM_HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+        run: |
+          set -uo pipefail
+          echo "stale=false" >> "$GITHUB_OUTPUT"
+          if ! current=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '[.state, .head.sha] | @tsv'); then
+            echo "::warning::lettura PR #$PR_NUMBER non riuscita: il job prosegue e la rivalidazione prima del modello decide."
+            exit 0
+          fi
+          state="$(printf '%s' "$current" | cut -f1)"
+          head="$(printf '%s' "$current" | cut -f2)"
+          if [ "$state" != "open" ] || [ "$head" != "$CLAIM_HEAD_SHA" ]; then
+            echo "::notice::HEAD cambiata dopo il claim (claim ${CLAIM_HEAD_SHA:0:12}, ora ${head:0:12}, PR $state) → nessun npm ci/Remote Config; claim rilasciato dal finalize."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
       # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
       # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
@@ -595,7 +624,7 @@ jobs:
       # baseline non verificata.
       - name: Check review workflows (anti-401 drift, no local merge)
         id: align
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         run: |
           set -euo pipefail
           git config user.name "Valerie Linc"
@@ -619,18 +648,18 @@ jobs:
           echo "✓ .github/workflows/pr-review-loop.yml è byte-identico a origin/main; branch invariato."
 
       - name: Setup Node.js
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
 
       - name: Install dependencies
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -642,7 +671,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -651,7 +680,7 @@ jobs:
       # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
       - name: Mint App token (primary identity, PAT fallback)
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -667,7 +696,7 @@ jobs:
       # nessun token write-capable (App verificata o PAT), non quando manca solo
       # la stringa APP_TOKEN.
       - name: Alert token-down (dedup, zero-Claude)
-        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -701,7 +730,7 @@ jobs:
       # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}

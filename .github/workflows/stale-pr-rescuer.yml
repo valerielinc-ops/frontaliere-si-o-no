@@ -83,7 +83,14 @@ jobs:
     # basso). Quei completamenti erano 86 run in 4 h il 2026-09-19, tutte
     # identiche al tick successivo. Restano le completion delle PR, il cron e
     # il dispatch.
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.event != 'push'
+    #
+    # Una run `tests` CANCELLATA (superata da un push, update-branch, cancel
+    # manuale) non e' un segnale di stallo: il rescuer produce solo label e il
+    # custode non rilancia nulla finche' la PR non ha 2 h di push fermo (age
+    # gate qui sotto). Il cron orario (:20) e il dispatch coprono comunque il
+    # caso "cancellata e mai rilanciata" con al piu' un'ora di ritardo, mentre
+    # un evento per ogni cancellazione produceva 662 run/1251 min in 24 h.
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.event != 'push' && github.event.workflow_run.conclusion != 'cancelled')
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -115,11 +122,42 @@ jobs:
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
 
+      # Una completion `tests` per una HEAD gia' superata (o per una PR chiusa)
+      # non dice nulla sullo stato corrente: la HEAD nuova avra' la sua run e il
+      # suo evento. Una sola lettura della PR evita l'intero scan (decine di
+      # chiamate API) e i checkout. Fail-open: se la lettura fallisce o l'evento
+      # non porta una PR, lo scan procede come prima.
+      - name: Skip completions of a superseded PR head
+        id: fresh
+        if: github.event_name == 'workflow_run'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -uo pipefail
+          echo "superseded=false" >> "$GITHUB_OUTPUT"
+          if [ -z "${PR_NUMBER:-}" ] || [ -z "${RUN_HEAD_SHA:-}" ]; then exit 0; fi
+          if ! current=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '[.state, .head.sha] | @tsv'); then
+            echo "::warning::lettura PR #$PR_NUMBER non riuscita: lo scan procede (fail-open)."
+            exit 0
+          fi
+          state="$(printf '%s' "$current" | cut -f1)"
+          head="$(printf '%s' "$current" | cut -f2)"
+          if [ "$state" != "open" ] || [ "$head" != "$RUN_HEAD_SHA" ]; then
+            echo "::notice::completion di tests per PR #$PR_NUMBER su ${RUN_HEAD_SHA:0:12}, ma la PR e' $state con HEAD ${head:0:12}: nessuno scan."
+            echo "superseded=true" >> "$GITHUB_OUTPUT"
+          fi
+
       # `secrets.GITHUB_TOKEN` è deliberatamente un fallback soltanto: un evento
       # GitHub scritto da quell'identità non avvia un altro workflow. Il minter è
       # zero-dep e viene preso in sparse checkout per mantenere questo rescuer
       # leggero; l'App token può rieseguire il run PR senza creare check metadata.
       - name: Checkout App-token minter
+        if: steps.fresh.outputs.superseded != 'true'
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
@@ -134,11 +172,13 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
+        if: steps.fresh.outputs.superseded != 'true'
         uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Mint App token for non-recursive rescue labels
+        if: steps.fresh.outputs.superseded != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -147,6 +187,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Scan open PRs and flag stalled ones
+        if: steps.fresh.outputs.superseded != 'true'
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -593,6 +634,7 @@ jobs:
       # HEAD con LGTM e adotta per i fixer le PR con un 🔴 dichiarato fuori
       # scope. Zero-Claude, idempotente per (azione, HEAD).
       - name: Orphan PR custodian
+        if: steps.fresh.outputs.superseded != 'true'
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
