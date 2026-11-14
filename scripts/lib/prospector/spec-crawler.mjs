@@ -508,7 +508,10 @@ function matchesConfiguredAuthoritativeEmptyText(spec, html) {
     .filter(Boolean);
   if (!markers.length) return false;
   const sourceText = decodeEntities(textOf(html)).replace(/\s+/g, ' ').trim().toLowerCase();
-  if (markers.some((marker) => sourceText.includes(marker))) return true;
+  // A structured contract is stronger than the rendered fallback: once a
+  // spec names tenant/list/counter paths, a visible marker must not bypass
+  // those checks when the payload is populated or belongs to another tenant.
+  if (!spec?.authoritativeEmptyData && markers.some((marker) => sourceText.includes(marker))) return true;
 
   // Some SSR career pages keep the empty-state sentence in an application
   // payload rather than rendering it into the HTML body. `textOf()` correctly

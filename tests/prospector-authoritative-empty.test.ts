@@ -129,7 +129,10 @@ describe('prospector source-backed empty listing contract', () => {
       '"items":[],"pagination":{"total":0,"pageCount":0}',
       '"items":[{"id":1}],"pagination":{"total":1,"pageCount":1}',
     );
-    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
+    const rows = await runSpecInProduction(
+      nextDataSpec(),
+      runtime(`<p>${EMPTY_MARKER}</p>${html}`),
+    );
 
     expect(rows).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
@@ -138,7 +141,10 @@ describe('prospector source-backed empty listing contract', () => {
 
   it('does not accept structured empty data from another tenant', async () => {
     const html = NEXT_DATA_EMPTY_HTML.replace('"domain":"eqe"', '"domain":"other-company"');
-    const rows = await runSpecInProduction(nextDataSpec(), runtime(html));
+    const rows = await runSpecInProduction(
+      nextDataSpec(),
+      runtime(`<p>${EMPTY_MARKER}</p>${html}`),
+    );
 
     expect(rows).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(rows)).toBe(false);
