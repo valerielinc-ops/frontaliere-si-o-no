@@ -1,21 +1,22 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-13T21:16:57.613Z",
+  "generatedAt": "2026-11-14T09:18:26.713Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5747,
-  "avgDurationMs": 5747,
+  "durationMs": 6064,
+  "avgDurationMs": 6064,
   "durationHistory": [
-    5747
+    6064
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cedes-5263e50a0062",
-      "slug": "collaboratore-trice-in-shipping-lagerlogistik-100-cedes-ag-landquart",
+      "slug": "addetto-a-alle-spedizioni-logistica-di-magazzino-100-cedes-ag-landquart",
       "company": "CEDES AG",
       "companyKey": "cedes-ag",
       "companyDomain": "cedes.com",
@@ -37,8 +38,9 @@
       "url": "https://www.cedes.com/en/career/jobs/mitarbeiter-in-shipping-lagerlogistik-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:16:37.124Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-11-14T09:18:03.008Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-11-13T21:16:37.124Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -56,19 +58,17 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:16:37.124Z",
+      "validThrough": "2027-02-12T09:18:03.008Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:16:37.124Z",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -95,7 +95,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:16:36.820Z",
+      "crawledAt": "2026-11-14T09:18:02.657Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -114,7 +114,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:16:36.820Z",
+      "validThrough": "2026-12-14T09:18:02.657Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -125,5 +125,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
