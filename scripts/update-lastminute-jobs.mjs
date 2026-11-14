@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -820,7 +821,7 @@ function writeJobsFiles(jobs) {
 export function postProcessLastminuteJobs() {
   if (!fs.existsSync(DATA_JOBS)) return { total: 0, lastminute: 0, deduped: 0 };
 
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   if (!Array.isArray(raw)) return { total: 0, lastminute: 0, deduped: 0 };
   prepareExistingJobs(raw);
 
@@ -870,14 +871,14 @@ export function postProcessLastminuteJobs() {
 
 function loadLastminuteJobs() {
   if (!fs.existsSync(DATA_JOBS)) return [];
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   if (!Array.isArray(raw)) return [];
   return raw.filter(isLastminuteJob);
 }
 
 function prepareStoredLastminuteJobs() {
   const raw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    ? readJsonFile(DATA_JOBS)
     : readExistingCrawlerJobs(LASTMINUTE_KEY, DATA_JOBS);
   if (!Array.isArray(raw)) return [];
   const prepared = prepareExistingJobs(raw);
@@ -937,7 +938,7 @@ export function syncLastminuteExistingLocation(existing, detail) {
 
 async function enrichFromSmartRecruitersApi(seedUrls, detailsByUrl = new Map()) {
   const allJobs = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
+    ? readJsonFile(DATA_JOBS)
     : readExistingCrawlerJobs(LASTMINUTE_KEY, DATA_JOBS);
   if (!Array.isArray(allJobs)) return;
 
@@ -1133,7 +1134,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isLastminuteJob) : [];
   writeJobsCrawlerSlice(LASTMINUTE_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated BPS (Banca Popolare di Sondrio) Suisse crawler runner.
  *
@@ -367,7 +368,7 @@ async function main() {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
     await cleanStoredJobsOnSoftExit();
     const _durationMs = getCrawlerElapsedMs();
-    const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
     const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
     writeSummaryCrawlerSlice({
       key: BPS_KEY,
@@ -409,7 +410,7 @@ async function main() {
 
   // Stats
   if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const jobs = readJsonFile(DATA_JOBS);
     const companyJobs = Array.isArray(jobs) ? jobs.filter(isBpsJob) : [];
     console.log(`\n🏦 Total BPS Suisse jobs: ${companyJobs.length}`);
     for (const j of companyJobs) console.log(`  • ${j.title} (${j.location})`);
@@ -429,7 +430,7 @@ async function main() {
   console.log(`✅ ${BPS_COMPANY_NAME} crawler complete.`);
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
   writeJobsCrawlerSlice(BPS_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
