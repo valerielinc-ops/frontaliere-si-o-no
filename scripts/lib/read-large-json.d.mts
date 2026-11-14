@@ -2,7 +2,7 @@
 export const DEFAULT_JSON_STRING_LIMIT: number;
 /** Parse a top-level JSON array from text chunks without concatenating them. */
 export function parseLargeJsonArray(chunks: Iterable<string>): unknown[];
-/** Iterate a top-level JSON array while retaining only one item at a time. */
+/** Iterate a top-level JSON array or `{ jobs: [...] }` wrapper while retaining only one item at a time. */
 export function iterateJsonArrayFile(
   filePath: string,
   options?: { maxInlineBytes?: number; maxItemBytes?: number },

@@ -47,6 +47,22 @@ describe('large JSON reader', () => {
     }
   });
 
+  it('iterates a jobs wrapper without retaining the wrapper or jobs array', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'iterate-large-json-wrapper-'));
+    const target = path.join(dir, 'jobs.json');
+    const payload = {
+      generatedAt: '2026-11-03T00:00:00.000Z',
+      jobs: [{ id: 'x', title: 'café' }, { id: 'y', nested: { ok: true } }],
+    };
+
+    try {
+      fs.writeFileSync(target, JSON.stringify(payload), 'utf8');
+      expect([...iterateJsonArrayFile(target)]).toEqual(payload.jobs);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('parses a record larger than one read chunk without per-character buffering', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'read-large-json-record-'));
     const target = path.join(dir, 'jobs.json');

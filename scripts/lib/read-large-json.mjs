@@ -186,6 +186,49 @@ function* iterateArrayAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIM
   }
 }
 
+function* iterateJobsObjectAfterOpen(reader, { maxItemBytes = DEFAULT_JSON_STRING_LIMIT } = {}) {
+  let sawJobs = false;
+  skipWhitespace(reader);
+  if (reader.peek() === '}') {
+    reader.next();
+    throw new SyntaxError('large JSON object must contain a jobs array');
+  }
+
+  while (true) {
+    skipWhitespace(reader);
+    if (nextChar(reader, 'large JSON object key must be a string') !== '"') {
+      throw new SyntaxError('large JSON object key must be a string');
+    }
+    const key = JSON.parse(consumeString(reader, maxItemBytes));
+    skipWhitespace(reader);
+    if (nextChar(reader, 'expected a colon after large JSON object key') !== ':') {
+      throw new SyntaxError('expected a colon after large JSON object key');
+    }
+    skipWhitespace(reader);
+    const firstChar = nextChar(reader, 'missing large JSON object value');
+    if (key === 'jobs') {
+      if (firstChar !== '[') {
+        throw new SyntaxError('large JSON object jobs value must be an array');
+      }
+      if (sawJobs) throw new SyntaxError('duplicate jobs key in large JSON object');
+      sawJobs = true;
+      yield* iterateArrayAfterOpen(reader, { maxItemBytes });
+    } else {
+      // Validate and discard metadata without retaining the wrapper object.
+      JSON.parse(consumeValue(reader, firstChar, maxItemBytes));
+    }
+
+    skipWhitespace(reader);
+    const separator = nextChar(reader, 'unterminated large JSON object');
+    if (separator === '}') break;
+    if (separator !== ',') throw new SyntaxError('expected a comma or closing JSON object bracket');
+    skipWhitespace(reader);
+    if (reader.peek() === '}') throw new SyntaxError('trailing comma in large JSON object');
+  }
+
+  if (!sawJobs) throw new SyntaxError('large JSON object must contain a jobs array');
+}
+
 function parseArrayAfterOpen(reader, options = {}) {
   return [...iterateArrayAfterOpen(reader, options)];
 }
@@ -281,10 +324,14 @@ export function* iterateJsonArrayFile(
   try {
     const reader = createCharReader(chunks);
     skipWhitespace(reader);
-    if (nextChar(reader, 'large JSON input must be a top-level array') !== '[') {
-      throw new SyntaxError('large JSON input must be a top-level array');
+    const firstChar = nextChar(reader, 'large JSON input must be an array or a jobs wrapper object');
+    if (firstChar === '[') {
+      yield* iterateArrayAfterOpen(reader, { maxItemBytes });
+    } else if (firstChar === '{') {
+      yield* iterateJobsObjectAfterOpen(reader, { maxItemBytes });
+    } else {
+      throw new SyntaxError('large JSON input must be an array or a jobs wrapper object');
     }
-    yield* iterateArrayAfterOpen(reader, { maxItemBytes });
     skipWhitespace(reader);
     if (reader.peek() !== null) throw new SyntaxError('unexpected data after JSON array');
   } finally {
