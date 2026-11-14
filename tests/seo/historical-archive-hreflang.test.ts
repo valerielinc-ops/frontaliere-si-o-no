@@ -35,6 +35,9 @@ describe('historical archive fallback hreflang', () => {
     expect(selfHealingEnd).toBeGreaterThan(selfHealingStart);
 
     const selfHealing = JOBS_SEO_SOURCE.slice(selfHealingStart, selfHealingEnd);
+    expect(selfHealing).toContain(
+      'const emissionPaths = pathResolution.canonicalizedLegacySection',
+    );
     expect(selfHealing).toContain('buildTrackedHreflangLinks(slug, emissionPaths)');
     expect(selfHealing).toContain(
       'buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)',

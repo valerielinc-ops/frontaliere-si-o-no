@@ -414,6 +414,49 @@ describe('locale-router: registry alias for a localized slug', () => {
     expect(res.headers.get('Location')).toBe(`${enTarget}/`);
   });
 
+  it('IT legacy-TI mirror slug → 301 to the active job in its actual canton', async () => {
+    const oldSlug = 'legacy-client-service-v1';
+    const itTarget = '/cerca-lavoro-zurigo/customer-service-transport-specialist';
+    mockAliasFetch(
+      { [oldSlug]: { alias: { it: itTarget } } },
+      (url) => url.hostname === 'origin-zurigo-it.frontaliereticino.ch'
+        && url.pathname === `${itTarget}/` ? 200 : 404,
+    );
+
+    const res = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/${oldSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`${itTarget}/`);
+  });
+
+  it('EN previous slug → 301 only after the English canonical is live', async () => {
+    const oldSlug = 'legacy-transport-specialist-v1';
+    const enTarget = '/en/find-jobs-zurich/customer-service-transport-specialist';
+    mockAliasFetch(
+      { [oldSlug]: { alias: { en: enTarget } } },
+      (url) => url.hostname === 'origin-zurigo-en.frontaliereticino.ch'
+        && url.pathname === `${enTarget}/` ? 200 : 404,
+    );
+
+    const res = await worker.fetch(new Request(`${APEX}/en/find-jobs-ticino/${oldSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe(`${enTarget}/`);
+  });
+
+  it('does not 301 an IT alias when the destination is not live', async () => {
+    const oldSlug = 'legacy-it-unavailable-v1';
+    mockAliasFetch(
+      { [oldSlug]: { alias: { it: '/cerca-lavoro-zurigo/unavailable-job' } } },
+      () => 404,
+    );
+
+    const res = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/${oldSlug}/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+    expect(res.headers.get('Location')).toBeNull();
+  });
+
   it('does not 301 to an alias whose target is not live', async () => {
     mockAliasFetch({ [itSlug]: { alias: { fr: frTarget } } }, () => 404);
 
@@ -438,6 +481,16 @@ describe('locale-router: registry alias for a localized slug', () => {
     const res = await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/${itSlug}/`), {}, ctx);
 
     expect(res.status).not.toBe(301);
+  });
+
+  it('rejects an IT alias that points into EN', async () => {
+    const oldSlug = 'legacy-it-cross-locale-v1';
+    mockAliasFetch({ [oldSlug]: { alias: { it: '/en/find-jobs-zurich/foreign-target' } } }, () => 200);
+
+    const res = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/${oldSlug}/`), {}, ctx);
+
+    expect(res.status).not.toBe(301);
+    expect(res.headers.get('Location')).toBeNull();
   });
 
   it('lets an exact prefix win over an alias (the slug really exists in this locale)', async () => {
