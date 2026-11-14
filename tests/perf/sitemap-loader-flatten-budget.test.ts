@@ -24,6 +24,14 @@
  * collections" is not needed: every current call site already does, and there
  * is nothing to claw back.
  *
+ * WHERE IT LIVES (moved from tests/seo/ on 2026-11-14). It asserts a RATIO of two
+ * wall-clock timings, which is not a deterministic property of the source: even
+ * with min-of-N sampling it was the one `tests/seo/` file that could turn
+ * `gate:seo-source` red on a busy runner (deploy runs 42649761480, 42619730081).
+ * A gate has to be green 20 times out of 20 on the same commit, so this lives in
+ * tests/perf/, which vitest.config.ts excludes from every gate (the PR run, the
+ * related selector, `gate:seo-source`). Run it with `npm run test:perf`.
+ *
  * WHAT THIS TEST GUARDS. Not the numbers above — those are the record. It
  * guards the thing that could still flip the gate to a timeout: someone
  * swapping the Buffer round-trip for a slower flattener. `flat-string.mjs`'s

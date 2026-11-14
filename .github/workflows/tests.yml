@@ -2093,6 +2093,12 @@ jobs:
           fi
           start_gate consulting-provider-disclosure node scripts/ci/check-consulting-provider-disclosure.mjs
           start_gate jobposting-emitter-census node scripts/ci/check-jobposting-emitter-census.mjs
+          # W0-B: no JSON.parse(readFile*) of a dataset past V8's string limit
+          # (data/jobs.json is 539 MB). AST lint on EVERY PR: the related-test
+          # selector only ran the old name-based guard when a PR happened to touch
+          # one of the readers it listed. Also covered by
+          # tests/check-large-dataset-reads.test.ts.
+          start_gate large-dataset-reads node scripts/ci/check-large-dataset-reads.mjs
           failures=0
           for i in "${!pids[@]}"; do
             status=0
@@ -2983,6 +2989,27 @@ jobs:
               exit 1
               ;;
           esac
+
+      # F1.1 — parita' gate PR <-> deploy. Il ruleset di `main` richiede solo
+      # questo check; `tests/seo/` (174 file, 64 leggono il sorgente come testo)
+      # girava per intero SOLO nel job `prep` di deploy.yml ("Run SEO source tests
+      # once per build", stesso comando, stesso env), perche' il selettore related
+      # ne collega una manciata. Una regressione SEO entrava cosi' in `main` verde
+      # e fermava la build al primo giro utile (~67 s misurati nel deploy). Ora lo
+      # stesso gate gira su ogni PR, prima del typecheck e in sequenza con Vitest
+      # (mai in concorrenza: il collector sotto garantisce che TSC parta solo a
+      # processi finiti). Resta anche nel deploy, che e' la rete di sicurezza.
+      # Nessun output consumato da altri step, nessun `$GITHUB_OUTPUT`: l'unico
+      # effetto e' il verdetto. La cache di trasformazione e' quella del related.
+      - name: SEO source tests (same gate as deploy prep)
+        id: seo-source-gate
+        if: ${{ !cancelled() && steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        timeout-minutes: 25
+        env:
+          BUILD_LOCALE: ''
+          VITEST_SKIP_LIVE_DATA: 'true'
+          VITEST_CACHE_DIR: node_modules/.vite-related
+        run: npm run gate:seo-source
 
       # Il typecheck resta nello stesso check-run che governa l'auto-merge e
       # mantiene `tsconfig.ci.json`, `--noEmit`, `--listFiles`, l'intero programma
