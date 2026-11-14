@@ -1902,6 +1902,25 @@ function samePortalRoute(one, other, base = '') {
     && left.pathname === right.pathname && left.search === right.search);
 }
 
+const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
+
+/** BrassRing may canonicalize only the case of its fieldless detail route. */
+function sameBrassRingPostingAddress(firstUrl, secondUrl) {
+  try {
+    const first = new URL(String(firstUrl || ''));
+    const second = new URL(String(secondUrl || ''));
+    return first.protocol === 'https:' && second.protocol === 'https:'
+      && first.origin === 'https://jobs.ubs.com' && second.origin === first.origin
+      && !first.username && !first.password && !second.username && !second.password
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
+      && first.pathname.replace(/\/+$/u, '').toLowerCase() === second.pathname.replace(/\/+$/u, '').toLowerCase()
+      && first.search === second.search;
+  } catch {
+    return false;
+  }
+}
+
 const POSTING_ID_FIELDS = [
   'postingId', 'postingKey', 'jobId', 'jobKey', 'requisitionId', 'requisitionKey', 'careerJobReqId',
   'dataPostingId', 'dataJobId', 'dataRequisitionId', 'dataCareerJobReqId',
@@ -2232,7 +2251,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
   const apply = comparablePortalRoute(context.applyUrl);
-  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '');
+  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '')
+    // BrassRing/Taleo keeps the selected vacancy and its sole script CTA on
+    // the query-bound HomeWithPreLoad route (jobs.ubs.com). The explicit
+    // jobid plus the exact same-route checks below bind this exception to the
+    // selected vacancy; an arbitrary search shell remains unresolved.
+    || (posting?.origin === 'https://jobs.ubs.com'
+      && BRASSRING_HOME_WITH_PRELOAD_RE.test(posting.pathname || '')
+      && Boolean(portalJobKey(context.postingUrl, context.sourceProtocol)));
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
@@ -2242,16 +2268,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
   const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
     && !socialApplicationEntry(control));
+  const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
+    || sameBrassRingPostingAddress(firstUrl, secondUrl);
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true
-    && samePostingAddress(context.applyUrl, context.postingUrl)
-    && samePostingAddress(snapshot.url, context.postingUrl)
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
   if (context.allowSingleExternalApplicationEntry === true
     && verifiedFieldlessJobRoute
     && apply && posting && current
-    && apply.origin === posting.origin && apply.pathname === posting.pathname && apply.search === posting.search
-    && current.origin === posting.origin && current.pathname === posting.pathname && current.search === posting.search
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && genericScriptEntries.length === 1 && allEntries.length === 1) return genericScriptEntries;
   // The official Stadt Zürich detail page is selected by its unique role link

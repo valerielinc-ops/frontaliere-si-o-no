@@ -42,6 +42,63 @@ describe('verified posting script entry (#17253)', () => {
     expect(applicationEntryControls({ url: `${postingUrl}different/`, fields: [], buttons: [apply] }, context)).toEqual([]);
   });
 
+  it('opens the sole BrassRing Apply now control on UBS HomeWithPreLoad', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const renderedUrl = ubsUrl.replace('/TGnewUI/', '/TGNewUI/');
+    const apply = { text: 'Apply now', frame: 0 };
+    const snapshot = {
+      url: renderedUrl,
+      fields: [],
+      buttons: [
+        { text: 'Share', frame: 0 },
+        apply,
+        { text: 'Save', frame: 0 },
+      ],
+    };
+    const context = {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, renderedUrl, {
+      snapshot,
+      applyUrl: ubsUrl,
+    })).toMatchObject({ submit: null, next: null });
+  });
+
+  it('keeps the sole BrassRing entry when the selected route changes only its fragment', () => {
+    const baseUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?jobid=123';
+    const postingUrl = `${baseUrl}#posting`;
+    const applyUrl = `${baseUrl}#apply`;
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({ url: applyUrl, fields: [], buttons: [apply] }, {
+      applyUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([apply]);
+  });
+
+  it('keeps BrassRing search shells and other UBS jobs unresolved', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const apply = { text: 'Apply now', frame: 0 };
+    const context = {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    };
+    const snapshot = { url: ubsUrl, fields: [], buttons: [apply] };
+
+    expect(applicationEntryControls({ ...snapshot, url: ubsUrl.replace('&jobid=348358', '') }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...snapshot, url: ubsUrl.replace('jobid=348358', 'jobid=348359') }, context)).toEqual([]);
+    expect(applicationEntryControls({ ...snapshot, buttons: [apply, { text: 'Apply for another job', frame: 0 }] }, context)).toEqual([]);
+  });
+
   it.each([
     ['unverified posting', snapshot, { ...context, allowSingleExternalApplicationEntry: false }],
     ['different job', { ...snapshot, url: url.replace('123', '456') }, context],
