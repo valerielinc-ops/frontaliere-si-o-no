@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { READER_SUBSCRIPTION_LOCALES, READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
+import { ADSENSE_SNIPPET } from '../build-plugins/constants';
 import { renderReaderSubscriptionStaticPage } from '../build-plugins/shared/readerSubscriptionStaticPage';
 
 describe('reader subscription static routes', () => {
@@ -9,6 +10,7 @@ describe('reader subscription static routes', () => {
       locale,
       canonicalUrl: `https://frontaliereticino.ch${route}`,
       headPrefix: '<meta charset="utf-8">',
+      adsenseBootstrap: ADSENSE_SNIPPET,
       cssHead: '<link rel="stylesheet" href="/assets/app.css">',
       rootShell: '<div id="root"></div>',
       entryJs: 'app-entry.js',
@@ -19,8 +21,10 @@ describe('reader subscription static routes', () => {
     expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${route}">`);
     expect(html).toContain('<div id="root"></div>');
     expect(html).toContain('<script type="module" crossorigin src="/assets/app-entry.js"></script>');
-    expect(html).toContain('data-no-auto-ads');
-    expect(html).not.toMatch(/adsbygoogle|fundingchoices|site-support/i);
+    expect(html).not.toContain('data-no-auto-ads');
+    expect(html).toContain(ADSENSE_SNIPPET);
+    expect(html).toContain('/assets/site-support.js');
+    expect(html).toContain('/assets/adsense-loader');
   });
 
   it('keeps the paid route URLs aligned with the canonical localized router slugs', () => {

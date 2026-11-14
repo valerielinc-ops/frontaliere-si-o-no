@@ -6850,6 +6850,7 @@ ${hrefTags}
      locale,
      canonicalUrl,
      headPrefix: `${HEAD_PREFIX}\n ${DARK_MODE_SCRIPT}`,
+     adsenseBootstrap: ADSENSE_SNIPPET,
      cssHead: asyncCssHeadBlock(entryCss),
      rootShell: rootShell(hasSpaBundle),
      entryJs,

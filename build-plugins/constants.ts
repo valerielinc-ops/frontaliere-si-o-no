@@ -881,9 +881,10 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  *    FC decides, not us) → granted; TCF Purpose 1 consent (store/access
  *    information on a device — the bit without which AdSense cannot serve
  *    personalized ads at all) → granted;
- *  - without Purpose 1, `denied` is written on `useractioncomplete` after the
- *    CMP UI was seen, or on `tcloaded` when the local gate says `granted` and
- *    the TC string refutes it (stale grant). If the first callback instead
+ *  - an explicit Purpose 1 `false` writes `denied` on `useractioncomplete`
+ *    after the CMP UI was seen, or on `tcloaded` when the local gate says
+ *    `granted` and the TC string refutes it (stale grant). Missing or unknown
+ *    purpose data leaves the gate as it was. If the first callback instead
  *    reports `useractioncomplete` with Purpose 1 false, no local choice, and no
  *    observed CMP UI, the bridge asks Google to show its message once and
  *    leaves the gate unset until the visitor answers. This recovers the live
@@ -935,7 +936,7 @@ function wasRecoveryAttempted(){try{return window.sessionStorage.getItem('__ftFc
 function recoverSilentCmp(){noteVisibleCmp();var saved=prev();if(uiSeen||saved==='${ADS_CONSENT_GRANTED}'||saved==='${ADS_CONSENT_DENIED}')return false;if(recoveryRequested)return true;if(wasRecoveryAttempted()){recoveryRequested=true;return true;}if(typeof g.showRevocationMessage!=='function')return true;recoveryRequested=true;var stored=false;try{window.sessionStorage.setItem('__ftFcSilentConsentRecovery','1');stored=true;}catch(e){}try{g.showRevocationMessage();return true;}catch(e){recoveryRequested=false;if(stored)try{window.sessionStorage.removeItem('__ftFcSilentConsentRecovery');}catch(e){}return true;}}
 watchCmp();
 g.callbackQueue=g.callbackQueue||[];
-g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){uiSeen=true;if(uiObserver)uiObserver.disconnect();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){if(d.gdprApplies===true&&p&&p[1]===false&&recoverSilentCmp())return;record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);});}});
+g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){uiSeen=true;if(uiObserver)uiObserver.disconnect();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]===true){grant(act);return;}if(p&&p[1]===false){if(act){if(d.gdprApplies===true&&recoverSilentCmp())return;record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);}});}});
 })();`;
 
 /**

@@ -25,13 +25,15 @@ function escapeAttribute(value: string): string {
 
 /**
  * Minimal noindex SPA shell for the existing reader subscription route.
- * It intentionally omits ad, CMP, and recovery scripts: the page sells the
- * ad-free plan and must also be a direct-load/Stripe-return destination.
+ * It carries the normal AdSense bootstrap so anonymous visitors can see Auto
+ * Ads; the shared loader still suppresses ads for active reader entitlements
+ * and excludes this route from house-ad recovery.
  */
 export function renderReaderSubscriptionStaticPage(input: {
   locale: ReaderSubscriptionLocale;
   canonicalUrl: string;
   headPrefix: string;
+  adsenseBootstrap: string;
   cssHead: string;
   rootShell: string;
   entryJs: string;
@@ -53,9 +55,10 @@ export function renderReaderSubscriptionStaticPage(input: {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
     <meta property="og:url" content="${canonicalUrl}">
+    ${input.adsenseBootstrap}
     ${input.cssHead}
   </head>
-  <body class="bg-surface-alt text-heading overflow-x-hidden" data-no-auto-ads>
+  <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${input.rootShell}
     <div id="modal-root"></div>
     <script type="module" crossorigin src="/assets/${entryJs}"></script>

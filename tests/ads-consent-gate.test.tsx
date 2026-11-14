@@ -440,6 +440,14 @@ describe('ads-consent gate — CMP → gate bridge', () => {
     expect(injectedAdServingScripts()).toEqual([]);
   });
 
+  it('leaves the consent gate unset when useractioncomplete has unknown Purpose 1 data', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: {} });
+    drainFcCallbackQueue();
+    expect((window as unknown as TestWindow).__ftAdsConsentDecision).toBeUndefined();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
   it('a silent first-visit refusal reopens Google CMP once and leaves the choice unset until the user answers', () => {
     const showRevocationMessage = vi.fn();
     (window as unknown as TestWindow).googlefc = { showRevocationMessage };
