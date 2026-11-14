@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   CREDITX_CH_KEY,
@@ -6,7 +7,6 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/creditx-ch-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('CreditX Sàrl crawler parser', () => {
   // ── Constants ──
@@ -16,11 +16,14 @@ describe('CreditX Sàrl crawler parser', () => {
   });
 
   it('uses the active French careers seed while retaining canonical detail links', () => {
-    const spec = loadSpec(CREDITX_CH_KEY);
+    const spec = JSON.parse(readFileSync(
+      new URL('../data/prospector/crawlers/creditx-ch.json', import.meta.url),
+      'utf8',
+    ));
 
     expect(spec.seedUrls).toEqual(['https://creditx.ch/fr/careers/']);
     expect(spec.sourceLang).toBe('fr');
-    expect(templateToRegex(spec.detailTemplate).test('/careers/relationship-manager-junior-sion')).toBe(true);
+    expect(spec.detailTemplate).toBe('/careers/*');
   });
 
   // ── isCompanyJob ──
