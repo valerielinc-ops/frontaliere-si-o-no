@@ -35,6 +35,10 @@ import {
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseDelvitechCareerPage,
+  parseDelvitechCareerWidgetConfig,
+  parseDelvitechZohoListings,
+  isDelvitechRecruitSite,
+  isDelvitechCompanyJob,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
   inferDelvitechCategory,
@@ -47,6 +51,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { evaluateAuthoritativeSnapshot, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -75,20 +80,6 @@ function readJson(filePath, fallback) {
   } catch {
     return fallback;
   }
-}
-
-function normalize(value = '') {
-  return String(value || '').trim().toLowerCase();
-}
-
-function normalizeKey(value = '') {
-  return String(value || '')
-    .trim()
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 }
 
 function sleep(ms) {
@@ -205,32 +196,100 @@ async function fetchRobust(url) {
   }
 }
 
+async function fetchZohoListings(widgetConfig) {
+  const endpoint = new URL('/recruit/v2/public/Job_Openings', `${widgetConfig.site}/`);
+  endpoint.searchParams.set('pagename', widgetConfig.pageName);
+  if (widgetConfig.source) endpoint.searchParams.set('source', widgetConfig.source);
+
+  let lastError = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const raw = await fetchText(endpoint.toString());
+      const payload = JSON.parse(raw);
+      if (payload?.code !== 'success' || !Array.isArray(payload.data)) {
+        throw new Error('Zoho Recruit response did not contain a successful data array');
+      }
+      return payload;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await sleep(1200 * attempt);
+    }
+  }
+
+  try {
+    const raw = await fetchWithCurl(endpoint.toString());
+    const payload = JSON.parse(raw);
+    if (payload?.code !== 'success' || !Array.isArray(payload.data)) {
+      throw new Error('Zoho Recruit curl response did not contain a successful data array');
+    }
+    return payload;
+  } catch (error) {
+    throw lastError || error;
+  }
+}
+
 function absoluteUrl(raw = '') {
   if (!raw) return '';
   if (/^https?:\/\//i.test(raw)) return raw;
   return new URL(raw, CAREERS_URL).toString();
 }
 
-function isTargetJob(job = {}) {
-  const key = normalizeKey(job.companyKey || job.company || '');
-  const company = normalize(job.company || '');
-  const url = String(job.url || '').toLowerCase();
-  return key === COMPANY_KEY || company.includes('delvitech') || isTrustedDomain(url);
+export function isTargetJob(job = {}) {
+  return isDelvitechCompanyJob(job);
 }
 
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'legacy.delvi.tech' || host.endsWith('.delvi.tech') || host === 'delvi.tech';
+    return host === 'legacy.delvi.tech'
+      || host.endsWith('.delvi.tech')
+      || host === 'delvi.tech'
+      || isDelvitechRecruitSite(rawUrl);
   } catch {
     return false;
   }
+}
+
+export function shouldPreserveDelvitechSnapshot(jobs = []) {
+  return Array.isArray(jobs)
+    && jobs.length === 0
+    && jobs.delvitechSourceReadComplete !== true;
+}
+
+export function evaluateDelvitechAuthoritativeSnapshot(jobs = []) {
+  if (shouldPreserveDelvitechSnapshot(jobs)) {
+    return {
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    };
+  }
+  return evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: assertCompleteDelvitechSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: COMPANY_NAME,
+  });
 }
 
 async function fetchListings() {
   console.log('🔍 Fetching Delvitech career page...');
   const html = await fetchRobust(CAREERS_URL);
   let listings = parseDelvitechCareerPage(html, CAREERS_URL);
+  const widgetConfig = parseDelvitechCareerWidgetConfig(html);
+
+  if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true && widgetConfig) {
+    console.log('ℹ️  Delvitech careers page exposes a Zoho Recruit widget; reading its public feed...');
+    try {
+      const payload = await fetchZohoListings(widgetConfig);
+      const zohoListings = parseDelvitechZohoListings(payload);
+      if (!zohoListings) throw new Error('Zoho Recruit feed was not parseable');
+      listings = zohoListings;
+      console.log(`📋 Zoho Recruit public feed returned ${listings.length} valid row(s) (${listings.delvitechListingRecordCount} total)`);
+    } catch (error) {
+      console.warn(`⚠️  Zoho Recruit public feed failed: ${error.message}`);
+    }
+  }
+
   if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true) {
     // The redesigned canonical page hydrates the open-role cards in the
     // browser. An HTTP 200 shell with no cards is not an authoritative zero;
@@ -265,6 +324,8 @@ async function fetchListings() {
 
 function classifyDelvitechSourceLocation(detail = {}) {
   const location = String(detail.location || '').trim();
+  const country = String(detail.country || '').trim();
+  if (country && !/switzerland|schweiz|suisse|svizzera/i.test(country)) return 'foreign';
   if (isLocationExplicitlyForeign(location)) return 'foreign';
   if (inferAnyCanton(location)) return 'swiss';
   return '';
@@ -299,8 +360,9 @@ function assertCompleteDelvitechSnapshot(jobs = []) {
 
 async function buildDelvitechJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchRobust(detailUrl);
-  const detail = parseDelvitechJobDetail(html, detailUrl);
+  const detail = listing.source === 'zoho-api'
+    ? listing.detail
+    : parseDelvitechJobDetail(await fetchRobust(detailUrl), detailUrl);
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
   }
@@ -363,6 +425,24 @@ function mergeJobs(discoveredJobs) {
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
+
+  if (shouldPreserveDelvitechSnapshot(discoveredJobs)) {
+    console.warn('⚠️  Delvitech source did not prove an empty rendered snapshot; preserving the existing slice.');
+    const diff = computeCrawlDiff(beforeSnapshot, beforeSnapshot);
+    printCrawlChangeSummary(diff, 'Delvitech SA');
+    writeCrawlChangeSummaryToGH(diff, 'Delvitech SA');
+    writeJobsSummary(targetExisting, 'Delvitech SA');
+    printPublishedJobUrls(targetExisting, 'Delvitech SA');
+    return {
+      total: targetExisting.length,
+      added: 0,
+      updated: 0,
+      mergedTarget: targetExisting,
+      preservedExisting: true,
+      diff,
+    };
+  }
+
   const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
   let added = 0;
@@ -398,7 +478,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Delvitech SA');
   writeJobsSummary(mergedTarget, 'Delvitech SA');
   printPublishedJobUrls(mergedTarget, 'Delvitech SA');
-  return { total: mergedTarget.length, added, updated, diff };
+  return { total: mergedTarget.length, added, updated, mergedTarget, preservedExisting: false, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -417,9 +497,9 @@ function updateAdapterConfig(jobs) {
     companyHost: COMPANY_HOST,
     enabled: true,
     priority: 20,
-    crawlerModes: ['html'],
+    crawlerModes: ['html', 'api'],
     seedUrls: [CAREERS_URL],
-    notes: 'Dedicated Delvitech crawler parses the canonical careers page and detail pages, excluding Germany roles and publishing TI + GR vacancies.',
+    notes: 'Dedicated Delvitech crawler reads the canonical Zoho Recruit public feed exposed by the careers page, excludes foreign roles, and publishes Swiss TI + GR vacancies.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -487,21 +567,18 @@ async function main() {
   const {
     authoritativeEmptySnapshot,
     authoritativeSnapshotVerified,
-  } = evaluateAuthoritativeSnapshot(jobs, {
-    validateAuthoritativeSnapshot: assertCompleteDelvitechSnapshot,
-    allowAuthoritativeEmptySnapshot: true,
-    authoritativeSnapshotScope: 'empty-only',
-    companyLabel: COMPANY_NAME,
-  });
+  } = evaluateDelvitechAuthoritativeSnapshot(jobs);
 
-  const { total, diff} = mergeJobs(jobs);
-  updateAdapterConfig(jobs);
+  const { total, diff, mergedTarget, preservedExisting } = mergeJobs(jobs);
+  if (!preservedExisting) updateAdapterConfig(mergedTarget);
 
   console.log('\n🌐 Running locale fill for Delvitech jobs...');
-  await translateMissingJobLocales({
-    dataJobsPath: DATA_JOBS,
-    isTargetJob,
-  });
+  if (!preservedExisting) {
+    await translateMissingJobLocales({
+      dataJobsPath: DATA_JOBS,
+      isTargetJob,
+    });
+  }
   validateLocales(authoritativeEmptySnapshot);
 
   console.log('\n📊 === Delvitech Job Stats ===');
@@ -542,4 +619,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Delvitech'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Delvitech'));
+}

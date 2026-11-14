@@ -1,9 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseDelvitechCareerPage,
+  parseDelvitechCareerWidgetConfig,
+  parseDelvitechZohoListings,
+  isDelvitechRecruitSite,
+  isDelvitechCompanyJob,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
 } from '../scripts/lib/delvitech-job-parser.mjs';
+import {
+  evaluateDelvitechAuthoritativeSnapshot,
+  isTargetJob,
+  shouldPreserveDelvitechSnapshot,
+} from '../scripts/update-delvitech-jobs.mjs';
 
 describe('Delvitech job parser', () => {
   it('extracts vacancy links from the career page cards', () => {
@@ -145,6 +154,153 @@ describe('Delvitech job parser', () => {
       title: 'E2E Test Engineer',
     }]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
+  });
+
+  it('reads the public Zoho Recruit widget configuration from the canonical shell', () => {
+    const html = `
+      <section class="tx-jobs-section">
+        <div id="rec_job_listing_div"></div>
+        <script>
+          rec_embed_js.load({
+            widget_id: "rec_job_listing_div",
+            page_name: "Careers",
+            source: "CareerSite",
+            site: "https://delvi.zohorecruit.eu",
+            empty_job_msg: "No current Openings"
+          });
+        </script>
+      </section>
+    `;
+    expect(parseDelvitechCareerWidgetConfig(html)).toEqual({
+      site: 'https://delvi.zohorecruit.eu',
+      pageName: 'Careers',
+      source: 'CareerSite',
+      emptyJobMessage: 'No current Openings',
+      emptyJobMessageLooksAuthoritative: true,
+    });
+    expect(isDelvitechRecruitSite('https://delvi.zohorecruit.eu')).toBe(true);
+    expect(isDelvitechRecruitSite('https://example.invalid')).toBe(false);
+  });
+
+  it('does not claim another employer on the shared Zoho Recruit host', () => {
+    expect(isDelvitechCompanyJob({
+      companyKey: 'other-company',
+      company: 'Other',
+      url: 'https://jobs.zohorecruit.eu/public/other',
+    })).toBe(false);
+    expect(isDelvitechCompanyJob({
+      companyKey: 'delvitech-sa',
+      company: 'Delvitech SA',
+      url: 'https://delvi.zohorecruit.eu/jobs/Careers/123',
+    })).toBe(true);
+    expect(isDelvitechCompanyJob({
+      url: 'https://legacy.delvi.tech/application-engineer-2/',
+    })).toBe(true);
+  });
+
+  it('maps a successful Zoho Recruit feed and keeps source completeness evidence', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [{
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Pre-Sales-Engineer?source=CareerSite',
+        Posting_Title: 'Pre-Sales Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: '<p>Present and demo inspection systems.</p>',
+        Date_Opened: '10/01/2026',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings[0]).toMatchObject({
+      href: 'https://delvi.zohorecruit.eu/jobs/Careers/123/Pre-Sales-Engineer?source=CareerSite',
+      title: 'Pre-Sales Engineer',
+      source: 'zoho-api',
+      detail: {
+        location: 'Mendrisio, Ticino, Switzerland',
+        description: 'Present and demo inspection systems.',
+        datePublished: '2026-10-01',
+      },
+    });
+    expect(listings.delvitechListingRecordCount).toBe(1);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(0);
+    expect(listings.delvitechListingEmptyStateObserved).toBe(false);
+  });
+
+  it('does not hide malformed Zoho rows from the completeness guard', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [{
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Engineer',
+        Posting_Title: 'Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: 'Description',
+      }, {
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/124/Unknown',
+        Posting_Title: 'Unknown',
+        Country: 'Switzerland',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings.delvitechListingRecordCount).toBe(2);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
+  });
+
+  it('counts null provider rows as malformed without discarding valid rows', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [null, {
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Engineer',
+        Posting_Title: 'Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: 'Description',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings.delvitechListingRecordCount).toBe(2);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
+  });
+
+  it('does not treat a shared Zoho URL as Delvitech ownership', () => {
+    const otherCompany = {
+      companyKey: 'other-company',
+      company: 'Other',
+      url: 'https://jobs.zohorecruit.eu/public/other',
+    };
+    expect(isTargetJob(otherCompany)).toBe(false);
+    expect([otherCompany].filter(isTargetJob)).toEqual([]);
+  });
+
+  it('keeps an API-empty result non-authoritative without rendered evidence', () => {
+    const apiEmpty = parseDelvitechZohoListings({ code: 'success', data: [] });
+    expect(apiEmpty.delvitechListingEmptyStateObserved).toBe(false);
+
+    const jobs = [];
+    Object.defineProperty(jobs, 'delvitechSourceReadComplete', { value: false });
+    expect(shouldPreserveDelvitechSnapshot(jobs)).toBe(true);
+    expect(evaluateDelvitechAuthoritativeSnapshot(jobs)).toMatchObject({
+      authoritativeEmptySnapshot: false,
+      authoritativeSnapshotVerified: false,
+    });
+  });
+
+  it('accepts an explicitly rendered empty state as authoritative', () => {
+    const renderedEmpty = [];
+    Object.defineProperties(renderedEmpty, {
+      delvitechSourceReadComplete: { value: true },
+      delvitechSourceTerminationProven: { value: true },
+      delvitechSourceRecordCount: { value: 0 },
+      delvitechSourceClassifiedCount: { value: 0 },
+      delvitechSourceTargetCount: { value: 0 },
+    });
+    expect(evaluateDelvitechAuthoritativeSnapshot(renderedEmpty)).toMatchObject({
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+    });
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {
