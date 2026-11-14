@@ -304,6 +304,19 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
+
+      # This gate inspects the shared SEO source tree and is independent of the
+      # locale-specific build. Keep it before the expensive dataset assembly:
+      # a source regression must block the matrix as a whole, not let the IT
+      # leg fail while en/de/fr spend hours building work that cannot publish.
+      - name: Run SEO source tests once per build
+        timeout-minutes: 25
+        env:
+          BUILD_LOCALE: ''
+          # The prep checkout intentionally omits the live jobs dataset.
+          VITEST_SKIP_LIVE_DATA: 'true'
+        run: npm run gate:seo-source
+
       # The thumbnail encoder reads only the checked-out public/images tree and
       # writes only its thumbnails/ subdirs, which nothing reads before the
       # snapshot pack: it overlaps the single-threaded dataset steps below
@@ -672,16 +685,6 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
-
-      - name: Run SEO source tests once per build
-        if: matrix.locale == 'it'
-        timeout-minutes: 25
-        env:
-          # Source tests inspect all locale outputs, unlike this matrix build.
-          BUILD_LOCALE: ''
-          # The shard checkout intentionally omits the live jobs dataset.
-          VITEST_SKIP_LIVE_DATA: 'true'
-        run: npm run gate:seo-source
 
       - name: Audit no merge conflict markers
         run: npm run audit:no-merge-markers
