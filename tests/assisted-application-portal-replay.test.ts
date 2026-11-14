@@ -22,6 +22,7 @@ import {
   PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
   publicPortalReplayPreflight,
+  publicPortalReplayPreflightWithRetry,
   portalReplayQueryAllowlistForTrustedFence,
   safeCompareFailureCode,
   sanitizePortalReplayReport,
@@ -679,6 +680,20 @@ describe('portal replay DNS capability', () => {
 
     expect(result).toEqual([{ status: 0, unknown: true }]);
     expect(probes).toBe(1);
+  });
+
+  it('retries a 5xx preflight exactly once through the same safe helper', async () => {
+    const statuses = [503, 503, 200];
+    let probes = 0;
+    const result = await publicPortalReplayPreflightWithRetry({
+      record: { postingUrl: 'https://careers.example.test/jobs/123' },
+      isMutatingGetUrl: () => false,
+      allowedPostingQueryParams: new Set(),
+      publicContractGet: async () => ({ status: statuses[probes++] }),
+    });
+
+    expect(result).toEqual({ responses: [{ status: 503 }], retryCount: 1 });
+    expect(probes).toBe(2);
   });
 
   it('keeps an unavailable preflight helper unknown without making a raw request', async () => {

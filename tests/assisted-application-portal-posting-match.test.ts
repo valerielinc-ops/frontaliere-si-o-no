@@ -107,9 +107,13 @@ describe('application form posting identity', () => {
 
   it('rejects a different named role and a different Umantis vacancy ID', () => {
     const postingUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Description/1';
+    const applicationUrl = 'https://recruitingapp-2800.umantis.com/Vacancies/6604/Application/New/1';
     const job = { title: 'Pflegefachfrau Gesundheit', sourceTitle: 'Pflegefachfrau Gesundheit' };
     expect(formPostingMatch('Sachbearbeiter Buchhaltung - Bewerbung', job, {
       pageUrl: 'https://careers.example.test/application/new', postingMatched: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch('Sachbearbeiter Buchhaltung - Bewerbung\nVorname\nNachname', job, {
+      pageUrl: applicationUrl, postingUrl,
     })).toBe('mismatch');
     expect(formPostingMatch('Bewerbung\nVorname\nNachname', job, {
       pageUrl: 'https://recruitingapp-2800.umantis.com/Vacancies/6605/Application/New/1', postingUrl,

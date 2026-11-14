@@ -500,6 +500,16 @@ export async function publicPortalReplayPreflight({ record, isMutatingGetUrl, al
   }
 }
 
+export async function publicPortalReplayPreflightWithRetry(options = {}) {
+  let responses = await publicPortalReplayPreflight(options);
+  let retryCount = 0;
+  if (responses.some((response) => response.status >= 500 && response.status < 600)) {
+    retryCount = 1;
+    responses = await publicPortalReplayPreflight(options);
+  }
+  return { responses, retryCount };
+}
+
 export function portalReplayQueryAllowlistForTrustedFence(fenceApi, urls) {
   // The trusted base fence may predate URL-scoped posting-query support. In
   // that case an empty allowlist preserves its stricter default behavior.
@@ -1177,12 +1187,9 @@ async function compareMode(values) {
   for (const record of records) {
     compareFailurePhase = 'public_preflight_check';
     const allowedPostingQueryParams = portalReplayQueryAllowlistForTrustedFence(fenceApi, [record.postingUrl, record.applyUrl]);
-    let responses = await publicPortalReplayPreflight({ record, isMutatingGetUrl: fenceApi.isMutatingGetUrl, allowedPostingQueryParams, publicContractGet });
-    let retryCount = 0;
-    if (responses.some((response) => response.status >= 500 && response.status < 600)) {
-      retryCount = 1;
-      responses = await publicPreflight(trustedRoot, record, fenceApi.isMutatingGetUrl, allowedPostingQueryParams);
-    }
+    const { responses, retryCount } = await publicPortalReplayPreflightWithRetry({
+      record, isMutatingGetUrl: fenceApi.isMutatingGetUrl, allowedPostingQueryParams, publicContractGet,
+    });
     preflightByKey.set(record.key, { responses, retryCount, allowedPostingQueryParams });
   }
   if (records.some((record) => !preflightByKey.get(record.key)?.responses.some((response) => response.status >= 500 && response.status < 600))) {

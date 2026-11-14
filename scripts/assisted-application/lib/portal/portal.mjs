@@ -4711,8 +4711,26 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...nameWords(job.company),
     ...nameWords(job.organization),
   ]);
-  return headings.some(heading => normalizeWords(heading).split(' ').filter(Boolean)
-    .filter(word => !neutral.has(word) && !/^\d+$/.test(word)).length > 0) ? 'mismatch' : 'unknown';
+  const hasUnmatchedRoleWords = (heading) => normalizeWords(heading).split(' ').filter(Boolean)
+    .some(word => !neutral.has(word) && !/^\d+$/.test(word));
+  const declaredSourceLanguage = String(job.sourceLang || job.sourceLanguage || job.postingLanguage || '')
+    .trim().toLowerCase().split(/[-_]/u)[0];
+  const knownTitleLanguages = new Set(candidates.flatMap((candidate) => {
+    const detected = detectLanguageWithConfidence(candidate);
+    return detected.confidence > 0.6 ? [detected.lang] : [];
+  }));
+  if (['de', 'en', 'fr', 'it'].includes(declaredSourceLanguage)) {
+    knownTitleLanguages.add(declaredSourceLanguage);
+  }
+  return headings.some((heading) => {
+    if (!hasUnmatchedRoleWords(heading)) return false;
+    const detected = detectLanguageWithConfidence(heading);
+    // A different-language ATS heading and ordinary form copy do not prove a
+    // different vacancy role. Keep them unknown unless both sides have strong
+    // language evidence; the verified vacancy route remains an independent
+    // identity proof for bound application forms.
+    return detected.confidence > 0.6 && knownTitleLanguages.has(detected.lang);
+  }) ? 'mismatch' : 'unknown';
 }
 
 // Umantis titles append the application surface to the portal's own role
