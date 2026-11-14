@@ -261,8 +261,17 @@ const GIT_RAW_STATUS = {
 // pigri: in un clone parziale (blob:none/tree:0) un oggetto assente farebbe
 // partire un fetch dal promisor e la sonda pende invece di fallire subito.
 // Solo i diff (`lazy: true`) possono scaricare i tree/blob che servono.
+function gitBin() {
+  const configured = String(process.env.TRUSTED_GIT_BIN || '').trim();
+  if (!configured) return 'git'; // legacy/debug CLI outside the trusted review workflow
+  if (!configured.startsWith('/') || configured.includes('\0')) {
+    throw new Error('TRUSTED_GIT_BIN mancante o non assoluto');
+  }
+  return configured;
+}
+
 function runGitDefault(args, { lazy = false } = {}) {
-  return execFileSync('git', args, {
+  return execFileSync(gitBin(), args, {
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,
     stdio: ['ignore', 'pipe', 'pipe'],

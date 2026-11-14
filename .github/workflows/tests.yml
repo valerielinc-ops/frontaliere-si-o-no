@@ -3208,6 +3208,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           BODY_REREVIEW: ${{ steps.guard.outputs.body_rereview }}
         # Tier high (gpt-5.6-luna, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
