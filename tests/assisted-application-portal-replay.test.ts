@@ -431,7 +431,7 @@ describe('portal replay workflow wiring', () => {
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
     const prCheckout = workflow.indexOf('      - name: Checkout PR runner\n');
-    const mergeCommit = workflow.indexOf('          ref: ${{ github.sha }}\n');
+    const mergeCommit = workflow.indexOf('          ref: ${{ github.event.pull_request.merge_commit_sha }}\n');
     expect(prCheckout).toBeGreaterThan(-1);
     expect(mergeCommit).toBeGreaterThan(prCheckout);
     expect(workflow).not.toContain('github.event.pull_request.head.sha');

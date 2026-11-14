@@ -139,11 +139,11 @@ jobs:
       - name: Checkout PR runner
         uses: actions/checkout@v7
         with:
-          # github.sha is the immutable synthetic merge commit captured by
-          # this pull_request event, not the raw head SHA and not the moving
-          # refs/pull/<number>/merge ref. A queued run must keep testing the
-          # exact tree represented by its event even if main advances again.
-          ref: ${{ github.sha }}
+          # The event's merge_commit_sha is immutable for this queued run, not
+          # the moving refs/pull/<number>/merge ref. A queued run must keep
+          # testing the exact tree represented by its event even if main
+          # advances again.
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
           fetch-depth: 1
           persist-credentials: false
           sparse-checkout: |
