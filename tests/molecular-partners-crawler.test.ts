@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   fetchAllMolecularPartnersJobs,
@@ -9,6 +10,11 @@ import {
   LISTING_URL,
 } from '../scripts/lib/molecular-partners-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const LIVE_EMPTY_LISTING = readFileSync(
+  new URL('./fixtures/talentsoft-molecular-partners-empty.html', import.meta.url),
+  'utf8',
+);
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -36,9 +42,20 @@ describe('Molecular Partners crawler parser', () => {
       expect(isMolecularPartnersEmptyListingPage(emptyListing)).toBe(true);
     });
 
+    it('accepts the live Talentsoft empty-state container and explanatory suffix', () => {
+      expect(isMolecularPartnersEmptyListingPage(LIVE_EMPTY_LISTING)).toBe(true);
+    });
+
     it('rejects a near-match empty message', () => {
       expect(isMolecularPartnersEmptyListingPage(
         '<main><h2>No results</h2><p>No vacancies are listed.</p></main>',
+      )).toBe(false);
+    });
+
+    it('rejects a diagnostic suffix after the empty message', () => {
+      expect(isMolecularPartnersEmptyListingPage(
+        '<div class="ts-ol-container-list-results-no-result"><h2>No results</h2><p>No vacancies match your search criteria. Open roles are listed below</p></div>',
+        [],
       )).toBe(false);
     });
 
@@ -71,6 +88,16 @@ describe('Molecular Partners crawler parser', () => {
 
     it('publishes an authoritative zero only for the explicit source state', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => new Response(emptyListing, { status: 200 })));
+
+      const jobs = await fetchAllMolecularPartnersJobs();
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptyState).toBe('authoritative-source-zero');
+      expect(jobs.discoveredCount).toBe(0);
+    });
+
+    it('publishes the live empty board as an authoritative zero', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => new Response(LIVE_EMPTY_LISTING, { status: 200 })));
 
       const jobs = await fetchAllMolecularPartnersJobs();
 
