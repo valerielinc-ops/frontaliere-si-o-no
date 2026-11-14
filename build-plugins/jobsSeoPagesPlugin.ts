@@ -364,7 +364,11 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+ employerProfilesFlushed,
+ registerJobsSeoPagesProducer,
+ resolveJobsSeoPagesFlushed,
+} from './shared/buildSignals';
 import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
@@ -1848,10 +1852,16 @@ export interface JobsSeoPagesPluginOptions {
 }
 
 export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
+ registerJobsSeoPagesProducer();
  return {
  name: 'jobs-seo-pages',
  apply: 'build',
  enforce: 'post',
+ // closeBundle hooks run in parallel, so reset the signal before each build
+ // generation when Vite reuses this plugin instance in watch mode.
+ buildStart() {
+  registerJobsSeoPagesProducer();
+ },
  async closeBundle() {
  if (options.fastLane && (
   options.activeJobIds === undefined

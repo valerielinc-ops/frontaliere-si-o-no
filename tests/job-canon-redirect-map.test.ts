@@ -33,6 +33,12 @@ import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPa
 import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
 import {
+  _resetJobsSeoPagesSignalForTests,
+  registerJobsSeoPagesProducer,
+  resolveJobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from '../build-plugins/shared/buildSignals';
+import {
   buildJobSlugShards,
   jobCanonV2ShardKey,
   jobSlugShardKey,
@@ -1193,6 +1199,176 @@ describe('job canon bridge path planning and PR-B classification', () => {
         bridgeCountAfter: 1,
         bridgeFullCountAfter: 1,
       });
+    }
+  });
+
+  it('completes an isolated Worker invocation without a jobs SEO producer', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-no-producer-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = 'en';
+    try {
+      expect(shouldAwaitJobsSeoPagesFlushed()).toBe(false);
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it('waits for the registered jobs SEO producer before checking dist in a parallel-style closeBundle', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-jobs-seo-barrier-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    const previousFastBuild = process.env.FAST_BUILD;
+    let workerRun: Promise<void> | undefined;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = 'it';
+    delete process.env.FAST_BUILD;
+    try {
+      // Register the producer directly. This suite mocks jobsSeoPagesPlugin's
+      // data helpers, so importing a second real plugin instance here would
+      // make the test depend on Vitest's mocked module graph rather than the
+      // shared build barrier contract.
+      registerJobsSeoPagesProducer();
+      expect(shouldAwaitJobsSeoPagesFlushed()).toBe(true);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      let workerFinished = false;
+      workerRun = (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin)
+        .then(() => { workerFinished = true; });
+      await new Promise<void>((resolve) => setImmediate(resolve));
+      expect(workerFinished).toBe(false);
+      expect(fs.existsSync(path.join(root, 'dist'))).toBe(false);
+
+      const slug = 'parallel-handoff-worker-fixture';
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({
+        [slug]: { it: `/cerca-lavoro-zurigo/${slug}` },
+      }, root);
+      setJobCanonOrderingFields([]);
+
+      // Model the producer finishing its reconciled slug map while Worker
+      // closeBundle is already running and still has no dist to inspect.
+      resolveJobsSeoPagesFlushed();
+      await workerRun;
+      workerRun = undefined;
+
+      const workerShardPath = path.join(
+        root,
+        'dist',
+        'job-canon',
+        'v2',
+        `${jobCanonV2ShardKey(slug)}.json`,
+      );
+      expect(fs.existsSync(workerShardPath)).toBe(true);
+      expect(JSON.parse(fs.readFileSync(workerShardPath, 'utf8'))[slug]?.it)
+        .toBe('/cerca-lavoro-zurigo');
+    } finally {
+      resolveJobsSeoPagesFlushed();
+      if (workerRun) await workerRun.catch(() => undefined);
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      if (previousFastBuild === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = previousFastBuild;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each([
+    ['unset', undefined],
+    ['empty', ''],
+  ] as const)('emits the Worker map for all-locale BUILD_LOCALE=%s', async (_label, buildLocale) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-all-locale-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    if (buildLocale === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = buildLocale;
+    try {
+      const slug = 'all-locale-worker-map-fixture';
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({
+        [slug]: { en: `/en/find-jobs-zurich/${slug}` },
+      }, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      const workerShardPath = path.join(
+        root,
+        'dist',
+        'job-canon',
+        'v2',
+        `${jobCanonV2ShardKey(slug)}.json`,
+      );
+      expect(fs.existsSync(workerShardPath)).toBe(true);
+      expect(JSON.parse(fs.readFileSync(workerShardPath, 'utf8'))[slug]?.en)
+        .toBe('/en/find-jobs-zurich');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each(['en', 'de', 'fr'] as const)('does not emit a competing Worker map for BUILD_LOCALE=%s', async (buildLocale) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-non-owner-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    process.env.BUILD_LOCALE = buildLocale;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+      writeAllKnownJobSlugs({}, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      expect(fs.existsSync(path.join(root, 'dist', 'job-canon'))).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
+    }
+  });
+
+  it.each([
+    ['missing', undefined],
+    ['invalid', '{}'],
+  ] as const)('fails closed for an all-locale Worker slug map that is %s', async (state, mapContents) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-all-locale-invalid-'));
+    const previousLocale = process.env.BUILD_LOCALE;
+    _resetJobsSeoPagesSignalForTests();
+    delete process.env.BUILD_LOCALE;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
+      if (mapContents !== undefined) {
+        fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), mapContents);
+      }
+      writeAllKnownJobSlugs({}, root);
+      setJobCanonOrderingFields([]);
+
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
+        .rejects.toThrow(state === 'missing' ? 'all-locale build requires' : 'must contain an array');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      if (previousLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousLocale;
+      _resetJobsSeoPagesSignalForTests();
     }
   });
 });

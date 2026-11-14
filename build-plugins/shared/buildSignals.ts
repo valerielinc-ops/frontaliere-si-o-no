@@ -71,7 +71,8 @@ let professionLandingsSignal = makeValueSignal<readonly string[]>();
 let professionLandingsProducerRegistered = false;
 const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
-const jobsSeoPagesSignal = makeSignal();
+let jobsSeoPagesSignal = makeSignal();
+let jobsSeoPagesProducerRegistered = false;
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 let jobSitemapAllowlist: ReadonlySet<string> | null = null;
 let tiHubLatestJobsBlocks: Readonly<Record<string, string>> | null = null;
@@ -176,28 +177,49 @@ export function resolveFuelDailyPagesFlushed(): void {
 
 /**
  * Resolves when {@link jobsSeoPagesPlugin} has flushed all queued writes,
- * including previousSlugs bridge HTML. Consumed by
+ * including previousSlugs bridge HTML and the reconciled Worker input map.
+ * Consumed by
  * {@link relatedSearchClustersPlugin} so its sitemap canonical-mismatch
  * filter reads the final on-disk content. Without this barrier, parallel
  * `closeBundle` lets the cluster sitemap be written while bridge HTML is
  * still buffered, and bridge URLs (canonical → active slug) leak into
- * sitemap-search-clusters.xml — `audit:sitemap-canonicals` then fails.
+ * sitemap-search-clusters.xml — `audit:sitemap-canonicals` then fails. The
+ * Worker-map producer also awaits this signal before checking `dist` or
+ * reading the reconciled slug map.
  */
-export const jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
+export let jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
+
+/** Register and reset the jobs SEO barrier for a new build generation. */
+export function registerJobsSeoPagesProducer(): void {
+  jobsSeoPagesSignal = makeSignal();
+  jobsSeoPagesFlushed = jobsSeoPagesSignal.promise;
+  jobsSeoPagesProducerRegistered = true;
+}
+
 export function resolveJobsSeoPagesFlushed(): void {
   jobsSeoPagesSignal.resolve();
 }
 
 /**
- * FAST_BUILD deliberately omits jobsSeoPagesPlugin, so its completion signal
- * has no producer in that mode. Full builds keep the existing barrier: the
- * jobs sitemap must be final before downstream sitemap reconciliation reads
- * it.
+ * FAST_BUILD deliberately omits jobsSeoPagesPlugin, and isolated consumer
+ * tests may omit it too. Only await its completion when this build registered
+ * the producer; a full build then waits for its final map and bridge writes.
  */
 export function shouldAwaitJobsSeoPagesFlushed(
   fastBuild = Boolean(process.env.FAST_BUILD),
 ): boolean {
-  return !fastBuild;
+  return jobsSeoPagesProducerRegistered && !fastBuild;
+}
+
+/**
+ * Test-only cleanup for the process-wide build signal. A test that models a
+ * producer must not leave a registered barrier behind for an isolated plugin
+ * test; production code uses registerJobsSeoPagesProducer per build instead.
+ */
+export function _resetJobsSeoPagesSignalForTests(): void {
+  jobsSeoPagesSignal = makeSignal();
+  jobsSeoPagesFlushed = jobsSeoPagesSignal.promise;
+  jobsSeoPagesProducerRegistered = false;
 }
 
 /**
