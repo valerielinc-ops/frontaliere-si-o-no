@@ -9,21 +9,21 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-13T21:27:31.775Z",
+  "generatedAt": "2026-11-14T09:30:19.372Z",
   "total": 27,
   "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 25,
-  "durationMs": 265738,
-  "avgDurationMs": 265738,
+  "durationMs": 450749,
+  "avgDurationMs": 450749,
   "durationHistory": [
-    265738
+    450749
   ],
   "newJobs": [
     {
       "id": "company-7ucnor",
-      "slug": "technicien-de-maintenance-m-w-d-comadur-sa-la-chaux-de-fonds-7ucnor",
+      "slug": "manutenzione-tecnica-m-f-comadur-sa-la-chaux-de-fonds",
       "company": "Comadur SA",
       "title": "Technicien de maintenance H/F",
       "location": "La Chaux-de-Fonds",
@@ -35,14 +35,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/34201",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
+      "url": "https://swatchgroup.com/fr/job/34201",
+      "applyUrl": "https://swatchgroup.com/fr/job/34201",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-13T21:26:05.084Z",
+      "crawledAt": "2026-11-14T09:29:11.743Z",
       "firstSeenAt": "2026-11-13T21:26:05.084Z",
-      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -53,13 +52,13 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:26:05.084Z",
+      "validThrough": "2026-12-29T09:29:11.743Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
@@ -108,7 +107,49 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "company-7ucnor",
+      "slug": "manutenzione-tecnica-m-f-comadur-sa-la-chaux-de-fonds",
+      "company": "Comadur SA",
+      "title": "Technicien de maintenance H/F",
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "category": "other",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/fr/job/34201",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
+      "source": "Company Careers Crawler",
+      "companyKey": "comadur-swatch-group",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-11-13T21:26:05.084Z",
+      "firstSeenAt": "2026-11-13T21:26:05.084Z",
+      "sourceLang": "fr",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2300",
+      "addressLocality": "La Chaux-de-Fonds",
+      "addressRegion": "NE",
+      "streetAddress": "La Chaux-de-Fonds",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T21:26:05.084Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "company-esyu8",
@@ -1141,5 +1182,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
