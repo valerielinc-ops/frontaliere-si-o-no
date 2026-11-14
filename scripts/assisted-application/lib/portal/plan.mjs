@@ -761,7 +761,12 @@ const STANDALONE_POSTAL_CODE_FIELD_RE = /^\s*(?:zip\s*(?:\/\s*postal)?\s*code|po
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
-const PHONE_CODE_FIELD_RE = /\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono)\b/i;
+const PHONE_CODE_FIELD_RE = new RegExp([
+  String.raw`\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono|cellulare|handy|natel)\b`,
+  String.raw`\bmobile\s+(?:number|phone|nummer)\b`,
+  String.raw`\bmobil(?:nummer|telefon)\b`,
+  String.raw`\b(?:mobile|mobil)(?=\s*[*:()/,;?]|$)`,
+].join('|'), 'iu');
 const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:phone\s+)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/i;
 
 function isPhoneCountryQuestion(value, context = '', metadata = {}) {
