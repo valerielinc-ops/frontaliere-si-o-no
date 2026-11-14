@@ -46,6 +46,7 @@
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { jobsArrayFromParsed } from './lib/read-large-json.mjs';
 import { baseCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import {
   companyLogoKeyForJob,
@@ -212,11 +213,8 @@ function loadJobs() {
     return [];
   }
   try {
-    const raw = readJsonFile(JOBS_PATH);
-    if (Array.isArray(raw)) return raw;
-    if (raw && Array.isArray(raw.jobs)) return raw.jobs;
-    // Wrong shape (`{}`, null, a number) is an error, not "no pairs".
-    throw new Error(`expected a JSON array or { jobs: [...] }, got ${raw === null ? 'null' : typeof raw}`);
+    // Array or { jobs: [...] }; a wrong shape (`{}`, null, a number) throws, it is not "no pairs".
+    return jobsArrayFromParsed(readJsonFile(JOBS_PATH));
   } catch (err) {
     // Fail closed: an empty list would be committed as "no qualifying pairs".
     throw new Error(`[refresh-weekly-employers-top-pairs] cannot read jobs.json: ${err?.message || err}`);

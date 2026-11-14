@@ -2,10 +2,12 @@
 // carry on with 0 jobs (run 43520109946, 2026-11-14: weekly-employers and
 // orphan-query-landings logged "failed to parse jobs.json", went on with 0 jobs
 // and reported degraded=false).
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { jobsArrayFromParsed } from '../scripts/lib/read-large-json.mjs';
 import { DatasetReadError, readJobsArrayStrict } from '../build-plugins/shared/readJobsDatasetStrict';
 import { weeklyEmployersPlugin } from '../build-plugins/weeklyEmployersPlugin';
 import { orphanQueryLandingPlugin } from '../build-plugins/orphanQueryLandingPlugin';
@@ -144,5 +146,49 @@ describe('a wrong-shaped jobs.json stops the plugins too, not just the shared re
     await expect(runCloseBundle(jobRecencyPagesPlugin(root))).rejects.toThrow(/\[job-recency-pages\] cannot read jobs\.json: expected a JSON array/);
     await expect(runCloseBundle(jobSectorPagesPlugin(root))).rejects.toThrow(/\[job-sector-pages\] cannot read jobs\.json: expected a JSON array/);
     await expect(runCloseBundle(jobMarketSnapshotPlugin(root))).rejects.toThrow(/\[job-market-snapshot\] cannot read jobs\.json: expected a JSON array/);
+  });
+});
+
+describe('scripts/snapshot-jobs-weekly.mjs accepts the same shapes as every strict reader', () => {
+  const SCRIPT = path.resolve('scripts/snapshot-jobs-weekly.mjs');
+  const run = (body: string) => {
+    write('data/jobs.json', body);
+    const res = spawnSync(process.execPath, [SCRIPT], {
+      env: { PATH: process.env.PATH, JOBS_SNAPSHOT_ROOT: root },
+      encoding: 'utf8',
+    });
+    const dir = path.join(root, 'data', 'jobs-snapshots-history');
+    const files = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
+    return { res, files, dir };
+  };
+
+  it('{ "jobs": [...] } -> exit 0 and one row in the weekly snapshot', () => {
+    const { res, files, dir } = run(JSON.stringify({ jobs: [{ company: 'Acme', slug: 'acme' }] }));
+    expect(res.status, res.stderr).toBe(0);
+    expect(files).toHaveLength(1);
+    const snapshot = JSON.parse(fs.readFileSync(path.join(dir, files[0]), 'utf8'));
+    expect(snapshot.jobs).toHaveLength(1);
+    expect(snapshot.jobs[0]).toMatchObject({ slug: 'acme', employer: 'Acme' });
+  });
+
+  it('a plain array still works', () => {
+    const { res, files } = run(JSON.stringify([{ company: 'Acme', slug: 'acme' }]));
+    expect(res.status, res.stderr).toBe(0);
+    expect(files).toHaveLength(1);
+  });
+
+  it.each(['{}', 'null', '42', '{"jobs":3}'])('%s -> exit != 0 and no snapshot written', (body) => {
+    const { res, files } = run(body);
+    expect(res.status).not.toBe(0);
+    expect(res.stderr).toMatch(/cannot read jobs\.json: expected a JSON array or \{ jobs: \[\.\.\.\] \}, got /);
+    expect(files).toEqual([]);
+  });
+});
+
+describe('jobsArrayFromParsed (shared by the .mjs scripts)', () => {
+  it('returns the array or the envelope, throws on anything else', () => {
+    expect(jobsArrayFromParsed([1])).toEqual([1]);
+    expect(jobsArrayFromParsed({ jobs: [2] })).toEqual([2]);
+    for (const bad of [{}, null, 42, 'x', { jobs: {} }]) expect(() => jobsArrayFromParsed(bad)).toThrow(/expected a JSON array or \{ jobs: \[\.\.\.\] \}, got /);
   });
 });
