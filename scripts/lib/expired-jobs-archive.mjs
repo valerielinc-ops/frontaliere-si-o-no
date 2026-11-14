@@ -369,12 +369,19 @@ function rawRouteFromLocaleKey(routeKey) {
  * Mutates `entries` in place and is idempotent.
  *
  * @param {object[]} entries
- * @param {{source?: string}} [options]
+ * @param {{source?: string, repairUnprovenCollisions?: boolean}} [options]
+ * `repairUnprovenCollisions` is reserved for an ownership reconciliation
+ * boundary that has already refused a lossy history merge. It keeps the
+ * records separate and repairs only the duplicate route; the default remains
+ * fail-closed for ambiguous archive identity in the general writers.
  * @returns {{entries: object[], changed: number, repairedRoutes: number, details: string[]}}
  */
 export function repairExpiredRoutesWithinArchive(
   entries,
-  { source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive' } = {},
+  {
+    source = 'expired-jobs-archive.repairExpiredRoutesWithinArchive',
+    repairUnprovenCollisions = false,
+  } = {},
 ) {
   if (!Array.isArray(entries) || entries.length < 2) {
     return {
@@ -400,7 +407,8 @@ export function repairExpiredRoutesWithinArchive(
       const ownerKey = `${entry.companyKey}::${routeKey}`;
       const routeOwners = owners.get(ownerKey) || [];
       if (routeOwners.length === 0) continue;
-      if (routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
+      if (repairUnprovenCollisions
+        || routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
         conflictingRouteKeys.push(routeKey);
       }
     }
