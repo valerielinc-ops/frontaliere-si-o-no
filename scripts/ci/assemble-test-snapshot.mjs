@@ -3,7 +3,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   ASSEMBLE_AUX_DATA_INPUTS,
   ASSEMBLE_OUTPUT_CACHE_VERSION,
@@ -262,7 +262,7 @@ export function restore({
   output('reason', `snapshot from run ${expectedRunId}, age ${Math.floor(ageMs / 60000)} min`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === SNAPSHOT_SCRIPT) {
+if ((() => { try { return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const command = process.argv[2];
   if (command === 'fingerprint') {
     writeOutput('fingerprint', computeCompatibilityFingerprint());
