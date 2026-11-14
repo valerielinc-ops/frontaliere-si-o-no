@@ -14,6 +14,7 @@ import {
   readDeclaredListingTotal,
   templateToRegex,
 } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { extractRuntimeDetailFields } from '../scripts/lib/prospector/detail-extract.mjs';
 
 describe('LIP Suisse crawler parser', () => {
   // ── Constants ──
@@ -31,6 +32,7 @@ describe('LIP Suisse crawler parser', () => {
       'https://www.lipsuisse.ch/offres-emploi/?ajax_filter=true&per-page=100',
     ]);
     expect(spec.detailEnrichment).toBe(true);
+    expect(spec.detailPostalCodeLocation).toBe(true);
     expect(spec.pagination).toMatchObject({ maxPages: 1, minCoverage: 0.95 });
     expect(readDeclaredListingTotal(
       '<h2><span>30</span>&nbsp;<span>Offres d\'emploi trouvées</span></h2>',
@@ -45,6 +47,47 @@ describe('LIP Suisse crawler parser', () => {
     expect(detailTemplate.test('/offres-emploi/assistant-de-direction-batiment-h-f-3/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/carreleur-2/')).toBe(true);
     expect(detailTemplate.test('/offres-emploi/')).toBe(false);
+  });
+
+  it('normalizes the source-shifted JSON-LD workplace field through the official directory', () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const cases = [
+      {
+        address: {
+          streetAddress: 'avenue industrielle',
+          addressLocality: 'avenue industrielle',
+          addressRegion: '12',
+          addressCountry: '1227',
+          postalCode: '1227',
+        },
+        expected: { addressRegion: 'GE', addressCountry: 'CH' },
+        candidate: { postalCode: '1227' },
+      },
+      {
+        address: { postalCode: '1700 ' },
+        expected: { location: 'Fribourg', addressLocality: 'Fribourg', addressRegion: 'FR', addressCountry: 'CH' },
+      },
+      {
+        address: { postalCode: 'Lausanne ' },
+        expected: { location: 'Lausanne', addressLocality: 'Lausanne', addressRegion: 'VD', addressCountry: 'CH' },
+      },
+    ];
+
+    for (const { address, expected, candidate } of cases) {
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Test vacancy',
+        description: 'A source-backed vacancy description with enough words for the detail extractor.',
+        jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', ...address } },
+      })}</script>`;
+      const detail = extractRuntimeDetailFields(
+        spec,
+        html,
+        'https://www.lipsuisse.ch/offres-emploi/test-vacancy/',
+      );
+      expect(detail).toMatchObject(expected);
+      if (candidate) expect(detail.locationCandidates[0]).toMatchObject(candidate);
+    }
   });
 
   it('extracts vacancy links from the index shape instead of the retired detail seed', async () => {
@@ -82,6 +125,47 @@ describe('LIP Suisse crawler parser', () => {
       expect(rows.slice(0, 2).map((row) => row.url)).toEqual([
         'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
         'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
+      ]);
+    } finally {
+      await policy.dispatcher.close();
+    }
+  });
+
+  it('keeps template-matched vacancies when the source uses untitled overlay anchors', async () => {
+    const spec = loadSpec(LIPSUISSE_CH_KEY);
+    const listingUrl = spec.seedUrls[0];
+    const vacancyUrls = [
+      'https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f-3/',
+      'https://www.lipsuisse.ch/offres-emploi/carreleur-2/',
+      ...Array.from({ length: 28 }, (_, index) => (
+        `https://www.lipsuisse.ch/offres-emploi/offre-${index + 1}/`
+      )),
+    ];
+    const html = `<h2>30&nbsp;Offres d'emploi trouvées</h2><main>${vacancyUrls.map((url) => (
+      `<a href="${url}" aria-hidden="true"></a>`
+    )).join('')}</main>`;
+    const fetchImpl = async (url: string) => {
+      if (url === 'https://www.lipsuisse.ch/robots.txt') {
+        return new Response('User-agent: *\nAllow: /', { status: 200 });
+      }
+      expect(url).toBe(listingUrl);
+      return new Response(html, { status: 200 });
+    };
+    const policy = createSpecUrlPolicy(spec, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    try {
+      const rows = await collectSpecListingRows(spec, {
+        fetchImpl,
+        sleepImpl: async () => {},
+        retries: 0,
+        disableWafProxy: true,
+      }, policy);
+      expect(rows).toHaveLength(30);
+      expect(rows.slice(0, 2).map((row) => row.title)).toEqual([
+        'assistant de direction batiment h f 3',
+        'carreleur 2',
       ]);
     } finally {
       await policy.dispatcher.close();

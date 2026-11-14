@@ -993,7 +993,33 @@ function logRuntimeObservation(spec, observation) {
  * @param {string[]} [allowedDetailOrigins]
  * @returns {{ title: string, url: string, via: 'known-template' }[]}
  */
-function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) {
+function vacancyTitleFromUrl(rawUrl) {
+  let segment = '';
+  try {
+    const pathname = new URL(rawUrl).pathname;
+    segment = pathname.split('/').filter(Boolean).at(-1) || '';
+  } catch {
+    return '';
+  }
+  try {
+    segment = decodeURIComponent(segment);
+  } catch {
+    // Keep the raw path segment if the source contains malformed escaping.
+  }
+  return segment
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 180);
+}
+
+function matchKnownTemplate(
+  links,
+  templateRx,
+  host,
+  allowedDetailOrigins = [],
+  { listingTitleFromUrl = false } = {},
+) {
   const allowedOrigins = new Set();
   for (const rawOrigin of allowedDetailOrigins) {
     try {
@@ -1013,7 +1039,8 @@ function matchKnownTemplate(links, templateRx, host, allowedDetailOrigins = []) 
     if (!templateRx.test(u.pathname)) continue;
     if (seen.has(l.url)) continue;
     seen.add(l.url);
-    const title = (l.text || '').replace(/\s+/g, ' ').trim();
+    const title = (l.text || '').replace(/\s+/g, ' ').trim()
+      || (listingTitleFromUrl ? vacancyTitleFromUrl(u.href) : '');
     if (title.length <= 3) continue;
     out.push({ title: title.slice(0, 180), url: l.url, via: /** @type {const} */ ('known-template') });
   }
@@ -1221,7 +1248,9 @@ async function extractListingCandidates(html, effectiveUrl, templateRx, spec, ru
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host
-      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins)
+      ? matchKnownTemplate(links, templateRx, host, spec?.allowedDetailOrigins, {
+        listingTitleFromUrl: spec?.listingTitleFromUrl === true,
+      })
       : [];
     if (direct.length) {
       const hasStructuredCandidates = vacancies.some((vacancy) => (
