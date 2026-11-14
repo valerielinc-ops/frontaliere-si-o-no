@@ -2268,20 +2268,18 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label));
   const genericScriptEntries = scriptEntries.filter((control) => !control.menuItem && !control.popup
     && !socialApplicationEntry(control));
+  const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
+    || sameBrassRingPostingAddress(firstUrl, secondUrl);
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true
-    && (samePostingAddress(context.applyUrl, context.postingUrl)
-      || sameBrassRingPostingAddress(context.applyUrl, context.postingUrl))
-    && (samePostingAddress(snapshot.url, context.postingUrl)
-      || sameBrassRingPostingAddress(snapshot.url, context.postingUrl))
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0;
   if (context.allowSingleExternalApplicationEntry === true
     && verifiedFieldlessJobRoute
     && apply && posting && current
-    && (samePostingAddress(context.applyUrl, context.postingUrl)
-      || sameBrassRingPostingAddress(context.applyUrl, context.postingUrl))
-    && (samePostingAddress(snapshot.url, context.postingUrl)
-      || sameBrassRingPostingAddress(snapshot.url, context.postingUrl))
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && genericScriptEntries.length === 1 && allEntries.length === 1) return genericScriptEntries;
   // The official Stadt Zürich detail page is selected by its unique role link
