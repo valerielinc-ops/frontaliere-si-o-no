@@ -10,7 +10,7 @@ const REG_PATH = path.resolve('data/slug-registry.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
 const MUNI_PATH = path.resolve('data/canton-municipalities.json');
 
-const registry = JSON.parse(fs.readFileSync(REG_PATH, 'utf8'));
+const registry = readJsonFile(REG_PATH);
 const jobs = readJsonFile(JOBS_PATH);
 const muni = JSON.parse(fs.readFileSync(MUNI_PATH, 'utf8'));
 

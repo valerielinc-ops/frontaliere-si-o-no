@@ -217,8 +217,8 @@ function loadJobs() {
     if (raw && Array.isArray(raw.jobs)) return raw.jobs;
     return [];
   } catch (err) {
-    console.warn(`[refresh-weekly-employers-top-pairs] failed to read jobs.json: ${err?.message || err}`);
-    return [];
+    // Fail closed: an empty list would be committed as "no qualifying pairs".
+    throw new Error(`[refresh-weekly-employers-top-pairs] cannot read jobs.json: ${err?.message || err}`);
   }
 }
 

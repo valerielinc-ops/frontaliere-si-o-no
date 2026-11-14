@@ -60,7 +60,8 @@ function main() {
       const raw = readJsonFile(JOBS_PATH);
       if (Array.isArray(raw)) jobs = raw;
     } catch (err) {
-      console.warn(`[snapshot-jobs-weekly] failed to parse jobs.json: ${err?.message || err}`);
+      // Fail closed: an empty snapshot would be committed as this week's history.
+      throw new Error(`[snapshot-jobs-weekly] cannot read jobs.json: ${err?.message || err}`);
     }
   } else {
     console.warn('[snapshot-jobs-weekly] data/jobs.json not found — writing empty snapshot.');

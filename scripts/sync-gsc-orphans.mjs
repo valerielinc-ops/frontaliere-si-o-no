@@ -46,6 +46,7 @@ import {
 } from './lib/orphan-enriched-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { fetchGsc } from './lib/gsc-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -124,6 +125,22 @@ function readJsonSafe(filePath) {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   } catch {
     return null;
+  }
+}
+
+/**
+ * Large dataset read (jobs.json, expired-jobs.json, slug-registry.json): a
+ * missing file is `null`, a file that exists but cannot be read or parsed
+ * THROWS. `readJsonSafe` + `readFileSync(utf8)` returned null on
+ * ERR_STRING_TOO_LONG, so the "known slugs" set was built from nothing and
+ * live job pages were classified as orphans.
+ */
+function readLargeJsonStrict(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  try {
+    return readJsonFile(filePath);
+  } catch (err) {
+    throw new Error(`sync-gsc-orphans: cannot read ${path.basename(filePath)}: ${err?.message || err}`);
   }
 }
 
@@ -359,14 +376,14 @@ function buildKnownSlugsSet() {
   }
 
   // 1. Active jobs
-  const activeJobs = readJsonSafe(dataPath('jobs.json'));
+  const activeJobs = readLargeJsonStrict(dataPath('jobs.json'));
   if (Array.isArray(activeJobs)) {
     for (const job of activeJobs) addJobSlugs(job);
     console.log(`  📦 Active jobs: ${activeJobs.length} (${known.size} slugs so far)`);
   }
 
   // 2. Expired jobs
-  const expiredJobs = readJsonSafe(dataPath('expired-jobs.json'));
+  const expiredJobs = readLargeJsonStrict(dataPath('expired-jobs.json'));
   if (Array.isArray(expiredJobs)) {
     for (const job of expiredJobs) addJobSlugs(job);
     console.log(`  📦 Expired jobs: ${expiredJobs.length} (${known.size} slugs so far)`);
@@ -581,7 +598,7 @@ function enrichFromLocalSources(orphans) {
   console.log(`  📚 Translation cache: ${cacheFileCount} files, ${translationCache.size} slug entries`);
 
   // Load slug registry
-  const slugRegistry = readJsonSafe(dataPath('slug-registry.json')) || {};
+  const slugRegistry = readLargeJsonStrict(dataPath('slug-registry.json')) || {};
   // Build reverse lookup: slug → registry entry
   const registryBySlug = new Map();
   for (const [key, entry] of Object.entries(slugRegistry)) {
@@ -995,7 +1012,7 @@ function processExpiredJobs() {
   console.log('\n🔍 Step 6: Enriching expired jobs from translation cache...');
 
   const expiredPath = dataPath('expired-jobs.json');
-  const expiredJobs = readJsonSafe(expiredPath);
+  const expiredJobs = readLargeJsonStrict(expiredPath);
   if (!Array.isArray(expiredJobs) || expiredJobs.length === 0) {
     console.log('  ⏭️  No expired jobs to process');
     return;
