@@ -2239,7 +2239,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     // selected vacancy; an arbitrary search shell remains unresolved.
     || (posting?.origin === 'https://jobs.ubs.com'
       && /^\/tgnewui\/search\/home\/homewithpreload\/?$/i.test(posting.pathname || '')
-      && Boolean(portalJobKey(posting.href)));
+      && Boolean(portalJobKey(context.postingUrl, context.sourceProtocol)));
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
     && !control?.href && !control?.formId && (control.frame || 0) === 0
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
