@@ -107,6 +107,7 @@ import {
   DEDUP_WINDOW_MS,
 } from './lib/alert-sent-jobs.mjs';
 import { computeDeliveryFinalize, computeProviderIntent } from './lib/job-alert-delivery-ledger.mjs';
+import { buildAlertInventory } from './lib/job-alert-inventory.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
 import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
@@ -254,7 +255,19 @@ export function resolveJobAlertCapacity({
 // caches were scoped per group, 16 simultaneous plans exceeded Node's 4 GiB
 // heap in production. Eight plans keep the group bounded while feeding the
 // 16-link prefetch pool. Provider requests remain coalesced independently below.
-export const JOB_ALERT_PLAN_BATCH_SIZE = 8;
+// Con l'indice dei candidati (perf-plan PR 2) i match per alert sono piccoli e la
+// dimensione del gruppo non e' piu' il limite di memoria: JOB_ALERT_PLAN_BATCH_SIZE
+// (Remote Config) permette di provare 32 o 64 in un dry-run guardando l'heap di
+// picco nella riga JOBALERT_METRICS, senza una PR. Il default resta 8: alzarlo
+// senza la misura in produzione e' proprio cio' che le correzioni anti-OOM hanno
+// smesso di fare.
+export const DEFAULT_JOB_ALERT_PLAN_BATCH_SIZE = 8;
+export function resolveJobAlertPlanBatchSize(env = process.env) {
+  const raw = String(env.JOB_ALERT_PLAN_BATCH_SIZE ?? '').trim();
+  const parsed = /^\d{1,3}$/.test(raw) ? Number(raw) : NaN;
+  return Number.isInteger(parsed) && parsed >= 1 && parsed <= 256 ? parsed : DEFAULT_JOB_ALERT_PLAN_BATCH_SIZE;
+}
+export const JOB_ALERT_PLAN_BATCH_SIZE = resolveJobAlertPlanBatchSize();
 const JOB_ALERT_SEND_BATCH_SIZE = 64;
 
 /** Build per-run profile references; auxiliary state is fetched only after cadence. */
@@ -981,70 +994,37 @@ export const STATIC_CITY_CANTON_FLOOR = {
   lugano: 'ti', bellinzona: 'ti', mendrisio: 'ti', chiasso: 'ti',
 };
 
-// Returns the live inventory AND a lightweight slug/id → geography index over
+// Returns the matching inventory AND a lightweight slug/id → geography index over
 // the FULL dataset. The old implementation threw away everything outside a
 // fixed 24h crawledAt window before it knew which recipient was being planned;
 // that made a weekly/paused recipient lose the catch-up interval. We retain the
 // inventory rows here and apply each recipient's cursor in main(). The index
 // still covers the full dataset so a one-tap source job can recover its
 // geography even when it is older than the current recipient window.
+//
+// Since perf-plan PR 3 the rows are a LEAN projection (scripts/lib/job-alert-inventory.mjs):
+// the geo index keeps only `{geo, company}` per key, the second `recent` array is
+// a count, and the row drops the crawler fields nobody reads and keeps
+// `descriptionByLocale` off the V8 heap. JOB_ALERT_LEAN_INVENTORY=0 restores the
+// full rows (kill switch, environment only).
 function loadJobs() {
-  if (!fs.existsSync(JOBS_PATH)) return {
+  const empty = () => ({
     inventory: [],
-    recent: [],
+    recentCount: 0,
+    freshCount: 0,
     locationIndex: new Map(),
     cityToCanton: new Map(),
-  };
+  });
+  if (!fs.existsSync(JOBS_PATH)) return empty();
   const jobs = readJsonFile(JOBS_PATH);
-  if (!Array.isArray(jobs)) return {
-    inventory: [],
-    recent: [],
-    locationIndex: new Map(),
-    cityToCanton: new Map(),
-  };
-
-  const now = Date.now();
-  const cutoff = now - MATCH_WINDOW_MS;
-  const inventory = [];
-  const locationIndex = new Map();
-  // City → canton index over the FULL dataset, so the graduated geo preference
-  // (#2993) can resolve a subscriber's preferred city (e.g. "bellinzona") to its
-  // canton ("ti") and treat every TI job as in-area — not just exact-city hits.
-  // Seeded with STATIC_CITY_CANTON_FLOOR; dataset entries below never override
-  // these (`!has` guard) since all four are unambiguously Ticino.
-  const cityToCanton = new Map(Object.entries(STATIC_CITY_CANTON_FLOOR));
-  for (const j of jobs) {
-    const geo = [j.location || j.addressLocality || '', j.canton || ''].filter(Boolean);
-    const company = j.company || '';
-    if (geo.length > 0 || company) {
-      const meta = { geo, company };
-      for (const key of [j.slug, ...Object.values(j.slugByLocale || {}), j.id]) {
-        if (key) locationIndex.set(String(key).toLowerCase(), meta);
-      }
-    }
-    const canton = String(j.canton || '').toLowerCase();
-    if (canton) {
-      for (const city of [j.location, j.addressLocality]) {
-        const c = String(city || '').toLowerCase().trim();
-        if (c && !cityToCanton.has(c)) cityToCanton.set(c, canton);
-      }
-    }
-    // needsRetranslation is NOT checked here: this pool is shared across every
-    // subscriber alert regardless of locale, and the flag only means
-    // translations FROM the job's source locale are stale — it never means
-    // the source locale's own title/description is bad. Blanket-excluding
-    // here wrongly dropped a job from EVERY alert (including ones in its own
-    // source language) whenever any other locale's translation was pending.
-    // The locale-aware exemption is applied per-alert below, where the
-    // recipient's locale is actually known (#4715).
-    const inventoryAt = jobInventoryTimestampMs(j);
-    // A future crawl timestamp is malformed input, not a reason to send a job
-    // before it can exist. Rows without any usable inventory timestamp are
-    // quarantined from matching rather than widening the pool to all history.
-    if (inventoryAt > 0 && inventoryAt <= now) inventory.push(j);
-  }
-  const recent = inventory.filter((job) => jobInventoryTimestampMs(job) >= cutoff);
-  return { inventory, recent, locationIndex, cityToCanton };
+  if (!Array.isArray(jobs)) return empty();
+  return buildAlertInventory(jobs, {
+    nowMs: Date.now(),
+    windowMs: MATCH_WINDOW_MS,
+    cityCantonFloor: STATIC_CITY_CANTON_FLOOR,
+    isFresh: (job) => isActuallyNewJob(job),
+    lean: process.env.JOB_ALERT_LEAN_INVENTORY !== '0',
+  });
 }
 
 // Resolve the geography of the job a one-tap alert was created from, via its
@@ -3102,9 +3082,8 @@ async function main() {
   // resolution). The recipient-specific cursor is applied only after the
   // alert documents are loaded, because each address can have a different
   // last successful send.
-  const { inventory: inventoryJobs, recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
-  const genuinelyFreshJobs = recentJobs.filter((job) => isActuallyNewJob(job)).length;
-  console.log(`   Live inventory verified in the last 24h: ${recentJobs.length}`);
+  const { inventory: inventoryJobs, recentCount, freshCount: genuinelyFreshJobs, locationIndex, cityToCanton } = loadJobs();
+  console.log(`   Live inventory verified in the last 24h: ${recentCount}`);
   console.log(`   Genuinely fresh by firstSeenAt/postedDate (last 48h): ${genuinelyFreshJobs}`);
   // Diagnostic (#3020): confirm the full-dataset geo index is non-trivially
   // populated. Source-geo recovery for one-tap alerts (sourceJobLocationsFor)

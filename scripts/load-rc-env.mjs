@@ -511,6 +511,9 @@ export const RC_TO_ENV = {
   // lets the legacy path decide while the index is compared on a sample).
   // SHADOW_SAMPLE = fraction of alerts re-planned with the legacy path to verify
   // the index (default 0.02 live, 0.10 in --dry-run). Absent = code defaults.
+  // Plan batch size of the job-alert sender (1-256, default 8): lets a dry-run
+  // try a larger group once the candidate index shrinks the per-alert match sets.
+  JOB_ALERT_PLAN_BATCH_SIZE: ['JOB_ALERT_PLAN_BATCH_SIZE'],
   JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
   JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
   // Daily job-alert subject experiment: all controls are required by the
