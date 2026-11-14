@@ -319,6 +319,9 @@ describe('ECAM general notice (CVRDEqJ3): a posting published as a PDF', () => {
       postingMatched: true, applicationEntry: true, applicationEntryUrl: formHref, pageUrl: formHref, postingUrl: career,
     };
     expect(formPostingMatch(formText, job, options)).toBe('match');
+    expect(formPostingMatch(formText, job, {
+      postingMatched: true, applicationEntry: true, pageUrl: formHref, postingUrl: career,
+    })).toBe('unknown');
     // Generic and not reached from the bound page: a stop, as before.
     expect(formPostingMatch(formText, job, { pageUrl: formHref, postingUrl: career })).toBe('mismatch');
     // A form that names another employer next to the short form, or in its title, stops.
