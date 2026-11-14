@@ -297,6 +297,37 @@ describe('technical operations output audit', () => {
       .toEqual(['steps.preflight.outputs.ready']);
   });
 
+  it('follows a parser map value assigned before the writer', () => {
+    const scriptPath = path.resolve('scripts/ci/parser-map-output.mjs');
+    const delegatedSource = [
+      "import { writeFile } from 'node:fs/promises';",
+      'const args = process.argv.slice(2);',
+      "const output = args['--github-output'];",
+      "await writeFile(output, 'ready=true\\n');",
+    ].join('\n');
+    const workflow = (target: string) => [
+      'name: parser map output',
+      'on: [push]',
+      'jobs:',
+      '  preflight:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: preflight',
+      `        run: node scripts/ci/parser-map-output.mjs --github-output ${target}`,
+      '      - run: echo "${{ steps.preflight.outputs.ready }}"',
+    ].join('\n');
+    const files = new Map([[scriptPath, delegatedSource]]);
+    const audit = (source: string) => auditWorkflowText('.github/workflows/parser-map-output.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((finding: any) => finding.rule === 'workflow.output-not-produced');
+
+    expect(audit(workflow('"$GITHUB_OUTPUT"'))).toEqual([]);
+    expect(audit(workflow('"$RUNNER_TEMP/preflight.txt"')).map((finding: any) => finding.evidence))
+      .toEqual(['steps.preflight.outputs.ready']);
+  });
+
   it('does not infer a GitHub output sink from a report path containing the flag name', () => {
     const scriptPath = path.resolve('scripts/ci/report-with-flag-named-path.mjs');
     const delegatedSource = [
