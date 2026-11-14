@@ -478,6 +478,12 @@ describe('portal replay workflow wiring', () => {
     const replayBlock = workflow.slice(replay, replayGate);
     expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    const gateBlock = workflow.slice(replayGate);
+    expect(gateBlock).toContain('ref: ${{ github.event.pull_request.merge_commit_sha }}');
+    expect(gateBlock).toContain('path: .portal-head');
+    expect(gateBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
+    expect(gateBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
+    expect(gateBlock).toContain('node "$gate_cli" aggregate');
   });
 
   it('does shared setup once and runs the family group inside one worker', () => {

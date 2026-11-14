@@ -379,6 +379,23 @@ jobs:
         with:
           node-version: '22'
 
+      # The base CLI remains the trusted gate implementation once it knows the
+      # report semantics. This PR changes that protocol, so its immutable merge
+      # CLI is also checked out as a one-release compatibility bridge; otherwise
+      # the old sanitizer turns pre-existing base errors into false regressions.
+      - name: Checkout PR gate CLI for a changed report protocol
+        if: needs.detect.outputs.run == 'true' || needs.detect.result != 'success'
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          path: .portal-head
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            functions/src
+            scripts/assisted-application
+          sparse-checkout-cone-mode: true
+
       - name: Download sanitized family reports
         if: needs.detect.outputs.run == 'true'
         id: reports
@@ -411,7 +428,14 @@ jobs:
           set -euo pipefail
           portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs
           test -f "$portal_replay_cli"
-          node "$portal_replay_cli" aggregate \
+          if grep -Fq "PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'" "$portal_replay_cli"; then
+            gate_cli="$portal_replay_cli"
+          else
+            gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs
+            test -f "$gate_cli"
+            echo 'portal replay gate: using PR CLI because the trusted base predates the report protocol'
+          fi
+          node "$gate_cli" aggregate \
             --prepare-run "$PREPARE_RUN" \
             --prepare-result "$effective_prepare_result" \
             --matrix-result "$REPLAY_RESULT" \

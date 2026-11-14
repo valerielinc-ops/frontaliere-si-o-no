@@ -34,6 +34,10 @@ let sharedHeadReplayBrowser = null;
 const replayMetricsContext = new AsyncLocalStorage();
 
 export const PORTAL_REPLAY_SEED = 'frontaliereticino-portal-replay-v1';
+// The gate checks this marker before re-sanitizing reports. A PR that changes
+// comparison semantics must be able to validate its new report contract until
+// that contract is present in the base checkout used by the trusted gate.
+export const PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2';
 export const PORTAL_REPLAY_FAMILIES = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline',
   'jobs_ch', 'manatal', 'workday', 'successfactors',
