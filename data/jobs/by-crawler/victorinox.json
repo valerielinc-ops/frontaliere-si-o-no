@@ -574,7 +574,7 @@
       "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
+        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
       },
@@ -628,6 +628,9 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "en": [
+          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:47.035Z",
@@ -650,9 +653,9 @@
     },
     {
       "id": "victorinox-25790a3baf5d",
-      "slug": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+      "slug": "coordinatore-marketing-e-operazioni-europa-60-80-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
-        "it": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
+        "it": "coordinatore-marketing-e-operazioni-europa-60-80-m-f-d-victorinox-ibach-schwyz",
         "en": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
         "de": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
         "fr": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
@@ -718,7 +721,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:17:04.243Z",
       "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
+      ]
     }
   ]
 }

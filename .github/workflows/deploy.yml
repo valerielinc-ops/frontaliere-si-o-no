@@ -2576,6 +2576,14 @@ jobs:
           PROVENANCE_LOCALE_PUSH_OUTCOME: deferred
           PROVENANCE_LOCALE_PACK_OUTCOME: deferred
           PROVENANCE_LOCALE_ARTIFACT_OUTCOME: deferred
+          # Version of the build -> publisher artifact contract this build
+          # packs against. deploy-publish.yml runs its toolchain at ITS dispatch
+          # SHA and accepts {N, N-1} (PUBLISH_CONTRACT_VERSION in
+          # scripts/ci/locale-publish-provenance.mjs): bump both together when
+          # the layout of the source artifacts, the IT plan or the receipts
+          # changes. tests/deploy-publish-pinned-toolchain.test.ts keeps them
+          # equal.
+          PROVENANCE_PUBLISH_CONTRACT_VERSION: '1'
         run: |
           node scripts/ci/locale-publish-provenance.mjs \
             --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \

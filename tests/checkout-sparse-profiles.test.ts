@@ -648,6 +648,9 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       '/scripts/lib/is-invoked-directly.mjs',
       '/scripts/lib/githubApiHeaders.mjs',
       '/scripts/ci/publish-receipts.mjs',
+      // publish-receipts.mjs imports the file-free IT group contract; the old
+      // list is only meant to lack the reconciler itself.
+      '/scripts/ci/it-shard-group-contract.mjs',
       '/functions/src/githubApiHeaders.js',
     ];
     const DISPATCHER_ENTRIES = [

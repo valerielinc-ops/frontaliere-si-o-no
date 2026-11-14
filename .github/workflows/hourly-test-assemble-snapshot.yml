@@ -2,7 +2,9 @@ name: Hourly test assemble snapshot
 
 on:
   schedule:
-    - cron: '23 * * * *'
+    # Assemble can take 8–12 minutes and freshness is measured from checkout;
+    # a single run per hour leaves a gap before the next snapshot is published.
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -76,20 +78,38 @@ jobs:
         id: snapshot_fingerprint
         run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
 
+      - name: Compute stable hourly snapshot cache key
+        id: snapshot_cache_key
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_METADATA_FILE: .cache/assemble-jobs-test-snapshot/test-snapshot.json
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ github.run_id }}
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ github.run_attempt }}
+          ASSEMBLE_TEST_SNAPSHOT_COMPATIBILITY_FINGERPRINT: ${{ steps.snapshot_fingerprint.outputs.fingerprint }}
+        run: node scripts/ci/assemble-test-snapshot.mjs cache-key
+
       - name: Save hourly test snapshot
         uses: actions/cache/save@v6
         with:
           path: .cache/assemble-jobs-test-snapshot
-          key: assemble-jobs-test-snapshot-${{ runner.os }}-${{ steps.snapshot_fingerprint.outputs.fingerprint }}-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ steps.snapshot_cache_key.outputs.key }}
 
-      # Snapshot caches are immutable. Keep only the three newest main-scoped
-      # entries so hourly refreshes do not fill the repository cache quota.
+      - name: Publish latest snapshot manifest
+        uses: actions/upload-artifact@v7
+        with:
+          name: assemble-test-snapshot-manifest
+          path: .cache/assemble-jobs-test-snapshot/test-snapshot.json
+          if-no-files-found: error
+          retention-days: 3
+
+      # Snapshot caches are immutable. Keep the current content key even when
+      # unchanged inputs reuse an older entry, plus the two newest prior keys.
       - name: Prune older hourly test snapshots
         continue-on-error: true
         uses: actions/github-script@v9
         with:
           script: |
             const prefix = 'assemble-jobs-test-snapshot-Linux-';
+            const currentKey = process.env.CURRENT_SNAPSHOT_CACHE_KEY;
             const { data } = await github.rest.actions.getActionsCacheList({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -101,7 +121,11 @@ jobs:
             });
             const snapshots = data.actions_caches.filter((cache) => cache.key.startsWith(prefix));
             snapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
-            for (const cache of snapshots.slice(3)) {
+            const keep = new Set([
+              currentKey,
+              ...snapshots.slice(0, 2).map((cache) => cache.key),
+            ]);
+            for (const cache of snapshots.filter((candidate) => !keep.has(candidate.key))) {
               await github.rest.actions.deleteActionsCache({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -109,3 +133,5 @@ jobs:
               });
               core.info(`Deleted old hourly test snapshot cache ${cache.key}`);
             }
+        env:
+          CURRENT_SNAPSHOT_CACHE_KEY: ${{ steps.snapshot_cache_key.outputs.key }}

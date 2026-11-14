@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-11-13T21:51:54.373Z",
-  "runId": "43510376275",
+  "assembledAt": "2026-11-14T21:39:17.891Z",
+  "runId": "43642750534",
   "jobs": [
     {
       "id": "alcon-a810e5d06e06",
@@ -35,7 +35,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:51:39.904Z",
+      "crawledAt": "2026-11-14T21:39:10.909Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "postalCode": "1700",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-13T21:51:39.904Z",
+      "validThrough": "2026-12-14T21:39:10.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:51:39.220Z",
+      "crawledAt": "2026-11-14T21:39:10.250Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:51:39.220Z",
+      "validThrough": "2026-12-22T21:39:10.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -209,7 +209,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Consolidation-and-Reporting-Analyst_R-2026-50440-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:51:38.528Z",
+      "crawledAt": "2026-11-14T21:39:06.744Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "postalCode": "1700",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:51:38.528Z",
+      "validThrough": "2027-01-24T21:39:06.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -293,7 +293,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Sr-Manager-QA-APL---GEM-EMEA_R-2026-50776-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:51:37.499Z",
+      "crawledAt": "2026-11-14T21:39:05.613Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -329,16 +329,16 @@
       "postalCode": "1700",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:51:37.499Z",
+      "validThrough": "2027-02-03T21:39:05.613Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "alcon-892be6023926",
       "slug": "responsabile-delle-soluzioni-per-gli-studi-psm-optometrista-m-f-d-80-100-alcon-fribourg",
       "slugByLocale": {
-        "de": "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch",
         "it": "responsabile-delle-soluzioni-per-gli-studi-psm-optometrista-m-f-d-80-100-alcon-fribourg",
         "en": "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch",
+        "de": "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch",
         "fr": "responsable-des-solutions-pour-les-cabinets-psm-optometriste-h-f-d-80-100-alcon-fribourg"
       },
       "company": "Alcon",
@@ -364,7 +364,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Practice-Solution-Manager--PSM----Optometrist--m-w-d---80-100--_R-2026-51012-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:36.578Z",
+      "crawledAt": "2026-11-14T21:39:04.479Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -383,14 +383,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-51012",
+      "previousSlugs": [
+        "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch"
         ]
       },
-      "previousSlugs": [
-        "practice-solution-manager-psm-optometrist-m-w-d-80-100-alcon-ch"
-      ],
+      "firstSeenAt": "2026-09-25T15:02:50.877Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -407,9 +408,8 @@
       "postalCode": "1700",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:36.578Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-25T15:02:50.877Z"
+      "validThrough": "2027-02-11T21:39:04.479Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "alcon-e8f5eb7c664a",
@@ -504,7 +504,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:39:39.633Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

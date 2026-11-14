@@ -1,11 +1,40 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-11-13T21:51:33.657Z",
+  "generatedAt": "2026-11-14T21:42:05.323Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "anicura",
+    "seedUrls": [
+      "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun"
+    ],
+    "phase": "detail",
+    "pages": 4,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
@@ -19,10 +48,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6760,
-  "avgDurationMs": 6760,
+  "durationMs": 7642,
+  "avgDurationMs": 7642,
   "durationHistory": [
-    6760
+    7642
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +69,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851150-veterinary-cardiologist-dipl-acvim-ecvim-ca-cardiology-f-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-13T21:51:21.886Z",
+      "crawledAt": "2026-11-14T21:41:43.181Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -63,7 +92,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:51:21.886Z",
+      "validThrough": "2026-12-14T21:41:43.181Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +114,7 @@
       "url": "https://jobs.anicura.ch/jobs/6943990-tieraerzt-in-40-100-m-w-d-netstal",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:21.885Z",
+      "crawledAt": "2026-11-14T21:41:43.180Z",
       "addressLocality": "Schübelbach",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -108,7 +137,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:51:21.885Z",
+      "validThrough": "2026-12-14T21:41:43.180Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +159,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:51:21.884Z",
+      "crawledAt": "2026-11-14T21:41:43.178Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,7 +182,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-13T21:51:21.884Z",
+      "validThrough": "2026-12-14T21:41:43.178Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -164,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

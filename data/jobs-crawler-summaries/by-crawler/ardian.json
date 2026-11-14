@@ -1,11 +1,12 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-11-14T09:52:35.236Z",
+  "generatedAt": "2026-11-14T21:40:17.798Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -14,64 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5458,
-  "avgDurationMs": 5458,
+  "durationMs": 4930,
+  "avgDurationMs": 4930,
   "durationHistory": [
-    5458
+    4930
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "ardian-97a387c526de",
-      "slug": "fund-finanza-secondaries-primaries-tirocinante-february-2027-i-zurich-m-f-ardian-zurich",
-      "company": "Ardian",
-      "companyKey": "ardian",
-      "companyDomain": "ardian.com",
-      "title": "Fund Finance Secondaries & Primaries Intern - February 2027 I Zurich (M/F)",
-      "needsRetranslation": true,
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
-      "source": "Ardian Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:36:58.948Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Private Equity",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23",
-      "postedDate": "2026-09-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
-      "firstSeenAt": "2026-09-24T00:08:00.352Z",
-      "salaryMin": 79000,
-      "salaryMax": 138500,
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "streetAddress": "Zurich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:36:58.948Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "ardian-9f5eec77bfad",
@@ -85,7 +38,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:52:20.248Z",
+      "crawledAt": "2026-11-14T21:40:01.527Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +61,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:52:20.248Z",
+      "validThrough": "2026-12-14T21:40:01.527Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -130,7 +83,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---March---July-2027---Zurich--M-F-_JR1002285",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:52:19.513Z",
+      "crawledAt": "2026-11-14T21:40:00.870Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +106,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:52:19.513Z",
+      "validThrough": "2026-12-18T21:40:00.870Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -164,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

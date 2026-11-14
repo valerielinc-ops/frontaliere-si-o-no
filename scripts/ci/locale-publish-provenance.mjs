@@ -16,6 +16,67 @@ export const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const PROVENANCE_SCHEMA_VERSION = 1;
 export const PROVENANCE_KIND = 'locale-publish-provenance';
 
+/**
+ * Version of the build -> publisher artifact contract.
+ *
+ * The publisher toolchain is pinned to the SHA it was dispatched from, while
+ * the artifacts it publishes were produced by whatever commit built them.
+ * `deploy.yml` («Write locale publish provenance») stamps the integer it
+ * builds against into every receipt as `publishContractVersion`; this module
+ * declares which versions the toolchain at its own commit can publish. Bump
+ * `PUBLISH_CONTRACT_VERSION` (and the `PROVENANCE_PUBLISH_CONTRACT_VERSION`
+ * env of that step, tests/deploy-publish-pinned-toolchain.test.ts keeps them
+ * equal) whenever the artifact layout, plan schema or receipt semantics change
+ * in a way the previous toolchain could not read. A toolchain accepts its own
+ * version and the previous one (`{N, N-1}`), so a build queued just before a
+ * bump still publishes; anything else is a `contract-mismatch` and the only
+ * remedy is a rebuild: retrying the publish can never change the answer.
+ *
+ * Receipts written before the field existed carry no version and are read as
+ * `LEGACY_PUBLISH_CONTRACT_VERSION` (0), which is exactly `N-1` for the first
+ * versioned toolchain.
+ */
+export const PUBLISH_CONTRACT_VERSION = 1;
+export const LEGACY_PUBLISH_CONTRACT_VERSION = 0;
+export const CONTRACT_MISMATCH_VERDICT = 'contract-mismatch';
+
+export function acceptedPublishContractVersions(current = PUBLISH_CONTRACT_VERSION) {
+  return Object.freeze([current, current - 1].filter((version) => Number.isInteger(version) && version >= 0));
+}
+
+/**
+ * Read the contract version of one receipt. An absent field is the legacy
+ * contract; a present but non-integer/negative value is unreadable (null).
+ */
+export function readPublishContractVersion(manifest) {
+  if (!manifest || typeof manifest !== 'object' || Array.isArray(manifest)) return null;
+  if (!Object.prototype.hasOwnProperty.call(manifest, 'publishContractVersion')) {
+    return LEGACY_PUBLISH_CONTRACT_VERSION;
+  }
+  const value = manifest.publishContractVersion;
+  return Number.isInteger(value) && value >= 0 ? value : null;
+}
+
+/**
+ * Verdict for one receipt against the toolchain's accepted contract versions.
+ * `contract-mismatch` is terminal: it means rebuild, never retry.
+ */
+export function checkPublishContractVersion(manifest, { current = PUBLISH_CONTRACT_VERSION } = {}) {
+  const accepted = acceptedPublishContractVersions(current);
+  const version = readPublishContractVersion(manifest);
+  if (version !== null && accepted.includes(version)) {
+    return { ok: true, verdict: 'ok', version, accepted, reason: '' };
+  }
+  const shown = version === null ? JSON.stringify(manifest?.publishContractVersion ?? null) : String(version);
+  return {
+    ok: false,
+    verdict: CONTRACT_MISMATCH_VERDICT,
+    version,
+    accepted,
+    reason: `publishContractVersion ${shown} is not accepted by this publisher toolchain (accepts ${accepted.join(', ')}); rebuild the source, a retry cannot succeed`,
+  };
+}
+
 const SUCCESS = 'success';
 const BUILD_ID_RE = /^\d+$/;
 const SHA_RE = /^[0-9a-f]{40}$/i;
@@ -115,6 +176,7 @@ export function createLocalePublishProvenance({
   distDir = 'dist',
   runnerTemp = process.env.RUNNER_TEMP || '',
   outcomes = {},
+  publishContractVersion,
 }) {
   const normalizedLocale = text(locale).toLowerCase();
   const expectedBuildId = text(deployBuildId);
@@ -168,6 +230,9 @@ export function createLocalePublishProvenance({
   return {
     schemaVersion: PROVENANCE_SCHEMA_VERSION,
     kind: PROVENANCE_KIND,
+    // Only a producer that declares its contract writes the field; an absent
+    // field reads back as the legacy contract (see readPublishContractVersion).
+    ...(publishContractVersion === undefined ? {} : { publishContractVersion }),
     locale: normalizedLocale,
     sourceRunId: sourceRun,
     sourceSha: text(sourceSha),
@@ -356,7 +421,17 @@ function main() {
     process.exitCode = 2;
     return;
   }
+  let publishContractVersion;
+  if (process.env.PROVENANCE_PUBLISH_CONTRACT_VERSION !== undefined
+      && process.env.PROVENANCE_PUBLISH_CONTRACT_VERSION !== '') {
+    const declared = process.env.PROVENANCE_PUBLISH_CONTRACT_VERSION.trim();
+    if (!/^\d+$/.test(declared)) {
+      throw new Error(`PROVENANCE_PUBLISH_CONTRACT_VERSION must be a non-negative integer, got ${JSON.stringify(declared)}`);
+    }
+    publishContractVersion = Number(declared);
+  }
   const manifest = createLocalePublishProvenance({
+    publishContractVersion,
     locale: process.env.BUILD_LOCALE,
     sourceRunId: process.env.PROVENANCE_SOURCE_RUN_ID || process.env.GITHUB_RUN_ID,
     sourceSha: process.env.PROVENANCE_SOURCE_SHA || process.env.GITHUB_SHA,
