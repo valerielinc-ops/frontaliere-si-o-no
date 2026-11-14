@@ -325,6 +325,53 @@ export function instagramSetupActionChannels(verdicts) {
     && (v.state === ACTION_REQUIRED || v.state === CREDENTIAL_MISSING));
 }
 
+/** A ready channel stays actionable until its publisher proves a recent delivery. */
+export const READY_POST_MAX_AGE_HOURS = 48;
+
+function timestampMs(value) {
+  if (value instanceof Date) {
+    const ms = value.getTime();
+    return Number.isFinite(ms) ? ms : null;
+  }
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (typeof value !== 'string' || !value.trim()) return null;
+  const ms = Date.parse(value);
+  return Number.isFinite(ms) ? ms : null;
+}
+
+/** The posted-ledger contract records the confirmation time in `ts`. */
+export function latestConfirmedPostMs(ledger) {
+  if (!Array.isArray(ledger?.posted)) return null;
+  let latest = null;
+  for (const entry of ledger.posted) {
+    const at = timestampMs(entry?.ts);
+    if (at !== null && (latest === null || at > latest)) latest = at;
+  }
+  return latest;
+}
+
+/**
+ * Ready channels whose activation is not backed by a recent confirmed post.
+ * Missing or timestamp-less ledger rows deliberately do not count as proof.
+ */
+export function readyChannelsNeedingActivation(
+  verdicts,
+  ledgers = {},
+  { now = Date.now(), maxAgeHours = READY_POST_MAX_AGE_HOURS } = {},
+) {
+  const nowMs = timestampMs(now);
+  const ageHours = Number(maxAgeHours);
+  if (nowMs === null || !Number.isFinite(ageHours) || ageHours < 0) {
+    throw new TypeError('ready activation check needs a valid clock and non-negative age window');
+  }
+  const cutoff = nowMs - ageHours * 60 * 60 * 1000;
+  return (Array.isArray(verdicts) ? verdicts : []).filter((verdict) => {
+    if (verdict?.state !== READY) return false;
+    const latest = latestConfirmedPostMs(ledgers?.[verdict.channel]);
+    return latest === null || latest < cutoff || latest > nowMs;
+  });
+}
+
 export function formatVerdictTable(verdicts) {
   const width = Math.max(...verdicts.map((v) => v.channel.length));
   return verdicts
