@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-11-13T21:42:50.287Z",
+  "generatedAt": "2026-11-14T09:31:48.234Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4012,
-  "avgDurationMs": 4012,
+  "durationMs": 4891,
+  "avgDurationMs": 4891,
   "durationHistory": [
-    4012
+    4891
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:42:34.197Z",
+      "crawledAt": "2026-11-14T09:31:26.129Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T21:42:34.197Z",
+      "validThrough": "2026-12-29T09:31:26.129Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:42:33.660Z",
+      "crawledAt": "2026-11-14T09:31:25.626Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       },
       "streetAddress": "Bergstrasse 28",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:42:33.660Z",
+      "validThrough": "2026-12-14T09:31:25.626Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -146,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
 }
