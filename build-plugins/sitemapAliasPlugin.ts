@@ -287,7 +287,7 @@ ${entries}
  * run, so an empty candidate set deliberately disables the inventory walk.
  */
 async function* readSitemapLocs(filePath: string): AsyncGenerator<string> {
-  const stream = fs.createReadStream(filePath);
+  const stream = fs.createReadStream(filePath, { highWaterMark: 64 * 1024 });
   const decoder = new StringDecoder('utf8');
   let pending = '';
   let insideLoc = false;
@@ -324,6 +324,18 @@ async function* readSitemapLocs(filePath: string): AsyncGenerator<string> {
   yield* parseAvailable(decoder.end());
 }
 
+/**
+ * Visit each `<loc>` value without decoding the whole sitemap into one V8
+ * string. The parser remains centralized in `readSitemapLocs` so locale-shard
+ * discovery keeps its UTF-8 boundary and plain-text validation guarantees.
+ */
+export async function forEachSitemapLocInFile(
+  filePath: string,
+  onLoc: (loc: string) => void,
+): Promise<void> {
+  for await (const loc of readSitemapLocs(filePath)) onLoc(loc);
+}
+
 async function collectForeignDirectoryCandidates(distDir: string): Promise<Set<string>> {
   const candidates = new Set<string>();
   if (EMIT_ALL_LOCALES) return candidates;
@@ -332,11 +344,11 @@ async function collectForeignDirectoryCandidates(distDir: string): Promise<Set<s
     .readdirSync(distDir)
     .filter((file) => SITEMAP_FILE_PATTERN.test(file) && !EXCLUDED_SITEMAP_FILES.has(file));
   for (const file of sitemapFiles) {
-    for await (const loc of readSitemapLocs(path.join(distDir, file))) {
+    await forEachSitemapLocInFile(path.join(distDir, file), (loc) => {
       const urlPath = new URL(loc).pathname.replace(/\/+$/u, '');
-      if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
+      if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) return;
       candidates.add(path.join(distDir, urlPath));
-    }
+    });
   }
   return candidates;
 }
