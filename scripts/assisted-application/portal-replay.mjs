@@ -245,126 +245,6 @@ function extractPathsFromDiff(diff) {
   return [...paths];
 }
 
-function changedHunksByPath(diff) {
-  const byPath = new Map();
-  let currentPaths = [];
-  let currentHunk = null;
-  for (const line of String(diff || '').split(/\r?\n/u)) {
-    const fileHeader = /^diff --git a\/(.+) b\/(.+)$/u.exec(line);
-    if (fileHeader) {
-      currentPaths = [...new Set([fileHeader[1], fileHeader[2]])];
-      for (const file of currentPaths) byPath.set(file, []);
-      currentHunk = null;
-      continue;
-    }
-    const hunkHeader = /^@@ .* @@(?:\s*(.*))$/u.exec(line);
-    if (currentPaths.length && hunkHeader) {
-      currentHunk = { scope: String(hunkHeader[1] || '').trim(), lines: [] };
-      for (const file of currentPaths) byPath.get(file).push(currentHunk);
-      continue;
-    }
-    // Keep only added/removed hunk content. File headers (`+++`/`---`) are
-    // paths, not evidence about which ATS family the changed code serves.
-    if (currentHunk && /^[+-](?![+-])/u.test(line)) {
-      currentHunk.lines.push(line.slice(1));
-    }
-  }
-  return byPath;
-}
-
-function changedLinesByPath(diff) {
-  return new Map([...changedHunksByPath(diff)].map(([file, hunks]) => [
-    file, hunks.flatMap((hunk) => hunk.lines),
-  ]));
-}
-
-function stripJavaScriptCommentsAndStrings(source) {
-  let state = 'code';
-  let quote = '';
-  let output = '';
-  const value = String(source || '');
-  for (let index = 0; index < value.length; index += 1) {
-    const character = value[index];
-    const next = value[index + 1];
-    if (state === 'line-comment') {
-      if (character === '\n') {
-        state = 'code';
-        output += '\n';
-      } else output += ' ';
-      continue;
-    }
-    if (state === 'block-comment') {
-      if (character === '*' && next === '/') {
-        output += '  ';
-        index += 1;
-        state = 'code';
-      } else output += character === '\n' ? '\n' : ' ';
-      continue;
-    }
-    if (state === 'string') {
-      if (character === '\\') {
-        output += '  ';
-        index += 1;
-      } else if (character === quote) {
-        output += ' ';
-        state = 'code';
-      } else output += character === '\n' ? '\n' : ' ';
-      continue;
-    }
-    if (character === '/' && next === '/') {
-      output += '  ';
-      index += 1;
-      state = 'line-comment';
-    } else if (character === '/' && next === '*') {
-      output += '  ';
-      index += 1;
-      state = 'block-comment';
-    } else if (character === '\'' || character === '"' || character === '`') {
-      output += ' ';
-      quote = character;
-      state = 'string';
-    } else output += character;
-  }
-  return output;
-}
-
-function familyEvidenceForChangedLines(lines) {
-  if (!Array.isArray(lines) || lines.length === 0) return new Set();
-  // Family names occur in both snake-case paths and camel-case identifiers
-  // (`isWorkdayTenantUrl`). Removing separators lets the same marker cover
-  // both forms without making a broad directory path family-specific.
-  const code = stripJavaScriptCommentsAndStrings(lines.join('\n'))
-    .toLowerCase().replace(/[^a-z0-9]+/gu, '');
-  const matches = new Map();
-  for (const [family, hints] of Object.entries(PORTAL_REPLAY_FAMILY_PATH_HINTS)) {
-    const markers = [...new Set(hints.map((hint) => hint.toLowerCase().replace(/[^a-z0-9]+/gu, '')))];
-    const count = markers.reduce((total, marker) => {
-      if (!marker) return total;
-      return total + (code.match(new RegExp(marker, 'gu')) || []).length;
-    }, 0);
-    if (count >= 2) matches.set(family, count);
-  }
-  return new Set(matches.keys());
-}
-
-const PORTAL_REPLAY_CONTROL_PATH = 'scripts/assisted-application/portal-replay.mjs';
-const PORTAL_REPLAY_REPORT_ONLY_SCOPES = Object.freeze([
-  'extractPathsFromDiff', 'changedHunksByPath', 'changedLinesByPath', 'familyEvidenceForChangedLines',
-  'affectedPortalReplayPaths', 'affectedPortalReplayFamilies', 'sanitizeOutcomeRecord',
-  'sanitizePortalReplayReport', 'aggregatePortalReplayGate', 'markdownForAggregate', 'argsForCli',
-  'prepareMode', 'detectMode',
-]);
-
-function controlPathRequiresLiveReplay(hunks) {
-  if (!Array.isArray(hunks) || hunks.length === 0) return true;
-  return hunks.some(({ scope, lines }) => {
-    if (PORTAL_REPLAY_REPORT_ONLY_SCOPES.some((allowed) => String(scope).includes(allowed))) return false;
-    if (String(scope).includes('corpusMode') && lines.length > 0
-      && lines.every((line) => /^\s*const affectedFamilies = affectedPortalReplayFamilies\((?:affected|diff)\);\s*$/u.test(line))) return false;
-    return true;
-  });
-}
-
 function normalizedPortalReplayPath(value) {
   return String(value || '').replace(/^\//u, '');
 }
@@ -392,9 +272,6 @@ export function affectedPortalReplayPaths(diff) {
 }
 
 export function affectedPortalReplayFamilies(pathsOrDiff) {
-  const isDiff = !Array.isArray(pathsOrDiff) && String(pathsOrDiff || '').includes('diff --git ');
-  const diffLines = isDiff ? changedLinesByPath(pathsOrDiff) : null;
-  const diffHunks = isDiff ? changedHunksByPath(pathsOrDiff) : null;
   const paths = Array.isArray(pathsOrDiff) ? pathsOrDiff : affectedPortalReplayPaths(pathsOrDiff);
   const families = new Set();
   let sharedRunnerPathChanged = false;
@@ -407,22 +284,6 @@ export function affectedPortalReplayFamilies(pathsOrDiff) {
     if (matchedFamilies.length) {
       for (const family of matchedFamilies) families.add(family);
     } else if (isPortalReplayAffectedPath(originalFile)) {
-      // The classifier/reporting CLI is covered by its Vitest contract tests;
-      // report-only changes do not change an ATS runner. Changes to the live
-      // replay harness or comparator remain fail-safe and fan out to all ATS
-      // families instead of silently skipping evidence.
-      if (originalFile === PORTAL_REPLAY_CONTROL_PATH) {
-        if (!isDiff || !controlPathRequiresLiveReplay(diffHunks.get(originalFile) || [])) continue;
-        sharedRunnerPathChanged = true;
-        continue;
-      }
-      const scopedFamilies = diffLines
-        ? familyEvidenceForChangedLines(diffLines.get(originalFile) || [])
-        : new Set();
-      if (scopedFamilies.size === 1) {
-        for (const family of scopedFamilies) families.add(family);
-        continue;
-      }
       sharedRunnerPathChanged = true;
     }
   }
@@ -690,47 +551,8 @@ function sanitizeOutcomeRecord(record) {
     nodeEgressBlocked: Math.max(0, Math.min(100000, Number(record.nodeEgressBlocked) || 0)),
     finalClickAttempts: Math.max(0, Math.min(100000, Number(record.finalClickAttempts) || 0)),
     formLinkedToPosting: SAFE_LINK_STATES.has(record.formLinkedToPosting) ? record.formLinkedToPosting : 'unknown',
-    submissionAttempted: record.submissionAttempted === true,
     retryCount: Math.max(0, Math.min(REPLAY_LIMITS.retries, Number(record.retryCount) || 0)),
   };
-}
-
-const SECURITY_FINDING_CODES = new Set([
-  'final_click_attempt', 'non_get_passed', 'node_egress_attempt',
-  'wrong_posting_or_talent_pool', 'submission_attempted',
-]);
-const SECURITY_COUNT_FIELDS = Object.freeze([
-  ['final_click_attempt', 'finalClickAttempts'],
-  ['non_get_passed', 'unexpectedNonGetPassed'],
-  ['node_egress_attempt', 'nodeEgressBlocked'],
-]);
-
-function securityCodesForRecord(record) {
-  const codes = new Set(Array.isArray(record?.securityViolations) ? record.securityViolations : []);
-  for (const [code, field] of SECURITY_COUNT_FIELDS) {
-    if ((Number(record?.[field]) || 0) > 0) codes.add(code);
-  }
-  if (record?.formLinkedToPosting === 'no') codes.add('wrong_posting_or_talent_pool');
-  if (record?.submissionAttempted === true) codes.add('submission_attempted');
-  return codes;
-}
-
-function securityRegressions(base, head) {
-  if (!head) return [];
-  const baseCodes = securityCodesForRecord(base);
-  const headCodes = securityCodesForRecord(head);
-  const regressions = new Set([...headCodes].filter((code) => !baseCodes.has(code)));
-  for (const [code, field] of SECURITY_COUNT_FIELDS) {
-    if ((Number(head[field]) || 0) > (Number(base?.[field]) || 0)) regressions.add(code);
-  }
-  return [...regressions];
-}
-
-function stableBaselineSecurityCodes(base, head) {
-  if (!base || !head) return [];
-  const baseCodes = securityCodesForRecord(base);
-  const headCodes = securityCodesForRecord(head);
-  return [...baseCodes].filter((code) => headCodes.has(code));
 }
 
 /** Rebuild an artifact report from the closed public schema; discard any extra fields. */
@@ -741,58 +563,44 @@ export function sanitizePortalReplayReport(report) {
     path: safeReportPath(item?.path),
     base: sanitizeOutcomeRecord(item?.base),
     head: sanitizeOutcomeRecord(item?.head),
-    // `findingCodes` is recomputed below. An artifact must not be able to
-    // preserve a stale baseline finding after the paired base/head run has
-    // shown that it did not regress.
-    findingCodes: [],
-    legacySubmissionAttempted: Array.isArray(item?.findingCodes)
-      && item.findingCodes.includes('submission_attempted'),
+    findingCodes: [...new Set((Array.isArray(item?.findingCodes) ? item.findingCodes : [])
+      .filter((code) => SAFE_FINDING_CODES.has(code)))].sort(),
   }));
   const baseRecords = [];
   const headRecords = [];
+  const findingCodes = new Set((Array.isArray(report?.findingCodes) ? report.findingCodes : [])
+    .filter((code) => SAFE_FINDING_CODES.has(code)));
+  const securityCodes = new Set(['final_click_attempt', 'non_get_passed', 'node_egress_attempt', 'wrong_posting_or_talent_pool', 'submission_attempted']);
   cases.forEach((item, index) => {
-    const legacySecurity = item.legacySubmissionAttempted ? ['submission_attempted'] : [];
-    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations: legacySecurity });
-    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations: legacySecurity });
+    if (!item.base || !item.head) item.findingCodes.push('sample_missing');
+    const violations = item.findingCodes.filter((code) => securityCodes.has(code));
+    for (const record of [item.base, item.head]) {
+      if (!record) continue;
+      if (record.finalClickAttempts > 0) violations.push('final_click_attempt');
+      if (record.unexpectedNonGetPassed > 0) violations.push('non_get_passed');
+      if (record.nodeEgressBlocked > 0) violations.push('node_egress_attempt');
+      if (record.formLinkedToPosting === 'no') violations.push('wrong_posting_or_talent_pool');
+    }
+    const securityViolations = [...new Set(violations)];
+    if (item.base) baseRecords.push({ ...item.base, caseId: String(index), securityViolations });
+    if (item.head) headRecords.push({ ...item.head, caseId: String(index), securityViolations });
   });
   const checked = comparePortalReplayFamily({ family, baseRecords, headRecords, includeCaseIds: true });
   const checkedById = new Map(checked.cases.map((item) => [item.caseId, item]));
-  const findingCodes = new Set(checked.findingCodes
-    .filter((code) => SAFE_FINDING_CODES.has(code) && !SECURITY_FINDING_CODES.has(code)));
-  for (const code of Array.isArray(report?.findingCodes) ? report.findingCodes : []) {
-    if (code === 'submission_attempted') findingCodes.add(code);
-  }
-  const baselineFindingCodes = new Set();
   const sanitizedCases = cases.map((item, index) => {
-    const checkedCase = checkedById.get(String(index));
-    const stableCodes = stableBaselineSecurityCodes(item.base, item.head);
-    const caseFindings = [...new Set([
-      ...(checkedCase?.findingCodes || []).filter((code) => !SECURITY_FINDING_CODES.has(code)),
-      ...securityRegressions(item.base, item.head),
-      ...(item.legacySubmissionAttempted ? ['submission_attempted'] : []),
-      ...(!item.base || !item.head ? ['sample_missing'] : []),
-    ])]
-      .filter((code) => SAFE_FINDING_CODES.has(code)).sort();
+    const caseFindings = [...new Set([...item.findingCodes, ...(checkedById.get(String(index))?.findingCodes || [])])].sort();
     for (const code of caseFindings) findingCodes.add(code);
-    for (const code of stableCodes) baselineFindingCodes.add(code);
-    const { legacySubmissionAttempted, ...publicItem } = item;
-    return {
-      ...publicItem,
-      findingCodes: caseFindings,
-      ...(stableCodes.length
-        ? { baselineFindingCodes: stableCodes }
-        : {}),
-    };
+    return { ...item, findingCodes: caseFindings };
   });
+  for (const code of checked.findingCodes) findingCodes.add(code);
   if (cases.length === 0) findingCodes.add('sample_missing');
   if (cases.length < REPLAY_LIMITS.minPerFamily || cases.length > REPLAY_LIMITS.maxPerFamily) findingCodes.add('sample_count_out_of_range');
   const sanitizedFindingCodes = [...findingCodes].sort();
   return {
     schemaVersion: 1,
     family,
-    status: sanitizedFindingCodes.length === 0 ? 'pass' : 'fail',
+    status: report?.status === 'pass' && checked.status === 'pass' && sanitizedFindingCodes.length === 0 ? 'pass' : 'fail',
     findingCodes: sanitizedFindingCodes,
-    ...(baselineFindingCodes.size ? { baselineFindingCodes: [...baselineFindingCodes].sort() } : {}),
     familyRates: checked.familyRates,
     cases: sanitizedCases,
   };
@@ -826,7 +634,6 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
       return {
         caseId: record.key, ...locationFrom(record, null, null), stage: 'http_5xx', stopCode: 'http_5xx',
         status: 'neutral', retryClass: '', retryCount: preflightRetryCount, agentCalls, ...metrics, formLinkedToPosting: 'unknown',
-        submissionAttempted: false,
         securityViolations: [],
       };
     }
@@ -935,7 +742,6 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
   const stage = metrics.navigation5xx > 0 ? 'http_5xx' : inferredStage;
   const stopCode = timedOut ? 'portal_replay_timeout' : safeOutcomeCode(event, failure);
   const violations = violationsFor({ event, evidence, metrics });
-  const submissionAttempted = event?.type === 'submit_succeeded';
   const measuredEvents = new Set(['submit_handoff', 'submit_needs_candidate', 'dry_run_ready', 'posting_closed', 'submit_succeeded', 'submit_failed']);
   const status = violations.length ? 'fail'
     : NEUTRAL_STAGES.has(stage) ? 'neutral'
@@ -952,7 +758,6 @@ async function runOnePortalReplayMeasured({ sourceRoot, trustedRoot, record, tim
     ...Object.fromEntries(['blockedRequests', 'blockedNonGet', 'blockedMutationGets', 'blockedUnsafeHosts', 'blockedWebSockets', 'unexpectedNonGetPassed', 'nodeEgressBlocked', 'finalClickAttempts', 'navigation5xx']
       .map((key) => [key, Number(metrics[key]) || 0])),
     formLinkedToPosting: postingLinkStatus(event, evidence),
-    submissionAttempted,
     securityViolations: violations,
   };
 }
@@ -967,11 +772,11 @@ function portalBrokerCodex(sourceRoot) {
   };
 }
 
-export async function replayWithOneNeutralRetry(options, runReplay = runOnePortalReplay) {
+async function replayWithOneNeutralRetry(options) {
   let totalMetrics = null;
   let result;
   for (let attempt = 0; attempt <= REPLAY_LIMITS.retries; attempt += 1) {
-    const current = await runReplay(options);
+    const current = await runOnePortalReplay(options);
     current.retryCount = (Number(current.retryCount) || 0) + attempt;
     if (!totalMetrics) totalMetrics = current;
     else {
@@ -979,10 +784,8 @@ export async function replayWithOneNeutralRetry(options, runReplay = runOnePorta
         totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current[key]) || 0);
       }
       totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
-      totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);
       totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
     }
-    totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);
     result = current;
     if (!current.retryClass || current.securityViolations?.length || attempt >= REPLAY_LIMITS.retries) break;
     await new Promise((resolve) => setTimeout(resolve, REPLAY_LIMITS.delayMs));
@@ -992,9 +795,7 @@ export async function replayWithOneNeutralRetry(options, runReplay = runOnePorta
       result[key] = Number(totalMetrics[key]) || 0;
     }
     result.retryCount = Number(totalMetrics.retryCount) || 0;
-    result.submissionAttempted = Boolean(totalMetrics.submissionAttempted);
     result.securityViolations = totalMetrics.securityViolations || [];
-    if (result.submissionAttempted) result.securityViolations = [...new Set([...result.securityViolations, 'submission_attempted'])];
     if (result.securityViolations.length) result.status = 'fail';
   }
   return result;
@@ -1022,7 +823,8 @@ export function comparePortalReplayFamily({ family, baseRecords = [], headRecord
     const codes = [];
     if (!base || !head) codes.push('sample_missing');
     for (const record of [base, head].filter(Boolean)) {
-      codes.push(...securityCodesForRecord(record));
+      if ((record.securityViolations || []).length) codes.push(...record.securityViolations);
+      if ((Number(record.nodeEgressBlocked) || 0) > 0) codes.push('node_egress_attempt');
       if (record.status === 'error') codes.push('replay_unmeasured');
     }
     if (base && head && !isNeutral(base) && !isNeutral(head)) {
@@ -1096,9 +898,6 @@ function markdownForAggregate(verdict, reports, prepareRun) {
   for (const report of reports) {
     const rates = report.familyRates || {};
     lines.push(`- ${safeCode(report.family)}: READY base ${Number(rates.baseReady) || 0}/${Number(rates.comparable) || 0}, PR ${Number(rates.headReady) || 0}/${Number(rates.comparable) || 0}.`);
-    if (report.baselineFindingCodes?.length) {
-      lines.push(`- ${safeCode(report.family)}: baseline invariants already present on base and PR (non-regressive): ${report.baselineFindingCodes.map((code) => safeCode(code)).join(', ')}.`);
-    }
   }
   lines.push('', '| Famiglia | Host | Percorso | Base | PR | Stop PR | Codici rilievo | Agenti | Non-GET bloccati | Egress Node bloccato | Click finali | Collegamento annuncio |', '|---|---|---|---|---|---|---|---:|---:|---:|---:|---|');
   for (const report of reports) {
@@ -1132,7 +931,7 @@ function argsForCli(argv) {
 async function prepareMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  const affectedFamilies = affectedPortalReplayFamilies(diff);
+  const affectedFamilies = affectedPortalReplayFamilies(affected);
   if (!affectedFamilies.length) {
     if (values['github-output']) appendFileSync(values['github-output'], 'run=false\nfamilies=[]\n');
     console.log(affected.length ? 'portal replay: no family-specific runner paths changed' : 'portal replay: no runner paths changed');
@@ -1180,7 +979,7 @@ async function corpusMode(values) {
 async function detectMode(values) {
   const diff = readFileSync(values['diff-file'], 'utf8');
   const affected = affectedPortalReplayPaths(diff);
-  const affectedFamilies = affectedPortalReplayFamilies(diff);
+  const affectedFamilies = affectedPortalReplayFamilies(affected);
   const run = affectedFamilies.length > 0;
   if (values['github-output']) appendFileSync(values['github-output'], `run=${run ? 'true' : 'false'}\n`);
   if (run) console.log(`portal replay: ${affectedFamilies.length} family-specific runner path(s) changed`);

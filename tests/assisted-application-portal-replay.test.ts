@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { request as httpRequest } from 'node:http';
 import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
@@ -17,7 +18,6 @@ import {
   PORTAL_REPLAY_ALLOWED_PATHS,
   PORTAL_REPLAY_FAMILIES,
   portalReplayPathScope,
-  replayWithOneNeutralRetry,
   sanitizePortalReplayReport,
   selectPortalReplayCorpus,
   trustedPortalReplayFenceRoot,
@@ -403,6 +403,7 @@ describe('portal replay corpus', () => {
       'diff --git a/scripts/lib/social-readiness.mjs b/scripts/lib/social-readiness.mjs',
       'diff --git a/functions/src/lib/unrelated-site-helper.js b/functions/src/lib/unrelated-site-helper.js',
       'diff --git a/packages/portal-runner/index.mjs b/packages/portal-runner/index.mjs',
+      'diff --git a/services/locales/it-core.ts b/services/locales/it-core.ts',
       'diff --git a/tests/social-publish-readiness.test.ts b/tests/social-publish-readiness.test.ts',
     ].join('\n');
     expect(affectedPortalReplayPaths(unrelatedSharedDirectories)).toEqual([]);
@@ -425,48 +426,7 @@ describe('portal replay corpus', () => {
       'functions/src/lib/permitStatus.js',
       'functions/src/assistedApplicationAnswerEvidence.js',
     ])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([]);
-  });
-
-  it('narrows a shared portal module to one family only when changed code carries repeated family evidence', () => {
-    const workdayPatch = [
-      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
-      '@@ -1,2 +1,8 @@',
-      '+function workdayPostingRouteMatchesCurrent(currentUrl, applyUrl) {',
-      '+  const apply = workdayJobRoute(applyUrl);',
-      '+  return sameWorkdayJobRoute(apply, workdayJobRoute(currentUrl));',
-    ].join('\n');
-    expect(affectedPortalReplayFamilies(workdayPatch)).toEqual(['workday']);
-
-    const singleMarkerPatch = [
-      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
-      '@@ -1,2 +1,3 @@',
-      '+return workdayJobRoute(currentUrl);',
-    ].join('\n');
-    expect(affectedPortalReplayFamilies(singleMarkerPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-
-    const nonCodeMarkersPatch = [
-      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
-      '@@ -1,2 +1,5 @@',
-      "+const message = 'workday workday';",
-      '+/* workday workday */',
-    ].join('\n');
-    expect(affectedPortalReplayFamilies(nonCodeMarkersPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-
-    const genericPortalPatch = [
-      'diff --git a/scripts/assisted-application/lib/portal/portal.mjs b/scripts/assisted-application/lib/portal/portal.mjs',
-      '@@ -1,2 +1,4 @@',
-      '+function chooseApplicationEntry(snapshot) {',
-      '+  return snapshot.buttons.filter(isApplicationEntry);',
-    ].join('\n');
-    expect(affectedPortalReplayFamilies(genericPortalPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
-
-    const comparatorPatch = [
-      'diff --git a/scripts/assisted-application/portal-replay.mjs b/scripts/assisted-application/portal-replay.mjs',
-      '@@ -867,4 +867,5 @@ export function comparePortalReplayFamily(options) {',
-      '+  const changed = true;',
-    ].join('\n');
-    expect(affectedPortalReplayFamilies(comparatorPatch)).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies(['scripts/assisted-application/portal-replay.mjs'])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
   });
 
   it('keeps parser/runtime scope explicit and fails closed for unknown parser modules', () => {
@@ -492,8 +452,6 @@ describe('portal replay workflow wiring', () => {
     const codex = workflow.indexOf('uses: ./.portal-base/.github/actions/setup-claude-haiku-fallback');
     const brokerGuard = workflow.indexOf('      - name: Require trusted Codex broker\n');
     const replay = workflow.indexOf('Replay portal families in parallel inside this worker');
-    const replayGate = workflow.indexOf('\n  portal-replay-gate:');
-    const replayBlock = workflow.slice(replay, replayGate);
 
     expect(materialize).toBeGreaterThan(-1);
     expect(materialize).toBeLessThan(codex);
@@ -504,15 +462,8 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('timeout-minutes: 30');
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
-    expect(workflow).toContain('cancel-in-progress: false');
-    expect(workflow).toContain('PR_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}');
-    expect(workflow).toContain('git -C .portal-base fetch --no-tags --depth=1 origin "$PR_MERGE_SHA"');
-    expect(workflow).toContain('git -C .portal-base diff --binary "$BASE_SHA" "$merge_ref"');
-    expect(workflow).not.toContain('gh pr diff "$PR_NUMBER"');
-    expect(workflow).toContain('path: .portal-pr');
-    expect(workflow).toContain('portal_replay_cli=.portal-pr/scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(workflow).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
   });
 
   it('does shared setup once and runs the family group inside one worker', () => {
@@ -571,72 +522,6 @@ describe('portal replay base/head gate', () => {
     });
     expect(result.status).toBe('fail');
     expect(result.findingCodes).toEqual(['final_click_attempt', 'non_get_passed', 'submission_attempted', 'wrong_posting_or_talent_pool']);
-  });
-
-  it('does not fail a security finding that is identical on base and head', () => {
-    const result = comparePortalReplayFamily({
-      family: 'workday',
-      baseRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', {
-        formLinkedToPosting: 'no', securityViolations: ['wrong_posting_or_talent_pool'],
-      })),
-      headRecords: ['one', 'two', 'three'].map((caseId) => measured(caseId, 'form', {
-        formLinkedToPosting: 'no', securityViolations: ['wrong_posting_or_talent_pool'],
-      })),
-    });
-    expect(result.status).toBe('fail');
-    expect(result.findingCodes).toEqual(['wrong_posting_or_talent_pool']);
-    expect(result.baselineFindingCodes).toBeUndefined();
-
-    const sanitized = sanitizePortalReplayReport(result);
-    expect(sanitized.status).toBe('pass');
-    expect(sanitized.findingCodes).toEqual([]);
-    expect(sanitized.baselineFindingCodes).toEqual(['wrong_posting_or_talent_pool']);
-  });
-
-  it('keeps an unmeasured replay blocking even when base and head both fail', () => {
-    const result = comparePortalReplayFamily({
-      family: 'workday',
-      baseRecords: [measured('one', 'stopped', { status: 'error' })],
-      headRecords: [measured('one', 'stopped', { status: 'error' })],
-    });
-    expect(result.status).toBe('fail');
-    expect(result.findingCodes).toEqual(['replay_unmeasured']);
-  });
-
-  it('retains submission security evidence when a neutral retry becomes the final result', () => {
-    const source = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
-    expect(source).toContain('totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];');
-    expect(source).toContain('totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);');
-    expect(source).toContain('result.submissionAttempted = Boolean(totalMetrics.submissionAttempted);');
-    expect(source).toContain('result.securityViolations = totalMetrics.securityViolations || [];');
-    const result = comparePortalReplayFamily({
-      family: 'workday',
-      baseRecords: [measured('one', 'form')],
-      headRecords: [measured('one', 'form', { submissionAttempted: true })],
-    });
-    expect(result.findingCodes).toContain('submission_attempted');
-  });
-
-  it('carries submissionAttempted through a neutral retry and into the finding code', async () => {
-    const attempts = [
-      measured('one', 'form', {
-        status: 'neutral',
-        retryClass: 'neutral',
-        submissionAttempted: true,
-      }),
-      measured('one', 'form', {
-        submissionAttempted: false,
-      }),
-    ];
-    const final = await replayWithOneNeutralRetry({}, async () => attempts.shift());
-    expect(final.submissionAttempted).toBe(true);
-
-    const result = comparePortalReplayFamily({
-      family: 'workday',
-      baseRecords: [measured('one', 'form')],
-      headRecords: [final],
-    });
-    expect(result.findingCodes).toContain('submission_attempted');
   });
 
   it('fails a blocked attempt to use Node network APIs outside the browser fence', () => {
@@ -730,5 +615,78 @@ describe('portal replay base/head gate', () => {
       prepareRun: true, prepareResult: 'success', matrixResult: 'success', families: ['workday'],
       reports: [{ family: 'workday', status: 'pass' }],
     })).toMatchObject({ status: 'pass', code: 'portal_replay_passed' });
+  });
+});
+
+describe('portal replay gate determinism (F2)', () => {
+  const workflow = () => readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+
+  it('lists the changed paths from the merge commit with git, never through the REST API', () => {
+    const text = workflow();
+    expect(text).not.toMatch(/gh pr diff/u);
+    expect(text).not.toContain('portal-replay-paths.patch');
+    expect(text).toContain('ref: ${{ github.sha }}');
+    expect(text).toContain('fetch-depth: 2');
+    expect(text).toContain('filter: blob:none');
+    expect(text).toContain('git diff --name-only --no-renames HEAD^1 HEAD');
+    // un diff a due punti contro la base corrente darebbe falsi positivi quando main avanza
+    expect(text).not.toMatch(/git diff[^\n]*(BASE_SHA|base\.sha)/u);
+    // prepare riusa l'elenco di detect invece di richiederlo di nuovo
+    expect(text).toContain('name: portal-replay-paths-${{ github.run_id }}');
+    expect(text).toContain('uses: actions/download-artifact@v8');
+  });
+
+  it('keeps the compare on the trusted base CLI', () => {
+    const text = workflow();
+    expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    expect(text).not.toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
+  });
+
+  it('keeps the required gate fail-closed and comments only on uncancelled runs, once per PR', () => {
+    const text = workflow();
+    // a job skipped by `if` counts as success for a required check: the gate must not use `!cancelled()`
+    expect(text).toMatch(/name: portal replay gate\n(?:\s*#.*\n)*\s*if: always\(\)\n\s*needs: \[detect, prepare, replay\]/u);
+    expect(text).toContain("if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}");
+    expect(text).not.toContain('if: always() && needs.detect.outputs.run');
+    expect(text).toContain('upsertStickyComment');
+    expect(text).toContain('<!-- portal-replay-gate -->');
+    expect(text).toContain('portal-replay-gate-head:');
+    expect(text).not.toMatch(/gh pr comment "\$PR_NUMBER"/u);
+    expect(text).toContain('cancel-in-progress: true');
+  });
+
+  it('treats a cancelled run as transient for the red-check fixer and the auto-merge evaluator', () => {
+    const fixer = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+    // il fixer agisce solo su una run `tests` con conclusione `failure`: `cancelled` esce in skip
+    expect(fixer).toContain('[ "$run_conclusion" != "failure" ]');
+    const evaluator = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
+    expect(evaluator).toContain("if (conclusion !== 'success') {");
+    expect(evaluator).toContain("conclusion !== 'failure'");
+  });
+
+  it('merge-commit parent diff lists only the PR paths even when main moved on', () => {
+    const repo = mkdtempSync(join(tmpdir(), 'portal-replay-merge-'));
+    try {
+      const git = (...args: string[]) => execFileSync('git', ['-C', repo, '-c', 'user.email=t@example.com', '-c', 'user.name=t', '-c', 'commit.gpgsign=false', ...args], { encoding: 'utf8' });
+      git('init', '-q', '-b', 'main');
+      writeFileSync(join(repo, 'a.txt'), 'a');
+      git('add', '.'); git('commit', '-q', '-m', 'base');
+      git('checkout', '-q', '-b', 'pr');
+      writeFileSync(join(repo, 'pr-only.txt'), 'pr');
+      git('add', '.'); git('commit', '-q', '-m', 'pr');
+      git('checkout', '-q', 'main');
+      writeFileSync(join(repo, 'main-only.txt'), 'main');
+      git('add', '.'); git('commit', '-q', '-m', 'main moved');
+      git('checkout', '-q', '-b', 'merge-ref');
+      git('merge', '-q', '--no-ff', '-m', 'merge', 'pr');
+      const names = git('diff', '--name-only', '--no-renames', 'HEAD^1', 'HEAD').trim().split('\n');
+      expect(names).toEqual(['pr-only.txt']);
+      // la forma scartata: un diff a due punti fra base corrente e head include i file di main
+      const staleBase = git('diff', '--name-only', '--no-renames', 'pr', 'main').trim().split('\n').sort();
+      expect(staleBase).toEqual(['main-only.txt', 'pr-only.txt']);
+    } finally {
+      rmSync(repo, { recursive: true, force: true });
+    }
   });
 });
