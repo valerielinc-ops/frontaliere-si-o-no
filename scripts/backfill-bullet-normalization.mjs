@@ -24,6 +24,7 @@ import { stripInlineJsCode } from './lib/hospital-custom-html-helpers.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { TARGET_KEYS } from './lib/parser-quality-3721-crawlers.mjs';
 import { countBullets } from './lib/translation-quality.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 // lis-lugano-istituti-sociali (#3721): leaked Arca24 ATS widget JS
 // (`var alertM = {...}`) survived extraction pre-fix and duplicated across
@@ -105,7 +106,7 @@ function processSlice(filePath) {
 
 function processMonolith(filePath) {
   if (!fs.existsSync(filePath)) return { file: filePath, missing: true };
-  const raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  const raw = readJsonFile(filePath);
   const jobs = Array.isArray(raw) ? raw : [];
   let changed = 0;
   for (const j of jobs) {

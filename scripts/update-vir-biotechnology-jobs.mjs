@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Vir Biotechnology (Humabs BioMed) crawler runner.
  *
@@ -237,7 +238,7 @@ function runBaseCrawler() {
 
 function postProcess() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   let fixed = 0;
   for (const job of (Array.isArray(jobs) ? jobs : [])) {
     if (!isVirJob(job)) continue;
@@ -303,7 +304,7 @@ async function main() {
     }
     summaryCounts.abortKind ||= 'no-jobs-parsed';
     console.log('\n⚠️ Vir Biotechnology produced no publishable Swiss jobs; keeping existing slice for diagnosis.');
-    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isVirJob)) : new Map();
+    const afterSnapshot = fs.existsSync(DATA_JOBS) ? snapshotJobSlugs((readJsonFile(DATA_JOBS) || []).filter(isVirJob)) : new Map();
     const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
     printCrawlChangeSummary(crawlDiff, 'Vir Biotechnology');
     writeCrawlChangeSummaryToGH(crawlDiff, 'Vir Biotechnology');
@@ -317,7 +318,7 @@ async function main() {
   postProcess();
 
   if (!fs.existsSync(DATA_JOBS)) return;
-  const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const finalJobs = readJsonFile(DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isVirJob);
   console.log(`\n📊 Vir Biotechnology jobs: ${companyJobs.length}`);
   const afterSnapshot = snapshotJobSlugs(companyJobs);

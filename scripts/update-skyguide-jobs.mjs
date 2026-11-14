@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -488,7 +489,7 @@ async function main() {
   // for that purpose; kept because dropping a slice write also moves WHICH
   // write faces the shrink guard, and that is a behaviour change this runner
   // has no test to cover.
-  await writeJobsCrawlerSliceVerified(COMPANY_KEY, (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isTargetJob), {
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, (readJsonFile(DATA_JOBS) || []).filter(isTargetJob), {
     isTargetJob,
     skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
   });
@@ -505,7 +506,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     isTargetJob,
