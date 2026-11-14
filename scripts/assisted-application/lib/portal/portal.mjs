@@ -4808,10 +4808,11 @@ export function formPostingMatch(formText, job = {}, {
   // Umantis application forms can repeat the selected employer inside their
   // own questions (the EOC form asks about EOC collaborators and acquaintances).
   // The verified same-origin vacancy id binds the form even when the heading is
-  // generic; keep the other-employer guard on that heading, not on native field
-  // labels that describe the application itself.
+  // generic; keep the mismatch guards on that heading, not on native field
+  // labels that describe the application itself. A bound route cannot make an
+  // explicitly different role belong to the selected vacancy.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict) return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
