@@ -701,7 +701,8 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('/scripts/ci/lib/github-api-retry.mjs');
     expect(source).toContain('source_run=$(node scripts/ci/read-workflow-run-provenance.mjs "$SOURCE_RUN_ID" "$GITHUB_REPOSITORY")');
     expect(source).not.toContain('source_run=$(gh run view');
-    expect(source).toContain('--json event,headBranch,headSha,status,conclusion');
+    const provenanceReader = fs.readFileSync(path.resolve('scripts/ci/read-workflow-run-provenance.mjs'), 'utf8');
+    expect(provenanceReader).toContain("SOURCE_RUN_JSON_FIELDS = 'event,headBranch,headSha,status,conclusion'");
     expect(source).toContain('source_branch');
     expect(source).toContain("source_status=$(jq -r '.status // \"\"' <<<\"$source_run\")");
     expect(source).toContain('[ "$source_status" != \'completed\' ]');

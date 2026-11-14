@@ -51,7 +51,7 @@ describe('read-workflow-run-provenance', () => {
         throw error;
       },
       retryOptions: { sleep: () => undefined },
-    })).toThrow('Bad credentials');
+    })).toThrow('gh failed');
     expect(attempts).toBe(1);
 
     expect(() => readWorkflowRunProvenance({
