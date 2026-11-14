@@ -52,6 +52,7 @@ jobs:
             scripts
             packages/articles/engine
             data/jobs/by-crawler
+            build-plugins/shared
           persist-credentials: false
 
       # No `cache: npm`: on pull_request it would save a per-ref npm cache

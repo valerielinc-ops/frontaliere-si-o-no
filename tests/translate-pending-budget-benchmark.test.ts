@@ -102,23 +102,18 @@ describe('translate-pending budget benchmark', () => {
 
   it('is manual, ref-selectable and retains the production job cap', () => {
     const parsed = workflow();
-    expect(parsed.on.pull_request?.paths).toEqual(expect.arrayContaining([
-      '.github/workflows/translate-pending-logic.yml',
-      '.github/workflows/translate-pending-budget-benchmark.yml',
-      'scripts/translate-repair-lane-gate.mjs',
-    ]));
+    expect(parsed.on.pull_request).toBeUndefined();
     expect(parsed.on.workflow_dispatch.inputs.source_ref).toMatchObject({ type: 'string', required: true });
     expect(parsed.on.workflow_dispatch.inputs.phase).toMatchObject({ type: 'choice', required: true });
-    expect(parsed.jobs.benchmark.if)
-      .toBe("github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository");
+    expect(parsed.jobs.benchmark.if).toBeUndefined();
     expect(parsed.jobs.benchmark['timeout-minutes']).toBe(350);
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).toBe('${{ github.workspace }}/translate-pending-budget-benchmark.json');
     expect(parsed.jobs.benchmark.env?.BENCHMARK_REPORT).not.toContain('runner.temp');
-    expect(parsed.jobs.benchmark.env?.BENCHMARK_SOURCE_REF)
-      .toBe('${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}');
+    expect(parsed.jobs.benchmark.env?.BENCHMARK_DISPATCH_REF)
+      .toBe('${{ inputs.source_ref || github.sha }}');
     const checkout = parsed.jobs.benchmark.steps.find((step) => step.name === 'Checkout benchmark ref');
     expect(checkout?.uses).toBe('actions/checkout@v7');
-    expect(checkout?.with?.ref).toBe('${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}');
+    expect(checkout?.with?.ref).toBe('${{ inputs.source_ref || github.sha }}');
     expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2d title lane')?.if)
       .toBe("env.BENCHMARK_PHASE == 'titles'");
     expect(parsed.jobs.benchmark.steps.find((step) => step.name === 'Run Phase 2e description lane')?.if)
@@ -172,7 +167,8 @@ describe('translate-pending budget benchmark', () => {
     const production = productionRepairLaneGate();
     const benchmark = workflow().jobs.benchmark.steps.find((step) => step.name === 'Run budget gate');
 
-    expect(workflow().on.pull_request?.paths).toContain('.github/workflows/translate-pending-logic.yml');
+    expect(workflow().on.pull_request).toBeUndefined();
+    expect(workflow().on.workflow_dispatch).toBeDefined();
     expect(benchmark?.env?.REPAIR_LANE_DEADLINE_MS).toBe(production?.env?.REPAIR_LANE_DEADLINE_MS);
     expect(benchmark?.env?.REPAIR_LANE_MIN_REMAINING_MS).toBe(production?.env?.REPAIR_LANE_MIN_REMAINING_MS);
   });

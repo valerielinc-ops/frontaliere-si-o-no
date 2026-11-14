@@ -100,7 +100,7 @@ export function candidateRules(candidateLocale) {
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): use answers.salutation, filled from an explicit personal statement in the CV, an answer/correction, or a clearly gendered first name in the candidate's locale. Leave it unknown for ambiguous or unfamiliar names. This rule applies only to the form of address, never to gender identity questions. Choose the equivalent option in the form's language. If no value is available, a required one is missing.
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
-- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
+- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). A requested portrait photo has the dedicated document slot "photo"; use it only when documents.extra lists that slot. Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
 - A yes/no question that only asks whether the candidate holds a document listed in documents.extra (they attach it to this application): its "yes", source "documents". When it asks more about the document (a category, a grade, a date), it is an eligibility question as any other.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
@@ -145,6 +145,9 @@ const trimField = (field) => ({
 });
 
 export function planUserText({ snapshot, candidate }) {
+  const plannerCandidate = candidate && typeof candidate === 'object'
+    ? Object.fromEntries(Object.entries(candidate).filter(([key]) => key !== 'suppressedQuestionContracts'))
+    : candidate;
   return JSON.stringify({
     form: {
       url: snapshot.url,
@@ -152,7 +155,7 @@ export function planUserText({ snapshot, candidate }) {
       fields: snapshot.fields.map(trimField),
       ...(snapshot.errors?.length ? { errors: snapshot.errors } : {}),
     },
-    candidate,
+    candidate: plannerCandidate,
   });
 }
 
@@ -1798,7 +1801,46 @@ export function candidateAnswerForField(candidate, field, options = {}) {
   return valueFitsField(field, known.value, candidate) ? known : null;
 }
 
+function candidateAnswerSuppressionContractForField(candidate, field) {
+  const contracts = Array.isArray(candidate?.suppressedQuestionContracts) ? candidate.suppressedQuestionContracts : [];
+  const labels = new Set([field?.label, field?.applicationQuestion, field?.question]
+    .map(comparableAnswer).filter(Boolean));
+  const idMatches = contracts.filter(contract => contract?.id && [field?.questionId, field?.id].includes(contract.id));
+  if (idMatches.length) return idMatches.length === 1 ? idMatches[0] : { ambiguous: true };
+  if (!labels.size) return null;
+  const matches = contracts.filter(contract => {
+    const matchesLabel = (Array.isArray(contract?.labels) ? contract.labels : [])
+      .some(label => labels.has(comparableAnswer(label)));
+    const currentTopic = questionTopic(field?.label || field?.applicationQuestion || field?.question, field?.context || '', field);
+    // The portal can regenerate its context metadata between review and
+    // submission. An exact native question or its same typed topic still owns
+    // the saved answer. Ambiguous duplicate matches fail closed below.
+    return matchesLabel || Boolean(contract?.topic && currentTopic === contract.topic);
+  });
+  return matches.length === 1 ? matches[0] : matches.length ? { ambiguous: true } : null;
+}
+
+function answerFromSuppressedQuestionContract(contract, field) {
+  if (contract?.status !== 'answered' || contract.allowLiveMapping !== true
+    || contract.answer === undefined || contract.answer === null || operationalChoiceHasNoCatalogue(field)) return null;
+  const values = Array.isArray(contract.answer) ? contract.answer : [contract.answer];
+  const mapped = values.map(value => operationalAnswerForOption(field, value)
+    || optionForAnswer(field, value)
+    || (!Array.isArray(field?.options) || field.options.length === 0 ? value : null));
+  if (!mapped.length || mapped.some(value => value === null || value === undefined || !String(value).trim())) return null;
+  return { value: Array.isArray(contract.answer) ? mapped : mapped[0], source: 'answers' };
+}
+
+function candidateOwnedAnswerForField(candidate, field) {
+  const owned = (candidate?.portalQuestionsAnswered || []).filter(item =>
+    !item?.source || ['answers', 'candidate', 'user'].includes(item.source));
+  return recordedAnswerForQuestion({ ...candidate, answers: {}, portalQuestionsAnswered: owned },
+    field?.label, field?.context, field) || '';
+}
+
 function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit = false } = {}) {
+  const suppressedContract = candidateAnswerSuppressionContractForField(candidate, field);
+  if (suppressedContract) return answerFromSuppressedQuestionContract(suppressedContract, field);
   const topic = questionTopic(field?.label, field?.context, field);
   const fieldKind = String(field?.kind || '').trim().toLowerCase();
   const inputType = String(field?.inputType || '').trim().toLowerCase();
@@ -2050,6 +2092,15 @@ function identityAnswerMatches(candidate, field, value) {
 export function guardPlan(plan, fields, candidate = null) {
   const knownValues = knownValuesOf(candidate);
   const byId = new Map(fields.map((field) => [field.id, field]));
+  const suppressedAnswerFields = new Set(fields.filter(field => {
+    const contract = candidateAnswerSuppressionContractForField(candidate, field);
+    return contract && !answerFromSuppressedQuestionContract(contract, field);
+  }).map(field => field.id));
+  const candidateAnsweredFields = new Set(fields.filter(field => {
+    const contract = candidateAnswerSuppressionContractForField(candidate, field);
+    return Boolean(candidateOwnedAnswerForField(candidate, field)
+      || answerFromSuppressedQuestionContract(contract, field));
+  }).map(field => field.id));
   const actions = [];
   const missing = [];
   // «Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: … werden die
@@ -2058,8 +2109,10 @@ export function guardPlan(plan, fields, candidate = null) {
   // The candidate applies personally and no agency's terms are ever accepted.
   // Without a "No" among the options read (review of #11036), no answer at
   // all: the plan's is dropped and the required field holds the submission.
-  const agencyIds = new Set(fields.filter((field) => isAgencyQuestion(field)).map((field) => field.id));
-  const agencyNo = new Map(fields.map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
+  const agencyIds = new Set(fields.filter((field) => !suppressedAnswerFields.has(field.id)
+    && !candidateAnsweredFields.has(field.id) && isAgencyQuestion(field)).map((field) => field.id));
+  const agencyNo = new Map(fields.filter(field => !suppressedAnswerFields.has(field.id) && !candidateAnsweredFields.has(field.id))
+    .map((field) => [field.id, agencyNoOption(field)]).filter(([, option]) => option));
   for (const [fieldId, option] of agencyNo) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   // The Swiss status the candidate chose, on a field that asks the permit held (decision 9): the one option that
   // says exactly that status, whatever the plan chose; none, or two, and the plan's answer is judged as any other.
@@ -2067,6 +2120,7 @@ export function guardPlan(plan, fields, candidate = null) {
   const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit: false });
   const statusPick = new Map(status ? fields
     .filter((field) => {
+      if (suppressedAnswerFields.has(field.id) || candidateAnsweredFields.has(field.id)) return false;
       if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;
       // A portal prefill is not candidate evidence. When its current value is
       // nevertheless verified against the candidate's confirmed status, leave
@@ -2105,21 +2159,25 @@ export function guardPlan(plan, fields, candidate = null) {
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
   // licence?» into a question for the candidate who has just uploaded it.
-  const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
+  const heldPick = new Map(fields.filter(field => !suppressedAnswerFields.has(field.id) && !candidateAnsweredFields.has(field.id))
+    .map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
   for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
   // A current employment status is a direct consequence of an experience that
   // the CV marks as ongoing. Language answers are resolved below only when a
   // specific language and its presence or absence are explicit in the CV.
-  const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
+  const employmentPick = new Map(fields.filter(field => !suppressedAnswerFields.has(field.id) && !candidateAnsweredFields.has(field.id))
+    .map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   // A target-employer relationship is not the same as generic current employment:
   // when the vacancy's employer is known and absent from the CV, select its No.
-  const targetEmployerNoPick = new Map(fields.map((field) => [field.id, targetEmployerNoOption(field, candidate)]).filter(([, option]) => option));
+  const targetEmployerNoPick = new Map(fields.filter(field => !suppressedAnswerFields.has(field.id) && !candidateAnsweredFields.has(field.id))
+    .map((field) => [field.id, targetEmployerNoOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of targetEmployerNoPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
   // A native language is explicit either in the language list or, conservatively,
   // in the detected CV language alongside another explicitly levelled language.
   // It is still a candidate fact: an explicit portal answer always wins.
-  const nativePick = new Map(fields.map((field) => [field.id, nativeLanguageOption(field, candidate)]).filter(([, option]) => option));
+  const nativePick = new Map(fields.filter(field => !suppressedAnswerFields.has(field.id) && !candidateAnsweredFields.has(field.id))
+    .map((field) => [field.id, nativeLanguageOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
@@ -2146,6 +2204,10 @@ export function guardPlan(plan, fields, candidate = null) {
   // turn an invalid nationality/permit answer into an unrelated automatic
   // answer instead of keeping the required question.
   const rejectedActionFields = new Set();
+  for (const field of fields) if (suppressedAnswerFields.has(field.id)) {
+    rejectedActionFields.add(field.id);
+    ask(field);
+  }
   for (const field of fields) if (operationalChoiceHasNoCatalogue(field)) {
     rejectedActionFields.add(field.id);
     ask(field);
@@ -2178,7 +2240,7 @@ export function guardPlan(plan, fields, candidate = null) {
   for (const plannedAction of plannedActions) {
     let action = plannedAction;
     const field = byId.get(action.fieldId);
-    if (!field || rejectedActionFields.has(field.id)) continue;
+    if (!field || rejectedActionFields.has(field.id) || suppressedAnswerFields.has(field.id)) continue;
     // Planner and policy-default checks of a privacy-reading box both pass
     // through the same native metadata veto before they can answer the field.
     const privacyRepresentations = [field.question, field.label, field.applicationQuestion]
@@ -2186,16 +2248,20 @@ export function guardPlan(plan, fields, candidate = null) {
     if (Array.isArray(field.labels)) {
       privacyRepresentations.push(...field.labels.filter(value => typeof value === 'string'));
     }
+    const purePrivacyReviewAcknowledgment = privacyRepresentations.some(value =>
+      isPrivacyReviewAcknowledgment(value, field, ...privacyRepresentations));
     const policyDefaultPrivacyAcknowledgment = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => privacyReviewAcknowledgmentShape(value).shape);
     const policyDefaultApplicationDataProcessingConsent = action.action === 'check'
       && action.source === 'policy_default'
       && privacyRepresentations.some(value => isApplicationDataProcessingConsent(value, field, ...privacyRepresentations));
-    // A policy default may choose a checkbox, but a consent named by its own
-    // fieldset legend keeps consent provenance when its associated label is empty.
-    const ownedConsentWithEmptyNativeLabel = ownConsent(field) && field.emptyNativeLabelOwnedLegend === true;
-    if (action.action === 'check' && action.source === 'policy_default' && ownedConsentWithEmptyNativeLabel) {
+    // A pure read-acknowledgment may retain policy-default provenance. An
+    // explicit application consent keeps consent provenance, including when
+    // its label is directly attached to the control.
+    const ownedConsent = ownConsent(field);
+    if (action.action === 'check' && action.source === 'policy_default' && ownedConsent
+      && !purePrivacyReviewAcknowledgment) {
       action = { ...action, source: 'consent' };
     }
     if (action.action === 'check'
@@ -2224,7 +2290,7 @@ export function guardPlan(plan, fields, candidate = null) {
         continue;
       }
       action = { ...action, action: stated ? 'check' : 'uncheck', value: known.value,
-        source: known.source === 'policy_default' && ownedConsentWithEmptyNativeLabel ? 'consent' : known.source, evidence: '' };
+      source: known.source === 'policy_default' && ownedConsent && !purePrivacyReviewAcknowledgment ? 'consent' : known.source, evidence: '' };
     }
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);

@@ -24,11 +24,13 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
+import { withRegisteredCandidateEmail } from '../../../functions/src/assistedApplicationDocumentIdentity.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateAnswersForQuestions, candidateQuestionAnswerKey, candidateWithEdits, factSourcesNow, formAnswersWithEdits,
   questionsForCandidate, requiredPortalConsentAffirmed, validatedCandidateAnswerForQuestion } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, refreshApplicationChannel, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { prepareCvPortraitDocument } from '../../../functions/src/assistedApplicationPhoto.js';
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
@@ -152,10 +154,14 @@ export function portalNetworkFailureMetadata({ event, evidence = null, error = n
 
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {}, candidateAnswerHistory = [], order = {} } = {}) {
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft,
+  const { profile, answers: candidateAnswers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft,
     flow: { answers, questionAnswers, candidateAnswerHistory } });
   const questions = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers, draft);
-  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const projected = withOperationalQuestionAnswers(questions, candidateAnswers, {
+    locale: platformFacts?.locale, facts: platformFacts,
+    suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds, candidateAnswerSuppressedQuestionContracts,
+  }).answers;
   const unsupportedDirectAnswers = candidateAnswersForQuestions(questions, answers, questionAnswers, candidateAnswerHistory);
   for (const question of questions) {
     if (Object.hasOwn(answers || {}, question.id)
@@ -253,9 +259,10 @@ const RENDERERS = new Set(['typst', 'legacy']);
  * that very file (`coverLetterRenderer`, written with every `coverLetterPdfKey`).
  * @returns {Promise<{pdf:Buffer, renderer:'typst'|'legacy'|null, key:string|null}>} key: where it already is (null when rebuilt)
  */
-export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs }) {
+export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs, auth = null }) {
   if (draft?.letterAddress) {
-    const { pdf, renderer } = await rebuildLetterPdf({ order, orderId, draft, flow, nowMs });
+    const documentOrder = await withRegisteredCandidateEmail(order, { auth });
+    const { pdf, renderer } = await rebuildLetterPdf({ order: documentOrder, orderId, draft, flow, nowMs });
     return { pdf: Buffer.from(pdf), renderer, key: null };
   }
   const [stored] = await bucket.file(draft.coverLetterPdfKey).download();
@@ -346,18 +353,52 @@ export async function submitApplication(ctx) {
     personal: initialEdited.personal,
     job: { title: draft?.job?.title || order.jobTitle || '', company: order.companyName || '' },
     platformFacts: initialEdited.platformFacts,
+    suppressedQuestionIds: initialEdited.candidateAnswerDefaultSuppressionIds,
+    suppressedAnswerContracts: initialEdited.candidateAnswerSuppressedQuestionContracts,
   });
   const autoAnswerSources = Object.create(null);
-  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers, sources: autoAnswerSources });
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers,
+    sources: autoAnswerSources, suppressedQuestionIds: initialEdited.candidateAnswerDefaultSuppressionIds });
   const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered, flow?.questionAnswers || {});
   const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
-  const submitFlow = Object.keys(mergedAnswers).length
+  let submitFlow = Object.keys(mergedAnswers).length
     ? { ...(flow || {}), answers: mergedAnswers }
     : (flow || {});
   const candidateRequestRound = Number(submitFlow?.candidateRequestTelemetry?.rounds) || 0;
   const answers = submitFlow.answers || {};
+  let preparedPhoto = null;
+  if (!ctx.dryRun) {
+    try {
+      preparedPhoto = await prepareCvPortraitDocument({ bucket, orderId, order, draft, flow: submitFlow, cvBuffer, cvType, cvKey, nowMs });
+    } catch {
+      // An unavailable or ambiguous CV portrait stays a required candidate document.
+    }
+  }
+  if (preparedPhoto) {
+    const current = submitFlow.documents?.[preparedPhoto.documentId] || {};
+    const files = Array.isArray(current.files) ? current.files : [];
+    submitFlow = {
+      ...submitFlow,
+      documents: {
+        ...(submitFlow.documents || {}),
+        [preparedPhoto.documentId]: { ...current, files: [...files, preparedPhoto.file] },
+      },
+    };
+    if (ctx.persistPreparedPhoto) {
+      const persisted = await ctx.persistPreparedPhoto({
+        documentId: preparedPhoto.documentId,
+        file: preparedPhoto.file,
+        round: Number(draft.round) || 1,
+        sourceCvKey: preparedPhoto.sourceCvKey,
+      });
+      if (persisted !== true) return { type: 'submit_failed', error: 'requirement_context_changed' };
+    }
+  }
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
-  const emailBody = operationalEmailBody(draft, edited.answers, { facts: edited.platformFacts });
+  const emailBody = operationalEmailBody(draft, edited.answers, {
+    facts: edited.platformFacts, suppressDefaultQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts: edited.candidateAnswerSuppressedQuestionContracts,
+  });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
@@ -708,6 +749,15 @@ export async function submitApplication(ctx) {
           attemptKept = false;
         }
       };
+      const portalJob = {
+        ...draft.job,
+        title: draft.job?.title || order.jobTitle || '',
+        sourceTitle: draft.job?.sourceTitle || draft.job?.postingTitle || '',
+        postingTitle: draft.job?.postingTitle || draft.job?.sourceTitle || '',
+        titleByLocale: draft.job?.titleByLocale || draft.job?.titles || {},
+        company: order.companyName || '',
+        organization: liveness.organization || '',
+      };
       let { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         postingUrl: portalPostingUrl,
@@ -715,11 +765,13 @@ export async function submitApplication(ctx) {
         channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
-        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },
+        job: portalJob,
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' }, platformFacts: edited.platformFacts }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, currentAnswerIds: originalCurrentAnswerIds, answerSources: autoAnswerSources, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal, job: portalJob, platformFacts: edited.platformFacts,
+          suppressedQuestionIds: edited.candidateAnswerDefaultSuppressionIds,
+          suppressedAnswerContracts: edited.candidateAnswerSuppressedQuestionContracts }),
         knownPortalQuestionKeys: portalQuestions.map((question) => portalQuestionKey(question) || question.id).filter(Boolean),
         // The CV's text, for the decision engine's evidence on experience questions in the run (decision-answers.mjs).
         cvText: draft.factSources?.text || '',

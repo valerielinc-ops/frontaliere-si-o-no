@@ -5,6 +5,7 @@ import {
   isPaginationSitemapEligible,
   paginationPageFromPath,
   paginationRobots,
+  pushPaginationSitemapEntry,
 } from '../../build-plugins/shared/paginationIndexPolicy';
 
 // P1 noindex plan (2026-10-24): one rule for every `/page-N/` listing the SSG
@@ -30,6 +31,14 @@ describe('paginationIndexPolicy', () => {
   it('lists only page 1 of a listing in a sitemap', () => {
     expect(isPaginationSitemapEligible(1)).toBe(true);
     for (const page of [2, 5, 10, 11, 5011]) expect(isPaginationSitemapEligible(page), String(page)).toBe(false);
+  });
+
+  it('keeps the sitemap mutation behind the same page policy', () => {
+    const entries: string[] = [];
+
+    expect(pushPaginationSitemapEntry(entries, 1, 'page-1')).toBe(true);
+    expect(pushPaginationSitemapEntry(entries, 2, 'page-2')).toBe(false);
+    expect(entries).toEqual(['page-1']);
   });
 
   it('reads the page number of every pagination segment the site emits', () => {

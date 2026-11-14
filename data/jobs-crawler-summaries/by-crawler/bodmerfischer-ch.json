@@ -1,7 +1,7 @@
 {
   "key": "bodmerfischer-ch",
   "label": "BodmerFischer AG – Rechtsanwälte",
-  "generatedAt": "2026-11-12T22:02:21.127Z",
+  "generatedAt": "2026-11-13T21:50:15.185Z",
   "total": 1,
   "discovered": 2,
   "parsed": 1,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7013,
-  "avgDurationMs": 7013,
+  "durationMs": 6766,
+  "avgDurationMs": 6766,
   "durationHistory": [
-    7013
+    6766
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://weblaw.ch/produkte/lawjobs?lawjobParam=db76ba73-4928-4f0c-9116-fb8802df27e2",
       "source": "BodmerFischer AG – Rechtsanwälte Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:41.462Z",
+      "crawledAt": "2026-11-13T21:49:30.472Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "salaryMax": 145000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T22:01:41.462Z",
+      "validThrough": "2026-12-13T21:49:30.472Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -74,5 +74,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

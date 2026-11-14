@@ -1,7 +1,7 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-11-12T21:40:25.582Z",
-  "runId": "43309482450",
+  "assembledAt": "2026-11-13T21:50:12.468Z",
+  "runId": "43509730262",
   "jobs": [
     {
       "id": "canton-valais-09704e43ce93",
@@ -34,7 +34,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112019&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:18.023Z",
+      "crawledAt": "2026-11-13T21:49:57.742Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:18.023Z",
+      "validThrough": "2027-01-28T21:49:57.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111595&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:17.158Z",
+      "crawledAt": "2026-11-13T21:49:57.097Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:17.158Z",
+      "validThrough": "2027-01-28T21:49:57.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108788&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:16.334Z",
+      "crawledAt": "2026-11-13T21:49:56.470Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:16.334Z",
+      "validThrough": "2027-01-28T21:49:56.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -283,7 +283,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108631&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:15.628Z",
+      "crawledAt": "2026-11-13T21:49:55.828Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:15.628Z",
+      "validThrough": "2027-01-28T21:49:55.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -368,7 +368,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100888&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:14.962Z",
+      "crawledAt": "2026-11-13T21:49:55.222Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -417,7 +417,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:14.962Z",
+      "validThrough": "2027-01-28T21:49:55.222Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -451,7 +451,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109266&publication=2644",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:13.583Z",
+      "crawledAt": "2026-11-13T21:49:53.935Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -502,7 +502,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:40:13.583Z",
+      "validThrough": "2027-01-28T21:49:53.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -536,7 +536,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20836?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:12.883Z",
+      "crawledAt": "2026-11-13T21:49:53.313Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -585,7 +585,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:40:12.883Z",
+      "validThrough": "2027-02-01T21:49:53.313Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -619,7 +619,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20837?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:12.215Z",
+      "crawledAt": "2026-11-13T21:49:52.717Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -668,7 +668,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:40:12.215Z",
+      "validThrough": "2027-02-01T21:49:52.717Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -702,7 +702,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20835?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:11.539Z",
+      "crawledAt": "2026-11-13T21:49:52.119Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -751,7 +751,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:40:11.539Z",
+      "validThrough": "2027-02-01T21:49:52.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -785,7 +785,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20876?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:10.872Z",
+      "crawledAt": "2026-11-13T21:49:51.531Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -835,7 +835,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:40:10.872Z",
+      "validThrough": "2027-02-03T21:49:51.531Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -869,7 +869,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20875?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:10.206Z",
+      "crawledAt": "2026-11-13T21:49:50.936Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -918,7 +918,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:40:10.206Z",
+      "validThrough": "2027-02-03T21:49:50.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -952,7 +952,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102107&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:09.504Z",
+      "crawledAt": "2026-11-13T21:49:50.301Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1001,7 +1001,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:40:09.504Z",
+      "validThrough": "2027-02-04T21:49:50.301Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1035,7 +1035,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107801&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:08.780Z",
+      "crawledAt": "2026-11-13T21:49:49.583Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1086,7 +1086,7 @@
       },
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:40:08.780Z",
+      "validThrough": "2027-02-04T21:49:49.583Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1120,7 +1120,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101603&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:40:08.047Z",
+      "crawledAt": "2026-11-13T21:49:48.898Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1169,7 +1169,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:40:08.047Z",
+      "validThrough": "2027-02-04T21:49:48.898Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1203,7 +1203,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106436&publication=2645",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:07.328Z",
+      "crawledAt": "2026-11-13T21:49:48.186Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1252,7 +1252,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:40:07.328Z",
+      "validThrough": "2027-02-04T21:49:48.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1286,7 +1286,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20877?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:40:06.568Z",
+      "crawledAt": "2026-11-13T21:49:47.504Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1336,7 +1336,757 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:40:06.568Z",
+      "validThrough": "2027-02-04T21:49:47.504Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-dff6b5cfe2ff",
+      "slug": "ispettore-trice-dell-acqua-potabile-e-delle-acque-di-balneazione-80-canton-du-valais-sion",
+      "slugByLocale": {
+        "it": "ispettore-trice-dell-acqua-potabile-e-delle-acque-di-balneazione-80-canton-du-valais-sion",
+        "en": "drinking-and-bathing-water-inspector-80-canton-du-valais-sion",
+        "de": "trink-und-badewasserinspektor-in-80-canton-valais-ch",
+        "fr": "inspecteur-trice-de-l-eau-potable-et-des-eaux-de-baignade-80-canton-du-valais-sion"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Trink- und Badewasserinspektor/in (80%)",
+      "titleByLocale": {
+        "it": "Ispettore/trice dell’acqua potabile e delle acque di balneazione (80%)",
+        "en": "Drinking and bathing water inspector (80%)",
+        "de": "Trink- und Badewasserinspektor/in (80%)",
+        "fr": "Inspecteur/trice de l’eau potable et des eaux de baignade (80%)"
+      },
+      "description": "Trink- und Badewasserinspektor/in (80%) bei der Dienststelle für Verbraucherschutz und Veterinärwesen, in Sitten Wir sind die Dienststelle, die sich für die Lebensmittelsicherheit, die Tiergesundheit sowie den sicheren Umgang mit Chemikalien und die Badewasserqualität einsetzt. Diese komplexen Gebiete bearbeiten wir mit einem dynamischen vernetzt denkenden und aufgeschlossenen Team. Wir bieten flexible Arbeitsbedingungen, weit reichende Verantwortung sowie vielseitige und gründliche Fortbildungsmöglichkeiten.\n\nIhre Aufgaben:\n• Planung und Durchführung von lebensmittelrechtlichen Kontrollen/Inspektionen öffentlicher Trinkwasserversorgungen sowie öffentlicher Bäder- und Duschanlagen\n• Überprüfung und Beurteilung von Anlagen, Arbeitsabläufen und der Qualitätssicherung (einschliesslich HACCP-Systemen) Planen und Durchführung von Probenahmen und Messungen vor Ort Beurteilung von chemisch-physikalischen sowie mikrobiologischen Wasseranalysen Verfassen von Inspektions- und Untersuchungsberichten Sie erstellen Verfügungen und legen Massnahmen fest zur Behebung von Mängeln\n• Beurteilung von Baudossiers und Trinkwasser-Reglementen Auskunftserteilung an Wasserversorger, Behörden und Konsumenten in Sachen Trink- Bade- und Duschwasser Projektmanagement im Bereich Trink- und Badewasser\n\nIhr Profil:\n• Sie haben ein abgeschlossenes Fachhochschulstudium in Lebensmitteltechnologie (life technologies) Chemie, Biochemie oder Biologie oder eine abgeschlossene Berufslehre mit Weiterbildung bzw. Erfahrung im Bereich Trink- oder Badewasser Sie haben das eidgenössische Diplom für die amtliche Lebensmittelkontrolle bzw. sind bereit dieses zu erwerben Sie weisen bereits einige Jahre Erfahrung im Trinkwasserund/oder Badewasserbereich auf Sie verfügen über eine ausgeprägte Kommunikationsfähigkeit Sie besitzen Durchsetzungsvermögen und Organisationsgeschick Sie sind gewandt im mündlichen und schriftlichen Ausdruck und haben ein sicheres Auftreten Sie sind körperlich fit und besitzen einen gültigen Führerschein der Kategorie B Sie verfügen über sehr gute IT-Kenntnisse\n• Muttersprache Deutsch mit sehr guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. März 2027\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Verbraucherschutz (027 606 49 50 / laboratoire@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 20. November 2026 / Referenznummer: 103527",
+      "descriptionByLocale": {
+        "it": "Ispettore dell'acqua potabile e balneabile (80%) presso l'Ufficio per la protezione dei consumatori e gli affari veterinari, a Sitten Siamo il dipartimento dedicato alla sicurezza alimentare, alla salute degli animali, alla gestione sicura delle sostanze chimiche e alla qualità delle acque di balneazione. Lavoriamo su queste aree complesse con una squadra dinamica, in rete e aperta. Offriamo condizioni di lavoro flessibili, responsabilità di vasta portata e opportunità di formazione versatili e approfondite.\n\nI loro compiti:\n• Pianificazione e implementazione dei controlli alimentari/ispezione degli approvvigionamenti di acqua potabile pubblica e dei bagni pubblici e delle docce\n• Verifica e valutazione di strutture, flussi di lavoro e garanzia di qualità (compresi i sistemi HACCP) Pianificazione e conduzione del campionamento e delle misurazioni in loco Valutazione dell'analisi delle acque chimico-fisiche e microbiologiche Essi creano ordini e stabiliscono misure per correggere le carenze\n• Valutazione dei fascicoli di costruzione e delle regolamentazioni dell'acqua potabile Fornitori di informazioni, autorità e consumatori in termini di gestione del progetto di acqua potabile, balneazione e doccia nell'area dell'acqua potabile e della balneazione\n\nIl tuo profilo:\n• Hanno completato gli studi universitari in chimica, biochimica o biologia, o hanno completato l'apprendistato professionale con un'ulteriore istruzione o formazione. Esperienza nel campo dell'acqua potabile o balneare Hai il diploma federale per il controllo alimentare ufficiale o sei pronto ad acquisirlo Hai già diversi anni di esperienza nel settore dell'acqua potabile e/o delle acque di balneazione e hai una forte capacità di comunicazione Hai assertività e capacità organizzative Sei esperto in espressione orale e scritta e hai un aspetto sicuro Sei fisicamente in forma e hai una patente di guida valida di categoria B Hai ottime competenze IT\n• Lingua madre Tedesco con molto buona conoscenza della seconda lingua ufficiale\n\nApertura del lavoro:\n1. Marzo 2027\n\nInformazioni:\nInformazioni sull'ufficio: Ufficio per la protezione dei consumatori (027 606 49 50 / laboratoire@admin.vs.ch) Richiesta online: www.vs.ch/jobs o invia la tua domanda a: Servizio di gestione del personale, Luogo St-Théodule 15, 1951 Termine per la presentazione delle dogane: 20. Novembre 2026 / Numero di riferimento: 103527",
+        "en": "Drinking and bathing water inspector (80%) at the Office for Consumer Protection and Veterinary Affairs, in Sitten We are the department dedicated to food safety, animal health, safe handling of chemicals and bathing water quality. We work on these complex areas with a dynamic, networked and open-minded team. We offer flexible working conditions, far-reaching responsibility and versatile and thorough training opportunities.\n\nTheir tasks:\n• Planning and implementation of food controls/inspections of public drinking water supplies and public bath and shower facilities\n• Verification and assessment of facilities, workflows and quality assurance (including HACCP systems) Planning and conducting on-site sampling and measurements Assessment of chemical-physical and microbiological water analysis Writing inspection and investigation reports They create orders and establish measures to correct deficiencies\n• Assessment of construction dossiers and drinking water regulations Information provision to water suppliers, authorities and consumers in terms of drinking, bathing and shower water project management in the area of drinking and bathing water\n\nYour profile:\n• They have completed university studies in food technology (life technologies) chemistry, biochemistry or biology or have completed vocational apprenticeship with further education or training. Experience in the field of drinking or bathing water You have the federal diploma for official food control or are ready to acquire it You already have several years of experience in the drinking water and/or bathing water sector and have a strong communication ability You have assertiveness and organizational skills You are skilled in oral and written expression and have a safe appearance You are physically fit and have a valid category B driving licence You have very good IT skills\n• Mother tongue German with very good knowledge of the second official language\n\nJob opening:\n1. March 2027\n\nInformation:\nInformation about the office: Office for Consumer Protection (027 606 49 50 / laboratoire@admin.vs.ch) Online application requested: www.vs.ch/jobs or send your application to: Personnel Management Service, Place St-Théodule 15, 1951 Customs submission deadline: 20. November 2026 / Reference number: 103527",
+        "de": "Trink- und Badewasserinspektor/in (80%) bei der Dienststelle für Verbraucherschutz und Veterinärwesen, in Sitten Wir sind die Dienststelle, die sich für die Lebensmittelsicherheit, die Tiergesundheit sowie den sicheren Umgang mit Chemikalien und die Badewasserqualität einsetzt. Diese komplexen Gebiete bearbeiten wir mit einem dynamischen vernetzt denkenden und aufgeschlossenen Team. Wir bieten flexible Arbeitsbedingungen, weit reichende Verantwortung sowie vielseitige und gründliche Fortbildungsmöglichkeiten.\n\nIhre Aufgaben:\n• Planung und Durchführung von lebensmittelrechtlichen Kontrollen/Inspektionen öffentlicher Trinkwasserversorgungen sowie öffentlicher Bäder- und Duschanlagen\n• Überprüfung und Beurteilung von Anlagen, Arbeitsabläufen und der Qualitätssicherung (einschliesslich HACCP-Systemen) Planen und Durchführung von Probenahmen und Messungen vor Ort Beurteilung von chemisch-physikalischen sowie mikrobiologischen Wasseranalysen Verfassen von Inspektions- und Untersuchungsberichten Sie erstellen Verfügungen und legen Massnahmen fest zur Behebung von Mängeln\n• Beurteilung von Baudossiers und Trinkwasser-Reglementen Auskunftserteilung an Wasserversorger, Behörden und Konsumenten in Sachen Trink- Bade- und Duschwasser Projektmanagement im Bereich Trink- und Badewasser\n\nIhr Profil:\n• Sie haben ein abgeschlossenes Fachhochschulstudium in Lebensmitteltechnologie (life technologies) Chemie, Biochemie oder Biologie oder eine abgeschlossene Berufslehre mit Weiterbildung bzw. Erfahrung im Bereich Trink- oder Badewasser Sie haben das eidgenössische Diplom für die amtliche Lebensmittelkontrolle bzw. sind bereit dieses zu erwerben Sie weisen bereits einige Jahre Erfahrung im Trinkwasserund/oder Badewasserbereich auf Sie verfügen über eine ausgeprägte Kommunikationsfähigkeit Sie besitzen Durchsetzungsvermögen und Organisationsgeschick Sie sind gewandt im mündlichen und schriftlichen Ausdruck und haben ein sicheres Auftreten Sie sind körperlich fit und besitzen einen gültigen Führerschein der Kategorie B Sie verfügen über sehr gute IT-Kenntnisse\n• Muttersprache Deutsch mit sehr guten Kenntnissen der zweiten Amtssprache\n\nStellenantritt:\n1. März 2027\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Verbraucherschutz (027 606 49 50 / laboratoire@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 20. November 2026 / Referenznummer: 103527",
+        "fr": "Inspecteur des eaux potables et de baignade (80 %) à l'Office de la protection des consommateurs et des affaires vétérinaires, à Sitten Nous sommes le département dédié à la sécurité alimentaire, à la santé animale, à la manipulation sécuritaire des produits chimiques et à la qualité des eaux de baignade. Nous travaillons sur ces domaines complexes avec une équipe dynamique, en réseau et ouverte d'esprit. Nous offrons des conditions de travail flexibles, une grande responsabilité et des possibilités de formation polyvalentes et complètes.\n\nLeurs tâches:\n• Planification et mise en œuvre des contrôles/inspections des approvisionnements publics en eau potable et des installations publiques de bains et de douches\n• Vérification et évaluation des installations, des flux de travail et de l'assurance de la qualité (y compris les systèmes HACCP) Planification et réalisation d'échantillonnages et de mesures sur place Évaluation de l'analyse chimique-physique et microbiologique de l'eau Rédaction de rapports d'inspection et d'enquête Ils créent des ordres et établissent des mesures pour corriger les lacunes\n• Évaluation des dossiers de construction et des règlements relatifs à l'eau potable Fourniture d'informations aux fournisseurs d'eau, aux autorités et aux consommateurs en matière de gestion de projets relatifs à l'eau potable, aux eaux de baignade et aux eaux de douche dans le domaine de l'eau potable et des eaux de baignade\n\nVotre profil:\n• Ils ont terminé des études universitaires en chimie, en biochimie ou en biologie des technologies alimentaires (technologies de la vie), ou ont suivi un apprentissage professionnel en suivant des études ou une formation. Expérience dans le domaine des eaux de boisson ou de baignade Vous avez le diplôme fédéral de contrôle officiel des aliments ou êtes prêt à l'acquérir Vous avez déjà plusieurs années d'expérience dans le secteur de l'eau potable et/ou des eaux de baignade et avez une forte capacité de communication Vous avez une assurance et des compétences organisationnelles Vous êtes habile dans l'expression orale et écrite et avez une apparence sûre Vous êtes physiquement apte et avez un permis de conduire de catégorie B valide Vous avez de très bonnes compétences en informatique\n• Langue maternelle Allemand avec une très bonne connaissance de la deuxième langue officielle\n\nCréation d'emplois:\n1. Mars 2027\n\nRenseignements:\nInformations sur le bureau: Office de la protection des consommateurs (027 606 49 50 / laboratoire@admin.vs.ch) Demande en ligne : www.vs.ch/jobs ou envoyer votre demande à : Service de gestion du personnel, Place St-Théodule 15, 1951 Délai de dépôt en douane : 20 novembre 2026 / Numéro de référence : 103527"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=103527&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:49:47.024Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=103527&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "trink-und-badewasserinspektor-in-80-canton-valais-ch",
+        "trink-e-badewasserinspektor-in-80-canton-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "trink-und-badewasserinspektor-in-80-canton-valais-ch",
+          "trink-e-badewasserinspektor-in-80-canton-du-valais-sion"
+        ],
+        "en": [
+          "trink-und-badewasserinspektor-in-80-canton-valais-ch"
+        ],
+        "fr": [
+          "trink-und-badewasserinspektor-in-80-canton-valais-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-13T09:41:15.357Z",
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:47.024Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-1b79637d442c",
+      "slug": "collaboratore-agro-tecnico-80-appuntamento-fisso-canton-du-valais-sion",
+      "slugByLocale": {
+        "it": "collaboratore-agro-tecnico-80-appuntamento-fisso-canton-du-valais-sion",
+        "en": "an-agro-technical-collaborator-80-fixed-term-appointment-canton-du-valais-sion",
+        "de": "ein-agrotechnischer-mitarbeiter-80-befristete-ernennung-canton-du-valais-sion",
+        "fr": "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur ou une collaboratrice agro-technique (80%, engagement de durée déterminée)",
+      "titleByLocale": {
+        "it": "Collaboratore agro-tecnico (80%, appuntamento fisso)",
+        "en": "An agro-technical collaborator (80%, fixed-term appointment)",
+        "de": "Ein agrotechnischer Mitarbeiter (80%, befristete Ernennung)",
+        "fr": "Un collaborateur ou une collaboratrice agro-technique (80%, engagement de durée déterminée)"
+      },
+      "description": "Un collaborateur ou une collaboratrice agrotechnique (80%, engagement de durée déterminée) auprès du Service de l’agriculture, Office d’arboriculture et cultures maraîchères à Châteauneuf (Sion)\n\nVos tâches:\n• Vous participez à la gestion des organismes de quarantaine en arboriculture. Vous établissez notamment les différentes cartes nécessaires au suivi, effectuez la surveillance du territoire et rédigez les différents rapports Vous planifiez et coordonnez les différents essais du secteur phytosanitaire de l’office en collaboration avec le domaine et les producteurs. Vous préparez les protocoles, analysez les résultats et rédigez les rapports Vous réalisez un suivi des ravageurs et maladies dans les vergers afin d’étayer les communiqués phytosanitaires et de conseiller les producteurs. Vous répondez aux demandes des producteurs pour les questions phytosanitaires\n\nVotre profil:\n• Bachelor ou Master en agronomie, sciences de la terre ou formation jugée équivalente\n• Bonnes connaissances en protection des plantes, notamment du feu bactérien\n• Bonnes connaissances de la production fruitière et du verger valaisan Capacités d’analyse et de synthèse des résultats Connaissances d’ArcGIS Langue maternelle française, avec des connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 au 29 février 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 20 novembre 2026/ Numéro de référence : 112551",
+      "descriptionByLocale": {
+        "it": "Collaboratore agrotecnico (80%, appuntamento fisso) con il Servizio Agricolo, Office d'arboriculture et culture maraîches in Châteauneuf (Sion)\n\nI vostri compiti:\n• Sei coinvolto nella gestione delle organizzazioni di quarantena di arboricoltura. In particolare, si elaborano le varie mappe necessarie per monitorare, monitorare il territorio e redigere le varie relazioni. Pianifica e coordina le varie prove del settore fitosanitario dell'Ufficio in collaborazione con il settore e i produttori. Prepara i protocolli, analizza i risultati e scrivi report Monitorate i parassiti e le malattie dei frutteti per sostenere i rilasci fitosanitari e consigliate i produttori. Risponde alle richieste dei produttori di problemi fitosanitari\n\nIl tuo profilo:\n• Corso di laurea o Master in agronomia, scienze della terra o formazione equivalente\n• Buona conoscenza della protezione delle piante, compreso il fuoco batterico\n• Buona conoscenza della produzione di frutta e frutteto Vallese Risultati analisi e capacità di sintesi ArcGIS conoscenza Lingua madre francese con seconda conoscenza ufficiale della lingua\n\nEntrata in ufficio:\n1\n\n• e\n• Gennaio 2027 al 29 Febbraio 2028\n\nInformazioni:\nDati postali: Servizio agricolo (027 606 75 00) Postazione desiderata online: www.vs.ch/jobs o invio di offerte: Servizio risorse umane, Luogo St-Théodule 15, 1951 Sion Deadline per l'applicazione: 20 novembre 20, 2026/ Numero di riferimento: 112551",
+        "en": "An agrotechnical collaborator (80%, fixed-term appointment) with the Agricultural Service, Office d'arboriculture et cultures maraîches in Châteauneuf (Sion)\n\nYour tasks:\n• You are involved in the management of arboriculture quarantine organizations. In particular, you draw up the various maps necessary for monitoring, monitor the territory and draw up the various reports. You plan and coordinate the various tests of the phytosanitary sector of the Office in collaboration with the field and the producers. You prepare protocols, analyze results and write reports You monitor pests and diseases in orchards in order to support phytosanitary releases and advise producers. You respond to producer requests for phytosanitary issues\n\nYour profile:\n• Bachelor or Master in agronomy, earth sciences or equivalent training\n• Good knowledge of plant protection, including bacterial fire\n• Good knowledge of fruit production and Valais orchard Results analysis and synthesis skills ArcGIS knowledge French mother tongue with second official language knowledge\n\nEntry into office:\n1\n\n• and\n• January 2027 to 29 February 2028\n\nInformation:\nPost information: Agricultural Service (027 606 75 00) Posting desired online: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 20, 2026/ Reference Number: 112551",
+        "de": "Ein agrotechnischer Mitarbeiter (80%, befristete Ernennung) beim Landwirtschaftsdienst, Office d'arboriculture et cultures maraîches in Châteauneuf (Sion)\n\nIhre Aufgaben:\n• Sie sind an der Verwaltung von Arborikultur-Quarantäneorganisationen beteiligt. Insbesondere erstellen Sie die verschiedenen Karten, die für die Überwachung erforderlich sind, überwachen das Territorium und erstellen die verschiedenen Berichte. Sie planen und koordinieren die verschiedenen Tests des Pflanzenschutzsektors des Amtes in Zusammenarbeit mit dem Feld und den Produzenten. Sie erstellen Protokolle, analysieren Ergebnisse und schreiben Berichte Sie überwachen Schädlinge und Krankheiten in Obstgärten, um die Freisetzung von Pflanzen zu unterstützen und die Produzenten zu beraten. Sie reagieren auf Herstelleranfragen für phytosanitäre Probleme\n\nIhr Profil:\n• Bachelor oder Master in Agronomie, Geowissenschaften oder gleichwertiger Ausbildung\n• Gute Kenntnisse des Pflanzenschutzes, einschließlich des bakteriellen Feuers\n• Gute Kenntnisse der Obstproduktion und des Walliser Obstgartens Ergebnisse Analyse und Synthesekenntnisse ArcGIS Kenntnisse Französische Muttersprache mit Zweitsprache\n\nAmtsantritt:\n1\n\n• und\n• Januar 2027 bis 29. Februar 2028\n\nInformationen:\nPostinformationen: Landwirtschaftlicher Dienst (027 606 75 00) Posting gewünscht online: www.vs.ch/jobs oder sendeangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Frist für die Bewerbung: 20. November 2026/ Referenznummer: 112551",
+        "fr": "Un collaborateur ou une collaboratrice agrotechnique (80%, engagement de durée déterminée) auprès du Service de l’agriculture, Office d’arboriculture et cultures maraîchères à Châteauneuf (Sion)\n\nVos tâches:\n• Vous participez à la gestion des organismes de quarantaine en arboriculture. Vous établissez notamment les différentes cartes nécessaires au suivi, effectuez la surveillance du territoire et rédigez les différents rapports Vous planifiez et coordonnez les différents essais du secteur phytosanitaire de l’office en collaboration avec le domaine et les producteurs. Vous préparez les protocoles, analysez les résultats et rédigez les rapports Vous réalisez un suivi des ravageurs et maladies dans les vergers afin d’étayer les communiqués phytosanitaires et de conseiller les producteurs. Vous répondez aux demandes des producteurs pour les questions phytosanitaires\n\nVotre profil:\n• Bachelor ou Master en agronomie, sciences de la terre ou formation jugée équivalente\n• Bonnes connaissances en protection des plantes, notamment du feu bactérien\n• Bonnes connaissances de la production fruitière et du verger valaisan Capacités d’analyse et de synthèse des résultats Connaissances d’ArcGIS Langue maternelle française, avec des connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 au 29 février 2028\n\nInformations:\nRenseignement sur le poste : Service de l’agriculture (027 606 75 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 20 novembre 2026/ Numéro de référence : 112551"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112551&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:46.235Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112551&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-agro-technique-80-engagement-de-duree-determinee"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:14.598Z",
+      "salaryMin": 56800,
+      "salaryMax": 86000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56800,
+          "maxValue": 86000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:46.235Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-0920858c798a",
+      "slug": "un-collaboratore-economico-80-canton-du-valais-sion",
+      "slugByLocale": {
+        "it": "un-collaboratore-economico-80-canton-du-valais-sion",
+        "en": "an-economic-collaborator-80-canton-du-valais-sion",
+        "de": "ein-wirtschaftlicher-mitarbeiter-80-canton-du-valais-sion",
+        "fr": "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur ou une collaboratrice économique (80%)",
+      "titleByLocale": {
+        "it": "Un collaboratore economico (80%)",
+        "en": "An economic collaborator (80%)",
+        "de": "Ein wirtschaftlicher Mitarbeiter (80%)",
+        "fr": "Un collaborateur ou une collaboratrice économique (80%)"
+      },
+      "description": "Un collaborateur ou une collaboratrice économique (80%) auprès du Service de la culture, à Sion\n\nVos tâches:\n• Vous assurez le soutien opérationnel du chef de service dans le suivi et l’avancement de ses dossiers stratégiques (préparation et analyse des dossiers ainsi que rédaction de notes synthétiques) Vous gérez la correspondance du chef de service dans les deux langues officielles et organisez les séances (ordre du jour, invitations, logistique, prise de procès-verbaux) Vous élaborez des notes synthétiques, des notes d'information et des résumés à l'attention du chef de département et de son Etat-Major Vous coordonnez les projets de réponses aux interventions parlementaires ainsi que les premières ébauches des modifications législatives et réglementaires Vous assurez le suivi des relations avec les partenaires de la direction et l'interface avec les différents offices et sections Vous participez au suivi budgétaire de la direction du Service\n• Vous appuyez, au besoin, la cellule communication du Service\n\nVotre profil:\n• Titulaire d’une formation universitaire ou HES dans le domaine de l’administration publique ou formation jugée équivalente Une expérience au sein d’une administration publique constitue un plus Intérêt et sensibilité pour le domaine culturel ; une expérience dans ce domaine constitue un atout Excellentes capacités d’analyse et de rédaction Sens des responsabilités, de la communication et de l’organisation\n• Capacité à travailler de manière autonome et esprit d’initiative Très bonne résistance au stress Langue maternelle française, avec d’excellentes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Alain Dubois, chef du Service de la culture (alain.dubois@admin.vs.ch / 027 606 45 55) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100872",
+      "descriptionByLocale": {
+        "it": "Collaboratore economico (80%) presso il Dipartimento della Cultura di Sion\n\nI vostri compiti:\n• L'utente fornisce supporto operativo al Capo servizio nel follow-up e nel progresso dei suoi file strategici (preparazione e analisi dei file e preparazione di note di sintesi) Gestisci la corrispondenza del Capo Servizio in entrambe le lingue ufficiali e organizza riunioni (agenda, inviti, logistica, minuti) Si preparano note sommarie, note di briefing e sintesi per il capo del dipartimento e il suo Stato-Major Si coordinano progetti di risposta agli interventi parlamentari e progetti di modifiche legislative e regolamentari Monitorate le relazioni con i partner di gestione e l'interfaccia con diversi uffici e sezioni Partecipate al monitoraggio di bilancio della gestione del Servizio\n• Se necessario, supporta l'unità Comunicazione del Servizio\n\nIl tuo profilo:\n• Titolare della formazione universitaria o HES nel settore della pubblica amministrazione o equivalente Un'esperienza all'interno di una pubblica amministrazione è un maggiore interesse e sensibilità nel campo culturale; un'esperienza in questo campo è un bene Eccellente analitica e redazione competenze Significato di responsabilità, comunicazione e organizzazione\n• Capacità di lavorare indipendentemente e iniziativa Molto buona resistenza allo stress Lingua madre francese, con eccellente seconda conoscenza ufficiale della lingua\n\nEntrata in ufficio:\n1\n\n• e\n• Gennaio 2027 o concordato\n\nInformazioni:\nInformazioni di posizione: Alain Dubois, Capo del Dipartimento della Cultura (alain.dubois@admin.vs.ch / 027 606 45 55) Desiderato domanda online: www.vs.ch/jobs o mailing offerte: Servizio Risorse Umane, Luogo St-Theodoule 15, 1951 Sion Deadline per l'applicazione: 27, 2026 / Numero di riferimento: 100872",
+        "en": "An economic collaborator (80%) at the Culture Department in Sion\n\nYour tasks:\n• You provide operational support to the Chief of Service in the follow-up and progress of its strategic files (preparation and analysis of files and preparation of summary notes) You manage the Head of Service correspondence in both official languages and arrange meetings (agenda, invitations, logistics, minutes) You prepare summary notes, briefing notes and summaries for the head of department and his/her state-Major You coordinate draft responses to parliamentary interventions and draft legislative and regulatory amendments You monitor relations with management partners and interface with different offices and sections You participate in the budgetary monitoring of the management of the Service\n• If necessary, you support the Communications Unit of the Service\n\nYour profile:\n• Holder of university or HES training in the field of public administration or equivalent An experience within a public administration is a greater interest and sensitivity in the cultural field; an experience in this field is an asset Excellent analytical and drafting skills Meaning of responsibility, communication and organization\n• Ability to work independently and initiative Very good stress resistance French mother tongue, with excellent second official language knowledge\n\nEntry into office:\n1\n\n• and\n• January 2027 or to be agreed\n\nInformation:\nPosition information: Alain Dubois, Head of the Culture Department (alain.dubois@admin.vs.ch / 027 606 45 55) Wanted online application: www.vs.ch/jobs or mailing offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: November 27, 2026 / Reference Number: 100872",
+        "de": "Ein wirtschaftlicher Mitarbeiter (80%) in der Kulturabteilung in Sion\n\nIhre Aufgaben:\n• Sie unterstützen den Chief of Service bei der Nachverfolgung und dem Fortschritt seiner strategischen Dateien (Vorbereitung und Analyse von Dateien und Erstellung von zusammenfassenden Notizen) Sie verwalten die Korrespondenz des Serviceleiters in beiden Amtssprachen und vereinbaren Besprechungen (Agenda, Einladungen, Logistik, Protokolle) Sie erstellen zusammenfassende Notizen, Briefingnotizen und Zusammenfassungen für den Abteilungsleiter und seinen/ihren Hauptstaat Sie koordinieren Entwürfe von Antworten auf parlamentarische Interventionen und Entwürfe von Gesetzes- und Regulierungsänderungen Sie überwachen die Beziehungen zu Managementpartnern und haben eine Schnittstelle zu verschiedenen Büros und Abteilungen Sie beteiligen sich an der Haushaltsüberwachung der Verwaltung des Dienstes\n• Bei Bedarf unterstützen Sie die Kommunikationseinheit des Dienstes\n\nIhr Profil:\n• Inhaber einer Hochschul- oder HES-Ausbildung im Bereich der öffentlichen Verwaltung oder einer gleichwertigen Eine Erfahrung in einer öffentlichen Verwaltung ist ein größeres Interesse und Sensibilität im kulturellen Bereich; eine Erfahrung in diesem Bereich ist ein Vermögenswert Ausgezeichnete analytische und redaktionelle Fähigkeiten Bedeutung von Verantwortung, Kommunikation und Organisation\n• Fähigkeit, selbstständig zu arbeiten und Initiative Sehr gute Stressresistenz Französisch Muttersprache, mit ausgezeichneten Zweitsprachenkenntnisse\n\nAmtsantritt:\n1\n\n• und\n• Januar 2027 oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Alain Dubois, Leiter der Kulturabteilung (alain.dubois@admin.vs.ch / 027 606 45 55) Gesuchte Online-Bewerbung: www.vs.ch/Jobs oder Mailing-Angebote: Personaldienst, Place St-Theodoule 15, 1951 Sion Frist für die Bewerbung: 27. November 2026 / Referenznummer: 100872",
+        "fr": "Un collaborateur ou une collaboratrice économique (80%) auprès du Service de la culture, à Sion\n\nVos tâches:\n• Vous assurez le soutien opérationnel du chef de service dans le suivi et l’avancement de ses dossiers stratégiques (préparation et analyse des dossiers ainsi que rédaction de notes synthétiques) Vous gérez la correspondance du chef de service dans les deux langues officielles et organisez les séances (ordre du jour, invitations, logistique, prise de procès-verbaux) Vous élaborez des notes synthétiques, des notes d'information et des résumés à l'attention du chef de département et de son Etat-Major Vous coordonnez les projets de réponses aux interventions parlementaires ainsi que les premières ébauches des modifications législatives et réglementaires Vous assurez le suivi des relations avec les partenaires de la direction et l'interface avec les différents offices et sections Vous participez au suivi budgétaire de la direction du Service\n• Vous appuyez, au besoin, la cellule communication du Service\n\nVotre profil:\n• Titulaire d’une formation universitaire ou HES dans le domaine de l’administration publique ou formation jugée équivalente Une expérience au sein d’une administration publique constitue un plus Intérêt et sensibilité pour le domaine culturel ; une expérience dans ce domaine constitue un atout Excellentes capacités d’analyse et de rédaction Sens des responsabilités, de la communication et de l’organisation\n• Capacité à travailler de manière autonome et esprit d’initiative Très bonne résistance au stress Langue maternelle française, avec d’excellentes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Alain Dubois, chef du Service de la culture (alain.dubois@admin.vs.ch / 027 606 45 55) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 100872"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100872&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:45.602Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100872&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ],
+        "en": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ],
+        "de": [
+          "un-collaborateur-ou-une-collaboratrice-economique-80-canton-valais-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:13.959Z",
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:45.602Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-d29777a523a4",
+      "slug": "un-sostituto-100-canton-du-valais-monthey",
+      "slugByLocale": {
+        "it": "un-sostituto-100-canton-du-valais-monthey",
+        "en": "a-substitute-100-canton-du-valais-monthey",
+        "de": "ein-ersatz-100-canton-du-valais-monthey",
+        "fr": "un-substitut-ou-une-substitute-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un substitut ou une substitute (100%)",
+      "titleByLocale": {
+        "it": "Un sostituto (100%)",
+        "en": "A substitute (100%)",
+        "de": "Ein Ersatz (100%)",
+        "fr": "Un substitut ou une substitute (100%)"
+      },
+      "description": "Un substitut ou une substitute (100%) auprès du Service des poursuites et faillites, Office des poursuites des districts de Monthey et St-Maurice L'Office des poursuites de Monthey et St-Maurice est l'un des 5 offices des poursuites du canton. Il a pour mission d'exécuter les poursuites dans le cadre des dispositions de la loi fédérale sur la poursuite pour dettes et la faillite (LP), de l'introduction à la distribution des dividendes et à la délivrance des actes de défaut de biens pour les districts de Monthey et Saint-Maurice\n\nVos tâches:\n• Vous êtes responsable de l’exécution de toutes les tâches assignées au substitut par la loi fédérale sur la poursuite pour dettes et la faillite Vous conduisez les procédures de recouvrement forcé des créances à savoir le traitement des opérations liées aux commandements de payer, aux saisies, aux prises d’inventaire et aux séquestres ; vous traitez également les opérations de réalisation mobilière et immobilière ainsi que les gérances légales Vous secondez le préposé et le remplacez en cas d’empêchement ou de récusation Vous secondez le préposé dans la gestion administrative et financière ainsi que de la conduite du personnel de l’office\n\nVotre profil:\n• Titulaire d’un Bachelor/Master en droit et/ou en sciences économiques, d’un certificat de formation générale à l’exécution forcée ou d’une formation jugée équivalente Brevet fédéral de spécialiste en matière de poursuite pour dettes ou disposé à le faire\n• Expérience dans le domaine de la poursuite et la faillite souhaitée Pratique dans la gestion d’une équipe exigée Esprit de leadership Aptitudes à prendre des décisions et à assumer des responsabilités Sens de l’analyse, de la synthèse, de la communication et de l’organisation Capacité à gérer des situations conflictuelles et résistance au stress Faculté à travailler de manière indépendante et en équipe\n• Excellentes capacités rédactionnelles Très bonnes connaissances en informatique\n• Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : M. Florent Perrier (027 606 17 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 108448",
+      "descriptionByLocale": {
+        "it": "Un sostituto (100%) per il Servizio di Prosecuzione e Bankruptcy, Monthey e St-Maurice District Prosecution Office L'Ufficio delle Prosecuzioni di Monthey e St-Maurice è uno dei cinque uffici di persecuzione del cantone. La sua missione è quella di svolgere i lavori ai sensi delle disposizioni della legge federale sulla prosecuzione del debito e sulla corruzione (LP), dall'introduzione alla distribuzione dei dividendi e dall'emissione di certificati di default di proprietà per i distretti di Monthey e Saint-Maurice\n\nI vostri compiti:\n• Sei responsabile dell'esecuzione di tutti i doveri assegnati al sostituto dal Federal Debt Prosecution and Bankruptcy Act Stai conducendo procedure per la raccolta forzata dei crediti, vale a dire il trattamento delle transazioni relative agli ordini di pagamento, convulsioni, inventario prendendo e ricevitori; si tratta anche di operazioni immobiliari e di creazione immobiliare, nonché gli amministratori legali. Sostieni il partecipante e lo sostituisci in caso di impedimento o di ricusazione Sostieni il responsabile amministrativo e finanziario e la conduzione del personale dell'Ufficio\n\nIl tuo profilo:\n• Titolare di una laurea / Master in diritto e/o economia, un certificato di formazione generale in esecuzione forzata o un diploma equivalente diploma federale di specializzazione in esecuzione del debito o disposto a farlo\n• Esperienza nell'area dell'accusa e del fallimento desiderato Pratica nella gestione di un team richiesto Leadership Spirito Capacità di prendere decisioni e assumere responsabilità Significato di analisi, sintesi, comunicazione e organizzazione Capacità di gestire situazioni di conflitto e resistenza allo stress Facoltà di lavorare in modo indipendente e in team\n• Eccellente capacità editoriale Molto buone competenze informatiche\n• Lingua madre francese, con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\n1\n\n• e\n• Gennaio 2027 o concordato\n\nInformazioni:\nInformazioni sulla posizione: Mr. Florent Perrier (027 606 17 05) Ricercato postazione di lavoro online: www.vs.ch/jobs or mailing offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 27, 2026 / Numero di riferimento: 108448",
+        "en": "A substitute (100%) for the Prosecution and Bankruptcy Service, Monthey and St-Maurice District Prosecution Office The Office of Prosecutions of Monthey and St-Maurice is one of the canton's five prosecution offices. Its mission is to carry out the proceedings under the provisions of the Federal Debt Prosecution and Bankruptcy Act (LP), from the introduction to the distribution of dividends and the issuance of property default certificates for the districts of Monthey and Saint-Maurice\n\nYour tasks:\n• You are responsible for the performance of all duties assigned to the substitute by the Federal Debt Prosecution and Bankruptcy Act You are conducting procedures for the forced collection of claims, namely the processing of transactions related to payment orders, seizures, inventory taking and receivers; you also deal with real estate and real estate creation operations as well as legal stewardships You support the attendant and replace him in case of impediment or recusal You support the administrative and financial management officer and the conduct of the staff of the Office\n\nYour profile:\n• Holder of a Bachelor/Master's degree in law and/or economics, a certificate of general training in enforced execution or an equivalent degree Federal diploma of specialist in debt prosecution or willing to do so\n• Experience in the area of prosecution and desired bankruptcy Practice in the management of a required team Leadership Spirit Ability to make decisions and assume responsibilities Meaning of analysis, synthesis, communication and organization Ability to manage conflict situations and stress resistance Faculty to work independently and in teams\n• Excellent editorial skills Very good computer skills\n• French mother tongue, with good knowledge of the second official language\n\nEntry into office:\n1\n\n• and\n• January 2027 or to be agreed\n\nInformation:\nPosition information: Mr. Florent Perrier (027 606 17 05) Wanted online job posting: www.vs.ch/jobs or mailing offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 27, 2026 / Reference Number: 108448",
+        "de": "Ersatz (100%) für die Staatsanwaltschaft Monthey und St-Maurice Die Staatsanwaltschaft Monthey und St-Maurice ist eine der fünf Staatsanwaltschaften des Kantons. Seine Aufgabe ist es, das Verfahren nach den Bestimmungen des Federal Debt Prosecution and Bankruptcy Act (LP) durchzuführen, von der Einführung über die Dividendenausschüttung bis hin zur Ausgabe von Immobilienausfallzertifikaten für die Bezirke Monthey und Saint-Maurice.\n\nIhre Aufgaben:\n• Sie sind für die Erfüllung aller Aufgaben verantwortlich, die dem Ersatz durch das Bundesschuldenanwalts- und Konkursgesetz zugewiesen werden Sie führen Verfahren zur Zwangseintreibung von Forderungen durch, nämlich die Verarbeitung von Transaktionen im Zusammenhang mit Zahlungsaufträgen, Pfändungen, Bestandsaufnahme und Empfängern; Sie befassen sich auch mit Immobilien- und Immobilienerstellungsvorgängen sowie mit rechtlichen Stewardships Sie unterstützen den Betreuer und ersetzen ihn im Falle einer Behinderung oder Zurückweisung Sie unterstützen den Verwaltungs- und Finanzmanager und das Verhalten der Mitarbeiter des Amtes\n\nIhr Profil:\n• Inhaber eines Bachelor- / Master-Abschlusses in Rechtswissenschaften und / oder Wirtschaft, eines Zertifikats über eine allgemeine Ausbildung in Zwangsvollstreckung oder eines gleichwertigen Abschlusses Bundesdiplom eines Spezialisten für Schuldenverfolgung oder dazu bereit\n• Erfahrung im Bereich der Strafverfolgung und gewünschten Insolvenz Praxis in der Verwaltung eines erforderlichen Teams Leadership Spirit Fähigkeit, Entscheidungen zu treffen und Verantwortung zu übernehmen Bedeutung der Analyse, Synthese, Kommunikation und Organisation Fähigkeit, Konfliktsituationen und Stressresistenz zu bewältigen Fakultät, um unabhängig und in Teams zu arbeiten\n• Hervorragende redaktionelle Fähigkeiten Sehr gute Computerkenntnisse\n• Französische Muttersprache, mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\n1\n\n• und\n• Januar 2027 oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Herr Florent Perrier (027 606 17 05) Gesuchte Online-Stellenausschreibung: www.vs.ch/Stellenangebote oder Mailingangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 27. November 2026 / Referenznummer: 108448",
+        "fr": "Un substitut ou une substitute (100%) auprès du Service des poursuites et faillites, Office des poursuites des districts de Monthey et St-Maurice L'Office des poursuites de Monthey et St-Maurice est l'un des 5 offices des poursuites du canton. Il a pour mission d'exécuter les poursuites dans le cadre des dispositions de la loi fédérale sur la poursuite pour dettes et la faillite (LP), de l'introduction à la distribution des dividendes et à la délivrance des actes de défaut de biens pour les districts de Monthey et Saint-Maurice\n\nVos tâches:\n• Vous êtes responsable de l’exécution de toutes les tâches assignées au substitut par la loi fédérale sur la poursuite pour dettes et la faillite Vous conduisez les procédures de recouvrement forcé des créances à savoir le traitement des opérations liées aux commandements de payer, aux saisies, aux prises d’inventaire et aux séquestres ; vous traitez également les opérations de réalisation mobilière et immobilière ainsi que les gérances légales Vous secondez le préposé et le remplacez en cas d’empêchement ou de récusation Vous secondez le préposé dans la gestion administrative et financière ainsi que de la conduite du personnel de l’office\n\nVotre profil:\n• Titulaire d’un Bachelor/Master en droit et/ou en sciences économiques, d’un certificat de formation générale à l’exécution forcée ou d’une formation jugée équivalente Brevet fédéral de spécialiste en matière de poursuite pour dettes ou disposé à le faire\n• Expérience dans le domaine de la poursuite et la faillite souhaitée Pratique dans la gestion d’une équipe exigée Esprit de leadership Aptitudes à prendre des décisions et à assumer des responsabilités Sens de l’analyse, de la synthèse, de la communication et de l’organisation Capacité à gérer des situations conflictuelles et résistance au stress Faculté à travailler de manière indépendante et en équipe\n• Excellentes capacités rédactionnelles Très bonnes connaissances en informatique\n• Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : M. Florent Perrier (027 606 17 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 108448"
+      },
+      "location": "Monthey",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108448&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:44.940Z",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1870",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108448&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-substitut-ou-une-substitute-100-canton-valais-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-substitut-ou-une-substitute-100-canton-valais-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:13.301Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Monthey",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:44.940Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-1e5d7dbaaa4b",
+      "slug": "capo-della-sezione-infrastrutture-e-operazioni-100-canton-du-valais-sierre",
+      "slugByLocale": {
+        "it": "capo-della-sezione-infrastrutture-e-operazioni-100-canton-du-valais-sierre",
+        "en": "a-head-of-the-infrastructure-and-operations-section-100-canton-du-valais-sierre",
+        "de": "leiter-der-sektion-infrastruktur-und-betrieb-100-canton-du-valais-sierre",
+        "fr": "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un chef ou une cheffe de section « Infrastructure et exploitation » (100%)",
+      "titleByLocale": {
+        "it": "Capo della sezione Infrastrutture e Operazioni (100%)",
+        "en": "A Head of the Infrastructure and Operations Section (100%)",
+        "de": "Leiter der Sektion Infrastruktur und Betrieb (100%)",
+        "fr": "Un chef ou une cheffe de section « Infrastructure et exploitation » (100%)"
+      },
+      "description": "Un chef ou une cheffe de section « Infrastructure et exploitation » (100%) auprès du Service Unité Territoriale III (SUT III), à Martigny, Sierre ou Brig Le Service Unité Territoriale III est l'une des 11 unités en Suisse qui s'occupent de l'entretien des routes nationales. Le SUT III occupe 120 collaboratrices et collaborateurs qui garantissent 24/24 heures la sécurité et l’exploitation des routes nationales en Valais. Ce réseau s’étend sur 186 kilomètres, depuis la sortie de l’autoroute A9 de Bex-nord jusqu’à Gondo.\n\nVos tâches:\n• En tant que membre de la direction, vous dirigez la section infrastructure et exploitation sur les plans des finances, de l'organisation et des ressources humaines\n• Vos responsabilités comprennent l'élaboration et le suivi du budget de la section ainsi que la garantie d'une utilisation efficiente des ressources Vous planifiez, coordonnez et supervisez les travaux d'entretien des infrastructures des routes nationales ainsi que des centres d'entretien, afin de garantir un réseau routier sûr, disponible et performant\n• Vous êtes également responsable de la flotte de véhicules et des équipements d'exploitation de l'ensemble du service Vous représentez la section auprès de l'OFROU, des autorités et des partenaires et participez aux réflexions stratégiques de l'Unité territoriale III Vous apportez une contribution essentielle aux projets de renouvellement, de modernisation et de développement des infrastructures routières\n• Vous veillez en tout temps au respect des exigences en matière de sécurité, de qualité, de disponibilité et de durabilité des infrastructures routières En outre, vous contribuez à l'amélioration continue des processus, au développement des outils de pilotage et de gestion ainsi qu'à la transformation numérique de la section Vous participez au service de piquet des cadres\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme d’ingénieur civil (EPF, HES) ou formation jugée équivalente Vous bénéficiez d'une expérience confirmée dans la conduite d'équipes\n• Vous disposez également d'une solide expérience dans la gestion des infrastructures routières Une expérience avérée en gestion de projets et en pilotage budgétaire complète votre profil Grâce à un leadership fédérateur, vous savez mobiliser vos équipes et accompagner le développement de vos collaborateurs Doté d'excellentes aptitudes en communication, vous savez convaincre et fédérer des interlocuteurs aux intérêts variés Votre sens de l'organisation, votre esprit d'analyse et votre capacité à prendre des décisions comptent parmi vos principaux atouts Vous travaillez de manière autonome, pragmatique et résolument orientée vers les résultats Vous maîtrisez les outils informatiques usuels; la connaissance des normes et directives de l'OFROU constitue un atout Langue maternelle française ou allemande avec d’excellentes connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Date d’entrée : de suite ou à convenir Engagement à durée indéterminée, mais conditionné au financement de la Confédération\n\nInformations:\nRenseignements sur le poste : Service Unité Territoriale III (027 607 25 09) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 112350",
+      "descriptionByLocale": {
+        "it": "Capo sezione \"Infrastrutture e Operazioni\" (100%) presso l'Unità Territoriale III Service (SUT III), Martigny, Sierre o Brig Il Servizio Unità Territoriale III è una delle 11 unità in Svizzera che si occupano del mantenimento delle strade nazionali. SUT III impiega 120 collaboratori che garantiscono 24 ore di sicurezza e funzionamento delle strade nazionali in Vallese. Questa rete si estende su 186 chilometri dall'uscita dell'autostrada A9 da Bex-north a Gondo.\n\nI vostri compiti:\n• Come membro della gestione, si guida la sezione infrastrutture e operazioni in termini di finanza, organizzazione e risorse umane\n• Le tue responsabilità includono lo sviluppo e il monitoraggio del bilancio della sezione e l'utilizzo efficiente delle risorse Pianifica, coordina e supervisiona il mantenimento dell'infrastruttura dei centri nazionali di manutenzione, al fine di garantire una rete stradale sicura, disponibile ed efficiente\n• Sei anche responsabile per la flotta di veicoli e attrezzature operative dell'intero servizio Tu rappresenti la sezione con OFROU, autorità e partner e partecipi alle riflessioni strategiche dell'Unità Territoriale III Un contributo essenziale ai progetti di rinnovamento, modernizzazione e sviluppo delle infrastrutture stradali\n• Assicurarsi che i requisiti di sicurezza, qualità, disponibilità e sostenibilità delle infrastrutture stradali siano sempre soddisfatti Inoltre, si contribuisce al miglioramento continuo dei processi, allo sviluppo di strumenti di sterzo e di gestione e alla trasformazione digitale della sezione Si partecipa al servizio di picket di gestione\n\nIl tuo profilo:\n• Ha un diploma in ingegneria civile (EPF, HES) o formazione considerata equivalente Si beneficia di un'esperienza comprovata nei principali team\n• Hai anche una solida esperienza nella gestione delle infrastrutture stradali Esperienza comprovata nella gestione dei progetti e nella gestione del budget completa il tuo profilo Con unificare la leadership, puoi mobilitare i tuoi team e sostenere lo sviluppo dei tuoi dipendenti Con eccellenti capacità comunicative, si sa come convincere e unire interlocutori con interessi diversi Il vostro senso organizzativo, il vostro spirito analitico e la vostra capacità di prendere decisioni sono tra i vostri beni principali. Lavori in modo autonomo, pragmatico e risolutamente orientato ai risultati Si padroneggiano i soliti strumenti informatici; la conoscenza degli standard e delle linee guida OFROU è un bene francese o tedesco lingua madre con ottima conoscenza della seconda lingua ufficiale Ingresso in ufficio – Condizioni speciali Data d'entrata: immediatamente o da concordare Impegno indeterminato, ma condizionale al finanziamento dalla Confederazione\n\nInformazioni:\nInformazioni di posizione: Servizio di Unità Territoriale III (027 607 25 09) Posto online richiesto: www.vs.ch/jobs o offerte di invio: Servizio Risorse Umane, Luogo St-Théodule 15, 1951 Sion Deadline per l'applicazione: 27 novembre 2026 / Numero di riferimento: 112350",
+        "en": "A Head of Section \"Infrastructure and Operations\" (100%) at the Territorial Unit III Service (SUT III), Martigny, Sierre or Brig The Territorial Unit III Service is one of the 11 units in Switzerland that deal with the maintenance of national roads. SUT III employs 120 collaborators who guarantee 24 hours the safety and operation of national roads in Valais. This network extends over 186 kilometres from the exit of the A9 motorway from Bex-north to Gondo.\n\nYour tasks:\n• As a member of management, you lead the infrastructure and operations section in terms of finance, organization and human resources\n• Your responsibilities include developing and monitoring the section's budget and ensuring efficient use of resources You plan, coordinate and supervise the maintenance of the infrastructure of the national roads and maintenance centres, in order to ensure a safe, available and efficient road network\n• You are also responsible for the fleet of vehicles and operating equipment of the entire service You represent the section with OFROU, authorities and partners and participate in the strategic reflections of Territorial Unit III You make an essential contribution to road infrastructure renewal, modernisation and development projects\n• You ensure that the safety, quality, availability and sustainability requirements of road infrastructure are met at all times In addition, you contribute to the continuous improvement of processes, the development of steering and management tools and the digital transformation of the section You participate in the management picket service\n\nYour profile:\n• You have a diploma in civil engineering (EPF, HES) or training deemed equivalent You benefit from a proven experience in leading teams\n• You also have a solid experience in road infrastructure management Proven experience in project management and budget management complements your profile With unifying leadership, you can mobilize your teams and support the development of your employees With excellent communication skills, you know how to convince and unite interlocutors with diverse interests Your organizational sense, your analytical spirit and your ability to make decisions are among your main assets. You work autonomously, pragmatically and resolutely results-oriented You master the usual computer tools; knowledge of OFROU standards and guidelines is an asset French or German mother tongue with excellent knowledge of the second official language Entry into office – Special conditions Date of entry: immediately or to be agreed Indeterminate commitment, but conditional on funding from Confederation\n\nInformation:\nPosition Information: Territorial Unit III Service (027 607 25 09) Requested online postulation: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 27, 2026 / Reference Number: 112350",
+        "de": "Ein Referatsleiter \"Infrastruktur und Betrieb\" (100%) bei der Territorial Unit III Service (SUT III), Martigny, Sierre oder Brig Die Territorial Unit III Service ist eine der 11 Einheiten in der Schweiz, die sich mit der Instandhaltung von Landesstraßen befassen. SUT III beschäftigt 120 Mitarbeiter, die 24 Stunden die Sicherheit und den Betrieb der Nationalstraßen im Wallis garantieren. Dieses Netz erstreckt sich über 186 Kilometer von der Ausfahrt der Autobahn A9 von Bex-Nord nach Gondo.\n\nIhre Aufgaben:\n• Als Mitglied des Managements leiten Sie den Bereich Infrastruktur und Betrieb in Bezug auf Finanzen, Organisation und Personal\n• Ihre Aufgaben umfassen die Entwicklung und Überwachung des Budgets der Sektion und die Gewährleistung einer effizienten Nutzung der Ressourcen. Sie planen, koordinieren und überwachen die Instandhaltung der Infrastruktur der nationalen Straßen und Instandhaltungszentren, um ein sicheres, verfügbares und effizientes Straßennetz zu gewährleisten\n• Sie sind auch für die Fahrzeugflotte und die Betriebsausrüstung des gesamten Dienstes verantwortlich Sie vertreten die Sektion mit OFROU, Behörden und Partnern und nehmen an den strategischen Überlegungen der Territorialen Einheit III teil Sie leisten einen wesentlichen Beitrag zur Erneuerung, Modernisierung und Entwicklung der Straßeninfrastruktur\n• Sie stellen sicher, dass die Anforderungen an Sicherheit, Qualität, Verfügbarkeit und Nachhaltigkeit der Straßeninfrastruktur jederzeit erfüllt werden Darüber hinaus leisten Sie einen Beitrag zur kontinuierlichen Verbesserung der Prozesse, zur Entwicklung von Steuerungs- und Management-Tools und zur digitalen Transformation des Bereichs Sie beteiligen sich am Management Picket Service\n\nIhr Profil:\n• Sie haben ein Diplom in Bauingenieurwesen (EPF, HES) oder eine gleichwertige Ausbildung Sie profitieren von bewährter Erfahrung in führenden Teams\n• Sie haben auch eine solide Erfahrung im Straßeninfrastrukturmanagement Nachgewiesene Erfahrung im Projektmanagement und Budgetmanagement ergänzt Ihr Profil Mit einer einheitlichen Führung können Sie Ihre Teams mobilisieren und die Entwicklung Ihrer Mitarbeiter unterstützen Mit hervorragenden Kommunikationsfähigkeiten wissen Sie, wie Sie Gesprächspartner mit unterschiedlichen Interessen überzeugen und vereinen können Ihr organisatorischer Sinn, Ihr analytischer Geist und Ihre Fähigkeit, Entscheidungen zu treffen, gehören zu Ihren wichtigsten Vermögenswerten. Sie arbeiten autonom, pragmatisch und entschlossen ergebnisorientiert Sie beherrschen die üblichen Computer-Tools; Kenntnis der OFROU Standards und Richtlinien ist ein Asset Französisch oder Deutsch Muttersprache mit ausgezeichneten Kenntnissen der zweiten Amtssprache Eintritt ins Amt – Besondere Bedingungen Datum der Einreise: sofort oder zu vereinbaren Unbestimmte Verpflichtung, aber vorbehaltlich der Finanzierung durch den Bund\n\nInformationen:\nPositionsinformation: Territorial Unit III Service (027 607 25 09) Angeforderte Online-Postulation: www.vs.ch/jobs oder Versandangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 27. November 2026 / Referenznummer: 112350",
+        "fr": "Un chef ou une cheffe de section « Infrastructure et exploitation » (100%) auprès du Service Unité Territoriale III (SUT III), à Martigny, Sierre ou Brig Le Service Unité Territoriale III est l'une des 11 unités en Suisse qui s'occupent de l'entretien des routes nationales. Le SUT III occupe 120 collaboratrices et collaborateurs qui garantissent 24/24 heures la sécurité et l’exploitation des routes nationales en Valais. Ce réseau s’étend sur 186 kilomètres, depuis la sortie de l’autoroute A9 de Bex-nord jusqu’à Gondo.\n\nVos tâches:\n• En tant que membre de la direction, vous dirigez la section infrastructure et exploitation sur les plans des finances, de l'organisation et des ressources humaines\n• Vos responsabilités comprennent l'élaboration et le suivi du budget de la section ainsi que la garantie d'une utilisation efficiente des ressources Vous planifiez, coordonnez et supervisez les travaux d'entretien des infrastructures des routes nationales ainsi que des centres d'entretien, afin de garantir un réseau routier sûr, disponible et performant\n• Vous êtes également responsable de la flotte de véhicules et des équipements d'exploitation de l'ensemble du service Vous représentez la section auprès de l'OFROU, des autorités et des partenaires et participez aux réflexions stratégiques de l'Unité territoriale III Vous apportez une contribution essentielle aux projets de renouvellement, de modernisation et de développement des infrastructures routières\n• Vous veillez en tout temps au respect des exigences en matière de sécurité, de qualité, de disponibilité et de durabilité des infrastructures routières En outre, vous contribuez à l'amélioration continue des processus, au développement des outils de pilotage et de gestion ainsi qu'à la transformation numérique de la section Vous participez au service de piquet des cadres\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme d’ingénieur civil (EPF, HES) ou formation jugée équivalente Vous bénéficiez d'une expérience confirmée dans la conduite d'équipes\n• Vous disposez également d'une solide expérience dans la gestion des infrastructures routières Une expérience avérée en gestion de projets et en pilotage budgétaire complète votre profil Grâce à un leadership fédérateur, vous savez mobiliser vos équipes et accompagner le développement de vos collaborateurs Doté d'excellentes aptitudes en communication, vous savez convaincre et fédérer des interlocuteurs aux intérêts variés Votre sens de l'organisation, votre esprit d'analyse et votre capacité à prendre des décisions comptent parmi vos principaux atouts Vous travaillez de manière autonome, pragmatique et résolument orientée vers les résultats Vous maîtrisez les outils informatiques usuels; la connaissance des normes et directives de l'OFROU constitue un atout Langue maternelle française ou allemande avec d’excellentes connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Date d’entrée : de suite ou à convenir Engagement à durée indéterminée, mais conditionné au financement de la Confédération\n\nInformations:\nRenseignements sur le poste : Service Unité Territoriale III (027 607 25 09) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 112350"
+      },
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112350&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:44.236Z",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3960",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112350&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:35:45.231Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sierre",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T21:49:44.236Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-e3aed5292d13",
+      "slug": "coordinatore-o-coordinatore-per-la-protezione-della-popolazione-rimontaggio-o-sostituzione-del-capo-em-occ-80-100-canton",
+      "slugByLocale": {
+        "it": "coordinatore-o-coordinatore-per-la-protezione-della-popolazione-rimontaggio-o-sostituzione-del-capo-em-occ-80-100-canton",
+        "en": "a-coordinator-or-coordinator-for-the-protection-of-the-population-replacing-or-replacing-chief-em-occ-80-100-canton-du",
+        "de": "ein-koordinator-oder-koordinator-fur-den-schutz-der-bevolkerung-ersetzen-oder-ersetzen-chief-em-occ-80-100-canton-du",
+        "fr": "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un coordinateur ou une coordinatrice protection de la population (remplaçant ou remplaçante du chef EM OCC, 80-100%)",
+      "titleByLocale": {
+        "it": "Coordinatore o coordinatore per la protezione della popolazione (rimontaggio o sostituzione del capo EM OCC, 80-100%)",
+        "en": "A coordinator or coordinator for the protection of the population (replacing or replacing Chief EM OCC, 80-100%)",
+        "de": "Ein Koordinator oder Koordinator für den Schutz der Bevölkerung (ersetzen oder ersetzen Chief EM OCC, 80-100%)",
+        "fr": "Un coordinateur ou une coordinatrice protection de la population (remplaçant ou remplaçante du chef EM OCC, 80-100%)"
+      },
+      "description": "Un coordinateur ou une coordinatrice protection de la population (remplaçant ou remplaçante du chef EM OCC, 80-100%) auprès du Service de la sécurité civile et militaire, Office cantonal de la protection de la population, à Sion Au cœur de la gestion de crise, vous contribuez à la préparation et à la coordination de la protection de la population en Valais.\n\nVos tâches:\n• Vous assurez la fonction de remplaçant du chef d’Etat-major de l’Organe cantonal de conduite (OCC) Vous conduisez les processus administratifs de l’OCC Vous garantissez la coordination et la mise à jour de la documentation de conduite de l’OCC\n• Vous coordonnez les partenaires de la protection de la population dans la préparation des mesures au profit de l’OCC Vous assurez la disponibilité et l’exploitation des infrastructures et des systèmes nécessaires à la conduite de l’OCC Vous formez les membres de l’OCC et ses partenaires, concevez et organisez des exercices pour renforcer leur préparation opérationnelle Vous conduisez des projets ou des groupes de travail dans le domaine de la protection de la population Vous participez au service de piquet au profit de l’OCC, selon le tournus établi Vous êtes prêt à travailler selon des horaires irréguliers (soir, week-end)\n\nVotre profil:\n• Formation de niveau tertiaire ou formation jugée équivalente Expérience confirmée dans un des domaines de la protection de la population (police, armée, pompiers, protection civile, sanitaire) Formation complémentaire en gestion de projets Solide expérience dans les domaines du travail d’état-major, de la gestion de crise et de la formation d’adultes Grande flexibilité, résistant au stress, avec un fort esprit d’analyse et de synthèse Esprit d’initiative et méthode de travail structurée Aisance rédactionnelle Capacité d’entregent et de négociation De langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la sécurité civile et militaire, M. Olivier Luyet (027 606 52 60) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 101086",
+      "descriptionByLocale": {
+        "it": "Coordinatore o coordinatore per la protezione della popolazione (rimontaggio o sostituzione del capo EM OCC, 80-100%) con il Servizio di Sicurezza Civile e Militare, Ufficio cantonale per la Protezione della Popolazione, a Sion Nel cuore della gestione delle crisi, contribuisce alla preparazione e al coordinamento della protezione della popolazione in Vallese.\n\nI vostri compiti:\n• Lei è la sostituzione del Capo di Stato Maggiore del Corpo di Guida cantonale (CCO) Guida i processi amministrativi dell'OCC Garantisci il coordinamento e l'aggiornamento della documentazione di guida dell'OCC\n• Coordinate i partner di protezione pubblica nella preparazione delle misure a beneficio del CCO Assicurate la disponibilità e il funzionamento delle infrastrutture e dei sistemi necessari per la conduzione del CCO Formate i membri del CCO e dei suoi partner, progettate e organizzate esercizi per rafforzare la loro disponibilità operativa Tu conduci progetti o gruppi di lavoro nel campo della protezione pubblica Si partecipa al servizio di picket a beneficio del CCO, secondo il tournus stabilito Siete pronti a lavorare su orari irregolari (settimana, fine settimana)\n\nIl tuo profilo:\n• Formazione a livello terziario o formazione ritenuta equivalente Esperienza confermata in una delle aree di protezione della popolazione (polizia, esercito, vigili del fuoco, protezione civile, salute) Formazione aggiuntiva nella gestione dei progetti Esperienza solida nei settori del lavoro del personale, della gestione delle crisi e della formazione degli adulti Alta flessibilità, resistente allo stress, con un forte spirito di analisi e sintesi Spirito d'iniziativa e metodo di lavoro strutturato Capacità di scrittura Abilità e negoziazione Lingua madre francese o tedesca, con una buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nInformazioni di posizione: Servizio di sicurezza civile e militare, Mr. Olivier Luyet (027 606 52 60) Desiderato postulazione online: www.vs.ch/jobs o invio di offerte: Servizio risorse umane, Place St-Théodule 15, 1951 Sion Deadline per l'applicazione: 27 novembre 2026 / Numero di riferimento: 101086",
+        "en": "A coordinator or coordinator for the protection of the population (replacing or replacing Chief EM OCC, 80-100%) with the Civil and Military Security Service, Cantonal Office for the Protection of the Population, in Sion At the heart of crisis management, you contribute to the preparation and coordination of the protection of the population in Valais.\n\nYour tasks:\n• You are the replacement of the Chief of Staff of the Cantonal Driving Body (CCO) You drive the administrative processes of the OCC You guarantee the coordination and updating of the driving documentation of the OCC\n• You coordinate the public protection partners in the preparation of the measures for the benefit of the CCO You ensure the availability and operation of the infrastructure and systems necessary for the conduct of the CCO You train the members of the CCO and its partners, design and organize exercises to strengthen their operational readiness You conduct projects or working groups in the field of public protection You participate in the picket service for the benefit of the CCO, according to the tournus established You are ready to work on irregular schedules (evening, weekend)\n\nYour profile:\n• Tertiary level training or training deemed equivalent Experience confirmed in one of the areas of protection of the population (police, army, firefighters, civil protection, health) Additional training in project management Solid experience in the fields of staff work, crisis management and adult training High flexibility, stress resistant, with a strong spirit of analysis and synthesis Initiative spirit and structured working method Writing skills Intergent and negotiation skills French or German mother tongue, with very good knowledge of the second official language\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPosition information: Civil and Military Security Service, Mr. Olivier Luyet (027 606 52 60) Wanted online postulation: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 27, 2026 / Reference Number: 101086",
+        "de": "Ein Koordinator oder Koordinator für den Schutz der Bevölkerung (ersetzen oder ersetzen Chef EM OCC, 80-100%) mit dem Zivilen und Militärischen Sicherheitsdienst, Kantonalamt für den Schutz der Bevölkerung, in Sion Im Zentrum des Krisenmanagements tragen Sie zur Vorbereitung und Koordination des Schutzes der Bevölkerung im Wallis bei.\n\nIhre Aufgaben:\n• Sie sind der Ersatz des Stabschefs des kantonalen Triebfahrzeugführers (CCO) Sie steuern die administrativen Prozesse des OCC Sie garantieren die Koordination und Aktualisierung der Fahrdokumentation des OCC\n• Sie koordinieren die Partner des öffentlichen Schutzes bei der Vorbereitung der Maßnahmen zugunsten des CCO Sie stellen die Verfügbarkeit und den Betrieb der für die Durchführung des CCO erforderlichen Infrastruktur und Systeme sicher Sie schulen die Mitglieder des CCO und seiner Partner, entwerfen und organisieren Übungen zur Stärkung ihrer Einsatzbereitschaft Sie führen Projekte oder Arbeitsgruppen im Bereich des öffentlichen Schutzes durch Sie nehmen am Streikpostendienst zum Vorteil des CCO teil, gemäß dem festgelegten Tournus Sie sind bereit, an unregelmäßigen Zeitplänen zu arbeiten (Abend, Wochenende)\n\nIhr Profil:\n• Ausbildung auf tertiärer Ebene oder Ausbildung, die als gleichwertig angesehen wird Erfahrung bestätigt in einem der Schutzbereiche der Bevölkerung (Polizei, Armee, Feuerwehr, Katastrophenschutz, Gesundheit) Zusätzliche Ausbildung im Projektmanagement Solide Erfahrung in den Bereichen Personalarbeit, Krisenmanagement und Erwachsenenbildung Hohe Flexibilität, stressresistent, mit einem starken Geist der Analyse und Synthese Initiativesgeist und strukturierte Arbeitsmethode Schreibfähigkeiten Intergente und Verhandlungsfähigkeiten Französisch oder Deutsch Muttersprache, mit sehr guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPositionsinformationen: Ziviler und militärischer Sicherheitsdienst, Herr Olivier Luyet (027 606 52 60) Gesuchte Online-Postulation: www.vs.ch/Jobs oder Versandangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Frist für die Bewerbung: 27. November 2026 / Referenznummer: 101086",
+        "fr": "Un coordinateur ou une coordinatrice protection de la population (remplaçant ou remplaçante du chef EM OCC, 80-100%) auprès du Service de la sécurité civile et militaire, Office cantonal de la protection de la population, à Sion Au cœur de la gestion de crise, vous contribuez à la préparation et à la coordination de la protection de la population en Valais.\n\nVos tâches:\n• Vous assurez la fonction de remplaçant du chef d’Etat-major de l’Organe cantonal de conduite (OCC) Vous conduisez les processus administratifs de l’OCC Vous garantissez la coordination et la mise à jour de la documentation de conduite de l’OCC\n• Vous coordonnez les partenaires de la protection de la population dans la préparation des mesures au profit de l’OCC Vous assurez la disponibilité et l’exploitation des infrastructures et des systèmes nécessaires à la conduite de l’OCC Vous formez les membres de l’OCC et ses partenaires, concevez et organisez des exercices pour renforcer leur préparation opérationnelle Vous conduisez des projets ou des groupes de travail dans le domaine de la protection de la population Vous participez au service de piquet au profit de l’OCC, selon le tournus établi Vous êtes prêt à travailler selon des horaires irréguliers (soir, week-end)\n\nVotre profil:\n• Formation de niveau tertiaire ou formation jugée équivalente Expérience confirmée dans un des domaines de la protection de la population (police, armée, pompiers, protection civile, sanitaire) Formation complémentaire en gestion de projets Solide expérience dans les domaines du travail d’état-major, de la gestion de crise et de la formation d’adultes Grande flexibilité, résistant au stress, avec un fort esprit d’analyse et de synthèse Esprit d’initiative et méthode de travail structurée Aisance rédactionnelle Capacité d’entregent et de négociation De langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la sécurité civile et militaire, M. Olivier Luyet (027 606 52 60) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 101086"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101086&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:43.419Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101086&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ],
+        "en": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ],
+        "de": [
+          "un-coordinateur-ou-une-coordinatrice-protection-de-la-population-remplacant-ou-remplacante"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:11.894Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:43.419Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-b0f4675c09df",
+      "slug": "cantante-o-cantonale-ii-100-canton-du-valais-sion",
+      "slugByLocale": {
+        "it": "cantante-o-cantonale-ii-100-canton-du-valais-sion",
+        "en": "a-cantoner-or-cantoner-ii-100-canton-du-valais-sion",
+        "de": "a-kantoner-oder-kanton-ii-100-canton-du-valais-sion",
+        "fr": "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un cantonnier ou une cantonnière II (100%)",
+      "titleByLocale": {
+        "it": "Cantante o cantonale II (100%)",
+        "en": "A cantoner or cantoner II (100%)",
+        "de": "A Kantoner oder Kanton II (100%)",
+        "fr": "Un cantonnier ou une cantonnière II (100%)"
+      },
+      "description": "Un cantonnier ou une cantonnière II (100%) auprès du Service de la mobilité, arrondissement 2, Valais central, secteur 23\n\nVos tâches:\n• Vous exécutez selon instructions les travaux d’entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d’un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l’exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans le domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante et en équipe\n• Aisance avec la conduite d’engins de fauchage Permis de conduire catégorie BE et permis de machiniste exigés Engagement à plein temps (horaire irrégulier) Domicile Sur le territoire des communes de Chamoson – Ardon – Vétroz – Conthey\n\nEntrée en fonction:\n1\n\n• er\n• mars 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Le Service de la mobilité (027 606 34 30) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 101694",
+      "descriptionByLocale": {
+        "it": "A cantoner o cantoner II (100%) con il Servizio di Mobilità, arrondissement 2, Vallese centrale, settore 23\n\nI vostri compiti:\n• Si esegue secondo istruzioni il lavoro di manutenzione di strade cantonali e stradali, da soli o in gruppo Fornire servizi di picket come parte di una svolta stabilita Si esegue i compiti sopra anche di notte, festivi, sabato e domenica, quando la situazione richiede\n\nIl tuo profilo:\n• Essere in possesso di un SWC nel campo dell'ingegneria civile, nel campo tecnico o formazione ritenuto equivalente Essere in buona salute Godetevi una costituzione eccellente Essere in grado di svolgere il lavoro in modo indipendente e come squadra\n• La patente di guida BE e la patente di macchinista richiesto a tempo pieno (irregolare) Home Sul territorio dei comuni di Chamoson – Ardon – Vétroz – Conthey\n\nEntrata in ufficio:\n1\n\n• e\n• Marzo 2027 o concordato\n\nInformazioni:\nPosizione Informazioni: Il Servizio di Mobilità (027 606 34 30) Desiderato postulazione online: www.vs.ch/jobs o offerte di invio: Servizio Risorse Umane, Place de la Planta 3, 1951 Sion Deadline per l'applicazione: 27 novembre 2026 / Numero di riferimento: 101694",
+        "en": "A cantoner or cantoner II (100%) with the Mobility Service, arrondissement 2, central Valais, sector 23\n\nYour tasks:\n• You perform according to instructions the work of maintenance of cantonal and road roads, alone or in group You provide picket services as part of an established turn You perform the above tasks also on night, public holidays, Saturday and Sunday, when the situation requires\n\nYour profile:\n• Be in possession of an SWC in the field of civil engineering, in the technical field or training deemed equivalent Being in good health Enjoy an excellent constitution Being able to carry out the work independently and as a team\n• Driver's licence BE and machinist's licence required Full-time (irregular) Home On the territory of the communes of Chamoson – Ardon – Vétroz – Conthey\n\nEntry into office:\n1\n\n• and\n• March 2027 or to be agreed\n\nInformation:\nPosition Information: The Mobility Service (027 606 34 30) Wanted online postulation: www.vs.ch/jobs or sending offers: Human Resources Service, Place de la Planta 3, 1951 Sion Deadline for application: 27 November 2026 / Reference Number: 101694",
+        "de": "Ein Kantoner oder Kantoner II (100%) mit dem Mobilitätsservice, Arrondissement 2, Zentralwallis, Sektor 23\n\nIhre Aufgaben:\n• Sie führen die Instandhaltungsarbeiten an kantonalen und Straßenstraßen weisungsgemäß aus, alleine oder in der Gruppe Sie erbringen Streikpostendienste im Rahmen einer festgelegten Wende Sie erfüllen die oben genannten Aufgaben auch nachts, an Feiertagen, Samstag und Sonntag, wenn die Situation es erfordert\n\nIhr Profil:\n• im Besitz eines SWC auf dem Gebiet des Bauingenieurwesens, im technischen Bereich oder einer Ausbildung sein, die als gleichwertig angesehen wird Gesundheit genießen Sie eine ausgezeichnete Konstitution In der Lage sein, die Arbeit unabhängig und als Team durchzuführen\n• Führerschein BE und Maschinist Führerschein erforderlich Vollzeit (irreguläre) Haus Auf dem Gebiet der Gemeinden von Chamoson – Ardon – Vétroz – Conthey\n\nAmtsantritt:\n1\n\n• und\n• März 2027 oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Der Mobilitätsdienst (027 606 34 30) Gesuchtes Online-Postulat: www.vs.ch/jobs oder Versandangebote: Personaldienst, Place de la Planta 3, 1951 Sion Bewerbungsfrist: 27. November 2026 / Referenznummer: 101694",
+        "fr": "Un cantonnier ou une cantonnière II (100%) auprès du Service de la mobilité, arrondissement 2, Valais central, secteur 23\n\nVos tâches:\n• Vous exécutez selon instructions les travaux d’entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d’un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l’exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans le domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante et en équipe\n• Aisance avec la conduite d’engins de fauchage Permis de conduire catégorie BE et permis de machiniste exigés Engagement à plein temps (horaire irrégulier) Domicile Sur le territoire des communes de Chamoson – Ardon – Vétroz – Conthey\n\nEntrée en fonction:\n1\n\n• er\n• mars 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Le Service de la mobilité (027 606 34 30) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 101694"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101694&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:42.717Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101694&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-cantonnier-ou-une-cantonniere-ii-100-canton-valais-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:11.235Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:42.717Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-39425bc75a73",
+      "slug": "collaboratore-specializzato-o-collaboratore-specializzato-100-contratto-a-tempo-determinato-di-5-anni-canton-du-valais",
+      "slugByLocale": {
+        "it": "collaboratore-specializzato-o-collaboratore-specializzato-100-contratto-a-tempo-determinato-di-5-anni-canton-du-valais",
+        "en": "a-specialist-collaborator-or-a-specialist-collaborator-100-fixed-term-contract-of-5-years-canton-du-valais-sion",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-mitarbeiter-100-befristeter-vertrag-von-5-jahren-canton-du",
+        "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, contrat de durée déterminée de 5 ans)",
+      "titleByLocale": {
+        "it": "Collaboratore specializzato o collaboratore specializzato (100%, contratto a tempo determinato di 5 anni)",
+        "en": "A specialist collaborator or a specialist collaborator (100%, fixed-term contract of 5 years)",
+        "de": "Ein spezialisierter Mitarbeiter oder ein spezialisierter Mitarbeiter (100%, befristeter Vertrag von 5 Jahren)",
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, contrat de durée déterminée de 5 ans)"
+      },
+      "description": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, contrat de durée déterminée de 5 ans) auprès de l'Office cantonal du contentieux financier et des impôts spéciaux, à Sion\n\nVos tâches:\n• Vous examinez et décidez de l'octroi des facilités de paiement Vous assurez le suivi des débiteurs Vous analysez et comptabilisez les montant à amortir Vous collaborez aux procédures de poursuites et faillites Vous préparez et rédigez les correspondances\n• Vous répondez aux requêtes téléphoniques Vous participez aux différents projets\n\nVotre profil:\n• Economiste d'entreprise HES, maturité commerciale, diplôme d'une école supérieure de commerce, CFC d'employé de commerce ou formation jugée équivalente\n• Expérience pratique dans les domaines de la fiscalité, de l'encaissement et de la comptabilité souhaitée Très bonnes connaissances de MS Office Bonnes capacités rédactionnelles et facilités dans la communication Aptitude à travailler de manière indépendante et en équipe Langue maternelle française avec de bonnes connaissances de la 2 ème langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 113350",
+      "descriptionByLocale": {
+        "it": "Un collaboratore specializzato o un collaboratore specializzato (100%, contratto a tempo determinato di 5 anni) presso l'Ufficio cantonale per le litigini finanziarie e le imposte speciali a Sion\n\nI vostri compiti:\n• Si esamina e si decide sulla concessione di servizi di pagamento Tu rintraccia i debitori Analizzi e rendi conto degli importi da ammortarsi Collabori in procedimenti giudiziari e fallimentari Preparare e scrivere corrispondenza\n• Rispondi alle domande telefoniche Partecipate ai vari progetti\n\nIl tuo profilo:\n• HES Business Economist, Business Maturity, Graduate of a Business College, SWC Business Employee o Formazione ritenuto equivalente\n• Esperienza pratica nelle aree di tassazione, raccolta e contabilità Molto buona conoscenza di MS Office Buone capacità di scrittura e strutture di comunicazione Capacità di lavorare in modo indipendente e in un team Lingua madre francese con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nInformazioni postali: Servizio di Contributo cantonale, Sig.ra Véronique Rieder (027 606 00 76) Postazione desiderata online: www.vs.ch/jobs o invio di offerte: Servizio Risorse Umane, Luogo St-Theodoule 15, 1951 Scadenza Sion per l'applicazione: 27 novembre 2026 / Numero di riferimento: 113350",
+        "en": "A specialist collaborator or a specialist collaborator (100%, fixed-term contract of 5 years) at the Cantonal Office for Financial Litigation and Special Taxes in Sion\n\nYour tasks:\n• You review and decide on the granting of payment facilities You track debtors You analyze and account for the amounts to be amortized You collaborate in prosecution and bankruptcy proceedings You prepare and write correspondence\n• You answer phone queries You participate in the various projects\n\nYour profile:\n• HES Business Economist, Business Maturity, Graduate of a Business College, SWC Business Employee or Training deemed equivalent\n• Practical experience in the areas of taxation, collection and accounting Very good knowledge of MS Office Good writing skills and communication facilities Ability to work independently and in a team French mother tongue with good knowledge of the 2nd official language\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPost information: Cantonal Contribution Service, Ms. Véronique Rieder (027 606 00 76) Posting desired online: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion Deadline for application: November 27, 2026 / Reference Number: 113350",
+        "de": "Ein Fachmitarbeiter oder ein Fachmitarbeiter (100%, befristeter Vertrag von 5 Jahren) beim Kantonalamt für Finanzstreitigkeiten und Sondersteuern in Sion\n\nIhre Aufgaben:\n• Sie prüfen und entscheiden über die Gewährung von Zahlungsmöglichkeiten Sie verfolgen Schuldner Sie analysieren und berücksichtigen die zu amortisierenden Beträge Sie arbeiten an Strafverfolgungs- und Konkursverfahren mit Sie erstellen und schreiben Korrespondenz\n• Sie beantworten Telefonanfragen Sie beteiligen sich an den verschiedenen Projekten\n\nIhr Profil:\n• HES Business Economist, Business Maturity, Absolvent eines Business College, SWC Business Employee oder Training als gleichwertig angesehen\n• Praktische Erfahrung in den Bereichen Steuern, Inkasso und Buchhaltung Sehr gute Kenntnisse von MS Office Gute Schreibfähigkeiten und Kommunikationseinrichtungen Fähigkeit, selbstständig und im Team Französisch Muttersprache mit guten Kenntnissen der 2. Amtssprache zu arbeiten\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPostinformationen: Kantonal Contribution Service, Frau Véronique Rieder (027 606 00 76) Posting gewünscht online: www.vs.ch/jobs oder Senden von Angeboten: Human Resources Service, Place St-Theodoule 15, 1951 Sion Bewerbungsfrist: 27. November 2026 / Referenznummer: 113350",
+        "fr": "Un collaborateur spécialisé ou une collaboratrice spécialisée (100%, contrat de durée déterminée de 5 ans) auprès de l'Office cantonal du contentieux financier et des impôts spéciaux, à Sion\n\nVos tâches:\n• Vous examinez et décidez de l'octroi des facilités de paiement Vous assurez le suivi des débiteurs Vous analysez et comptabilisez les montant à amortir Vous collaborez aux procédures de poursuites et faillites Vous préparez et rédigez les correspondances\n• Vous répondez aux requêtes téléphoniques Vous participez aux différents projets\n\nVotre profil:\n• Economiste d'entreprise HES, maturité commerciale, diplôme d'une école supérieure de commerce, CFC d'employé de commerce ou formation jugée équivalente\n• Expérience pratique dans les domaines de la fiscalité, de l'encaissement et de la comptabilité souhaitée Très bonnes connaissances de MS Office Bonnes capacités rédactionnelles et facilités dans la communication Aptitude à travailler de manière indépendante et en équipe Langue maternelle française avec de bonnes connaissances de la 2 ème langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026 / Numéro de référence : 113350"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113350&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:42.071Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113350&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-100-contrat-de-duree"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:10.596Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:42.071Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "canton-valais-226a99bdd0d1",
+      "slug": "responsabile-dei-servizi-aziendali-80-100-canton-du-valais-sion",
+      "slugByLocale": {
+        "it": "responsabile-dei-servizi-aziendali-80-100-canton-du-valais-sion",
+        "en": "a-head-of-corporate-services-80-100-canton-du-valais-sion",
+        "de": "ein-head-of-corporate-services-80-100-canton-du-valais-sion",
+        "fr": "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un chef ou une cheffe de section Services Centraux (80-100%)",
+      "titleByLocale": {
+        "it": "Responsabile dei servizi aziendali (80-100%)",
+        "en": "A Head of Corporate Services (80-100%)",
+        "de": "Ein Head of Corporate Services (80-100%)",
+        "fr": "Un chef ou une cheffe de section Services Centraux (80-100%)"
+      },
+      "description": "Un chef ou une cheffe de section Services Centraux (80-100%) auprès du Service de l’industrie du commerce et du travail, à Sion La section « Services Centraux » est un centre de compétences à disposition de l’ensemble du Service de l’industrie, du commerce et du travail comprenant env. 170 collaborateurs répartis sur 7 sites. Elle regroupe la cellule financière et comptable, la cellule informatique, le controlling et le management de la qualité. Elle soutient et conseille la Direction dans le pilotage du Service.\n\nVos tâches:\n• Vous fixez les lignes directrices et coordonnez de manière autonome les domaines précités conformément aux objectifs stratégiques du Service Vous dirigez le team Services Centraux composé de 5 personnes Vous garantissez la gestion de la comptabilité, le pilotage financier et l’allocation des ressources financières Vous gérez le système de contrôle interne, fixez les points de contrôle et fournissez à la Direction les indicateurs de conduite Vous conseillez la Direction dans les domaines financiers Vous participez également aux projets de la Direction du Service\n\nVotre profil:\n• Formation de niveau tertiaire en finances/comptabilité Expérience professionnelle confirmée dans le domaine finances/comptabilité et dans la gestion de projets Une connaissance des spécificités comptables et financières du secteur public serait un atout Expérience dans la conduite et la mobilisation d’une équipe pluridisciplinaire\n• Sens de la communication et de la négociation Bonnes capacités d’organisation et de rédaction, et esprit d’analyse et de synthèse Personnalité autonome, proactive et polyvalente Très bonne maitrise des outils informatiques Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nÀ convenir\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail, Mme Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026/ Numéro de référence : 100306",
+      "descriptionByLocale": {
+        "it": "Responsabile dei servizi aziendali (80-100%) presso il Servizio del Commercio e del Lavoro di Sion La sezione \"Servizi Centrali\" è un centro di competenze a disposizione dell'intero Servizio Industria, Commercio e Lavoro, composto da circa 170 dipendenti in 7 sedi. Include l'unità finanziaria e contabile, l'unità IT, il controllo e la gestione della qualità. Supporta e consiglia la Direzione nella gestione del Servizio.\n\nI vostri compiti:\n• Impostate le linee guida e coordinate in modo indipendente le suddette aree in conformità con gli obiettivi strategici del Servizio Lei guida il team di servizi centrali a 5 persone Garantisce la gestione della contabilità, del controllo finanziario e dell'allocazione delle risorse finanziarie Gestisci il sistema di controllo interno, imposta i punti di controllo e fornisce alla Direzione gli indicatori di guida Lei consiglia la Direzione in materia finanziaria Partecipate anche ai progetti della Direzione Servizio\n\nIl tuo profilo:\n• Formazione a livello terziario in finanza/contabilità Esperienza professionale confermata nella finanza/contabilità e nella gestione dei progetti La conoscenza delle specificità contabili e finanziarie del settore pubblico sarebbe un'esperienza utile nella conduzione e nella mobilitazione di un team multidisciplinare\n• Significato di comunicazione e negoziazione Buone capacità organizzative e di redazione, e spirito di analisi e sintesi Personalità indipendente, proattiva e versatile Molto buona padronanza degli strumenti informatici Lingua madre francese o tedesca con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nEssere d'accordo\n\nInformazioni:\nPosizione Informazioni: Industria, Commercio e Lavoro, Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Richiesta di domanda online: www.vs.ch/jobs o invio di offerte: Servizio Risorse Umane, Place St-Théodule 15, 1951 Sion Deadline per l'applicazione: 27 novembre 2026/ Numero di riferimento: 100306",
+        "en": "A Head of Corporate Services (80-100%) at the Trade and Labour Industry Service in Sion The \"Central Services\" section is a centre of expertise available to the entire Industry, Trade and Labour Service comprising approximately 170 employees in 7 locations. It includes the financial and accounting unit, the IT unit, controlling and quality management. It supports and advises the Directorate in the management of the Service.\n\nYour tasks:\n• You set the guidelines and independently coordinate the above areas in accordance with the Service's strategic objectives You lead the 5-person Central Services team You guarantee the management of accounting, financial control and allocation of financial resources You manage the internal control system, set control points and provide the Directorate with the driving indicators You advise the Directorate in financial matters You also participate in the projects of the Service Directorate\n\nYour profile:\n• Tertiary level training in finance/accounting Professional experience confirmed in finance/accounting and project management Knowledge of the accounting and financial specificities of the public sector would be an asset Experience in the conduct and mobilisation of a multidisciplinary team\n• Meaning of communication and negotiation Good organizational and drafting skills, and spirit of analysis and synthesis Independent, proactive and versatile personality Very good mastery of computer tools French or German mother tongue with good knowledge of the second official language\n\nEntry into office:\nTo be agreed\n\nInformation:\nPosition Information: Industry, Trade and Labour Service, Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Requested online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: November 27, 2026/ Reference Number: 100306",
+        "de": "Der Bereich \"Zentrale Dienstleistungen\" ist ein Kompetenzzentrum für den gesamten Industrie-, Handels- und Arbeitsdienst mit rund 170 Mitarbeitern an 7 Standorten. Sie umfasst die Finanz- und Buchhaltungseinheit, die IT-Einheit, das Controlling und das Qualitätsmanagement. Sie unterstützt und berät die Direktion bei der Verwaltung des Dienstes.\n\nIhre Aufgaben:\n• Sie legen die Richtlinien fest und koordinieren die oben genannten Bereiche in Übereinstimmung mit den strategischen Zielen des Dienstes unabhängig. Sie führen das 5-Personen-Central-Services-Team Sie garantieren die Verwaltung der Buchhaltung, die Finanzkontrolle und die Zuweisung der finanziellen Ressourcen Sie verwalten das interne Kontrollsystem, legen Kontrollpunkte fest und stellen der Direktion die Fahranzeigen zur Verfügung Sie beraten die Direktion in Finanzfragen Sie beteiligen sich auch an den Projekten der Direktion Service\n\nIhr Profil:\n• Tertiäre Ausbildung in Finanzen / Rechnungswesen Professionelle Erfahrung bestätigt in Finanzen / Rechnungswesen und Projektmanagement Wissen über die Rechnungslegung und finanzielle Besonderheiten des öffentlichen Sektors wäre ein Vorteil Erfahrung in der Durchführung und Mobilisierung eines multidisziplinären Teams\n• Bedeutung von Kommunikation und Verhandlung Gute organisatorische und redaktionelle Fähigkeiten, und Geist der Analyse und Synthese Unabhängige, proaktive und vielseitige Persönlichkeit Sehr gute Beherrschung der Computer-Tools Französisch oder Deutsch Muttersprache mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\nZu vereinbaren\n\nInformationen:\nPositionsinformationen: Industrie, Handel und Arbeitsdienst, Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Angeforderte Online-Bewerbung: www.vs.ch/jobs oder Zusendung von Angeboten: Human Resources Service, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 27. November 2026/ Referenznummer: 100306",
+        "fr": "Un chef ou une cheffe de section Services Centraux (80-100%) auprès du Service de l’industrie du commerce et du travail, à Sion La section « Services Centraux » est un centre de compétences à disposition de l’ensemble du Service de l’industrie, du commerce et du travail comprenant env. 170 collaborateurs répartis sur 7 sites. Elle regroupe la cellule financière et comptable, la cellule informatique, le controlling et le management de la qualité. Elle soutient et conseille la Direction dans le pilotage du Service.\n\nVos tâches:\n• Vous fixez les lignes directrices et coordonnez de manière autonome les domaines précités conformément aux objectifs stratégiques du Service Vous dirigez le team Services Centraux composé de 5 personnes Vous garantissez la gestion de la comptabilité, le pilotage financier et l’allocation des ressources financières Vous gérez le système de contrôle interne, fixez les points de contrôle et fournissez à la Direction les indicateurs de conduite Vous conseillez la Direction dans les domaines financiers Vous participez également aux projets de la Direction du Service\n\nVotre profil:\n• Formation de niveau tertiaire en finances/comptabilité Expérience professionnelle confirmée dans le domaine finances/comptabilité et dans la gestion de projets Une connaissance des spécificités comptables et financières du secteur public serait un atout Expérience dans la conduite et la mobilisation d’une équipe pluridisciplinaire\n• Sens de la communication et de la négociation Bonnes capacités d’organisation et de rédaction, et esprit d’analyse et de synthèse Personnalité autonome, proactive et polyvalente Très bonne maitrise des outils informatiques Langue maternelle française ou allemande avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nÀ convenir\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail, Mme Laura Lejeune Pannatier (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 27 novembre 2026/ Numéro de référence : 100306"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100306&publication=2646",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:49:41.399Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100306&publication=2646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-section-services-centraux-80-100-canton-valais-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T09:41:09.950Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:49:41.399Z",
       "validThroughSource": "last-observed-window"
     }
   ]

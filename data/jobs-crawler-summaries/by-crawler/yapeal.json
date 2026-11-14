@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-11-12T21:20:36.975Z",
+  "generatedAt": "2026-11-13T21:19:45.175Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4788,
-  "avgDurationMs": 4788,
+  "durationMs": 5370,
+  "avgDurationMs": 5370,
   "durationHistory": [
-    4788
+    5370
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:20:24.182Z",
+      "crawledAt": "2026-11-13T21:19:29.342Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -61,7 +61,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:20:24.182Z",
+      "validThrough": "2027-01-27T21:19:29.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:20:24.179Z",
+      "crawledAt": "2026-11-13T21:19:29.338Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -107,7 +107,7 @@
       "salaryMax": 198500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:20:24.179Z",
+      "validThrough": "2026-12-30T21:19:29.338Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -118,5 +118,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

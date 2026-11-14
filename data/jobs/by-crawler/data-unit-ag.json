@@ -1,13 +1,13 @@
 {
   "crawlerKey": "data-unit-ag",
-  "assembledAt": "2026-11-12T22:02:12.371Z",
-  "runId": "43310525892",
+  "assembledAt": "2026-11-13T21:51:34.456Z",
+  "runId": "43510690742",
   "jobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
-      "slug": "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
+      "slug": "stage-di-orientamento-come-sviluppatore-sviluppatrice-di-business-digitale-informatico-a-per-lo-sviluppo-di-applicazioni",
       "slugByLocale": {
-        "it": "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
+        "it": "stage-di-orientamento-come-sviluppatore-sviluppatrice-di-business-digitale-informatico-a-per-lo-sviluppo-di-applicazioni",
         "en": "trial-apprenticeship-as-a-developer-digital-business-computer-scientist-application-development-data-unit-ag-sursee",
         "de": "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun",
         "fr": "apprentissage-d-initiation-en-tant-que-developpeur-en-affaires-numeriques-informaticien-en-developpement-d-applications"
@@ -17,7 +17,7 @@
       "companyDomain": "dataunit.jobs.personio.de",
       "title": "Schnupperlehre als Entwickler:in Digitales Business / Informatiker:in Applikationsentwicklung",
       "titleByLocale": {
-        "it": "Schnupperlehre come Entwickler:in Digitales Business / Informatiker:in Applikationsentwicklung",
+        "it": "Stage di orientamento come sviluppatore/sviluppatrice di business digitale / informatico/a per lo sviluppo di applicazioni",
         "en": "Trial Apprenticeship as a Developer Digital Business / Computer Scientist Application Development",
         "de": "Schnupperlehre als Entwickler:in Digitales Business / Informatiker:in Applikationsentwicklung",
         "fr": "Apprentissage d'initiation en tant que développeur en affaires numériques/ informaticien en développement d'applications"
@@ -34,7 +34,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.478Z",
+      "crawledAt": "2026-11-13T21:51:23.332Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun",
-        "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
+        "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
+        "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun"
+          "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun",
+          "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
         ],
         "en": [
           "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
@@ -69,23 +71,23 @@
           "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-11-10T22:04:48.256Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
+      "salaryMin": 54000,
+      "salaryMax": 82000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
+          "minValue": 54000,
+          "maxValue": 82000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.478Z",
+      "validThrough": "2027-02-09T21:51:23.332Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +121,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.474Z",
+      "crawledAt": "2026-11-13T21:51:23.331Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -168,7 +170,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.474Z",
+      "validThrough": "2027-02-09T21:51:23.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +204,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.469Z",
+      "crawledAt": "2026-11-13T21:51:23.327Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -245,7 +247,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.469Z",
+      "validThrough": "2027-02-09T21:51:23.327Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -26,6 +26,10 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const TEST_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
+// Compatibility marker: the native auto-merge gate already trusts the
+// structured automatic-review marker, so the broader non-runtime-code lane
+// deliberately keeps the same marker and verification protocol.
+export const NON_RUNTIME_CODE_REVIEW_MARKER = TEST_REVIEW_MARKER;
 export const LOOP_FLEET_LEDGER_REVIEW_MARKER = '<!-- LOOP_FLEET_LEDGER_AUTOMATIC_REVIEW -->';
 export const LOOP_FLEET_LEDGER_FILES = Object.freeze([
   'data/loop-fleet/ledger/loop-observations.jsonl',
@@ -245,6 +249,45 @@ export const TEST_PATH_RE = new RegExp('(?:^|/)(?:tests|__tests__)/|\\.(?:test|s
   + TEST_EXTENSIONS.map(ext => ext.replaceAll('.', '\\.')).join('|') + ')$');
 export { TEST_DIFF_EXCLUSIONS };
 export const isReviewTestPath = path => typeof path === 'string' && TEST_PATH_RE.test(path);
+const NON_RUNTIME_CODE_DIRECTORY_RE = /^(?:data|public|reports|_newsletter_variants|docs|tests|__tests__)\//u;
+const NON_RUNTIME_CODE_GENERATED_CONTENT_RE = /^packages\/articles\/content\/(?:blog-body(?:-ch)?\/|image-credits\/|seo\/seo-blog(?:-[^/]+)?\.ts$|(?:article-index-exclusions|swiss-article-canonical-overrides)\.json$|(?:blog-articles-data|blogArticleIds|blog-meta(?:-ch)?-(?:de|en|fr|it)|routerBlogData|routerSwissData|swiss-articles-data)\.ts$)/u;
+const NON_RUNTIME_CODE_ASSET_RE = /\.(?:snap|avif|bmp|jpe?g|png|webp|gif|svg|ico|tiff?|woff2?|xml|csv|tsv|jsonl|ndjson)$/u;
+const NON_RUNTIME_CODE_EXACT_PATHS = new Set([
+  '.github/corpus-workflows/contract.json',
+  'firestore.indexes.json',
+]);
+const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+const NON_RUNTIME_CODE_EXACT_PATH_RE = new RegExp(
+  `^(?:${[...NON_RUNTIME_CODE_EXACT_PATHS].map(escapeRegExp).join('|')})$`,
+  'u',
+);
+export const NON_RUNTIME_CODE_FINGERPRINT_RE = new RegExp([
+  NON_RUNTIME_CODE_DIRECTORY_RE.source,
+  NON_RUNTIME_CODE_GENERATED_CONTENT_RE.source,
+  NON_RUNTIME_CODE_ASSET_RE.source,
+  NON_RUNTIME_CODE_EXACT_PATH_RE.source,
+].join('|'), 'u');
+
+/**
+ * Files in this set do not change application/runtime code. The list is
+ * intentionally explicit: an unknown path keeps the ordinary test/review
+ * path instead of being guessed safe from its extension alone.
+ */
+export function isNonRuntimeCodePath(path) {
+  if (typeof path !== 'string' || path.length === 0 || path.includes('\0')
+      || path.startsWith('/') || path.split('/').includes('..')) return false;
+  return NON_RUNTIME_CODE_FINGERPRINT_RE.test(path)
+    || isReviewTestPath(path)
+    || NON_RUNTIME_CODE_EXACT_PATHS.has(path);
+}
+
+export function isNonRuntimeCodeSnapshot(snapshot) {
+  return snapshot?.complete === true && Array.isArray(snapshot.files)
+    && snapshot.files.length > 0
+    && new Set(snapshot.files).size === snapshot.files.length
+    && snapshot.files.every(isNonRuntimeCodePath);
+}
+
 function trustedGhBin() {
   const value = String(process.env.TRUSTED_GH_BIN || '').trim();
   if (!value || !value.startsWith('/') || value.includes('\0')) {
@@ -269,18 +312,27 @@ export function gh(args, { json = true, allowFail = false, allowNotFound = false
 export function verifyTestOnlyHead(ghFn, repo, pr, head) {
   const current = () => ghFn(['api', `repos/${repo}/pulls/${pr}`]);
   const before = current();
-  if (before.state !== 'open' || before.head?.sha !== head) return false;
+  const labels = Array.isArray(before.labels)
+    ? before.labels.map(label => typeof label === 'string' ? label : label?.name).filter(Boolean)
+    : [];
+  if (before.state !== 'open' || before.draft === true || before.base?.ref !== 'main'
+      || before.head?.sha !== head || before.head?.repo?.full_name !== repo
+      || labels.some(label => String(label).toLowerCase() === 'needs-human')) return false;
   const snapshot = fetchPrFiles(pr, ghFn, repo);
-  if (!isTestOnlySnapshot(snapshot)) return false;
-  // A rename into tests still removes application code at its old path.
+  if (!isNonRuntimeCodeSnapshot(snapshot)) return false;
+  // A rename into a non-runtime path still removes application code at its old path.
   const pages = ghFn(['api', `repos/${repo}/pulls/${pr}/files`, '--paginate', '--slurp']);
   if (!Array.isArray(pages)) return false;
   const entries = pages.flat();
   const names = new Set(snapshot.files);
-  const onlyTests = entries.length === names.size && entries.every(file => names.has(file.filename)
-    && isReviewTestPath(file.filename) && (!file.previous_filename || isReviewTestPath(file.previous_filename)));
+  const onlyNonRuntimeCode = entries.length === names.size && entries.every(file => names.has(file.filename)
+    && isNonRuntimeCodePath(file.filename)
+    && (!file.previous_filename || isNonRuntimeCodePath(file.previous_filename)));
   const after = current();
-  return onlyTests && after.state === 'open' && after.head?.sha === head && before.base?.sha === after.base?.sha;
+  return onlyNonRuntimeCode && after.state === 'open' && after.draft === before.draft
+    && after.head?.sha === head && after.head?.repo?.full_name === repo
+    && after.base?.ref === 'main' && before.base?.sha === after.base?.sha
+    && after.body === before.body && after.title === before.title;
 }
 export function findTestOnlyApproval(
   reviews,
@@ -308,14 +360,15 @@ export function findTestOnlyApproval(
 }
 export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }) {
   if (!/^[\w.-]+\/[\w.-]+$/.test(repo ?? '') || !/^\d+$/.test(String(pr)) || !/^[a-f0-9]{40}$/.test(head ?? '')) throw new Error('Invalid review target');
-  const revision = normalizeReviewInputRevision(reviewRevision);
+  const revision = normalizeReviewInputRevision(reviewRevision)
+    || reviewInputRevisionFromBody(ghFn(['api', `repos/${repo}/pulls/${pr}`])?.body);
   if (!revision) throw new Error('Review input revision is not verifiable');
-  if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete tests-only change on the expected HEAD');
+  if (!verifyTestOnlyHead(ghFn, repo, pr, head)) throw new Error('PR is not a complete non-runtime-code change on the expected HEAD');
   const reviews = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate']);
   const parsedReviews = parseReviewPages(reviews);
   if (!parsedReviews) throw new Error('Reviews API is unavailable or malformed');
   if (findTestOnlyApproval(parsedReviews, head, { ghFn, repo, pr, reviewRevision: revision })) return;
-  const body = `${TEST_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente test. I controlli CI e il contratto del body restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
+  const body = `${NON_RUNTIME_CODE_REVIEW_MARKER}\n${reviewInputMarker(revision)}\n## Scope\nApprovazione automatica: la PR modifica esclusivamente file non runtime-code allowlistati. Il contratto del body e la verifica completa dello scope restano obbligatori; nessuna review del modello richiesta dalla policy del proprietario.\n\n## Findings (Important: 0, Nit: 0)\n\n## LGTM\n`;
   const posted = ghFn(['api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-'], {
     input: JSON.stringify({ commit_id: head, event: 'COMMENT', body }),
   });
@@ -323,6 +376,12 @@ export function postTestOnlyReview({ repo, pr, head, reviewRevision, ghFn = gh }
     throw new Error('identità della review App non verificabile o non autorizzata');
   }
 }
+
+// Descriptive aliases for the generic fast path. Keep the historical names
+// above because the native auto-merge consumer and existing tests use them.
+export const verifyNonRuntimeCodeHead = verifyTestOnlyHead;
+export const findNonRuntimeCodeApproval = findTestOnlyApproval;
+export const postNonRuntimeCodeReview = postTestOnlyReview;
 
 function normalizedPrLabels(pr) {
   if (!Array.isArray(pr?.labels)) return null;
@@ -680,6 +739,22 @@ if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(r
     process.exitCode = isTestOnlySnapshot(JSON.parse(readFileSync(0, 'utf8'))) ? 0 : 1;
   } else if (process.argv[2] === 'check') {
     process.exitCode = verifyTestOnlyHead(gh, process.env.REPO || process.env.GITHUB_REPOSITORY, process.env.PR_NUMBER, process.env.HEAD_SHA) ? 0 : 1;
+  } else if (process.argv[2] === 'non-code-check') {
+    const eligible = verifyNonRuntimeCodeHead(
+      gh,
+      process.env.REPO || process.env.GITHUB_REPOSITORY,
+      process.env.PR_NUMBER,
+      process.env.HEAD_SHA,
+    );
+    process.stdout.write(`non-runtime-code-fast-path: ${eligible ? 'eligible' : 'not-eligible'}\n`);
+    if (!eligible) process.exitCode = 10;
+  } else if (process.argv[2] === 'non-code-post') {
+    postNonRuntimeCodeReview({
+      repo: process.env.REPO || process.env.GITHUB_REPOSITORY,
+      pr: process.env.PR_NUMBER,
+      head: process.env.HEAD_SHA,
+      reviewRevision: process.env.REVIEW_REVISION,
+    });
   } else if (process.argv[2] === 'post') {
     postTestOnlyReview({
       repo: process.env.REPO || process.env.GITHUB_REPOSITORY,
@@ -693,5 +768,5 @@ if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(r
     if (!result.ok) process.exitCode = result.kind === 'not-ledger-only' ? 10 : 1;
   } else if (process.argv[2] === 'ledger-post') {
     postLedgerOnlyReview({ repo: process.env.REPO || process.env.GITHUB_REPOSITORY, pr: process.env.PR_NUMBER, head: process.env.HEAD_SHA });
-  } else throw new Error('Usage: review-test-policy.mjs filter|only|check|post|ledger-check|ledger-post');
+  } else throw new Error('Usage: review-test-policy.mjs filter|only|check|post|non-code-check|non-code-post|ledger-check|ledger-post');
 }

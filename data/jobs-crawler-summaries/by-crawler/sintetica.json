@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-11-12T21:15:38.706Z",
+  "generatedAt": "2026-11-13T21:13:47.057Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7209,
-  "avgDurationMs": 7209,
+  "durationMs": 8781,
+  "avgDurationMs": 8781,
   "durationHistory": [
-    7209
+    8781
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,12 +30,38 @@
       "addressCountry": "CH",
       "postalCode": "2108",
       "streetAddress": "Rue de l'Ecluse 28",
+      "atsApplicationForm": {
+        "provider": "ncoreplat",
+        "sourceUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+        "checkedAt": "2026-11-13T21:13:29.889Z",
+        "stage": "Postulez maintenant",
+        "fields": [
+          {
+            "label": "Prénom",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nom",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "E-mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          }
+        ]
+      },
       "slug": "applicazione-spontanea-sito-couvet-neuchatel-sintetica-sa-couvet",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-12T21:15:26.318Z",
+      "crawledAt": "2026-11-13T21:13:29.928Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -52,7 +78,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:15:26.318Z",
+      "validThrough": "2027-01-05T21:13:29.928Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -76,12 +102,50 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
+      "atsApplicationForm": {
+        "provider": "ncoreplat",
+        "sourceUrl": "https://app.ncoreplat.com/jobposition/286485/spontaneous-application-mendrisio-site-ticino-ch/sintetica",
+        "checkedAt": "2026-11-13T21:13:28.840Z",
+        "stage": "Inoltra ora la candidatura",
+        "fields": [
+          {
+            "label": "Nome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cognome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ho letto ed accetto la Privacy Policy",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Ho letto e accetto i Termini e condizioni",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          }
+        ]
+      },
       "slug": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-12T21:15:25.749Z",
+      "crawledAt": "2026-11-13T21:13:28.872Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -98,7 +162,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:15:25.749Z",
+      "validThrough": "2027-01-07T21:13:28.872Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -122,12 +186,50 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
+      "atsApplicationForm": {
+        "provider": "ncoreplat",
+        "sourceUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+        "checkedAt": "2026-11-13T21:13:27.659Z",
+        "stage": "Inoltra ora la candidatura",
+        "fields": [
+          {
+            "label": "Nome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cognome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ho letto ed accetto la Privacy Policy",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Ho letto e accetto i Termini e condizioni",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          }
+        ]
+      },
       "slug": "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
       "category": "pharma",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-12T21:15:24.632Z",
+      "crawledAt": "2026-11-13T21:13:27.698Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -144,7 +246,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:15:24.632Z",
+      "validThrough": "2026-12-31T21:13:27.698Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -168,12 +270,50 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
+      "atsApplicationForm": {
+        "provider": "ncoreplat",
+        "sourceUrl": "https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist-mendrisio-site-ticino-ch/sintetica",
+        "checkedAt": "2026-11-13T21:13:26.581Z",
+        "stage": "Inoltra ora la candidatura",
+        "fields": [
+          {
+            "label": "Nome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cognome",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ho letto ed accetto la Privacy Policy",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Ho letto e accetto i Termini e condizioni",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          }
+        ]
+      },
       "slug": "cmc-senior-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-12T21:15:23.667Z",
+      "crawledAt": "2026-11-13T21:13:26.635Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -190,7 +330,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:15:23.667Z",
+      "validThrough": "2026-12-13T21:13:26.635Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -201,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "a2nails-ch",
-  "assembledAt": "2026-11-12T22:04:30.281Z",
-  "runId": "43310525892",
+  "assembledAt": "2026-11-13T21:50:49.446Z",
+  "runId": "43510690742",
   "jobs": [
     {
       "id": "a2nails-ch-1352b4d181e6",
@@ -10,7 +10,7 @@
         "it": "specialista-in-manicure-e-pedicure-a2-nails-nyon-nyon-vaud",
         "en": "specialist-in-manicure-and-pedicure-a2-nails-nyon-nyon-vaud",
         "de": "spezialist-fur-manikure-und-pedikure-a2-nails-nyon-nyon-vaud",
-        "fr": "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
+        "fr": "specialiste-en-manucure-et-pedicure-a2-nails-nyon-nyon"
       },
       "company": "A2 Nails Nyon",
       "companyKey": "a2nails-ch",
@@ -34,7 +34,7 @@
       "url": "https://a2nails.ch/jobs/",
       "source": "A2 Nails Nyon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T22:04:21.274Z",
+      "crawledAt": "2026-11-13T21:50:18.894Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,6 +66,9 @@
         ],
         "de": [
           "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
+        ],
+        "fr": [
+          "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
         ]
       },
       "firstSeenAt": "2026-11-07T09:48:11.755Z",
@@ -83,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T22:04:21.274Z",
+      "validThrough": "2026-12-13T21:50:18.894Z",
       "validThroughSource": "last-observed-window"
     }
   ]

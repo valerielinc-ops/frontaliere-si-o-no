@@ -28,6 +28,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { archiveRemovedJobsToSlice, localeRouteKeys } from './lib/expired-jobs-archive.mjs';
+import { readExpiredSliceRows } from './lib/expired-slice-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -43,8 +44,8 @@ const RETIRED_KEY = 'my';
  */
 export function archiveRetiredMyJobs(jobs, expiredDir) {
   const archived = archiveRemovedJobsToSlice(jobs, RETIRED_KEY, { dir: expiredDir });
-  const file = path.join(expiredDir, `${RETIRED_KEY}.json`);
-  const entries = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
+  // Monolith + shards (scripts/lib/expired-slice-store.mjs).
+  const entries = readExpiredSliceRows(RETIRED_KEY, { dir: expiredDir });
   const before = new Set(jobs.flatMap((job) => [...localeRouteKeys(job)]));
   const after = new Set(entries.flatMap((job) => [...localeRouteKeys(job)]));
   const lost = [...before].filter((route) => !after.has(route));

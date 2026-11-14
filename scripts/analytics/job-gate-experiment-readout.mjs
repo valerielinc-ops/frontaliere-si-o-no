@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 /**
  * job-gate-experiment-readout.mjs — lettura dei risultati del test A/B del
- * job gate (`jobgate-v5`, id in scripts/experiments/jobgate-plan.mjs) e baseline pre-test. SOLA LETTURA su GA4 Data API,
+ * job gate (`jobgate-v6`, id in scripts/experiments/jobgate-plan.mjs) e baseline pre-test. SOLA LETTURA su GA4 Data API,
  * Firestore e Remote Config: nessuna scrittura, nessun publish.
  *
  * Uso:
  *   node scripts/analytics/job-gate-experiment-readout.mjs [--since 2026-09-26] \
- *     [--until 2026-10-09] [--experiment jobgate-v5] [--control spotlight] \
+ *     [--until 2026-11-20] [--experiment jobgate-v6] [--control control] \
  *     [--weights '{"control":50,"challenger":50}'] [--json out.json] [--md out.md]
  *   node scripts/analytics/job-gate-experiment-readout.mjs --baseline --days 14 [--json out.json]
  *   [--include-bots]  disattiva l'esclusione del traffico automatico (confronto)
  *
- * Per jobgate-v5 `--since` deriva dal marker server-only di Remote Config:
+ * Per jobgate-v6 `--since` deriva dal marker server-only di Remote Config:
  * il giorno dopo il lancio, così il giorno della pubblicazione (traffico a
  * metà) resta fuori. Una data esplicita precedente al marker viene rifiutata.
  * Per un round chiuso (es. `jobgate-v3`, analisi dal 2026-09-26) passa
@@ -125,7 +125,7 @@ async function readExperimentStartDate() {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(startedAt)
     || !Number.isFinite(parsed.getTime())
     || parsed.toISOString().slice(0, 10) !== startedAt) {
-    throw new Error(`${JOBGATE_STARTED_AT_KEY} missing or invalid; refusing to guess the jobgate-v5 analysis window.`);
+    throw new Error(`${JOBGATE_STARTED_AT_KEY} missing or invalid; refusing to guess the jobgate-v6 analysis window.`);
   }
   return { startedAt, template };
 }

@@ -23,6 +23,7 @@
  */
 
 import fs from 'node:fs';
+import { StringDecoder } from 'node:string_decoder';
 import path from 'path';
 import type { Plugin } from 'vite';
 import { withPhaseInstrument } from './shared/phaseInstrument';
@@ -285,7 +286,45 @@ ${entries}
  * probing only those route paths; on an all-locale build no foreign probe can
  * run, so an empty candidate set deliberately disables the inventory walk.
  */
-function collectForeignDirectoryCandidates(distDir: string): Set<string> {
+async function* readSitemapLocs(filePath: string): AsyncGenerator<string> {
+  const stream = fs.createReadStream(filePath);
+  const decoder = new StringDecoder('utf8');
+  let pending = '';
+  let insideLoc = false;
+  const OPEN_TAG = '<loc>';
+  const CLOSE_TAG = '</loc>';
+
+  const parseAvailable = function* (text: string): Generator<string> {
+    pending += text;
+    while (true) {
+      if (!insideLoc) {
+        const openIndex = pending.indexOf(OPEN_TAG);
+        if (openIndex < 0) {
+          // Keep enough bytes for an opening tag split across stream chunks.
+          pending = pending.slice(-(OPEN_TAG.length - 1));
+          return;
+        }
+        pending = pending.slice(openIndex + OPEN_TAG.length);
+        insideLoc = true;
+      }
+
+      const closeIndex = pending.indexOf(CLOSE_TAG);
+      if (closeIndex < 0) return;
+      const loc = pending.slice(0, closeIndex);
+      // Keep the same non-empty, plain-text value contract as extractSitemapLocs.
+      if (loc.length > 0 && !loc.includes('<')) yield loc;
+      pending = pending.slice(closeIndex + CLOSE_TAG.length);
+      insideLoc = false;
+    }
+  };
+
+  for await (const chunk of stream) {
+    yield* parseAvailable(decoder.write(chunk));
+  }
+  yield* parseAvailable(decoder.end());
+}
+
+async function collectForeignDirectoryCandidates(distDir: string): Promise<Set<string>> {
   const candidates = new Set<string>();
   if (EMIT_ALL_LOCALES) return candidates;
 
@@ -293,8 +332,7 @@ function collectForeignDirectoryCandidates(distDir: string): Set<string> {
     .readdirSync(distDir)
     .filter((file) => SITEMAP_FILE_PATTERN.test(file) && !EXCLUDED_SITEMAP_FILES.has(file));
   for (const file of sitemapFiles) {
-    const xml = fs.readFileSync(path.join(distDir, file), 'utf-8');
-    for (const loc of extractSitemapLocs(xml)) {
+    for await (const loc of readSitemapLocs(path.join(distDir, file))) {
       const urlPath = new URL(loc).pathname.replace(/\/+$/u, '');
       if (shouldEmitLocale(localeOfDistPath(urlPath, ''))) continue;
       candidates.add(path.join(distDir, urlPath));
@@ -595,10 +633,12 @@ export async function reconcileFinalSitemapsWithDist(
       console.log(`[sitemap-alias-detail] ${step} wall_s=${((performance.now() - startedAt) / 1000).toFixed(1)}`);
     }
   };
-  const foreignDirectoryIndex = await __detail('foreign-candidates', () => createForeignDirectoryIndex(
-    distDir,
-    options.ignoreShardOwnership ? new Set<string>() : collectForeignDirectoryCandidates(distDir),
-  ));
+  const foreignDirectoryIndex = await __detail('foreign-candidates', async () => {
+    const foreignCandidates = options.ignoreShardOwnership
+      ? new Set<string>()
+      : await collectForeignDirectoryCandidates(distDir);
+    return createForeignDirectoryIndex(distDir, foreignCandidates);
+  });
   await __detail('search-clusters', () => reconcileSitemapSearchClustersWithDist(distDir, {
     ...finalOptions,
     // A locale shard may contain a foreign-locale bridge emitted directly to

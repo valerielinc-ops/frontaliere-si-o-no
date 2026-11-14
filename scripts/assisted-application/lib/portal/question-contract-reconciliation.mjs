@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { hasAssistedApplicationConsent } from '../../../../functions/src/assistedApplicationConstants.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from '../../../../functions/src/assistedApplicationRetention.js';
-import { candidateAnswerHistoryRecordForQuestionId, candidateAnswersForQuestions, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryRecordForQuestionId, candidateAnswerProjectionDiagnostics, candidateAnswersForQuestions, candidateWithEdits, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../../../../functions/src/assistedApplicationCandidateEdits.js';
 import { roundWasSent, transition } from '../../../../functions/src/assistedApplicationFlow.js';
 import { validateAnswer } from '../../../../functions/src/lib/answerRules.js';
 import { isUnknownAnswer } from '../../../../functions/src/lib/unknownAnswer.js';
@@ -155,6 +155,12 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   const proposed = { ...draft, questions };
   if (Buffer.byteLength(JSON.stringify(proposed)) > 750_000) return { changed: false, reason: 'native_contract_too_large' };
   const resolverAnswers = (flow?.__answerContextLoaded || trusted) ? flow.questionAnswers || {} : {};
+  const storedAnswers = ignoreUnattestedAnswers ? flow.__legacyAnswers || {} : flow.answers || {};
+  const answerDiagnostics = candidateAnswerProjectionDiagnostics(questions, {
+    answers: storedAnswers, memory: resolverAnswers, history: flow?.candidateAnswerHistory || [], nowMs,
+    canExpressAnswer: (question, value) => Boolean(operationalAnswerForOption(question, value)),
+  });
+  if (answerDiagnostics.incompatibleQuestionIds.length) return { changed: false, reason: 'preserved_answer_incompatible' };
   const projected = candidateAnswersForQuestions(questions, preservedAnswers, resolverAnswers, flow?.candidateAnswerHistory || [], nowMs);
   const rawAnswerSource = ignoreUnattestedAnswers ? flow.__legacyAnswers : flow.answers;
   const rawDirectAnswers = rawAnswerSource && typeof rawAnswerSource === 'object' && !Array.isArray(rawAnswerSource)
@@ -168,6 +174,7 @@ export function revalidatedPortalQuestions(context, proof, nowMs, { previouslyRe
   }
   const todayIso = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Zurich' }).format(new Date(nowMs));
   for (const question of questions) {
+    if (!updated.includes(question.id)) continue;
     const preserved = projected[question.id];
     if (!hasAnswer(preserved)) continue;
     // Judge what the live control would receive; the saved answer stays literal.

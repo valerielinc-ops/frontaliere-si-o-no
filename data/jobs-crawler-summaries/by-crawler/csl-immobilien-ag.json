@@ -1,7 +1,7 @@
 {
   "key": "csl-immobilien-ag",
   "label": "CSL Immobilien AG",
-  "generatedAt": "2026-11-12T22:02:17.569Z",
+  "generatedAt": "2026-11-13T21:50:13.459Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -19,10 +19,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8679,
-  "avgDurationMs": 8679,
+  "durationMs": 7770,
+  "avgDurationMs": 7770,
   "durationHistory": [
-    8679
+    7770
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:42.586Z",
+      "crawledAt": "2026-11-13T21:49:30.708Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "salaryMax": 203000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T22:01:42.586Z",
+      "validThrough": "2027-02-07T21:49:30.708Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:42.582Z",
+      "crawledAt": "2026-11-13T21:49:30.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T22:01:42.582Z",
+      "validThrough": "2027-01-26T21:49:30.705Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -120,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

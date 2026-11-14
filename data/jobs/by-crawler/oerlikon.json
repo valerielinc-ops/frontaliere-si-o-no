@@ -1,13 +1,13 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-11-12T21:43:36.213Z",
-  "runId": "43310184698",
+  "assembledAt": "2026-11-13T21:48:41.977Z",
+  "runId": "43510376275",
   "jobs": [
     {
       "id": "oerlikon-70e9507b0b14",
-      "slug": "marketing-specialist-oerlikon-mendrisio-ti",
+      "slug": "marketing-specialist-oerlikon-ch",
       "slugByLocale": {
-        "it": "marketing-specialist-oerlikon-mendrisio-ti",
+        "it": "marketing-specialist-oerlikon-ch",
         "en": "marketing-299-oerlikon-mendrisio-ti",
         "de": "marketing-spezialist-oerlikon-mendrisio-ti",
         "fr": "marketing-specialiste-oerlikon-mendrisio-ti"
@@ -34,7 +34,7 @@
       "url": "https://careers.oerlikon.com/job/Marketing-Specialist/105306-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:43:26.375Z",
+      "crawledAt": "2026-11-13T21:48:18.141Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -53,15 +53,15 @@
       "applyUrl": "https://careers.oerlikon.com/job/Marketing-Specialist/105306-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-09T09:49:47.888Z",
+      "previousSlugs": [
+        "marketing-specialist-oerlikon-mendrisio-ti"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-specialist-oerlikon-ch"
+          "marketing-specialist-oerlikon-mendrisio-ti"
         ]
       },
-      "previousSlugs": [
-        "marketing-specialist-oerlikon-ch"
-      ],
+      "firstSeenAt": "2026-11-09T09:49:47.888Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Mendrisio, TI",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:26.375Z",
+      "validThrough": "2027-02-07T21:48:18.141Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:25.712Z",
+      "crawledAt": "2026-11-13T21:48:17.313Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:43:25.712Z",
+      "validThrough": "2026-12-27T21:48:17.313Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -195,7 +195,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:25.027Z",
+      "crawledAt": "2026-11-13T21:48:16.634Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:43:25.027Z",
+      "validThrough": "2026-12-27T21:48:16.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -277,7 +277,7 @@
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering-%28gn%29/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:24.345Z",
+      "crawledAt": "2026-11-13T21:48:15.955Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T21:43:24.345Z",
+      "validThrough": "2027-01-29T21:48:15.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -335,7 +335,7 @@
       "slugByLocale": {
         "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
         "en": "service-technician-gn-oerlikon-wohlen",
-        "de": "servicetechniker-gn-oerlikon-wohlen",
+        "de": "servicetechniker-gn-oerlikon-ch",
         "fr": "technicien-des-services-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
@@ -360,7 +360,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:23.674Z",
+      "crawledAt": "2026-11-13T21:48:15.257Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -391,11 +391,11 @@
         "en": [
           "servicetechniker-gn-oerlikon-wohlen"
         ],
-        "fr": [
+        "de": [
           "servicetechniker-gn-oerlikon-wohlen"
         ],
-        "de": [
-          "servicetechniker-gn-oerlikon-ch"
+        "fr": [
+          "servicetechniker-gn-oerlikon-wohlen"
         ]
       },
       "firstSeenAt": "2026-11-10T21:46:25.984Z",
@@ -414,7 +414,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:23.674Z",
+      "validThrough": "2027-02-08T21:48:15.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -448,7 +448,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:22.992Z",
+      "crawledAt": "2026-11-13T21:48:14.581Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -493,7 +493,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:43:22.992Z",
+      "validThrough": "2026-12-13T21:48:14.581Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -502,7 +502,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-progettazione-gn-oerlikon-wohlen",
         "en": "design-engineer-gn-oerlikon-wohlen",
-        "de": "konstruktionsingenieur-gn-oerlikon-wohlen",
+        "de": "konstruktionsingenieur-gn-oerlikon-ch",
         "fr": "ingenieur-de-conception-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
@@ -527,7 +527,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104466-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:22.328Z",
+      "crawledAt": "2026-11-13T21:48:13.916Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -558,11 +558,11 @@
         "en": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
         ],
-        "fr": [
+        "de": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
         ],
-        "de": [
-          "konstruktionsingenieur-gn-oerlikon-ch"
+        "fr": [
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
         ]
       },
       "salaryMin": 62000,
@@ -580,7 +580,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:22.328Z",
+      "validThrough": "2027-02-11T21:48:13.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -614,7 +614,7 @@
       "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:21.471Z",
+      "crawledAt": "2026-11-13T21:48:13.092Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -664,7 +664,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:43:21.471Z",
+      "validThrough": "2026-12-29T21:48:13.092Z",
       "validThroughSource": "last-observed-window"
     }
   ]

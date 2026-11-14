@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const deWhatsnew: Record<string, string> = {
+  'whatsNew.v31021.title': 'Lebenslauf-Kompetenzen für weitere Stellen nutzen',
+  'whatsNew.v31021.cv-affinity.title': 'Lebenslauf hochladen und Kompetenzen vergleichen',
+  'whatsNew.v31021.cv-affinity.desc': 'Dein Lebenslauf bleibt in deinem privaten Profil. Du kannst extrahierte Kompetenzen prüfen und bearbeiten, bei weiteren Stellen verwenden und sie auf Wunsch zur besseren Sortierung deiner Job Alerts freigeben.',
   'whatsNew.v31020.title': 'ATS-Fragen vor der Bewerbung ansehen',
   'whatsNew.v31020.sinteticaAts.title': 'Verifizierte Felder im Bewerbungsformular von Sintetica',
   'whatsNew.v31020.sinteticaAts.desc': 'Auf den Sintetica-Stellenanzeigen sehen Sie die Felder auf der ersten öffentlichen Formularseite, welche Pflichtfelder sind und wann sie geprüft wurden. Öffnen Sie das Originalformular zur Kontrolle; spätere Schritte können weitere Angaben verlangen.',

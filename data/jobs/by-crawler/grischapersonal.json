@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grischapersonal",
-  "assembledAt": "2026-11-12T21:22:10.377Z",
-  "runId": "43306588261",
+  "assembledAt": "2026-11-13T21:19:16.611Z",
+  "runId": "43507118306",
   "jobs": [
     {
       "id": "grischapersonal-7320dd4cedf4",
@@ -34,7 +34,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.794Z",
+      "crawledAt": "2026-11-13T21:19:09.276Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.794Z",
+      "validThrough": "2026-12-13T21:19:09.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -128,7 +128,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b3db3e633a3c#:~:text=GER%C3%9CSTBAUHELFER%20MIT%20BERUFSERFAHRUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.794Z",
+      "crawledAt": "2026-11-13T21:19:09.276Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.794Z",
+      "validThrough": "2026-12-13T21:19:09.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -216,7 +216,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=dfeef8f594f1#:~:text=BETRIEBSMITARBEITER%20FLEISCHVERARBEITUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.793Z",
+      "crawledAt": "2026-11-13T21:19:09.275Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "postalCode": "7000",
       "streetAddress": "Region Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.793Z",
+      "validThrough": "2026-12-13T21:19:09.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -304,7 +304,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.792Z",
+      "crawledAt": "2026-11-13T21:19:09.274Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.792Z",
+      "validThrough": "2026-12-13T21:19:09.274Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -392,7 +392,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2e2ef90e9506#:~:text=BETRIEBSELEKTRIKER%20PRODUKTIONSANLAGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.792Z",
+      "crawledAt": "2026-11-13T21:19:09.274Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -446,7 +446,88 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.792Z",
+      "validThrough": "2026-12-13T21:19:09.274Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "grischapersonal-1cb339f55380",
+      "slug": "controllo-metale-m-f-d-grischa-personal-ag-graubunden",
+      "slugByLocale": {
+        "it": "controllo-metale-m-f-d-grischa-personal-ag-graubunden",
+        "en": "metal-control-m-f-d-grischa-personal-ag-graubunden",
+        "de": "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
+        "fr": "controle-metal-h-f-d-grischa-personal-ag-graubunden"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "METALLBAUMONTEUR (m/w/d)",
+      "titleByLocale": {
+        "it": "CONTROLLO METALE (m/f/d)",
+        "en": "METAL CONTROL (m/f/d)",
+        "de": "METALLBAUMONTEUR (m/w/d)",
+        "fr": "CONTRÔLE MÉTAL (h/f/d)"
+      },
+      "description": "Für unseren Kunden suchen wir eine/n engagierte/n\nMETALLBAUMONTEUR (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Montage von Metallkonstruktionen (z. B. Geländer, Fassaden, Treppen, Fensterrahmen, Türen) nach technischen Zeichnungen und Bauplänen.\n- Vorbereitung der Montage, einschließlich Materialprüfung, Bearbeitung von Bauteilen und Organisation des Arbeitsplatzes.\n- Qualitätskontrolle und Sicherstellung der Einhaltung von Qualitätsstandards\n- Reparatur und Wartung von bestehenden Metallkonstruktionen.\n- Arbeit im Team sowie selbstständiges Ausführen von Aufgaben.\n- Einhalten der Sicherheitsvorschriften und Gewährleistung eines sicheren Arbeitsumfelds.\nProfil\n- Abgeschlossene Ausbildung als Metallbauer, Metallbaumonteur oder eine vergleichbare Qualifikation.\n- Mehrjährige Berufserfahrung in der Montage von Metallkonstruktionen ist von Vorteil.\n- Gute organisatorische und planerische Fähigkeiten\n- Technisches Verständnis und die Fähigkeit, technische Zeichnungen zu lesen und umzusetzen.\n- Handwerkliches Geschick und körperliche Belastbarkeit.\n- Zuverlässige, engagierte und loyale Persönlichkeit\n- Fahrausweis Kat. B zwingend\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nLorenzo Bargähr steht Ihnen für Fragen gerne zur Verfügung: +41 81 382 82 82.",
+      "descriptionByLocale": {
+        "it": "Per il nostro cliente stiamo cercando un impegno\nCONTROLLO METALE (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Montaggio di strutture metalliche (ad esempio ringhiere, facciate, scale, finestre, porte) secondo disegni tecnici e piani di costruzione.\n- Preparazione del montaggio, tra cui test materiali, lavorazione di componenti e organizzazione del lavoro.\n- Controllo qualità e conformità agli standard di qualità\n- Riparazione e manutenzione di strutture metalliche esistenti.\n- Lavorare in una squadra così come compiti di esecuzione indipendente.\n- Rispetto alle normative di sicurezza e garanzia di un ambiente di lavoro sicuro.\nProfilo\n- Formazione completa come metalworker, metalworker o una qualificazione comparabile.\n- Diversi anni di esperienza professionale nel montaggio di strutture metalliche è un vantaggio.\n- Buone capacità organizzative e di pianificazione\n- Comprensione tecnica e capacità di leggere e implementare disegni tecnici.\n- Artigianato e resilienza fisica.\n- Personalità affidabile, impegnata e leale\n- Patente di guida Cat B obbligatorio\nInteressante? Allora contattaci oggi!\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nLorenzo Bargähr è a vostra disposizione per domande: +41 81 382 82 82.",
+        "en": "For our customer we are looking for a committed\nMETAL CONTROL (m/f/d)\nLocation: Graubünden\nTasks\n- Assembly of metal structures (e.g. railings, facades, stairs, window frames, doors) according to technical drawings and building plans.\n- Preparation of assembly, including material testing, machining of components and workplace organisation.\n- Quality control and ensuring compliance with quality standards\n- Repair and maintenance of existing metal structures.\n- Working in a team as well as independently performing tasks.\n- Compliance with safety regulations and ensuring a safe working environment.\nProfile\n- Completed training as a metalworker, metalworker or a comparable qualification.\n- Several years of professional experience in the assembly of metal structures is an advantage.\n- Good organisational and planning skills\n- Technical understanding and ability to read and implement technical drawings.\n- Craftsmanship and physical resilience.\n- Reliable, committed and loyal personality\n- Driving licence Cat B mandatory\nInterested? Then contact us today!\nSend your complete application documents to Lorenzo Bargähr, bewerbung@grischapersonal.ch\nApplications by post will, however, not be returned.\nLorenzo Bargähr is at your disposal for questions: +41 81 382 82 82.",
+        "de": "Für unseren Kunden suchen wir eine/n engagierte/n\nMETALLBAUMONTEUR (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Montage von Metallkonstruktionen (z. B. Geländer, Fassaden, Treppen, Fensterrahmen, Türen) nach technischen Zeichnungen und Bauplänen.\n- Vorbereitung der Montage, einschließlich Materialprüfung, Bearbeitung von Bauteilen und Organisation des Arbeitsplatzes.\n- Qualitätskontrolle und Sicherstellung der Einhaltung von Qualitätsstandards\n- Reparatur und Wartung von bestehenden Metallkonstruktionen.\n- Arbeit im Team sowie selbstständiges Ausführen von Aufgaben.\n- Einhalten der Sicherheitsvorschriften und Gewährleistung eines sicheren Arbeitsumfelds.\nProfil\n- Abgeschlossene Ausbildung als Metallbauer, Metallbaumonteur oder eine vergleichbare Qualifikation.\n- Mehrjährige Berufserfahrung in der Montage von Metallkonstruktionen ist von Vorteil.\n- Gute organisatorische und planerische Fähigkeiten\n- Technisches Verständnis und die Fähigkeit, technische Zeichnungen zu lesen und umzusetzen.\n- Handwerkliches Geschick und körperliche Belastbarkeit.\n- Zuverlässige, engagierte und loyale Persönlichkeit\n- Fahrausweis Kat. B zwingend\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nLorenzo Bargähr steht Ihnen für Fragen gerne zur Verfügung: +41 81 382 82 82.",
+        "fr": "Pour notre client, nous recherchons un engagement\nCONTRÔLE MÉTAL (h/f/d)\nLieu: Grisons\nTâche\n- Assemblage de structures métalliques (par exemple rampes, façades, escaliers, cadres de fenêtres, portes) selon des plans techniques et des plans de construction.\n- Préparation du montage, y compris l'essai des matériaux, l'usinage des composants et l'organisation du lieu de travail.\n- Contrôle de la qualité et respect des normes de qualité\n- Réparation et entretien des structures métalliques existantes.\n- Travailler en équipe et exécuter des tâches indépendantes.\n- Respect des règlements de sécurité et protection de l'environnement de travail.\nProfil\n- Formation complète en métallurgie, métallurgie ou qualification comparable.\n- Plusieurs années d'expérience professionnelle dans l'assemblage de structures métalliques est un avantage.\n- Bonnes compétences en matière d'organisation et de planification\n- Compréhension technique et capacité à lire et à réaliser des dessins techniques.\n- Artisanat et résilience physique.\n- Personnalité fiable, engagée et fidèle\n- Permis de conduire Cat B obligatoire\nIntéressé? Alors contactez-nous aujourd'hui!\nEnvoyez vos documents de candidature complets à Lorenzo Bargähr, bewerbung@grischapersonal.ch\nToutefois, les demandes par la poste ne seront pas retournées.\nLorenzo Bargähr est à votre disposition pour les questions: +41 81 382 82 82."
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:19:09.273Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:03+02:00",
+      "postedDate": "2024-09-30T12:00:03+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "montatore-di-costruzioni-metalliche-m-f-d-grischa-personal-ag-graubunden",
+        "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
+        "metallbaumonteur-m-w-d-grischa-personal-ag-graubunden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "montatore-di-costruzioni-metalliche-m-f-d-grischa-personal-ag-graubunden",
+          "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
+          "metallbaumonteur-m-w-d-grischa-personal-ag-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.241Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000",
+      "streetAddress": "Graubünden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T21:19:09.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -480,7 +561,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bcacbaccad00#:~:text=HEIZUNGSINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.791Z",
+      "crawledAt": "2026-11-13T21:19:09.273Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -534,88 +615,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.791Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "grischapersonal-1cb339f55380",
-      "slug": "controllo-metale-m-f-d-grischa-personal-ag-graubunden",
-      "slugByLocale": {
-        "it": "controllo-metale-m-f-d-grischa-personal-ag-graubunden",
-        "en": "metal-control-m-f-d-grischa-personal-ag-graubunden",
-        "de": "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
-        "fr": "controle-metal-h-f-d-grischa-personal-ag-graubunden"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "METALLBAUMONTEUR (m/w/d)",
-      "titleByLocale": {
-        "it": "CONTROLLO METALE (m/f/d)",
-        "en": "METAL CONTROL (m/f/d)",
-        "de": "METALLBAUMONTEUR (m/w/d)",
-        "fr": "CONTRÔLE MÉTAL (h/f/d)"
-      },
-      "description": "Für unseren Kunden suchen wir eine/n engagierte/n\nMETALLBAUMONTEUR (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Montage von Metallkonstruktionen (z. B. Geländer, Fassaden, Treppen, Fensterrahmen, Türen) nach technischen Zeichnungen und Bauplänen.\n- Vorbereitung der Montage, einschließlich Materialprüfung, Bearbeitung von Bauteilen und Organisation des Arbeitsplatzes.\n- Qualitätskontrolle und Sicherstellung der Einhaltung von Qualitätsstandards\n- Reparatur und Wartung von bestehenden Metallkonstruktionen.\n- Arbeit im Team sowie selbstständiges Ausführen von Aufgaben.\n- Einhalten der Sicherheitsvorschriften und Gewährleistung eines sicheren Arbeitsumfelds.\nProfil\n- Abgeschlossene Ausbildung als Metallbauer, Metallbaumonteur oder eine vergleichbare Qualifikation.\n- Mehrjährige Berufserfahrung in der Montage von Metallkonstruktionen ist von Vorteil.\n- Gute organisatorische und planerische Fähigkeiten\n- Technisches Verständnis und die Fähigkeit, technische Zeichnungen zu lesen und umzusetzen.\n- Handwerkliches Geschick und körperliche Belastbarkeit.\n- Zuverlässige, engagierte und loyale Persönlichkeit\n- Fahrausweis Kat. B zwingend\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nLorenzo Bargähr steht Ihnen für Fragen gerne zur Verfügung: +41 81 382 82 82.",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente stiamo cercando un impegno\nCONTROLLO METALE (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Montaggio di strutture metalliche (ad esempio ringhiere, facciate, scale, finestre, porte) secondo disegni tecnici e piani di costruzione.\n- Preparazione del montaggio, tra cui test materiali, lavorazione di componenti e organizzazione del lavoro.\n- Controllo qualità e conformità agli standard di qualità\n- Riparazione e manutenzione di strutture metalliche esistenti.\n- Lavorare in una squadra così come compiti di esecuzione indipendente.\n- Rispetto alle normative di sicurezza e garanzia di un ambiente di lavoro sicuro.\nProfilo\n- Formazione completa come metalworker, metalworker o una qualificazione comparabile.\n- Diversi anni di esperienza professionale nel montaggio di strutture metalliche è un vantaggio.\n- Buone capacità organizzative e di pianificazione\n- Comprensione tecnica e capacità di leggere e implementare disegni tecnici.\n- Artigianato e resilienza fisica.\n- Personalità affidabile, impegnata e leale\n- Patente di guida Cat B obbligatorio\nInteressante? Allora contattaci oggi!\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nLorenzo Bargähr è a vostra disposizione per domande: +41 81 382 82 82.",
-        "en": "For our customer we are looking for a committed\nMETAL CONTROL (m/f/d)\nLocation: Graubünden\nTasks\n- Assembly of metal structures (e.g. railings, facades, stairs, window frames, doors) according to technical drawings and building plans.\n- Preparation of assembly, including material testing, machining of components and workplace organisation.\n- Quality control and ensuring compliance with quality standards\n- Repair and maintenance of existing metal structures.\n- Working in a team as well as independently performing tasks.\n- Compliance with safety regulations and ensuring a safe working environment.\nProfile\n- Completed training as a metalworker, metalworker or a comparable qualification.\n- Several years of professional experience in the assembly of metal structures is an advantage.\n- Good organisational and planning skills\n- Technical understanding and ability to read and implement technical drawings.\n- Craftsmanship and physical resilience.\n- Reliable, committed and loyal personality\n- Driving licence Cat B mandatory\nInterested? Then contact us today!\nSend your complete application documents to Lorenzo Bargähr, bewerbung@grischapersonal.ch\nApplications by post will, however, not be returned.\nLorenzo Bargähr is at your disposal for questions: +41 81 382 82 82.",
-        "de": "Für unseren Kunden suchen wir eine/n engagierte/n\nMETALLBAUMONTEUR (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Montage von Metallkonstruktionen (z. B. Geländer, Fassaden, Treppen, Fensterrahmen, Türen) nach technischen Zeichnungen und Bauplänen.\n- Vorbereitung der Montage, einschließlich Materialprüfung, Bearbeitung von Bauteilen und Organisation des Arbeitsplatzes.\n- Qualitätskontrolle und Sicherstellung der Einhaltung von Qualitätsstandards\n- Reparatur und Wartung von bestehenden Metallkonstruktionen.\n- Arbeit im Team sowie selbstständiges Ausführen von Aufgaben.\n- Einhalten der Sicherheitsvorschriften und Gewährleistung eines sicheren Arbeitsumfelds.\nProfil\n- Abgeschlossene Ausbildung als Metallbauer, Metallbaumonteur oder eine vergleichbare Qualifikation.\n- Mehrjährige Berufserfahrung in der Montage von Metallkonstruktionen ist von Vorteil.\n- Gute organisatorische und planerische Fähigkeiten\n- Technisches Verständnis und die Fähigkeit, technische Zeichnungen zu lesen und umzusetzen.\n- Handwerkliches Geschick und körperliche Belastbarkeit.\n- Zuverlässige, engagierte und loyale Persönlichkeit\n- Fahrausweis Kat. B zwingend\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nLorenzo Bargähr steht Ihnen für Fragen gerne zur Verfügung: +41 81 382 82 82.",
-        "fr": "Pour notre client, nous recherchons un engagement\nCONTRÔLE MÉTAL (h/f/d)\nLieu: Grisons\nTâche\n- Assemblage de structures métalliques (par exemple rampes, façades, escaliers, cadres de fenêtres, portes) selon des plans techniques et des plans de construction.\n- Préparation du montage, y compris l'essai des matériaux, l'usinage des composants et l'organisation du lieu de travail.\n- Contrôle de la qualité et respect des normes de qualité\n- Réparation et entretien des structures métalliques existantes.\n- Travailler en équipe et exécuter des tâches indépendantes.\n- Respect des règlements de sécurité et protection de l'environnement de travail.\nProfil\n- Formation complète en métallurgie, métallurgie ou qualification comparable.\n- Plusieurs années d'expérience professionnelle dans l'assemblage de structures métalliques est un avantage.\n- Bonnes compétences en matière d'organisation et de planification\n- Compréhension technique et capacité à lire et à réaliser des dessins techniques.\n- Artisanat et résilience physique.\n- Personnalité fiable, engagée et fidèle\n- Permis de conduire Cat B obligatoire\nIntéressé? Alors contactez-nous aujourd'hui!\nEnvoyez vos documents de candidature complets à Lorenzo Bargähr, bewerbung@grischapersonal.ch\nToutefois, les demandes par la poste ne seront pas retournées.\nLorenzo Bargähr est à votre disposition pour les questions: +41 81 382 82 82."
-      },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.789Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:03+02:00",
-      "postedDate": "2024-09-30T12:00:03+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "montatore-di-costruzioni-metalliche-m-f-d-grischa-personal-ag-graubunden",
-        "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
-        "metallbaumonteur-m-w-d-grischa-personal-ag-graubunden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "montatore-di-costruzioni-metalliche-m-f-d-grischa-personal-ag-graubunden",
-          "metallbaumonteur-m-w-d-graubunden-grischapersonal-ch",
-          "metallbaumonteur-m-w-d-grischa-personal-ag-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.241Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "streetAddress": "Graubünden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.789Z",
+      "validThrough": "2026-12-13T21:19:09.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -649,7 +649,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=21d79ad5ccda#:~:text=ISOLEUR%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.788Z",
+      "crawledAt": "2026-11-13T21:19:09.272Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -696,7 +696,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.788Z",
+      "validThrough": "2026-12-13T21:19:09.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.787Z",
+      "crawledAt": "2026-11-13T21:19:09.271Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -786,7 +786,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.787Z",
+      "validThrough": "2026-12-13T21:19:09.271Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -820,7 +820,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bc5132ca89a7#:~:text=BAUARBEITER%20LAWINENVERBAUUNGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.786Z",
+      "crawledAt": "2026-11-13T21:19:09.270Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -874,7 +874,95 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.786Z",
+      "validThrough": "2026-12-13T21:19:09.270Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "grischapersonal-8238ca317c24",
+      "slug": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
+      "slugByLocale": {
+        "it": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
+        "en": "scaffolder-scaffold-erector-efz-m-f-d-grischa-personal-ag-zurich",
+        "de": "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch",
+        "fr": "monteur-d-echafaudages-efz-h-f-d-grischa-personal-ag-zurich"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Montatore di ponteggi EFZ (m/f/d)",
+        "en": "Scaffolder / Scaffold Erector EFZ (m/f/d)",
+        "de": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
+        "fr": "Monteur d'échafaudages EFZ (h/f/d)"
+      },
+      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) posto di lavoro: Zurigo Compiti\n• Servizi di installazione e smontaggio di ponteggio facciate\n• Caricamento e scarico di veicoli\n• Manutenzione del ponteggio\n• Attaccamento di teloni, reti e tetti di emergenza\n• Allenamento completo come scaffolder/scaffolder EFZ\n• Lavoro indipendente, responsabile e affidabile\n• Giocatore di squadra\n• Elevata forza fisica\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo a vostra disposizione.",
+        "en": "We are looking for an engaged GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) place of work: Zurich Tasks\n• Installation and dismantling services of facade scaffolding\n• Loading and unloading of vehicles\n• Scaffolding maintenance\n• Attachment of tarpaulins, nets and emergency roofs\n• Completed training as scaffolder/scaffolder EFZ\n• Independent, responsible and reliable work\n• Teamplayer\n• High physical strength\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are at your disposal.",
+        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
+        "fr": "Nous recherchons un lieu de travail engagé GERÜSTBAUER / GERÜSTMONTEUR EFZ (h/f/d): Zurich Tâches\n• Installation et démontage d'échafaudages de façade\n• Chargement et déchargement des véhicules\n• Entretien des échafaudages\n• Fixation des bâches, des filets et des toits de secours\n• Formation terminée en tant qu'échafaudeur/scaffoldeur EFZ\n• Travail indépendant, responsable et fiable\n• Joueur d'équipe\n• Haute force physique\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:19:09.269Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:08+02:00",
+      "postedDate": "2024-09-30T12:00:08+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
+        "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
+          "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
+        ],
+        "en": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ],
+        "de": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ],
+        "fr": [
+          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.238Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T21:19:09.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -908,7 +996,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=5cd9d69cb14a#:~:text=SANIT%C3%84RINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.785Z",
+      "crawledAt": "2026-11-13T21:19:09.268Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -964,95 +1052,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.785Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "grischapersonal-8238ca317c24",
-      "slug": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
-      "slugByLocale": {
-        "it": "montatore-di-ponteggi-efz-m-f-d-grischa-personal-ag-zurich",
-        "en": "scaffolder-scaffold-erector-efz-m-f-d-grischa-personal-ag-zurich",
-        "de": "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch",
-        "fr": "monteur-d-echafaudages-efz-h-f-d-grischa-personal-ag-zurich"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Montatore di ponteggi EFZ (m/f/d)",
-        "en": "Scaffolder / Scaffold Erector EFZ (m/f/d)",
-        "de": "GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)",
-        "fr": "Monteur d'échafaudages EFZ (h/f/d)"
-      },
-      "description": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) posto di lavoro: Zurigo Compiti\n• Servizi di installazione e smontaggio di ponteggio facciate\n• Caricamento e scarico di veicoli\n• Manutenzione del ponteggio\n• Attaccamento di teloni, reti e tetti di emergenza\n• Allenamento completo come scaffolder/scaffolder EFZ\n• Lavoro indipendente, responsabile e affidabile\n• Giocatore di squadra\n• Elevata forza fisica\n• Patente di guida Cat B e auto\n• Buona conoscenza del tedesco interessato? Contattaci oggi! Inviate i vostri documenti di applicazione completi a Ivo Januth, ma le domande per posta non saranno restituite. Se avete domande, siamo a vostra disposizione.",
-        "en": "We are looking for an engaged GERÜSTBAUER / GERÜSTMONTEUR EFZ (m/f/d) place of work: Zurich Tasks\n• Installation and dismantling services of facade scaffolding\n• Loading and unloading of vehicles\n• Scaffolding maintenance\n• Attachment of tarpaulins, nets and emergency roofs\n• Completed training as scaffolder/scaffolder EFZ\n• Independent, responsible and reliable work\n• Teamplayer\n• High physical strength\n• Driving licence Cat B and car\n• Good knowledge of German Interested? Contact us today! You send your complete application documents to Ivo Januth, but applications by post will not be returned. If you have any questions, we are at your disposal.",
-        "de": "Wir suchen per sofort oder nach Vereinbarung eine/n engagierte/n\nGERÜSTBAUER / GERÜSTMONTEUR EFZ (m/w/d)\nArbeitsort: Zürich\nAufgaben\n• Montage- und Demontagearbeiten Fassadengerüsten\n• Beladen und Entladen von Fahrzeugen\n• Instandhaltung der Gerüste\n• Anbringen von Planen, Netzten und Notdächern\nProfil\n• Abgeschlossene Ausbildung als Gerüstmonteur/Gerüstbauer EFZ\n• Selbständiges, verantwortungsbewusstes und zuverlässiges Arbeiten\n• Teamplayer\n• Hohe körperliche Belastbarkeit\n• Führerschein Kat. B und Auto\n• Gute Deutschkenntnisse\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Ivo Januth, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen stehen wir Ihnen gerne zur Verfügung.",
-        "fr": "Nous recherchons un lieu de travail engagé GERÜSTBAUER / GERÜSTMONTEUR EFZ (h/f/d): Zurich Tâches\n• Installation et démontage d'échafaudages de façade\n• Chargement et déchargement des véhicules\n• Entretien des échafaudages\n• Fixation des bâches, des filets et des toits de secours\n• Formation terminée en tant qu'échafaudeur/scaffoldeur EFZ\n• Travail indépendant, responsable et fiable\n• Joueur d'équipe\n• Haute force physique\n• Permis de conduire Cat B et voiture\n• Bonne connaissance de l'allemand Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Ivo Januth, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous sommes à votre disposition."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.785Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:08+02:00",
-      "postedDate": "2024-09-30T12:00:08+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
-        "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich",
-          "gerustbauer-gerustmonteur-efz-m-w-d-zurich-grischapersonal-ch"
-        ],
-        "en": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ],
-        "de": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ],
-        "fr": [
-          "gerustbauer-gerustmonteur-efz-m-w-d-grischa-personal-ag-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.238Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.785Z",
+      "validThrough": "2026-12-13T21:19:09.268Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1086,7 +1086,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=34e311e0657c#:~:text=METZGER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.784Z",
+      "crawledAt": "2026-11-13T21:19:09.267Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1142,7 +1142,7 @@
       "postalCode": "7000",
       "streetAddress": "Region Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.784Z",
+      "validThrough": "2026-12-13T21:19:09.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1176,7 +1176,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.783Z",
+      "crawledAt": "2026-11-13T21:19:09.265Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1224,7 +1224,93 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.783Z",
+      "validThrough": "2026-12-13T21:19:09.265Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "grischapersonal-512bb94194f8",
+      "slug": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
+      "slugByLocale": {
+        "it": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
+        "en": "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden",
+        "de": "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch",
+        "fr": "polier-buffer-routier-h-f-d-grischa-personal-ag-graubunden"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
+      "titleByLocale": {
+        "it": "POLIER ROAD BUFFER (m/f/d)",
+        "en": "POLIER ROAD BUFFER (m/f/d)",
+        "de": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
+        "fr": "POLIER BUFFER ROUTIER (h/f/d)"
+      },
+      "description": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nPOLIER STRASSENBAU/TIEFBAU (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Verantwortung für die Bauausführung von Strassenbauprojekten unter Einhaltung von Qualitäts-, Termin- und Kostenzielen\n- AVOR für zugeteilte Baustellen\n- Sicherstellung der Einhaltung von Sicherheits- und Umweltvorschriften auf der Baustelle\n- Unterstützung des Bauleiters bei der Arbeitsvorbereitung und der Umsetzung der Baupläne\n- Kontrolle des Materialeinsatzes und der Maschinenverfügbarkeit\n- Dokumentation des Baufortschritts sowie Reporting an den Bauleiter\n- Ansprechperson für technische Fragen auf der Baustelle\nProfil\n- Abgeschlossene Berufsausbildung idealerweise als Strassenbauer EFZ, sowie eine Weiterbildung zum Polier\n- Mehrjährige Berufserfahrung im Strassenbau als Polier\n- Führungsqualitäten und Erfahrung in der Leitung von Baustellenteams\n- Fundierte Kenntnisse der Bauvorschriften und Normen im Strassenbau\n- Gute Organisationsfähigkeiten sowie ein hohes Mass an Eigenverantwortung und Durchsetzungsvermögen\n- Sie können Ihre Mitarbeiter gut führen und motivieren\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen sind wir gerne für Sie da.",
+      "descriptionByLocale": {
+        "it": "Per il nostro cliente siamo alla ricerca di una persona impegnata immediatamente o per accordo\nPOLIER ROAD BUFFER (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Responsabilità per la costruzione di progetti di costruzione su strada nel rispetto degli obiettivi di qualità, scadenza e costo\n- AVOR per i cantieri assegnati\n- Garantire il rispetto delle normative in materia di sicurezza e ambiente sul cantiere\n- Sostegno del responsabile della costruzione nella preparazione del lavoro e nell'attuazione dei piani di costruzione\n- Controllo dell'uso del materiale e della disponibilità della macchina\n- Documentazione del progresso delle costruzioni e del reporting al direttore dell'edilizia\n- Persona di contatto per problemi tecnici sul cantiere\nProfilo\n- Formazione professionale completa, idealmente come costruttore stradale EFZ, nonché formazione continua come polisher\n- Diversi anni di esperienza professionale nella costruzione stradale come polisher\n- Capacità di leadership e esperienza nella gestione dei team del cantiere\n- Conoscenza della normativa edile e degli standard nella costruzione stradale\n- Buone capacità organizzative e un alto grado di responsabilità personale e di assertività\n- Puoi guidare e motivare bene i tuoi dipendenti\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n- Patente di guida Cat. B\nInteressante? Allora contattaci oggi!\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nSe avete domande, saremo lieti di essere lì per voi.",
+        "en": "For our customer we are looking for an engaged POLIER STRASSENBAU/TIEFBAU (m/f/d) place of work: Graubünden\n• Tasks - Responsibility for the construction of road construction projects in compliance with quality, deadline and cost objectives - AVOR for assigned construction sites - Ensuring compliance with safety and environmental regulations on the construction site - Support of the construction manager in the preparation of work and the implementation of the construction plans - Control of the use of materials and machine availability - Documentation of the construction progress and reporting to the construction manager - Contact person for technical questions on the construction site Profile - Completed vocational training ideally as a road builder EFZ, as well as further training as a polisher - Several years of professional experience in road construction as a polisher - Leadership qualities and experience in the management of construction site teams - Good organizational skills as well as a high degree of personal responsibility and assertiveness - You can lead and motivate your employees well - Good knowledge of German in word and writing - Driving licence Cat. B Interested? Contact us today! You send your complete application documents to Lorenzo Bargähr, but applications by post will not be returned. If you have any questions, we will gladly be there for you.",
+        "de": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nPOLIER STRASSENBAU/TIEFBAU (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Verantwortung für die Bauausführung von Strassenbauprojekten unter Einhaltung von Qualitäts-, Termin- und Kostenzielen\n- AVOR für zugeteilte Baustellen\n- Sicherstellung der Einhaltung von Sicherheits- und Umweltvorschriften auf der Baustelle\n- Unterstützung des Bauleiters bei der Arbeitsvorbereitung und der Umsetzung der Baupläne\n- Kontrolle des Materialeinsatzes und der Maschinenverfügbarkeit\n- Dokumentation des Baufortschritts sowie Reporting an den Bauleiter\n- Ansprechperson für technische Fragen auf der Baustelle\nProfil\n- Abgeschlossene Berufsausbildung idealerweise als Strassenbauer EFZ, sowie eine Weiterbildung zum Polier\n- Mehrjährige Berufserfahrung im Strassenbau als Polier\n- Führungsqualitäten und Erfahrung in der Leitung von Baustellenteams\n- Fundierte Kenntnisse der Bauvorschriften und Normen im Strassenbau\n- Gute Organisationsfähigkeiten sowie ein hohes Mass an Eigenverantwortung und Durchsetzungsvermögen\n- Sie können Ihre Mitarbeiter gut führen und motivieren\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen sind wir gerne für Sie da.",
+        "fr": "Pour notre client, nous recherchons un lieu de travail POLIER STRASSENBAU/TIEFBAU (h/f/d) engagé: Graubünden\n• Tâches - Responsabilité de la construction de projets de construction routière dans le respect des objectifs de qualité, d'échéance et de coût - AVOR pour les chantiers de construction assignés - Respect de la réglementation en matière de sécurité et d'environnement sur le chantier - Appui du responsable de la construction dans la préparation des travaux et la mise en oeuvre des plans de construction - Contrôle de l'utilisation des matériaux et de la disponibilité des machines - Documentation de l'état d'avancement de la construction et rapport au responsable de la construction - Personne-ressource pour les questions techniques sur le chantier Profil - Formation professionnelle complétée idéalement en tant que constructeur de routes EFZ, ainsi que formation continue en tant que polisseur - Plusieurs années d'expérience professionnelle dans la construction de routes en tant que polisseur - Qualités de leadership et expérience dans la gestion des équipes de chantier - Bonnes compétences organisationnelles ainsi qu'un haut degré de responsabilité personnelle et d'affirmation - Vous pouvez diriger et motiver vos employés bien - Bonne connaissance de l'allemand en paroles et en écriture - Permis de conduire Cat. B Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Lorenzo Bargähr, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous serons volontiers là pour vous."
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:19:09.263Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:17+02:00",
+      "postedDate": "2024-09-30T12:00:17+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "polier-strassenbau-genio-civile-m-w-d-grischa-personal-ag-graubunden",
+        "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden",
+        "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "polier-strassenbau-genio-civile-m-w-d-grischa-personal-ag-graubunden",
+          "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch"
+        ],
+        "de": [
+          "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden"
+        ],
+        "fr": [
+          "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.234Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000",
+      "streetAddress": "Graubünden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T21:19:09.263Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1258,7 +1344,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=1e7165c66c1a#:~:text=BAUMASCHINENF%C3%9CHRER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.782Z",
+      "crawledAt": "2026-11-13T21:19:09.262Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1312,93 +1398,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.782Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "grischapersonal-512bb94194f8",
-      "slug": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
-      "slugByLocale": {
-        "it": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
-        "en": "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden",
-        "de": "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch",
-        "fr": "polier-buffer-routier-h-f-d-grischa-personal-ag-graubunden"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
-      "titleByLocale": {
-        "it": "POLIER ROAD BUFFER (m/f/d)",
-        "en": "POLIER ROAD BUFFER (m/f/d)",
-        "de": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
-        "fr": "POLIER BUFFER ROUTIER (h/f/d)"
-      },
-      "description": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nPOLIER STRASSENBAU/TIEFBAU (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Verantwortung für die Bauausführung von Strassenbauprojekten unter Einhaltung von Qualitäts-, Termin- und Kostenzielen\n- AVOR für zugeteilte Baustellen\n- Sicherstellung der Einhaltung von Sicherheits- und Umweltvorschriften auf der Baustelle\n- Unterstützung des Bauleiters bei der Arbeitsvorbereitung und der Umsetzung der Baupläne\n- Kontrolle des Materialeinsatzes und der Maschinenverfügbarkeit\n- Dokumentation des Baufortschritts sowie Reporting an den Bauleiter\n- Ansprechperson für technische Fragen auf der Baustelle\nProfil\n- Abgeschlossene Berufsausbildung idealerweise als Strassenbauer EFZ, sowie eine Weiterbildung zum Polier\n- Mehrjährige Berufserfahrung im Strassenbau als Polier\n- Führungsqualitäten und Erfahrung in der Leitung von Baustellenteams\n- Fundierte Kenntnisse der Bauvorschriften und Normen im Strassenbau\n- Gute Organisationsfähigkeiten sowie ein hohes Mass an Eigenverantwortung und Durchsetzungsvermögen\n- Sie können Ihre Mitarbeiter gut führen und motivieren\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen sind wir gerne für Sie da.",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente siamo alla ricerca di una persona impegnata immediatamente o per accordo\nPOLIER ROAD BUFFER (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Responsabilità per la costruzione di progetti di costruzione su strada nel rispetto degli obiettivi di qualità, scadenza e costo\n- AVOR per i cantieri assegnati\n- Garantire il rispetto delle normative in materia di sicurezza e ambiente sul cantiere\n- Sostegno del responsabile della costruzione nella preparazione del lavoro e nell'attuazione dei piani di costruzione\n- Controllo dell'uso del materiale e della disponibilità della macchina\n- Documentazione del progresso delle costruzioni e del reporting al direttore dell'edilizia\n- Persona di contatto per problemi tecnici sul cantiere\nProfilo\n- Formazione professionale completa, idealmente come costruttore stradale EFZ, nonché formazione continua come polisher\n- Diversi anni di esperienza professionale nella costruzione stradale come polisher\n- Capacità di leadership e esperienza nella gestione dei team del cantiere\n- Conoscenza della normativa edile e degli standard nella costruzione stradale\n- Buone capacità organizzative e un alto grado di responsabilità personale e di assertività\n- Puoi guidare e motivare bene i tuoi dipendenti\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n- Patente di guida Cat. B\nInteressante? Allora contattaci oggi!\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbung@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.\nSe avete domande, saremo lieti di essere lì per voi.",
-        "en": "For our customer we are looking for an engaged POLIER STRASSENBAU/TIEFBAU (m/f/d) place of work: Graubünden\n• Tasks - Responsibility for the construction of road construction projects in compliance with quality, deadline and cost objectives - AVOR for assigned construction sites - Ensuring compliance with safety and environmental regulations on the construction site - Support of the construction manager in the preparation of work and the implementation of the construction plans - Control of the use of materials and machine availability - Documentation of the construction progress and reporting to the construction manager - Contact person for technical questions on the construction site Profile - Completed vocational training ideally as a road builder EFZ, as well as further training as a polisher - Several years of professional experience in road construction as a polisher - Leadership qualities and experience in the management of construction site teams - Good organizational skills as well as a high degree of personal responsibility and assertiveness - You can lead and motivate your employees well - Good knowledge of German in word and writing - Driving licence Cat. B Interested? Contact us today! You send your complete application documents to Lorenzo Bargähr, but applications by post will not be returned. If you have any questions, we will gladly be there for you.",
-        "de": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nPOLIER STRASSENBAU/TIEFBAU (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Verantwortung für die Bauausführung von Strassenbauprojekten unter Einhaltung von Qualitäts-, Termin- und Kostenzielen\n- AVOR für zugeteilte Baustellen\n- Sicherstellung der Einhaltung von Sicherheits- und Umweltvorschriften auf der Baustelle\n- Unterstützung des Bauleiters bei der Arbeitsvorbereitung und der Umsetzung der Baupläne\n- Kontrolle des Materialeinsatzes und der Maschinenverfügbarkeit\n- Dokumentation des Baufortschritts sowie Reporting an den Bauleiter\n- Ansprechperson für technische Fragen auf der Baustelle\nProfil\n- Abgeschlossene Berufsausbildung idealerweise als Strassenbauer EFZ, sowie eine Weiterbildung zum Polier\n- Mehrjährige Berufserfahrung im Strassenbau als Polier\n- Führungsqualitäten und Erfahrung in der Leitung von Baustellenteams\n- Fundierte Kenntnisse der Bauvorschriften und Normen im Strassenbau\n- Gute Organisationsfähigkeiten sowie ein hohes Mass an Eigenverantwortung und Durchsetzungsvermögen\n- Sie können Ihre Mitarbeiter gut führen und motivieren\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerausweis Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf!\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbung@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.\nBei Fragen sind wir gerne für Sie da.",
-        "fr": "Pour notre client, nous recherchons un lieu de travail POLIER STRASSENBAU/TIEFBAU (h/f/d) engagé: Graubünden\n• Tâches - Responsabilité de la construction de projets de construction routière dans le respect des objectifs de qualité, d'échéance et de coût - AVOR pour les chantiers de construction assignés - Respect de la réglementation en matière de sécurité et d'environnement sur le chantier - Appui du responsable de la construction dans la préparation des travaux et la mise en oeuvre des plans de construction - Contrôle de l'utilisation des matériaux et de la disponibilité des machines - Documentation de l'état d'avancement de la construction et rapport au responsable de la construction - Personne-ressource pour les questions techniques sur le chantier Profil - Formation professionnelle complétée idéalement en tant que constructeur de routes EFZ, ainsi que formation continue en tant que polisseur - Plusieurs années d'expérience professionnelle dans la construction de routes en tant que polisseur - Qualités de leadership et expérience dans la gestion des équipes de chantier - Bonnes compétences organisationnelles ainsi qu'un haut degré de responsabilité personnelle et d'affirmation - Vous pouvez diriger et motiver vos employés bien - Bonne connaissance de l'allemand en paroles et en écriture - Permis de conduire Cat. B Intéressé? Contactez-nous aujourd'hui! Vous envoyez vos documents de candidature complets à Lorenzo Bargähr, mais les demandes par la poste ne seront pas retournées. Si vous avez des questions, nous serons volontiers là pour vous."
-      },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.782Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:17+02:00",
-      "postedDate": "2024-09-30T12:00:17+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "polier-strassenbau-genio-civile-m-w-d-grischa-personal-ag-graubunden",
-        "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden",
-        "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polier-strassenbau-genio-civile-m-w-d-grischa-personal-ag-graubunden",
-          "polier-strassenbau-tiefbau-m-w-d-graubunden-grischapersonal-ch"
-        ],
-        "de": [
-          "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden"
-        ],
-        "fr": [
-          "polier-strassenbau-tiefbau-m-w-d-grischa-personal-ag-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.234Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "streetAddress": "Graubünden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.782Z",
+      "validThrough": "2026-12-13T21:19:09.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1432,7 +1432,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ba1896af07b7#:~:text=STRASSENBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.781Z",
+      "crawledAt": "2026-11-13T21:19:09.259Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1486,7 +1486,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.781Z",
+      "validThrough": "2026-12-13T21:19:09.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1520,7 +1520,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b54030455bbb#:~:text=VORARBEITER%20ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.780Z",
+      "crawledAt": "2026-11-13T21:19:09.258Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1568,7 +1568,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.780Z",
+      "validThrough": "2026-12-13T21:19:09.258Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1602,7 +1602,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0ac7c2b89d28#:~:text=DACHDECKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.779Z",
+      "crawledAt": "2026-11-13T21:19:09.257Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1650,7 +1650,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.779Z",
+      "validThrough": "2026-12-13T21:19:09.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1684,7 +1684,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=9e7f96cbd38c#:~:text=BAUSPENGLER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.778Z",
+      "crawledAt": "2026-11-13T21:19:09.255Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1744,7 +1744,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.778Z",
+      "validThrough": "2026-12-13T21:19:09.255Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1778,7 +1778,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=42943d2bbf37#:~:text=METALLBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.777Z",
+      "crawledAt": "2026-11-13T21:19:09.254Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1832,7 +1832,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.777Z",
+      "validThrough": "2026-12-13T21:19:09.254Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1866,7 +1866,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0aee309cb88d#:~:text=Maurer%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.777Z",
+      "crawledAt": "2026-11-13T21:19:09.254Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1914,7 +1914,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.777Z",
+      "validThrough": "2026-12-13T21:19:09.254Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1948,7 +1948,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=f17adb7c9740#:~:text=GRUPPENLEITER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.776Z",
+      "crawledAt": "2026-11-13T21:19:09.253Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2002,7 +2002,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.776Z",
+      "validThrough": "2026-12-13T21:19:09.253Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2036,7 +2036,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.775Z",
+      "crawledAt": "2026-11-13T21:19:09.252Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2084,7 +2084,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.775Z",
+      "validThrough": "2026-12-13T21:19:09.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2118,7 +2118,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=6909d4c416b9#:~:text=GIPSER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.774Z",
+      "crawledAt": "2026-11-13T21:19:09.251Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2166,7 +2166,7 @@
       "postalCode": "7000",
       "streetAddress": "7000 Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.774Z",
+      "validThrough": "2026-12-13T21:19:09.251Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2200,7 +2200,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=49229573c0b4#:~:text=MALER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.773Z",
+      "crawledAt": "2026-11-13T21:19:09.250Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2254,7 +2254,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.773Z",
+      "validThrough": "2026-12-13T21:19:09.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2288,7 +2288,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.772Z",
+      "crawledAt": "2026-11-13T21:19:09.248Z",
       "addressLocality": "Zürich oder Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2335,7 +2335,7 @@
       "postalCode": "7000",
       "streetAddress": "Zürich oder Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.772Z",
+      "validThrough": "2026-12-13T21:19:09.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2369,7 +2369,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=adf9c2d321a4#:~:text=SCHREINER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.770Z",
+      "crawledAt": "2026-11-13T21:19:09.246Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2420,7 +2420,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.770Z",
+      "validThrough": "2026-12-13T21:19:09.246Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2454,7 +2454,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=e3367af786da#:~:text=KRANF%C3%9CHRER%20SUVA%20KAT.%20B%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.769Z",
+      "crawledAt": "2026-11-13T21:19:09.244Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2497,7 +2497,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.769Z",
+      "validThrough": "2026-12-13T21:19:09.244Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2531,7 +2531,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=3bc35678b9c3#:~:text=ELEKTROINSTALLATEUR%20EFZ%20%2F%20MONTAGEELEKTRIKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.768Z",
+      "crawledAt": "2026-11-13T21:19:09.243Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2578,7 +2578,7 @@
       "postalCode": "7000",
       "streetAddress": "7000 Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.768Z",
+      "validThrough": "2026-12-13T21:19:09.243Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2612,7 +2612,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=74e180f1a9c7#:~:text=ZEICHNER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.766Z",
+      "crawledAt": "2026-11-13T21:19:09.241Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2665,7 +2665,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.766Z",
+      "validThrough": "2026-12-13T21:19:09.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2699,7 +2699,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=5da83c901c61#:~:text=BETRIEBSMECHANIKER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.765Z",
+      "crawledAt": "2026-11-13T21:19:09.240Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2753,7 +2753,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.765Z",
+      "validThrough": "2026-12-13T21:19:09.240Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2787,7 +2787,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2e4d80201b5a#:~:text=ELEKTRO%2DSICHERHEITSBERATER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.764Z",
+      "crawledAt": "2026-11-13T21:19:09.238Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2841,7 +2841,95 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.764Z",
+      "validThrough": "2026-12-13T21:19:09.238Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "grischapersonal-374b9674dce8",
+      "slug": "operatore-macchina-cnc-m-f-d-grischa-personal-ag-graubunden",
+      "slugByLocale": {
+        "it": "operatore-macchina-cnc-m-f-d-grischa-personal-ag-graubunden",
+        "en": "m-f-d-cnc-machine-operator-grischa-personal-ag-graubunden",
+        "de": "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch",
+        "fr": "operateur-de-machine-cnc-h-f-d-grischa-personal-ag-graubunden"
+      },
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "CNC-MASCHINENBEDIENER (m/w/d)",
+      "titleByLocale": {
+        "it": "operatore macchina CNC (m/f/d)",
+        "en": "(m/f/d) CNC machine operator",
+        "de": "CNC-MASCHINENBEDIENER (m/w/d)",
+        "fr": "Opérateur de machine CNC (h/f/d)"
+      },
+      "description": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nCNC-MASCHINENBEDINER (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Bedienung und Überwachung von CNC-Maschinen zur Bearbeitung von Werkstücken gemäß den Produktionsvorgaben und technischen Zeichnungen.\n- Einrichtung und Rüstung der Maschinen, einschließlich Werkzeugwechsel und Programmeingabe.\n- Eigenständige Durchführung von Qualitätsprüfungen und -kontrollen an gefertigten Teilen.\n- Durchführung von Messungen und Anpassungen, um sicherzustellen, dass die Produkte den Spezifikationen entsprechen.\n- Überwachung des Produktionsprozesses und Sicherstellung eines reibungslosen Ablaufs.\n- Unterstützung bei Wartungs- und Instandhaltungsarbeiten an den Maschinen.\n- Dokumentation der Produktionsdaten und Führung von Maschinenprotokollen.\nProfil\n- Abgeschlossene Berufsausbildung im technischen Bereich, idealerweise als Polymechaniker, Zerspanungsmechaniker, CNC-Fachkraft oder eine vergleichbare Qualifikation\n- Fundierte Erfahrung in der Bedienung von CNC-Maschinen, vorzugsweise im Bereich Fräsen oder Drehen.\n- Erfahrung im Einrichten und Rüsten von CNC-Maschinen sowie der Programmierung und Optimierung von CNC-Steuerungen.\n- Gute Kenntnisse im Lesen und Interpretieren von technischen Zeichnungen und Fertigungsplänen.\n- Vertrautheit im Umgang mit verschiedenen Messmitteln (z. B. Messschieber, Mikrometer, 3D-Messgeräte) zur Qualitätsprüfung der Werkstücke\n- Teamfähigkeit und Flexibilität sowie eine selbständige und lösungsorientierte Arbeitsweise\n- Präzises und verantwortungsbewusstes Arbeiten\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerschein Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf.\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.",
+      "descriptionByLocale": {
+        "it": "Per il nostro cliente siamo alla ricerca di una persona impegnata immediatamente o per accordo\nMontaggio macchina CNC (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Funzionamento e monitoraggio di macchine CNC per la lavorazione di pezzi in base alle specifiche di produzione e disegni tecnici.\n- Impostare e dotare le macchine, comprese le modifiche degli strumenti e l'ingresso del programma.\n- Esecuzione indipendente di controlli di qualità e controlli sulle parti prodotte.\n- Eseguire misurazioni e regolazioni per garantire che i prodotti soddisfino le specifiche.\n- Monitorare il processo di produzione e assicurarsi che funzioni senza problemi.\n- Supporto per lavori di manutenzione e manutenzione sulle macchine.\n- Documentazione dei dati di produzione e controllo dei registri delle macchine.\nProfilo\n- Formazione professionale completata nel settore tecnico, idealmente come polimeccanico, macchinista, specialista CNC o una qualifica comparabile\n- Esperienza approfondita nel funzionamento delle macchine CNC, preferibilmente nel campo della fresatura o della tornitura.\n- Esperienza nella creazione e nella dotazione di macchine CNC, nonché nella programmazione e nell'ottimizzazione dei controlli CNC.\n- Buona conoscenza della lettura e dell'interpretazione dei disegni tecnici e dei piani di produzione.\n- Familiarità con vari dispositivi di misura (ad es. valvole di scorrimento, micrometri, dispositivi di misura 3D) per test di qualità dei pezzi\n- Lavoro di squadra e flessibilità nonché un metodo di lavoro indipendente e orientato alla soluzione\n- Lavoro preciso e responsabile\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n- Patente di guida Cat. B\nInteressante? Allora contattaci oggi.\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.",
+        "en": "For our customer we are looking for an engaged person immediately or by agreement\nCNC machine mount (m/f/d)\nLocation: Graubünden\nTasks\n- Operation and monitoring of CNC machines for processing workpieces according to production specifications and technical drawings.\n- Setting up and equipping the machines, including tool changes and program input.\n- Independent performance of quality checks and controls on manufactured parts.\n- Carry out measurements and adjustments to ensure that products meet specifications.\n- Monitoring the production process and ensuring that it runs smoothly.\n- Support for maintenance and maintenance work on the machines.\n- Documentation of production data and control of machine logs.\nProfile\n- Completed vocational training in the technical field, ideally as a polymechanic, machinist, CNC specialist or a comparable qualification\n- In-depth experience in the operation of CNC machines, preferably in the field of milling or turning.\n- Experience in setting up and equipping CNC machines as well as programming and optimizing CNC controls.\n- Good knowledge of reading and interpreting technical drawings and production plans.\n- Familiarity with various measuring devices (e.g. slide valves, micrometers, 3D measuring devices) for quality testing of workpieces\n- Teamwork and flexibility as well as an independent and solution-oriented working method\n- Precise and responsible work\n- Good knowledge of German in words and writing\n- Driving licence Cat. B\nInterested? Then contact us today.\nSend your complete application documents to Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nApplications by post will, however, not be returned.",
+        "de": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nCNC-MASCHINENBEDINER (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Bedienung und Überwachung von CNC-Maschinen zur Bearbeitung von Werkstücken gemäß den Produktionsvorgaben und technischen Zeichnungen.\n- Einrichtung und Rüstung der Maschinen, einschließlich Werkzeugwechsel und Programmeingabe.\n- Eigenständige Durchführung von Qualitätsprüfungen und -kontrollen an gefertigten Teilen.\n- Durchführung von Messungen und Anpassungen, um sicherzustellen, dass die Produkte den Spezifikationen entsprechen.\n- Überwachung des Produktionsprozesses und Sicherstellung eines reibungslosen Ablaufs.\n- Unterstützung bei Wartungs- und Instandhaltungsarbeiten an den Maschinen.\n- Dokumentation der Produktionsdaten und Führung von Maschinenprotokollen.\nProfil\n- Abgeschlossene Berufsausbildung im technischen Bereich, idealerweise als Polymechaniker, Zerspanungsmechaniker, CNC-Fachkraft oder eine vergleichbare Qualifikation\n- Fundierte Erfahrung in der Bedienung von CNC-Maschinen, vorzugsweise im Bereich Fräsen oder Drehen.\n- Erfahrung im Einrichten und Rüsten von CNC-Maschinen sowie der Programmierung und Optimierung von CNC-Steuerungen.\n- Gute Kenntnisse im Lesen und Interpretieren von technischen Zeichnungen und Fertigungsplänen.\n- Vertrautheit im Umgang mit verschiedenen Messmitteln (z. B. Messschieber, Mikrometer, 3D-Messgeräte) zur Qualitätsprüfung der Werkstücke\n- Teamfähigkeit und Flexibilität sowie eine selbständige und lösungsorientierte Arbeitsweise\n- Präzises und verantwortungsbewusstes Arbeiten\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerschein Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf.\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.",
+        "fr": "Pour notre client, nous recherchons une personne engagée immédiatement ou par accord\nMontage de machine CNC (h/f/d)\nLieu: Grisons\nTâche\n- Fonctionnement et surveillance des machines CNC pour le traitement des pièces selon les spécifications de production et les dessins techniques.\n- Configuration et équipement des machines, y compris les changements d'outils et l'entrée du programme.\n- Performance indépendante des contrôles de qualité et des contrôles des pièces fabriquées.\n- Effectuer des mesures et des ajustements pour s'assurer que les produits répondent aux spécifications.\n- Suivre le processus de production et s'assurer qu'il fonctionne bien.\n- Soutien aux travaux d'entretien et d'entretien des machines.\n- Documentation des données de production et contrôle des registres des machines.\nProfil\n- Achevé une formation professionnelle dans le domaine technique, idéalement comme polymécanique, machiniste, spécialiste CNC ou une qualification comparable\n- Expérience approfondie dans le fonctionnement des machines CNC, de préférence dans le domaine du fraisage ou du tournage.\n- Expérience dans la mise en place et l'équipement de machines CNC ainsi que la programmation et l'optimisation des commandes CNC.\n- Bonne connaissance de la lecture et de l'interprétation des dessins techniques et des plans de production.\n- Familiarité avec divers appareils de mesure (p. ex. vannes à glissière, micromètres, appareils de mesure 3D) pour les essais de qualité des pièces\n- Travail d'équipe et flexibilité, ainsi qu'une méthode de travail indépendante et orientée vers la solution\n- Travail précis et responsable\n- Bonne connaissance de l'allemand en mots et en écriture\n- Permis de conduire Cat. B\nIntéressé? Alors contactez-nous aujourd'hui.\nEnvoyez vos documents de candidature complets à Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nToutefois, les demandes par la poste ne seront pas retournées."
+      },
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=84cad7e37d95#:~:text=CNC%2DMASCHINENBEDIENER%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:19:09.237Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-10-04T11:55:08+02:00",
+      "postedDate": "2024-10-04T11:55:08+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=84cad7e37d95#:~:text=CNC%2DMASCHINENBEDIENER%20(m%2Fw%2Fd)",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden",
+        "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden",
+          "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch"
+        ],
+        "en": [
+          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
+        ],
+        "de": [
+          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
+        ],
+        "fr": [
+          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
+        ]
+      },
+      "firstSeenAt": "2026-09-27T05:13:26.215Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000",
+      "streetAddress": "Graubünden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-13T21:19:09.237Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2875,7 +2963,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a4ee54123d00#:~:text=NETZELEKTIKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.760Z",
+      "crawledAt": "2026-11-13T21:19:09.236Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2931,95 +3019,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.760Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "grischapersonal-374b9674dce8",
-      "slug": "operatore-macchina-cnc-m-f-d-grischa-personal-ag-graubunden",
-      "slugByLocale": {
-        "it": "operatore-macchina-cnc-m-f-d-grischa-personal-ag-graubunden",
-        "en": "m-f-d-cnc-machine-operator-grischa-personal-ag-graubunden",
-        "de": "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch",
-        "fr": "operateur-de-machine-cnc-h-f-d-grischa-personal-ag-graubunden"
-      },
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "CNC-MASCHINENBEDIENER (m/w/d)",
-      "titleByLocale": {
-        "it": "operatore macchina CNC (m/f/d)",
-        "en": "(m/f/d) CNC machine operator",
-        "de": "CNC-MASCHINENBEDIENER (m/w/d)",
-        "fr": "Opérateur de machine CNC (h/f/d)"
-      },
-      "description": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nCNC-MASCHINENBEDINER (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Bedienung und Überwachung von CNC-Maschinen zur Bearbeitung von Werkstücken gemäß den Produktionsvorgaben und technischen Zeichnungen.\n- Einrichtung und Rüstung der Maschinen, einschließlich Werkzeugwechsel und Programmeingabe.\n- Eigenständige Durchführung von Qualitätsprüfungen und -kontrollen an gefertigten Teilen.\n- Durchführung von Messungen und Anpassungen, um sicherzustellen, dass die Produkte den Spezifikationen entsprechen.\n- Überwachung des Produktionsprozesses und Sicherstellung eines reibungslosen Ablaufs.\n- Unterstützung bei Wartungs- und Instandhaltungsarbeiten an den Maschinen.\n- Dokumentation der Produktionsdaten und Führung von Maschinenprotokollen.\nProfil\n- Abgeschlossene Berufsausbildung im technischen Bereich, idealerweise als Polymechaniker, Zerspanungsmechaniker, CNC-Fachkraft oder eine vergleichbare Qualifikation\n- Fundierte Erfahrung in der Bedienung von CNC-Maschinen, vorzugsweise im Bereich Fräsen oder Drehen.\n- Erfahrung im Einrichten und Rüsten von CNC-Maschinen sowie der Programmierung und Optimierung von CNC-Steuerungen.\n- Gute Kenntnisse im Lesen und Interpretieren von technischen Zeichnungen und Fertigungsplänen.\n- Vertrautheit im Umgang mit verschiedenen Messmitteln (z. B. Messschieber, Mikrometer, 3D-Messgeräte) zur Qualitätsprüfung der Werkstücke\n- Teamfähigkeit und Flexibilität sowie eine selbständige und lösungsorientierte Arbeitsweise\n- Präzises und verantwortungsbewusstes Arbeiten\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerschein Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf.\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente siamo alla ricerca di una persona impegnata immediatamente o per accordo\nMontaggio macchina CNC (m/f/d)\nUbicazione: Grigioni\nCompiti\n- Funzionamento e monitoraggio di macchine CNC per la lavorazione di pezzi in base alle specifiche di produzione e disegni tecnici.\n- Impostare e dotare le macchine, comprese le modifiche degli strumenti e l'ingresso del programma.\n- Esecuzione indipendente di controlli di qualità e controlli sulle parti prodotte.\n- Eseguire misurazioni e regolazioni per garantire che i prodotti soddisfino le specifiche.\n- Monitorare il processo di produzione e assicurarsi che funzioni senza problemi.\n- Supporto per lavori di manutenzione e manutenzione sulle macchine.\n- Documentazione dei dati di produzione e controllo dei registri delle macchine.\nProfilo\n- Formazione professionale completata nel settore tecnico, idealmente come polimeccanico, macchinista, specialista CNC o una qualifica comparabile\n- Esperienza approfondita nel funzionamento delle macchine CNC, preferibilmente nel campo della fresatura o della tornitura.\n- Esperienza nella creazione e nella dotazione di macchine CNC, nonché nella programmazione e nell'ottimizzazione dei controlli CNC.\n- Buona conoscenza della lettura e dell'interpretazione dei disegni tecnici e dei piani di produzione.\n- Familiarità con vari dispositivi di misura (ad es. valvole di scorrimento, micrometri, dispositivi di misura 3D) per test di qualità dei pezzi\n- Lavoro di squadra e flessibilità nonché un metodo di lavoro indipendente e orientato alla soluzione\n- Lavoro preciso e responsabile\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n- Patente di guida Cat. B\nInteressante? Allora contattaci oggi.\nInvia i tuoi documenti di candidatura completi a Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nLe domande per posta non saranno comunque restituite.",
-        "en": "For our customer we are looking for an engaged person immediately or by agreement\nCNC machine mount (m/f/d)\nLocation: Graubünden\nTasks\n- Operation and monitoring of CNC machines for processing workpieces according to production specifications and technical drawings.\n- Setting up and equipping the machines, including tool changes and program input.\n- Independent performance of quality checks and controls on manufactured parts.\n- Carry out measurements and adjustments to ensure that products meet specifications.\n- Monitoring the production process and ensuring that it runs smoothly.\n- Support for maintenance and maintenance work on the machines.\n- Documentation of production data and control of machine logs.\nProfile\n- Completed vocational training in the technical field, ideally as a polymechanic, machinist, CNC specialist or a comparable qualification\n- In-depth experience in the operation of CNC machines, preferably in the field of milling or turning.\n- Experience in setting up and equipping CNC machines as well as programming and optimizing CNC controls.\n- Good knowledge of reading and interpreting technical drawings and production plans.\n- Familiarity with various measuring devices (e.g. slide valves, micrometers, 3D measuring devices) for quality testing of workpieces\n- Teamwork and flexibility as well as an independent and solution-oriented working method\n- Precise and responsible work\n- Good knowledge of German in words and writing\n- Driving licence Cat. B\nInterested? Then contact us today.\nSend your complete application documents to Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nApplications by post will, however, not be returned.",
-        "de": "Für unseren Kunden suchen wir per sofort oder nach Vereinbarung eine/n engagierte/n\nCNC-MASCHINENBEDINER (m/w/d)\nArbeitsort: Graubünden\nAufgaben\n- Bedienung und Überwachung von CNC-Maschinen zur Bearbeitung von Werkstücken gemäß den Produktionsvorgaben und technischen Zeichnungen.\n- Einrichtung und Rüstung der Maschinen, einschließlich Werkzeugwechsel und Programmeingabe.\n- Eigenständige Durchführung von Qualitätsprüfungen und -kontrollen an gefertigten Teilen.\n- Durchführung von Messungen und Anpassungen, um sicherzustellen, dass die Produkte den Spezifikationen entsprechen.\n- Überwachung des Produktionsprozesses und Sicherstellung eines reibungslosen Ablaufs.\n- Unterstützung bei Wartungs- und Instandhaltungsarbeiten an den Maschinen.\n- Dokumentation der Produktionsdaten und Führung von Maschinenprotokollen.\nProfil\n- Abgeschlossene Berufsausbildung im technischen Bereich, idealerweise als Polymechaniker, Zerspanungsmechaniker, CNC-Fachkraft oder eine vergleichbare Qualifikation\n- Fundierte Erfahrung in der Bedienung von CNC-Maschinen, vorzugsweise im Bereich Fräsen oder Drehen.\n- Erfahrung im Einrichten und Rüsten von CNC-Maschinen sowie der Programmierung und Optimierung von CNC-Steuerungen.\n- Gute Kenntnisse im Lesen und Interpretieren von technischen Zeichnungen und Fertigungsplänen.\n- Vertrautheit im Umgang mit verschiedenen Messmitteln (z. B. Messschieber, Mikrometer, 3D-Messgeräte) zur Qualitätsprüfung der Werkstücke\n- Teamfähigkeit und Flexibilität sowie eine selbständige und lösungsorientierte Arbeitsweise\n- Präzises und verantwortungsbewusstes Arbeiten\n- Gute Deutschkenntnisse in Wort und Schrift\n- Führerschein Kat. B\nInteressiert? Dann nehmen Sie noch heute Kontakt mit uns auf.\nIhre vollständigen Bewerbungsunterlagen senden Sie an Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nBewerbungen per Post werden berücksichtigt jedoch nicht retourniert.",
-        "fr": "Pour notre client, nous recherchons une personne engagée immédiatement ou par accord\nMontage de machine CNC (h/f/d)\nLieu: Grisons\nTâche\n- Fonctionnement et surveillance des machines CNC pour le traitement des pièces selon les spécifications de production et les dessins techniques.\n- Configuration et équipement des machines, y compris les changements d'outils et l'entrée du programme.\n- Performance indépendante des contrôles de qualité et des contrôles des pièces fabriquées.\n- Effectuer des mesures et des ajustements pour s'assurer que les produits répondent aux spécifications.\n- Suivre le processus de production et s'assurer qu'il fonctionne bien.\n- Soutien aux travaux d'entretien et d'entretien des machines.\n- Documentation des données de production et contrôle des registres des machines.\nProfil\n- Achevé une formation professionnelle dans le domaine technique, idéalement comme polymécanique, machiniste, spécialiste CNC ou une qualification comparable\n- Expérience approfondie dans le fonctionnement des machines CNC, de préférence dans le domaine du fraisage ou du tournage.\n- Expérience dans la mise en place et l'équipement de machines CNC ainsi que la programmation et l'optimisation des commandes CNC.\n- Bonne connaissance de la lecture et de l'interprétation des dessins techniques et des plans de production.\n- Familiarité avec divers appareils de mesure (p. ex. vannes à glissière, micromètres, appareils de mesure 3D) pour les essais de qualité des pièces\n- Travail d'équipe et flexibilité, ainsi qu'une méthode de travail indépendante et orientée vers la solution\n- Travail précis et responsable\n- Bonne connaissance de l'allemand en mots et en écriture\n- Permis de conduire Cat. B\nIntéressé? Alors contactez-nous aujourd'hui.\nEnvoyez vos documents de candidature complets à Lorenzo Bargähr, bewerbungen@grischapersonal.ch\nToutefois, les demandes par la poste ne seront pas retournées."
-      },
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=84cad7e37d95#:~:text=CNC%2DMASCHINENBEDIENER%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.760Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-10-04T11:55:08+02:00",
-      "postedDate": "2024-10-04T11:55:08+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=84cad7e37d95#:~:text=CNC%2DMASCHINENBEDIENER%20(m%2Fw%2Fd)",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden",
-        "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden",
-          "cnc-maschinenbediener-m-w-d-graubunden-grischapersonal-ch"
-        ],
-        "en": [
-          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
-        ],
-        "de": [
-          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
-        ],
-        "fr": [
-          "cnc-maschinenbediener-m-w-d-grischa-personal-ag-graubunden"
-        ]
-      },
-      "firstSeenAt": "2026-09-27T05:13:26.215Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "streetAddress": "Graubünden",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.760Z",
+      "validThrough": "2026-12-13T21:19:09.236Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3053,7 +3053,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=00a110864d90#:~:text=ANLAGEN%2D%20UND%20APPARATEBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.759Z",
+      "crawledAt": "2026-11-13T21:19:09.234Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3108,7 +3108,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.759Z",
+      "validThrough": "2026-12-13T21:19:09.234Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3142,7 +3142,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=a5041a2622ca#:~:text=BAUF%C3%9CHRER%20TIEF%2D%20%2F%20STRASSENBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.758Z",
+      "crawledAt": "2026-11-13T21:19:09.233Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3197,7 +3197,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.758Z",
+      "validThrough": "2026-12-13T21:19:09.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3231,7 +3231,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=c51cc0441fec#:~:text=CAD%2DZEICHNER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:22:02.757Z",
+      "crawledAt": "2026-11-13T21:19:09.231Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3282,7 +3282,7 @@
       "postalCode": "7000",
       "streetAddress": "Graubünden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:22:02.757Z",
+      "validThrough": "2026-12-13T21:19:09.231Z",
       "validThroughSource": "last-observed-window"
     }
   ]

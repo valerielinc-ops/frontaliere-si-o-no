@@ -14,6 +14,12 @@ function fetchDiagnosticScript() {
   }).then((result) => result.outputFiles[0].text);
   return browserScript;
 }
+
+/** Start the trusted esbuild service before the replay runner's Node fence. */
+export async function warmPortalDiagnostics() {
+  await fetchDiagnosticScript();
+}
+
 const LIMIT = 40;
 
 /**

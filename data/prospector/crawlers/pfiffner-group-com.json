@@ -1,0 +1,27 @@
+{
+  "companyKey": "pfiffner-group-com",
+  "companyName": "Pfiffner Messwandler AG",
+  "companyHost": "pfiffner-group.com",
+  "verifiedEmployerDomain": "pfiffner-group.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pfiffner-group.com/careers/jobs"
+  ],
+  "detailTemplate": "/careers/jobs/detail/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Prozessfachmann/ -frau PPS (m/w/d)",
+    "Technischer Support Netzbau (m/w/d)",
+    "Techniker AIS-Schaltanlagen (m/w/d)",
+    "Leitender Netzmonteur (m/w/d)",
+    "Netzelektriker / Netzmonteur (m/w/d)"
+  ],
+  "canton": "AG",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T14:00:03.552Z",
+  "candidateKey": "pfiffner-messwandler@hirschthal"
+}

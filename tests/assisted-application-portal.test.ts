@@ -1989,6 +1989,71 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(result).toEqual([expect.objectContaining({ fieldId: 'privacy', ok: false, error: 'choice_not_registered' })]);
   });
 
+  it('clicks the visible label when a custom Workday consent input is visually hidden', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const control: any = {
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        if (source.includes('getBoundingClientRect') || source.includes('data-aa-label')) return true;
+        return null;
+      }),
+      locator: vi.fn(() => ({
+        first: () => ({
+          click: vi.fn(async () => { labelClicks += 1; checked = true; }),
+          evaluate: vi.fn(async () => null),
+        }),
+      })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'terms', kind: 'checkbox', inputType: 'checkbox', label: "J'ai lu et j'accepte les conditions générales", required: false,
+    }], [{ fieldId: 'terms', action: 'check', value: '' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'terms', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).not.toHaveBeenCalled();
+  });
+
+  it('falls back to the native radio check when a custom label click does not commit', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const label = {
+      click: vi.fn(async () => { labelClicks += 1; }),
+      evaluate: vi.fn(async () => null),
+    };
+    const control: any = {
+      count: vi.fn(async () => 1),
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        return source.includes('getBoundingClientRect') || source.includes('data-aa-label');
+      }),
+      locator: vi.fn(() => ({ first: () => label })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'workday-radio', kind: 'radio', inputType: 'radio', label: 'No', required: true,
+      options: [{ label: 'No', value: 'no' }],
+    }], [{ fieldId: 'workday-radio', action: 'select', value: 'No' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'workday-radio', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).toHaveBeenCalledWith(true, { force: true, timeout: 6000 });
+    expect(checked).toBe(true);
+  });
+
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
     let selected = '';
     const localizedOption = {
@@ -2304,7 +2369,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
+      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'consent', evidence: '' },
     ]);
     // A policy-defaultable privacy notice stays checked despite an opposing plan action; a prompt value stays blank and an optional newsletter may be cleared.
     const projected = guardPlan({
@@ -2328,7 +2393,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('uses policy defaults for application privacy acknowledgments and keeps marketing/fact questions', () => {
+  it('keeps consent provenance for application acknowledgments and policy defaults for review statements', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2346,7 +2411,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
     expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([
-      ['c1', 'policy_default'], ['c4', 'policy_default'], ['c5', 'policy_default'], ['c6', 'policy_default'],
+      ['c1', 'consent'], ['c4', 'policy_default'], ['c5', 'consent'], ['c6', 'consent'],
     ]);
     // Marketing and a checkbox that also declares a candidate fact remain questions.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);

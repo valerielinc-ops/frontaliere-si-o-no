@@ -1,7 +1,7 @@
 {
   "key": "constellium",
   "label": "Constellium Valais",
-  "generatedAt": "2026-11-12T21:35:58.892Z",
+  "generatedAt": "2026-11-13T21:52:28.207Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9472,
-  "avgDurationMs": 9472,
+  "durationMs": 8194,
+  "avgDurationMs": 8194,
   "durationHistory": [
-    9472
+    8194
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Automatikerin-Elektrikerin-%28100-%29-1-Vala-3940/1447487733/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:35:36.110Z",
+      "crawledAt": "2026-11-13T21:52:08.777Z",
       "firstSeenAt": "2026-10-15T21:29:08.357Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -60,7 +60,7 @@
       "addressRegion": "VS",
       "streetAddress": "Steg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:35:36.110Z",
+      "validThrough": "2027-01-12T21:52:08.777Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

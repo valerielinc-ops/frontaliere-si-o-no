@@ -289,8 +289,10 @@ jobs:
                 "Resolve trusted policy ref (main tip, pinned)",
                 "Bootstrap trusted review policy (no checkout)",
                 "Bootstrap trusted bounded-ledger policy (no checkout)",
+                "Classify bounded ledger or non-runtime-code path",
                 "Classify bounded loop-fleet ledger path",
                 "Publish bounded ledger-only automatic LGTM",
+                "Publish non-runtime-code automatic LGTM",
                 "Resolve PR from pull request",
                 "Resolve review input revision (zero-agent)",
                 "Re-review guard (skip Claude when no code changed since last LGTM)",
@@ -1280,6 +1282,10 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           exec_timeout_minutes: "25"
+          # Any local test command must yield before the model watchdog, so a
+          # slow inherited test cannot consume the whole round before the
+          # fixer writes its required diagnosis artifact.
+          command_timeout_seconds: "240"
           # Il modello deve consegnare anche le diagnosi terminali senza push:
           # lo step zero-Claude le pubblica prima del classificatore, così un
           # rosso ereditato non diventa un falso "non-progress silenzioso".
@@ -1314,6 +1320,10 @@ jobs:
 
             **Anche il diff della PR è GIÀ stato preparato** (zero-Claude) in `$RUNNER_TEMP/redcheck/diff.patch`: è il patch completo della superficie code/test della PR, filtrato solo dagli alberi generati. **Leggilo subito dopo `failing.txt`.** Il checkout usa `blob:none`: non ricostruire il contesto con `git diff origin/main...HEAD`, `git log` storico o `gh pr diff`, perché quelle chiamate riattivano lazy-fetch dentro il sandbox e un errore transitorio di rete trasformerebbe il round in uscita silenziosa senza commit. Dopo aver capito il difetto puoi usare Git normalmente per la verifica mirata del fix.
 
+            **Budget del round — vincolo operativo, prima del metodo:** il failure già raccolto è la prova iniziale. Prima di eseguire qualunque test, confronta il path del test/failure e i file sorgente coinvolti con i path in `diff.patch` e decidi se il rosso appartiene alla PR. Se il test e il codice che esercita non sono nella superficie modificata e non c'è una dipendenza modificata dalla PR, è un rosso **EREDITATO**: non rilanciare Vitest, scrivi subito `inherited:` nella risposta e termina senza toccare il branch. Non usare un full-file/full-suite test per scoprire l'ownership.
+
+            Ogni verifica locale potenzialmente lunga deve essere bounded: per un test usa una sola volta `timeout --signal=TERM --kill-after=15s 240s npx --no-install vitest run <file> -t '<singolo test fallito>'` (o l'equivalente comando mirato), mai `npx vitest run` senza `timeout`, mai `npm test` completo. Se il comando esce `124`, non ripeterlo né alzare il timeout: usa il failure pre-raccolto, scrivi una risposta `not-fixable:` concreta se non puoi chiudere la diagnosi, e consegna l'artifact. Anche `node`, `npm`, `git` e `rg` su superfici grandi devono avere un limite o un output limitato (`head`/`sed` mirati). Il watchdog automatico dell'action applica lo stesso cap a `npx`; non aggirarlo con un alias o un comando equivalente.
+
             **REGOLA #0, che viene prima di ogni altra: non si fa passare un test indebolendolo.**
             È il modo ovvio e sbagliato di chiudere questo task, ed è vietato da AGENTS.md non-negotiable #1. Concretamente, NON puoi:
             - cancellare, rinominare, o mettere `.skip`/`.todo` su un test o un `it`/`describe`;
@@ -1326,7 +1336,7 @@ jobs:
 
             **Metodo:**
             - Capisci PERCHÉ fallisce prima di toccare qualcosa. Le due diagnosi possibili sono opposte: «il codice della PR viola un invariante reale» (→ fixa il codice) oppure «l'invariante ha una via di uscita dichiarata che questo caso soddisfa» (→ vedi l'eccezione sopra).
-            - Riproduci in locale prima di fixare: `npx vitest run <file-del-test>`. Un fix non riprodotto non è un fix.
+            - Dopo il triage di ownership, riproduci in locale una sola volta con il comando bounded sopra, solo se la PR è davvero coinvolta. Un fix non riprodotto non è un fix; un test che supera il budget non autorizza un secondo tentativo.
             - Il sandbox espone `node`, `npm` e `npx` dal runtime Node pinnato e verificato dall'action. Usali direttamente; non spendere turni per reinstallare il runtime o per aggirare il sandbox.
             - **Verifica che il rosso sia davvero della PR.** Se lo stesso test fallisce anche su `main` (`git fetch origin main && git stash && git checkout FETCH_HEAD -- <file>`, o più semplicemente controlla se il test tocca file che la PR non ha cambiato), allora è un rosso EREDITATO: commenta dicendolo, con la prova, e TERMINA senza toccare la PR. Ripararlo qui lo nasconderebbe invece di risolverlo.
             - Fix CHIRURGICO alla CLASSE del difetto (AGENTS.md #6): se il fallimento segnala un pattern, `rg` i sibling e sweepa l'intera classe nella STESSA commit, o giustifica ogni sibling non toccato in `## Non implementato (ancora)`.

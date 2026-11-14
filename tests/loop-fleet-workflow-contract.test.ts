@@ -258,6 +258,17 @@ function runDownloadFailureClassifier({
   }
 }
 
+function runDownloadRetryClassifier(output: string): boolean {
+  const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+  const classifier = source.match(
+    /^[ \t]{10}download_is_retryable_transient_failure\(\) \{\n(?:^[ \t]{12,}.*\n)+^[ \t]{10}\}/mu,
+  )?.[0];
+  expect(classifier, 'download retry classifier').toBeDefined();
+  const pattern = classifier?.match(/grep -Eqi -- '([^']+)'/u)?.[1];
+  expect(pattern, 'download retry classifier pattern').toBe('HTTP (500|502|503|504):');
+  return new RegExp(pattern ?? '(?!)', 'iu').test(output);
+}
+
 describe('loop fleet workflow contract', () => {
   it('records canonical evidence for every loop with a read-only contents token', () => {
     for (const name of loopWorkflows) {
@@ -756,6 +767,30 @@ describe('loop fleet workflow contract', () => {
     ];
     for (const testCase of cases) {
       expect(runDownloadFailureClassifier(testCase), testCase.output).toBe(testCase.expected);
+    }
+  });
+
+  it('retries bounded transient artifact transport failures without weakening fail-closed errors', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('download_max_attempts=3');
+    expect(source).toContain('download_dir="$INPUT_DIR/artifact"');
+    expect(source).toContain('rm -rf -- "$download_dir"');
+    expect(source).toContain('retry_delay=$((download_attempt * 5))');
+    expect(source).toContain('download_attempt=$((download_attempt + 1))');
+    const cases = [
+      { output: 'HTTP 500: Internal Server Error', expected: true },
+      { output: 'HTTP 502: Bad Gateway', expected: true },
+      { output: 'HTTP 503: 503 Egress is over the account limit.', expected: true },
+      { output: 'HTTP 504: Gateway Timeout', expected: true },
+      { output: 'HTTP 501: Not Implemented', expected: false },
+      { output: 'HTTP 401: Bad credentials', expected: false },
+      { output: 'HTTP 403: API rate limit exceeded', expected: false },
+      { output: 'no valid artifacts found to download', expected: false },
+      { output: 'failed to extract archive: unexpected EOF', expected: false },
+      { output: 'request timed out', expected: false },
+    ];
+    for (const testCase of cases) {
+      expect(runDownloadRetryClassifier(testCase.output), testCase.output).toBe(testCase.expected);
     }
   });
 

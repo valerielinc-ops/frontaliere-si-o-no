@@ -1,7 +1,7 @@
 {
   "key": "gemeinde-st-moritz",
   "label": "Gemeinde St. Moritz",
-  "generatedAt": "2026-11-12T21:48:47.720Z",
+  "generatedAt": "2026-11-13T21:32:20.372Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6964,
-  "avgDurationMs": 6964,
+  "durationMs": 7630,
+  "avgDurationMs": 7630,
   "durationHistory": [
-    6964
+    7630
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:48:32.911Z",
+      "crawledAt": "2026-11-13T21:32:08.741Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +60,7 @@
       "addressRegion": "GR",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:48:32.911Z",
+      "validThrough": "2026-12-13T21:32:08.741Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -71,5 +71,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

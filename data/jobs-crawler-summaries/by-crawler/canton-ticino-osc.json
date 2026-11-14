@@ -1,7 +1,7 @@
 {
   "key": "canton-ticino-osc",
   "label": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
-  "generatedAt": "2026-11-12T21:37:56.800Z",
+  "generatedAt": "2026-11-13T21:22:07.350Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 12635,
-  "avgDurationMs": 12635,
+  "durationMs": 13735,
+  "avgDurationMs": 13735,
   "durationHistory": [
-    12635
+    13735
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:36.461Z",
+      "crawledAt": "2026-11-13T21:21:51.698Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -59,7 +59,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:37:36.461Z",
+      "validThrough": "2026-12-13T21:21:51.698Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:35.853Z",
+      "crawledAt": "2026-11-13T21:21:51.070Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:37:35.853Z",
+      "validThrough": "2026-12-13T21:21:51.070Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4337",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:35.246Z",
+      "crawledAt": "2026-11-13T21:21:50.442Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -154,7 +154,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:37:35.246Z",
+      "validThrough": "2027-02-08T21:21:50.442Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +177,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4336",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:34.642Z",
+      "crawledAt": "2026-11-13T21:21:49.813Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "salarySource": "estimated",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:37:34.642Z",
+      "validThrough": "2027-02-07T21:21:49.813Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -222,7 +222,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4333",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:34.038Z",
+      "crawledAt": "2026-11-13T21:21:49.186Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:37:34.038Z",
+      "validThrough": "2027-02-07T21:21:49.186Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -268,7 +268,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4331",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-12T21:37:32.816Z",
+      "crawledAt": "2026-11-13T21:21:47.924Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:37:32.816Z",
+      "validThrough": "2027-02-05T21:21:47.924Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -302,5 +302,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

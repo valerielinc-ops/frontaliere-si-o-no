@@ -2,7 +2,7 @@ import fontkit from '@pdf-lib/fontkit';
 import { PDFDocument, PageSizes, rgb } from 'pdf-lib';
 import { readFile } from 'node:fs/promises';
 import { cvToSend } from './assistedApplicationDocxInPlace.js';
-import { documentFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
+import { documentFilesOf, photoFilesOf, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 
 export const POSTAL_PACKET_MAX_SOURCE_BYTES = 48 * 1024 * 1024;
@@ -121,6 +121,8 @@ const exemptionOf = (document, flow) => {
 /** Include only materials the candidate must submit; an exempt document must not reappear as an attachment. */
 export function postalPacketSources({ order, orderId, flow, draft }) {
   const requested = requiredDocumentsFor(draft, flow);
+  const filesForDocument = (document) => document.kind === 'photo'
+    ? photoFilesOf(flow, orderId, document) : documentFilesOf(flow, orderId, document.id);
   const selected = cvToSend(draft, flow, order);
   const cvRequirement = requested.find((document) => document.id === 'curriculum_vitae');
   const cv = cvRequirement && exemptionOf(cvRequirement, flow) ? null : {
@@ -134,7 +136,7 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
       : selected.cv === 'inplace' ? 'CV_adattato.docx' : 'CV_adattato.pdf',
   };
   const documents = requested.filter((document) => document.id !== 'curriculum_vitae' && !document.localOnly && !exemptionOf(document, flow)).flatMap((document) => (
-    documentFilesOf(flow, orderId, document.id).map((file) => ({
+    filesForDocument(document).map((file) => ({
       ...file,
       label: document.label,
       documentId: document.id,
@@ -151,7 +153,7 @@ export function postalPacketSources({ order, orderId, flow, draft }) {
   const missingDocuments = requested
     .filter((document) => document.required && document.id !== 'curriculum_vitae' && !document.localOnly
       && document.delivery !== 'service' && !exemptionOf(document, flow))
-    .filter((document) => documentFilesOf(flow, orderId, document.id).length === 0)
+    .filter((document) => filesForDocument(document).length === 0)
     .map((document) => document.label);
   if (cvRequirement?.required && !exemptionOf(cvRequirement, flow) && !cv?.key) missingDocuments.unshift(cvRequirement.label);
   return { cv, documents, includeHandwrittenLetter, localDocuments, missingDocuments };

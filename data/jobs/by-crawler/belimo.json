@@ -1,7 +1,7 @@
 {
   "crawlerKey": "belimo",
-  "assembledAt": "2026-11-12T21:22:05.141Z",
-  "runId": "43306588261",
+  "assembledAt": "2026-11-13T21:15:13.711Z",
+  "runId": "43507118306",
   "jobs": [
     {
       "id": "belimo-bcac88bf5192",
@@ -34,7 +34,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Tax-Manager-%2880-100%29-Z%C3%BCri-8340/1165739255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:58.054Z",
+      "crawledAt": "2026-11-13T21:15:06.989Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -82,7 +82,240 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:21:58.054Z",
+      "validThrough": "2027-02-02T21:15:06.989Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "belimo-88592d98973d",
+      "slug": "embedded-security-verification-engineer-80-100-belimo-hinwil",
+      "slugByLocale": {
+        "it": "embedded-security-verification-engineer-80-100-belimo-hinwil",
+        "en": "trusted-firmware-verification-engineer-80-100-belimo-hinwil",
+        "de": "embedded-security-verification-engineer-80-100-belimo-hinwil",
+        "fr": "embedded-security-verification-engineer-80-100-belimo-hinwil"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "Embedded Security Verification Engineer (80-100%)",
+      "titleByLocale": {
+        "it": "Embedded Security Verification Ingegnere (80-100%)",
+        "en": "Embedded Security Verification Engineer (80-100%)",
+        "de": "Embedded Security Verification Ingenieur (80-100%)",
+        "fr": "Embedded Security Verification Ingénieur (80-100%)"
+      },
+      "description": "Introduction\n\nJoin us as an Embedded Security Verification Engineer and play a key role in securing next-generation embedded and IoT products. You will lead security testing, identify vulnerabilities, and build automated validation solutions for ARM-based firmware platforms while collaborating across development and security teams.\n\nKey Responsibilities\n\n• Plan, document, and lead security testing campaigns for embedded products.\n\n• Perform security assessments, penetration testing, threat modeling, and security reviews.\n\n• Validate critical security features such as Secure Boot, Secure Update, Secure Storage, and communication protocols.\n\n• Identify and analyze vulnerabilities in firmware, communication stacks, and embedded systems.\n\n• Design, develop, and maintain automated security testing and validation frameworks.\n\n• Coordinate external development partners and take ownership of selected deliverables.\n\n• Support firmware releases, maintenance activities, and security compliance requirements.\n\n• Investigate reported security defects and contribute to vulnerability remediation efforts.\n\nRequired Expertise\n\n• BSc or MSc in Software Engineering, Computer Science, Electrical/Computer Engineering, or a related field; cybersecurity certifications are also valued.\n\n• Experience with cybersecurity-focused embedded systems and secure firmware architectures.\n\n• Hands-on experience in vulnerability assessment and penetration testing of communication stacks (REST APIs, HTTP, Modbus, BACnet, etc.).\n\n• Knowledge of secure embedded technologies including Secure Boot, Secure Update, TrustedFirmware-M, and secure storage concepts.\n\n• Strong programming skills in Embedded C++ and Python.\n\n• Understanding of cryptography fundamentals, including encryption, digital signatures, PKI, and key management.\n\n• Experience with RTOS environments, network protocols, industrial field buses, and test automation tools such as Robot Framework.\n\n• Fluent English communication skills; German is a plus.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
+      "descriptionByLocale": {
+        "it": "Introduzione\n\nUnisciti a noi come Ingegnere di verifica della sicurezza incorporato e gioca un ruolo chiave nel garantire prodotti IoT e incorporati di nuova generazione. Condurrai i test di sicurezza, identificherai le vulnerabilità e costruirai soluzioni di validazione automatizzate per le piattaforme firmware basate su ARM, collaborando tra team di sviluppo e sicurezza.\n\nPrincipali responsabilità\n\n• Pianificare, documentare e condurre campagne di test di sicurezza per i prodotti incorporati.\n\n• Esegui valutazioni di sicurezza, test di penetrazione, modellazione delle minacce e recensioni di sicurezza.\n\n• Convalida funzioni di sicurezza critiche come Secure Boot, Secure Update, Secure Storage e protocolli di comunicazione.\n\n• Identificare e analizzare le vulnerabilità in firmware, stack di comunicazione e sistemi incorporati.\n\n• Progettare, sviluppare e mantenere quadri automatizzati di test e convalida della sicurezza.\n\n• Coordinare i partner di sviluppo esterno e prendere la proprietà dei responsabili selezionati.\n\n• Supporta release del firmware, attività di manutenzione e requisiti di conformità della sicurezza.\n\n• Investigare ha segnalato difetti di sicurezza e contribuire agli sforzi di riparazione della vulnerabilità.\n\nCompetenza richiesta\n\n• BSc o MSc in ingegneria del software, informatica, ingegneria elettrica / computer, o un campo correlato; le certificazioni di sicurezza informatica sono anche valutate.\n\n• Esperienza con sistemi embedded focalizzati sulla sicurezza informatica e architetture firmware sicure.\n\n• Esperienza pratica nella valutazione della vulnerabilità e nel test di penetrazione degli stack di comunicazione (API REST, HTTP, Modbus, BACnet, ecc.).\n\n• Conoscenza di tecnologie embedded sicure tra cui Secure Boot, Secure Update, TrustedFirmware-M e concetti di storage sicuri.\n\n• Forte capacità di programmazione in Embedded C++ e Python.\n\n• Comprensione dei fondamentali della crittografia, inclusa la crittografia, le firme digitali, PKI e la gestione delle chiavi.\n\n• Esperienza con ambienti RTOS, protocolli di rete, bus di campo industriali e strumenti di automazione di test come Robot Framework.\n\n• Capacità di comunicazione fluente inglese; tedesco è un plus.\n\nPersone a Belimo\n\nGli edifici intelligenti iniziano con persone dedicate. Portiamo insieme persone di talento e adottiamo un ambiente per avere successo. A Belimo, il rispetto, la fiducia e il supporto nei dipartimenti aiutano le idee a muoversi rapidamente in soluzioni del mondo reale, perché raggiungiamo più insieme di quanto mai potremmo soli.\n\nInformazioni su Belimo\n\nBelimo è leader del mercato globale nello sviluppo, produzione e vendita di dispositivi di campo per il controllo efficiente dell'energia dei sistemi di riscaldamento, ventilazione e climatizzazione. Il focus del nostro core business è sugli attuatori ammortizzatori, valvole di controllo, sensori e metri. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e vantaggi\n\nA Belimo, crediamo in una compensazione equa, equa e competitiva. Offriamo la paga che riflette le vostre abilità, esperienza, istruzione e la posizione. Oltre alla compensazione, potrete beneficiare di un pacchetto completo di ricompense progettato per sostenere la vostra salute, benessere finanziario e successo a lungo termine. Belimo è orgogliosa di essere un Equal Opportunity Employer.",
+        "en": "Introduction\n\nJoin us as an Embedded Security Verification Engineer and play a key role in securing next-generation embedded and IoT products. You will lead security testing, identify vulnerabilities, and build automated validation solutions for ARM-based firmware platforms while collaborating across development and security teams.\n\nKey Responsibilities\n\n• Plan, document, and lead security testing campaigns for embedded products.\n\n• Perform security assessments, penetration testing, threat modeling, and security reviews.\n\n• Validate critical security features such as Secure Boot, Secure Update, Secure Storage, and communication protocols.\n\n• Identify and analyze vulnerabilities in firmware, communication stacks, and embedded systems.\n\n• Design, develop, and maintain automated security testing and validation frameworks.\n\n• Coordinate external development partners and take ownership of selected deliverables.\n\n• Support firmware releases, maintenance activities, and security compliance requirements.\n\n• Investigate reported security defects and contribute to vulnerability remediation efforts.\n\nRequired Expertise\n\n• BSc or MSc in Software Engineering, Computer Science, Electrical/Computer Engineering, or a related field; cybersecurity certifications are also valued.\n\n• Experience with cybersecurity-focused embedded systems and secure firmware architectures.\n\n• Hands-on experience in vulnerability assessment and penetration testing of communication stacks (REST APIs, HTTP, Modbus, BACnet, etc.).\n\n• Knowledge of secure embedded technologies including Secure Boot, Secure Update, TrustedFirmware-M, and secure storage concepts.\n\n• Strong programming skills in Embedded C++ and Python.\n\n• Understanding of cryptography fundamentals, including encryption, digital signatures, PKI, and key management.\n\n• Experience with RTOS environments, network protocols, industrial field buses, and test automation tools such as Robot Framework.\n\n• Fluent English communication skills; German is a plus.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
+        "de": "Einleitung\n\nSchließen Sie sich uns als Embedded Security Verification Engineer an und spielen Sie eine Schlüsselrolle bei der Sicherung von Embedded- und IoT-Produkten der nächsten Generation. Sie leiten Sicherheitstests, identifizieren Schwachstellen und erstellen automatisierte Validierungslösungen für ARM-basierte Firmware-Plattformen, während Sie in Entwicklungs- und Sicherheitsteams zusammenarbeiten.\n\nHauptzuständigkeiten\n\n• Planen, dokumentieren und leiten Sie Sicherheitstestkampagnen für Embedded-Produkte.\n\n• Führen Sie Sicherheitsbewertungen, Penetrationstests, Bedrohungsmodellierung und Sicherheitsüberprüfungen durch.\n\n• Validieren Sie wichtige Sicherheitsfunktionen wie Secure Boot, Secure Update, Secure Storage und Kommunikationsprotokolle.\n\n• Identifizieren und analysieren Sie Schwachstellen in Firmware, Kommunikationsstacks und eingebetteten Systemen.\n\n• Design, Entwicklung und Wartung automatisierter Sicherheitstest- und Validierungs-Frameworks.\n\n• Koordinieren Sie externe Entwicklungspartner und übernehmen Sie die Verantwortung für ausgewählte Ergebnisse.\n\n• Unterstützen Sie Firmware-Releases, Wartungsaktivitäten und Compliance-Anforderungen für die Sicherheit.\n\n• Untersuchen Sie gemeldete Sicherheitsmängel und tragen Sie zur Behebung von Schwachstellen bei.\n\nErforderliches Fachwissen\n\n• BSc oder MSc in Software Engineering, Informatik, Elektrotechnik oder einem verwandten Bereich; Cybersicherheitszertifizierungen werden ebenfalls geschätzt.\n\n• Erfahrung mit auf Cybersicherheit ausgerichteten eingebetteten Systemen und sicheren Firmware-Architekturen.\n\n• Praktische Erfahrung in der Schwachstellenbewertung und Penetrationstests von Kommunikationsstacks (REST APIs, HTTP, Modbus, BACnet usw.).\n\n• Kenntnisse über sichere eingebettete Technologien, einschließlich Secure Boot, Secure Update, TrustedFirmware-M und sichere Speicherkonzepte.\n\n• Starke Programmierkenntnisse in Embedded C++ und Python.\n\n• Verständnis der Grundlagen der Kryptographie, einschließlich Verschlüsselung, digitaler Signaturen, PKI und Schlüsselmanagement.\n\n• Erfahrung mit RTOS-Umgebungen, Netzwerkprotokollen, industriellen Feldbussen und Testautomatisierungstools wie Robot Framework.\n\n• Fließende englische Kommunikationsfähigkeiten; Deutsch ist ein Plus.\n\nMenschen in Belimo\n\nIntelligente Gebäude beginnen mit engagierten Menschen. Wir bringen talentierte Menschen zusammen und fördern ein Umfeld, um erfolgreich zu sein. Bei Belimo helfen Respekt, Vertrauen und Unterstützung abteilungsübergreifend, Ideen schnell in reale Lösungen zu bringen, weil wir gemeinsam mehr erreichen, als wir es jemals alleine könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in der Entwicklung, Produktion und dem Vertrieb von Feldgeräten zur energieeffizienten Steuerung von Heizungs-, Lüftungs- und Klimaanlagen. Der Fokus unseres Kerngeschäfts liegt auf Dämpferaktoren, Regelventilen, Sensoren und Messgeräten. Das 1975 gegründete Unternehmen ist seit 1995 an der Swiss Exchange (SIX) notiert.\n\nEntschädigung und Vorteile\n\nBei Belimo glauben wir an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten eine Bezahlung an, die Ihre Fähigkeiten, Erfahrung, Ausbildung und Ihren Standort widerspiegelt. Über die Entschädigung hinaus profitieren Sie von einem umfassenden Belohnungspaket, das Ihre Gesundheit, Ihr finanzielles Wohlbefinden und Ihren langfristigen Erfolg unterstützt. Belimo ist stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein.",
+        "fr": "Présentation\n\nRejoignez-nous en tant qu'ingénieur de vérification de sécurité embarqué et jouez un rôle clé dans la sécurisation des produits embarqués et IoT de nouvelle génération. Vous dirigerez les tests de sécurité, identifierez les vulnérabilités et créerez des solutions de validation automatisées pour les plates-formes de firmware basées sur ARM tout en collaborant entre les équipes de développement et de sécurité.\n\nPrincipales responsabilités\n\n• Planifier, documenter et diriger des campagnes de tests de sécurité pour les produits embarqués.\n\n• Effectuer des évaluations de sécurité, des tests de pénétration, des modélisations de menace et des examens de sécurité.\n\n• Valider les fonctions de sécurité critiques telles que les protocoles Secure Boot, Secure Update, Secure Storage et Communication.\n\n• Identifier et analyser les vulnérabilités dans le firmware, les piles de communication et les systèmes embarqués.\n\n• Concevoir, développer et maintenir des cadres automatisés d'essais et de validation de sécurité.\n\n• Coordonner les partenaires extérieurs de développement et prendre en charge certains produits livrables.\n\n• Soutenir les versions de firmware, les activités de maintenance et les exigences de conformité en matière de sécurité.\n\n• Étudier les défauts de sécurité signalés et contribuer aux efforts de remise en état de la vulnérabilité.\n\nExpertise requise\n\n• B.Sc. ou M.Sc. en génie logiciel, en informatique, en génie électrique et informatique ou dans un domaine connexe; les certifications de cybersécurité sont également appréciées.\n\n• Expérience avec les systèmes intégrés axés sur la cybersécurité et les architectures sécurisées du firmware.\n\n• Expérience pratique dans l'évaluation de la vulnérabilité et les tests de pénétration des piles de communication (API REST, HTTP, Modbus, BACnet, etc.).\n\n• Connaissance de technologies intégrées sécurisées, y compris un démarrage sécurisé, une mise à jour sécurisée, un logiciel fiable et des concepts de stockage sécurisé.\n\n• Fortes compétences en programmation en C++ embarqué et en Python.\n\n• Comprendre les fondamentaux de la cryptographie, y compris le chiffrement, les signatures numériques, l'ICP et la gestion des clés.\n\n• Expérience des environnements RTOS, des protocoles réseau, des bus de terrain industriels et des outils d'automatisation de test tels que Robot Framework.\n\n• Compétences de communication en anglais; l'allemand est un plus.\n\nLes gens de Belimo\n\nLes bâtiments intelligents commencent par des personnes dédiées. Nous réunissons des gens talentueux et nous favorisons un environnement propice à la réussite. Chez Belimo, le respect, la confiance et le soutien à travers les ministères aident les idées à passer rapidement à des solutions concrètes, parce que nous obtenons plus ensemble que nous ne le pouvions jamais.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Nos activités principales sont les actionneurs d'amortisseurs, les vannes de commande, les capteurs et les compteurs. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et avantages sociaux\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons une rémunération qui reflète vos compétences, votre expérience, vos études et votre emplacement. Au-delà de la rémunération, vous bénéficierez d'un ensemble complet de récompenses conçu pour soutenir votre santé, votre bien-être financier et votre succès à long terme. Belimo est fier d'être un employeur pour l'égalité des chances."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-Security-Verification-Engineer-%2880-100%29-Zuri-8340/1165337955/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-13T21:15:06.401Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-24T02:00:00Z",
+      "postedDate": "2026-09-24T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-Security-Verification-Engineer-%2880-100%29-Zuri-8340/1165337955/",
+      "jobReqId": "1165337955",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-26T09:54:16.624Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-23T21:15:06.401Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "belimo-5e73a4e6240f",
+      "slug": "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil",
+      "slugByLocale": {
+        "it": "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil",
+        "en": "logistics-in-efz-100-belimo-hinwil",
+        "de": "logistiker-in-efz-100-belimo-hinwil",
+        "fr": "logistique-en-efz-100-belimo-hinwil"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "Logistiker:in EFZ (100%)",
+      "titleByLocale": {
+        "it": "impiegata/impiegato in logistica CFC (100%)",
+        "en": "Logistics EFZ (100%)",
+        "de": "Logistiker:in EFZ (100%)",
+        "fr": "Logistique: en EFZ (100%)"
+      },
+      "description": "Einführung\n\nWir stapeln hoch und bauen weiter aus. Für unserere Logistikteams suchen wir Verstärkung. Du behältst auch bei hohem Tempo den Überblick und sorgst mit deiner Erfahrung dafür, dass Warenströme vom Wareneingang bis zum Versand reibungslos laufen? Wenn du gerne anpackst, Verantwortung übernimmst und in einem internationalen Umfeld etwas bewegen willst, bist du bei uns genau richtig.\n\nIn diesen Schichten suchen wir Verstärkung:\n\nIntralogistik\n\n• Spätschicht: 14:00 - 23:00 Uhr\n\nHauptverantwortlichkeiten\n\n• Physisches Bewegen und Transportieren von Waren inkl. Be-/Entladen, Ein- und Umlagern\n\n• Sicherer Einsatz von Flurförderfahrzeugen\n\n• Kontrolle der Waren hinsichtlich Menge und Qualität\n\n• Kommissionieren, Rüsten und Bereitstellen von Materialien und Kundenaufträgen\n\n• Korrektes Erfassen aller Materialbewegungen im SAP-EWM-System\n\n• Zusammenarbeit mit angrenzenden Logistikbereichen und Unterstützung bei Inventuren\n\n• Einhalten aller Sicherheits- und Qualitätsvorgaben sowie Mitwirkung bei Prozessverbesserungen\n\nErforderliche Fachkenntnisse\n\n• Abgeschlossene Berufslehre als Logistiker:in EFZ\n\n• Mindestens 4 Jahre Berufserfahrung in einem internationalen Industrie-, Handels- oder Logistikunternehmen\n\n• Staplerführerschein\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Ausgeprägte:r Teamplayer:in mit einer selbstständigen und exakten Arbeitsweise\n\n• Gute körperliche Verfassung (gute Fitness)\n\n• Bereitschaft für wechselnde Arbeitszeiten zwischen 6:00 Uhr und 23:00 Uhr, siehe oben\n\n• Kenntnisse in MS Office und SAP (MM/EWM)\n\n• Wirtschaftliche und lösungsorientierte Denkweise\n\n•\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "descriptionByLocale": {
+        "it": "Impiliamo e costruiamo. Stiamo cercando rinforzi per tre delle nostre squadre logistiche. Si mantiene una panoramica anche ad alta velocità e garantire con la vostra esperienza che i flussi di merci dal ricevimento alla spedizione funzionano senza problemi? Se ti piace affrontare, assumerti la responsabilità e fare la differenza in un ambiente internazionale, sei al posto giusto con noi.\n\nIn questi modelli a turni si mantiene la logistica in esecuzione con noi:\n\nStoccaggio\n\n• 2 turni dalle 06:00 alle 23:00\n\n• 06:00 - 15:15\n\n• 14:00 - 23:00\n\nIntralogistica\n\n• 3 turni dalle 06:00 alle 23:00\n\n• 06:00 - 15:30\n\n• 07:00 - 16:30\n\nDispiace\n\n• 06:30 - 15:40\n\n• 12:00 - 21:10\n\nCosa farai\n\n• Movimento fisico e trasporto di merci incl. Caricamento/scarico, stoccaggio e trasferimento\n\n• Uso sicuro dei camion industriali\n\n• Controlla la quantità e la qualità delle merci\n\n• Acquisto, configurazione e fornitura di materiali e ordini del cliente\n\n• Rilevamento corretto di tutti i movimenti materiali nel sistema SAP-EWM\n\n• Cooperazione con le aree logistiche adiacenti e sostegno agli inventari\n\n• Rispetto di tutti i requisiti di sicurezza e qualità, nonché la partecipazione ai miglioramenti dei processi\n\nChi sei\n\n• Apprendistato professionale completo come logistico: in EFZ\n\n• Almeno 4 anni di esperienza professionale in un'azienda industriale, commerciale o logistica internazionale\n\n• Patente di guida per carrelli elevatori\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Pronunciato:r Teamplayer:in con un metodo di lavoro indipendente ed esatto\n\n• Buone condizioni fisiche (buon fitness)\n\n• Prontezza per cambiare orario di lavoro tra le 6:00 e le 23:00, vedi sopra\n\n• Conoscenza di MS Office e SAP (MM/EWM)\n\n• Il pensiero economico e orientato alla soluzione\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+        "en": "We stack up and build up. We are looking for reinforcements for three of our logistics teams. You keep an overview even at high speed and ensure with your experience that flows of goods from receipt to shipping run smoothly? If you like to tackle, take responsibility and make a difference in an international environment, you are at the right place with us.\n\nIn these shift models you keep the logistics running with us:\n\nStorage\n\n• 2 shifts between 06:00 and 23:00\n\n• 06:00 - 15:15\n\n• 14:00 - 23:00\n\nIntralogistics\n\n• 3 shifts between 06:00 and 23:00\n\n• 06:00 - 15:30\n\n• 07:00 - 16:30\n\nDispatch\n\n• 06:30 - 15:40\n\n• 12:00 - 21:10\n\nWhat will you do\n\n• Physical movement and transport of goods incl. Loading/unloading, storage and relocation\n\n• Safe use of industrial trucks\n\n• Checks on quantity and quality of goods\n\n• Order picking, set-up and provision of materials and customer orders\n\n• Correct detection of all material movements in the SAP-EWM system\n\n• Cooperation with adjacent logistics areas and support for inventories\n\n• Compliance with all safety and quality requirements as well as participation in process improvements\n\nWho you are\n\n• Completed vocational apprenticeship as a logistician:in EFZ\n\n• At least 4 years of professional experience in an international industrial, commercial or logistics company\n\n• Forklift driving licence\n\n• Very good knowledge of German in word and writing\n\n• Pronounced:r Teamplayer:in with an independent and exact working method\n\n• Good physical condition (good fitness)\n\n• Readiness for changing working hours between 6:00 and 23:00, see above\n\n• Knowledge of MS Office and SAP (MM/EWM)\n\n• Economic and solution-oriented thinking\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+        "de": "Einführung\n\nWir stapeln hoch und bauen weiter aus. Für unserere Logistikteams suchen wir Verstärkung. Du behältst auch bei hohem Tempo den Überblick und sorgst mit deiner Erfahrung dafür, dass Warenströme vom Wareneingang bis zum Versand reibungslos laufen? Wenn du gerne anpackst, Verantwortung übernimmst und in einem internationalen Umfeld etwas bewegen willst, bist du bei uns genau richtig.\n\nIn diesen Schichten suchen wir Verstärkung:\n\nIntralogistik\n\n• Spätschicht: 14:00 - 23:00 Uhr\n\nHauptverantwortlichkeiten\n\n• Physisches Bewegen und Transportieren von Waren inkl. Be-/Entladen, Ein- und Umlagern\n\n• Sicherer Einsatz von Flurförderfahrzeugen\n\n• Kontrolle der Waren hinsichtlich Menge und Qualität\n\n• Kommissionieren, Rüsten und Bereitstellen von Materialien und Kundenaufträgen\n\n• Korrektes Erfassen aller Materialbewegungen im SAP-EWM-System\n\n• Zusammenarbeit mit angrenzenden Logistikbereichen und Unterstützung bei Inventuren\n\n• Einhalten aller Sicherheits- und Qualitätsvorgaben sowie Mitwirkung bei Prozessverbesserungen\n\nErforderliche Fachkenntnisse\n\n• Abgeschlossene Berufslehre als Logistiker:in EFZ\n\n• Mindestens 4 Jahre Berufserfahrung in einem internationalen Industrie-, Handels- oder Logistikunternehmen\n\n• Staplerführerschein\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Ausgeprägte:r Teamplayer:in mit einer selbstständigen und exakten Arbeitsweise\n\n• Gute körperliche Verfassung (gute Fitness)\n\n• Bereitschaft für wechselnde Arbeitszeiten zwischen 6:00 Uhr und 23:00 Uhr, siehe oben\n\n• Kenntnisse in MS Office und SAP (MM/EWM)\n\n• Wirtschaftliche und lösungsorientierte Denkweise\n\n•\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+        "fr": "On s'accumule. Nous cherchons des renforts pour trois de nos équipes logistiques. Vous gardez une vue d'ensemble même à grande vitesse et assurez-vous avec votre expérience que les flux de marchandises de la réception à l'expédition fonctionnent en douceur? Si vous aimez vous attaquer, prendre des responsabilités et faire une différence dans un environnement international, vous êtes au bon endroit avec nous.\n\nDans ces modèles de changement, vous gardez la logistique avec nous:\n\nStockage\n\n• 2 équipes entre 6 h et 23 h\n\n• 6 heures - 15 h 15\n\n• 14 heures - 23 heures\n\nIntralogistique\n\n• 3 équipes entre 6 h et 23 h\n\n• 6 heures - 15 h 30\n\n• 7 heures-16 h 30\n\nExpédition\n\n• 06 h 30 - 15 h 40\n\n• 12 heures-21 h 10\n\nQue ferez-vous ?\n\n• Déplacement physique et transport de marchandises, y compris Chargement/déchargement, entreposage et réinstallation\n\n• Utilisation sûre des camions industriels\n\n• Contrôle de la quantité et de la qualité des marchandises\n\n• Cueillette, mise en place et fourniture de matériel et de commandes de clients\n\n• Détection correcte de tous les mouvements de matériel dans le système SAP-EWM\n\n• Coopération avec les zones logistiques adjacentes et appui aux inventaires\n\n• Respect de toutes les exigences en matière de sécurité et de qualité ainsi que participation à l'amélioration des processus\n\nQui vous êtes\n\n• Apprentissage professionnel complété en tant que logisticien: en EFZ\n\n• Au moins 4 ans d'expérience professionnelle dans une entreprise industrielle, commerciale ou logistique internationale\n\n• Permis de conduire de chariot élévateur\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Prononcé:r Teamplayer:in avec une méthode de travail indépendante et exacte\n\n• Bonne condition physique (bonne condition physique)\n\n• Préparation pour changer les heures de travail entre 6h00 et 23h00, voir ci-dessus\n\n• Connaissance du MS Office et du SAP (MM/EWM)\n\n• Pensée économique et axée sur la solution\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:15:05.808Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T02:00:00Z",
+      "postedDate": "2026-09-25T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
+      "jobReqId": "1165196555",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logistiker-in-efz-100-belimo-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-efz-100-belimo-hinwil"
+        ],
+        "en": [
+          "logistiker-in-efz-100-belimo-hinwil"
+        ],
+        "fr": [
+          "logistiker-in-efz-100-belimo-hinwil"
+        ]
+      },
+      "firstSeenAt": "2026-07-29T22:07:55.708Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-24T21:15:05.808Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "belimo-c0d5cbda517c",
+      "slug": "global-categoria-manager-meccanica-soluzioni-plastiche-belimo-hinwil",
+      "slugByLocale": {
+        "it": "global-categoria-manager-meccanica-soluzioni-plastiche-belimo-hinwil",
+        "en": "global-category-manager-mechanics-plastic-solutions-belimo-hinwil",
+        "de": "global-category-manager-mechanics-plastic-solutions-belimo-hinwil",
+        "fr": "global-category-manager-mechanics-plastic-solutions-belimo-hinwil"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "Global Category Manager Mechanics - Plastic Solutions",
+      "titleByLocale": {
+        "it": "Global Categoria Manager Meccanica - Soluzioni Plastiche",
+        "en": "Global Category Manager Mechanics - Plastic Solutions",
+        "de": "Global Category Manager Mechanics - Plastic Solutions",
+        "fr": "Global Category Manager Mécanique - Solutions en plastique"
+      },
+      "description": "Introduction\n\nDu kennst die Welt des Kunststoff-Spritzgusses und möchtest globale Beschaffungsstrategien aktiv mitgestalten? In dieser Rolle steuerst du internationale Warengruppen und strategische Lieferanten und verbindest Kosten, Qualität, Innovation und Versorgungssicherheit.\n\nKey Responsibilities\n\n• Du entwickelst und steuerst globale Warengruppen- und Lieferantenstrategien und richtest diese an unserer übergeordneten Beschaffungsstrategie aus.\n\n• Du führst regionenübergreifende Warengruppenteams, bringst unterschiedliche Anforderungen zusammen und sorgst für eine transparente Zusammenarbeit mit den relevanten Stakeholdern.\n\n• Du analysierst globale Beschaffungsmärkte, Technologien, Kostenstrukturen und Risiken und erschliesst neue, wettbewerbsfähige Bezugsquellen.\n\n• Du gestaltest unser Lieferantenportfolio aktiv weiter, von der Auswahl und Entwicklung bis hin zur Konsolidierung oder Ausphasung von Lieferanten.\n\n• Du verantwortest strategische Sourcing-Initiativen und kommerzielle Verhandlungen, darunter Rahmenverträge, langfristige Vereinbarungen und jährliche Preisverhandlungen.\n\n• Du identifizierst und realisierst Kosten- und Wertsteigerungspotenziale, unter anderem mit TCO-, Should-Cost- und Target-Cost-Ansätzen sowie Benchmarking.\n\n• Du steuerst die Lieferantenperformance und Risiken und bringst deine Markt-, Technologie- und Lieferantenexpertise aktiv in Entwicklungs- und Industrialisierungsprojekte ein.\n\nRequired Expertise\n\n• Du verfügst über eine technische oder kaufmännische Grundausbildung mit ausgeprägtem technischem Verständnis und idealerweise über eine Weiterbildung auf Stufe HF/FH/Bachelor.\n\n• Du bringst mehrjährige Erfahrung im strategischen Einkauf und internationalen Sourcing von mechanischen Komponenten und Baugruppen mit.\n\n• Du kennst dich mit Kunststoff-Spritzgussteilen, deren Herstellverfahren und den relevanten Beschaffungsmärkten aus.\n\n• Du bist erfahren im Category- und Lieferantenmanagement sowie in Vertrags- und Preisverhandlungen, Kostenanalysen und Risikomanagement.\n\n• Du verstehst mechanische Fertigungstechnologien und globale Lieferketten und bringst Erfahrung in bereichsübergreifenden Projekten mit.\n\n• Mit deinen analytischen Fähigkeiten, deinem Verhandlungsgeschick und einer überzeugenden Kommunikation gewinnst du unterschiedliche Stakeholder für gemeinsame Lösungen.\n\n• Du arbeitest sicher mit SAP S/4HANA, insbesondere MM, MS Office und digitalen Einkaufstools, kommunizierst gut auf Deutsch und Englisch (mind. B2) und bist bereit, international zu reisen\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone. .\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
+      "descriptionByLocale": {
+        "it": "Introduzione\n\nConosci il mondo dello stampaggio ad iniezione di plastica e vuoi plasmare attivamente le strategie di approvvigionamento globale? In questo ruolo, controlli gruppi di prodotti internazionali e fornitori strategici, combinando costi, qualità, innovazione e sicurezza dell'offerta.\n\nRisposte chiave\n\n• Sviluppi e controlli le strategie globali del gruppo delle materie prime e dei fornitori e le allinei con la nostra strategia di approvvigionamento.\n\n• Conduci team di gruppi di prodotti interregionali, unisci requisiti diversi e garantisci una cooperazione trasparente con le parti interessate.\n\n• Analizzerai i mercati di approvvigionamento globale, le tecnologie, le strutture di costo e i rischi e svilupperai nuove fonti di approvvigionamento competitive.\n\n• Formate attivamente il nostro portafoglio fornitori, dalla selezione e dallo sviluppo al consolidamento o all'eliminazione dei fornitori.\n\n• Sarete responsabili delle iniziative di approvvigionamento strategico e dei negoziati commerciali, compresi i contratti quadro, gli accordi a lungo termine e i negoziati annuali sui prezzi.\n\n• Identificare e realizzare potenziali di costo e valore, tra cui TCO, approcci a costi e target-cost, e benchmarking.\n\n• Controllate le prestazioni e i rischi dei fornitori e contribuite attivamente alla vostra esperienza di mercato, tecnologia e fornitori per progetti di sviluppo e industrializzazione.\n\nCompetenza necessaria\n\n• Hai una formazione tecnica o commerciale di base con una forte comprensione tecnica e idealmente un'ulteriore formazione a livello di HF/FH/Bachelor.\n\n• Porti diversi anni di esperienza nell'acquisto strategico e nell'approvvigionamento internazionale di componenti e assemblaggi meccanici.\n\n• Hai familiarità con le parti stampate ad iniezione plastica, i loro processi di produzione e i mercati di approvvigionamento rilevanti.\n\n• Sei esperto nella categoria e nella gestione dei fornitori, nonché nelle trattative contrattuali e sui prezzi, nell'analisi dei costi e nella gestione dei rischi.\n\n• Capirete le tecnologie di produzione meccanica e le catene di approvvigionamento globali e porterà esperienza in progetti cross-divisionali.\n\n• Con le tue capacità analitiche, le competenze di negoziazione e la comunicazione convincente, puoi vincere diversi stakeholder per soluzioni congiunte.\n\n• Si lavora in modo sicuro con SAP S/4HANA, in particolare MM, MS Office e strumenti di shopping digitale, comunicare bene in tedesco e inglese (minimo B2) e sono pronti a viaggiare a livello internazionale\n\nPersone a Belimo\n\nGli edifici intelligenti iniziano con persone dedicate. Portiamo insieme persone di talento e adottiamo un ambiente al successo. A Belimo, il rispetto, la fiducia e il supporto nei dipartimenti aiutano le idee a muoversi rapidamente in soluzioni del mondo reale, perché raggiungiamo più insieme di quanto mai potremmo soli.\n\nInformazioni su Belimo\n\nBelimo è leader del mercato globale nello sviluppo, produzione e vendita di dispositivi di campo per il controllo efficiente dell'energia dei sistemi di riscaldamento, ventilazione e climatizzazione. Il focus del nostro core business è sugli attuatori ammortizzatori, valvole di controllo, sensori e metri. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e vantaggi\n\nA Belimo, crediamo in una compensazione equa, equa e competitiva. Offriamo la paga che riflette le vostre abilità, esperienza, istruzione e la posizione. Oltre alla compensazione, potrete beneficiare di un pacchetto completo di ricompense progettato per sostenere la vostra salute, benessere finanziario e successo a lungo termine. Belimo è orgogliosa di essere un datore di lavoro pari opportunità.",
+        "en": "Introduction\n\nYou know the world of plastic injection molding and want to actively shape global procurement strategies? In this role, you control international product groups and strategic suppliers, combining costs, quality, innovation and security of supply.\n\nKey responses\n\n• You develop and control global commodity group and supplier strategies and align them with our overarching procurement strategy.\n\n• You lead cross-regional product group teams, bring together different requirements and ensure transparent cooperation with the relevant stakeholders.\n\n• You will analyse global procurement markets, technologies, cost structures and risks and develop new, competitive sources of supply.\n\n• You actively shape our supplier portfolio, from selection and development to consolidation or phasing out of suppliers.\n\n• You will be responsible for strategic sourcing initiatives and commercial negotiations, including framework contracts, long-term agreements and annual price negotiations.\n\n• You identify and realize cost and value potentials, including TCO, should-cost and target-cost approaches, and benchmarking.\n\n• You control supplier performance and risks and actively contribute your market, technology and supplier expertise to development and industrialization projects.\n\nRequired expertise\n\n• You have a basic technical or commercial education with a strong technical understanding and ideally a further education at the level of HF/FH/Bachelor.\n\n• You bring several years of experience in strategic purchasing and international sourcing of mechanical components and assemblies.\n\n• You are familiar with plastic injection molded parts, their manufacturing processes and the relevant procurement markets.\n\n• You are experienced in category and supplier management as well as in contract and price negotiations, cost analysis and risk management.\n\n• You will understand mechanical manufacturing technologies and global supply chains and bring experience in cross-divisional projects.\n\n• With your analytical skills, negotiation skills and convincing communication, you can win different stakeholders for joint solutions.\n\n• You work safely with SAP S/4HANA, especially MM, MS Office and digital shopping tools, communicate well in German and English (minimum B2) and are ready to travel internationally\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to success. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone. .\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation and Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an equal opportunity employer.",
+        "de": "Introduction\n\nDu kennst die Welt des Kunststoff-Spritzgusses und möchtest globale Beschaffungsstrategien aktiv mitgestalten? In dieser Rolle steuerst du internationale Warengruppen und strategische Lieferanten und verbindest Kosten, Qualität, Innovation und Versorgungssicherheit.\n\nKey Responsibilities\n\n• Du entwickelst und steuerst globale Warengruppen- und Lieferantenstrategien und richtest diese an unserer übergeordneten Beschaffungsstrategie aus.\n\n• Du führst regionenübergreifende Warengruppenteams, bringst unterschiedliche Anforderungen zusammen und sorgst für eine transparente Zusammenarbeit mit den relevanten Stakeholdern.\n\n• Du analysierst globale Beschaffungsmärkte, Technologien, Kostenstrukturen und Risiken und erschliesst neue, wettbewerbsfähige Bezugsquellen.\n\n• Du gestaltest unser Lieferantenportfolio aktiv weiter, von der Auswahl und Entwicklung bis hin zur Konsolidierung oder Ausphasung von Lieferanten.\n\n• Du verantwortest strategische Sourcing-Initiativen und kommerzielle Verhandlungen, darunter Rahmenverträge, langfristige Vereinbarungen und jährliche Preisverhandlungen.\n\n• Du identifizierst und realisierst Kosten- und Wertsteigerungspotenziale, unter anderem mit TCO-, Should-Cost- und Target-Cost-Ansätzen sowie Benchmarking.\n\n• Du steuerst die Lieferantenperformance und Risiken und bringst deine Markt-, Technologie- und Lieferantenexpertise aktiv in Entwicklungs- und Industrialisierungsprojekte ein.\n\nRequired Expertise\n\n• Du verfügst über eine technische oder kaufmännische Grundausbildung mit ausgeprägtem technischem Verständnis und idealerweise über eine Weiterbildung auf Stufe HF/FH/Bachelor.\n\n• Du bringst mehrjährige Erfahrung im strategischen Einkauf und internationalen Sourcing von mechanischen Komponenten und Baugruppen mit.\n\n• Du kennst dich mit Kunststoff-Spritzgussteilen, deren Herstellverfahren und den relevanten Beschaffungsmärkten aus.\n\n• Du bist erfahren im Category- und Lieferantenmanagement sowie in Vertrags- und Preisverhandlungen, Kostenanalysen und Risikomanagement.\n\n• Du verstehst mechanische Fertigungstechnologien und globale Lieferketten und bringst Erfahrung in bereichsübergreifenden Projekten mit.\n\n• Mit deinen analytischen Fähigkeiten, deinem Verhandlungsgeschick und einer überzeugenden Kommunikation gewinnst du unterschiedliche Stakeholder für gemeinsame Lösungen.\n\n• Du arbeitest sicher mit SAP S/4HANA, insbesondere MM, MS Office und digitalen Einkaufstools, kommunizierst gut auf Deutsch und Englisch (mind. B2) und bist bereit, international zu reisen\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone. .\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
+        "fr": "Présentation\n\nVous connaissez le monde du moulage par injection en plastique et vous voulez façonner activement les stratégies d'approvisionnement mondiales? Dans ce rôle, vous contrôlez les groupes de produits internationaux et les fournisseurs stratégiques, combinant coûts, qualité, innovation et sécurité d'approvisionnement.\n\nPrincipales réponses\n\n• Vous développez et contrôlez les stratégies mondiales des groupes de produits et des fournisseurs et les alignez sur notre stratégie d'approvisionnement globale.\n\n• Vous dirigez des équipes de groupes de produits transrégionaux, rassemblez différentes exigences et assurez une coopération transparente avec les parties prenantes concernées.\n\n• Vous analyserez les marchés d'approvisionnement mondiaux, les technologies, les structures de coûts et les risques et développerez de nouvelles sources d'approvisionnement compétitives.\n\n• Vous façonnez activement notre portefeuille de fournisseurs, de la sélection et du développement à la consolidation ou à l'élimination progressive des fournisseurs.\n\n• Vous serez responsable des initiatives d'approvisionnement stratégique et des négociations commerciales, y compris les contrats-cadres, les accords à long terme et les négociations annuelles sur les prix.\n\n• Vous identifiez et réalisez les potentiels de coûts et de valeur, y compris le TCO, les approches de coûts et de coûts cibles, et l'analyse comparative.\n\n• Vous contrôlez les performances et les risques des fournisseurs et contribuez activement à vos projets de développement et d'industrialisation.\n\nCompétences requises\n\n• Vous avez une éducation technique ou commerciale de base avec une forte compréhension technique et idéalement une formation complémentaire au niveau de HF/FH/Bachelor.\n\n• Vous apportez plusieurs années d'expérience dans l'achat stratégique et l'approvisionnement international de composants mécaniques et d'assemblages.\n\n• Vous connaissez les pièces moulées par injection de plastique, leurs procédés de fabrication et les marchés d'approvisionnement pertinents.\n\n• Vous avez de l'expérience dans la gestion des catégories et des fournisseurs ainsi que dans la négociation de contrats et de prix, l'analyse des coûts et la gestion des risques.\n\n• Vous comprendrez les technologies de fabrication mécanique et les chaînes d'approvisionnement mondiales et apporterez de l'expérience dans les projets interdivisionnels.\n\n• Grâce à vos compétences en analyse, en négociation et en communication convaincante, vous pouvez gagner différentes parties prenantes pour des solutions communes.\n\n• Vous travaillez en toute sécurité avec SAP S/4HANA, en particulier MM, MS Office et outils d'achats numériques, communiquez bien en allemand et en anglais (minimum B2) et êtes prêt à voyager à l'international\n\nLes gens de Belimo\n\nLes bâtiments intelligents commencent par des personnes dédiées. Nous réunissons des gens talentueux et favorisons un environnement propice au succès. Chez Belimo, le respect, la confiance et le soutien à travers les ministères aident les idées à avancer rapidement vers des solutions réelles, parce que nous obtenons plus ensemble que nous ne le pouvions jamais seul.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Nos activités principales sont les actionneurs d'amortisseurs, les vannes de commande, les capteurs et les compteurs. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et avantages sociaux\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons une rémunération qui reflète vos compétences, votre expérience, vos études et votre emplacement. Au-delà de la rémunération, vous bénéficierez d'un ensemble complet de récompenses conçu pour soutenir votre santé, votre bien-être financier et votre succès à long terme. Belimo est fier d'être un employeur à chances égales."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-Global-Category-Manager-Mechanics-Plastic-Solutions-Zuri-8340/1165792755/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:15:05.219Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-13T00:00:00Z",
+      "postedDate": "2026-11-13T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Global-Category-Manager-Mechanics-Plastic-Solutions-Zuri-8340/1165792755/",
+      "jobReqId": "1165792755",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-category-manager-mechanics-plastic-solutions-belimo-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-category-manager-mechanics-plastic-solutions-belimo-hinwil"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-13T09:17:01.121Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-11T21:15:05.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +349,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-IT-Werkstudentin-%2840-50%29-Z%C3%BCri-8340/1165781355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:57.442Z",
+      "crawledAt": "2026-11-13T21:15:04.425Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -167,7 +400,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:57.442Z",
+      "validThrough": "2027-02-09T21:15:04.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -201,7 +434,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:56.818Z",
+      "crawledAt": "2026-11-13T21:15:03.824Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -274,7 +507,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:21:56.818Z",
+      "validThrough": "2026-12-13T21:15:03.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +541,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-Group-Treasury-100-Zuri-8340/1165511855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:56.213Z",
+      "crawledAt": "2026-11-13T21:15:03.227Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -360,7 +593,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:21:56.213Z",
+      "validThrough": "2026-12-24T21:15:03.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -394,7 +627,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Engineer-%2880-100%29-Zuri-8340/1165759955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:55.608Z",
+      "crawledAt": "2026-11-13T21:15:02.641Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -444,7 +677,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:21:55.608Z",
+      "validThrough": "2027-02-07T21:15:02.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -478,7 +711,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-%28Senior%29-Research-Engineer-Sensing-Technology-%2880-100%29-Zuri-8340/1165771355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:54.990Z",
+      "crawledAt": "2026-11-13T21:15:02.043Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -528,7 +761,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:21:54.990Z",
+      "validThrough": "2027-02-08T21:15:02.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -562,7 +795,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-%28100%29-Z%C3%BCri-8340/1164972655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:54.183Z",
+      "crawledAt": "2026-11-13T21:15:01.259Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -606,91 +839,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:21:54.183Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "belimo-5e73a4e6240f",
-      "slug": "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil",
-      "slugByLocale": {
-        "it": "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil",
-        "en": "logistics-in-efz-100-belimo-hinwil",
-        "de": "logistiker-in-efz-100-belimo-hinwil",
-        "fr": "logistique-en-efz-100-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "Logistiker:in EFZ (100%)",
-      "titleByLocale": {
-        "it": "impiegata/impiegato in logistica CFC (100%)",
-        "en": "Logistics EFZ (100%)",
-        "de": "Logistiker:in EFZ (100%)",
-        "fr": "Logistique: en EFZ (100%)"
-      },
-      "description": "Einführung\n\nWir stapeln hoch und bauen weiter aus. Für unserere Logistikteams suchen wir Verstärkung. Du behältst auch bei hohem Tempo den Überblick und sorgst mit deiner Erfahrung dafür, dass Warenströme vom Wareneingang bis zum Versand reibungslos laufen? Wenn du gerne anpackst, Verantwortung übernimmst und in einem internationalen Umfeld etwas bewegen willst, bist du bei uns genau richtig.\n\nIn diesen Schichten suchen wir Verstärkung:\n\nIntralogistik\n\n• Spätschicht: 14:00 - 23:00 Uhr\n\nHauptverantwortlichkeiten\n\n• Physisches Bewegen und Transportieren von Waren inkl. Be-/Entladen, Ein- und Umlagern\n\n• Sicherer Einsatz von Flurförderfahrzeugen\n\n• Kontrolle der Waren hinsichtlich Menge und Qualität\n\n• Kommissionieren, Rüsten und Bereitstellen von Materialien und Kundenaufträgen\n\n• Korrektes Erfassen aller Materialbewegungen im SAP-EWM-System\n\n• Zusammenarbeit mit angrenzenden Logistikbereichen und Unterstützung bei Inventuren\n\n• Einhalten aller Sicherheits- und Qualitätsvorgaben sowie Mitwirkung bei Prozessverbesserungen\n\nErforderliche Fachkenntnisse\n\n• Abgeschlossene Berufslehre als Logistiker:in EFZ\n\n• Mindestens 4 Jahre Berufserfahrung in einem internationalen Industrie-, Handels- oder Logistikunternehmen\n\n• Staplerführerschein\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Ausgeprägte:r Teamplayer:in mit einer selbstständigen und exakten Arbeitsweise\n\n• Gute körperliche Verfassung (gute Fitness)\n\n• Bereitschaft für wechselnde Arbeitszeiten zwischen 6:00 Uhr und 23:00 Uhr, siehe oben\n\n• Kenntnisse in MS Office und SAP (MM/EWM)\n\n• Wirtschaftliche und lösungsorientierte Denkweise\n\n•\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-      "descriptionByLocale": {
-        "it": "Impiliamo e costruiamo. Stiamo cercando rinforzi per tre delle nostre squadre logistiche. Si mantiene una panoramica anche ad alta velocità e garantire con la vostra esperienza che i flussi di merci dal ricevimento alla spedizione funzionano senza problemi? Se ti piace affrontare, assumerti la responsabilità e fare la differenza in un ambiente internazionale, sei al posto giusto con noi.\n\nIn questi modelli a turni si mantiene la logistica in esecuzione con noi:\n\nStoccaggio\n\n• 2 turni dalle 06:00 alle 23:00\n\n• 06:00 - 15:15\n\n• 14:00 - 23:00\n\nIntralogistica\n\n• 3 turni dalle 06:00 alle 23:00\n\n• 06:00 - 15:30\n\n• 07:00 - 16:30\n\nDispiace\n\n• 06:30 - 15:40\n\n• 12:00 - 21:10\n\nCosa farai\n\n• Movimento fisico e trasporto di merci incl. Caricamento/scarico, stoccaggio e trasferimento\n\n• Uso sicuro dei camion industriali\n\n• Controlla la quantità e la qualità delle merci\n\n• Acquisto, configurazione e fornitura di materiali e ordini del cliente\n\n• Rilevamento corretto di tutti i movimenti materiali nel sistema SAP-EWM\n\n• Cooperazione con le aree logistiche adiacenti e sostegno agli inventari\n\n• Rispetto di tutti i requisiti di sicurezza e qualità, nonché la partecipazione ai miglioramenti dei processi\n\nChi sei\n\n• Apprendistato professionale completo come logistico: in EFZ\n\n• Almeno 4 anni di esperienza professionale in un'azienda industriale, commerciale o logistica internazionale\n\n• Patente di guida per carrelli elevatori\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Pronunciato:r Teamplayer:in con un metodo di lavoro indipendente ed esatto\n\n• Buone condizioni fisiche (buon fitness)\n\n• Prontezza per cambiare orario di lavoro tra le 6:00 e le 23:00, vedi sopra\n\n• Conoscenza di MS Office e SAP (MM/EWM)\n\n• Il pensiero economico e orientato alla soluzione\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
-        "en": "We stack up and build up. We are looking for reinforcements for three of our logistics teams. You keep an overview even at high speed and ensure with your experience that flows of goods from receipt to shipping run smoothly? If you like to tackle, take responsibility and make a difference in an international environment, you are at the right place with us.\n\nIn these shift models you keep the logistics running with us:\n\nStorage\n\n• 2 shifts between 06:00 and 23:00\n\n• 06:00 - 15:15\n\n• 14:00 - 23:00\n\nIntralogistics\n\n• 3 shifts between 06:00 and 23:00\n\n• 06:00 - 15:30\n\n• 07:00 - 16:30\n\nDispatch\n\n• 06:30 - 15:40\n\n• 12:00 - 21:10\n\nWhat will you do\n\n• Physical movement and transport of goods incl. Loading/unloading, storage and relocation\n\n• Safe use of industrial trucks\n\n• Checks on quantity and quality of goods\n\n• Order picking, set-up and provision of materials and customer orders\n\n• Correct detection of all material movements in the SAP-EWM system\n\n• Cooperation with adjacent logistics areas and support for inventories\n\n• Compliance with all safety and quality requirements as well as participation in process improvements\n\nWho you are\n\n• Completed vocational apprenticeship as a logistician:in EFZ\n\n• At least 4 years of professional experience in an international industrial, commercial or logistics company\n\n• Forklift driving licence\n\n• Very good knowledge of German in word and writing\n\n• Pronounced:r Teamplayer:in with an independent and exact working method\n\n• Good physical condition (good fitness)\n\n• Readiness for changing working hours between 6:00 and 23:00, see above\n\n• Knowledge of MS Office and SAP (MM/EWM)\n\n• Economic and solution-oriented thinking\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
-        "de": "Einführung\n\nWir stapeln hoch und bauen weiter aus. Für unserere Logistikteams suchen wir Verstärkung. Du behältst auch bei hohem Tempo den Überblick und sorgst mit deiner Erfahrung dafür, dass Warenströme vom Wareneingang bis zum Versand reibungslos laufen? Wenn du gerne anpackst, Verantwortung übernimmst und in einem internationalen Umfeld etwas bewegen willst, bist du bei uns genau richtig.\n\nIn diesen Schichten suchen wir Verstärkung:\n\nIntralogistik\n\n• Spätschicht: 14:00 - 23:00 Uhr\n\nHauptverantwortlichkeiten\n\n• Physisches Bewegen und Transportieren von Waren inkl. Be-/Entladen, Ein- und Umlagern\n\n• Sicherer Einsatz von Flurförderfahrzeugen\n\n• Kontrolle der Waren hinsichtlich Menge und Qualität\n\n• Kommissionieren, Rüsten und Bereitstellen von Materialien und Kundenaufträgen\n\n• Korrektes Erfassen aller Materialbewegungen im SAP-EWM-System\n\n• Zusammenarbeit mit angrenzenden Logistikbereichen und Unterstützung bei Inventuren\n\n• Einhalten aller Sicherheits- und Qualitätsvorgaben sowie Mitwirkung bei Prozessverbesserungen\n\nErforderliche Fachkenntnisse\n\n• Abgeschlossene Berufslehre als Logistiker:in EFZ\n\n• Mindestens 4 Jahre Berufserfahrung in einem internationalen Industrie-, Handels- oder Logistikunternehmen\n\n• Staplerführerschein\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Ausgeprägte:r Teamplayer:in mit einer selbstständigen und exakten Arbeitsweise\n\n• Gute körperliche Verfassung (gute Fitness)\n\n• Bereitschaft für wechselnde Arbeitszeiten zwischen 6:00 Uhr und 23:00 Uhr, siehe oben\n\n• Kenntnisse in MS Office und SAP (MM/EWM)\n\n• Wirtschaftliche und lösungsorientierte Denkweise\n\n•\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-        "fr": "On s'accumule. Nous cherchons des renforts pour trois de nos équipes logistiques. Vous gardez une vue d'ensemble même à grande vitesse et assurez-vous avec votre expérience que les flux de marchandises de la réception à l'expédition fonctionnent en douceur? Si vous aimez vous attaquer, prendre des responsabilités et faire une différence dans un environnement international, vous êtes au bon endroit avec nous.\n\nDans ces modèles de changement, vous gardez la logistique avec nous:\n\nStockage\n\n• 2 équipes entre 6 h et 23 h\n\n• 6 heures - 15 h 15\n\n• 14 heures - 23 heures\n\nIntralogistique\n\n• 3 équipes entre 6 h et 23 h\n\n• 6 heures - 15 h 30\n\n• 7 heures-16 h 30\n\nExpédition\n\n• 06 h 30 - 15 h 40\n\n• 12 heures-21 h 10\n\nQue ferez-vous ?\n\n• Déplacement physique et transport de marchandises, y compris Chargement/déchargement, entreposage et réinstallation\n\n• Utilisation sûre des camions industriels\n\n• Contrôle de la quantité et de la qualité des marchandises\n\n• Cueillette, mise en place et fourniture de matériel et de commandes de clients\n\n• Détection correcte de tous les mouvements de matériel dans le système SAP-EWM\n\n• Coopération avec les zones logistiques adjacentes et appui aux inventaires\n\n• Respect de toutes les exigences en matière de sécurité et de qualité ainsi que participation à l'amélioration des processus\n\nQui vous êtes\n\n• Apprentissage professionnel complété en tant que logisticien: en EFZ\n\n• Au moins 4 ans d'expérience professionnelle dans une entreprise industrielle, commerciale ou logistique internationale\n\n• Permis de conduire de chariot élévateur\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Prononcé:r Teamplayer:in avec une méthode de travail indépendante et exacte\n\n• Bonne condition physique (bonne condition physique)\n\n• Préparation pour changer les heures de travail entre 6h00 et 23h00, voir ci-dessus\n\n• Connaissance du MS Office et du SAP (MM/EWM)\n\n• Pensée économique et axée sur la solution\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:53.576Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T02:00:00Z",
-      "postedDate": "2026-09-25T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
-      "jobReqId": "1165196555",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-efz-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-efz-100-belimo-hinwil"
-        ],
-        "en": [
-          "logistiker-in-efz-100-belimo-hinwil"
-        ],
-        "fr": [
-          "logistiker-in-efz-100-belimo-hinwil"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T22:07:55.708Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:21:53.576Z",
+      "validThrough": "2026-12-22T21:15:01.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -724,7 +873,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleader-Order-Processing-%28100%29-Z%C3%BCri-8340/1165488655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:52.966Z",
+      "crawledAt": "2026-11-13T21:15:00.664Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -779,7 +928,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:21:52.966Z",
+      "validThrough": "2026-12-22T21:15:00.664Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -813,7 +962,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Assistant-to-Group-General-CounselParalegal-%2840-60%29-Z%C3%BCri-8340/1165604255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:52.341Z",
+      "crawledAt": "2026-11-13T21:15:00.075Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -863,7 +1012,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:21:52.341Z",
+      "validThrough": "2027-01-10T21:15:00.075Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +1046,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Team-Leader-Export-%2880-100%29-Z%C3%BCri-8340/1165663555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:51.730Z",
+      "crawledAt": "2026-11-13T21:14:59.490Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -946,7 +1095,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:21:51.730Z",
+      "validThrough": "2027-01-20T21:14:59.490Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -980,7 +1129,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Abteilungsleiterin-Logistik-%28100%29-Z%C3%BCri-8340/1165397955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:50.880Z",
+      "crawledAt": "2026-11-13T21:14:58.701Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1025,7 +1174,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T21:21:50.880Z",
+      "validThrough": "2027-01-24T21:14:58.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1059,7 +1208,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Equipment-Process-Engineer-Zuri-8340/1165693755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:50.268Z",
+      "crawledAt": "2026-11-13T21:14:58.110Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1107,7 +1256,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:50.268Z",
+      "validThrough": "2027-01-26T21:14:58.110Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1141,7 +1290,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Tagesschicht-%280600-1500-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:49.654Z",
+      "crawledAt": "2026-11-13T21:14:57.519Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1191,7 +1340,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:21:49.654Z",
+      "validThrough": "2026-12-13T21:14:57.519Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1225,7 +1374,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Quality-Project-Manager-%2880-100%29-Zuri-8340/1165750155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:49.037Z",
+      "crawledAt": "2026-11-13T21:14:56.929Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1269,7 +1418,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:21:49.037Z",
+      "validThrough": "2027-02-03T21:14:56.929Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1303,7 +1452,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-ASIC-Development-Engineer-%2880-100%29-Z%C3%BCri-8340/1165363155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:48.417Z",
+      "crawledAt": "2026-11-13T21:14:56.331Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1351,7 +1500,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:48.417Z",
+      "validThrough": "2027-01-26T21:14:56.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1385,7 +1534,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Analog-Electronic-Development-Engineer-%2880-100%29-Zuri-8340/1165363055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:47.804Z",
+      "crawledAt": "2026-11-13T21:14:55.746Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1421,7 +1570,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:47.804Z",
+      "validThrough": "2027-01-26T21:14:55.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1455,7 +1604,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Entwicklungsingenieurin-Mechanik-Technische-Projektleitung-%2880-100-%29-Z%C3%BCri-8340/1165744155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:46.619Z",
+      "crawledAt": "2026-11-13T21:14:54.576Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1499,7 +1648,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:21:46.619Z",
+      "validThrough": "2027-02-03T21:14:54.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1533,7 +1682,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HSE-Manager-%28100%29-Z%C3%BCri-8340/1165043155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:45.996Z",
+      "crawledAt": "2026-11-13T21:14:53.988Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1581,7 +1730,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:21:45.996Z",
+      "validThrough": "2026-12-30T21:14:53.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1615,7 +1764,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Nachtschicht-%282300-0600-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:45.381Z",
+      "crawledAt": "2026-11-13T21:14:53.396Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1665,77 +1814,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:21:45.381Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "belimo-88592d98973d",
-      "slug": "embedded-security-verification-engineer-80-100-belimo-hinwil",
-      "slugByLocale": {
-        "it": "embedded-security-verification-engineer-80-100-belimo-hinwil",
-        "en": "trusted-firmware-verification-engineer-80-100-belimo-hinwil",
-        "de": "embedded-security-verification-engineer-80-100-belimo-hinwil",
-        "fr": "embedded-security-verification-engineer-80-100-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "Embedded Security Verification Engineer (80-100%)",
-      "titleByLocale": {
-        "it": "Embedded Security Verification Ingegnere (80-100%)",
-        "en": "Embedded Security Verification Engineer (80-100%)",
-        "de": "Embedded Security Verification Ingenieur (80-100%)",
-        "fr": "Embedded Security Verification Ingénieur (80-100%)"
-      },
-      "description": "Introduction\n\nJoin us as an Embedded Security Verification Engineer and play a key role in securing next-generation embedded and IoT products. You will lead security testing, identify vulnerabilities, and build automated validation solutions for ARM-based firmware platforms while collaborating across development and security teams.\n\nKey Responsibilities\n\n• Plan, document, and lead security testing campaigns for embedded products.\n\n• Perform security assessments, penetration testing, threat modeling, and security reviews.\n\n• Validate critical security features such as Secure Boot, Secure Update, Secure Storage, and communication protocols.\n\n• Identify and analyze vulnerabilities in firmware, communication stacks, and embedded systems.\n\n• Design, develop, and maintain automated security testing and validation frameworks.\n\n• Coordinate external development partners and take ownership of selected deliverables.\n\n• Support firmware releases, maintenance activities, and security compliance requirements.\n\n• Investigate reported security defects and contribute to vulnerability remediation efforts.\n\nRequired Expertise\n\n• BSc or MSc in Software Engineering, Computer Science, Electrical/Computer Engineering, or a related field; cybersecurity certifications are also valued.\n\n• Experience with cybersecurity-focused embedded systems and secure firmware architectures.\n\n• Hands-on experience in vulnerability assessment and penetration testing of communication stacks (REST APIs, HTTP, Modbus, BACnet, etc.).\n\n• Knowledge of secure embedded technologies including Secure Boot, Secure Update, TrustedFirmware-M, and secure storage concepts.\n\n• Strong programming skills in Embedded C++ and Python.\n\n• Understanding of cryptography fundamentals, including encryption, digital signatures, PKI, and key management.\n\n• Experience with RTOS environments, network protocols, industrial field buses, and test automation tools such as Robot Framework.\n\n• Fluent English communication skills; German is a plus.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nUnisciti a noi come Ingegnere di verifica della sicurezza incorporato e gioca un ruolo chiave nel garantire prodotti IoT e incorporati di nuova generazione. Condurrai i test di sicurezza, identificherai le vulnerabilità e costruirai soluzioni di validazione automatizzate per le piattaforme firmware basate su ARM, collaborando tra team di sviluppo e sicurezza.\n\nPrincipali responsabilità\n\n• Pianificare, documentare e condurre campagne di test di sicurezza per i prodotti incorporati.\n\n• Esegui valutazioni di sicurezza, test di penetrazione, modellazione delle minacce e recensioni di sicurezza.\n\n• Convalida funzioni di sicurezza critiche come Secure Boot, Secure Update, Secure Storage e protocolli di comunicazione.\n\n• Identificare e analizzare le vulnerabilità in firmware, stack di comunicazione e sistemi incorporati.\n\n• Progettare, sviluppare e mantenere quadri automatizzati di test e convalida della sicurezza.\n\n• Coordinare i partner di sviluppo esterno e prendere la proprietà dei responsabili selezionati.\n\n• Supporta release del firmware, attività di manutenzione e requisiti di conformità della sicurezza.\n\n• Investigare ha segnalato difetti di sicurezza e contribuire agli sforzi di riparazione della vulnerabilità.\n\nCompetenza richiesta\n\n• BSc o MSc in ingegneria del software, informatica, ingegneria elettrica / computer, o un campo correlato; le certificazioni di sicurezza informatica sono anche valutate.\n\n• Esperienza con sistemi embedded focalizzati sulla sicurezza informatica e architetture firmware sicure.\n\n• Esperienza pratica nella valutazione della vulnerabilità e nel test di penetrazione degli stack di comunicazione (API REST, HTTP, Modbus, BACnet, ecc.).\n\n• Conoscenza di tecnologie embedded sicure tra cui Secure Boot, Secure Update, TrustedFirmware-M e concetti di storage sicuri.\n\n• Forte capacità di programmazione in Embedded C++ e Python.\n\n• Comprensione dei fondamentali della crittografia, inclusa la crittografia, le firme digitali, PKI e la gestione delle chiavi.\n\n• Esperienza con ambienti RTOS, protocolli di rete, bus di campo industriali e strumenti di automazione di test come Robot Framework.\n\n• Capacità di comunicazione fluente inglese; tedesco è un plus.\n\nPersone a Belimo\n\nGli edifici intelligenti iniziano con persone dedicate. Portiamo insieme persone di talento e adottiamo un ambiente per avere successo. A Belimo, il rispetto, la fiducia e il supporto nei dipartimenti aiutano le idee a muoversi rapidamente in soluzioni del mondo reale, perché raggiungiamo più insieme di quanto mai potremmo soli.\n\nInformazioni su Belimo\n\nBelimo è leader del mercato globale nello sviluppo, produzione e vendita di dispositivi di campo per il controllo efficiente dell'energia dei sistemi di riscaldamento, ventilazione e climatizzazione. Il focus del nostro core business è sugli attuatori ammortizzatori, valvole di controllo, sensori e metri. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e vantaggi\n\nA Belimo, crediamo in una compensazione equa, equa e competitiva. Offriamo la paga che riflette le vostre abilità, esperienza, istruzione e la posizione. Oltre alla compensazione, potrete beneficiare di un pacchetto completo di ricompense progettato per sostenere la vostra salute, benessere finanziario e successo a lungo termine. Belimo è orgogliosa di essere un Equal Opportunity Employer.",
-        "en": "Introduction\n\nJoin us as an Embedded Security Verification Engineer and play a key role in securing next-generation embedded and IoT products. You will lead security testing, identify vulnerabilities, and build automated validation solutions for ARM-based firmware platforms while collaborating across development and security teams.\n\nKey Responsibilities\n\n• Plan, document, and lead security testing campaigns for embedded products.\n\n• Perform security assessments, penetration testing, threat modeling, and security reviews.\n\n• Validate critical security features such as Secure Boot, Secure Update, Secure Storage, and communication protocols.\n\n• Identify and analyze vulnerabilities in firmware, communication stacks, and embedded systems.\n\n• Design, develop, and maintain automated security testing and validation frameworks.\n\n• Coordinate external development partners and take ownership of selected deliverables.\n\n• Support firmware releases, maintenance activities, and security compliance requirements.\n\n• Investigate reported security defects and contribute to vulnerability remediation efforts.\n\nRequired Expertise\n\n• BSc or MSc in Software Engineering, Computer Science, Electrical/Computer Engineering, or a related field; cybersecurity certifications are also valued.\n\n• Experience with cybersecurity-focused embedded systems and secure firmware architectures.\n\n• Hands-on experience in vulnerability assessment and penetration testing of communication stacks (REST APIs, HTTP, Modbus, BACnet, etc.).\n\n• Knowledge of secure embedded technologies including Secure Boot, Secure Update, TrustedFirmware-M, and secure storage concepts.\n\n• Strong programming skills in Embedded C++ and Python.\n\n• Understanding of cryptography fundamentals, including encryption, digital signatures, PKI, and key management.\n\n• Experience with RTOS environments, network protocols, industrial field buses, and test automation tools such as Robot Framework.\n\n• Fluent English communication skills; German is a plus.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.",
-        "de": "Einleitung\n\nSchließen Sie sich uns als Embedded Security Verification Engineer an und spielen Sie eine Schlüsselrolle bei der Sicherung von Embedded- und IoT-Produkten der nächsten Generation. Sie leiten Sicherheitstests, identifizieren Schwachstellen und erstellen automatisierte Validierungslösungen für ARM-basierte Firmware-Plattformen, während Sie in Entwicklungs- und Sicherheitsteams zusammenarbeiten.\n\nHauptzuständigkeiten\n\n• Planen, dokumentieren und leiten Sie Sicherheitstestkampagnen für Embedded-Produkte.\n\n• Führen Sie Sicherheitsbewertungen, Penetrationstests, Bedrohungsmodellierung und Sicherheitsüberprüfungen durch.\n\n• Validieren Sie wichtige Sicherheitsfunktionen wie Secure Boot, Secure Update, Secure Storage und Kommunikationsprotokolle.\n\n• Identifizieren und analysieren Sie Schwachstellen in Firmware, Kommunikationsstacks und eingebetteten Systemen.\n\n• Design, Entwicklung und Wartung automatisierter Sicherheitstest- und Validierungs-Frameworks.\n\n• Koordinieren Sie externe Entwicklungspartner und übernehmen Sie die Verantwortung für ausgewählte Ergebnisse.\n\n• Unterstützen Sie Firmware-Releases, Wartungsaktivitäten und Compliance-Anforderungen für die Sicherheit.\n\n• Untersuchen Sie gemeldete Sicherheitsmängel und tragen Sie zur Behebung von Schwachstellen bei.\n\nErforderliches Fachwissen\n\n• BSc oder MSc in Software Engineering, Informatik, Elektrotechnik oder einem verwandten Bereich; Cybersicherheitszertifizierungen werden ebenfalls geschätzt.\n\n• Erfahrung mit auf Cybersicherheit ausgerichteten eingebetteten Systemen und sicheren Firmware-Architekturen.\n\n• Praktische Erfahrung in der Schwachstellenbewertung und Penetrationstests von Kommunikationsstacks (REST APIs, HTTP, Modbus, BACnet usw.).\n\n• Kenntnisse über sichere eingebettete Technologien, einschließlich Secure Boot, Secure Update, TrustedFirmware-M und sichere Speicherkonzepte.\n\n• Starke Programmierkenntnisse in Embedded C++ und Python.\n\n• Verständnis der Grundlagen der Kryptographie, einschließlich Verschlüsselung, digitaler Signaturen, PKI und Schlüsselmanagement.\n\n• Erfahrung mit RTOS-Umgebungen, Netzwerkprotokollen, industriellen Feldbussen und Testautomatisierungstools wie Robot Framework.\n\n• Fließende englische Kommunikationsfähigkeiten; Deutsch ist ein Plus.\n\nMenschen in Belimo\n\nIntelligente Gebäude beginnen mit engagierten Menschen. Wir bringen talentierte Menschen zusammen und fördern ein Umfeld, um erfolgreich zu sein. Bei Belimo helfen Respekt, Vertrauen und Unterstützung abteilungsübergreifend, Ideen schnell in reale Lösungen zu bringen, weil wir gemeinsam mehr erreichen, als wir es jemals alleine könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in der Entwicklung, Produktion und dem Vertrieb von Feldgeräten zur energieeffizienten Steuerung von Heizungs-, Lüftungs- und Klimaanlagen. Der Fokus unseres Kerngeschäfts liegt auf Dämpferaktoren, Regelventilen, Sensoren und Messgeräten. Das 1975 gegründete Unternehmen ist seit 1995 an der Swiss Exchange (SIX) notiert.\n\nEntschädigung und Vorteile\n\nBei Belimo glauben wir an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten eine Bezahlung an, die Ihre Fähigkeiten, Erfahrung, Ausbildung und Ihren Standort widerspiegelt. Über die Entschädigung hinaus profitieren Sie von einem umfassenden Belohnungspaket, das Ihre Gesundheit, Ihr finanzielles Wohlbefinden und Ihren langfristigen Erfolg unterstützt. Belimo ist stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein.",
-        "fr": "Présentation\n\nRejoignez-nous en tant qu'ingénieur de vérification de sécurité embarqué et jouez un rôle clé dans la sécurisation des produits embarqués et IoT de nouvelle génération. Vous dirigerez les tests de sécurité, identifierez les vulnérabilités et créerez des solutions de validation automatisées pour les plates-formes de firmware basées sur ARM tout en collaborant entre les équipes de développement et de sécurité.\n\nPrincipales responsabilités\n\n• Planifier, documenter et diriger des campagnes de tests de sécurité pour les produits embarqués.\n\n• Effectuer des évaluations de sécurité, des tests de pénétration, des modélisations de menace et des examens de sécurité.\n\n• Valider les fonctions de sécurité critiques telles que les protocoles Secure Boot, Secure Update, Secure Storage et Communication.\n\n• Identifier et analyser les vulnérabilités dans le firmware, les piles de communication et les systèmes embarqués.\n\n• Concevoir, développer et maintenir des cadres automatisés d'essais et de validation de sécurité.\n\n• Coordonner les partenaires extérieurs de développement et prendre en charge certains produits livrables.\n\n• Soutenir les versions de firmware, les activités de maintenance et les exigences de conformité en matière de sécurité.\n\n• Étudier les défauts de sécurité signalés et contribuer aux efforts de remise en état de la vulnérabilité.\n\nExpertise requise\n\n• B.Sc. ou M.Sc. en génie logiciel, en informatique, en génie électrique et informatique ou dans un domaine connexe; les certifications de cybersécurité sont également appréciées.\n\n• Expérience avec les systèmes intégrés axés sur la cybersécurité et les architectures sécurisées du firmware.\n\n• Expérience pratique dans l'évaluation de la vulnérabilité et les tests de pénétration des piles de communication (API REST, HTTP, Modbus, BACnet, etc.).\n\n• Connaissance de technologies intégrées sécurisées, y compris un démarrage sécurisé, une mise à jour sécurisée, un logiciel fiable et des concepts de stockage sécurisé.\n\n• Fortes compétences en programmation en C++ embarqué et en Python.\n\n• Comprendre les fondamentaux de la cryptographie, y compris le chiffrement, les signatures numériques, l'ICP et la gestion des clés.\n\n• Expérience des environnements RTOS, des protocoles réseau, des bus de terrain industriels et des outils d'automatisation de test tels que Robot Framework.\n\n• Compétences de communication en anglais; l'allemand est un plus.\n\nLes gens de Belimo\n\nLes bâtiments intelligents commencent par des personnes dédiées. Nous réunissons des gens talentueux et nous favorisons un environnement propice à la réussite. Chez Belimo, le respect, la confiance et le soutien à travers les ministères aident les idées à passer rapidement à des solutions concrètes, parce que nous obtenons plus ensemble que nous ne le pouvions jamais.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Nos activités principales sont les actionneurs d'amortisseurs, les vannes de commande, les capteurs et les compteurs. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et avantages sociaux\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons une rémunération qui reflète vos compétences, votre expérience, vos études et votre emplacement. Au-delà de la rémunération, vous bénéficierez d'un ensemble complet de récompenses conçu pour soutenir votre santé, votre bien-être financier et votre succès à long terme. Belimo est fier d'être un employeur pour l'égalité des chances."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-Security-Verification-Engineer-%2880-100%29-Zuri-8340/1165337955/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:44.763Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T02:00:00Z",
-      "postedDate": "2026-09-24T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-Security-Verification-Engineer-%2880-100%29-Zuri-8340/1165337955/",
-      "jobReqId": "1165337955",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-26T09:54:16.624Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:21:44.763Z",
+      "validThrough": "2026-12-13T21:14:53.396Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1769,7 +1848,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Produktionsmitarbeiterin-Montage-Abendschicht-%281400-2300-Uhr%29-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165653655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:44.156Z",
+      "crawledAt": "2026-11-13T21:14:52.808Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1819,7 +1898,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:21:44.156Z",
+      "validThrough": "2026-12-13T21:14:52.808Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1853,7 +1932,7 @@
       "url": "https://jobsredirect.belimo.com/job/Granges-Paccot-Fachspezialistin-technischer-Kundensupport-%2880-100%29-Frei-1763/1165551755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:43.550Z",
+      "crawledAt": "2026-11-13T21:14:52.212Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "Frei",
       "streetAddress": "Granges-Paccot",
@@ -1903,7 +1982,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:21:43.550Z",
+      "validThrough": "2027-01-03T21:14:52.212Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1937,7 +2016,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-PIM-Application-Manager-%2880-100%29-Z%C3%BCri-8340/1165473855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:42.938Z",
+      "crawledAt": "2026-11-13T21:14:51.620Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1985,7 +2064,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:21:42.938Z",
+      "validThrough": "2026-12-20T21:14:51.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2019,7 +2098,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Fachfrau-mann-Betriebsunterhalt-EFZ-Z%C3%BCri-8340/1165066855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:42.334Z",
+      "crawledAt": "2026-11-13T21:14:51.030Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2084,7 +2163,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:21:42.334Z",
+      "validThrough": "2027-01-02T21:14:51.030Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2118,7 +2197,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Compliance-Engineer-%28100%29-Zuri-8340/1165719355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:41.725Z",
+      "crawledAt": "2026-11-13T21:14:50.444Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2154,7 +2233,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:21:41.725Z",
+      "validThrough": "2027-01-28T21:14:50.444Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2188,7 +2267,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Compliance-Lead-%2880-100%29-Zuri-8340/1165719255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:21:41.116Z",
+      "crawledAt": "2026-11-13T21:14:49.846Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2238,7 +2317,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:21:41.116Z",
+      "validThrough": "2027-01-28T21:14:49.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2272,7 +2351,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-Wochenendschicht-Z%C3%BCri-8340/1165695655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:40.504Z",
+      "crawledAt": "2026-11-13T21:14:49.260Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2322,7 +2401,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:40.504Z",
+      "validThrough": "2027-01-26T21:14:49.260Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2356,7 +2435,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-System-Engineer-Cloud-Technologies-%2880-100%29-Z%C3%BCri-8340/1165657455/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:39.662Z",
+      "crawledAt": "2026-11-13T21:14:48.471Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2404,7 +2483,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:21:39.662Z",
+      "validThrough": "2027-01-19T21:14:48.471Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2438,7 +2517,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-SAP-Solution-Architect-EWM-%2880-100%29-Z%C3%BCri-8340/1165476355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:21:39.038Z",
+      "crawledAt": "2026-11-13T21:14:47.876Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2490,7 +2569,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:21:39.038Z",
+      "validThrough": "2026-12-20T21:14:47.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2524,7 +2603,7 @@
       "url": "https://jobsredirect.belimo.com/job/Granges-Paccot-Sp%C3%A9cialiste-support-technique-clients-%2880-100-%29-bon-niveau-d%E2%80%99allemand-requis-Frib-1763/1165634755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:21:38.410Z",
+      "crawledAt": "2026-11-13T21:14:47.253Z",
       "addressLocality": "Granges-Paccot",
       "addressRegion": "Frib",
       "streetAddress": "Granges-Paccot",
@@ -2574,93 +2653,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:21:38.410Z",
+      "validThrough": "2027-01-14T21:14:47.253Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "belimo-6453cd4f754d",
-      "slug": "progettista-di-sistemi-per-postazioni-di-lavoro-80-100-belimo-hinwil",
-      "slugByLocale": {
-        "it": "progettista-di-sistemi-per-postazioni-di-lavoro-80-100-belimo-hinwil",
-        "en": "design-engineer-workplace-systems-construction-80-100-belimo-hinwil",
-        "de": "konstrukteur-in-arbeitsplatz-systembau-80-100-belimo-hinwil",
-        "fr": "constructeur-rice-de-systemes-de-postes-de-travail-80-100-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "Konstrukteur:in Arbeitsplatz-Systembau (80-100%)",
-      "titleByLocale": {
-        "it": "Progettista di sistemi per postazioni di lavoro (80-100%)",
-        "en": "Design Engineer, Workplace Systems Construction (80-100%)",
-        "de": "Konstrukteur:in Arbeitsplatz-Systembau (80-100%)",
-        "fr": "Constructeur·rice de systèmes de postes de travail (80-100%)"
-      },
-      "description": "Einführung\n\nDu konstruierst, was unseren Produktionsalltag bewegt: von Montagearbeitsplätzen über Materialzuführungen bis hin zu Regalsystemen und Materialwagen. Mit CAD-Know-how und Eigeninitiative entwickelst du durchdachte Arbeitsplatz-Systeme und übernimmst spannende Kleinprojekte.\n\nHauptverantwortlichkeiten\n\n• Konstruktion und Weiterentwicklung von Arbeitsplatz-Systemen und Betriebseinrichtungen mittels CAD nach Angaben/Auftrag von Abteilungs-, Linien- oder Projektleitenden\n\n• Erstellung von Konstruktionszeichnungen und Risikobeurteilungen sowie Mitwirkung bei technischen Unterlagen in Zusammenarbeit mit dem Team Technische Dokumentation\n\n• Planung und Umsetzung von Kleinprojekten sowie Beschaffung neuer Arbeitsplatz-Systeme\n\n• Berechnung von Gewichtsbelastungen sowie Anlage von Materialien und Bautypen in SAP\n\n• Selbstständige Fertigung und mechanische Bearbeitung von Arbeitsplatz-Systemen\n\n• Auswahl geeigneter Maschinen- und Standardelemente sowie Abstimmung mit Lieferanten\n\n• Unterstützung bei Umzügen, Ausser- und Wiederinbetriebnahmen\n\n• Lagerbewirtschaftung und Beschaffung von BOSCH-Komponenten sowie Einhaltung der Arbeitssicherheit\n\nErforderliche Fachkenntnisse\n\n• Technische Grundausbildung, z. B. als Konstrukteur:in, Polymechaniker:in, Automatiker:in oder Metallbauer:in\n\n• Idealerweise Weiterbildung auf HF-Stufe in Maschinenbau, Mechatronik oder Automation\n\n• Mind. 3-jährige Berufserfahrung im Profil-Systembau\n\n• Mind. 3-jährige CAD-Erfahrung, idealerweise mit Siemens NX\n\n• Weiterbildung als Lean Production Expert und in Projektmanagement sind erwünscht\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen\n\n• Kommunikationsstärke, Hilfsbereitschaft und bereichsübergreifende Teamfähigkeit\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nProgettare ciò che muove la nostra produzione quotidiana: dalle postazioni di lavoro di montaggio ai alimentatori materiali ai sistemi di taglio e ai carri materiali. Con il know-how e l'iniziativa CAD, si sviluppano sistemi di lavoro ben pensati e si occupano di piccoli progetti entusiasmanti.\n\nPrincipali responsabilità\n\n• Costruzione e sviluppo di sistemi di postazione di lavoro e impianti operativi che utilizzano CAD in base alle informazioni/ordine di reparto, linea o project manager\n\n• Preparazione di disegni e valutazioni dei rischi e partecipazione alla documentazione tecnica in collaborazione con il team di documentazione tecnica\n\n• Pianificazione e realizzazione di piccoli progetti e appalto di nuovi sistemi di lavoro\n\n• Calcolo dei carichi di peso e installazione di materiali e tipi in SAP\n\n• Produzione indipendente e lavorazione meccanica dei sistemi di postazione di lavoro\n\n• Selezione di macchine adatte e elementi standard e coordinamento con i fornitori\n\n• Rimozione, rimozione e riavvio dell'assistenza\n\n• Gestione del magazzino e approvvigionamento dei componenti BOSCH e conformità alla sicurezza sul lavoro\n\nCompetenza necessaria\n\n• Formazione tecnica di base, ad esempio come costruttore:in, polimeccanico:in, tecnico automatico:in o metalworker:in\n\n• Idealmente, ulteriore formazione a livello RF in ingegneria meccanica, meccatronica o automazione\n\n• Esperienza professionale di 3 anni nella costruzione del sistema di profili\n\n• Mente. Esperienza professionale di 3 anniCAD, ideale con Siemens NX\n\n• Un'ulteriore formazione come esperto di produzione magra e nella gestione del progetto si desidera\n\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n\n• Iniziativa, senso di responsabilità e assertività\n\n• Forza di comunicazione, disponibilità e lavoro di squadra trasversale\n\nPersone a Belimo\n\nGli edifici intelligenti sono creati da persone impegnate. Portiamo insieme persone di talento e creiamo un ambiente in cui possono avere successo. A Belimo, il rispetto, la fiducia e il sostegno reciproco attraverso i confini dipartimentali aiutano a trasformare rapidamente le idee in soluzioni pratiche. Insieme riusciamo a raggiungere più di quanto potremmo mai raggiungere da soli.\n\nInformazioni su Belimo\n\nBelimo è leader mondiale nello sviluppo, nella produzione e nella vendita di dispositivi di campo per il controllo efficiente dell'impianto di riscaldamento, ventilazione e condizionamento dell'aria. Azionatrici, valvole di controllo, sensori e metri formano il nostro core business. Fondata nel 1975, la società è quotata in Borsa svizzera (SIX) dal 1995.\n\nRemunerazione e benefici aggiuntivi\n\nA Belimo, crediamo in una compensazione equa, giusta e competitiva. Offriamo uno stipendio che corrisponde alle tue competenze, esperienza, istruzione e posizione. Oltre alla compensazione, si beneficia di servizi aggiuntivi completi che supportano il vostro benessere mentale, fisico, finanziario e sociale. Belimo è orgogliosa di essere un datore di lavoro che promuove pari opportunità.",
-        "en": "Introduction\n\nYou design what moves our everyday production: from assembly workstations to material feeders to shelving systems and material wagons. With CAD know-how and initiative, you develop well-thought-out workplace systems and take on exciting small projects.\n\nMain responsibilities\n\n• Construction and further development of workstation systems and operating facilities using CAD according to information/order of department, line or project managers\n\n• Preparation of design drawings and risk assessments and participation in technical documentation in cooperation with the technical documentation team\n\n• Planning and implementation of small projects as well as procurement of new workplace systems\n\n• Calculation of weight loads and installation of materials and types in SAP\n\n• Independent production and mechanical processing of workstation systems\n\n• Selection of suitable machine and standard elements and coordination with suppliers\n\n• Removal, removal and restart assistance\n\n• Warehouse management and procurement of BOSCH components as well as compliance with occupational safety\n\nRequired expertise\n\n• Basic technical training, e.g. as a constructor:in, polymechanic:in, automatic technician:in or metalworker:in\n\n• Ideally, further education at RF level in mechanical engineering, mechatronics or automation\n\n• Mind. 3-year professional experience in profile system construction\n\n• Mind. 3-year professional experienceCAD experience, ideally with Siemens NX\n\n• Further education as a lean production expert and in project management is desired\n\n• Independent, structured and solution-oriented working method\n\n• Own initiative, sense of responsibility and assertiveness\n\n• Communication strength, helpfulness and cross-cutting teamwork\n\nPeople at Belimo\n\nIntelligent buildings are created by committed people. We bring talented people together and create an environment where they can succeed. At Belimo, respect, trust and mutual support across departmental boundaries help turn ideas quickly into practical solutions. Together we achieve more than we could ever achieve alone.\n\nAbout Belimo\n\nBelimo is the world market leader in the development, manufacture and sale of field devices for energy-efficient control of heating, ventilation and air conditioning systems. Flap drives, control valves, sensors and meters form our core business. Founded in 1975, the company has been listed on the Swiss Stock Exchange (SIX) since 1995.\n\nRemuneration and additional benefits\n\nAt Belimo, we believe in fair, fair and competitive compensation. We offer a salary that matches your skills, experience, education and location. In addition to the compensation, you benefit from comprehensive additional services that support your mental, physical, financial and social well-being. Belimo is proud to be an employer promoting equal opportunities.",
-        "de": "Einführung\n\nDu konstruierst, was unseren Produktionsalltag bewegt: von Montagearbeitsplätzen über Materialzuführungen bis hin zu Regalsystemen und Materialwagen. Mit CAD-Know-how und Eigeninitiative entwickelst du durchdachte Arbeitsplatz-Systeme und übernimmst spannende Kleinprojekte.\n\nHauptverantwortlichkeiten\n\n• Konstruktion und Weiterentwicklung von Arbeitsplatz-Systemen und Betriebseinrichtungen mittels CAD nach Angaben/Auftrag von Abteilungs-, Linien- oder Projektleitenden\n\n• Erstellung von Konstruktionszeichnungen und Risikobeurteilungen sowie Mitwirkung bei technischen Unterlagen in Zusammenarbeit mit dem Team Technische Dokumentation\n\n• Planung und Umsetzung von Kleinprojekten sowie Beschaffung neuer Arbeitsplatz-Systeme\n\n• Berechnung von Gewichtsbelastungen sowie Anlage von Materialien und Bautypen in SAP\n\n• Selbstständige Fertigung und mechanische Bearbeitung von Arbeitsplatz-Systemen\n\n• Auswahl geeigneter Maschinen- und Standardelemente sowie Abstimmung mit Lieferanten\n\n• Unterstützung bei Umzügen, Ausser- und Wiederinbetriebnahmen\n\n• Lagerbewirtschaftung und Beschaffung von BOSCH-Komponenten sowie Einhaltung der Arbeitssicherheit\n\nErforderliche Fachkenntnisse\n\n• Technische Grundausbildung, z. B. als Konstrukteur:in, Polymechaniker:in, Automatiker:in oder Metallbauer:in\n\n• Idealerweise Weiterbildung auf HF-Stufe in Maschinenbau, Mechatronik oder Automation\n\n• Mind. 3-jährige Berufserfahrung im Profil-Systembau\n\n• Mind. 3-jährige CAD-Erfahrung, idealerweise mit Siemens NX\n\n• Weiterbildung als Lean Production Expert und in Projektmanagement sind erwünscht\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Eigeninitiative, Verantwortungsbewusstsein und Durchsetzungsvermögen\n\n• Kommunikationsstärke, Hilfsbereitschaft und bereichsübergreifende Teamfähigkeit\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
-        "fr": "Présentation\n\nVous concevez ce qui déplace notre production quotidienne : des postes de travail d'assemblage aux nourrisseurs de matériaux aux systèmes de rayonnage et aux wagons de matériaux. Avec le savoir-faire et l'initiative de la CAO, vous développez des systèmes de travail bien pensés et vous lancez des petits projets passionnants.\n\nPrincipales responsabilités\n\n• Construction et développement de systèmes de poste de travail et d'installations d'exploitation utilisant la CAO selon l'information/ordre des gestionnaires de département, de ligne ou de projet\n\n• Élaboration de plans de conception et d ' évaluations des risques et participation à la documentation technique en coopération avec l ' équipe de documentation technique\n\n• Planification et mise en œuvre de petits projets ainsi que l'acquisition de nouveaux systèmes de travail\n\n• Calcul des charges de poids et installation des matériaux et des types dans SAP\n\n• Production indépendante et traitement mécanique des systèmes de postes de travail\n\n• Sélection de machines et d'éléments standard appropriés et coordination avec les fournisseurs\n\n• Aide à l'enlèvement, à l'enlèvement et au redémarrage\n\n• Gestion des entrepôts et achat de composants BOSCH ainsi que respect de la sécurité au travail\n\nCompétences requises\n\n• Formation technique de base, p.ex. en tant que constructeur:in, polymécanique:in, technicien automatique:in ou métallurgique:in\n\n• Idéalement, une formation continue au niveau RF en ingénierie mécanique, mécatronique ou automatisation\n\n• Mind. 3 ans d'expérience professionnelle dans la construction de systèmes de profil\n\n• De rien. Expérience professionnelle de 3 ans expérience CAD, idéalement avec Siemens NX\n\n• Une formation complémentaire en tant qu'expert en production maigre et en gestion de projet est souhaitée\n\n• Méthode de travail indépendante, structurée et orientée vers la solution\n\n• L'initiative, le sens des responsabilités et l'affirmation de soi\n\n• La force de la communication, l'utilité et le travail d'équipe transversal\n\nLes gens de Belimo\n\nLes bâtiments intelligents sont créés par des personnes engagées. Nous réunissons des gens talentueux et créons un environnement où ils peuvent réussir. Chez Belimo, le respect, la confiance et le soutien mutuel au-delà des frontières ministérielles aident à transformer rapidement les idées en solutions pratiques. Ensemble, nous obtenons plus que nous n'aurions jamais pu atteindre seuls.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la fabrication et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Les moteurs à flamme, les vannes de commande, les capteurs et les compteurs forment notre activité principale. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et prestations supplémentaires\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons un salaire qui correspond à vos compétences, expérience, éducation et emplacement. En plus de la rémunération, vous bénéficiez de services supplémentaires complets qui soutiennent votre bien-être mental, physique, financier et social. Belimo est fier d'être un employeur qui favorise l'égalité des chances."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-Konstrukteurin-Arbeitsplatz-Systembau-%2880-100%29-Z%C3%BCri-8340/1165689755/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:20:15.073Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-27T00:00:00Z",
-      "postedDate": "2026-10-27T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Konstrukteurin-Arbeitsplatz-Systembau-%2880-100%29-Z%C3%BCri-8340/1165689755/",
-      "jobReqId": "1165689755",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "konstrukteur-in-arbeitsplatz-systembau-80-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "konstrukteur-in-arbeitsplatz-systembau-80-100-belimo-hinwil"
-        ],
-        "en": [
-          "konstrukteur-in-arbeitsplatz-systembau-80-100-belimo-hinwil"
-        ],
-        "fr": [
-          "konstrukteur-in-arbeitsplatz-systembau-80-100-belimo-hinwil"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T09:11:41.165Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:20:15.073Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
     }
   ]
 }

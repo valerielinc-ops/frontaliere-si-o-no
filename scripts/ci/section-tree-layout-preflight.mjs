@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
@@ -16,6 +16,23 @@ const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 const DEFAULT_SECTION_TREE_LIMIT_BYTES = 52_428_800;
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SECTION_SLUGS_PATH = path.join(REPO_ROOT, 'scripts/lib/section-shard-slugs.json');
+
+function normalizeLocales(locales = LOCALES) {
+  if (!Array.isArray(locales) || locales.length === 0
+    || locales.some((locale) => !LOCALES.includes(locale))
+    || new Set(locales).size !== locales.length) {
+    throw new Error('[section-tree-layout] locales must be a non-empty unique subset of it,en,de,fr');
+  }
+  return locales;
+}
+
+function sectionSubPath(sectionSlugs, section, locale) {
+  const slug = sectionSlugs[section]?.[locale];
+  if (typeof slug !== 'string' || slug.length === 0) {
+    throw new Error(`[section-tree-layout] cannot build Worker probe path for ${section}/${locale}`);
+  }
+  return locale === 'it' ? slug : path.posix.join(locale, slug);
+}
 
 function displayPct(value) {
   return Number(value.toFixed(2));
@@ -49,12 +66,15 @@ export async function loadSectionTreeLayoutMetricsFromArtifacts({
   sourceRunId,
   sourceRunAttempt,
   sourceSha,
+  sourceHasMetricsContract = true,
 } = {}) {
   if (typeof metricsDir !== 'string' || metricsDir.length === 0) throw new Error('metricsDir is required');
   if (typeof sourceRunId !== 'string' || !/^\d+$/u.test(sourceRunId)) throw new Error('sourceRunId must be a decimal run id');
   if (!Number.isSafeInteger(Number(sourceRunAttempt)) || Number(sourceRunAttempt) < 1) throw new Error('sourceRunAttempt must be a positive safe integer');
   if (typeof sourceSha !== 'string' || !/^[a-f0-9]{40}$/iu.test(sourceSha)) throw new Error('sourceSha must be a 40-character Git SHA');
+  if (typeof sourceHasMetricsContract !== 'boolean') throw new Error('sourceHasMetricsContract must be a boolean');
 
+  await mkdir(metricsDir, { recursive: true });
   const available = await readdir(metricsDir, { withFileTypes: true });
   const latest = new Map();
   for (const artifact of available) {
@@ -78,6 +98,8 @@ export async function loadSectionTreeLayoutMetricsFromArtifacts({
     if (!current || attempt > current.attempt) latest.set(locale, { attempt, metric });
   }
 
+  if (latest.size === 0 && !sourceHasMetricsContract) return null;
+
   const metricsByLocale = {};
   for (const locale of LOCALES) {
     const entry = latest.get(locale);
@@ -89,6 +111,7 @@ export async function loadSectionTreeLayoutMetricsFromArtifacts({
 
 export async function runSectionTreeLayoutPreflight({
   metricsByLocale,
+  locales = LOCALES,
   sourceRunId,
   sourceRunAttempt = Number.MAX_SAFE_INTEGER,
   sourceSha,
@@ -100,19 +123,29 @@ export async function runSectionTreeLayoutPreflight({
   probeWorker = requireWorkerSectionTreeLayout,
   stderr = console.error,
 } = {}) {
-  if (!metricsByLocale || typeof metricsByLocale !== 'object') throw new Error('metricsByLocale is required');
+  const pushLocales = normalizeLocales(locales);
   if (typeof sourceRunId !== 'string' || !/^\d+$/u.test(sourceRunId)) throw new Error('sourceRunId must be a decimal run id');
   if (typeof sourceSha !== 'string' || !/^[a-f0-9]{40}$/iu.test(sourceSha)) throw new Error('sourceSha must be a 40-character Git SHA');
   if (!Number.isSafeInteger(treeLimitBytes) || treeLimitBytes <= 0) throw new Error('treeLimitBytes must be a positive safe integer');
 
   const sectionSlugs = slugs ?? JSON.parse(await readFile(SECTION_SLUGS_PATH, 'utf8'));
+  let registry = await readRegistry();
+  let registeredSections = sectionTreeLayoutSections(registry);
+
+  if (metricsByLocale === null) {
+    stderr('[section-tree-layout] legacy source without metrics: sticky registry only');
+    await Promise.all(registeredSections.flatMap((section) => pushLocales.map(async (locale) => {
+      await probeWorker(section, sectionSubPath(sectionSlugs, section, locale));
+    })));
+    return { ready: true, legacy: true, decisions: {}, sections: registeredSections, locales: pushLocales };
+  }
+
+  if (!metricsByLocale || typeof metricsByLocale !== 'object') throw new Error('metricsByLocale is required');
   const sectionNames = Object.keys(sectionSlugs).filter((section) => !section.startsWith('_')).sort();
   for (const locale of LOCALES) {
     validateMetric(metricsByLocale[locale], locale, sourceRunId, sourceRunAttempt, sourceSha, treeLimitBytes, sectionNames);
   }
 
-  let registry = await readRegistry();
-  let registeredSections = sectionTreeLayoutSections(registry);
   const decisions = {};
   const pendingProbes = [];
   for (const section of sectionNames) {
@@ -148,15 +181,17 @@ export async function runSectionTreeLayoutPreflight({
       throw new Error(`[section-tree-layout] registry did not persist hash-v1 for ${section}; refusing all section pushes`);
     }
   }
-  await Promise.all(pendingProbes.map(async ({ section, locale }) => {
-    const slug = sectionSlugs[section]?.[locale];
-    if (typeof slug !== 'string' || slug.length === 0) {
-      throw new Error(`[section-tree-layout] cannot build Worker probe path for ${section}/${locale}`);
-    }
-    const sub = locale === 'it' ? slug : path.posix.join(locale, slug);
-    await probeWorker(section, sub);
-  }));
-  return { ready: true, decisions, sections: registeredSections };
+  // Probe every section already committed to the durable registry that is
+  // present in this source, including the static fan-out sections and
+  // sections registered above, for every locale that this publish will push.
+  // A metrics source used to probe only newly registered sections here,
+  // leaving sticky sections to fail later in parallel shard jobs while the
+  // Worker rollout was still propagating.
+  const sectionsToProbe = registeredSections.filter((section) => sectionNames.includes(section));
+  await Promise.all(sectionsToProbe.flatMap((section) => pushLocales.map(async (locale) => {
+    await probeWorker(section, sectionSubPath(sectionSlugs, section, locale));
+  })));
+  return { ready: true, decisions, sections: registeredSections, locales: pushLocales };
 }
 
 function flag(args, name, fallback) {
@@ -171,6 +206,11 @@ async function main(args = process.argv.slice(2)) {
   const sourceRunId = flag(args, '--source-run-id');
   const sourceRunAttempt = Number(flag(args, '--source-run-attempt', process.env.SOURCE_RUN_ATTEMPT || '1'));
   const sourceSha = flag(args, '--source-sha');
+  const sourceHasMetricsContractValue = flag(args, '--source-has-metrics-contract', 'true');
+  if (!['true', 'false'].includes(sourceHasMetricsContractValue)) {
+    throw new Error('--source-has-metrics-contract must be true or false');
+  }
+  const locales = normalizeLocales(flag(args, '--locales', LOCALES.join(',')).split(','));
   const threshold = parseFanoutAutoThreshold(flag(args, '--threshold', process.env.FANOUT_AUTO_THRESHOLD_PCT));
   const treeLimitBytes = Number(flag(
     args,
@@ -178,10 +218,14 @@ async function main(args = process.argv.slice(2)) {
     String(intFromEnv('SHARD_REMOTE_TREE_LIMIT_BYTES', DEFAULT_SECTION_TREE_LIMIT_BYTES)),
   ));
   const metricsByLocale = await loadSectionTreeLayoutMetricsFromArtifacts({
-    metricsDir, sourceRunId, sourceRunAttempt, sourceSha,
+    metricsDir,
+    sourceRunId,
+    sourceRunAttempt,
+    sourceSha,
+    sourceHasMetricsContract: sourceHasMetricsContractValue === 'true',
   });
   const result = await runSectionTreeLayoutPreflight({
-    metricsByLocale, sourceRunId, sourceRunAttempt, sourceSha, threshold, treeLimitBytes,
+    metricsByLocale, locales, sourceRunId, sourceRunAttempt, sourceSha, threshold, treeLimitBytes,
   });
   const output = flag(args, '--github-output', process.env.GITHUB_OUTPUT);
   if (output) await writeFile(output, 'ready=true\n', { flag: 'a' });

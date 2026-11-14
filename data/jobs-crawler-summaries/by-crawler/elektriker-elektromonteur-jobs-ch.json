@@ -1,14 +1,14 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-12T21:43:36.904Z",
-  "total": 2,
+  "generatedAt": "2026-11-13T21:54:57.787Z",
+  "total": 3,
   "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 3,
   "detailCandidates": 3,
   "detailGone": 0,
   "detailRejected": 0,
@@ -18,16 +18,66 @@
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7506,
-  "avgDurationMs": 7506,
+  "unchangedCount": 2,
+  "durationMs": 7298,
+  "avgDurationMs": 7298,
   "durationHistory": [
-    7506
+    7298
   ],
   "newJobs": [
     {
+      "id": "elektriker-elektromonteur-jobs-ch-86dea4b351cf",
+      "slug": "hr-professional-50-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten",
+      "company": "elektriker-elektromonteur-jobs",
+      "companyKey": "elektriker-elektromonteur-jobs-ch",
+      "companyDomain": "pks-personal.ch",
+      "title": "HR Professional 50% (mit Payroll-Erfahrung) - Sie sind präzise wie Origami. Bis auf den letzten Rappen...",
+      "location": "4102 Binningen",
+      "canton": "BL",
+      "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
+      "source": "elektriker-elektromonteur-jobs Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T21:54:46.239Z",
+      "addressLocality": "Binningen",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4102",
+      "streetAddress": "Binningen",
+      "category": "Risorse Umane",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
+      "needsRetranslation": true,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:54:46.239Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-13T21:54:46.239Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 23
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "id": "elektriker-elektromonteur-jobs-ch-05600696c811",
-      "slug": "risorse-umane-assistent-in-50-60-befristet-per-4-monate-grosse-bauwerke-entstehen-im-detail-gutes-risorse-umane-auch-elektriker-elektromonteur-jobs-binningen",
+      "slug": "assistente-hr-50-60-a-tempo-determinato-per-4-mesi-le-grandi-opere-nascono-nei-dettagli-anche-un-buon-hr-elektriker",
       "company": "elektriker-elektromonteur-jobs",
       "companyKey": "elektriker-elektromonteur-jobs-ch",
       "companyDomain": "pks-personal.ch",
@@ -37,7 +87,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:20.234Z",
+      "crawledAt": "2026-11-13T21:54:46.238Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -56,25 +106,21 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-12T21:43:20.234Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:20.234Z",
+      "validThrough": "2027-02-10T21:54:46.238Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:43:20.234Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "elektriker-elektromonteur-jobs-ch-c916dccbf332",
       "slug": "professionista-hr-60-con-esperienza-nel-payroll-elektriker-elektromonteur-jobs-4102-binningen",
@@ -87,7 +133,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-professional-60-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:20.237Z",
+      "crawledAt": "2026-11-13T09:53:45.678Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -110,8 +156,9 @@
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:20.237Z",
+      "validThrough": "2027-02-03T09:53:45.678Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -121,5 +168,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

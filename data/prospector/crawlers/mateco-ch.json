@@ -1,0 +1,27 @@
+{
+  "companyKey": "mateco-ch",
+  "companyName": "mateco Schweiz AG",
+  "companyHost": "recruitingapp-2623.umantis.com",
+  "verifiedEmployerDomain": "mateco.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2623.umantis.com/Jobs/All?lang=ger&DesignID=10001"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Kaufmännische*r Sachbearbeiter*in Kursadministration 40%-60%",
+    "Sachbearbeiter Disposition (m/w/d) 100%",
+    "Mécanicien*ne 100%",
+    "Mechaniker*in 100%",
+    "Mechaniker*in 100%"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:32.399Z",
+  "candidateKey": "mateco@birsfelden"
+}

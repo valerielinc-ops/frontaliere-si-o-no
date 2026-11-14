@@ -18,6 +18,19 @@ service firebase.storage {
       allow read: if false;
     }
 
+    // A candidate may upload one private CV to their own profile. The client
+    // cannot read, replace or delete it; a callable validates its signature,
+    // parses a safe projection and handles replacement/removal server-side.
+    match /candidate-cv-profiles/{uid}/{fileId} {
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && fileId.matches('^[A-Za-z0-9_-]{16,80}$')
+        && request.resource.size > 0
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('^(application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document)$');
+      allow read, update, delete: if false;
+    }
+
     // CVs for the paid assisted-application flow. Both the payment and the
     // explicit mandate are looked up server-side in Firestore; a client cannot
     // upload to a pending order or read another person's CV.

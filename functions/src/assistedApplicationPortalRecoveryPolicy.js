@@ -121,8 +121,12 @@ export function operationalPortalRecoveryReady({ order, flow, draft }) {
       || (validatedCandidateAnswerForQuestion(directProjection[question.id], question) === undefined
         && !(operationalQuestionTopic(question)
           && operationalAnswerReadyForDiscovery(question, directProjection[question.id])))))) return false;
-  const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
-  const projected = withOperationalQuestionAnswers(questions, answers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const { answers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow });
+  const projected = withOperationalQuestionAnswers(questions, answers, {
+    locale: platformFacts?.locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts,
+  }).answers;
   return questions.every(question => {
     // Draft-level match questions (for example availability) are not native
     // portal controls. They may travel with a portal hold, but only an

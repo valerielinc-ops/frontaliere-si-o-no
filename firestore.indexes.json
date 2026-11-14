@@ -224,6 +224,13 @@
       ]
     },
     {
+      "collectionGroup": "automation",
+      "fieldPath": "draftCandidateEmailRecoveryVersion",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
       "collectionGroup": "application_intents",
       "fieldPath": "reminder.dueAt",
       "indexes": [

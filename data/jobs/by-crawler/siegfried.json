@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-12T21:28:06.308Z",
-  "runId": "43307311307",
+  "assembledAt": "2026-11-13T21:21:51.601Z",
+  "runId": "43507784942",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:56.795Z",
+      "crawledAt": "2026-11-13T21:21:44.346Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:27:56.795Z",
+      "validThrough": "2026-12-13T21:21:44.346Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -92,7 +92,7 @@
       "slug": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
-        "en": "lab-technician-ad-siegfried-evionnaz",
+        "en": "nb-t-a-siegfried-evionnaz",
         "de": "lab-techniker-ad-siegfried-evionnaz",
         "fr": "lab-technician-ad-siegfried-ch"
       },
@@ -118,7 +118,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:56.130Z",
+      "crawledAt": "2026-11-13T21:21:43.700Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,14 +163,14 @@
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
         "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "nb-t-a-siegfried-evionnaz"
+        "lab-technician-ad-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-ad-siegfried-ch"
         ],
         "en": [
-          "nb-t-a-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-evionnaz"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -197,7 +197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:27:56.130Z",
+      "validThrough": "2026-12-13T21:21:43.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:55.472Z",
+      "crawledAt": "2026-11-13T21:21:43.058Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,7 +284,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:27:55.472Z",
+      "validThrough": "2026-12-13T21:21:43.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:27:54.863Z",
+      "crawledAt": "2026-11-13T21:21:42.414Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -383,7 +383,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:27:54.863Z",
+      "validThrough": "2026-12-13T21:21:42.414Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -417,7 +417,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:54.100Z",
+      "crawledAt": "2026-11-13T21:21:41.780Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -465,7 +465,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:27:54.100Z",
+      "validThrough": "2026-12-13T21:21:41.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -499,7 +499,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:53.410Z",
+      "crawledAt": "2026-11-13T21:21:41.135Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,7 +550,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:27:53.410Z",
+      "validThrough": "2026-12-13T21:21:41.135Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -584,7 +584,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:27:52.692Z",
+      "crawledAt": "2026-11-13T21:21:40.458Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,111 +647,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:27:52.692Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "siegfried-dd76b266a230",
-      "slug": "manutenzione-testa-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "manutenzione-testa-siegfried-zofingen",
-        "en": "head-maintenance-siegfried-zofingen",
-        "de": "head-maintenance-siegfried-ch",
-        "fr": "entretien-de-la-tete-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Production Maintenance Manager",
-      "titleByLocale": {
-        "it": "Responsabile della manutenzione della produzione",
-        "en": "Head of production maintenance",
-        "de": "Production Maintenance Manager",
-        "fr": "Responsable de la maintenance de production"
-      },
-      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Production Maintenance Manager übernehmen Sie die Gesamtverantwortung für die GMP-konforme, sichere, zuverlässige und wirtschaftliche Verfügbarkeit der technischen Anlagen, Systeme und Infrastrukturen am Standort Zofingen. Sie entwickeln und implementieren eine nachhaltige Instandhaltungsstrategie und führen die Maintenance-Organisation fachlich und personell. Dazu gehören die Entwicklung der Mitarbeitenden, die Ressourcen- und Kapazitätsplanung, das Kompetenzmanagement sowie die Nachfolgeplanung. Mit Ihrem Team stellen Sie eine leistungsstarke Organisation sicher und fördern eine Kultur der Sicherheit, Qualität, Compliance und kontinuierlichen Verbesserung.\n Your Profile:\n Ihre Rolle\n\n• Entwicklung und Umsetzung der Maintenance- und Asset-Management-Strategie\n\n• Sicherstellung der Anlagenverfügbarkeit durch risikobasierte Instandhaltungskonzepte\n\n• Einführung und Weiterentwicklung von Reliability- und Asset-Care-Programmen\n\n• Verantwortung für die Budgetplanung und Kostenkontrolle im Bereich Maintenance sowie für technische Dienstleistungen\n\n• Sicherstellung der Einhaltung von GMP-, SHE- und regulatorischen Anforderungen\n\n• Gewährleistung eines qualifizierten und validierten Anlagenzustands\n\n• Fachliche und personelle Führung der Maintenance-Organisation\n\n• Entwicklung der Mitarbeitenden sowie Sicherstellung einer nachhaltigen Nachfolgeplanung\n\n• Weiterentwicklung von Prozessen und Organisation im Sinne von Operational Excellence\n\nIhr Profil\n Fachkenntnisse\n\n• Hochschulabschluss (FH, ETH oder Universität) in Maschinenbau, Verfahrenstechnik, Elektrotechnik, Automatisierungstechnik, Industrial Engineering oder vergleichbarer Fachrichtung; alternativ technische Grundausbildung mit entsprechender Weiterbildung auf HF- oder FH-Niveau\n\n• Mehrjährige Berufserfahrung in Instandhaltung oder Engineering in einem GMP-regulierten Umfeld\n\n• Mindestens 3 Jahre Führungserfahrung\n\n• Fundierte Kenntnisse in den Bereichen GMP, Anlagenmanagement, Reliability Engineering und Asset Management\n\n• Erfahrung in Budgetplanung, Kostenmanagement und strategischer Ressourcensteuerung\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nPersönliche Stärken\n\n• Authentische und überzeugende Führungspersönlichkeit\n\n• Hohe Entscheidungs- und Umsetzungskompetenz\n\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n\n• Ausgeprägte Kommunikations- und Stakeholder-Management-Fähigkeiten\n\n• Hohes Verantwortungsbewusstsein sowie ausgeprägte Qualitäts- und Complianceorientierung\n\n• Sicheres Auftreten gegenüber Management, Kunden und Behörden\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken können Sie bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\n\"Expect to grow\", a livello personale e professionale: In Siegfried la attendono sfide stimolanti e numerose opportunità per mettere in luce i suoi talenti. In qualità di partner affidabile e stimato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e al contempo promuoviamo una cultura che le consente di avere successo. Entri a far parte di un'azienda globale in rapida crescita, in cui prospettive ed esperienze diverse si incontrano in un ambiente collaborativo. Qui troverà un luogo di lavoro che valorizza sia il successo collettivo sia i suoi contributi individuali – e le offre opportunità a lungo termine per svilupparsi ulteriormente e fare la differenza.\n\nIl suo ruolo:\n\nIn qualità di Production Maintenance Manager, assume la responsabilità complessiva di garantire la disponibilità degli impianti tecnici, dei sistemi e delle infrastrutture presso il sito di Zofingen in conformità alle GMP, in modo sicuro, affidabile ed economicamente efficiente. Sviluppa e implementa una strategia di manutenzione sostenibile e guida l'organizzazione della manutenzione sia sul piano tecnico sia su quello del personale. Ciò comprende lo sviluppo dei collaboratori, la pianificazione delle risorse e delle capacità, la gestione delle competenze e la pianificazione della successione. Con il suo team garantisce un'organizzazione ad alte prestazioni e promuove una cultura della sicurezza, della qualità, della compliance e del miglioramento continuo.\n\nIl suo profilo:\n\n- Sviluppo e attuazione della strategia di manutenzione e di gestione degli asset\n- Garanzia della disponibilità degli impianti attraverso concetti di manutenzione basati sul rischio\n- Introduzione e sviluppo continuo di programmi di affidabilità e di gestione degli asset\n- Responsabilità della pianificazione del budget e del controllo dei costi nell'ambito della manutenzione, nonché dei servizi tecnici\n- Garanzia del rispetto dei requisiti GMP, SHE e normativi\n- Garanzia di uno stato qualificato e convalidato degli impianti\n- Gestione tecnica e del personale dell'organizzazione della manutenzione\n- Sviluppo dei collaboratori e garanzia di una pianificazione sostenibile della successione\n- Sviluppo continuo dei processi e dell'organizzazione secondo i principi dell'eccellenza operativa\n\nCompetenze tecniche\n\n- Laurea (FH, ETH o università) in ingegneria meccanica, ingegneria dei processi, ingegneria elettrica, ingegneria dell'automazione, ingegneria industriale o disciplina affine; in alternativa, formazione tecnica di base con formazione continua pertinente a livello HF o FH\n- Pluriennale esperienza professionale nella manutenzione o nell'ingegneria in un contesto regolamentato dalle GMP\n- Almeno 3 anni di esperienza manageriale\n- Conoscenze approfondite in materia di GMP, gestione degli impianti, ingegneria dell'affidabilità e gestione degli asset\n- Esperienza nella pianificazione del budget, nella gestione dei costi e nella gestione strategica delle risorse\n- Padronanza del tedesco e dell'inglese a livello negoziale\n\nPunti di forza personali\n\n- Personalità manageriale autentica e convincente\n- Elevata capacità decisionale e di attuazione\n- Approccio analitico, strutturato e orientato alle soluzioni\n- Spiccate capacità comunicative e di gestione degli stakeholder\n- Elevato senso di responsabilità e spiccato orientamento alla qualità e alla compliance\n- Sicurezza nel rapportarsi con il management, i clienti e le autorità\n\nI vostri vantaggi:\n\n- Gli orari di lavoro flessibili consentono di conciliare famiglia, tempo libero e lavoro\n- Da noi è possibile parcheggiare a tariffe agevolate\n- Assicurazioni malattia: sconti fino al 10% sulle assicurazioni complementari presso i nostri partner\n- Il piano di acquisto di azioni è generoso e può essere personalizzato individualmente\n- Assegno per i figli: Siegfried AG aumenta l’assegno per i figli del 10% rispetto all’importo previsto dalla legge cantonale\n- Possibilità di formazione continua individuale previo accordo\n- Pausa merenda retribuita, il benessere dei nostri collaboratori ci sta a cuore\n- Reka-Geld: Siegfried AG concede ai collaboratori uno sconto del 20%\n- Cassa pensione: la nostra cassa pensione aziendale è vantaggiosa e i contributi possono essere configurati individualmente\n- Ristorante del personale / caffetteria: pasti a condizioni agevolate\n- Posizione centrale: sede vicina alla stazione con ottimi collegamenti con i trasporti pubblici\n- Accesso a esclusivi Corporate Benefits e agevolazioni per i nostri collaboratori\n\nAzienda\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta fino a costituire una rete globale con 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, trasferiamo le innovazioni dei nostri clienti farmaceutici alla produzione industriale e produciamo medicinali sicuri per pazienti di tutto il mondo. In qualità di CDMO completamente integrata, Siegfried è una delle poche aziende che oggi è in grado di riunire sotto lo stesso tetto lo sviluppo e la produzione di principi attivi (APIs) e forme farmaceutiche finite. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell’industria farmaceutica.\n\nSiegfried è una CDMO leader (organizzazione per lo sviluppo e la produzione a contratto) con sede a Zofingen, in Svizzera. L’azienda gestisce siti produttivi a Evionnaz (Vallese), Zofingen (Argovia) e Schlieren (Zurigo).",
-        "en": "Description\n\n\"Expect to grow\" , personally and professionally: At Siegfried, you can expect exciting challenges and numerous opportunities to demonstrate your talents. As a trusted and respected partner of the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability – while simultaneously fostering a culture that empowers you to succeed. Become part of a fast-growing, global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values both collective success and your individual contributions – and offers you long-term opportunities to grow and make a difference.\n\nYour Role:\n\nAs Production Maintenance Manager, you will assume overall responsibility for the GMP-compliant, safe, reliable and cost-effective availability of the technical facilities, systems and infrastructures at the Zofingen site. You will develop and implement a sustainable maintenance strategy and lead the Maintenance organization in terms of technical direction and personnel management. This includes employee development, resource and capacity planning, competence management and succession planning. Together with your team, you will ensure a high-performing organization and promote a culture of safety, quality, compliance and continuous improvement.\n\nYour Profile\n\n- Development and implementation of the Maintenance and Asset Management strategy\n- Ensuring plant availability through risk-based maintenance concepts\n- Introduction and further development of Reliability and Asset Care programs\n- Responsibility for budget planning and cost control in Maintenance as well as for technical services\n- Ensuring compliance with GMP, SHE and regulatory requirements\n- Ensuring a qualified and validated condition of the equipment\n- Functional and personnel leadership of the Maintenance organization\n- Employee development and ensuring sustainable succession planning\n- Further development of processes and organization in line with Operational Excellence\n\nTechnical expertise\n\n- University degree (FH, ETH or university) in mechanical engineering, process engineering, electrical engineering, automation engineering, industrial engineering or a comparable field; alternatively, technical basic training with corresponding further education at HF or FH level\n- Several years of professional experience in maintenance or engineering in a GMP-regulated environment\n- At least 3 years of leadership experience\n- In-depth knowledge of GMP, plant management, Reliability Engineering and Asset Management\n- Experience in budget planning, cost management and strategic resource management\n- Fluent German and English skills\n\nPersonal strengths\n\n- Authentic and persuasive leadership personality\n- Strong decision-making and execution skills\n- Analytical, structured and solution-oriented approach to work\n- Strong communication and stakeholder management skills\n- A high sense of responsibility and a strong focus on quality and compliance\n- A confident manner when dealing with management, customers and authorities\n\nYour Bernard:\n\n- Flexible working hours make it possible to balance family, leisure time and work\n- You can park with us at a reduced rate\n- Health insurance: Discounts of up to 10% on supplementary insurance with our partners\n- Our share purchase plan is generous and can be individually tailored\n- Child allowance: Siegfried AG increases the child allowance by 10% compared with the cantonal statutory rate\n- Individual continuing education opportunities by arrangement\n- Paid morning snack break, because the well-being of our employees is important to us\n- Reka-Geld: Siegfried AG grants employees a 20% discount\n- Pension fund: Our company pension fund is attractive, and contributions can be individually tailored\n- Staff restaurant / cafeteria: Meals at preferential rates\n- Centrally located: Close to the train station with very good public transport connections\n- Access to exclusive corporate benefits and discounts for our employees\n\nCompany\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 16 locations across three continents. With a team of over 4.200 highly qualified professionals, we bring our pharmaceutical customers' innovations into industrial production and manufacture safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that can now combine the development and manufacture of active pharmaceutical ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner of the pharmaceutical industry.\n\nSiegfried is a-in- his-kind CDMO (Contract Development & Manufacturing Organization) at the headquarters of the company in Zofingen, Switzerland. The company operates in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Production Maintenance Manager übernehmen Sie die Gesamtverantwortung für die GMP-konforme, sichere, zuverlässige und wirtschaftliche Verfügbarkeit der technischen Anlagen, Systeme und Infrastrukturen am Standort Zofingen. Sie entwickeln und implementieren eine nachhaltige Instandhaltungsstrategie und führen die Maintenance-Organisation fachlich und personell. Dazu gehören die Entwicklung der Mitarbeitenden, die Ressourcen- und Kapazitätsplanung, das Kompetenzmanagement sowie die Nachfolgeplanung. Mit Ihrem Team stellen Sie eine leistungsstarke Organisation sicher und fördern eine Kultur der Sicherheit, Qualität, Compliance und kontinuierlichen Verbesserung.\nYour Profile:\nIhre Rolle\n\n• Entwicklung und Umsetzung der Maintenance- und Asset-Management-Strategie\n\n• Sicherstellung der Anlagenverfügbarkeit durch risikobasierte Instandhaltungskonzepte\n\n• Einführung und Weiterentwicklung von Reliability- und Asset-Care-Programmen\n\n• Verantwortung für die Budgetplanung und Kostenkontrolle im Bereich Maintenance sowie für technische Dienstleistungen\n\n• Sicherstellung der Einhaltung von GMP-, SHE- und regulatorischen Anforderungen\n\n• Gewährleistung eines qualifizierten und validierten Anlagenzustands\n\n• Fachliche und personelle Führung der Maintenance-Organisation\n\n• Entwicklung der Mitarbeitenden sowie Sicherstellung einer nachhaltigen Nachfolgeplanung\n\n• Weiterentwicklung von Prozessen und Organisation im Sinne von Operational Excellence\n\nIhr Profil\nFachkenntnisse\n\n• Hochschulabschluss (FH, ETH oder Universität) in Maschinenbau, Verfahrenstechnik, Elektrotechnik, Automatisierungstechnik, Industrial Engineering oder vergleichbarer Fachrichtung; alternativ technische Grundausbildung mit entsprechender Weiterbildung auf HF- oder FH-Niveau\n\n• Mehrjährige Berufserfahrung in Instandhaltung oder Engineering in einem GMP-regulierten Umfeld\n\n• Mindestens 3 Jahre Führungserfahrung\n\n• Fundierte Kenntnisse in den Bereichen GMP, Anlagenmanagement, Reliability Engineering und Asset Management\n\n• Erfahrung in Budgetplanung, Kostenmanagement und strategischer Ressourcensteuerung\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nPersönliche Stärken\n\n• Authentische und überzeugende Führungspersönlichkeit\n\n• Hohe Entscheidungs- und Umsetzungskompetenz\n\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n\n• Ausgeprägte Kommunikations- und Stakeholder-Management-Fähigkeiten\n\n• Hohes Verantwortungsbewusstsein sowie ausgeprägte Qualitäts- und Complianceorientierung\n\n• Sicheres Auftreten gegenüber Management, Kunden und Behörden\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken können Sie bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "Description\n\n« Attendez-vous à grandir », sur les plans personnel et professionnel : Chez Siegfried, vous attendent des défis passionnants et de nombreuses possibilités de mettre vos talents à l’épreuve. En tant que partenaire de confiance et respecté de l’industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité – tout en favorisant une culture qui vous permet de réussir. Rejoignez une entreprise mondiale en pleine croissance, où des perspectives et des expériences variées se rencontrent dans un environnement collaboratif. Vous y trouverez un lieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles – et qui vous offre des possibilités à long terme de vous développer et d’avoir un impact.\n\nVotre rôle :\n\nEn tant que responsable de la maintenance de production, vous assumez la responsabilité globale de la disponibilité des installations, systèmes et infrastructures techniques du site de Zofingen, conformément aux GMP, de manière sûre, fiable et économique. Vous élaborez et mettez en œuvre une stratégie de maintenance durable et dirigez l’organisation de maintenance sur les plans technique et hiérarchique. Cela comprend le développement des collaborateurs, la planification des ressources et des capacités, la gestion des compétences ainsi que la planification de la relève. Avec votre équipe, vous assurez une organisation performante et favorisez une culture de la sécurité, de la qualité, de la conformité et de l’amélioration continue.\n\nVotre profil :\n\n- Développement et mise en œuvre de la stratégie de maintenance et de gestion des actifs\n- Garantie de la disponibilité des installations grâce à des concepts de maintenance fondés sur les risques\n- Introduction et développement continu de programmes de fiabilité et de maintenance des actifs\n- Responsabilité de la planification budgétaire et du contrôle des coûts dans le domaine de la maintenance, ainsi que des services techniques\n- Garantie du respect des exigences GMP, SHE et réglementaires\n- Garantie d’un état qualifié et validé des installations\n- Direction technique et hiérarchique de l’organisation de maintenance\n- Développement des collaborateurs ainsi que garantie d’une planification durable de la relève\n- Perfectionnement des processus et de l’organisation dans une optique d’excellence opérationnelle\n\nCompétences professionnelles\n\n- Diplôme universitaire (HES, EPF ou université) en génie mécanique, génie des procédés, génie électrique, automatisation, génie industriel ou dans une discipline comparable ; à défaut, formation technique initiale complétée par une formation correspondante de niveau ES ou HES\n- Plusieurs années d’expérience professionnelle dans la maintenance ou l’ingénierie au sein d’un environnement réglementé par les GMP\n- Au moins 3 ans d’expérience en management\n- Solides connaissances dans les domaines des GMP, de la gestion des installations, de l’ingénierie de la fiabilité et de la gestion des actifs\n- Expérience en planification budgétaire, gestion des coûts et pilotage stratégique des ressources\n- Maîtrise de l’allemand et de l’anglais à un niveau de négociation\n\nAtouts personnels\n\n- Personnalité de dirigeant authentique et convaincante\n- Grande capacité de décision et de mise en œuvre\n- Méthode de travail analytique, structurée et axée sur les solutions\n- Solides compétences en communication et en gestion des parties prenantes\n- Haut sens des responsabilités ainsi qu’une forte orientation qualité et conformité\n- Aisance dans les échanges avec la direction, les clients et les autorités\n\nVos avantages :\n\n- Des horaires de travail flexibles permettent de concilier vie familiale, loisirs et vie professionnelle\n- Vous pouvez vous garer chez nous à tarif réduit\n- Assurances maladie : réductions allant jusqu’à 10% sur les assurances complémentaires auprès de nos partenaires\n- Notre plan d'achat d'actions est généreux et personnalisable\n- Allocation pour enfants : Siegfried AG augmente l'allocation pour enfants de 10% par rapport au montant fixé par la loi cantonale\n- Possibilités individuelles de formation continue selon entente\n- Pause-collation rémunérée, le bien-être de nos collaborateurs nous tient à cœur\n- Reka-Geld : Siegfried AG accorde aux collaborateurs une réduction de 20%\n- Caisse de pension : Notre caisse de pension interne à l’entreprise est attractive et les cotisations peuvent être adaptées individuellement\n- Restaurant du personnel / cafétéria : repas à des conditions préférentielles\n- Emplacement central : Situation à proximité de la gare avec une très bonne desserte par les transports publics\n- Accès à des avantages exclusifs et à des réductions pour nos employés\n\nEntreprises\n\nFondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial comptant 16 sites sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous faisons passer les innovations de nos clients pharmaceutiques à la production industrielle et fabriquons des médicaments sûrs pour les patientes et les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares entreprises qui puisse aujourd’hui réunir sous un même toit le développement et la fabrication de principes actifs (APIs) et de formes pharmaceutiques finies. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus digne de confiance de l’industrie pharmaceutique.\n\nSiegfried est une CDMO de premier plan (organisation de développement et de fabrication sous contrat) dont le siège se trouve à Zofingen, en Suisse. L’entreprise exploite des sites de production à Evionnaz (Valais), Zofingen (Argovie) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:27:51.966Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09",
-      "postedDate": "2026-09-09",
-      "postingDateSource": "reported",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_655",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugsByLocale": {
-        "de": [
-          "production-maintenance-manager-siegfried-ch"
-        ],
-        "it": [
-          "production-maintenance-manager-siegfried-ch"
-        ],
-        "fr": [
-          "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
-          "production-maintenance-manager-siegfried-zofingen",
-          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
-        ]
-      },
-      "previousSlugs": [
-        "production-maintenance-manager-siegfried-ch",
-        "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
-        "production-maintenance-manager-siegfried-zofingen",
-        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
-      ],
-      "firstSeenAt": "2026-09-09T14:06:01.758Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "addressRegion": "AG",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Siegfried",
-        "streetAddress": "Untere Brühlstrasse 4",
-        "postalCode": "4800",
-        "registeredName": "Siegfried AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "4800",
-        "addressLocality": "Zofingen",
-        "addressRegion": "AG",
-        "checkedAt": "2026-11-09T15:43:23.768Z"
-      },
-      "streetAddress": "Untere Brühlstrasse 4",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-12T21:27:51.966Z",
+      "validThrough": "2026-12-13T21:21:40.458Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -785,7 +681,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:27:51.299Z",
+      "crawledAt": "2026-11-13T21:21:39.789Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -849,7 +745,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T21:27:51.299Z",
+      "validThrough": "2026-12-13T21:21:39.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -883,7 +779,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:50.527Z",
+      "crawledAt": "2026-11-13T21:21:39.119Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -934,7 +830,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:27:50.527Z",
+      "validThrough": "2027-01-18T21:21:39.119Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -968,7 +864,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:49.819Z",
+      "crawledAt": "2026-11-13T21:21:38.459Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1019,7 +915,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:27:49.819Z",
+      "validThrough": "2027-01-24T21:21:38.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1053,7 +949,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:27:49.161Z",
+      "crawledAt": "2026-11-13T21:21:37.785Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1118,7 +1014,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T21:27:49.161Z",
+      "validThrough": "2027-01-26T21:21:37.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1152,7 +1048,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:27:48.574Z",
+      "crawledAt": "2026-11-13T21:21:37.118Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1203,7 +1099,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:27:48.574Z",
+      "validThrough": "2027-01-31T21:21:37.118Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1237,7 +1133,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:47.904Z",
+      "crawledAt": "2026-11-13T21:21:36.457Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1288,7 +1184,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:27:47.904Z",
+      "validThrough": "2027-02-02T21:21:36.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1322,7 +1218,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:27:47.207Z",
+      "crawledAt": "2026-11-13T21:21:35.803Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,7 +1283,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:27:47.207Z",
+      "validThrough": "2027-02-03T21:21:35.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1395,7 +1291,7 @@
       "slug": "lab-supervisore-stability-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-stability-siegfried-evionnaz",
-        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
+        "en": "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts",
         "de": "lab-vorgesetzter-stability-siegfried-evionnaz",
         "fr": "lab-supervisor-stability-siegfried-ch"
       },
@@ -1421,7 +1317,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:46.516Z",
+      "crawledAt": "2026-11-13T21:21:35.160Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1442,14 +1338,14 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "lab-supervisor-stability-siegfried-ch",
-        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+        "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-supervisor-stability-siegfried-ch"
         ],
         "en": [
-          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
+          "nb-ntsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltsltslts"
         ],
         "de": [
           "lab-supervisor-stability-siegfried-ch"
@@ -1473,7 +1369,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:27:46.516Z",
+      "validThrough": "2027-01-27T21:21:35.160Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1507,7 +1403,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-Stability_R26_835",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:45.808Z",
+      "crawledAt": "2026-11-13T21:21:34.515Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1558,7 +1454,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:27:45.808Z",
+      "validThrough": "2027-02-04T21:21:34.515Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1592,7 +1488,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_839",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:27:45.128Z",
+      "crawledAt": "2026-11-13T21:21:33.872Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1643,7 +1539,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:45.128Z",
+      "validThrough": "2027-02-08T21:21:33.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1677,7 +1573,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T21:27:44.401Z",
+      "crawledAt": "2026-11-13T21:21:33.184Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1741,8 +1637,113 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:27:44.401Z",
+      "validThrough": "2027-02-04T21:21:33.184Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-dd76b266a230",
+      "slug": "manutenzione-testa-siegfried-zofingen",
+      "slugByLocale": {
+        "it": "manutenzione-testa-siegfried-zofingen",
+        "en": "head-maintenance-siegfried-zofingen",
+        "de": "head-maintenance-siegfried-ch",
+        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Production Maintenance Manager",
+      "titleByLocale": {
+        "it": "Responsabile della manutenzione della produzione",
+        "en": "Head of production maintenance",
+        "de": "Production Maintenance Manager",
+        "fr": "Responsable de la maintenance de production"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Production Maintenance Manager übernehmen Sie die Gesamtverantwortung für die GMP-konforme, sichere, zuverlässige und wirtschaftliche Verfügbarkeit der technischen Anlagen, Systeme und Infrastrukturen am Standort Zofingen. Sie entwickeln und implementieren eine nachhaltige Instandhaltungsstrategie und führen die Maintenance-Organisation fachlich und personell. Dazu gehören die Entwicklung der Mitarbeitenden, die Ressourcen- und Kapazitätsplanung, das Kompetenzmanagement sowie die Nachfolgeplanung. Mit Ihrem Team stellen Sie eine leistungsstarke Organisation sicher und fördern eine Kultur der Sicherheit, Qualität, Compliance und kontinuierlichen Verbesserung.\n Your Profile:\n Ihre Rolle\n\n• Entwicklung und Umsetzung der Maintenance- und Asset-Management-Strategie\n\n• Sicherstellung der Anlagenverfügbarkeit durch risikobasierte Instandhaltungskonzepte\n\n• Einführung und Weiterentwicklung von Reliability- und Asset-Care-Programmen\n\n• Verantwortung für die Budgetplanung und Kostenkontrolle im Bereich Maintenance sowie für technische Dienstleistungen\n\n• Sicherstellung der Einhaltung von GMP-, SHE- und regulatorischen Anforderungen\n\n• Gewährleistung eines qualifizierten und validierten Anlagenzustands\n\n• Fachliche und personelle Führung der Maintenance-Organisation\n\n• Entwicklung der Mitarbeitenden sowie Sicherstellung einer nachhaltigen Nachfolgeplanung\n\n• Weiterentwicklung von Prozessen und Organisation im Sinne von Operational Excellence\n\nIhr Profil\n Fachkenntnisse\n\n• Hochschulabschluss (FH, ETH oder Universität) in Maschinenbau, Verfahrenstechnik, Elektrotechnik, Automatisierungstechnik, Industrial Engineering oder vergleichbarer Fachrichtung; alternativ technische Grundausbildung mit entsprechender Weiterbildung auf HF- oder FH-Niveau\n\n• Mehrjährige Berufserfahrung in Instandhaltung oder Engineering in einem GMP-regulierten Umfeld\n\n• Mindestens 3 Jahre Führungserfahrung\n\n• Fundierte Kenntnisse in den Bereichen GMP, Anlagenmanagement, Reliability Engineering und Asset Management\n\n• Erfahrung in Budgetplanung, Kostenmanagement und strategischer Ressourcensteuerung\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nPersönliche Stärken\n\n• Authentische und überzeugende Führungspersönlichkeit\n\n• Hohe Entscheidungs- und Umsetzungskompetenz\n\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n\n• Ausgeprägte Kommunikations- und Stakeholder-Management-Fähigkeiten\n\n• Hohes Verantwortungsbewusstsein sowie ausgeprägte Qualitäts- und Complianceorientierung\n\n• Sicheres Auftreten gegenüber Management, Kunden und Behörden\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken können Sie bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "it": "Descrizione\n\n\"Expect to grow\", a livello personale e professionale: In Siegfried la attendono sfide stimolanti e numerose opportunità per mettere in luce i suoi talenti. In qualità di partner affidabile e stimato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e al contempo promuoviamo una cultura che le consente di avere successo. Entri a far parte di un'azienda globale in rapida crescita, in cui prospettive ed esperienze diverse si incontrano in un ambiente collaborativo. Qui troverà un luogo di lavoro che valorizza sia il successo collettivo sia i suoi contributi individuali – e le offre opportunità a lungo termine per svilupparsi ulteriormente e fare la differenza.\n\nIl suo ruolo:\n\nIn qualità di Production Maintenance Manager, assume la responsabilità complessiva di garantire la disponibilità degli impianti tecnici, dei sistemi e delle infrastrutture presso il sito di Zofingen in conformità alle GMP, in modo sicuro, affidabile ed economicamente efficiente. Sviluppa e implementa una strategia di manutenzione sostenibile e guida l'organizzazione della manutenzione sia sul piano tecnico sia su quello del personale. Ciò comprende lo sviluppo dei collaboratori, la pianificazione delle risorse e delle capacità, la gestione delle competenze e la pianificazione della successione. Con il suo team garantisce un'organizzazione ad alte prestazioni e promuove una cultura della sicurezza, della qualità, della compliance e del miglioramento continuo.\n\nIl suo profilo:\n\n- Sviluppo e attuazione della strategia di manutenzione e di gestione degli asset\n- Garanzia della disponibilità degli impianti attraverso concetti di manutenzione basati sul rischio\n- Introduzione e sviluppo continuo di programmi di affidabilità e di gestione degli asset\n- Responsabilità della pianificazione del budget e del controllo dei costi nell'ambito della manutenzione, nonché dei servizi tecnici\n- Garanzia del rispetto dei requisiti GMP, SHE e normativi\n- Garanzia di uno stato qualificato e convalidato degli impianti\n- Gestione tecnica e del personale dell'organizzazione della manutenzione\n- Sviluppo dei collaboratori e garanzia di una pianificazione sostenibile della successione\n- Sviluppo continuo dei processi e dell'organizzazione secondo i principi dell'eccellenza operativa\n\nCompetenze tecniche\n\n- Laurea (FH, ETH o università) in ingegneria meccanica, ingegneria dei processi, ingegneria elettrica, ingegneria dell'automazione, ingegneria industriale o disciplina affine; in alternativa, formazione tecnica di base con formazione continua pertinente a livello HF o FH\n- Pluriennale esperienza professionale nella manutenzione o nell'ingegneria in un contesto regolamentato dalle GMP\n- Almeno 3 anni di esperienza manageriale\n- Conoscenze approfondite in materia di GMP, gestione degli impianti, ingegneria dell'affidabilità e gestione degli asset\n- Esperienza nella pianificazione del budget, nella gestione dei costi e nella gestione strategica delle risorse\n- Padronanza del tedesco e dell'inglese a livello negoziale\n\nPunti di forza personali\n\n- Personalità manageriale autentica e convincente\n- Elevata capacità decisionale e di attuazione\n- Approccio analitico, strutturato e orientato alle soluzioni\n- Spiccate capacità comunicative e di gestione degli stakeholder\n- Elevato senso di responsabilità e spiccato orientamento alla qualità e alla compliance\n- Sicurezza nel rapportarsi con il management, i clienti e le autorità\n\nI vostri vantaggi:\n\n- Gli orari di lavoro flessibili consentono di conciliare famiglia, tempo libero e lavoro\n- Da noi è possibile parcheggiare a tariffe agevolate\n- Assicurazioni malattia: sconti fino al 10% sulle assicurazioni complementari presso i nostri partner\n- Il piano di acquisto di azioni è generoso e può essere personalizzato individualmente\n- Assegno per i figli: Siegfried AG aumenta l’assegno per i figli del 10% rispetto all’importo previsto dalla legge cantonale\n- Possibilità di formazione continua individuale previo accordo\n- Pausa merenda retribuita, il benessere dei nostri collaboratori ci sta a cuore\n- Reka-Geld: Siegfried AG concede ai collaboratori uno sconto del 20%\n- Cassa pensione: la nostra cassa pensione aziendale è vantaggiosa e i contributi possono essere configurati individualmente\n- Ristorante del personale / caffetteria: pasti a condizioni agevolate\n- Posizione centrale: sede vicina alla stazione con ottimi collegamenti con i trasporti pubblici\n- Accesso a esclusivi Corporate Benefits e agevolazioni per i nostri collaboratori\n\nAzienda\n\nFondata nel 1873 a Zofingen, in Svizzera, Siegfried è cresciuta fino a costituire una rete globale con 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, trasferiamo le innovazioni dei nostri clienti farmaceutici alla produzione industriale e produciamo medicinali sicuri per pazienti di tutto il mondo. In qualità di CDMO completamente integrata, Siegfried è una delle poche aziende che oggi è in grado di riunire sotto lo stesso tetto lo sviluppo e la produzione di principi attivi (APIs) e forme farmaceutiche finite. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell’industria farmaceutica.\n\nSiegfried è una CDMO leader (organizzazione per lo sviluppo e la produzione a contratto) con sede a Zofingen, in Svizzera. L’azienda gestisce siti produttivi a Evionnaz (Vallese), Zofingen (Argovia) e Schlieren (Zurigo).",
+        "en": "Description\n\n\"Expect to grow\" , personally and professionally: At Siegfried, you can expect exciting challenges and numerous opportunities to demonstrate your talents. As a trusted and respected partner of the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability – while simultaneously fostering a culture that empowers you to succeed. Become part of a fast-growing, global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values both collective success and your individual contributions – and offers you long-term opportunities to grow and make a difference.\n\nYour Role:\n\nAs Production Maintenance Manager, you will assume overall responsibility for the GMP-compliant, safe, reliable and cost-effective availability of the technical facilities, systems and infrastructures at the Zofingen site. You will develop and implement a sustainable maintenance strategy and lead the Maintenance organization in terms of technical direction and personnel management. This includes employee development, resource and capacity planning, competence management and succession planning. Together with your team, you will ensure a high-performing organization and promote a culture of safety, quality, compliance and continuous improvement.\n\nYour Profile\n\n- Development and implementation of the Maintenance and Asset Management strategy\n- Ensuring plant availability through risk-based maintenance concepts\n- Introduction and further development of Reliability and Asset Care programs\n- Responsibility for budget planning and cost control in Maintenance as well as for technical services\n- Ensuring compliance with GMP, SHE and regulatory requirements\n- Ensuring a qualified and validated condition of the equipment\n- Functional and personnel leadership of the Maintenance organization\n- Employee development and ensuring sustainable succession planning\n- Further development of processes and organization in line with Operational Excellence\n\nTechnical expertise\n\n- University degree (FH, ETH or university) in mechanical engineering, process engineering, electrical engineering, automation engineering, industrial engineering or a comparable field; alternatively, technical basic training with corresponding further education at HF or FH level\n- Several years of professional experience in maintenance or engineering in a GMP-regulated environment\n- At least 3 years of leadership experience\n- In-depth knowledge of GMP, plant management, Reliability Engineering and Asset Management\n- Experience in budget planning, cost management and strategic resource management\n- Fluent German and English skills\n\nPersonal strengths\n\n- Authentic and persuasive leadership personality\n- Strong decision-making and execution skills\n- Analytical, structured and solution-oriented approach to work\n- Strong communication and stakeholder management skills\n- A high sense of responsibility and a strong focus on quality and compliance\n- A confident manner when dealing with management, customers and authorities\n\nYour Bernard:\n\n- Flexible working hours make it possible to balance family, leisure time and work\n- You can park with us at a reduced rate\n- Health insurance: Discounts of up to 10% on supplementary insurance with our partners\n- Our share purchase plan is generous and can be individually tailored\n- Child allowance: Siegfried AG increases the child allowance by 10% compared with the cantonal statutory rate\n- Individual continuing education opportunities by arrangement\n- Paid morning snack break, because the well-being of our employees is important to us\n- Reka-Geld: Siegfried AG grants employees a 20% discount\n- Pension fund: Our company pension fund is attractive, and contributions can be individually tailored\n- Staff restaurant / cafeteria: Meals at preferential rates\n- Centrally located: Close to the train station with very good public transport connections\n- Access to exclusive corporate benefits and discounts for our employees\n\nCompany\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 16 locations across three continents. With a team of over 4.200 highly qualified professionals, we bring our pharmaceutical customers' innovations into industrial production and manufacture safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that can now combine the development and manufacture of active pharmaceutical ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner of the pharmaceutical industry.\n\nSiegfried is a-in- his-kind CDMO (Contract Development & Manufacturing Organization) at the headquarters of the company in Zofingen, Switzerland. The company operates in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls Production Maintenance Manager übernehmen Sie die Gesamtverantwortung für die GMP-konforme, sichere, zuverlässige und wirtschaftliche Verfügbarkeit der technischen Anlagen, Systeme und Infrastrukturen am Standort Zofingen. Sie entwickeln und implementieren eine nachhaltige Instandhaltungsstrategie und führen die Maintenance-Organisation fachlich und personell. Dazu gehören die Entwicklung der Mitarbeitenden, die Ressourcen- und Kapazitätsplanung, das Kompetenzmanagement sowie die Nachfolgeplanung. Mit Ihrem Team stellen Sie eine leistungsstarke Organisation sicher und fördern eine Kultur der Sicherheit, Qualität, Compliance und kontinuierlichen Verbesserung.\nYour Profile:\nIhre Rolle\n\n• Entwicklung und Umsetzung der Maintenance- und Asset-Management-Strategie\n\n• Sicherstellung der Anlagenverfügbarkeit durch risikobasierte Instandhaltungskonzepte\n\n• Einführung und Weiterentwicklung von Reliability- und Asset-Care-Programmen\n\n• Verantwortung für die Budgetplanung und Kostenkontrolle im Bereich Maintenance sowie für technische Dienstleistungen\n\n• Sicherstellung der Einhaltung von GMP-, SHE- und regulatorischen Anforderungen\n\n• Gewährleistung eines qualifizierten und validierten Anlagenzustands\n\n• Fachliche und personelle Führung der Maintenance-Organisation\n\n• Entwicklung der Mitarbeitenden sowie Sicherstellung einer nachhaltigen Nachfolgeplanung\n\n• Weiterentwicklung von Prozessen und Organisation im Sinne von Operational Excellence\n\nIhr Profil\nFachkenntnisse\n\n• Hochschulabschluss (FH, ETH oder Universität) in Maschinenbau, Verfahrenstechnik, Elektrotechnik, Automatisierungstechnik, Industrial Engineering oder vergleichbarer Fachrichtung; alternativ technische Grundausbildung mit entsprechender Weiterbildung auf HF- oder FH-Niveau\n\n• Mehrjährige Berufserfahrung in Instandhaltung oder Engineering in einem GMP-regulierten Umfeld\n\n• Mindestens 3 Jahre Führungserfahrung\n\n• Fundierte Kenntnisse in den Bereichen GMP, Anlagenmanagement, Reliability Engineering und Asset Management\n\n• Erfahrung in Budgetplanung, Kostenmanagement und strategischer Ressourcensteuerung\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nPersönliche Stärken\n\n• Authentische und überzeugende Führungspersönlichkeit\n\n• Hohe Entscheidungs- und Umsetzungskompetenz\n\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n\n• Ausgeprägte Kommunikations- und Stakeholder-Management-Fähigkeiten\n\n• Hohes Verantwortungsbewusstsein sowie ausgeprägte Qualitäts- und Complianceorientierung\n\n• Sicheres Auftreten gegenüber Management, Kunden und Behörden\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Parken können Sie bei uns vergünstigt\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "Description\n\n« Attendez-vous à grandir », sur les plans personnel et professionnel : Chez Siegfried, vous attendent des défis passionnants et de nombreuses possibilités de mettre vos talents à l’épreuve. En tant que partenaire de confiance et respecté de l’industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité – tout en favorisant une culture qui vous permet de réussir. Rejoignez une entreprise mondiale en pleine croissance, où des perspectives et des expériences variées se rencontrent dans un environnement collaboratif. Vous y trouverez un lieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles – et qui vous offre des possibilités à long terme de vous développer et d’avoir un impact.\n\nVotre rôle :\n\nEn tant que responsable de la maintenance de production, vous assumez la responsabilité globale de la disponibilité des installations, systèmes et infrastructures techniques du site de Zofingen, conformément aux GMP, de manière sûre, fiable et économique. Vous élaborez et mettez en œuvre une stratégie de maintenance durable et dirigez l’organisation de maintenance sur les plans technique et hiérarchique. Cela comprend le développement des collaborateurs, la planification des ressources et des capacités, la gestion des compétences ainsi que la planification de la relève. Avec votre équipe, vous assurez une organisation performante et favorisez une culture de la sécurité, de la qualité, de la conformité et de l’amélioration continue.\n\nVotre profil :\n\n- Développement et mise en œuvre de la stratégie de maintenance et de gestion des actifs\n- Garantie de la disponibilité des installations grâce à des concepts de maintenance fondés sur les risques\n- Introduction et développement continu de programmes de fiabilité et de maintenance des actifs\n- Responsabilité de la planification budgétaire et du contrôle des coûts dans le domaine de la maintenance, ainsi que des services techniques\n- Garantie du respect des exigences GMP, SHE et réglementaires\n- Garantie d’un état qualifié et validé des installations\n- Direction technique et hiérarchique de l’organisation de maintenance\n- Développement des collaborateurs ainsi que garantie d’une planification durable de la relève\n- Perfectionnement des processus et de l’organisation dans une optique d’excellence opérationnelle\n\nCompétences professionnelles\n\n- Diplôme universitaire (HES, EPF ou université) en génie mécanique, génie des procédés, génie électrique, automatisation, génie industriel ou dans une discipline comparable ; à défaut, formation technique initiale complétée par une formation correspondante de niveau ES ou HES\n- Plusieurs années d’expérience professionnelle dans la maintenance ou l’ingénierie au sein d’un environnement réglementé par les GMP\n- Au moins 3 ans d’expérience en management\n- Solides connaissances dans les domaines des GMP, de la gestion des installations, de l’ingénierie de la fiabilité et de la gestion des actifs\n- Expérience en planification budgétaire, gestion des coûts et pilotage stratégique des ressources\n- Maîtrise de l’allemand et de l’anglais à un niveau de négociation\n\nAtouts personnels\n\n- Personnalité de dirigeant authentique et convaincante\n- Grande capacité de décision et de mise en œuvre\n- Méthode de travail analytique, structurée et axée sur les solutions\n- Solides compétences en communication et en gestion des parties prenantes\n- Haut sens des responsabilités ainsi qu’une forte orientation qualité et conformité\n- Aisance dans les échanges avec la direction, les clients et les autorités\n\nVos avantages :\n\n- Des horaires de travail flexibles permettent de concilier vie familiale, loisirs et vie professionnelle\n- Vous pouvez vous garer chez nous à tarif réduit\n- Assurances maladie : réductions allant jusqu’à 10% sur les assurances complémentaires auprès de nos partenaires\n- Notre plan d'achat d'actions est généreux et personnalisable\n- Allocation pour enfants : Siegfried AG augmente l'allocation pour enfants de 10% par rapport au montant fixé par la loi cantonale\n- Possibilités individuelles de formation continue selon entente\n- Pause-collation rémunérée, le bien-être de nos collaborateurs nous tient à cœur\n- Reka-Geld : Siegfried AG accorde aux collaborateurs une réduction de 20%\n- Caisse de pension : Notre caisse de pension interne à l’entreprise est attractive et les cotisations peuvent être adaptées individuellement\n- Restaurant du personnel / cafétéria : repas à des conditions préférentielles\n- Emplacement central : Situation à proximité de la gare avec une très bonne desserte par les transports publics\n- Accès à des avantages exclusifs et à des réductions pour nos employés\n\nEntreprises\n\nFondée en 1873 à Zofingen, en Suisse, Siegfried est devenue un réseau mondial comptant 16 sites sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous faisons passer les innovations de nos clients pharmaceutiques à la production industrielle et fabriquons des médicaments sûrs pour les patientes et les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares entreprises qui puisse aujourd’hui réunir sous un même toit le développement et la fabrication de principes actifs (APIs) et de formes pharmaceutiques finies. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus digne de confiance de l’industrie pharmaceutique.\n\nSiegfried est une CDMO de premier plan (organisation de développement et de fabrication sous contrat) dont le siège se trouve à Zofingen, en Suisse. L’entreprise exploite des sites de production à Evionnaz (Valais), Zofingen (Argovie) et Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-13T09:19:36.979Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-09",
+      "postedDate": "2026-09-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Head-Maintenance_R26_655",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R26_655",
+      "hiringOrganization": "Siegfried AG",
+      "previousSlugsByLocale": {
+        "de": [
+          "production-maintenance-manager-siegfried-ch"
+        ],
+        "it": [
+          "production-maintenance-manager-siegfried-ch"
+        ],
+        "fr": [
+          "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
+          "production-maintenance-manager-siegfried-zofingen",
+          "entretien-de-la-tete-siegfried-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "production-maintenance-manager-siegfried-ch",
+        "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
+        "production-maintenance-manager-siegfried-zofingen",
+        "entretien-de-la-tete-siegfried-zofingen"
+      ],
+      "firstSeenAt": "2026-09-09T14:06:01.758Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4800",
+      "addressRegion": "AG",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Siegfried",
+        "streetAddress": "Untere Brühlstrasse 4",
+        "postalCode": "4800",
+        "registeredName": "Siegfried AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4800",
+        "addressLocality": "Zofingen",
+        "addressRegion": "AG",
+        "checkedAt": "2026-11-09T15:43:23.768Z"
+      },
+      "streetAddress": "Untere Brühlstrasse 4",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-13T09:19:36.979Z",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -1,14 +1,17 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "locarno-film-festival",
   "label": "Locarno Film Festival",
-  "generatedAt": "2026-11-12T21:57:53.664Z",
+  "generatedAt": "2026-11-13T21:54:04.639Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "connection_error",
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "connection-level-fetch",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +23,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

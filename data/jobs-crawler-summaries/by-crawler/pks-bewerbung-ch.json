@@ -1,7 +1,7 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-11-12T21:44:53.395Z",
+  "generatedAt": "2026-11-13T21:48:10.494Z",
   "total": 2,
   "discovered": 3,
   "parsed": 3,
@@ -19,25 +19,25 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7777,
-  "avgDurationMs": 7777,
+  "durationMs": 8598,
+  "avgDurationMs": 8598,
   "durationHistory": [
-    7777
+    8598
   ],
   "newJobs": [
     {
-      "id": "pks-bewerbung-ch-05600696c811",
-      "slug": "risorse-umane-assistent-in-50-60-befristet-per-4-monate-grosse-bauwerke-entstehen-im-detail-gutes-risorse-umane-auch-pks-bewerbung-binningen",
+      "id": "pks-bewerbung-ch-86dea4b351cf",
+      "slug": "hr-professional-50-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten",
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
       "companyDomain": "pks-personal.ch",
-      "title": "HR-Assistent/in 50–60% (befristet für 4 Monate) - Grosse Bauwerke entstehen im Detail. Gutes HR auch.",
+      "title": "HR Professional 50% (mit Payroll-Erfahrung) - Sie sind präzise wie Origami. Bis auf den letzten Rappen...",
       "location": "4102 Binningen",
       "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
+      "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:44:39.218Z",
+      "crawledAt": "2026-11-13T21:47:41.796Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -54,15 +54,15 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
+      "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
       "needsRetranslation": true,
-      "salaryMin": 37200,
-      "salaryMax": 56400,
+      "salaryMin": 31000,
+      "salaryMax": 47000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:44:39.218Z",
+      "validThrough": "2027-02-11T21:47:41.796Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:44:39.218Z",
+      "firstSeenAt": "2026-11-13T21:47:41.796Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -87,7 +87,7 @@
       "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:44:39.221Z",
+      "crawledAt": "2026-11-13T21:47:41.799Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:44:39.221Z",
+      "validThrough": "2027-01-28T21:47:41.799Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -121,5 +121,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
 }

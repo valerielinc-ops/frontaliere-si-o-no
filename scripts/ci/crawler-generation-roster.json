@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 703,
+  "crawlerCount": 706,
   "groups": {
     "10": [
       "atec-personal",
@@ -63,6 +63,7 @@
       "spital-thurgau",
       "spitex-ch",
       "stellenpartner",
+      "stiftung-ilgenhalde",
       "swiss-re",
       "tecan",
       "tpl-lugano"
@@ -79,6 +80,7 @@
       "coopers",
       "epfl",
       "giorgio-armani",
+      "heini-ch-heini-ch",
       "imad",
       "kanton-st-gallen",
       "klinik-gut",
@@ -111,6 +113,7 @@
       "cern",
       "csvp-poschiavo",
       "edmond-de-rothschild",
+      "fixit-ch",
       "groupe-e",
       "helsana",
       "idorsia",
@@ -987,6 +990,7 @@
     "fielmann": "data/jobs/by-crawler/fielmann.json",
     "fincons-group": "data/jobs/by-crawler/fincons-group.json",
     "fisba": "data/jobs/by-crawler/fisba.json",
+    "fixit-ch": "data/jobs/by-crawler/fixit-ch.json",
     "flury-stiftung": "data/jobs/by-crawler/flury-stiftung.json",
     "fmi": "data/jobs/by-crawler/fmi.json",
     "fnz": "data/jobs/by-crawler/fnz.json",
@@ -1035,6 +1039,7 @@
     "hanseisenring": "data/jobs/by-crawler/hanseisenring.json",
     "has-healthcare": "data/jobs/by-crawler/has-healthcare.json",
     "heineken-ch": "data/jobs/by-crawler/heineken-ch.json",
+    "heini-ch-heini-ch": "data/jobs/by-crawler/heini-ch-heini-ch.json",
     "helsana": "data/jobs/by-crawler/helsana.json",
     "helsinn": "data/jobs/by-crawler/helsinn.json",
     "helvetia": "data/jobs/by-crawler/helvetia.json",
@@ -1366,6 +1371,7 @@
     "stellenpartner": "data/jobs/by-crawler/stellenpartner.json",
     "stellentreff": "data/jobs/by-crawler/stellentreff.json",
     "stiftung-diaconis": "data/jobs/by-crawler/stiftung-diaconis.json",
+    "stiftung-ilgenhalde": "data/jobs/by-crawler/stiftung-ilgenhalde.json",
     "stiftung-kind-autismus": "data/jobs/by-crawler/stiftung-kind-autismus.json",
     "strabag": "data/jobs/by-crawler/strabag.json",
     "straumann": "data/jobs/by-crawler/straumann.json",
@@ -1462,5 +1468,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:3d8a92c499bba5d43d962fa2c970851728bc5c7d18ee04de70c355f6939c9d38"
+  "digest": "sha256:265443322379927560ec34b809f2f2c0ec916b9cdeb5b44c51adab3e15b950bc"
 }

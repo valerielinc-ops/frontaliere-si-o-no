@@ -45,6 +45,8 @@ jobs:
       codex_invocation_allowed: ${{ steps.codex_budget.outputs.allowed }}
       pack_generated: ${{ steps.generation_result.outputs.pack_generated }}
       generation_provider: ${{ steps.generation_result.outputs.provider }}
+      editorial_parity: ${{ steps.generation_result.outputs.editorial_parity }}
+      editorial_parity_provider: ${{ steps.generation_result.outputs.editorial_parity_provider }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -257,6 +259,8 @@ jobs:
           FALLBACK_PROVIDER: ${{ steps.free_fallback.outputs.provider }}
           FALLBACK_REASON: ${{ steps.free_fallback.outputs.reason }}
           FALLBACK_FAILURES: ${{ steps.free_fallback.outputs.attempt_failures }}
+          FALLBACK_EDITORIAL_PARITY: ${{ steps.free_fallback.outputs.editorial_parity }}
+          FALLBACK_EDITORIAL_PARITY_PROVIDER: ${{ steps.free_fallback.outputs.editorial_parity_provider }}
         shell: bash
         run: |
           set -euo pipefail
@@ -277,6 +281,12 @@ jobs:
           elif [ "$CODEX_OUTCOME" = failure ]; then
             reason="codex-generation-failed; ${FALLBACK_REASON:-fallback-result-unavailable}"
           fi
+          editorial_parity=not-evaluated
+          editorial_parity_provider=none
+          if [ "$provider" != codex ] && [ "$generated" = true ]; then
+            editorial_parity="${FALLBACK_EDITORIAL_PARITY:-not-evaluated}"
+            editorial_parity_provider="${FALLBACK_EDITORIAL_PARITY_PROVIDER:-$provider}"
+          fi
           deferred=false
           # Exhausted rolling provider budgets are an expected scheduling defer:
           # keep the last deterministic publisher copy active and wait for the
@@ -290,6 +300,8 @@ jobs:
             printf 'provider=%s\n' "$provider"
             printf 'reason=%s\n' "$reason"
             printf 'deferred=%s\n' "$deferred"
+            printf 'editorial_parity=%s\n' "$editorial_parity"
+            printf 'editorial_parity_provider=%s\n' "$editorial_parity_provider"
           } >> "$GITHUB_OUTPUT"
           {
             printf '## Social copy generation\n\n'
@@ -299,6 +311,9 @@ jobs:
             printf -- '- Outcome: **%s**\n' "$([ "$deferred" = true ] && printf 'deferred' || printf 'failure')"
             if [ -n "${FALLBACK_FAILURES:-}" ]; then
               printf -- '- Fallback attempts: `%s`\n' "$FALLBACK_FAILURES"
+            fi
+            if [ "$provider" != codex ] || [ -n "${FALLBACK_EDITORIAL_PARITY:-}" ]; then
+              printf -- '- Editorial parity: **%s** (`%s`)\n' "$editorial_parity" "$editorial_parity_provider"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
           if [ "$generated" != true ] && [ "$deferred" != true ]; then

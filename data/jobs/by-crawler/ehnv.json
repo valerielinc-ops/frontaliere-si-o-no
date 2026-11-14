@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-11-12T21:23:47.517Z",
-  "runId": "43307311307",
+  "assembledAt": "2026-11-13T21:21:40.506Z",
+  "runId": "43507784942",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -35,7 +35,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:37.948Z",
+      "crawledAt": "2026-11-13T21:21:33.509Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:23:37.948Z",
+      "validThrough": "2026-12-13T21:21:33.509Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -131,7 +131,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4458/une-cadre-de-proximite-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:37.399Z",
+      "crawledAt": "2026-11-13T21:21:32.938Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -182,8 +182,89 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:23:37.399Z",
+      "validThrough": "2026-12-13T21:21:32.938Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ehnv-daabbb90d944",
+      "slug": "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+      "slugByLocale": {
+        "fr": "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe",
+        "it": "assistente-comunitario-per-la-salute-e-la-cura-chs-all-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "en": "one-community-health-and-care-assistant-chs-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "de": "un-e-assistent-e-en-soins-et-sante-communautaire-assc-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
+      "titleByLocale": {
+        "fr": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
+        "it": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
+        "en": "Un.e assistant.e en soins et santé communautaire (ASSC) à 80-100 %",
+        "de": "Un.e Assistent.e en soins et santé communautaire (ASSC) à 80-100 %"
+      },
+      "description": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 13 décembre 2026",
+      "descriptionByLocale": {
+        "fr": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 13 décembre 2026",
+        "it": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 13 décembre 2026",
+        "en": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 13 décembre 2026",
+        "de": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Prise en charge de patients en réadaptation gériatrique et suite de traitement\n\n• Collaboration interdisciplinaire\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession d’un CFC d’assistant.e en soins et santé communautaire\n\n• Expérience en réadaptation, gériatrie ou médecine serait un atout\n\n• Formation FEE serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers, incluant des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU À CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès des cadres de proximités : Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 13 décembre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Orbe",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4672/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-13T21:21:32.370Z",
+      "addressLocality": "Orbe",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1350",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4672/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "externalId": "4672",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assistant-e-en-soins-et-sante-communautaire-assc-a-80-100-ehnv-orbe"
+      ],
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Orbe",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-31T21:21:32.370Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-08T10:56:35.089Z"
     },
     {
       "id": "ehnv-132c0697fd70",
@@ -217,7 +298,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4752/une-infirmierere-a-70-en-cdd-de-6-mois-pour-lunite-dhospitalisation-pedopsychiatrique",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:36.869Z",
+      "crawledAt": "2026-11-13T21:21:31.797Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -267,7 +348,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:23:36.869Z",
+      "validThrough": "2027-01-12T21:21:31.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -301,7 +382,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4751/une-aide-infirmierere-ou-une-assc-a-70-activite-de-nuit-pour-lunite-dhospitalisation-pedopsychiatrique-ref-11-092",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:36.351Z",
+      "crawledAt": "2026-11-13T21:21:31.240Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -351,7 +432,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:23:36.351Z",
+      "validThrough": "2027-01-12T21:21:31.240Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -386,7 +467,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4749/une-assc-a-70",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:35.822Z",
+      "crawledAt": "2026-11-13T21:21:30.684Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -436,7 +517,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:23:35.822Z",
+      "validThrough": "2027-01-12T21:21:30.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -470,7 +551,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4747/une-infirmierere-a-80-100-ref-11-089",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:35.301Z",
+      "crawledAt": "2026-11-13T21:21:30.133Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -534,7 +615,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:23:35.301Z",
+      "validThrough": "2027-01-12T21:21:30.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -568,7 +649,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/2624/une-neuropsychologue-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:34.766Z",
+      "crawledAt": "2026-11-13T21:21:29.575Z",
       "addressLocality": "Chamblon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -614,7 +695,7 @@
       },
       "streetAddress": "Chamblon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:23:34.766Z",
+      "validThrough": "2027-01-19T21:21:29.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -649,7 +730,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4786/une-medecin-cheffe-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:34.177Z",
+      "crawledAt": "2026-11-13T21:21:29.005Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -699,7 +780,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:23:34.177Z",
+      "validThrough": "2027-01-20T21:21:29.005Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -733,7 +814,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4826/une-assistante-medicale-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:33.651Z",
+      "crawledAt": "2026-11-13T21:21:28.422Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -780,7 +861,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:23:33.651Z",
+      "validThrough": "2027-01-27T21:21:28.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +895,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:33.116Z",
+      "crawledAt": "2026-11-13T21:21:27.860Z",
       "addressLocality": "Orbe et Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -864,7 +945,7 @@
       },
       "streetAddress": "Orbe et Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:23:33.116Z",
+      "validThrough": "2027-01-27T21:21:27.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -899,7 +980,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4824/une-collaborateurtrice-des-admissions-a-50-100-ref-21-094",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:32.570Z",
+      "crawledAt": "2026-11-13T21:21:27.303Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -949,7 +1030,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:23:32.570Z",
+      "validThrough": "2027-01-27T21:21:27.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -983,7 +1064,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4831/une-secretaire-medicale-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:32.044Z",
+      "crawledAt": "2026-11-13T21:21:26.744Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1033,7 +1114,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:23:32.044Z",
+      "validThrough": "2027-01-28T21:21:26.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1068,7 +1149,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4847/une-infirmieriere-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:31.465Z",
+      "crawledAt": "2026-11-13T21:21:26.192Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1118,7 +1199,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:23:31.465Z",
+      "validThrough": "2027-02-01T21:21:26.192Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1152,7 +1233,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:30.938Z",
+      "crawledAt": "2026-11-13T21:21:25.647Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1202,7 +1283,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:23:30.938Z",
+      "validThrough": "2027-02-04T21:21:25.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1237,7 +1318,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:23:30.392Z",
+      "crawledAt": "2026-11-13T21:21:25.086Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1287,7 +1368,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:23:30.392Z",
+      "validThrough": "2027-02-04T21:21:25.086Z",
       "validThroughSource": "last-observed-window"
     }
   ]

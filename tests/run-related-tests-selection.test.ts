@@ -194,6 +194,36 @@ describe('run-related-tests selection contract', () => {
     expect(conciergeChange.stdout).not.toContain('tests/AdBlockGate.test.tsx');
   });
 
+  it('scopes shared job landing roots before they reach the app shell', () => {
+    const landingSources = [
+      'build-plugins/jobEditorialLanding.ts',
+      'build-plugins/jobIntentLanding.ts',
+    ];
+    const owningTests = [
+      'tests/job-editorial-landing.test.ts',
+      'tests/router/job-intent-routing.test.ts',
+    ];
+    const root = fixture({
+      'build-plugins/jobEditorialLanding.ts': 'export const landing = true;\n',
+      'build-plugins/jobIntentLanding.ts': 'export const intent = true;\n',
+      'services/router.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const route = true;\n",
+      'components/community/JobBoard.tsx': "import '../../build-plugins/jobEditorialLanding'; export const board = true;\n",
+      'components/App.tsx': "import './community/JobBoard'; import '../services/router'; export const app = true;\n",
+      'tests/job-editorial-landing.test.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const landingContract = true;\n",
+      'tests/router/job-intent-routing.test.ts': "import '../../services/router'; export const routeContract = true;\n",
+      'tests/AdBlockGate.test.tsx': "import '../components/App'; export const unrelatedUi = true;\n",
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    for (const source of landingSources) {
+      const result = select(root, [source]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      for (const test of owningTests) expect(result.stdout).toContain(test);
+      expect(result.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+      expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    }
+  });
+
   it('selects the trusted mid-plugin equivalence suite when the shared flag facade changes', () => {
     const source = 'build-plugins/shared/midPluginFlags.ts';
     const trusted = 'tests/mid-plugins-equivalence.test.ts';
@@ -291,6 +321,37 @@ describe('run-related-tests selection contract', () => {
     expect(result.stdout).toContain('tests/full-suite-dispatch-workflow.test.ts');
     expect(result.stdout).not.toContain('tests/asset-message.test.ts');
     expect(result.output).toContain('required=false');
+  });
+
+  it('scopes workflow directory readers to the workflow family they inspect', () => {
+    const directoryReader = [
+      "import { readdirSync } from 'node:fs';",
+      "import path from 'node:path';",
+      "const workflows = path.join('.github', 'workflows');",
+      'readdirSync(workflows);',
+      'export const contract = true;',
+    ].join('\n');
+    const root = fixture({
+      '.github/workflows/tests.yml': 'name: tests\n',
+      '.github/workflows/crawler-group-01.yml': 'name: crawler group\n',
+      '.github/workflows/reconcile-expired-route-duplicates.yml': 'run: node scripts/audit-expired-at-parsable.mjs\n',
+      '.github/workflows/unrelated.yml': 'name: unrelated\n',
+      'tests/nord-anglia-crawler.test.ts': directoryReader,
+      'tests/expired-at-parsable.test.ts': directoryReader,
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    const testsWorkflow = select(root, ['.github/workflows/tests.yml']);
+    expect(testsWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
+    expect(testsWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+
+    const crawlerWorkflow = select(root, ['.github/workflows/crawler-group-01.yml']);
+    expect(crawlerWorkflow.stdout).toContain('tests/nord-anglia-crawler.test.ts');
+    expect(crawlerWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+
+    const expiredWorkflow = select(root, ['.github/workflows/reconcile-expired-route-duplicates.yml']);
+    expect(expiredWorkflow.stdout).toContain('tests/expired-at-parsable.test.ts');
+    expect(expiredWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
   });
 
   it('fails fast when a source change has no statically related runnable test', () => {

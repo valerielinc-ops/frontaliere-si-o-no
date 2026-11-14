@@ -1,48 +1,62 @@
-import cantonSlugFile from '../../data/canton-url-slugs.json' with { type: 'json' };
-import municipalitiesFile from '../../data/canton-municipalities.json' with { type: 'json' };
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
-  AGGREGATE_KEY,
   SECTION_LEGACY_TI,
   TI_LEGACY_CITY_HUB_SLUGS,
-  createCantonResolvers,
 } from '../../build-plugins/shared/cantonResolvers.mjs';
+import {
+  createJobBoardDetailPathMatcher,
+  JOB_BOARD_DETAIL_PATH_RE,
+  parseJobBoardDetailPath,
+} from './job-board-detail-path-core.mjs';
 
-const {
-  isKnownCityHubSlug,
-  resolveCantonFromSection,
-} = createCantonResolvers({ cantonSlugFile, municipalitiesFile });
+export { JOB_BOARD_DETAIL_PATH_RE, parseJobBoardDetailPath };
 
-/** Shared route shape for a flat page below a canton-aware job board. */
-export const JOB_BOARD_DETAIL_PATH_RE = /^\/(?:cerca-lavoro-[a-z0-9-]+|en\/find-jobs-[a-z0-9-]+|de\/jobs-(?:im|in)-[a-z0-9-]+|fr\/trouver-emploi-[a-z0-9-]+)\/[^/]+\/$/i;
+const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
+let matcher;
 
 /**
- * Positive route identity for a flat job detail.
- *
- * The one-segment shape is shared by details and hubs. This predicate mirrors
- * the router's city-vs-job split: known city hubs are not details, including
- * the five legacy TI hubs and the data-driven cities under new canton roots.
- * Editorial/category/company exclusions remain with callers because their
- * contracts differ (for example, a live sitemap pre-filter accepts a real job
- * slug that happens to start with `company-`).
+ * Sparse-checkout adapter for tools that need the route helper without the
+ * generated canton data. The assembly path uses the data-driven core through
+ * the slug-stability rule, so changes to this fallback do not invalidate its
+ * cached output.
  */
-export function isJobBoardDetailPath(path) {
-  const normalized = String(path || '').endsWith('/') ? String(path || '') : `${String(path || '')}/`;
-  if (!JOB_BOARD_DETAIL_PATH_RE.test(normalized)) return false;
-
-  const parts = normalized.split('/').filter(Boolean);
-  const locale = ['en', 'de', 'fr'].includes(parts[0]?.toLowerCase()) ? parts[0].toLowerCase() : 'it';
-  const sectionIndex = locale === 'it' ? 0 : 1;
-  const section = parts[sectionIndex]?.toLowerCase();
-  const slug = parts[sectionIndex + 1]?.toLowerCase();
-  if (!section || !slug) return false;
-
-  const canton = resolveCantonFromSection(locale, section);
-  if (!canton) return false;
-
-  // The legacy router branch owns only these five clean TI hubs. New-canton
-  // sections use the data-driven city resolver below.
-  if (canton === 'TI' && section === SECTION_LEGACY_TI[locale]) {
-    return !TI_LEGACY_CITY_HUB_SLUGS.includes(slug);
+function getMatcher() {
+  if (matcher !== undefined) return matcher;
+  try {
+    const read = (name) => JSON.parse(fs.readFileSync(path.join(DATA_DIR, name), 'utf8'));
+    matcher = createJobBoardDetailPathMatcher({
+      cantonSlugFile: read('canton-url-slugs.json'),
+      municipalitiesFile: read('canton-municipalities.json'),
+    });
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    matcher = null;
   }
-  return !isKnownCityHubSlug(slug, canton === AGGREGATE_KEY ? undefined : canton);
+  return matcher;
+}
+
+/**
+ * Positive route identity for a job detail, with a conservative fallback for
+ * sparse checkouts that omit the route data.
+ *
+ * @param {string} input
+ * @returns {boolean}
+ */
+export function isJobBoardDetailPath(input) {
+  const parsed = parseJobBoardDetailPath(input);
+  if (!parsed) return false;
+
+  const fullMatcher = getMatcher();
+  if (fullMatcher) return fullMatcher(input);
+
+  const { locale, section, tail } = parsed;
+  if (section === SECTION_LEGACY_TI[locale]) {
+    if (tail.length === 2) return TI_LEGACY_CITY_HUB_SLUGS.includes(tail[0]);
+    return !TI_LEGACY_CITY_HUB_SLUGS.includes(tail[0]);
+  }
+  // Without route data a sparse checkout cannot prove that a one-tail path is
+  // a city hub. Full checkouts always use the data-driven matcher above.
+  return tail.length === 1;
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "policelavaux-ch",
-  "assembledAt": "2026-11-12T21:37:56.827Z",
-  "runId": "43310009878",
+  "assembledAt": "2026-11-13T21:41:56.800Z",
+  "runId": "43510220772",
   "jobs": [
     {
       "id": "policelavaux-ch-b6fe93695aa5",
@@ -34,7 +34,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:37:52.844Z",
+      "crawledAt": "2026-11-13T21:41:51.430Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:37:52.844Z",
+      "validThrough": "2027-01-28T21:41:51.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T21:37:52.843Z",
+      "crawledAt": "2026-11-13T21:41:51.429Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:37:52.843Z",
+      "validThrough": "2027-01-28T21:41:51.429Z",
       "validThroughSource": "last-observed-window"
     }
   ]

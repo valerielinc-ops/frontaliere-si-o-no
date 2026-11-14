@@ -31,6 +31,7 @@ import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { LEGACY_TI_STATIC_REDIRECTS, SECTION_LEGACY_TI } from './shared/cantonSection';
+import { LEGACY_GERMAN_SECTION_ALIASES } from './shared/legacyGermanSectionAliases';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import {
  getSafeDistPageTargets,
@@ -759,26 +760,46 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  // plus the TI-legacy/DE-stellenangebote/FR-emplois historical aliases.
  // Anything starting with one of these prefixes is owned by jobsSeoPagesPlugin
  // (active job, bridge, soft-landing) and must NOT be overwritten by compat HTML.
- const JOB_SECTION_PREFIXES: string[] = (() => {
+ const JOB_SECTION_PREFIXES_DATA = (() => {
  const locales: CantonLocale[] = ['it', 'en', 'de', 'fr'];
  const prefixByLocale: Record<CantonLocale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
  const codes = Object.keys((cantonSlugFile as { cantons: Record<string, unknown> }).cantons || {});
  const out = new Set<string>();
+ const legacyGermanSectionRoots = new Set<string>();
+ const legacyGermanSectionPrefixes = Array.from(
+  LEGACY_GERMAN_SECTION_ALIASES.keys(),
+  (section) => `${prefixByLocale.de}/${section}/`,
+ );
  for (const loc of locales) {
  for (const code of [...codes, '_AGGREGATE_']) {
  const section = resolveCantonSection(loc, code);
  out.add(`${prefixByLocale[loc]}/${section}/`);
  }
  }
+ for (const prefix of legacyGermanSectionPrefixes) {
+  out.add(prefix);
+  legacyGermanSectionRoots.add(prefix.slice(0, -1));
+ }
  out.add('/de/stellenangebote-tessin/');
  out.add('/fr/emplois-tessin/');
- return Array.from(out);
+ return {
+  prefixes: Array.from(out),
+  legacyGermanSectionRoots,
+  legacyGermanSectionPrefixes,
+ };
  })();
- const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
+ const JOB_SECTION_PREFIXES = JOB_SECTION_PREFIXES_DATA.prefixes;
+ const LEGACY_GERMAN_SECTION_ROOTS = JOB_SECTION_PREFIXES_DATA.legacyGermanSectionRoots;
+ const LEGACY_GERMAN_SECTION_PREFIXES = JOB_SECTION_PREFIXES_DATA.legacyGermanSectionPrefixes;
+ const isJobPath = (p: string): boolean =>
+  LEGACY_GERMAN_SECTION_ROOTS.has(p) || JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
  // Stesso verdetto di `isJobPath`, O(1) per path (vedi shared/prefixMatcher.ts).
  const isJobPathFast = makeStartsWithAnyPrefix(JOB_SECTION_PREFIXES);
+ const isLegacyGermanSectionPathFast = makeStartsWithAnyPrefix(LEGACY_GERMAN_SECTION_PREFIXES);
  const isCompatResolvableUnderJobPrefix = (p: string): boolean =>
- SEARCH_COMBO_SEGMENT_PATTERN.test(p) || JOB_BOARD_PAGINATION_PATTERN.test(p);
+  !LEGACY_GERMAN_SECTION_ROOTS.has(p)
+  && !isLegacyGermanSectionPathFast(p)
+  && (SEARCH_COMBO_SEGMENT_PATTERN.test(p) || JOB_BOARD_PAGINATION_PATTERN.test(p));
  let skippedJobPaths = 0;
  {
  const compatPaths = readCompatPaths(rootDir).paths;

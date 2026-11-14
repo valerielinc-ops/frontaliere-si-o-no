@@ -84,6 +84,7 @@ describe('load-rc-env shouldMaskRcValue', () => {
 
   it('exempts the known plain-word switches and nothing else', () => {
     expect([...PLAIN_WORD_RC_KEYS].sort()).toEqual([
+      'ASSISTED_APPLICATION_AGENT_NAVIGATION',
       'ASSISTED_APPLICATION_DOCX_INPLACE',
       'ASSISTED_APPLICATION_DOSSIER_MODE',
       'ASSISTED_APPLICATION_PDF_RENDERER',

@@ -1697,6 +1697,9 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           exec_timeout_minutes: "25"
+          # Keep one slow local acceptance command from consuming the whole
+          # model round before its required response artifact is written.
+          command_timeout_seconds: "240"
           response_artifact: redflag-response.md
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
@@ -1754,7 +1757,7 @@ jobs:
             - Fix CHIRURGICO alla CLASSE del bug (AGENTS.md non-negotiable #6): se il 🔴 segnala un pattern (regex/guard/floor/threshold/selector/idiom), `rg` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`, `services/seoService.ts`) e sweepa l'intera classe nella STESSA commit, oppure giustifica ogni sibling non toccato in `## Non implementato`.
             - Mai abbassare quality gate/test/validation/SEO gate per "far passare" (#1). Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
-            - Esegui i test pertinenti: `npm test` (o il subset rilevante) per validare il fix prima di committare.
+            - Esegui i controlli pertinenti con un budget bounded: per un test usa una sola volta `timeout --signal=TERM --kill-after=15s 240s npx --no-install vitest run <file> -t '<singolo test>'` (o un comando equivalente già bounded), mai `npm test` completo o `npx vitest run` senza `timeout`. Se esce `124`, non ripeterlo né alzare il timeout: usa l'evidenza già raccolta, scrivi `not-fixable:` per quel finding se non puoi provarlo, e consegna la risposta. Anche i comandi `node`, `npm`, `git` e `rg` su superfici grandi devono avere un limite o output limitato (`head`/`sed` mirati). Il watchdog automatico dell'action applica lo stesso cap a `npx`; non aggirarlo con un alias o un comando equivalente.
             - Commit con messaggio conventional; mantieni il gate PII su diff e messaggio.
             - Ogni commit porta il trailer `Fixer: redflag-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redflag-round-${{ steps.guard.outputs.round }}"`): il trailer distingue i push di questo fixer.
             - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.

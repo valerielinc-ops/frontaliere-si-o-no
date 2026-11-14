@@ -1,0 +1,24 @@
+{
+  "companyKey": "la-garenne-ch",
+  "companyName": "La Garenne School SA",
+  "companyHost": "la-garenne.ch",
+  "verifiedEmployerDomain": "la-garenne.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.la-garenne.ch/job-vacancies/"
+  ],
+  "detailTemplate": "/careers/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Download the job description",
+    "Download the job description"
+  ],
+  "canton": "VD",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:50:11.697Z",
+  "candidateKey": "la-garenne-school@chesieres"
+}
