@@ -332,7 +332,10 @@ describe('runner final guard across three application stages', () => {
 
     expect(pressed.slice(0, 2)).toEqual(['toggle-top', 'manual']);
     expect(pressed).not.toContain('linkedin');
-    expect(f.codex).toHaveBeenCalledTimes(3);
+    // The paid listing and its single manual menu item are resolved by the
+    // deterministic entry path. The missing account credentials are handed to
+    // the existing auth flow without asking the model to invent them.
+    expect(f.codex).not.toHaveBeenCalled();
     expect(result.event.type).toBe('submit_handoff');
     expect(state.snapshot.url).toBe(signInUrl);
     expect(f.guard).not.toHaveBeenCalled();
