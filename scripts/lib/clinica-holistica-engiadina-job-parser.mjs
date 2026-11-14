@@ -73,10 +73,12 @@ async function createStealthContext(browser) {
         },
       });
   ctx.setDefaultNavigationTimeout(60_000);
-  await ctx.addInitScript(() => {
-    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-    Object.defineProperty(navigator, 'languages', { get: () => ['de-CH', 'de', 'en'] });
-  });
+  if (!isStealthBrowser(browser)) {
+    await ctx.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      Object.defineProperty(navigator, 'languages', { get: () => ['de-CH', 'de', 'en'] });
+    });
+  }
   return ctx;
 }
 
