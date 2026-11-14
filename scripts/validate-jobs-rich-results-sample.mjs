@@ -2,6 +2,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
 import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
@@ -35,7 +36,7 @@ const SCRIPT_RE = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/sc
 const LINK_RE = /<link\b[^>]*>/gi;
 
 function readJson(file) {
-  return JSON.parse(readFileSync(file, 'utf8'));
+  return readJsonFile(file);
 }
 
 function normalizePostalLocality(value) {

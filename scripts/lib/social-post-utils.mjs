@@ -21,6 +21,7 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 import { JOB_EMPLOYMENT_LABELS_BY_LOCALE } from './job-employment-type.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
 import { parseLedger } from './social-publish-queue.mjs';
 import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
@@ -308,7 +309,7 @@ export function loadJobIndex() {
   try {
     const assembled = path.join(ROOT, 'data', 'jobs.json');
     if (existsSync(assembled)) {
-      const parsed = JSON.parse(readFileSync(assembled, 'utf-8'));
+      const parsed = readJsonFile(assembled);
       ingest(Array.isArray(parsed) ? parsed : parsed.jobs);
       return index;
     }
@@ -317,7 +318,7 @@ export function loadJobIndex() {
       for (const file of listSliceFileNames(dir)) {
         try {
           // Slices also hold agency jobs not yet published (translation hold).
-          ingest(excludeHeldFromPublication(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs));
+          ingest(excludeHeldFromPublication(readJsonFile(path.join(dir, file)).jobs));
         } catch {
           /* one unreadable crawler file must not void the whole index */
         }
