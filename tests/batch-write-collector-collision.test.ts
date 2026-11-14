@@ -32,6 +32,7 @@ import {
   setModeForTest,
   getCollisions,
   WriteCollisionError,
+  reserveJobAliasRedirectDir,
 } from '@/build-plugins/sharedWriteRegistry';
 
 describe('WriteCollector collision visibility', () => {
@@ -236,6 +237,53 @@ describe('WriteCollector collision visibility', () => {
       expect(() => collector.add(healthyPath, '<html>healthy</html>')).not.toThrow();
       await expect(collector.flush()).rejects.toThrow();
       expect(fs.readFileSync(blockedParent, 'utf-8')).toBe('not a directory');
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('drops a compatibility path queued before it becomes a reserved alias', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-reserved-alias-'));
+    const distDir = path.join(tmpRoot, 'dist');
+    const pageDir = path.join(distDir, 'cerca-lavoro-zurigo', 'old-route');
+    const indexPath = path.join(pageDir, 'index.html');
+    const flatPath = `${pageDir}.html`;
+    const collector = new WriteCollector({
+      distDir,
+      pluginName: 'compatibility-fixture',
+      autoFlushThreshold: Number.POSITIVE_INFINITY,
+    });
+    try {
+      collector.add(indexPath, '<html>queued</html>');
+      collector.add(flatPath, '<html>queued</html>');
+      reserveJobAliasRedirectDir(pageDir);
+      await collector.flush();
+      expect(fs.existsSync(indexPath)).toBe(false);
+      expect(fs.existsSync(flatPath)).toBe(false);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('drops an in-progress flush when its path is reserved before the write starts', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-reserved-alias-race-'));
+    const distDir = path.join(tmpRoot, 'dist');
+    const pageDir = path.join(distDir, 'cerca-lavoro-zurigo', 'old-route');
+    const indexPath = path.join(pageDir, 'index.html');
+    const flatPath = `${pageDir}.html`;
+    const collector = new WriteCollector({
+      distDir,
+      pluginName: 'compatibility-fixture',
+      autoFlushThreshold: Number.POSITIVE_INFINITY,
+    });
+    try {
+      collector.add(indexPath, '<html>queued</html>');
+      collector.add(flatPath, '<html>queued</html>');
+      const flushing = collector.flush();
+      reserveJobAliasRedirectDir(pageDir);
+      await expect(flushing).resolves.toBe(0);
+      expect(fs.existsSync(indexPath)).toBe(false);
+      expect(fs.existsSync(flatPath)).toBe(false);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }

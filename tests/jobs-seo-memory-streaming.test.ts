@@ -354,7 +354,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source.indexOf('legacyTiPathRecoveredByWorker(', release)).toBe(-1);
   });
 
-  it('streams previous-slug bridges without retaining unused full-page copies', () => {
+  it('emits previous-slug pages only for keepBridge paths and streams their HTML', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
       'utf8',
@@ -365,7 +365,7 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(activeRelease).toContain('titleCollisionByLocale[locale].clear()');
     expect(activeRelease).toContain("logJobsSeoMem('after-active-title-collision-clear'");
 
-    const phaseStart = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+    const phaseStart = source.indexOf('/* ── Retained full-content pages for previousSlugs');
     const loopStart = source.indexOf('let bridgeCount = 0;', phaseStart);
     const phaseEnd = source.indexOf("logJobsSeoMem('after-previous-slug-bridges'", loopStart);
     const phaseMarkerEnd = source.indexOf('});', phaseEnd);
@@ -376,11 +376,26 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(phaseEnd).toBeGreaterThan(loopStart);
     expect(bridgeLoop).not.toContain('bridgeFlatHtml');
     expect(bridgeLoop).toContain('bridgeIndexHtml = noindexJobAliasHtml(cachedHtml.replace');
+    expect(bridgeLoop).toContain('if (isRetainedActiveBridgePath(locale, oldPath)) {');
     expect(bridgeLoop).toContain('const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL = 32;');
     expect(bridgeLoop.match(/if \(shouldYieldPreviousSlugBridgeWrites\(\)\) await yieldPreviousSlugBridgeWrites\(\);/g)).toHaveLength(2);
-    expect(bridgeLoop).toContain('await collector.awaitDrainSlot(2);\n  maybeForceJobsSeoHtmlGc();');
+    const drainIndex = bridgeLoop.indexOf('await collector.awaitDrainSlot(2);');
+    const gcIndex = bridgeLoop.indexOf('maybeForceJobsSeoHtmlGc();', drainIndex);
+    expect(drainIndex).toBeGreaterThan(-1);
+    expect(gcIndex).toBeGreaterThan(drainIndex);
     expect(phaseMarker).toContain('previousSlugPeriodicYieldCount,');
     expect(phaseMarker).toContain('jobsSeoHtmlGcRuns,');
+    expect(phaseMarker).toContain('removableFullContentBridgeCount:');
+    expect(phaseMarker).toContain('previousSlugBridgeHeapPeakMb:');
+
+    const outputFlush = source.indexOf('const written = await collector.flush();');
+    const outputGateEnd = source.indexOf('const skipped = collector.skippedByHash;', outputFlush);
+    const outputGate = source.slice(outputFlush, outputGateEnd);
+    expect(outputGate).toContain('assertBridgePathDistCoverage(');
+    expect(outputGate).toContain('getJobAliasRedirectDirs()');
+    expect(outputGate).toContain('hasNoindexRobotsMeta(html)');
+    expect(outputGate).toContain('window.__BRIDGE_TARGET_SLUG__=');
+    expect(outputGate).toContain('hasExactCanonicalHref(html, targetPath)');
   });
 
   it('runs the last-resort GC and a sampled milestone inside the expired sweep', () => {

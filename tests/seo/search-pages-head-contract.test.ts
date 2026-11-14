@@ -35,6 +35,8 @@ import { describe, expect, it } from 'vitest';
 import {
   CANONICAL_LINK_RX,
   countCanonicalLinks,
+  extractCanonicalHref,
+  hasExactCanonicalHref,
   countHreflangLinks,
   countLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
@@ -147,6 +149,21 @@ describe('head link matchers survive the build minifier', () => {
 
   it('counts a duplicate canonical as 2, so the gate can still fail it', () => {
     expect(countCanonicalLinks(minifyHtml(PAGE + PAGE))).toBe(2);
+  });
+
+  it('extracts the canonical href after minification regardless of attribute quoting or order', () => {
+    expect(extractCanonicalHref('<link rel=canonical href="https://example.test/target/">'))
+      .toBe('https://example.test/target/');
+    expect(extractCanonicalHref('<link href=\'/target/\' rel="canonical">')).toBe('/target/');
+    expect(extractCanonicalHref('<link rel=canonical href="" data-href="/wrong/">')).toBeNull();
+  });
+
+  it('requires exactly one canonical with the planned target', () => {
+    const target = 'https://example.test/target/';
+    const emitted = minifyHtml(`<link rel="canonical" href="${target}">`);
+    expect(hasExactCanonicalHref(emitted, target)).toBe(true);
+    expect(hasExactCanonicalHref(emitted, 'https://example.test/other/')).toBe(false);
+    expect(hasExactCanonicalHref(emitted + emitted, target)).toBe(false);
   });
 });
 

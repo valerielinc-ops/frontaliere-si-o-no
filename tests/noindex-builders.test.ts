@@ -192,15 +192,15 @@ describe('SEO builder noindex guards', () => {
       // Explicit previousSlugs are durable producer ownership claims. They
       // deliberately override the generic Worker-recovery guard below, while
       // expired/self-healing and cross-locale reconciliation paths keep it.
-      const previousSlugStart = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+      const previousSlugStart = source.indexOf('/* ── Retained full-content pages for previousSlugs');
       const previousSlugEnd = source.indexOf('if (bridgeCount > 0)', previousSlugStart);
       const previousSlugBlock = source.slice(previousSlugStart, previousSlugEnd);
       expect(previousSlugBlock).not.toContain('legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
       expect(previousSlugBlock).toContain('previousSlug declaration is authoritative');
     });
 
-    it('previous-slug bridges force noindex after fresh render or cache reuse', () => {
-      const start = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+    it('retained previous-slug bridges force noindex after fresh render or cache reuse', () => {
+      const start = source.indexOf('/* ── Retained full-content pages for previousSlugs');
       const end = source.indexOf('if (bridgeCount > 0)', start);
       const block = source.slice(start, end);
       expect(start).toBeGreaterThan(-1);

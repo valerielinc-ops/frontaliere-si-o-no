@@ -73,6 +73,7 @@ import {
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { getSafeDistPageTargets, isSafeDistPath } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -3137,7 +3138,7 @@ export function retiredManifestWrites(
   return writes;
 }
 
-function reapplyRetiredManifestFiles(
+export function reapplyRetiredManifestFiles(
   distDir: string,
   retiredFiles: ReadonlyArray<string>,
 ): number {
@@ -3149,7 +3150,10 @@ function reapplyRetiredManifestFiles(
     const expectedPath = write.rel.endsWith('/index.html')
       ? safeTargets.indexPath
       : safeTargets.flatPath;
-    return Boolean(expectedPath) && path.resolve(expectedPath) === path.resolve(distDir, write.rel);
+    const outputPath = path.resolve(distDir, write.rel);
+    return Boolean(expectedPath)
+      && path.resolve(expectedPath) === outputPath
+      && !isJobAliasRedirectPath(outputPath);
   });
   for (const write of safeWrites) {
     const outFile = path.resolve(distDir, write.rel);

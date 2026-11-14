@@ -205,6 +205,12 @@ export interface SharedPathDeclaration {
 type StoredClaimHistory = ClaimVersion | ClaimVersion[];
 
 const pathHistory = new Map<string, StoredClaimHistory>();
+// A job alias redirect is deliberately an origin 404 so the locale-router
+// Worker can issue the permanent redirect. Reserve its page output without
+// claiming HTML content: collector and direct compatibility writers must not
+// refill the path after jobsSeoPagesPlugin has classified it.
+const jobAliasRedirectDirs = new Set<string>();
+const jobAliasRedirectOutputPaths = new Set<string>();
 /** Deterministic post-process fingerprint applied to claimed HTML in deploy manifests. */
 let finalOutputManifestFingerprint: string | null = null;
 /**
@@ -477,6 +483,71 @@ function formatCollisionMessage(record: CollisionRecord): string {
 
 export type ClaimOutcome = 'allow-write' | 'skip-write';
 
+/** Reserve the directory and flat-file output for a page that must stay absent. */
+export function reserveJobAliasRedirectDir(directoryPath: string): void {
+  const directory = resolveRetainedPath(directoryPath);
+  if (jobAliasRedirectDirs.has(directory)) return;
+
+  const indexPath = path.join(directory, DIRECTORY_INDEX_BASENAME);
+  const flatPath = `${directory}.html`;
+  // Other closeBundle hooks can start before jobsSeoPages has enough input to
+  // classify this URL. Remove any already completed compatibility output;
+  // queued WriteCollector output is filtered again at flush time below.
+  for (const outputPath of [indexPath, flatPath]) {
+    try {
+      const stat = fs.statSync(outputPath);
+      if (!stat.isFile()) {
+        throw new Error('[job-alias-redirect-reservation] output is not a file');
+      }
+      fs.unlinkSync(outputPath);
+    } catch (error) {
+      const code = (error as NodeJS.ErrnoException | null | undefined)?.code;
+      if (code !== 'ENOENT') throw error;
+    }
+  }
+  jobAliasRedirectDirs.add(directory);
+  jobAliasRedirectOutputPaths.add(indexPath);
+  jobAliasRedirectOutputPaths.add(flatPath);
+}
+
+function isReservedJobAliasOutputPath(filePath: string): boolean {
+  if (jobAliasRedirectOutputPaths.has(filePath) || jobAliasRedirectDirs.has(filePath)) return true;
+  if (filePath.endsWith(DIRECTORY_INDEX_SUFFIX)) {
+    return jobAliasRedirectDirs.has(filePath.slice(0, -DIRECTORY_INDEX_SUFFIX.length));
+  }
+  if (filePath.endsWith('.html')) {
+    return jobAliasRedirectDirs.has(filePath.slice(0, -'.html'.length));
+  }
+  return false;
+}
+
+function hasNonCanonicalPathSegments(filePath: string): boolean {
+  const separator = path.sep;
+  return filePath.includes(`${separator}.${separator}`)
+    || filePath.includes(`${separator}..${separator}`)
+    || filePath.includes(`${separator}${separator}`)
+    || filePath.endsWith(`${separator}.`)
+    || filePath.endsWith(`${separator}..`);
+}
+
+/** True for either static representation of a reserved page. */
+export function isJobAliasRedirectPath(filePath: string): boolean {
+  if (jobAliasRedirectDirs.size === 0) return false;
+  if (isReservedJobAliasOutputPath(filePath)) return true;
+  if (path.isAbsolute(filePath) && !hasNonCanonicalPathSegments(filePath)) return false;
+  return isReservedJobAliasOutputPath(resolveRetainedPath(filePath));
+}
+
+/** Iterate reserved page directories without copying the build-scoped set. */
+export function getJobAliasRedirectDirs(): IterableIterator<string> {
+  return jobAliasRedirectDirs.values();
+}
+
+/** Avoid filtering collector batches until at least one page path is reserved. */
+export function hasJobAliasRedirectReservations(): boolean {
+  return jobAliasRedirectDirs.size > 0;
+}
+
 /**
  * Register or check a write attempt against the shared invariant.
  *
@@ -488,6 +559,7 @@ export type ClaimOutcome = 'allow-write' | 'skip-write';
  *         claim would conflict with an existing non-shared claim.
  */
 export function claim(claimPath: string, plugin: string, content: string): ClaimOutcome {
+  if (isJobAliasRedirectPath(claimPath)) return 'skip-write';
   // WriteCollector calls claim() before queuing or auto-flushing the path.
   // Keep this structural guard beside the single registration point so a
   // second auto-flush cannot turn an earlier file into a directory silently.
@@ -596,6 +668,8 @@ export function declareSharedPath(decl: SharedPathDeclaration): void {
  */
 export function reset(): void {
   pathHistory.clear();
+  jobAliasRedirectDirs.clear();
+  jobAliasRedirectOutputPaths.clear();
   finalOutputManifestFingerprint = null;
   claimedOutputDescendants.clear();
   claimedOutputPathAliases.clear();
@@ -622,7 +696,7 @@ export function getPathHistory(): ReadonlyMap<string, readonly ClaimVersion[]> {
 
 /** Check whether a path has already been claimed without materializing history. */
 export function hasClaimedPath(filePath: string): boolean {
-  return pathHistory.has(filePath);
+  return pathHistory.has(filePath) || isJobAliasRedirectPath(filePath);
 }
 
 /** Number of distinct claimed output paths. */

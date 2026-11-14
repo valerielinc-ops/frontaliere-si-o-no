@@ -17,6 +17,10 @@ import {
  pruneDumpToCollidingHashes,
  setModeForTest,
  clearDeclarationsForTest,
+ reserveJobAliasRedirectDir,
+ hasJobAliasRedirectReservations,
+ isJobAliasRedirectPath,
+ hasClaimedPath,
  WriteCollisionError,
  DistPathCollisionError,
 } from '@/build-plugins/sharedWriteRegistry';
@@ -35,6 +39,51 @@ describe('sharedWriteRegistry', () => {
  it('first claim of a path returns allow-write', () => {
  const out = claim('/dist/foo/index.html', 'pluginA', '<html>a</html>');
  expect(out).toBe('allow-write');
+ });
+
+ it('keeps reserved page outputs absent from collectors and resets the reservation per build', () => {
+ const pageDir = path.resolve(os.tmpdir(), 'reserved-job-alias-fixture', 'jobs', 'old-route');
+ const indexPath = path.join(pageDir, 'index.html');
+ const flatPath = `${pageDir}.html`;
+
+ expect(hasJobAliasRedirectReservations()).toBe(false);
+ reserveJobAliasRedirectDir(pageDir);
+ expect(hasJobAliasRedirectReservations()).toBe(true);
+ expect(isJobAliasRedirectPath(indexPath)).toBe(true);
+ expect(isJobAliasRedirectPath(flatPath)).toBe(true);
+ expect(isJobAliasRedirectPath(path.relative(process.cwd(), indexPath))).toBe(true);
+ expect(isJobAliasRedirectPath(
+  `${path.dirname(pageDir)}${path.sep}unused${path.sep}..${path.sep}${path.basename(pageDir)}${path.sep}index.html`,
+ )).toBe(true);
+ expect(hasClaimedPath(indexPath)).toBe(true);
+ expect(getPathHistory().has(indexPath)).toBe(false);
+ expect(claim(indexPath, 'compat-page-writer', '<html>fallback</html>')).toBe('skip-write');
+ expect(claim(flatPath, 'compat-page-writer', '<html>fallback</html>')).toBe('skip-write');
+ expect(getPathHistory().has(flatPath)).toBe(false);
+
+ reset();
+ expect(hasJobAliasRedirectReservations()).toBe(false);
+ expect(isJobAliasRedirectPath(indexPath)).toBe(false);
+ expect(claim(indexPath, 'compat-page-writer', '<html>fallback</html>')).toBe('allow-write');
+ });
+
+ it('removes compatibility output that finished before the reservation', () => {
+ const fixtureRoot = path.resolve(os.tmpdir(), 'claimed-job-alias-fixture');
+ const pageDir = path.join(fixtureRoot, 'jobs', 'old-route');
+ const indexPath = path.join(pageDir, 'index.html');
+ const flatPath = `${pageDir}.html`;
+ try {
+  fs.mkdirSync(pageDir, { recursive: true });
+  fs.writeFileSync(indexPath, '<html>index</html>');
+  fs.writeFileSync(flatPath, '<html>flat</html>');
+  claim(indexPath, 'earlier-page-writer', '<html>index</html>');
+  reserveJobAliasRedirectDir(pageDir);
+  expect(fs.existsSync(indexPath)).toBe(false);
+  expect(fs.existsSync(flatPath)).toBe(false);
+  expect(claim(indexPath, 'later-page-writer', '<html>page</html>')).toBe('skip-write');
+ } finally {
+  fs.rmSync(fixtureRoot, { recursive: true, force: true });
+ }
  });
 
  it('idempotent re-claim with identical content returns skip-write (no error)', () => {
