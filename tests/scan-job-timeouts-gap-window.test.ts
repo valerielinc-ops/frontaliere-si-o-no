@@ -197,7 +197,7 @@ describe('main — a timeout between two sparse scans is still reported', () => 
   });
 
   it('retries a rate-limit-only history failure before continuing the scan', async () => {
-    installGh({ previousScanStartedAt: null, historyRateLimitFailures: 1 });
+    installGh({ previousScanStartedAt: iso(5 * 60 * MINUTE), historyRateLimitFailures: 1 });
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
 
     await expect(main()).resolves.toBeUndefined();
