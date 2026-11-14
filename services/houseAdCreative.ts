@@ -1,3 +1,5 @@
+import type { HouseAdCreativeContext } from './houseAdContext';
+
 export const HOUSE_AD_VARIANTS = ['control', 'time_saved', 'profile_match', 'in_control', 'swiss_work', 'next_chapter'] as const;
 export type HouseAdVariant = (typeof HOUSE_AD_VARIANTS)[number];
 export type HouseAdFormat = 'mobile_banner' | 'mobile_large' | 'rectangle' | 'leaderboard' | 'billboard' | 'skyscraper';
@@ -11,6 +13,7 @@ export function createHouseAdCreative(options: {
   locale: HouseAdLocale;
   placement: string;
   destinationPath?: string;
+  context?: HouseAdCreativeContext;
   portraitArtwork?: boolean;
   assetBase?: string;
   onClick?: () => void;
@@ -70,6 +73,117 @@ export function createHouseAdCreative(options: {
       shortPromises: { control: 'Nous cherchons pour vous.', time_saved: 'On s’occupe de la recherche.', profile_match: 'Des offres pour votre métier.', in_control: 'Nous vous aidons à démarrer.', swiss_work: 'Nous partons de votre métier.', next_chapter: 'Plus de temps pour vous.' } },
   }[locale];
   const narrow = options.portraitArtwork || format === 'rectangle' || format === 'mobile_banner' || format === 'mobile_large' || format === 'skyscraper';
+  const compact = format === 'mobile_banner' || format === 'mobile_large';
+  const cleanContextText = (value: unknown, maxLength: number): string => {
+    const clean = String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
+    const characters = Array.from(clean);
+    if (characters.length <= maxLength) return clean;
+    const clipped = characters.slice(0, maxLength).join('');
+    const wordBoundary = clipped.lastIndexOf(' ');
+    return (wordBoundary >= Math.floor(maxLength * 0.55) ? clipped.slice(0, wordBoundary) : clipped).trim();
+  };
+  const contextRole = cleanContextText(options.context?.role, 52);
+  const contextPlace = cleanContextText(options.context?.place, 36);
+  const firstRoleWord = contextRole.split(/\s+/)[0] || '';
+  const compactRole = Array.from(firstRoleWord).length <= 15 ? firstRoleWord : '';
+  const isJobFilterContext = options.context?.source === 'job_filter';
+  const frenchRole = contextRole ? `${Array.from(contextRole)[0].toLocaleLowerCase('fr')}${Array.from(contextRole).slice(1).join('')}` : '';
+  const frenchRolePreposition = frenchRole
+    ? /^[aeiouyàâäéèêëîïôöùûü]/u.test(frenchRole) ? `d’${frenchRole}` : `de ${frenchRole}`
+    : '';
+  const contextStrings = {
+    it: {
+      title: contextRole
+        ? isJobFilterContext ? `Cerchi lavoro nel settore ${contextRole} in Svizzera?` : `Cerchi lavoro come ${contextRole} in Svizzera?`
+        : 'Lavoro in Svizzera?',
+      tightTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
+      billboardTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
+      leaderboardTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
+      mobileTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
+      promise: 'Lo cerchiamo noi per te.',
+      compactPromise: compactRole ? `Cerchiamo ${compactRole}.` : 'Ci pensiamo noi.',
+      body: contextRole && contextPlace
+        ? `Troviamo offerte per ${contextRole} nella zona di ${contextPlace} e prepariamo le candidature per te.`
+        : contextRole ? `Troviamo offerte per ${contextRole} e prepariamo le candidature per te.`
+          : contextPlace ? `Troviamo offerte nella zona di ${contextPlace} e prepariamo le candidature per te.` : words.body,
+      billboardBody: contextRole && contextPlace
+        ? `Offerte per ${contextRole} a ${contextPlace}. Candidature pronte per te.`
+        : contextRole ? `Offerte per ${contextRole}. Candidature pronte per te.`
+          : contextPlace ? `Offerte nella zona di ${contextPlace}. Candidature pronte per te.` : 'Offerte adatte al tuo mestiere. Candidature pronte per te.',
+    },
+    en: {
+      title: contextRole ? `Looking for ${contextRole} work in Switzerland?` : 'A job in Switzerland?',
+      tightTitle: compactRole ? `Looking for ${compactRole} work in Switzerland?` : 'A job in Switzerland?',
+      billboardTitle: compactRole ? `${compactRole} jobs in Switzerland?` : 'A job in Switzerland?',
+      leaderboardTitle: compactRole ? `${compactRole} jobs in Switzerland?` : 'A job in Switzerland?',
+      mobileTitle: compactRole ? `${compactRole} in Switzerland?` : 'Work in Switzerland?',
+      promise: 'We search for you.',
+      compactPromise: compactRole ? `We find ${compactRole} roles.` : 'We do the search.',
+      body: contextRole && contextPlace
+        ? `We find ${contextRole} roles around ${contextPlace} and prepare the applications for you.`
+        : contextRole ? `We find ${contextRole} roles and prepare the applications for you.`
+          : contextPlace ? `We find suitable offers around ${contextPlace} and prepare the applications for you.` : words.body,
+      billboardBody: contextRole && contextPlace
+        ? `${contextRole} roles near ${contextPlace}. Applications prepared for you.`
+        : contextRole ? `${contextRole} roles. Applications prepared for you.`
+          : contextPlace ? `Offers near ${contextPlace}. Applications prepared for you.` : 'Offers that fit your profession. Applications prepared for you.',
+    },
+    de: {
+      title: contextRole
+        ? isJobFilterContext ? `Jobs im Bereich ${contextRole} in der Schweiz?` : `${contextRole} in der Schweiz gesucht?`
+        : 'Arbeit in der Schweiz?',
+      tightTitle: compactRole ? `Job als ${compactRole} in der Schweiz?` : 'Arbeit in der Schweiz?',
+      billboardTitle: compactRole ? `${compactRole} in der Schweiz?` : 'Arbeit in der Schweiz?',
+      leaderboardTitle: compactRole ? `${compactRole}-Jobs in der Schweiz?` : 'Arbeit in der Schweiz?',
+      mobileTitle: compactRole ? `${compactRole} in der Schweiz?` : 'Arbeit in der Schweiz?',
+      promise: 'Wir suchen für Sie.',
+      compactPromise: compactRole ? `Wir suchen ${compactRole}.` : 'Wir suchen für Sie.',
+      body: contextRole && contextPlace
+        ? `Wir finden passende Stellen für ${contextRole} in der Region ${contextPlace} und bereiten Ihre Bewerbungen vor.`
+        : contextRole ? `Wir finden passende Stellen für ${contextRole} und bereiten Ihre Bewerbungen vor.`
+          : contextPlace ? `Wir finden passende Stellen in der Region ${contextPlace} und bereiten Ihre Bewerbungen vor.` : words.body,
+      billboardBody: contextRole && contextPlace
+        ? `Stellen für ${contextRole} in ${contextPlace}. Bewerbungen für Sie vorbereitet.`
+        : contextRole ? `Stellen für ${contextRole}. Bewerbungen für Sie vorbereitet.`
+          : contextPlace ? `Stellen in der Region ${contextPlace}. Bewerbungen für Sie vorbereitet.` : 'Passende Stellen. Bewerbungen für Sie vorbereitet.',
+    },
+    fr: {
+      title: contextRole
+        ? isJobFilterContext ? `Un emploi dans le secteur ${contextRole} en Suisse ?` : `${contextRole} en Suisse ?`
+        : 'Un emploi en Suisse ?',
+      tightTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
+      billboardTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
+      leaderboardTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
+      mobileTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
+      promise: 'Nous cherchons pour vous.',
+      compactPromise: compactRole ? `Nous cherchons ${compactRole}.` : 'Nous cherchons pour vous.',
+      body: contextRole && contextPlace
+        ? `Nous trouvons des offres ${frenchRolePreposition} dans la région de ${contextPlace} et préparons vos candidatures.`
+        : contextRole ? `Nous trouvons des offres ${frenchRolePreposition} et préparons vos candidatures.`
+          : contextPlace ? `Nous trouvons des offres dans la région de ${contextPlace} et préparons vos candidatures.` : words.body,
+      billboardBody: contextRole && contextPlace
+        ? `Offres ${frenchRolePreposition} à ${contextPlace}. Candidatures prêtes pour vous.`
+        : contextRole ? `Offres ${frenchRolePreposition}. Candidatures prêtes pour vous.`
+          : contextPlace ? `Offres près de ${contextPlace}. Candidatures prêtes pour vous.` : 'Offres adaptées à votre métier. Candidatures prêtes pour vous.',
+    },
+  }[locale];
+  const hasContext = Boolean(options.context);
+  const useProfileContextPromise = variant === 'profile_match' && hasContext;
+  const creativeTitle = hasContext
+    ? format === 'mobile_banner' || format === 'mobile_large' ? contextStrings.mobileTitle
+        : format === 'leaderboard' ? contextStrings.leaderboardTitle
+          : format === 'billboard' ? contextStrings.billboardTitle
+            : format === 'rectangle' ? contextStrings.tightTitle
+            : contextStrings.title
+    : format === 'mobile_banner' ? words.bannerTitle : compact ? words.short[variant] : words.titles[variant];
+  const creativePromise = useProfileContextPromise
+    ? format === 'mobile_banner' ? words.bannerPromises[variant]
+      : format === 'mobile_large' ? contextStrings.compactPromise
+        : contextStrings.promise
+    : format === 'mobile_banner' ? words.bannerPromises[variant] : compact ? words.shortPromises[variant] : words.promises[variant];
+  const creativeBody = hasContext
+    ? format === 'billboard' ? contextStrings.billboardBody : contextStrings.body
+    : words.body;
   let artwork: string = {
     control: narrow ? 'construction-portrait-v1' : 'construction-wide-v1',
     time_saved: narrow ? 'logistics-portrait-v1' : 'logistics-wide-v1',
@@ -81,6 +195,7 @@ export function createHouseAdCreative(options: {
   if (variant === 'time_saved' && (format === 'billboard' || format === 'skyscraper')) {
     artwork = narrow ? 'commute-portrait-v1' : 'commute-wide-v1';
   }
+  if (options.context) artwork = `${options.context.sector}-${narrow ? 'portrait' : 'wide'}-v1`;
   const sizes: Record<string, [number, number]> = {
     'construction-portrait-v1': [600, 1200], 'construction-wide-v1': [1456, 486],
     'commute-portrait-v1': [887, 1774], 'commute-wide-v1': [2172, 724],
@@ -90,7 +205,6 @@ export function createHouseAdCreative(options: {
     'electrician-portrait-v1': [600, 1200], 'electrician-wide-v1': [1456, 486],
     'hospitality-portrait-v1': [600, 1200], 'hospitality-wide-v1': [1456, 486],
   };
-  const compact = format === 'mobile_banner' || format === 'mobile_large';
   const anchor = document.createElement('a');
   anchor.className = 'ft-house-creative';
   anchor.dataset.houseFormat = format;
@@ -98,10 +212,14 @@ export function createHouseAdCreative(options: {
   anchor.dataset.houseCreative = `${variant}_v1`;
   anchor.dataset.houseArtwork = narrow ? 'portrait' : 'wide';
   anchor.dataset.houseAsset = artwork;
+  if (options.context) {
+    anchor.dataset.houseContextSource = options.context.source;
+    anchor.dataset.houseContextSector = options.context.sector;
+  }
   const query = new URLSearchParams({ utm_source: 'house_ads', utm_medium: 'display', utm_campaign: 'job_search_automation', utm_content: `${variant}_v1`, utm_term: `${format}.${placement}` });
   const destination = options.destinationPath || ({ it: '/automatizza-ricerca-lavoro-svizzera/', en: '/en/automate-job-search-switzerland/', de: '/de/arbeitssuche-schweiz-automatisieren/', fr: '/fr/automatiser-recherche-emploi-suisse/' })[locale];
   anchor.href = `${destination}?${query}`;
-  anchor.setAttribute('aria-label', `${words.titles[variant]} ${words.promises[variant]} ${words.body} ${words.cta}`);
+  anchor.setAttribute('aria-label', `${creativeTitle} ${creativePromise} ${creativeBody} ${words.cta}`);
   const image = document.createElement('img');
   image.className = 'ft-house-art'; image.alt = ''; image.decoding = 'async'; image.loading = 'lazy';
   image.addEventListener('error', () => { anchor.dataset.houseImageUnavailable = 'true'; }, { once: true });
@@ -109,10 +227,10 @@ export function createHouseAdCreative(options: {
   image.src = `${options.assetBase || '/images/job-search-campaign/'}${artwork}.webp`;
   const text = document.createElement('span'); text.className = 'ft-house-copy';
   const title = document.createElement('span'); title.className = 'ft-house-title';
-  title.textContent = format === 'mobile_banner' ? words.bannerTitle : compact ? words.short[variant] : words.titles[variant];
+  title.textContent = creativeTitle;
   const promise = document.createElement('span'); promise.className = 'ft-house-promise';
-  promise.textContent = format === 'mobile_banner' ? words.bannerPromises[variant] : compact ? words.shortPromises[variant] : words.promises[variant];
-  const body = document.createElement('span'); body.className = 'ft-house-body'; body.textContent = words.body;
+  promise.textContent = creativePromise;
+  const body = document.createElement('span'); body.className = 'ft-house-body'; body.textContent = creativeBody;
   const cta = document.createElement('span'); cta.className = 'ft-house-cta'; cta.textContent = compact ? words.shortCta : words.cta;
   text.append(title, promise, body, cta);
   anchor.append(image, text);
@@ -122,14 +240,14 @@ export function createHouseAdCreative(options: {
 
 export const HOUSE_AD_CREATIVE_CSS = `
 .ft-house-creative{box-sizing:border-box;container-type:inline-size;display:grid;grid-template-columns:38% minmax(0,1fr);width:100%;height:100%;min-width:0;overflow:hidden;border:1px solid var(--_edge,ButtonBorder);border-radius:8px;background:var(--_surface,Canvas);text-align:left;isolation:isolate}
-a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading,CanvasText);text-decoration:none;font:400 14px/1.4 Inter,system-ui,sans-serif}
+a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading,CanvasText);text-decoration:none;font:400 14px/1.4 var(--font-sans,Inter,system-ui,sans-serif)}
 .ft-house-creative *{box-sizing:border-box;min-width:0}
 .ft-house-art{grid-column:1;grid-row:1;display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:cover;object-position:center 28%}
 .ft-house-copy{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;min-width:0;min-height:0;padding:16px}
-.ft-house-title{max-width:100%;font:700 28px/1.06 "Space Grotesk",Inter,system-ui,sans-serif;letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
-.ft-house-promise{max-width:100%;padding:5px 8px;border-radius:4px;background:#b91c1c;color:#fff;font-size:18px;line-height:1.12;font-weight:700;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
+.ft-house-title{max-width:100%;font:700 28px/1.06 var(--font-display,"Space Grotesk",system-ui,sans-serif);letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
+.ft-house-promise{max-width:100%;padding:8px 10px;border-radius:4px;background:#b91c1c;color:#fff;font-family:var(--font-display,"Space Grotesk",system-ui,sans-serif);font-size:18px;line-height:1.12;font-weight:700;text-transform:uppercase;text-wrap:balance;overflow-wrap:anywhere}
 .ft-house-body{max-width:38ch;color:var(--_body,CanvasText);font-size:13px;line-height:1.4}
-.ft-house-cta{display:inline-flex;min-height:40px;max-width:100%;align-items:center;justify-content:center;padding:8px 14px;border-radius:8px;background:var(--_accent,#533afd);color:var(--_on-accent,#fff);font-size:13px;font-weight:700;line-height:1.25;text-align:center}
+.ft-house-cta{display:inline-flex;min-height:40px;max-width:100%;align-items:center;justify-content:center;padding:8px 14px;border-radius:8px;background:var(--_accent,#533afd);color:var(--_on-accent,#fff);font-family:var(--font-display,"Space Grotesk",system-ui,sans-serif);font-size:13px;font-weight:700;line-height:1.25;text-align:center}
 .ft-house-creative:hover .ft-house-cta{background:var(--_accent-hover,#4529e6)}
 .ft-house-creative:focus-visible{outline:3px solid var(--_accent,#533afd);outline-offset:2px}
 .ft-reader-subscription{display:flex!important;align-items:center;justify-content:center;background:var(--_surface-inverted,#0a2540)!important;color:var(--_on-accent,#fff)!important;border-color:color-mix(in srgb,var(--_accent,#533afd) 48%,transparent)!important}
@@ -190,14 +308,14 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle]{grid-template-columns:36% minmax(0,1fr)}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-copy{gap:7px;padding:12px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-title{font-size:19px}
-.ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-promise{font-size:14px;padding:4px 6px}
+.ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-promise{font-size:14px;padding:6px 8px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-body{display:none}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=rectangle] .ft-house-cta{min-height:36px;padding:7px 10px;font-size:12px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard]{grid-template-columns:minmax(0,1fr) 42%}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-art{grid-column:2;grid-row:1;object-position:right center}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-copy{grid-column:1;grid-row:1;gap:8px;padding:20px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-title{font-size:34px}
-.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-promise{font-size:21px}
+.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-promise{font-size:21px;padding:8px 12px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-body{font-size:14px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper]{position:relative;grid-template-columns:1fr;grid-template-rows:1fr;background:#0f172a}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-art{grid-column:1;grid-row:1;object-position:center center}
@@ -213,23 +331,23 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-art{grid-column:2;grid-row:1;object-position:right center}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-copy{grid-column:1;grid-row:1;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;gap:3px 12px;padding:8px 14px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-title{grid-column:1;grid-row:1;font-size:17px;line-height:1.1}
-.ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-promise{grid-column:1;grid-row:2;padding:2px 5px;font-size:12px;line-height:1.1}
+.ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-promise{grid-column:1;grid-row:2;padding:4px 5px;font-size:12px;line-height:1.1}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-cta{grid-column:2;grid-row:1 / span 2;min-height:36px;padding:6px 10px;font-size:12px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=leaderboard] .ft-house-body{display:none}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large]{grid-template-columns:18% minmax(0,1fr)}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;gap:4px 8px;padding:8px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-title{grid-column:1;grid-row:1;font-size:14px;line-height:1.1}
-.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-promise{grid-column:1;grid-row:2;padding:2px 4px;font-size:12px;line-height:1.1}
+.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-promise{grid-column:1;grid-row:2;padding:5px 6px;font-size:12px;line-height:1.1}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-body{display:none}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-cta{grid-column:2;grid-row:1 / span 2;width:76px;min-height:36px;padding:5px 8px;font-size:11px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner]{grid-template-columns:16% minmax(0,1fr)}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-content:center;gap:2px 8px;padding:3px 8px}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-title{grid-column:1;grid-row:1;font-size:12px;line-height:1.05;white-space:nowrap}
-.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-promise{grid-column:1;grid-row:2;padding:1px 3px;font-size:11px;line-height:1.05;white-space:nowrap}
+.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-promise{grid-column:1;grid-row:2;padding:4px 5px;font-size:11px;line-height:1.05;white-space:nowrap}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-body{display:none}
 .ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-cta{grid-column:2;grid-row:1 / span 2;min-height:30px;padding:4px 8px;font-size:11px;white-space:nowrap}
 @container(max-width:220px){.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner],.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large]{grid-template-columns:minmax(0,1fr)}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-art,.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-art{display:none}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-copy,.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-copy{grid-column:1;padding:4px 8px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-title{font-size:10px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-promise{font-size:10px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_banner] .ft-house-cta,.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-cta{display:none}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-copy{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-title{font-size:12px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=mobile_large] .ft-house-promise{font-size:11px}}
-@container(max-width:220px){.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-copy{padding:12px;gap:7px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-title{font-size:20px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-promise{font-size:14px;padding:3px 5px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-body{font-size:11px;line-height:1.3}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-cta{min-height:36px;font-size:12px;padding-inline:8px}}
+@container(max-width:220px){.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-copy{padding:12px;gap:7px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-title{font-size:20px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-promise{font-size:14px;padding:5px 7px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-body{font-size:11px;line-height:1.3}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=skyscraper] .ft-house-cta{min-height:36px;font-size:12px;padding-inline:8px}}
 @container(min-height:1400px){.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard]{grid-template-columns:1fr;grid-template-rows:55% minmax(0,1fr)}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-art{grid-column:1;grid-row:1;object-position:center 22%}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-copy{grid-column:1;grid-row:2;padding:32px;gap:12px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-title{font-size:44px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-promise{font-size:28px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-body{font-size:16px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-cta{font-size:16px;padding:12px 20px}}
 @container(max-width:900px){.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-copy{padding:14px;gap:6px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-title{font-size:26px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-promise{font-size:18px}.ft-house-creative:not(.ft-reader-subscription)[data-house-format=billboard] .ft-house-body{font-size:12px}}
 `;
