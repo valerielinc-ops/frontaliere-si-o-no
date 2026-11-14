@@ -712,7 +712,8 @@ async function fetchOfficialEmployerSiteLocation(spec, runtime = {}) {
  * @param {Record<string, any>} runtime
  * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
  *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean, readPdf?: boolean,
- *   detailLocationLabel?: string, detailTitleLeadIn?: string, detailTitleEndLabel?: string,
+ *   detailLocationLabel?: string, detailLocationCantonOverrides?: Record<string, string>,
+ *   detailTitleLeadIn?: string, detailTitleEndLabel?: string,
  *   detailApplyUrlHost?: string, detailApplyUrlPathPrefix?: string, detailApplyUrl?: string }} [request]
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
@@ -2861,6 +2862,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(detailUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
@@ -2874,6 +2876,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime, {
               readPdf: spec.detailFormat === 'pdf',
               detailLocationLabel: spec.detailLocationLabel,
+              detailLocationCantonOverrides: spec.detailLocationCantonOverrides,
               detailTitleLeadIn: spec.detailTitleLeadIn,
               detailTitleEndLabel: spec.detailTitleEndLabel,
               detailApplyUrlHost: spec.detailApplyUrlHost,
