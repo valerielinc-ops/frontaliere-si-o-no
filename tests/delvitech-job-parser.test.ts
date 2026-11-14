@@ -92,11 +92,15 @@ describe('Delvitech job parser', () => {
     const html = `
       <main>
         <h2>Open roles</h2>
-        <a href="/privacy/">Privacy</a>
-        <article>
-          <h3>Engineer</h3>
-          <a href="/careers/engineer">Apply</a>
-        </article>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li>
+            <article>
+              <h3>Engineer</h3>
+              <a href="/careers/engineer">Apply</a>
+            </article>
+          </li>
+        </ul>
       </main>
     `;
     const jobs = parseDelvitechCareerPage(html, 'https://delvi.tech/careers/');

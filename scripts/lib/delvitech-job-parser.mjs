@@ -14,7 +14,6 @@ const DELVITECH_CAREER_ROOT_RE = /^\/careers?\/?$/i;
 const GENERIC_ROLE_LINK_TEXT_RE = /^(?:apply(?: now)?|learn more|read more|see (?:open )?roles?|view (?:role|details?)|discover more)$/i;
 const SEMANTIC_ROLE_CARD_SELECTOR = [
   'article',
-  'li',
   '[data-job-card]',
   '[data-job]',
   '[data-role-card]',
