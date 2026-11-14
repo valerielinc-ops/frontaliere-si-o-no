@@ -2903,8 +2903,11 @@ jobs:
       # Publish the exact snapshot as soon as assembly and migration succeed.
       # Saving here lets main seed the cache before the longer test and review
       # steps, and still runs before any later test failure.
+      # Save solo su main: una PR salvava ~95 MB per push in uno scope che solo
+      # la PR stessa legge (25 voci = 2,4 GB del pool Actions da 10 GiB). Il
+      # restore resta per tutti; main e' l'unico ref che gli altri leggono.
       - name: Save assemble-jobs cache
-        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        if: ${{ github.ref == 'refs/heads/main' && always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -3134,15 +3137,17 @@ jobs:
       # successivo fallisce (per esempio Vitest): TSC può essere verde, ma la
       # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
       # verdetto complessivo del job è già destinato al rosso.
-      - name: Save TypeScript incremental state
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
+      - name: Save TypeScript incremental state (solo su main)
+        if: ${{ github.ref == 'refs/heads/main' && steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.tsc-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v6
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
-      - name: Save Vitest related graph
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
+      - name: Save Vitest related graph (solo su main)
+        # La chiave include l'hash di questo file: ogni PR che lo tocca coniava
+        # una voce `vitest-transform-*` propria. Salvata solo su main.
+        if: ${{ github.ref == 'refs/heads/main' && steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
         uses: actions/cache/save@v6
         with:
           path: |

@@ -2606,6 +2606,49 @@ jobs:
           path: .cache/incremental-manifest
           key: incremental-manifest-${{ matrix.locale }}-${{ github.run_id }}
 
+      # Telemetry only, after the cache saves so this run's own entries count.
+      # The 10 GiB pool evicts the least recently used entry, and on 2026-11-14
+      # (9.73 GB in 93 entries) that regularly removed `incremental-manifest-*`,
+      # `og-jobs-*` and `deploy-content-manifest-*` before the next build. Without
+      # a per-build measurement the eviction is only visible as a warning on the
+      # leg that already lost its cache. This writes the occupancy per key family
+      # to the summary, so a trend (and who fills the pool) is readable per build.
+      # It changes no build outcome: continue-on-error, 3 minutes, read-only API.
+      - name: Cache pool occupancy (per key family)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          usage="$(gh api "repos/${GITHUB_REPOSITORY}/actions/cache/usage" \
+            --jq '[.active_caches_size_in_bytes, .active_caches_count] | @tsv')" || exit 0
+          used_bytes="${usage%%$'\t'*}"; count="${usage##*$'\t'}"
+          used_gib="$(awk -v b="$used_bytes" 'BEGIN { printf "%.2f", b / 1073741824 }')"
+          table="$(gh api --paginate --slurp -X GET "repos/${GITHUB_REPOSITORY}/actions/caches" -f per_page=100 \
+            | jq -r '[.[].actions_caches[]]
+                | map({family: (.key | sub("-([0-9a-f]{7,}|[0-9]+)(-.*)?$"; "")),
+                       scope: (if (.ref | startswith("refs/pull/")) then "pull-request" else "main/branch" end),
+                       size: .size_in_bytes})
+                | group_by([.family, .scope])
+                | map({family: .[0].family, scope: .[0].scope, n: length, mib: ((map(.size) | add) / 1048576 | floor)})
+                | sort_by(-.mib)[:15][]
+                | "| `\(.family)` | \(.scope) | \(.n) | \(.mib) |"')" || table=""
+          {
+            echo "### Actions cache pool after build-locale (${{ matrix.locale }})"
+            echo "${used_gib} GiB of 10 GiB used in ${count} entries."
+            if [ -n "$table" ]; then
+              echo
+              echo "| key family | scope | entries | MiB |"
+              echo "|---|---|---|---|"
+              echo "$table"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if awk -v b="$used_bytes" 'BEGIN { exit !(b / 1073741824 >= 9.0) }'; then
+            echo "::warning title=Cache pool near the 10 GiB ceiling (${{ matrix.locale }})::${used_gib} GiB in ${count} entries: least recently used entries (incremental-manifest-*, og-jobs-*) are about to be evicted."
+          fi
+
   # ───────────────────────────────────────────────────────────────────────
   # build-history-commit: l'UNICO scrittore di
   # data/build-history/memory-peaks.jsonl per run (#9247).
