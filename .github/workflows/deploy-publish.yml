@@ -371,7 +371,7 @@ jobs:
       # takes the earlier groups' results from `receipt_it_groups`
       # ([{group, runId}], the publisher run that holds each result artifact).
       it_cdn_published: ${{ steps.receipts.outputs.it_cdn_published }}
-      it_cdn_run_id: ${{ steps.receipts.outputs.it_cdn_run_id }}
+      it_cdn_publisher_run_id: ${{ steps.receipts.outputs.it_cdn_publisher_run_id }}
       pending_it_groups: ${{ steps.receipts.outputs.pending_it_groups }}
       receipt_it_groups: ${{ steps.receipts.outputs.receipt_it_groups }}
     steps:
@@ -1239,7 +1239,7 @@ jobs:
             --source-sha "$SOURCE_SHA" \
             --artifact-run-id "$ARTIFACT_RUN_ID"
       - name: Restore R2 OG manifest from the early CDN job
-        if: ${{ vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both' }}
+        if: ${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && needs.resolve-publish-receipts.outputs.it_cdn_published != 'true' }}
         uses: actions/cache/restore@v6
         with:
           path: .cache/r2-og-published-manifest.json
@@ -1256,7 +1256,7 @@ jobs:
         with:
           name: r2-og-manifest-it-${{ inputs.source_run_id }}
           path: .cache
-          run-id: ${{ needs.resolve-publish-receipts.outputs.it_cdn_run_id }}
+          run-id: ${{ needs.resolve-publish-receipts.outputs.it_cdn_publisher_run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Package IT post-push validation batches
         run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"

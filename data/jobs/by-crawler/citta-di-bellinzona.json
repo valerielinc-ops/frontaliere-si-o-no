@@ -1,7 +1,7 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-11-14T09:14:50.169Z",
-  "runId": "43579063769",
+  "assembledAt": "2026-11-14T21:15:49.764Z",
+  "runId": "43641122472",
   "jobs": [
     {
       "id": "citta-di-bellinzona-impiegato-a-amministrativo-a-addetto-a-alla-formazione-del-personale-presso-il-bellinzona",
@@ -51,10 +51,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=76648689-f8a1-4fee-a1dd-7b7214db47c6,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:14:43.602Z",
+      "crawledAt": "2026-11-14T21:15:43.912Z",
       "firstSeenAt": "2026-10-30T09:48:40.338Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:14:43.602Z",
+      "validThrough": "2027-01-28T21:15:43.912Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -118,10 +118,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6e333017-34f2-4666-b96f-b9823f48d74f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:14:43.219Z",
+      "crawledAt": "2026-11-14T21:15:43.529Z",
       "firstSeenAt": "2026-10-28T09:16:22.746Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:14:43.219Z",
+      "validThrough": "2027-01-26T21:15:43.529Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -203,7 +203,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "citta-di-bellinzona-apprendisti-e-addetti-e-alle-cure-sociosanitarie-cfp-presso-l-ente-autonomo-bellinzona",
@@ -271,7 +271,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

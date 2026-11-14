@@ -1,7 +1,7 @@
 {
   "crawlerKey": "reboot-monkey",
-  "assembledAt": "2026-11-14T09:27:54.250Z",
-  "runId": "43579754250",
+  "assembledAt": "2026-11-14T21:28:29.086Z",
+  "runId": "43641891430",
   "jobs": [
     {
       "id": "reboot-monkey-3a9640da6a6f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-rumlang-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:36.178Z",
+      "crawledAt": "2026-11-14T21:28:15.793Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,7 +132,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Rümlang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:36.178Z",
+      "validThrough": "2026-12-14T21:28:15.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -166,7 +166,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-zurich-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:31.986Z",
+      "crawledAt": "2026-11-14T21:28:12.076Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -252,7 +252,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:31.986Z",
+      "validThrough": "2026-12-14T21:28:12.076Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lupfig-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:27.955Z",
+      "crawledAt": "2026-11-14T21:28:08.230Z",
       "addressLocality": "Lupfig",
       "addressCountry": "CH",
       "country": "CH",
@@ -385,7 +385,7 @@
       "addressRegion": "AG",
       "streetAddress": "Lupfig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:27.955Z",
+      "validThrough": "2026-12-14T21:28:08.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -419,7 +419,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-meyrin-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:23.873Z",
+      "crawledAt": "2026-11-14T21:28:04.437Z",
       "addressLocality": "Meyrin",
       "addressCountry": "CH",
       "country": "CH",
@@ -522,7 +522,7 @@
       "addressRegion": "GE",
       "streetAddress": "Meyrin",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:23.873Z",
+      "validThrough": "2026-12-14T21:28:04.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -556,7 +556,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-basel-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:20.029Z",
+      "crawledAt": "2026-11-14T21:28:00.808Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -654,7 +654,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:20.029Z",
+      "validThrough": "2026-12-14T21:28:00.808Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -688,7 +688,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-avenches-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:16.247Z",
+      "crawledAt": "2026-11-14T21:27:57.064Z",
       "addressLocality": "Avenches",
       "addressCountry": "CH",
       "country": "CH",
@@ -804,7 +804,7 @@
       "addressRegion": "VD",
       "streetAddress": "Avenches",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:16.247Z",
+      "validThrough": "2026-12-14T21:27:57.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -838,7 +838,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-bielbienne-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:11.967Z",
+      "crawledAt": "2026-11-14T21:27:53.022Z",
       "addressLocality": "Biel/Bienne",
       "addressCountry": "CH",
       "country": "CH",
@@ -946,7 +946,7 @@
       "addressRegion": "BE",
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:11.967Z",
+      "validThrough": "2026-12-14T21:27:53.022Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -980,7 +980,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-chiasso-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:07.716Z",
+      "crawledAt": "2026-11-14T21:27:49.047Z",
       "addressLocality": "Chiasso",
       "addressCountry": "CH",
       "country": "CH",
@@ -1078,7 +1078,7 @@
       "addressRegion": "TI",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:07.716Z",
+      "validThrough": "2026-12-14T21:27:49.047Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1112,7 +1112,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-crissier-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:27:03.518Z",
+      "crawledAt": "2026-11-14T21:27:45.252Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
       "country": "CH",
@@ -1211,7 +1211,7 @@
       "addressRegion": "VD",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:27:03.518Z",
+      "validThrough": "2026-12-14T21:27:45.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1245,7 +1245,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dielsdorf-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:59.287Z",
+      "crawledAt": "2026-11-14T21:27:41.459Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1343,7 +1343,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:59.287Z",
+      "validThrough": "2026-12-14T21:27:41.459Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1377,7 +1377,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dietikon-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:55.365Z",
+      "crawledAt": "2026-11-14T21:27:37.424Z",
       "addressLocality": "Dietikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1457,7 +1457,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:55.365Z",
+      "validThrough": "2026-12-14T21:27:37.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1491,7 +1491,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dietlikon-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:51.229Z",
+      "crawledAt": "2026-11-14T21:27:36.928Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1589,7 +1589,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:51.229Z",
+      "validThrough": "2026-12-14T21:27:36.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1623,7 +1623,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dudingen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:47.043Z",
+      "crawledAt": "2026-11-14T21:27:36.384Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1721,7 +1721,7 @@
       "addressRegion": "FR",
       "streetAddress": "Düdingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:47.043Z",
+      "validThrough": "2026-12-14T21:27:36.384Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1755,7 +1755,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-emmen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:41.683Z",
+      "crawledAt": "2026-11-14T21:27:32.606Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1838,7 +1838,7 @@
       "addressRegion": "LU",
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:41.683Z",
+      "validThrough": "2026-12-14T21:27:32.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1872,7 +1872,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gais-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:37.368Z",
+      "crawledAt": "2026-11-14T21:27:28.798Z",
       "addressLocality": "Gais",
       "addressCountry": "CH",
       "country": "CH",
@@ -1946,7 +1946,7 @@
       "addressRegion": "AR",
       "streetAddress": "Gais",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:37.368Z",
+      "validThrough": "2026-12-14T21:27:28.798Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1980,7 +1980,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gland-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:33.311Z",
+      "crawledAt": "2026-11-14T21:27:25.084Z",
       "addressLocality": "Gland",
       "addressCountry": "CH",
       "country": "CH",
@@ -2077,7 +2077,7 @@
       "addressRegion": "VD",
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:33.311Z",
+      "validThrough": "2026-12-14T21:27:25.084Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2111,7 +2111,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-gland-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:29.092Z",
+      "crawledAt": "2026-11-14T21:27:21.370Z",
       "addressLocality": "Gland",
       "addressCountry": "CH",
       "country": "CH",
@@ -2179,7 +2179,7 @@
       "addressRegion": "VD",
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:29.092Z",
+      "validThrough": "2026-12-14T21:27:21.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2213,7 +2213,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-hunenberg-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:25.142Z",
+      "crawledAt": "2026-11-14T21:27:17.631Z",
       "addressLocality": "Hünenberg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2313,7 +2313,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Hünenberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:25.142Z",
+      "validThrough": "2026-12-14T21:27:17.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2347,7 +2347,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-hunenberg-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:21.104Z",
+      "crawledAt": "2026-11-14T21:27:13.914Z",
       "addressLocality": "Hünenberg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2415,7 +2415,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Hünenberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:21.104Z",
+      "validThrough": "2026-12-14T21:27:13.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2449,7 +2449,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:16.934Z",
+      "crawledAt": "2026-11-14T21:27:09.940Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -2531,7 +2531,7 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:16.934Z",
+      "validThrough": "2026-12-14T21:27:09.940Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2565,7 +2565,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-la-chaux-de-fonds-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:13.062Z",
+      "crawledAt": "2026-11-14T21:27:06.250Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -2636,7 +2636,7 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:13.062Z",
+      "validThrough": "2026-12-14T21:27:06.250Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2670,7 +2670,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lausanne-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:08.719Z",
+      "crawledAt": "2026-11-14T21:27:02.500Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2749,7 +2749,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:08.719Z",
+      "validThrough": "2026-12-14T21:27:02.500Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2783,7 +2783,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lausanne-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:04.552Z",
+      "crawledAt": "2026-11-14T21:26:58.649Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2851,7 +2851,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:04.552Z",
+      "validThrough": "2026-12-14T21:26:58.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2885,7 +2885,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-les-acacias-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:26:00.422Z",
+      "crawledAt": "2026-11-14T21:26:54.787Z",
       "addressLocality": "Les Acacias",
       "addressCountry": "CH",
       "country": "CH",
@@ -2951,7 +2951,7 @@
       "addressRegion": "VS",
       "streetAddress": "Les Acacias",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:26:00.422Z",
+      "validThrough": "2026-12-14T21:26:54.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2985,7 +2985,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-linthal-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:56.011Z",
+      "crawledAt": "2026-11-14T21:26:51.155Z",
       "addressLocality": "Linthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -3054,7 +3054,7 @@
       "addressRegion": "GL",
       "streetAddress": "Linthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:56.011Z",
+      "validThrough": "2026-12-14T21:26:51.155Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3088,7 +3088,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-luzern-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:50.490Z",
+      "crawledAt": "2026-11-14T21:26:47.328Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3167,7 +3167,7 @@
       "addressRegion": "LU",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:50.490Z",
+      "validThrough": "2026-12-14T21:26:47.328Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3201,7 +3201,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-manno-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:46.170Z",
+      "crawledAt": "2026-11-14T21:26:43.635Z",
       "addressLocality": "Manno",
       "addressCountry": "CH",
       "country": "CH",
@@ -3273,7 +3273,7 @@
       "addressRegion": "TI",
       "streetAddress": "Manno",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:46.170Z",
+      "validThrough": "2026-12-14T21:26:43.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3307,7 +3307,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-manno-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:42.203Z",
+      "crawledAt": "2026-11-14T21:26:39.973Z",
       "addressLocality": "Manno",
       "addressCountry": "CH",
       "country": "CH",
@@ -3375,7 +3375,7 @@
       "addressRegion": "TI",
       "streetAddress": "Manno",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:42.203Z",
+      "validThrough": "2026-12-14T21:26:39.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3409,7 +3409,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-melano-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:37.639Z",
+      "crawledAt": "2026-11-14T21:26:36.318Z",
       "addressLocality": "Melano",
       "addressCountry": "CH",
       "country": "CH",
@@ -3488,7 +3488,7 @@
       "addressRegion": "TI",
       "streetAddress": "Melano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:37.639Z",
+      "validThrough": "2026-12-14T21:26:36.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3522,7 +3522,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-muttenz-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:33.470Z",
+      "crawledAt": "2026-11-14T21:26:32.689Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -3599,7 +3599,7 @@
       "addressRegion": "BL",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:33.470Z",
+      "validThrough": "2026-12-14T21:26:32.689Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3633,7 +3633,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-munchenstein-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:28.796Z",
+      "crawledAt": "2026-11-14T21:26:28.959Z",
       "addressLocality": "Münchenstein",
       "addressCountry": "CH",
       "country": "CH",
@@ -3714,7 +3714,7 @@
       "addressRegion": "BL",
       "streetAddress": "Münchenstein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:28.796Z",
+      "validThrough": "2026-12-14T21:26:28.959Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3748,7 +3748,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-olten-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:28.104Z",
+      "crawledAt": "2026-11-14T21:26:25.231Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -3818,7 +3818,7 @@
       "addressRegion": "SO",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:28.104Z",
+      "validThrough": "2026-12-14T21:26:25.231Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3852,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-olten-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:23.704Z",
+      "crawledAt": "2026-11-14T21:26:21.256Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -3924,14 +3924,14 @@
       "addressRegion": "SO",
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:23.704Z",
+      "validThrough": "2026-12-14T21:26:21.256Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "reboot-monkey-45e2d3b3629a",
       "slug": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
+        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-techniker-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "fr": "data-center-technicien-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
@@ -3958,7 +3958,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-plan-les-ouates-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:19.127Z",
+      "crawledAt": "2026-11-14T21:26:17.521Z",
       "addressLocality": "Plan-les-Ouates",
       "addressCountry": "CH",
       "country": "CH",
@@ -4001,12 +4001,16 @@
       "remote": false,
       "previousSlugs": [
         "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-ae2c144939",
+          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
         ],
         "fr": [
           "technicien-data-center-suisse-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
@@ -4030,14 +4034,14 @@
       "addressRegion": "GE",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:19.127Z",
+      "validThrough": "2026-12-14T21:26:17.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "reboot-monkey-e36672046620",
       "slug": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
+        "it": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "fr": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
@@ -4064,7 +4068,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-plan-les-ouates-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:15.124Z",
+      "crawledAt": "2026-11-14T21:26:13.693Z",
       "addressLocality": "Plan-les-Ouates",
       "addressCountry": "CH",
       "country": "CH",
@@ -4108,12 +4112,16 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70"
+          "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
+          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
+          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:16.254Z",
@@ -4134,7 +4142,7 @@
       "addressRegion": "GE",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:15.124Z",
+      "validThrough": "2026-12-14T21:26:13.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4168,7 +4176,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-pratteln-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:11.148Z",
+      "crawledAt": "2026-11-14T21:26:10.003Z",
       "addressLocality": "Pratteln",
       "addressCountry": "CH",
       "country": "CH",
@@ -4243,7 +4251,7 @@
       "addressRegion": "BL",
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:11.148Z",
+      "validThrough": "2026-12-14T21:26:10.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4277,7 +4285,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-pratteln-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:06.801Z",
+      "crawledAt": "2026-11-14T21:26:05.252Z",
       "addressLocality": "Pratteln",
       "addressCountry": "CH",
       "country": "CH",
@@ -4345,7 +4353,7 @@
       "addressRegion": "BL",
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:06.801Z",
+      "validThrough": "2026-12-14T21:26:05.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4379,7 +4387,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-rotkreuz-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:25:02.827Z",
+      "crawledAt": "2026-11-14T21:26:01.575Z",
       "addressLocality": "Rotkreuz",
       "addressCountry": "CH",
       "country": "CH",
@@ -4444,7 +4452,7 @@
       "addressRegion": "VS",
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:25:02.827Z",
+      "validThrough": "2026-12-14T21:26:01.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4478,7 +4486,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-ruswil-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:57.727Z",
+      "crawledAt": "2026-11-14T21:25:57.665Z",
       "addressLocality": "Ruswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -4560,7 +4568,7 @@
       "addressRegion": "LU",
       "streetAddress": "Ruswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:57.727Z",
+      "validThrough": "2026-12-14T21:25:57.665Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4594,7 +4602,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-ruswil-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:57.122Z",
+      "crawledAt": "2026-11-14T21:25:53.847Z",
       "addressLocality": "Ruswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -4662,7 +4670,7 @@
       "addressRegion": "LU",
       "streetAddress": "Ruswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:57.122Z",
+      "validThrough": "2026-12-14T21:25:53.847Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4696,7 +4704,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-schaffhausen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:53.053Z",
+      "crawledAt": "2026-11-14T21:25:50.099Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4772,7 +4780,7 @@
       "addressRegion": "SH",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:53.053Z",
+      "validThrough": "2026-12-14T21:25:50.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4806,7 +4814,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-schaffhausen-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:48.990Z",
+      "crawledAt": "2026-11-14T21:25:46.238Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4874,7 +4882,7 @@
       "addressRegion": "SH",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:48.990Z",
+      "validThrough": "2026-12-14T21:25:46.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4908,7 +4916,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-schenkon-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:45.086Z",
+      "crawledAt": "2026-11-14T21:25:42.379Z",
       "addressLocality": "Schenkon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4991,7 +4999,7 @@
       "addressRegion": "LU",
       "streetAddress": "Schenkon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:45.086Z",
+      "validThrough": "2026-12-14T21:25:42.379Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5025,7 +5033,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-schlieren-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:40.916Z",
+      "crawledAt": "2026-11-14T21:25:38.447Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -5094,7 +5102,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:40.916Z",
+      "validThrough": "2026-12-14T21:25:38.447Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5128,7 +5136,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-schlieren-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:36.460Z",
+      "crawledAt": "2026-11-14T21:25:34.674Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -5196,7 +5204,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:36.460Z",
+      "validThrough": "2026-12-14T21:25:34.674Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5230,7 +5238,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:31.724Z",
+      "crawledAt": "2026-11-14T21:25:30.922Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -5292,7 +5300,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:31.724Z",
+      "validThrough": "2026-12-14T21:25:30.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5326,7 +5334,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-glattbrugg-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:27.913Z",
+      "crawledAt": "2026-11-14T21:25:27.232Z",
       "addressLocality": "Glattbrugg",
       "addressCountry": "CH",
       "country": "CH",
@@ -5393,7 +5401,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:27.913Z",
+      "validThrough": "2026-12-14T21:25:27.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5427,7 +5435,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-rumlang-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:24.059Z",
+      "crawledAt": "2026-11-14T21:25:23.302Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -5494,7 +5502,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Rümlang",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:24.059Z",
+      "validThrough": "2026-12-14T21:25:23.302Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5528,7 +5536,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-zurich-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:19.937Z",
+      "crawledAt": "2026-11-14T21:25:19.594Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -5598,7 +5606,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:19.937Z",
+      "validThrough": "2026-12-14T21:25:19.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5632,7 +5640,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-lupfig-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:15.291Z",
+      "crawledAt": "2026-11-14T21:25:15.822Z",
       "addressLocality": "Lupfig",
       "addressCountry": "CH",
       "country": "CH",
@@ -5699,7 +5707,7 @@
       "addressRegion": "AG",
       "streetAddress": "Lupfig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:15.291Z",
+      "validThrough": "2026-12-14T21:25:15.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5733,7 +5741,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-meyrin-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:11.142Z",
+      "crawledAt": "2026-11-14T21:25:11.843Z",
       "addressLocality": "Meyrin",
       "addressCountry": "CH",
       "country": "CH",
@@ -5800,7 +5808,7 @@
       "addressRegion": "GE",
       "streetAddress": "Meyrin",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:11.142Z",
+      "validThrough": "2026-12-14T21:25:11.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5834,7 +5842,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-baar-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:07.016Z",
+      "crawledAt": "2026-11-14T21:25:08.278Z",
       "addressLocality": "Baar",
       "addressCountry": "CH",
       "country": "CH",
@@ -5906,7 +5914,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:07.016Z",
+      "validThrough": "2026-12-14T21:25:08.278Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5940,7 +5948,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-solothurn-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:24:02.726Z",
+      "crawledAt": "2026-11-14T21:25:04.593Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -6038,7 +6046,7 @@
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:24:02.726Z",
+      "validThrough": "2026-12-14T21:25:04.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6072,7 +6080,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-st-gallen-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:58.693Z",
+      "crawledAt": "2026-11-14T21:25:00.769Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6150,7 +6158,7 @@
       "addressRegion": "SG",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:58.693Z",
+      "validThrough": "2026-12-14T21:25:00.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6184,7 +6192,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-st-gallen-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:54.240Z",
+      "crawledAt": "2026-11-14T21:24:57.142Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6243,7 +6251,7 @@
       "addressRegion": "SG",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:54.240Z",
+      "validThrough": "2026-12-14T21:24:57.142Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6277,7 +6285,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-stabio-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:50.277Z",
+      "crawledAt": "2026-11-14T21:24:53.055Z",
       "addressLocality": "Stabio",
       "addressCountry": "CH",
       "country": "CH",
@@ -6353,7 +6361,7 @@
       "addressRegion": "TI",
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:50.277Z",
+      "validThrough": "2026-12-14T21:24:53.055Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6387,7 +6395,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-steinhausen-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:45.875Z",
+      "crawledAt": "2026-11-14T21:24:48.926Z",
       "addressLocality": "Steinhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6463,7 +6471,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Steinhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:45.875Z",
+      "validThrough": "2026-12-14T21:24:48.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6497,7 +6505,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-urswil-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:41.534Z",
+      "crawledAt": "2026-11-14T21:24:44.974Z",
       "addressLocality": "Urswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -6576,7 +6584,7 @@
       "addressRegion": "VS",
       "streetAddress": "Urswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:41.534Z",
+      "validThrough": "2026-12-14T21:24:44.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6610,7 +6618,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-urswil-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:37.102Z",
+      "crawledAt": "2026-11-14T21:24:41.138Z",
       "addressLocality": "Urswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -6676,7 +6684,7 @@
       "addressRegion": "VS",
       "streetAddress": "Urswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:37.102Z",
+      "validThrough": "2026-12-14T21:24:41.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6710,7 +6718,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-villars-ste-croix-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:32.947Z",
+      "crawledAt": "2026-11-14T21:24:37.073Z",
       "addressLocality": "Villars-Ste-Croix",
       "addressCountry": "CH",
       "country": "CH",
@@ -6790,7 +6798,7 @@
       "addressRegion": "VD",
       "streetAddress": "Villars-Ste-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:32.947Z",
+      "validThrough": "2026-12-14T21:24:37.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6824,7 +6832,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-villars-ste-croix-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:28.929Z",
+      "crawledAt": "2026-11-14T21:24:33.349Z",
       "addressLocality": "Villars-Ste-Croix",
       "addressCountry": "CH",
       "country": "CH",
@@ -6891,7 +6899,7 @@
       "addressRegion": "VD",
       "streetAddress": "Villars-Ste-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:28.929Z",
+      "validThrough": "2026-12-14T21:24:33.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6925,7 +6933,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-widnau-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:24.958Z",
+      "crawledAt": "2026-11-14T21:24:32.826Z",
       "addressLocality": "Widnau",
       "addressCountry": "CH",
       "country": "CH",
@@ -7000,7 +7008,7 @@
       "addressRegion": "SG",
       "streetAddress": "Widnau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:24.958Z",
+      "validThrough": "2026-12-14T21:24:32.826Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7034,7 +7042,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-winterthur-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:21.063Z",
+      "crawledAt": "2026-11-14T21:24:32.268Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -7105,7 +7113,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:21.063Z",
+      "validThrough": "2026-12-14T21:24:32.268Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7139,7 +7147,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-winterthur-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:16.839Z",
+      "crawledAt": "2026-11-14T21:24:28.285Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -7210,7 +7218,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:16.839Z",
+      "validThrough": "2026-12-14T21:24:28.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7244,7 +7252,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-yverdon-les-bains-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:12.436Z",
+      "crawledAt": "2026-11-14T21:24:24.417Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressCountry": "CH",
       "country": "CH",
@@ -7319,7 +7327,7 @@
       "addressRegion": "VD",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:12.436Z",
+      "validThrough": "2026-12-14T21:24:24.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7353,7 +7361,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-yverdon-les-bains-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:08.261Z",
+      "crawledAt": "2026-11-14T21:24:20.461Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressCountry": "CH",
       "country": "CH",
@@ -7412,7 +7420,7 @@
       "addressRegion": "VD",
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:08.261Z",
+      "validThrough": "2026-12-14T21:24:20.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7446,7 +7454,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-zuerich-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:23:03.621Z",
+      "crawledAt": "2026-11-14T21:24:16.522Z",
       "addressLocality": "Zuerich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7505,7 +7513,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:23:03.621Z",
+      "validThrough": "2026-12-14T21:24:16.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7539,7 +7547,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-zug-on-site",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:59.533Z",
+      "crawledAt": "2026-11-14T21:24:12.855Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -7612,7 +7620,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:59.533Z",
+      "validThrough": "2026-12-14T21:24:12.855Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7646,7 +7654,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-ch-zug-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:55.380Z",
+      "crawledAt": "2026-11-14T21:24:09.106Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -7713,7 +7721,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:55.380Z",
+      "validThrough": "2026-12-14T21:24:09.106Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7747,7 +7755,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-chiasso-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:51.025Z",
+      "crawledAt": "2026-11-14T21:24:05.322Z",
       "addressLocality": "Chiasso",
       "addressCountry": "CH",
       "country": "CH",
@@ -7815,7 +7823,7 @@
       "addressRegion": "TI",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:51.025Z",
+      "validThrough": "2026-12-14T21:24:05.322Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7849,7 +7857,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-crissier-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:47.106Z",
+      "crawledAt": "2026-11-14T21:24:01.548Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
       "country": "CH",
@@ -7917,7 +7925,7 @@
       "addressRegion": "VD",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:47.106Z",
+      "validThrough": "2026-12-14T21:24:01.548Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7951,7 +7959,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dielsdorf-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:43.046Z",
+      "crawledAt": "2026-11-14T21:23:57.266Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -8019,7 +8027,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:43.046Z",
+      "validThrough": "2026-12-14T21:23:57.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8053,7 +8061,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-dietlikon-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:39.075Z",
+      "crawledAt": "2026-11-14T21:23:53.053Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -8121,7 +8129,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Dietlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:39.075Z",
+      "validThrough": "2026-12-14T21:23:53.053Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8155,7 +8163,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-emmen-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:35.163Z",
+      "crawledAt": "2026-11-14T21:23:48.977Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -8227,7 +8235,7 @@
       "addressRegion": "LU",
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:35.163Z",
+      "validThrough": "2026-12-14T21:23:48.977Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8261,7 +8269,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-frauenfeld-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:31.039Z",
+      "crawledAt": "2026-11-14T21:23:45.121Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -8341,7 +8349,7 @@
       "addressRegion": "TG",
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:31.039Z",
+      "validThrough": "2026-12-14T21:23:45.121Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8375,7 +8383,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:26.876Z",
+      "crawledAt": "2026-11-14T21:23:41.201Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -8447,7 +8455,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:26.876Z",
+      "validThrough": "2026-12-14T21:23:41.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8481,7 +8489,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-glattbrugg-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:22.641Z",
+      "crawledAt": "2026-11-14T21:23:37.199Z",
       "addressLocality": "Glattbrugg",
       "addressCountry": "CH",
       "country": "CH",
@@ -8549,7 +8557,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:22.641Z",
+      "validThrough": "2026-12-14T21:23:37.199Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8583,7 +8591,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-bern-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:18.732Z",
+      "crawledAt": "2026-11-14T21:23:32.988Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -8650,7 +8658,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:18.732Z",
+      "validThrough": "2026-12-14T21:23:32.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8684,7 +8692,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-jura-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:14.509Z",
+      "crawledAt": "2026-11-14T21:23:28.653Z",
       "addressLocality": "Jura",
       "addressCountry": "CH",
       "country": "CH",
@@ -8755,7 +8763,7 @@
       "addressRegion": "JU",
       "streetAddress": "Jura",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:14.509Z",
+      "validThrough": "2026-12-14T21:23:28.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8789,7 +8797,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-lucerne-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:10.211Z",
+      "crawledAt": "2026-11-14T21:23:24.588Z",
       "addressLocality": "Lucerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -8862,7 +8870,7 @@
       "addressRegion": "LU",
       "streetAddress": "Lucerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:10.211Z",
+      "validThrough": "2026-12-14T21:23:24.588Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -8896,7 +8904,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-sankt-gallen-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:06.035Z",
+      "crawledAt": "2026-11-14T21:23:20.723Z",
       "addressLocality": "Sankt Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -8969,7 +8977,7 @@
       "addressRegion": "SG",
       "streetAddress": "Sankt Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:06.035Z",
+      "validThrough": "2026-12-14T21:23:20.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9003,7 +9011,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-neuchatel-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:22:01.698Z",
+      "crawledAt": "2026-11-14T21:23:16.759Z",
       "addressLocality": "Neuchatel",
       "addressCountry": "CH",
       "country": "CH",
@@ -9103,7 +9111,7 @@
       "addressRegion": "NE",
       "streetAddress": "Neuchatel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:22:01.698Z",
+      "validThrough": "2026-12-14T21:23:16.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9137,7 +9145,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-uri-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:57.251Z",
+      "crawledAt": "2026-11-14T21:23:12.227Z",
       "addressLocality": "Uri",
       "addressCountry": "CH",
       "country": "CH",
@@ -9208,7 +9216,7 @@
       "addressRegion": "UR",
       "streetAddress": "Uri",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:57.251Z",
+      "validThrough": "2026-12-14T21:23:12.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9242,7 +9250,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-leuk-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:53.068Z",
+      "crawledAt": "2026-11-14T21:23:11.672Z",
       "addressLocality": "Leuk",
       "addressCountry": "CH",
       "country": "CH",
@@ -9350,7 +9358,7 @@
       "addressRegion": "VS",
       "streetAddress": "Leuk",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:53.068Z",
+      "validThrough": "2026-12-14T21:23:11.672Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9384,7 +9392,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-glarus-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:48.999Z",
+      "crawledAt": "2026-11-14T21:23:07.507Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -9486,7 +9494,7 @@
       "addressRegion": "GL",
       "streetAddress": "Glarus",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:48.999Z",
+      "validThrough": "2026-12-14T21:23:07.507Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9520,7 +9528,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-sursee-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:44.755Z",
+      "crawledAt": "2026-11-14T21:23:03.229Z",
       "addressLocality": "Sursee",
       "addressCountry": "CH",
       "country": "CH",
@@ -9622,7 +9630,7 @@
       "addressRegion": "LU",
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:44.755Z",
+      "validThrough": "2026-12-14T21:23:03.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9656,7 +9664,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-chur-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:40.286Z",
+      "crawledAt": "2026-11-14T21:22:59.312Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -9762,7 +9770,7 @@
       "addressRegion": "GR",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:40.286Z",
+      "validThrough": "2026-12-14T21:22:59.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9796,7 +9804,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-montreux-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:35.989Z",
+      "crawledAt": "2026-11-14T21:22:55.427Z",
       "addressLocality": "Montreux",
       "addressCountry": "CH",
       "country": "CH",
@@ -9896,7 +9904,7 @@
       "addressRegion": "VD",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:35.989Z",
+      "validThrough": "2026-12-14T21:22:55.427Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -9930,7 +9938,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-bellinzona-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:31.893Z",
+      "crawledAt": "2026-11-14T21:22:51.499Z",
       "addressLocality": "Bellinzona",
       "addressCountry": "CH",
       "country": "CH",
@@ -10073,7 +10081,7 @@
       "addressRegion": "TI",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:31.893Z",
+      "validThrough": "2026-12-14T21:22:51.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10107,7 +10115,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-zug-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:27.430Z",
+      "crawledAt": "2026-11-14T21:22:47.659Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -10209,7 +10217,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:27.430Z",
+      "validThrough": "2026-12-14T21:22:47.659Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10243,7 +10251,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-winterthur-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:23.514Z",
+      "crawledAt": "2026-11-14T21:22:43.749Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -10316,7 +10324,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:23.514Z",
+      "validThrough": "2026-12-14T21:22:43.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10350,7 +10358,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-aargau-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:19.607Z",
+      "crawledAt": "2026-11-14T21:22:39.029Z",
       "addressLocality": "Aargau",
       "addressCountry": "CH",
       "country": "CH",
@@ -10423,7 +10431,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:19.607Z",
+      "validThrough": "2026-12-14T21:22:39.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10457,7 +10465,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-biel-on-site-1",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:15.054Z",
+      "crawledAt": "2026-11-14T21:22:35.006Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -10529,7 +10537,7 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:15.054Z",
+      "validThrough": "2026-12-14T21:22:35.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10563,7 +10571,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-sion-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:11.003Z",
+      "crawledAt": "2026-11-14T21:22:31.099Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -10636,7 +10644,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:11.003Z",
+      "validThrough": "2026-12-14T21:22:31.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10670,7 +10678,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-lugano-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:06.834Z",
+      "crawledAt": "2026-11-14T21:22:27.059Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -10748,7 +10756,7 @@
       "addressRegion": "TI",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:06.834Z",
+      "validThrough": "2026-12-14T21:22:27.059Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10782,7 +10790,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-bern-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:06.012Z",
+      "crawledAt": "2026-11-14T21:22:23.023Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -10844,7 +10852,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:06.012Z",
+      "validThrough": "2026-12-14T21:22:23.023Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10878,7 +10886,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-zug-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:21:01.824Z",
+      "crawledAt": "2026-11-14T21:22:19.028Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -10936,7 +10944,7 @@
       "addressRegion": "ZG",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:01.824Z",
+      "validThrough": "2026-12-14T21:22:19.028Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10970,7 +10978,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-winterthur-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:57.572Z",
+      "crawledAt": "2026-11-14T21:22:15.321Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -11028,7 +11036,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:57.572Z",
+      "validThrough": "2026-12-14T21:22:15.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11037,7 +11045,7 @@
       "slugByLocale": {
         "it": "data-center-technician-lucerna-in-sede-reboot-monkey-lucerne",
         "en": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
-        "de": "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne",
+        "de": "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne",
         "fr": "technicien-de-centre-de-donnees-lucerne-sur-site-reboot-monkey-lucerne"
       },
       "company": "Reboot Monkey",
@@ -11062,7 +11070,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-lucerne-on-site-4",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:53.483Z",
+      "crawledAt": "2026-11-14T21:22:11.644Z",
       "addressLocality": "Lucerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -11096,14 +11104,14 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
-        "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
+        "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-lucerne-on-site-reboot-monkey-lucerne"
         ],
         "de": [
-          "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
+          "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne"
         ]
       },
       "needsRetranslation": true,
@@ -11125,7 +11133,7 @@
       "addressRegion": "LU",
       "streetAddress": "Lucerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:53.483Z",
+      "validThrough": "2026-12-14T21:22:11.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11159,7 +11167,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-aargau-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:49.219Z",
+      "crawledAt": "2026-11-14T21:22:07.779Z",
       "addressLocality": "Aargau",
       "addressCountry": "CH",
       "country": "CH",
@@ -11217,7 +11225,7 @@
       "addressRegion": "AG",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:49.219Z",
+      "validThrough": "2026-12-14T21:22:07.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11251,7 +11259,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-neuchatel-on-site-4",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:44.921Z",
+      "crawledAt": "2026-11-14T21:22:03.991Z",
       "addressLocality": "Neuchatel",
       "addressCountry": "CH",
       "country": "CH",
@@ -11309,7 +11317,7 @@
       "addressRegion": "NE",
       "streetAddress": "Neuchatel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:44.921Z",
+      "validThrough": "2026-12-14T21:22:03.991Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11343,7 +11351,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-montreux-on-site-4",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:40.880Z",
+      "crawledAt": "2026-11-14T21:22:00.090Z",
       "addressLocality": "Montreux",
       "addressCountry": "CH",
       "country": "CH",
@@ -11401,7 +11409,7 @@
       "addressRegion": "VD",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:40.880Z",
+      "validThrough": "2026-12-14T21:22:00.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11435,7 +11443,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-lugano-on-site-4",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:36.757Z",
+      "crawledAt": "2026-11-14T21:21:55.985Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -11493,7 +11501,7 @@
       "addressRegion": "TI",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:36.757Z",
+      "validThrough": "2026-12-14T21:21:55.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11527,7 +11535,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-biel-on-site-2",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:32.823Z",
+      "crawledAt": "2026-11-14T21:21:51.690Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -11589,7 +11597,7 @@
       "addressRegion": "BE",
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:32.823Z",
+      "validThrough": "2026-12-14T21:21:51.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11623,7 +11631,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-sion-on-site-4",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:28.948Z",
+      "crawledAt": "2026-11-14T21:21:47.546Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -11685,7 +11693,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:28.948Z",
+      "validThrough": "2026-12-14T21:21:47.546Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11719,7 +11727,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-basel-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:24.717Z",
+      "crawledAt": "2026-11-14T21:21:43.770Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -11777,7 +11785,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:24.717Z",
+      "validThrough": "2026-12-14T21:21:43.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -11811,7 +11819,7 @@
       "url": "https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-solothurn-on-site-3",
       "source": "Reboot Monkey Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:16.718Z",
+      "crawledAt": "2026-11-14T21:21:36.031Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -11869,7 +11877,7 @@
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:16.718Z",
+      "validThrough": "2026-12-14T21:21:36.031Z",
       "validThroughSource": "last-observed-window"
     }
   ]

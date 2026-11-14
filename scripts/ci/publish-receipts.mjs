@@ -203,6 +203,8 @@ function publisherRunIdOf(status) {
  *
  * - `itCdnPublished`: the CDN payload receipt exists (and, when the build id is
  *   known, was written for that build).
+ * - `itCdnPublisherRunId`: the publisher run that wrote the CDN receipt, when
+ *   the receipt is valid and can safely supply its durable R2 manifest.
  * - `pendingItGroups`: every group that has no valid receipt, in canonical
  *   order. A receipt is valid only when its newest status is a success, its
  *   digest equals the digest the source plan expects, the publisher run that
@@ -224,20 +226,22 @@ export function resolveItPublishReceipts({
   const cdnContext = itCdnReceiptContext(sourceRunId);
   const cdnStatus = cdnContext ? newestStatusFor(entries, cdnContext) : null;
   const expectedBuild = text(buildId);
+  // The publisher run that wrote the CDN receipt also holds the durable R2 OG
+  // manifest artifact the finalizer restores in place of the per-run cache, so a
+  // receipt whose run cannot be recovered is not a receipt.
+  const cdnPublisherRunId = publisherRunIdOf(cdnStatus);
   const cdnReceiptValid = Boolean(cdnStatus
     && text(cdnStatus.state).toLowerCase() === STATUS_SUCCESS
-    && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild));
-  // The publisher run that wrote the CDN receipt also holds the durable R2 OG
-  // manifest artifact the finalizer restores in place of the per-run cache.
-  const itCdnRunId = cdnReceiptValid ? publisherRunIdOf(cdnStatus) : '';
+    && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild)
+    && cdnPublisherRunId);
+  const itCdnPublisherRunId = cdnReceiptValid ? cdnPublisherRunId : '';
   // With an R2 CDN target the receipt is only as good as the manifest behind it:
   // skipping the CDN job is allowed solely when that manifest can be restored,
   // otherwise the finalizer's deploy prep would re-upload the whole og tree.
   const cdnRejectedReason = !cdnReceiptValid ? ''
     : !cdnManifestRequired ? ''
-      : !itCdnRunId ? 'no-publisher-run'
-        : !cdnManifestAvailable({ publisherRunId: itCdnRunId }) ? 'r2-manifest-artifact-unavailable'
-          : '';
+      : !cdnManifestAvailable({ publisherRunId: itCdnPublisherRunId }) ? 'r2-manifest-artifact-unavailable'
+        : '';
   const itCdnPublished = cdnReceiptValid && !cdnRejectedReason;
 
   const publishedItGroups = [];
@@ -267,7 +271,7 @@ export function resolveItPublishReceipts({
   }
   return {
     itCdnPublished,
-    itCdnRunId: itCdnPublished ? itCdnRunId : '',
+    itCdnPublisherRunId: itCdnPublished ? itCdnPublisherRunId : '',
     itCdnRejectedReason: cdnRejectedReason,
     pendingItGroups,
     publishedItGroups,
@@ -394,7 +398,7 @@ function writeGithubOutputs(file, state, itState = null) {
   const itLines = itState
     ? [
       `it_cdn_published=${itState.itCdnPublished}`,
-      `it_cdn_run_id=${itState.itCdnRunId}`,
+      `it_cdn_publisher_run_id=${itState.itCdnPublisherRunId}`,
       `pending_it_groups=${JSON.stringify(itState.pendingItGroups)}`,
       `receipt_it_groups=${JSON.stringify(itState.publishedItGroups.map((entry) => ({ group: entry.group, runId: entry.publisherRunId })))}`,
     ]

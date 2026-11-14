@@ -1,11 +1,12 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-11-14T09:22:09.498Z",
+  "generatedAt": "2026-11-14T21:19:02.371Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": "ok",
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3728,
-  "avgDurationMs": 3728,
+  "durationMs": 3721,
+  "avgDurationMs": 3721,
   "durationHistory": [
-    3728
+    3721
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

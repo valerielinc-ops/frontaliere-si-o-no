@@ -1,11 +1,12 @@
 {
   "key": "tecan",
   "label": "Tecan",
-  "generatedAt": "2026-11-14T09:19:43.259Z",
+  "generatedAt": "2026-11-14T21:19:23.565Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 8,
@@ -16,10 +17,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8590,
-  "avgDurationMs": 8590,
+  "durationMs": 10165,
+  "avgDurationMs": 10165,
   "durationHistory": [
-    8590
+    10165
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +37,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer/1393509133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:30.246Z",
+      "crawledAt": "2026-11-14T21:18:57.411Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,7 +60,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:30.246Z",
+      "validThrough": "2026-12-14T21:18:57.411Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -82,7 +83,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:19:29.706Z",
+      "crawledAt": "2026-11-14T21:18:56.848Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:29.706Z",
+      "validThrough": "2026-12-14T21:18:56.848Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +129,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-EHS-Specialist/1428299133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:29.141Z",
+      "crawledAt": "2026-11-14T21:18:56.240Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:19:29.141Z",
+      "validThrough": "2026-12-17T21:18:56.240Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -174,7 +175,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Supply-Manager-Operations/1434868433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:27.499Z",
+      "crawledAt": "2026-11-14T21:18:54.510Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +198,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:27.499Z",
+      "validThrough": "2026-12-14T21:18:54.510Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -220,7 +221,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Manufacturing-Engineer/1437075333/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:26.440Z",
+      "crawledAt": "2026-11-14T21:18:53.346Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +244,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:26.440Z",
+      "validThrough": "2026-12-14T21:18:53.346Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -269,7 +270,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Internal-Communication-Trainee/1442940033/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:19:28.587Z",
+      "crawledAt": "2026-11-14T21:18:55.650Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +293,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:19:28.587Z",
+      "validThrough": "2026-12-29T21:18:55.650Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -315,7 +316,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Head-of-Investors-Relations/1453849833/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:19:28.032Z",
+      "crawledAt": "2026-11-14T21:18:55.083Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +339,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:19:28.032Z",
+      "validThrough": "2027-02-01T21:18:55.083Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -360,7 +361,7 @@
       "url": "https://careers.tecan.com/job/M%C3%A4nnedorf-Service-Team-Leader-Switzerland-&-Austria/1434115733/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:19:26.968Z",
+      "crawledAt": "2026-11-14T21:18:53.919Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -383,7 +384,7 @@
       "salarySource": "estimated",
       "streetAddress": "Männedorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:19:26.968Z",
+      "validThrough": "2027-01-01T21:18:53.919Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -394,5 +395,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

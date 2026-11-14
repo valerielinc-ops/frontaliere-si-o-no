@@ -65,6 +65,21 @@ function loadTranslationChunk(loader: ChunkLoader): Promise<TranslationChunk> {
  return resilientImport<TranslationChunk>(loader, isTranslationChunk);
 }
 
+type BlogBodyLoaderModule = typeof import('./blogBodyLoader');
+
+function isBlogBodyLoaderModule(value: unknown): value is BlogBodyLoaderModule {
+ return !!value
+  && typeof value === 'object'
+  && typeof (value as { loadBlogBodyChunk?: unknown }).loadBlogBodyChunk === 'function';
+}
+
+function loadBlogBodyLoader(): Promise<BlogBodyLoaderModule> {
+ return resilientImport<BlogBodyLoaderModule>(
+  () => import('./blogBodyLoader'),
+  isBlogBodyLoaderModule,
+ );
+}
+
 // Above-the-fold critical keys for non-IT locales (tiny ~4KB, loaded first)
 const localeCriticalLoaders: Partial<Record<Locale, ChunkLoader>> = {
  en: () => import('./locales/en-critical'),
@@ -419,7 +434,7 @@ export async function loadArticleBody(
  // Load IT fallback body if not loaded
  if (!loadedArticleBodies.has(itKey) && !articleBodyPromises.has(itKey)) {
  articleBodyPromises.set(itKey, (async () => {
- const { loadBlogBodyChunk } = await import('./blogBodyLoader');
+ const { loadBlogBodyChunk } = await loadBlogBodyLoader();
  const data = await loadBlogBodyChunk('it', articleId, section);
  if (data) {
  mergeLocaleTranslations('it', data);
@@ -431,7 +446,7 @@ export async function loadArticleBody(
  // Load current locale body if not IT and not loaded
  if (locale !== 'it' && !loadedArticleBodies.has(key) && !articleBodyPromises.has(key)) {
  articleBodyPromises.set(key, (async () => {
- const { loadBlogBodyChunk } = await import('./blogBodyLoader');
+ const { loadBlogBodyChunk } = await loadBlogBodyLoader();
  const data = await loadBlogBodyChunk(locale, articleId, section);
  if (data) {
  mergeLocaleTranslations(locale, data);

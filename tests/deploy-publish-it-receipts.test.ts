@@ -209,8 +209,13 @@ describe('IT receipts: what a retry still has to do (F0.9)', () => {
 
   it('accepts the CDN receipt only for the build id it was written for', () => {
     expect(resolve([cdnReceipt()]).itCdnPublished).toBe(true);
+    expect(resolve([cdnReceipt()]).itCdnPublisherRunId).toBe(PUBLISHER_RUN_ID);
     expect(resolve([cdnReceipt('1770000000009')]).itCdnPublished).toBe(false);
+    expect(resolve([cdnReceipt('1770000000009')]).itCdnPublisherRunId).toBe('');
     expect(resolve([{ ...cdnReceipt(), state: 'failure' }]).itCdnPublished).toBe(false);
+    const noPublisherRun = { ...cdnReceipt(), target_url: 'https://example.invalid/x' };
+    expect(resolve([noPublisherRun]).itCdnPublished).toBe(false);
+    expect(resolve([noPublisherRun]).itCdnPublisherRunId).toBe('');
     expect(resolve([cdnReceipt()], { buildId: undefined }).itCdnPublished).toBe(true);
   });
 
@@ -276,6 +281,7 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     });
     return {
       it_cdn_published: String(state.itCdnPublished),
+      it_cdn_publisher_run_id: state.itCdnPublisherRunId,
       pending_it_groups: JSON.stringify(state.pendingItGroups),
       receipt_it_groups: JSON.stringify(state.publishedItGroups.map((entry: any) => ({ group: entry.group, runId: entry.publisherRunId }))),
     };
@@ -447,11 +453,19 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     expect(publish.jobs['finalize-it-publish'].permissions.actions).toBe('read');
   });
 
-  it('resolves the receipts with the source plan and exposes the three IT outputs', () => {
+  it('resolves the receipts with the source plan and exposes the four IT outputs', () => {
     const outputs = publish.jobs['resolve-publish-receipts'].outputs;
     expect(outputs.it_cdn_published).toBe('${{ steps.receipts.outputs.it_cdn_published }}');
+    expect(outputs.it_cdn_publisher_run_id).toBe('${{ steps.receipts.outputs.it_cdn_publisher_run_id }}');
     expect(outputs.pending_it_groups).toBe('${{ steps.receipts.outputs.pending_it_groups }}');
     expect(outputs.receipt_it_groups).toBe('${{ steps.receipts.outputs.receipt_it_groups }}');
+    const earlyRestore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from the early CDN job');
+    expect(String(earlyRestore.if)).toContain("it_cdn_published != 'true'");
+    // The receipt-backed restore is an artifact download (see the durable R2
+    // OG manifest suite below), not a per-run cache lookup.
+    const receiptRestore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from the CDN receipt run');
+    expect(String(receiptRestore.if)).toContain("it_cdn_published == 'true'");
+    expect(receiptRestore.uses).toMatch(/^actions\/download-artifact@/);
     const resolver = namedStep('resolve-publish-receipts', 'Resolve source-run receipts');
     expect(resolver.run).toContain('--it-plan');
     expect(publish.jobs['resolve-publish-receipts'].permissions.actions).toBe('read');
@@ -577,6 +591,7 @@ process.exit(1);
     const { result, outputs } = run(baseArgs(planFile()), gh);
     expect(result.status, result.stderr).toBe(0);
     expect(outputs.it_cdn_published).toBe('true');
+    expect(outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
     expect(JSON.parse(outputs.pending_it_groups)).toEqual(['zurigo', 'small-1']);
     expect(JSON.parse(outputs.receipt_it_groups)).toEqual([
       { group: 'svizzera', runId: PUBLISHER_RUN_ID },
@@ -607,6 +622,7 @@ process.exit(1);
     expect(missing.result.status, missing.result.stderr).toBe(0);
     expect(JSON.parse(missing.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
     expect(missing.outputs.it_cdn_published).toBe('true');
+    expect(missing.outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
     expect(missing.result.stdout + missing.result.stderr).toContain('unreadable');
     const wrongSource = run(['--resolve', '--source-run-id', '1', '--source-sha', SOURCE_SHA, '--it-plan', planFile()], gh);
     expect(JSON.parse(wrongSource.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
@@ -701,8 +717,8 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
   it('extracts the publisher run that wrote the CDN receipt from its target_url', () => {
     const state = resolveCdn([cdnReceipt()]);
     expect(state.itCdnPublished).toBe(true);
-    expect(state.itCdnRunId).toBe(PUBLISHER_RUN_ID);
-    expect(resolveCdn([]).itCdnRunId).toBe('');
+    expect(state.itCdnPublisherRunId).toBe(PUBLISHER_RUN_ID);
+    expect(resolveCdn([]).itCdnPublisherRunId).toBe('');
     expect(itCdnManifestArtifactName(SOURCE_RUN_ID)).toBe(`r2-og-manifest-it-${SOURCE_RUN_ID}`);
   });
 
@@ -714,18 +730,18 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
     });
     expect(seen).toEqual([PUBLISHER_RUN_ID]);
     expect(gone.itCdnPublished).toBe(false);
-    expect(gone.itCdnRunId).toBe('');
+    expect(gone.itCdnPublisherRunId).toBe('');
     expect(gone.itCdnRejectedReason).toBe('r2-manifest-artifact-unavailable');
     const present = resolveCdn([cdnReceipt()], { cdnManifestRequired: true, cdnManifestAvailable: () => true });
     expect(present.itCdnPublished).toBe(true);
-    expect(present.itCdnRunId).toBe(PUBLISHER_RUN_ID);
+    expect(present.itCdnPublisherRunId).toBe(PUBLISHER_RUN_ID);
   });
 
   it('with an R2 target a receipt without a recoverable publisher run is not enough', () => {
     const noRun = { ...cdnReceipt(), target_url: 'https://example.invalid/x' };
     const state = resolveCdn([noRun], { cdnManifestRequired: true, cdnManifestAvailable: () => true });
     expect(state.itCdnPublished).toBe(false);
-    expect(state.itCdnRejectedReason).toBe('no-publisher-run');
+    expect(state.itCdnPublisherRunId).toBe('');
   });
 
   it('without an R2 target the manifest is not required (pages-only CDN keeps skipping)', () => {
@@ -777,7 +793,7 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
     expect(restore.uses).toMatch(/^actions\/download-artifact@/);
     expect(restore.with.name).toBe('r2-og-manifest-it-${{ inputs.source_run_id }}');
     expect(restore.with.path).toBe('.cache');
-    expect(restore.with['run-id']).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_run_id }}');
+    expect(restore.with['run-id']).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_publisher_run_id }}');
     expect(restore.with['github-token']).toBe('${{ secrets.GITHUB_TOKEN }}');
     expect(restore.if).toContain("it_cdn_published == 'true'");
     expect(restore.if).toContain("vars.CDN_TARGET == 'r2'");
@@ -792,7 +808,7 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
     expect(resolver.run).toContain('--cdn-manifest-required "$CDN_MANIFEST_REQUIRED"');
     expect(resolver.env.CDN_MANIFEST_REQUIRED)
       .toBe("${{ (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && 'true' || 'false' }}");
-    expect(publish.jobs['resolve-publish-receipts'].outputs.it_cdn_run_id).toBe('${{ steps.receipts.outputs.it_cdn_run_id }}');
+    expect(publish.jobs['resolve-publish-receipts'].outputs.it_cdn_publisher_run_id).toBe('${{ steps.receipts.outputs.it_cdn_publisher_run_id }}');
   });
 
   it('CLI: an R2 retry skips the CDN job only when the previous run still lists the manifest artifact', () => {
@@ -823,9 +839,9 @@ process.exit(1);
       return Object.fromEntries(fs.readFileSync(output, 'utf8').trim().split('\n').map((line) => [line.slice(0, line.indexOf('=')), line.slice(line.indexOf('=') + 1)]));
     };
     const listed = make([{ name: itCdnManifestArtifactName(SOURCE_RUN_ID), expired: false }]);
-    expect(run(listed, 'true')).toMatchObject({ it_cdn_published: 'true', it_cdn_run_id: PUBLISHER_RUN_ID });
+    expect(run(listed, 'true')).toMatchObject({ it_cdn_published: 'true', it_cdn_publisher_run_id: PUBLISHER_RUN_ID });
     const expired = make([{ name: itCdnManifestArtifactName(SOURCE_RUN_ID), expired: true }]);
-    expect(run(expired, 'true')).toMatchObject({ it_cdn_published: 'false', it_cdn_run_id: '' });
-    expect(run(expired, 'false')).toMatchObject({ it_cdn_published: 'true', it_cdn_run_id: PUBLISHER_RUN_ID });
+    expect(run(expired, 'true')).toMatchObject({ it_cdn_published: 'false', it_cdn_publisher_run_id: '' });
+    expect(run(expired, 'false')).toMatchObject({ it_cdn_published: 'true', it_cdn_publisher_run_id: PUBLISHER_RUN_ID });
   });
 });
