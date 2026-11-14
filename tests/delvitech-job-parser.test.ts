@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseDelvitechCareerPage,
+  parseDelvitechCareerWidgetConfig,
+  parseDelvitechZohoListings,
+  isDelvitechRecruitSite,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
 } from '../scripts/lib/delvitech-job-parser.mjs';
@@ -145,6 +148,82 @@ describe('Delvitech job parser', () => {
       title: 'E2E Test Engineer',
     }]);
     expect(jobs.delvitechListingMarkupSeen).toBe(true);
+  });
+
+  it('reads the public Zoho Recruit widget configuration from the canonical shell', () => {
+    const html = `
+      <section class="tx-jobs-section">
+        <div id="rec_job_listing_div"></div>
+        <script>
+          rec_embed_js.load({
+            widget_id: "rec_job_listing_div",
+            page_name: "Careers",
+            source: "CareerSite",
+            site: "https://delvi.zohorecruit.eu",
+            empty_job_msg: "No current Openings"
+          });
+        </script>
+      </section>
+    `;
+    expect(parseDelvitechCareerWidgetConfig(html)).toEqual({
+      site: 'https://delvi.zohorecruit.eu',
+      pageName: 'Careers',
+      source: 'CareerSite',
+      emptyJobMessage: 'No current Openings',
+      emptyJobMessageLooksAuthoritative: true,
+    });
+    expect(isDelvitechRecruitSite('https://delvi.zohorecruit.eu')).toBe(true);
+    expect(isDelvitechRecruitSite('https://example.invalid')).toBe(false);
+  });
+
+  it('maps a successful Zoho Recruit feed and keeps source completeness evidence', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [{
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Pre-Sales-Engineer?source=CareerSite',
+        Posting_Title: 'Pre-Sales Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: '<p>Present and demo inspection systems.</p>',
+        Date_Opened: '10/01/2026',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings[0]).toMatchObject({
+      href: 'https://delvi.zohorecruit.eu/jobs/Careers/123/Pre-Sales-Engineer?source=CareerSite',
+      title: 'Pre-Sales Engineer',
+      source: 'zoho-api',
+      detail: {
+        location: 'Mendrisio, Ticino, Switzerland',
+        description: 'Present and demo inspection systems.',
+        datePublished: '2026-10-01',
+      },
+    });
+    expect(listings.delvitechListingRecordCount).toBe(1);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(0);
+    expect(listings.delvitechListingEmptyStateObserved).toBe(false);
+  });
+
+  it('does not hide malformed Zoho rows from the completeness guard', () => {
+    const listings = parseDelvitechZohoListings({
+      code: 'success',
+      data: [{
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/123/Engineer',
+        Posting_Title: 'Engineer',
+        City: 'Mendrisio',
+        State: 'Ticino',
+        Country: 'Switzerland',
+        Job_Description: 'Description',
+      }, {
+        '$url': 'https://delvi.zohorecruit.eu/jobs/Careers/124/Unknown',
+        Posting_Title: 'Unknown',
+        Country: 'Switzerland',
+      }],
+    });
+    expect(listings).toHaveLength(1);
+    expect(listings.delvitechListingRecordCount).toBe(2);
+    expect(listings.delvitechListingSkippedMalformedRows).toBe(1);
   });
 
   it('does not count external-only anchors as Delvitech listing records', () => {

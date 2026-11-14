@@ -35,6 +35,9 @@ import {
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseDelvitechCareerPage,
+  parseDelvitechCareerWidgetConfig,
+  parseDelvitechZohoListings,
+  isDelvitechRecruitSite,
   parseDelvitechJobDetail,
   isDelvitechTicinoJob,
   inferDelvitechCategory,
@@ -205,6 +208,38 @@ async function fetchRobust(url) {
   }
 }
 
+async function fetchZohoListings(widgetConfig) {
+  const endpoint = new URL('/recruit/v2/public/Job_Openings', `${widgetConfig.site}/`);
+  endpoint.searchParams.set('pagename', widgetConfig.pageName);
+  if (widgetConfig.source) endpoint.searchParams.set('source', widgetConfig.source);
+
+  let lastError = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const raw = await fetchText(endpoint.toString());
+      const payload = JSON.parse(raw);
+      if (payload?.code !== 'success' || !Array.isArray(payload.data)) {
+        throw new Error('Zoho Recruit response did not contain a successful data array');
+      }
+      return payload;
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await sleep(1200 * attempt);
+    }
+  }
+
+  try {
+    const raw = await fetchWithCurl(endpoint.toString());
+    const payload = JSON.parse(raw);
+    if (payload?.code !== 'success' || !Array.isArray(payload.data)) {
+      throw new Error('Zoho Recruit curl response did not contain a successful data array');
+    }
+    return payload;
+  } catch (error) {
+    throw lastError || error;
+  }
+}
+
 function absoluteUrl(raw = '') {
   if (!raw) return '';
   if (/^https?:\/\//i.test(raw)) return raw;
@@ -221,7 +256,10 @@ function isTargetJob(job = {}) {
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'legacy.delvi.tech' || host.endsWith('.delvi.tech') || host === 'delvi.tech';
+    return host === 'legacy.delvi.tech'
+      || host.endsWith('.delvi.tech')
+      || host === 'delvi.tech'
+      || isDelvitechRecruitSite(rawUrl);
   } catch {
     return false;
   }
@@ -231,6 +269,21 @@ async function fetchListings() {
   console.log('🔍 Fetching Delvitech career page...');
   const html = await fetchRobust(CAREERS_URL);
   let listings = parseDelvitechCareerPage(html, CAREERS_URL);
+  const widgetConfig = parseDelvitechCareerWidgetConfig(html);
+
+  if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true && widgetConfig) {
+    console.log('ℹ️  Delvitech careers page exposes a Zoho Recruit widget; reading its public feed...');
+    try {
+      const payload = await fetchZohoListings(widgetConfig);
+      const zohoListings = parseDelvitechZohoListings(payload);
+      if (!zohoListings) throw new Error('Zoho Recruit feed was not parseable');
+      listings = zohoListings;
+      console.log(`📋 Zoho Recruit public feed returned ${listings.length} valid row(s) (${listings.delvitechListingRecordCount} total)`);
+    } catch (error) {
+      console.warn(`⚠️  Zoho Recruit public feed failed: ${error.message}`);
+    }
+  }
+
   if (listings.length === 0 && listings.delvitechListingEmptyStateObserved !== true) {
     // The redesigned canonical page hydrates the open-role cards in the
     // browser. An HTTP 200 shell with no cards is not an authoritative zero;
@@ -265,6 +318,8 @@ async function fetchListings() {
 
 function classifyDelvitechSourceLocation(detail = {}) {
   const location = String(detail.location || '').trim();
+  const country = String(detail.country || '').trim();
+  if (country && !/switzerland|schweiz|suisse|svizzera/i.test(country)) return 'foreign';
   if (isLocationExplicitlyForeign(location)) return 'foreign';
   if (inferAnyCanton(location)) return 'swiss';
   return '';
@@ -299,8 +354,9 @@ function assertCompleteDelvitechSnapshot(jobs = []) {
 
 async function buildDelvitechJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchRobust(detailUrl);
-  const detail = parseDelvitechJobDetail(html, detailUrl);
+  const detail = listing.source === 'zoho-api'
+    ? listing.detail
+    : parseDelvitechJobDetail(await fetchRobust(detailUrl), detailUrl);
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
   }
