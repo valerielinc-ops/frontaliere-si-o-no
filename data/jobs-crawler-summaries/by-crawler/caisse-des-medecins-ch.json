@@ -1,11 +1,72 @@
 {
   "key": "caisse-des-medecins-ch",
   "label": "Caisse des médecins",
-  "generatedAt": "2026-11-14T09:49:45.293Z",
+  "generatedAt": "2026-11-14T16:45:33.257Z",
   "total": 5,
   "discovered": 6,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "caisse-des-medecins-ch",
+    "seedUrls": [
+      "https://caisse-des-medecins.ch/a-propos-de-nous/carriere/postes-a-pourvoir/"
+    ],
+    "phase": "detail",
+    "pages": 12,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/a-propos-de-nous/carriere/postes-a-pourvoir/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/support/contact/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/connaissances/information-aux-patientes-et-patients/contact/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/contact/nos-agences/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/impressum/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/agent-support-service-desk-1er-niveau-h-f-a-100-cdd-10-mois/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/dba-postgresql-exploitation-h-f-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/dba-sybase-ms-sql-h-f-a-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/it-operations-support-h-f-a-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/senior-software-engineer-m-w-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://caisse-des-medecins.ch/job/test-automation-engineer-m-f/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -19,10 +80,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 26579,
-  "avgDurationMs": 26579,
+  "durationMs": 25925,
+  "avgDurationMs": 25925,
   "durationHistory": [
-    26579
+    25925
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +101,7 @@
       "url": "https://caisse-des-medecins.ch/job/test-automation-engineer-m-f/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:49:06.873Z",
+      "crawledAt": "2026-11-14T16:44:39.793Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +124,7 @@
       "postalCode": "8902",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:06.873Z",
+      "validThrough": "2027-02-03T16:44:39.793Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +146,7 @@
       "url": "https://caisse-des-medecins.ch/job/senior-software-engineer-m-w-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:49:06.872Z",
+      "crawledAt": "2026-11-14T16:44:39.792Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -108,7 +169,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:06.872Z",
+      "validThrough": "2027-02-03T16:44:39.792Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +191,7 @@
       "url": "https://caisse-des-medecins.ch/job/it-operations-support-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:49:06.868Z",
+      "crawledAt": "2026-11-14T16:44:39.791Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -153,7 +214,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:06.868Z",
+      "validThrough": "2027-02-03T16:44:39.791Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -175,7 +236,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-sybase-ms-sql-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:49:06.860Z",
+      "crawledAt": "2026-11-14T16:44:39.786Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -198,7 +259,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:06.860Z",
+      "validThrough": "2027-02-03T16:44:39.786Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -220,7 +281,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-postgresql-exploitation-h-f-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:49:06.855Z",
+      "crawledAt": "2026-11-14T16:44:39.783Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -243,7 +304,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:49:06.855Z",
+      "validThrough": "2027-02-03T16:44:39.783Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -254,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "3e352420dd3021a30872ff0467372a9e7ef887e3"
 }

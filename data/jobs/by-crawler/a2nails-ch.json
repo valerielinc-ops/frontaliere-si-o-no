@@ -1,7 +1,7 @@
 {
   "crawlerKey": "a2nails-ch",
-  "assembledAt": "2026-11-14T09:46:47.023Z",
-  "runId": "43580673891",
+  "assembledAt": "2026-11-14T16:43:32.528Z",
+  "runId": "43616253685",
   "jobs": [
     {
       "id": "a2nails-ch-1352b4d181e6",
@@ -34,7 +34,7 @@
       "url": "https://a2nails.ch/jobs/",
       "source": "A2 Nails Nyon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:46:29.510Z",
+      "crawledAt": "2026-11-14T16:43:17.027Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,10 +54,11 @@
       "applyUrl": "https://a2nails.ch/jobs/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
+        "specialiste-en-manucure-et-pedicure-a2-nails-nyon-nyon"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "specialiste-en-manucure-et-pedicure-a2-nails-nyon-nyon"
-        ],
         "it": [
           "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
         ],
@@ -66,12 +67,11 @@
         ],
         "de": [
           "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch"
+        ],
+        "fr": [
+          "specialiste-en-manucure-et-pedicure-a2-nails-nyon-nyon"
         ]
       },
-      "previousSlugs": [
-        "specialiste-en-manucure-et-pedicure-nyon-vaud-a2nails-ch-ch",
-        "specialiste-en-manucure-et-pedicure-a2-nails-nyon-nyon"
-      ],
       "firstSeenAt": "2026-11-07T09:48:11.755Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:46:29.510Z",
+      "validThrough": "2026-12-14T16:43:17.027Z",
       "validThroughSource": "last-observed-window"
     }
   ]
