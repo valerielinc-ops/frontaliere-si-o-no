@@ -41,25 +41,65 @@ jobs:
           sparse-checkout: |
             scripts/ci/cloud-functions-hosted-runner-recovery.mjs
             scripts/ci/lib/workflow-run-list-recovery.mjs
+            scripts/load-rc-env.mjs
+            scripts/lib/fetch-with-ref-timeout.mjs
+            scripts/lib/google-service-account-token.mjs
+            scripts/lib/remote-config-template-url.mjs
           sparse-checkout-cone-mode: false
+
+      - name: Prepare Firebase credentials for recovery API
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load the recovery API token'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load recovery API token from Remote Config
+        run: node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+
+      - name: Require recovery API token
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo '::error::GITHUB_PAT was not loaded from Remote Config; refusing to use the rate-limited installation token'
+            exit 1
+          fi
 
       - name: Retry only an unstarted or unassigned deploy
         uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const { getOctokit } = require('@actions/github');
             const { pathToFileURL } = require('node:url');
             const { listRecentCloudFunctionsRuns, shouldRetryCloudFunctionsRun } = await import(pathToFileURL(
               `${process.env.GITHUB_WORKSPACE}/scripts/ci/cloud-functions-hosted-runner-recovery.mjs`,
             ).href);
+            const recoveryToken = process.env.GITHUB_PAT;
+            if (!recoveryToken) {
+              core.setFailed('GITHUB_PAT was not loaded from Remote Config; refusing recovery.');
+              return;
+            }
+            // The ambient GITHUB_TOKEN is an installation token shared by the
+            // repository's concurrent workflows. Use the long-lived PAT for
+            // every recovery API call so a busy installation cannot make the
+            // observer fail before it evaluates the startup signature.
+            const recoveryGithub = getOctokit(recoveryToken);
             const run = context.payload.workflow_run;
             const runAttempt = run?.run_attempt;
             if (!Number.isSafeInteger(runAttempt) || runAttempt !== 1) {
               core.info(`Run ${run?.id || '<unknown>'} has no explicit first attempt; refusing recovery.`);
               return;
             }
-            const jobs = await github.paginate(
-              github.rest.actions.listJobsForWorkflowRunAttempt,
+            const jobs = await recoveryGithub.paginate(
+              recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt,
               {
                 ...context.repo,
                 run_id: Number(run.id),
@@ -68,7 +108,7 @@ jobs:
               },
             );
             const workflowRuns = await listRecentCloudFunctionsRuns({
-              github,
+              github: recoveryGithub,
               repo: context.repo,
               run,
               core,
@@ -76,8 +116,8 @@ jobs:
             const annotationsByJob = {};
             for (const job of jobs) {
               if (!Number.isSafeInteger(Number(job.id))) continue;
-              annotationsByJob[String(job.id)] = await github.paginate(
-                github.rest.checks.listAnnotations,
+              annotationsByJob[String(job.id)] = await recoveryGithub.paginate(
+                recoveryGithub.rest.checks.listAnnotations,
                 {
                   ...context.repo,
                   check_run_id: Number(job.id),
@@ -93,7 +133,7 @@ jobs:
               `Run ${run.id} failed before the deploy job could run; `
               + 'requesting one bounded replay of the same deploy run.',
             );
-            await github.rest.actions.reRunWorkflow({
+            await recoveryGithub.rest.actions.reRunWorkflow({
               ...context.repo,
               run_id: Number(run.id),
             });
