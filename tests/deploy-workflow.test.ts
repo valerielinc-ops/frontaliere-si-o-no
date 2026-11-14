@@ -190,7 +190,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(published.jobs.report.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
     expect(String(published.jobs.report.with.audits)).toContain('validate:page-seo');
     expect(String(published.jobs.report.with.audits)).toContain('validate:og-images');
-    const dispatchStep = publisher.jobs.publish.steps.find(
+    const dispatchStep = publisher.jobs['runtime-watchdog'].steps.find(
       (step: any) => step.name === 'Dispatch published dist audit',
     );
     expect(dispatchStep.if).toContain("needs.publish.result == 'success'");
