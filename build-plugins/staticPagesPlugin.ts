@@ -1,4 +1,5 @@
 import { buildMethodologyEditorial, localizeMethodologyStructuredData } from './shared/editorialMethodology';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { METHODOLOGY_COPY, type MethodologyLocale } from '../services/editorialMethodology';
 import { renderLegalEditorial, resolveLegalPage, resolveLegalStaticSeo } from './shared/legalEditorial';
@@ -2330,7 +2331,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
      }
    }
  } catch (e) {
-   console.warn('[static-pages] Could not stream data/jobs.json for TI/non-TI nav computations:', e);
+   // Fail closed: a silently empty TI/non-TI navigation would ship with every page.
+   throw new DatasetReadError('static-pages', np.resolve(rootDir, 'data/jobs.json'), e);
  }
  let tiPaginationPages = 0;
  if (tiCount >= 2 * TI_JOBS_PER_LISTING) {

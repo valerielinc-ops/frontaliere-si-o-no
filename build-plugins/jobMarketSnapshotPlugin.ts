@@ -43,6 +43,7 @@ import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import fs from 'node:fs';
 import np from 'node:path';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import {
   BASE_URL,
   BUILD_DATE_STAMP,
@@ -3263,7 +3264,8 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
           if (Array.isArray(parsed)) jobs = parsed as JobRecord[];
         }
       } catch (err) {
-        console.warn('[job-market-snapshot] failed to read data/jobs.json', err);
+        // Fail closed: 0 jobs would publish an empty market snapshot as healthy.
+        throw new DatasetReadError('job-market-snapshot', jobsPath, err);
       }
 
       // Every page emitted from `jobs` in this plugin (legacy TI hub/weekly/

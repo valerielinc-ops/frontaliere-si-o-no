@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 import path from 'node:path';
 import { isReportedAnnualChfSalary, type SalaryCarrier } from './realSalaryMedian';
+import { DatasetReadError } from './readJobsDatasetStrict';
 
 export interface ReportJob extends SalaryCarrier {
   id?: string;
@@ -36,13 +37,19 @@ export function isReportSalaryJob(job: ReportJob): boolean {
 
 /** Null means source unavailable; [] means a valid, empty observation set. */
 export function loadReportJobPanel(rootDir: string, year: number): ReportJob[] | null {
+  const file = path.join(rootDir, 'data/jobs.json');
+  // A MISSING dataset is "source unavailable"; one that exists but cannot be
+  // read or parsed is not: it stops the build instead of publishing a report
+  // that says "unavailable" about data that is simply too big or corrupt.
+  if (!fs.existsSync(file)) return null;
+  let raw: unknown;
   try {
-    const raw: unknown = readJsonFile(path.join(rootDir, 'data/jobs.json'));
-    if (!Array.isArray(raw) || !raw.every(isReportJob)) return null;
-    return raw.filter((job) => isReportYearJob(job, year));
-  } catch {
-    return null;
+    raw = readJsonFile(file);
+  } catch (err) {
+    throw new DatasetReadError('report-job-panel', file, err);
   }
+  if (!Array.isArray(raw) || !raw.every(isReportJob)) return null;
+  return raw.filter((job) => isReportYearJob(job, year));
 }
 
 /** Runtime JSON is untrusted even when the build's TypeScript callers are typed. */

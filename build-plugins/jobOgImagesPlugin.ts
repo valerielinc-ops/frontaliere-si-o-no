@@ -35,6 +35,7 @@ import { cpus } from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
@@ -163,8 +164,10 @@ function readJobsJson(rootDir: string): JobMinimal[] {
       if (Array.isArray(parsed)) return parsed as JobMinimal[];
       const wrapped = parsed as { jobs?: JobMinimal[] };
       if (wrapped && Array.isArray(wrapped.jobs)) return wrapped.jobs;
-    } catch {
-      /* try next */
+    } catch (err) {
+      // Fail closed: "no jobs" here skips every OG image while the job pages
+      // still point og:image at the files that were never written.
+      throw new DatasetReadError('job-og-images', c, err);
     }
   }
   return [];

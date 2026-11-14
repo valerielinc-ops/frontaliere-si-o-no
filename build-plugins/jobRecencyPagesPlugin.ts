@@ -20,6 +20,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import {
   BASE_URL,
   FAVICON_LINKS,
@@ -141,7 +142,8 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           if (Array.isArray(raw)) jobs = raw as Array<Record<string, unknown>>;
         }
       } catch (err) {
-        console.warn('[job-recency-pages] failed to read data/jobs.json', err);
+        // Fail closed: "empty-state pages" are for a MISSING file, not an unreadable one.
+        throw new DatasetReadError('job-recency-pages', jobsPath, err);
       }
 
       // Filter to valid, non-expired jobs. needsRetranslation is checked

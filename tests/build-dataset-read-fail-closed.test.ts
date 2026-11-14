@@ -12,6 +12,11 @@ import { orphanQueryLandingPlugin } from '../build-plugins/orphanQueryLandingPlu
 import { aggregateNursingJobs, _resetNursingJobsAggregateCache } from '../build-plugins/nursingJobsAggregate';
 import { aggregateCareerLandings, _resetCareerJobsAggregateCache } from '../build-plugins/careerJobsAggregate';
 import { aggregateAllCities } from '../build-plugins/cityJobsAggregate';
+import { jobRecencyPagesPlugin } from '../build-plugins/jobRecencyPagesPlugin';
+import { jobSectorPagesPlugin } from '../build-plugins/jobSectorPagesPlugin';
+import { jobMarketSnapshotPlugin } from '../build-plugins/jobMarketSnapshotPlugin';
+import { expiredJobsSplitPlugin } from '../build-plugins/expiredJobsSplitPlugin';
+import { loadReportJobPanel } from '../build-plugins/shared/reportJobPanel';
 
 let root: string;
 const write = (rel: string, body: string) => {
@@ -28,6 +33,7 @@ beforeEach(() => {
   // agent sessions export SKIP_* flags; the plugins must actually run here
   vi.stubEnv('SKIP_WEEKLY_EMPLOYERS', '');
   vi.stubEnv('SKIP_ORPHAN_LANDINGS', '');
+  vi.stubEnv('SKIP_JOB_MARKET_SNAPSHOT', '');
   vi.spyOn(console, 'log').mockImplementation(() => {});
   vi.spyOn(console, 'warn').mockImplementation(() => {});
 });
@@ -78,5 +84,28 @@ describe('weekly-employers with an unreadable crawler slice', () => {
     write('data/jobs.json', '[]');
     write('data/jobs/by-crawler/broken.json', '[{"slug":');
     await expect(runCloseBundle(weeklyEmployersPlugin(root))).rejects.toThrow(/\[weekly-employers\] cannot read broken\.json/);
+  });
+});
+
+describe('the sibling plugins that used to log and carry on', () => {
+  it('job-recency-pages, job-sector-pages, job-market-snapshot throw on an unreadable jobs.json', async () => {
+    write('data/jobs.json', '{ not json');
+    fs.mkdirSync(path.join(root, 'dist'), { recursive: true }); // job-market-snapshot returns early without it
+    await expect(runCloseBundle(jobRecencyPagesPlugin(root))).rejects.toThrow(/\[job-recency-pages\] cannot read jobs\.json/);
+    await expect(runCloseBundle(jobSectorPagesPlugin(root))).rejects.toThrow(/\[job-sector-pages\] cannot read jobs\.json/);
+    await expect(runCloseBundle(jobMarketSnapshotPlugin(root))).rejects.toThrow(/\[job-market-snapshot\] cannot read jobs\.json/);
+  });
+
+  it('expired-jobs-split throws on an unreadable expired-jobs.json instead of writing 0 detail files', () => {
+    write('data/expired-jobs.json', '[{"slug":');
+    expect(() => runCloseBundle(expiredJobsSplitPlugin(root))).toThrow(/\[expired-jobs-split\] cannot read expired-jobs\.json/);
+  });
+
+  it('the annual/market report panel: missing = unavailable (null), unreadable = error, corrupt ROWS = unavailable', () => {
+    expect(loadReportJobPanel(root, 2026)).toBeNull();
+    write('data/jobs.json', '{ not json');
+    expect(() => loadReportJobPanel(root, 2026)).toThrow(/\[report-job-panel\] cannot read jobs\.json/);
+    write('data/jobs.json', JSON.stringify([{ canton: 7 }]));
+    expect(loadReportJobPanel(root, 2026)).toBeNull();
   });
 });
