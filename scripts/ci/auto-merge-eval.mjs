@@ -243,23 +243,172 @@ function emitCheckSetObservation(checkRuns, head) {
  * Mantiene disponibile il fingerprint del contributo per i controlli storici e
  * diagnostici. Non è una prova di validità di una review: un LGTM vale solo se
  * la review nomina la HEAD corrente.
+ *
+ * Ritorna la stringa del fingerprint oppure `null` (incertezza). Il motivo
+ * dell'`null` — troncato, non verificabile o errore — lo dà
+ * `prContributionFingerprintDetailed`.
  */
-export function prContributionFingerprint(sha) {
+export function prContributionFingerprint(sha, deps) {
+  return prContributionFingerprintDetailed(sha, deps).fingerprint;
+}
+
+const FINGERPRINT_BASE_REF = 'main';
+const GIT_RAW_STATUS = {
+  A: 'added', D: 'removed', M: 'modified', R: 'renamed', C: 'copied', T: 'changed',
+};
+
+// Le sonde (esiste il commit? esiste il ref? merge-base) NON devono fare fetch
+// pigri: in un clone parziale (blob:none/tree:0) un oggetto assente farebbe
+// partire un fetch dal promisor e la sonda pende invece di fallire subito.
+// Solo i diff (`lazy: true`) possono scaricare i tree/blob che servono.
+function runGitDefault(args, { lazy = false } = {}) {
+  return execFileSync('git', args, {
+    encoding: 'utf8',
+    maxBuffer: 256 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: 120_000,
+    env: {
+      ...process.env,
+      GIT_LITERAL_PATHSPECS: '1',
+      GIT_OPTIONAL_LOCKS: '0',
+      ...(lazy ? {} : { GIT_NO_LAZY_FETCH: '1' }),
+    },
+  });
+}
+
+/** Errore "l'infrastruttura locale non c'è" (non è un giudizio sul contributo). */
+class LocalGitUnavailable extends Error {}
+
+/**
+ * Elenco `files` (forma della compare API) del contributo `mb...sha` calcolato
+ * con git locale. Una sola `diff --raw` per stato/path e UNA `diff -U0` per le
+ * sole patch dei file CODE (i file dati/static non vengono nemmeno letti), poi
+ * le sezioni si associano per ordine. `patch` parte dal primo hunk, come nella
+ * compare API, così `codeContributionFingerprint` applica lo stesso filtro. Un
+ * file senza hunk (binario, rename puro, solo mode) resta senza `patch`, come
+ * nell'API.
+ */
+function localContributionFiles(sha, runGit) {
+  if (!/^[0-9a-f]{40}$/u.test(sha)) throw new LocalGitUnavailable('sha non esadecimale a 40 caratteri');
+  const probe = (args) => {
+    try { return runGit(args).trim(); } catch (e) {
+      throw new LocalGitUnavailable(`git ${args[0]}: ${String(e.message || e).split('\n')[0].slice(0, 120)}`);
+    }
+  };
+  if (probe(['rev-parse', '--is-shallow-repository']) === 'true') {
+    throw new LocalGitUnavailable('checkout shallow: merge-base non affidabile');
+  }
+  probe(['cat-file', '-e', `${sha}^{commit}`]);
+  let baseRef = null;
+  for (const candidate of [`refs/remotes/origin/${FINGERPRINT_BASE_REF}`, FINGERPRINT_BASE_REF]) {
+    try { runGit(['rev-parse', '--verify', '--quiet', `${candidate}^{commit}`]); baseRef = candidate; break; } catch { /* prossimo */ }
+  }
+  if (!baseRef) throw new LocalGitUnavailable(`ref ${FINGERPRINT_BASE_REF} non presente nel checkout`);
+  const mb = probe(['merge-base', baseRef, sha]);
+  if (!/^[0-9a-f]{40}$/u.test(mb)) throw new LocalGitUnavailable('merge-base non trovato');
+
+  // runGit diretto (non probe): il trim() mangerebbe spazi iniziali/finali dei path.
+  const rawParts = runGit(['diff', '--raw', '-z', '-M', '--no-abbrev', mb, sha], { lazy: true }).split('\0');
+  const entries = [];
+  for (let i = 0; i < rawParts.length;) {
+    const meta = rawParts[i++];
+    if (!meta) continue;
+    const letter = meta.split(/\s+/u).pop()?.[0] ?? '';
+    const status = GIT_RAW_STATUS[letter];
+    if (!meta.startsWith(':') || !status) throw new Error(`riga raw inattesa: ${meta.slice(0, 60)}`);
+    if (letter === 'R' || letter === 'C') {
+      const previous = rawParts[i++];
+      const filename = rawParts[i++];
+      entries.push({ filename, previous_filename: previous, status });
+    } else {
+      entries.push({ filename: rawParts[i++], status });
+    }
+  }
+  const code = entries.filter((f) => !(isNonRuntimeCodePath(f.filename)
+    && (!f.previous_filename || isNonRuntimeCodePath(f.previous_filename))));
+  if (code.length === 0) return [];
+
+  // `git diff` non ha --pathspec-from-file: i path vanno in argv, a lotti sotto
+  // ~60 KB (ARG_MAX di macOS 256 KB). Un rename sta sempre nel suo lotto con
+  // entrambi i path, così il rilevamento non cambia; l'ordine delle sezioni
+  // resta quello dei file code.
+  const sections = [];
+  for (let start = 0; start < code.length;) {
+    let end = start;
+    let bytes = 0;
+    while (end < code.length) {
+      const f = code[end];
+      const size = Buffer.byteLength(f.filename) + (f.previous_filename ? Buffer.byteLength(f.previous_filename) : 0) + 2;
+      if (end > start && bytes + size > 60_000) break;
+      bytes += size;
+      end += 1;
+    }
+    const batch = code.slice(start, end);
+    const paths = [...new Set(batch.flatMap((f) => (f.previous_filename ? [f.previous_filename, f.filename] : [f.filename])))];
+    const diff = runGit(['diff', '--no-color', '--no-ext-diff', '-U0', '-M', mb, sha, '--', ...paths], { lazy: true });
+    const parts = diff.split(/^diff --git /mu).slice(1);
+    if (parts.length !== batch.length) {
+      throw new Error(`sezioni diff (${parts.length}) diverse dai file code (${batch.length})`);
+    }
+    sections.push(...parts);
+    start = end;
+  }
+  return code.map((file, index) => {
+    const body = sections[index];
+    const at = body.search(/^@@ /mu);
+    return at < 0 ? { ...file } : { ...file, patch: body.slice(at).replace(/\n$/u, '') };
+  });
+}
+
+/**
+ * Come `prContributionFingerprint` ma dice PERCHÉ non c'è un fingerprint:
+ *   kind 'ok'           — fingerprint calcolato (`source` 'git' | 'api')
+ *   kind 'truncated'    — la compare API tronca a 300 file e git locale non c'era
+ *   kind 'unverifiable' — un file CODE senza patch (binario/troppo grande/rename
+ *                         puro): l'identità del contributo non è provabile
+ *   kind 'error'        — git locale e API entrambi falliti (es. 403 con il token
+ *                         esaurito): NON è un giudizio sul contributo
+ * Ordine: git locale (nessuna chiamata REST, quindi immune a rate limit e a
+ * troncamenti), poi la compare API come fallback quando il checkout non basta.
+ * `deps` (`runGit`, `ghFn`) serve ai test.
+ */
+export function prContributionFingerprintDetailed(sha, { runGit = runGitDefault, ghFn = gh } = {}) {
+  let localNote = '';
+  try {
+    const files = localContributionFiles(String(sha || ''), runGit);
+    const fingerprint = codeContributionFingerprint(files);
+    if (fingerprint !== null) return { fingerprint, source: 'git', kind: 'ok', detail: `${files.length} file code` };
+    return { fingerprint: null, source: 'git', kind: 'unverifiable', detail: 'file CODE senza patch (binario, rename puro o solo mode)' };
+  } catch (e) {
+    localNote = `git locale non utilizzabile (${String(e?.message || e).slice(0, 160)})`;
+  }
   let mb;
   try {
-    mb = gh(['api', `repos/${REPO}/compare/main...${sha}`, '--jq', '.merge_base_commit.sha'],
+    mb = ghFn(['api', `repos/${REPO}/compare/${FINGERPRINT_BASE_REF}...${sha}`, '--jq', '.merge_base_commit.sha'],
       { json: false }).trim();
-  } catch { return null; }
-  if (!mb) return null;
+  } catch (e) {
+    return { fingerprint: null, source: null, kind: 'error', detail: `${localNote}; compare API merge-base: ${String(e?.message || e).split('\n')[0].slice(0, 160)}` };
+  }
+  if (!mb) return { fingerprint: null, source: null, kind: 'error', detail: `${localNote}; merge-base vuoto dalla compare API` };
   let cmp;
   try {
-    cmp = gh(['api', `repos/${REPO}/compare/${mb}...${sha}`]);
-  } catch { return null; }
-  if (!cmp || !Array.isArray(cmp.files)) return null;
+    cmp = ghFn(['api', `repos/${REPO}/compare/${mb}...${sha}`]);
+  } catch (e) {
+    return { fingerprint: null, source: null, kind: 'error', detail: `${localNote}; compare API: ${String(e?.message || e).split('\n')[0].slice(0, 160)}` };
+  }
+  if (!cmp || !Array.isArray(cmp.files)) {
+    return { fingerprint: null, source: null, kind: 'error', detail: `${localNote}; risposta compare API senza elenco file` };
+  }
   // compare API tronca a 300 file e omette `.patch` su file molto grandi: in
   // entrambi i casi non posso garantire l'identita' -> bail conservativo.
-  if (cmp.files.length >= 300) return null;
-  return codeContributionFingerprint(cmp.files);
+  if (cmp.files.length >= 300) {
+    return { fingerprint: null, source: 'api', kind: 'truncated', detail: `${localNote}; compare API troncata (${cmp.files.length} file, tetto 300)` };
+  }
+  const fingerprint = codeContributionFingerprint(cmp.files);
+  if (fingerprint === null) {
+    return { fingerprint: null, source: 'api', kind: 'unverifiable', detail: `${localNote}; file CODE senza patch nella compare API` };
+  }
+  return { fingerprint, source: 'api', kind: 'ok', detail: localNote };
 }
 
 // File NON reviewabili come code (dati/static rigenerati): esclusi dal
