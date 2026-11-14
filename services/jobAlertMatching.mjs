@@ -940,10 +940,10 @@ function createSubstringMemo() {
 
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
 const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
-const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 64;
+const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
 const DESCRIPTION_TRIGRAM_BLOOM_MASK = DESCRIPTION_TRIGRAM_BLOOM_WORDS * 32 - 1;
 
-/** Build a 2,048-bit negative filter for substrings of one normalized description. */
+/** Build a 4,096-bit negative filter for substrings of one normalized description. */
 function buildDescriptionTrigramBloom(text) {
   const bloom = new Uint32Array(DESCRIPTION_TRIGRAM_BLOOM_WORDS);
   for (let index = 0; index + 2 < text.length; index++) {
@@ -1064,8 +1064,8 @@ export function createJobFeatureStore() {
   const jobIndexByJob = new WeakMap();
   let jobCount = 0;
   const descriptionMemos = new Map();
-  // Only built below the existing 65,536-job ceiling: at 256 bytes each,
-  // description Bloom payload is capped at 16 MiB per run-scoped store.
+  // Only built below the existing 65,536-job ceiling: at 512 bytes each,
+  // description Bloom payload is capped at 32 MiB per run-scoped store.
   const descriptionBloomsByFeatures = new WeakMap();
   const base = (job) => {
     let found = byJob.get(job);
