@@ -2690,9 +2690,83 @@ jobs:
             echo 'required=true' >> "$GITHUB_OUTPUT"
           fi
 
+      # PRs can share the latest successful hourly main snapshot. Its key is
+      # exact and includes the snapshot run id; the manifest independently
+      # checks compatibility and a strict 60-minute age before restoring data.
+      - name: Compute hourly assemble snapshot compatibility
+        id: hourly_snapshot_fingerprint
+        if: ${{ steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        run: node scripts/ci/assemble-test-snapshot.mjs fingerprint
+
+      - name: Check PR changes against assemble inputs
+        id: hourly_snapshot_eligibility
+        if: ${{ steps.assemble.outputs.required == 'true' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+        continue-on-error: true
+        env:
+          CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
+          CHANGED_PATHS_FILE: changed-paths.txt
+        run: node scripts/ci/assemble-test-snapshot.mjs can-use
+
+      - name: Find latest successful hourly assemble snapshot
+        id: latest_hourly_snapshot
+        if: ${{ steps.hourly_snapshot_eligibility.outputs.eligible == 'true' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        continue-on-error: true
+        uses: actions/github-script@v9
+        with:
+          script: |
+            try {
+              const { data } = await github.rest.actions.listWorkflowRuns({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'hourly-test-assemble-snapshot.yml',
+                branch: 'main',
+                status: 'success',
+                per_page: 20,
+              });
+              const now = Date.now();
+              const maxAgeMs = 60 * 60 * 1000;
+              const run = data.workflow_runs.find((candidate) => {
+                // Workflow-run list objects expose updated_at (not completed_at).
+                // The manifest performs the authoritative snapshot-age check.
+                const updatedAt = Date.parse(candidate.updated_at || '');
+                return candidate.head_branch === 'main'
+                  && candidate.conclusion === 'success'
+                  && Number.isFinite(updatedAt)
+                  && now >= updatedAt
+                  && now - updatedAt <= maxAgeMs;
+              });
+              core.setOutput('run_id', run ? String(run.id) : '');
+              core.setOutput('run_attempt', run ? String(run.run_attempt) : '');
+              if (run) core.info(`Using hourly snapshot workflow run ${run.id}`);
+              else core.warning('No successful hourly assemble snapshot completed within the last 60 minutes');
+            } catch (error) {
+              core.setOutput('run_id', '');
+              core.setOutput('run_attempt', '');
+              core.warning(`Could not discover hourly assemble snapshot: ${error.message}`);
+            }
+
+      - name: Restore exact hourly assemble snapshot
+        id: hourly_snapshot_cache
+        if: ${{ steps.latest_hourly_snapshot.outputs.run_id != '' && steps.latest_hourly_snapshot.outputs.run_attempt != '' && steps.hourly_snapshot_fingerprint.outputs.fingerprint != '' }}
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/assemble-jobs-test-snapshot
+          key: assemble-jobs-test-snapshot-${{ runner.os }}-${{ steps.hourly_snapshot_fingerprint.outputs.fingerprint }}-${{ steps.latest_hourly_snapshot.outputs.run_id }}-${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+
+      - name: Validate and restore hourly assemble snapshot
+        id: hourly_snapshot_restore
+        if: ${{ steps.hourly_snapshot_cache.outputs.cache-hit == 'true' }}
+        continue-on-error: true
+        env:
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ID: ${{ steps.latest_hourly_snapshot.outputs.run_id }}
+          ASSEMBLE_TEST_SNAPSHOT_RUN_ATTEMPT: ${{ steps.latest_hourly_snapshot.outputs.run_attempt }}
+        run: node scripts/ci/assemble-test-snapshot.mjs restore
+
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' }}
         # The assembler prints the key it checks itself: a hashFiles() over a
         # subset of its inputs gave exact hits on stale directories, whose save
         # actions/cache then skipped. See the action for the full reason.
@@ -2702,7 +2776,7 @@ jobs:
 
       - name: Cache assemble-jobs output
         id: assemble_cache
-        if: ${{ (steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (steps.assemble.outputs.required == 'true')) && steps.assemble_cache_key.outputs.key != '' }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.assemble.outputs.required == 'true' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' }}
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on the
         # full sha256 of every slice file, of the assembler's import closure
@@ -2780,15 +2854,20 @@ jobs:
         # 32939112340, verde) per lo span «indipendenti start → dataset end».
         env:
           NODE_OPTIONS: --max-old-space-size=8192
+          ASSEMBLE_TEST_SNAPSHOT_RESTORED: ${{ steps.hourly_snapshot_restore.outputs.restored || 'false' }}
         run: |
-          node scripts/assemble-jobs-dataset.mjs --stats
+          if [ "$ASSEMBLE_TEST_SNAPSHOT_RESTORED" != "true" ]; then
+            node scripts/assemble-jobs-dataset.mjs --stats
+          else
+            echo "✅ Restored the validated hourly assemble snapshot; skipping full assembly"
+          fi
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       # Publish the exact snapshot as soon as assembly and migration succeed.
       # Saving here lets main seed the cache before the longer test and review
       # steps, and still runs before any later test failure.
       - name: Save assemble-jobs cache
-        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
+        if: ${{ always() && !cancelled() && steps.body_contract.outcome != 'failure' && steps.assemble_jobs.outcome == 'success' && steps.hourly_snapshot_restore.outputs.restored != 'true' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
