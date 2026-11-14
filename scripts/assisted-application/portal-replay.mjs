@@ -979,6 +979,7 @@ export async function replayWithOneNeutralRetry(options, runReplay = runOnePorta
         totalMetrics[key] = (Number(totalMetrics[key]) || 0) + (Number(current[key]) || 0);
       }
       totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];
+      totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);
       totalMetrics.retryCount = Math.max(Number(totalMetrics.retryCount) || 0, Number(current.retryCount) || 0);
     }
     totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);

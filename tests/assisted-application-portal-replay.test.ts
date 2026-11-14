@@ -606,11 +606,13 @@ describe('portal replay base/head gate', () => {
   it('retains submission security evidence when a neutral retry becomes the final result', () => {
     const source = readFileSync(new URL('../scripts/assisted-application/portal-replay.mjs', import.meta.url), 'utf8');
     expect(source).toContain('totalMetrics.securityViolations = [...new Set([...(totalMetrics.securityViolations || []), ...(current.securityViolations || [])])];');
+    expect(source).toContain('totalMetrics.submissionAttempted = Boolean(totalMetrics.submissionAttempted || current.submissionAttempted);');
+    expect(source).toContain('result.submissionAttempted = Boolean(totalMetrics.submissionAttempted);');
     expect(source).toContain('result.securityViolations = totalMetrics.securityViolations || [];');
     const result = comparePortalReplayFamily({
       family: 'workday',
       baseRecords: [measured('one', 'form')],
-      headRecords: [measured('one', 'form', { securityViolations: ['submission_attempted'] })],
+      headRecords: [measured('one', 'form', { submissionAttempted: true })],
     });
     expect(result.findingCodes).toContain('submission_attempted');
   });
