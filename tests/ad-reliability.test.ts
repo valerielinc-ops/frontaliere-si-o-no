@@ -7,6 +7,7 @@ import { createStaticAdDelivery } from '../services/staticAdDelivery';
 import { probeIabAdBlock } from '../services/iabAdBlockProbe';
 import { installAdRecovery } from '../services/adRecovery';
 import { ADSENSE_LOADER_CONTENT, FC_ENSURE_JS } from '../build-plugins/constants';
+import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
 let dom: JSDOM;
 let w: any;
@@ -240,9 +241,21 @@ describe('IAB detection and independent recovery surface', () => {
     const unknown = local(probeIabAdBlock)(); await vi.advanceTimersByTimeAsync(200);
     await expect(unknown).resolves.toBe('unknown');
   });
-  function recovery(result = 'blocked', state = 'failed', inlineHouseAds = false) {
-    return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example', inlineHouseAds });
+  function recovery(result = 'blocked', state = 'failed', inlineHouseAds = false, readerSubscriptionPaths: readonly string[] = []) {
+    return local(installAdRecovery)(() => Promise.resolve(result), () => ({ load() {}, state: () => state, subscribe() { return () => {}; } }), emit, () => true, { consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', publisherId: 'pub-example', inlineHouseAds, readerSubscriptionPaths });
   }
+  it.each(Object.values(READER_SUBSCRIPTION_PATHS))('does not show ad recovery on reader subscription route %s', async (route) => {
+    dom.reconfigure({ url: `https://frontaliereticino.ch${route}` });
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    recovery('blocked', 'loaded', true, Object.values(READER_SUBSCRIPTION_PATHS));
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(7000);
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
+  });
   it('refreshes inline creatives when the local blocker probe resolves', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
