@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-14T13:54:51.710Z",
+  "updatedAt": "2026-11-14T13:56:39.232Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -670292,12 +670292,12 @@
     },
     "heini-conditorei@luzern": {
       "key": "heini-conditorei@luzern",
-      "status": "promoting",
+      "status": "awaiting_first_crawl",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-01T17:42:57.929Z",
-      "updatedAt": "2026-11-13T14:43:52.830Z",
+      "updatedAt": "2026-11-14T13:56:39.134Z",
       "name": "Heini Conditorei AG",
       "city": "Luzern",
       "zip": "6004",
@@ -670581,7 +670581,13 @@
         }
       ],
       "promotionPr": "18527",
-      "promotionBranch": "prospector/promote-2026-11-13"
+      "promotionBranch": "prospector/promote-2026-11-13",
+      "promotedAt": "2026-11-13T17:56:43Z",
+      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": null,
+      "firstCrawlerJobCount": 0
     },
     "heini.ch": {
       "key": "heini.ch",
@@ -1354863,7 +1354869,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-13T14:43:16.458Z",
+      "updatedAt": "2026-11-14T13:56:39.134Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1355463,7 +1355469,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-13T09:37:20.401Z",
+      "firstCrawlerOutputAt": "2026-11-14T09:48:50.478Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
@@ -2034273,12 +2034279,12 @@
     },
     "stiftung-ilgenhalde@ottikon-b-kemptthal": {
       "key": "stiftung-ilgenhalde@ottikon-b-kemptthal",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-06T11:05:29.657Z",
-      "updatedAt": "2026-11-13T14:43:52.830Z",
+      "updatedAt": "2026-11-14T13:56:39.135Z",
       "name": "STIFTUNG ILGENHALDE",
       "secoEmployerName": "STIFTUNG ILGENHALDE",
       "secoEmployerClassification": "direct",
@@ -2034521,7 +2034527,13 @@
         }
       ],
       "promotionPr": "18527",
-      "promotionBranch": "prospector/promote-2026-11-13"
+      "promotionBranch": "prospector/promote-2026-11-13",
+      "promotedAt": "2026-11-13T17:56:43Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-14T09:22:19.166Z",
+      "firstCrawlerJobCount": 1
     },
     "virbac@zurich": {
       "key": "virbac@zurich",
@@ -2085101,12 +2085113,12 @@
     },
     "fixit@untervaz": {
       "key": "fixit@untervaz",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-12T11:26:53.903Z",
-      "updatedAt": "2026-11-13T14:43:52.830Z",
+      "updatedAt": "2026-11-14T13:56:39.135Z",
       "name": "Fixit AG",
       "secoEmployerName": "Fixit AG",
       "secoEmployerClassification": "direct",
@@ -2085345,7 +2085357,13 @@
         }
       ],
       "promotionPr": "18527",
-      "promotionBranch": "prospector/promote-2026-11-13"
+      "promotionBranch": "prospector/promote-2026-11-13",
+      "promotedAt": "2026-11-13T17:56:43Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-14T09:20:52.422Z",
+      "firstCrawlerJobCount": 1
     },
     "albert-spiess-zweigniederlassung-der-orior-food@schiers": {
       "key": "albert-spiess-zweigniederlassung-der-orior-food@schiers",
