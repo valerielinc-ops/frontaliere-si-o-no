@@ -769,7 +769,11 @@ push_section_shard() {
           else
             _push_rc="$_tree_rc"
           fi
-          shard_phase resumable-git-push
+          if [ "$layout_migration" = 1 ]; then
+            shard_phase resumable-layout-migration
+          else
+            shard_phase resumable-git-push
+          fi
         else
           _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$_delta_message [delta]")"
           shard_phase git-commit
