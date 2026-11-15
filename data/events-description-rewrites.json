@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T16:57:16.663Z",
+  "generatedAt": "2026-11-15T18:25:16.796Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -33900,6 +33900,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T14:26:47.955Z"
     },
+    "guidle:AdL43qn::393bf9ab4ea804f71965ba218e3709dabde64f41b5e3276a992aa510bda65e6e": {
+      "id": "guidle:AdL43qn",
+      "sourceDescriptionHash": "393bf9ab4ea804f71965ba218e3709dabde64f41b5e3276a992aa510bda65e6e",
+      "description": "La visita guidata presenta il lavoro di trucco di scena e la realizzazione di parrucche e maschere. L’attività si svolge all’Opernhaus Zürich, a Zürich.",
+      "descriptionByLocale": {
+        "it": "La visita guidata presenta il lavoro di trucco di scena e la realizzazione di parrucche e maschere. L’attività si svolge all’Opernhaus Zürich, a Zürich.",
+        "en": "This guided tour focuses on stage makeup, wigs and mask-making at Opernhaus Zürich. It takes place in Zürich and presents the work of the opera house’s makeup department.",
+        "de": "Die Führung widmet sich der Maskenbildnerei sowie der Herstellung von Perücken und Masken im Opernhaus Zürich. Sie findet in Zürich statt und gibt Einblicke in den dortigen Maskenbereich.",
+        "fr": "Cette visite guidée présente le travail de maquillage, de création de perruques et de fabrication de masques à l’Opernhaus Zürich. Elle se déroule à Zürich et porte sur les activités du service de maquillage de l’opéra."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T18:20:51.446Z"
+    },
     "guidle:AdLDb7v::636caceb66045adf879d9b76e138390b201ecc040aa9fb8b5c58b14f8bd2acd4": {
       "id": "guidle:AdLDb7v",
       "sourceDescriptionHash": "636caceb66045adf879d9b76e138390b201ecc040aa9fb8b5c58b14f8bd2acd4",
@@ -51651,6 +51665,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T21:15:30.591Z"
+    },
+    "guidle:ArF6Dgy::7d7b9dfdbec395bef1a0f41a34923b9899b2e1ba70ae195dfa9be37e2487d325": {
+      "id": "guidle:ArF6Dgy",
+      "sourceDescriptionHash": "7d7b9dfdbec395bef1a0f41a34923b9899b2e1ba70ae195dfa9be37e2487d325",
+      "description": "Il corso di rilegatura a Bischofszell introduce alle principali fasi della realizzazione artigianale di un libro. I partecipanti preparano il blocco del libro, progettano la copertina e completano la rilegatura; il materiale è incluso e non sono richieste conoscenze pregresse.",
+      "descriptionByLocale": {
+        "it": "Il corso di rilegatura a Bischofszell introduce alle principali fasi della realizzazione artigianale di un libro. I partecipanti preparano il blocco del libro, progettano la copertina e completano la rilegatura; il materiale è incluso e non sono richieste conoscenze pregresse.",
+        "en": "This bookbinding course in Bischofszell covers the main stages of making a hand-bound book. Participants work on the book block, cover design and binding finish, with materials supplied and no previous experience required.",
+        "de": "Der Buchbindekurs in Bischofszell vermittelt die wesentlichen Arbeitsschritte zur Herstellung eines handgebundenen Buches. Die Teilnehmenden fertigen den Buchblock an, gestalten den Umschlag und vollenden den Einband; das Material ist enthalten, Vorkenntnisse werden nicht vorausgesetzt.",
+        "fr": "Ce cours de reliure à Bischofszell présente les principales étapes de fabrication d’un livre relié à la main. Les participants réalisent le bloc du livre, conçoivent la couverture et achèvent la reliure ; le matériel est fourni et aucune expérience préalable n’est nécessaire."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T18:20:31.734Z"
     },
     "guidle:ARFH9PZ::f910c2b4f3437d6a276d89a5e535829dcba36564a147a2465e9ade961b3cd5ed": {
       "id": "guidle:ARFH9PZ",
@@ -192440,8 +192468,8 @@
       "id": "guidle:AbPgWWi",
       "sourceDescriptionHash": "ae3c54041747bbe8bea8400f542c2589b9119c40644c1eba82b34d1d8ea081ac",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:20:44.254Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-15T18:20:05.131Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192568,15 +192596,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:32:51.825Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AdL43qn::393bf9ab4ea804f71965ba218e3709dabde64f41b5e3276a992aa510bda65e6e": {
-      "id": "guidle:AdL43qn",
-      "sourceDescriptionHash": "393bf9ab4ea804f71965ba218e3709dabde64f41b5e3276a992aa510bda65e6e",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:19:12.566Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193621,15 +193640,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T13:45:46.930Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ArF6Dgy::7d7b9dfdbec395bef1a0f41a34923b9899b2e1ba70ae195dfa9be37e2487d325": {
-      "id": "guidle:ArF6Dgy",
-      "sourceDescriptionHash": "7d7b9dfdbec395bef1a0f41a34923b9899b2e1ba70ae195dfa9be37e2487d325",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:29:17.799Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199001,8 +199011,8 @@
       "id": "myswitzerland:fe76ca12d617499c9ac301a36532411d",
       "sourceDescriptionHash": "3195fd5808c1f3051a22a9940c003336f73c91715508b9b7a717eca715aa14cc",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:19:45.779Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-15T18:19:01.786Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199010,8 +199020,8 @@
       "id": "myswitzerland:fedc1dfb30da4686b450dd275c909265",
       "sourceDescriptionHash": "a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:27:51.839Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-15T18:20:07.130Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199991,8 +200001,8 @@
       "id": "tio-agenda:64732",
       "sourceDescriptionHash": "435033b4d87b7d36dcfdce32ef14de385ad33ffe7217fabc9b186535c2059d43",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-15T16:22:43.071Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-15T18:21:12.272Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
