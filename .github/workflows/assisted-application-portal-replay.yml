@@ -113,6 +113,15 @@ jobs:
           }
           base=''
           source=''
+          # The dispatch wrapper uses this impossible commit as its explicit
+          # "no base" value. Treat it like an omitted optional input; other
+          # non-empty values remain explicit bases and are still validated by
+          # the repository API below.
+          unset_base_sha='0000000000000000000000000000000000000001'
+          if [ "$INPUT_BASE_SHA" = "$unset_base_sha" ]; then
+            echo 'portal replay base_sha sentinel received; resolving the automatic base'
+            INPUT_BASE_SHA=''
+          fi
           if [ -n "$INPUT_BASE_SHA" ]; then
             if [[ ! "$INPUT_BASE_SHA" =~ $sha_re ]]; then
               echo '::error::base_sha must be a full 40-character lowercase commit SHA'

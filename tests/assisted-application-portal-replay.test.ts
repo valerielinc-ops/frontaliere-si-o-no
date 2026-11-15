@@ -1081,6 +1081,8 @@ describe('portal replay daily check', () => {
     expect(detect.match(/\$\{\{ inputs\./gu)).toHaveLength(1);
     expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
     expect(detect).toContain("sha_re='^[0-9a-f]{40}$'");
+    expect(detect).toContain("unset_base_sha='0000000000000000000000000000000000000001'");
+    expect(detect).toContain('INPUT_BASE_SHA=\'\'');
     // the lookup is bounded, with a growing backoff
     expect(detect).toContain('for attempt in 1 2 3 4; do');
     expect(detect).toContain('delay=$((attempt * attempt * 15))');
@@ -1294,4 +1296,3 @@ describe('portal replay base resolution', () => {
     expect(run([{ event: 'pull_request', headSha: sha('4'), createdAt: '2026-11-16T01:00:00Z' }])).toBe('');
   });
 });
-
