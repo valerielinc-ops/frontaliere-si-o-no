@@ -1739,6 +1739,10 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       ...(hasRequestedHousekeepingProof && !verifyUnprovenHousekeeping
         ? { housekeepingProof: requestedHousekeepingProof }
         : {}),
+      // The verified wrapper archives the evidence itself. Keep the single
+      // archive call at that decision boundary instead of archiving once
+      // before and once after the retry write.
+      skipRetiredArchive: hasRequestedHousekeepingProof,
       // This wrapper owns the evidence decision. Do not file a parser-health
       // issue until the deterministic housekeeping proof/source probe says
       // whether the shrink is real; a proven quarantine is an accepted write,
@@ -1897,6 +1901,9 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       ...writeOptions,
       skipShrinkGuard: true,
       housekeepingProof,
+      // `verdict.disappearedJobs` was archived immediately above; the retry
+      // must not send the same records through the archive writer again.
+      skipRetiredArchive: true,
     });
     return { written: true, shrinkAccepted: true, verdict, archived };
   }
@@ -2897,6 +2904,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   evidence for every removed job when accepting a source-verified shrink or
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
+ * @param {boolean} [options.skipRetiredArchive] - Internal: the verified
+ *   wrapper already archived the measured removals at its evidence boundary;
+ *   prevents the retry write from duplicating that archive call.
  */
 /**
  * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
@@ -3605,7 +3615,9 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     ? removedJobsForArchive(existingSlice.jobs, mergedJobs)
     : [];
   assertRemovedJobsArchivable(removedJobs, crawlerKey);
-  const archived = archiveRemovedJobsToSlice(removedJobs, crawlerKey);
+  const archived = options.skipRetiredArchive
+    ? 0
+    : archiveRemovedJobsToSlice(removedJobs, crawlerKey);
   if (archived > 0) {
     console.log(
       `  📦 Retired archive guard: archived ${archived} removed job(s) `
