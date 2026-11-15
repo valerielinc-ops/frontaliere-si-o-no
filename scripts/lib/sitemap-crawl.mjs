@@ -13,6 +13,17 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
 
+// Snapshot file format (v4 NDJSON) lives in its own dependency-free module so
+// the validate-dist job, which sparse-checks out only a handful of scripts, can
+// read snapshots without pulling in the crawler. Re-exported here so every
+// consumer keeps one import surface.
+export {
+  SNAPSHOT_FORMAT_VERSION,
+  readSitemapSnapshot,
+  serializeSnapshotChunks,
+  writeSnapshotFile,
+} from './sitemap-snapshot.mjs';
+
 export const DEFAULT_SITEMAP_SEEDS = [
   'sitemap.xml',
   'sitemap-news.xml',
@@ -301,7 +312,10 @@ export async function crawlSitemaps({
     }
     const parsed = parseSitemapXml(xml, options);
     const key = sitemapKey(url, options);
-    records.set(key, { ...parsed, key, url, xml });
+    // The raw XML is deliberately NOT retained: no consumer reads it after the
+    // parse, and on the full local graph it doubled the crawl's resident set
+    // (about 480 MB of strings beside the parsed URL lists).
+    records.set(key, { ...parsed, key, url });
     for (const child of parsed.referencedSitemaps) {
       required.add(child);
       if (!queued.has(child) && !visited.has(child)) {

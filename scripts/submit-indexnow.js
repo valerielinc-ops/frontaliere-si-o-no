@@ -19,6 +19,7 @@ import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 import {
   changedUrls,
   crawlSitemaps,
+  readSitemapSnapshot,
   snapshotFromCrawl,
   snapshotUrls,
 } from './lib/sitemap-crawl.mjs';
@@ -69,10 +70,11 @@ function projectRoot() {
 function parseSnapshotFile(file) {
   if (!existsSync(file)) return null;
   try {
-    const parsed = JSON.parse(readFileSync(file, 'utf8'));
+    const parsed = readSitemapSnapshot(file);
     if (Array.isArray(parsed) || (parsed && typeof parsed === 'object' && parsed.perSitemap)) return parsed;
-  } catch {
+  } catch (error) {
     // A malformed/partial artifact is treated as an absent baseline below.
+    console.warn(`⚠️ Snapshot ${file} ignored: ${error.message}`);
   }
   return null;
 }

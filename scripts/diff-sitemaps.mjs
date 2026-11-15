@@ -10,7 +10,7 @@ import {
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
 } from './lib/sitemap-family-coverage.mjs';
-import { changedUrls, crawlSitemaps, snapshotFromCrawl } from './lib/sitemap-crawl.mjs';
+import { changedUrls, crawlSitemaps, readSitemapSnapshot, snapshotFromCrawl } from './lib/sitemap-crawl.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
 const DIST = process.env.DIST_DIR || 'dist';
@@ -23,7 +23,7 @@ const COVERAGE_DECLARATIONS_FILE = new URL('../data/sitemap-family-coverage-decl
 function loadSnapshot(file) {
   if (!existsSync(file)) return null;
   try {
-    const value = JSON.parse(readFileSync(file, 'utf8'));
+    const value = readSitemapSnapshot(file);
     if (Array.isArray(value)) return value;
     if (value && value.perSitemap) return value;
   } catch (error) {

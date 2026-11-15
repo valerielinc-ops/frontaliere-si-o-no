@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
+import { readSitemapSnapshot } from '../lib/sitemap-snapshot.mjs';
 import { sectionTreeLayout, sectionTreeLayoutAllowed } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import {
   evaluateSitemapFamilyCoverage,
@@ -97,24 +98,42 @@ function localeForUrl(url) {
   return 'it';
 }
 
+// Accepted `version` values of a snapshot object. The shared reader hands back
+// v4 NDJSON files in the v3 in-memory shape, so 3 is what normally arrives;
+// 4 is tolerated for a caller that already normalised differently.
+const SUPPORTED_SNAPSHOT_VERSIONS = new Set([3, 4]);
+
+function isSupportedSnapshot(snapshot) {
+  return Boolean(snapshot) && SUPPORTED_SNAPSHOT_VERSIONS.has(snapshot.version)
+    && Boolean(snapshot.perSitemap) && typeof snapshot.perSitemap === 'object'
+    && !Array.isArray(snapshot.perSitemap);
+}
+
+// `usable:false` means the current snapshot itself is the problem. The caller
+// then skips the URL-by-URL comparison against the page manifests: with no
+// snapshot, every page would otherwise be reported as "absent from the source
+// sitemap bundle" (200 345 cascading errors on publish 43692928043), burying
+// the single root cause reported here.
 function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
   const snapshotPath = path.join(root, 'new-sitemap-urls.json');
   let currentSnapshot;
   try {
-    currentSnapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+    currentSnapshot = readSitemapSnapshot(snapshotPath);
   } catch (error) {
-    errors.push(`current sitemap snapshot is missing or invalid (${error.message})`);
-    return { urlSet, files: [] };
+    errors.push(`current sitemap snapshot is missing or invalid (${error.message}); skipping the URL-by-URL comparison against page manifests`);
+    return { urlSet, files: [], usable: false };
   }
-  if (currentSnapshot?.version !== 3 || !currentSnapshot?.perSitemap
-    || typeof currentSnapshot.perSitemap !== 'object' || Array.isArray(currentSnapshot.perSitemap)) {
-    errors.push('current sitemap snapshot must use schema version 3 with perSitemap URL sets');
-    return { urlSet, files: [] };
+  if (!isSupportedSnapshot(currentSnapshot)) {
+    errors.push('current sitemap snapshot must use schema version 3 or 4 with perSitemap URL sets; skipping the URL-by-URL comparison against page manifests');
+    return { urlSet, files: [], usable: false };
   }
 
   const files = Object.keys(currentSnapshot.perSitemap).sort();
-  if (!files.length) errors.push(`current sitemap snapshot has no URL sets under ${root}`);
+  if (!files.length) {
+    errors.push(`current sitemap snapshot has no URL sets under ${root}; skipping the URL-by-URL comparison against page manifests`);
+    return { urlSet, files, usable: false };
+  }
   for (const [sitemap, urls] of Object.entries(currentSnapshot.perSitemap)) {
     if (!Array.isArray(urls)) {
       errors.push(`${sitemap}: sitemap snapshot URL set is not an array`);
@@ -133,10 +152,8 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
     }
   }
 
-  if (!previousSnapshot || previousSnapshot.version !== 3
-    || !previousSnapshot.perSitemap || typeof previousSnapshot.perSitemap !== 'object'
-    || Array.isArray(previousSnapshot.perSitemap)) {
-    errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3');
+  if (!isSupportedSnapshot(previousSnapshot)) {
+    errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3 or 4');
   } else {
     const coverage = evaluateSitemapFamilyCoverage(
       filterExternallyServedUrlsFromSitemapCoverage(previousSnapshot),
@@ -155,7 +172,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       );
     }
   }
-  return { urlSet, files };
+  return { urlSet, files, usable: true };
 }
 
 function assertManifestHeader(manifest, expected, errors, label) {
@@ -377,7 +394,7 @@ export function validatePublisherFastGate({
     }
   }
 
-  const { urlSet, files: sitemapFiles } = parseSitemapSnapshot(
+  const { urlSet, files: sitemapFiles, usable: sitemapSnapshotUsable } = parseSitemapSnapshot(
     sitemapDir,
     previousSitemapSnapshot,
     sitemapCoverageDeclarations,
@@ -400,8 +417,10 @@ export function validatePublisherFastGate({
       }
     }
   }
-  for (const url of pageByUrl.keys()) {
-    if (!urlSet.has(url)) errors.push(`page manifest URL is absent from the source sitemap bundle: ${url}`);
+  if (sitemapSnapshotUsable) {
+    for (const url of pageByUrl.keys()) {
+      if (!urlSet.has(url)) errors.push(`page manifest URL is absent from the source sitemap bundle: ${url}`);
+    }
   }
   for (const [url, evidence] of archiveEvidenceByUrl) {
     const pageManifest = pageManifestByLocale.get(evidence.locale);
@@ -455,6 +474,18 @@ function parseArgs(argv) {
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 
+// Absent or unreadable baseline -> null, so the gate reports it as an error
+// (fail-closed) instead of crashing before it can write its result file.
+function readPreviousSitemapSnapshot(file) {
+  if (!fs.existsSync(file)) return null;
+  try {
+    return readSitemapSnapshot(file);
+  } catch (error) {
+    console.error(`[publisher-fast-gate] pre-deploy sitemap snapshot unreadable: ${error.message}`);
+    return null;
+  }
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   const pageManifests = jsonFiles(args['page-manifests-dir']);
@@ -469,9 +500,7 @@ function main() {
     sourceSha: args['source-sha'],
     publisherRunId: args['publisher-run-id'],
     sitemapDir: args['sitemaps-dir'],
-    previousSitemapSnapshot: fs.existsSync(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json'))
-      ? readJson(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json'))
-      : null,
+    previousSitemapSnapshot: readPreviousSitemapSnapshot(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json')),
     sitemapCoverageDeclarations: readJson('data/sitemap-family-coverage-declarations.json'),
     pageManifests,
     sectionManifests,
