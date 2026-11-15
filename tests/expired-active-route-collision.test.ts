@@ -11,6 +11,7 @@ import {
 } from '../scripts/assemble-jobs-dataset.mjs';
 import {
   archiveRemovedJobsToSlice,
+  localeRouteKeys,
   repairExpiredRoutesAgainstActive,
 } from '../scripts/lib/expired-jobs-archive.mjs';
 
@@ -205,6 +206,51 @@ describe('repairExpiredRoutesAgainstActive', () => {
         ...(Array.isArray(entry.previousSlugs) ? entry.previousSlugs : []),
       ]).filter((route: string) => route === sharedRoute);
       expect(owners).toHaveLength(1);
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(0);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('repairs a mixed named and identity-less collision at the assembly boundary', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-mixed-identity-route-'));
+    try {
+      const sharedRoute = 'dipl-pflegefachfrau-mann-50-100-kssg-ch';
+      const entries = [
+        {
+          companyKey: 'hoch-health',
+          sourceIdentity: 'url:https://jobs.h-och.ch/job/grabs/1406303133',
+          slug: 'dipl-infermieristica-professionale-50-100-hoch-health',
+          expiredAt: new Date(Date.now() - 86_400_000).toISOString(),
+          slugByLocale: { it: 'dipl-infermieristica-professionale-50-100-hoch-health' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+        {
+          companyKey: 'hoch-health',
+          slug: 'infermiere-a-diplomato-a-50-100-kantonsspital-st-gallen-kssg',
+          expiredAt: new Date(Date.now() - 86_400_000 * 180).toISOString(),
+          slugByLocale: { it: 'infermiere-a-diplomato-a-50-100-kantonsspital-st-gallen-kssg' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+      ];
+      const slicePath = join(root, 'hoch-health.json');
+
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBeGreaterThan(0);
+
+      const persisted = JSON.parse(readFileSync(slicePath, 'utf8'));
+      expect(persisted).toHaveLength(2);
+      const routeOwners = persisted.flatMap((entry: Record<string, unknown>) => [
+        ...localeRouteKeys(entry as never),
+      ]).filter((route: string) => route === `it:${sharedRoute}`);
+      expect(routeOwners).toHaveLength(1);
+      expect(persisted.some((entry: Record<string, unknown>) => entry.sourceIdentity === undefined)).toBe(true);
+
       expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
         source: 'test/issue-17512',
       })).toBe(0);
