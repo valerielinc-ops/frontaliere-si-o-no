@@ -4,27 +4,27 @@
   "generatorSha256": "213a6b6f8204c2c0186c7275d8ec53d20df3f6c4a907f0f73f710683ec96ffb2",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "a52b900fb49810a2c950a2197a77094fc51cfcb7",
-  "sourceCommitVerified": true,
+  "sourceCommit": "cacb42b6ba9126cf5bb5a9af35af4056ae01186c",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "213a6b6f8204c2c0186c7275d8ec53d20df3f6c4a907f0f73f710683ec96ffb2",
     "sourceRef": "main",
-    "sourceCommit": "a52b900fb49810a2c950a2197a77094fc51cfcb7"
+    "sourceCommit": "cacb42b6ba9126cf5bb5a9af35af4056ae01186c"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 705,
+  "crawlerCount": 707,
   "crawlerRosterCardinality": {
-    "sourceCommit": "a52b900fb49810a2c950a2197a77094fc51cfcb7",
+    "sourceCommit": "cacb42b6ba9126cf5bb5a9af35af4056ae01186c",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 705
+    "crawlerCount": 707
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:caf601493f0eccfd7b8d0e1f9a47e10c020927da9948419704dddebe8fd2a656",
+    "rosterDigest": "sha256:e51c4a53a7f9154cb29c99b0c9c9c1e6c4aa34f7db3ca6a21336ed5ef81b5360",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -87,6 +87,7 @@
     "scripts/update-aarreha-schinznach-jobs.mjs",
     "scripts/update-abbott-jobs.mjs",
     "scripts/update-abraxas-jobs.mjs",
+    "scripts/update-absolut-liv-ch-jobs.mjs",
     "scripts/update-accor-jobs.mjs",
     "scripts/update-adullam-jobs.mjs",
     "scripts/update-adus-klinik-jobs.mjs",
@@ -194,6 +195,7 @@
     "scripts/update-clinique-la-source-jobs.mjs",
     "scripts/update-clinique-le-noirmont-jobs.mjs",
     "scripts/update-cnp-jobs.mjs",
+    "scripts/update-cnvo-ch-jobs.mjs",
     "scripts/update-comuni-ticino-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
@@ -1061,8 +1063,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "c9ace2f2e4bff083103afb10fcb0d657ae86771ff5c605838b7aa42aa2b3ce68",
-      "artifactSha256": "f4e695a80ca297e392e113ca126689e7e651af3926c9da97e0a1774dc118aa96",
+      "sourceSha256": "934b4ccbab7ad3aec7753b97f966c2e202d11b2e015be25bc51f87d6b43b245c",
+      "artifactSha256": "a93fb4340aae832dbe81935a77577387f3038a3c4f842a18578ea8233d393be8",
       "generatorSha256": "213a6b6f8204c2c0186c7275d8ec53d20df3f6c4a907f0f73f710683ec96ffb2",
       "members": [
         "jumbo",
@@ -1094,7 +1096,8 @@
         "debiopharm",
         "fondation-domus",
         "sympajobs-reinach-bl",
-        "teo-jakob-ag"
+        "teo-jakob-ag",
+        "cnvo-ch"
       ]
     },
     {
@@ -1458,8 +1461,8 @@
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "679bd3a85eac9cf9e4003a572607aa76a403ffe637ea053a31e5ae32b70e36aa",
-      "artifactSha256": "00b9100ffc0f545a7cf1fc63bc99903d0af1eb2794d7b4a50eb99b48e741f7f4",
+      "sourceSha256": "097d12c33b472d613e1c652ae90b7df8d6b0d70fafb7b8303305a1cba0237993",
+      "artifactSha256": "07939bf59100e0382a30ab6fb3a1d5102b3ec158c206bbea6953ad180a341ef9",
       "generatorSha256": "213a6b6f8204c2c0186c7275d8ec53d20df3f6c4a907f0f73f710683ec96ffb2",
       "members": [
         "ottos",
@@ -1491,7 +1494,8 @@
         "adus-klinik",
         "ist",
         "proman-fleurier",
-        "csem"
+        "csem",
+        "absolut-liv-ch"
       ]
     },
     {

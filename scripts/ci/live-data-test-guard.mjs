@@ -612,6 +612,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'the real merge-driver scenarios create and read the compat shards only inside mkdtemp Git repositories; checkout reads are limited to the scripts and helpers under test',
   },
   {
+    file: 'tests/compat-manifest-lag.test.ts',
+    roots: ['data/seo-404-compat/'],
+    reason: 'the compat shard and manifest paths are created and read only inside mkdtemp Git repositories; the checkout read is limited to the repair and merge helpers under test',
+  },
+  {
     file: 'tests/calculator/calculator-paywall.test.tsx',
     roots: ['services/locales/'],
     evidence: 'review',
