@@ -28,9 +28,6 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // imported module: .../NewsletterPopup.js", ref cwji52). Same rationale as
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
-// Native application offer for human visitors with an ad blocker. Keep it
-// client-only and skip its chunk entirely for known automation and crawlers.
-const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 // Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
 const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
@@ -4559,11 +4556,6 @@ const App: React.FC = () => {
  <SafeLazy boundary="job-search-floating-button">
  <JobSearchFloatingButton />
  </SafeLazy>
- {!isLikelyBot() && !isLikelySearchCrawler() && (
-  <SafeLazy boundary="native-application-offer">
-   <AdBlockGate />
-  </SafeLazy>
- )}
  </div>
  </NavigationContext.Provider>
  </TabContentContext.Provider>

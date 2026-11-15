@@ -660,8 +660,8 @@ g.callbackQueue=g.callbackQueue||[];
 g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){uiSeen=true;if(uiObserver)uiObserver.disconnect();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]===true){grant(act);return;}if(p&&p[1]===false){if(act){if(d.gdprApplies===true&&recoverSilentCmp())return;record(false);return;}if(prev()==='granted')record(false);}});}});
 })();</script>
     <!-- Ad-block bridge (#3654). Funding Choices reports Google's ad-blocker
-         detection result here; the client-only React gate uses it to decide
-         whether to show our native application-service promotion:
+         detection result here; the house-ad runtime uses it to replace eligible
+         unfilled slots, while recovery keeps Google's native allow-ads message:
          measured 2026-06-16..08-17, Google saw ~5% while our own probe saw 2.5%
          of the same population. AD_BLOCK_DATA_READY fires once, and can fire
          before React has mounted, so the answer is stashed on window for
@@ -679,8 +679,8 @@ g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!
     <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_AD_BLOCKER)||eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
 
     <!-- PERF: Funding Choices' consent loader is deferred until after first
-         paint to protect mobile LCP. The client-side ad-block signal still
-         feeds our native promotion after the app mounts. -->
+         paint to protect mobile LCP. Its ad-block signal is stashed for the
+         first-party slot fallback and recovery runtime after the app mounts. -->
     <script>
       (function(){
         function loadFc(){
