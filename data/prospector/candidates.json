@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-15T14:51:48.716Z",
+  "updatedAt": "2026-11-15T14:54:11.243Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -149982,12 +149982,12 @@
     },
     "bank-slm@munsingen": {
       "key": "bank-slm@munsingen",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.360Z",
-      "updatedAt": "2026-11-13T14:43:16.457Z",
+      "updatedAt": "2026-11-15T14:54:11.136Z",
       "name": "Bank SLM AG",
       "city": "Münsingen",
       "zip": "3110",
@@ -150690,11 +150690,11 @@
       "promotionPr": "18328",
       "promotionBranch": "prospector/promote-2026-11-12",
       "promotedAt": "2026-11-12T19:04:26Z",
-      "firstCrawlerOutputStatus": "missing",
+      "firstCrawlerOutputStatus": "published",
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerOutputAt": "2026-11-15T09:26:53.309Z",
+      "firstCrawlerJobCount": 2
     },
     "bank-zimmerberg@horgen": {
       "key": "bank-zimmerberg@horgen",
@@ -1360991,7 +1360991,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-07T13:26:25.365Z",
+      "updatedAt": "2026-11-15T14:54:11.136Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1361212,7 +1361212,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-07T09:48:08.472Z",
+      "firstCrawlerOutputAt": "2026-11-15T09:41:33.966Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1363419,7 +1363419,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-14T13:56:39.134Z",
+      "updatedAt": "2026-11-15T14:54:11.136Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1364019,7 +1364019,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-14T09:48:50.478Z",
+      "firstCrawlerOutputAt": "2026-11-15T09:43:48.686Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
@@ -2008922,12 +2008922,12 @@
     },
     "creditx@sion": {
       "key": "creditx@sion",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-11-03T11:02:22.714Z",
-      "updatedAt": "2026-11-11T14:24:14.468Z",
+      "updatedAt": "2026-11-15T14:54:11.137Z",
       "name": "CreditX Sàrl",
       "secoEmployerName": "CreditX Sàrl",
       "secoEmployerClassification": "direct",
@@ -2009191,11 +2009191,11 @@
       "promotionPr": "16976",
       "promotionBranch": "prospector/promote-2026-11-04",
       "promotedAt": "2026-11-04T15:45:06Z",
-      "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": true,
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-11T12:28:38.008Z",
-      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAt": "2026-11-15T09:43:13.798Z",
+      "firstCrawlerJobCount": 2,
       "firstCrawlerOutputAttentionAt": "2026-11-07T13:26:25.335Z"
     },
     "garage-pro-service@ardon": {
