@@ -39,6 +39,13 @@ const CASES: Case[] = [
     flags: '--active-only --no-summaries',
     sender: 'scripts/send-company-alerts.mjs',
   },
+  {
+    name: 'saved-jobs-digest',
+    workflow: 'send-saved-jobs-digest.yml',
+    jobId: 'send-digest',
+    flags: '--active-only --no-summaries',
+    sender: 'scripts/send-saved-jobs-digest.mjs',
+  },
 ];
 
 // C7 / D1 — dove i flag NON si applicano, e perche.

@@ -77,6 +77,16 @@ const SENDERS: SenderPerimeter[] = [
     mustNotList: [...UNRELATED, 'GEMINI_API_KEY', 'GROQ_API_KEY'],
   },
   {
+    name: 'saved-jobs-digest',
+    workflow: 'send-saved-jobs-digest.yml',
+    jobId: 'send-digest',
+    entryPoints: ['scripts/assemble-jobs-dataset.mjs', 'scripts/send-saved-jobs-digest.mjs'],
+    // Il gestore del webhook Resend e importato in transito ma non viene mai eseguito dal job.
+    extraKeysNotNeededFrom: ['functions/src/newsletterResendWebhookCore.js'],
+    mustList: ['NEWSLETTER_SECRET', 'MAILEROO_API_KEY', 'RESEND_API_KEY'],
+    mustNotList: [...UNRELATED, 'GEMINI_API_KEY', 'GROQ_API_KEY', 'RESEND_WEBHOOK_SECRET'],
+  },
+  {
     name: 'newsletter',
     workflow: 'send-newsletter.yml',
     jobId: 'newsletter',
