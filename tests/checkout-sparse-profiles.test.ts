@@ -761,3 +761,99 @@ describe('materializzazioni sparse dichiarate nel workflow', () => {
     expect([...materialized]).toEqual([]);
   });
 });
+
+/**
+ * Drip e win-back della newsletter: checkout parziale (perf-plan email senders, punto 4).
+ *
+ * Il checkout pieno di questi due job costava ~135-141 s per leggere da Firestore
+ * e spedire. Il profilo era stato tolto in #11775 perche' l'analisi lessicale
+ * metteva `data/jobs/` (702 MB) nei `needs` per un indizio debole (costante
+ * `JOBS: 'jobs'`, frasi dei cataloghi di traduzione): il profilo risultante
+ * pesava oltre 1 GB e il fetch pigro lo rendeva piu' lento del checkout pieno.
+ * Ora l'analisi di questi due job e' stretta (per modulo, senza commenti, senza
+ * cataloghi di traduzione) e il profilo e' sotto i 400 MB.
+ *
+ * Il test fallisce se un modulo importato dai due script, un percorso letterale
+ * dei loro moduli o un import di dati esce dal profilo: e' il caso del mese dopo,
+ * quando qualcuno fa leggere `data/jobs/` a un modulo che prima non lo leggeva.
+ */
+describe('drip e win-back: checkout parziale', () => {
+  const CASES = [
+    { file: 'send-onboarding-drip.yml', job: 'drip', maxMb: 400 },
+    { file: 'newsletter-dormant-winback.yml', job: 'dormant-winback', maxMb: 400 },
+  ];
+  const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
+
+  const load = (file: string, jobId: string) => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(WF_DIR, file), 'utf8'), { logLevel: 'silent' });
+    const job = workflow?.jobs?.[jobId];
+    const checkouts = (job?.steps ?? []).filter(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparse = String(checkouts[0]?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+    return { job, checkouts, sparse };
+  };
+
+  for (const { file, job: jobId, maxMb } of CASES) {
+    it(`${file}: profilo sparse non-cone senza passo che lo disabilita`, () => {
+      const { job, checkouts, sparse } = load(file, jobId);
+      expect(checkouts).toHaveLength(1);
+      expect(checkouts[0].with['sparse-checkout-cone-mode']).toBe(false);
+      expect(sparse[0]).toBe('/*');
+      // Le due foglie pesanti che i job non leggono sono escluse.
+      expect(sparse).toContain('!/data/jobs/');
+      expect(sparse).toContain('!/public/images/');
+      const runs = (job.steps ?? []).map((step: any) => String(step?.run ?? '')).join('\n');
+      expect(runs).not.toMatch(/sparse-checkout\s+(?:disable|set|add)/);
+      expect(fs.readFileSync(path.join(WF_DIR, file), 'utf8')).not.toContain('checkout profile: intentionally full');
+    });
+
+    it(`${file}: il checkout risultante resta sotto la soglia di convenienza`, () => {
+      const analysis = analyzeAll().find((w) => w.file === file);
+      const analyzed = analysis?.jobs.find((j) => j.jobId === jobId);
+      expect(analyzed).toBeDefined();
+      expect(analyzed!.aboveCrossover).toBe(false);
+      expect(analyzed!.needs).not.toContain('data/jobs/');
+      expect(analyzed!.needs).not.toContain('public/images/');
+      expect(analyzed!.checkoutMb).toBeLessThanOrEqual(maxMb);
+      expect(analyzed!.checkoutMb).toBeLessThan(CROSSOVER_MB);
+    }, TIMEOUT);
+
+    it(`${file}: nessun modulo importato, percorso letterale o import di dati esce dal profilo`, () => {
+      const { job, sparse } = load(file, jobId);
+      const runs = (job.steps ?? []).map((step: any) => String(step?.run ?? '')).join('\n');
+      const entries = checkoutEntryPoints(runs, pkg.scripts);
+      expect(entries.length).toBeGreaterThan(0);
+      const closure = transitiveClosure(entries);
+      expect(closure.length).toBeGreaterThan(10);
+
+      const outside: string[] = [];
+      for (const { rel, src } of closure) {
+        if (isExcludedBy(sparse, rel)) outside.push(`${rel} (modulo caricato)`);
+        const code = /\.(?:mjs|cjs|js|mts|cts|tsx?)$/i.test(rel) ? stripSourceComments(src) : src;
+        for (const literal of literalPathsIn(code, rel)) {
+          if (isExcludedBy(sparse, literal)) outside.push(`${rel} -> ${literal} (percorso letterale)`);
+        }
+        for (const imported of importedDataOrPublicPathsIn(code)) {
+          if (isExcludedBy(sparse, imported)) outside.push(`${rel} -> ${imported} (import di dati)`);
+        }
+      }
+      expect(
+        outside,
+        `${file}: un modulo del job legge un percorso escluso dal checkout parziale. Se la dipendenza e' accidentale rendila leggera; se e' reale togli il profilo (e documenta la misura).`,
+      ).toEqual([]);
+      expect(closure.some(({ rel }) => rel.startsWith('data/jobs/') || rel.startsWith('public/images/'))).toBe(false);
+    }, TIMEOUT);
+  }
+
+  it('i due script restano sul perimetro del test: gli entry point sono quelli attesi', () => {
+    const drip = load('send-onboarding-drip.yml', 'drip');
+    const winback = load('newsletter-dormant-winback.yml', 'dormant-winback');
+    const runs = (job: any) => (job.steps ?? []).map((step: any) => String(step?.run ?? '')).join('\n');
+    expect(checkoutEntryPoints(runs(drip.job), pkg.scripts)).toContain('scripts/send-onboarding-drip.mjs');
+    expect(checkoutEntryPoints(runs(winback.job), pkg.scripts)).toContain('scripts/newsletter-winback-campaign.mjs');
+  });
+});
