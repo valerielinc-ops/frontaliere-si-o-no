@@ -4500,9 +4500,13 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
     // normal return path so the caller repairs route ownership against the
     // active dataset and persists the repaired archive below.
     normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
-    relabelExpiredArchiveEntries(legacyEntries);
-    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
-    return legacyEntries;
+    const collapsedLegacy = collapseDuplicateRouteEntries(legacyEntries, {
+      source: 'assemble-jobs-dataset/expired-legacy',
+      repairUnprovenCollisions: true,
+    });
+    relabelExpiredArchiveEntries(collapsedLegacy.entries);
+    console.log(`  📄 No per-crawler expired slices: carried ${collapsedLegacy.entries.length} legacy archive entries into assembly`);
+    return collapsedLegacy.entries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
