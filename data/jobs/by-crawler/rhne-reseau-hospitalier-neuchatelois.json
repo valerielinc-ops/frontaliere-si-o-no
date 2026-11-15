@@ -259,12 +259,12 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-5a37e715bc18",
-      "slug": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
         "fr": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "it": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        "it": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "100-ergotherapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "100-ergotherapeut-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
@@ -327,7 +327,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:28:43.403Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:28:43.403Z"
+      "firstSeenAt": "2026-11-15T09:28:43.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-72c40bab4ad1",

@@ -683,12 +683,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-1c9d3e4b2be2",
-      "slug": "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-a-diplomato-a-o-operatore-trice-sociosanitario-a-per-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "it": "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "fr": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        "it": "infermiere-a-diplomato-a-o-operatore-trice-sociosanitario-a-per-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden",
+        "en": "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -736,11 +736,19 @@
       "externalId": "4099869",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -763,12 +771,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-809ec89c4cda",
-      "slug": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "co-team-leadership-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "co-team-leadership-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "co-equipe-soins-de-leadership-somatique-aigue-focus-medecine-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -831,7 +839,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:22:14.551Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:53:36.275Z"
+      "firstSeenAt": "2026-09-19T22:53:36.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-6ce95ae5029f",

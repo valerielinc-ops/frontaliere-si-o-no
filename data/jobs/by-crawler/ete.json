@@ -92,12 +92,12 @@
     },
     {
       "id": "ete-d0e3a3f04e1e",
-      "slug": "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0",
+      "slug": "driver-resistente-c-e-m-f-emil-egger-ag-avenches-d0e3a3f0",
       "slugByLocale": {
         "fr": "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0",
-        "it": "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0",
-        "en": "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0",
-        "de": "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0"
+        "it": "driver-resistente-c-e-m-f-emil-egger-ag-avenches-d0e3a3f0",
+        "en": "heavy-duty-driver-c-e-m-f-emil-egger-ag-avenches-d0e3a3f0",
+        "de": "schwerlastfahrer-c-e-m-w-emil-egger-ag-avenches-d0e3a3f0"
       },
       "slugDisambiguator": "d0e3a3f0",
       "company": "Emil Egger AG",
@@ -160,7 +160,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:17:38.637Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:17:38.637Z"
+      "firstSeenAt": "2026-11-15T09:17:38.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0"
+        ],
+        "en": [
+          "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0"
+        ],
+        "de": [
+          "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-poids-lourds-c-e-h-f-emil-egger-ag-avenches-d0e3a3f0"
+      ]
     },
     {
       "id": "ete-bff7dcfa467f",

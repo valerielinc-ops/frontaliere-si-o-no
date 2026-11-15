@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seiro-3f911b5b51df",
-      "slug": "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
+      "slug": "specialista-medicina-interna-specialista-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
       "slugByLocale": {
         "de": "facharztin-facharzt-innere-medizin-st-gallen-seiro-seiro-gmbh-st-gallen",
-        "it": "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
-        "en": "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
-        "fr": "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+        "it": "specialista-medicina-interna-specialista-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "en": "specialist-specialist-internal-medicine-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "fr": "specialiste-specialiste-en-medecine-interne-st-gallen-seiro-gmbh-st-gallen-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -72,16 +72,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.371Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.371Z"
+      "firstSeenAt": "2026-11-15T09:29:16.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-innere-medizin-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+      ]
     },
     {
       "id": "seiro-149d9820ec96",
-      "slug": "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch",
+      "slug": "medico-senior-medico-senior-di-eta-psichiatria-lucerne-seiro-seiro-gmbh-luzern-luzern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch",
-        "it": "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch",
-        "en": "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch",
-        "fr": "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch"
+        "it": "medico-senior-medico-senior-di-eta-psichiatria-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "en": "senior-physician-senior-physician-of-age-psychiatry-lucerne-seiro-seiro-gmbh-luzern-luzern",
+        "fr": "medecin-superieur-medecin-superieur-de-psychiatrie-d-age-lucerne-seiro-gmbh-luzern-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -143,16 +157,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.371Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.371Z"
+      "firstSeenAt": "2026-11-15T09:29:16.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-alterspsychiatrie-luzern-seiro-luzern-luzern-seiro-ch"
+      ]
     },
     {
       "id": "seiro-6c19f671f97e",
-      "slug": "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch",
+      "slug": "senior-doctor-senior-doctor-radiology-basel-seiro-seiro-gmbh-basel-basel-stadt",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-basel-seiro-seiro-gmbh-basel",
-        "it": "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch",
-        "en": "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch",
-        "fr": "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch"
+        "it": "senior-doctor-senior-doctor-radiology-basel-seiro-seiro-gmbh-basel-basel-stadt",
+        "en": "senior-physician-senior-physician-radiology-basel-seiro-seiro-gmbh-basel-basel-stadt",
+        "fr": "medecin-senior-medecin-senior-radiologie-basel-seiro-seiro-gmbh-basel-basel-stadt"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -214,7 +242,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.370Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.370Z"
+      "firstSeenAt": "2026-11-15T09:29:16.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-basel-seiro-basel-basel-stadt-seiro-ch"
+      ]
     },
     {
       "id": "seiro-19bec38bf13b",
@@ -222,8 +264,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch",
         "it": "oberarztin-oberarzt-psychiatrie-e-psychosomatik-prattigau-seiro-gmbh-seewis-dorf",
-        "en": "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch",
-        "fr": "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch"
+        "en": "senior-physician-senior-physician-psychiatry-and-psychosomatics-prattigau-seiro-seiro-gmbh-seewis-dorf",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-et-psychosomatique-prattigau-seiro-gmbh-seewis-dorf"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -272,6 +314,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-und-psychosomatik-prattigau-seiro-seewis-dorf-seiro-ch"
         ]
       },
       "previousSlugs": [
@@ -298,12 +346,12 @@
     },
     {
       "id": "seiro-bc725afbbb5d",
-      "slug": "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen",
+      "slug": "specialista-medicina-clinica-specialistica-di-emergenza-schaffhausen-seiro-seiro-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen",
-        "it": "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen",
-        "en": "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen",
-        "fr": "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen"
+        "it": "specialista-medicina-clinica-specialistica-di-emergenza-schaffhausen-seiro-seiro-gmbh-schaffhausen-schaffhausen",
+        "en": "specialist-specialist-clinical-emergency-medicine-schaffhausen-seiro-seiro-gmbh-schaffhausen-schaffhausen",
+        "fr": "specialiste-specialiste-en-medecine-clinique-d-urgence-schaffhausen-seiro-gmbh-schaffhausen-schaffhausen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -365,16 +413,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.369Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.369Z"
+      "firstSeenAt": "2026-11-15T09:29:16.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-klinische-notfallmedizin-schaffhausen-seiro-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "seiro-69ec26a1f9d2",
-      "slug": "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen",
+      "slug": "senior-medico-senior-medico-psichiatria-per-adulti-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen",
-        "it": "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen",
-        "en": "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen",
-        "fr": "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen"
+        "it": "senior-medico-senior-medico-psichiatria-per-adulti-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "en": "senior-physician-senior-physician-adult-psychiatry-wil-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "fr": "medecin-senior-medecin-senior-psychiatrie-pour-adultes-seiro-gmbh-st-gallen-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -421,14 +483,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-st-gallen-sankt-gallen-seiro-ch"
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-st-gallen-sankt-gallen-seiro-ch",
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen"
         ],
         "de": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-st-gallen-sankt-gallen-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-st-gallen-sankt-gallen-seiro-ch"
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-st-gallen-sankt-gallen-seiro-ch",
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-wil-seiro-seiro-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -451,12 +521,12 @@
     },
     {
       "id": "seiro-6d72227d37c4",
-      "slug": "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch",
+      "slug": "specialista-specialista-heimarztpraxis-zurich-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch",
-        "en": "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch",
-        "fr": "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch"
+        "it": "specialista-specialista-heimarztpraxis-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "en": "specialist-specialist-heimarztpraxis-zurich-seiro-seiro-gmbh-zurich-zurich",
+        "fr": "specialiste-specialiste-heimarztpraxis-zurich-seiro-seiro-gmbh-zurich-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -518,16 +588,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.368Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.368Z"
+      "firstSeenAt": "2026-11-15T09:29:16.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-heimarztpraxis-zurich-seiro-zurich-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-f8cf87b18f09",
-      "slug": "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
+      "slug": "medica-caposervizio-medico-caposervizio-in-psichiatria-di-consultazione-e-di-liaison-a-winterthur-seiro-seiro-gmbh",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur",
-        "it": "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
-        "en": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur",
-        "fr": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
+        "it": "medica-caposervizio-medico-caposervizio-in-psichiatria-di-consultazione-e-di-liaison-a-winterthur-seiro-seiro-gmbh",
+        "en": "senior-physician-senior-physician-consultant-and-liaison-psychiatry-winterthur-seiro-seiro-gmbh-winterthur-zurich",
+        "fr": "medecin-principal-medecin-conseil-principal-et-psychiatrie-de-liaison-winterthur-seiro-gmbh-winterthur-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -574,14 +658,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich"
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich",
+          "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur"
         ],
         "de": [
           "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich"
+        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich",
+        "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
+        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -604,12 +697,12 @@
     },
     {
       "id": "seiro-90bebc52cd74",
-      "slug": "oberarztin-oberarzt-alters-e-neuropsychiatrie-sg-seiro-gmbh-st-gallen",
+      "slug": "medica-caposervizio-medico-caposervizio-in-psichiatria-geriatrica-e-neuropsichiatria-sg-seiro-seiro-gmbh-st-gallen-sankt",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen",
-        "it": "oberarztin-oberarzt-alters-e-neuropsychiatrie-sg-seiro-gmbh-st-gallen",
-        "en": "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen",
-        "fr": "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen"
+        "it": "medica-caposervizio-medico-caposervizio-in-psichiatria-geriatrica-e-neuropsichiatria-sg-seiro-seiro-gmbh-st-gallen-sankt",
+        "en": "senior-physician-senior-physician-aging-and-neuropsychiatry-sg-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "fr": "medecin-aine-medecin-aine-vieillissement-et-neuropsychiatrie-seiro-gmbh-st-gallen-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -656,14 +749,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-st-gallen-sankt-gallen-seiro-ch"
+          "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-st-gallen-sankt-gallen-seiro-ch",
+          "oberarztin-oberarzt-alters-e-neuropsychiatrie-sg-seiro-gmbh-st-gallen"
         ],
         "de": [
           "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-st-gallen-sankt-gallen-seiro-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-st-gallen-sankt-gallen-seiro-ch"
+        "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-st-gallen-sankt-gallen-seiro-ch",
+        "oberarztin-oberarzt-alters-e-neuropsychiatrie-sg-seiro-gmbh-st-gallen",
+        "oberarztin-oberarzt-alters-und-neuropsychiatrie-sg-seiro-seiro-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -686,12 +788,12 @@
     },
     {
       "id": "seiro-7613f2a740d9",
-      "slug": "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch",
+      "slug": "gp-gp-medicina-interna-davos-seiro-seiro-gmbh-davos-platz",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch",
-        "it": "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch",
-        "en": "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch",
-        "fr": "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch"
+        "it": "gp-gp-medicina-interna-davos-seiro-seiro-gmbh-davos-platz",
+        "en": "gp-gp-internal-medicine-davos-seiro-seiro-gmbh-davos-platz",
+        "fr": "gp-gp-medecine-interne-davosseiro-seiro-gmbh-davos-platz"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -753,7 +855,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:29:16.366Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:29:16.366Z"
+      "firstSeenAt": "2026-11-15T09:29:16.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-innere-medizin-davos-seiro-davos-platz-seiro-ch"
+      ]
     },
     {
       "id": "seiro-e39a457e9727",

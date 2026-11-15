@@ -2040,12 +2040,12 @@
     },
     {
       "id": "okjob-f0b3061b36a1",
-      "slug": "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
+      "slug": "montaggio-in-ponteggio-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
       "slugByLocale": {
         "fr": "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
-        "it": "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
-        "en": "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
-        "de": "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
+        "it": "montaggio-in-ponteggio-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
+        "en": "mount-in-scaffolding-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b",
+        "de": "halterung-im-gerust-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
       },
       "slugDisambiguator": "f0b3061b",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2108,16 +2108,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:32:53.611Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:32:53.611Z"
+      "firstSeenAt": "2026-11-15T09:32:53.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
+        ],
+        "en": [
+          "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
+        ],
+        "de": [
+          "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-en-echafaudages-ok-job-sa-succursale-di-mendrisio-1700-fribourg-f0b3061b"
+      ]
     },
     {
       "id": "okjob-677b1bad62dc",
-      "slug": "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
+      "slug": "crane-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
       "slugByLocale": {
         "fr": "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
-        "it": "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
+        "it": "crane-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
         "en": "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad",
-        "de": "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad"
+        "de": "kran-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad"
       },
       "slugDisambiguator": "677b1bad",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2180,16 +2194,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:32:53.611Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:32:53.611Z"
+      "firstSeenAt": "2026-11-15T09:32:53.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad"
+        ],
+        "de": [
+          "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad"
+        ]
+      },
+      "previousSlugs": [
+        "grutier-ok-job-sa-succursale-di-mendrisio-1700-fribourg-677b1bad"
+      ]
     },
     {
       "id": "okjob-6b3a41f413d6",
-      "slug": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel",
+      "slug": "ergoterapista-diplomato-a-terapia-della-mano-80-100-m-f-d-a-tempo-determinato-per-1-ok-job-sa-succursale-di-6b3a41f4",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4",
-        "it": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel",
-        "en": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4",
-        "fr": "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4"
+        "it": "ergoterapista-diplomato-a-terapia-della-mano-80-100-m-f-d-a-tempo-determinato-per-1-ok-job-sa-succursale-di-6b3a41f4",
+        "en": "qualified-occupational-therapist-hand-therapy-80-100-m-f-d-fixed-term-for-1-ok-job-sa-succursale-di-mendrisio-6b3a41f4",
+        "fr": "ergotherapeute-diplome-e-en-therapie-de-la-main-80-100-h-f-d-a-duree-determinee-pour-1-ok-job-sa-succursale-di-6b3a41f4"
       },
       "slugDisambiguator": "6b3a41f4",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2237,11 +2262,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4",
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4"
+        ],
+        "fr": [
           "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4"
         ]
       },
       "previousSlugs": [
-        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4"
+        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-fur-1-ok-job-sa-succursale-di-mendrisio-4051-basel-6b3a41f4",
+        "dipl-ergotherapeut-in-handtherapie-80-100-m-w-d-befristet-per-1-ok-job-sa-succursale-di-mendrisio-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2264,12 +2297,12 @@
     },
     {
       "id": "okjob-bcd55425bded",
-      "slug": "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
+      "slug": "carpenter-carpentiere-del-laboratorio-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
       "slugByLocale": {
         "fr": "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
-        "it": "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
-        "en": "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
-        "de": "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
+        "it": "carpenter-carpentiere-del-laboratorio-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
+        "en": "workshop-carpenter-carpenter-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425",
+        "de": "werkstatt-schreiner-schreiner-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
       },
       "slugDisambiguator": "bcd55425",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2332,16 +2365,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:32:53.610Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:32:53.610Z"
+      "firstSeenAt": "2026-11-15T09:32:53.610Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
+        ],
+        "en": [
+          "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
+        ],
+        "de": [
+          "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
+        ]
+      },
+      "previousSlugs": [
+        "menuisier-d-atelier-charpentier-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-bcd55425"
+      ]
     },
     {
       "id": "okjob-e4b6e228faba",
-      "slug": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228",
+      "slug": "specialista-di-carne-specialista-di-carne-pianta-di-taglio-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-e4b6e228",
       "slugByLocale": {
         "de": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228",
-        "it": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228",
-        "en": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228",
-        "fr": "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228"
+        "it": "specialista-di-carne-specialista-di-carne-pianta-di-taglio-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-e4b6e228",
+        "en": "meat-specialist-meat-specialist-cutting-plant-m-f-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228",
+        "fr": "specialiste-de-la-viande-specialiste-de-la-viande-usine-de-coupe-h-f-d-100-ok-job-sa-succursale-di-mendrisio-e4b6e228"
       },
       "slugDisambiguator": "e4b6e228",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2404,16 +2451,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:32:53.609Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:32:53.609Z"
+      "firstSeenAt": "2026-11-15T09:32:53.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228"
+        ],
+        "en": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228"
+        ],
+        "fr": [
+          "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228"
+        ]
+      },
+      "previousSlugs": [
+        "fleischfachmann-fleischfachfrau-zerlegerei-m-w-d-100-ok-job-sa-succursale-di-mendrisio-4051-basel-e4b6e228"
+      ]
     },
     {
       "id": "okjob-95061ff10fe3",
-      "slug": "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
+      "slug": "macchinista-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
       "slugByLocale": {
         "fr": "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
-        "it": "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
-        "en": "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
-        "de": "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
+        "it": "macchinista-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
+        "en": "machinist-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1",
+        "de": "maschinist-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
       },
       "slugDisambiguator": "95061ff1",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2476,7 +2537,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:32:53.608Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:32:53.608Z"
+      "firstSeenAt": "2026-11-15T09:32:53.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
+        ],
+        "en": [
+          "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
+        ],
+        "de": [
+          "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
+        ]
+      },
+      "previousSlugs": [
+        "machiniste-m2-ok-job-sa-succursale-di-mendrisio-1700-fribourg-95061ff1"
+      ]
     }
   ]
 }

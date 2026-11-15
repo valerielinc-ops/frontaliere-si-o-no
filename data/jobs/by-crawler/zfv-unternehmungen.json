@@ -341,7 +341,7 @@
         "de": "bar-service-mitarbeiter-in-40-zfv-unternehmungen-basel",
         "it": "bar-service-collaboratore-trice-40-zfv-unternehmungen-basel",
         "en": "bar-service-mitarbeiter-in-40-zfv-unternehmungen-basel",
-        "fr": "bar-service-mitarbeiter-in-40-zfv-unternehmungen-basel"
+        "fr": "bar-service-collaborateur-trice-40-zfv-unternehmungen-basel"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -389,6 +389,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bar-service-mitarbeiter-in-40-zfv-unternehmungen-basel"
+        ],
+        "fr": [
           "bar-service-mitarbeiter-in-40-zfv-unternehmungen-basel"
         ]
       },
@@ -1994,12 +1997,12 @@
     },
     {
       "id": "zfv-unternehmungen-f5b48d231794",
-      "slug": "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw",
+      "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-horw",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw",
-        "it": "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw",
-        "fr": "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw"
+        "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-horw",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-horw",
+        "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-horw"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2061,7 +2064,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-13T09:27:40.132Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:27:40.132Z"
+      "firstSeenAt": "2026-11-15T09:27:40.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-horw"
+      ]
     },
     {
       "id": "zfv-unternehmungen-73b7c721f3c7",
@@ -2479,10 +2496,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
         "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2528,20 +2545,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cucinare-cucinare-zfv-unternehmungen-baden",
-        "cuire-cuire-zfv-unternehmungen-baden"
+        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden",
-          "cucinare-cucinare-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuire-cuire-zfv-unternehmungen-baden"
+          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -2650,7 +2665,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
-        "en": "cook-65-zfv-unternehmungen-basel",
+        "en": "kochin-koch-65-zfv-unternehmungen-basel",
         "de": "kochin-koch-zfv-unternehmungen-basel-i8lq6g",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-basel-39bb96"
       },
@@ -2696,14 +2711,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-65-zfv-unternehmungen-basel"
+        "kochin-koch-65-zfv-unternehmungen-basel",
+        "cook-65-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-65-zfv-unternehmungen-basel"
         ],
         "en": [
-          "kochin-koch-65-zfv-unternehmungen-basel"
+          "cook-65-zfv-unternehmungen-basel"
         ],
         "de": [
           "kochin-koch-65-zfv-unternehmungen-basel"
@@ -4312,12 +4328,12 @@
     },
     {
       "id": "zfv-unternehmungen-6f041bded663",
-      "slug": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich",
+      "slug": "cuoca-cuoco-con-funzione-di-vice-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich",
-        "it": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich",
-        "en": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich",
-        "fr": "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich"
+        "it": "cuoca-cuoco-con-funzione-di-vice-zfv-unternehmungen-zurich",
+        "en": "cook-chef-with-deputy-responsibilities-zfv-unternehmungen-zurich",
+        "fr": "cuisiniere-cuisinier-avec-fonction-de-suppleance-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4379,7 +4395,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-13T09:27:19.649Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:27:19.649Z"
+      "firstSeenAt": "2026-11-15T09:27:19.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-mit-stv-funktion-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-a5e9e7bd0876",
@@ -6048,7 +6078,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -6100,14 +6130,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -6263,8 +6291,8 @@
       "slugByLocale": {
         "de": "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur",
         "it": "service-collaboratore-trice-fruhstuck-aushilfe-zfv-unternehmungen-winterthur",
-        "en": "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur",
-        "fr": "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur"
+        "en": "breakfast-service-staff-member-temporary-worker-zfv-unternehmungen-winterthur",
+        "fr": "employe-e-de-service-petit-dejeuner-auxiliaire-zfv-unternehmungen-winterthur"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6312,6 +6340,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur"
+        ],
+        "en": [
+          "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur"
+        ],
+        "fr": [
           "service-mitarbeiter-in-fruhstuck-aushilfe-zfv-unternehmungen-winterthur"
         ]
       },
