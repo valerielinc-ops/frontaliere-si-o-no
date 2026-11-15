@@ -1586,9 +1586,16 @@ step_drop_assets() {
 # deploy.yml: "Capture pre-deploy sitemap URLs" — NON-FATAL.
 # Writes /tmp/pre-deploy-sitemap-urls.json.
 step_capture_sitemaps() {
-  if ! node scripts/capture-deployed-sitemaps.mjs; then
+  local _cap_log _cap_cause
+  _cap_log="$(mktemp 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/capture-sitemaps.$$.log")"
+  if ! node scripts/capture-deployed-sitemaps.mjs 2>&1 | tee "$_cap_log"; then
+    # Still NON-FATAL, but the publisher gate treats a missing pre-deploy
+    # snapshot as an error, so the cause must be visible on the run.
+    _cap_cause="$(grep -m1 'Sitemap snapshot failed' "$_cap_log" 2>/dev/null | tr -d '\r' | cut -c1-300)"
+    echo "::error title=Sitemap snapshot (pre-deploy)::${_cap_cause:-pre-deploy-sitemap-urls.json was not produced (see the capture log above)}"
     echo '⚠️ pre-deploy sitemap capture failed — IndexNow will reconcile the full current build graph'
   fi
+  rm -f "$_cap_log"
 }
 
 # ── 7. Pack new sitemap URLs from dist/ ───────────────────────────────────────
@@ -1601,10 +1608,19 @@ step_pack_new_sitemaps() {
     echo 'dist/ missing — skipping new-sitemap-urls.json'
     return 0
   fi
+  # Stays NON-FATAL (the Pages deploy must still go out) but the cause is now an
+  # error annotation on the run: without new-sitemap-urls.json the publisher's
+  # fail-closed gate cannot pass and the post-deploy publish job is skipped, and
+  # the old bare warning hid why (publish 43692928043: "Invalid string length").
+  local _pack_log _pack_cause
+  _pack_log="$(mktemp 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/pack-new-sitemaps.$$.log")"
   if ! SOURCE=local LOCAL_ROOT=dist OUTPUT=/tmp/new-sitemap-urls.json \
-    node scripts/capture-deployed-sitemaps.mjs; then
+    node scripts/capture-deployed-sitemaps.mjs 2>&1 | tee "$_pack_log"; then
+    _pack_cause="$(grep -m1 'Sitemap snapshot failed' "$_pack_log" 2>/dev/null | tr -d '\r' | cut -c1-300)"
+    echo "::error title=Sitemap snapshot::${_pack_cause:-new-sitemap-urls.json was not produced (see the capture log above)}; the publisher gate will fail closed and the post-deploy publish job will not run"
     echo '⚠️ new sitemap graph packing failed — post-deploy IndexNow will use its safe local fallback'
   fi
+  rm -f "$_pack_log"
 }
 
 # ── 8. Stage sitemaps bundle (pre-deploy + new + build-id) ────────────────────

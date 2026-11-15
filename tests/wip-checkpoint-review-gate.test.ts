@@ -96,10 +96,17 @@ describe('issue-fix non consegna mai un checkpoint WIP come HEAD della PR', () =
     // push normale, mai force
     expect(finalize.run).not.toMatch(/--force|\+HEAD|--delete|git push[^\n]*\s-f(?:\s|$)/u);
     expect(finalize.run).toContain('git push origin "HEAD:refs/heads/$BRANCH"');
+    // precondizioni prima del commit: token della App e albero pulito
+    const commitAt = finalize.run.indexOf('git commit -q --allow-empty');
+    expect(finalize.run.indexOf('if [ -z "${APP_TOKEN:-}" ]')).toBeGreaterThan(0);
+    expect(finalize.run.indexOf('if [ -z "${APP_TOKEN:-}" ]')).toBeLessThan(commitAt);
+    expect(finalize.run.indexOf('git status --porcelain')).toBeGreaterThan(0);
+    expect(finalize.run.indexOf('git status --porcelain')).toBeLessThan(commitAt);
+    expect(finalize.run).not.toMatch(/if \[ -n "\$\{APP_TOKEN:-\}" \]; then/u);
   });
 
   describe('comportamento dello step su un repository reale', () => {
-    function run(opts: { subject: string; prHead?: 'same' | 'other' | 'none'; title?: string }) {
+    function run(opts: { subject: string; prHead?: 'same' | 'other' | 'none'; title?: string; appToken?: string; dirty?: boolean }) {
       const temp = mkdtempSync(join(tmpdir(), 'finalize-head-'));
       try {
         const remote = join(temp, 'remote.git');
@@ -112,12 +119,19 @@ describe('issue-fix non consegna mai un checkpoint WIP come HEAD della PR', () =
         git(work, 'config', 'user.name', 't'); git(work, 'config', 'user.email', 't@example.invalid');
         git(work, 'remote', 'add', 'origin', remote);
         writeFileSync(join(work, 'a.txt'), 'a');
+        // Il push usa il token della App: lo step toglie le credenziali di checkout con
+        // l'helper letto da origin/main (qui un no-op) e riscrive l'URL di origin con il
+        // token; `url.<bare>.insteadOf` riporta quell'URL sul remote locale.
+        mkdirSync(join(work, 'scripts/lib'), { recursive: true });
+        writeFileSync(join(work, 'scripts/lib/clear-checkout-git-credentials.sh'), '#!/bin/sh\nexit 0\n');
         git(work, 'add', '-A'); git(work, 'commit', '-q', '-m', 'base');
+        git(work, 'push', '-q', 'origin', 'main');
         git(work, 'checkout', '-q', '-b', 'fix/issue-77');
         writeFileSync(join(work, 'a.txt'), 'b');
         git(work, 'add', '-A'); git(work, 'commit', '-q', '-m', opts.subject);
         git(work, 'push', '-q', 'origin', 'fix/issue-77');
         const head = git(work, 'rev-parse', 'HEAD');
+        if (opts.dirty) writeFileSync(join(work, 'residuo.txt'), 'lavoro non committato');
         const prHead = opts.prHead === 'none' ? '' : opts.prHead === 'other' ? '0'.repeat(40) : head;
         // `gh pr list ... --jq` reduced to the value the step reads.
         writeFileSync(join(bin, 'gh'), `#!/bin/sh\nprintf '%s\\n' '${prHead}'\n`);
@@ -130,13 +144,21 @@ describe('issue-fix non consegna mai un checkpoint WIP come HEAD della PR', () =
             ISSUE: '77',
             REPO: 'owner/repo',
             ISSUE_TITLE: opts.title ?? 'Article content canary: regression detected',
-            APP_TOKEN: '',
+            APP_TOKEN: opts.appToken ?? 'tok',
+            GIT_CONFIG_COUNT: '1',
+            GIT_CONFIG_KEY_0: `url.${remote}.insteadOf`,
+            GIT_CONFIG_VALUE_0: 'https://x-access-token:tok@github.com/owner/repo.git',
           },
           stdio: 'pipe',
         });
         const remoteHead = git(remote, 'log', '-1', '--format=%s', 'fix/issue-77');
         const remoteCount = Number(git(remote, 'rev-list', '--count', 'fix/issue-77'));
-        return { remoteHead, remoteCount, tipIsOld: git(remote, 'rev-parse', 'fix/issue-77') === head };
+        return {
+          remoteHead,
+          remoteCount,
+          tipIsOld: git(remote, 'rev-parse', 'fix/issue-77') === head,
+          localCommits: Number(git(work, 'rev-list', '--count', `${head}..HEAD`)),
+        };
       } finally {
         rmSync(temp, { recursive: true, force: true });
       }
@@ -155,6 +177,21 @@ describe('issue-fix non consegna mai un checkpoint WIP come HEAD della PR', () =
       const result = run({ subject: 'wip(issue-77): checkpoint pre-test', title: `Fixes #123 ${'x'.repeat(100)}` });
       expect(result.remoteHead).not.toContain('#');
       expect(result.remoteHead.length).toBeLessThanOrEqual('fix(issue-77): '.length + 72);
+    });
+
+    // Review del bot (#3834, stesso finalizer): senza il token della App il push userebbe
+    // GITHUB_TOKEN, che non riattiva la review; con l'albero sporco un commit vuoto
+    // consegnerebbe un HEAD senza il lavoro residuo.
+    it('senza il token della App: nessun commit e nessun push (niente fallback su GITHUB_TOKEN)', () => {
+      const result = run({ subject: 'wip(issue-77): checkpoint pre-test', appToken: '' });
+      expect(result.localCommits).toBe(0);
+      expect(result.tipIsOld).toBe(true);
+    });
+
+    it('albero di lavoro sporco: nessun commit finale e nessun push', () => {
+      const result = run({ subject: 'wip(issue-77): checkpoint pre-test', dirty: true });
+      expect(result.localCommits).toBe(0);
+      expect(result.tipIsOld).toBe(true);
     });
 
     it('non tocca un HEAD che non e\' un checkpoint, una PR assente o un HEAD diverso dalla PR', () => {

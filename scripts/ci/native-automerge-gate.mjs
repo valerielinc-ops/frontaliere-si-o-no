@@ -25,6 +25,7 @@ import {
   NON_RUNTIME_CODE_REVIEW_MARKER,
 } from './review-test-policy.mjs';
 import {
+  createGitMergeRefReader,
   fetchPrFiles,
   isRetryablePrFileSnapshot,
 } from './lib/fetchPrFiles.mjs';
@@ -821,7 +822,10 @@ function loadVerifiedTestOnlyReview(repo, pr, head, reviews, reviewRevision) {
 
 function loadChangedFiles(repo, pr) {
   const snapshot = withTransientGithubReadRetry(
-    () => fetchPrFiles(pr, ghForTestOnlyReview, repo),
+    // Ultima fonte, solo se le API non danno un elenco: il merge ref della PR
+    // in un repository bare temporaneo (il token del gate passa per l'ambiente
+    // del figlio; il checkout del job puo' essere `persist-credentials: false`).
+    () => fetchPrFiles(pr, ghForTestOnlyReview, repo, { gitFn: createGitMergeRefReader() }),
     { shouldRetryResult: isRetryablePrFileSnapshot },
   );
   if (!snapshot.complete) {

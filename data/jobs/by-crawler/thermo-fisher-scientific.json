@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "thermo-fisher-scientific-4f1bb11df651",
-      "slug": "team-leader-secondary-thermo-fisher-scientific-ch",
+      "slug": "capo-squadra-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
         "en": "team-leader-secondary-thermo-fisher-scientific-ch",
-        "it": "team-leader-secondary-thermo-fisher-scientific-ch",
-        "de": "team-leader-secondary-thermo-fisher-scientific-ch",
-        "fr": "team-leader-secondary-thermo-fisher-scientific-ch"
+        "it": "capo-squadra-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "teamleiter-secondary-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "fr": "chef-d-equipe-secondaire-thermo-fisher-scientific-schweiz-ag-allschwil"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -72,7 +72,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:28:00.146Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:28:00.146Z"
+      "firstSeenAt": "2026-11-15T09:28:00.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-secondary-thermo-fisher-scientific-ch"
+        ],
+        "de": [
+          "team-leader-secondary-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "team-leader-secondary-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-secondary-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-8fa9d301fd00",
@@ -1741,7 +1755,7 @@
       "title": "Operator Secondary",
       "titleByLocale": {
         "it": "Operatore secondario",
-        "en": "Operator Secondary",
+        "en": "Secondary operator",
         "de": "Operator Secondary",
         "fr": "Opérateur Secondary"
       },

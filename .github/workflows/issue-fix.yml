@@ -1864,9 +1864,23 @@ jobs:
             echo "finalize-head: l'HEAD non e' un checkpoint WIP → niente da fare."
             exit 0
           fi
+          # Identita' di push: senza il token della App il push userebbe le
+          # credenziali di checkout (GITHUB_TOKEN), che non riattivano tests/review e
+          # lasciano un HEAD conventional non sottoposto ai gate: niente commit e
+          # niente push.
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::warning::finalize-head: token della App assente — nessun commit finale e nessun push (il fallback su GITHUB_TOKEN non riattiva la review)."
+            exit 0
+          fi
+          # Albero di lavoro pulito: un commit vuoto sopra modifiche non committate
+          # consegnerebbe un HEAD apparentemente completo senza il lavoro residuo.
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::warning::finalize-head: working tree non pulito — nessun commit/push per non perdere modifiche residue."
+            exit 0
+          fi
           # Titolo su una riga, senza `#` (mai keyword di chiusura adiacente a un
           # numero nel commit message: AGENTS.md) e al massimo 72 caratteri.
-          TITLE=$(printf '%s' "$ISSUE_TITLE" | tr '\r\n' '  ' | tr -d '#' | sed 's/[[:space:]]\{1,\}/ /g; s/^ //; s/ $//' | cut -c1-72)
+          TITLE=$(printf '%s' "$ISSUE_TITLE" | tr '\r\n' '  ' | tr -d '#' | sed 's/[[:space:]]\{1,\}/ /g; s/^ //; s/ $//' | LC_ALL=C.UTF-8 cut -c1-72)
           [ -n "$TITLE" ] || TITLE="deliver reviewed fix"
           git commit -q --allow-empty \
             -m "fix(issue-$ISSUE): $TITLE" \
@@ -1878,13 +1892,11 @@ jobs:
           # di actions/checkout ha la precedenza sull'URL del remote, quindi lo
           # toglie l'helper condiviso (niente nuova copia inline: il test
           # configure-main-push-auth ne ammette una sola per workflow).
-          if [ -n "${APP_TOKEN:-}" ]; then
-            if ! git show origin/main:scripts/lib/clear-checkout-git-credentials.sh 2>/dev/null | bash; then
-              echo "::warning::finalize-head: credenziali di checkout non rimovibili — nessun push, la PR resta sul checkpoint."
-              exit 0
-            fi
-            git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
+          if ! git show origin/main:scripts/lib/clear-checkout-git-credentials.sh 2>/dev/null | bash; then
+            echo "::warning::finalize-head: credenziali di checkout non rimovibili — nessun push, la PR resta sul checkpoint."
+            exit 0
           fi
+          git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
           if git push origin "HEAD:refs/heads/$BRANCH" 2>&1 | tail -3; then
             echo "finalize-head: $BRANCH ora ha HEAD $(git rev-parse --short HEAD) (commit conventional, non WIP)."
           else

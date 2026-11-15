@@ -458,6 +458,12 @@ ${duplicateShardEntries.join(',\n')}
     return JSON.parse(fs.readFileSync(file, 'utf-8'))[slug] as JobCanonEntryLike | undefined;
   };
 
+  const readV2Entry = (slug: string): JobCanonEntryLike | undefined => {
+    const file = path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`);
+    if (!fs.existsSync(file)) return undefined;
+    return JSON.parse(fs.readFileSync(file, 'utf-8'))[slug] as JobCanonEntryLike | undefined;
+  };
+
   it('emits each locale-aware previous slug in its own locale, plus cross-locale bridges', () => {
     const cases = [
       ['legacy-it-v1', 'it', '/cerca-lavoro-zurigo/locale-it-current'],
@@ -548,6 +554,7 @@ ${duplicateShardEntries.join(',\n')}
     expect(entry?.alias?.it).toBe(
       '/cerca-lavoro-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso',
     );
+    expect(readV2Entry(oldSlug)).toEqual(entry);
   });
 
   it('lets a current active slug win over a historical prefix', () => {
@@ -568,14 +575,31 @@ ${duplicateShardEntries.join(',\n')}
   it('overwrites the Sins historical DE prefix with the active Aargau section', () => {
     const slug = 'verkaufer-in-kassen-services-coop-genossenschaft-sins';
     expect(readEntry(slug)?.de).toBe('/de/jobs-im-aargau');
+    expect(readV2Entry(slug)?.de).toBe('/de/jobs-im-aargau');
   });
 
   it('leaves the active prefix unchanged when two current jobs disagree', () => {
     expect(readEntry('shared-active-prefix-conflict')?.de).toBe('/de/jobs-in-zurich');
-    expect(activePluginLogs.some((line) =>
-      line.includes('"activeSlugPrefixConflict":2')
-      && line.includes('shared-active-prefix-conflict'),
-    )).toBe(true);
+    const line = activePluginLogs.find((item) => item.includes('active prefixes='));
+    const payload = line?.match(/active prefixes=(\{.*\})/)?.[1];
+    expect(payload).toBeDefined();
+    const stats = JSON.parse(payload!) as {
+      changedByLocale: Record<string, number>;
+      addedByLocale: Record<string, number>;
+      nonRoutableGermanChanged: number;
+      activeSlugPrefixConflict: number;
+      conflictExamples: Array<{ locale: string; slug: string; prefixes: string[] }>;
+    };
+    expect(stats.changedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
+    expect(stats.addedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
+    expect(stats.changedByLocale.de).toBeGreaterThan(0);
+    expect(stats.nonRoutableGermanChanged).toBeGreaterThan(0);
+    expect(stats.activeSlugPrefixConflict).toBe(2);
+    expect(stats.conflictExamples).toContainEqual({
+      locale: 'de',
+      slug: 'shared-active-prefix-conflict',
+      prefixes: ['/de/jobs-im-aargau', '/de/jobs-in-zurich'],
+    });
   });
 
   it('keeps the two-character shard key and the canonical path builder matches the SEO path', () => {

@@ -141,6 +141,29 @@ describe('prospector source-crawler adapters', () => {
       });
     }
 
+    const filteredObserved: any[] = [];
+    Object.defineProperties(filteredObserved, {
+      fetchOutcome: { value: 'filtered_empty', enumerable: false },
+      discoveredCount: { value: 4, enumerable: false },
+      sourceBodyFloorFilteredCount: { value: 4, enumerable: false },
+      detailDrop: {
+        value: { candidates: 4, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+    expect(sourceAdapterRuntimeObservationFor(filteredObserved)).toMatchObject({
+      fetchOutcome: 'filtered_empty',
+      listingCount: 4,
+      publishableCount: 0,
+      sourceBodyFloorFilteredCount: 4,
+      runtimeOutputCount: 0,
+      snapshotAccepted: true,
+      complete: true,
+      dropCounts: { source_body_floor: 4 },
+      promotionObservationComplete: true,
+      failure: null,
+    });
+
     const provenEmpty: any[] = [];
     Object.defineProperty(provenEmpty, 'authoritativeSnapshotProof', {
       value: {
@@ -159,6 +182,49 @@ describe('prospector source-crawler adapters', () => {
       snapshotAccepted: true,
       complete: true,
       promotionObservationComplete: true,
+    });
+  });
+
+  it('accounts source-body-floor rows in mixed and filtered-empty observations', () => {
+    const mixed: any[] = [{ url: 'https://example.test/job/1', title: 'Engineer' }];
+    Object.defineProperties(mixed, {
+      fetchOutcome: { value: 'ok', enumerable: false },
+      discoveredCount: { value: 3, enumerable: false },
+      sourceBodyFloorFilteredCount: { value: 1, enumerable: false },
+      expectedFilterCount: { value: 1, enumerable: false },
+      detailDrop: {
+        value: { candidates: 2, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+    expect(sourceAdapterRuntimeObservationFor(mixed)).toMatchObject({
+      listingCount: 3,
+      publishableCount: 1,
+      sourceBodyFloorFilteredCount: 1,
+      complete: true,
+      dropCounts: { source_body_floor: 1 },
+      failure: null,
+    });
+
+    const allThinWithExpectedFilter: any[] = [];
+    Object.defineProperties(allThinWithExpectedFilter, {
+      fetchOutcome: { value: 'filtered_empty', enumerable: false },
+      discoveredCount: { value: 3, enumerable: false },
+      sourceBodyFloorFilteredCount: { value: 2, enumerable: false },
+      expectedFilterCount: { value: 1, enumerable: false },
+      detailDrop: {
+        value: { candidates: 2, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+    expect(sourceAdapterRuntimeObservationFor(allThinWithExpectedFilter)).toMatchObject({
+      fetchOutcome: 'filtered_empty',
+      listingCount: 3,
+      publishableCount: 0,
+      sourceBodyFloorFilteredCount: 2,
+      expectedFilterCount: 1,
+      complete: true,
+      failure: null,
     });
   });
 

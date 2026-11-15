@@ -83,12 +83,12 @@
     },
     {
       "id": "komax-6a6c69273b3c",
-      "slug": "product-manager-forming-taping-komax-ch",
+      "slug": "responsabile-di-prodotto-forming-taping-komax-dierikon",
       "slugByLocale": {
         "de": "product-manager-forming-taping-komax-ch",
-        "it": "product-manager-forming-taping-komax-ch",
+        "it": "responsabile-di-prodotto-forming-taping-komax-dierikon",
         "en": "product-manager-forming-taping-komax-ch",
-        "fr": "product-manager-forming-taping-komax-ch"
+        "fr": "gestionnaire-de-produits-formation-et-enregistrement-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -152,7 +152,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-13T09:34:57.342Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:34:57.342Z"
+      "firstSeenAt": "2026-11-15T09:34:57.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-forming-taping-komax-ch"
+        ],
+        "fr": [
+          "product-manager-forming-taping-komax-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-forming-taping-komax-ch"
+      ]
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -484,7 +495,7 @@
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
         "de": "facility-manager-w-m-d-komax-ch",
-        "fr": "responsable-de-l-installation-m-w-d-komax-dierikon"
+        "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
       "companyKey": "komax",
@@ -535,7 +546,8 @@
         "facility-manager-w-m-d-komax-ch-68e9421a",
         "gestionnaire-d-installations-h-f-d-komax-dierikon",
         "facility-manager-w-m-d-komax-ch-ji9uhd",
-        "facility-manager-m-w-d-komax-dierikon"
+        "facility-manager-m-w-d-komax-dierikon",
+        "responsable-de-l-installation-m-w-d-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -553,7 +565,7 @@
           "facility-manager-w-m-d-komax-ch-68e9421a"
         ],
         "fr": [
-          "gestionnaire-d-installations-h-f-d-komax-dierikon"
+          "responsable-de-l-installation-m-w-d-komax-dierikon"
         ]
       },
       "firstSeenAt": "2026-09-21T16:17:37.993Z",

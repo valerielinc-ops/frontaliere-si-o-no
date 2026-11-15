@@ -21,7 +21,8 @@ import { copySpecFetchMetadata, runSpecInProduction } from '../scripts/lib/prosp
 
 const source = fs.readFileSync(path.resolve(__dirname, '../scripts/scaffold-crawler.mjs'), 'utf8');
 const day = new Date(Date.now() - 3 * 86400000).toISOString();
-const description = 'Develop reliable software applications, collaborate with colleagues, maintain production systems and support customers in the Swiss office.';
+const description = 'Develop reliable software applications, collaborate with colleagues, maintain production systems and support customers in the Swiss office.'
+  + ' The position includes careful planning, reliable communication, independent execution, team coordination, quality checks, customer support, risk awareness, clear documentation, and dependable cooperation with colleagues and internal specialists throughout the daily work and seasonal service.';
 const stripImports = (text: string) => text.replace(/^import\s+[\s\S]*?from\s+['"][^'"]+['"];\s*$/gm, '');
 
 function generatedParser(tier: string) {

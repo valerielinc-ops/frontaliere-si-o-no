@@ -1384,7 +1384,7 @@ jobs:
             Lo step deterministico successivo pubblica quel file come commento sulla PR; non affidarti a un commento scritto direttamente dal modello per consegnare questa risposta al classificatore.
 
             **Chiusura:**
-            - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
+            - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional (`fix(...)`/`chore(...)`). Il subject di un commit del fixer NON inizia MAI con `wip(` (neppure imitando lo stile del branch, es. `wip(issue-N): checkpoint pre-test`): la guardia F7 del review gate chiude senza review ogni PR la cui HEAD e' un checkpoint WIP. Uno step deterministico aggiunge un commit conventional sopra se lo dimentichi, ma tu non contarci.
             - Ogni commit porta il trailer `Fixer: redcheck-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redcheck-round-${{ steps.guard.outputs.round }}"`): l'identity e' la stessa degli agenti locali e il trailer e' l'unico modo di distinguere i tuoi push.
             - Push sullo stesso branch: `git push origin HEAD:${{ needs.preflight.outputs.head_ref }}`. Il remote `origin` è già autenticato → ri-attiva `tests` e `pr-review-loop`.
             - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redcheck-pr-body.md` (imposta `BODY_FILE` a quel path), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet: `in questa PR` / `PR concatenata #N` / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>`. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) devono includere nello stesso bullet `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.`; una deroga nuda o generica viene bloccata. Se stai solo rimandando il lavoro, usa `PR concatenata #N` o `blocked: <causa esterna reale>`.
@@ -1394,6 +1394,59 @@ jobs:
             - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → scrivi `not-fixable: <motivo>` nella risposta per il round e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
+      # PERCHE' ESISTE (misurato il 2026-11-15, #18822 round 1, run 43705023231).
+      # Il fixer ha consegnato la correzione come `wip(issue-18813): checkpoint
+      # pre-test`, messaggio scelto dal modello imitando lo stile del branch. Il
+      # Re-review guard di tests.yml (F7) chiude fail-closed senza modello ogni
+      # HEAD `wip(issue-N): checkpoint ...`, quindi la PR resta senza review.
+      #
+      # Il push lo fa il modello, quindi la rete e' qui, subito dopo di lui e
+      # PRIMA di qualunque step che legga la HEAD (classificatore, avanzamento
+      # del body): se il commit del round (HEAD locale != BASE_SHA, mai un commit
+      # gia' presente nella PR) ha subject `wip(...)`, si aggiunge sopra un
+      # commit conventional vuoto con lo stesso trailer `Fixer:` e lo si pusha
+      # normale. Niente amend ne' rewrite di commit gia' pushati, mai force.
+      # La guardia F7 resta fail-closed per i checkpoint di sessioni morte.
+      - name: Finalize redcheck HEAD (never deliver a WIP checkpoint, zero-Claude)
+        id: finalize_head
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        continue-on-error: true
+        env:
+          HEAD_REF: ${{ needs.preflight.outputs.head_ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        run: |
+          set -uo pipefail
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          if [ -z "$head_now" ] || [ -z "${BASE_SHA:-}" ] || [ "$head_now" = "$BASE_SHA" ]; then
+            echo "finalize-head: nessun commit nuovo in questo round → niente da fare."
+            exit 0
+          fi
+          subject=$(git log -1 --format=%s HEAD)
+          if ! [[ "$subject" =~ ^wip\( ]]; then
+            echo "finalize-head: l'HEAD del round non e' un commit WIP → niente da fare."
+            exit 0
+          fi
+          # Albero di lavoro pulito: un commit vuoto sopra modifiche non committate
+          # consegnerebbe un HEAD apparentemente completo senza il lavoro residuo.
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::warning::finalize-head: working tree non pulito — nessun commit/push per non perdere modifiche residue."
+            exit 0
+          fi
+          echo "::warning::finalize-head: l'HEAD del round e' «$subject»: aggiungo un commit conventional sopra (la guardia F7 chiuderebbe la review)."
+          if ! git commit --allow-empty \
+              -m "chore(redcheck): consegna il fix del round ${FIX_ROUND:-?}" \
+              -m "Commit finale non-WIP aggiunto dallo step deterministico del fixer: l'HEAD del round era un checkpoint wip(...), che la guardia F7 del review gate chiude fail-closed senza review." \
+              --trailer "Fixer: redcheck-round-${FIX_ROUND:-0}"; then
+            echo "::warning::finalize-head: commit rifiutato (hook o gate PII) — l'HEAD resta il checkpoint."
+            exit 0
+          fi
+          if git push origin "HEAD:refs/heads/${HEAD_REF}" 2>&1 | tail -3; then
+            echo "finalize-head: ${HEAD_REF} ora ha HEAD $(git rev-parse --short HEAD) (commit conventional, non WIP)."
+          else
+            echo "::warning::finalize-head: push fallito — l'HEAD resta il checkpoint."
+          fi
+
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json

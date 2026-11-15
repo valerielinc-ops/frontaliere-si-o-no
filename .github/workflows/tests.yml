@@ -3690,8 +3690,28 @@ jobs:
             exit 1
           fi
           jq '{title, body, labels}' "$PR_FILE" > "$CTX_DIR/pr.json"
-          timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
-            > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
+          if ! timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+            > "$CTX_DIR/files.txt" 2>/dev/null; then
+            : > "$CTX_DIR/files.txt"
+            # `pulls/<n>/files` calcola il diff e per un diff troppo grande
+            # risponde `HTTP 422 ... diff is taking too long to generate`
+            # (#18870, #18860). Se il checkout e' il merge commit della PR e la
+            # sua HEAD^2 e' esattamente la HEAD valutata, usa il diff dal merge-base
+            # al parent della PR: e' il tre-dot della PR e non il diff netto del
+            # merge tree, che puo' omettere un path cambiato anche da main.
+            git_bin="${TRUSTED_GIT_BIN:-git}"
+            parents=$("$git_bin" rev-list --parents -n 1 HEAD 2>/dev/null | wc -w | tr -d ' ')
+            second_parent=$("$git_bin" rev-parse --verify --quiet 'HEAD^2^{commit}' 2>/dev/null || true)
+            merge_base=$("$git_bin" merge-base HEAD^1 HEAD^2 2>/dev/null || true)
+            if [ "$parents" = "3" ] && [ -n "$second_parent" ] && [ "$second_parent" = "$HEAD_SHA" ] \
+              && [ -n "$merge_base" ] \
+              && "$git_bin" diff --name-only --no-renames "$merge_base" HEAD^2 > "$CTX_DIR/files.local" 2>/dev/null; then
+              mv "$CTX_DIR/files.local" "$CTX_DIR/files.txt"
+              echo "files.txt dal diff git locale merge-base..HEAD^2 (REST pulls/files non disponibile)."
+            else
+              rm -f "$CTX_DIR/files.local"
+            fi
+          fi
           # A re-review must see open Important findings from the whole bot-review
           # history, not only the immediately previous body. The gate persists the
           # same path+line anchors; this zero-Claude render gives the reviewer the

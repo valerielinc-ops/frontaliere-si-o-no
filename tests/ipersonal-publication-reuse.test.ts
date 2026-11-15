@@ -3,7 +3,8 @@ import { runIpersonalSpecInProduction } from '../scripts/lib/ipersonal-spec-runt
 
 const DATE = `${new Date(Date.now() - 7 * 86_400_000).toISOString().slice(0, 10)}T09:30:00+01:00`;
 const FUTURE_DATE = new Date(Date.now() + 7 * 86_400_000).toISOString();
-const DESCRIPTION = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
+const SOURCE_BODY_SUFFIX = ' Die Aufgabe umfasst sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen.';
+const DESCRIPTION = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren' + SOURCE_BODY_SUFFIX;
 
 type PreviousFields = Record<string, unknown>;
 

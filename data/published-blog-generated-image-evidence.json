@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "3c8237793d264ffd1b8e61e8c3bada1189a4af05",
+  "commit": "ff530bd4b68603d29ab06f0de74f260edc2fffed",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -51761,6 +51761,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic exterior illustration matching the hospital topic; no readable text, signage, logos, or identifiable foreground people."
+      }
+    },
+    "/images/blog/article-bollettino-frontaliere-2026-11-15.webp": {
+      "schema": 1,
+      "assetId": "article-bollettino-frontaliere-2026-11-15",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "3aa9c7307eda08bf69acebd5e6745cf3e47824fa0ccd9751fde804f4c927fa03",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "1111750816cbb231d770d51df0a63390bf6a1ab30c110c20643d8f1d385d3022",
+      "bytes": 81576,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-15T12:38:08.735Z",
+      "verifiedAt": "2026-11-15T12:38:20.020Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-15.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial still life with a commuter wallet, coins, and a train-and-mountain setting; no readable text, logos, people, or specific event."
       }
     },
     "/images/places/lugano-view.webp": {

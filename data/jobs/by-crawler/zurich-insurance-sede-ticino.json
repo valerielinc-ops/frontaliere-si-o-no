@@ -395,17 +395,32 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+        "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
+        "servizio-clienti-specializzato-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40",
+        "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid",
+        "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63",
+        "specialist-customer-team-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li",
+        "equipe-client-specialisee-ktg-m-f-j-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
+          "servizio-clienti-specializzato-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40",
+          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid",
+          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
         ],
         "en": [
-          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
+          "specialist-customer-team-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li",
+          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
         ],
         "fr": [
-          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens"
+          "spezialist-kundenteam-ktg-m-w-d-zurich-insurance-sede-ticino-kriens",
+          "equipe-client-specialisee-ktg-m-f-j-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li",
+          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
+        ],
+        "de": [
+          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
         ]
       },
       "slugDisambiguator": "1377269857",
@@ -2377,92 +2392,6 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:36:03.977Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "company-67mx63",
-      "slug": "servizio-clienti-specializzato-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40",
-      "slugByLocale": {
-        "it": "servizio-clienti-specializzato-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40",
-        "en": "specialist-customer-team-ktg-m-f-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li",
-        "de": "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63",
-        "fr": "equipe-client-specialisee-ktg-m-f-j-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li"
-      },
-      "company": "Zurich Insurance",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "companyDomain": "zurich.ch",
-      "title": "Spezialist Kundenteam KTG (m/w/d)",
-      "titleByLocale": {
-        "it": "Servizio clienti specializzato KTG (m/f/d) 80 - 100%",
-        "en": "Specialist customer team KTG (m/f/d) 80 - 100%",
-        "de": "Spezialist Kundenteam KTG (m/w/d)",
-        "fr": "Équipe client spécialisée KTG (m/f/j) 80 - 100%"
-      },
-      "description": "125755 | 80 - 100% | Kriens, Luzern | Hybrid\n\nHast du Freude daran, mit deiner fachlichen und analytischen Kompetenz anspruchsvolle Krankentaggeld-Fälle zu beurteilen und zu regulieren? Bist du es dir gewohnt, als Teamplayer in einem dynamischen Umfeld mit verschiedenen Anspruchsgruppen zu arbeiten – und behältst auch in komplexen Situationen den Überblick?\n\nIn dieser Rolle verstärkst du bei Zurich Schweiz den Geschäftsbereich Schaden im Bereich Leistungen Personenversicherung und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg. Du regelst Krankentaggeld-Leistungen von der Beurteilung bis zur abschliessenden Regulierung, klärst medizinische Sachverhalte ab und stellst sicher, dass die Prozesse effizient, korrekt und kundenorientiert ablaufen. Dabei arbeitest du eng mit Versicherten, Arbeitgebern, dem medizinischen Dienst, anderen Versicherern und weiteren Partnern zusammen und hast die Möglichkeit, deine Fachkompetenz laufend zu vertiefen.\n\nDas erwartet dich\n\n• Du regelst die Leistungen bei Krankheiten der Mitarbeiter unserer Kunden gemäss den gesetzlichen und vertraglichen Bestimmungen\n\n• Du korrespondierst und führst Gespräche mit den verschiedenen Parteien, die an der Schadenregulierung beteiligt sind (Versicherte, Arbeitgeber, medizinischer Dienst, andere Versicherer, Anwälte)\n\n• Du klärst medizinische Sachverhalte ab und leistest Zahlungen basierend auf gesetzlichen Vorgaben und Versicherungsverträgen\n\n• Du verwaltest Regressansprüche gegen Dritte und andere Versicherer\n\nDas zeichnet dich aus\n\n• Kaufmännische Grundausbildung im Versicherungsbereich oder eine VBV Ausbildung, ein Diplom im Sozialversicherungsbereich von Vorteil\n\n• Min. 3 Jahre Erfahrung in der Bearbeitung von KTG, medizinische Erfahrung von Vorteil\n\n• Hervorragende Kommunikations- und Verhandlungsfähigkeiten\n\n• Du trittst professionell auf und bringst eine hohe Dienstleistungsmentalität mit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse sind von Vorteil\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Kriens, Luzern\n\nStellenantritt: nach Vereinbarung\n\nReisetätigkeit: Keine Reisetätigkeiten\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
-      "descriptionByLocale": {
-        "it": "Sei entusiasta del trattamento dei reclami e vuoi svolgere un ruolo chiave nella fornitura di servizi ai dipendenti dei nostri clienti? Hai un talento per gestire più processi di reclamo in un ambiente dinamico e migliorare continuamente l'esperienza del nostro assicurato?\n\nNel nostro team clienti KTG diversificato e multilingue, si lavora a stretto contatto con partner interni ed esterni e contribuire a garantire che i nostri clienti sono rapidamente e con competenza sostenuti in caso di un servizio. Ci si può aspettare un ambiente di lavoro flessibile in cui si può assumere la responsabilità, approfondire la vostra esperienza e sviluppare professionalmente.\n\nOttimo servizio è buono solo come il team motivato che si trova dietro i nostri clienti e offre un servizio clienti eccezionale. Siamo alla ricerca di specialisti appassionati che vogliono far progredire la loro carriera a Zurigo Svizzera e iniziare nelle nostre squadre clienti.\n\nScopri qui perché Zurigo Svizzera è uno dei datori di lavoro \"Top 3\" in Svizzera. Diventa parte di esso e applica come team clienti specializzato KTG.\n\nCosa fai\n\n- Regolare i servizi per le malattie dei dipendenti dei nostri clienti in conformità con le disposizioni legali e contrattuali\n\n- Corrispondete e tenete discussioni con le varie parti coinvolte nel regolamento di reclamo (assicurato, datore di lavoro, servizio medico, altri assicuratori, avvocati)\n\n- Si chiarisce le questioni mediche e si effettuano pagamenti in base a requisiti legali e contratti di assicurazione\n\n- Gestisci reclami di ricorso contro terzi e altri assicuratori\n\nCosa porti\n\n- Istruzione di base commerciale nel settore assicurativo o un'istruzione VBV, un diploma nel settore assicurativo sociale benefico\n\n- Min. 3 anni di esperienza nella lavorazione KTG, esperienza medica di beneficio\n\n- Ottima capacità di comunicazione e negoziazione\n\n- Si esegue professionalmente e portare una mentalità di alto servizio\n\n- Molto buona conoscenza del tedesco nelle parole e nella scrittura, ulteriori competenze linguistiche sono vantaggiose\n\nIl tuo contatto\n\nTalent Acquisition Consultant: Silke Nachtigall (+41 44 628 20 59)\n\nUlteriori informazioni\n\nTempo parziale o a tempo pieno: 80 - 100%\n\nLuogo di lavoro: Kriens, Lucerna\n\nLavoro ibrido: fino al 40%\n\n#LI-Hybrid #\n\nAttendiamo con ansia la vostra applicazione online - anche senza una lettera di richiesta. Siete invitati a convincerci della vostra motivazione durante un incontro personale.\n\nChi siamo\n\nZurigo è un marchio forte – oltre 1,4 milioni di clienti svizzeri si affidano ai nostri prodotti e servizi. La base del nostro successo è la nostra 53.000 dipendenti in tutto il mondo, che aiutano i nostri clienti in 210 paesi e territori a comprendere e proteggere meglio se stessi dai loro rischi. Al fine di fornire prestazioni quotidiane, offriamo ai nostri dipendenti modelli di lavoro flessibili e interessanti opportunità di formazione. Come dipendente di Zurigo, si beneficia di una moltitudine di vantaggi e di una forte cultura caratterizzata da accettazione, diversità e orientamento del team.\n\nA Zurigo, coltiviamo una cultura della diversità e dell'inclusione. I nostri obiettivi e valori sono progettati per proteggere i nostri dipendenti, promuovere la fiducia e aiutarli a raggiungere il loro pieno potenziale. Siamo per la giustizia e l'uguaglianza tra i nostri dipendenti, indipendentemente dal sesso, identità di genere, orientamento sessuale, origine, etnia, religione, ecc. L'acquisizione dei nostri talenti e dei processi di reclutamento riflettono questo impegno nella vita quotidiana. Unisciti a noi e diventare parte di questa cultura.\n\nPerché Zurigo ha avuto successo da oltre 150 anni? Vedere qui e diventare parte di esso.\n\nInformazioni per i reclutatori\n\nZurigo non accetta applicazioni non richieste dai reclutatori per questa posizione. Pertanto, i reclutatori non inviano documenti candidati ai nostri dipendenti o tramite il nostro portale di carriera online. Rifiutiamo ogni responsabilità per applicazioni non richieste e qualsiasi commissione e ringraziamo per la vostra comprensione.",
-        "en": "Are you excited about claims processing and want to play a key role in delivering services to our customers’ employees? Do you have a talent for managing multiple claims processes in a dynamic environment and continuously improving the experience of our insured?\n\nIn our diverse and multilingual customer team KTG, you work closely with internal and external partners and help ensure that our customers are quickly and competently supported in the event of a service. You can expect a flexible working environment in which you can take on responsibility, deepen your expertise and develop professionally.\n\nExcellent service is only as good as the motivated team that stands behind our customers and offers outstanding customer service. We are looking for passionate specialists who want to advance their career at Zurich Switzerland and start in our customer teams.\n\nFind out here why Zurich Switzerland is one of the \"Top 3\" employers in Switzerland. Become part of it and apply as a specialist customer team KTG.\n\nWhat you do\n\n- You regulate the services for illnesses of our customers' employees in accordance with the legal and contractual provisions\n\n- You correspond and hold discussions with the various parties involved in the claims settlement (insured, employer, medical service, other insurers, lawyers)\n\n- You clarify medical matters and make payments based on legal requirements and insurance contracts\n\n- You manage recourse claims against third parties and other insurers\n\nWhat you bring\n\n- Commercial basic education in the insurance sector or a VBV education, a diploma in the social insurance sector beneficial\n\n- Min. 3 years of experience in processing KTG, medical experience of benefit\n\n- Excellent communication and negotiation skills\n\n- You perform professionally and bring a high service mentality\n\n- Very good knowledge of German in words and writing, further language skills are advantageous\n\nYour contact\n\nTalent Acquisition Consultant: Silke Nachtigall (+41 44 628 20 59)\n\nAdditional information\n\nPart-time or full-time: 80 - 100%\n\nPlace of work: Kriens, Lucerne\n\nHybrid work: up to 40%\n\n#LI-Hybrid\n\nWe look forward to your online application - even without an application letter. You are welcome to convince us of your motivation during a personal meeting.\n\nWho we are\n\nZurich is a strong brand – more than 1.4 million Swiss customers rely on our products and services. The basis of our success is our 53,000 employees worldwide, who help our customers in 210 countries and territories to better understand and protect themselves against their risks. In order to provide daily performance, we offer our employees flexible working models and interesting training opportunities. As a Zurich employee, you benefit from a multitude of advantages and a strong culture characterized by acceptance, diversity and team orientation.\n\nAt Zurich, we cultivate a culture of diversity and inclusion. Our goals and values are designed to protect our employees, promote trust and help them reach their full potential. We stand for justice and equality among our employees, regardless of gender, gender identity, sexual orientation, origin, ethnicity, religion, etc. The acquisition of our talents and the recruitment processes reflect this commitment in everyday life. Join us and become part of this culture.\n\nWhy has Zurich been successful for more than 150 years? See here and become part of it.\n\nInformation for recruiters\n\nZurich does not accept unsolicited applications from recruiters for this position. Therefore, recruiters do not submit applicant documents to our employees or via our online career portal. We reject any responsibility for unsolicited applications and any fees and thank you for your understanding.",
-        "de": "125755 | 80 - 100% | Kriens, Luzern | Hybrid\n\nHast du Freude daran, mit deiner fachlichen und analytischen Kompetenz anspruchsvolle Krankentaggeld-Fälle zu beurteilen und zu regulieren? Bist du es dir gewohnt, als Teamplayer in einem dynamischen Umfeld mit verschiedenen Anspruchsgruppen zu arbeiten – und behältst auch in komplexen Situationen den Überblick?\n\nIn dieser Rolle verstärkst du bei Zurich Schweiz den Geschäftsbereich Schaden im Bereich Leistungen Personenversicherung und leistest einen wichtigen Beitrag zu unserem gemeinsamen Erfolg. Du regelst Krankentaggeld-Leistungen von der Beurteilung bis zur abschliessenden Regulierung, klärst medizinische Sachverhalte ab und stellst sicher, dass die Prozesse effizient, korrekt und kundenorientiert ablaufen. Dabei arbeitest du eng mit Versicherten, Arbeitgebern, dem medizinischen Dienst, anderen Versicherern und weiteren Partnern zusammen und hast die Möglichkeit, deine Fachkompetenz laufend zu vertiefen.\n\nDas erwartet dich\n\n• Du regelst die Leistungen bei Krankheiten der Mitarbeiter unserer Kunden gemäss den gesetzlichen und vertraglichen Bestimmungen\n\n• Du korrespondierst und führst Gespräche mit den verschiedenen Parteien, die an der Schadenregulierung beteiligt sind (Versicherte, Arbeitgeber, medizinischer Dienst, andere Versicherer, Anwälte)\n\n• Du klärst medizinische Sachverhalte ab und leistest Zahlungen basierend auf gesetzlichen Vorgaben und Versicherungsverträgen\n\n• Du verwaltest Regressansprüche gegen Dritte und andere Versicherer\n\nDas zeichnet dich aus\n\n• Kaufmännische Grundausbildung im Versicherungsbereich oder eine VBV Ausbildung, ein Diplom im Sozialversicherungsbereich von Vorteil\n\n• Min. 3 Jahre Erfahrung in der Bearbeitung von KTG, medizinische Erfahrung von Vorteil\n\n• Hervorragende Kommunikations- und Verhandlungsfähigkeiten\n\n• Du trittst professionell auf und bringst eine hohe Dienstleistungsmentalität mit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, weitere Sprachkenntnisse sind von Vorteil\n\nGut zu wissen\n\nTeilzeit oder Vollzeit: 80 - 100%\n\nArbeitsort: Kriens, Luzern\n\nStellenantritt: nach Vereinbarung\n\nReisetätigkeit: Keine Reisetätigkeiten\n\nHybrides Arbeiten: bis zu 40%\n\nAlles rund um deine Bewerbung\n\nDu kannst dich in einem ersten Schritt direkt online bei uns bewerben – dafür benötigst du nur deinen Lebenslauf. Weitere Informationen zum Bewerbungsprozess findest du hier\n\nWir legen Wert auf einen effizienten und wertschätzenden Bewerbungsprozess. Das Talent Acquisition Team prüft deine Bewerbung persönlich, ohne Einsatz künstlicher Intelligenz. Ab deinem ersten persönlichen Kennenlernen mit der zuständigen Führungskraft erhältst du von uns immer eine individuelle Rückmeldung. Denn wir sind überzeugt: Aussagekräftiges Feedback basiert auf dem persönlichen Austausch.\n\nFür diese Position arbeiten wir nicht mit Personalvermittlungen zusammen. Unaufgefordert eingereichte Bewerbungen werden weder berücksichtigt noch vergütet.\n\nHast du noch Fragen? Silke, Talent Acquisition Consultant steht dir unter +41 44 628 20 59 gerne zur Verfügung.\n\nNeugierig geworden?\n\nErfahre mehr über Zurich Schweiz als Arbeitgeberin.\n\nklicke hier\n\nZurich Versicherungs-Gesellschaft AG | Talent Acquisition Zurich Schweiz",
-        "fr": "Êtes-vous excité par le traitement des réclamations et voulez jouer un rôle clé dans la prestation de services à nos clients? Avez-vous un talent pour gérer plusieurs processus de réclamations dans un environnement dynamique et améliorer continuellement l'expérience de notre assuré?\n\nDans notre équipe client diversifiée et multilingue KTG, vous travaillez en étroite collaboration avec des partenaires internes et externes et vous aidez à assurer que nos clients soient soutenus rapidement et avec compétence en cas de service. Vous pouvez vous attendre à un environnement de travail flexible dans lequel vous pouvez assumer vos responsabilités, approfondir votre expertise et développer professionnellement.\n\nExcellent service est seulement aussi bon que l'équipe motivée qui se tient derrière nos clients et offre un service à la clientèle exceptionnel. Nous recherchons des spécialistes passionnés qui veulent faire avancer leur carrière à Zurich Suisse et commencer dans nos équipes clientes.\n\nDécouvrez ici pourquoi Zurich Suisse est l'un des employeurs \"Top 3\" en Suisse. Devenez membre et appliquez en tant qu'équipe client spécialisée KTG.\n\nCe que tu fais\n\n- Vous réglementez les services pour les maladies des employés de nos clients conformément aux dispositions légales et contractuelles\n\n- Vous correspondez et discutez avec les différentes parties impliquées dans le règlement des réclamations (assuré, employeur, service médical, autres assureurs, avocats)\n\n- Vous éclaircissez les questions médicales et effectuez les paiements en fonction des exigences légales et des contrats d'assurance\n\n- Vous gérez les recours contre des tiers et d'autres assureurs\n\nCe que vous apportez\n\n- Enseignement de base commercial dans le secteur de l'assurance ou un enseignement VBV, diplôme dans le secteur de l'assurance sociale bénéfique\n\n- Min. 3 ans d'expérience dans le traitement KTG, expérience médicale des avantages\n\n- Excellentes compétences en communication et en négociation\n\n- Vous effectuez professionnellement et apportez une mentalité de service élevé\n\n- Très bonne connaissance de l'allemand en mots et en écriture, d'autres compétences linguistiques sont avantageuses\n\nVotre contact\n\nConsultant en acquisition de talents : Silke Nachtigall (+41 44 628 20 59)\n\nInformations complémentaires\n\nTemps partiel ou temps plein: 80 - 100%\n\nLieu de travail: Kriens, Lucerne\n\nTravail hybride: jusqu'à 40%\n\n#LI-Hybrid\n\nNous attendons avec impatience votre candidature en ligne - même sans lettre de candidature. Vous êtes invités à nous convaincre de votre motivation lors d'une réunion personnelle.\n\nQui nous sommes\n\nZurich est une marque forte – plus de 1,4 million de clients suisses dépendent de nos produits et services. Notre succès repose sur nos 53 000 collaborateurs dans le monde entier, qui aident nos clients dans 210 pays et territoires à mieux comprendre et se protéger contre leurs risques. Afin de fournir des performances quotidiennes, nous offrons à nos employés des modèles de travail flexibles et des possibilités de formation intéressantes. En tant qu'employé de Zurich, vous bénéficiez d'une multitude d'avantages et d'une culture forte caractérisée par l'acceptation, la diversité et l'orientation de l'équipe.\n\nÀ Zurich, nous cultivons une culture de diversité et d'inclusion. Nos objectifs et nos valeurs sont conçus pour protéger nos employés, promouvoir la confiance et les aider à réaliser leur plein potentiel. Nous défendons la justice et l'égalité entre nos employés, quel que soit leur sexe, leur identité, leur orientation sexuelle, leur origine, leur appartenance ethnique, leur religion, etc. L'acquisition de nos talents et les processus de recrutement reflètent cet engagement dans la vie quotidienne. Rejoignez-nous et faites partie de cette culture.\n\nPourquoi Zurich réussit-elle depuis plus de 150 ans ? Voyez ici et devenez partie intégrante.\n\nInformation des recruteurs\n\nZurich n'accepte pas les candidatures spontanées des recruteurs pour ce poste. Par conséquent, les recruteurs ne soumettent pas de documents de candidature à nos employés ou via notre portail de carrière en ligne. Nous rejetons toute responsabilité pour les demandes non sollicitées et les frais et nous vous remercions de votre compréhension."
-      },
-      "location": "Kriens",
-      "canton": "LU",
-      "url": "https://www.careers.zurich.com/job/Kriens-Spezialist-Kundenteam-KTG-%28mwd%29/826021702/",
-      "applyUrl": "https://www.careers.zurich.com/job/Kriens-Spezialist-Kundenteam-KTG-%28mwd%29/826021702/",
-      "source": "Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:36:03.977Z",
-      "datePosted": "2026-10-03",
-      "postedDate": "2026-10-03",
-      "postingDateSource": "reported",
-      "addressLocality": "Kriens",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6010",
-      "streetAddress": "Kriens",
-      "category": "admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Insurance",
-      "currency": "CHF",
-      "featured": false,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid",
-        "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid",
-          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
-        ],
-        "en": [
-          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
-        ],
-        "fr": [
-          "spezialist-kundenteam-ktg-m-w-d-80-100-zurich-insurance-sede-ticino-kriens-luzern-hybrides-arbeiten-bis-zu-40-li-hybrid-67mx63"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T15:48:04.514Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:36:03.977Z",
       "validThroughSource": "last-observed-window"
     },
     {

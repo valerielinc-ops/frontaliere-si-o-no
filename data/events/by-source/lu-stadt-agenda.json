@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-11-14T13:04:48.296Z",
+  "assembledAt": "2026-11-15T13:37:27.007Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -579,7 +579,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7587574",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "e5d010aa4c32d49208c061d3a9a6ac94f421c53957bbdcd2ff0657862431c899"
     },
     {
@@ -639,7 +639,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7723786",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "b577b6c95f71dc25098879098cdb7b7fcc858615f229c388a332c0b0cdb49630"
     },
     {
@@ -907,7 +907,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7648417",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
     },
     {
@@ -921,7 +921,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694119",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
     },
     {
@@ -935,7 +935,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7753981",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "bb768464e35aa00d80949fefce3f2fb94422c4fe7ea2bb579d51d0f6135d6e10"
     },
     {
@@ -949,7 +949,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694308",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
     },
     {
@@ -963,7 +963,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463722",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "d17f50aefd6e9ed87f0b4a799ce1ec47d535f587b57e19feffbcb568148e77ea"
     },
     {
@@ -977,8 +977,34 @@
       "url": "https://www.stadtluzern.ch/sitzung/7626910",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-14T13:04:48.296Z",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
       "sourceDescriptionHash": "33d5703015e0949f7865c1b4a46181ce924ade226a937832ce0d5f26fdfce33d"
+    },
+    {
+      "id": "lu-stadt-agenda:7648420",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-11-23",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7648420",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7253978",
+      "title": "Energie Apéro Luzern: Kantonales Energiegesetz im Überblick",
+      "startDate": "2026-11-23",
+      "startTime": "17:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7253978",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-15T13:37:27.007Z",
+      "sourceDescriptionHash": "29b597045860e409a124123b16c4c90e68a9bb11f7f4536f8b840c0184e72ba8"
     }
   ]
 }

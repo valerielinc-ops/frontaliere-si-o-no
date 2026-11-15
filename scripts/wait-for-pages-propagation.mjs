@@ -57,6 +57,7 @@ import { realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { checkLink } from './lib/live-link-check.mjs';
+import { readSitemapSnapshot, snapshotUrls } from './lib/sitemap-crawl.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -183,13 +184,18 @@ export function sampleConverged(okCount, sampleSize, minOkRatio) {
   return sampleSize - okCount <= tolerated;
 }
 
-/** Extract the sample-source URL list from a parsed new-sitemap-urls.json
- * (version 2 shape: `{ _allUrls: string[] }`). Returns [] on any other shape
- * so the caller can fail open. */
+/** Extract the sample-source URL list from a snapshot read with
+ * `readSitemapSnapshot` (v4 NDJSON files arrive v3-shaped) or from a legacy
+ * single-document snapshot (`{ _allUrls: string[] }`).
+ * Returns [] on any other shape so the caller can fail open. */
 export function extractBundleUrls(parsed) {
   if (!parsed || typeof parsed !== 'object') return [];
   const all = parsed._allUrls;
-  return Array.isArray(all) ? all.filter((u) => typeof u === 'string') : [];
+  if (Array.isArray(all)) return all.filter((url) => typeof url === 'string');
+  if (parsed.perSitemap && typeof parsed.perSitemap === 'object' && !Array.isArray(parsed.perSitemap)) {
+    return [...snapshotUrls(parsed)].filter((url) => typeof url === 'string').sort();
+  }
+  return [];
 }
 
 /** Cache-busted origin liveness probe for one URL — the SHARED checkLink()
@@ -322,8 +328,7 @@ async function main() {
   // purge can never expose an origin still full of propagation holes.
   let sampleUrls = [];
   try {
-    const parsed = JSON.parse(await readFile(sampleFile, 'utf8'));
-    sampleUrls = extractBundleUrls(parsed);
+    sampleUrls = extractBundleUrls(readSitemapSnapshot(sampleFile));
   } catch (err) {
     console.warn(`[wait-pages] ::warning:: deep-sample skipped — cannot read ${sampleFile} (${err?.message || err}). Legacy build-id-only gate applies.`);
     process.exit(0);

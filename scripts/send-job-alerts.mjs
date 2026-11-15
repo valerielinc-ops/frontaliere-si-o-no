@@ -53,6 +53,7 @@ import {
   createAlertScorer,
   createJobFeatureCache,
   createJobFeatureStore,
+  jobFirstSeenMs,
   partitionByGeoPreference,
   freshnessBoost,
   FRESHNESS_BOOST_48H_MS,
@@ -101,6 +102,7 @@ import {
   normalizeSentMap,
   normalizeDeliveryLedger,
   filterUnsentJobs,
+  createUnsentJobPredicate,
   mergeDeliveryLedger,
   mergeSentJobs,
   removeDeliveryLedgerJobs,
@@ -112,6 +114,7 @@ import { createBatchBookkeeper, ledgerContext } from './lib/job-alert-batch-book
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
 import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
+import { rankSelectionFast } from './lib/job-alert-planning-fastpath.mjs';
 import { discoveryCanAttempt, claimDiscoveryDelivery, finalizeDiscoveryDelivery, partitionDiscoveryOutcomes } from './lib/job-alert-discovery-delivery.mjs';
 import { createRegistrationGeoLookup, isSameIpGeo } from './lib/job-alert-ip-geography.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
@@ -2888,6 +2891,11 @@ function planAlertMatch(alert, {
   // non viene letto; `candidateCursorMs` è il limite inferiore della finestra.
   candidateIndex = null,
   candidateCursorMs = null,
+  // Fast path del planning (JOB_ALERT_PLANNING_FASTPATH, default acceso): con
+  // l'indice, risposte di ricerca e predicati per riga vanno allo scorer e il
+  // ranking lavora su array tipizzati. A output identico; `false` = scorer e
+  // ciclo a oggetti di prima. Senza `candidateIndex` non ha effetto.
+  planningFastpath = true,
 }) {
   // Enrich the alert with the subscriber's newsletter profile, browsing
   // personalization (filter usage + viewed-job geography) and the geography of
@@ -2965,8 +2973,32 @@ function planAlertMatch(alert, {
   // were ~40% of the matching CPU. The value is the exact expression the
   // comparator used (NaN included), so every pairwise result — and therefore
   // the order — is unchanged.
+  // Con l'indice le righe arrivano già escluse (canary, needsRetranslation,
+  // finestra) e `candidateCount` è il popcount dell'insieme eleggibile nella
+  // finestra, quindi identico al conteggio del ciclo legacy senza visitarlo.
+  const fastpathRequested = Boolean(candidateIndex && planningFastpath && !discoveryMode);
+  const selection = candidateIndex
+    ? candidateIndex.select(profile, {
+      locale: alertLocale,
+      ownerAlert,
+      cursorMs: candidateCursorMs,
+      // Discovery: l'elenco completo delle righe eleggibili, come oggi.
+      forceWindow: discoveryMode,
+      fastpath: fastpathRequested,
+    })
+    : null;
+  // Il fast path richiede una selezione completa (colonne e indici di riga
+  // allineati alle righe): una selezione che non li porta ricade sul ciclo a oggetti.
+  const fastSelection = fastpathRequested && selection && selection.columns
+    && selection.rowIndices && selection.rowIndices.length === selection.rows.length
+    ? selection
+    : null;
   const scoreJob = createAlertScorer(profile, alertLocale, featureCache, {
     applicationIntentRankingEnabled,
+    ...(fastSelection ? {
+      searchAnswers: fastSelection.searchAnswers,
+      predicates: fastSelection.predicates,
+    } : {}),
   });
   const applicationIntentJobKeys = applicationIntentRankingEnabled
     ? profile.applicationIntentJobKeys || new Set()
@@ -2975,19 +3007,18 @@ function planAlertMatch(alert, {
   const compactMetadataByJob = compactMatches ? new WeakMap() : null;
   let candidateCount = 0;
   let scoredRows = 0;
-  // Con l'indice le righe arrivano già escluse (canary, needsRetranslation,
-  // finestra) e `candidateCount` è il popcount dell'insieme eleggibile nella
-  // finestra, quindi identico al conteggio del ciclo legacy senza visitarlo.
-  const selection = candidateIndex
-    ? candidateIndex.select(profile, {
-      locale: alertLocale,
-      ownerAlert,
-      cursorMs: candidateCursorMs,
-      // Discovery: l'elenco completo delle righe eleggibili, come oggi.
-      forceWindow: discoveryMode,
-    })
-    : null;
-  for (const job of (selection ? selection.rows : recentJobs)) {
+  let fastRanking = null;
+  if (fastSelection) {
+    fastRanking = rankSelectionFast({
+      selection: fastSelection,
+      scoreJob,
+      profile,
+      now,
+      applicationIntentRankingEnabled,
+      applicationIntentJobKeys,
+    });
+    scoredRows = fastRanking.scoredRows;
+  } else for (const job of (selection ? selection.rows : recentJobs)) {
     if (!selection) {
       if (!ownerAlert && isCanaryJob(job)) continue;
       if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
@@ -2999,7 +3030,7 @@ function planAlertMatch(alert, {
     if (relevance <= 0) continue;
     const applicationIntentRanked = applicationIntentRankingEnabled
       && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
-    const firstSeenMs = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+    const firstSeenMs = jobFirstSeenMs(job);
     const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
       ? job.relevanceSignals
         .filter((signal) => typeof signal === 'string' && signal.length <= 64)
@@ -3042,7 +3073,7 @@ function planAlertMatch(alert, {
     }
   }
   if (selection) candidateCount = selection.candidateCount;
-  const sorted = scored
+  const sorted = fastRanking ? null : scored
     .sort((a, b) => {
       // Primary: higher score first.
       const scoreDiff = b.score - a.score;
@@ -3062,7 +3093,7 @@ function planAlertMatch(alert, {
   // employer (e.g. all EOC) — visually monotone. Overflow jobs are kept in
   // `remainder` and appended after the cap is exhausted, so the user still
   // sees the count when they have enough variety.
-  const rankedAll = diversifyJobEmployers(sorted.map((entry) => entry.job));
+  const rankedAll = fastRanking ? null : diversifyJobEmployers(sorted.map((entry) => entry.job));
 
   // Graduated geo preference (#2993): for a keyword-only alert with no explicit
   // location/canton scope, prefer jobs in the subscriber's area (resolved from
@@ -3076,9 +3107,13 @@ function planAlertMatch(alert, {
     : { geo_country: ipGeo?.country, geo_region: ipGeo?.region, geo_city: ipGeo?.city };
   const signupSlug = extractSlugFromSourcePage(subscriber.source_page || channelSubscriber.source_page || '');
   const signupJobGeo = personalizationOptOut ? [] : locationIndex.get(String(signupSlug).toLowerCase())?.geo || [];
-  const ranked = discoveryMode
-    ? discoveryRanker(discoveryCandidates, discoveryGeography(registrationGeo, profile, signupJobGeo), now)
-    : partitionByGeoPreference(rankedAll, profile);
+  // Fast path: `ranked` are row POSITIONS in `selection.rows` (see
+  // job-alert-planning-fastpath.mjs); the geo split already ran on them.
+  const ranked = fastRanking
+    ? fastRanking.ranked
+    : discoveryMode
+      ? discoveryRanker(discoveryCandidates, discoveryGeography(registrationGeo, profile, signupJobGeo), now)
+      : partitionByGeoPreference(rankedAll, profile);
 
   if (ranked.length === 0) {
     return {
@@ -3090,6 +3125,7 @@ function planAlertMatch(alert, {
       sentMap: null,
       matched: [],
       ...(selection ? { indexStrategy: selection.strategy } : {}),
+      ...(fastRanking ? { planningFastpath: true } : {}),
     };
   }
 
@@ -3099,16 +3135,41 @@ function planAlertMatch(alert, {
   // same jobs" report (#2993). When nothing new remains we skip the send
   // entirely rather than re-mail stale offers.
   const sentMap = normalizeSentMap(alert.sentJobIds);
-  const matched = filterUnsentJobs(
-    ranked,
-    sentMap,
-    now,
-    DEDUP_WINDOW_MS,
-    normalizeDeliveryLedger(alert.deliveryLedger),
-  );
+  let matched;
+  if (fastRanking) {
+    const isUnsent = createUnsentJobPredicate(
+      sentMap,
+      now,
+      DEDUP_WINDOW_MS,
+      normalizeDeliveryLedger(alert.deliveryLedger),
+    );
+    matched = [];
+    // The ranking metadata exists only for the jobs that reach `matched`:
+    // `rankEmailJobs` reads it from the jobs it is given and from no other.
+    for (const position of ranked) {
+      const job = fastRanking.rowOf(position);
+      if (!isUnsent(job)) continue;
+      const metadata = fastRanking.metadataOf(position);
+      if (compactMatches) {
+        compactMetadataByJob.set(job, metadata);
+        matched.push(job);
+      } else {
+        matched.push({ ...job, ...metadata });
+      }
+    }
+  } else {
+    matched = filterUnsentJobs(
+      ranked,
+      sentMap,
+      now,
+      DEDUP_WINDOW_MS,
+      normalizeDeliveryLedger(alert.deliveryLedger),
+    );
+  }
   const result = { alert, candidateCount, scoredRows, rankedCount: ranked.length, zeroCause: null, sentMap, matched,
     ...(discoveryMode ? { discoveryMode: true } : {}),
-    ...(selection ? { indexStrategy: selection.strategy } : {}) };
+    ...(selection ? { indexStrategy: selection.strategy } : {}),
+    ...(fastRanking ? { planningFastpath: true } : {}) };
   if (compactMatches) {
     result.rankingMetadata = compactMetadataByJob;
   }
@@ -3145,10 +3206,19 @@ export function planAlertForRun(alert, context, {
 } = {}) {
   let legacyWindowRows = null;
   let sampled = false;
+  // Il piano legacy e' la VERIFICA indipendente dell'indice: non riceve mai
+  // l'indice, quindi ne' vocabolario ne' risposte di ricerca ne' predicati ne'
+  // colonne per riga (perf-plan V). Lo si toglie dal contesto anche se un
+  // chiamante lo avesse messo li'.
+  const {
+    candidateIndex: _ignoredIndex,
+    candidateCursorMs: _ignoredCursor,
+    ...legacyContext
+  } = context;
   const legacyPlan = () => {
     const jobs = selectLegacyWindow();
     legacyWindowRows = jobs.length;
-    return planAlertMatch(alert, { ...context, recentJobs: jobs });
+    return planAlertMatch(alert, { ...legacyContext, recentJobs: jobs });
   };
   const indexedPlan = () => planAlertMatch(alert, {
     ...context,
@@ -3203,6 +3273,7 @@ export function planAlertForRun(alert, context, {
   }
   metrics.count('indexedAlerts');
   if (indexed.indexStrategy) metrics.count(`strategy:${indexed.indexStrategy}`);
+  if (indexed.planningFastpath) metrics.count('fastpathAlerts');
   return { plan: indexed, windowRows: windowRowsOf(), usedIndex: true, sampled };
 }
 
@@ -4043,13 +4114,30 @@ async function main() {
   if (indexConfig.invalidMode) {
     console.warn('   ⚠️  JOB_ALERT_CANDIDATE_INDEX_MODE non riconosciuto: ripiego su `shadow` (decide il legacy, l\'indice è solo confrontato)');
   }
+  for (const name of indexConfig.invalidSwitches) {
+    console.warn(`   ⚠️  ${name} non riconosciuto (atteso on|off): ripiego su off, il percorso che non cambia nessun esito`);
+  }
   const candidateIndex = indexConfig.mode === 'off' || quotaCapacity <= 0
     ? null
     : createJobAlertCandidateIndex(inventoryJobs, { nowMs: now, budgetBytes: indexConfig.budgetBytes });
   if (candidateIndex) {
     const indexStats = candidateIndex.stats();
-    console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB`);
+    console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB, planning fast path ${indexConfig.planningFastpath ? 'on' : 'off'}, vocabulary workers ${indexConfig.vocabularyWorkers ? 'on' : 'off'}`);
   }
+  // Vocabolari di ricerca: costruiti subito, in parallelo ai caricamenti che
+  // seguono (manifest delle pagine, profili di affinita'), invece che pigramente
+  // al primo alert con una ricerca; l'attesa e' prima del primo piano.
+  const vocabularyLocales = [...new Set(alerts.map((alert) => nlNormLocale(alert.locale)))];
+  const vocabularyReady = candidateIndex && quotaCapacity > 0 && vocabularyLocales.length > 0
+    ? candidateIndex.prepareSearchVocabularies({
+      locales: vocabularyLocales,
+      workers: indexConfig.vocabularyWorkers,
+      log: (line) => console.warn(`   ⚠️  ${line}`),
+    }).catch((error) => ({
+      // Mai un rifiuto non atteso: i vocabolari si costruiranno pigramente, come prima.
+      mode: 'none', locales: [], wallMs: 0, fallback: String(error?.message || error),
+    }))
+    : null;
   // Liveness: manifest delle pagine pubblicate (una richiesta) o controllo HTTP per
   // pagina, secondo disponibilita' e coerenza del manifest (perf-plan PR 5).
   jobAlertMetrics.enter('live_link');
@@ -4296,6 +4384,14 @@ async function main() {
   let quotaExhausted = quotaCapacity <= 0;
   let planBatchNumber = 0;
   let jobFeatureStore = createJobFeatureStore();
+  if (vocabularyReady) {
+    jobAlertMetrics.enter('planning');
+    const vocabularyWaitStartedAt = performance.now();
+    const vocabularyBuild = await vocabularyReady;
+    jobAlertMetrics.set('vocabularyWaitMs', Math.round(performance.now() - vocabularyWaitStartedAt));
+    jobAlertMetrics.set('vocabularyWallMs', vocabularyBuild.wallMs);
+    console.log(`   📚 Search vocabulary: ${vocabularyBuild.mode}${vocabularyBuild.locales.length ? ` (${vocabularyBuild.locales.join(', ')}) in ${vocabularyBuild.wallMs} ms` : ''}${vocabularyBuild.fallback ? `, workers failed: ${vocabularyBuild.fallback}` : ''}`);
+  }
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
     jobAlertMetrics.enter('planning');
     planBatchNumber += 1;
@@ -4341,6 +4437,7 @@ async function main() {
         allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
           && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
         compactMatches: true,
+        planningFastpath: indexConfig.planningFastpath,
       }, {
         cursor,
         // `planAlertMatch` keeps its historical `recentJobs` name for the test

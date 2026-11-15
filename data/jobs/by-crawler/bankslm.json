@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bankslm-0b9d9916dc57",
-      "slug": "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen",
+      "slug": "specialista-di-pianificazione-finanziaria-nei-clienti-pensioni-60-80-bank-slm-ag-munsingen",
       "slugByLocale": {
         "de": "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch",
-        "it": "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen",
-        "en": "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen",
-        "fr": "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
+        "it": "specialista-di-pianificazione-finanziaria-nei-clienti-pensioni-60-80-bank-slm-ag-munsingen",
+        "en": "financial-planning-specialist-for-pension-clients-60-80-bank-slm-ag-munsingen",
+        "fr": "specialiste-de-la-planification-financiere-chez-les-beneficiaires-de-pensions-60-80-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
       "companyKey": "bankslm",
@@ -56,14 +56,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch"
+          "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch",
+          "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
+        ],
+        "en": [
+          "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
+        ],
+        "fr": [
+          "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
         ]
       },
       "previousSlugs": [
-        "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch"
+        "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch",
+        "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
       ],
       "salaryMin": 84400,
       "salaryMax": 148000,
@@ -85,12 +92,12 @@
     },
     {
       "id": "bankslm-f5eafef0ca66",
-      "slug": "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen",
+      "slug": "impiegato-a-in-rischio-compliance-40-50-bank-slm-ag-munsingen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch",
-        "it": "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen",
-        "en": "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen",
-        "fr": "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
+        "it": "impiegato-a-in-rischio-compliance-40-50-bank-slm-ag-munsingen",
+        "en": "risk-compliance-administrator-40-50-bank-slm-ag-munsingen",
+        "fr": "personnel-en-matiere-de-risque-et-de-conformite-40-50-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
       "companyKey": "bankslm",
@@ -136,14 +143,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch"
+          "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch",
+          "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
+        ],
+        "en": [
+          "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch"
+        "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch",
+        "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
       ],
       "salaryMin": 34300,
       "salaryMax": 52000,

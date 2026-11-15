@@ -45,6 +45,7 @@ import {
 import { createJobAlertMetrics } from '../scripts/lib/job-alert-metrics.mjs';
 import { planAlertForRun, planAlertMatch } from '../scripts/send-job-alerts.mjs';
 import { isCanaryJob, isOwnerEmail, OWNER_EMAIL } from '../scripts/lib/canaryAd.mjs';
+import { buildApplicationIntentJobKey, recordApplicationIntentSignal } from '../services/applicationIntentRanking.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -510,8 +511,8 @@ describe('rollout — planAlertForRun', () => {
 });
 
 describe('rollout — configurazione e campionamento', () => {
-  it('default locale on; 0,02 in LIVE e 0,10 in dry-run', () => {
-    expect(resolveCandidateIndexConfig({}, { dryRun: false })).toMatchObject({ mode: 'on', sampleRate: 0.02 });
+  it('default locale on; 0,005 in LIVE e 0,10 in dry-run', () => {
+    expect(resolveCandidateIndexConfig({}, { dryRun: false })).toMatchObject({ mode: 'on', sampleRate: 0.005 });
     expect(resolveCandidateIndexConfig({}, { dryRun: true })).toMatchObject({ mode: 'on', sampleRate: 0.1 });
   });
 
@@ -520,7 +521,7 @@ describe('rollout — configurazione e campionamento', () => {
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_MODE: 'shadow' }).mode).toBe('shadow');
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: '0.5' }).sampleRate).toBe(0.5);
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: '7' }).sampleRate).toBe(1);
-    expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: 'x' }).sampleRate).toBe(0.02);
+    expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: 'x' }).sampleRate).toBe(0.005);
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_BUDGET_MB: '8' }).budgetBytes).toBe(8 * 1024 * 1024);
     const odd = resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_MODE: 'turbo' });
     expect(odd).toMatchObject({ mode: 'shadow', invalidMode: true });
@@ -617,4 +618,247 @@ describe('selettore — parità sul timestamp dell inventario', () => {
       expect(job.status).not.toBe('expired');
     }
   });
+});
+
+
+// ── Fast path del planning (P1 risposte di ricerca, P4 predicati per riga) ──
+
+/**
+ * Profili soft-legacy scritti a mano: ogni fatto che i predicati dell'indice
+ * sostituiscono (azienda, località, cantone, settore, contratto, overlap dei
+ * token soft, scope geo duro) con i casi limite che `buildAlertProfile` non
+ * produce da solo: stringhe vuote in `cantons`/`sectors`, `companyKeys` vuoto,
+ * needle di località che si normalizzano a nulla.
+ */
+function softLegacyHandProfiles() {
+  const base = () => ({
+    hardKeywords: new Set<string>(), hardCategoryKeys: new Set<string>(), hardTaxonomyValues: new Set<string>(),
+    hardSearchQueries: [] as string[], softTokens: new Set<string>(['manager', 'software', 'infermiere']), softSearchQueries: [] as string[],
+    company: '', companyKeys: undefined as string[] | undefined, locations: [] as string[], alertLocations: [] as string[],
+    cantons: [] as string[], sectors: [] as string[], contractTypes: [] as string[],
+    specificJobIds: [] as string[], specificCompanyKey: '', preferredLocations: [] as string[], preferredCantons: [] as string[],
+  });
+  const out: Array<{ label: string; profile: any }> = [];
+  const add = (label: string, patch: any) => out.push({ label, profile: { ...base(), ...patch } });
+  add('tokens-only', {});
+  add('tokens-and-search', { softSearchQueries: ['cuoco lugano', 'zzz'] });
+  add('search-only-fallback', { softTokens: new Set(['zzzzzzzz']), softSearchQueries: ['infermiere', 'cuoco', 'manager'] });
+  add('company', { company: 'eoc', companyKeys: ['eoc'] });
+  add('company-no-keys', { company: 'eoc', companyKeys: [] });
+  add('company-and-location', { company: 'migros', companyKeys: ['migros'], locations: ['lugano', 'zurich'] });
+  add('canton-empty-string', { cantons: ['', 'ti'], softSearchQueries: ['cuoco'] });
+  add('canton-only-empty', { cantons: [''] });
+  add('sector-empty-string', { sectors: ['', 'healthcare'] });
+  add('sector-title', { sectors: ['manager', 'it'] });
+  add('contract', { contractTypes: ['full-time', 'zzz'] });
+  add('geo-scope-location', { alertLocations: ['lugano', 'bellinzona'], locations: ['lugano'] });
+  add('geo-scope-canton', { cantons: ['zh', 'ge'], sectors: ['it'] });
+  add('geo-scope-both', { alertLocations: ['chur'], cantons: ['ti'], company: 'eoc', companyKeys: ['eoc'], softSearchQueries: ['infermiere'] });
+  add('geo-scope-no-needles', { alertLocations: ['--'], cantons: [] });
+  add('geo-scope-empty-canton', { cantons: [''] , alertLocations: ['lugano'] });
+  add('location-no-needles', { locations: ['--'] });
+  add('all-signals', {
+    company: 'coopticino', companyKeys: ['coopticino'], locations: ['lugano', 'coira'], cantons: ['ti'], sectors: ['healthcare', 'cuoco'],
+    contractTypes: ['full-time'], softSearchQueries: ['infermiere lugano'],
+  });
+  return out;
+}
+
+describe('fast path — P1 risposte di ricerca e P4 predicati: lo scorer dà lo stesso risultato su ogni riga', () => {
+  const index = createJobAlertCandidateIndex(INVENTORY, { nowMs: NOW });
+
+  /**
+   * Per ogni riga eleggibile (non solo i candidati): scorer di prima contro
+   * scorer con risposte e predicati dell'indice. Le risposte e i predicati sono
+   * validi su TUTTE le righe, quindi anche le non candidate devono dare lo
+   * stesso punteggio (0 incluso).
+   */
+  const compareScorers = (label: string, profile: any, locale: string, owner: boolean, tally: Record<string, number>) => {
+    const selection: any = index.select(profile, { locale, ownerAlert: owner, cursorMs: 0, fastpath: true });
+    const universe: any = index.select(null, { locale, ownerAlert: owner, cursorMs: 0, forceWindow: true });
+    const plain = createAlertScorer(profile, locale, createJobFeatureCache(createJobFeatureStore()));
+    const fast = createAlertScorer(profile, locale, createJobFeatureCache(createJobFeatureStore()), {
+      searchAnswers: selection.searchAnswers,
+      predicates: selection.predicates,
+    });
+    tally.answers += selection.searchAnswers.byQuery.size;
+    if (selection.predicates) tally.predicates += 1;
+    universe.rows.forEach((row: any, k: number) => {
+      const expected = plain(row);
+      const actual = fast(row, universe.rowIndices[k]);
+      if (actual !== expected) {
+        throw new Error(`${label} locale=${locale} owner=${owner}: riga ${row.id} atteso ${expected} ottenuto ${actual} (strategia ${selection.strategy})`);
+      }
+    });
+    // Senza l'indice di riga le risposte non si usano: stessa risposta di prima.
+    for (const row of universe.rows.slice(0, 20)) expect(fast(row)).toBe(plain(row));
+  };
+
+  it('1.200 profili sintetici × locali: con e senza risposte/predicati, stesso score su ogni riga', () => {
+    const tally = { answers: 0, predicates: 0 };
+    for (const c of syntheticCases(1200)) {
+      const profile = buildProfile(c);
+      compareScorers(c.label, profile, nlNormLocale(c.alert.locale), isOwnerEmail(c.alert.email), tally);
+    }
+    // Il confronto non è banale: risposte e predicati sono stati davvero usati.
+    expect(tally.answers).toBeGreaterThan(100);
+    expect(tally.predicates).toBeGreaterThan(50);
+  }, 240_000);
+
+  it('profili soft-legacy a mano (casi limite dei predicati) in ogni locale, con e senza proprietario', () => {
+    const tally = { answers: 0, predicates: 0 };
+    for (const { label, profile } of softLegacyHandProfiles()) {
+      for (const locale of LOCALES) {
+        for (const owner of [false, true]) compareScorers(label, profile, locale, owner, tally);
+      }
+    }
+    expect(tally.predicates).toBeGreaterThan(20);
+    expect(tally.answers).toBeGreaterThan(10);
+  }, 120_000);
+
+  it('una query soft ripetuta conserva la risposta completa: stesso score e stessi match con e senza fast path', () => {
+    // Review PR #18866: la seconda passata della stessa query trova `remaining`
+    // senza le righe gia' accettate. La risposta registrata deve restare quella
+    // del vocabolario su TUTTE le righe, non l'intersezione con `remaining`.
+    // (`buildAlertProfile` deduplica gia' `softSearchQueries` con `uniq`; il
+    // caso si prova qui al livello di indice e scorer.)
+    const base = softLegacyHandProfiles()[0].profile;
+    const profile = { ...base, softTokens: new Set(['zzzzzzzz']), softSearchQueries: ['infermiere', 'infermiere'] };
+    const tally = { answers: 0, predicates: 0 };
+    for (const locale of LOCALES) compareScorers('soft-query-ripetuta', profile, locale, false, tally);
+    expect(tally.answers).toBeGreaterThan(0);
+    const selection: any = index.select(profile, { locale: 'it', cursorMs: 0, fastpath: true });
+    const fast = createAlertScorer(profile, 'it', createJobFeatureCache(createJobFeatureStore()), {
+      searchAnswers: selection.searchAnswers,
+      predicates: selection.predicates,
+    });
+    const plain = createAlertScorer(profile, 'it', createJobFeatureCache(createJobFeatureStore()));
+    const fastMatched = selection.rows.filter((row: any, k: number) => fast(row, selection.rowIndices[k]) > 0).map((row: any) => row.id);
+    const plainMatched = selection.rows.filter((row: any) => plain(row) > 0).map((row: any) => row.id);
+    expect(plainMatched.length).toBeGreaterThan(0);
+    expect(fastMatched).toEqual(plainMatched);
+  }, 60_000);
+
+  it('i profili a mano di prima (hard, pinned, ricerca) restano uguali con le risposte', () => {
+    const tally = { answers: 0, predicates: 0 };
+    for (const { label, profile } of handBuiltProfiles()) {
+      for (const locale of LOCALES) compareScorers(label, profile, locale, false, tally);
+    }
+  }, 120_000);
+
+  it('un profilo diverso o un locale diverso da quello della selezione ignora i predicati e le risposte', () => {
+    const profile = { ...softLegacyHandProfiles()[1].profile };
+    const other = { ...profile, sectors: ['healthcare'] };
+    const selection: any = index.select(profile, { locale: 'it', cursorMs: 0, fastpath: true });
+    const universe: any = index.select(null, { locale: 'it', cursorMs: 0, forceWindow: true });
+    // Predicati costruiti per `profile`, passati con `other`: non si usano (la guardia e' l'identita').
+    const mismatched = createAlertScorer(other, 'it', createJobFeatureCache(createJobFeatureStore()), { predicates: selection.predicates });
+    const plain = createAlertScorer(other, 'it', createJobFeatureCache(createJobFeatureStore()));
+    universe.rows.forEach((row: any, k: number) => expect(mismatched(row, universe.rowIndices[k])).toBe(plain(row)));
+    // Risposte di un locale passate con un altro locale: ignorate.
+    const wrongLocale = createAlertScorer(profile, 'de', createJobFeatureCache(createJobFeatureStore()), { searchAnswers: selection.searchAnswers });
+    const plainDe = createAlertScorer(profile, 'de', createJobFeatureCache(createJobFeatureStore()));
+    const deUniverse: any = index.select(null, { locale: 'de', cursorMs: 0, forceWindow: true });
+    deUniverse.rows.forEach((row: any, k: number) => expect(wrongLocale(row, deUniverse.rowIndices[k])).toBe(plainDe(row)));
+  });
+
+  it('select() restituisce indici di riga allineati alle righe, risposte solo del vocabolario e predicati solo su soft-legacy', () => {
+    const search = buildProfile(syntheticCases(1200).find((c) => c.label.startsWith('hard-search'))!);
+    const selection: any = index.select(search, { locale: 'it', cursorMs: 0, fastpath: true });
+    expect(selection.strategy).toBe('hard-search');
+    expect(selection.rowIndices).toBeInstanceOf(Int32Array);
+    expect(selection.rowIndices.length).toBe(selection.rows.length);
+    selection.rowIndices.forEach((rowIndex: number, k: number) => expect(index.rowAt(rowIndex)).toBe(selection.rows[k]));
+    expect(selection.searchAnswers.locale).toBe('it');
+    expect(selection.searchAnswers.byQuery.size).toBeGreaterThan(0);
+    expect(selection.predicates ?? null).toBeNull();
+    // Senza fastpath non si preparano predicati, risposte e colonne.
+    const plainSelection: any = index.select(search, { locale: 'it', cursorMs: 0 });
+    expect(plainSelection.searchAnswers).toBeUndefined();
+    expect(plainSelection.columns).toBeUndefined();
+    expect(plainSelection.rows).toEqual(selection.rows);
+    // Il percorso per-riga (token non standard) non produce risposte: valgono solo su `need`.
+    const odd = { ...softLegacyHandProfiles()[0].profile, softSearchQueries: [], hardKeywords: new Set(['x']), hardSearchQueries: ['!!!'] };
+    const oddSelection: any = index.select(odd, { locale: 'it', cursorMs: 0, fastpath: true });
+    expect(oddSelection.searchAnswers.byQuery.size).toBe(0);
+    const soft = index.select({ ...softLegacyHandProfiles()[1].profile }, { locale: 'it', cursorMs: 0, fastpath: true }) as any;
+    expect(soft.strategy).toBe('soft-legacy');
+    expect(soft.predicates).not.toBeNull();
+  });
+});
+
+describe('fast path — golden planAlertMatch: matched, metadata e ordine identici al legacy', () => {
+  const index = createJobAlertCandidateIndex(INVENTORY, { nowMs: NOW });
+  const selector = createJobAlertCandidateSelector(INVENTORY, { nowMs: NOW });
+
+  /** `matched` con identità, metadata di ranking e (non compatto) campi, tutto a confronto profondo. */
+  const deepPlan = (plan: any) => ({
+    candidateCount: plan.candidateCount,
+    rankedCount: plan.rankedCount,
+    zeroCause: plan.zeroCause,
+    sentMap: plan.sentMap,
+    matched: plan.matched.map((job: any) => ({
+      id: job.id,
+      metadata: plan.rankingMetadata ? plan.rankingMetadata.get(job) : undefined,
+      ...(plan.rankingMetadata ? {} : { relevanceScore: job.relevanceScore, relevanceSignals: job.relevanceSignals, newnessAt: job.newnessAt, applicationIntentBoost: job.applicationIntentBoost }),
+    })),
+  });
+
+  const intentFor = (jobs: any[], pick: number[]) => {
+    let intent: any = null;
+    for (const i of pick) intent = recordApplicationIntentSignal(intent, buildApplicationIntentJobKey(jobs[i]), NOW - 60_000).applicationIntent;
+    return intent;
+  };
+
+  for (const compactMatches of [true, false]) {
+    for (const applicationIntentRankingEnabled of [false, true]) {
+      it(`400 alert: piano identico con fast path e senza — compact=${compactMatches} applicationIntent=${applicationIntentRankingEnabled}`, () => {
+        const cases = syntheticCases(400);
+        const store = createJobFeatureStore();
+        const open = index.select(null, { locale: 'it', ownerAlert: true, cursorMs: 0, forceWindow: true }).rows as any[];
+        let withMatches = 0;
+        let boosted = 0;
+        for (const [position, c] of cases.entries()) {
+          const email = c.alert.email.toLowerCase();
+          const behaviorProfiles = new Map();
+          const applicationIntentAccountProfiles = new Map();
+          if (applicationIntentRankingEnabled && position % 2 === 0) {
+            behaviorProfiles.set(email, { applicationIntentAuthUid: 'u1', applicationIntent: intentFor(open, [1, 4, 9, 17, 25, 33, 41, 60, 77]) });
+            applicationIntentAccountProfiles.set(email, { uid: 'u1', optedOut: false });
+          }
+          const cursorMs = NOW - [0.5, 1, 2, 5][position % 4] * DAY;
+          const window = selector({ recipientLastSentAt: new Date(cursorMs), alertCreatedAt: 0, initialLookbackMs: DAY }).jobs;
+          const alert = { ...c.alert, sentJobIds: position % 5 === 0 ? { 'job-1': NOW - DAY, 'job-4': NOW - DAY } : undefined };
+          const context: any = {
+            behaviorProfiles,
+            lastClickedUrlByEmail: new Map(),
+            locationIndex: new Map(),
+            cityToCanton: new Map([['lugano', 'ti'], ['zurich', 'zh']]),
+            subscriberProfiles: new Map([[email, c.subscriber]]),
+            applicationIntentAccountProfiles,
+            now: NOW,
+            compactMatches,
+            allowDiscovery: false,
+            applicationIntentRankingEnabled,
+          };
+          const legacy = planAlertMatch(alert, { ...context, featureCache: createJobFeatureCache(store), recentJobs: window });
+          const off = planAlertMatch(alert, { ...context, featureCache: createJobFeatureCache(createJobFeatureStore()), candidateIndex: index, candidateCursorMs: cursorMs, planningFastpath: false });
+          const fast = planAlertMatch(alert, { ...context, featureCache: createJobFeatureCache(createJobFeatureStore()), candidateIndex: index, candidateCursorMs: cursorMs, planningFastpath: true });
+          expect(deepPlan(fast), `${c.label} fast`).toEqual(deepPlan(legacy));
+          expect(deepPlan(off), `${c.label} off`).toEqual(deepPlan(legacy));
+          expect(fast.scoredRows).toBe(off.scoredRows);
+          expect(fast.indexStrategy).toBe(off.indexStrategy);
+          if (legacy.matched.length > 0) withMatches += 1;
+          if (compactMatches) {
+            for (const job of fast.matched) if (fast.rankingMetadata.get(job)?.applicationIntentBoost !== undefined) boosted += 1;
+          }
+          // Con compactMatches `matched` e' fatto degli stessi oggetti riga del legacy.
+          if (compactMatches) expect(fast.matched.every((job: any, i: number) => job === legacy.matched[i])).toBe(true);
+        }
+        expect(withMatches).toBeGreaterThan(100);
+        // Con l'application intent acceso il confronto copre davvero job con boost.
+        if (compactMatches && applicationIntentRankingEnabled) expect(boosted).toBeGreaterThan(0);
+      }, 240_000);
+    }
+  }
 });

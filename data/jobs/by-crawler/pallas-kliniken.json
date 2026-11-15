@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "pallas-kliniken-94d9e46e1639",
-      "slug": "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau",
+      "slug": "medico-senior-anestesia-medico-senior-40-100-pallas-kliniken-aarau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau",
-        "it": "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau",
-        "en": "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau",
-        "fr": "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau"
+        "it": "medico-senior-anestesia-medico-senior-40-100-pallas-kliniken-aarau",
+        "en": "senior-physician-senior-physician-anesthesia-40-100-pallas-kliniken-aarau",
+        "fr": "medecin-superieur-medecin-superieur-anesthesie-40-100-pallas-kliniken-aarau"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -72,7 +72,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:27:23.000Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:27:23.000Z"
+      "firstSeenAt": "2026-11-15T09:27:23.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-anasthesie-40-100-pallas-kliniken-aarau"
+      ]
     },
     {
       "id": "pallas-kliniken-56be3068efe2",

@@ -28,9 +28,26 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     expect(src).toContain(`--trailer "Fixer: ${kind}-round-\${{ steps.guard.outputs.round }}"`);
   });
 
-  it('il merge di allineamento porta il suo trailer', () => {
-    expect(src).toContain(`Fixer: ${kind}-align`);
-    expect(src).not.toMatch(/if git merge --no-edit origin\/main; then/u);
+  // Dal 2026-10-07 (#12203, «remove PR fixer origin/main merge amplification») il
+  // fixer NON fa piu' il merge locale di origin/main: lo step `align` si limita a
+  // verificare che `pr-review-loop.yml` sia byte-identico a origin/main e a
+  // fermarsi fail-closed in caso di drift. Senza merge non esiste un commit di
+  // allineamento che debba portare `Fixer: <kind>-align`: il contratto di
+  // distinguibilita' dei push resta sui commit del round (`Fixer: <kind>-round-N`,
+  // sopra) e sul classify. Il vecchio test pretendeva il trailer di un commit che il
+  // workflow non crea piu'; qui si pinna il contratto vigente, piu' forte: nessun
+  // merge di nessun tipo e il controllo anti-drift fail-closed.
+  it('non fa nessun merge locale di allineamento: verifica il drift e si ferma fail-closed', () => {
+    expect(src).not.toMatch(/^\s*(?:if\s+(?:!\s+)?)?git merge\b/mu);
+    expect(src).not.toContain(`Fixer: ${kind}-align`);
+    const alignAt = src.indexOf('id: align');
+    expect(alignAt).toBeGreaterThan(0);
+    const align = src.slice(alignAt, src.indexOf('\n      - name:', alignAt));
+    expect(align).toContain('git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main"');
+    expect(align).toContain('git diff --quiet origin/main -- .github/workflows/pr-review-loop.yml');
+    expect(align).toContain('stop fail-closed');
+    expect(align).toMatch(/workflow-validation drift[\s\S]*exit 1/u);
+    expect(align).toContain('start_sha=');
   });
 
   it('il classify segnala i commit del round senza trailer', () => {

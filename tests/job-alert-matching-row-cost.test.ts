@@ -509,7 +509,9 @@ describe('matching cost per alert (#9314)', () => {
       expect(scoreJobForAlert(job, profile, 'en', firstBatchCache)).toBe(expectedScores[index]);
       expect(scoreJobForAlert(job, profile, 'en', secondBatchCache)).toBe(expectedScores[index]);
       const secondFeatures = entries.second[jobs.length - 1 - index].features;
-      expect(secondFeatures).not.toBe(entries.first[index].features);
+      // The feature object itself is run-level (perf-plan P3): a batch copies the
+      // pointer, it does not rebuild the object.
+      expect(secondFeatures).toBe(entries.first[index].features);
       expect(secondFeatures.titleText).toBe(entries.first[index].features.titleText);
       expect(secondFeatures.descriptionText).toBe(entries.first[index].features.descriptionText);
       expect(secondFeatures.jobTokens).toBe(entries.first[index].features.jobTokens);

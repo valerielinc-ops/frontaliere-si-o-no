@@ -510,12 +510,12 @@
     },
     {
       "id": "medimeo-d23ca2966d4e",
-      "slug": "facharzt-facharztin-per-ophthalmologie-60-100-grossraum-zurich-medimeo-ag-zurich",
+      "slug": "medico-specialista-medica-specialista-in-oftalmologia-60-100-area-metropolitana-di-zurigo-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch",
-        "it": "facharzt-facharztin-per-ophthalmologie-60-100-grossraum-zurich-medimeo-ag-zurich",
-        "en": "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch",
-        "fr": "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch"
+        "it": "medico-specialista-medica-specialista-in-oftalmologia-60-100-area-metropolitana-di-zurigo-medimeo-ag-region-zurich",
+        "en": "specialist-in-ophthalmology-60-100-greater-zurich-medimeo-ag-region-zurich",
+        "fr": "specialiste-en-ophtalmologie-60-100-grand-zurich-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -559,14 +559,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch",
+          "facharzt-facharztin-per-ophthalmologie-60-100-grossraum-zurich-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch"
+        ],
+        "fr": [
           "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch"
         ]
       },
       "previousSlugs": [
-        "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch"
+        "facharzt-facharztin-fur-ophthalmologie-60-100-grossraum-zurich-region-zurich-medimeo-ch",
+        "facharzt-facharztin-per-ophthalmologie-60-100-grossraum-zurich-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

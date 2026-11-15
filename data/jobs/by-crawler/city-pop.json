@@ -173,12 +173,12 @@
     },
     {
       "id": "city-pop-0f55e4bf8abf",
-      "slug": "housekeeper-20-100-zurich-city-pop-zurich",
+      "slug": "housekeper-20-100-zurich-city-pop-zurich",
       "slugByLocale": {
         "en": "housekeeper-20-100-zurich-city-pop-zurich",
-        "it": "housekeeper-20-100-zurich-city-pop-zurich",
-        "de": "housekeeper-20-100-zurich-city-pop-zurich",
-        "fr": "housekeeper-20-100-zurich-city-pop-zurich"
+        "it": "housekeper-20-100-zurich-city-pop-zurich",
+        "de": "hausekeeper-20-100-zurich-city-pop-zurich",
+        "fr": "maisonniere-20-100-zurich-city-pop-zurich"
       },
       "company": "City Pop",
       "companyKey": "city-pop",
@@ -241,7 +241,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-12T09:26:25.875Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:26:25.875Z"
+      "firstSeenAt": "2026-11-15T09:26:25.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeper-20-100-zurich-city-pop-zurich"
+        ],
+        "de": [
+          "housekeeper-20-100-zurich-city-pop-zurich"
+        ],
+        "fr": [
+          "housekeeper-20-100-zurich-city-pop-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeper-20-100-zurich-city-pop-zurich"
+      ]
     }
   ]
 }

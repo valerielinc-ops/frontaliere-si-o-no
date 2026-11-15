@@ -67,6 +67,15 @@ describe('extractBundleUrls — new-sitemap-urls.json shape', () => {
     expect(extractBundleUrls({ version: 2, _allUrls: ['https://a/', 'https://b/'] })).toHaveLength(2);
   });
 
+  it('derives the sorted URL list from a v4 snapshot read by readSitemapSnapshot (no _allUrls)', () => {
+    const urls = extractBundleUrls({
+      version: 3,
+      snapshotFormat: 4,
+      perSitemap: { 'b.xml': ['https://a/2/', 'https://a/1/'], 'a.xml': ['https://a/1/', 'https://a/3/'] },
+    });
+    expect(urls).toEqual(['https://a/1/', 'https://a/2/', 'https://a/3/']);
+  });
+
   it('returns [] on missing/malformed shapes so the caller fails open', () => {
     expect(extractBundleUrls(null)).toEqual([]);
     expect(extractBundleUrls({})).toEqual([]);

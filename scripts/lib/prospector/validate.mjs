@@ -37,9 +37,9 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import {
-  isSufficientVacancyDescription,
   textOf,
 } from './extract.mjs';
+import { meetsSourceBodyFloor } from '../source-body-floor.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { isSpontaneousApplicationTitle } from '../spontaneous-application.mjs';
@@ -520,15 +520,16 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
       || (out.sourceBackedLocation && vacancy.locationSource !== 'employer_site'));
   // Grade the exact description the runtime would publish. Navigation/footer
   // prose must not make a description-less shell pass validation only to be
-  // dropped by production under the shared sufficiency contract.
+  // dropped by production under the shared publication floor. Keeping the
+  // same 50-word floor here prevents a candidate from being promoted on a
+  // description that the standard pipeline will later discard.
   // `vacancy.description` is the already selected output of the runtime's
   // per-row transform. Re-evaluating the detail body here would allow text the
   // crawler does not publish to satisfy the semantic quality gate.
   const publishableDescription = vacancy.description
     || (fetchOptions.observedDetail ? '' : detail.description || '');
-  out.contentful = isSufficientVacancyDescription(publishableDescription);
-
   const publishableDescriptionText = textOf(publishableDescription);
+  out.contentful = meetsSourceBodyFloor(publishableDescriptionText);
   if (publishableDescriptionText && isReadableText(publishableDescriptionText)) {
     const jl = gradeJobLike(publishableDescriptionText);
     // A standing spontaneous-application page often contains apply/CV/HR

@@ -7,6 +7,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
+import { createInterface } from 'node:readline';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
 import {
@@ -44,7 +45,7 @@ const V2_SUBDIR = 'v2';
 const REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
 const V2_MAX_SHARD_BYTES = 256 * 1024;
-const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix'] as const;
+const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix', 'active-job'] as const;
 const LOCALE_INDEX = new Map<JobCanonLocale, number>(JOB_CANON_LOCALES.map((locale, index) => [locale, index]));
 const WORKER_LOCALE_MASK = (1 << JOB_CANON_LOCALES.length) - 1;
 const WORKER_CANDIDATE_FLAG = 1 << 12;
@@ -294,6 +295,21 @@ function clearStageBuffer(buffer: StageBuffer): void {
   buffer.rows = 0;
 }
 
+async function readStagedJobs(file: string): Promise<ActiveJobSlugMapRow[]> {
+  const jobs: ActiveJobSlugMapRow[] = [];
+  if (!fs.existsSync(file)) return jobs;
+  const reader = createInterface({ input: fs.createReadStream(file), crlfDelay: Infinity });
+  for await (const line of reader) {
+    if (!line) continue;
+    const row: unknown = JSON.parse(line);
+    if (!row || typeof row !== 'object' || Array.isArray(row)) {
+      throw new Error(`[job-canon-redirect-map] invalid active-job stage row in ${path.basename(file)}`);
+    }
+    jobs.push(row as ActiveJobSlugMapRow);
+  }
+  return jobs;
+}
+
 function forEachStagedLine(
   file: string,
   visit: (slug: string, locale: JobCanonLocale, value: string, order: number) => void,
@@ -414,12 +430,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     // Staged build (BUILD_STAGE=ssg, the second Vite process): restore the ordering
-    // fields written by localeJobsSplitPlugin in the FIRST process NOW, before any SSG
-    // work. The plugin is enforce:'post', so a failure in closeBundle would come after
-    // every other emitter (~2 h in, run 43643571377). The validator is the one of
-    // restoreJobCanonOrderingFields; a missing/unreadable/malformed file throws naming the
-    // path, and as a buildStart error it goes through the abort flag of
-    // shared/buildAbortOnError.ts. Same condition as closeBundle: the IT leg.
+    // fields written by localeJobsSplitPlugin in the first process before any SSG work.
     buildStart() {
       if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
       restoreJobCanonOrderingHandoffFromEnv();
@@ -435,7 +446,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
 
       let orderingFieldsById = getJobCanonOrderingFields();
       if (!orderingFieldsById && process.env.BUILD_STAGE === 'ssg') {
-        // Second defence: buildStart already restored it, so this only runs if that was skipped.
+        // Second defence: buildStart normally restored it.
         restoreJobCanonOrderingHandoffFromEnv();
         orderingFieldsById = getJobCanonOrderingFields();
       }
@@ -684,14 +695,16 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           const addWorkerSlugFlags = (slug: string, flags: number): void => {
             workerFlagsBySlug.set(slug, (workerFlagsBySlug.get(slug) ?? 0) | flags);
           };
-          const jobsByV2Bucket: ActiveJobSlugMapRow[][] = Array.from(
-            { length: V2_BUCKET_COUNT },
-            () => [],
-          );
+          const activeJobsBuffer = newBuffer();
+          const activeJobCount = jobs.length;
           currentHeapPhase = 'active-prefix-staging';
           const stageBuffer = newBuffer();
           let activePrefixRows = 0;
           let activePrefixBufferRows = 0;
+          for (const job of jobs) {
+            delete job.datePosted;
+            delete job.firstSeenAt;
+          }
           for (const job of jobs) {
             const bucketIndexes = new Set<number>();
             const trackSlugBucket = (slug: unknown): void => {
@@ -739,13 +752,31 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             if (Array.isArray(previousSlugs)) {
               for (const oldSlug of previousSlugs) trackSlugBucket(oldSlug);
             }
-            for (const bucketIndex of bucketIndexes) jobsByV2Bucket[bucketIndex].push(job);
+            if (bucketIndexes.size > 0) {
+              const stagedJob = `${JSON.stringify(job)}\n`;
+              for (const bucketIndex of bucketIndexes) {
+                const bucketKey = bucketIndex.toString(16).padStart(3, '0');
+                stageValue(activeJobsBuffer, 'active-job', bucketKey, stagedJob);
+                if (activeJobsBuffer.rows >= 2048) {
+                  flushAll(activeJobsBuffer);
+                  clearStageBuffer(activeJobsBuffer);
+                }
+              }
+            }
           }
           flushAll(stageBuffer);
           clearStageBuffer(stageBuffer);
+          flushAll(activeJobsBuffer);
+          clearStageBuffer(activeJobsBuffer);
+          markHeap('active-jobs-staged');
+          jobs.length = 0;
+          activeJobsRaw.length = 0;
+          jobs = [];
+          activeJobsRaw = [];
+          markHeap('active-job-inputs-released');
           markHeap('active-prefixes-staged');
           console.log(
-            `[job-canon-redirect-map] active input: jobs=${jobs.length}, currentPrefixes=${activePrefixRows}, `
+            `[job-canon-redirect-map] active input: jobs=${activeJobCount}, currentPrefixes=${activePrefixRows}, `
             + `crossLocaleCandidates=${workerFlagsBySlug.size}, heap=${heapCheckpoints['active-prefixes-staged']}`,
           );
 
@@ -855,9 +886,10 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           };
           const reservedHubSlugs = buildReservedHubSlugs();
           for (let bucketIndex = 0; bucketIndex < V2_BUCKET_COUNT; bucketIndex += 1) {
-            const bucketJobs = jobsByV2Bucket[bucketIndex];
-            if (bucketJobs.length === 0) continue;
             const bucketKey = bucketIndex.toString(16).padStart(3, '0');
+            const activeJobsFile = path.join(stageDir, 'v2', 'active-job', `${bucketKey}.jsonl`);
+            if (!fs.existsSync(activeJobsFile)) continue;
+            const bucketJobs = await readStagedJobs(activeJobsFile);
             const bucketRegistryAliases = new Set<string>();
             const aliasFile = path.join(stageDir, 'v2', 'registry-alias', `${bucketKey}.jsonl`);
             forEachStagedLine(aliasFile, (slug, locale) => {
@@ -886,7 +918,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
                 activeAliasBufferRows += 1;
                 if (activeAliasBufferRows >= 8192) flushActiveAliases();
               },
-              onHeapSample: (phase) => sampleHeap(phase ? `active-${phase}` : 'active-aliases'),
+              onHeapSample: () => sampleHeap('active-aliases'),
             });
             for (const field of [
               'candidateGroups',
@@ -911,7 +943,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
             flushActiveAliases();
             bucketRegistryAliases.clear();
-            jobsByV2Bucket[bucketIndex] = [];
+            bucketJobs.length = 0;
+            fs.rmSync(activeJobsFile, { force: true });
             sampleHeap('active-alias-bucket-released');
           }
           flushActiveAliases();
@@ -923,9 +956,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
 
           // Release every input/index structure before output bucket objects
           // and JSON strings are allocated.
-          jobsByV2Bucket.length = 0;
-          jobs.length = 0;
-          activeJobsRaw.length = 0;
           workerFlagsBySlug.clear();
           nativeTargetsByRouteSlug.clear();
           nativeContributionCounts.clear();

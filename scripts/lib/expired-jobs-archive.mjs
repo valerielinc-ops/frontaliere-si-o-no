@@ -32,7 +32,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
-import { replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
+import { addPreviousSlugRoutesKeepAll, replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
 import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
@@ -257,6 +257,63 @@ function collisionRouteSuffix(entry, route, attempt) {
     .slice(0, 8);
 }
 
+/** Upper bound for the alias search; far above any real chain, it only stops a runaway loop. */
+const MAX_COLLISION_ATTEMPTS = 10_000;
+
+/**
+ * Count how many records (active or expired) hold each locale-qualified route.
+ * A count, not a set: an alias can legitimately be held by more than one record
+ * (histories are transferred between records), and "is it MINE alone?" needs to
+ * tell those apart.
+ */
+function addRouteHolders(holders, keys) {
+  for (const key of keys) holders.set(key, (holders.get(key) || 0) + 1);
+}
+
+/**
+ * Pick the alias a colliding record should move `route` to, in `locale`.
+ *
+ * Deterministic: the candidates are `collisionRouteSuffix(entry, route, 0, 1, 2…)`.
+ * The first one NO OTHER record holds wins. A candidate the record already owns
+ * is reused, not skipped: that is what makes the repair idempotent. The old loop
+ * treated the record's own alias as "reserved", discarded it and coined the next
+ * attempt, so every time the route re-entered the record (a fresh payload, a
+ * history merge) it got one more alias — 197 aliases of one stem inside a single
+ * Denner record, 73% of the expired sitemap slugs ending in 8 hex digits.
+ *
+ * @returns {{ replacement: string, key: string, reused: boolean }}
+ */
+function chooseCollisionReplacement(entry, route, locale, routeHolders, ownKeys) {
+  for (let attempt = 0; attempt < MAX_COLLISION_ATTEMPTS; attempt += 1) {
+    const replacement = appendSlugDisambiguator(route, collisionRouteSuffix(entry, route, attempt));
+    const key = `${locale}:${replacement}`;
+    const own = ownKeys.has(key);
+    const heldByOthers = (routeHolders.get(key) || 0) - (own ? 1 : 0) > 0;
+    if (heldByOthers) continue;
+    return { replacement, key, reused: own };
+  }
+  throw new Error(`expired route collision repair found no free alias for ${locale}:${route} after ${MAX_COLLISION_ATTEMPTS} attempts`);
+}
+
+/** After a record was repaired, bring the holder counts in line with the routes it serves now. */
+function syncRouteHolders(holders, before, after) {
+  for (const key of before) {
+    if (after.has(key)) continue;
+    const count = holders.get(key) || 0;
+    if (count <= 1) holders.delete(key);
+    else holders.set(key, count - 1);
+  }
+  for (const key of after) if (!before.has(key)) holders.set(key, (holders.get(key) || 0) + 1);
+}
+
+/**
+ * One repair can expose another: moving a flat previous slug out of one locale
+ * copies it into the others, where it may collide too. Re-check the record until
+ * it is clean (bounded), so a single call leaves a fixed point and a second call
+ * has nothing left to do.
+ */
+const MAX_REPAIR_ROUNDS = 8;
+
 /**
  * Keep an expired archive record from claiming a route that belongs to a
  * different active posting.
@@ -270,7 +327,10 @@ function collisionRouteSuffix(entry, route, attempt) {
  * archive route. Unknown or identity-less records are left untouched so this
  * repair never guesses which posting owns a route.
  *
- * Mutates `expiredJobs` in place and is idempotent.
+ * Mutates `expiredJobs` in place and is idempotent: the alias for `(route, attempt)`
+ * is deterministic and a record that already owns it reuses it, so a second pass
+ * over the same input changes nothing (`changed === 0`) and never mints another
+ * alias, even if the route re-entered the record in between.
  *
  * @param {object[]} expiredJobs
  * @param {object[]} activeJobs
@@ -290,47 +350,52 @@ export function repairExpiredRoutesAgainstActive(expiredJobs, activeJobs) {
     }
   }
 
-  const reservedRoutes = new Set(activeRouteOwners.keys());
-  for (const expiredJob of expiredJobs) {
-    for (const routeKey of localeRouteKeys(expiredJob)) reservedRoutes.add(routeKey);
-  }
+  const routeHolders = new Map();
+  for (const [routeKey, owners] of activeRouteOwners) routeHolders.set(routeKey, owners.length);
+  for (const expiredJob of expiredJobs) addRouteHolders(routeHolders, localeRouteKeys(expiredJob));
 
   let changed = 0;
   let repairedRoutes = 0;
   const details = [];
   for (const expiredJob of expiredJobs) {
     if (!expiredJob || typeof expiredJob !== 'object') continue;
-    const conflictingRouteKeys = [...localeRouteKeys(expiredJob)].filter((routeKey) => {
-      const owners = activeRouteOwners.get(routeKey);
-      if (!owners || owners.length === 0) return false;
-      // If any active owner is provably the same posting, ghost reconciliation
-      // owns this route and must be allowed to remove/merge it normally.
-      if (owners.some((owner) => archiveRecordNamesPosting(expiredJob, owner))) return false;
-      // A collision is repairable only when every active owner is explicitly
-      // different. Ambiguous source evidence must not trigger a rewrite.
-      return owners.every((owner) => hasExplicitlyDifferentSourceIdentity(expiredJob, owner));
-    });
+    const initialKeys = localeRouteKeys(expiredJob);
+    for (let round = 0; round < MAX_REPAIR_ROUNDS; round += 1) {
+      const ownKeys = localeRouteKeys(expiredJob);
+      const conflictingRouteKeys = [...ownKeys].filter((routeKey) => {
+        const owners = activeRouteOwners.get(routeKey);
+        if (!owners || owners.length === 0) return false;
+        // If any active owner is provably the same posting, ghost reconciliation
+        // owns this route and must be allowed to remove/merge it normally.
+        if (owners.some((owner) => archiveRecordNamesPosting(expiredJob, owner))) return false;
+        // A collision is repairable only when every active owner is explicitly
+        // different. Ambiguous source evidence must not trigger a rewrite.
+        return owners.every((owner) => hasExplicitlyDifferentSourceIdentity(expiredJob, owner));
+      });
+      if (conflictingRouteKeys.length === 0) break;
 
-    for (const routeKey of conflictingRouteKeys) {
-      const locale = localeFromRouteKey(routeKey);
-      const route = rawRouteFromLocaleKey(routeKey);
-      let attempt = 0;
-      let replacement;
-      do {
-        replacement = appendSlugDisambiguator(route, collisionRouteSuffix(expiredJob, route, attempt));
-        attempt += 1;
-      } while (reservedRoutes.has(`${locale}:${replacement}`));
+      let progressed = false;
+      for (const routeKey of conflictingRouteKeys) {
+        const locale = localeFromRouteKey(routeKey);
+        const route = rawRouteFromLocaleKey(routeKey);
+        const { replacement } = chooseCollisionReplacement(
+          expiredJob, route, locale, routeHolders, ownKeys,
+        );
 
-      if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
-        source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
-        reason: 'route collides with a distinct active posting',
-        locale,
-      })) continue;
-      reservedRoutes.add(`${locale}:${replacement}`);
-      changed += 1;
-      repairedRoutes += 1;
-      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
+        if (!replaceSlugRouteEverywhere(expiredJob, route, replacement, {
+          source: 'expired-jobs-archive.repairExpiredRoutesAgainstActive',
+          reason: 'route collides with a distinct active posting',
+          locale,
+          cap: DEFAULT_PREV_SLUG_CAP,
+        })) continue;
+        progressed = true;
+        changed += 1;
+        repairedRoutes += 1;
+        if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
+      }
+      if (!progressed) break;
     }
+    syncRouteHolders(routeHolders, initialKeys, localeRouteKeys(expiredJob));
   }
 
   return { entries: expiredJobs, changed, repairedRoutes, details };
@@ -366,7 +431,9 @@ function rawRouteFromLocaleKey(routeKey) {
  * but the shared raw slug is moved everywhere through the journal primitive so
  * no locale/history mirror retains the old owner.
  *
- * Mutates `entries` in place and is idempotent.
+ * Mutates `entries` in place and is idempotent (same reuse rule as
+ * `repairExpiredRoutesAgainstActive`: the deterministic alias a record already
+ * owns is reused, never replaced by a new one).
  *
  * @param {object[]} entries
  * @param {{source?: string, repairUnprovenCollisions?: boolean}} [options]
@@ -394,7 +461,10 @@ export function repairExpiredRoutesWithinArchive(
 
   const ordered = [...entries].sort(compareArchiveEntries);
   const owners = new Map();
-  const reservedRoutes = new Set(ordered.flatMap((entry) => [...localeRouteKeys(entry)]));
+  const routeHolders = new Map();
+  for (const entry of ordered) {
+    if (entry && typeof entry === 'object') addRouteHolders(routeHolders, localeRouteKeys(entry));
+  }
   let changed = 0;
   let repairedRoutes = 0;
   const details = [];
@@ -402,41 +472,44 @@ export function repairExpiredRoutesWithinArchive(
   for (const entry of ordered) {
     if (!entry || typeof entry !== 'object' || !entry.companyKey) continue;
 
-    const conflictingRouteKeys = [];
-    for (const routeKey of localeRouteKeys(entry)) {
-      const ownerKey = `${entry.companyKey}::${routeKey}`;
-      const routeOwners = owners.get(ownerKey) || [];
-      if (routeOwners.length === 0) continue;
-      if (repairUnprovenCollisions
-        || routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
-        conflictingRouteKeys.push(routeKey);
+    const initialKeys = localeRouteKeys(entry);
+    for (let round = 0; round < MAX_REPAIR_ROUNDS; round += 1) {
+      const ownKeys = localeRouteKeys(entry);
+      const conflictingRouteKeys = [];
+      for (const routeKey of ownKeys) {
+        const ownerKey = `${entry.companyKey}::${routeKey}`;
+        const routeOwners = owners.get(ownerKey) || [];
+        if (routeOwners.length === 0) continue;
+        if (repairUnprovenCollisions
+          || routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
+          conflictingRouteKeys.push(routeKey);
+        }
       }
-    }
+      if (conflictingRouteKeys.length === 0) break;
 
-    for (const routeKey of conflictingRouteKeys) {
-      const locale = localeFromRouteKey(routeKey);
-      const route = rawRouteFromLocaleKey(routeKey);
-      let attempt = 0;
-      let replacement;
-      do {
-        replacement = appendSlugDisambiguator(
-          route,
-          collisionRouteSuffix(entry, route, attempt),
+      let progressed = false;
+      for (const routeKey of conflictingRouteKeys) {
+        const locale = localeFromRouteKey(routeKey);
+        const route = rawRouteFromLocaleKey(routeKey);
+        const { replacement } = chooseCollisionReplacement(
+          entry, route, locale, routeHolders, ownKeys,
         );
-        attempt += 1;
-      } while (reservedRoutes.has(`${locale}:${replacement}`));
 
-      if (!replaceSlugRouteEverywhere(entry, route, replacement, {
-        source,
-        reason: 'route collides with a distinct expired posting',
-        locale,
-      })) continue;
+        if (!replaceSlugRouteEverywhere(entry, route, replacement, {
+          source,
+          reason: 'route collides with a distinct expired posting',
+          locale,
+          cap: DEFAULT_PREV_SLUG_CAP,
+        })) continue;
 
-      reservedRoutes.add(`${locale}:${replacement}`);
-      changed += 1;
-      repairedRoutes += 1;
-      if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
+        progressed = true;
+        changed += 1;
+        repairedRoutes += 1;
+        if (details.length < 20) details.push(`${routeKey} → ${locale}:${replacement}`);
+      }
+      if (!progressed) break;
     }
+    syncRouteHolders(routeHolders, initialKeys, localeRouteKeys(entry));
 
     for (const routeKey of localeRouteKeys(entry)) {
       const ownerKey = `${entry.companyKey}::${routeKey}`;
@@ -571,6 +644,42 @@ export function readExpiredSlice(crawlerKey, opts = {}) {
   }
 }
 
+/** How many deterministic aliases of a route are probed (the repair picks the lowest free attempt). */
+const MAX_ALIAS_PROBE = 256;
+
+/** Whether `record` already holds a deterministic collision alias of `routeKey`. */
+function holdsDeterministicAlias(record, routeKey, heldKeys = localeRouteKeys(record)) {
+  const locale = localeFromRouteKey(routeKey);
+  const route = rawRouteFromLocaleKey(routeKey);
+  for (let attempt = 0; attempt < MAX_ALIAS_PROBE; attempt += 1) {
+    const alias = appendSlugDisambiguator(route, collisionRouteSuffix(record, route, attempt));
+    if (heldKeys.has(`${locale}:${alias}`)) return true;
+  }
+  return false;
+}
+
+/**
+ * Merge routes an existing record no longer serves into ITS history through the journal
+ * primitive `addPreviousSlugRoutesKeepAll`, which never trims: `transferSlugHistory` goes
+ * through the 20-entry buckets and would evict served routes from a record that is already
+ * far over the cap (one Denner record holds 1 029 entries in `it`). Only the given routes
+ * travel: a route the repair already moved to an alias must not come back as a stem.
+ *
+ * @returns {boolean} whether the routes were merged
+ */
+function mergeUnservedRoutesIntoRecord(record, routeKeys) {
+  const byLocale = {};
+  for (const routeKey of routeKeys) {
+    const locale = localeFromRouteKey(routeKey);
+    (byLocale[locale] ||= []).push(rawRouteFromLocaleKey(routeKey));
+  }
+  addPreviousSlugRoutesKeepAll(record, byLocale, {
+    source: 'expired-jobs-archive.archiveRemovedJobsToSlice/same-identity',
+    cap: DEFAULT_PREV_SLUG_CAP,
+  });
+  return true;
+}
+
 export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (!crawlerKey) return 0;
   if (!Array.isArray(removedJobs)) return 0;
@@ -592,6 +701,47 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     if (ej?.slug) bySlug.set(ej.slug, ej);
   }
   const sizeBefore = bySlug.size;
+  // The archive is keyed by slug, but a collision repair MOVES a record's slug to a
+  // deterministic alias. Re-archiving the same removed job then missed `bySlug`,
+  // minted a second record carrying the job's original (colliding) history, and the
+  // next repair coined fresh aliases for it: the loop behind the linear growth of
+  // the expired pages (#14030 added the alias repair, 20 Oct 2026). Index the
+  // archive by source identity too, so the same posting is recognised. This must NOT
+  // depend on `opts.activeJobs`: assemble-jobs-dataset.mjs (every assembly) and the
+  // ~25 update-*.mjs crawlers call this writer without it.
+  //
+  // The index lives for the whole call: every record that enters `bySlug` (new or
+  // replacing) is indexed as it enters and a replaced record is un-indexed, so two
+  // removed jobs of the SAME call with one source identity and different slugs also end
+  // up in one record (the second one's routes are merged into the first).
+  const recordsBySourceIdentity = new Map(); // identity -> Set<record>, insertion order
+  const sliceRouteHolders = new Map();
+  const indexRecord = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      let records = recordsBySourceIdentity.get(identity);
+      if (!records) recordsBySourceIdentity.set(identity, records = new Set());
+      records.add(record);
+    }
+    addRouteHolders(sliceRouteHolders, localeRouteKeys(record));
+  };
+  const unindexRecord = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      const records = recordsBySourceIdentity.get(identity);
+      if (!records) continue;
+      records.delete(record);
+      if (records.size === 0) recordsBySourceIdentity.delete(identity);
+    }
+    syncRouteHolders(sliceRouteHolders, localeRouteKeys(record), new Set());
+  };
+  const recordOfSourceIdentity = (identity) => {
+    const records = identity ? recordsBySourceIdentity.get(identity) : undefined;
+    return records ? records.values().next().value : undefined;
+  };
+  for (const ej of existing) indexRecord(ej);
+  const activeRouteKeys = new Set();
+  for (const activeJob of Array.isArray(opts.activeJobs) ? opts.activeJobs : []) {
+    for (const routeKey of localeRouteKeys(activeJob)) activeRouteKeys.add(routeKey);
+  }
 
   let added = 0;
   let metadataChanged = false;
@@ -609,12 +759,39 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     const entry = buildExpiredEntry(job);
     const prev = bySlug.get(entry.slug);
     if (!prev) {
+      // Same posting already archived under another slug (its slug was moved to an
+      // alias by the collision repair): NEVER a second record. The existing record
+      // stays the owner of the posting; routes it no longer serves are merged into
+      // its history below, so no URL stops resolving. A route counts as served when
+      //   - the record holds it, or
+      //   - the record holds one of its deterministic aliases (the repair already
+      //     moved it, and the idempotent repair will move it there again), or
+      //   - an active posting (when the caller knows them) or ANOTHER record of the
+      //     slice holds it.
+      const sameRecord = recordOfSourceIdentity(entry.sourceIdentity);
+      if (sameRecord) {
+        const held = localeRouteKeys(sameRecord);
+        const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
+          if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
+          if ((sliceRouteHolders.get(routeKey) || 0) > 0) return false; // held by another record (not this one: `held` is checked above)
+          return !holdsDeterministicAlias(sameRecord, routeKey, held);
+        });
+        if (unserved.length === 0) continue;
+        if (mergeUnservedRoutesIntoRecord(sameRecord, unserved)) {
+          addRouteHolders(sliceRouteHolders, unserved);
+          metadataChanged = true;
+          continue;
+        }
+      }
       bySlug.set(entry.slug, entry);
+      indexRecord(entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
       const previousMetadata = firstSeenMetadata(prev);
+      unindexRecord(prev); // the replaced record no longer owns its identities or routes
       bySlug.set(entry.slug, entry);
       const merged = mergeSourceIdentityHistory(entry, prev);
+      indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
       // merge itself is intentionally a no-op when there is only one source
       // identity, so compare the selected payload before returning below.
@@ -623,6 +800,12 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         || metadataChanged;
     } else {
       metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
+      // `prev` may have gained identities from `entry`'s history: keep the index in step.
+      for (const identity of archiveRecordSourceIdentities(prev)) {
+        let records = recordsBySourceIdentity.get(identity);
+        if (!records) recordsBySourceIdentity.set(identity, records = new Set());
+        records.add(prev);
+      }
     }
   }
 

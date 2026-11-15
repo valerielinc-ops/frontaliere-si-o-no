@@ -70,6 +70,29 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'canton-moved',
       locale: 'de',
     });
+    expect(
+      resolveSearchConsoleCompatTarget('/de/jobs-im-zurich/' + slug, idx, { sourceBackedOnly: true }),
+    ).toEqual({
+      canonicalPath: '/de/jobs-in-zurich/' + slug + '/',
+      kind: 'canton-moved',
+      locale: 'de',
+    });
+
+    // A stale tracking row must not send the already-canonical German section
+    // back to the historical alias. In source-backed mode that is no mapping.
+    expect(
+      resolveSearchConsoleCompatTarget('/de/jobs-in-zurich/' + slug, idx, { sourceBackedOnly: true }),
+    ).toBeNull();
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-zurich/' + slug, idx)).toEqual({
+      canonicalPath: '/de/jobs-in-zurich/',
+      kind: 'expired-job',
+      locale: 'de',
+    });
+
+    // `jobs-im-*` is a German-only alias namespace; do not derive EN or apex
+    // destinations from a German section name.
+    expect(resolveSearchConsoleCompatTarget('/en/jobs-im-zurich/' + slug, idx)).toBeNull();
+    expect(resolveSearchConsoleCompatTarget('/jobs-im-zurich/' + slug, idx)).toBeNull();
   });
 
   it('falls back to the URL-section listing when the slug is unknown or already canonical', () => {
