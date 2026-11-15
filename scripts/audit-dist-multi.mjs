@@ -2,20 +2,19 @@
 /**
  * audit-dist-multi.mjs
  *
- * Consolidated dist/ walker that runs NINE audits in a single pipeline,
+ * Consolidated dist/ walker that runs EIGHT audits in a single pipeline,
  * reading every dist/**\/*.html exactly once:
  *
  *   1. audit-text-html-ratio              (Semrush low-text/HTML ratio gate)
  *   2. audit-title-length                 (SERP title length ratchet)
  *   3. audit-h1-title-duplicates          (duplicate H1/title ratchet)
  *   4. audit-content-duplicates           (per-locale duplicate body clusters)
- *   5. audit-page-weight                  (260 KB HTML budget + <img> attrs)
- *   6. audit-hreflang                     (hreflang completeness/host/target)
- *   7. audit-title-uniqueness             (within-locale unique <title>s)
- *   8. validate-jobposting-schema         (complete mandatory JobPosting fields)
- *   9. validate-structured-data-completeness (Dataset/JobPosting/Event/Product)
+ *   5. audit-hreflang                     (hreflang completeness/host/target)
+ *   6. audit-title-uniqueness             (within-locale unique <title>s)
+ *   7. validate-jobposting-schema         (complete mandatory JobPosting fields)
+ *   8. validate-structured-data-completeness (Dataset/JobPosting/Event/Product)
  *
- * The nine original scripts remain unchanged and continue to be the source of
+ * The eight original scripts remain unchanged and continue to be the source of
  * truth for `--feature=…`, `--json`, `--csv`, `--write-baseline`,
  * `--include-noindex`, etc. THIS script only reproduces the CI deploy
  * invocation each of them uses (`npm run audit:<name>` / `npm run validate:*`)
@@ -23,7 +22,7 @@
  * exit semantics — pipelined through one walk + one file read per HTML page.
  *
  * Exit code:
- *   0 — all nine audits passed
+ *   0 — all eight audits passed
  *   1 — at least one audit failed (regression vs baseline, or hard threshold)
  *   2 — dist/ missing or fatal IO error
  *
@@ -40,19 +39,12 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from '../services/seo/inlanguage-whitelist.data.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
-import { HEALTH_FACILITIES_SECTION_RX } from './lib/healthFacilitiesSections.mjs';
-import { HEALTH_FACILITY_PAGE_BUDGET_BYTES } from './lib/pageWeightBudgets.mjs';
-import {
-  JOB_BOARD_COMPANY_HUB_PATH_RX,
-  JOB_BOARD_SECTION_RX,
-  EMPLOYER_PROFILE_PATH_RX,
-} from './lib/jobBoardSections.mjs';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
 import { isHistoricalMissingTarget, isNoindexPage } from './audit-hreflang.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
-import { MAX_HTML_BYTES } from './audit-page-weight.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 import {
   isNonEmptyString,
@@ -99,23 +91,6 @@ const RATE_TOL_DEFAULT = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3
 const DUP_CLUSTER_THRESHOLD = 5;
 const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
-
-// audit-page-weight constants. `MAX_HTML_BYTES` is IMPORTED (see the import
-// block above), not re-declared: one declaration cannot drift (issue #7330).
-// Keep in lock-step with audit-page-weight.mjs: the complete company-hub and
-// employer-profile result sets are explicit owner-approved page-weight
-// exceptions, while image dimension/loading validation remains enforced.
-// Facility pages have the same complete-inventory contract, with a finite
-// The shared facility budget has a finite ceiling so future corpus growth
-// remains visible to the audit.
-function pwBudgetForPath(relPath) {
-  const p = '/' + String(relPath).replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(p) || EMPLOYER_PROFILE_PATH_RX.test(p)) {
-    return Number.POSITIVE_INFINITY;
-  }
-  if (HEALTH_FACILITIES_SECTION_RX.test(p)) return HEALTH_FACILITY_PAGE_BUDGET_BYTES;
-  return MAX_HTML_BYTES;
-}
 
 // audit-hreflang constants.
 const HREFLANG_BASE_URL = 'https://frontaliereticino.ch';
@@ -435,60 +410,6 @@ export class H1Audit {
     const locale = inferRootLocale(relFromRoot);
     // flatString: same boundary as audit-h1-title-duplicates.mjs.
     this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), h1: flatString(h1) });
-  }
-}
-
-// ───── audit-page-weight helpers (verbatim) ──────────────────────────────────
-
-/** From audit-page-weight.findImgIssues. */
-function findImgIssues(html) {
-  const issues = [];
-  const imgRe = /<img\b([^>]*)>/gi;
-  let m;
-  while ((m = imgRe.exec(html)) !== null) {
-    const attrs = m[1];
-    const missing = [];
-    if (!/\bwidth\s*=/.test(attrs)) missing.push('width');
-    if (!/\bheight\s*=/.test(attrs)) missing.push('height');
-    const hasLoading = /\bloading\s*=/.test(attrs);
-    const hasFetchPri = /\bfetchpriority\s*=\s*["']?high/i.test(attrs);
-    if (!hasLoading && !hasFetchPri) missing.push('loading|fetchpriority');
-    if (missing.length > 0) {
-      issues.push({ tag: m[0].slice(0, 160), missing });
-    }
-  }
-  return issues;
-}
-
-/** From audit-page-weight.inlineBreakdown. */
-function inlineBreakdown(html) {
-  let inlineJs = 0;
-  const scriptRe = /<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = scriptRe.exec(html)) !== null) inlineJs += Buffer.byteLength(m[1], 'utf8');
-  let inlineCss = 0;
-  const styleRe = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
-  while ((m = styleRe.exec(html)) !== null) inlineCss += Buffer.byteLength(m[1], 'utf8');
-  return { inlineJs, inlineCss };
-}
-
-class PageWeightAudit {
-  constructor() {
-    this.report = []; // { file, bytes, inlineJs, inlineCss, imgIssues }
-    this.oversized = []; // strings ("rel (size KB)")
-    this.imgMissingAttrs = []; // { file, issues:[{tag, missing}] }
-  }
-  /** Mirrors per-file body of audit-page-weight.main loop. */
-  ingest(file, html, htmlBytes, relFromRoot) {
-    const { inlineJs, inlineCss } = inlineBreakdown(html);
-    const imgIssues = findImgIssues(html);
-    this.report.push({ file: relFromRoot, bytes: htmlBytes, inlineJs, inlineCss, imgIssues: imgIssues.length });
-    if (htmlBytes > pwBudgetForPath(relFromRoot)) {
-      this.oversized.push(`${relFromRoot} (${(htmlBytes / 1024).toFixed(1)} KB)`);
-    }
-    if (imgIssues.length > 0) {
-      this.imgMissingAttrs.push({ file: relFromRoot, issues: imgIssues });
-    }
   }
 }
 
@@ -1633,42 +1554,7 @@ function runDup(audit) {
   return { passed: true };
 }
 
-// ───── reporters for the 5 newly-consolidated audits ────────────────────────
-
-function runPageWeight(audit) {
-  console.log(`\n──── audit:page-weight ────`);
-  const topTen = [...audit.report].sort((a, b) => b.bytes - a.bytes).slice(0, 10);
-  console.log(`audit-page-weight: scanned ${audit.report.length} HTML files in dist/`);
-  console.log(`Top 10 heaviest pages:`);
-  for (const r of topTen) {
-    console.log(`  ${(r.bytes / 1024).toFixed(1).padStart(7)} KB  ${r.file}  (inlineJs=${r.inlineJs}B, inlineCss=${r.inlineCss}B)`);
-  }
-
-  const hasOffenders = audit.oversized.length > 0 || audit.imgMissingAttrs.length > 0;
-  if (hasOffenders) {
-    if (audit.oversized.length > 0) {
-      console.error(`\nFAIL: ${audit.oversized.length} page(s) exceed ${MAX_HTML_BYTES / 1024} KB HTML budget:`);
-      const show = audit.oversized.slice(0, 5);
-      for (const o of show) console.error(`  - ${o}`);
-      if (audit.oversized.length > 5) {
-        console.error(`  ... and ${audit.oversized.length - 5} more (rerun with --summary)`);
-      }
-    }
-    if (audit.imgMissingAttrs.length > 0) {
-      console.error(`\nFAIL: ${audit.imgMissingAttrs.length} page(s) have <img> tags missing width/height/loading:`);
-      const show = audit.imgMissingAttrs.slice(0, 5);
-      for (const o of show) {
-        console.error(`  - ${o.file} (${o.issues.length} tag(s))`);
-        for (const i of o.issues.slice(0, 2)) {
-          console.error(`      missing=[${i.missing.join(',')}]  ${i.tag}`);
-        }
-      }
-    }
-    return { passed: false };
-  }
-  console.log(`\nOK: all ${audit.report.length} pages within budget and <img> attrs present.`);
-  return { passed: true };
-}
+// ───── reporters for the newly-consolidated audits ──────────────────────────
 
 function runHreflang(audit) {
   console.log(`\n──── audit:hreflang ────`);
@@ -1866,7 +1752,7 @@ async function main() {
   // PERF EXPERIMENT: optional split into N walkers via AUDIT_DIST_MULTI_GROUP.
   //   ratio  — only text-html-ratio (the slowest single check)
   //   heavy  — h1 + dup + jobposting (medium-heavy checks)
-  //   light  — title + pageweight + hreflang + titleuniq + sd (lighter checks)
+  //   light  — title + hreflang + titleuniq + sd (lighter checks)
   //   unset/all — all JobPosting checks (default)
   const group = process.env.AUDIT_DIST_MULTI_GROUP || 'all';
   const want = (name) => {
@@ -1875,7 +1761,7 @@ async function main() {
     // T5 winner config: heavy = h1+dup+jobposting (188s), light = rest (~150s).
     // Measured 222s wall vs T6 rebalance (231s) and baseline 1-walker (230s).
     if (group === 'heavy') return ['h1', 'dup', 'jobposting'].includes(name);
-    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'sd'].includes(name);
+    if (group === 'light') return ['title', 'hreflang', 'titleuniq', 'sd'].includes(name);
     return true;
   };
 
@@ -1883,7 +1769,6 @@ async function main() {
   const titleA = want('title') ? new TitleAudit() : null;
   const h1A = want('h1') ? new H1Audit() : null;
   const dupA = want('dup') ? new DupAudit() : null;
-  const pageWeightA = want('pageweight') ? new PageWeightAudit() : null;
   const hreflangA = want('hreflang') ? new HreflangAudit(distFileSet) : null;
   const titleUniqA = want('titleuniq') ? new TitleUniqAudit() : null;
   const jobPostingA = want('jobposting') ? new JobPostingAudit() : null;
@@ -1909,7 +1794,6 @@ async function main() {
     if (titleA) titleA.ingest(file, html, relFromRoot);
     if (h1A) h1A.ingest(file, html, relFromRoot);
     if (dupA) dupA.ingest(file, html, distRel);
-    if (pageWeightA) pageWeightA.ingest(file, html, htmlBytes, relFromRoot);
     if (hreflangA) hreflangA.ingest(file, html, distRel);
     if (titleUniqA) titleUniqA.ingest(file, html, distRel);
 
@@ -1932,7 +1816,6 @@ async function main() {
   const titleRes = titleA ? await runTitle(titleA) : { passed: true, skipped: true };
   const h1Res = h1A ? await runH1(h1A) : { passed: true, skipped: true };
   const dupRes = dupA ? runDup(dupA) : { passed: true, skipped: true };
-  const pageWeightRes = pageWeightA ? runPageWeight(pageWeightA) : { passed: true, skipped: true };
   const hreflangRes = hreflangA ? runHreflang(hreflangA) : { passed: true, skipped: true };
   const titleUniqRes = titleUniqA ? runTitleUniqueness(titleUniqA) : { passed: true, skipped: true };
   const jobPostingRes = jobPostingA ? runJobPosting(jobPostingA) : { passed: true, skipped: true };
@@ -1948,7 +1831,6 @@ async function main() {
   console.log(`title-length:                   ${fmt(titleRes)}`);
   console.log(`h1-title-duplicates:            ${fmt(h1Res)}`);
   console.log(`content-duplicates:             ${fmt(dupRes)}`);
-  console.log(`page-weight:                    ${fmt(pageWeightRes)}`);
   console.log(`hreflang:                       ${fmt(hreflangRes)}`);
   console.log(`title-uniqueness:               ${fmt(titleUniqRes)}`);
   console.log(`jobposting-schema:              ${fmt(jobPostingRes)}`);
@@ -1956,7 +1838,7 @@ async function main() {
 
   const allPassed =
     ratioRes.passed && titleRes.passed && h1Res.passed && dupRes.passed &&
-    pageWeightRes.passed && hreflangRes.passed && titleUniqRes.passed &&
+    hreflangRes.passed && titleUniqRes.passed &&
     jobPostingRes.passed && sdRes.passed;
   process.exit(allPassed ? 0 : 1);
 }

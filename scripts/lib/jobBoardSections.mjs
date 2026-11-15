@@ -15,7 +15,7 @@ export { JOB_BOARD_COMPANY_HUB_PATH_RX, JOB_BOARD_SECTION_PREFIX_SOURCE };
  * Consumers (all the job-board SECTION detectors): the audit
  * feature-classifiers audit-title-length (re-exported to
  * audit-h1-title-duplicates + audit-title-no-disambig-hash),
- * audit-text-html-ratio, audit-page-weight, audit-dist-multi; and the
+ * audit-text-html-ratio, audit-dist-multi; and the
  * funnel validators validate-content-quality.isJobPage +
  * validate-sitemap-pages.isJobPage (both non-blocking uses of the match).
  * NOT yet wired: validate-structured-data-completeness.classifyPage — it

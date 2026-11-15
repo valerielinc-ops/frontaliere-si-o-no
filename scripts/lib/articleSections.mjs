@@ -40,7 +40,7 @@
  *
  * Consumers: the audit feature-classifiers `audit-title-length` (re-exported to
  * `audit-h1-title-duplicates` + `audit-title-no-disambig-hash`),
- * `audit-text-html-ratio`, `audit-page-weight`, and `audit-dist-multi`.
+ * `audit-text-html-ratio` and `audit-dist-multi`.
  */
 import { SITE_RENDERED_ARTICLE_SECTIONS } from '../../build-plugins/shared/articleSectionCore.mjs';
 
