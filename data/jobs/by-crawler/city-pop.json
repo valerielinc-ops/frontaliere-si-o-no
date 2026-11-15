@@ -1,7 +1,7 @@
 {
   "crawlerKey": "city-pop",
-  "assembledAt": "2026-11-12T09:31:48.496Z",
-  "runId": "43189930472",
+  "assembledAt": "2026-11-15T09:26:36.026Z",
+  "runId": "43698391200",
   "jobs": [
     {
       "id": "city-pop-47302ecce4ab",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/21e69afe-9b32-4875-b679-5278ef8d2e9b/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T09:31:38.800Z",
+      "crawledAt": "2026-11-15T09:26:27.481Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bernerstrasse Süd 169",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:31:38.800Z",
+      "validThrough": "2027-02-08T09:26:27.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f005cb73-dad5-4cfb-b13f-f828ea5a2d9d/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-12T09:31:38.220Z",
+      "crawledAt": "2026-11-15T09:26:26.325Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -168,8 +168,81 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:31:38.220Z",
+      "validThrough": "2027-02-08T09:26:26.325Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "city-pop-0f55e4bf8abf",
+      "slug": "housekeeper-20-100-zurich-city-pop-zurich",
+      "slugByLocale": {
+        "en": "housekeeper-20-100-zurich-city-pop-zurich",
+        "it": "housekeeper-20-100-zurich-city-pop-zurich",
+        "de": "housekeeper-20-100-zurich-city-pop-zurich",
+        "fr": "housekeeper-20-100-zurich-city-pop-zurich"
+      },
+      "company": "City Pop",
+      "companyKey": "city-pop",
+      "companyDomain": "citypop.com",
+      "title": "HOUSEKEEPER (20–100%) – ZÜRICH",
+      "titleByLocale": {
+        "en": "HOUSEKEEPER (20–100%) – ZÜRICH",
+        "it": "HOUSEKEEPER (20–100%) – ZÜRICH",
+        "de": "HOUSEKEEPER (20–100%) – ZÜRICH",
+        "fr": "HOUSEKEEPER (20–100%) – ZÜRICH"
+      },
+      "description": "Location: City Pop, Militärstrasse 106, 8004 Zürich\n Employment: 20–100%\n\nABOUT CITY POP\n City Pop, part of the Artisa Group, offers fully furnished serviced apartments combining the comfort of home with the convenience of hotel-style services.To strengthen our in-house housekeeping team at our property in Militärstrasse 106, Zurich, we are looking for reliable, motivated, and detail-oriented Housekeepers.\n YOUR RESPONSIBILITIES\n • Clean and prepare apartments and guest rooms according to City Pop quality standards.\n • Perform departure, stayover, and deep cleaning.\n • Maintain cleanliness in common areas, including corridors, elevators, staircases, laundry rooms, and shared facilities.\n • Change bed linen, replace towels, and replenish guest amenities and supplies.\n • Report damages, maintenance issues, and missing inventory to the Housekeeping Supervisor.\n • Follow hygiene and safety procedures, ensuring a clean and welcoming environment for our guests.\n\nYOUR PROFILE\n • Previous housekeeping experience, preferably in hotels or serviced apartments.\n • Minimum conversational level of English required; German is a plus.\n • Strong attention to detail and a high standard of cleanliness.\n • Reliable, punctual, motivated, and able to work independently or as part of a team.\n • Physically fit and comfortable performing daily cleaning tasks.\n • Flexible availability, including weekends and public holidays.\n\nWHAT WE OFFER\n • Flexible employment opportunities from 20% to 100%.\n • A professional and international working environment.\n • A supportive team and structured working procedures.\n • Modern facilities and professional cleaning equipment.\n • The opportunity to be part of a growing in-house housekeeping team.\n\nINTERESTED?We look forward to receiving your application and welcoming you to the City Pop team!",
+      "descriptionByLocale": {
+        "en": "Location: City Pop, Militärstrasse 106, 8004 Zürich\n Employment: 20–100%\n\nABOUT CITY POP\n City Pop, part of the Artisa Group, offers fully furnished serviced apartments combining the comfort of home with the convenience of hotel-style services.To strengthen our in-house housekeeping team at our property in Militärstrasse 106, Zurich, we are looking for reliable, motivated, and detail-oriented Housekeepers.\n YOUR RESPONSIBILITIES\n • Clean and prepare apartments and guest rooms according to City Pop quality standards.\n • Perform departure, stayover, and deep cleaning.\n • Maintain cleanliness in common areas, including corridors, elevators, staircases, laundry rooms, and shared facilities.\n • Change bed linen, replace towels, and replenish guest amenities and supplies.\n • Report damages, maintenance issues, and missing inventory to the Housekeeping Supervisor.\n • Follow hygiene and safety procedures, ensuring a clean and welcoming environment for our guests.\n\nYOUR PROFILE\n • Previous housekeeping experience, preferably in hotels or serviced apartments.\n • Minimum conversational level of English required; German is a plus.\n • Strong attention to detail and a high standard of cleanliness.\n • Reliable, punctual, motivated, and able to work independently or as part of a team.\n • Physically fit and comfortable performing daily cleaning tasks.\n • Flexible availability, including weekends and public holidays.\n\nWHAT WE OFFER\n • Flexible employment opportunities from 20% to 100%.\n • A professional and international working environment.\n • A supportive team and structured working procedures.\n • Modern facilities and professional cleaning equipment.\n • The opportunity to be part of a growing in-house housekeeping team.\n\nINTERESTED?We look forward to receiving your application and welcoming you to the City Pop team!",
+        "it": "Location: City Pop, Militärstrasse 106, 8004 Zürich\n Employment: 20–100%\n\nABOUT CITY POP\n City Pop, part of the Artisa Group, offers fully furnished serviced apartments combining the comfort of home with the convenience of hotel-style services.To strengthen our in-house housekeeping team at our property in Militärstrasse 106, Zurich, we are looking for reliable, motivated, and detail-oriented Housekeepers.\n YOUR RESPONSIBILITIES\n • Clean and prepare apartments and guest rooms according to City Pop quality standards.\n • Perform departure, stayover, and deep cleaning.\n • Maintain cleanliness in common areas, including corridors, elevators, staircases, laundry rooms, and shared facilities.\n • Change bed linen, replace towels, and replenish guest amenities and supplies.\n • Report damages, maintenance issues, and missing inventory to the Housekeeping Supervisor.\n • Follow hygiene and safety procedures, ensuring a clean and welcoming environment for our guests.\n\nYOUR PROFILE\n • Previous housekeeping experience, preferably in hotels or serviced apartments.\n • Minimum conversational level of English required; German is a plus.\n • Strong attention to detail and a high standard of cleanliness.\n • Reliable, punctual, motivated, and able to work independently or as part of a team.\n • Physically fit and comfortable performing daily cleaning tasks.\n • Flexible availability, including weekends and public holidays.\n\nWHAT WE OFFER\n • Flexible employment opportunities from 20% to 100%.\n • A professional and international working environment.\n • A supportive team and structured working procedures.\n • Modern facilities and professional cleaning equipment.\n • The opportunity to be part of a growing in-house housekeeping team.\n\nINTERESTED?We look forward to receiving your application and welcoming you to the City Pop team!",
+        "de": "Location: City Pop, Militärstrasse 106, 8004 Zürich\n Employment: 20–100%\n\nABOUT CITY POP\n City Pop, part of the Artisa Group, offers fully furnished serviced apartments combining the comfort of home with the convenience of hotel-style services.To strengthen our in-house housekeeping team at our property in Militärstrasse 106, Zurich, we are looking for reliable, motivated, and detail-oriented Housekeepers.\n YOUR RESPONSIBILITIES\n • Clean and prepare apartments and guest rooms according to City Pop quality standards.\n • Perform departure, stayover, and deep cleaning.\n • Maintain cleanliness in common areas, including corridors, elevators, staircases, laundry rooms, and shared facilities.\n • Change bed linen, replace towels, and replenish guest amenities and supplies.\n • Report damages, maintenance issues, and missing inventory to the Housekeeping Supervisor.\n • Follow hygiene and safety procedures, ensuring a clean and welcoming environment for our guests.\n\nYOUR PROFILE\n • Previous housekeeping experience, preferably in hotels or serviced apartments.\n • Minimum conversational level of English required; German is a plus.\n • Strong attention to detail and a high standard of cleanliness.\n • Reliable, punctual, motivated, and able to work independently or as part of a team.\n • Physically fit and comfortable performing daily cleaning tasks.\n • Flexible availability, including weekends and public holidays.\n\nWHAT WE OFFER\n • Flexible employment opportunities from 20% to 100%.\n • A professional and international working environment.\n • A supportive team and structured working procedures.\n • Modern facilities and professional cleaning equipment.\n • The opportunity to be part of a growing in-house housekeeping team.\n\nINTERESTED?We look forward to receiving your application and welcoming you to the City Pop team!",
+        "fr": "Location: City Pop, Militärstrasse 106, 8004 Zürich\n Employment: 20–100%\n\nABOUT CITY POP\n City Pop, part of the Artisa Group, offers fully furnished serviced apartments combining the comfort of home with the convenience of hotel-style services.To strengthen our in-house housekeeping team at our property in Militärstrasse 106, Zurich, we are looking for reliable, motivated, and detail-oriented Housekeepers.\n YOUR RESPONSIBILITIES\n • Clean and prepare apartments and guest rooms according to City Pop quality standards.\n • Perform departure, stayover, and deep cleaning.\n • Maintain cleanliness in common areas, including corridors, elevators, staircases, laundry rooms, and shared facilities.\n • Change bed linen, replace towels, and replenish guest amenities and supplies.\n • Report damages, maintenance issues, and missing inventory to the Housekeeping Supervisor.\n • Follow hygiene and safety procedures, ensuring a clean and welcoming environment for our guests.\n\nYOUR PROFILE\n • Previous housekeeping experience, preferably in hotels or serviced apartments.\n • Minimum conversational level of English required; German is a plus.\n • Strong attention to detail and a high standard of cleanliness.\n • Reliable, punctual, motivated, and able to work independently or as part of a team.\n • Physically fit and comfortable performing daily cleaning tasks.\n • Flexible availability, including weekends and public holidays.\n\nWHAT WE OFFER\n • Flexible employment opportunities from 20% to 100%.\n • A professional and international working environment.\n • A supportive team and structured working procedures.\n • Modern facilities and professional cleaning equipment.\n • The opportunity to be part of a growing in-house housekeeping team.\n\nINTERESTED?We look forward to receiving your application and welcoming you to the City Pop team!"
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8/",
+      "source": "City Pop Dedicated Parser (jobs.ch)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-15T09:26:25.875Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "streetAddress": "City Pop, Militärstrasse 106, 8004 Zürich",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Immobiliare / Micro-living / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-13T13:29:52+01:00",
+      "postedDate": "2026-11-13T13:29:52+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8/",
+      "hiringOrganizationName": "City Pop AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-12T09:26:25.875Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-15T09:26:25.875Z"
     }
   ]
 }
