@@ -5305,12 +5305,19 @@ export function formPostingMatch(formText, job = {}, {
     index === 0 ? employerIdentityHeadingText(line, { allowAmbiguous: allowAmbiguousStageHeading }) : line).join('\n'));
   // Keep the raw first line for metadata-aware employer conflict checks. The
   // normalized heading text intentionally removes separators, which would
-  // erase the boundary that proves a location-before-employer title.
-  const employerText = [...employerHeadingCandidates, identityFormText].filter(Boolean).join('\n');
+  // erase the boundary that proves a location-before-employer title. A first
+  // line made only of generic stage headings («My Information», «Review»)
+  // carries no employer identity at all and is never raw evidence of one.
+  const genericOnlyTitleLine = Boolean(rawFormTitleLine.trim())
+    && !employerIdentityHeadingText(rawFormTitleLine, { allowAmbiguous: allowAmbiguousStageHeading });
+  const employerIdentityText = genericOnlyTitleLine
+    ? ['', ...identityFormText.split(/\r?\n/).slice(1)].join('\n')
+    : identityFormText;
+  const employerText = [...employerHeadingCandidates, employerIdentityText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
   const direct = postingMatch(postingEvidenceText, job, pageUrl);
   const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
-  const formTitleLine = rawFormTitleLine;
+  const formTitleLine = genericOnlyTitleLine ? '' : rawFormTitleLine;
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: postingLocationBound }));
   const talentSoftAlias = talentSoftEmployerAliasMatches(identityFormText, job, pageUrl);

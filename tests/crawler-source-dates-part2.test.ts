@@ -12,6 +12,7 @@ import { parseJobPage } from '../scripts/update-manor-jobs.mjs';
 import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC } from '../scripts/lib/lidl-job-parser.mjs';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { isDelvitechCompanyJob } from '../scripts/lib/delvitech-job-parser.mjs';
 
 type Job = Record<string, unknown>;
 type Builder = (input: Job, observedAt?: string) => Job;
@@ -40,31 +41,19 @@ function expectUnknown(job: Job) {
 
 describe('crawler publication evidence at source and merge boundaries', () => {
   it('Delvitech target matching binds URL ownership to the hostname boundary', () => {
-    const normalizeKey = (value = '') => String(value || '')
-      .trim()
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    const normalize = (value = '') => String(value || '').trim().toLowerCase();
-    const isTrustedDomain = (rawUrl = '') => {
-      try {
-        const host = new URL(rawUrl).hostname.toLowerCase();
-        return host === 'legacy.delvi.tech' || host.endsWith('.delvi.tech') || host === 'delvi.tech';
-      } catch {
-        return false;
-      }
-    };
+    // isTargetJob delegates to the parser's isDelvitechCompanyJob: bind the real one.
     const isTargetJob = isolatedFunction<(job: Job) => boolean>('update-delvitech-jobs.mjs', 'isTargetJob', {
-      normalizeKey,
-      normalize,
-      isTrustedDomain,
-      COMPANY_KEY: 'delvitech-sa',
+      isDelvitechCompanyJob,
     });
 
+    // URL-only records (no company metadata) are matched on the hostname boundary.
+    expect(isTargetJob({ url: 'https://notdelvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ url: 'https://delvi.tech.evil.example/careers/role/' })).toBe(false);
+    expect(isTargetJob({ url: 'https://jobs.delvi.tech/careers/role/' })).toBe(true);
+    // An explicit foreign employer identity wins over a Delvitech hostname.
     expect(isTargetJob({ company: 'Other', url: 'https://notdelvi.tech/careers/role/' })).toBe(false);
-    expect(isTargetJob({ company: 'Other', url: 'https://jobs.delvi.tech/careers/role/' })).toBe(true);
+    expect(isTargetJob({ company: 'Other', url: 'https://jobs.delvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ companyKey: 'delvitech-sa', url: 'https://delvi.zohorecruit.eu/jobs/Careers/123' })).toBe(true);
   });
 
   it('does not turn absent parser timestamps or modification time into publication', () => {
@@ -209,6 +198,7 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     const writes: unknown[] = [];
     const merge = isolatedFunction<(jobs: Job[]) => unknown>('update-delvitech-jobs.mjs', 'mergeJobs', {
       readExistingCrawlerJobs: () => [previous], isTargetJob: () => true,
+      shouldPreserveDelvitechSnapshot: isolatedFunction('update-delvitech-jobs.mjs', 'shouldPreserveDelvitechSnapshot'),
       jobMatchKey: (job: Job) => job.url, snapshotJobSlugs: () => [],
       mergeLocaleTextMap: () => ({}), dropStaleLocaleDescriptions: noop, captureLostSlugs: noop,
       writeJson: (_target: string, jobs: unknown) => writes.push(jobs),
