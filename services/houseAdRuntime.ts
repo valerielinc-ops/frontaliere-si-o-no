@@ -278,6 +278,7 @@ export function installHouseAds(
       failed: boolean;
       googleUnfilled: boolean;
       cmpFailed: boolean;
+      consentDenied: boolean;
       decision: string | null | undefined;
       width: number;
       height: number;
@@ -308,7 +309,10 @@ export function installHouseAds(
       const stalled = !!google && (google.hasAttribute('data-ft-ad-stalled') || !!google.querySelector('[data-ft-ad-stalled]'));
       const blocked = blockerConfirmed();
       const decision = w.__ftAdsConsentDecision || read(config.consentKey, true);
-      const eligible = blockerOnly ? blocked : blocked || stalled || (!pending && (terminal || failed || (cmpFailed && !decision)));
+      const consentDenied = decision === 'denied';
+      // An explicit denial means Google cannot fill this slot. The first-party
+      // creative does not load Google ads or wait for a request that must not run.
+      const eligible = blockerOnly ? blocked : blocked || stalled || consentDenied || (!pending && (terminal || failed || (cmpFailed && !decision)));
       if (!eligible) { if (readerSubscriptionTarget === frame) readerSubscriptionTarget = null; eligibleSince.delete(frame); remove(frame); continue; }
       // Resolve the experiment arm while the no-fill grace is running so a
       // slow assignment request does not add its full latency afterwards.
@@ -337,7 +341,7 @@ export function installHouseAds(
       }
       if (!ready) { requestAssignment(); continue; }
       candidates.push({
-        frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, decision, width,
+        frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, consentDenied, decision, width,
         height: Number(frame.dataset.ftHouseHeight) || (google ? parseFloat(google.style.minHeight) || google.getBoundingClientRect().height : 0),
       });
     }
@@ -366,7 +370,7 @@ export function installHouseAds(
     }
 
     for (const candidate of candidates) {
-      const { frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, decision, width } = candidate;
+      const { frame, host, google, state, blocked, stalled, failed, googleUnfilled, cmpFailed, consentDenied, decision, width } = candidate;
       const { format, height } = chooseSize(width, candidate.height);
       const portraitArtwork = format === 'billboard' && height >= 500;
       const locale = (['it', 'en', 'de', 'fr'].includes(document.documentElement.lang.slice(0, 2)) ? document.documentElement.lang.slice(0, 2) : 'it') as HouseAdLocale;
@@ -394,6 +398,7 @@ export function installHouseAds(
       const placement = (frame.dataset.house || google?.dataset.adPlacement || google?.dataset.adSlot || 'display').replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
       const fallbackReason = blocked ? 'adblock_detected'
         : stalled ? 'response_stalled'
+        : consentDenied ? 'ads_consent_denied'
         : failed ? 'script_failed'
         : googleUnfilled ? 'google_no_fill'
         : cmpFailed && !decision ? 'consent_loader_failed'
