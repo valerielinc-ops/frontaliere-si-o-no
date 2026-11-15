@@ -29,6 +29,27 @@ import { diffLocaleKeys } from './locale-map-diff.mjs';
 const SITE_LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
+ * Canonical previous-slug bucket cap. Same value as `DEFAULT_PREV_SLUG_CAP` in
+ * `dedicated-crawler-common.mjs` and as the `cap = 20` default of
+ * `mergePreviousSlugsCapped` below; duplicated here only because that module
+ * imports this one. Callers in the archive pass `DEFAULT_PREV_SLUG_CAP` explicitly.
+ */
+const DEFAULT_SLUG_ARRAY_CAP = 20;
+
+/** Drop repeated entries from an array in place, keeping the first of each. */
+function dedupeInPlace(list) {
+  const seen = new Set();
+  let write = 0;
+  for (let read = 0; read < list.length; read += 1) {
+    const value = list[read];
+    if (seen.has(value)) continue;
+    seen.add(value);
+    list[write++] = value;
+  }
+  list.length = write;
+}
+
+/**
  * How many event objects stay in memory. The journal used to retain EVERY
  * event for the whole process, but the only bulk consumer is `summarize()`,
  * which needs counters and not the objects: measured on a 5000-job slice with
@@ -176,16 +197,29 @@ export function removePreviousSlugRoutes(job, routes, {
  * while direct writes to those fields outside the authorized mutation
  * boundaries are forbidden by the slug-write encapsulation ratchet.
  *
+ * Idempotent when the record already holds `toRoute`: the old token is then
+ * dropped from each array instead of renamed into a duplicate, so the second
+ * application of the same repair leaves the record byte-identical.
+ *
+ * `cap` bounds the per-locale arrays this call EXPANDS from the flat view. A flat
+ * previous slug is served under every locale; repairing one locale copies it into
+ * the other three locale lists, which used to be uncapped (one Denner record held
+ * 1 029 entries in `it`). A list that is within `cap` goes through `capSlugArray`,
+ * so an overflow is trimmed oldest-first and journaled as `cap-trim`. A list that
+ * is ALREADY over `cap` is legacy content: it is never trimmed here, because that
+ * would delete published routes (404), and the route is still preserved.
+ *
  * @param {object} job
  * @param {string} fromRoute
  * @param {string} toRoute
- * @param {{source?: string, reason?: string, locale?: string}} [options]
+ * @param {{source?: string, reason?: string, locale?: string, cap?: number}} [options]
  * @returns {number} number of route occurrences renamed
  */
 export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
   source = 'replaceSlugRouteEverywhere',
   reason = 'route ownership moved to a distinct posting',
   locale: targetLocale = null,
+  cap = DEFAULT_SLUG_ARRAY_CAP,
 } = {}) {
   if (!job || typeof job !== 'object') return 0;
   const from = String(fromRoute ?? '').trim();
@@ -196,6 +230,7 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
   if (scopedLocale === '') return 0;
 
   let replaced = 0;
+  const touchedArrays = new Set();
   const recordDrop = (locale) => {
     recordSlugMutation({
       jobId: job.id || '<unkeyed>',
@@ -229,6 +264,7 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
       for (let index = 0; index < job.previousSlugs.length; index += 1) {
         replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
       }
+      touchedArrays.add(job.previousSlugs);
     } else {
       // A flat previous slug is served under every locale. When only one
       // locale collides, expand the untouched copies into explicit locale
@@ -254,12 +290,18 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
             ? job.previousSlugsByLocale[locale]
             : (job.previousSlugsByLocale[locale] = []);
           const preserved = locale === scopedLocale ? to : from;
+          const lengthBefore = list.length;
           if (locale === scopedLocale) {
             for (let index = 0; index < list.length; index += 1) {
               if (list[index] === from) list[index] = to;
             }
+            dedupeInPlace(list);
           }
           if (!list.includes(preserved)) list.push(preserved);
+          // Bound only what this expansion grew; legacy over-cap lists keep every route.
+          if (lengthBefore <= cap && list.length > cap) {
+            job.previousSlugsByLocale[locale] = capSlugArray(list, cap, { jobId: job.id || '<unkeyed>', locale, source });
+          }
         }
       }
       if (retained.length > 0) job.previousSlugs = retained;
@@ -278,8 +320,12 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
       for (let index = 0; index < slugs.length; index += 1) {
         replace(slugs[index], (next) => { slugs[index] = next; }, locale);
       }
+      touchedArrays.add(slugs);
     }
   }
+
+  // Renaming into a route the record already holds must not leave it twice.
+  for (const list of touchedArrays) dedupeInPlace(list);
 
   return replaced;
 }
