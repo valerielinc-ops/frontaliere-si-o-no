@@ -1035,7 +1035,7 @@ describe('portal replay daily check', () => {
     const cron = String(doc.on.schedule[0].cron);
     // one run a day, off the :00/:30 marks
     expect(cron).toMatch(/^(?!0 |30 )\d{1,2} \d{1,2} \* \* \*$/u);
-    expect(doc.on.workflow_dispatch.inputs.base_sha).toMatchObject({ required: false, type: 'string' });
+    expect(doc.on.workflow_dispatch.inputs.base_sha).toMatchObject({ required: false, default: '', type: 'string' });
     const text = workflow();
     expect(text).not.toContain('github.event.pull_request');
     expect(text).not.toMatch(/^\s*pull_request/mu);
@@ -1080,6 +1080,8 @@ describe('portal replay daily check', () => {
     // the input only ever reaches the shell through env, and must be a full SHA
     expect(detect.match(/\$\{\{ inputs\./gu)).toHaveLength(1);
     expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
+    expect(detect).toContain("if [ \"$INPUT_BASE_SHA\" = '0000000000000000000000000000000000000001' ]; then");
+    expect(detect).toContain("INPUT_BASE_SHA=''");
     expect(detect).toContain("sha_re='^[0-9a-f]{40}$'");
     // the lookup is bounded, with a growing backoff
     expect(detect).toContain('for attempt in 1 2 3 4; do');
@@ -1294,4 +1296,3 @@ describe('portal replay base resolution', () => {
     expect(run([{ event: 'pull_request', headSha: sha('4'), createdAt: '2026-11-16T01:00:00Z' }])).toBe('');
   });
 });
-

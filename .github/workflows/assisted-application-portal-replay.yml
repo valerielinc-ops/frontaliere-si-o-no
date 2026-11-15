@@ -57,6 +57,7 @@ on:
       base_sha:
         description: 'Optional full commit SHA used as the comparison base (default: head of the latest successful daily run, else the tip itself)'
         required: false
+        default: ''
         type: string
 
 permissions:
@@ -113,6 +114,12 @@ jobs:
           }
           base=''
           source=''
+          # GitHub materializes an omitted optional workflow_dispatch string
+          # input as this placeholder. It means "no base_sha", not a commit;
+          # keep every other value on the strict validation/API path below.
+          if [ "$INPUT_BASE_SHA" = '0000000000000000000000000000000000000001' ]; then
+            INPUT_BASE_SHA=''
+          fi
           if [ -n "$INPUT_BASE_SHA" ]; then
             if [[ ! "$INPUT_BASE_SHA" =~ $sha_re ]]; then
               echo '::error::base_sha must be a full 40-character lowercase commit SHA'
