@@ -1,6 +1,6 @@
 {
   "crawlerKey": "yellowshark",
-  "assembledAt": "2026-11-15T10:11:16.466Z",
+  "assembledAt": "2026-11-15T12:51:59.986Z",
   "runId": "43699096581",
   "jobs": [
     {
@@ -255,7 +255,7 @@
         "it": "constructor-project-manager-m-f-yellowshark-ag-wurenlos-ag",
         "en": "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
         "de": "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
-        "fr": "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos"
+        "fr": "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -302,8 +302,7 @@
         "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
         "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos",
         "constructeur-gestionnaire-de-projet-h-f-yellowshark-ag-wurenlos-ag",
-        "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag",
-        "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
+        "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -314,7 +313,7 @@
           "konstrukteur-projektleiter-m-w-wurenlos-ag-yellowshark-ch",
           "constructeur-gestionnaire-de-projet-h-f-yellowshark-ag-wurenlos-ag",
           "concepteur-chef-de-projet-h-f-yellowshark-ag-wurenlos-ag",
-          "constructeur-gestionnaire-de-projet-m-w-d-yellowshark-ag-wurenlos"
+          "konstrukteur-projektleiter-m-w-d-yellowshark-ag-wurenlos"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.781Z",
@@ -334,7 +333,8 @@
       "streetAddress": "Würenlos",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:10:35.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a09b58dfc6ac",
@@ -419,7 +419,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:10:35.399Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-b1d6043ba8d7",
@@ -1102,7 +1103,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:10:35.394Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2b859cbb30a1",
@@ -1436,7 +1438,8 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:10:35.391Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2ab9e7cfad9d",
@@ -1598,7 +1601,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:10:35.390Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ffe760580d9a",
@@ -2216,9 +2220,9 @@
     },
     {
       "id": "yellowshark-0b15649dcbf1",
-      "slug": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich-c8425b39af",
+      "slug": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich",
       "slugByLocale": {
-        "it": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich-c8425b39af",
+        "it": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich",
         "en": "repair-service-technician-m-f-80-100-yellowshark-ag-zurich-zh",
         "de": "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
         "fr": "technicien-en-reparation-et-service-h-f-80-100-yellowshark-ag-zurich-zh"
@@ -2267,12 +2271,12 @@
       "previousSlugs": [
         "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
         "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich",
-        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich"
+        "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich-c8425b39af"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
-          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich"
+          "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich-c8425b39af"
         ],
         "en": [
           "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich"
@@ -2306,9 +2310,9 @@
     },
     {
       "id": "yellowshark-8c2769b84732",
-      "slug": "tecnico-di-riparazione-e-assistenza-elettrodomestici-m-f-80-100-yellowshark-ag-bern-6af3b18f21",
+      "slug": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern",
       "slugByLocale": {
-        "it": "tecnico-di-riparazione-e-assistenza-elettrodomestici-m-f-80-100-yellowshark-ag-bern-6af3b18f21",
+        "it": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern",
         "en": "repair-service-technician-m-f-80-100-yellowshark-ag-bern-be",
         "de": "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
         "fr": "technicien-en-reparation-et-service-h-f-80-100-yellowshark-ag-bern-be"
@@ -2357,12 +2361,12 @@
       "previousSlugs": [
         "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
         "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern",
-        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern"
+        "tecnico-di-riparazione-e-assistenza-elettrodomestici-m-f-80-100-yellowshark-ag-bern-6af3b18f21"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
-          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern"
+          "tecnico-di-riparazione-e-assistenza-elettrodomestici-m-f-80-100-yellowshark-ag-bern-6af3b18f21"
         ],
         "en": [
           "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern"
@@ -2561,7 +2565,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T22:03:11.666Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5e5ce50f184c",
@@ -2651,7 +2656,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T22:03:11.667Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1f76224df8f0",
@@ -4386,7 +4392,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T10:10:35.375Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-43ac2213d375",
@@ -4634,7 +4641,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T10:10:35.373Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-54ec51cc5f98",
@@ -5155,7 +5163,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T10:10:35.369Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-59b0103784e3",
@@ -5244,7 +5253,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T10:10:35.369Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d6c6463bd5c8",
@@ -5754,7 +5764,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T10:10:35.365Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4443309053cf",
@@ -6895,7 +6906,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T10:10:35.357Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-c8a5ff1e2128",
@@ -7061,7 +7073,8 @@
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T10:10:35.358Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-8a527a54d345",
@@ -7233,7 +7246,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T10:10:35.357Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-793e269657d9",
@@ -7560,7 +7574,8 @@
       "streetAddress": "Köniz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T10:10:35.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-25508b312572",
@@ -7892,7 +7907,8 @@
       "streetAddress": "Thalwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T10:10:35.350Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f1b945a4c90f",
@@ -8390,7 +8406,8 @@
       "streetAddress": "Bassersdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:10:35.346Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-89b6ecacb220",
@@ -8467,7 +8484,8 @@
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:10:35.347Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a82d359a6c43",
@@ -8554,7 +8572,8 @@
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:10:35.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-171eba8524e8",
@@ -9168,7 +9187,8 @@
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T10:10:35.341Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6f665a3c2e7b",
@@ -10607,7 +10627,8 @@
       "streetAddress": "Gossau SG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:35.333Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f27ae7e5d02b",
@@ -10767,7 +10788,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:35.332Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-da6bcabf3f5d",
@@ -10850,7 +10872,8 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:35.332Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2ed264112304",
@@ -11015,7 +11038,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:35.330Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-32e2754b1d97",
@@ -11102,7 +11126,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:35.329Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ec465dd15951",
@@ -11855,7 +11880,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-31T10:10:35.326Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0c776c452780",
@@ -12527,7 +12553,8 @@
       "streetAddress": "Fällanden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T10:10:35.321Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1fb0314cc499",
@@ -12864,7 +12891,8 @@
       "streetAddress": "Suhr",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:10:35.318Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2c92f40cdb1c",
@@ -12947,7 +12975,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T10:10:35.318Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0c686847d0bc",
@@ -13946,7 +13975,8 @@
       "streetAddress": "Hitzkirch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:10:35.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-26be887fdd7b",
@@ -14368,7 +14398,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:10:35.309Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d6c855fc6417",
@@ -14701,7 +14732,8 @@
       "streetAddress": "Pfungen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T10:10:35.305Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-837b588ace7c",
@@ -14950,7 +14982,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T10:10:35.303Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-51ca9c56b1e5",
@@ -15199,7 +15232,8 @@
       "streetAddress": "Lenzburg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-04T10:10:35.301Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0a3831ef5d25",
@@ -16277,7 +16311,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T10:10:35.294Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-fe055468b54c",
@@ -16528,7 +16563,8 @@
       "streetAddress": "Wetzikon ZH",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T10:10:35.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-88818e2699df",
@@ -17187,7 +17223,8 @@
       "streetAddress": "Rüti ZH",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T10:10:35.288Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-08cf98ceb406",
@@ -17844,7 +17881,8 @@
       "streetAddress": "Herzogenbuchsee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T10:10:35.283Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9c7c929581e1",
@@ -17921,7 +17959,8 @@
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T10:10:35.281Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ef2f4caf0257",
@@ -18579,7 +18618,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T10:10:35.275Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1be02817e413",
@@ -18814,7 +18854,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T10:10:35.274Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d99dc8f523d8",
@@ -19140,7 +19181,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T10:10:35.271Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ba6294a28e6d",
@@ -19818,7 +19860,8 @@
       "streetAddress": "Sempach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-09T10:10:35.266Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e0ab55207213",
@@ -21754,7 +21797,8 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T10:10:35.252Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4efc993f1f41",
@@ -22837,7 +22881,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T10:10:35.245Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4f9810dfc074",
@@ -23246,7 +23291,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T10:10:35.240Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9eeaa932819d",
@@ -23329,7 +23375,8 @@
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T10:10:35.241Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3bebeb044548",
@@ -23414,7 +23461,8 @@
       "streetAddress": "Wohlen AG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T10:10:35.239Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-b6d49eb0353d",
@@ -23735,7 +23783,8 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T10:10:35.237Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2a256ab711db",
@@ -23908,7 +23957,8 @@
       "streetAddress": "Uzwil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T10:10:35.236Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-7a47d7ecc1de",
@@ -24420,7 +24470,7 @@
         "it": "falegname-m-f-yellowshark-ag-bern",
         "en": "carpenter-m-f-yellowshark-ag-bern",
         "de": "schreiner-m-w-bern-be-yellowshark-ch",
-        "fr": "menuisier-h-f-yellowshark-ag-bern"
+        "fr": "charpentier-m-w-d-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -24466,7 +24516,7 @@
       "previousSlugs": [
         "schreiner-m-w-bern-be-yellowshark-ch",
         "schreiner-m-w-d-yellowshark-ag-bern",
-        "charpentier-m-w-d-yellowshark-ag-bern"
+        "menuisier-h-f-yellowshark-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24477,7 +24527,7 @@
         ],
         "fr": [
           "schreiner-m-w-d-yellowshark-ag-bern",
-          "charpentier-m-w-d-yellowshark-ag-bern"
+          "menuisier-h-f-yellowshark-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.574Z",
@@ -24663,7 +24713,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T22:03:11.510Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-7a41e89570b6",
@@ -24746,7 +24797,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T10:10:35.232Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5fd19aeb7bfe",
@@ -24996,7 +25048,8 @@
       "streetAddress": "Niederbipp",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T10:10:35.231Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5b126980dc9f",
@@ -25180,9 +25233,9 @@
       "slug": "piastrellista-m-f-yellowshark-ag-luzern-lu",
       "slugByLocale": {
         "it": "piastrellista-m-f-yellowshark-ag-luzern-lu",
-        "en": "panel-layer-m-f-yellowshark-ag-luzern-lu",
+        "en": "m-w-d-yellowshark-ag-luzern",
         "de": "plattenleger-m-w-luzern-lu-yellowshark-ch",
-        "fr": "carreleur-h-f-yellowshark-ag-luzern-lu"
+        "fr": "m-w-d-yellowshark-ag-luzern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -25228,7 +25281,8 @@
       "previousSlugs": [
         "plattenleger-m-w-luzern-lu-yellowshark-ch",
         "plattenleger-m-w-d-yellowshark-ag-luzern",
-        "m-w-d-yellowshark-ag-luzern"
+        "panel-layer-m-f-yellowshark-ag-luzern-lu",
+        "carreleur-h-f-yellowshark-ag-luzern-lu"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25236,11 +25290,11 @@
         ],
         "en": [
           "plattenleger-m-w-d-yellowshark-ag-luzern",
-          "m-w-d-yellowshark-ag-luzern"
+          "panel-layer-m-f-yellowshark-ag-luzern-lu"
         ],
         "fr": [
           "plattenleger-m-w-d-yellowshark-ag-luzern",
-          "m-w-d-yellowshark-ag-luzern"
+          "carreleur-h-f-yellowshark-ag-luzern-lu"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.613Z",
@@ -25483,11 +25537,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mobelschreiner-m-w-st-gallen-sg-yellowshark-ch",
+        "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen-55954bfd0f",
         "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mobelschreiner-m-w-st-gallen-sg-yellowshark-ch",
+          "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen-55954bfd0f",
           "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen"
         ]
       },
@@ -25678,9 +25734,9 @@
     },
     {
       "id": "yellowshark-944dedea2e68",
-      "slug": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern",
+      "slug": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern-62ccb64537",
       "slugByLocale": {
-        "it": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern",
+        "it": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern-62ccb64537",
         "en": "it-cloud-system-engineer-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern",
         "de": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
         "fr": "it-cloud-system-ingenieur-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
@@ -25727,11 +25783,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+        "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
+        "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
+          "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
         ],
         "fr": [
           "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
@@ -26089,9 +26147,9 @@
     },
     {
       "id": "yellowshark-ba876f81f4ec",
-      "slug": "lavoratori-di-legno-m-f-yellowshark-ag-chur",
+      "slug": "lavoratori-di-legno-m-f-yellowshark-ag-chur-acea61c279",
       "slugByLocale": {
-        "it": "lavoratori-di-legno-m-f-yellowshark-ag-chur",
+        "it": "lavoratori-di-legno-m-f-yellowshark-ag-chur-acea61c279",
         "en": "woodworkers-m-f-yellowshark-ag-chur",
         "de": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
         "fr": "travailleurs-du-bois-h-f-yellowshark-ag-chur"
@@ -26138,11 +26196,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch"
+        "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
+        "lavoratori-di-legno-m-f-yellowshark-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch"
+          "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
+          "lavoratori-di-legno-m-f-yellowshark-ag-chur"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.636Z",
@@ -26563,7 +26623,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T10:10:35.225Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4cdfa45a982c",
@@ -26881,7 +26942,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.224Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0c751e8998ba",
@@ -27047,7 +27109,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.222Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-c189cb224768",
@@ -27705,7 +27768,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.217Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-00f87286d6b7",
@@ -27866,7 +27930,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.216Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5fa2c5852ccf",
@@ -27958,7 +28023,7 @@
         "it": "carpentiere-m-f-yellowshark-ag-st-gallen-sg",
         "en": "carpenter-fitter-m-f-yellowshark-ag-st-gallen-sg",
         "de": "schreiner-monteur-m-w-st-gallen-sg-yellowshark-ch",
-        "fr": "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
+        "fr": "charpentier-m-w-d-yellowshark-ag-st-gallen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -28004,7 +28069,7 @@
       "previousSlugs": [
         "schreiner-monteur-m-w-st-gallen-sg-yellowshark-ch",
         "schreiner-monteur-m-w-d-yellowshark-ag-st-gallen",
-        "charpentier-m-w-d-yellowshark-ag-st-gallen"
+        "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28015,7 +28080,7 @@
         ],
         "fr": [
           "schreiner-monteur-m-w-d-yellowshark-ag-st-gallen",
-          "charpentier-m-w-d-yellowshark-ag-st-gallen"
+          "ajusteur-menuisier-h-f-yellowshark-ag-st-gallen-sg"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.536Z",
@@ -28446,7 +28511,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.214Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3993b5e95e24",
@@ -28606,16 +28672,17 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.213Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d95120bf6ffc",
       "slug": "macchinista-escavatore-ragno-m-f-yellowshark-ag-zug-zg",
       "slugByLocale": {
         "it": "macchinista-escavatore-ragno-m-f-yellowshark-ag-zug-zg",
-        "en": "engineer-walking-excavator-m-f-yellowshark-ag-zug-zg",
+        "en": "machine-scrubber-m-w-d-yellowshark-ag-zug",
         "de": "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
-        "fr": "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg"
+        "fr": "epurateur-de-machine-m-w-d-yellowshark-ag-zug"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -28664,8 +28731,8 @@
         "machinery-operator-m-f-yellowshark-ag-zug-zg",
         "operateur-de-machines-h-f-yellowshark-ag-zug-zg",
         "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug",
-        "machine-scrubber-m-w-d-yellowshark-ag-zug",
-        "epurateur-de-machine-m-w-d-yellowshark-ag-zug"
+        "engineer-walking-excavator-m-f-yellowshark-ag-zug-zg",
+        "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28676,13 +28743,13 @@
           "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
           "machinery-operator-m-f-yellowshark-ag-zug-zg",
           "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug",
-          "machine-scrubber-m-w-d-yellowshark-ag-zug"
+          "engineer-walking-excavator-m-f-yellowshark-ag-zug-zg"
         ],
         "fr": [
           "maschinist-schreitbagger-m-w-zug-zg-yellowshark-ch",
           "operateur-de-machines-h-f-yellowshark-ag-zug-zg",
           "maschinist-schreitbagger-m-w-d-yellowshark-ag-zug",
-          "epurateur-de-machine-m-w-d-yellowshark-ag-zug"
+          "pelleteuse-marchande-machiniste-h-f-yellowshark-ag-zug-zg"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.584Z",
@@ -28702,7 +28769,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.213Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-deb107d479e7",
@@ -29190,7 +29258,8 @@
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.208Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f7ae400b0535",
@@ -29516,7 +29585,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.206Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-8ed58c76be23",
@@ -29834,7 +29904,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T10:10:35.204Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-bb81c61df99f",
@@ -30164,7 +30235,8 @@
       "streetAddress": "Gossau SG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-16T10:10:35.196Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2b3cf4c3c63f",
@@ -30496,7 +30568,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-16T10:10:35.192Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a1ac7c5caa13",
@@ -31065,7 +31138,8 @@
       "streetAddress": "Brienz BE",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-16T10:10:35.190Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ec8497bd08eb",
@@ -31314,7 +31388,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-16T10:10:35.187Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-712bab0174ed",
@@ -31818,7 +31893,8 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:10:35.184Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-132ad5d3faf2",
@@ -32466,7 +32542,8 @@
       "streetAddress": "Bremgarten AG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:10:35.180Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4815999a1996",
@@ -33115,7 +33192,8 @@
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:10:35.175Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6c8d3da2cd8d",
@@ -33124,7 +33202,7 @@
         "it": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
         "en": "gardener-new-plants-m-f-yellowshark-ag-zurich-zh",
         "de": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-        "fr": "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
+        "fr": "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -33170,7 +33248,7 @@
       "previousSlugs": [
         "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
         "giardini-nuovi-m-f-yellowshark-ag-zurich-d9f2e030af",
-        "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
+        "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -33178,7 +33256,7 @@
           "giardini-nuovi-m-f-yellowshark-ag-zurich-d9f2e030af"
         ],
         "fr": [
-          "jardiniers-nouveau-m-w-d-yellowshark-ag-zurich"
+          "jardinier-nouvelles-installations-h-f-yellowshark-ag-zurich-zh"
         ]
       },
       "firstSeenAt": "2026-09-24T14:45:10.379Z",
@@ -33198,7 +33276,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:10:35.175Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-01f375055bcd",
@@ -33281,7 +33360,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:10:35.174Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-21dbfd80ba2a",
@@ -34751,7 +34831,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T10:10:35.162Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6291d11d73ba",
@@ -35009,7 +35090,7 @@
         "it": "plaster-m-f-yellowshark-ag-sarnen",
         "en": "plaster-m-f-yellowshark-ag-sarnen",
         "de": "gipser-m-w-sarnen-ow-yellowshark-ch",
-        "fr": "gipser-m-w-d-yellowshark-ag-sarnen"
+        "fr": "plaquette-m-w-d-yellowshark-ag-sarnen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -35054,14 +35135,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-m-w-sarnen-ow-yellowshark-ch",
-        "plaquette-m-w-d-yellowshark-ag-sarnen"
+        "gipser-m-w-d-yellowshark-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-m-w-sarnen-ow-yellowshark-ch"
         ],
         "fr": [
-          "plaquette-m-w-d-yellowshark-ag-sarnen"
+          "gipser-m-w-d-yellowshark-ag-sarnen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.482Z",
@@ -35081,7 +35162,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T10:10:35.159Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2b2c1724b6cc",
@@ -35401,7 +35483,8 @@
       "streetAddress": "Küssnacht am Rigi",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T10:10:35.159Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a815b30823ff",
@@ -35646,7 +35729,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T10:10:35.158Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5172a091f656",
@@ -36222,16 +36306,17 @@
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.151Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-11349381b188",
       "slug": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen-sg",
       "slugByLocale": {
         "it": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen-sg",
-        "en": "drywall-builder-m-f-yellowshark-ag-st-gallen-sg",
+        "en": "dryers-m-w-d-yellowshark-ag-st-gallen",
         "de": "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
-        "fr": "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
+        "fr": "sechoirs-m-w-d-yellowshark-ag-st-gallen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -36276,18 +36361,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
-        "dryers-m-w-d-yellowshark-ag-st-gallen",
-        "sechoirs-m-w-d-yellowshark-ag-st-gallen"
+        "drywall-builder-m-f-yellowshark-ag-st-gallen-sg",
+        "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "trockenbauer-m-w-st-gallen-sg-yellowshark-ch"
         ],
         "en": [
-          "dryers-m-w-d-yellowshark-ag-st-gallen"
+          "drywall-builder-m-f-yellowshark-ag-st-gallen-sg"
         ],
         "fr": [
-          "sechoirs-m-w-d-yellowshark-ag-st-gallen"
+          "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen-sg"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.598Z",
@@ -36717,7 +36802,8 @@
       "streetAddress": "Uznach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.148Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e6bc18abf350",
@@ -37688,7 +37774,8 @@
       "streetAddress": "Härkingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.141Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-c67d670fd9b7",
@@ -37765,7 +37852,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.139Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-fbb071f91e8c",
@@ -38016,7 +38104,8 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.137Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-79f5a38e0de7",
@@ -38182,7 +38271,8 @@
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.135Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a8ecbcbc0c70",
@@ -38345,7 +38435,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.134Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2028340b4879",
@@ -39094,7 +39185,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.130Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-60f5817128b1",
@@ -39254,7 +39346,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.128Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4a3f613ab369",
@@ -39337,7 +39430,8 @@
       "streetAddress": "Weinfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.128Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5bb54dbdf041",
@@ -39500,7 +39594,8 @@
       "streetAddress": "Teufen AR",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.127Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-03184a56e9b4",
@@ -39593,7 +39688,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-acbfb0a1bd45",
@@ -40096,7 +40192,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:10:35.123Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1eb3850cbb07",
@@ -40506,7 +40603,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.119Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-765cc42858ca",
@@ -41064,7 +41162,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.113Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0b8035380b62",
@@ -41311,7 +41410,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.113Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6cea7774e171",
@@ -41471,7 +41571,8 @@
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.111Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a6ffe17a1606",
@@ -41718,14 +41819,15 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.108Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a4d49029676a",
       "slug": "facade-fitter-m-f-yellowshark-ag-st-gallen-sg",
       "slugByLocale": {
         "it": "facade-fitter-m-f-yellowshark-ag-st-gallen-sg",
-        "en": "fassadenmonteur-m-w-yellowshark-ag-st-gallen",
+        "en": "facade-fitter-m-w-d-yellowshark-ag-st-gallen",
         "de": "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-st-gallen-sg"
       },
@@ -41772,8 +41874,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fassadenmonteur-m-w-st-gallen-sg-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-st-gallen",
-        "facade-fitter-m-w-d-yellowshark-ag-st-gallen"
+        "fassadenmonteur-m-w-yellowshark-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -41784,7 +41885,7 @@
           "fassadenmonteur-m-w-yellowshark-ag-st-gallen"
         ],
         "en": [
-          "facade-fitter-m-w-d-yellowshark-ag-st-gallen"
+          "fassadenmonteur-m-w-yellowshark-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.610Z",
@@ -42059,7 +42160,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.107Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e3aeb8c6909f",
@@ -42642,7 +42744,8 @@
       "streetAddress": "Gossau SG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.104Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-197194b994d8",
@@ -43193,7 +43296,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.099Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-664b1a6381c7",
@@ -43350,7 +43454,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.098Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6b6af2e42862",
@@ -43579,7 +43684,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.095Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-99b3099057b3",
@@ -43736,7 +43842,8 @@
       "streetAddress": "Trimbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.093Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-22c6750923ce",
@@ -44065,7 +44172,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.091Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-30eb34c316eb",
@@ -44148,7 +44256,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.092Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6a1787f7588b",
@@ -44231,7 +44340,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.090Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e072097807c7",
@@ -44314,7 +44424,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:35.090Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6ddae22c280e",
@@ -44480,7 +44591,8 @@
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-23T10:10:35.089Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-de58e24d25c9",
@@ -44727,7 +44839,8 @@
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-23T10:10:35.088Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-315fe9674559",
@@ -45306,7 +45419,8 @@
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-23T10:10:35.083Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e74d4b27491d",
@@ -46461,7 +46575,8 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T10:10:35.076Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6de2661b4e48",
@@ -47040,7 +47155,8 @@
       "streetAddress": "Villmergen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T10:10:35.068Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-39aaf9c901ae",
@@ -47720,7 +47836,7 @@
         "it": "intonacatore-m-f-yellowshark-ag-schwyz",
         "en": "plasterer-m-f-yellowshark-ag-schwyz",
         "de": "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "gipser-m-w-d-yellowshark-ag-schwyz"
+        "fr": "plaquette-m-w-d-yellowshark-ag-schwyz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -47765,14 +47881,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-m-w-schwyz-sz-yellowshark-ch",
-        "plaquette-m-w-d-yellowshark-ag-schwyz"
+        "gipser-m-w-d-yellowshark-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-m-w-schwyz-sz-yellowshark-ch"
         ],
         "fr": [
-          "plaquette-m-w-d-yellowshark-ag-schwyz"
+          "gipser-m-w-d-yellowshark-ag-schwyz"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.540Z",
@@ -47792,7 +47908,8 @@
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T10:10:35.063Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-004cf2e6cc0d",
@@ -47965,9 +48082,9 @@
       "slug": "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
       "slugByLocale": {
         "it": "lattoniere-edile-m-f-yellowshark-ag-liestal-bl",
-        "en": "construction-plunger-m-f-yellowshark-ag-liestal-bl",
+        "en": "manufacturer-m-w-d-yellowshark-ag-liestal",
         "de": "bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "fr": "baupengler-h-f-yellowshark-ag-liestal-bl"
+        "fr": "fabricant-m-w-d-yellowshark-ag-liestal"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -48012,18 +48129,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauspengler-m-w-liestal-bl-yellowshark-ch",
-        "manufacturer-m-w-d-yellowshark-ag-liestal",
-        "fabricant-m-w-d-yellowshark-ag-liestal"
+        "construction-plunger-m-f-yellowshark-ag-liestal-bl",
+        "baupengler-h-f-yellowshark-ag-liestal-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauspengler-m-w-liestal-bl-yellowshark-ch"
         ],
         "en": [
-          "manufacturer-m-w-d-yellowshark-ag-liestal"
+          "construction-plunger-m-f-yellowshark-ag-liestal-bl"
         ],
         "fr": [
-          "fabricant-m-w-d-yellowshark-ag-liestal"
+          "baupengler-h-f-yellowshark-ag-liestal-bl"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.619Z",
@@ -48126,7 +48243,8 @@
       "streetAddress": "Bassersdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T10:10:35.059Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-202ccdaa7c58",
@@ -48870,7 +48988,8 @@
       "streetAddress": "Kehrsatz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T10:10:35.053Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-887ff2cf8f95",
@@ -49040,7 +49159,7 @@
       "slug": "facade-fitter-m-f-yellowshark-ag-bern-be",
       "slugByLocale": {
         "it": "facade-fitter-m-f-yellowshark-ag-bern-be",
-        "en": "fassadenmonteur-m-w-yellowshark-ag-bern",
+        "en": "facade-fitter-m-w-d-yellowshark-ag-bern",
         "de": "fassadenmonteur-m-w-bern-be-yellowshark-ch",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-bern-be"
       },
@@ -49087,8 +49206,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fassadenmonteur-m-w-bern-be-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-bern",
-        "facade-fitter-m-w-d-yellowshark-ag-bern"
+        "fassadenmonteur-m-w-yellowshark-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -49099,7 +49217,7 @@
           "fassadenmonteur-m-w-yellowshark-ag-bern"
         ],
         "en": [
-          "facade-fitter-m-w-d-yellowshark-ag-bern"
+          "fassadenmonteur-m-w-yellowshark-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.634Z",
@@ -49202,7 +49320,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:10:35.048Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ab4e965b9471",
@@ -49442,7 +49561,8 @@
       "streetAddress": "Spiez",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:10:35.048Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-27bcb857b0f8",
@@ -49928,7 +50048,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:10:35.041Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-62cc364b690b",
@@ -50252,7 +50373,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:10:35.037Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f1e9c8c8a917",
@@ -50584,7 +50706,7 @@
       "slug": "posatore-di-pavimenti-m-f-yellowshark-ag-schwyz-sz",
       "slugByLocale": {
         "it": "posatore-di-pavimenti-m-f-yellowshark-ag-schwyz-sz",
-        "en": "flooring-installer-m-f-yellowshark-ag-schwyz-sz",
+        "en": "ground-layer-m-w-d-yellowshark-ag-schwyz",
         "de": "bodenleger-m-w-schwyz-sz-yellowshark-ch",
         "fr": "poseur-de-revetements-de-sol-h-f-yellowshark-ag-schwyz-sz"
       },
@@ -50632,7 +50754,7 @@
       "previousSlugs": [
         "bodenleger-m-w-schwyz-sz-yellowshark-ch",
         "bodenleger-m-w-d-yellowshark-ag-schwyz",
-        "ground-layer-m-w-d-yellowshark-ag-schwyz"
+        "flooring-installer-m-f-yellowshark-ag-schwyz-sz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -50640,7 +50762,7 @@
         ],
         "en": [
           "bodenleger-m-w-d-yellowshark-ag-schwyz",
-          "ground-layer-m-w-d-yellowshark-ag-schwyz"
+          "flooring-installer-m-f-yellowshark-ag-schwyz-sz"
         ],
         "fr": [
           "bodenleger-m-w-d-yellowshark-ag-schwyz"
@@ -50663,7 +50785,8 @@
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T10:10:35.033Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e261dc5c6115",
@@ -51224,7 +51347,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:10:35.026Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d70f381e29d3",
@@ -51400,7 +51524,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:10:35.025Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ffa3363ec1ac",
@@ -51978,7 +52103,8 @@
       "streetAddress": "Lenzburg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.020Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-69262fbae1c2",
@@ -52061,7 +52187,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.020Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-63aab5c39c81",
@@ -52153,7 +52280,7 @@
         "it": "addetto-a-alle-vendite-servizio-interno-m-w-d-yellowshark-ag-uster",
         "en": "sales-associate-innendienst-m-w-d-yellowshark-ag-uster",
         "de": "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "fr": "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
+        "fr": "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -52198,14 +52325,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch",
-        "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
+        "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-innendienst-m-w-d-uster-zh-yellowshark-ch"
         ],
         "fr": [
-          "collaborateur-trice-de-vente-interne-m-w-d-yellowshark-ag-uster"
+          "vendeur-se-innendienst-m-w-d-yellowshark-ag-uster"
         ]
       },
       "firstSeenAt": "2026-09-30T21:57:40.139Z",
@@ -52225,7 +52352,8 @@
       "streetAddress": "Uster",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.017Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e18582935109",
@@ -52482,7 +52610,8 @@
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.014Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-028d92674db8",
@@ -52565,7 +52694,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.015Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-2ae6916cef16",
@@ -52725,7 +52855,8 @@
       "streetAddress": "Burgdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.013Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5634e73c65ef",
@@ -52877,7 +53008,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.012Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1d7eefc1192d",
@@ -52957,7 +53089,8 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.012Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a53da3a61f87",
@@ -53129,7 +53262,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.008Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9672f08013cb",
@@ -53212,7 +53346,8 @@
       "streetAddress": "Zollikofen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.008Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3af05a0c3ce9",
@@ -54608,7 +54743,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-30T10:10:34.998Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-89c05673601d",
@@ -54691,7 +54827,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:10:34.996Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-091cd6a7b511",
@@ -54774,7 +54911,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:10:34.996Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-c7083537c549",
@@ -54857,7 +54995,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:10:34.995Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a54392f7f30e",
@@ -55186,7 +55325,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T10:10:34.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e99a143ca6c4",
@@ -55278,7 +55418,7 @@
         "it": "lucidatrice-edilizia-m-f-yellowshark-ag-chur-gr",
         "en": "polishing-building-construction-m-f-yellowshark-ag-chur-gr",
         "de": "polier-hochbau-m-w-chur-gr-yellowshark-ch",
-        "fr": "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
+        "fr": "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55324,7 +55464,7 @@
       "previousSlugs": [
         "polier-hochbau-m-w-chur-gr-yellowshark-ch",
         "polier-hochbau-m-w-d-yellowshark-ag-chur",
-        "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
+        "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -55335,7 +55475,7 @@
         ],
         "fr": [
           "polier-hochbau-m-w-d-yellowshark-ag-chur",
-          "construction-de-batiments-polonais-m-w-d-yellowshark-ag-chur"
+          "polisseur-batiment-h-f-yellowshark-ag-chur-gr"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.627Z",
@@ -55438,7 +55578,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:10:34.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-8063ec12e935",
@@ -55763,7 +55904,8 @@
       "streetAddress": "Lyss",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:10:34.987Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9cc473c752f4",
@@ -55855,7 +55997,7 @@
         "it": "capocantiere-m-f-yellowshark-ag-chur-gr",
         "en": "site-manager-m-f-yellowshark-ag-chur-gr",
         "de": "baufuhrer-m-w-chur-gr-yellowshark-ch",
-        "fr": "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
+        "fr": "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -55901,7 +56043,7 @@
       "previousSlugs": [
         "baufuhrer-m-w-chur-gr-yellowshark-ch",
         "baufuhrer-m-w-d-yellowshark-ag-chur",
-        "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
+        "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -55912,7 +56054,7 @@
         ],
         "fr": [
           "baufuhrer-m-w-d-yellowshark-ag-chur",
-          "directeur-de-la-construction-m-w-d-yellowshark-ag-chur"
+          "conducteur-de-travaux-h-f-yellowshark-ag-chur-gr"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.619Z",
@@ -56268,7 +56410,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:10:34.983Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5a3e3c0ce808",
@@ -56438,7 +56581,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:10:34.980Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-87481aa8e25a",
@@ -56857,7 +57001,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:10:34.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3520d06831dd",
@@ -57264,7 +57409,8 @@
       "streetAddress": "Kriens",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:10:34.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6f312c740876",
@@ -58183,7 +58329,8 @@
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T10:10:34.965Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0ae12ca0b522",
@@ -58604,7 +58751,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T10:10:34.959Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e90962860fe3",
@@ -58687,7 +58835,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T10:10:34.960Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9ab23e3b6ade",
@@ -59021,7 +59170,7 @@
       "slug": "facade-fitter-m-f-yellowshark-ag-chur-gr",
       "slugByLocale": {
         "it": "facade-fitter-m-f-yellowshark-ag-chur-gr",
-        "en": "fassadenmonteur-m-w-yellowshark-ag-chur",
+        "en": "facade-fitter-m-w-d-yellowshark-ag-chur",
         "de": "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-chur-gr"
       },
@@ -59068,8 +59217,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-chur",
-        "facade-fitter-m-w-d-yellowshark-ag-chur"
+        "fassadenmonteur-m-w-yellowshark-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59080,7 +59228,7 @@
           "fassadenmonteur-m-w-yellowshark-ag-chur"
         ],
         "en": [
-          "facade-fitter-m-w-d-yellowshark-ag-chur"
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
         ]
       },
       "firstSeenAt": "2026-09-25T15:03:04.706Z",
@@ -60087,7 +60235,8 @@
       "streetAddress": "Selzach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T10:10:34.946Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-c68d3c606bba",
@@ -60156,7 +60305,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T10:10:34.944Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-87b032aa1602",
@@ -60403,7 +60553,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T10:10:34.943Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-72d07682702b",
@@ -60488,7 +60639,8 @@
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T10:10:34.944Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ee75b9051dc4",
@@ -60739,7 +60891,8 @@
       "streetAddress": "Muri AG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:10:34.939Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-06799dc6f83e",
@@ -61487,7 +61640,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T10:10:34.930Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-daf527b6eb52",
@@ -61745,7 +61899,7 @@
         "it": "montatore-falegname-m-f-yellowshark-ag-bern",
         "en": "carpenter-installer-m-f-yellowshark-ag-bern",
         "de": "schreiner-monteur-m-w-bern-be-yellowshark-ch",
-        "fr": "menuisier-monteur-h-f-yellowshark-ag-bern"
+        "fr": "charpentier-m-w-d-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -61791,7 +61945,7 @@
       "previousSlugs": [
         "schreiner-monteur-m-w-bern-be-yellowshark-ch",
         "schreiner-monteur-m-w-d-yellowshark-ag-bern",
-        "charpentier-m-w-d-yellowshark-ag-bern"
+        "menuisier-monteur-h-f-yellowshark-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61801,7 +61955,7 @@
           "schreiner-monteur-m-w-d-yellowshark-ag-bern"
         ],
         "fr": [
-          "charpentier-m-w-d-yellowshark-ag-bern"
+          "menuisier-monteur-h-f-yellowshark-ag-bern"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.632Z",
@@ -61984,7 +62138,8 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T10:10:34.924Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-aaee5a089340",
@@ -62138,7 +62293,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T10:10:34.921Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e146f7216a3f",
@@ -62301,7 +62457,8 @@
       "streetAddress": "Biberist",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T10:10:34.920Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-e928ce2e476b",
@@ -62549,7 +62706,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T10:10:34.916Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-643f64d66096",
@@ -63376,7 +63534,8 @@
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T10:10:34.909Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-8370df6e8886",
@@ -63459,7 +63618,8 @@
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T10:10:34.907Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-6d7815f20929",
@@ -64184,7 +64344,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T10:10:34.898Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-db6762154c46",
@@ -64421,7 +64582,8 @@
       "streetAddress": "Wetzikon ZH",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T10:10:34.894Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3151575e18a3",
@@ -64916,7 +65078,8 @@
       "streetAddress": "Zofingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T10:10:34.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-cdc9a987ee40",
@@ -64999,7 +65162,8 @@
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T10:10:34.884Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-d252a9d1069f",
@@ -65401,7 +65565,8 @@
       "streetAddress": "Wohlen AG",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T10:10:34.880Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a3350d243f6a",
@@ -65813,7 +65978,8 @@
       "streetAddress": "Horw",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T10:10:34.874Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-9be128eb6e04",
@@ -65976,7 +66142,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T10:10:34.871Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-46f9e9bd5e2e",
@@ -66061,7 +66228,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T10:10:34.871Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-3d1e4b2456b0",
@@ -66144,7 +66312,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T10:10:34.869Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-86f0d2398c18",
@@ -66310,7 +66479,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T10:10:34.868Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-0999f15cb46e",
@@ -66387,7 +66557,8 @@
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T10:10:34.867Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-673199bf4dcd",
@@ -66873,7 +67044,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T10:10:34.861Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-5b9aee8b9c3e",
@@ -67203,7 +67375,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:10:34.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a8190610c99f",
@@ -67544,7 +67717,7 @@
         "it": "agente-di-vendita-interno-m-f-yellowshark-ag-arbon-tg",
         "en": "in-house-sales-agent-m-f-yellowshark-ag-arbon-tg",
         "de": "sachbearbeiter-verkaufsinnendienst-m-w-arbon-tg-yellowshark-ch",
-        "fr": "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
+        "fr": "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -67590,7 +67763,7 @@
       "previousSlugs": [
         "sachbearbeiter-verkaufsinnendienst-m-w-arbon-tg-yellowshark-ch",
         "sachbearbeiter-verkaufsinnendienst-m-w-d-yellowshark-ag-arbon",
-        "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
+        "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67601,7 +67774,7 @@
         ],
         "fr": [
           "sachbearbeiter-verkaufsinnendienst-m-w-d-yellowshark-ag-arbon",
-          "service-interieur-des-ventes-de-personnel-m-w-d-yellowshark-ag-arbon"
+          "agent-de-vente-interne-h-f-yellowshark-ag-arbon-tg"
         ]
       },
       "firstSeenAt": "2026-10-15T10:02:18.709Z",
@@ -67706,7 +67879,8 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:10:34.854Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f9944f2aa77b",
@@ -67938,7 +68112,8 @@
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:10:34.852Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ad9b0489e24b",
@@ -68106,7 +68281,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:10:34.850Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-73ba3c5273a3",
@@ -68267,7 +68443,8 @@
       "streetAddress": "Oberrieden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T10:10:34.851Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ee45addeb702",
@@ -69192,7 +69369,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T10:10:34.840Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-b888b8dcf3b7",
@@ -69445,7 +69623,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T10:10:34.837Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-db4cf3306544",
@@ -69774,7 +69953,8 @@
       "streetAddress": "Uetikon am See",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T10:10:34.833Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-532cad5e44d8",
@@ -69937,7 +70117,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T10:10:34.832Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-ad1b5978f7d8",
@@ -70428,7 +70609,7 @@
         "it": "controllori-yellowshark-ag-zurich-zh",
         "en": "controllers-yellowshark-ag-zurich-zh",
         "de": "controller-zurich-zh-yellowshark-ch",
-        "fr": "controller-yellowshark-ag-zurich"
+        "fr": "controleur-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70473,8 +70654,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "controller-zurich-zh-yellowshark-ch",
-        "controller-yellowshark-ag-zurich",
-        "controleur-yellowshark-ag-zurich"
+        "controller-yellowshark-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -70484,7 +70664,7 @@
           "controller-yellowshark-ag-zurich"
         ],
         "fr": [
-          "controleur-yellowshark-ag-zurich"
+          "controller-yellowshark-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.538Z",
@@ -71967,20 +72147,16 @@
         ],
         "en": [
           "servicetechniker-fur-anlagenabnahmen-weltweit-m-w-80-100-zurich-zh-yellowshark-ch",
-          "service-technicians-for-plant-acceptance-worldwide-m-f-80-100-yellowshark-ag-zurich-zh",
           "service-technicians-for-plant-acceptance-worldwide-m-f-80-100-yellowshark-ag-zurich"
         ],
         "fr": [
           "servicetechniker-fur-anlagenabnahmen-weltweit-m-w-80-100-zurich-zh-yellowshark-ch",
-          "techniciens-de-service-pour-l-acceptation-d-usine-dans-le-monde-entier-h-f-80-100-yellowshark-ag-zurich-zh",
           "techniciens-de-service-pour-l-acceptation-d-usine-dans-le-monde-entier-h-f-80-100-yellowshark-ag-zurich"
         ]
       },
       "previousSlugs": [
         "servicetechniker-fur-anlagenabnahmen-weltweit-m-w-80-100-zurich-zh-yellowshark-ch",
         "servicetechniker-per-anlagenabnahmen-weltweit-m-w-d-80-100-yellowshark-ag-zurich",
-        "service-technicians-for-plant-acceptance-worldwide-m-f-80-100-yellowshark-ag-zurich-zh",
-        "techniciens-de-service-pour-l-acceptation-d-usine-dans-le-monde-entier-h-f-80-100-yellowshark-ag-zurich-zh",
         "service-technicians-for-plant-acceptance-worldwide-m-f-80-100-yellowshark-ag-zurich",
         "techniciens-de-service-pour-l-acceptation-d-usine-dans-le-monde-entier-h-f-80-100-yellowshark-ag-zurich"
       ],
@@ -72082,12 +72258,12 @@
     },
     {
       "id": "yellowshark-34a30ba901b5",
-      "slug": "mobelschreiner-m-w-yellowshark-ag-st-gallen-0f2cdce1e3",
+      "slug": "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen-b908cb548e",
       "slugByLocale": {
         "de": "mobelschreiner-m-w-st-gallen-sg-yellowshark-ch",
-        "it": "mobelschreiner-m-w-yellowshark-ag-st-gallen-0f2cdce1e3",
+        "it": "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen-b908cb548e",
         "en": "furniture-carpenter-m-f-yellowshark-ag-st-gallen",
-        "fr": "mobelschreiner-m-w-d-yellowshark-ag-st-gallen"
+        "fr": "charpentier-de-meubles-h-f-yellowshark-ag-st-gallen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72135,15 +72311,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mobelschreiner-m-w-st-gallen-sg-yellowshark-ch",
+          "mobelschreiner-m-w-yellowshark-ag-st-gallen-0f2cdce1e3",
           "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen"
         ],
         "fr": [
-          "charpentier-de-meubles-h-f-yellowshark-ag-st-gallen"
+          "mobelschreiner-m-w-d-yellowshark-ag-st-gallen"
         ]
       },
       "previousSlugs": [
         "mobelschreiner-m-w-st-gallen-sg-yellowshark-ch",
-        "charpentier-de-meubles-h-f-yellowshark-ag-st-gallen",
+        "mobelschreiner-m-w-yellowshark-ag-st-gallen-0f2cdce1e3",
+        "mobelschreiner-m-w-d-yellowshark-ag-st-gallen",
         "carpenter-per-mobili-m-f-yellowshark-ag-st-gallen"
       ],
       "salaryMin": 57500,
@@ -72167,12 +72345,12 @@
     },
     {
       "id": "yellowshark-4a59bb1adb75",
-      "slug": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch",
+      "slug": "gruista-con-patentino-suva-m-f-yellowshark-ag-luzern",
       "slugByLocale": {
         "de": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch",
-        "it": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch",
-        "en": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch",
-        "fr": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch"
+        "it": "gruista-con-patentino-suva-m-f-yellowshark-ag-luzern",
+        "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-luzern",
+        "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-luzern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72235,7 +72413,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T10:10:35.161Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.592Z"
+      "firstSeenAt": "2026-09-28T21:58:25.592Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "en": [
+          "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-6580766009c0",
@@ -72243,8 +72435,8 @@
       "slugByLocale": {
         "de": "schreiner-m-w-bern-be-yellowshark-ch",
         "it": "falegname-m-f-yellowshark-ag-bern-be",
-        "en": "schreiner-m-w-d-yellowshark-ag-bern",
-        "fr": "schreiner-m-w-d-yellowshark-ag-bern"
+        "en": "carpenter-m-f-yellowshark-ag-bern-be",
+        "fr": "charpentier-m-w-d-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72294,16 +72486,17 @@
           "schreiner-m-w-bern-be-yellowshark-ch"
         ],
         "en": [
-          "carpenter-m-f-yellowshark-ag-bern-be"
+          "schreiner-m-w-d-yellowshark-ag-bern"
         ],
         "fr": [
-          "menuisier-h-f-yellowshark-ag-bern-be"
+          "menuisier-h-f-yellowshark-ag-bern-be",
+          "schreiner-m-w-d-yellowshark-ag-bern"
         ]
       },
       "previousSlugs": [
         "schreiner-m-w-bern-be-yellowshark-ch",
-        "carpenter-m-f-yellowshark-ag-bern-be",
-        "menuisier-h-f-yellowshark-ag-bern-be"
+        "menuisier-h-f-yellowshark-ag-bern-be",
+        "schreiner-m-w-d-yellowshark-ag-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -72330,8 +72523,8 @@
       "slugByLocale": {
         "de": "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch",
         "it": "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch",
-        "en": "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch",
-        "fr": "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch"
+        "en": "sanitary-heating-installer-m-f-yellowshark-ag-sarnen",
+        "fr": "installation-sanitaire-chauffage-h-f-yellowshark-ag-sarnen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72393,16 +72586,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T10:10:35.149Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.616Z"
+      "firstSeenAt": "2026-09-28T21:58:25.616Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch"
+        ],
+        "fr": [
+          "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sanitar-heizungsmonteur-m-w-sarnen-ow-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-33d0a29d1182",
-      "slug": "fassadenmonteur-m-w-yellowshark-ag-zurich",
+      "slug": "facade-fitter-m-f-yellowshark-ag-zurich",
       "slugByLocale": {
-        "de": "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
-        "it": "fassadenmonteur-m-w-yellowshark-ag-zurich",
-        "en": "fassadenmonteur-m-w-yellowshark-ag-zurich",
-        "fr": "fassadenmonteur-m-w-yellowshark-ag-zurich"
+        "de": "fassadenmonteur-m-w-yellowshark-ag-zurich",
+        "it": "facade-fitter-m-f-yellowshark-ag-zurich",
+        "en": "facade-fitter-m-f-yellowshark-ag-zurich",
+        "fr": "fixeur-de-facade-h-f-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72449,11 +72653,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+          "fassadenmonteur-m-w-yellowshark-ag-zurich"
+        ],
+        "en": [
+          "fassadenmonteur-m-w-yellowshark-ag-zurich"
+        ],
+        "de": [
           "fassadenmonteur-m-w-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "fassadenmonteur-m-w-yellowshark-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch"
+        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+        "fassadenmonteur-m-w-yellowshark-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -72476,12 +72691,12 @@
     },
     {
       "id": "yellowshark-a6d38ba97fc8",
-      "slug": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
+      "slug": "operatore-di-gru-m-f-yellowshark-ag-schwyz",
       "slugByLocale": {
         "de": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "it": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "en": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch",
-        "fr": "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        "it": "operatore-di-gru-m-f-yellowshark-ag-schwyz",
+        "en": "crane-operator-m-f-yellowshark-ag-schwyz",
+        "fr": "operateur-de-grue-h-f-yellowshark-ag-schwyz"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72543,16 +72758,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T10:10:35.114Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.533Z"
+      "firstSeenAt": "2026-09-28T21:58:25.533Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "en": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ],
+        "fr": [
+          "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-unterdrehkran-m-w-schwyz-sz-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-fe0dbc31320d",
-      "slug": "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
+      "slug": "filetto-di-soffitto-m-f-yellowshark-ag-aarau",
       "slugByLocale": {
-        "de": "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
-        "it": "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
-        "en": "deckenmonteur-m-w-aarau-ag-yellowshark-ch",
-        "fr": "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+        "de": "deckenmonteur-m-w-yellowshark-ag-aarau",
+        "it": "filetto-di-soffitto-m-f-yellowshark-ag-aarau",
+        "en": "ceiling-fitter-m-f-yellowshark-ag-aarau",
+        "fr": "monteur-de-plafond-h-f-yellowshark-ag-aarau"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72614,16 +72844,33 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T10:10:35.050Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.621Z"
+      "firstSeenAt": "2026-09-28T21:58:25.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "en": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "de": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "deckenmonteur-m-w-aarau-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-51b5bf3a3908",
-      "slug": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
+      "slug": "carpenter-m-f-yellowshark-ag-aarau",
       "slugByLocale": {
         "de": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
-        "it": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
-        "en": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch",
-        "fr": "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
+        "it": "carpenter-m-f-yellowshark-ag-aarau",
+        "en": "carpenter-m-f-yellowshark-ag-aarau",
+        "fr": "charpentier-h-f-yellowshark-ag-aarau"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72685,16 +72932,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:10:35.031Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.527Z"
+      "firstSeenAt": "2026-09-28T21:58:25.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "en": [
+          "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-monteur-m-w-aarau-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-6e88fe6cc0a5",
-      "slug": "plattenleger-m-w-luzern-lu-yellowshark-ch",
+      "slug": "m-f-yellowshark-ag-luzern",
       "slugByLocale": {
-        "de": "plattenleger-m-w-luzern-lu-yellowshark-ch",
-        "it": "plattenleger-m-w-luzern-lu-yellowshark-ch",
-        "en": "plattenleger-m-w-luzern-lu-yellowshark-ch",
-        "fr": "plattenleger-m-w-luzern-lu-yellowshark-ch"
+        "de": "plattenleger-m-w-yellowshark-ag-luzern",
+        "it": "m-f-yellowshark-ag-luzern",
+        "en": "m-f-yellowshark-ag-luzern",
+        "fr": "h-f-yellowshark-ag-luzern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72756,16 +73017,33 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:10:35.028Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.613Z"
+      "firstSeenAt": "2026-09-28T21:58:25.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "plattenleger-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "en": [
+          "plattenleger-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "de": [
+          "plattenleger-m-w-luzern-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "plattenleger-m-w-luzern-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "plattenleger-m-w-luzern-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-0e5f18284e91",
-      "slug": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
+      "slug": "lavoratori-di-legno-m-f-yellowshark-ag-chur-a7115cd9fc",
       "slugByLocale": {
         "de": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
-        "it": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
-        "en": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
-        "fr": "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch"
+        "it": "lavoratori-di-legno-m-f-yellowshark-ag-chur-a7115cd9fc",
+        "en": "woodworkers-m-f-yellowshark-ag-chur",
+        "fr": "travailleurs-du-bois-h-f-yellowshark-ag-chur"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72827,16 +73105,32 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T10:10:35.023Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.636Z"
+      "firstSeenAt": "2026-09-28T21:58:25.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
+          "lavoratori-di-legno-m-f-yellowshark-ag-chur"
+        ],
+        "en": [
+          "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch"
+        ],
+        "fr": [
+          "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "holzbau-arbeiter-m-w-chur-gr-yellowshark-ch",
+        "lavoratori-di-legno-m-f-yellowshark-ag-chur"
+      ]
     },
     {
       "id": "yellowshark-f1397d476224",
-      "slug": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
+      "slug": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern-d0ba3de5b7",
       "slugByLocale": {
-        "de": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
-        "it": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
-        "en": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
-        "fr": "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+        "de": "it-cloud-system-engineer-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern",
+        "it": "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern-d0ba3de5b7",
+        "en": "it-cloud-system-engineer-it-administrator-m365-azure-m-f-80-100-yellowshark-ag-luzern",
+        "fr": "it-cloud-system-ingenieur-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72899,16 +73193,35 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:10:35.011Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:58:25.643Z"
+      "firstSeenAt": "2026-09-28T21:58:25.643Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
+          "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
+        ],
+        "en": [
+          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+        ],
+        "de": [
+          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+        ],
+        "fr": [
+          "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu"
+        ]
+      },
+      "previousSlugs": [
+        "it-cloud-system-engineer-it-administrator-8211-m365-038-azure-m-w-80-100-luzern-lu",
+        "it-cloud-system-ingegnere-it-administrator-m365-azure-m-w-80-100-yellowshark-ag-luzern"
+      ]
     },
     {
       "id": "yellowshark-825317f0e78a",
-      "slug": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
+      "slug": "roofing-piano-tetto-ripido-m-f-yellowshark-ag-aarau",
       "slugByLocale": {
         "de": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "it": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "en": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch",
-        "fr": "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        "it": "roofing-piano-tetto-ripido-m-f-yellowshark-ag-aarau",
+        "en": "roofing-flat-steep-roof-m-f-yellowshark-ag-aarau",
+        "fr": "toit-plat-toit-escarpe-h-f-yellowshark-ag-aarau"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72970,16 +73283,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T10:10:34.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:54:56.290Z"
+      "firstSeenAt": "2026-10-03T09:54:56.290Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "en": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-flach-steildach-m-w-aarau-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-64211b2bd7b6",
-      "slug": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern-7ee4219844",
+      "slug": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-bern",
       "slugByLocale": {
-        "de": "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
-        "it": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern-7ee4219844",
-        "en": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern",
-        "fr": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern"
+        "de": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern",
+        "it": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-bern",
+        "en": "repair-service-technician-m-f-80-100-yellowshark-ag-bern",
+        "fr": "technicien-en-reparation-et-service-h-f-80-100-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73028,12 +73356,24 @@
       "previousSlugsByLocale": {
         "it": [
           "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
-          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern"
+          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern",
+          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern-7ee4219844"
+        ],
+        "en": [
+          "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern"
+        ],
+        "de": [
+          "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be"
+        ],
+        "fr": [
+          "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern"
         ]
       },
       "previousSlugs": [
         "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-bern-be",
-        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern"
+        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-bern",
+        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern-7ee4219844",
+        "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-bern"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -73056,12 +73396,12 @@
     },
     {
       "id": "yellowshark-35e301c5cc45",
-      "slug": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich-d453b875da",
+      "slug": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich",
       "slugByLocale": {
-        "de": "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
-        "it": "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich-d453b875da",
-        "en": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich",
-        "fr": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich"
+        "de": "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich",
+        "it": "tecnico-per-la-riparazione-e-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-zurich",
+        "en": "repair-service-technician-m-f-80-100-yellowshark-ag-zurich",
+        "fr": "technicien-en-reparation-et-service-h-f-80-100-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73110,12 +73450,24 @@
       "previousSlugsByLocale": {
         "it": [
           "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
-          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich"
+          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich",
+          "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich-d453b875da"
+        ],
+        "en": [
+          "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich"
+        ],
+        "de": [
+          "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh"
+        ],
+        "fr": [
+          "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich"
         ]
       },
       "previousSlugs": [
         "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-zurich-zh",
-        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich"
+        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-d-80-100-yellowshark-ag-zurich",
+        "techniker-per-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich-d453b875da",
+        "techniker-fur-reparatur-service-von-haushaltsgeraten-m-w-80-100-yellowshark-ag-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -73138,12 +73490,12 @@
     },
     {
       "id": "yellowshark-3cf91e04fcf9",
-      "slug": "servicetechniker-international-m-w-d-100-yellowshark-ag-bremgarten-ag",
+      "slug": "servizio-tecnico-internazionale-m-f-100-yellowshark-ag-bremgarten-ag",
       "slugByLocale": {
         "de": "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch",
-        "it": "servicetechniker-international-m-w-d-100-yellowshark-ag-bremgarten-ag",
-        "en": "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch",
-        "fr": "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch"
+        "it": "servizio-tecnico-internazionale-m-f-100-yellowshark-ag-bremgarten-ag",
+        "en": "service-technician-international-m-f-100-yellowshark-ag-bremgarten-ag",
+        "fr": "technicien-de-service-international-h-f-100-yellowshark-ag-bremgarten-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73190,11 +73542,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch",
+          "servicetechniker-international-m-w-d-100-yellowshark-ag-bremgarten-ag"
+        ],
+        "en": [
+          "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch"
+        ],
+        "fr": [
           "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch"
+        "servicetechniker-international-m-w-100-bremgarten-ag-ag-yellowshark-ch",
+        "servicetechniker-international-m-w-d-100-yellowshark-ag-bremgarten-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -73217,12 +73577,12 @@
     },
     {
       "id": "yellowshark-f9c00c3cda71",
-      "slug": "servicetechniker-per-internationale-inbetriebnahmen-m-w-d-80-100-yellowshark-ag-baden",
+      "slug": "tecnico-dell-assistenza-per-le-messe-in-servizio-internazionali-m-f-80-100-yellowshark-ag-baden",
       "slugByLocale": {
         "de": "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch",
-        "it": "servicetechniker-per-internationale-inbetriebnahmen-m-w-d-80-100-yellowshark-ag-baden",
-        "en": "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch",
-        "fr": "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch"
+        "it": "tecnico-dell-assistenza-per-le-messe-in-servizio-internazionali-m-f-80-100-yellowshark-ag-baden",
+        "en": "service-technician-for-international-commissioning-m-f-80-100-yellowshark-ag-baden",
+        "fr": "technicien-de-service-pour-la-mise-en-service-internationale-h-f-80-100-yellowshark-ag-baden"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73270,11 +73630,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch",
+          "servicetechniker-per-internationale-inbetriebnahmen-m-w-d-80-100-yellowshark-ag-baden"
+        ],
+        "en": [
+          "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch"
+        ],
+        "fr": [
           "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch"
+        "servicetechniker-fur-internationale-inbetriebnahmen-m-w-80-100-baden-ag-yellowshark-ch",
+        "servicetechniker-per-internationale-inbetriebnahmen-m-w-d-80-100-yellowshark-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -73297,12 +73665,12 @@
     },
     {
       "id": "yellowshark-fd548464436f",
-      "slug": "sachbearbeitung-finanz-e-rechnungswesen-80-100-yellowshark-ag-grenchen",
+      "slug": "impiegato-a-amministrativo-a-nel-settore-finanziario-e-contabile-80-100-yellowshark-ag-grenchen",
       "slugByLocale": {
         "de": "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch",
-        "it": "sachbearbeitung-finanz-e-rechnungswesen-80-100-yellowshark-ag-grenchen",
-        "en": "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch",
-        "fr": "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch"
+        "it": "impiegato-a-amministrativo-a-nel-settore-finanziario-e-contabile-80-100-yellowshark-ag-grenchen",
+        "en": "financial-and-accounting-management-80-100-yellowshark-ag-grenchen",
+        "fr": "gestion-financiere-et-comptable-80-100-yellowshark-ag-grenchen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73350,11 +73718,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch",
+          "sachbearbeitung-finanz-e-rechnungswesen-80-100-yellowshark-ag-grenchen"
+        ],
+        "en": [
+          "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch"
+        ],
+        "fr": [
           "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch"
+        "sachbearbeitung-finanz-und-rechnungswesen-80-100-grenchen-so-yellowshark-ch",
+        "sachbearbeitung-finanz-e-rechnungswesen-80-100-yellowshark-ag-grenchen"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -73377,10 +73753,10 @@
     },
     {
       "id": "yellowshark-691865bd5216",
-      "slug": "projektleiter-metallbau-fassadenbau-80-100-m-w-d-yellowshark-ag-zug",
+      "slug": "project-manager-costruzione-di-metallo-facciata-80-100-m-f-yellowshark-ag-zug",
       "slugByLocale": {
         "de": "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch",
-        "it": "projektleiter-metallbau-fassadenbau-80-100-m-w-d-yellowshark-ag-zug",
+        "it": "project-manager-costruzione-di-metallo-facciata-80-100-m-f-yellowshark-ag-zug",
         "en": "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch",
         "fr": "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch"
       },
@@ -73429,11 +73805,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch"
+          "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch",
+          "projektleiter-metallbau-fassadenbau-80-100-m-w-d-yellowshark-ag-zug"
         ]
       },
       "previousSlugs": [
-        "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch"
+        "projektleiter-metallbau-fassadenbau-80-100-m-w-zug-zg-yellowshark-ch",
+        "projektleiter-metallbau-fassadenbau-80-100-m-w-d-yellowshark-ag-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -73452,16 +73830,17 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.803Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.803Z"
+      "firstSeenAt": "2026-11-15T10:10:34.803Z",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-7ec2451a0309",
-      "slug": "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch",
+      "slug": "supporto-it-80-100-m-f-yellowshark-ag-bolligen",
       "slugByLocale": {
         "de": "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch",
-        "it": "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch",
+        "it": "supporto-it-80-100-m-f-yellowshark-ag-bolligen",
         "en": "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch",
-        "fr": "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch"
+        "fr": "support-informatique-80-100-h-f-yellowshark-ag-bolligen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73523,16 +73902,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.802Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.802Z"
+      "firstSeenAt": "2026-11-15T10:10:34.802Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch"
+        ],
+        "fr": [
+          "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporter-80-100-m-w-bolligen-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-f3d0dc888efc",
-      "slug": "devops-engineer-80-100-burgdorf-be-yellowshark-ch",
+      "slug": "devops-ingegnere-80-100-yellowshark-ag-burgdorf",
       "slugByLocale": {
         "de": "devops-engineer-80-100-burgdorf-be-yellowshark-ch",
-        "it": "devops-engineer-80-100-burgdorf-be-yellowshark-ch",
+        "it": "devops-ingegnere-80-100-yellowshark-ag-burgdorf",
         "en": "devops-engineer-80-100-burgdorf-be-yellowshark-ch",
-        "fr": "devops-engineer-80-100-burgdorf-be-yellowshark-ch"
+        "fr": "devops-ingenieur-80-100-yellowshark-ag-burgdorf"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73595,16 +73986,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.801Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.801Z"
+      "firstSeenAt": "2026-11-15T10:10:34.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-80-100-burgdorf-be-yellowshark-ch"
+        ],
+        "fr": [
+          "devops-engineer-80-100-burgdorf-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-80-100-burgdorf-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-97fd01bb2d01",
-      "slug": "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch",
+      "slug": "servizio-clienti-specialista-d-f-e-100-yellowshark-ag-frauenfeld",
       "slugByLocale": {
         "de": "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch",
-        "it": "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch",
+        "it": "servizio-clienti-specialista-d-f-e-100-yellowshark-ag-frauenfeld",
         "en": "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch",
-        "fr": "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch"
+        "fr": "service-client-specialiste-d-f-e-100-yellowshark-ag-frauenfeld"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73667,16 +74069,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.800Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.800Z"
+      "firstSeenAt": "2026-11-15T10:10:34.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch"
+        ],
+        "fr": [
+          "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-specialist-d-f-e-100-frauenfeld-tg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-334eaeb45120",
-      "slug": "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch",
+      "slug": "automatico-tecnico-m-f-80-100-yellowshark-ag-oberentfelden",
       "slugByLocale": {
         "de": "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch",
-        "it": "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch",
-        "en": "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch",
-        "fr": "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch"
+        "it": "automatico-tecnico-m-f-80-100-yellowshark-ag-oberentfelden",
+        "en": "automatic-technician-m-f-80-100-yellowshark-ag-oberentfelden",
+        "fr": "automatique-technicien-h-f-80-100-yellowshark-ag-oberentfelden"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73738,16 +74151,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.799Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.799Z"
+      "firstSeenAt": "2026-11-15T10:10:34.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch"
+        ],
+        "en": [
+          "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-techniker-m-w-80-100-oberentfelden-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-e649ba17efc3",
-      "slug": "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
+      "slug": "dipendenti-del-servizio-di-campo-building-technology-m-f-100-yellowshark-ag-zurich",
       "slugByLocale": {
         "de": "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
-        "it": "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
-        "en": "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch",
-        "fr": "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
+        "it": "dipendenti-del-servizio-di-campo-building-technology-m-f-100-yellowshark-ag-zurich",
+        "en": "field-service-employees-building-technology-m-f-100-yellowshark-ag-zurich",
+        "fr": "employes-des-services-locaux-technologie-du-batiment-h-f-100-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73809,7 +74236,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T10:10:34.797Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T10:10:34.797Z"
+      "firstSeenAt": "2026-11-15T10:10:34.797Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
+        ],
+        "en": [
+          "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aussendienstmitarbeiter-gebaudetechnik-m-w-100-zurich-zh-yellowshark-ch"
+      ]
     }
   ]
 }

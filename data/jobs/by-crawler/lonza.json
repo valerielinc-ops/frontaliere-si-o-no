@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lonza",
-  "assembledAt": "2026-11-15T09:25:19.207Z",
+  "assembledAt": "2026-11-15T12:43:54.861Z",
   "runId": "43697774423",
   "jobs": [
     {
@@ -195,7 +195,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:25:07.571Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-27da164dac6a",
@@ -290,7 +291,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:25:06.807Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-4731f10d0e1f",
@@ -665,7 +667,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:25:03.569Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-7d75603cb324",
@@ -1055,7 +1058,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:25:00.432Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-92bcb1c69cd4",
@@ -1435,7 +1439,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:57.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-f73f5c987f3a",
@@ -1530,7 +1535,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:56.599Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b86a28a53a45",
@@ -1795,7 +1801,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:53.229Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-5dca3537f9fe",
@@ -1884,7 +1891,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:52.429Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-3151453947a1",
@@ -2073,7 +2081,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:50.747Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-bfb2da721844",
@@ -2586,7 +2595,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:46.754Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-4c6f6314839d",
@@ -2677,7 +2687,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:45.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-32e82f669928",
@@ -2758,7 +2769,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:45.198Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-933933b6c6ed",
@@ -2842,7 +2854,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:44.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-da7e5e401c88",
@@ -2926,7 +2939,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:43.575Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-2443d23d7aef",
@@ -3007,7 +3021,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:42.783Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-ae02585da9b5",
@@ -3091,7 +3106,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:42.026Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-0df873bdbf56",
@@ -3175,7 +3191,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:41.237Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-2e04f0b438d1",
@@ -3263,7 +3280,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:40.471Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-1ad9359f3c8c",
@@ -4187,7 +4205,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:32.517Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b88604148e2c",
@@ -4268,7 +4287,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:31.775Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-1a704ab3fa70",
@@ -4363,7 +4383,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:31.019Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-a76db2b7ce86",
@@ -4835,7 +4856,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:24:26.750Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-576b1645ecdf",
@@ -4930,7 +4952,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:25.993Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b43660c49a5b",
@@ -5139,7 +5162,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:24.486Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-734cf649a72a",
@@ -5422,7 +5446,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-16T09:24:19.235Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-734000deb8ae",
@@ -5611,7 +5636,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-21T09:24:16.451Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-5e5b3dabdaf9",
@@ -6064,7 +6090,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-24T09:24:11.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-826b2b86d270",
@@ -6241,7 +6268,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:24:09.965Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b3e230414156",
@@ -6601,7 +6629,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:24:06.839Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-3010b2af8e8b",
@@ -6685,7 +6714,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:24:06.185Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-8d2fd917febe",
@@ -6774,7 +6804,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-28T09:24:05.546Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-ef43f77d0f82",
@@ -7286,7 +7317,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:24:01.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-ccb174921241",
@@ -7495,7 +7527,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:23:57.068Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-5b606df8295a",
@@ -7767,7 +7800,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:23:54.613Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-7e24770c3ec9",
@@ -7956,7 +7990,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-10T09:23:52.882Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-f5def3814fe1",
@@ -8134,7 +8169,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:23:51.270Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b232fcbd24e9",
@@ -8301,7 +8337,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:23:49.743Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-94697d45628e",
@@ -8583,7 +8620,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-14T09:23:47.446Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-df64279f3d1a",
@@ -8678,7 +8716,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-14T09:23:46.663Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-25e66747ebe9",
@@ -8868,7 +8907,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-17T09:23:45.124Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-6bbb499beac2",
@@ -10066,7 +10106,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:23:34.633Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-bcd1241ad84d",
@@ -10231,7 +10272,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:23:33.174Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-9e2d7858e431",
@@ -10421,7 +10463,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-27T09:23:31.235Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-df0685975d05",
@@ -10776,7 +10819,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T09:23:28.219Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-45848441cd6a",
@@ -10960,7 +11004,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-31T09:23:26.654Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-3f1c4152b7c6",
@@ -11144,7 +11189,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:23:25.100Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-9456b047c5b6",
@@ -11335,7 +11381,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:23:23.272Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-5d4b17333b15",
@@ -11516,14 +11563,15 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:23:21.746Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b0153888aa4b",
       "slug": "progetto-piombo-qc-m-lonza-visp",
       "slugByLocale": {
         "it": "progetto-piombo-qc-m-lonza-visp",
-        "en": "project-lead-qc-m-lonza-ch",
+        "en": "project-lead-qc-m-lonza-visp",
         "de": "projektleiter-qc-m-lonza-visp",
         "fr": "chef-de-projet-qc-m-lonza-visp"
       },
@@ -11568,15 +11616,14 @@
       "crawledAt": "2026-11-15T09:23:20.960Z",
       "jobReqId": "R80107",
       "previousSlugs": [
-        "project-lead-qc-m-lonza-ch",
-        "project-lead-qc-m-lonza-visp"
+        "project-lead-qc-m-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-lead-qc-m-lonza-ch"
         ],
         "en": [
-          "project-lead-qc-m-lonza-visp"
+          "project-lead-qc-m-lonza-ch"
         ],
         "de": [
           "project-lead-qc-m-lonza-ch"
@@ -11712,7 +11759,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-01T09:23:20.130Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-354b91e5320a",
@@ -12524,7 +12572,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:23:12.883Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-ff1a7acc7200",
@@ -13181,7 +13230,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T09:23:07.620Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-6feda876a9f6",
@@ -13454,7 +13504,8 @@
       "streetAddress": "Stein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:23:05.264Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-6e538fc1561a",
@@ -13640,7 +13691,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T09:23:03.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-752ad2d98e61",
@@ -13742,7 +13794,7 @@
       "slug": "bioprocess-ingegnere-m-f-d-lonza-visp",
       "slugByLocale": {
         "it": "bioprocess-ingegnere-m-f-d-lonza-visp",
-        "en": "bioprocess-engineer-m-f-d-lonza-ch",
+        "en": "bioprocess-engineer-m-f-d-lonza-visp",
         "de": "bioprocess-ingenieur-m-f-d-lonza-visp",
         "fr": "bioprocess-ingenieur-m-f-d-lonza-visp"
       },
@@ -13787,15 +13839,14 @@
       "crawledAt": "2026-11-15T09:23:02.210Z",
       "jobReqId": "R80753",
       "previousSlugs": [
-        "bioprocess-engineer-m-f-d-lonza-ch",
-        "bioprocess-engineer-m-f-d-lonza-visp"
+        "bioprocess-engineer-m-f-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bioprocess-engineer-m-f-d-lonza-ch"
         ],
         "en": [
-          "bioprocess-engineer-m-f-d-lonza-visp"
+          "bioprocess-engineer-m-f-d-lonza-ch"
         ],
         "de": [
           "bioprocess-engineer-m-f-d-lonza-ch"
@@ -13841,7 +13892,7 @@
       "slug": "biotecnologia-lonza-visp",
       "slugByLocale": {
         "it": "biotecnologia-lonza-visp",
-        "en": "biotechnologist-lonza-ch",
+        "en": "biotechnologist-lonza-visp",
         "de": "biotechnologe-lonza-visp",
         "fr": "biotechnologue-lonza-visp"
       },
@@ -13895,7 +13946,7 @@
           "biotechnologist-lonza-visp"
         ],
         "en": [
-          "biotechnologist-lonza-visp"
+          "biotechnologist-lonza-ch"
         ],
         "de": [
           "biotechnologist-lonza-ch"
@@ -14600,7 +14651,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:22:55.782Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-adffc1f12033",
@@ -14798,7 +14850,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:22:54.112Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-e86f5582a60d",
@@ -14895,7 +14948,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T09:22:53.343Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-b85c76a49c5e",
@@ -14994,7 +15048,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-30T09:22:52.569Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-c56e3dc3263a",
@@ -15085,7 +15140,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:22:51.797Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-056f8eb68212",
@@ -15582,7 +15638,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:22:48.039Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-f51c7cb0de01",
@@ -15865,7 +15922,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:22:45.587Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-5416ecdae563",
@@ -16258,7 +16316,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:22:42.095Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-2d7f2a512b51",
@@ -16452,9 +16511,9 @@
     },
     {
       "id": "lonza-877b0420dceb",
-      "slug": "operations-support-specialista-lonza-visp",
+      "slug": "operations-support-specialista-lonza-visp-3dcfed9876",
       "slugByLocale": {
-        "it": "operations-support-specialista-lonza-visp",
+        "it": "operations-support-specialista-lonza-visp-3dcfed9876",
         "en": "operations-support-specialist-lonza-ch",
         "de": "operations-support-spezialist-lonza-visp",
         "fr": "operations-support-specialiste-lonza-visp"
@@ -16500,11 +16559,13 @@
       "crawledAt": "2026-11-15T09:22:39.849Z",
       "jobReqId": "R80542",
       "previousSlugs": [
-        "operations-support-specialist-lonza-ch"
+        "operations-support-specialist-lonza-ch",
+        "operations-support-specialista-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-support-specialist-lonza-ch"
+          "operations-support-specialist-lonza-ch",
+          "operations-support-specialista-lonza-visp"
         ],
         "de": [
           "operations-support-specialist-lonza-ch"
@@ -16542,16 +16603,17 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:22:39.849Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-43306f47e6c0",
-      "slug": "operations-support-specialist-lonza-ch-2",
+      "slug": "operations-support-specialista-lonza-visp-7700174558",
       "slugByLocale": {
-        "it": "operations-support-specialist-lonza-ch-2",
+        "it": "operations-support-specialista-lonza-visp-7700174558",
         "en": "operations-support-specialist-lonza-ch",
-        "de": "operations-support-specialist-lonza-ch-2",
-        "fr": "operations-support-specialist-lonza-ch-2"
+        "de": "operations-support-spezialist-lonza-visp",
+        "fr": "operations-support-specialiste-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -16622,7 +16684,24 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:22:39.088Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-support-specialist-lonza-ch-2",
+          "operations-support-specialista-lonza-visp"
+        ],
+        "de": [
+          "operations-support-specialist-lonza-ch-2"
+        ],
+        "fr": [
+          "operations-support-specialist-lonza-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "operations-support-specialist-lonza-ch-2",
+        "operations-support-specialista-lonza-visp"
+      ]
     },
     {
       "id": "lonza-ac270e6ccc8b",
@@ -16801,7 +16880,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:22:37.581Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-8ef07da1f148",
@@ -16896,7 +16976,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-08T09:22:36.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-89759cf6b68f",
@@ -16988,7 +17069,7 @@
       "slugByLocale": {
         "it": "manager-m-f-d-lonza-visp",
         "en": "manager-m-f-d-lonza-visp",
-        "de": "anlagemeister-m-w-d-lonza-ch",
+        "de": "anlagemeister-m-w-d-lonza-visp",
         "fr": "gestionnaire-h-f-d-lonza-visp"
       },
       "company": "Lonza",
@@ -17043,6 +17124,9 @@
         ],
         "fr": [
           "anlagemeister-m-w-d-lonza-ch"
+        ],
+        "de": [
+          "anlagemeister-m-w-d-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-11-11T21:16:18.084Z",
@@ -17075,7 +17159,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-09T09:22:35.367Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-98e839387d56",
@@ -17254,7 +17339,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:22:33.934Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-bf9c5512e33d",
@@ -18180,7 +18266,8 @@
       "streetAddress": "Lonzastrasse",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T09:22:25.364Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-eb530e8e356c",

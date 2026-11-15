@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eoc-ente-ospedaliero-cantonale",
-  "assembledAt": "2026-11-15T09:33:58.696Z",
+  "assembledAt": "2026-11-15T12:38:19.482Z",
   "runId": "43698565663",
   "jobs": [
     {
@@ -162,7 +162,6 @@
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-feezql",
         "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-5ee78ec257",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -189,7 +188,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezsa",
@@ -266,7 +266,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333gx",
@@ -325,8 +326,6 @@
       },
       "previousSlugs": [
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-4333gx",
-        "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-6b3d19474a",
         "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -413,8 +412,6 @@
       },
       "previousSlugs": [
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-feexez",
-        "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-d-etudes-medicales-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-80b99502d8",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
@@ -442,7 +439,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef0d3",
@@ -707,7 +705,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqm",
@@ -788,7 +787,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzkn",
@@ -1124,7 +1124,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil175",
@@ -1494,7 +1495,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1p",
@@ -1695,7 +1697,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzko",
@@ -1788,7 +1791,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n9b",
@@ -1874,7 +1878,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n8p",
@@ -1968,7 +1973,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1r",
@@ -2092,7 +2098,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlc",
@@ -2579,7 +2586,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm13",
@@ -2663,7 +2671,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk0",
@@ -2768,7 +2777,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil4vw",
@@ -2868,7 +2878,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil0c5",
@@ -2959,7 +2970,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk2",
@@ -3039,7 +3051,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm14",
@@ -3127,7 +3140,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk7",
@@ -3490,7 +3504,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikznx",
@@ -3574,7 +3589,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1s",
@@ -3659,7 +3675,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlg",
@@ -4342,7 +4359,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxs",
@@ -4792,7 +4810,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2r4",
@@ -4892,7 +4911,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmkv",
@@ -5080,7 +5100,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yo",
@@ -5169,7 +5190,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yp",
@@ -5487,7 +5509,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yq",
@@ -5691,7 +5714,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil5mc",
@@ -5827,7 +5851,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmrt",
@@ -5926,7 +5951,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilnas",
@@ -6022,7 +6048,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilo8e",
@@ -6130,7 +6157,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxu",
@@ -6219,7 +6247,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmru",
@@ -6494,7 +6523,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngs",
@@ -6589,7 +6619,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikytv",
@@ -7079,7 +7110,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil16d",
@@ -7179,7 +7211,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc3",
@@ -7261,7 +7294,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyh",
@@ -7350,7 +7384,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc7",
@@ -7679,7 +7714,6 @@
       },
       "previousSlugs": [
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-4333hs",
-        "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-940be4999f",
         "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -7704,7 +7738,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hq",
@@ -7761,7 +7796,6 @@
       },
       "previousSlugs": [
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-4333hq",
-        "beschaftigte-im-gesundheitswesen-eoc-ente-ospedaliero-cantonale-novaggio",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-826d4c6539",
         "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -7841,7 +7875,6 @@
         ]
       },
       "previousSlugs": [
-        "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-b09aeb4079",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -7954,7 +7987,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fc",
@@ -8023,8 +8057,6 @@
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fc",
-        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0adfe545c3",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -8050,7 +8082,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feexed",
@@ -8108,7 +8141,6 @@
       },
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-feexed",
-        "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-bc282ea95e",
         "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -8133,7 +8165,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feey97",
@@ -8194,7 +8227,6 @@
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-feey97",
         "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-dcc79c18a7",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -8303,7 +8335,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ud",
@@ -8400,7 +8433,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1tg",
@@ -8576,7 +8610,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2mt",
@@ -8689,7 +8724,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqca",
@@ -8771,7 +8807,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqcz",
@@ -9103,7 +9140,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm12",
@@ -9191,7 +9229,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd1",
@@ -9603,7 +9642,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1zn",
@@ -9692,7 +9732,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillzl",
@@ -9776,7 +9817,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd3",
@@ -9960,7 +10002,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uiloz2",
@@ -10168,7 +10211,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk6",
@@ -10263,7 +10307,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngr",
@@ -10661,7 +10706,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feeyzw",
@@ -10944,7 +10990,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqcx",
@@ -11111,7 +11158,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd5",
@@ -11545,7 +11593,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ys",
@@ -11844,7 +11893,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzn5",
@@ -12215,7 +12265,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlh",
@@ -12300,7 +12351,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlj",
@@ -12409,7 +12461,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzli",
@@ -12497,7 +12550,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzn6",
@@ -12832,8 +12886,6 @@
       },
       "previousSlugs": [
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-4333hz",
-        "mitarbeiter-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "collaborateur-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-ed92dbe4bf",
         "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -12956,7 +13008,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyk",
@@ -13072,7 +13125,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hx",
@@ -13127,7 +13181,6 @@
       },
       "previousSlugs": [
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4333hx",
-        "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-bc6df4ea33",
         "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -13154,7 +13207,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-14T21:43:47.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2ns",
@@ -13239,7 +13293,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-14T21:43:47.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdv",
@@ -13688,7 +13743,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefp1q",
@@ -13825,12 +13881,12 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "en": [
-          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
+          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
+          "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4578898863",
@@ -13841,12 +13897,10 @@
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beitragszahler-titel-der-binnenwirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-4578898863",
         "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio"
+        "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -13868,7 +13922,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hy",
@@ -13924,12 +13979,12 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "de": [
-          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+          "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
-          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
+          "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-f5776693b0",
@@ -13937,12 +13992,10 @@
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
-        "kooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-f5776693b0",
         "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
+        "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -14019,7 +14072,6 @@
         ]
       },
       "previousSlugs": [
-        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-9c3e1bbaff",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -14044,7 +14096,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef1bd",
@@ -14106,12 +14159,12 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "de": [
-          "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
-          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
+          "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+          "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "it": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-6ee461308f",
@@ -14119,12 +14172,10 @@
         ]
       },
       "previousSlugs": [
-        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "medizinische-studienassistentin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-6ee461308f",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -14146,7 +14197,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef0d4",
@@ -14266,12 +14318,12 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "it": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-80b812d57f",
@@ -14279,12 +14331,10 @@
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "beitragszahler-inlandische-wirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "contributeurs-ordre-economique-national-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-80b812d57f",
         "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14306,7 +14356,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezrj",
@@ -14581,7 +14632,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hr",
@@ -14665,7 +14717,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333gz",
@@ -14861,8 +14914,8 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "en": [
-          "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
-          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
+          "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-231b85a723",
@@ -14876,10 +14929,9 @@
         ]
       },
       "previousSlugs": [
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "career-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-231b85a723",
-        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -15043,8 +15095,8 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "fr": [
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-12780063ec",
@@ -15058,10 +15110,9 @@
         ]
       },
       "previousSlugs": [
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-12780063ec",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -15083,7 +15134,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333g0",
@@ -15159,7 +15211,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fe",
@@ -15235,7 +15288,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fd",
@@ -15311,7 +15365,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fb",
@@ -15404,7 +15459,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fa",
@@ -15492,7 +15548,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f9",
@@ -15566,7 +15623,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f8",
@@ -15640,7 +15698,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-43343a",
@@ -15695,7 +15754,6 @@
         ]
       },
       "previousSlugs": [
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-8802e10c91",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -15796,7 +15854,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdu",
@@ -15878,7 +15937,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdw",
@@ -16046,7 +16106,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqe1",
@@ -16128,7 +16189,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqen",
@@ -16295,7 +16357,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil4ya",
@@ -16391,7 +16454,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmpb",
@@ -16618,7 +16682,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppq",
@@ -16860,7 +16925,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-12T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqer",
@@ -16955,7 +17021,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T09:33:28.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpql",
@@ -17284,7 +17351,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-14T21:43:47.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbd",
@@ -17463,7 +17531,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-06T21:56:13.617Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc2",
@@ -17710,7 +17779,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-30T21:48:45.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsc",
@@ -17802,7 +17872,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:48:45.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbc",
@@ -17886,7 +17957,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-30T21:48:45.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsi",
@@ -17977,7 +18049,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T21:45:58.453Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsg",
@@ -18233,7 +18306,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-24T21:36:44.040Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbg",
@@ -18493,7 +18567,8 @@
       "streetAddress": "Novaggio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-24T21:36:44.040Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqba",
@@ -18577,7 +18652,8 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-02T21:24:55.463Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqb7",
@@ -18753,7 +18829,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-18T21:26:50.599Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpse",
@@ -18844,7 +18921,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:35:43.196Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsb",
@@ -19007,7 +19085,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T21:25:07.091Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsd",
@@ -19168,7 +19247,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:28:22.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprl",
@@ -19424,7 +19504,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T21:57:16.436Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppo",
@@ -19752,7 +19833,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:57:16.436Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprg",
@@ -20585,7 +20667,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:57:16.436Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     }
   ]
 }

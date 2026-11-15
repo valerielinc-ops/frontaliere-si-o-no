@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rituals-cosmetics",
-  "assembledAt": "2026-11-15T09:21:54.088Z",
+  "assembledAt": "2026-11-15T12:47:27.912Z",
   "runId": "43697605326",
   "jobs": [
     {
@@ -89,7 +89,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:31.044Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7d7c936a5cd0",
@@ -174,7 +175,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:30.407Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-61271962489b",
@@ -259,7 +261,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:29.756Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-292307156019",
@@ -347,7 +350,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:29.114Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9a2aa2731440",
@@ -437,7 +441,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:28.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ca9c4427fa3d",
@@ -529,7 +534,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:27.839Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-02f2f516156a",
@@ -617,7 +623,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:27.207Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0f5e1b7c0c8a",
@@ -703,7 +710,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:26.545Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-13e8f1bda9c2",
@@ -789,7 +797,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:25.885Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-43436c5dfbcc",
@@ -881,7 +890,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:25.233Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b4a164c77afb",
@@ -969,7 +979,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:24.600Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-eac56caf7d69",
@@ -1055,7 +1066,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:23.833Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-db73e9358f8c",
@@ -1141,7 +1153,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:23.190Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f39d2504ba11",
@@ -1227,7 +1240,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:22.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-33bead2f6e1b",
@@ -1315,7 +1329,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:21.883Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-570c7b6dd489",
@@ -1401,7 +1416,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:21.221Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a497b80edb6b",
@@ -1487,7 +1503,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:20.579Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0c5ab4f22fb6",
@@ -1573,7 +1590,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:19.814Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-3fea9d8b655e",
@@ -1659,7 +1677,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:19.152Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-560debb8d04a",
@@ -1745,7 +1764,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:18.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a27beb6776ad",
@@ -3503,7 +3523,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:04.968Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9fbd0566e68b",
@@ -3585,7 +3606,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:04.330Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d559264e1d00",
@@ -3667,7 +3689,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:03.702Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4d1356d7093e",
@@ -3750,7 +3773,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:03.015Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d07ba42f8f43",
@@ -3832,7 +3856,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:02.374Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-adbda3b7c78f",
@@ -3914,7 +3939,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:01.739Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-32001aea28cb",
@@ -3997,7 +4023,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:01.118Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ad7f5ffc930f",
@@ -4079,7 +4106,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:21:00.306Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5fef65ff6fe8",
@@ -4161,7 +4189,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:59.662Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8854ef938d71",
@@ -4244,7 +4273,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:59.033Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-52b46eed4cc1",
@@ -4326,7 +4356,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:58.391Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a51d51709b31",
@@ -4408,7 +4439,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:57.406Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-389cc4537344",
@@ -4491,7 +4523,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:56.764Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-797dac4f1e96",
@@ -4573,7 +4606,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:56.129Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-607cf4aab5e7",
@@ -4655,7 +4689,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:55.494Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-bae1e87562ae",
@@ -4737,7 +4772,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:54.859Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7e6c145ac0e7",
@@ -4819,7 +4855,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:54.238Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-6a2b6645ab6b",
@@ -4901,7 +4938,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:53.581Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-627ed7d67469",
@@ -4987,7 +5025,8 @@
       "streetAddress": "Carouge",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:52.966Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8888b9b2d11c",
@@ -5075,7 +5114,8 @@
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:52.334Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-2aa39be1f512",
@@ -5163,7 +5203,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:51.683Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a4383ad73b6f",
@@ -5251,7 +5292,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:51.039Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-86ccb96097e4",
@@ -5420,7 +5462,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:49.769Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-faa388ff8872",
@@ -5506,7 +5549,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:49.129Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-568145fe4909",
@@ -5594,7 +5638,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:48.494Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-03c8607c9f5c",
@@ -5680,7 +5725,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:47.836Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-03085d2a7d20",
@@ -5766,7 +5812,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:47.196Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f0d955ae6762",
@@ -5858,7 +5905,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:46.542Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b8b3ec8b369e",
@@ -5946,7 +5994,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:45.737Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-82eae43c940a",
@@ -6032,7 +6081,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:45.075Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8f1f2ff19585",
@@ -6118,7 +6168,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:44.431Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-74e08fe14185",
@@ -6204,7 +6255,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:43.749Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b9d873053cfd",
@@ -6292,7 +6344,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:43.124Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f2b91ac34c64",
@@ -6378,7 +6431,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:42.442Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8312bd73dc06",
@@ -6464,7 +6518,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:41.773Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-85091671f8f9",
@@ -6556,7 +6611,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:41.117Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-2ab2ea731727",
@@ -6644,7 +6700,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:40.458Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-6171a24bfdc4",
@@ -6730,7 +6787,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:39.825Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b9a14520c108",
@@ -8157,7 +8215,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:28.234Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e09e6ab52f55",
@@ -8239,7 +8298,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:27.593Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cce131058853",
@@ -8321,7 +8381,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:26.950Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4c3dc6b5ef08",
@@ -8404,7 +8465,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:26.315Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-840479449362",
@@ -8486,7 +8548,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:25.660Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-32a11eed7559",
@@ -8568,7 +8631,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:25.022Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-213337d22744",
@@ -8651,7 +8715,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:24.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-07d7f5255dbb",
@@ -8733,7 +8798,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:23.771Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-21ecc249d96a",
@@ -8815,7 +8881,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:23.104Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0dd659a78fee",
@@ -9698,7 +9765,8 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:16.558Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b86238f9d79d",
@@ -9788,7 +9856,8 @@
       "streetAddress": "Chavannes-de-Bogis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:15.910Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7034ab86a0aa",
@@ -9878,7 +9947,8 @@
       "streetAddress": "Avry",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:15.264Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f0339954ebe8",
@@ -9968,7 +10038,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:14.627Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-2f307d6c7e57",
@@ -10054,7 +10125,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:13.761Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-3d325e1023d0",
@@ -10223,7 +10295,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:12.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-37c2798c4515",
@@ -10305,7 +10378,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:11.749Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7d1b907da46e",
@@ -10387,7 +10461,8 @@
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:11.101Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b2d32149b516",
@@ -11080,7 +11155,8 @@
       "streetAddress": "Glis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:05.892Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-725d9f2e6e8a",
@@ -11168,7 +11244,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:05.229Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4f0c4431af83",
@@ -11256,7 +11333,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:04.582Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b18b6bc6fd68",
@@ -11344,7 +11422,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:03.934Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8c71c0ef8184",
@@ -11435,7 +11514,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:03.256Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-1ca14f9de4c5",
@@ -11537,7 +11617,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:20:02.269Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8cb4b08ed9a5",
@@ -11625,7 +11706,8 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:01.586Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-88605083ee36",
@@ -11713,7 +11795,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:00.882Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-32853293c4da",
@@ -11800,7 +11883,8 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:00.226Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b6813790f883",
@@ -11888,7 +11972,8 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:59.583Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-825a8573c4fe",
@@ -11970,7 +12055,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:58.942Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a69e9da2420a",
@@ -12058,7 +12144,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:58.301Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d71b7df8dba5",
@@ -12146,7 +12233,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:57.381Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c0d0a8a74f4a",
@@ -12242,7 +12330,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:19:56.718Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f31f17ebc0af",
@@ -12324,7 +12413,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:55.931Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-02ae50f47afb",
@@ -12412,7 +12502,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:55.144Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-1396159e4193",
@@ -12508,7 +12599,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:19:54.508Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-609acebda5eb",
@@ -12596,7 +12688,8 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:53.868Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-49b95d0777ab",
@@ -12684,7 +12777,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:52.970Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-65881deac9c4",
@@ -12766,7 +12860,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:52.320Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-39fef19e39f1",
@@ -12854,7 +12949,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:51.695Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fc67bcf4749e",
@@ -12936,7 +13032,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:51.049Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8c1257940971",
@@ -13024,7 +13121,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:50.415Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b1c701eb4542",
@@ -13112,7 +13210,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:49.767Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a73ce167ce9f",
@@ -13199,7 +13298,8 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:48.849Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-dbce1a9a5c71",
@@ -13281,7 +13381,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:48.220Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-2f82b404a452",
@@ -13363,7 +13464,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:47.586Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-58da763edf16",
@@ -13445,7 +13547,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:46.953Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a5a926f86672",
@@ -13533,7 +13636,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:46.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-465f9b942abb",
@@ -13621,7 +13725,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:45.663Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-95e69ec7be18",
@@ -13709,7 +13814,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:45.034Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5b900fe18311",
@@ -13791,7 +13897,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:19:44.403Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b1eca5418c76",
@@ -23655,7 +23762,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:33.942Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5e021f9a24f0",
@@ -23840,7 +23948,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:18:32.649Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9a58e230a31f",
@@ -24114,7 +24223,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:18:30.700Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a586657c6bf1",
@@ -24374,7 +24484,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:28.812Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e5601306aea2",
@@ -24545,7 +24656,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:27.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4cfad123d4ce",
@@ -24893,7 +25005,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:24.826Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-398a78dbcf8b",
@@ -24975,7 +25088,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:23.800Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-44604c535ad5",
@@ -25413,7 +25527,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:20.290Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9724c7976b6e",
@@ -25584,7 +25699,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:19.030Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fb0b5dd36007",
@@ -25847,7 +25963,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:17.110Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-35a7de3f3140",
@@ -25943,7 +26060,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:18:16.230Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e6629eb33ac9",
@@ -26025,7 +26143,8 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:15.605Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8f4c3af6652e",
@@ -26107,7 +26226,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:14.947Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ba5d9ad3b818",
@@ -26277,7 +26397,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:13.688Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5df75b4fdd3c",
@@ -26359,7 +26480,8 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:13.056Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0d07f54eb7b5",
@@ -26441,7 +26563,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:12.433Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fad84dbb9f32",
@@ -26523,7 +26646,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:11.788Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8bba43901553",
@@ -26619,7 +26743,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:18:11.131Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9594e41ce073",
@@ -26701,7 +26826,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:10.487Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f06dc037accf",
@@ -26783,7 +26909,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:09.847Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8da907458873",
@@ -26879,7 +27006,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:18:09.156Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0a09e20745c7",
@@ -26961,7 +27089,8 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:08.495Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-090ba4f5aa62",
@@ -27043,7 +27172,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:07.837Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a95aca7215ef",
@@ -27125,7 +27255,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:07.200Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ac16c404d9c0",
@@ -27207,7 +27338,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:06.572Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d6294e2ef040",
@@ -27289,7 +27421,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:05.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7ecc89111aa2",
@@ -27371,7 +27504,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:05.313Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4b7eabe45a75",
@@ -27453,7 +27587,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:04.553Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c1d608ccbfaf",
@@ -27623,7 +27758,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:03.234Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c2da07570b3c",
@@ -27705,7 +27841,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:02.555Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-16fd36b71821",
@@ -27787,7 +27924,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:01.866Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b04bb989229e",
@@ -27869,7 +28007,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:01.220Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-73ba3d30ae65",
@@ -27951,7 +28090,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:00.565Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0f9b6fe613b7",
@@ -28033,7 +28173,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:59.929Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cc760cb11f8d",
@@ -28115,7 +28256,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:59.281Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cb1571ce6b52",
@@ -28197,7 +28339,8 @@
       "streetAddress": "Glis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:58.645Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9c57080fd859",
@@ -28279,7 +28422,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:58.006Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d191a3b1a733",
@@ -28361,7 +28505,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:57.355Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-58c3e053ea78",
@@ -28443,7 +28588,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:56.570Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-89a7e1b03b29",
@@ -28525,7 +28671,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:55.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fd192547acee",
@@ -28621,7 +28768,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:17:55.258Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-6af0a16a3b6e",
@@ -28703,7 +28851,8 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:54.628Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a02d8b53c07f",
@@ -28785,7 +28934,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:53.989Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f5c4d3591a97",
@@ -28955,7 +29105,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:52.662Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-36f6ae264a7a",
@@ -29037,7 +29188,8 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:52.026Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b1a2c6b5e0c3",
@@ -29119,7 +29271,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:51.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ba14c86766bf",
@@ -29201,7 +29354,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:50.765Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-dbf7ee495cc3",
@@ -29372,7 +29526,8 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:49.490Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c0cd85bf0e66",
@@ -29454,7 +29609,8 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:48.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-29c229695c98",
@@ -29536,7 +29692,8 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:17:48.193Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-937489e3e5c0",
@@ -38402,7 +38559,8 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:40.041Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e916927e10ed",
@@ -38597,7 +38755,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:38.713Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4e9d8425096a",
@@ -38693,7 +38852,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:38.066Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-00d16809b437",
@@ -38789,7 +38949,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:37.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-61bbce7230c0",
@@ -38871,7 +39032,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:36.745Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b6a7a01a3e84",
@@ -38953,7 +39115,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:36.069Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-757395321f7b",
@@ -39049,7 +39212,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:35.439Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ff8de1f5a66a",
@@ -39131,7 +39295,8 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:34.776Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0ecf8355fdc1",
@@ -39213,7 +39378,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:34.101Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-423781392eb7",
@@ -39295,7 +39461,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:33.444Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-095c7e9c6249",
@@ -39377,7 +39544,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:32.798Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ccc2782f4e26",
@@ -39459,7 +39627,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:31.918Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5471466aae5d",
@@ -39541,7 +39710,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:31.276Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-861a186464d0",
@@ -39623,7 +39793,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:30.626Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-bd59d16836a3",
@@ -39793,7 +39964,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:29.332Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-83749fb48cd5",
@@ -39875,7 +40047,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:28.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9e93ec04514d",
@@ -39957,7 +40130,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:28.014Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e86c43b916fd",
@@ -40039,7 +40213,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:27.369Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9ed398dd7e26",
@@ -40121,7 +40296,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:26.705Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ffb1b5cf54a4",
@@ -40203,7 +40379,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:26.034Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a373e4441bd3",
@@ -40285,7 +40462,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:25.305Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-969ea0008dc1",
@@ -40367,7 +40545,8 @@
       "streetAddress": "Glis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:24.655Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-73d92ba4f2c1",
@@ -40449,7 +40628,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:24.001Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ef7c6b391153",
@@ -40531,7 +40711,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:23.341Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-9ba6f4f5439b",
@@ -40613,7 +40794,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:22.705Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7dd8114b916e",
@@ -40695,7 +40877,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:22.060Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7ea3f8bf2885",
@@ -40791,7 +40974,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:21.441Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c18d6ec5e6f1",
@@ -40873,7 +41057,8 @@
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:20.733Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-a04b4e6a7132",
@@ -40955,7 +41140,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:20.105Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0caee234c499",
@@ -41125,7 +41311,8 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:18.816Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-7ff8e8dcf8be",
@@ -41207,7 +41394,8 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:18.181Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0c3342239d5b",
@@ -41289,7 +41477,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:17.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-22534e135f9b",
@@ -41371,7 +41560,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:16.571Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0ab90b39919d",
@@ -41467,7 +41657,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:15.928Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-73ca7dc3772f",
@@ -41549,7 +41740,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:15.281Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-2a2065729033",
@@ -41631,7 +41823,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:14.602Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-3dec4e0dae99",
@@ -41727,7 +41920,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:16:13.963Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-e8f87d0be848",
@@ -41809,7 +42003,8 @@
       "streetAddress": "Pfäffikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:12.660Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4bb74b19157b",
@@ -41891,7 +42086,8 @@
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:12.002Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8a79eac577c2",
@@ -41973,7 +42169,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:11.376Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-95cfbad7efac",
@@ -42055,7 +42252,8 @@
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:10.740Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-bdfb2c44049d",
@@ -42137,7 +42335,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:10.106Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f916bb2de644",
@@ -42219,7 +42418,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:09.469Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cc200d9a0f38",
@@ -42301,7 +42501,8 @@
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:08.777Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d7e3abb6e30d",
@@ -42471,7 +42672,8 @@
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:07.508Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-28f58f426f19",
@@ -42553,7 +42755,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:06.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fa27ebf05f7c",
@@ -42635,7 +42838,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:06.220Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ddd335702333",
@@ -42717,7 +42921,8 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:05.592Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0b45cf701928",
@@ -42799,7 +43004,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:04.946Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5482d36a00f8",
@@ -42881,7 +43087,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:04.059Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-224a2a52b2fc",
@@ -42963,7 +43170,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:03.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-13327dabb370",
@@ -43045,7 +43253,8 @@
       "streetAddress": "Glis",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:02.726Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b9b23d902794",
@@ -43127,7 +43336,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:01.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-bb6c8d620b45",
@@ -43209,7 +43419,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:01.296Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-75bcd7246d95",
@@ -43291,7 +43502,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:16:00.487Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-bbcbbbede02c",
@@ -43373,7 +43585,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:59.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-003f5d12ab40",
@@ -43471,7 +43684,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:15:59.190Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c2b77e9aaa66",
@@ -43567,7 +43781,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:15:58.565Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f7a2e00d0464",
@@ -43663,7 +43878,8 @@
       "streetAddress": "c/o Tax Partner AG\nTalstrasse 80",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-15T09:15:57.924Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-1eea1b28624a",
@@ -46862,9 +47078,9 @@
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-714f6a0aae",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3574",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
           "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-aarau-6b50038dc5",
-          "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3574"
+          "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3574",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau"
         ],
         "fr": [
           "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-8f4448"
@@ -46876,10 +47092,10 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-714f6a0aae",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3574",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
         "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-aarau-6b50038dc5",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3574",
-        "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-8f4448"
+        "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-8f4448",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau"
       ],
       "firstSeenAt": "2026-07-03T22:43:56.476Z",
       "salaryMin": 103500,
@@ -46957,9 +47173,9 @@
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-3ef35f45f6",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3573",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
           "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-aarau-bd36c71127",
-          "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3573"
+          "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3573",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau"
         ],
         "fr": [
           "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-6ce715"
@@ -46971,10 +47187,10 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau-3ef35f45f6",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3573",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau",
         "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-aarau-bd36c71127",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-aarau-r3573",
-        "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-6ce715"
+        "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-aarau-6ce715",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-aarau"
       ],
       "firstSeenAt": "2026-07-03T22:43:56.476Z",
       "salaryMin": 103500,
@@ -47136,18 +47352,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3571",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel-b47627bd97",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-basel-r3571",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-basel-b8a31e",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-b4335d49cf"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-b4335d49cf",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3571",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel-b47627bd97",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-basel-r3571",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-b4335d49cf"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-b4335d49cf",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3571"
@@ -47231,18 +47447,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3570",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel-48691c7256",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-basel-r3570",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-basel-ce8b01",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-5e3a518541"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-5e3a518541",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3570",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel-48691c7256",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-basel-r3570",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-5e3a518541"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-basel-5e3a518541",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-basel"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3570"
@@ -47411,18 +47627,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3568",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich-150adea58a",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-zuerich-r3568",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-zuerich-04a755",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-6f9e125b99"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-6f9e125b99",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3568",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich-150adea58a",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-zuerich-r3568",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-6f9e125b99"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-6f9e125b99",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3568"
@@ -47506,18 +47722,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3567",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich-463edc03b5",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-zuerich-r3567",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-zuerich-484ba0",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-691879e784"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-691879e784",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3567",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich-463edc03b5",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-zuerich-r3567",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-691879e784"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-zuerich-691879e784",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-zuerich"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3567"
@@ -47931,18 +48147,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3562",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur-e19326ed9f",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-winterthur-r3562",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-winterthur-3612f8",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-bd19e1175a"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-bd19e1175a",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3562",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur-e19326ed9f",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-winterthur-r3562",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-bd19e1175a"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-bd19e1175a",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3562"
@@ -48026,18 +48242,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3561",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur-e039f1de4b",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-winterthur-r3561",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-winterthur-aa8dd9",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-9ca86d0646"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-9ca86d0646",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3561",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur-e039f1de4b",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-winterthur-r3561",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-9ca86d0646"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-winterthur-9ca86d0646",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-winterthur"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3561"
@@ -48205,18 +48421,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3559",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel-32c649b555",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-biel-r3559",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-biel-a1afba",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-78d5276a3e"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-78d5276a3e",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3559",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel-32c649b555",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-biel-r3559",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-78d5276a3e"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-78d5276a3e",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3559"
@@ -48299,18 +48515,18 @@
       "previousSlugs": [
         "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3558",
         "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel-6cc52a6410",
-        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel",
         "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-biel-r3558",
         "coordinateur-adjoint-m-f-d-rituals-cosmetics-switzerland-biel-21dde4",
-        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-1b882f3c10"
+        "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-1b882f3c10",
+        "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3558",
           "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel-6cc52a6410",
-          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel",
           "assistente-responsabile-del-banco-m-f-d-rituals-cosmetics-switzerland-biel-r3558",
-          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-1b882f3c10"
+          "assistant-counter-manager-m-f-d-rituals-cosmetics-switzerland-biel-1b882f3c10",
+          "assistant-counter-manager-m-w-d-rituals-cosmetics-switzerland-biel"
         ],
         "de": [
           "assistant-counter-manager-m-w-d-rituals-cosmetics-ch-r3558"
@@ -49799,7 +50015,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:10.896Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-c8988519994d",
@@ -49881,7 +50098,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:10.251Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4a199c27c9a7",
@@ -50049,7 +50267,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:08.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-dd52dde457d9",
@@ -50131,7 +50350,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:08.222Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-5419a8df26b3",
@@ -50297,7 +50517,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:06.963Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-05af30eaf81c",
@@ -50379,7 +50600,8 @@
       "streetAddress": "Zuerich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:06.323Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-00aef2a11bc3",
@@ -50545,7 +50767,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:05.019Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f6629c54f07c",
@@ -50627,7 +50850,8 @@
       "streetAddress": "Schoenbuehl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:04.346Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d5b9a27cee35",
@@ -50793,7 +51017,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:03.078Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-4bcfce8a10eb",
@@ -50875,7 +51100,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:15:02.420Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-0b2cd3108489",
@@ -51964,7 +52190,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:54.038Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-58b60088cf2d",
@@ -52046,7 +52273,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:53.409Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-b6207dfb4f44",
@@ -52222,7 +52450,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:51.997Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-d5d3e4b0f076",
@@ -52304,7 +52533,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:51.348Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-fe3f5be697d7",
@@ -52386,7 +52616,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:50.701Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cf473adfb329",
@@ -52468,7 +52699,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:50.064Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-cbf5e0a84497",
@@ -52559,7 +52791,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:49.297Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8f0b49cdbc70",
@@ -52641,7 +52874,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:48.663Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-587aca2ab648",
@@ -52723,7 +52957,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:48.022Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-258c59ad7823",
@@ -54590,7 +54825,8 @@
       "streetAddress": "Morbio Inferiore",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:14:34.183Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-f2516590d8da",
@@ -57878,7 +58114,8 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:14:09.075Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-8f8e838f4e32",
@@ -57961,7 +58198,8 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:14:08.442Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-ec97879f291f",
@@ -58044,7 +58282,8 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:14:07.781Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "rituals-cosmetics-524f137c29bb",

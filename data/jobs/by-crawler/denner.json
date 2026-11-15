@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-11-15T09:22:08.745Z",
+  "assembledAt": "2026-11-15T12:38:02.121Z",
   "runId": "43697691342",
   "jobs": [
     {
@@ -128,7 +128,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:36.826Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-891d82644ae6",
@@ -233,7 +234,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:36.823Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-476d321a8a2d",
@@ -755,7 +757,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:35.744Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-85a9ad2b4415",
@@ -1074,7 +1077,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:35.085Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-3eea8528d29a",
@@ -1501,7 +1505,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:34.591Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-7c4ff2258d7f",
@@ -1603,7 +1608,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-06T09:21:34.128Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-3979b7fefdbd",
@@ -2562,7 +2568,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:21:32.579Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-107217f5c37f",
@@ -2664,7 +2671,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T09:21:32.576Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-19fd5f4e32ec",
@@ -2996,7 +3004,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-kirchberg",
         "en": "deputy-branch-manager-denner-kirchberg",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-kirchberg",
         "fr": "responsable-adjoint-e-de-succursale-denner-kirchberg"
       },
       "company": "Denner",
@@ -3073,7 +3081,7 @@
           "stv-filialleiter-in-denner-kirchberg"
         ],
         "de": [
-          "stv-filialleiter-in-denner-kirchberg"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-kirchberg"
@@ -3207,7 +3215,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:31.615Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-63d6841feb70",
@@ -3418,7 +3427,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:31.610Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-7b2564a41e66",
@@ -4850,7 +4860,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:28.985Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-efe7ec118b9e",
@@ -5164,7 +5175,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:21:28.508Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-4efcc06758fd",
@@ -5271,7 +5283,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:28.505Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c7390d5d9848",
@@ -7212,7 +7225,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:25.672Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-744d77b9fd38",
@@ -7945,7 +7959,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:24.696Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-3c5637016ff5",
@@ -9283,7 +9298,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:21.607Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-1a3b5ab2ede6",
@@ -9375,7 +9391,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:21.602Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-21e254a95469",
@@ -10556,7 +10573,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:18.433Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-185cf6dcbec3",
@@ -10774,7 +10792,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:18.427Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d8018a0a3eb6",
@@ -11205,7 +11224,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:17.053Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d88042b8f032",
@@ -11310,7 +11330,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:17.052Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-1ecc80ff026a",
@@ -11626,7 +11647,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:16.372Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c1c8a410a4e9",
@@ -11838,7 +11860,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:15.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-a6d21a164509",
@@ -12155,7 +12178,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:14.696Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-fa882fe5c6a3",
@@ -12260,7 +12284,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:14.692Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-40a543d0a6e0",
@@ -12470,7 +12495,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:14.136Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c586d26d63de",
@@ -12572,7 +12598,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:14.134Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-65de65d0f95a",
@@ -13083,7 +13110,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:13.029Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-6f34009ba9b8",
@@ -13182,7 +13210,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:13.026Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-efca29520746",
@@ -14460,7 +14489,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:10.765Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-58ec34088692",
@@ -16233,7 +16263,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:08.341Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-727bbf66b8c4",
@@ -16355,7 +16386,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:08.339Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-a1189bde07f5",
@@ -17280,7 +17312,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:06.956Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-sjerti",
@@ -17888,7 +17921,7 @@
       "slugByLocale": {
         "it": "venditore-denner-kirchberg",
         "en": "shop-assistant-denner-kirchberg",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kirchberg",
         "fr": "vendeur-denner-kirchberg"
       },
       "company": "Denner",
@@ -17972,7 +18005,7 @@
           "verkaufer-in-denner-kirchberg"
         ],
         "de": [
-          "verkaufer-in-denner-kirchberg"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-kirchberg"
@@ -17994,7 +18027,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:05.846Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b65a196aaf79",
@@ -18205,7 +18239,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:05.842Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-29240f893274",
@@ -18448,7 +18483,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-worb",
         "en": "salesperson-denner-worb",
-        "de": "verkaufer-in-denner-9d0cuj",
+        "de": "verkaufer-in-denner",
         "fr": "vendeur-euse-denner-worb"
       },
       "company": "Denner",
@@ -18513,7 +18548,8 @@
         "verkaufer-in-denner-7",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-5",
-        "verkaufer-in-denner-2"
+        "verkaufer-in-denner-2",
+        "verkaufer-in-denner-9d0cuj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18534,7 +18570,7 @@
         ],
         "de": [
           "verkaufer-in-denner-worb",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner-9d0cuj"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -18570,7 +18606,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-worb",
         "en": "shop-assistant-denner-worb",
-        "de": "verkaufer-in-denner-k5mgo5",
+        "de": "verkaufer-in-denner",
         "fr": "vendeur-euse-denner-worb-675a07"
       },
       "company": "Denner",
@@ -18628,8 +18664,7 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-worb",
         "verkaufer-in-denner-k5mgo5",
-        "salesperson-denner-worb-675a07",
-        "shop-assistant-denner-worb"
+        "salesperson-denner-worb-675a07"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18640,7 +18675,7 @@
           "salesperson-denner-worb-675a07"
         ],
         "de": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner-k5mgo5"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -18662,7 +18697,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:04.858Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-357362f2b9c9",
@@ -21267,7 +21303,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:00.445Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-9fff894eb334",
@@ -21687,7 +21724,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:58.966Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-2da3b8645bc1",
@@ -21792,7 +21830,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:58.958Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-9d9ac7459f42",
@@ -21894,7 +21933,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:58.956Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-1d1147e8eb27",
@@ -22106,7 +22146,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:58.474Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-e14bba5e1f04",
@@ -22213,7 +22254,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:58.471Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c4e097b934a7",
@@ -22328,7 +22370,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:57.956Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b82561522d50",
@@ -22537,7 +22580,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:57.948Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-b8f72bf388e0",
@@ -23920,7 +23964,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:55.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-7d272528331d",
@@ -24352,7 +24397,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:54.807Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-0f13c61b036b",
@@ -24667,7 +24713,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:54.170Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-16563f9fd992",
@@ -24875,7 +24922,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:53.704Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-5c0d83687252",
@@ -24981,7 +25029,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:53.701Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-4f9f6fe84a27",
@@ -25291,7 +25340,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:53.169Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-ce4f2d462483",
@@ -25506,7 +25556,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:52.707Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-398e76cbd863",
@@ -26046,7 +26097,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:52.073Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d22c0e4a7a3f",
@@ -26329,7 +26381,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:51.459Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-a3e353fea1fa",
@@ -26436,7 +26489,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:51.456Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-d95dc285ddf6",
@@ -26724,7 +26778,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:20:50.826Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "denner-c89a03c031d8",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-11-15T09:20:43.744Z",
+  "assembledAt": "2026-11-15T12:47:54.720Z",
   "runId": "43697424769",
   "jobs": [
     {
@@ -71,7 +71,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:20:24.760Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-39830cd570a7",
@@ -503,7 +504,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:20.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-09ce9e9f6710",
@@ -593,7 +595,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:20.236Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-38747dab18f0",
@@ -771,7 +774,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:20:18.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-57197701d231",
@@ -865,7 +869,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:17.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b069643dbe5b",
@@ -1046,7 +1051,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:16.492Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-84a1469b220d",
@@ -1210,7 +1216,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:15.024Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1156ef7552dd",
@@ -1388,7 +1395,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:13.524Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7233ff8b0202",
@@ -1734,7 +1742,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:20:10.506Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-09690b27570a",
@@ -1820,7 +1829,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:20:09.749Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7cd4d372d20a",
@@ -1910,7 +1920,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:09.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1bdc0467ca3b",
@@ -2227,7 +2238,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:20:06.050Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81ff37ecade3",
@@ -2313,7 +2325,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:20:05.296Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-4a383671aa75",
@@ -2399,7 +2412,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:20:04.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0ef04b9f8b6e",
@@ -2649,7 +2663,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:20:02.134Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6986bd02e3dc",
@@ -2813,7 +2828,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:00.620Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-79a9c8401106",
@@ -2891,7 +2907,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:19:59.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-cb560ddf9003",
@@ -3063,7 +3080,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:19:58.353Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-587361ccbd7b",
@@ -3311,7 +3329,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:56.114Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1c64def561ba",
@@ -3491,7 +3510,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:54.593Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b3e33745ba1a",
@@ -3545,12 +3565,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "afc-electronic-learning-fur-2027-schindler-locarno",
-        "afc-apprentissage-electronique-pour-2027-schindler-locarno",
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3585,7 +3603,8 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:19:53.861Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5329457d542b",
@@ -3729,14 +3748,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
-        "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
-        "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno",
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
         "manager-consent-to-cookies-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3860,7 +3876,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:19:51.584Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-9c3131208a87",
@@ -4115,7 +4132,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:19:49.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0e7bff713b3e",
@@ -4269,7 +4287,8 @@
       "postalCode": "6934",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:19:47.855Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-edab4d4f6924",
@@ -4433,7 +4452,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:19:46.368Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e549070dfda6",
@@ -4691,7 +4711,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:44.054Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-59702e483d80",
@@ -4777,7 +4798,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:43.317Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6cee39e5ef53",
@@ -4874,7 +4896,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:19:42.582Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a528affdf333",
@@ -4960,7 +4983,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:19:41.790Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-9afa5012253d",
@@ -5132,7 +5156,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:40.292Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1d8886c46547",
@@ -5237,7 +5262,8 @@
       "streetAddress": "Oberentfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:39.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fb98eb6f1d6e",
@@ -5704,7 +5730,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:35.779Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c348b8589b5b",
@@ -5807,7 +5834,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:35.016Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ba60ebb57b58",
@@ -5986,7 +6014,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:33.442Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-559d6d924812",
@@ -6081,7 +6110,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:32.700Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d1374400a918",
@@ -6272,7 +6302,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:31.182Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-48afddb8963f",
@@ -6608,7 +6639,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:19:28.161Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c9b9c1a7bae8",
@@ -7676,8 +7708,8 @@
       "slug": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
       "slugByLocale": {
         "it": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
-        "en": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
-        "de": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
+        "en": "reference-sales-support-rep-m-f-d-80-100-schindler-bussigny",
+        "de": "referenz-sales-support-rep-m-w-d-80-100-schindler-bussigny",
         "fr": "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
       },
       "company": "Schindler",
@@ -7722,11 +7754,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
         "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
+        ],
+        "en": [
+          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
+        ],
+        "de": [
+          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-10-01T09:17:34.024Z",
@@ -7747,7 +7786,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T09:19:18.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7b393039ae73",
@@ -8228,7 +8268,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:19:14.005Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d5179197fde9",
@@ -8906,7 +8947,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:08.007Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-caec93a84429",
@@ -8992,7 +9034,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:07.242Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81fc438808d0",
@@ -9167,7 +9210,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:05.724Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e13a72226ed6",
@@ -9266,7 +9310,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:04.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-45f8f02bb7f5",
@@ -9352,7 +9397,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:04.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-211bc7584d15",
@@ -9522,7 +9568,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:02.763Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7be6f3153345",
@@ -9862,7 +9909,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:59.751Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-4c7775d07114",
@@ -10048,7 +10096,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:58.258Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-77e328639f49",
@@ -10128,7 +10177,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:57.523Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c6f765471b8d",
@@ -10206,7 +10256,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:56.768Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a82d244bb274",
@@ -10384,7 +10435,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:55.242Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",
@@ -10576,7 +10628,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:53.758Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-163870e9dc4c",
@@ -10662,7 +10715,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:53.011Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7807a9a8ea51",
@@ -10839,7 +10893,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:51.350Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-43239c3e6fdb",
@@ -10926,7 +10981,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:50.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ac50fb4b31b2",
@@ -11021,7 +11077,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:49.733Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fdb3caacb117",
@@ -11186,7 +11243,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:18:48.175Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",

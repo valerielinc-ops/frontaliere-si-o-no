@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-11-15T09:20:00.484Z",
+  "assembledAt": "2026-11-15T12:42:38.190Z",
   "runId": "43697424769",
   "jobs": [
     {
@@ -148,7 +148,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:19:44.778Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-f2070ffbd437",
@@ -303,7 +304,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:19:36.783Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-440f80c824a0",
@@ -474,7 +476,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:19:28.783Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-b6c3c992a05c",
@@ -805,7 +808,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:19:14.796Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-ede2a2aa7d15",
@@ -882,7 +886,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:19:10.801Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-6832f6aa9952",
@@ -971,13 +976,14 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-18T09:19:06.800Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-1a58604068df",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-222e4ae73b",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-222e4ae73b",
         "en": "dipl-nursing-professional-dipl-nursing-professional-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-80-100-universitats-kinderspital"
@@ -1025,11 +1031,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
@@ -1555,7 +1563,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:18:36.805Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-6337814c5aec",
@@ -1869,7 +1878,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:18:29.798Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-616707186b7b",
@@ -1945,7 +1955,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:18:27.799Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-c1a5c85a8244",
@@ -2440,9 +2451,9 @@
     },
     {
       "id": "kispi-zurich-0c19b1269ab9",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-fad1cf",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-62323607a0",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-fad1cf",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-62323607a0",
         "en": "dipl-nursing-professional-dipl-nursing-professional-80-100-universitats-kinderspital-zurich-kispi-zurich-fad1cf",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-80-100-universitats-fad1cf"
@@ -2490,11 +2501,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-fad1cf",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-fad1cf",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
@@ -2769,9 +2784,9 @@
     },
     {
       "id": "kispi-zurich-b0ad3a2d569a",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-1a4b4c",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-4ec086cc51",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-1a4b4c",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-4ec086cc51",
         "en": "dipl-nursing-professional-dipl-nursing-professional-80-100-universitats-kinderspital-zurich-kispi-zurich-1a4b4c",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-80-100-universitats-1a4b4c"
@@ -2819,11 +2834,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-1a4b4c",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-1a4b4c",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-80-100-universitats-kinderspital-zurich-kispi"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
@@ -3260,7 +3279,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:17:56.806Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-a7c8d95e2e4d",
@@ -3342,7 +3362,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:17:54.797Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-8ee5f49744bc",
@@ -3681,7 +3702,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:17:48.935Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-36bc3af678a6",
@@ -3854,7 +3876,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:17:47.192Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-708c6a92817d",
@@ -4024,7 +4047,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:17:45.130Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-271fd7c759bf",
@@ -4109,7 +4133,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:17:44.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-740bd4b2d1e7",
@@ -4449,7 +4474,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:17:40.513Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-bbc26e0a7ef6",
