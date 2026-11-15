@@ -411,7 +411,7 @@ function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
       seen.add(name);
       return isKnownNonDataShellTarget(`${assignments.get(name)}${variable[3] || ''}`, assignments, seen);
     }
-    return ['GITHUB_ENV', 'GITHUB_OUTPUT', 'RUNNER_TEMP', 'TMPDIR'].includes(name);
+    return ['GITHUB_ENV', 'GITHUB_OUTPUT', 'GITHUB_STEP_SUMMARY', 'RUNNER_TEMP', 'TMPDIR'].includes(name);
   }
   if (/^(?:\.\/)?(?:data|public\/data)(?:\/|$)/i.test(token) || token.includes('$')) return false;
   return true;
@@ -1667,6 +1667,42 @@ function functionOutputObjectKeys(source) {
   return keys;
 }
 
+function defaultedOutputCallbackKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  const provenWriters = new Set();
+  for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
+    const name = declaration[1];
+    const paramsOpen = (declaration.index ?? 0) + declaration[0].length - 1;
+    const paramsClose = matchingParen(raw, paramsOpen);
+    if (paramsClose < 0) continue;
+    const bodyOpen = raw.indexOf('{', paramsClose);
+    const bodyClose = matchingBrace(raw, bodyOpen);
+    if (bodyOpen < 0 || bodyClose < 0) continue;
+    if (outputSinkRanges(raw.slice(bodyOpen + 1, bodyClose)).length > 0) provenWriters.add(name);
+  }
+  if (provenWriters.size === 0) return keys;
+
+  for (const declaration of raw.matchAll(/\bfunction\s+[A-Za-z_$][A-Za-z0-9_$]*\s*\(/g)) {
+    const paramsOpen = (declaration.index ?? 0) + declaration[0].length - 1;
+    const paramsClose = matchingParen(raw, paramsOpen);
+    if (paramsClose < 0) continue;
+    const bodyOpen = raw.indexOf('{', paramsClose);
+    const bodyClose = matchingBrace(raw, bodyOpen);
+    if (bodyOpen < 0 || bodyClose < 0) continue;
+    const callbacks = splitTopLevelArguments(raw.slice(paramsOpen + 1, paramsClose))
+      .map((param) => /^([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*([A-Za-z_$][A-Za-z0-9_$]*)$/u.exec(param.text.trim()))
+      .filter((match) => match && provenWriters.has(match[2]))
+      .map((match) => match[1]);
+    for (const callback of callbacks) {
+      const escaped = callback.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const callRe = new RegExp(`\\b${escaped}\\s*\\(\\s*["'\`]([A-Za-z_][A-Za-z0-9_-]*)["'\`]\\s*,`, 'g');
+      for (const call of raw.slice(bodyOpen + 1, bodyClose).matchAll(callRe)) keys.add(call[1]);
+    }
+  }
+  return keys;
+}
+
 function likelyOutputTarget(value) {
   return /(?:GITHUB_OUTPUT|output|target)/iu.test(String(value || ''));
 }
@@ -1991,9 +2027,10 @@ function expressionIdentifiers(source) {
   for (const match of masked.join('').matchAll(/[A-Za-z_$][A-Za-z0-9_$]*/g)) {
     const identifier = match[0];
     const index = match.index ?? 0;
-    const previous = masked.slice(0, index).join('').trimEnd().at(-1);
+    const prefix = masked.slice(0, index).join('').trimEnd();
+    const previous = prefix.at(-1);
     const next = masked.slice(index + identifier.length).join('').trimStart()[0];
-    if (previous === '.' || next === ':' || keywords.has(identifier)) continue;
+    if ((previous === '.' && !prefix.endsWith('...')) || next === ':' || keywords.has(identifier)) continue;
     identifiers.add(identifier);
   }
   return identifiers;
@@ -2146,6 +2183,7 @@ function outputKeysFromSource(source, { outputFlags = null, stdoutToGithubOutput
   for (const key of literalOutputKeys(raw, directOutputWriterRanges(raw))) keys.add(key);
   for (const key of returnedOutputArrayKeys(raw)) keys.add(key);
   for (const key of functionOutputObjectKeys(raw)) keys.add(key);
+  for (const key of defaultedOutputCallbackKeys(raw)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.
   // Follow only a statically-known output file (the literal env expression or

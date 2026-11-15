@@ -419,6 +419,25 @@ describe('technical operations audit', () => {
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toEqual([]);
   });
 
+  it('non classifica una lettura JSON rediretta nel job summary come scrittura dati', () => {
+    const source = [
+      'name: summary',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  report:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - name: emit summary',
+      '        run: |',
+      '          {',
+      '            jq -r .checkedAt data/result.json',
+      '          } >> "$GITHUB_STEP_SUMMARY"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/summary.yml', source, { root: '/repo' });
+
+    expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toEqual([]);
+  });
+
   it('maschera una ricetta tra apici singoli prima di valutare una scrittura reale', () => {
     const source = [
       'name: quoted-recipe-before-write',
