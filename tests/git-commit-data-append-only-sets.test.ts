@@ -34,6 +34,7 @@ import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve, dirname } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
+import { compatShardIndex, COMPAT_SHARD_COUNT } from '../scripts/lib/compat-paths-store.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -67,16 +68,28 @@ function writeJson(dir: string, relPath: string, value: unknown): void {
 }
 
 function seedCompatShardSet(dir: string, shard0: string[]): void {
-  for (let index = 0; index < 16; index += 1) {
+  for (let index = 0; index < COMPAT_SHARD_COUNT; index += 1) {
     const shard = String(index).padStart(2, '0');
     writeJson(dir, `data/seo-404-compat/part-${shard}.json`, {
       paths: index === 0 ? shard0 : [],
     });
   }
   writeJson(dir, 'data/seo-404-compat/manifest.json', {
-    shardCount: 16,
-    totalPaths: new Set(shard0).size,
+    shardCount: COMPAT_SHARD_COUNT,
+    totalPaths: shard0.length,
   });
+}
+
+function compatPathsInShard0(count: number): string[] {
+  const paths: string[] = [];
+  for (let i = 0; i < 10_000 && paths.length < count; i += 1) {
+    const path = `/cerca-lavoro-ticino/p-${i}`;
+    if (compatShardIndex(path) === 0) paths.push(path);
+  }
+  if (paths.length !== count) {
+    throw new Error(`Expected ${count} paths in compat shard 0, found ${paths.length}`);
+  }
+  return paths;
 }
 
 function commitAndPush(dir: string, message: string): void {
@@ -634,28 +647,30 @@ exec "$GIT_REAL" "$@"
   // has a `merge=compat-shard` set-union driver in .gitattributes, but that
   // only covers the REBASE path — the grouped-isolated commit path never
   // rebases and reaches merge_json_3way instead.
-  // Il set completo di 16 shard è l'invariante di produzione: la riparazione del manifest (#18932) rifiuta un set incompleto.
+  // I path del fixture appartengono tutti a part-00 (compatShardIndex) e non sono duplicati:
+  // la lettura strict della riparazione (#18932) rifiuta duplicati, path nello shard sbagliato e set incompleti.
   it('unions data/seo-404-compat shard paths (grouped-isolated path has no merge driver)', () => {
     const h = initHarness();
     const SHARD = 'data/seo-404-compat/part-00.json';
     try {
-      const seeded = ['/cerca-lavoro-ticino/a', '/cerca-lavoro-ticino/b'];
-      seedCompatShardSet(h.repoDir, [...seeded, ...seeded]);
+      const [a, b, remoto, locale] = compatPathsInShard0(4);
+      const seeded = [a, b];
+      seedCompatShardSet(h.repoDir, seeded);
       commitAndPush(h.repoDir, 'seed');
 
       pushFromConcurrentWriter(
         h,
-        (dir) => writeJson(dir, SHARD, { paths: [...seeded, '/cerca-lavoro-ticino/remoto'] }),
+        (dir) => writeJson(dir, SHARD, { paths: [...seeded, remoto] }),
         'discover-404s: new compat path',
       );
 
-      writeJson(h.repoDir, SHARD, { paths: [...seeded, '/cerca-lavoro-ticino/locale'] });
+      writeJson(h.repoDir, SHARD, { paths: [...seeded, locale] });
 
       runScript(h, [SHARD]);
 
       const merged = readFromOrigin<{ paths: string[] }>(h, SHARD);
       expect(merged.paths).toEqual(
-        expect.arrayContaining([...seeded, '/cerca-lavoro-ticino/remoto', '/cerca-lavoro-ticino/locale']),
+        expect.arrayContaining([...seeded, remoto, locale]),
       );
       expect(new Set(merged.paths).size).toBe(merged.paths.length);
     } finally {
