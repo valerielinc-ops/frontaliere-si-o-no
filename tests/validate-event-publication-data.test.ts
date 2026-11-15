@@ -1,5 +1,9 @@
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { validateEventPublicationData } from '../scripts/ci/validate-event-publication-data.mjs';
+import { readHeadJson, validateEventPublicationData } from '../scripts/ci/validate-event-publication-data.mjs';
 
 const event = {
   id: 'source:1',
@@ -49,6 +53,37 @@ describe('validate-event-publication-data', () => {
       expect.stringContaining('id immagine non sicuro'),
       expect.stringContaining('estensione immagine non supportata'),
     ]));
+  });
+
+  it('rejects a cache that replaces a baseline key without changing its size', () => {
+    const values = validValues();
+    values.geocodeCache = { replacement: { lat: 46.0037, lng: 8.9511 }, missing: null };
+    values.translationCache = { replacement: { en: 'Replacement' } };
+
+    const errors = validateEventPublicationData(values);
+
+    expect(errors).toEqual(expect.arrayContaining([
+      expect.stringContaining('geocode-cache.json:$: cache troncata: mancano 1 chiavi presenti su HEAD (lugano)'),
+      expect.stringContaining('translation-cache.json:$: cache troncata: mancano 1 chiavi presenti su HEAD (evento)'),
+    ]));
+  });
+
+  it('returns null only for a missing baseline and propagates an unreadable existing baseline', () => {
+    const root = mkdtempSync(join(tmpdir(), 'validate-event-publication-data-'));
+    try {
+      execFileSync('git', ['init', '-q'], { cwd: root });
+      execFileSync('git', ['config', 'user.email', 'tests@example.invalid'], { cwd: root });
+      execFileSync('git', ['config', 'user.name', 'tests'], { cwd: root });
+      mkdirSync(join(root, 'data'), { recursive: true });
+      writeFileSync(join(root, 'data', 'cache.json'), '{not-json');
+      execFileSync('git', ['add', 'data/cache.json'], { cwd: root });
+      execFileSync('git', ['commit', '-qm', 'fixture'], { cwd: root });
+
+      expect(readHeadJson(root, 'data/missing.json')).toBeNull();
+      expect(() => readHeadJson(root, 'data/cache.json')).toThrow();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('rejects duplicate ids and invalid calendar dates', () => {

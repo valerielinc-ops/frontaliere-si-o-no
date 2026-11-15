@@ -120,6 +120,15 @@ function validateImageManifest(value, errors) {
   }
 }
 
+function validateCacheKeyContinuity(value, baseline, file, errors) {
+  if (!isObject(value) || !isObject(baseline)) return;
+  const missing = Object.keys(baseline).filter((key) => !Object.prototype.hasOwnProperty.call(value, key));
+  if (missing.length === 0) return;
+  const sample = missing.slice(0, 10).join(', ');
+  const suffix = missing.length > 10 ? `, ... (+${missing.length - 10})` : '';
+  add(errors, file, '$', `cache troncata: mancano ${missing.length} chiavi presenti su HEAD (${sample}${suffix})`);
+}
+
 export function validateEventPublicationData({
   dataset,
   publicDataset,
@@ -140,12 +149,8 @@ export function validateEventPublicationData({
   validateGeocodeCache(geocodeCache, errors);
   validateTranslationCache(translationCache, errors);
   validateImageManifest(imageManifest, errors);
-  if (isObject(baselineGeocodeCache) && Object.keys(geocodeCache || {}).length < Object.keys(baselineGeocodeCache).length) {
-    add(errors, GEOCODE_PATH, '$', `cache troncata: ${Object.keys(geocodeCache || {}).length} voci contro ${Object.keys(baselineGeocodeCache).length} su HEAD`);
-  }
-  if (isObject(baselineTranslationCache) && Object.keys(translationCache || {}).length < Object.keys(baselineTranslationCache).length) {
-    add(errors, TRANSLATION_PATH, '$', `cache troncata: ${Object.keys(translationCache || {}).length} voci contro ${Object.keys(baselineTranslationCache).length} su HEAD`);
-  }
+  validateCacheKeyContinuity(geocodeCache, baselineGeocodeCache, GEOCODE_PATH, errors);
+  validateCacheKeyContinuity(translationCache, baselineTranslationCache, TRANSLATION_PATH, errors);
   return errors;
 }
 
@@ -153,17 +158,25 @@ function readJson(root, relative) {
   return JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
 }
 
-function readHeadJson(root, relative) {
+export function readHeadJson(root, relative) {
+  const object = `HEAD:${relative}`;
   try {
-    return JSON.parse(execFileSync('git', ['show', `HEAD:${relative}`], {
+    execFileSync('git', ['cat-file', '-e', object], {
       cwd: root,
       encoding: 'utf8',
-      maxBuffer: 32 * 1024 * 1024,
       stdio: ['ignore', 'pipe', 'pipe'],
-    }));
-  } catch {
-    return null;
+    });
+  } catch (error) {
+    const stderr = String(error?.stderr ?? '');
+    if (error?.status === 128 && stderr.includes(`path '${relative}' does not exist in 'HEAD'`)) return null;
+    throw error;
   }
+  return JSON.parse(execFileSync('git', ['show', object], {
+    cwd: root,
+    encoding: 'utf8',
+    maxBuffer: 32 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  }));
 }
 
 function main(root = ROOT) {
