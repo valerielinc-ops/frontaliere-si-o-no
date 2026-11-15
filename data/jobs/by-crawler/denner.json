@@ -128,8 +128,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-15T09:21:36.826Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "denner-891d82644ae6",
@@ -10970,7 +10969,6 @@
         "it": [
           "stv-filialleiter-in-denner-11l56c",
           "stv-filialleiter-in-denner-cham-b334ddb645",
-          "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
           "stv-filialleiter-in-denner"
         ],
         "en": [
@@ -10984,7 +10982,6 @@
         "stv-filialleiter-in-denner-cham",
         "stv-filialleiter-in-denner-11l56c",
         "stv-filialleiter-in-denner-cham-b334ddb645",
-        "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef",
         "stv-filialleiter-in-denner"
       ],
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
@@ -17617,13 +17614,11 @@
       "previousSlugsByLocale": {
         "it": [
           "vice-direttoredifiliale-denner-bern-0a22b0245e",
-          "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
           "stv-filialleiter-in-denner"
         ]
       },
       "previousSlugs": [
         "vice-direttoredifiliale-denner-bern-0a22b0245e",
-        "vice-direttoredifiliale-denner-zollikofen-d20454eeb0",
         "stv-filialleiter-in-denner"
       ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",

@@ -8336,7 +8336,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:33:23.610Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-09T21:24:34.914Z"
+      "firstSeenAt": "2026-10-09T21:24:34.914Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+          "giardini-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+          "gardeners-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        ],
+        "de": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+          "jardiniers-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+        "giardini-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+        "gardeners-100-anker-swiss-ticino-ag-kerzers-a68dc936",
+        "jardiniers-100-anker-swiss-ticino-ag-kerzers-a68dc936"
+      ]
     },
     {
       "id": "anker-swiss-281ac74bda05",
@@ -13239,18 +13262,33 @@
         "it": [
           "maler-100-anker-swiss-ticino-ag-bern-a3187224",
           "maler-100-anker-swiss-ticino-ag-bern-a203abec",
-          "maler-100-anker-swiss-ticino-ag-bern-29679ae9"
+          "maler-100-anker-swiss-ticino-ag-bern-29679ae9",
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+          "pittura-100-anker-swiss-ticino-ag-bern-de31cb0a"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-bern-a3187224",
           "maler-100-anker-swiss-ticino-ag-bern-a203abec",
-          "maler-100-anker-swiss-ticino-ag-bern-29679ae9"
+          "maler-100-anker-swiss-ticino-ag-bern-29679ae9",
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+          "painter-100-anker-swiss-ticino-ag-bern-de31cb0a"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+          "peintre-100-anker-swiss-ticino-ag-bern-de31cb0a"
         ]
       },
       "previousSlugs": [
         "maler-100-anker-swiss-ticino-ag-bern-a3187224",
         "maler-100-anker-swiss-ticino-ag-bern-a203abec",
-        "maler-100-anker-swiss-ticino-ag-bern-29679ae9"
+        "maler-100-anker-swiss-ticino-ag-bern-29679ae9",
+        "maler-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "pittura-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "painter-100-anker-swiss-ticino-ag-bern-de31cb0a",
+        "peintre-100-anker-swiss-ticino-ag-bern-de31cb0a"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

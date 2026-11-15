@@ -2869,7 +2869,7 @@
       "slugByLocale": {
         "it": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
         "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
+        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
         "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona-00cef5"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2940,7 +2940,8 @@
       "crawledAt": "2026-11-10T21:28:33.690Z",
       "previousSlugs": [
         "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-6d0f93e07e"
+        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-6d0f93e07e",
+        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2954,7 +2955,7 @@
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "de": [
-          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
         ]
       },
       "needsRetranslation": true,
@@ -10815,8 +10816,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:22:55.058Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-ebd10104b050",
@@ -11625,8 +11625,7 @@
       "streetAddress": "Rotkreuz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T21:29:05.711Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-9689d0bd71a9",
@@ -11724,8 +11723,7 @@
       "streetAddress": "Birsfelden Hafen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T21:29:05.218Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-54e7920af49c",
@@ -12283,8 +12281,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:29:06.209Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-ef34876a529a",
@@ -12675,7 +12672,6 @@
           "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:31.057Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -12796,8 +12792,7 @@
       "streetAddress": "Niederglatt",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-13T21:29:04.719Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-6a4e70dc6ace",
@@ -13626,8 +13621,7 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:03.718Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -14051,8 +14045,7 @@
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:03.213Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-387d1f94c918",
@@ -15786,8 +15779,7 @@
       "streetAddress": "Zürich Flughafen oder Rangierbahnhof Limmattal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:09.706Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -15890,8 +15882,7 @@
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:02.718Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-ab9281add8ea",
@@ -16205,8 +16196,7 @@
       "streetAddress": "Deutschschweiz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:12.193Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-3ea5f0531e97",
@@ -16309,8 +16299,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:12.706Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-4a6dd0fbc095",
@@ -17091,8 +17080,7 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:08.205Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-95604d8eb223",
@@ -17477,8 +17465,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-10T21:29:06.683Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-2f1e4873e1d3",
