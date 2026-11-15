@@ -51,7 +51,9 @@ const accorPagination = (lastPage: number, total: number) => [
 ].join('');
 const TWO_PAGE_PAGINATION_HTML = accorPagination(2, 13);
 const LISTING_HTML = `${TWO_PAGE_PAGINATION_HTML}<a href="/fr/fr/job/sales-executive">Sales Executive</a>`;
-const DESCRIPTION = '<div class="vacancy-description" data-type="DescriptionWidget"><div aria-label="Job description"><p>Lead commercial development, manage client relationships and coordinate the local sales team for the hotel.</p></div></div>';
+const SOURCE_DESCRIPTION = 'Lead commercial development, manage client relationships and coordinate the local sales team for the hotel. The role includes preparing commercial plans, supporting hotel operations, monitoring performance, communicating with partners, resolving customer requests, and improving guest experiences. The successful person works closely with colleagues, follows documented procedures, records decisions, contributes to service quality, and takes responsibility for reliable daily delivery. Training, collaboration, and clear communication are part of the role.';
+const DESCRIPTION = `<div class="vacancy-description" data-type="DescriptionWidget"><div aria-label="Job description"><p>${SOURCE_DESCRIPTION}</p></div></div>`;
+const PHYSIOSWISS_DESCRIPTION = 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team. '.repeat(5);
 const isAccorSeed = (url: string) => url === SEED_URL || url === SECOND_SEED_URL;
 const fixtureFetch = async (input: string | URL | Request) => {
   const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
@@ -380,11 +382,11 @@ describe('prospector location and identity contract', () => {
     const title = 'Dipl. Physiotherapeut/-in (40-100%)';
     const detailHtml = `<main><h1>${title}</h1>`
       + '<div class="job-location">9000 St. Gallen</div>'
-      + '<div class="vacancy-description"><p>Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.</p></div>'
+      + `<div class="vacancy-description"><p>${PHYSIOSWISS_DESCRIPTION}</p></div>`
       + `<script type="application/ld+json">${JSON.stringify({
         '@type': 'JobPosting',
         title: 'Header',
-        description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.',
+        description: PHYSIOSWISS_DESCRIPTION,
         url: detailUrl,
       })}</script></main>`;
     politeFetch.mockImplementation(async (url: string) => ({
@@ -435,7 +437,7 @@ describe('prospector location and identity contract', () => {
     });
     const detailHtml = `<main><h1>${title}</h1>`
       + '<div class="job-location">4600 Olten</div>'
-      + `<div class="vacancy-description"><p>${'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team. '.repeat(2)}</p></div>`
+      + `<div class="vacancy-description"><p>${PHYSIOSWISS_DESCRIPTION}</p></div>`
       + `<script type="application/ld+json">${genericPosting}</script>`
       + `<script type="application/ld+json">${genericPosting}</script></main>`;
     politeFetch.mockImplementation(async (url: string) => ({
