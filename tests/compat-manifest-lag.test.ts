@@ -398,7 +398,10 @@ exec "\${COMPAT_PUSH_REAL_GIT}" "$@"
       const pushedManifest = JSON.parse(git(remoteDir, 'show', 'main:data/seo-404-compat/manifest.json'));
       expect(pushedManifest.totalPaths).toBe(40);
       expect(pushedManifest.source).toBe('s');
-      expect(git(localDir, 'status', '--porcelain')).toBe('');
+      // The helper runs in a temporary clone and the local Node toolchain may
+      // leave an untracked node_modules directory there. The assertion is
+      // about the pushed tracked tree, not that environment-only directory.
+      expect(git(localDir, 'status', '--porcelain', '--untracked-files=no')).toBe('');
       expect(() => readCompatPathsStrict(localDir)).not.toThrow();
     } finally {
       for (const dir of [remoteDir, seedDir, localDir, writerDir, wrapDir]) {
