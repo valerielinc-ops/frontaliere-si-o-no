@@ -28,7 +28,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'preview, test or send'
+        description: 'preview, test, send or dry-run (dry-run needs target_email and dry_run=false: builds one real email, calls no provider, writes nothing)'
         required: false
         default: 'test'
         type: choice
@@ -36,6 +36,7 @@ on:
           - preview
           - test
           - send
+          - dry-run
       dry_run:
         description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
@@ -105,22 +106,29 @@ on:
     types:
       - completed
 
-# The daily cron remains the safety net. The primary job-alert handoff enters
-# the same serialized group, and cancel-in-progress=false preserves a queued
-# fallback/resume instead of discarding an unfinished campaign. The sender's
-# weekly campaign id plus campaign_sends ledger is the recipient-level
-# idempotency key, so a second trigger resumes/skips rather than duplicating.
-concurrency:
-  group: newsletter
-  cancel-in-progress: false
-
 permissions:
   contents: read
   issues: write
   actions: read
 
+# GATE (perf-plan email senders, C3). A `workflow_run` fires for every completed
+# "Send Job Alert Emails" run, but only the primary scheduled slot carries the
+# handoff marker; the secondary slot (and every failed or manual completion) is
+# INERT. Those inert runs used to pay a full checkout, `npm ci` and the dataset
+# assembly before discovering they had nothing to do, and — worse — they sat in the
+# workflow-level concurrency group, where GitHub keeps ONE pending run: an inert
+# trigger could replace a legitimate pending one. Now a light `gate` job (no
+# checkout, no Node) decides, and only a run that must proceed enters the
+# `newsletter` concurrency group.
+#
+# The daily cron remains the safety net. The primary job-alert handoff enters the
+# same serialized group, and cancel-in-progress=false preserves a queued
+# fallback/resume instead of discarding an unfinished campaign. The sender's
+# weekly campaign id plus campaign_sends ledger is the recipient-level
+# idempotency key, so a second trigger resumes/skips rather than duplicating.
+
 jobs:
-  newsletter:
+  gate:
     # `workflow_run` fires for every completed source run, including failed
     # runs and manual dispatches. Only successful scheduled runs can carry the
     # primary handoff marker; keep the other events as a clean no-op before
@@ -130,8 +138,11 @@ jobs:
       || (github.event.workflow_run.event == 'schedule'
           && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
-    timeout-minutes: 360
-
+    timeout-minutes: 10
+    outputs:
+      proceed: ${{ steps.newsletter_trigger.outputs.allow_run }}
+      allow_workflow_run: ${{ steps.newsletter_trigger.outputs.allow_workflow_run }}
+      trigger_key: ${{ steps.newsletter_trigger.outputs.trigger_key }}
     steps:
       # The primary marker is intentionally absent from the secondary
       # job-alert slot. Probe first so actions/download-artifact never emits a
@@ -171,14 +182,6 @@ jobs:
                 : `No ${process.env.HANDOFF_NAME} on source run ${runId}; treating it as an inert trigger.`,
             );
 
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
       - name: Download primary job-alert handoff
         id: download_jobalert_handoff
         if: github.event_name == 'workflow_run' && steps.locate_jobalert_handoff.outputs.found == 'true'
@@ -202,6 +205,7 @@ jobs:
           SOURCE_WORKFLOW: ${{ github.event.workflow_run.name || '' }}
         run: |
           if [ "$EVENT_NAME" != "workflow_run" ]; then
+            echo "allow_run=true" >> "$GITHUB_OUTPUT"
             echo "allow_workflow_run=false" >> "$GITHUB_OUTPUT"
             echo "trigger_key=$(date -u +%F)" >> "$GITHUB_OUTPUT"
             echo "Newsletter trigger: $EVENT_NAME (cron/manual path)"
@@ -211,6 +215,7 @@ jobs:
           handoff_file="$RUNNER_TEMP/newsletter-handoff/primary.json"
           if [ "$HANDOFF_DOWNLOAD_OUTCOME" != "success" ] || [ ! -s "$handoff_file" ]; then
             echo "::notice::No primary job-alert handoff found; this workflow_run stays inert."
+            echo "allow_run=false" >> "$GITHUB_OUTPUT"
             echo "allow_workflow_run=false" >> "$GITHUB_OUTPUT"
             echo "trigger_key=workflow-run-$SOURCE_RUN_ID" >> "$GITHUB_OUTPUT"
             exit 0
@@ -241,21 +246,43 @@ jobs:
               and (.newsletter_key | test("^[0-9]{4}-[0-9]{2}-[0-9]{2}$"))
             )' "$handoff_file" >/dev/null 2>&1; then
             echo "::notice::Primary job-alert handoff failed validation; this workflow_run stays inert."
+            echo "allow_run=false" >> "$GITHUB_OUTPUT"
             echo "allow_workflow_run=false" >> "$GITHUB_OUTPUT"
             echo "trigger_key=workflow-run-$SOURCE_RUN_ID" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           trigger_key="$(jq -r '.newsletter_key' "$handoff_file")"
+          echo "allow_run=true" >> "$GITHUB_OUTPUT"
           echo "allow_workflow_run=true" >> "$GITHUB_OUTPUT"
           echo "trigger_key=$trigger_key" >> "$GITHUB_OUTPUT"
           echo "✅ Verified primary job-alert handoff for newsletter_key=$trigger_key (source run $SOURCE_RUN_ID)"
 
-      - name: Install dependencies
-        run: npm ci
+
+  newsletter:
+    needs: gate
+    # Only a run the gate let through (cron, manual, or a verified primary
+    # handoff) is ever scheduled here: inert triggers never enter the group.
+    if: needs.gate.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    # Never two campaigns at once; cancel-in-progress=false queues a fallback or
+    # resume instead of discarding an unfinished campaign.
+    concurrency:
+      group: newsletter
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # node_modules in cache (perf-plan email senders, A3): key on the lockfile and
+      # the Node major, `npm ci` only on a miss (it cost 37-49 s on every run).
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
       - name: Prepare Firebase credentials
-        if: (github.event_name != 'workflow_run' || steps.newsletter_trigger.outputs.allow_workflow_run == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -267,23 +294,44 @@ jobs:
             exit 1
           fi
 
+      # Privilegio minimo (perf-plan email senders, C8): l'elenco e' quello che il
+      # codice del job (sender, cascade, assemble, issue-creator, catena dei
+      # provider LLM di ai-models.mjs e i passi di setup-omniroute /
+      # setup-claude-haiku-fallback) legge davvero da `process.env`. Lo verifica
+      # tests/email-senders-workflow-perimeter.test.ts: una chiave nuova letta dal
+      # codice e non elencata qui fa fallire la CI, non il job in produzione, dove
+      # un provider LLM senza chiave degraderebbe l'AI in silenzio.
       - name: Load secrets from Remote Config
-        if: (github.event_name != 'workflow_run' || steps.newsletter_trigger.outputs.allow_workflow_run == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs --only-env=CEREBRAS_API_KEY,CF_ACCOUNT_ID,CF_API_TOKEN,CHUTES_API_KEY,CLOUDFLARE_EMAIL_API_TOKEN,COHERE_API_KEY,ENABLE_CODEX_ARTICLE_FALLBACK,ENABLE_HAIKU_ARTICLE_FALLBACK,ENABLE_OMNIROUTE_FALLBACK,FIREWORKS_API_KEY,GEMINI_API_KEY,GH_MODELS_PAT,GH_MODELS_PAT_2,GH_MODELS_PAT_3,GH_MODELS_PAT_4,GH_MODELS_PAT_5,GH_MODELS_PAT_6,GH_MODELS_PAT_7,GH_MODELS_PAT_8,GH_MODELS_PAT_9,GROQ_API_KEY,HUGGINGFACE_API_KEY,JOB_EMAIL_RANKING_AFFINITY_WEIGHT,JOB_EMAIL_RANKING_ENABLED,JOB_EMAIL_RANKING_IMPRESSIONS_MODE,JOB_EMAIL_RANKING_ROLLOUT,JOB_EMAIL_RANKING_TREATMENT,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,MISTRAL_API_KEY,NEWSLETTER_CAMPAIGN_CONTENT_FREEZE,NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT,NEWSLETTER_FROM,NEWSLETTER_RESUME_RECEIPT_SCAN,NEWSLETTER_SECRET,NVIDIA_API_KEY,NVIDIA_NIM_API_KEY,OMNIROUTE_PROVIDER_ALLOWLIST,OMNIROUTE_PROVIDERS_JSON,OPENROUTER_API_KEY,PER_USER_SEND_TIME,RESEND_API_KEY,SAMBANOVA_API_KEY,TOGETHER_API_KEY,VITE_GEMINI_API_KEY,ZAI_API_KEY,ZHIPU_API_KEY
+
+      # Frozen-content probe (perf-plan email senders, C4). setup-omniroute and
+      # setup-claude-haiku-fallback cost ~111 s and exist only for the LLM calls of
+      # Phase 2. When the current campaign already has valid frozen content for every
+      # locale it needs, no LLM call will be made and the two setups are skipped.
+      # The probe reads at most 4 frozen documents and the stored exchange rate; any
+      # doubt or error answers "needs LLM", so the setups run exactly as before.
+      - name: Probe frozen newsletter content
+        id: content_probe
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          MODE: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_run') && 'send' || inputs.mode || 'test' }}
+        run: node scripts/newsletter-content-probe.mjs
 
       # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
       # Self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
       # as AI_MODELS.OMNIROUTE_AUTO. See
       # .github/actions/setup-omniroute/action.yml for the full rationale.
       - uses: ./.github/actions/setup-omniroute
-        if: (github.event_name != 'workflow_run' || steps.newsletter_trigger.outputs.allow_workflow_run == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.content_probe.outputs.needs_llm != 'false'
 
       # ── Codex Luna Max article lane (ON by default, historical kill-switch '0') ──
       # The shared action exposes only a private broker socket to the
       # newsletter process.
       - id: setup_claude_haiku_fallback
         uses: ./.github/actions/setup-claude-haiku-fallback
-        if: (github.event_name != 'workflow_run' || steps.newsletter_trigger.outputs.allow_workflow_run == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true' && steps.content_probe.outputs.needs_llm != 'false'
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
@@ -384,12 +432,12 @@ jobs:
           VARIANT: ${{ inputs.variant || 'general' }}
           ENHANCEMENTS: ${{ inputs.enhancements || 'topJobs,clusterPages,evergreen' }}
           AB_TEST: ${{ inputs.ab_test || '' }}
-          NEWSLETTER_TRIGGER_KEY: ${{ steps.newsletter_trigger.outputs.trigger_key || '' }}
+          NEWSLETTER_TRIGGER_KEY: ${{ needs.gate.outputs.trigger_key || '' }}
           ALLOW_SIDE_EFFECT: 'true'
           EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
-        if: (github.event_name != 'workflow_run' || steps.newsletter_trigger.outputs.allow_workflow_run == 'true') && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
             MODE=preview
@@ -410,6 +458,10 @@ jobs:
 
           if [ "$MODE" = "send" ]; then
             node scripts/send-newsletter.mjs --send "${common_args[@]}" "${variant_args[@]}" "${ab_test_args[@]}" --enhancements "$ENHANCEMENTS"
+          elif [ "$MODE" = "dry-run" ]; then
+            # One real email is built for $TARGET (Phase 1-5 with the frozen-content
+            # lookup), no provider is called and nothing is persisted.
+            node scripts/send-newsletter.mjs --dry-run "${common_args[@]}" "${variant_args[@]}" --enhancements "$ENHANCEMENTS"
           elif [ "$MODE" = "preview" ]; then
             mkdir -p /tmp/newsletter-preview
             node scripts/send-newsletter.mjs --preview "${common_args[@]}" "${variant_args[@]}" --enhancements "$ENHANCEMENTS" > /tmp/newsletter-preview/index.html

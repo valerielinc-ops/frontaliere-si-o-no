@@ -64,16 +64,13 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
+      # node_modules in cache (perf-plan email senders, A3/F3): key on the lockfile and
+      # the Node major, `npm ci` only on a miss.
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
-      - name: Install dependencies
-        run: npm ci
-
+      # Also for the dry run: the script reads the pending articles from Firestore (reads only).
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -83,9 +80,16 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      # Least privilege (perf-plan email senders, F3): only the keys the job's code reads
+      # from `process.env`. Enforced by tests/email-senders-workflow-perimeter.test.ts.
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,JOURNALIST_PENDING_SCOPE,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
+
+      # Dry run (input dry_run, default true for manual dispatches): reads the pending articles
+      # and checks their URLs, with no claim, no email, no stamp and no requeue.
+      - name: Check pending journalist articles without notifying (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        run: node scripts/notify-journalist-article-live.mjs --dry-run
 
       - name: Verify + notify live journalist articles
         if: inputs.dry_run != true && inputs.dry_run != 'true'
