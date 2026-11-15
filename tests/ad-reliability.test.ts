@@ -318,6 +318,21 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
     expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
   });
+  it('keeps publisher recovery when inline mode has no rendered creative', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+
+    const dialog = w.document.querySelector('dialog[open]');
+    expect(dialog?.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(true);
+  });
   it('offers the localized application service in legacy non-inline recovery and keeps every choice dismissible', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
@@ -433,7 +448,7 @@ describe('IAB detection and independent recovery surface', () => {
     w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
     expect(emit.mock.calls.filter(([name, props]) => name === 'ad_recovery_outcome' && props?.outcome === 'ads_allowed')).toHaveLength(1);
   });
-  it('does not show the application offer in inline mode for an inconclusive probe or a terminal loader error', async () => {
+  it('uses neutral publisher recovery for a terminal loader error without an inline creative', async () => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
@@ -441,7 +456,9 @@ describe('IAB detection and independent recovery surface', () => {
     recovery('clear', 'failed', true);
     w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(14000);
-    expect(w.document.querySelector('dialog')).toBeNull();
+    const dialog = w.document.querySelector('dialog[open]');
+    expect(dialog?.textContent).toContain('Gli annunci non si caricano');
+    expect(dialog?.textContent).not.toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
   });
   it('does not run or report a blocker probe when every inline house slot is filled', async () => {
     const houseRefresh = vi.fn();

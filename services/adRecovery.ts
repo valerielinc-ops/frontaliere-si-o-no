@@ -137,6 +137,10 @@ export function installAdRecovery(
     if (!google) return false;
     return !occupied(frame);
   });
+  const hasRenderedInlineHouseCreative = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house][data-ft-house-active]')).some((frame) => {
+    const creative = frame.querySelector<HTMLElement>('[data-ft-house-host] .ft-house-creative');
+    return !!creative && onScreen(creative);
+  });
   const permitted = () => {
     try { return allowed() && navigator.onLine !== false && document.visibilityState !== 'hidden'
       && !Object.values(applicationPaths).some((servicePath) => location.pathname.startsWith(servicePath))
@@ -330,10 +334,10 @@ export function installAdRecovery(
     }
     if (googleMessage()) { removePromo(); closePopup(); return; }
     const inlineSlotPending = config.inlineHouseAds === true && hasUnfilledHouseSlot();
-    // Inline house creatives replace the empty slot. Do not stack a publisher
-    // modal on top of that promotion; Google's native Funding Choices UI stays
-    // the only consent/recovery dialog.
-    if (config.inlineHouseAds) closePopup();
+    const inlineCreativeRendered = config.inlineHouseAds === true && hasRenderedInlineHouseCreative();
+    // A rendered inline creative replaces the publisher modal. If the creative
+    // renderer has no usable slot, keep the recovery surface available.
+    if (config.inlineHouseAds && (inlineCreativeRendered || nativeRecoveryWasShown())) closePopup();
     if (hasOccupiedAd() && !(config.inlineHouseAds && inlineSlotPending)) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
@@ -359,10 +363,14 @@ export function installAdRecovery(
       reportedState = why;
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
-    // Inline first-party creatives own fallback slots. A confirmed blocker may
-    // still get the inline offer, but the global text prompt would duplicate it.
+    // Inline creatives replace the publisher modal only when one actually
+    // rendered. If no creative is available, keep the recovery offer as fallback.
     if (config.inlineHouseAds) {
-      closePopup();
+      if (hasRenderedInlineHouseCreative() || nativeRecoveryWasShown()) {
+        closePopup();
+        removePromo(); return;
+      }
+      if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
       removePromo(); return;
     }
     if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
