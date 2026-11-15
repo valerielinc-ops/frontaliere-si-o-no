@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import { createPageWeightReporter } from '../build-plugins/shared/pageWeightReport';
+
+const JOBS_SEO_PLUGIN_SOURCE = readFileSync(new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url), 'utf8');
 
 describe('page-weight reporter', () => {
   it('counts pages below the warning threshold without warning', () => {
@@ -82,5 +85,43 @@ describe('page-weight reporter', () => {
     reporter.reset();
 
     expect(reporter.summary()).toEqual({ total: 0, overCount: 0, top: [] });
+  });
+});
+
+describe('jobs SEO page-weight observation contract', () => {
+  it('observes exactly the five page families without retaining hard budgets', () => {
+    const legacyBudgets = [
+      ['CITY', 'HUB', 'HARD', 'BUDGET', 'BYTES'].join('_'),
+      ['SECTOR', 'CANTON', 'HARD', 'BUDGET'].join('_'),
+      ['COMPANY', 'CITY', 'HARD', 'BUDGET'].join('_'),
+    ];
+    for (const legacyBudget of legacyBudgets) {
+      expect(JOBS_SEO_PLUGIN_SOURCE).not.toContain(legacyBudget);
+    }
+    expect(JOBS_SEO_PLUGIN_SOURCE).not.toContain(['195', '*', '1024'].join(' '));
+    expect(JOBS_SEO_PLUGIN_SOURCE.match(/pageWeight\.observe\(/g) ?? []).toHaveLength(5);
+
+    for (const kind of [
+      'intent-landing',
+      'city-editorial-landing',
+      'city-hub',
+      'sector-canton-hub',
+      'company-city-hub',
+    ]) {
+      expect(JOBS_SEO_PLUGIN_SOURCE).toContain(`pageWeight.observe('${kind}',`);
+    }
+  });
+
+  it('has no throw new Error within six lines after Buffer.byteLength', () => {
+    const lines = JOBS_SEO_PLUGIN_SOURCE.split(/\r?\n/);
+    const violations = lines.flatMap((line, index) => {
+      if (!line.includes('Buffer.byteLength(')) return [];
+      const followingSixLines = lines.slice(index + 1, index + 7);
+      return followingSixLines.some((nextLine) => nextLine.includes('throw new Error('))
+        ? [index + 1]
+        : [];
+    });
+
+    expect(violations).toEqual([]);
   });
 });
