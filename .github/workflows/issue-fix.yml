@@ -1874,17 +1874,15 @@ jobs:
             echo "::warning::finalize-head: commit rifiutato (hook o gate PII) — la PR resta sul checkpoint."
             exit 0
           }
-          # Stessa identita' di push del salvataggio sopra: l'extraheader di
-          # actions/checkout ha la precedenza sull'URL del remote.
+          # Stessa identita' di push di «Configure git identity»: l'extraheader
+          # di actions/checkout ha la precedenza sull'URL del remote, quindi lo
+          # toglie l'helper condiviso (niente nuova copia inline: il test
+          # configure-main-push-auth ne ammette una sola per workflow).
           if [ -n "${APP_TOKEN:-}" ]; then
-            git config --unset-all http."https://github.com/".extraheader 2>/dev/null || true
-            while IFS= read -r inc_key; do
-              while IFS= read -r inc_path; do
-                if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
-                  git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
-                fi
-              done < <(git config --local --get-all "$inc_key")
-            done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
+            if ! git show origin/main:scripts/lib/clear-checkout-git-credentials.sh 2>/dev/null | bash; then
+              echo "::warning::finalize-head: credenziali di checkout non rimovibili — nessun push, la PR resta sul checkpoint."
+              exit 0
+            fi
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
           fi
           if git push origin "HEAD:refs/heads/$BRANCH" 2>&1 | tail -3; then
