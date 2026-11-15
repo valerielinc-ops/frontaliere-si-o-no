@@ -716,6 +716,29 @@ describe('fast path — P1 risposte di ricerca e P4 predicati: lo scorer dà lo 
     expect(tally.answers).toBeGreaterThan(10);
   }, 120_000);
 
+  it('una query soft ripetuta conserva la risposta completa: stesso score e stessi match con e senza fast path', () => {
+    // Review PR #18866: la seconda passata della stessa query trova `remaining`
+    // senza le righe gia' accettate. La risposta registrata deve restare quella
+    // del vocabolario su TUTTE le righe, non l'intersezione con `remaining`.
+    // (`buildAlertProfile` deduplica gia' `softSearchQueries` con `uniq`; il
+    // caso si prova qui al livello di indice e scorer.)
+    const base = softLegacyHandProfiles()[0].profile;
+    const profile = { ...base, softTokens: new Set(['zzzzzzzz']), softSearchQueries: ['infermiere', 'infermiere'] };
+    const tally = { answers: 0, predicates: 0 };
+    for (const locale of LOCALES) compareScorers('soft-query-ripetuta', profile, locale, false, tally);
+    expect(tally.answers).toBeGreaterThan(0);
+    const selection: any = index.select(profile, { locale: 'it', cursorMs: 0, fastpath: true });
+    const fast = createAlertScorer(profile, 'it', createJobFeatureCache(createJobFeatureStore()), {
+      searchAnswers: selection.searchAnswers,
+      predicates: selection.predicates,
+    });
+    const plain = createAlertScorer(profile, 'it', createJobFeatureCache(createJobFeatureStore()));
+    const fastMatched = selection.rows.filter((row: any, k: number) => fast(row, selection.rowIndices[k]) > 0).map((row: any) => row.id);
+    const plainMatched = selection.rows.filter((row: any) => plain(row) > 0).map((row: any) => row.id);
+    expect(plainMatched.length).toBeGreaterThan(0);
+    expect(fastMatched).toEqual(plainMatched);
+  }, 60_000);
+
   it('i profili a mano di prima (hard, pinned, ricerca) restano uguali con le risposte', () => {
     const tally = { answers: 0, predicates: 0 };
     for (const { label, profile } of handBuiltProfiles()) {

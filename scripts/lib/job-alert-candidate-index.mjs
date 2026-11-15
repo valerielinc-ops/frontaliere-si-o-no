@@ -1001,7 +1001,10 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       // La ricerca soft si valuta solo sulle righe che gli altri predicati non
       // hanno già accettato: sono le uniche per cui può cambiare la risposta.
       let remaining = bitsetAndNot(base, mask);
-      for (const query of softSearchQueries) {
+      // Una query ripetuta non aggiunge righe (la sua seconda passata trova gia'
+      // tolte le righe che accetta): la si valuta una volta. La risposta in
+      // `answers` resta comunque quella del vocabolario su tutte le righe.
+      for (const query of new Set(softSearchQueries)) {
         if (bitsetIsEmpty(remaining)) break;
         const hit = bitsetAnd(remaining, searchMask(locale, query, remaining, answers));
         bitsetOrInto(mask, hit);
