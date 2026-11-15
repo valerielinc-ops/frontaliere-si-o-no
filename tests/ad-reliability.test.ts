@@ -300,12 +300,27 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.__ftAdBlockProbe).toBe('blocked');
     expect(houseRefresh).toHaveBeenCalled();
   });
-  it('offers the localized application service for a blocker and keeps every choice dismissible', async () => {
+  it('uses inline house creatives instead of stacking a publisher blocker modal', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
-    const filledSlot = w.document.createElement('ins');
-    filledSlot.setAttribute('data-ad-status', 'filled');
-    w.document.body.append(filledSlot);
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.setAttribute('data-ft-house-active', '');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div><div data-ft-house-host><a class="ft-house-creative">Lavoro in Svizzera?</a></div>';
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(1000);
+
+    expect(houseRefresh).toHaveBeenCalled();
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
+  });
+  it('offers the localized application service in legacy non-inline recovery and keeps every choice dismissible', async () => {
+    const houseRefresh = vi.fn();
+    w.__ftHouseAds = { refresh: houseRefresh };
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     const pendingGoogleSlot = w.document.createElement('div');
@@ -314,9 +329,9 @@ describe('IAB detection and independent recovery surface', () => {
     houseSlot.append(pendingGoogleSlot);
     w.document.body.append(houseSlot);
 
-    recovery('blocked', 'loaded', true);
+    recovery('blocked', 'loaded', false);
     w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
-    await vi.advanceTimersByTimeAsync(5000);
+    await vi.advanceTimersByTimeAsync(13000);
 
     const dialog = w.document.querySelector('dialog[open]');
     expect(dialog?.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
@@ -327,7 +342,6 @@ describe('IAB detection and independent recovery surface', () => {
     const offer = dialog?.querySelector<HTMLAnchorElement>('.ft-recovery-offer-link');
     expect(offer?.href).toContain('/automatizza-ricerca-lavoro-svizzera/?');
     expect(offer?.href).toContain('utm_campaign=application_concierge_adblock');
-    expect(filledSlot.getAttribute('data-ad-status')).toBe('filled');
     expect(houseRefresh).toHaveBeenCalled();
     Array.from(dialog!.querySelectorAll<HTMLButtonElement>('.ft-recovery-actions button'))
       .find((el) => el.textContent === 'Continua a leggere')!.click();
@@ -341,15 +355,15 @@ describe('IAB detection and independent recovery surface', () => {
     ['en', 'Tailored applications for your next job in Switzerland', '€39.99', 'See how it works'],
     ['de', 'Passende Bewerbungen für deinen nächsten Job in der Schweiz', '39,99 €', 'Service ansehen'],
     ['fr', 'Des candidatures sur mesure pour votre prochain emploi en Suisse', '39,99 €', 'Découvrir le service'],
-  ])('localizes the application offer in %s', async (locale, title, price, cta) => {
+  ])('localizes the legacy application offer in %s', async (locale, title, price, cta) => {
     w.document.documentElement.lang = locale;
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
     w.document.body.append(houseSlot);
-    recovery('blocked', 'loaded', true);
+    recovery('blocked', 'loaded', false);
     w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
-    await vi.advanceTimersByTimeAsync(0);
+    await vi.advanceTimersByTimeAsync(13000);
 
     const dialog = w.document.querySelector('dialog[open]');
     expect(dialog?.textContent).toContain(title);
@@ -362,9 +376,9 @@ describe('IAB detection and independent recovery surface', () => {
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
     w.document.body.append(houseSlot);
-    recovery('blocked', 'loaded', true);
+    recovery('blocked', 'loaded', false);
     w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
-    await vi.advanceTimersByTimeAsync(0);
+    await vi.advanceTimersByTimeAsync(13000);
 
     const dialog = w.document.querySelector<HTMLDialogElement>('dialog[open]')!;
     expect(dialog).not.toBeNull();
@@ -381,9 +395,9 @@ describe('IAB detection and independent recovery surface', () => {
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
     w.document.body.append(houseSlot);
-    recovery('blocked', 'loaded', true);
+    recovery('blocked', 'loaded', false);
     w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
-    await vi.advanceTimersByTimeAsync(0);
+    await vi.advanceTimersByTimeAsync(13000);
     expect(w.document.querySelector('dialog[open]')).toBeNull();
   });
   it('records and defers to Google’s native recovery message instead of stacking a second popup', async () => {

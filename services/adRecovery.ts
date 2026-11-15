@@ -330,12 +330,10 @@ export function installAdRecovery(
     }
     if (googleMessage()) { removePromo(); closePopup(); return; }
     const inlineSlotPending = config.inlineHouseAds === true && hasUnfilledHouseSlot();
-    const inlineBlockerConfirmed = inlineSlotPending && reason() === 'adblock_detected';
-    if (inlineBlockerConfirmed) {
-      if (!nativeRecoveryWasShown()) showPopup();
-    } else {
-      if (config.inlineHouseAds) closePopup();
-    }
+    // Inline house creatives replace the empty slot. Do not stack a publisher
+    // modal on top of that promotion; Google's native Funding Choices UI stays
+    // the only consent/recovery dialog.
+    if (config.inlineHouseAds) closePopup();
     if (hasOccupiedAd() && !(config.inlineHouseAds && inlineSlotPending)) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
@@ -362,11 +360,9 @@ export function installAdRecovery(
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
     // Inline first-party creatives own fallback slots. A confirmed blocker may
-    // still need a first-party recovery prompt when Google's native message is
-    // absent (for example on mobile, where Google does not show it).
+    // still get the inline offer, but the global text prompt would duplicate it.
     if (config.inlineHouseAds) {
-      if (why === 'adblock_detected' && hasUnfilledHouseSlot() && !nativeRecoveryWasShown()) showPopup();
-      else closePopup();
+      closePopup();
       removePromo(); return;
     }
     if (why === 'adblock_detected' || why === 'script_failed' || why === 'cmp_unavailable') showPopup();
