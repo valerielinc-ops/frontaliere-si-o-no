@@ -281,12 +281,8 @@ function renderJourneyCompanies(
  * headline count and the visible inventory must describe the same set, so the
  * builder never truncates the list to fit a byte budget.
  *
- * Page weight is observed, never enforced, at build time. A single oversized
- * hub used to throw here and take down the whole locale build (run
- * 43712804687, `/en/find-jobs-ticino/engineers/` at 266.1 KB). The owner
- * decided to drop that ceiling («togliamo questo tetto per le pagine»): the
- * plugin now only warns above this threshold and prints the heaviest pages at
- * the end, so growth stays visible without being able to stop a build.
+ * Page weight is enforced at build time. A single oversized hub must fail the
+ * build rather than silently ship a page beyond the repository's hard limit.
  */
 export const SECTOR_PAGE_WEIGHT_WARN_BYTES = 260 * 1024;
 
@@ -301,7 +297,7 @@ export interface SectorPageWeight {
 /**
  * Pure summary of the emitted page weights: the heaviest `topN` pages (largest
  * first, ties by path for a stable log) and how many exceed the warn
- * threshold. Never throws.
+ * threshold. The build-time guard below remains the enforcement point.
  */
 export function summarizeSectorPageWeights(
   weights: ReadonlyArray<SectorPageWeight>,
@@ -988,17 +984,16 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             emittedProfessionLandingPaths,
           });
 
-          // Observability only: a page over the warn threshold is logged with
-          // its size and still emitted whole. This must never throw — a
-          // quality signal cannot be allowed to abort hours of build work, and
-          // dropping offers would make the headline count lie.
+          // Hard budget gate: keep the complete inventory (never truncate
+          // offers to make the page fit), but fail before publishing a page
+          // that exceeds the repository's page-weight contract.
           const htmlBytes = Buffer.byteLength(html, 'utf-8');
           pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
           if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
-            console.warn(
+            throw new Error(
               `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
-                `above the ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB page-weight warning threshold ` +
-                `(${matchingJobs.length} listings, emitted in full).`,
+                `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
+                `Compress card markup or split the listing before changing the page-weight budget.`,
             );
           }
 
@@ -1096,9 +1091,8 @@ ${sitemapEntries.join('\n')}
       // hub landing is on disk, so the injector can safely add anchors to them
       // from the 4 job-board root hubs. Same fail-fast contract as
       // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
-      // reached on every normal exit. A thrown error above (e.g. a dataset read
-      // failure) propagates to Vite and fails the build (consumer terminates —
-      // not a deadlock).
+      // reached on every normal exit. A thrown budget error above propagates to
+      // Vite and fails the build (consumer terminates — not a deadlock).
       resolveSectorPagesFlushed();
     },
   };

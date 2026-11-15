@@ -8,12 +8,9 @@
  * strings, inline SVG icons, and chip markup — roughly 1.5 KB per card. The
  * builder renders the complete matching set.
  *
- * The plugin used to THROW when a hub crossed 260 KB; that aborted a whole
- * locale build (run 43712804687, `/en/find-jobs-ticino/engineers/` at
- * 266.1 KB) and the owner removed the ceiling. The contract is now:
- *   - a hub over the threshold is emitted whole (no offer is dropped) and
- *     produces a warning, never an error;
- *   - the plugin source holds no `throw` driven by the page byte size.
+ * The plugin throws when a hub crosses 260 KB, after rendering the complete
+ * inventory. This keeps the count/cards invariant without silently publishing
+ * a page beyond the repository's page-weight contract.
  *
  * This test exercises the pure HTML builder (`buildSectorLandingHtml`)
  * directly with a worst-case synthetic input: every sector x every locale,
@@ -109,7 +106,7 @@ function makeHeavyJob(index: number): SectorCountableJob {
 
 const ROOT_DIR = resolve(__dirname, '..', '..');
 
-describe('SEO — job-sector landing page weight (observed, not enforced)', () => {
+describe('SEO — job-sector landing page weight', () => {
   const sectorProseData = loadSectorProseData(ROOT_DIR);
 
   // Generate the heaviest realistic input once and reuse across iterations.
@@ -123,7 +120,7 @@ describe('SEO — job-sector landing page weight (observed, not enforced)', () =
   for (const sector of SECTOR_HUB_KEYS) {
     for (const locale of LOCALES) {
       const path = buildSectorHubPath(locale, sector);
-      it(`${path} worst-case weight stays under the ${HARD_BUDGET_BYTES / 1024} KB warning threshold with ${REPRESENTATIVE_FULL_LIST} embedded jobs`, () => {
+      it(`${path} worst-case weight stays under the ${HARD_BUDGET_BYTES / 1024} KB hard budget with ${REPRESENTATIVE_FULL_LIST} embedded jobs`, () => {
         const html = buildSectorLandingHtml({
           sector,
           locale,
@@ -142,7 +139,7 @@ describe('SEO — job-sector landing page weight (observed, not enforced)', () =
         const bytes = Buffer.byteLength(html, 'utf-8');
         expect(
           bytes,
-          `${path} HTML is ${(bytes / 1024).toFixed(1)} KB — exceeds the ${HARD_BUDGET_BYTES / 1024} KB warning threshold`,
+          `${path} HTML is ${(bytes / 1024).toFixed(1)} KB — exceeds the ${HARD_BUDGET_BYTES / 1024} KB hard budget`,
         ).toBeLessThan(HARD_BUDGET_BYTES);
       });
     }
@@ -170,28 +167,25 @@ describe('SEO — job-sector landing page weight (observed, not enforced)', () =
     expect((html.match(/<article class="jc-card/g) || []).length).toBe(50);
     expect(html).toContain('"numberOfItems":50');
   });
-  it('emits a hub over the warning threshold in full instead of throwing', () => {
-    // 500 heavy jobs push every hub far past 260 KB. The builder must return
-    // the whole page: every card and the ItemList count survive, so the
-    // headline count keeps matching the visible inventory.
+  it('renders an oversized complete-list builder output without truncating offers', () => {
+    // The pure builder renders the complete page; the plugin's closeBundle
+    // guard enforces the byte budget after this output is produced.
     const manyJobs: SectorCountableJob[] = Array.from(
       { length: 500 },
       (_, i) => makeHeavyJob(i + 1),
     );
     let html = '';
-    expect(() => {
-      html = buildSectorLandingHtml({
-        sector: 'case-anziani',
-        locale: 'en',
-        matchingJobs: manyJobs,
-        count: 500,
-        year: 2026,
-        dateStamp: '2026-04-28',
-        sectorProseData,
-        entryJs: 'index-DEADBEEF.js',
-        entryCss: 'index-DEADBEEF.css',
-      });
-    }).not.toThrow();
+    html = buildSectorLandingHtml({
+      sector: 'case-anziani',
+      locale: 'en',
+      matchingJobs: manyJobs,
+      count: 500,
+      year: 2026,
+      dateStamp: '2026-04-28',
+      sectorProseData,
+      entryJs: 'index-DEADBEEF.js',
+      entryCss: 'index-DEADBEEF.css',
+    });
     expect(Buffer.byteLength(html, 'utf-8')).toBeGreaterThan(SECTOR_PAGE_WEIGHT_WARN_BYTES);
     expect((html.match(/<article class="jc-card/g) || []).length).toBe(500);
     expect(html).toContain('"numberOfItems":500');
@@ -217,26 +211,19 @@ describe('SEO — job-sector landing page weight (observed, not enforced)', () =
     expect(summarizeSectorPageWeights([])).toEqual({ overCount: 0, total: 0, top: [] });
   });
 
-  it('keeps byte-size throws out of the plugins: page weight is only ever warned about', () => {
+  it('keeps the byte-size guards fail-closed in both plugins', () => {
     const sectorSource = readFileSync(
       resolve(ROOT_DIR, 'build-plugins/jobSectorPagesPlugin.ts'),
       'utf8',
     );
-    expect(sectorSource).not.toContain('SECTOR_PAGE_HARD_BUDGET_BYTES');
-    expect(sectorSource).not.toMatch(/exceeds hard budget/i);
-    // No `if (<something about bytes>) { throw ... }` anywhere in the file.
-    expect(sectorSource).not.toMatch(
-      /if\s*\([^)]*(?:htmlBytes|byteLength|_BYTES|BUDGET)[^)]*\)\s*\{\s*throw\b/,
-    );
-    expect(sectorSource).toContain('console.warn(');
+    expect(sectorSource).toContain('SECTOR_PAGE_WEIGHT_WARN_BYTES');
+    expect(sectorSource).toMatch(/if\s*\(htmlBytes\s*>\s*SECTOR_PAGE_WEIGHT_WARN_BYTES\)[\s\S]{0,300}throw new Error/);
 
     const relatedSource = readFileSync(
       resolve(ROOT_DIR, 'build-plugins/relatedSearchClustersPlugin.ts'),
       'utf8',
     );
-    expect(relatedSource).not.toContain('JOB_BOARD_LANDING_GUARD_BYTES');
-    expect(relatedSource).not.toMatch(
-      /if\s*\([^)]*(?:patchedBytes|byteLength|_BYTES|BUDGET)[^)]*\)\s*\{\s*throw\b/,
-    );
+    expect(relatedSource).toContain('JOB_BOARD_LANDING_GUARD_BYTES');
+    expect(relatedSource).toMatch(/if\s*\(patchedBytes\s*>\s*JOB_BOARD_LANDING_GUARD_BYTES\)[\s\S]{0,300}throw new Error/);
   });
 });

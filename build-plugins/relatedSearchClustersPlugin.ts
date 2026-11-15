@@ -4250,7 +4250,8 @@ export function renderHubPage(input: HubPageInput): { urlPath: string; html: str
  * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
  * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
  * we log a warning and skip — never fail on a missing/unwritable file.
- * Page weight is only warned about at the end, never a build failure.
+ * Page weight remains a build failure at the end: this is the last mutator of
+ * the landing and the only place that can enforce the final byte size.
  */
 function injectHubLinkIntoSectionLanding(
   distDir: string,
@@ -4315,21 +4316,21 @@ function injectHubLinkIntoSectionLanding(
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
   }
 
-  // Build-time page-weight OBSERVATION (never a failure). This injection is
+  // Build-time page-weight guard. This injection is
   // the last known mutator of the job-board landing, a repeat offender of the
   // post-deploy audit:page-weight gate (200 KB on run 26112128794, 215 KB on
   // run 27386112992 → issue #1887). It used to throw at a fixed 205 KB; the
-  // owner dropped build-time page-weight ceilings after one oversized hub
-  // aborted a whole locale build (run 43712804687: «togliamo questo tetto per
-  // le pagine»). The page is still written whole and the weight is reported so
-  // growth stays visible: the post-publish audit:page-weight run is the
-  // observer, and it does not block deploy or publish.
-  const JOB_BOARD_LANDING_WARN_BYTES = 205 * 1024;
+  // The page is written whole, but an oversized final landing must fail before
+  // deploy; the post-publish audit is not a substitute for this source gate.
+  const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
   const patchedBytes = Buffer.byteLength(patched, 'utf-8');
-  if (patchedBytes > JOB_BOARD_LANDING_WARN_BYTES) {
-    console.warn(
-      `\x1b[33m[related-search-clusters]\x1b[0m job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
-      `above the ${JOB_BOARD_LANDING_WARN_BYTES} B page-weight warning threshold (emitted in full; warning only).`,
+  if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
+    throw new Error(
+      `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
+      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (fixed, independent of the shared ` +
+      `audit:page-weight budget in scripts/audit-page-weight.mjs). ` +
+      `A data-driven block on this landing grew past its headroom — trim the offending block ` +
+      `(do not raise this guard or the audit budget; non-negotiable #1).`,
     );
   }
 }
