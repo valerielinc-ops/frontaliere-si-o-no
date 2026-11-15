@@ -87,6 +87,15 @@ const SENDERS: SenderPerimeter[] = [
     mustNotList: [...UNRELATED, 'GEMINI_API_KEY', 'GROQ_API_KEY', 'RESEND_WEBHOOK_SECRET'],
   },
   {
+    name: 'onboarding-drip',
+    workflow: 'send-onboarding-drip.yml',
+    jobId: 'drip',
+    entryPoints: ['scripts/send-onboarding-drip.mjs'],
+    extraKeysNotNeededFrom: ['functions/src/newsletterResendWebhookCore.js'],
+    mustList: ['NEWSLETTER_SECRET', 'NEWSLETTER_FROM', 'MAILEROO_API_KEY', 'PER_USER_SEND_TIME'],
+    mustNotList: [...UNRELATED, 'GEMINI_API_KEY', 'GROQ_API_KEY'],
+  },
+  {
     name: 'newsletter',
     workflow: 'send-newsletter.yml',
     jobId: 'newsletter',

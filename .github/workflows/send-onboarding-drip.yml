@@ -45,20 +45,20 @@ concurrency:
 jobs:
   drip:
     runs-on: ubuntu-latest
+    # It had none (perf-plan email senders, E3): the job takes ~8 minutes, so 30 is a
+    # generous bound that still frees the runner if a provider call hangs.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
+      # node_modules in cache (perf-plan email senders, A3/E3): key on the lockfile and
+      # the Node major, `npm ci` only on a miss.
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
-      - name: Install dependencies
-        run: npm ci
-
+      # Also for the dry run: the scan reads the subscribers from Firestore (reads only).
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -70,12 +70,14 @@ jobs:
             exit 1
           fi
 
+      # Least privilege (perf-plan email senders, E3): only the keys the job's code reads
+      # from `process.env`. Enforced by tests/email-senders-workflow-perimeter.test.ts.
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_FROM,NEWSLETTER_SECRET,PER_USER_SEND_TIME,RESEND_API_KEY
 
+      # Runs for a dry run too: EFFECTIVE_DRY_RUN forces MODE=dry-run below, so the scan
+      # builds the queue and prints DRIP_METRICS without any provider call or write.
       - name: Run onboarding drip
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           MODE: ${{ github.event.inputs.mode || 'send' }}
           TARGET: ${{ github.event.inputs.target_email || '' }}
