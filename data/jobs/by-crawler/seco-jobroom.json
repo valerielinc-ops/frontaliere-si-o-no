@@ -1128,20 +1128,6 @@
       "validThrough": "2026-12-14T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
-        ],
-        "en": [
-          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
-        ],
-        "fr": [
-          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
-        ]
-      },
       "firstSeenAt": "2026-11-14T19:09:11.894Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1173,6 +1159,20 @@
       "streetAddress": "Via Crusch 8",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
+      "previousSlugs": [
+        "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
+        ],
+        "en": [
+          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
+        ],
+        "fr": [
+          "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-367d7583"
+        ]
+      },
       "translationHoldReleasedAt": "2026-11-15T00:40:57.246Z"
     },
     {
@@ -1314,16 +1314,16 @@
       "validThrough": "2026-12-14T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "customer-service-administrator-export-80-100-hamilton-medical-ag-domat-ems-3f0d676b"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-14T19:09:11.894Z",
       "previousSlugsByLocale": {
         "it": [
           "customer-service-administrator-export-80-100-hamilton-medical-ag-domat-ems-3f0d676b"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-14T19:09:11.894Z",
+      "previousSlugs": [
+        "customer-service-administrator-export-80-100-hamilton-medical-ag-domat-ems-3f0d676b"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9242,11 +9242,6 @@
       "validThrough": "2027-01-12T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
@@ -9256,6 +9251,11 @@
           "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7"
         ]
       },
+      "previousSlugs": [
+        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
+        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
+        "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7"
+      ],
       "firstSeenAt": "2026-11-13T21:49:25.964Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
