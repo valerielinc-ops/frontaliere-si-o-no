@@ -316,6 +316,24 @@ describe('publisher fast provenance gate', () => {
     expect(f.validate()).toMatchObject({ passed: true, errorCount: 0 });
   });
 
+  it('keeps expired archive sitemap URLs out of active page-manifest coverage', () => {
+    const f = fixture();
+    f.currentSitemapSnapshot.perSitemap['sitemap-jobs-expired-001.xml'] = [
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/expired-archive/',
+    ];
+    fs.writeFileSync(
+      path.join(f.sitemapDir, 'new-sitemap-urls.json'),
+      JSON.stringify(f.currentSitemapSnapshot),
+    );
+
+    expect(f.validate()).toMatchObject({
+      passed: true,
+      errorCount: 0,
+      sitemapUrlPopulation: f.pageManifests.length,
+      pageManifestPopulation: f.pageManifests.length,
+    });
+  });
+
   it('keeps comparing URL-by-URL when a readable snapshot is merely incomplete', async () => {
     const f = fixture();
     const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
