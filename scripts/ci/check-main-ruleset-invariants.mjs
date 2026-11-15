@@ -4,7 +4,8 @@ import { readFileSync, realpathSync } from 'node:fs';
 
 /**
  * check-main-ruleset-invariants.mjs — verifica che il Ruleset di `main` imponga
- * i check `vitest (unit + integration)` e `portal replay gate` come required.
+ * il check `vitest (unit + integration)` come required e non richieda più il
+ * check ritirato `portal replay gate`.
  *
  * PERCHÉ ESISTE (follow-up #6590 di #6584)
  * ----------------------------------------
@@ -13,8 +14,7 @@ import { readFileSync, realpathSync } from 'node:fs';
  * vede, nessun test la copre, e se qualcuno disattiva il ruleset, ne cambia il
  * target o rimuove il context dall'elenco dei required checks, il ciclo
  * autonomo continua a mergiare come prima — solo che da quel momento
- * `auto-merge-on-lgtm` può portare su `main` una PR con test rossi o senza
- * replay sui portali, e
+ * `auto-merge-on-lgtm` può portare su `main` una PR con test rossi, e
  * nessuno se ne accorge finché la produzione non si rompe.
  *
  * Il ruleset ATTIVO al 2026-09-03 (`main required CI checks`, id 21626297)
@@ -41,7 +41,7 @@ import { readFileSync, realpathSync } from 'node:fs';
  * (rete/credenziale) — un dubbio non è una violazione e non deve aprire alert.
  */
 
-import { PORTAL_REPLAY_GATE_CHECK_NAME, VITEST_CHECK_NAME } from './lib/constants.mjs';
+import { RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME, VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 /** Ref di `main` nelle `conditions.ref_name.include` di un ruleset branch. */
 const MAIN_REFS = new Set(['refs/heads/main', '~DEFAULT_BRANCH', '~ALL']);
@@ -104,20 +104,24 @@ export function evaluateRulesets(rulesets) {
       contexts,
     };
   }
-  if (!contexts.includes(PORTAL_REPLAY_GATE_CHECK_NAME)) {
+  // Dal 2026-11-15 il replay sui portali è un check giornaliero, non un check di
+  // PR: nessun job pubblica più `portal replay gate`. Se il ruleset lo richiede
+  // ancora, ogni PR aspetta all'infinito un check che non arriverà.
+  if (contexts.includes(RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME)) {
     return {
       ok: false,
-      reason: 'missing-required-check',
+      reason: 'retired-required-check',
       message:
-        `Il check \`${PORTAL_REPLAY_GATE_CHECK_NAME}\` NON è fra i required status checks di \`main\`. ` +
-        'Required attuali: ' + (contexts.length ? contexts.map((context) => '`' + context + '`').join(', ') : '(nessuno)') + '.',
+        `Il check ritirato \`${RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME}\` è ancora fra i required status checks di \`main\`, ` +
+        'ma nessun workflow lo pubblica più (il replay sui portali è giornaliero): ogni PR resterebbe in attesa. ' +
+        'Rimuovilo dal ruleset. Required attuali: ' + contexts.map((context) => '`' + context + '`').join(', ') + '.',
       contexts,
     };
   }
   return {
     ok: true,
     reason: 'ok',
-    message: `\`${VITEST_CHECK_NAME}\` e \`${PORTAL_REPLAY_GATE_CHECK_NAME}\` sono required status check di \`main\`.`,
+    message: `\`${VITEST_CHECK_NAME}\` è required status check di \`main\` e il check ritirato \`${RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME}\` non è più richiesto.`,
     contexts,
   };
 }
