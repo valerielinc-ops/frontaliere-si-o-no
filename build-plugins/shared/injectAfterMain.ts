@@ -59,3 +59,52 @@ export function injectBlockAfterMain(
   }
   return { html, outcome: 'no-anchor' };
 }
+
+/**
+ * Inject a block at the end of a main landmark.
+ *
+ * Job-board discovery rails are crawl-critical, but they are not the page's
+ * answer. Keeping them after the primary content lets the H1, lede, and first
+ * result set become the mobile first-paint/LCP surface while preserving every
+ * internal link in the emitted HTML. Other injectors keep using
+ * {@link injectBlockAfterMain}, whose start-of-main placement is part of their
+ * existing layout contract.
+ */
+export function injectBlockBeforeMainClose(
+  html: string,
+  block: string,
+  marker: string,
+): { html: string; outcome: InjectionOutcome } {
+  if (html.includes(marker)) {
+    return { html, outcome: 'duplicate' };
+  }
+
+  const mainClose = html.indexOf('</main>');
+  if (mainClose >= 0) {
+    return {
+      html: html.slice(0, mainClose) + block + html.slice(mainClose),
+      outcome: 'inserted',
+    };
+  }
+
+  // Preserve the defensive fragment behaviour of injectBlockAfterMain when a
+  // producer gives us an incomplete main landmark.
+  const mainOpen = html.match(/<main\b[^>]*>/);
+  if (mainOpen && mainOpen.index !== undefined) {
+    const insertAt = mainOpen.index + mainOpen[0].length;
+    return {
+      html: html.slice(0, insertAt) + block + html.slice(insertAt),
+      outcome: 'inserted',
+    };
+  }
+
+  const bodyClose = html.indexOf('</body>');
+  if (bodyClose >= 0) {
+    return {
+      html: html.slice(0, bodyClose) + block + html.slice(bodyClose),
+      outcome: 'inserted',
+    };
+  }
+
+  return { html, outcome: 'no-anchor' };
+}
