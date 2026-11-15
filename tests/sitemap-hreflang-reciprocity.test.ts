@@ -78,6 +78,85 @@ const reciprocityViolations = (xmls: Iterable<string>): string[] => {
   return violations;
 };
 
+/**
+ * Return the annotation blocks that are complete at the sanitizer fixpoint.
+ * A source file may legitimately have no such block: the article sitemaps
+ * contain IT-only entries, while a live news entry can make one group
+ * reciprocal across files. Keep the expectation data-driven instead of
+ * requiring every legacy shard to have a currently published counterpart.
+ */
+const stableReciprocalBlocks = (files: readonly SitemapXmlFile[]) => {
+  const locSet = new Set<string>();
+  const blocks: Array<{
+    file: string;
+    block: string;
+    loc: string;
+    hrefs: Array<{ lang: string; href: string }>;
+    alive: boolean;
+  }> = [];
+
+  for (const { file, xml } of files) {
+    for (const blockMatch of xml.matchAll(/<url>[\s\S]*?<\/url>/g)) {
+      const block = blockMatch[0];
+      const loc = block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1];
+      if (!loc) continue;
+      locSet.add(loc);
+      const hrefs: Array<{ lang: string; href: string }> = [];
+      for (const el of block.matchAll(/<xhtml:link\b[^>]*?\/>/g)) {
+        const lang = el[0].match(/hreflang="([^"]+)"/)?.[1];
+        const href = el[0].match(/href="([^"]+)"/)?.[1];
+        if (lang && href) hrefs.push({ lang, href });
+      }
+      if (hrefs.length > 0) blocks.push({ file, block, loc, hrefs, alive: true });
+    }
+  }
+
+  const signatureOf = (hrefs: Array<{ lang: string; href: string }>) =>
+    hrefs.map((entry) => `${entry.lang}|${entry.href}`).sort().join('\u0000');
+  const signaturesByLoc = new Map<string, Set<string>>();
+  for (const entry of blocks) {
+    let signatures = signaturesByLoc.get(entry.loc);
+    if (!signatures) {
+      signatures = new Set<string>();
+      signaturesByLoc.set(entry.loc, signatures);
+    }
+    signatures.add(signatureOf(entry.hrefs));
+  }
+  for (const entry of blocks) {
+    if ((signaturesByLoc.get(entry.loc)?.size ?? 0) > 1) entry.alive = false;
+  }
+
+  for (;;) {
+    const backRefs = new Map<string, Set<string>>();
+    for (const entry of blocks) {
+      if (!entry.alive) continue;
+      let refs = backRefs.get(entry.loc);
+      if (!refs) {
+        refs = new Set<string>();
+        backRefs.set(entry.loc, refs);
+      }
+      for (const href of entry.hrefs) refs.add(href.href);
+    }
+
+    let changed = false;
+    for (const entry of blocks) {
+      if (!entry.alive) continue;
+      const valid =
+        entry.hrefs.some((href) => href.href !== entry.loc)
+        && entry.hrefs.every(
+          (href) => locSet.has(href.href) && backRefs.get(href.href)?.has(entry.loc),
+        );
+      if (!valid) {
+        entry.alive = false;
+        changed = true;
+      }
+    }
+    if (!changed) break;
+  }
+
+  return blocks.filter((entry) => entry.alive);
+};
+
 describe('sanitizeSitemapHreflangReciprocity — fixtures', () => {
   const itLoc = `${BASE}/articoli-frontaliere/esempio/`;
   const enLoc = `${BASE}/en/cross-border-articles/example/`;
@@ -309,12 +388,14 @@ describe('sanitizeSitemapHreflangReciprocity — committed public/ sitemaps', ()
       expect(xml, `${file} missing from public/`).toBeDefined();
     }
 
-    // These files contain both historical one-sided groups and newer complete
-    // groups. The sanitizer must remove only the former; zeroing the files
-    // would discard valid alternate-language signals.
-    expect(countAnnotations(sanitizedXml.get('sitemap-blog.xml')!)).toBeGreaterThan(0);
-    expect(countAnnotations(sanitizedXml.get('sitemap-blog-ch.xml')!)).toBeGreaterThan(0);
-    expect(countAnnotations(sanitizedXml.get('sitemap-news.xml')!)).toBeGreaterThan(0);
+    // The article shards do not guarantee a reciprocal group on every live
+    // run: their localized <loc> counterparts may only be present in the
+    // current news window or another sitemap. Preserve every group that is
+    // actually complete in this corpus, while allowing a shard with no such
+    // group to sanitize to zero.
+    for (const { file, block } of stableReciprocalBlocks(files)) {
+      expect(sanitizedXml.get(file), file).toContain(block);
+    }
     expect(reciprocityViolations(sanitizedXml.values())).toEqual([]);
   });
 
